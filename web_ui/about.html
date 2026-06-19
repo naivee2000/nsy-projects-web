@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Me - NSY Projects</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --ink: #182230;
+      --muted: #667085;
+      --line: #d0d5dd;
+      --primary: #175cd3;
+      --primary-strong: #1849a9;
+      --green: #067647;
+    }
+    * { box-sizing: border-box; }
+    html { min-width: 320px; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      letter-spacing: 0;
+    }
+    main {
+      width: min(920px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 28px 0 54px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .page-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+      align-items: center;
+    }
+    a {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    button,
+    .action {
+      min-height: 38px;
+      border-radius: 6px;
+      padding: 0 12px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    button {
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--ink);
+    }
+    .action {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .action.signed-in {
+      background: var(--green);
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .panel {
+      display: grid;
+      gap: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 24px;
+      box-shadow: 0 18px 42px rgba(16, 24, 40, 0.08);
+    }
+    p {
+      max-width: 700px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+    .topic {
+      display: grid;
+      gap: 8px;
+    }
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+    @media (max-width: 560px) {
+      header {
+        align-items: start;
+        flex-direction: column;
+      }
+      .page-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>About Me</h1>
+      <div class="page-actions">
+        <a class="action" href="index.html">Home</a>
+        <a id="authAction" class="action" href="https://dem.nsyprojects.com/login">Sign in</a>
+      </div>
+    </header>
+    <section class="panel" aria-label="About me">
+      <div class="topic">
+        <h2>Background</h2>
+        <p>I studied Applied Mathematics and Quantitative Sciences at Emory University and am currently studying Computer Science at the University of Chicago.</p>
+      </div>
+      <div class="topic">
+        <h2>Focus</h2>
+        <p>I am interested in data, programming, AI-assisted prototypes, and practical tools that turn messy workflows into something clearer and easier to use.</p>
+      </div>
+      <div class="topic">
+        <h2>Projects</h2>
+        <p>This site collects small tools and experiments as they become useful enough to share.</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    const authAction = document.getElementById("authAction");
+    authAction.href = `https://dem.nsyprojects.com/login?next=${encodeURIComponent(window.location.href)}`;
+    if (document.cookie.split("; ").includes("nsy_signed_in=1")) {
+      authAction.textContent = "Signed in";
+      authAction.href = "https://dem.nsyprojects.com/";
+      authAction.classList.add("signed-in");
+    }
+  </script>
+</body>
+</html>

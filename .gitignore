@@ -1,0 +1,28 @@
+.DS_Store
+
+# Python/runtime artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local environment and generated app data
+.env
+.env.local
+.env.*.local
+web_outputs/
+projects/dem-claim/app/web_outputs/
+
+# Logs and local deployment secrets
+ops/logs/
+*.log
+*.pem
+*.key
+*.crt
+ops/pm2-nsy-dem-app.config.cjs
+ops/cloudflared-nsy-dem-app.yml
+*.credentials.json
+
+# Cloudflare/Wrangler local state
+.wrangler/
+.cloudflared/
