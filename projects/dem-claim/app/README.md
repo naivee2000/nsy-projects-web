@@ -1,6 +1,8 @@
-# DEM Claim Excel Web App
+# DEM Claim Excel App
 
 FastAPI wrapper for the `dem-claim-excel` Codex skill.
+
+This app is part of the project at `projects/dem-claim/`. Start with `../README.md` when you need the project-level overview.
 
 ## Entrypoints
 
@@ -14,7 +16,7 @@ Keep auth out of `app.py` so local installs can open directly without login.
 ## Local Run
 
 ```bash
-cd /path/to/nsy-dem-app-handoff/projects/dem-claim
+cd /path/to/nsy-projects-web/projects/dem-claim
 ./run_local_app_mac.sh
 ```
 
@@ -27,7 +29,7 @@ http://127.0.0.1:8000
 ## Public/Secure Run
 
 ```bash
-cd /path/to/nsy-dem-app-handoff/projects/dem-claim/app
+cd /path/to/nsy-projects-web/projects/dem-claim/app
 DEM_SKILL_ROOT="$HOME/.codex/skills/dem-claim-excel" \
 DEM_JOB_ROOT="$PWD/web_outputs" \
 CODEX_BIN="/Applications/Codex.app/Contents/Resources/codex" \
@@ -50,6 +52,8 @@ For HTTPS public use, keep `DEM_COOKIE_SECURE=1` or omit it. For localhost-only 
 Laytime to commence is formula-driven in the workbook: each load/discharge block compares `NOR tendered + 6 hours` with the relevant load/discharge commence time and uses the earlier value.
 
 No `OPENAI_API_KEY` is required for the default fallback path. Fallback requires this machine's Codex CLI to be installed, logged in, and within usage limits.
+
+The `dem-claim-excel` skill is not shipped as a zip artifact in this Git repo. Keep it installed under `~/.codex/skills/dem-claim-excel` on each computer that runs the app.
 
 ## Important Codex Fallback Detail
 

@@ -9,7 +9,7 @@ This folder holds the static website design for `NSYPROJECTS.COM`.
 - `assets/hero-projects.png` is an original generated hero background for this site.
 - `_redirects` keeps old login URLs pointed at the real backend sign-in.
 
-DEM claim processing, real login/session code, uploads, OCR, and Excel generation stay in `../projects/dem-claim/app/` and are served through `https://dem.nsyprojects.com/`.
+DEM claim processing, real login/session code, uploads, OCR, and Excel generation stay in `../projects/dem-claim/` and are served through `https://dem.nsyprojects.com/`.
 
 ## Current UX/Auth Notes
 

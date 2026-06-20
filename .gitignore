@@ -15,12 +15,15 @@ projects/dem-claim/app/web_outputs/
 
 # Logs and local deployment secrets
 ops/logs/
+projects/*/ops/logs/
 *.log
 *.pem
 *.key
 *.crt
 ops/pm2-nsy-dem-app.config.cjs
 ops/cloudflared-nsy-dem-app.yml
+projects/*/ops/pm2-*.config.cjs
+projects/*/ops/cloudflared-*.yml
 *.credentials.json
 
 # Cloudflare/Wrangler local state

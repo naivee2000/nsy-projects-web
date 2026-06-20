@@ -1,6 +1,7 @@
-const root = "/path/to/nsy-dem-app-handoff";
-const appDir = `${root}/projects/dem-claim/app`;
-const opsDir = `${root}/ops`;
+const repoRoot = "/path/to/nsy-projects-web";
+const projectDir = `${repoRoot}/projects/dem-claim`;
+const appDir = `${projectDir}/app`;
+const opsDir = `${projectDir}/ops`;
 
 module.exports = {
   apps: [

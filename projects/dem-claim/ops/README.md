@@ -1,6 +1,6 @@
 # NSY DEM App Ops Notes
 
-Last updated: 2026-06-19
+Last updated: 2026-06-20
 
 This folder is for running the public DEM app from an always-on Mac through Cloudflare Tunnel.
 
@@ -13,16 +13,17 @@ This folder is for running the public DEM app from an always-on Mac through Clou
 - Backend PM2 app: `nsy-dem-app`
 - Tunnel PM2 app: `nsy-dem-tunnel`
 - Backend entrypoint: `projects/dem-claim/app/app_zh_secure.py`
+- Ops folder: `projects/dem-claim/ops/`
 
 ## Sensitive Files
 
-Do not publish these in a generic handoff zip:
+Do not commit these to GitHub:
 
 - live `pm2-nsy-dem-app.config.cjs` if it contains `DEM_SESSION_SECRET` or password hashes
 - Cloudflare tunnel credentials JSON under `~/.cloudflared/`
-- logs under `ops/logs/`
+- logs under `projects/dem-claim/ops/logs/`
 
-Use the example files in this folder as templates when rebuilding on a new Mac.
+Use the `.example` files in this folder as templates when rebuilding on a new Mac. Keep the real files private on that Mac.
 
 ## Run Checks
 
@@ -58,7 +59,7 @@ ps -axo pid,etime,command | rg "codex exec"
 
 Uploaded source files and generated Excel files expire after 24 hours by default.
 
-- Uploaded files and generated workbooks remain in `projects/dem-claim/app/web_outputs/<job_id>/` while active.
+- Uploaded files and generated workbooks remain in `../app/web_outputs/<job_id>/` while active.
 - Cleanup runs at backend startup and then every hour.
 - Set `DEM_JOB_RETENTION_HOURS` to change the retention window. Default: `24`.
 - Set `DEM_JOB_CLEANUP_INTERVAL_SECONDS` to change the scan interval. Default: `3600`.
