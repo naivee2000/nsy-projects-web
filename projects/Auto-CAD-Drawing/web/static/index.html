@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auto CAD Drawing</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel workbench">
+        <header>
+          <div>
+            <p class="eyebrow">STK333-AR2</p>
+            <h1>Auto CAD Drawing</h1>
+          </div>
+          <button id="scanBtn" type="button">Scan PDFs</button>
+        </header>
+
+        <form id="jobForm">
+          <label class="dropzone" for="pdfFiles">
+            <input id="pdfFiles" name="files" type="file" accept="application/pdf" multiple />
+            <span>Drop PDFs or choose files</span>
+          </label>
+          <div id="fileList" class="file-list"></div>
+          <button class="primary" type="submit">Generate</button>
+        </form>
+
+        <div id="status" class="status">Ready</div>
+        <a id="downloadLink" class="download" href="#" hidden>Download output ZIP</a>
+        <div id="jobList" class="jobs"></div>
+      </section>
+
+      <section class="panel">
+        <header>
+          <div>
+            <p class="eyebrow">References</p>
+            <h2>PDF Candidates</h2>
+          </div>
+        </header>
+        <div id="capabilityList" class="capabilities"></div>
+        <div id="referenceList" class="references"></div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

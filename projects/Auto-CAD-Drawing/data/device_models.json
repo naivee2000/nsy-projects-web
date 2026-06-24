@@ -1,0 +1,28 @@
+{
+  "STK333-AR2": {
+    "name_cn": "压电式液位传感器",
+    "name_en": "Piezoelectric Level Sensor",
+    "category": "level_sensor",
+    "signal": "4-20mA",
+    "terminal_count": 2,
+    "default_cable": "1x2x0.75",
+    "template": "donjun_level_sensor_loop",
+    "variants": {
+      "side-mounted": {
+        "install_label_cn": "侧装",
+        "default_range": "0-50kPa",
+        "default_tail_cable_m": 5
+      },
+      "top-mounted": {
+        "install_label_cn": "顶装",
+        "default_range": "0-100kPa",
+        "default_tail_cable_m": 10
+      },
+      "draft-side-mounted": {
+        "install_label_cn": "吃水侧装",
+        "default_range": "0-50kPa",
+        "default_tail_cable_m": 5
+      }
+    }
+  }
+}
