@@ -294,6 +294,10 @@ button:hover {
   padding: 18px;
 }
 
+.secondaryChartShell {
+  margin-top: 18px;
+}
+
 .chartHead {
   display: flex;
   justify-content: space-between;
@@ -332,6 +336,10 @@ button:hover {
   border-top-style: dashed;
 }
 
+.line.percent {
+  border-top-color: var(--danger);
+}
+
 .dot {
   width: 9px;
   height: 9px;
@@ -339,7 +347,16 @@ button:hover {
   background: var(--accent-2);
 }
 
-#chart {
+.barIcon {
+  width: 10px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--accent-2);
+  display: inline-block;
+}
+
+#chart,
+#depreciationChart {
   width: 100%;
   min-height: 360px;
   display: block;
@@ -361,7 +378,7 @@ button:hover {
 
 table {
   width: 100%;
-  min-width: 870px;
+  min-width: 1080px;
   border-collapse: collapse;
 }
 
@@ -395,6 +412,11 @@ th {
   padding: 15px;
 }
 
+.fullButton {
+  width: 100%;
+  margin-top: 10px;
+}
+
 .toolBlock h2 {
   margin-bottom: 12px;
 }
@@ -408,6 +430,43 @@ th {
 .collectorStatus {
   display: grid;
   gap: 10px;
+}
+
+.generationImpactPanel {
+  margin-top: 12px;
+}
+
+.generationSummary,
+.impactList {
+  display: grid;
+  gap: 6px;
+}
+
+.generationSummary span,
+.generationImpactPanel .mutedText {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.impactList {
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.impactBadge {
+  display: inline-flex;
+  align-items: center;
+  max-width: 190px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: #faebe6;
+  color: #963f2b;
+  font-size: 11px;
+  font-weight: 760;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sourceItem,

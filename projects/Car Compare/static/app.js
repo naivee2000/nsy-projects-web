@@ -1,5 +1,6 @@
 const form = document.querySelector("#searchForm");
 const collectButton = document.querySelector("#collectButton");
+const generationButton = document.querySelector("#generationButton");
 const queryInput = document.querySelector("#query");
 const maxAgeInput = document.querySelector("#maxAge");
 const captureSource = document.querySelector("#captureSource");
@@ -9,17 +10,23 @@ const msrpPrice = document.querySelector("#msrpPrice");
 const msrpUrl = document.querySelector("#msrpUrl");
 const metrics = document.querySelector("#summaryMetrics");
 const chart = document.querySelector("#chart");
+const depreciationChart = document.querySelector("#depreciationChart");
 const rows = document.querySelector("#bucketRows");
 const sourceStatus = document.querySelector("#sourceStatus");
 const collectorStatus = document.querySelector("#collectorStatus");
+const generationStatus = document.querySelector("#generationStatus");
+const generationImpactPanel = document.querySelector("#generationImpactPanel");
 const collectionPlan = document.querySelector("#collectionPlan");
 const sourceEvidence = document.querySelector("#sourceEvidence");
 const chartTitle = document.querySelector("#chartTitle");
 const chartSub = document.querySelector("#chartSub");
+const depreciationChartSub = document.querySelector("#depreciationChartSub");
 const runStamp = document.querySelector("#runStamp");
 const resolverPanel = document.querySelector("#resolverPanel");
 let activeJobId = "";
 let activeJobResult = null;
+let activeGenerationJobId = "";
+let activeGenerationImpact = null;
 
 const money = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -36,6 +43,10 @@ collectButton.addEventListener("click", async () => {
   await startCollection();
 });
 
+generationButton.addEventListener("click", async () => {
+  await startGenerationResearch();
+});
+
 loadStatus();
 renderEmptyState();
 
@@ -43,6 +54,8 @@ async function runResearch() {
   if (!queryInput.value.trim()) {
     activeJobId = "";
     activeJobResult = null;
+    activeGenerationJobId = "";
+    activeGenerationImpact = null;
     renderEmptyState();
     return;
   }
@@ -54,7 +67,9 @@ async function runResearch() {
     msrpPrice: msrpPrice.value,
     msrpUrl: msrpUrl.value,
     maxAge: maxAgeInput?.value || 10,
-    jobId: activeJobResult ? activeJobId : ""
+    jobId: activeJobResult ? activeJobId : "",
+    generationJobId: activeGenerationImpact ? activeGenerationJobId : "",
+    generationImpact: activeGenerationImpact
   };
   const response = await fetch("/api/research", {
     method: "POST",
@@ -72,6 +87,7 @@ async function loadStatus() {
   const response = await fetch("/api/site-status");
   const data = await response.json();
   renderCollectorAvailability(data.collector);
+  renderGenerationAvailability(data.generationResearch);
   sourceStatus.innerHTML = data.sources
     .map((source) => {
       const cls = source.status.includes("api") ? "sourceItem api" : "sourceItem";
@@ -95,6 +111,19 @@ function renderCollectorAvailability(collector) {
     <span id="jobStatusLine">No collection job running.</span>
   </div>`;
   collectButton.disabled = !collector?.available;
+}
+
+function renderGenerationAvailability(researcher) {
+  const status = researcher?.available ? "Available" : "Not configured";
+  const detail = researcher?.available
+    ? `${researcher.codexPath}${researcher.dryRun ? " · dry run" : ""}`
+    : researcher?.message || "Install Codex or set CODEX_BIN.";
+  generationStatus.innerHTML = `<div class="collectorItem">
+    <strong>${escapeHtml(status)}</strong>
+    <span>${escapeHtml(detail)}</span>
+    <span id="generationStatusLine">No generation research loaded.</span>
+  </div>`;
+  generationButton.disabled = !researcher?.available;
 }
 
 async function startCollection() {
@@ -124,6 +153,34 @@ async function startCollection() {
   pollCollection(job.id);
 }
 
+async function startGenerationResearch() {
+  if (!queryInput.value.trim()) {
+    activeGenerationJobId = "";
+    activeGenerationImpact = null;
+    renderGenerationImpact(null);
+    setGenerationStatus("No generation research loaded.");
+    return;
+  }
+  activeGenerationJobId = "";
+  activeGenerationImpact = null;
+  generationButton.disabled = true;
+  renderGenerationImpact(null);
+  setGenerationStatus("Starting generation impact research...");
+  const response = await fetch("/api/generation-impact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query: queryInput.value, maxAge: maxAgeInput?.value || 10 })
+  });
+  const job = await response.json();
+  if (!response.ok) {
+    setGenerationStatus(job.error || "Could not start generation research.");
+    generationButton.disabled = false;
+    return;
+  }
+  activeGenerationJobId = job.id;
+  pollGenerationResearch(job.id);
+}
+
 async function pollCollection(jobId) {
   const response = await fetch(`/api/collect/${encodeURIComponent(jobId)}`);
   const job = await response.json();
@@ -149,21 +206,56 @@ async function pollCollection(jobId) {
   }
 }
 
+async function pollGenerationResearch(jobId) {
+  const response = await fetch(`/api/generation-impact/${encodeURIComponent(jobId)}`);
+  const job = await response.json();
+  if (!response.ok) {
+    setGenerationStatus(job.error || "Generation research job not found.");
+    generationButton.disabled = false;
+    return;
+  }
+  setGenerationStatus(`${job.status}: ${job.message || ""}`);
+  if (["queued", "running"].includes(job.status)) {
+    setTimeout(() => pollGenerationResearch(jobId), 4000);
+    return;
+  }
+  generationButton.disabled = false;
+  if (job.result) {
+    activeGenerationImpact = job.result;
+    renderGenerationImpact(job.result);
+  }
+  if (job.status === "completed") {
+    const adjustmentCount = (job.result?.adjustments || []).length;
+    setGenerationStatus(`Completed: ${adjustmentCount} forecast adjustment${adjustmentCount === 1 ? "" : "s"} loaded.`);
+    await runResearch();
+  } else {
+    setGenerationStatus(`${job.status}: ${job.error || job.message || "Generation research did not complete."}`);
+  }
+}
+
 function setJobStatus(text) {
   const line = document.querySelector("#jobStatusLine");
+  if (line) line.textContent = text;
+}
+
+function setGenerationStatus(text) {
+  const line = document.querySelector("#generationStatusLine");
   if (line) line.textContent = text;
 }
 
 function renderEmptyState() {
   chartTitle.textContent = "Depreciation Trend";
   chartSub.textContent = "";
+  depreciationChartSub.textContent = "";
   runStamp.textContent = "Depreciation research";
   resolverPanel.innerHTML = "";
   metrics.innerHTML = "";
   chart.innerHTML = "";
+  depreciationChart.innerHTML = "";
   rows.innerHTML = "";
   sourceEvidence.innerHTML = "";
   collectionPlan.innerHTML = "";
+  renderGenerationImpact(activeGenerationImpact);
 }
 
 function renderReport(report) {
@@ -175,11 +267,12 @@ function renderReport(report) {
 
   chartTitle.textContent = report.summary.displayName || "Depreciation Trend";
   chartSub.textContent = `${report.summary.listingCount} listings, ${observed} observed buckets, ${predicted} projected buckets`;
+  depreciationChartSub.textContent = "Cumulative loss from Age 0 median over vehicle age";
   runStamp.textContent = `Run year ${report.summary.currentYear} · ${maxAge}-year horizon`;
 
   renderResolver(report.resolution || report.collectionPlan?.resolution);
   metrics.innerHTML = [
-    ["New/MSRP", report.msrp.price > 0 ? money.format(report.msrp.price) : "Needs MSRP"],
+    ["MSRP Ref", report.msrp.price > 0 ? money.format(report.msrp.price) : "Needs MSRP"],
     ["Age 1 Median", ageOne?.median ? money.format(ageOne.median) : "No data"],
     [`Age ${maxAge} Trend`, horizonBucket?.trend_median ? money.format(horizonBucket.trend_median) : "No data"],
     ["Sources", Object.keys(report.summary.sources).length || 0],
@@ -190,8 +283,10 @@ function renderReport(report) {
     .join("");
 
   renderChart(report.buckets);
+  renderDepreciationChart(report.buckets);
   renderTable(report.buckets);
   renderEvidence(report.evidence || {});
+  renderGenerationImpact(report.generationImpact);
   renderPlan(report.collectionPlan);
 }
 
@@ -289,6 +384,96 @@ function renderChart(buckets) {
   chart.innerHTML = svg;
 }
 
+function renderDepreciationChart(buckets) {
+  const width = 980;
+  const height = 420;
+  const margin = { top: 44, right: 132, bottom: 48, left: 86 };
+  const plotW = width - margin.left - margin.right;
+  const plotH = height - margin.top - margin.bottom;
+  const points = buckets
+    .map((bucket) => ({
+      age: Number(bucket.age) || 0,
+      loss: finiteNumber(bucket.depreciation_from_baseline),
+      pct: finiteNumber(bucket.depreciation_from_baseline_pct),
+      predicted: Boolean(bucket.predicted)
+    }))
+    .filter((point) => point.loss !== null && point.pct !== null);
+
+  if (!points.length || Math.max(...points.map((point) => point.loss)) <= 0) {
+    depreciationChart.innerHTML = `<rect x="0" y="0" width="${width}" height="${height}" fill="white"></rect>
+      <text x="${width / 2}" y="${height / 2 - 8}" text-anchor="middle" class="emptyChart">No depreciation data yet</text>
+      <text x="${width / 2}" y="${height / 2 + 22}" text-anchor="middle" font-size="13" fill="#627077">Run research with Age 0 market values to calculate depreciation.</text>`;
+    return;
+  }
+
+  const maxAge = Math.max(1, ...points.map((point) => point.age));
+  const maxLoss = Math.max(...points.map((point) => point.loss), 1) * 1.08;
+  const maxPct = Math.max(...points.map((point) => point.pct), 0.01) * 1.08;
+  const xMax = maxAge + 0.65;
+  const zeroY = margin.top + plotH;
+  const x = (age) => margin.left + (age / xMax) * plotW;
+  const yLoss = (value) => margin.top + (1 - value / maxLoss) * plotH;
+  const yPct = (value) => margin.top + (1 - value / maxPct) * plotH;
+  const dollarTicks = uniqueNumbers(tickValues(0, maxLoss, 5));
+  const pctTicks = uniqueNumbers(tickValues(0, maxPct, 5));
+  const ageStep = maxAge <= 10 ? 1 : maxAge <= 15 ? 2 : 5;
+  const barW = Math.min(40, Math.max(12, plotW / Math.max(points.length * 1.8, 1)));
+
+  let svg = "";
+  svg += `<rect x="0" y="0" width="${width}" height="${height}" fill="white"></rect>`;
+  for (const tick of dollarTicks) {
+    const ty = yLoss(tick);
+    svg += `<line x1="${margin.left}" y1="${ty}" x2="${width - margin.right}" y2="${ty}" stroke="#e8ecea"></line>`;
+    svg += `<text x="${margin.left - 12}" y="${ty + 4}" text-anchor="end" font-size="12" fill="#627077">${money.format(tick)}</text>`;
+  }
+  for (const tick of pctTicks) {
+    const ty = yPct(tick);
+    svg += `<text x="${width - margin.right + 16}" y="${ty + 4}" text-anchor="start" font-size="12" fill="#627077">${fmtAxisPct(tick)}</text>`;
+  }
+  for (let age = 0; age <= maxAge; age += ageStep) {
+    const tx = x(age);
+    svg += `<line x1="${tx}" y1="${margin.top}" x2="${tx}" y2="${zeroY}" stroke="#f0f2f0"></line>`;
+    svg += `<text x="${tx}" y="${height - 18}" text-anchor="middle" font-size="12" fill="#627077">${age}</text>`;
+  }
+  svg += `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${zeroY}" stroke="#cfd7d4"></line>`;
+  svg += `<line x1="${width - margin.right}" y1="${margin.top}" x2="${width - margin.right}" y2="${zeroY}" stroke="#cfd7d4"></line>`;
+  svg += `<line x1="${margin.left}" y1="${zeroY}" x2="${width - margin.right}" y2="${zeroY}" stroke="#cfd7d4"></line>`;
+  svg += `<text x="${margin.left + plotW / 2}" y="${height - 2}" text-anchor="middle" font-size="12" fill="#627077">Vehicle age</text>`;
+  svg += `<text transform="translate(18 ${margin.top + plotH / 2}) rotate(-90)" text-anchor="middle" font-size="12" fill="#627077">Total loss from Age 0 median</text>`;
+  svg += `<text transform="translate(${width - 20} ${margin.top + plotH / 2}) rotate(90)" text-anchor="middle" font-size="12" fill="#627077">Total depreciation %</text>`;
+
+  for (const point of points) {
+    const cx = x(point.age);
+    const top = yLoss(point.loss);
+    const color = point.predicted ? "#c7badf" : "#e2ad3f";
+    const stroke = point.predicted ? "#6f5aa7" : "#b87919";
+    svg += `<g>`;
+    svg += `<title>Age ${point.age}: ${money.format(point.loss)} total loss, ${fmtPct(point.pct)} total depreciation</title>`;
+    svg += `<rect x="${cx - barW / 2}" y="${top}" width="${barW}" height="${Math.max(0, zeroY - top)}" rx="4" fill="${color}" stroke="${stroke}" stroke-width="1.5"></rect>`;
+    svg += `</g>`;
+  }
+
+  const firstProjected = firstPredictedAge(buckets);
+  const pctObserved = points.filter((point) => !point.predicted).map((point) => `${x(point.age)},${yPct(point.pct)}`);
+  const pctProjected = points.filter((point) => point.age >= firstProjected - 1).map((point) => `${x(point.age)},${yPct(point.pct)}`);
+  if (pctObserved.length > 1) {
+    svg += `<polyline points="${pctObserved.join(" ")}" fill="none" stroke="#b5472f" stroke-width="3"></polyline>`;
+  }
+  if (pctProjected.length > 1) {
+    svg += `<polyline points="${pctProjected.join(" ")}" fill="none" stroke="#6f5aa7" stroke-width="3" stroke-dasharray="8 7"></polyline>`;
+  }
+  for (const point of points) {
+    const stroke = point.predicted ? "#6f5aa7" : "#b5472f";
+    const cx = x(point.age);
+    const cy = yPct(point.pct);
+    const labelY = Math.max(margin.top - 14, cy - 12);
+    svg += `<text x="${cx}" y="${labelY}" text-anchor="middle" font-size="11" font-weight="760" fill="${stroke}">${fmtPct(point.pct)}</text>`;
+    svg += `<circle cx="${cx}" cy="${cy}" r="4.5" fill="white" stroke="${stroke}" stroke-width="2"></circle>`;
+  }
+
+  depreciationChart.innerHTML = svg;
+}
+
 function renderPlan(plan) {
   if (!plan?.targets?.length) {
     collectionPlan.innerHTML = "";
@@ -322,14 +507,44 @@ function renderTable(buckets) {
         <td>${fmtMoney(bucket.q3)}</td>
         <td>${fmtMoney(bucket.depreciation_from_previous)}</td>
         <td>${fmtPct(bucket.depreciation_from_previous_pct)}</td>
-        <td>${fmtPct(bucket.depreciation_from_msrp_pct)}</td>
+        <td>${fmtMoney(bucket.depreciation_from_baseline)}</td>
+        <td>${fmtPct(bucket.depreciation_from_baseline_pct)}</td>
+        <td>${renderGenerationCell(bucket)}</td>
       </tr>`;
     })
     .join("");
 }
 
+function renderGenerationCell(bucket) {
+  if (!bucket.generation_adjustment_pct) return "";
+  const label = bucket.generation_adjustment_label || "Generation adjustment";
+  const basis = bucket.generation_adjustment_basis || "";
+  return `<span class="impactBadge" title="${escapeHtml(basis)}">${escapeHtml(label)} ${fmtPct(bucket.generation_adjustment_pct)}</span>`;
+}
+
+function renderGenerationImpact(impact) {
+  if (!generationImpactPanel) return;
+  if (!impact?.adjustments?.length) {
+    generationImpactPanel.innerHTML = `<p class="mutedText">No generation impact adjustment loaded.</p>`;
+    return;
+  }
+  const nextGen = impact.next_generation || {};
+  const estimate = impact.impact_estimate || {};
+  generationImpactPanel.innerHTML = `<div class="generationSummary">
+    <strong>${escapeHtml(nextGen.expected_model_year ? `Next gen ${nextGen.expected_model_year}` : "Generation timing researched")}</strong>
+    <span>${escapeHtml(nextGen.confidence || "unknown")} confidence · base shock ${fmtPct(estimate.extra_drop_pct)}</span>
+    <span>${escapeHtml(estimate.rationale || nextGen.notes || "")}</span>
+    <div class="impactList">
+      ${impact.adjustments.map((item) => `<span>${escapeHtml(`Age ${item.age}`)} · ${item.calendar_year || ""} · ${fmtPct(item.extra_depreciation_pct)}</span>`).join("")}
+    </div>
+  </div>`;
+}
+
 function ageZeroLabel(bucket) {
-  return String(bucket.confidence || "").includes("new") ? "New/MSRP" : "MSRP";
+  const confidence = String(bucket.confidence || "");
+  if (confidence.includes("new")) return "New Market";
+  if (confidence.includes("msrp")) return "MSRP Ref";
+  return "Age 0 Market";
 }
 
 function renderEvidence(evidence) {
@@ -486,6 +701,10 @@ function unique(values) {
   return [...new Set(values)];
 }
 
+function uniqueNumbers(values) {
+  return [...new Set(values.map((value) => Number(value.toFixed(6))))];
+}
+
 function shortUrl(url) {
   try {
     const parsed = new URL(url);
@@ -526,12 +745,22 @@ function fmtPct(value) {
   return value == null ? "" : `${(value * 100).toFixed(1)}%`;
 }
 
+function fmtAxisPct(value) {
+  const percent = value * 100;
+  return `${percent < 10 ? percent.toFixed(1) : percent.toFixed(0)}%`;
+}
+
 function fmtNumber(value) {
   return value == null ? "" : Number(value).toLocaleString();
 }
 
 function fmtMileage(value) {
   return value == null ? "" : `${Number(value).toLocaleString()} mi`;
+}
+
+function finiteNumber(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
 }
 
 function escapeHtml(value) {

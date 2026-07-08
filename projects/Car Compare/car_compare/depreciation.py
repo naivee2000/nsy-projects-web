@@ -19,6 +19,7 @@ def build_report(
     listings: list[Listing],
     msrp: MSRP,
     current_year: int = CURRENT_YEAR,
+    generation_impact: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     filtered_raw = _filter_listings(request, listings)
     filtered = dedupe_listings(filtered_raw)
@@ -28,8 +29,7 @@ def build_report(
         if 0 <= age <= request.max_age:
             grouped[age].append(listing)
 
-    effective_msrp = _effective_msrp(msrp, grouped)
-    if effective_msrp <= 0:
+    if not filtered and msrp.price <= 0:
         buckets = _empty_buckets(request, current_year)
         return _report_payload(
             request=request,
@@ -39,9 +39,10 @@ def build_report(
             buckets=buckets,
             current_year=current_year,
             data_quality="needs_collection",
+            generation_impact=generation_impact,
         )
 
-    buckets: list[BucketStats] = [_age_zero_bucket(msrp, grouped.get(0, []), effective_msrp, current_year)]
+    buckets: list[BucketStats] = [_age_zero_bucket(msrp, grouped.get(0, []), current_year)]
 
     for age in range(1, request.max_age + 1):
         rows = grouped.get(age, [])
@@ -79,13 +80,9 @@ def build_report(
                 )
             )
 
-    _apply_trend_and_predictions(buckets)
-    _apply_depreciation(buckets, effective_msrp)
+    _apply_trend_and_predictions(buckets, generation_impact, current_year)
+    _apply_depreciation(buckets)
     data_quality = "observed" if filtered else "msrp_only"
-    if msrp.price <= 0:
-        msrp.price = effective_msrp
-        msrp.label = "Estimated MSRP pending official manufacturer capture"
-        msrp.source = "estimated_from_used_market"
     return _report_payload(
         request=request,
         msrp=msrp,
@@ -94,6 +91,7 @@ def build_report(
         buckets=buckets,
         current_year=current_year,
         data_quality=data_quality,
+        generation_impact=generation_impact,
     )
 
 
@@ -105,6 +103,7 @@ def _report_payload(
     buckets: list[BucketStats],
     current_year: int,
     data_quality: str,
+    generation_impact: dict[str, Any] | None,
 ) -> dict[str, Any]:
     source_counts = Counter(item.source for item in filtered)
     source_urls = sorted({item.url for item in filtered if item.url})
@@ -128,6 +127,7 @@ def _report_payload(
             "needsMsrpCapture": msrp.source in {"needs_manufacturer_capture", "estimated_from_used_market"},
         },
         "buckets": [_clean_bucket(bucket) for bucket in buckets],
+        "generationImpact": _clean_generation_impact(generation_impact),
         "listings": [item.to_dict() for item in filtered[:250]],
         "evidence": {
             "sources": _evidence_sources(filtered, msrp),
@@ -226,25 +226,21 @@ def _is_new_listing(listing: Listing) -> bool:
     return "new_vehicle" in haystack
 
 
-def _age_zero_bucket(msrp: MSRP, rows: list[Listing], effective_msrp: float, current_year: int) -> BucketStats:
+def _age_zero_bucket(msrp: MSRP, rows: list[Listing], current_year: int) -> BucketStats:
     values = [item.price for item in rows if item.price > 0]
     source_counts = Counter(item.source for item in rows)
-    has_msrp_anchor = effective_msrp > 0 and (msrp.price > 0 or not values)
-    if has_msrp_anchor:
-        values.append(effective_msrp)
-        source_counts[msrp.source] += 1
 
     values = sorted(values)
     if not values:
-        values = [effective_msrp]
-        source_counts[msrp.source] += 1
-
-    if rows and has_msrp_anchor:
-        confidence = "new_market_plus_msrp"
-    elif rows:
-        confidence = "new_market"
-    else:
-        confidence = "msrp" if msrp.price > 0 else "estimated_msrp"
+        return BucketStats(
+            age=0,
+            model_year=current_year,
+            sample_count=0,
+            observed=False,
+            predicted=False,
+            source_counts={},
+            confidence="msrp_reference" if msrp.price > 0 else "needs_collection",
+        )
 
     return BucketStats(
         age=0,
@@ -261,7 +257,7 @@ def _age_zero_bucket(msrp: MSRP, rows: list[Listing], effective_msrp: float, cur
         high=max(values),
         trend_median=median(values),
         source_counts=dict(source_counts),
-        confidence=confidence,
+        confidence="new_market",
     )
 
 
@@ -405,18 +401,24 @@ def _norm(value: str) -> str:
     return re.sub(r"[^a-z0-9 ]+", " ", value.lower()).strip()
 
 
-def _apply_trend_and_predictions(buckets: list[BucketStats]) -> None:
-    last_trend = buckets[0].median or 0
+def _apply_trend_and_predictions(
+    buckets: list[BucketStats],
+    generation_impact: dict[str, Any] | None = None,
+    current_year: int = CURRENT_YEAR,
+) -> None:
+    last_trend = buckets[0].median if buckets[0].observed else None
     retention_rates: list[float] = []
     last_spread = (0.92, 1.08)
+    generation_adjustments = _generation_adjustments_by_age(generation_impact)
 
     for bucket in buckets:
+        bucket.forecast_year = current_year + bucket.age
         if bucket.age == 0:
             continue
 
         if bucket.observed and bucket.median is not None:
             raw_trend = bucket.median
-            if raw_trend > last_trend:
+            if last_trend is not None and raw_trend > last_trend:
                 raw_trend = last_trend * 0.995
             bucket.trend_median = raw_trend
             if last_trend:
@@ -429,8 +431,21 @@ def _apply_trend_and_predictions(buckets: list[BucketStats]) -> None:
             last_trend = raw_trend
             continue
 
+        if last_trend is None:
+            bucket.predicted = False
+            bucket.observed = False
+            bucket.confidence = "needs_age_zero_or_observed_prior"
+            continue
+
         rate = _projection_rate(bucket.age, retention_rates)
         projected = last_trend * rate
+        adjustment = generation_adjustments.get(bucket.age)
+        if adjustment:
+            extra_pct = adjustment["extra_depreciation_pct"]
+            projected *= max(0.5, 1 - extra_pct)
+            bucket.generation_adjustment_pct = extra_pct
+            bucket.generation_adjustment_label = adjustment["label"]
+            bucket.generation_adjustment_basis = adjustment["basis"]
         q1_ratio, q3_ratio = last_spread
         bucket.predicted = True
         bucket.observed = False
@@ -469,8 +484,9 @@ def _projection_rate(age: int, observed_rates: list[float]) -> float:
     return max(0.78, min(0.98, (observed * 0.6) + (prior * 0.4)))
 
 
-def _apply_depreciation(buckets: list[BucketStats], msrp_price: float) -> None:
-    previous = buckets[0].trend_median or msrp_price
+def _apply_depreciation(buckets: list[BucketStats]) -> None:
+    baseline = buckets[0].trend_median if buckets[0].observed else None
+    previous = baseline
     for bucket in buckets:
         current = bucket.trend_median or bucket.median
         if current is None:
@@ -478,14 +494,70 @@ def _apply_depreciation(buckets: list[BucketStats], msrp_price: float) -> None:
         if bucket.age == 0:
             bucket.depreciation_from_previous = 0
             bucket.depreciation_from_previous_pct = 0
-        else:
+        elif previous:
             bucket.depreciation_from_previous = max(0, previous - current)
             bucket.depreciation_from_previous_pct = (
                 bucket.depreciation_from_previous / previous if previous else None
             )
-        bucket.depreciation_from_msrp = max(0, msrp_price - current)
-        bucket.depreciation_from_msrp_pct = bucket.depreciation_from_msrp / msrp_price if msrp_price else None
+        if baseline:
+            bucket.depreciation_from_baseline = max(0, baseline - current)
+            bucket.depreciation_from_baseline_pct = bucket.depreciation_from_baseline / baseline
         previous = current
+
+
+def _generation_adjustments_by_age(generation_impact: dict[str, Any] | None) -> dict[int, dict[str, Any]]:
+    if not isinstance(generation_impact, dict):
+        return {}
+    if generation_impact.get("status") not in {"success", "partial"}:
+        return {}
+    adjustments: dict[int, dict[str, Any]] = {}
+    for item in generation_impact.get("adjustments") or []:
+        if not isinstance(item, dict):
+            continue
+        try:
+            age = int(item.get("age"))
+            extra_pct = float(item.get("extra_depreciation_pct"))
+        except (TypeError, ValueError):
+            continue
+        if age <= 0 or not (0 < extra_pct < 0.5):
+            continue
+        adjustments[age] = {
+            "age": age,
+            "calendar_year": _optional_int(item.get("calendar_year")),
+            "extra_depreciation_pct": max(0.0, min(0.35, extra_pct)),
+            "label": str(item.get("label") or "Generation adjustment"),
+            "basis": str(item.get("basis") or item.get("rationale") or ""),
+        }
+    return adjustments
+
+
+def _clean_generation_impact(generation_impact: dict[str, Any] | None) -> dict[str, Any] | None:
+    if not isinstance(generation_impact, dict):
+        return None
+    allowed = {
+        "query",
+        "status",
+        "vehicle",
+        "current_generation",
+        "next_generation",
+        "impact_estimate",
+        "adjustments",
+        "historical_transitions",
+        "sources",
+        "notes",
+    }
+    cleaned = {key: value for key, value in generation_impact.items() if key in allowed}
+    cleaned["adjustments"] = sorted(_generation_adjustments_by_age(generation_impact).values(), key=lambda row: row["age"])
+    return cleaned
+
+
+def _optional_int(value: Any) -> int | None:
+    if value in (None, ""):
+        return None
+    try:
+        return int(float(value))
+    except (TypeError, ValueError):
+        return None
 
 
 def _clean_bucket(bucket: BucketStats) -> dict[str, Any]:

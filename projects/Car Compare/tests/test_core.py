@@ -254,10 +254,63 @@ class ReportTests(unittest.TestCase):
             msrp=MSRP(288750, "Visor median listing MSRP for Bentley Continental GT", "visor_public_facets_new", "https://example.test", 2026),
         )
         age_zero = report["buckets"][0]
-        self.assertEqual(age_zero["confidence"], "new_market_plus_msrp")
-        self.assertEqual(age_zero["sample_count"], 3)
-        self.assertEqual(age_zero["source_counts"]["visor_public_facets_new"], 3)
+        self.assertEqual(age_zero["confidence"], "new_market")
+        self.assertEqual(age_zero["sample_count"], 2)
+        self.assertEqual(age_zero["median"], 310000)
+        self.assertEqual(age_zero["source_counts"]["visor_public_facets_new"], 2)
+        self.assertEqual(report["buckets"][1]["depreciation_from_baseline"], 65000)
+        self.assertEqual(report["buckets"][1]["depreciation_from_baseline_pct"], 0.2097)
         self.assertEqual(report["listings"][0]["condition"], "new")
+
+    def test_generation_adjustment_applies_to_predicted_rows(self) -> None:
+        query = parse_vehicle_query("BMW M4 Competition")
+        query.max_age = 3
+        rows = [
+            Listing(
+                "new_inventory",
+                2026,
+                100000,
+                "Competition Coupe",
+                title="New 2026 BMW M4 Competition Coupe",
+                confidence="new_inventory",
+                condition="new",
+            ),
+            Listing(
+                "used_market",
+                2025,
+                90000,
+                "Competition Coupe",
+                title="2025 BMW M4 Competition Coupe",
+                condition="used",
+            ),
+        ]
+        report = build_report(
+            request=query,
+            listings=rows,
+            msrp=MSRP(86600, "BMW M4 Competition Coupe starting MSRP", "bmwusa", "https://example.test"),
+            generation_impact={
+                "query": "BMW M4 Competition",
+                "status": "success",
+                "adjustments": [
+                    {
+                        "age": 2,
+                        "calendar_year": 2028,
+                        "extra_depreciation_pct": 0.1,
+                        "label": "New generation launch shock",
+                        "basis": "Synthetic regression fixture.",
+                    }
+                ],
+            },
+        )
+        age_one = report["buckets"][1]
+        age_two = report["buckets"][2]
+        self.assertFalse(age_one["predicted"])
+        self.assertIsNone(age_one["generation_adjustment_pct"])
+        self.assertTrue(age_two["predicted"])
+        self.assertEqual(age_two["median"], 72900)
+        self.assertEqual(age_two["generation_adjustment_pct"], 0.1)
+        self.assertEqual(age_two["generation_adjustment_label"], "New generation launch shock")
+        self.assertEqual(age_two["depreciation_from_baseline"], 27100)
 
     def test_aggregate_facet_samples_are_not_deduped_as_dealer_duplicates(self) -> None:
         rows = [

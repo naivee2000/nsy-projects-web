@@ -71,8 +71,12 @@ class BucketStats:
     source_counts: dict[str, int] = field(default_factory=dict)
     depreciation_from_previous: float | None = None
     depreciation_from_previous_pct: float | None = None
-    depreciation_from_msrp: float | None = None
-    depreciation_from_msrp_pct: float | None = None
+    depreciation_from_baseline: float | None = None
+    depreciation_from_baseline_pct: float | None = None
+    generation_adjustment_pct: float | None = None
+    generation_adjustment_label: str = ""
+    generation_adjustment_basis: str = ""
+    forecast_year: int | None = None
     confidence: str = "observed"
 
     def to_dict(self) -> dict[str, Any]:

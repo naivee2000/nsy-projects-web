@@ -16,6 +16,7 @@ from car_compare.collector import (
     msrp_from_result,
 )
 from car_compare.depreciation import build_report
+from car_compare.generation_impact import GenerationResearchConfig, GenerationResearchManager, normalize_generation_impact
 from car_compare.models import Listing
 from car_compare.parser import parse_vehicle_query
 from car_compare.sample_data import default_msrp_for, sample_listings_for
@@ -35,6 +36,13 @@ COLLECTOR = CollectionManager(
         use_visor_facets=os.environ.get("CAR_COMPARE_VISOR_FACETS", "1").lower() not in {"0", "false", "no"},
     )
 )
+GENERATION_RESEARCH = GenerationResearchManager(
+    GenerationResearchConfig(
+        root=ROOT,
+        codex_path=os.environ.get("CODEX_BIN", "").strip(),
+        dry_run=os.environ.get("CAR_COMPARE_GENERATION_DRY_RUN", "").lower() in {"1", "true", "yes"},
+    )
+)
 
 
 class CarCompareHandler(BaseHTTPRequestHandler):
@@ -45,13 +53,27 @@ class CarCompareHandler(BaseHTTPRequestHandler):
             self._send_file(STATIC / "index.html")
             return
         if self.path == "/api/site-status":
-            self._send_json({"sources": SITE_STATUS, "collector": COLLECTOR.availability()})
+            self._send_json(
+                {
+                    "sources": SITE_STATUS,
+                    "collector": COLLECTOR.availability(),
+                    "generationResearch": GENERATION_RESEARCH.availability(),
+                }
+            )
             return
         if self.path.startswith("/api/collect/"):
             job_id = self.path.removeprefix("/api/collect/").split("?", 1)[0]
             job = COLLECTOR.get(job_id)
             if not job:
                 self._send_error(404, "Collection job not found")
+                return
+            self._send_json(job.to_dict())
+            return
+        if self.path.startswith("/api/generation-impact/"):
+            job_id = self.path.removeprefix("/api/generation-impact/").split("?", 1)[0]
+            job = GENERATION_RESEARCH.get(job_id)
+            if not job:
+                self._send_error(404, "Generation research job not found")
                 return
             self._send_json(job.to_dict())
             return
@@ -122,7 +144,12 @@ class CarCompareHandler(BaseHTTPRequestHandler):
                     self._send_error(400, "MSRP price must be numeric")
                     return
 
-            report = build_report(request=request, listings=listings, msrp=msrp)
+            generation_impact = _generation_impact_from_body(body)
+            generation_job_id = str(body.get("generationJobId") or "").strip()
+            if generation_job_id:
+                generation_impact = GENERATION_RESEARCH.impact_from_job(generation_job_id) or generation_impact
+
+            report = build_report(request=request, listings=listings, msrp=msrp, generation_impact=generation_impact)
             report["collectionPlan"] = build_collection_plan(request)
             _attach_collector_evidence(report, job_result)
             self._send_json(report)
@@ -135,6 +162,16 @@ class CarCompareHandler(BaseHTTPRequestHandler):
                 self._send_error(400, "Missing query")
                 return
             job = COLLECTOR.start(query_text, _max_age_from_body(body))
+            self._send_json(job.to_dict(), status=202)
+            return
+
+        if self.path == "/api/generation-impact":
+            body = self._read_json()
+            query_text = str(body.get("query") or "").strip()
+            if not query_text:
+                self._send_error(400, "Missing query")
+                return
+            job = GENERATION_RESEARCH.start(query_text, _max_age_from_body(body))
             self._send_json(job.to_dict(), status=202)
             return
 
@@ -208,6 +245,13 @@ def _attach_collector_evidence(report: dict[str, Any], job_result: dict[str, Any
     evidence["collectorSources"] = job_result.get("sources") or []
     evidence["facets"] = job_result.get("evidence") or []
     evidence["collectorNotes"] = job_result.get("notes") or []
+
+
+def _generation_impact_from_body(body: dict[str, Any]) -> dict[str, Any] | None:
+    item = body.get("generationImpact")
+    if not isinstance(item, dict):
+        return None
+    return normalize_generation_impact(item)
 
 
 def _max_age_from_body(body: dict[str, Any], default: int = 10) -> int:

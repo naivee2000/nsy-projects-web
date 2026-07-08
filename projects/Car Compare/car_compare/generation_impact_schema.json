@@ -1,0 +1,113 @@
+{
+  "type": "object",
+  "required": [
+    "query",
+    "status",
+    "vehicle",
+    "current_generation",
+    "next_generation",
+    "impact_estimate",
+    "adjustments",
+    "historical_transitions",
+    "sources",
+    "notes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "query": { "type": "string" },
+    "status": { "type": "string", "enum": ["success", "partial", "blocked"] },
+    "vehicle": {
+      "type": "object",
+      "required": ["make", "model", "trim"],
+      "additionalProperties": false,
+      "properties": {
+        "make": { "type": "string" },
+        "model": { "type": "string" },
+        "trim": { "type": "string" }
+      }
+    },
+    "current_generation": {
+      "type": "object",
+      "required": ["name", "start_model_year", "end_model_year", "confidence", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "start_model_year": { "type": ["integer", "null"] },
+        "end_model_year": { "type": ["integer", "null"] },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "next_generation": {
+      "type": "object",
+      "required": ["expected_model_year", "confidence", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "expected_model_year": { "type": ["integer", "null"] },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "impact_estimate": {
+      "type": "object",
+      "required": ["extra_drop_pct", "follow_on_extra_drop_pct", "confidence", "rationale"],
+      "additionalProperties": false,
+      "properties": {
+        "extra_drop_pct": { "type": "number", "minimum": 0, "maximum": 0.35 },
+        "follow_on_extra_drop_pct": { "type": "number", "minimum": 0, "maximum": 0.2 },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "rationale": { "type": "string" }
+      }
+    },
+    "adjustments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["age", "calendar_year", "extra_depreciation_pct", "label", "basis"],
+        "additionalProperties": false,
+        "properties": {
+          "age": { "type": "integer", "minimum": 1, "maximum": 20 },
+          "calendar_year": { "type": ["integer", "null"] },
+          "extra_depreciation_pct": { "type": "number", "exclusiveMinimum": 0, "maximum": 0.35 },
+          "label": { "type": "string" },
+          "basis": { "type": "string" }
+        }
+      }
+    },
+    "historical_transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from_generation", "to_generation", "launch_model_year", "observed_extra_drop_pct", "evidence", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "from_generation": { "type": "string" },
+          "to_generation": { "type": "string" },
+          "launch_model_year": { "type": ["integer", "null"] },
+          "observed_extra_drop_pct": { "type": ["number", "null"], "minimum": 0, "maximum": 0.5 },
+          "evidence": { "type": "string" },
+          "confidence": { "type": "string", "enum": ["high", "medium", "low"] }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url", "publisher", "date", "notes"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "publisher": { "type": "string" },
+          "date": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

@@ -43,6 +43,21 @@
           <svg id="chart" viewBox="0 0 980 460" role="img" aria-label="Depreciation trend chart"></svg>
         </div>
 
+        <div class="chartShell secondaryChartShell">
+          <div class="chartHead">
+            <div>
+              <h2>Depreciation Amount</h2>
+              <p id="depreciationChartSub"></p>
+            </div>
+            <div class="legend">
+              <span><i class="barIcon"></i>Total Loss</span>
+              <span><i class="line percent"></i>Total %</span>
+              <span><i class="line projected"></i>Projected</span>
+            </div>
+          </div>
+          <svg id="depreciationChart" viewBox="0 0 980 420" role="img" aria-label="Depreciation amount and percent chart"></svg>
+        </div>
+
         <div class="tableBand">
           <h2>Age Buckets</h2>
           <div class="tableWrap">
@@ -59,7 +74,9 @@
                   <th>Q3</th>
                   <th>YoY Loss</th>
                   <th>YoY %</th>
+                  <th>Total Loss</th>
                   <th>Total %</th>
+                  <th>Gen Adj</th>
                 </tr>
               </thead>
               <tbody id="bucketRows"></tbody>
@@ -82,6 +99,13 @@
         <section class="toolBlock">
           <h2>Collector</h2>
           <div id="collectorStatus" class="collectorStatus"></div>
+        </section>
+
+        <section class="toolBlock">
+          <h2>Generation Forecast</h2>
+          <div id="generationStatus" class="collectorStatus"></div>
+          <button type="button" id="generationButton" class="secondaryButton fullButton">Research Gen Impact</button>
+          <div id="generationImpactPanel" class="generationImpactPanel"></div>
         </section>
 
         <section class="toolBlock">

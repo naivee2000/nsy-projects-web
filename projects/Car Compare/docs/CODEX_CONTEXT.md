@@ -27,6 +27,7 @@ The target behavior:
 - Age 0 is MSRP plus actual new-car market samples when available.
 - Age 1+ is current market value of matching used examples by model year.
 - The graph shows median, average, Q1, Q3, low, high, yearly depreciation, and projection.
+- Generation-impact research is an optional forecast adjustment. It should never rewrite observed buckets; it only applies extra depreciation percentages to predicted buckets when a sourced research result is loaded.
 - The user can choose a horizon up to 20 years.
 - Rows are deduplicated by VIN first, then likely same listing fields.
 - The first page opens empty. No default BMW query should run on load.
@@ -64,8 +65,12 @@ Stop the old app process only if it is this Car Compare server and the user is o
 - `car_compare/sources/visor_facets.py`: public Visor aggregate facet collector.
 - `car_compare/sources/browser_capture.py`: visible listing text parser.
 - `car_compare/collector.py`: background collection jobs and Codex CLI bridge.
+- `car_compare/generation_impact.py`: Codex-backed generation timing / depreciation-shock research jobs.
+- `car_compare/generation_impact_schema.json`: structured output contract for generation-impact research.
 - `car_compare/depreciation.py`: dedupe, statistics, projections, report assembly.
 - `tests/test_core.py`: regression suite.
+- `skills/generation-impact-research/`: project-local Codex skill for generation-impact research.
+- `scripts/install_project_skills.sh`: copies the project-local skill into another computer's local Codex skills folder.
 
 Docs:
 
@@ -85,6 +90,20 @@ The app uses two layers:
    The app starts the Codex CLI on the same computer, passes a fixed collection plan and JSON schema, and expects structured listings/MSRP back. Codex should use visible website UI, official APIs, or user-authorized accounts/API keys. Do not bypass CAPTCHAs, login walls, paywalls, or site restrictions.
 
 The collection job currently checks Visor facets first. If Codex is available, the job can continue into website collection afterward. If Codex fails after Visor returned rows, the app keeps the Visor data as a completed partial result.
+
+## Generation Impact Research
+
+The `Generation Forecast` UI starts `/api/generation-impact`, which runs Codex with the project-local skill at `skills/generation-impact-research`. The expected result is JSON matching `car_compare/generation_impact_schema.json`.
+
+The depreciation engine applies `adjustments[].extra_depreciation_pct` only to predicted buckets at the matching `age`. Observed market data remains unchanged. Each adjusted bucket exposes `generation_adjustment_pct`, `generation_adjustment_label`, and `generation_adjustment_basis`, and the table shows the `Gen Adj` column.
+
+For portability, keep the skill inside this project folder. On another computer, run:
+
+```bash
+scripts/install_project_skills.sh
+```
+
+This copies the skill into `${CODEX_HOME:-$HOME/.codex}/skills/generation-impact-research`. Generated research jobs under `data/generation_research_jobs/` are local outputs and should not be treated as core source.
 
 ## Vehicle Matching Rules Already Fixed
 
