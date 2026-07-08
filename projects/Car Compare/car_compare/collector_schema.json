@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["query", "status", "notes", "msrp", "sources", "listings"],
+  "properties": {
+    "query": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["success", "partial", "blocked", "failed"]
+    },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "msrp": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["price", "label", "source", "url", "year"],
+      "properties": {
+        "price": { "type": ["number", "null"] },
+        "label": { "type": "string" },
+        "source": { "type": "string" },
+        "url": { "type": "string" },
+        "year": { "type": ["integer", "null"] }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "url", "status", "load_more_clicked", "notes"],
+        "properties": {
+          "source": { "type": "string" },
+          "url": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["collected", "partial", "blocked", "unavailable"]
+          },
+          "load_more_clicked": { "type": "integer" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "listings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "year",
+          "price",
+          "trim",
+          "mileage",
+          "title",
+          "url",
+          "vin",
+          "dealer",
+          "condition",
+          "confidence"
+        ],
+        "properties": {
+          "source": { "type": "string" },
+          "year": { "type": "integer" },
+          "price": { "type": "number" },
+          "trim": { "type": "string" },
+          "mileage": { "type": ["integer", "null"] },
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "vin": { "type": "string" },
+          "dealer": { "type": "string" },
+          "condition": {
+            "type": "string",
+            "enum": ["new", "used", "cpo", "unknown"]
+          },
+          "confidence": { "type": "string" }
+        }
+      }
+    }
+  }
+}

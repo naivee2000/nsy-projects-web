@@ -1,0 +1,44 @@
+{
+  "query": "bentley continental GT",
+  "status": "blocked",
+  "notes": [
+    "No project files were edited.",
+    "In-app browser automation was unavailable: browser discovery returned no usable browser surfaces, so visible scrolling and Load More/Next click verification could not be performed.",
+    "Shell and Node network access could not resolve public hosts from this workspace.",
+    "The available web access opened Bentley official model/pre-owned pages, but the target Autotrader, Edmunds, and Visor pages did not return retrievable listing text or public facet data.",
+    "No CAPTCHA, login wall, paywall, or access refusal was bypassed.",
+    "Bentley official model page was checked; it did not expose a US MSRP, so msrp is null per collection rule."
+  ],
+  "msrp": null,
+  "sources": [
+    {
+      "source": "autotrader_browser",
+      "url": "https://www.autotrader.com/cars-for-sale/all-cars/bentley/continental-gt/new-york-ny?zip=10001&searchRadius=0&newSearch=true",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Target URL was attempted, but no retrievable visible listing text was available through the current tools. In-app browser was unavailable, so result-list scrolling and Load More/Next verification could not be done."
+    },
+    {
+      "source": "edmunds_browser",
+      "url": "https://www.edmunds.com/inventory/srp.html?inventorytype=used%2Ccpo&make=bentley&model=continental-gt",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Target SRP URL was attempted, but no retrievable listing rows were available through the current tools. In-app browser was unavailable, so Show More Results/Next verification could not be done."
+    },
+    {
+      "source": "visor_api_or_facets",
+      "url": "https://visor.vin/search/filters?make=Bentley&model=Continental+GT&car_type=used",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Target filter URL was attempted, but no public facets or listing data were retrievable through the current tools, and no Visor API key or listing access was available."
+    },
+    {
+      "source": "bentley_official_msrp_check",
+      "url": "https://www.bentleymotors.com/en/models/continental-gt.html",
+      "status": "partial",
+      "load_more_clicked": 0,
+      "notes": "Official Bentley Continental GT range page was retrievable and matched the requested vehicle, but it did not publish a US MSRP."
+    }
+  ],
+  "listings": []
+}

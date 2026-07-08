@@ -1,0 +1,40 @@
+{
+  "query": "BMW M4 Competition",
+  "status": "partial",
+  "notes": [
+    "In-app Browser automation was not available, so normal visible-page scrolling and Load More/Next verification could not be performed.",
+    "The target Autotrader, Edmunds, and Visor URLs were attempted with the available web tools, but no retrievable listing text or public facet data was returned.",
+    "Official BMW USA MSRP was retrievable: the current BMW page lists the 2027 M4 Competition Coupe starting MSRP at $86,600."
+  ],
+  "msrp": {
+    "price": 86600,
+    "label": "2027 BMW M4 Competition Coupe starting MSRP",
+    "source": "BMW USA",
+    "url": "https://www.bmwusa.com/vehicles/m-series/bmw-4-series-m-models/bmw-m4-coupe.html",
+    "year": 2027
+  },
+  "sources": [
+    {
+      "source": "autotrader_browser",
+      "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4/new-york-ny?zip=10001&searchRadius=0&newSearch=true",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Target URL was attempted, but visible listing text was not retrievable through the available tools. In-app Browser was unavailable, so result-list scrolling and Load More/Next verification could not be done."
+    },
+    {
+      "source": "edmunds_browser",
+      "url": "https://www.edmunds.com/inventory/srp.html?inventorytype=used%2Ccpo&make=bmw&model=m4",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Target SRP URL was attempted, but visible listing rows were not retrievable through the available tools. In-app Browser was unavailable, so Show More Results/Next verification could not be done."
+    },
+    {
+      "source": "visor_api_or_facets",
+      "url": "https://visor.vin/search/filters?make=BMW&model=M4&car_type=used&trim=Competition",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Target filter URL was attempted, but no public facets or listing data were retrievable through the available tools, and no Visor API key/MCP listing access was available."
+    }
+  ],
+  "listings": []
+}

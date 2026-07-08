@@ -1,0 +1,35 @@
+{
+  "query": "BMW M4 Competition afbentley continental GTer 2021",
+  "status": "partial",
+  "notes": [
+    "In-app browser automation was unavailable in this session, so visible scrolling/load-more interaction could not be performed.",
+    "Direct public fetches for Autotrader, Edmunds, and Visor did not return usable page text here.",
+    "No listings were included because the parsed trim requires unrelated tokens: Competition, Afbentley, Continental, and Gter. Standard BMW M4 Competition listings were excluded because they do not match all requested trim keywords.",
+    "MSRP set to null because the requested parsed trim is not an official BMW trim."
+  ],
+  "msrp": null,
+  "sources": [
+    {
+      "source": "autotrader_browser",
+      "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4/new-york-ny?zip=10001&searchRadius=0&newSearch=true",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "In-app browser was unavailable; direct web fetch returned cache miss. No Load More / Next interaction possible. Exact malformed trim tokens were not found in public search results."
+    },
+    {
+      "source": "edmunds_browser",
+      "url": "https://www.edmunds.com/inventory/srp.html?inventorytype=used%2Ccpo&make=bmw&model=m4",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "In-app browser was unavailable; direct web fetch returned cache miss. No Show More Results / Next interaction possible. No listings captured."
+    },
+    {
+      "source": "visor_api_or_facets",
+      "url": "https://visor.vin/search/filters?make=BMW&model=M4&car_type=used&trim=Competition+Afbentley+Continental+Gter",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "No keyed Visor API access was available; direct public fetch was not usable in this environment. Public exact-term searches for Afbentley / Continental Gter with BMW M4 returned no results."
+    }
+  ],
+  "listings": []
+}

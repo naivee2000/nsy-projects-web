@@ -8,6 +8,12 @@ This project is deployable as a FastAPI web app from inside `projects/Auto-CAD-D
 - `requirements.txt`
 - Web entrypoint: `web.app:app`
 - Default port: `8008`
+- Local command:
+
+```bash
+python app.py
+```
+
 - Production command:
 
 ```bash

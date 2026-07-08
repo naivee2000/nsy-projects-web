@@ -27,6 +27,7 @@ Local CAD-generation workspace for DONJUN-style PDF-to-CAD workflows.
 - `scripts/smoke_test_app.py` - checks a running local/deployed API.
 - `scripts/run_checks.py` - runs the local regression suite.
 - `scripts/clean_runtime.py` - removes caches and ignored runtime job output.
+- `app.py` - local launcher; run this directly for browser use.
 - `web/app.py` - local FastAPI UI for upload/generate/download.
 - `GET /api/readiness` reports deploy readiness checks for data, dependencies, registry, UI files, and baseline outputs.
 - `GET /api/jobs` and `GET /api/jobs/{job}/manifest` expose runtime job history.
@@ -50,13 +51,19 @@ python3 scripts/screen_sensor_models.py --term STK333-AR2
 python3 scripts/test_reference_handling.py
 python3 scripts/check_deploy_package.py
 python3 scripts/run_checks.py
-python3 -m uvicorn web.app:app --reload --host 127.0.0.1 --port 8008
+python3 app.py
 python3 scripts/smoke_test_app.py --base-url http://127.0.0.1:8008
 python3 scripts/run_checks.py --base-url http://127.0.0.1:8008
 python3 scripts/clean_runtime.py
 ```
 
 Then open `http://127.0.0.1:8008`.
+
+If you want the old explicit server command, this is equivalent:
+
+```bash
+python3 -m uvicorn web.app:app --host 127.0.0.1 --port 8008
+```
 
 ## Boundary
 

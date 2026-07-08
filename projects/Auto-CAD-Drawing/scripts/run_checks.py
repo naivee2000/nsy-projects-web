@@ -34,6 +34,7 @@ def main() -> int:
     args = parser.parse_args()
 
     py_files = [
+        "app.py",
         "scripts/check_deploy_package.py",
         "scripts/clean_runtime.py",
         "scripts/generate_cpx26051.py",

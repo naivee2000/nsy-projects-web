@@ -1,0 +1,36 @@
+{
+  "query": "Bentley Continental GT Speed",
+  "status": "blocked",
+  "notes": [
+    "No project files were edited.",
+    "The in-app browser surface was unavailable in this session, so visible scrolling and Load More/Next clicks could not be performed.",
+    "Shell and Node network access could not resolve public hosts, and web open/search did not return retrievable listing text for the target pages.",
+    "No CAPTCHA, login wall, paywall, or access refusal was bypassed.",
+    "Manufacturer official MSRP was not captured; msrp is null per collection rule."
+  ],
+  "msrp": null,
+  "sources": [
+    {
+      "source": "autotrader_browser",
+      "url": "https://www.autotrader.com/cars-for-sale/all-cars/bentley/continental-gt/new-york-ny?zip=10001&searchRadius=0&newSearch=true",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Target URL attempted, but no retrievable visible listing text was available through the current tools. In-app browser was unavailable, so result-list scrolling and Load More/Next verification could not be done."
+    },
+    {
+      "source": "edmunds_browser",
+      "url": "https://www.edmunds.com/inventory/srp.html?inventorytype=used%2Ccpo&make=bentley&model=continental-gt",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Target URL attempted, but no retrievable visible listing text was available through the current tools. In-app browser was unavailable, so Show More Results/Next verification could not be done."
+    },
+    {
+      "source": "visor_api_or_facets",
+      "url": "https://visor.vin/search/filters?make=Bentley&model=Continental+GT&car_type=used&trim=Speed",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Target filter URL attempted, but no public facets or listing data were retrievable through the current tools, and no Visor API key/MCP listing access was available."
+    }
+  ],
+  "listings": []
+}

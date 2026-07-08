@@ -1,0 +1,32 @@
+{
+  "query": "Bentley Continental GT Speed",
+  "status": "blocked",
+  "notes": [
+    "Dry-run mode: no websites were opened."
+  ],
+  "msrp": null,
+  "sources": [
+    {
+      "source": "autotrader_browser",
+      "url": "https://www.autotrader.com/cars-for-sale/all-cars/bentley/continental-gt/new-york-ny?zip=10001&searchRadius=0&newSearch=true",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Dry-run target only."
+    },
+    {
+      "source": "edmunds_browser",
+      "url": "https://www.edmunds.com/inventory/srp.html?inventorytype=used%2Ccpo&make=bentley&model=continental-gt",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Dry-run target only."
+    },
+    {
+      "source": "visor_api_or_facets",
+      "url": "https://visor.vin/search/filters?make=Bentley&model=Continental+GT&car_type=used&trim=Speed",
+      "status": "unavailable",
+      "load_more_clicked": 0,
+      "notes": "Dry-run target only."
+    }
+  ],
+  "listings": []
+}

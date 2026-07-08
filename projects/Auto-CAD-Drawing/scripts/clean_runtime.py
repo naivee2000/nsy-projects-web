@@ -9,20 +9,27 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SKIP_DIRS = {
+    ROOT / ".venv",
+}
 RUNTIME_DIRS = [
     ROOT / "output" / "web_jobs",
     ROOT / "tmp" / "pdfs",
 ]
 
 
+def is_skipped(path: Path) -> bool:
+    return any(path == skipped or skipped in path.parents for skipped in SKIP_DIRS)
+
+
 def remove_pycache() -> list[Path]:
     removed: list[Path] = []
     for path in ROOT.rglob("__pycache__"):
-        if path.is_dir():
+        if path.is_dir() and not is_skipped(path):
             shutil.rmtree(path)
             removed.append(path)
     for path in ROOT.rglob("*.pyc"):
-        if path.is_file():
+        if path.is_file() and not is_skipped(path):
             path.unlink()
             removed.append(path)
     return removed
@@ -31,7 +38,7 @@ def remove_pycache() -> list[Path]:
 def remove_ds_store() -> list[Path]:
     removed: list[Path] = []
     for path in ROOT.rglob(".DS_Store"):
-        if path.is_file():
+        if path.is_file() and not is_skipped(path):
             path.unlink()
             removed.append(path)
     return removed

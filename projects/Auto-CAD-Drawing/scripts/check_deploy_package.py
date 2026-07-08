@@ -17,6 +17,7 @@ REQUIRED_FILES = (
     ".gitignore",
     "Dockerfile",
     "README.md",
+    "app.py",
     "requirements.txt",
     "data/cpx25034_stk333_ar2_sensors.json",
     "data/cpx26051_sensors.json",

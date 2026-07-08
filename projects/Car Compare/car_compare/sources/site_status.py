@@ -1,0 +1,38 @@
+SITE_STATUS = [
+    {
+        "name": "Autotrader",
+        "status": "workable_browser_ui",
+        "tested": "2026-07-05",
+        "result": "Direct inventory URL loaded slowly but exposed visible listing text with year, model, mileage, price-like lines, result count, and source URL.",
+        "adapter": "Browser-visible listing parser plus careful result-card extraction.",
+        "notes": "Requires a zip/location parameter to unlock nationwide search. Treat location as a search parameter, not a depreciation input.",
+        "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4/new-york-ny?searchRadius=0&startYear=2021&zip=10001",
+    },
+    {
+        "name": "Edmunds",
+        "status": "workable_browser_ui",
+        "tested": "2026-07-05",
+        "result": "Homepage and used search form were usable. Selecting BMW then M4 reached a listing page with visible rows containing year, trim, price, mileage, and listing URLs.",
+        "adapter": "Browser form navigation or direct SRP URL, then visible listing parser.",
+        "notes": "A direct used model URL produced an empty page state during the test; the search form path worked better.",
+        "url": "https://www.edmunds.com/inventory/srp.html?inventorytype=used%2Ccpo&make=bmw&model=m4",
+    },
+    {
+        "name": "Visor",
+        "status": "workable_public_facets",
+        "tested": "2026-07-06",
+        "result": "Public filter pages expose per-year price histograms, MSRP stats, mileage stats, and market counts. The app now expands those histograms into aggregate observations for depreciation graphs.",
+        "adapter": "Visor public-facet adapter first; use Visor REST API/MCP later when an API key is available for individual listings.",
+        "notes": "Facet rows are aggregate market observations, not individual dealer listings. They are source-labeled as visor_public_facets.",
+        "url": "https://visor.vin/api",
+    },
+    {
+        "name": "BMW USA",
+        "status": "workable_official_msrp",
+        "tested": "2026-07-05",
+        "result": "Official BMW USA model pages expose current M4 starting MSRP values.",
+        "adapter": "Manufacturer MSRP adapter for Age 0. Historical MSRP needs archived/press-release fallback.",
+        "notes": "Current MSRP is suitable for current models; older model-year MSRP should be source-labeled.",
+        "url": "https://www.bmwusa.com/vehicles/m-series/bmw-4-series-m-models/bmw-m4-coupe.html",
+    },
+]
