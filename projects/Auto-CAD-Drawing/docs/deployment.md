@@ -8,6 +8,7 @@ This project is deployable as a FastAPI web app from inside `projects/Auto-CAD-D
 - `requirements.txt`
 - Web entrypoint: `web.app:app`
 - Default port: `8008`
+- Public hostname: `https://cad.nsyprojects.com/`
 - Local command:
 
 ```bash
@@ -48,6 +49,7 @@ The app should never return one project's drawings for a different uploaded proj
 
 - `GET /api/health` - basic health check.
 - `GET /api/readiness` - deploy readiness checks for normalized data, device model library, Python dependencies, generator registry, UI files, and baseline CAD/proof outputs.
+- `GET /api/setup` - deployment-host Codex CLI/login/advisory status.
 - `GET /api/capabilities` - supported generators, sensor models, and known project IDs.
 - `GET /api/reference-pdfs` - local reference scan, useful in development.
 - `POST /api/jobs` - upload one or more PDFs and generate a ZIP when supported.
@@ -56,6 +58,19 @@ The app should never return one project's drawings for a different uploaded proj
 - `GET /api/jobs/{job}/download` - download the generated ZIP.
 
 Runtime job output lives under `output/web_jobs/` and is ignored by git.
+
+## Codex Deployment Boundary
+
+Set `AUTO_CAD_CODEX_ADVISORY=1` only behind authenticated access. Rejected uploads can then receive a server-side Codex explanation based on the deterministic PDF summary. Codex remains read-only and cannot override the generator registry.
+
+The browser visitor does not need Codex. Install and log in to Codex as the operating-system account that runs the backend, then verify:
+
+```bash
+codex login status
+python scripts/deploy_preflight.py --require-codex --smoke-codex
+```
+
+The runtime finds the CLI through `CODEX_BIN`, `PATH`, official standalone install locations, or supported desktop app bundles. Keep the origin on `127.0.0.1`; expose it only through the authenticated NSY Projects reverse proxy/tunnel described in `../../../ops/README.md`.
 
 ## Maintenance
 

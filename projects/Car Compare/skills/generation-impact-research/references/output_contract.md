@@ -6,6 +6,8 @@ Use this reference when deciding field meanings for `car_compare/generation_impa
 
 `extra_depreciation_pct` is incremental. It is not the full projected YoY depreciation. For example, if the ordinary retention model predicts a 7% loss and generation research estimates an extra 6% shock, the app applies the normal projection first and then multiplies the predicted value by `0.94`.
 
+The app carries that ratio through the event age and every later age, because a replacement-generation launch reprices the outgoing generation from that point forward.
+
 ## Age Semantics
 
 `age` is years from the current Age 0 baseline shown in Car Compare. If the app run year is 2026 and a replacement generation is expected to affect resale in 2028, use `age: 2` and `calendar_year: 2028`.

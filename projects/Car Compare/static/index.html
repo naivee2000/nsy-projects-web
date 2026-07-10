@@ -8,128 +8,175 @@
   </head>
   <body>
     <header class="topbar">
-      <div>
-        <h1>Car Compare</h1>
-        <p id="runStamp">Depreciation research</p>
+      <div class="topbarInner">
+        <div class="brandLockup">
+          <span class="brandSignal" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div>
+            <h1>Car Compare</h1>
+            <p id="runStamp">Vehicle value intelligence</p>
+          </div>
+        </div>
+        <form id="searchForm" class="searchbar">
+          <label class="field queryField" for="query">
+            <span>Vehicle query</span>
+            <input id="query" name="query" autocomplete="off" placeholder="BMW M4 Competition" />
+          </label>
+          <label class="field yearControl" for="maxAge">
+            <span>Horizon</span>
+            <span class="inputSuffix">
+              <input id="maxAge" name="maxAge" type="number" min="1" max="20" value="10" inputmode="numeric" />
+              <i>yr</i>
+            </span>
+          </label>
+          <button type="submit" id="collectButton">
+            <span id="collectButtonLabel">Collect &amp; Research</span>
+            <i class="buttonSignal" aria-hidden="true"></i>
+          </button>
+        </form>
       </div>
-      <form id="searchForm" class="searchbar">
-        <label for="query">Vehicle</label>
-        <input id="query" name="query" autocomplete="off" />
-        <label class="yearControl" for="maxAge">
-          <span>Years</span>
-          <input id="maxAge" name="maxAge" type="number" min="1" max="20" value="10" inputmode="numeric" />
-        </label>
-        <button type="submit">Research</button>
-        <button type="button" id="collectButton" class="secondaryButton">Collect</button>
-      </form>
     </header>
 
     <main class="layout">
       <section class="workspace">
-        <div id="resolverPanel" class="resolverPanel"></div>
-        <div class="metricRow" id="summaryMetrics"></div>
-        <div class="chartShell">
-          <div class="chartHead">
-            <div>
-              <h2 id="chartTitle">Depreciation Trend</h2>
-              <p id="chartSub"></p>
-            </div>
-            <div class="legend">
-              <span><i class="line observed"></i>Observed</span>
-              <span><i class="line projected"></i>Predicted</span>
-              <span><i class="dot"></i>Average</span>
-            </div>
-          </div>
-          <svg id="chart" viewBox="0 0 980 460" role="img" aria-label="Depreciation trend chart"></svg>
+        <div id="emptyWorkspace" class="emptyWorkspace">
+          <span class="emptyStateCode">SYSTEM READY</span>
+          <h2>Market intelligence standby</h2>
+          <p>Collector and generation forecast online.</p>
+          <span class="scanLine" aria-hidden="true"></span>
         </div>
 
-        <div class="chartShell secondaryChartShell">
-          <div class="chartHead">
-            <div>
-              <h2>Depreciation Amount</h2>
-              <p id="depreciationChartSub"></p>
+        <div id="resultsSurface" class="resultsSurface" hidden>
+          <div id="resolverPanel" class="resolverPanel"></div>
+          <div class="metricRow" id="summaryMetrics"></div>
+          <div class="chartShell">
+            <div class="chartHead">
+              <div>
+                <span class="sectionCode">VALUE CURVE</span>
+                <h2 id="chartTitle">Depreciation Trend</h2>
+                <p id="chartSub"></p>
+              </div>
+              <div class="legend">
+                <span><i class="line observed"></i>Observed</span>
+                <span><i class="line projected"></i>Predicted</span>
+                <span><i class="dot"></i>Average</span>
+              </div>
             </div>
-            <div class="legend">
-              <span><i class="barIcon"></i>Total Loss</span>
-              <span><i class="line percent"></i>Total %</span>
-              <span><i class="line projected"></i>Projected</span>
+            <div class="chartViewport">
+              <svg id="chart" viewBox="0 0 980 460" role="img" aria-label="Depreciation trend chart"></svg>
             </div>
           </div>
-          <svg id="depreciationChart" viewBox="0 0 980 420" role="img" aria-label="Depreciation amount and percent chart"></svg>
-        </div>
 
-        <div class="tableBand">
-          <h2>Age Buckets</h2>
-          <div class="tableWrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Age</th>
-                  <th>Model Year</th>
-                  <th>Type</th>
-                  <th>Samples</th>
-                  <th>Average</th>
-                  <th>Median</th>
-                  <th>Q1</th>
-                  <th>Q3</th>
-                  <th>YoY Loss</th>
-                  <th>YoY %</th>
-                  <th>Total Loss</th>
-                  <th>Total %</th>
-                  <th>Gen Adj</th>
-                </tr>
-              </thead>
-              <tbody id="bucketRows"></tbody>
-            </table>
+          <div class="chartShell secondaryChartShell">
+            <div class="chartHead">
+              <div>
+                <span class="sectionCode">LOSS PROFILE</span>
+                <h2>Depreciation Amount</h2>
+                <p id="depreciationChartSub"></p>
+              </div>
+              <div class="legend">
+                <span><i class="barIcon"></i>Total Loss</span>
+                <span><i class="line percent"></i>Total %</span>
+                <span><i class="line projected"></i>Projected</span>
+              </div>
+            </div>
+            <div class="chartViewport">
+              <svg id="depreciationChart" viewBox="0 0 980 420" role="img" aria-label="Depreciation amount and percent chart"></svg>
+            </div>
           </div>
-        </div>
 
-        <div class="tableBand">
-          <h2>Source Evidence</h2>
-          <div id="sourceEvidence" class="evidencePanel"></div>
-        </div>
+          <div class="tableBand">
+            <div class="bandHead">
+              <span class="sectionCode">YEAR-BY-YEAR</span>
+              <h2>Age Buckets</h2>
+            </div>
+            <div class="tableWrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Age</th>
+                    <th>Model Year</th>
+                    <th>Type</th>
+                    <th>Samples</th>
+                    <th>Average</th>
+                    <th>Median</th>
+                    <th>Q1</th>
+                    <th>Q3</th>
+                    <th>YoY Loss</th>
+                    <th>YoY %</th>
+                    <th>Total Loss</th>
+                    <th>Total %</th>
+                    <th>Gen Adj</th>
+                  </tr>
+                </thead>
+                <tbody id="bucketRows"></tbody>
+              </table>
+            </div>
+          </div>
 
-        <div class="tableBand">
-          <h2>Collection Plan</h2>
-          <div id="collectionPlan" class="planList"></div>
+          <div class="tableBand">
+            <div class="bandHead">
+              <span class="sectionCode">AUDIT TRAIL</span>
+              <h2>Source Evidence</h2>
+            </div>
+            <div id="sourceEvidence" class="evidencePanel"></div>
+          </div>
+
+          <div class="tableBand">
+            <div class="bandHead">
+              <span class="sectionCode">RESEARCH MAP</span>
+              <h2>Collection Plan</h2>
+            </div>
+            <div id="collectionPlan" class="planList"></div>
+          </div>
         </div>
       </section>
 
       <aside class="side">
-        <section class="toolBlock">
+        <section class="toolBlock serviceBlock">
+          <span class="sectionCode">COLLECTION ENGINE</span>
           <h2>Collector</h2>
-          <div id="collectorStatus" class="collectorStatus"></div>
+          <div id="collectorStatus" class="collectorStatus" aria-live="polite"></div>
         </section>
 
-        <section class="toolBlock">
+        <section class="toolBlock serviceBlock">
+          <span class="sectionCode">AI FORECAST LAYER</span>
           <h2>Generation Forecast</h2>
-          <div id="generationStatus" class="collectorStatus"></div>
-          <button type="button" id="generationButton" class="secondaryButton fullButton">Research Gen Impact</button>
+          <div id="generationStatus" class="collectorStatus" aria-live="polite"></div>
           <div id="generationImpactPanel" class="generationImpactPanel"></div>
         </section>
 
-        <section class="toolBlock">
-          <h2>Sources</h2>
+        <details class="toolBlock sourceBlock" open>
+          <summary>
+            <span>Source Network</span>
+            <small id="sourceCount">Checking</small>
+          </summary>
           <div id="sourceStatus" class="sourceList"></div>
-        </section>
+        </details>
 
-        <section class="toolBlock">
-          <h2>Capture Import</h2>
-          <label for="captureSource">Source</label>
-          <input id="captureSource" value="manual_browser" />
-          <label for="captureUrl">URL</label>
-          <input id="captureUrl" placeholder="https://..." />
-          <label for="captureText">Visible text</label>
-          <textarea id="captureText" rows="8"></textarea>
-        </section>
-
-        <section class="toolBlock">
-          <h2>MSRP Override</h2>
-          <label for="msrpPrice">Price</label>
-          <input id="msrpPrice" inputmode="numeric" placeholder="86600" />
-          <label for="msrpUrl">Source URL</label>
-          <input id="msrpUrl" placeholder="https://..." />
-        </section>
+        <details class="toolBlock advancedBlock">
+          <summary>
+            <span>Advanced Inputs</span>
+            <small>Optional</small>
+          </summary>
+          <div class="advancedFields">
+            <fieldset>
+              <legend>Capture import</legend>
+              <label for="captureSource">Source</label>
+              <input id="captureSource" value="manual_browser" />
+              <label for="captureUrl">URL</label>
+              <input id="captureUrl" placeholder="https://..." />
+              <label for="captureText">Visible text</label>
+              <textarea id="captureText" rows="8"></textarea>
+            </fieldset>
+            <fieldset>
+              <legend>MSRP override</legend>
+              <label for="msrpPrice">Price</label>
+              <input id="msrpPrice" inputmode="numeric" placeholder="86600" />
+              <label for="msrpUrl">Source URL</label>
+              <input id="msrpUrl" placeholder="https://..." />
+            </fieldset>
+          </div>
+        </details>
       </aside>
     </main>
 

@@ -37,6 +37,9 @@ def main() -> int:
         "app.py",
         "scripts/check_deploy_package.py",
         "scripts/clean_runtime.py",
+        "scripts/codex_advisory.py",
+        "scripts/codex_runtime.py",
+        "scripts/deploy_preflight.py",
         "scripts/generate_cpx26051.py",
         "scripts/generate_level_sensor_project.py",
         "scripts/generator_registry.py",
@@ -46,12 +49,14 @@ def main() -> int:
         "scripts/screen_sensor_models.py",
         "scripts/smoke_test_app.py",
         "scripts/test_reference_handling.py",
+        "scripts/test_codex_runtime.py",
         "scripts/verify_level_sensor_project.py",
         "scripts/verify_cpx26051.py",
         "web/app.py",
     ]
     run([PYTHON, "-m", "py_compile", *py_files])
     run([PYTHON, "scripts/test_reference_handling.py"])
+    run([PYTHON, "scripts/test_codex_runtime.py"])
     run([PYTHON, "scripts/verify_level_sensor_project.py"])
     run([PYTHON, "scripts/verify_level_sensor_project.py", "--data", "data/cpx25034_stk333_ar2_sensors.json"])
     if not args.skip_generate:

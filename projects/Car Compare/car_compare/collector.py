@@ -1,9 +1,7 @@
 from __future__ import annotations
 
 import json
-import os
 import re
-import shutil
 import subprocess
 import threading
 import time
@@ -14,6 +12,7 @@ from typing import Any
 
 from car_compare.models import Listing, MSRP, VehicleQuery
 from car_compare.parser import parse_vehicle_query
+from car_compare.codex_cli import codex_environment, codex_login_status, find_codex_cli
 from car_compare.sources.visor_facets import collect_visor_public_facets
 from car_compare.sources.source_plan import build_collection_plan
 
@@ -70,11 +69,15 @@ class CollectionManager:
 
     def availability(self) -> dict[str, Any]:
         path = self._codex_path()
+        status = codex_login_status(path) if path else codex_login_status(self.config.codex_path)
         return {
-            "available": bool(path),
+            "available": bool(path and status["authenticated"]),
             "codexPath": path,
+            "codexHome": status["codexHome"],
+            "authenticated": status["authenticated"],
+            "authMethod": status["authMethod"],
             "dryRun": self.config.dry_run,
-            "message": "Codex collector ready" if path else "Codex CLI not found. Install Codex or set CODEX_BIN.",
+            "message": "Codex collector ready" if path and status["authenticated"] else status["message"],
         }
 
     def start(self, query: str, max_age: int | None = None) -> CollectionJob:
@@ -115,6 +118,7 @@ class CollectionManager:
     def _run_job(self, job_id: str, request: VehicleQuery) -> None:
         self._update(job_id, status="running", message="Starting Codex website collection")
         codex_path = self._codex_path()
+        codex_status = codex_login_status(codex_path) if codex_path else codex_login_status(self.config.codex_path)
         if self.config.dry_run:
             result = _dry_run_result(request)
             self._write_job_result(job_id, result)
@@ -145,10 +149,15 @@ class CollectionManager:
                 )
             else:
                 self._update(job_id, status="running", message="Visor facets had no listings; starting Codex website collection")
-        if not codex_path:
+        if not codex_path or not codex_status["authenticated"]:
+            unavailable_note = (
+                "Codex CLI was not found"
+                if not codex_path
+                else "Codex CLI is not logged in for the deployment user"
+            )
             if facet_result and facet_result.get("listings"):
                 facet_result["status"] = "partial"
-                facet_result.setdefault("notes", []).append("Codex CLI was not found, so only Visor public facets were collected.")
+                facet_result.setdefault("notes", []).append(f"{unavailable_note}, so only Visor public facets were collected.")
                 self._write_job_result(job_id, facet_result)
                 self._update(
                     job_id,
@@ -160,8 +169,8 @@ class CollectionManager:
             self._update(
                 job_id,
                 status="blocked",
-                message="Codex CLI not found and Visor public facets had no listings.",
-                error="codex_not_found",
+                message=f"{unavailable_note} and Visor public facets had no listings.",
+                error="codex_not_authenticated" if codex_path else "codex_not_found",
             )
             return
 
@@ -182,6 +191,7 @@ class CollectionManager:
             with stdout_path.open("w", encoding="utf-8") as stdout_file, stderr_path.open("w", encoding="utf-8") as stderr_file:
                 process = subprocess.Popen(
                     command,
+                    env=codex_environment(),
                     stdin=subprocess.PIPE,
                     stdout=stdout_file,
                     stderr=stderr_file,
@@ -307,18 +317,7 @@ class CollectionManager:
         )
 
     def _codex_path(self) -> str:
-        if self.config.codex_path:
-            return self.config.codex_path if Path(self.config.codex_path).exists() else ""
-        env_path = os.environ.get("CODEX_BIN", "").strip()
-        if env_path:
-            return env_path if Path(env_path).exists() else ""
-        path = shutil.which("codex")
-        if path:
-            return path
-        mac_path = Path("/Applications/Codex.app/Contents/Resources/codex")
-        if mac_path.exists():
-            return str(mac_path)
-        return ""
+        return find_codex_cli(self.config.codex_path)
 
     def _update(self, job_id: str, **updates: Any) -> None:
         with self._lock:
@@ -384,9 +383,12 @@ def build_codex_command(codex_path: str, root: Path, schema_path: Path, output_p
         "--ask-for-approval",
         "never",
         "exec",
+        "--ephemeral",
+        "--ignore-user-config",
+        "--ignore-rules",
         "--skip-git-repo-check",
         "--sandbox",
-        "workspace-write",
+        "read-only",
         "--output-schema",
         str(schema_path),
         "-o",

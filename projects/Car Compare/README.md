@@ -89,11 +89,13 @@ On another computer:
    codex --version
    ```
 
-3. If `codex` is not on PATH, set:
+3. The app automatically checks `PATH`, official standalone install locations on macOS/Linux/Windows, and macOS ChatGPT/Codex desktop bundles. If it still cannot find the CLI, set `CODEX_BIN` to the executable on that computer, for example:
 
    ```bash
-   export CODEX_BIN="/Applications/Codex.app/Contents/Resources/codex"
+   export CODEX_BIN="/Applications/ChatGPT.app/Contents/Resources/codex"
    ```
+
+   On Windows, a standard standalone install is discovered under `%LOCALAPPDATA%\Programs\OpenAI\Codex\bin\codex.exe`.
 
 4. Run the app:
 
@@ -102,15 +104,23 @@ On another computer:
    python3 app.py --port 8787
    ```
 
-5. Open `http://127.0.0.1:8787`, enter a vehicle, and click `Collect`.
+5. Open `http://127.0.0.1:8787`, enter a vehicle, and click `Collect & Research`.
+
+For a deployment host, verify both CLI discovery and the saved/keyring login with:
+
+```bash
+python3 scripts/deploy_preflight.py --smoke-codex
+```
 
 The app binds to `127.0.0.1` by default. Keep it local unless you intentionally add authentication, because automatic collection can spend Codex usage.
+
+The planned public route is `https://carcompare.nsyprojects.com/`. It must stay behind Cloudflare Access or equivalent authenticated proxy protection. Browser visitors use the deployment host's Codex account and do not install or log in to Codex themselves. `GET /api/setup` reports host readiness without exposing credentials.
 
 The first page intentionally opens empty. It should not auto-run a default BMW query anymore.
 
 ## Generation Impact Research
 
-The `Generation Forecast` panel can start a Codex research job that estimates whether a coming replacement generation should add an extra depreciation shock to predicted rows. The project-local skill lives at:
+The `Generation Forecast` panel runs automatically for the current vehicle when research or collection is started. It uses Codex to estimate whether a coming replacement generation should add an extra depreciation shock to predicted rows. The project-local skill lives at:
 
 ```text
 skills/generation-impact-research

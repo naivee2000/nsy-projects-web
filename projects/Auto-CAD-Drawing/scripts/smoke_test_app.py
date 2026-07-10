@@ -82,6 +82,11 @@ def main() -> int:
     assert any(item["name"] == "baseline_outputs" and item["ok"] for item in readiness["checks"]), readiness
     print("OK: readiness")
 
+    setup = request_json(f"{base_url}/api/setup")
+    assert setup["app"] == "auto-cad-drawing", setup
+    assert "codex" in setup, setup
+    print("OK: Codex setup status")
+
     capabilities = request_json(f"{base_url}/api/capabilities")
     assert "CPX26051" in capabilities["supported_projects"], capabilities
     assert "CPX25034" in capabilities["supported_projects"], capabilities

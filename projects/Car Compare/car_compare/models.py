@@ -74,6 +74,9 @@ class BucketStats:
     depreciation_from_baseline: float | None = None
     depreciation_from_baseline_pct: float | None = None
     generation_adjustment_pct: float | None = None
+    generation_adjustment_ratio: float | None = None
+    generation_adjustment_year: int | None = None
+    generation_unadjusted_median: float | None = None
     generation_adjustment_label: str = ""
     generation_adjustment_basis: str = ""
     forecast_year: int | None = None

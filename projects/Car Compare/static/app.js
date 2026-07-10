@@ -1,6 +1,6 @@
 const form = document.querySelector("#searchForm");
 const collectButton = document.querySelector("#collectButton");
-const generationButton = document.querySelector("#generationButton");
+const collectButtonLabel = document.querySelector("#collectButtonLabel");
 const queryInput = document.querySelector("#query");
 const maxAgeInput = document.querySelector("#maxAge");
 const captureSource = document.querySelector("#captureSource");
@@ -23,10 +23,18 @@ const chartSub = document.querySelector("#chartSub");
 const depreciationChartSub = document.querySelector("#depreciationChartSub");
 const runStamp = document.querySelector("#runStamp");
 const resolverPanel = document.querySelector("#resolverPanel");
+const emptyWorkspace = document.querySelector("#emptyWorkspace");
+const resultsSurface = document.querySelector("#resultsSurface");
+const sourceCount = document.querySelector("#sourceCount");
 let activeJobId = "";
 let activeJobResult = null;
 let activeGenerationJobId = "";
 let activeGenerationImpact = null;
+let activeGenerationQuery = "";
+let generationResearchAvailable = false;
+let generationJobRunning = false;
+let collectorAvailable = false;
+let collectionJobRunning = false;
 
 const money = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -34,17 +42,27 @@ const money = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 0
 });
 
+const chartColors = Object.freeze({
+  background: "#11171a",
+  text: "#8fa0a6",
+  grid: "#273238",
+  gridSoft: "#202b30",
+  axis: "#405057",
+  observed: "#31d7c8",
+  observedFill: "#17383a",
+  projected: "#8b86ff",
+  projectedFill: "#2a2751",
+  average: "#c9f255",
+  median: "#e9f0f2",
+  loss: "#f4b85a",
+  lossFill: "#4b371c",
+  lossProjectedFill: "#302d55",
+  percent: "#ff7b72"
+});
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  await runResearch();
-});
-
-collectButton.addEventListener("click", async () => {
   await startCollection();
-});
-
-generationButton.addEventListener("click", async () => {
-  await startGenerationResearch();
 });
 
 loadStatus();
@@ -54,10 +72,13 @@ async function runResearch() {
   if (!queryInput.value.trim()) {
     activeJobId = "";
     activeJobResult = null;
-    activeGenerationJobId = "";
-    activeGenerationImpact = null;
+    clearGenerationState();
     renderEmptyState();
     return;
+  }
+  const key = currentQueryKey();
+  if (activeGenerationQuery && activeGenerationQuery !== key) {
+    clearGenerationState();
   }
   const payload = {
     query: queryInput.value,
@@ -68,8 +89,8 @@ async function runResearch() {
     msrpUrl: msrpUrl.value,
     maxAge: maxAgeInput?.value || 10,
     jobId: activeJobResult ? activeJobId : "",
-    generationJobId: activeGenerationImpact ? activeGenerationJobId : "",
-    generationImpact: activeGenerationImpact
+    generationJobId: activeGenerationImpact && activeGenerationQuery === key ? activeGenerationJobId : "",
+    generationImpact: activeGenerationImpact && activeGenerationQuery === key ? activeGenerationImpact : null
   };
   const response = await fetch("/api/research", {
     method: "POST",
@@ -88,55 +109,61 @@ async function loadStatus() {
   const data = await response.json();
   renderCollectorAvailability(data.collector);
   renderGenerationAvailability(data.generationResearch);
+  sourceCount.textContent = `${data.sources.length} feeds`;
   sourceStatus.innerHTML = data.sources
     .map((source) => {
       const cls = source.status.includes("api") ? "sourceItem api" : "sourceItem";
       return `<div class="${cls}">
         <strong>${escapeHtml(source.name)}</strong>
         <span>${escapeHtml(source.status.replaceAll("_", " "))}</span>
-        <span>${escapeHtml(source.result)}</span>
+        <span class="sourceDetail" title="${escapeHtml(source.result)}">${escapeHtml(source.result)}</span>
       </div>`;
     })
     .join("");
 }
 
 function renderCollectorAvailability(collector) {
+  collectorAvailable = Boolean(collector?.available);
   const status = collector?.available ? "Available" : "Not configured";
   const detail = collector?.available
-    ? `${collector.codexPath}${collector.dryRun ? " · dry run" : ""}`
+    ? `Codex CLI connected${collector.dryRun ? " · dry run" : ""}`
     : collector?.message || "Install Codex or set CODEX_BIN.";
+  collectorStatus.dataset.state = collectorAvailable ? "ready" : "offline";
   collectorStatus.innerHTML = `<div class="collectorItem">
     <strong>${escapeHtml(status)}</strong>
-    <span>${escapeHtml(detail)}</span>
+    <span title="${escapeHtml(collector?.codexPath || "")}">${escapeHtml(detail)}</span>
     <span id="jobStatusLine">No collection job running.</span>
   </div>`;
-  collectButton.disabled = !collector?.available;
+  syncCollectButton();
 }
 
 function renderGenerationAvailability(researcher) {
-  const status = researcher?.available ? "Available" : "Not configured";
+  generationResearchAvailable = Boolean(researcher?.available);
+  const status = generationResearchAvailable ? "Automatic" : "Not configured";
   const detail = researcher?.available
-    ? `${researcher.codexPath}${researcher.dryRun ? " · dry run" : ""}`
+    ? `Launch-event research enabled${researcher.dryRun ? " · dry run" : ""}`
     : researcher?.message || "Install Codex or set CODEX_BIN.";
+  generationStatus.dataset.state = generationResearchAvailable ? "ready" : "offline";
   generationStatus.innerHTML = `<div class="collectorItem">
     <strong>${escapeHtml(status)}</strong>
-    <span>${escapeHtml(detail)}</span>
-    <span id="generationStatusLine">No generation research loaded.</span>
+    <span title="${escapeHtml(researcher?.codexPath || "")}">${escapeHtml(detail)}</span>
+    <span id="generationStatusLine">${generationResearchAvailable ? "Runs automatically for the current vehicle." : "Generation forecast skipped."}</span>
   </div>`;
-  generationButton.disabled = !researcher?.available;
 }
 
 async function startCollection() {
   if (!queryInput.value.trim()) {
     activeJobId = "";
     activeJobResult = null;
+    clearGenerationState();
     renderEmptyState();
     setJobStatus("No collection job running.");
     return;
   }
   activeJobId = "";
   activeJobResult = null;
-  collectButton.disabled = true;
+  ensureGenerationResearch();
+  setCollectionRunning(true);
   setJobStatus("Starting collection job...");
   const response = await fetch("/api/collect", {
     method: "POST",
@@ -146,7 +173,7 @@ async function startCollection() {
   const job = await response.json();
   if (!response.ok) {
     setJobStatus(job.error || "Could not start collection.");
-    collectButton.disabled = false;
+    setCollectionRunning(false);
     return;
   }
   activeJobId = job.id;
@@ -155,15 +182,16 @@ async function startCollection() {
 
 async function startGenerationResearch() {
   if (!queryInput.value.trim()) {
-    activeGenerationJobId = "";
-    activeGenerationImpact = null;
+    clearGenerationState();
     renderGenerationImpact(null);
     setGenerationStatus("No generation research loaded.");
     return;
   }
+  const key = currentQueryKey();
   activeGenerationJobId = "";
   activeGenerationImpact = null;
-  generationButton.disabled = true;
+  activeGenerationQuery = key;
+  generationJobRunning = true;
   renderGenerationImpact(null);
   setGenerationStatus("Starting generation impact research...");
   const response = await fetch("/api/generation-impact", {
@@ -174,11 +202,11 @@ async function startGenerationResearch() {
   const job = await response.json();
   if (!response.ok) {
     setGenerationStatus(job.error || "Could not start generation research.");
-    generationButton.disabled = false;
+    generationJobRunning = false;
     return;
   }
   activeGenerationJobId = job.id;
-  pollGenerationResearch(job.id);
+  pollGenerationResearch(job.id, key);
 }
 
 async function pollCollection(jobId) {
@@ -186,7 +214,7 @@ async function pollCollection(jobId) {
   const job = await response.json();
   if (!response.ok) {
     setJobStatus(job.error || "Collection job not found.");
-    collectButton.disabled = false;
+    setCollectionRunning(false);
     return;
   }
   setJobStatus(`${job.status}: ${job.message || ""}`);
@@ -194,7 +222,7 @@ async function pollCollection(jobId) {
     setTimeout(() => pollCollection(jobId), 3000);
     return;
   }
-  collectButton.disabled = false;
+  setCollectionRunning(false);
   if (job.result) {
     activeJobResult = job.result;
   }
@@ -206,20 +234,24 @@ async function pollCollection(jobId) {
   }
 }
 
-async function pollGenerationResearch(jobId) {
+async function pollGenerationResearch(jobId, queryKey) {
   const response = await fetch(`/api/generation-impact/${encodeURIComponent(jobId)}`);
   const job = await response.json();
   if (!response.ok) {
     setGenerationStatus(job.error || "Generation research job not found.");
-    generationButton.disabled = false;
+    generationJobRunning = false;
+    return;
+  }
+  if (activeGenerationQuery !== queryKey) {
+    generationJobRunning = false;
     return;
   }
   setGenerationStatus(`${job.status}: ${job.message || ""}`);
   if (["queued", "running"].includes(job.status)) {
-    setTimeout(() => pollGenerationResearch(jobId), 4000);
+    setTimeout(() => pollGenerationResearch(jobId, queryKey), 4000);
     return;
   }
-  generationButton.disabled = false;
+  generationJobRunning = false;
   if (job.result) {
     activeGenerationImpact = job.result;
     renderGenerationImpact(job.result);
@@ -227,10 +259,30 @@ async function pollGenerationResearch(jobId) {
   if (job.status === "completed") {
     const adjustmentCount = (job.result?.adjustments || []).length;
     setGenerationStatus(`Completed: ${adjustmentCount} forecast adjustment${adjustmentCount === 1 ? "" : "s"} loaded.`);
-    await runResearch();
+    if (currentQueryKey() === queryKey) {
+      await runResearch();
+    }
   } else {
     setGenerationStatus(`${job.status}: ${job.error || job.message || "Generation research did not complete."}`);
   }
+}
+
+function ensureGenerationResearch() {
+  if (!generationResearchAvailable || generationJobRunning || !queryInput.value.trim()) return;
+  const key = currentQueryKey();
+  if (activeGenerationImpact && activeGenerationQuery === key) return;
+  startGenerationResearch();
+}
+
+function clearGenerationState() {
+  activeGenerationJobId = "";
+  activeGenerationImpact = null;
+  activeGenerationQuery = "";
+  generationJobRunning = false;
+}
+
+function currentQueryKey() {
+  return queryInput.value.trim().toLowerCase();
 }
 
 function setJobStatus(text) {
@@ -243,11 +295,24 @@ function setGenerationStatus(text) {
   if (line) line.textContent = text;
 }
 
+function setCollectionRunning(running) {
+  collectionJobRunning = running;
+  syncCollectButton();
+}
+
+function syncCollectButton() {
+  collectButton.disabled = !collectorAvailable || collectionJobRunning;
+  collectButton.classList.toggle("isBusy", collectionJobRunning);
+  collectButtonLabel.textContent = collectionJobRunning ? "Researching" : "Collect & Research";
+}
+
 function renderEmptyState() {
   chartTitle.textContent = "Depreciation Trend";
   chartSub.textContent = "";
   depreciationChartSub.textContent = "";
-  runStamp.textContent = "Depreciation research";
+  runStamp.textContent = "Vehicle value intelligence";
+  emptyWorkspace.hidden = false;
+  resultsSurface.hidden = true;
   resolverPanel.innerHTML = "";
   metrics.innerHTML = "";
   chart.innerHTML = "";
@@ -264,6 +329,9 @@ function renderReport(report) {
   const maxAge = report.summary.maxAge || Math.max(10, ...report.buckets.map((bucket) => bucket.age || 0));
   const ageOne = report.buckets.find((bucket) => bucket.age === 1);
   const horizonBucket = report.buckets.find((bucket) => bucket.age === maxAge);
+
+  emptyWorkspace.hidden = true;
+  resultsSurface.hidden = false;
 
   chartTitle.textContent = report.summary.displayName || "Depreciation Trend";
   chartSub.textContent = `${report.summary.listingCount} listings, ${observed} observed buckets, ${predicted} projected buckets`;
@@ -321,9 +389,9 @@ function renderChart(buckets) {
   const maxAge = Math.max(1, ...buckets.map((bucket) => Number(bucket.age) || 0));
   const candidates = buckets.flatMap((b) => [b.high, b.q3, b.median, b.average, b.trend_median].filter(Boolean));
   if (!candidates.length) {
-    chart.innerHTML = `<rect x="0" y="0" width="${width}" height="${height}" fill="white"></rect>
+    chart.innerHTML = `<rect x="0" y="0" width="${width}" height="${height}" fill="${chartColors.background}"></rect>
       <text x="${width / 2}" y="${height / 2 - 8}" text-anchor="middle" class="emptyChart">No market data yet</text>
-      <text x="${width / 2}" y="${height / 2 + 22}" text-anchor="middle" font-size="13" fill="#627077">Use the collection plan, import visible listing text, then rerun research.</text>`;
+      <text x="${width / 2}" y="${height / 2 + 22}" text-anchor="middle" font-size="13" fill="${chartColors.text}">Waiting for market observations.</text>`;
     return;
   }
   const maxValue = Math.max(...candidates) * 1.08;
@@ -335,34 +403,34 @@ function renderChart(buckets) {
   const yTicks = tickValues(minValue, maxValue, 5);
   const ageStep = maxAge <= 10 ? 1 : maxAge <= 15 ? 2 : 5;
   let svg = "";
-  svg += `<rect x="0" y="0" width="${width}" height="${height}" fill="white"></rect>`;
+  svg += `<rect x="0" y="0" width="${width}" height="${height}" fill="${chartColors.background}"></rect>`;
   for (const tick of yTicks) {
     const ty = y(tick);
-    svg += `<line x1="${margin.left}" y1="${ty}" x2="${width - margin.right}" y2="${ty}" stroke="#e8ecea"></line>`;
-    svg += `<text x="${margin.left - 12}" y="${ty + 4}" text-anchor="end" font-size="12" fill="#627077">${money.format(tick)}</text>`;
+    svg += `<line x1="${margin.left}" y1="${ty}" x2="${width - margin.right}" y2="${ty}" stroke="${chartColors.grid}"></line>`;
+    svg += `<text x="${margin.left - 12}" y="${ty + 4}" text-anchor="end" font-size="12" fill="${chartColors.text}">${money.format(tick)}</text>`;
   }
   for (let age = 0; age <= maxAge; age += ageStep) {
     const tx = x(age);
-    svg += `<line x1="${tx}" y1="${margin.top}" x2="${tx}" y2="${height - margin.bottom}" stroke="#f0f2f0"></line>`;
-    svg += `<text x="${tx}" y="${height - 18}" text-anchor="middle" font-size="12" fill="#627077">${age}</text>`;
+    svg += `<line x1="${tx}" y1="${margin.top}" x2="${tx}" y2="${height - margin.bottom}" stroke="${chartColors.gridSoft}"></line>`;
+    svg += `<text x="${tx}" y="${height - 18}" text-anchor="middle" font-size="12" fill="${chartColors.text}">${age}</text>`;
   }
-  svg += `<text x="${margin.left + plotW / 2}" y="${height - 2}" text-anchor="middle" font-size="12" fill="#627077">Vehicle age</text>`;
+  svg += `<text x="${margin.left + plotW / 2}" y="${height - 2}" text-anchor="middle" font-size="12" fill="${chartColors.text}">Vehicle age</text>`;
 
   const observedPoints = buckets.filter((b) => b.trend_median && !b.predicted).map((b) => `${x(b.age)},${y(b.trend_median)}`);
   const projectedPoints = buckets.filter((b) => b.trend_median && b.age >= firstPredictedAge(buckets) - 1).map((b) => `${x(b.age)},${y(b.trend_median)}`);
   if (observedPoints.length > 1) {
-    svg += `<polyline points="${observedPoints.join(" ")}" fill="none" stroke="#007a78" stroke-width="3"></polyline>`;
+    svg += `<polyline points="${observedPoints.join(" ")}" fill="none" stroke="${chartColors.observed}" stroke-width="3"></polyline>`;
   }
   if (projectedPoints.length > 1) {
-    svg += `<polyline points="${projectedPoints.join(" ")}" fill="none" stroke="#6f5aa7" stroke-width="3" stroke-dasharray="8 7"></polyline>`;
+    svg += `<polyline points="${projectedPoints.join(" ")}" fill="none" stroke="${chartColors.projected}" stroke-width="3" stroke-dasharray="8 7"></polyline>`;
   }
 
   for (const bucket of buckets) {
     if (!bucket.median || !bucket.q1 || !bucket.q3 || !bucket.low || !bucket.high) continue;
     const cx = x(bucket.age);
     const boxW = bucket.age === 0 ? 14 : 38;
-    const color = bucket.predicted ? "#6f5aa7" : "#007a78";
-    const fill = bucket.predicted ? "#efeaf9" : "#e5f3f2";
+    const color = bucket.predicted ? chartColors.projected : chartColors.observed;
+    const fill = bucket.predicted ? chartColors.projectedFill : chartColors.observedFill;
     const lowY = y(bucket.low);
     const highY = y(bucket.high);
     const q1Y = y(bucket.q1);
@@ -376,8 +444,8 @@ function renderChart(buckets) {
     svg += `<line x1="${cx - 12}" y1="${highY}" x2="${cx + 12}" y2="${highY}" stroke="${color}" stroke-width="2" ${dash}></line>`;
     svg += `<line x1="${cx - 12}" y1="${lowY}" x2="${cx + 12}" y2="${lowY}" stroke="${color}" stroke-width="2" ${dash}></line>`;
     svg += `<rect x="${cx - boxW / 2}" y="${q3Y}" width="${boxW}" height="${Math.max(2, q1Y - q3Y)}" rx="4" fill="${fill}" stroke="${color}" stroke-width="2" ${dash}></rect>`;
-    svg += `<line x1="${cx - boxW / 2}" y1="${medY}" x2="${cx + boxW / 2}" y2="${medY}" stroke="#1c2528" stroke-width="2"></line>`;
-    svg += `<circle cx="${cx}" cy="${avgY}" r="4.5" fill="#d39b28" stroke="white" stroke-width="1.5"></circle>`;
+    svg += `<line x1="${cx - boxW / 2}" y1="${medY}" x2="${cx + boxW / 2}" y2="${medY}" stroke="${chartColors.median}" stroke-width="2"></line>`;
+    svg += `<circle cx="${cx}" cy="${avgY}" r="4.5" fill="${chartColors.average}" stroke="${chartColors.background}" stroke-width="1.5"></circle>`;
     svg += `</g>`;
   }
 
@@ -400,9 +468,9 @@ function renderDepreciationChart(buckets) {
     .filter((point) => point.loss !== null && point.pct !== null);
 
   if (!points.length || Math.max(...points.map((point) => point.loss)) <= 0) {
-    depreciationChart.innerHTML = `<rect x="0" y="0" width="${width}" height="${height}" fill="white"></rect>
+    depreciationChart.innerHTML = `<rect x="0" y="0" width="${width}" height="${height}" fill="${chartColors.background}"></rect>
       <text x="${width / 2}" y="${height / 2 - 8}" text-anchor="middle" class="emptyChart">No depreciation data yet</text>
-      <text x="${width / 2}" y="${height / 2 + 22}" text-anchor="middle" font-size="13" fill="#627077">Run research with Age 0 market values to calculate depreciation.</text>`;
+      <text x="${width / 2}" y="${height / 2 + 22}" text-anchor="middle" font-size="13" fill="${chartColors.text}">Waiting for an Age 0 market baseline.</text>`;
     return;
   }
 
@@ -420,33 +488,33 @@ function renderDepreciationChart(buckets) {
   const barW = Math.min(40, Math.max(12, plotW / Math.max(points.length * 1.8, 1)));
 
   let svg = "";
-  svg += `<rect x="0" y="0" width="${width}" height="${height}" fill="white"></rect>`;
+  svg += `<rect x="0" y="0" width="${width}" height="${height}" fill="${chartColors.background}"></rect>`;
   for (const tick of dollarTicks) {
     const ty = yLoss(tick);
-    svg += `<line x1="${margin.left}" y1="${ty}" x2="${width - margin.right}" y2="${ty}" stroke="#e8ecea"></line>`;
-    svg += `<text x="${margin.left - 12}" y="${ty + 4}" text-anchor="end" font-size="12" fill="#627077">${money.format(tick)}</text>`;
+    svg += `<line x1="${margin.left}" y1="${ty}" x2="${width - margin.right}" y2="${ty}" stroke="${chartColors.grid}"></line>`;
+    svg += `<text x="${margin.left - 12}" y="${ty + 4}" text-anchor="end" font-size="12" fill="${chartColors.text}">${money.format(tick)}</text>`;
   }
   for (const tick of pctTicks) {
     const ty = yPct(tick);
-    svg += `<text x="${width - margin.right + 16}" y="${ty + 4}" text-anchor="start" font-size="12" fill="#627077">${fmtAxisPct(tick)}</text>`;
+    svg += `<text x="${width - margin.right + 16}" y="${ty + 4}" text-anchor="start" font-size="12" fill="${chartColors.text}">${fmtAxisPct(tick)}</text>`;
   }
   for (let age = 0; age <= maxAge; age += ageStep) {
     const tx = x(age);
-    svg += `<line x1="${tx}" y1="${margin.top}" x2="${tx}" y2="${zeroY}" stroke="#f0f2f0"></line>`;
-    svg += `<text x="${tx}" y="${height - 18}" text-anchor="middle" font-size="12" fill="#627077">${age}</text>`;
+    svg += `<line x1="${tx}" y1="${margin.top}" x2="${tx}" y2="${zeroY}" stroke="${chartColors.gridSoft}"></line>`;
+    svg += `<text x="${tx}" y="${height - 18}" text-anchor="middle" font-size="12" fill="${chartColors.text}">${age}</text>`;
   }
-  svg += `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${zeroY}" stroke="#cfd7d4"></line>`;
-  svg += `<line x1="${width - margin.right}" y1="${margin.top}" x2="${width - margin.right}" y2="${zeroY}" stroke="#cfd7d4"></line>`;
-  svg += `<line x1="${margin.left}" y1="${zeroY}" x2="${width - margin.right}" y2="${zeroY}" stroke="#cfd7d4"></line>`;
-  svg += `<text x="${margin.left + plotW / 2}" y="${height - 2}" text-anchor="middle" font-size="12" fill="#627077">Vehicle age</text>`;
-  svg += `<text transform="translate(18 ${margin.top + plotH / 2}) rotate(-90)" text-anchor="middle" font-size="12" fill="#627077">Total loss from Age 0 median</text>`;
-  svg += `<text transform="translate(${width - 20} ${margin.top + plotH / 2}) rotate(90)" text-anchor="middle" font-size="12" fill="#627077">Total depreciation %</text>`;
+  svg += `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${zeroY}" stroke="${chartColors.axis}"></line>`;
+  svg += `<line x1="${width - margin.right}" y1="${margin.top}" x2="${width - margin.right}" y2="${zeroY}" stroke="${chartColors.axis}"></line>`;
+  svg += `<line x1="${margin.left}" y1="${zeroY}" x2="${width - margin.right}" y2="${zeroY}" stroke="${chartColors.axis}"></line>`;
+  svg += `<text x="${margin.left + plotW / 2}" y="${height - 2}" text-anchor="middle" font-size="12" fill="${chartColors.text}">Vehicle age</text>`;
+  svg += `<text transform="translate(18 ${margin.top + plotH / 2}) rotate(-90)" text-anchor="middle" font-size="12" fill="${chartColors.text}">Total loss from Age 0 median</text>`;
+  svg += `<text transform="translate(${width - 20} ${margin.top + plotH / 2}) rotate(90)" text-anchor="middle" font-size="12" fill="${chartColors.text}">Total depreciation %</text>`;
 
   for (const point of points) {
     const cx = x(point.age);
     const top = yLoss(point.loss);
-    const color = point.predicted ? "#c7badf" : "#e2ad3f";
-    const stroke = point.predicted ? "#6f5aa7" : "#b87919";
+    const color = point.predicted ? chartColors.lossProjectedFill : chartColors.lossFill;
+    const stroke = point.predicted ? chartColors.projected : chartColors.loss;
     svg += `<g>`;
     svg += `<title>Age ${point.age}: ${money.format(point.loss)} total loss, ${fmtPct(point.pct)} total depreciation</title>`;
     svg += `<rect x="${cx - barW / 2}" y="${top}" width="${barW}" height="${Math.max(0, zeroY - top)}" rx="4" fill="${color}" stroke="${stroke}" stroke-width="1.5"></rect>`;
@@ -457,18 +525,18 @@ function renderDepreciationChart(buckets) {
   const pctObserved = points.filter((point) => !point.predicted).map((point) => `${x(point.age)},${yPct(point.pct)}`);
   const pctProjected = points.filter((point) => point.age >= firstProjected - 1).map((point) => `${x(point.age)},${yPct(point.pct)}`);
   if (pctObserved.length > 1) {
-    svg += `<polyline points="${pctObserved.join(" ")}" fill="none" stroke="#b5472f" stroke-width="3"></polyline>`;
+    svg += `<polyline points="${pctObserved.join(" ")}" fill="none" stroke="${chartColors.percent}" stroke-width="3"></polyline>`;
   }
   if (pctProjected.length > 1) {
-    svg += `<polyline points="${pctProjected.join(" ")}" fill="none" stroke="#6f5aa7" stroke-width="3" stroke-dasharray="8 7"></polyline>`;
+    svg += `<polyline points="${pctProjected.join(" ")}" fill="none" stroke="${chartColors.projected}" stroke-width="3" stroke-dasharray="8 7"></polyline>`;
   }
   for (const point of points) {
-    const stroke = point.predicted ? "#6f5aa7" : "#b5472f";
+    const stroke = point.predicted ? chartColors.projected : chartColors.percent;
     const cx = x(point.age);
     const cy = yPct(point.pct);
     const labelY = Math.max(margin.top - 14, cy - 12);
     svg += `<text x="${cx}" y="${labelY}" text-anchor="middle" font-size="11" font-weight="760" fill="${stroke}">${fmtPct(point.pct)}</text>`;
-    svg += `<circle cx="${cx}" cy="${cy}" r="4.5" fill="white" stroke="${stroke}" stroke-width="2"></circle>`;
+    svg += `<circle cx="${cx}" cy="${cy}" r="4.5" fill="${chartColors.background}" stroke="${stroke}" stroke-width="2"></circle>`;
   }
 
   depreciationChart.innerHTML = svg;
@@ -495,7 +563,11 @@ function renderPlan(plan) {
 function renderTable(buckets) {
   rows.innerHTML = buckets
     .map((bucket) => {
-      const type = bucket.age === 0 ? ageZeroLabel(bucket) : bucket.predicted && bucket.age > 10 ? "Long Projection" : bucket.predicted ? "Predicted" : "Observed";
+      const type = bucket.age === 0
+        ? ageZeroLabel(bucket)
+        : bucket.generation_adjustment_pct
+          ? bucket.predicted ? "Predicted + Gen" : "Forecast Adj"
+          : bucket.predicted && bucket.age > 10 ? "Long Projection" : bucket.predicted ? "Predicted" : "Observed";
       return `<tr>
         <td>Age ${bucket.age}</td>
         <td>${bucket.model_year ?? ""}</td>
@@ -519,7 +591,10 @@ function renderGenerationCell(bucket) {
   if (!bucket.generation_adjustment_pct) return "";
   const label = bucket.generation_adjustment_label || "Generation adjustment";
   const basis = bucket.generation_adjustment_basis || "";
-  return `<span class="impactBadge" title="${escapeHtml(basis)}">${escapeHtml(label)} ${fmtPct(bucket.generation_adjustment_pct)}</span>`;
+  const ratio = bucket.generation_adjustment_ratio ? ` · x${Number(bucket.generation_adjustment_ratio).toFixed(2)}` : "";
+  const year = bucket.generation_adjustment_year ? ` · ${bucket.generation_adjustment_year}` : "";
+  const original = bucket.generation_unadjusted_median ? `Before adjustment: ${fmtMoney(bucket.generation_unadjusted_median)}. ` : "";
+  return `<span class="impactBadge" title="${escapeHtml(`${original}${basis}`)}">${escapeHtml(label)} ${fmtPct(bucket.generation_adjustment_pct)}${escapeHtml(ratio)}${escapeHtml(year)}</span>`;
 }
 
 function renderGenerationImpact(impact) {

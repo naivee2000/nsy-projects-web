@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import json
 import importlib.util
 import shutil
@@ -27,6 +28,7 @@ from generator_registry import (  # noqa: E402
     analyze_uploads,
     project_requirement_message,
 )
+from codex_advisory import advisory_enabled, advisory_status, analyze_rejected_upload  # noqa: E402
 from level_sensor_generator import (  # noqa: E402
     generate as generate_level_sensor,
     load_data as load_level_sensor_data,
@@ -217,6 +219,31 @@ def build_readiness_payload() -> dict[str, Any]:
         )
     )
 
+    codex = advisory_status()
+    codex_ok = not codex["enabled"] or codex["ready"]
+    checks.append(
+        check_item(
+            "codex_advisory",
+            codex_ok,
+            "Codex advisory is ready on this deployment host."
+            if codex["ready"]
+            else (
+                "Codex advisory is disabled; deterministic CAD generation remains available."
+                if not codex["enabled"]
+                else codex["message"]
+            ),
+            {
+                "enabled": codex["enabled"],
+                "available": codex["available"],
+                "authenticated": codex["authenticated"],
+                "auth_method": codex["auth_method"],
+                "codex_bin": codex["codex_bin"],
+                "codex_home": codex["codex_home"],
+                "schema_ok": codex["schema_ok"],
+            },
+        )
+    )
+
     output_details: list[dict[str, Any]] = []
     output_ok = True
     output_messages: list[str] = []
@@ -329,6 +356,19 @@ def readiness() -> JSONResponse:
     return JSONResponse(payload, status_code=status_code)
 
 
+@app.get("/api/setup")
+def setup() -> JSONResponse:
+    codex = advisory_status()
+    return JSONResponse(
+        {
+            "status": "ready" if (not codex["enabled"] or codex["ready"]) else "not-ready",
+            "app": "auto-cad-drawing",
+            "codex": codex,
+            "runtime_root": str(ROOT),
+        }
+    )
+
+
 @app.post("/api/jobs")
 async def create_job(files: Annotated[list[UploadFile], File()] = []) -> JSONResponse:
     job_dir = safe_job_dir()
@@ -351,12 +391,16 @@ async def create_job(files: Annotated[list[UploadFile], File()] = []) -> JSONRes
 
     analysis = analyze_uploads(saved_paths)
     if analysis["status"] != "supported":
+        codex_advisory = None
+        if advisory_enabled():
+            codex_advisory = await asyncio.to_thread(analyze_rejected_upload, analysis, job_dir)
         manifest = {
             "job": job_dir.name,
             "created_at": datetime.now(UTC).isoformat(),
             "status": analysis["status"],
             "saved_uploads": saved_uploads,
             "analysis": analysis,
+            "codex_advisory": codex_advisory,
             "generated_files": [],
             "verification": [],
         }

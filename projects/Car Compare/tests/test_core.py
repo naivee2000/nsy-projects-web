@@ -19,6 +19,8 @@ from car_compare.collector import (
     listings_from_result,
     msrp_from_result,
 )
+from car_compare.codex_cli import MACOS_CODEX_CLI_PATHS, codex_environment, codex_login_status, find_codex_cli
+from car_compare.generation_impact import GenerationResearchConfig, GenerationResearchManager
 from car_compare.models import Listing, MSRP
 from car_compare.parser import parse_vehicle_query
 from car_compare.resolver import resolve_vehicle_query
@@ -311,6 +313,52 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(age_two["generation_adjustment_pct"], 0.1)
         self.assertEqual(age_two["generation_adjustment_label"], "New generation launch shock")
         self.assertEqual(age_two["depreciation_from_baseline"], 27100)
+
+    def test_generation_adjustment_applies_to_observed_future_proxy_age(self) -> None:
+        query = parse_vehicle_query("BMW M4 Competition")
+        query.max_age = 3
+        rows = [
+            Listing(
+                "new_inventory",
+                2026,
+                100000,
+                "Competition Coupe",
+                title="New 2026 BMW M4 Competition Coupe",
+                confidence="new_inventory",
+                condition="new",
+            ),
+            Listing("used_market", 2025, 90000, "Competition Coupe", title="2025 BMW M4 Competition Coupe"),
+            Listing("used_market", 2024, 82000, "Competition Coupe", title="2024 BMW M4 Competition Coupe"),
+            Listing("used_market", 2023, 76000, "Competition Coupe", title="2023 BMW M4 Competition Coupe"),
+        ]
+        report = build_report(
+            request=query,
+            listings=rows,
+            msrp=MSRP(86600, "BMW M4 Competition Coupe starting MSRP", "bmwusa", "https://example.test"),
+            generation_impact={
+                "query": "BMW M4 Competition",
+                "status": "partial",
+                "adjustments": [
+                    {
+                        "age": 99,
+                        "calendar_year": 2029,
+                        "extra_depreciation_pct": 0.06,
+                        "label": "Expected replacement-generation launch shock",
+                        "basis": "Synthetic calendar-year regression fixture.",
+                    }
+                ],
+            },
+            current_year=2026,
+        )
+        age_three = report["buckets"][3]
+        self.assertTrue(age_three["observed"])
+        self.assertFalse(age_three["predicted"])
+        self.assertEqual(age_three["forecast_year"], 2029)
+        self.assertEqual(age_three["generation_adjustment_pct"], 0.06)
+        self.assertEqual(age_three["generation_adjustment_ratio"], 0.94)
+        self.assertEqual(age_three["generation_unadjusted_median"], 76000)
+        self.assertEqual(age_three["median"], 71440)
+        self.assertEqual(age_three["depreciation_from_baseline"], 28560)
 
     def test_aggregate_facet_samples_are_not_deduped_as_dealer_duplicates(self) -> None:
         rows = [
@@ -642,6 +690,42 @@ class CollectionPlanTests(unittest.TestCase):
 
 
 class CollectorPayloadTests(unittest.TestCase):
+    def test_macos_chatgpt_cli_location_is_recognized(self) -> None:
+        self.assertIn(
+            Path("/Applications/ChatGPT.app/Contents/Resources/codex"),
+            MACOS_CODEX_CLI_PATHS,
+        )
+
+    def test_codex_environment_preserves_configured_home(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            previous = os.environ.get("CODEX_HOME")
+            os.environ["CODEX_HOME"] = tmp
+            try:
+                self.assertEqual(codex_environment()["CODEX_HOME"], str(Path(tmp).resolve()))
+            finally:
+                if previous is None:
+                    os.environ.pop("CODEX_HOME", None)
+                else:
+                    os.environ["CODEX_HOME"] = previous
+
+    def test_login_status_uses_cli_instead_of_auth_file(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            fake_codex = Path(tmp) / "codex"
+            fake_codex.write_text("#!/bin/sh\necho 'Logged in using ChatGPT'\n", encoding="utf-8")
+            os.chmod(fake_codex, 0o755)
+            status = codex_login_status(str(fake_codex))
+            self.assertTrue(status["authenticated"])
+            self.assertEqual(status["authMethod"], "chatgpt")
+
+    def test_shared_cli_lookup_is_used_by_both_research_managers(self) -> None:
+        expected_path = find_codex_cli()
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            collector = CollectionManager(CollectorConfig(root=root))
+            generation = GenerationResearchManager(GenerationResearchConfig(root=root))
+            self.assertEqual(collector._codex_path(), expected_path)
+            self.assertEqual(generation._codex_path(), expected_path)
+
     def test_codex_command_places_global_args_before_exec(self) -> None:
         command = build_codex_command(
             codex_path="/usr/local/bin/codex",
@@ -707,6 +791,10 @@ import sys
 import time
 from pathlib import Path
 
+if sys.argv[1:] == ["login", "status"]:
+    print("Logged in using ChatGPT")
+    raise SystemExit(0)
+
 out = Path(sys.argv[sys.argv.index("-o") + 1])
 sys.stdin.read()
 time.sleep(1.0)
@@ -727,7 +815,9 @@ out.write_text(json.dumps({
             )
             job = manager.start("Honda Civic")
             running = None
-            deadline = time.time() + 2
+            # The deployment-safe path verifies `codex login status` before
+            # launching the worker, so allow startup time on slower hosts.
+            deadline = time.time() + 4
             while time.time() < deadline:
                 current = manager.get(job.id)
                 if current and current.status == "running" and current.process_id:

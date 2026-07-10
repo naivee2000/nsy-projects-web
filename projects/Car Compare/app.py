@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import unquote
 
+from car_compare.codex_cli import codex_login_status
 from car_compare.collector import (
     CollectionManager,
     CollectorConfig,
@@ -58,6 +59,25 @@ class CarCompareHandler(BaseHTTPRequestHandler):
                     "sources": SITE_STATUS,
                     "collector": COLLECTOR.availability(),
                     "generationResearch": GENERATION_RESEARCH.availability(),
+                }
+            )
+            return
+        if self.path == "/api/health":
+            self._send_json({"status": "ok", "app": "car-compare"})
+            return
+        if self.path == "/api/setup":
+            codex = codex_login_status(os.environ.get("CODEX_BIN", ""))
+            skill_path = ROOT / "skills" / "generation-impact-research" / "SKILL.md"
+            self._send_json(
+                {
+                    "status": "ready" if codex["available"] and codex["authenticated"] and skill_path.is_file() else "not-ready",
+                    "app": "car-compare",
+                    "codex": codex,
+                    "generationSkill": {
+                        "ok": skill_path.is_file(),
+                        "path": str(skill_path.parent),
+                    },
+                    "runtimeRoot": str(ROOT),
                 }
             )
             return

@@ -127,7 +127,7 @@ def _report_payload(
             "needsMsrpCapture": msrp.source in {"needs_manufacturer_capture", "estimated_from_used_market"},
         },
         "buckets": [_clean_bucket(bucket) for bucket in buckets],
-        "generationImpact": _clean_generation_impact(generation_impact),
+        "generationImpact": _clean_generation_impact(generation_impact, current_year),
         "listings": [item.to_dict() for item in filtered[:250]],
         "evidence": {
             "sources": _evidence_sources(filtered, msrp),
@@ -409,8 +409,6 @@ def _apply_trend_and_predictions(
     last_trend = buckets[0].median if buckets[0].observed else None
     retention_rates: list[float] = []
     last_spread = (0.92, 1.08)
-    generation_adjustments = _generation_adjustments_by_age(generation_impact)
-
     for bucket in buckets:
         bucket.forecast_year = current_year + bucket.age
         if bucket.age == 0:
@@ -439,13 +437,6 @@ def _apply_trend_and_predictions(
 
         rate = _projection_rate(bucket.age, retention_rates)
         projected = last_trend * rate
-        adjustment = generation_adjustments.get(bucket.age)
-        if adjustment:
-            extra_pct = adjustment["extra_depreciation_pct"]
-            projected *= max(0.5, 1 - extra_pct)
-            bucket.generation_adjustment_pct = extra_pct
-            bucket.generation_adjustment_label = adjustment["label"]
-            bucket.generation_adjustment_basis = adjustment["basis"]
         q1_ratio, q3_ratio = last_spread
         bucket.predicted = True
         bucket.observed = False
@@ -461,6 +452,7 @@ def _apply_trend_and_predictions(
         bucket.confidence = "long_range_projected" if bucket.age > 10 else "projected"
         last_trend = projected
         retention_rates.append(rate)
+    _apply_generation_adjustments(buckets, generation_impact, current_year)
 
 
 def _projection_rate(age: int, observed_rates: list[float]) -> float:
@@ -505,7 +497,53 @@ def _apply_depreciation(buckets: list[BucketStats]) -> None:
         previous = current
 
 
-def _generation_adjustments_by_age(generation_impact: dict[str, Any] | None) -> dict[int, dict[str, Any]]:
+def _apply_generation_adjustments(
+    buckets: list[BucketStats],
+    generation_impact: dict[str, Any] | None,
+    current_year: int,
+) -> None:
+    adjustments = sorted(_generation_adjustments_by_age(generation_impact, current_year).values(), key=lambda row: row["age"])
+    if not adjustments:
+        return
+    for bucket in buckets:
+        if bucket.age == 0:
+            continue
+        active = [item for item in adjustments if item["age"] <= bucket.age]
+        if not active:
+            continue
+        ratio = 1.0
+        for item in active:
+            ratio *= max(0.5, 1 - item["extra_depreciation_pct"])
+        if ratio >= 1:
+            continue
+        event = active[-1]
+        basis_value = bucket.trend_median or bucket.median
+        if basis_value is None:
+            continue
+        bucket.generation_unadjusted_median = basis_value
+        bucket.generation_adjustment_pct = 1 - ratio
+        bucket.generation_adjustment_ratio = ratio
+        bucket.generation_adjustment_year = event.get("calendar_year")
+        bucket.generation_adjustment_label = event["label"] if bucket.age == event["age"] else "Post-generation adjusted curve"
+        bucket.generation_adjustment_basis = event["basis"]
+        if bucket.trend_median is not None:
+            bucket.trend_median *= ratio
+        _scale_bucket_prices(bucket, ratio)
+
+
+def _scale_bucket_prices(bucket: BucketStats, scale: float) -> None:
+    if scale <= 0:
+        return
+    for field in ("average", "median", "q1", "q3", "low", "high"):
+        value = getattr(bucket, field)
+        if value is not None:
+            setattr(bucket, field, value * scale)
+
+
+def _generation_adjustments_by_age(
+    generation_impact: dict[str, Any] | None,
+    current_year: int,
+) -> dict[int, dict[str, Any]]:
     if not isinstance(generation_impact, dict):
         return {}
     if generation_impact.get("status") not in {"success", "partial"}:
@@ -515,15 +553,16 @@ def _generation_adjustments_by_age(generation_impact: dict[str, Any] | None) -> 
         if not isinstance(item, dict):
             continue
         try:
-            age = int(item.get("age"))
             extra_pct = float(item.get("extra_depreciation_pct"))
         except (TypeError, ValueError):
             continue
+        calendar_year = _optional_int(item.get("calendar_year"))
+        age = _effective_adjustment_age(item, current_year)
         if age <= 0 or not (0 < extra_pct < 0.5):
             continue
         adjustments[age] = {
             "age": age,
-            "calendar_year": _optional_int(item.get("calendar_year")),
+            "calendar_year": calendar_year or current_year + age,
             "extra_depreciation_pct": max(0.0, min(0.35, extra_pct)),
             "label": str(item.get("label") or "Generation adjustment"),
             "basis": str(item.get("basis") or item.get("rationale") or ""),
@@ -531,7 +570,17 @@ def _generation_adjustments_by_age(generation_impact: dict[str, Any] | None) -> 
     return adjustments
 
 
-def _clean_generation_impact(generation_impact: dict[str, Any] | None) -> dict[str, Any] | None:
+def _effective_adjustment_age(item: dict[str, Any], current_year: int) -> int:
+    calendar_year = _optional_int(item.get("calendar_year"))
+    if calendar_year and calendar_year >= current_year:
+        return calendar_year - current_year
+    try:
+        return int(item.get("age"))
+    except (TypeError, ValueError):
+        return -1
+
+
+def _clean_generation_impact(generation_impact: dict[str, Any] | None, current_year: int) -> dict[str, Any] | None:
     if not isinstance(generation_impact, dict):
         return None
     allowed = {
@@ -547,7 +596,7 @@ def _clean_generation_impact(generation_impact: dict[str, Any] | None) -> dict[s
         "notes",
     }
     cleaned = {key: value for key, value in generation_impact.items() if key in allowed}
-    cleaned["adjustments"] = sorted(_generation_adjustments_by_age(generation_impact).values(), key=lambda row: row["age"])
+    cleaned["adjustments"] = sorted(_generation_adjustments_by_age(generation_impact, current_year).values(), key=lambda row: row["age"])
     return cleaned
 
 

@@ -15,7 +15,7 @@ User enters car query
 -> app deduplicates listings and graphs depreciation
 ```
 
-The bridge is local. The website does not talk to a cloud service directly; it starts a process on the same computer that is already running the app.
+The bridge is server-side. The website does not talk to a model API directly; it starts a process on the computer running the backend. After deployment, visitors on other computers use that host connection and do not provide their own Codex login.
 
 For sources like Visor, the app can use public market-facet pages directly. These are aggregate observations, not individual VIN/dealer listings. Used-market rows are labeled `visor_public_facets`; new-car age-0 rows are labeled `visor_public_facets_new` with `condition=new`.
 
@@ -40,11 +40,13 @@ While the job is running, the app checks the Codex process about once per second
 - `codex` available on PATH, or `CODEX_BIN` set to the executable path.
 - The app running locally on `127.0.0.1`.
 
-macOS fallback path:
+The app checks `CODEX_BIN`, `PATH`, official standalone install locations on macOS/Linux/Windows, and these macOS desktop locations. To override discovery manually, use the path that exists on the host:
 
 ```bash
-export CODEX_BIN="/Applications/Codex.app/Contents/Resources/codex"
+export CODEX_BIN="/Applications/ChatGPT.app/Contents/Resources/codex"
 ```
+
+The standalone Codex desktop fallback is `/Applications/Codex.app/Contents/Resources/codex`.
 
 After moving into the NSY projects repo, a typical run path is:
 

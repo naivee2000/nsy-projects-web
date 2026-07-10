@@ -72,6 +72,18 @@ async function loadCapabilities() {
     row.append(badge(projectId, "known-unsupported"), document.createTextNode(reason));
     capabilityList.appendChild(row);
   }
+  const setupResponse = await fetch("/api/setup");
+  const setup = await setupResponse.json();
+  const codex = setup.codex || {};
+  const codexRow = document.createElement("div");
+  codexRow.className = "capability-row";
+  const codexState = codex.ready ? "supported" : "unknown";
+  const codexLabel = codex.ready ? "Codex ready" : (codex.enabled ? "Codex unavailable" : "Codex optional");
+  const codexDetail = codex.ready
+    ? `Server-side advisory · ${codex.auth_method || "saved login"}`
+    : (codex.message || "Enable AUTO_CAD_CODEX_ADVISORY on the deployment host.");
+  codexRow.append(badge(codexLabel, codexState), document.createTextNode(codexDetail));
+  capabilityList.appendChild(codexRow);
 }
 
 async function loadJobs() {
@@ -114,7 +126,11 @@ form.addEventListener("submit", async (event) => {
     let message = await response.text();
     try {
       const payload = JSON.parse(message);
-      message = payload.detail?.analysis?.message || payload.detail?.message || message;
+      const deterministic = payload.detail?.analysis?.message || payload.detail?.message || message;
+      const advisory = payload.detail?.codex_advisory;
+      message = advisory?.status === "analyzed"
+        ? `${deterministic}\nCodex advisory: ${advisory.summary}\nNext: ${advisory.recommended_next_step}`
+        : (advisory ? `${deterministic}\nCodex advisory unavailable: ${advisory.summary}` : deterministic);
     } catch {
       // Keep raw message.
     }

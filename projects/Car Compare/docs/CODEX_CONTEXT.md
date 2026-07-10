@@ -6,7 +6,7 @@ This is the handoff entrypoint for another Codex chat after the folder is moved 
 /Users/shaoyangni/Desktop/Python Files/nsy-dem-app-handoff/projects/
 ```
 
-The user wants this project to stay self-contained as one project folder under `projects/`. Shared code and docs can live in Git; machine-local Codex auth, browser state, API keys, generated collector jobs, caches, and screenshots should stay local unless the user explicitly asks to preserve them.
+The user wants this project to stay self-contained as one project folder under `projects/`. Shared code and docs can live in Git; machine-local Codex auth, browser state, API keys, generated collector jobs, caches, and screenshots should stay local unless the user explicitly asks to preserve them. The planned public hostname is `https://carcompare.nsyprojects.com/`; Codex runs on that backend host, so browser visitors do not install Codex.
 
 ## What This App Does
 
@@ -17,8 +17,8 @@ User flow:
 ```text
 user enters vehicle query
 -> parser resolves make/model/trim/year horizon
--> Collect pulls market data from public source adapters and local Codex website collection
--> Research builds age buckets and graph
+-> Collect & Research pulls market data from public source adapters and local Codex website collection
+-> app builds age buckets and graph after collection finishes
 -> app shows box-plot trend, source evidence, and collection plan
 ```
 
@@ -65,12 +65,14 @@ Stop the old app process only if it is this Car Compare server and the user is o
 - `car_compare/sources/visor_facets.py`: public Visor aggregate facet collector.
 - `car_compare/sources/browser_capture.py`: visible listing text parser.
 - `car_compare/collector.py`: background collection jobs and Codex CLI bridge.
+- `car_compare/codex_cli.py`: cross-platform CLI discovery, `CODEX_HOME`, and keyring-safe `codex login status` checks.
 - `car_compare/generation_impact.py`: Codex-backed generation timing / depreciation-shock research jobs.
 - `car_compare/generation_impact_schema.json`: structured output contract for generation-impact research.
 - `car_compare/depreciation.py`: dedupe, statistics, projections, report assembly.
 - `tests/test_core.py`: regression suite.
 - `skills/generation-impact-research/`: project-local Codex skill for generation-impact research.
 - `scripts/install_project_skills.sh`: copies the project-local skill into another computer's local Codex skills folder.
+- `scripts/deploy_preflight.py`: verifies CLI discovery, login, schemas, and optional live `codex exec` on a deployment host.
 
 Docs:
 
@@ -91,11 +93,13 @@ The app uses two layers:
 
 The collection job currently checks Visor facets first. If Codex is available, the job can continue into website collection afterward. If Codex fails after Visor returned rows, the app keeps the Visor data as a completed partial result.
 
+For deployment, run `python3 scripts/deploy_preflight.py --smoke-codex` as the same operating-system account that will run the service. `GET /api/setup` reports readiness. Keep the origin on `127.0.0.1` and require authenticated proxy access before routing the public hostname, because user-triggered collection spends the deployment account's Codex usage.
+
 ## Generation Impact Research
 
-The `Generation Forecast` UI starts `/api/generation-impact`, which runs Codex with the project-local skill at `skills/generation-impact-research`. The expected result is JSON matching `car_compare/generation_impact_schema.json`.
+The `Generation Forecast` UI automatically starts `/api/generation-impact` for the current vehicle during normal research/collection flow. That route runs Codex with the project-local skill at `skills/generation-impact-research`. The expected result is JSON matching `car_compare/generation_impact_schema.json`.
 
-The depreciation engine applies `adjustments[].extra_depreciation_pct` only to predicted buckets at the matching `age`. Observed market data remains unchanged. Each adjusted bucket exposes `generation_adjustment_pct`, `generation_adjustment_label`, and `generation_adjustment_basis`, and the table shows the `Gen Adj` column.
+The depreciation engine applies `adjustments[].extra_depreciation_pct` by effective calendar year / age and carries that ratio through every later bucket. This lets a future replacement-generation event adjust observed proxy rows and predicted rows at or after the event year. Each adjusted bucket exposes `generation_adjustment_pct`, `generation_adjustment_ratio`, `generation_adjustment_label`, and `generation_adjustment_basis`, and the table shows the `Gen Adj` column.
 
 For portability, keep the skill inside this project folder. On another computer, run:
 
@@ -169,7 +173,7 @@ The opening page should be blank:
 - Chart, resolver, metrics, source evidence, and collection plan are blank.
 - Source/collector status still loads.
 
-Clicking `Research` or `Collect` with an empty vehicle should leave the empty state in place.
+Clicking `Collect & Research` with an empty vehicle should leave the empty state in place.
 
 ## Verification Commands
 

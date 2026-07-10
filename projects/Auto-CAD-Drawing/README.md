@@ -30,6 +30,7 @@ Local CAD-generation workspace for DONJUN-style PDF-to-CAD workflows.
 - `app.py` - local launcher; run this directly for browser use.
 - `web/app.py` - local FastAPI UI for upload/generate/download.
 - `GET /api/readiness` reports deploy readiness checks for data, dependencies, registry, UI files, and baseline outputs.
+- `GET /api/setup` reports whether the optional deployment-host Codex advisory is enabled, installed, and logged in.
 - `GET /api/jobs` and `GET /api/jobs/{job}/manifest` expose runtime job history.
 - `Dockerfile` - deployable container entrypoint.
 - `docs/deployment.md` - deployment and API integration notes.
@@ -50,6 +51,7 @@ python3 scripts/scan_reference_pdfs.py
 python3 scripts/screen_sensor_models.py --term STK333-AR2
 python3 scripts/test_reference_handling.py
 python3 scripts/check_deploy_package.py
+python3 scripts/deploy_preflight.py --require-codex
 python3 scripts/run_checks.py
 python3 app.py
 python3 scripts/smoke_test_app.py --base-url http://127.0.0.1:8008
@@ -70,3 +72,5 @@ python3 -m uvicorn web.app:app --host 127.0.0.1 --port 8008
 Keep all CAD app work inside this `projects/Auto-CAD-Drawing` folder. Do not edit sibling project folders when extending this workflow.
 
 The local UI classifies uploads before generation. `CPX26051` and the CPX25034 cargo-safety final drawing are currently supported through the reusable `level_sensor` generator and `STK333-AR2` model library. CPX25034 supplement/agreement PDFs are reference-only unless uploaded with the recognized final drawing package. `CPX25063` is detected but intentionally blocked until a dedicated template is implemented.
+
+For the `cad.nsyprojects.com` deployment, set `AUTO_CAD_CODEX_ADVISORY=1`. When the deterministic router rejects an upload, Codex can return a read-only explanation and recommended next step. That advisory never unlocks a generator or substitutes one project's drawings for another.

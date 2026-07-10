@@ -1,8 +1,6 @@
 from __future__ import annotations
 
 import json
-import os
-import shutil
 import subprocess
 import threading
 import time
@@ -13,6 +11,7 @@ from typing import Any
 
 from car_compare.models import VehicleQuery
 from car_compare.parser import parse_vehicle_query
+from car_compare.codex_cli import codex_environment, codex_login_status, find_codex_cli
 
 
 GENERATION_RESEARCH_TIMEOUT_SECONDS = 900
@@ -65,17 +64,23 @@ class GenerationResearchManager:
 
     def availability(self) -> dict[str, Any]:
         path = self._codex_path()
+        status = codex_login_status(path) if path else codex_login_status(self.config.codex_path)
         skill_ready = (self.config.skill_path / "SKILL.md").exists()
-        available = bool(path and skill_ready)
+        available = bool(path and status["authenticated"] and skill_ready)
         if available:
             message = "Generation impact researcher ready"
         elif not skill_ready:
             message = "Project-local generation-impact skill is missing."
+        elif path and not status["authenticated"]:
+            message = status["message"]
         else:
             message = "Codex CLI not found. Install Codex or set CODEX_BIN."
         return {
             "available": available,
             "codexPath": path,
+            "codexHome": status["codexHome"],
+            "authenticated": status["authenticated"],
+            "authMethod": status["authMethod"],
             "skillPath": str(self.config.skill_path),
             "dryRun": self.config.dry_run,
             "message": message,
@@ -122,6 +127,15 @@ class GenerationResearchManager:
         if not codex_path:
             self._update(job_id, status="blocked", message="Codex CLI not found.", error="codex_not_found")
             return
+        status = codex_login_status(codex_path)
+        if not status["authenticated"]:
+            self._update(
+                job_id,
+                status="blocked",
+                message="Codex CLI is not logged in for the deployment user.",
+                error="codex_not_authenticated",
+            )
+            return
         if not (self.config.skill_path / "SKILL.md").exists():
             self._update(job_id, status="blocked", message="Project-local generation-impact skill is missing.", error="skill_not_found")
             return
@@ -143,6 +157,7 @@ class GenerationResearchManager:
             with stdout_path.open("w", encoding="utf-8") as stdout_file, stderr_path.open("w", encoding="utf-8") as stderr_file:
                 process = subprocess.Popen(
                     command,
+                    env=codex_environment(),
                     stdin=subprocess.PIPE,
                     stdout=stdout_file,
                     stderr=stderr_file,
@@ -201,18 +216,7 @@ class GenerationResearchManager:
         self._update(job_id, status=final_status, message=f"Generation research {result.get('status', 'finished')}", result=result)
 
     def _codex_path(self) -> str:
-        if self.config.codex_path:
-            return self.config.codex_path if Path(self.config.codex_path).exists() else ""
-        env_path = os.environ.get("CODEX_BIN", "").strip()
-        if env_path:
-            return env_path if Path(env_path).exists() else ""
-        path = shutil.which("codex")
-        if path:
-            return path
-        mac_path = Path("/Applications/Codex.app/Contents/Resources/codex")
-        if mac_path.exists():
-            return str(mac_path)
-        return ""
+        return find_codex_cli(self.config.codex_path)
 
     def _update(self, job_id: str, **updates: Any) -> None:
         with self._lock:
@@ -250,9 +254,12 @@ def build_generation_research_command(codex_path: str, root: Path, schema_path: 
         "--ask-for-approval",
         "never",
         "exec",
+        "--ephemeral",
+        "--ignore-user-config",
+        "--ignore-rules",
         "--skip-git-repo-check",
         "--sandbox",
-        "workspace-write",
+        "read-only",
         "--output-schema",
         str(schema_path),
         "-o",
