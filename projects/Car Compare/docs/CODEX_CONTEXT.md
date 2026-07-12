@@ -65,6 +65,8 @@ Stop the old app process only if it is this Car Compare server and the user is o
 - `car_compare/sources/visor_facets.py`: public Visor aggregate facet collector.
 - `car_compare/sources/browser_capture.py`: visible listing text parser.
 - `car_compare/collector.py`: background collection jobs and Codex CLI bridge.
+- `scripts/car_compare_browser_mcp.mjs`: project-local Playwright MCP worker used by Codex for audited pagination and card extraction.
+- `scripts/start_collection_browser.sh`: starts a persistent localhost-only Chrome/Chromium session for collection hosts.
 - `car_compare/codex_cli.py`: cross-platform CLI discovery, `CODEX_HOME`, and keyring-safe `codex login status` checks.
 - `car_compare/generation_impact.py`: Codex-backed generation timing / depreciation-shock research jobs.
 - `car_compare/generation_impact_schema.json`: structured output contract for generation-impact research.
@@ -89,11 +91,11 @@ The app uses two layers:
    These give aggregate market observations and are useful for nationwide trend buckets. They are not individual dealer VIN rows.
 
 2. Local Codex website collection.
-   The app starts the Codex CLI on the same computer, passes a fixed collection plan and JSON schema, and expects structured listings/MSRP back. Codex should use visible website UI, official APIs, or user-authorized accounts/API keys. Do not bypass CAPTCHAs, login walls, paywalls, or site restrictions.
+   The app starts the Codex CLI on the same computer and registers the project-local browser MCP directly on that process. Codex calls it for Autotrader and Edmunds; the worker flips pages, extracts visible cards deterministically, and writes an audit beside the job. The app discards browser-source rows that are not backed by that audit. Do not bypass CAPTCHAs, login walls, paywalls, or site restrictions.
 
 The collection job currently checks Visor facets first. If Codex is available, the job can continue into website collection afterward. If Codex fails after Visor returned rows, the app keeps the Visor data as a completed partial result.
 
-For deployment, run `python3 scripts/deploy_preflight.py --smoke-codex` as the same operating-system account that will run the service. `GET /api/setup` reports readiness. Keep the origin on `127.0.0.1` and require authenticated proxy access before routing the public hostname, because user-triggered collection spends the deployment account's Codex usage.
+For deployment, run `npm install`, start `scripts/start_collection_browser.sh`, set `CAR_COMPARE_BROWSER_CDP_URL`, then run `python3 scripts/deploy_preflight.py --smoke-codex --smoke-browser` as the same operating-system account that will run the service. `GET /api/setup` reports readiness. Keep both the app and browser debugging endpoint on `127.0.0.1` and require authenticated proxy access before routing the public hostname, because user-triggered collection spends the deployment account's Codex usage.
 
 ## Generation Impact Research
 
@@ -120,7 +122,7 @@ These are important because wrong trim grouping changes the depreciation graph:
 - `Ford Mustang GT` excludes Shelby `GT500`.
 - `Porsche 911 Carrera` excludes `Carrera S`, `Carrera GTS`, `Carrera 4S`, etc.
 - `Porsche 911 Carrera S` stays separate from base `Carrera`.
-- `BMW M4 Competition` excludes xDrive unless the user asks for xDrive.
+- `BMW M4 Competition` is a generation-aware family: 2021+ Competition coupe/convertible and RWD/xDrive variants qualify; 2016-2020 F82/F83 cars qualify when the factory ZCP Competition Package is visibly verified; Base, CS, CSL, and GTS remain excluded.
 - `BMW X5 xDrive40i`, `BMW 3 Series 330i`, and similar attached names parse cleanly.
 
 ## Verified Test Matrix

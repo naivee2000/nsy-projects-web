@@ -8,6 +8,7 @@ from car_compare.vehicle_catalog import trim_candidates
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
 BODY_STYLE_TOKENS = {"cabriolet", "convertible", "coupe", "hatchback", "roadster", "sedan", "suv", "wagon"}
+M4_COMPETITION_FAMILY_EXCLUSIONS = {"cs", "csl", "gts", "gt3"}
 
 
 def trim_value_matches_request(request: VehicleQuery, value: str) -> bool:
@@ -26,6 +27,9 @@ def has_conflicting_trim_variant(request: VehicleQuery, value: str) -> bool:
     if not requested or not observed:
         return False
 
+    if is_bmw_m4_competition_family(request):
+        return bool(observed & M4_COMPETITION_FAMILY_EXCLUSIONS)
+
     recognized = _recognized_catalog_trim(request, value)
     if recognized:
         return set(trim_tokens(recognized)) != requested
@@ -41,10 +45,18 @@ def has_conflicting_trim_variant(request: VehicleQuery, value: str) -> bool:
     if request.make == "Porsche" and request.model == "911" and requested == {"carrera"}:
         return bool(observed & {"4", "4s", "s", "gts", "t", "turbo"})
 
-    if request.make == "BMW" and request.model in {"M3", "M4"} and requested == {"competition"}:
+    if request.make == "BMW" and request.model == "M3" and requested == {"competition"}:
         return "xdrive" in observed
 
     return False
+
+
+def is_bmw_m4_competition_family(request: VehicleQuery) -> bool:
+    return (
+        request.make == "BMW"
+        and request.model == "M4"
+        and set(trim_tokens(request.trim)) == {"competition"}
+    )
 
 
 def _recognized_catalog_trim(request: VehicleQuery, value: str) -> str:

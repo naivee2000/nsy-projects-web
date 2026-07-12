@@ -2,11 +2,14 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
+import shutil
 import subprocess
 import threading
 import time
 import uuid
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -17,6 +20,7 @@ from car_compare.parser import parse_vehicle_query
 from car_compare.codex_cli import codex_environment, codex_login_status, find_codex_cli
 from car_compare.sources.visor_facets import collect_visor_public_facets
 from car_compare.sources.source_plan import build_collection_plan
+from car_compare.vehicle_match import vehicle_text_match_score
 
 
 CODEX_TIMEOUT_SECONDS = 900
@@ -30,6 +34,7 @@ MAX_MSRP_PRICE = 10_000_000
 MIN_VEHICLE_PRICE = MIN_LISTING_PRICE
 MAX_VEHICLE_PRICE = MAX_LISTING_PRICE
 MAX_MILEAGE = 1_000_000
+BROWSER_SOURCE_NAMES = {"autotrader_browser", "edmunds_browser"}
 
 
 @dataclass
@@ -66,10 +71,12 @@ class CollectorConfig:
     use_visor_facets: bool = True
     jobs_dir: Path = field(init=False)
     schema_path: Path = field(init=False)
+    browser_server_path: Path = field(init=False)
 
     def __post_init__(self) -> None:
         self.jobs_dir = self.root / "data" / "collector_jobs"
         self.schema_path = self.root / "car_compare" / "collector_schema.json"
+        self.browser_server_path = self.root / "scripts" / "car_compare_browser_mcp.mjs"
 
 
 class CollectionManager:
@@ -84,6 +91,8 @@ class CollectionManager:
         status = codex_login_status(path) if path else codex_login_status(self.config.codex_path)
         website_available = bool(path and status["authenticated"])
         visor_available = bool(self.config.use_visor_facets)
+        browser_worker_available = self._browser_worker_available()
+        persistent_browser = bool(os.environ.get("CAR_COMPARE_BROWSER_CDP_URL", "").strip())
         if website_available and visor_available:
             message = "Visor facets and Codex website collector ready"
         elif website_available:
@@ -96,6 +105,9 @@ class CollectionManager:
             "available": bool(visor_available or website_available),
             "visorAvailable": visor_available,
             "websiteCollectorAvailable": website_available,
+            "browserWorkerAvailable": browser_worker_available,
+            "persistentBrowserConfigured": persistent_browser,
+            "auditedWebsiteCollectorAvailable": bool(website_available and browser_worker_available),
             "codexPath": path,
             "codexHome": status["codexHome"],
             "authenticated": status["authenticated"],
@@ -142,7 +154,7 @@ class CollectionManager:
         return msrp if msrp and _msrp_matches_request(msrp, request) else None
 
     def _run_job(self, job_id: str, request: VehicleQuery) -> None:
-        self._update(job_id, status="running", message="Starting Codex website collection")
+        self._update(job_id, status="running", message="Starting Codex website collection", started_at=time.time())
         codex_path = self._codex_path()
         codex_status = codex_login_status(codex_path) if codex_path else codex_login_status(self.config.codex_path)
         if self.config.dry_run:
@@ -150,6 +162,8 @@ class CollectionManager:
             self._write_job_result(job_id, result)
             self._update(job_id, status="completed", message="Dry-run collection completed", result=result)
             return
+        job_dir = self.config.jobs_dir / job_id
+        job_dir.mkdir(parents=True, exist_ok=True)
         facet_result: dict[str, Any] | None = None
         if self.config.use_visor_facets:
             self._update(job_id, status="running", message="Checking Visor public market facets")
@@ -175,6 +189,11 @@ class CollectionManager:
                 )
             else:
                 self._update(job_id, status="running", message="Visor facets had no listings; starting Codex website collection")
+        browser_result: dict[str, Any] | None = None
+        if self._browser_worker_available():
+            self._update(job_id, status="running", message="Collecting audited Autotrader and Edmunds listing cards")
+            browser_result = self._run_browser_sources(request, job_dir)
+            facet_result = _merge_collector_results(facet_result, browser_result, request)
         if not codex_path or not codex_status["authenticated"]:
             unavailable_note = (
                 "Codex CLI was not found"
@@ -183,12 +202,15 @@ class CollectionManager:
             )
             if facet_result and facet_result.get("listings"):
                 facet_result["status"] = "partial"
-                facet_result.setdefault("notes", []).append(f"{unavailable_note}, so only Visor public facets were collected.")
+                facet_result.setdefault("notes", []).append(
+                    f"{unavailable_note}; verified browser-worker rows and Visor public facets were preserved."
+                )
+                facet_result = _apply_browser_captures(facet_result, job_dir, request)
                 self._write_job_result(job_id, facet_result)
                 self._update(
                     job_id,
                     status="completed",
-                    message=f"Visor public facets collected {len(facet_result.get('listings') or [])} aggregate observations",
+                    message=f"Partial collection preserved {len(facet_result.get('listings') or [])} verified observations",
                     result=facet_result,
                 )
                 return
@@ -200,24 +222,25 @@ class CollectionManager:
             )
             return
 
-        job_dir = self.config.jobs_dir / job_id
-        job_dir.mkdir(parents=True, exist_ok=True)
         output_path = job_dir / "collector_result.json"
         stdout_path = job_dir / "codex_stdout.log"
         stderr_path = job_dir / "codex_stderr.log"
-        prompt = build_codex_prompt(request)
+        prompt = build_codex_prompt(request, (browser_result or {}).get("collectionSummary"))
         command = build_codex_command(
             codex_path=codex_path,
             root=self.config.root,
             schema_path=self.config.schema_path,
             output_path=output_path,
+            browser_server_path=self.config.browser_server_path,
         )
         start_time = time.time()
         try:
             with stdout_path.open("w", encoding="utf-8") as stdout_file, stderr_path.open("w", encoding="utf-8") as stderr_file:
+                collector_env = codex_environment()
+                collector_env["CAR_COMPARE_BROWSER_AUDIT_DIR"] = str(job_dir)
                 process = subprocess.Popen(
                     command,
-                    env=codex_environment(),
+                    env=collector_env,
                     stdin=subprocess.PIPE,
                     stdout=stdout_file,
                     stderr=stderr_file,
@@ -228,7 +251,6 @@ class CollectionManager:
                     status="running",
                     message=f"Codex process started (PID {process.pid}).",
                     process_id=process.pid,
-                    started_at=start_time,
                 )
                 if process.stdin:
                     try:
@@ -262,6 +284,7 @@ class CollectionManager:
             if facet_result and facet_result.get("listings"):
                 facet_result["status"] = "partial"
                 facet_result.setdefault("notes", []).append(f"Could not launch Codex collector after Visor facets: {exc}")
+                facet_result = _apply_browser_captures(facet_result, job_dir, request)
                 self._write_job_result(job_id, facet_result)
                 self._update(
                     job_id,
@@ -287,14 +310,17 @@ class CollectionManager:
             error_text = clean_codex_error(stderr_text or stdout_text)
             if facet_result and facet_result.get("listings"):
                 facet_result["status"] = "partial"
-                facet_result.setdefault("notes", []).append(f"Codex website collection failed after Visor facets: {error_text}")
+                facet_result.setdefault("notes", []).append(
+                    f"Codex review failed after audited browser/facet collection: {error_text}"
+                )
+                facet_result = _apply_browser_captures(facet_result, job_dir, request)
                 self._write_job_result(job_id, facet_result)
                 self._update(
                     job_id,
                     status="completed",
                     message=(
-                        f"Visor public facets collected {len(facet_result.get('listings') or [])} aggregate observations; "
-                        "Codex website collection failed"
+                        f"Audited browser/facet collection preserved {len(facet_result.get('listings') or [])} observations; "
+                        "Codex review failed"
                     ),
                     result=facet_result,
                 )
@@ -313,6 +339,7 @@ class CollectionManager:
             if facet_result and facet_result.get("listings"):
                 facet_result["status"] = "partial"
                 facet_result.setdefault("notes", []).append(f"Codex collector did not produce valid JSON after Visor facets: {exc}")
+                facet_result = _apply_browser_captures(facet_result, job_dir, request)
                 self._write_job_result(job_id, facet_result)
                 self._update(
                     job_id,
@@ -333,6 +360,7 @@ class CollectionManager:
             return
 
         result = _merge_collector_results(facet_result, result, request)
+        result = _apply_browser_captures(result, job_dir, request)
         self._write_job_result(job_id, result)
         final_status = "completed" if result.get("status") in {"success", "partial"} else "blocked"
         self._update(
@@ -344,6 +372,102 @@ class CollectionManager:
 
     def _codex_path(self) -> str:
         return find_codex_cli(self.config.codex_path)
+
+    def _browser_worker_available(self) -> bool:
+        return bool(
+            shutil.which("node")
+            and self.config.browser_server_path.exists()
+            and (self.config.root / "node_modules" / "playwright").exists()
+        )
+
+    def _run_browser_sources(self, request: VehicleQuery, job_dir: Path) -> dict[str, Any]:
+        plan = build_collection_plan(request)
+        targets = [item for item in plan["targets"] if item["source"] in BROWSER_SOURCE_NAMES]
+        current_year = _runtime_current_year()
+        start_year = request.target_year or max(current_year - request.max_age, request.start_year or current_year - request.max_age)
+        end_year = request.target_year or current_year
+        node_path = shutil.which("node") or "node"
+
+        def run_target(target: dict[str, Any]) -> dict[str, Any]:
+            payload = {
+                "source": target["source"],
+                "url": target["url"],
+                "required_keywords": target["required_keywords"],
+                "exclude_keywords": target["exclude_keywords"],
+                "start_year": start_year,
+                "end_year": end_year,
+                "current_year": current_year,
+                "max_pages": 3,
+                "split_by_year": True,
+            }
+            env = os.environ.copy()
+            env["CAR_COMPARE_BROWSER_AUDIT_DIR"] = str(job_dir)
+            try:
+                completed = subprocess.run(
+                    [node_path, str(self.config.browser_server_path), "--collect-json"],
+                    input=json.dumps(payload),
+                    env=env,
+                    text=True,
+                    capture_output=True,
+                    timeout=330,
+                    check=False,
+                )
+            except (OSError, subprocess.TimeoutExpired) as exc:
+                return {"source": target["source"], "status": "unavailable", "error": str(exc), "listings": []}
+            if completed.returncode != 0:
+                return {
+                    "source": target["source"],
+                    "status": "unavailable",
+                    "error": _cap_error(completed.stderr or completed.stdout),
+                    "listings": [],
+                }
+            try:
+                return json.loads(completed.stdout)
+            except json.JSONDecodeError as exc:
+                return {"source": target["source"], "status": "unavailable", "error": str(exc), "listings": []}
+
+        audits: list[dict[str, Any]] = []
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            future_map = {pool.submit(run_target, target): target for target in targets}
+            for future in as_completed(future_map):
+                audits.append(future.result())
+
+        sources = []
+        listings = []
+        notes = []
+        summary = []
+        for audit in sorted(audits, key=lambda item: str(item.get("source") or "")):
+            source = str(audit.get("source") or "")
+            accepted = len(audit.get("listings") or [])
+            error = str(audit.get("error") or "")
+            stop_reason = str(audit.get("stop_reason") or "worker_error")
+            note = (
+                f"Audited browser examined {int(audit.get('cards_examined') or 0)} cards across "
+                f"{int(audit.get('pages_examined') or 0)} page(s), accepted {accepted}, stop={stop_reason}."
+            )
+            if error:
+                note += f" Error: {error}"
+            sources.append(
+                {
+                    "source": source,
+                    "url": str(audit.get("url") or ""),
+                    "status": str(audit.get("status") or "unavailable"),
+                    "load_more_clicked": int(audit.get("load_more_clicked") or 0),
+                    "notes": note,
+                }
+            )
+            listings.extend(audit.get("listings") or [])
+            notes.append(f"{source}: {note}")
+            summary.append({"source": source, "status": audit.get("status"), "accepted": accepted, "stopReason": stop_reason})
+        return {
+            "query": request.raw,
+            "status": "partial" if listings else "blocked",
+            "notes": notes,
+            "msrp": None,
+            "sources": sources,
+            "listings": listings,
+            "collectionSummary": summary,
+        }
 
     def _update(self, job_id: str, **updates: Any) -> None:
         with self._lock:
@@ -358,8 +482,9 @@ class CollectionManager:
         (job_dir / "collector_result.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
 
 
-def build_codex_prompt(request: VehicleQuery) -> str:
+def build_codex_prompt(request: VehicleQuery, browser_summary: list[dict[str, Any]] | None = None) -> str:
     plan = build_collection_plan(request)
+    browser_context = json.dumps(browser_summary or [], indent=2)
     return f"""
 You are collecting public car market data for the local Car Compare app.
 
@@ -378,9 +503,16 @@ Vehicle resolver:
 Collection targets:
 {json.dumps(plan["targets"], indent=2)}
 
+Browser worker pass already completed:
+{browser_context}
+
 Rules:
 - Do not edit project files.
 - Prefer normal visible website/browser interaction if browser automation is available.
+- A project-local MCP tool named collect_vehicle_source is the authoritative browser collector. The app runs it once before this review. Call it again only for a browser target shown above as missing, blocked, or clearly sparse when another pass can add pages.
+- Pass each target's source, URL, required_keywords, and exclude_keywords to that tool. Use the requested year range, current year, and max_pages=20.
+- The tool persists deterministic listing cards and page audits for the app. Do not retype, alter, or invent its listing rows.
+- A browser source may be called collected only when collect_vehicle_source returns browser_verified=true. Search snippets and cached page summaries are not browser evidence.
 - If you are running inside Codex desktop and can show/use the browser, make website operation visible.
 - Open the target URLs, confirm the visible page matches the requested vehicle, scroll results, and click visible Load More / See More Results / Next controls when available.
 - After clicking a load-more control, verify that listing count, visible listing text, or page height changed. If it does not change, record that in source notes and continue.
@@ -397,19 +529,39 @@ Rules:
 - Capture VIN and dealer when visible; if VIN is only visible on detail pages, open a small number of listing detail pages when practical.
 - Deduplication happens in the app, but include VIN/dealer when possible.
 - Listing price must be the vehicle asking/sale price between $500 and $10,000,000. Never use a payment, down payment, discount, fee, delivery charge, package, option, rebate, MSRP, or market-value reference as listing price.
-- Try to collect enough listings across model years to support depreciation buckets.
+- Continue until the tool reports its stop_reason. Its targets are 15 unique rows per year for the newest six model years and 8 per older year; sparse years must remain disclosed.
 - Use manufacturer official MSRP between $5,000 and $10,000,000 when practical; never place a monthly payment in MSRP. If the manufacturer site also exposes current new inventory prices, include those as condition="new" listings. Otherwise set msrp to null.
 
 Return only JSON matching the provided schema. Do not include Markdown.
 """.strip()
 
 
-def build_codex_command(codex_path: str, root: Path, schema_path: Path, output_path: Path) -> list[str]:
-    return [
+def build_codex_command(
+    codex_path: str,
+    root: Path,
+    schema_path: Path,
+    output_path: Path,
+    browser_server_path: Path | None = None,
+) -> list[str]:
+    command = [
         codex_path,
         "--ask-for-approval",
         "never",
         "exec",
+    ]
+    if browser_server_path and browser_server_path.exists() and shutil.which("node"):
+        command.extend(
+            [
+                "--config",
+                f"mcp_servers.car_compare_browser.command={json.dumps(shutil.which('node'))}",
+                "--config",
+                f"mcp_servers.car_compare_browser.args={json.dumps([str(browser_server_path)])}",
+                "--config",
+                "mcp_servers.car_compare_browser.startup_timeout_sec=30",
+            ]
+        )
+    command.extend(
+        [
         "--ephemeral",
         "--ignore-user-config",
         "--ignore-rules",
@@ -423,7 +575,9 @@ def build_codex_command(codex_path: str, root: Path, schema_path: Path, output_p
         "-C",
         str(root),
         "-",
-    ]
+        ]
+    )
+    return command
 
 
 def _merge_collector_results(
@@ -462,6 +616,96 @@ def _merge_collector_results(
         facet_msrp = None
     selected_msrp = codex_msrp or facet_msrp
     merged["msrp"] = selected_msrp.to_dict() if selected_msrp else None
+    return merged
+
+
+def _apply_browser_captures(result: dict[str, Any], job_dir: Path, request: VehicleQuery) -> dict[str, Any]:
+    merged = dict(result)
+    merged["listings"] = [
+        item
+        for item in (result.get("listings") or [])
+        if str(item.get("source") or "") not in BROWSER_SOURCE_NAMES
+    ]
+    source_rows = [
+        item
+        for item in (result.get("sources") or [])
+        if str(item.get("source") or "") not in BROWSER_SOURCE_NAMES
+    ]
+    notes = list(result.get("notes") or [])
+    quality_sources: list[dict[str, Any]] = []
+    audited_sources: set[str] = set()
+
+    for capture_path in sorted(job_dir.glob("browser_capture_*.json")):
+        try:
+            audit = json.loads(capture_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        source = str(audit.get("source") or "")
+        if source not in BROWSER_SOURCE_NAMES or audit.get("browser_verified") is not True:
+            continue
+        audited_sources.add(source)
+        accepted_rows: list[dict[str, Any]] = []
+        for item in audit.get("listings") or []:
+            parsed = listings_from_result({"listings": [item]})
+            if not parsed:
+                continue
+            listing = parsed[0]
+            match = vehicle_text_match_score(request, listing.title, listing.trim, source)
+            if not match["accepted"]:
+                continue
+            accepted_rows.append(listing.to_dict())
+        merged["listings"].extend(accepted_rows)
+        rejected = audit.get("rejected_by_reason") or {}
+        sparse_years = (audit.get("year_quota") or {}).get("sparse_years") or []
+        diagnostics = (
+            f"Browser verified {int(audit.get('pages_examined') or 0)} page(s), examined "
+            f"{int(audit.get('cards_examined') or 0)} cards, and accepted {len(accepted_rows)} exact rows. "
+            f"Stop: {audit.get('stop_reason') or 'unknown'}."
+        )
+        if sparse_years:
+            diagnostics += " Sparse years: " + ", ".join(str(year) for year in sparse_years) + "."
+        source_rows.append(
+            {
+                "source": source,
+                "url": str(audit.get("url") or ""),
+                "status": str(audit.get("status") or "partial"),
+                "load_more_clicked": int(audit.get("load_more_clicked") or 0),
+                "notes": diagnostics,
+                "browser_verified": True,
+                "pages_examined": int(audit.get("pages_examined") or 0),
+                "cards_examined": int(audit.get("cards_examined") or 0),
+                "detail_pages_opened": int(audit.get("detail_pages_opened") or 0),
+                "accepted": len(accepted_rows),
+                "rejected_by_reason": rejected,
+                "stop_reason": str(audit.get("stop_reason") or ""),
+                "year_quota": audit.get("year_quota") or {},
+            }
+        )
+        quality_sources.append(source_rows[-1])
+
+    for source in sorted(BROWSER_SOURCE_NAMES - audited_sources):
+        notes.append(
+            f"{source} produced no deterministic browser audit; search snippets and unverified Codex rows were not accepted."
+        )
+        source_rows.append(
+            {
+                "source": source,
+                "url": "",
+                "status": "unavailable",
+                "load_more_clicked": 0,
+                "notes": "No browser-worker audit was produced, so this source contributed zero individual rows.",
+                "browser_verified": False,
+            }
+        )
+
+    individual_count = sum(int(item.get("accepted") or 0) for item in quality_sources)
+    merged["sources"] = source_rows
+    merged["notes"] = notes
+    merged["collectionQuality"] = {
+        "browserAudited": bool(quality_sources),
+        "individualRows": individual_count,
+        "sources": quality_sources,
+    }
     return merged
 
 

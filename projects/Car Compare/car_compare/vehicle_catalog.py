@@ -162,7 +162,7 @@ TRIM_CATALOG: dict[tuple[str, str], list[str]] = {
     ("BMW", "3 Series"): ["320i", "330i", "335i", "330e", "M340i", "320i xDrive", "330i xDrive", "335i xDrive", "M340i xDrive"],
     ("BMW", "4 Series"): ["430i", "440i", "M440i", "430i xDrive", "440i xDrive", "M440i xDrive"],
     ("BMW", "X5"): ["sDrive40i", "xDrive40i", "xDrive50e", "M60i"],
-    ("BMW", "M4"): ["Competition", "Competition xDrive", "CS", "CSL"],
+    ("BMW", "M4"): ["Competition", "Competition xDrive", "CS", "CSL", "GTS"],
     ("Mercedes-Benz", "C-Class"): ["300", "300 4MATIC", "43 AMG", "63 AMG"],
     ("Mercedes-Benz", "GLE"): ["350", "350 4MATIC", "450 4MATIC", "53 AMG", "63 AMG"],
     ("Audi", "Q5"): ["Premium", "Premium Plus", "Prestige"],
@@ -443,12 +443,19 @@ def source_model_profile(make: str, model: str, trim: str, source: str = "generi
     if not path_segments:
         path_segments = [make, source_model]
     notes = list(override.get(f"{source}_notes") or [])
+    excluded = {str(item) for item in override.get("exclude_keywords") or []}
+    if make == "BMW" and model == "M4" and trim.lower() == "competition":
+        excluded.update({"CS", "CSL", "GTS", "GT3"})
+        notes.append(
+            "Treat Competition as a generation-aware family: include G8x Competition Coupe/Convertible and RWD/xDrive, "
+            "plus 2016-2020 F82/F83 rows that visibly identify the factory Competition Package."
+        )
     return {
         "canonical_model": model,
         "source_model": source_model,
         "model_aliases": list(override.get("model_aliases") or [model]),
         "required_keywords": required,
-        "exclude_keywords": list(override.get("exclude_keywords") or []),
+        "exclude_keywords": sorted(excluded),
         "path_segments": list(path_segments),
         "notes": notes,
     }

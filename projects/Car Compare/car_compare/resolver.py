@@ -4,6 +4,7 @@ import re
 from typing import Any
 
 from car_compare.models import VehicleQuery
+from car_compare.trim_match import is_bmw_m4_competition_family
 from car_compare.vehicle_catalog import MAKE_ALIASES, MODEL_CATALOG, source_model_profile, trim_candidates
 
 
@@ -167,6 +168,11 @@ def _warnings(
             + ", ".join(trim_drivetrain_siblings)
             + "."
         )
+    if is_bmw_m4_competition_family(request):
+        warnings.append(
+            "M4 Competition is resolved as a generation-aware family: include G8x Competition body/drivetrain variants "
+            "and F82/F83 cars with a verified factory Competition Package; exclude Base, CS, CSL, and GTS variants."
+        )
     return warnings
 
 
@@ -194,6 +200,8 @@ def _first_match(tokens: list[str], mapping: dict[str, str]) -> str:
 
 
 def _trim_drivetrain_siblings(request: VehicleQuery) -> list[str]:
+    if is_bmw_m4_competition_family(request):
+        return []
     requested = _tokens(request.trim)
     if not requested:
         return []

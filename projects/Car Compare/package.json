@@ -1,0 +1,12 @@
+{
+  "name": "car-compare-browser-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "browser:self-test": "node scripts/car_compare_browser_mcp.mjs --self-test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5",
+    "playwright": "^1.55.0"
+  }
+}

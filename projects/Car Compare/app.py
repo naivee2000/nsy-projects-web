@@ -83,14 +83,27 @@ class CarCompareHandler(BaseHTTPRequestHandler):
         if self.path == "/api/setup":
             codex = codex_login_status(os.environ.get("CODEX_BIN", ""))
             skill_path = ROOT / "skills" / "generation-impact-research" / "SKILL.md"
+            collector = COLLECTOR.availability()
             self._send_json(
                 {
-                    "status": "ready" if codex["available"] and codex["authenticated"] and skill_path.is_file() else "not-ready",
+                    "status": (
+                        "ready"
+                        if codex["available"]
+                        and codex["authenticated"]
+                        and skill_path.is_file()
+                        and collector["browserWorkerAvailable"]
+                        else "not-ready"
+                    ),
                     "app": "car-compare",
                     "codex": codex,
                     "generationSkill": {
                         "ok": skill_path.is_file(),
                         "path": str(skill_path.parent),
+                    },
+                    "browserWorker": {
+                        "ok": collector["browserWorkerAvailable"],
+                        "persistentBrowserConfigured": collector["persistentBrowserConfigured"],
+                        "path": str(ROOT / "scripts" / "car_compare_browser_mcp.mjs"),
                     },
                     "runtimeRoot": str(ROOT),
                 }
@@ -377,10 +390,12 @@ def _attach_collector_evidence(report: dict[str, Any], job_result: dict[str, Any
         evidence.setdefault("collectorSources", [])
         evidence.setdefault("facets", [])
         evidence.setdefault("collectorNotes", [])
+        evidence.setdefault("collectionQuality", {})
         return
     evidence["collectorSources"] = job_result.get("sources") or []
     evidence["facets"] = job_result.get("evidence") or []
     evidence["collectorNotes"] = job_result.get("notes") or []
+    evidence["collectionQuality"] = job_result.get("collectionQuality") or {}
 
 
 class RequestBodyError(ValueError):

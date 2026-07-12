@@ -36,7 +36,7 @@ Then open:
 http://127.0.0.1:8787
 ```
 
-If the folder is renamed during the move, use that actual path instead. The app has no build step and no required virtualenv for the current standard-library path.
+If the folder is renamed during the move, use that actual path instead. The Python app has no required virtualenv. Audited marketplace collection additionally uses the project-local Node/Playwright worker described below.
 
 ## Current Shape
 
@@ -62,10 +62,10 @@ This makes it easier to add more websites later. Each source can be tested and f
    Codex can open a normal website page, collect visible page text, and send it to `/api/parse-visible-text` or the app's capture import box. This is useful for Edmunds and Autotrader pages that expose listing rows in normal browser views.
 
 3. **Automatic collection**
-   The app's `Collect` button first checks Visor public market facets by model year. It collects used-market facets across the selected horizon and new-car facets for age 0 when available. New observations are labeled `condition=new`; current-model-year used rows remain in Age 0 but display as `Current-Year Market`. A verified MSRP is the preferred depreciation baseline. If it is unavailable, the app uses a clearly labeled used-market estimate and keeps the report in `Needs MSRP` status instead of leaving the cumulative-depreciation graph empty. If Codex is available, the job can continue into Codex website collection after Visor so individual website rows can be added later.
+   The app's `Collect` button checks Visor public market facets, then runs the audited browser worker against Autotrader and Edmunds year by year. The worker records pages/cards examined, accepted rows, rejection reasons, detail-page checks, pagination, stop reasons, and sparse years. Codex reviews the resulting coverage and handles additional research when usage is available. Browser rows without a worker audit are discarded.
 
-4. **Codex website collection fallback**
-   If Codex is installed/logged in on the same computer, the app starts a local Codex CLI job using a fixed prompt and JSON schema. If Codex fails, times out, or hits a usage limit after Visor succeeded, the app preserves the Visor facet data as a completed partial result instead of throwing it away. The source plan includes official manufacturer pages for MSRP/new inventory when practical.
+4. **Codex website collection review**
+   If Codex is installed/logged in on the same computer, the app registers the same project-local browser worker as an MCP tool and starts a fixed-schema review job. If Codex fails, times out, or reaches a usage limit, audited browser rows and Visor facets remain available as a completed partial result.
 
 5. **API/source adapters**
    Visor should still be treated as API/MCP-first when an API key is available. Public facets are good for depreciation trends; the listings API is the cleaner path for listing-level VIN/dealer data.
@@ -87,13 +87,29 @@ This project is a research assistant. It should use normal public website UI, of
 On another computer:
 
 1. Install and log into Codex.
-2. Make sure the CLI works:
+2. Install Node.js 20 or newer and the project browser packages:
+
+   ```bash
+   npm install
+   npm exec playwright install chromium
+   npm run browser:self-test
+   ```
+
+3. Start the persistent collection browser and expose only its localhost endpoint to the backend:
+
+   ```bash
+   scripts/start_collection_browser.sh
+   export CAR_COMPARE_BROWSER_CDP_URL="http://127.0.0.1:9222"
+   ```
+
+   On Linux without a graphical session, install `xvfb` first.
+4. Make sure the CLI works:
 
    ```bash
    codex --version
    ```
 
-3. The app automatically checks `PATH`, official standalone install locations on macOS/Linux/Windows, and macOS ChatGPT/Codex desktop bundles. If it still cannot find the CLI, set `CODEX_BIN` to the executable on that computer, for example:
+5. The app automatically checks `PATH`, official standalone install locations on macOS/Linux/Windows, and macOS ChatGPT/Codex desktop bundles. If it still cannot find the CLI, set `CODEX_BIN` to the executable on that computer, for example:
 
    ```bash
    export CODEX_BIN="/Applications/ChatGPT.app/Contents/Resources/codex"
@@ -101,19 +117,19 @@ On another computer:
 
    On Windows, a standard standalone install is discovered under `%LOCALAPPDATA%\Programs\OpenAI\Codex\bin\codex.exe`.
 
-4. Run the app:
+6. Run the app:
 
    ```bash
    cd "/path/to/Car Compare"
    python3 app.py --port 8787
    ```
 
-5. Open `http://127.0.0.1:8787`, enter a vehicle, and click `Collect & Research`.
+7. Open `http://127.0.0.1:8787`, enter a vehicle, and click `Collect & Research`.
 
 For a deployment host, verify both CLI discovery and the saved/keyring login with:
 
 ```bash
-python3 scripts/deploy_preflight.py --smoke-codex
+python3 scripts/deploy_preflight.py --smoke-codex --smoke-browser
 ```
 
 The app binds to `127.0.0.1` by default. Keep it local unless you intentionally add authentication, because automatic collection can spend Codex usage.
@@ -155,7 +171,7 @@ Last verified in browser on 2026-07-08:
 - The initial page opens blank and does not call `/api/research` until a user searches.
 - The user-supplied 23 make/model/trim CSV parsed correctly in the UI.
 - Representative `Collect` browser tests completed for `Mercedes-Benz C-Class C300`, `Honda Civic EX`, `Ford Mustang GT`, `Porsche 911 Carrera`, and `Porsche 911 Carrera S`.
-- Exact-trim guardrails separate `Civic EX` from `EX-L/EX-T`, `Mustang GT` from Shelby `GT500`, `Porsche 911 Carrera` from `Carrera S/GTS`, and non-xDrive BMW Competition from xDrive.
+- Exact-trim guardrails separate `Civic EX` from `EX-L/EX-T`, `Mustang GT` from Shelby `GT500`, and `Porsche 911 Carrera` from `Carrera S/GTS`. `BMW M4 Competition` is deliberately a family rule: all Competition body/drivetrain variants qualify, as do verified 2016-2020 factory ZCP Competition Package cars; Base, CS, CSL, and GTS do not.
 
 Quick checks:
 

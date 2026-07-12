@@ -171,7 +171,9 @@ function renderCollectorAvailability(collector) {
   const status = collectorAvailable ? "Available" : "Website collection offline";
   let detail = collector?.message || "Visor and Codex website collection are unavailable.";
   if (collector?.visorAvailable && collector?.websiteCollectorAvailable) {
-    detail = `Visor + Codex website collection ready${collector.dryRun ? " · dry run" : ""}`;
+    detail = collector?.browserWorkerAvailable
+      ? `Visor + Codex + audited browser worker ready${collector?.persistentBrowserConfigured ? " · persistent Chrome" : " · launch fallback"}${collector.dryRun ? " · dry run" : ""}`
+      : "Visor available; Codex is logged in but the audited browser worker needs npm install.";
   } else if (collector?.visorAvailable) {
     detail = "Visor market facets available; Codex website collection is offline.";
   } else if (collector?.websiteCollectorAvailable) {
@@ -1152,6 +1154,8 @@ function renderSourceRows(sourceRows, collectorSources) {
           <strong>${escapeHtml(source.source)}</strong>
           <span>${escapeHtml(source.kind || "source")} · ${Number(source.count || 0).toLocaleString()} rows · ${escapeHtml(formatCounts(source.conditions))}</span>
           ${collector?.notes ? `<span>${escapeHtml(collector.notes)}</span>` : ""}
+          ${collector?.browser_verified ? `<span>Verified browser audit · ${Number(collector.pages_examined || 0)} pages · ${Number(collector.cards_examined || 0)} cards · ${Number(collector.accepted || 0)} accepted${collector.detail_pages_opened ? ` · ${Number(collector.detail_pages_opened)} detail checks` : ""}</span>` : ""}
+          ${collector?.rejected_by_reason && Object.keys(collector.rejected_by_reason).length ? `<span>Rejected: ${escapeHtml(formatCounts(collector.rejected_by_reason))}</span>` : ""}
           ${Object.keys(source.years || {}).length ? `<span>Years: ${escapeHtml(formatCounts(source.years))}</span>` : ""}
         </div>
         <div class="evidenceLinks">

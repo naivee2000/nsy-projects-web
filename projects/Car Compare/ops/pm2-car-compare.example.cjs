@@ -12,6 +12,7 @@ module.exports = {
       interpreter: "none",
       env: {
         CODEX_BIN: "/Applications/ChatGPT.app/Contents/Resources/codex",
+        CAR_COMPARE_BROWSER_CDP_URL: "http://127.0.0.1:9222",
         CAR_COMPARE_AUTH_USERNAME: "admin",
         CAR_COMPARE_SESSION_SECRET: "use-the-same-secret-as-the-NSY-login-service",
         CAR_COMPARE_PUBLIC_ORIGIN: "https://carcompare.nsyprojects.com",

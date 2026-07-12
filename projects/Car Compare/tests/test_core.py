@@ -20,6 +20,7 @@ from pathlib import Path
 from car_compare.collector import (
     CollectionManager,
     CollectorConfig,
+    _apply_browser_captures,
     _format_elapsed,
     _merge_collector_results,
     build_codex_command,
@@ -500,7 +501,6 @@ class ResolverTests(unittest.TestCase):
 
     def test_exact_trim_discloses_named_drivetrain_sibling_exclusion(self) -> None:
         for text, sibling in [
-            ("BMW M4 Competition", "Competition xDrive"),
             ("BMW 3 Series 330i", "330i xDrive"),
         ]:
             with self.subTest(text=text):
@@ -512,6 +512,33 @@ class ResolverTests(unittest.TestCase):
                 self.assertEqual(drivetrain["mode"], "constrained")
                 self.assertEqual(drivetrain["value"], "Constrained by exact trim")
                 self.assertTrue(any(sibling in warning for warning in resolution["warnings"]))
+
+    def test_m4_competition_is_a_generation_aware_family(self) -> None:
+        query = parse_vehicle_query("BMW M4 Competition")
+        resolution = resolve_vehicle_query(query)
+        self.assertIn("drivetrain", resolution["include_all"])
+        self.assertIn("body_style", resolution["include_all"])
+        self.assertTrue(any("generation-aware family" in item for item in resolution["warnings"]))
+
+        accepted = [
+            "2025 BMW M4 Competition Coupe",
+            "2024 BMW M4 Competition xDrive Coupe",
+            "2023 BMW M4 Competition xDrive Convertible",
+            "2018 BMW M4 Coupe with Competition Package",
+            "2017 BMW M4 Convertible ZCP Competition Package",
+        ]
+        rejected = [
+            "2024 BMW M4 Coupe Base",
+            "2024 BMW M4 CS",
+            "2023 BMW M4 CSL",
+            "2016 BMW M4 GTS",
+        ]
+        for title in accepted:
+            with self.subTest(title=title):
+                self.assertTrue(vehicle_text_match_score(query, title, source="autotrader_browser")["accepted"])
+        for title in rejected:
+            with self.subTest(title=title):
+                self.assertFalse(vehicle_text_match_score(query, title, source="autotrader_browser")["accepted"])
 
     def test_family_models_match_common_dealer_shorthand_without_losing_trim_precision(self) -> None:
         accepted = [
@@ -1648,7 +1675,7 @@ class VisorFacetTests(unittest.TestCase):
         self.assertFalse(_facet_value_matches_request(c_class, "C 300 4MATIC"))
         self.assertFalse(_facet_value_matches_request(c_class, "AMG C43"))
 
-    def test_visor_exact_trim_rejects_neighbor_variants(self) -> None:
+    def test_visor_trim_matching_rejects_neighbors_and_keeps_named_families(self) -> None:
         civic = parse_vehicle_query("honda civic ex")
         self.assertTrue(_facet_value_matches_request(civic, "EX CVT"))
         self.assertFalse(_facet_value_matches_request(civic, "EX-L CVT"))
@@ -1670,7 +1697,10 @@ class VisorFacetTests(unittest.TestCase):
 
         competition = parse_vehicle_query("bmw m4 competition")
         self.assertTrue(_facet_value_matches_request(competition, "M4 Competition Coupe"))
-        self.assertFalse(_facet_value_matches_request(competition, "M4 Competition xDrive Coupe"))
+        self.assertTrue(_facet_value_matches_request(competition, "M4 Competition xDrive Coupe"))
+        self.assertTrue(_facet_value_matches_request(competition, "M4 Competition Convertible"))
+        self.assertFalse(_facet_value_matches_request(competition, "M4 CS"))
+        self.assertFalse(_facet_value_matches_request(competition, "M4 CSL"))
 
     def test_visor_facet_evidence_keeps_raw_stats(self) -> None:
         row = VisorYearData(
@@ -1904,6 +1934,102 @@ class CollectorPayloadTests(unittest.TestCase):
         )
         self.assertEqual(command[:4], ["/usr/local/bin/codex", "--ask-for-approval", "never", "exec"])
         self.assertIn("--output-schema", command)
+
+    def test_codex_command_registers_project_browser_mcp(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            server = Path(tmp) / "browser.mjs"
+            server.write_text("", encoding="utf-8")
+            command = build_codex_command(
+                codex_path="/usr/local/bin/codex",
+                root=Path(tmp),
+                schema_path=Path(tmp) / "schema.json",
+                output_path=Path(tmp) / "output.json",
+                browser_server_path=server,
+            )
+        joined = " ".join(command)
+        self.assertIn("mcp_servers.car_compare_browser.command", joined)
+        self.assertIn(str(server), joined)
+
+    def test_only_audited_browser_rows_are_accepted(self) -> None:
+        query = parse_vehicle_query("BMW M4 Competition")
+        with tempfile.TemporaryDirectory() as tmp:
+            job_dir = Path(tmp)
+            capture = {
+                "source": "autotrader_browser",
+                "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4",
+                "browser_verified": True,
+                "status": "partial",
+                "pages_examined": 2,
+                "cards_examined": 40,
+                "accepted": 3,
+                "load_more_clicked": 1,
+                "stop_reason": "source_exhausted",
+                "rejected_by_reason": {"excluded_variant": 1},
+                "year_quota": {"sparse_years": [2016]},
+                "listings": [
+                    {
+                        "source": "autotrader_browser",
+                        "year": 2024,
+                        "price": 78000,
+                        "trim": "Competition xDrive Convertible",
+                        "mileage": 12000,
+                        "title": "2024 BMW M4 Competition xDrive Convertible",
+                        "url": "https://www.autotrader.com/cars-for-sale/inventory/one",
+                        "vin": "",
+                        "dealer": "",
+                        "condition": "used",
+                        "confidence": "browser_worker_verified",
+                    },
+                    {
+                        "source": "autotrader_browser",
+                        "year": 2018,
+                        "price": 48000,
+                        "trim": "Competition Package",
+                        "mileage": 32000,
+                        "title": "2018 BMW M4 Coupe with factory ZCP Competition Package",
+                        "url": "https://www.autotrader.com/cars-for-sale/inventory/two",
+                        "vin": "",
+                        "dealer": "",
+                        "condition": "used",
+                        "confidence": "browser_worker_verified",
+                    },
+                    {
+                        "source": "autotrader_browser",
+                        "year": 2024,
+                        "price": 120000,
+                        "trim": "CS",
+                        "mileage": 3000,
+                        "title": "2024 BMW M4 CS",
+                        "url": "https://www.autotrader.com/cars-for-sale/inventory/three",
+                        "vin": "",
+                        "dealer": "",
+                        "condition": "used",
+                        "confidence": "browser_worker_verified",
+                    },
+                ],
+            }
+            (job_dir / "browser_capture_autotrader_browser.json").write_text(json.dumps(capture), encoding="utf-8")
+            result = _apply_browser_captures(
+                {
+                    "notes": [],
+                    "sources": [{"source": "autotrader_browser", "status": "collected"}],
+                    "listings": [
+                        {
+                            "source": "autotrader_browser",
+                            "year": 2025,
+                            "price": 1,
+                            "title": "Unverified model prose",
+                        }
+                    ],
+                },
+                job_dir,
+                query,
+            )
+        self.assertEqual(len(result["listings"]), 2)
+        self.assertTrue(all(item["confidence"] == "browser_worker_verified" for item in result["listings"]))
+        source = next(item for item in result["sources"] if item["source"] == "autotrader_browser")
+        self.assertTrue(source["browser_verified"])
+        self.assertEqual(source["accepted"], 2)
 
     def test_clean_codex_error_keeps_usage_limit_message(self) -> None:
         raw = """

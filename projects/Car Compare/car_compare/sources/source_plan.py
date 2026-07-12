@@ -156,6 +156,12 @@ def build_collection_plan(request: VehicleQuery, current_year: int | None = None
         workflow.insert(3, f"Collect only model-year {request.target_year}; reject every other year even if the source broadens the search.")
     elif request.start_year:
         workflow.insert(3, f"Collect model-year {request.start_year} and newer only.")
+    if request.make == "BMW" and request.model == "M4" and request.trim.lower() == "competition":
+        workflow.insert(
+            4,
+            "For 2021+ accept M4 Competition Coupe/Convertible and RWD/xDrive. For 2016-2020 accept an M4 only when "
+            "the visible row/detail evidence identifies the factory ZCP Competition Package. Reject ordinary Base, CS, CSL, and GTS rows.",
+        )
 
     return {
         "query": request.to_dict(),
@@ -169,7 +175,8 @@ def build_collection_plan(request: VehicleQuery, current_year: int | None = None
             "rule": (
                 "A captured row must contain every required keyword as a separate token, none of the excluded keywords, "
                 "and must not be a neighboring exact-trim variant such as EX-L for EX, GT500 for GT, Carrera S for Carrera, "
-                "or xDrive for a non-xDrive BMW Competition query."
+                "or xDrive for a constrained exact trim. BMW M4 Competition is a named family exception: unspecified "
+                "body style and drivetrain remain inclusive, and verified 2016-2020 factory Competition Package cars qualify."
             ),
             "include_all": resolution["include_all"],
             "exact": resolution["exact"],
