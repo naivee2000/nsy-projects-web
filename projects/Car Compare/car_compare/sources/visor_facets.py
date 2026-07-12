@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import datetime, timezone
+import html as html_lib
 import re
 import ssl
 import time
@@ -13,9 +15,9 @@ from typing import Any
 from car_compare.models import Listing, MSRP, VehicleQuery
 from car_compare.trim_match import trim_tokens, trim_value_matches_request
 from car_compare.vehicle_catalog import source_model_contains_trim, source_query_model
+from car_compare.vehicle_match import vehicle_text_match_score
 
 
-CURRENT_YEAR = 2026
 SOURCE = "visor_public_facets"
 NEW_SOURCE = "visor_public_facets_new"
 TIMEOUT_SECONDS = 18
@@ -35,13 +37,15 @@ class VisorYearData:
     filter_value: str = ""
 
 
-def collect_visor_public_facets(request: VehicleQuery, current_year: int = CURRENT_YEAR) -> dict[str, Any]:
-    years = list(range(current_year, current_year - request.max_age - 1, -1))
+def collect_visor_public_facets(request: VehicleQuery, current_year: int | None = None) -> dict[str, Any]:
+    current_year = current_year if current_year is not None else _runtime_current_year()
+    years = _requested_years(request, current_year)
+    new_year = request.target_year or current_year
     used_rows: list[VisorYearData] = []
     new_rows: list[VisorYearData] = []
     notes: list[str] = []
     used_filters = _matching_filter_specs(request, "used")
-    new_filters = _matching_filter_specs(request, "new", current_year)
+    new_filters = _matching_filter_specs(request, "new", new_year)
 
     if used_filters:
         notes.append(
@@ -57,11 +61,9 @@ def collect_visor_public_facets(request: VehicleQuery, current_year: int = CURRE
     with ThreadPoolExecutor(max_workers=4) as pool:
         future_map: dict[Any, tuple[str, int]] = {}
         for url, year, filter_name, filter_value in _used_visor_requests(request, years, used_filters):
-            if year == current_year:
-                continue
             future_map[pool.submit(fetch_visor_year, request, year, "used", url, filter_name, filter_value)] = ("used", year)
-        for url, filter_name, filter_value in _visor_urls_for_specs(request, current_year, "new", new_filters):
-            future_map[pool.submit(fetch_visor_year, request, current_year, "new", url, filter_name, filter_value)] = ("new", current_year)
+        for url, filter_name, filter_value in _visor_urls_for_specs(request, new_year, "new", new_filters):
+            future_map[pool.submit(fetch_visor_year, request, new_year, "new", url, filter_name, filter_value)] = ("new", new_year)
         for future in as_completed(future_map):
             car_type, year = future_map[future]
             try:
@@ -78,7 +80,7 @@ def collect_visor_public_facets(request: VehicleQuery, current_year: int = CURRE
     used_rows.sort(key=lambda item: item.year, reverse=True)
     new_rows.sort(key=lambda item: item.year, reverse=True)
     listings = _listings_from_years(request, used_rows + new_rows, current_year)
-    msrp = _msrp_from_years(request, new_rows + used_rows, current_year)
+    msrp = _msrp_from_years(request, new_rows + used_rows, new_year)
     status = "success" if listings else "blocked"
     sources = [
         {
@@ -95,7 +97,7 @@ def collect_visor_public_facets(request: VehicleQuery, current_year: int = CURRE
         },
         {
             "source": NEW_SOURCE,
-            "url": _visor_url(request, current_year, car_type="new"),
+            "url": _visor_url(request, new_year, car_type="new"),
             "status": "success" if any(item.source == NEW_SOURCE for item in listings) else "unavailable",
             "load_more_clicked": 0,
             "notes": (
@@ -161,6 +163,12 @@ def _fetch_visor_facets(
 ) -> VisorYearData | None:
     html = _fetch_text(url)
     if not _html_confirms_vehicle(request, html):
+        return None
+    if not _html_confirms_applied_value(html, "car_type", car_type):
+        return None
+    if not _html_confirms_applied_value(html, "year", str(year)):
+        return None
+    if filter_name and filter_value and not _html_confirms_applied_value(html, filter_name, filter_value):
         return None
     num_found = _parse_num_found(html)
     price_stats = _parse_stat_block(html, "price")
@@ -309,6 +317,12 @@ def _available_years(
         html = _fetch_text(_visor_url(request, None, car_type=car_type, filter_name=filter_name, filter_value=filter_value))
     except Exception:
         return years
+    if not _html_confirms_vehicle(request, html):
+        return []
+    if not _html_confirms_applied_value(html, "car_type", car_type):
+        return []
+    if filter_name and filter_value and not _html_confirms_applied_value(html, filter_name, filter_value):
+        return []
     available = {
         int(item["value"])
         for item in _parse_facet_items(html, "year")
@@ -328,6 +342,12 @@ def _matching_filter_specs(request: VehicleQuery, car_type: str, year: int | Non
     try:
         html = _fetch_text(_visor_url(request, year, car_type=car_type))
     except Exception:
+        return []
+    if not _html_confirms_vehicle(request, html):
+        return []
+    if not _html_confirms_applied_value(html, "car_type", car_type):
+        return []
+    if year and not _html_confirms_applied_value(html, "year", str(year)):
         return []
 
     matches: list[dict[str, Any]] = []
@@ -367,15 +387,54 @@ def _parse_num_found(text: str) -> int:
 
 
 def _html_confirms_vehicle(request: VehicleQuery, text: str) -> bool:
-    title_match = re.search(r"<title>(?P<title>.*?)</title>", text, re.I | re.S)
-    title = re.sub(r"\s+", " ", title_match.group("title")).strip() if title_match else ""
+    title = _html_title(text)
     if not title or title.startswith("Visor |"):
         return False
-    haystack = title.lower()
-    if request.make.lower() not in haystack:
+    identity = VehicleQuery(raw=request.raw, make=request.make, model=request.model)
+    return bool(vehicle_text_match_score(identity, title, source=SOURCE)["accepted"])
+
+
+def _html_title(text: str) -> str:
+    match = re.search(r"<title>(?P<title>.*?)</title>", text, re.I | re.S)
+    if not match:
+        return ""
+    title = re.sub(r"<[^>]+>", " ", match.group("title"))
+    return re.sub(r"\s+", " ", html_lib.unescape(title)).strip()
+
+
+def _html_confirms_applied_value(text: str, name: str, value: str) -> bool:
+    """Require the response to echo an applied year/trim/version selection.
+
+    Facet option arrays alone are deliberately insufficient: an ignored query
+    can still advertise the requested option while returning the broad model
+    histogram. A value is accepted only in a direct ``name=value`` /
+    ``name: value`` selection state; the title alone is not proof.
+    """
+    expected = trim_tokens(value)
+    decoded = html_lib.unescape(urllib.parse.unquote_plus(text)).replace('\\"', '"')
+    flexible_value = r"[\s+_-]*".join(re.escape(token) for token in expected)
+    if not flexible_value:
         return False
-    model_query = source_query_model(request.make, request.model, request.trim, "visor")
-    return all(token.lower() in haystack for token in model_query.split())
+    pattern = re.compile(
+        rf"(?<![a-z0-9])(?:[\"']?{re.escape(name)}[\"']?)\s*[:=]\s*[\"']?{flexible_value}(?![a-z0-9])",
+        re.I,
+    )
+    return bool(pattern.search(decoded))
+
+
+def _contains_token_sequence(haystack: list[str], needle: list[str]) -> bool:
+    if not needle or len(needle) > len(haystack):
+        return False
+    return any(haystack[index : index + len(needle)] == needle for index in range(len(haystack) - len(needle) + 1))
+
+
+def _requested_years(request: VehicleQuery, current_year: int) -> list[int]:
+    if request.target_year:
+        return [request.target_year]
+    years = list(range(current_year, current_year - request.max_age - 1, -1))
+    if request.start_year:
+        years = [year for year in years if year >= request.start_year]
+    return years
 
 
 def _parse_stat_block(text: str, name: str) -> dict[str, float]:
@@ -424,16 +483,15 @@ def _listings_from_years(request: VehicleQuery, rows: list[VisorYearData], curre
         is_new = row.car_type == "new"
         if row.year > current_year and not is_new:
             continue
-        if row.year == current_year and not is_new:
-            continue
         mileage = _optional_int(row.mileage_stats.get("median"))
         bins = row.price_bins or _bins_from_stats(row.price_stats)
+        sample_counts = _allocate_bin_samples(bins)
         display_name = _row_display_name(request, row)
-        for bin_index, item in enumerate(bins):
+        for bin_index, (item, sample_count) in enumerate(zip(bins, sample_counts)):
             lower = item["lower"]
             upper = item["upper"]
-            count = int(item["count"])
-            sample_count = min(count, 40)
+            if sample_count <= 0:
+                continue
             step = (upper - lower) / max(sample_count, 1)
             for sample_index in range(sample_count):
                 price = lower + step * (sample_index + 0.5)
@@ -464,6 +522,52 @@ def _listings_from_years(request: VehicleQuery, rows: list[VisorYearData], curre
                     )
                 )
     return listings
+
+
+def _allocate_bin_samples(bins: list[dict[str, float]], cap: int = 40) -> list[int]:
+    """Cap a histogram without flattening the source bin proportions."""
+    counts = [max(0, int(item.get("count", 0))) for item in bins]
+    total = sum(counts)
+    if total <= 0 or cap <= 0:
+        return [0] * len(counts)
+    if total <= cap:
+        return counts
+
+    positive = [index for index, count in enumerate(counts) if count > 0]
+    if len(positive) > cap:
+        keep = set(sorted(positive, key=lambda index: (counts[index], -index), reverse=True)[:cap])
+        return [1 if index in keep else 0 for index in range(len(counts))]
+
+    # Preserve evidence from every non-empty source bin before distributing the
+    # remaining synthetic observations proportionally.
+    allocated = [1 if count > 0 else 0 for count in counts]
+    remaining = cap - sum(allocated)
+    residual = [max(0, count - allocated[index]) for index, count in enumerate(counts)]
+    residual_total = sum(residual)
+    if residual_total <= 0 or remaining <= 0:
+        return allocated
+    quotas = [count * remaining / residual_total for count in residual]
+    floors = [min(residual[index], int(quota)) for index, quota in enumerate(quotas)]
+    allocated = [allocated[index] + floors[index] for index in range(len(counts))]
+    remaining = cap - sum(allocated)
+    order = sorted(
+        range(len(counts)),
+        key=lambda index: (quotas[index] - floors[index], counts[index], -index),
+        reverse=True,
+    )
+    while remaining > 0:
+        progressed = False
+        for index in order:
+            if allocated[index] >= counts[index]:
+                continue
+            allocated[index] += 1
+            remaining -= 1
+            progressed = True
+            if remaining == 0:
+                break
+        if not progressed:
+            break
+    return allocated
 
 
 def _row_display_name(request: VehicleQuery, row: VisorYearData) -> str:
@@ -536,3 +640,7 @@ def _optional_int(value: float | None) -> int | None:
         return int(round(float(value)))
     except (TypeError, ValueError):
         return None
+
+
+def _runtime_current_year() -> int:
+    return datetime.now(timezone.utc).year

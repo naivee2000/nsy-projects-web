@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+from datetime import datetime, timezone
 from urllib.parse import quote, quote_plus, urlencode
 
 from car_compare.models import VehicleQuery
@@ -106,8 +107,6 @@ MANUFACTURER_URLS = {
 }
 
 MANUFACTURER_MAKE_NAMES = {brand.lower() for brand in MANUFACTURER_URLS}
-
-
 @dataclass
 class SourceTarget:
     source: str
@@ -128,18 +127,36 @@ class SourceTarget:
         return asdict(self)
 
 
-def build_collection_plan(request: VehicleQuery) -> dict[str, object]:
+def build_collection_plan(request: VehicleQuery, current_year: int | None = None) -> dict[str, object]:
+    current_year = current_year if current_year is not None else _runtime_current_year()
     model_query = source_query_model(request.make, request.model, request.trim)
     matching = source_model_profile(request.make, request.model, request.trim, "matching")
     resolution = resolve_vehicle_query(request)
     trim_keywords = _trim_keywords(matching)
     targets = [
         _manufacturer_target(request, model_query, matching),
-        _visor_new_target(request, matching),
-        _autotrader_target(request),
-        _edmunds_target(request, matching),
-        _visor_target(request, matching),
+        _visor_new_target(request, matching, current_year),
+        _autotrader_target(request, current_year),
+        _edmunds_target(request, matching, current_year),
+        _visor_target(request, matching, current_year),
     ]
+    workflow = [
+        "Open the source URL in the browser.",
+        "Confirm the visible page is either a matching result page or a make-level fallback that still contains matching rows.",
+        "Set the search radius/location to Nationwide, All miles, or equivalent. If a zip is required, use it only as a search unlock parameter.",
+        "Before capturing a row, apply the target required_keywords and exclude_keywords as whole tokens.",
+        "For exact trims, reject neighboring variants that add a distinct trim/drivetrain token the user did not ask for.",
+        "If a site returns all cars for a make, do not trust the page filter; collect only rows that pass the matching rule.",
+        "Scroll through listings and click visible Load More / Show More / See More buttons when present.",
+        "Extract visible listing text after each loaded section.",
+        "Import the capture text into the app with the source name and URL.",
+        "Let the app deduplicate by VIN first, then by year/title/trim/price/mileage/dealer.",
+    ]
+    if request.target_year:
+        workflow.insert(3, f"Collect only model-year {request.target_year}; reject every other year even if the source broadens the search.")
+    elif request.start_year:
+        workflow.insert(3, f"Collect model-year {request.start_year} and newer only.")
+
     return {
         "query": request.to_dict(),
         "resolution": resolution,
@@ -158,18 +175,7 @@ def build_collection_plan(request: VehicleQuery) -> dict[str, object]:
             "exact": resolution["exact"],
         },
         "targets": [target.to_dict() for target in targets],
-        "codexWorkflow": [
-            "Open the source URL in the browser.",
-            "Confirm the visible page is either a matching result page or a make-level fallback that still contains matching rows.",
-            "Set the search radius/location to Nationwide, All miles, or equivalent. If a zip is required, use it only as a search unlock parameter.",
-            "Before capturing a row, apply the target required_keywords and exclude_keywords as whole tokens.",
-            "For exact trims, reject neighboring variants that add a distinct trim/drivetrain token the user did not ask for.",
-            "If a site returns all cars for a make, do not trust the page filter; collect only rows that pass the matching rule.",
-            "Scroll through listings and click visible Load More / Show More / See More buttons when present.",
-            "Extract visible listing text after each loaded section.",
-            "Import the capture text into the app with the source name and URL.",
-            "Let the app deduplicate by VIN first, then by year/title/trim/price/mileage/dealer.",
-        ],
+        "codexWorkflow": workflow,
     }
 
 
@@ -191,11 +197,12 @@ def _manufacturer_target(request: VehicleQuery, model_query: str, matching: dict
         validation=[
             "Confirm model/trim name against the official make site before collecting MSRP or new inventory.",
             "If inventory is dealer-local only, record that limitation in source notes.",
+            *_year_validation(request),
         ],
     )
 
 
-def _autotrader_target(request: VehicleQuery) -> SourceTarget:
+def _autotrader_target(request: VehicleQuery, current_year: int) -> SourceTarget:
     profile = source_model_profile(request.make, request.model, request.trim, "autotrader")
     path = "/".join(_slug(part) for part in profile["path_segments"])
     params = {
@@ -203,8 +210,13 @@ def _autotrader_target(request: VehicleQuery) -> SourceTarget:
         "searchRadius": "0",
         "newSearch": "true",
     }
-    if request.start_year:
-        params["startYear"] = str(request.start_year)
+    if request.target_year:
+        params["startYear"] = str(request.target_year)
+        params["endYear"] = str(request.target_year)
+    else:
+        lower_year = max(current_year - request.max_age, request.start_year or current_year - request.max_age)
+        params["startYear"] = str(lower_year)
+        params["endYear"] = str(current_year)
     return SourceTarget(
         source="autotrader_browser",
         url=f"https://www.autotrader.com/cars-for-sale/all-cars/{path}/new-york-ny?{urlencode(params)}",
@@ -222,17 +234,23 @@ def _autotrader_target(request: VehicleQuery) -> SourceTarget:
             "If Autotrader redirects to a make-level page, keep collecting only rows that pass required/exclude keyword matching.",
             "For Bentley Continental GT, Autotrader commonly uses Continental as model and GT as trim/path segment.",
             "Reject Bentley rows for GTC, Bentayga, Flying Spur, and Mulsanne when the query is Continental GT.",
+            *_year_validation(request),
         ],
     )
 
 
-def _edmunds_target(request: VehicleQuery, matching: dict[str, object]) -> SourceTarget:
+def _edmunds_target(request: VehicleQuery, matching: dict[str, object], current_year: int) -> SourceTarget:
     model_query = source_query_model(request.make, request.model, request.trim, "edmunds")
     params = {
         "inventorytype": "used,cpo",
         "make": request.make.lower().replace(" ", "-"),
         "model": model_query.lower().replace(" ", "-"),
     }
+    if request.target_year:
+        params["year"] = str(request.target_year)
+    else:
+        lower_year = max(current_year - request.max_age, request.start_year or current_year - request.max_age)
+        params["year"] = f"{lower_year}-{current_year}"
     return SourceTarget(
         source="edmunds_browser",
         url=f"https://www.edmunds.com/inventory/srp.html?{urlencode(params)}",
@@ -249,18 +267,19 @@ def _edmunds_target(request: VehicleQuery, matching: dict[str, object]) -> Sourc
         validation=[
             "Do not collect rows from a broad make page unless they pass required/exclude keyword matching.",
             "Record a source note if Edmunds cannot be made nationwide.",
+            *_year_validation(request),
         ],
     )
 
 
-def _visor_new_target(request: VehicleQuery, matching: dict[str, object]) -> SourceTarget:
+def _visor_new_target(request: VehicleQuery, matching: dict[str, object], current_year: int) -> SourceTarget:
     model_query = source_query_model(request.make, request.model, request.trim, "visor")
     params = {
         "make": request.make,
         "model": model_query,
         "car_type": "new",
     }
-    params["year"] = "2026"
+    params["year"] = str(request.target_year or current_year)
     return SourceTarget(
         source="visor_new_facets",
         url=f"https://visor.vin/search/filters?{urlencode(params, quote_via=quote_plus)}",
@@ -274,19 +293,25 @@ def _visor_new_target(request: VehicleQuery, matching: dict[str, object]) -> Sou
         notes="Supports age-0 box plot samples and should be labeled condition=new.",
         nationwide=True,
         location_policy="Visor public facets are nationwide aggregate market data unless a source URL says otherwise.",
-        validation=["Verify the facet make/model and any resolved trim/version alias in the source-data snapshot before using it."],
+        validation=[
+            "Verify the facet make/model and any resolved trim/version alias in the source-data snapshot before using it.",
+            *_year_validation(request),
+        ],
     )
 
 
-def _visor_target(request: VehicleQuery, matching: dict[str, object]) -> SourceTarget:
+def _visor_target(request: VehicleQuery, matching: dict[str, object], current_year: int) -> SourceTarget:
     model_query = source_query_model(request.make, request.model, request.trim, "visor")
     params = {
         "make": request.make,
         "model": model_query,
         "car_type": "used",
     }
-    if request.start_year:
-        params["year"] = ",".join(str(year) for year in range(request.start_year, 2027))
+    if request.target_year:
+        params["year"] = str(request.target_year)
+    else:
+        lower_year = max(current_year - request.max_age, request.start_year or current_year - request.max_age)
+        params["year"] = ",".join(str(year) for year in range(lower_year, current_year + 1))
     return SourceTarget(
         source="visor_api_or_facets",
         url=f"https://visor.vin/search/filters?{urlencode(params, quote_via=quote_plus)}",
@@ -300,7 +325,10 @@ def _visor_target(request: VehicleQuery, matching: dict[str, object]) -> SourceT
         notes="Best treated as API-first; public unauthenticated page is useful as aggregate support. Trim names may live under Version rather than Trim.",
         nationwide=True,
         location_policy="Visor public facets are nationwide aggregate market data unless a source URL says otherwise.",
-        validation=["Verify the facet make/model and any resolved trim/version alias in the source-data snapshot before using it."],
+        validation=[
+            "Verify the facet make/model and any resolved trim/version alias in the source-data snapshot before using it.",
+            *_year_validation(request),
+        ],
     )
 
 
@@ -308,5 +336,17 @@ def _trim_keywords(profile: dict[str, object]) -> list[str]:
     return [str(item) for item in profile["required_keywords"] if str(item).lower() not in MANUFACTURER_MAKE_NAMES]
 
 
+def _year_validation(request: VehicleQuery) -> list[str]:
+    if request.target_year:
+        return [f"Accept only model-year {request.target_year}; do not treat a broad or ignored year filter as valid."]
+    if request.start_year:
+        return [f"Accept only model-year {request.start_year} or newer."]
+    return []
+
+
 def _slug(value: str) -> str:
     return quote(value.lower().replace(" ", "-"))
+
+
+def _runtime_current_year() -> int:
+    return datetime.now(timezone.utc).year

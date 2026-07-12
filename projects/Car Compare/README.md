@@ -1,4 +1,4 @@
-# Car Compare
+# Car Depreciation Research Tool
 
 Local car depreciation research workstation. This folder is intended to be moved into:
 
@@ -18,6 +18,10 @@ It accepts natural vehicle queries such as `BMW M4 Competition after 2021`, norm
 - optional Codex generation-impact research for future new-generation depreciation shocks
 - source feasibility status for Edmunds, Autotrader, Visor, and manufacturer MSRP
 - cross-source deduplication so the same VIN/listing is counted once
+
+Obvious catalog-backed spelling mistakes are corrected conservatively before collection. For example, `BMW M4 Cometition` resolves to `BMW M4 Competition`, and the Parsed Vehicle panel discloses the correction. Unknown or ambiguous trim names are left unchanged. When verified new-market samples are unavailable, the official MSRP reference is used as the Age 0 depreciation baseline and remains labeled `MSRP Ref` rather than being presented as an observed listing.
+
+The completed seven-point search-accuracy audit and seven-point UX audit are documented in [docs/ACCURACY_UX_AUDIT.md](docs/ACCURACY_UX_AUDIT.md).
 
 ## Run
 
@@ -51,14 +55,14 @@ This makes it easier to add more websites later. Each source can be tested and f
 
 ## Data Collection Modes
 
-1. **Sample mode**
-   Uses a small BMW M4 Competition dataset captured from the feasibility pass, plus BMW MSRP metadata.
+1. **Explicit demo mode**
+   Setting `CAR_COMPARE_SAMPLE_MODE=1` enables a small BMW M4 Competition dataset for interface testing. Bundled rows are never injected in the default production mode.
 
 2. **Visible-text import**
    Codex can open a normal website page, collect visible page text, and send it to `/api/parse-visible-text` or the app's capture import box. This is useful for Edmunds and Autotrader pages that expose listing rows in normal browser views.
 
 3. **Automatic collection**
-   The app's `Collect` button first checks Visor public market facets by model year. It collects used-market facets for age 1+ and new-car facets for age 0 when available. New observations are labeled `condition=new`, the age-0 row displays as `New Market`, and MSRP is shown only as a reference value. If Codex is available, the job can continue into Codex website collection after Visor so individual website rows can be added later.
+   The app's `Collect` button first checks Visor public market facets by model year. It collects used-market facets across the selected horizon and new-car facets for age 0 when available. New observations are labeled `condition=new`; current-model-year used rows remain in Age 0 but display as `Current-Year Market`. A verified MSRP is the preferred depreciation baseline. If it is unavailable, the app uses a clearly labeled used-market estimate and keeps the report in `Needs MSRP` status instead of leaving the cumulative-depreciation graph empty. If Codex is available, the job can continue into Codex website collection after Visor so individual website rows can be added later.
 
 4. **Codex website collection fallback**
    If Codex is installed/logged in on the same computer, the app starts a local Codex CLI job using a fixed prompt and JSON schema. If Codex fails, times out, or hits a usage limit after Visor succeeded, the app preserves the Visor facet data as a completed partial result instead of throwing it away. The source plan includes official manufacturer pages for MSRP/new inventory when practical.
@@ -114,7 +118,9 @@ python3 scripts/deploy_preflight.py --smoke-codex
 
 The app binds to `127.0.0.1` by default. Keep it local unless you intentionally add authentication, because automatic collection can spend Codex usage.
 
-The planned public route is `https://carcompare.nsyprojects.com/`. It must stay behind Cloudflare Access or equivalent authenticated proxy protection. Browser visitors use the deployment host's Codex account and do not install or log in to Codex themselves. `GET /api/setup` reports host readiness without exposing credentials.
+The public route is `https://carcompare.nsyprojects.com/`. The deployment reuses the signed NSY session issued by `dem.nsyprojects.com/login`, so unauthenticated visitors are redirected to the existing NSY sign-in page. Browser visitors use the deployment host's Codex account and do not install or log in to Codex themselves. `GET /api/health` remains public for health checks; all other pages and APIs require the shared session when `CAR_COMPARE_AUTH_USERNAME` and `CAR_COMPARE_SESSION_SECRET` are configured.
+
+The PM2 template is `ops/pm2-car-compare.example.cjs`. The live Cloudflare tunnel should route `carcompare.nsyprojects.com` to `http://127.0.0.1:8787` before its final 404 ingress rule.
 
 The first page intentionally opens empty. It should not auto-run a default BMW query anymore.
 

@@ -4,7 +4,7 @@ import re
 from typing import Any
 
 from car_compare.models import VehicleQuery
-from car_compare.vehicle_catalog import MAKE_ALIASES, MODEL_CATALOG, source_model_profile
+from car_compare.vehicle_catalog import MAKE_ALIASES, MODEL_CATALOG, source_model_profile, trim_candidates
 
 
 BODY_STYLE_TERMS = {
@@ -52,25 +52,37 @@ def resolve_vehicle_query(request: VehicleQuery) -> dict[str, Any]:
     body_style = _first_match(raw_tokens + trim_tokens, BODY_STYLE_TERMS)
     drivetrain = _first_match(raw_tokens + trim_tokens, DRIVETRAIN_TERMS)
     powertrain = _first_match(raw_tokens + trim_tokens, POWERTRAIN_TERMS)
+    trim_drivetrain_siblings = _trim_drivetrain_siblings(request)
+    drivetrain_mode = "exact" if drivetrain else "constrained" if trim_drivetrain_siblings else "all"
+    drivetrain_value = drivetrain or (
+        "Constrained by exact trim" if trim_drivetrain_siblings else "All drivetrains"
+    )
 
     chips = [
-        _chip("make", "Make", request.make or "Unknown", "exact" if request.make else "unknown", _make_confidence(request.make)),
-        _chip("model", "Model", request.model or "Unknown", "exact" if request.model else "unknown", _model_confidence(request)),
-        _chip("trim", "Trim", request.trim or "All trims", "exact" if request.trim else "all", "high" if request.trim else "broad"),
+        _chip("make", "Make", request.make or "Unknown", "exact" if request.make else "unknown", _corrected_confidence(request, "make", _make_confidence(request.make))),
+        _chip("model", "Model", request.model or "Unknown", "exact" if request.model else "unknown", _corrected_confidence(request, "model", _model_confidence(request))),
+        _chip("trim", "Trim", request.trim or "All trims", "exact" if request.trim else "all", _corrected_confidence(request, "trim", "high" if request.trim else "broad")),
         _chip("year", "Years", _year_label(request), _year_mode(request), "high" if (request.start_year or request.target_year) else "broad"),
         _chip("body_style", "Body", body_style or "All body styles", "exact" if body_style else "all", "medium" if body_style else "broad"),
-        _chip("drivetrain", "Drivetrain", drivetrain or "All drivetrains", "exact" if drivetrain else "all", "medium" if drivetrain else "broad"),
+        _chip(
+            "drivetrain",
+            "Drivetrain",
+            drivetrain_value,
+            drivetrain_mode,
+            "high" if trim_drivetrain_siblings else "medium" if drivetrain else "broad",
+        ),
         _chip("powertrain", "Powertrain", powertrain or "All powertrains", "exact" if powertrain else "all", "medium" if powertrain else "broad"),
     ]
 
     include_all = [chip["key"] for chip in chips if chip["mode"] == "all"]
     exact = {chip["key"]: chip["value"] for chip in chips if chip["mode"] in {"exact", "range"}}
-    warnings = _warnings(request, include_all)
+    warnings = _warnings(request, include_all, trim_drivetrain_siblings)
 
     confidence = _overall_confidence(chips, warnings)
     return {
         "canonical": request.display_name,
         "confidence": confidence,
+        "corrections": list(request.corrections),
         "chips": chips,
         "include_all": include_all,
         "exact": exact,
@@ -83,6 +95,7 @@ def resolve_vehicle_query(request: VehicleQuery) -> dict[str, Any]:
         "website_rules": [
             "If trim/body/drivetrain/powertrain is All, include every visible variant that passes make/model matching.",
             "If a chip is Exact, require visible listing text or detail-page evidence for that value before collecting the row.",
+            "If drivetrain is Constrained by exact trim, reject the named drivetrain sibling variants listed in warnings.",
             "Never infer a missing trim/body/drivetrain from the website filter alone; verify it on the listing row or detail page.",
             "Reject rows with excluded sibling-model tokens even when a website returns them from a broad make page.",
         ],
@@ -129,8 +142,16 @@ def _year_mode(request: VehicleQuery) -> str:
     return "all"
 
 
-def _warnings(request: VehicleQuery, include_all: list[str]) -> list[str]:
+def _warnings(
+    request: VehicleQuery,
+    include_all: list[str],
+    trim_drivetrain_siblings: list[str] | None = None,
+) -> list[str]:
     warnings: list[str] = []
+    for correction in request.corrections:
+        warnings.append(
+            f'Corrected {correction["field"]} spelling from "{correction["original"]}" to "{correction["corrected"]}".'
+        )
     if not request.make or not request.model:
         warnings.append("Make or model was not confidently resolved.")
     if "trim" in include_all:
@@ -139,6 +160,13 @@ def _warnings(request: VehicleQuery, include_all: list[str]) -> list[str]:
         warnings.append("No body style was specified, so coupe/sedan/SUV/convertible variants are included when the model matches.")
     if "drivetrain" in include_all:
         warnings.append("No drivetrain was specified, so AWD/RWD/FWD/4WD variants are included when the model matches.")
+    elif trim_drivetrain_siblings:
+        warnings.append(
+            f'Exact trim "{request.trim}" excludes named drivetrain sibling'
+            f'{"s" if len(trim_drivetrain_siblings) != 1 else ""}: '
+            + ", ".join(trim_drivetrain_siblings)
+            + "."
+        )
     return warnings
 
 
@@ -147,8 +175,14 @@ def _overall_confidence(chips: list[dict[str, str]], warnings: list[str]) -> str
         return "low"
     if warnings and any("not confidently" in warning for warning in warnings):
         return "low"
+    if any(warning.startswith("Corrected ") for warning in warnings):
+        return "medium"
     exact_count = sum(1 for chip in chips if chip["mode"] in {"exact", "range"})
     return "high" if exact_count >= 3 else "medium"
+
+
+def _corrected_confidence(request: VehicleQuery, field: str, default: str) -> str:
+    return "medium" if any(item.get("field") == field for item in request.corrections) else default
 
 
 def _first_match(tokens: list[str], mapping: dict[str, str]) -> str:
@@ -157,6 +191,23 @@ def _first_match(tokens: list[str], mapping: dict[str, str]) -> str:
         if token in token_set:
             return display
     return ""
+
+
+def _trim_drivetrain_siblings(request: VehicleQuery) -> list[str]:
+    requested = _tokens(request.trim)
+    if not requested:
+        return []
+    siblings: list[str] = []
+    for candidate in trim_candidates(request.make, request.model):
+        candidate_tokens = _tokens(candidate)
+        if len(candidate_tokens) <= len(requested):
+            continue
+        if candidate_tokens[: len(requested)] != requested:
+            continue
+        added = candidate_tokens[len(requested) :]
+        if any(token in DRIVETRAIN_TERMS for token in added):
+            siblings.append(candidate)
+    return sorted(set(siblings))
 
 
 def _tokens(value: str) -> list[str]:

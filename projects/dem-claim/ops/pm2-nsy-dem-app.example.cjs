@@ -16,7 +16,7 @@ module.exports = {
         DEM_JOB_ROOT: `${appDir}/web_outputs`,
         DEM_JOB_RETENTION_HOURS: "24",
         DEM_JOB_CLEANUP_INTERVAL_SECONDS: "3600",
-        CODEX_BIN: "/Applications/Codex.app/Contents/Resources/codex",
+        CODEX_BIN: "/Applications/ChatGPT.app/Contents/Resources/codex",
         DEM_AUTH_USERNAME: "admin",
         DEM_AUTH_PASSWORD_HASH: "pbkdf2_sha256$...",
         DEM_SESSION_SECRET: "replace-with-a-long-random-secret",
@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       name: "nsy-dem-tunnel",
-      cwd: root,
+      cwd: repoRoot,
       script: "/opt/homebrew/bin/cloudflared",
       args: ["tunnel", "--config", `${opsDir}/cloudflared-nsy-dem-app.yml`, "run", "nsy-dem-app"],
       interpreter: "none",

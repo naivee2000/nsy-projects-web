@@ -60,6 +60,17 @@ h1 {
   line-height: 1.05;
 }
 
+.srOnly {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 h2 {
   font-size: 16px;
   font-weight: 730;
@@ -90,7 +101,7 @@ summary {
 
 .topbarInner {
   display: grid;
-  grid-template-columns: minmax(240px, 0.68fr) minmax(520px, 1.6fr);
+  grid-template-columns: minmax(330px, 0.78fr) minmax(520px, 1.5fr);
   gap: 28px;
   align-items: end;
   width: 100%;
@@ -104,6 +115,22 @@ summary {
   gap: 13px;
   align-items: center;
   min-width: 0;
+}
+
+.brandLockup > div {
+  min-width: 0;
+}
+
+.brandLockup h1 {
+  font-size: clamp(19px, 1.45vw, 23px);
+}
+
+.brandMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+  align-items: baseline;
+  margin-top: 5px;
 }
 
 .brandSignal {
@@ -137,17 +164,39 @@ summary {
 }
 
 #runStamp {
-  margin-top: 5px;
   color: var(--muted);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 11px;
+}
+
+.projectsBackLink {
+  color: var(--accent);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.projectsBackLink::before {
+  margin-right: 4px;
+  content: "\2190";
+}
+
+.projectsBackLink:hover {
+  color: var(--signal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .searchbar {
   display: grid;
   grid-template-columns: minmax(230px, 1fr) 104px 205px;
   gap: 12px;
-  align-items: end;
+  align-items: start;
+}
+
+.searchbar > button {
+  margin-top: 20px;
 }
 
 .field {
@@ -158,6 +207,25 @@ summary {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 11px;
   font-weight: 650;
+}
+
+.fieldMessage {
+  display: block;
+  color: var(--muted);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.errorMessage {
+  color: var(--danger);
+  font-weight: 650;
+}
+
+#query[aria-invalid="true"] {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 2px #321d1a;
 }
 
 input,
@@ -249,6 +317,22 @@ button:disabled {
   cursor: not-allowed;
 }
 
+.secondaryButton {
+  width: auto;
+  min-height: 38px;
+  border-color: var(--line-strong);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 720;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
 .buttonSignal {
   width: 8px;
   height: 8px;
@@ -273,6 +357,87 @@ button.isBusy .buttonSignal {
   padding: 22px 28px 48px;
 }
 
+.runPanel {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(180px, 0.55fr) minmax(240px, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  min-height: 68px;
+  padding: 12px 15px;
+  border: 1px solid #355e5c;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--accent-soft), var(--surface));
+  box-shadow: inset 3px 0 var(--accent);
+}
+
+.runIdentity {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  min-width: 0;
+}
+
+.runIdentity div {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.runIdentity strong,
+#runElapsed {
+  overflow-wrap: anywhere;
+}
+
+#runElapsed {
+  color: var(--muted);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 10px;
+}
+
+#runDetail {
+  color: #ced8db;
+  line-height: 1.45;
+}
+
+.runPulse {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+  animation: statusPulse 1.2s ease-in-out infinite;
+}
+
+.runPanel[data-state="complete"] {
+  border-color: #4c6927;
+  background: linear-gradient(90deg, var(--signal-soft), var(--surface));
+  box-shadow: inset 3px 0 var(--signal);
+}
+
+.runPanel[data-state="complete"] .runPulse {
+  background: var(--signal);
+  box-shadow: 0 0 0 4px var(--signal-soft);
+  animation: none;
+}
+
+.runPanel[data-state="error"] {
+  border-color: #6a3a35;
+  background: linear-gradient(90deg, #321d1a, var(--surface));
+  box-shadow: inset 3px 0 var(--danger);
+}
+
+.runPanel[data-state="error"] .runPulse {
+  background: var(--danger);
+  box-shadow: 0 0 0 4px #321d1a;
+  animation: none;
+}
+
+.retryButton {
+  justify-self: end;
+}
+
 .layout > *,
 .workspace,
 .resultsSurface,
@@ -288,9 +453,64 @@ button.isBusy .buttonSignal {
   min-height: 520px;
 }
 
+.resultNotice,
+.runError {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px solid #355e5c;
+  border-radius: 7px;
+  background: var(--accent-soft);
+  color: #d9efec;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.resultNotice::before,
+.runError::before {
+  margin-right: 8px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-weight: 800;
+  content: "INFO";
+}
+
+.resultNotice.partial,
+.resultNotice.isPartial,
+.resultNotice[data-state="partial"] {
+  border-color: #64532c;
+  background: #2e2719;
+  color: #f7d99e;
+}
+
+.resultNotice.partial::before,
+.resultNotice.isPartial::before,
+.resultNotice[data-state="partial"]::before {
+  content: "PARTIAL";
+}
+
+.runError {
+  border-color: #6a3a35;
+  background: #321d1a;
+  color: #ffd4d0;
+}
+
+.runError::before {
+  content: "ERROR";
+}
+
 .resultsSurface {
   display: grid;
   gap: 16px;
+  transition: opacity 160ms ease;
+}
+
+.resultsSurface.isStale {
+  opacity: 0.58;
+}
+
+.resultNotice .noticeAction {
+  width: auto;
+  margin-top: 9px;
+  margin-right: 8px;
 }
 
 .emptyWorkspace {
@@ -594,6 +814,43 @@ button.isBusy .buttonSignal {
   scrollbar-color: var(--line-strong) transparent;
 }
 
+.chartViewport:focus-visible,
+.tableWrap:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+#chart g[tabindex]:focus,
+#depreciationChart g[tabindex]:focus {
+  outline: none;
+}
+
+#chart g[tabindex]:focus-visible > rect,
+#chart g[tabindex]:focus-visible > circle,
+#chart g[tabindex]:focus-visible > line,
+#depreciationChart g[tabindex]:focus-visible > rect,
+#depreciationChart g[tabindex]:focus-visible > circle,
+#depreciationChart g[tabindex]:focus-visible > line {
+  filter: drop-shadow(0 0 5px var(--signal));
+  stroke: var(--signal) !important;
+  stroke-width: 4px !important;
+}
+
+.scrollHint {
+  display: none;
+  gap: 6px;
+  align-items: center;
+  margin: 4px 0 9px;
+  color: var(--muted);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 10px;
+}
+
+.scrollHint span {
+  color: var(--accent);
+  font-size: 14px;
+}
+
 #chart {
   aspect-ratio: 980 / 460;
 }
@@ -662,11 +919,11 @@ tbody tr:hover td {
 
 .side {
   position: sticky;
-  top: 105px;
+  top: 128px;
   display: grid;
   gap: 12px;
   align-content: start;
-  max-height: calc(100vh - 127px);
+  max-height: calc(100vh - 150px);
   overflow-y: auto;
   scrollbar-color: var(--line-strong) transparent;
 }
@@ -877,6 +1134,12 @@ tbody tr:hover td {
   font-weight: 720;
 }
 
+.analyzeImportedButton {
+  width: 100%;
+  margin-top: 15px;
+  justify-content: center;
+}
+
 .planList {
   display: grid;
   gap: 12px;
@@ -887,6 +1150,13 @@ tbody tr:hover td {
 .evidenceSource a,
 .evidenceTable a {
   color: var(--accent);
+}
+
+a:focus-visible,
+summary:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
 }
 
 .mutedText {
@@ -1073,6 +1343,10 @@ tbody tr:hover td {
   .evidenceSource {
     grid-template-columns: 1fr;
   }
+
+  .runPanel {
+    grid-template-columns: minmax(180px, 0.65fr) minmax(220px, 1fr) auto;
+  }
 }
 
 @media (max-width: 680px) {
@@ -1092,6 +1366,7 @@ tbody tr:hover td {
 
   .searchbar button {
     grid-column: 1 / -1;
+    margin-top: 0;
   }
 
   .side {
@@ -1129,6 +1404,10 @@ tbody tr:hover td {
     padding: 13px;
   }
 
+  .scrollHint {
+    display: flex;
+  }
+
   #chart,
   #depreciationChart {
     min-width: 680px;
@@ -1140,6 +1419,41 @@ tbody tr:hover td {
 
   .resolverConfidence {
     width: fit-content;
+  }
+
+  .runPanel {
+    grid-template-columns: 1fr auto;
+    gap: 9px 14px;
+  }
+
+  #runDetail {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .retryButton {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .ageBucketTable th:first-child,
+  .ageBucketTable td:first-child {
+    position: sticky;
+    left: 0;
+    background: var(--surface);
+    box-shadow: 1px 0 0 var(--line-strong);
+  }
+
+  .ageBucketTable th:first-child {
+    z-index: 3;
+  }
+
+  .ageBucketTable td:first-child {
+    z-index: 2;
+  }
+
+  .ageBucketTable tbody tr:hover td:first-child {
+    background: var(--surface-2);
   }
 }
 
@@ -1160,6 +1474,22 @@ tbody tr:hover td {
 
   .legend {
     gap: 8px;
+  }
+
+  .runPanel {
+    grid-template-columns: 1fr;
+  }
+
+  #runDetail,
+  .retryButton {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .retryButton {
+    width: 100%;
+    justify-self: stretch;
+    justify-content: center;
   }
 
   .emptyWorkspace {

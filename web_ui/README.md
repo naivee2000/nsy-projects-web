@@ -6,6 +6,7 @@ This folder holds the static website design for `NSYPROJECTS.COM`.
 - `about.html` is the personal About Me page.
 - `projects.html` is the public project directory.
 - `projects/dem-claim/index.html` is the stable NSY project URL and redirects to the live DEM claim workflow.
+- `projects/car-compare/index.html` is the stable NSY project URL and redirects to the authenticated Car Compare app.
 - `assets/hero-projects.png` is an original generated hero background for this site.
 - `_redirects` keeps old login URLs pointed at the real backend sign-in.
 
@@ -24,6 +25,7 @@ DEM claim processing, real login/session code, uploads, OCR, and Excel generatio
 - Cloudflare Pages project: `nsy-projects`.
 - Public site domain: `https://nsyprojects.com/`.
 - DEM backend domain: `https://dem.nsyprojects.com/`.
+- Car Compare backend domain: `https://carcompare.nsyprojects.com/`.
 - DEM backend runs separately through the FastAPI app in `../projects/dem-claim/app/`.
 - Do not put upload, OCR, workbook generation, or password checking code into this static folder.
 - The Projects page should stay app-neutral: the top-right control is account state only, while each project card links to its own stable `/projects/<slug>/` entry.

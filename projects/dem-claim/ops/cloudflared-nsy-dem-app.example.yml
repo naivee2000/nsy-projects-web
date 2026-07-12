@@ -4,4 +4,6 @@ credentials-file: /Users/YOUR_USER/.cloudflared/YOUR_TUNNEL_ID.json
 ingress:
   - hostname: dem.nsyprojects.com
     service: http://127.0.0.1:8000
+  - hostname: carcompare.nsyprojects.com
+    service: http://127.0.0.1:8787
   - service: http_status:404

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Car Compare</title>
+    <title>Car Depreciation Research Tool</title>
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
@@ -12,14 +12,28 @@
         <div class="brandLockup">
           <span class="brandSignal" aria-hidden="true"><i></i><i></i><i></i></span>
           <div>
-            <h1>Car Compare</h1>
-            <p id="runStamp">Vehicle value intelligence</p>
+            <h1>Car Depreciation Research Tool</h1>
+            <div class="brandMeta">
+              <p id="runStamp">Vehicle value intelligence</p>
+              <a class="projectsBackLink" href="https://nsyprojects.com/projects" aria-label="Back to NSY Projects">Back to NSY Projects</a>
+            </div>
           </div>
         </div>
         <form id="searchForm" class="searchbar">
           <label class="field queryField" for="query">
             <span>Vehicle query</span>
-            <input id="query" name="query" autocomplete="off" placeholder="BMW M4 Competition" />
+            <input
+              id="query"
+              name="query"
+              autocomplete="off"
+              autocapitalize="words"
+              placeholder="BMW M4 Competition"
+              required
+              aria-describedby="queryHelp queryError"
+              aria-errormessage="queryError"
+            />
+            <small id="queryHelp" class="fieldMessage">Enter a make, model, and trim. Common spelling mistakes are corrected automatically.</small>
+            <small id="queryError" class="fieldMessage errorMessage" role="alert" hidden></small>
           </label>
           <label class="field yearControl" for="maxAge">
             <span>Horizon</span>
@@ -37,15 +51,30 @@
     </header>
 
     <main class="layout">
+      <div id="runPanel" class="runPanel" role="status" aria-live="polite" aria-atomic="false" hidden>
+        <div class="runIdentity">
+          <span class="runPulse" aria-hidden="true"></span>
+          <div>
+            <strong id="runStage">Preparing research</strong>
+            <span id="runElapsed">0:00 elapsed</span>
+          </div>
+        </div>
+        <p id="runDetail">Checking available market sources.</p>
+        <button id="retryButton" class="secondaryButton retryButton" type="button" hidden>Retry research</button>
+      </div>
+
       <section class="workspace">
+        <div id="resultNotice" class="resultNotice" role="status" aria-live="polite" hidden></div>
+        <div id="runError" class="runError" role="alert" hidden></div>
+
         <div id="emptyWorkspace" class="emptyWorkspace">
           <span class="emptyStateCode">SYSTEM READY</span>
           <h2>Market intelligence standby</h2>
-          <p>Collector and generation forecast online.</p>
+          <p>Enter a vehicle above to start market research.</p>
           <span class="scanLine" aria-hidden="true"></span>
         </div>
 
-        <div id="resultsSurface" class="resultsSurface" hidden>
+        <div id="resultsSurface" class="resultsSurface" tabindex="-1" aria-busy="false" hidden>
           <div id="resolverPanel" class="resolverPanel"></div>
           <div class="metricRow" id="summaryMetrics"></div>
           <div class="chartShell">
@@ -61,7 +90,8 @@
                 <span><i class="dot"></i>Average</span>
               </div>
             </div>
-            <div class="chartViewport">
+            <p class="scrollHint"><span aria-hidden="true">&#8596;</span> Swipe or scroll horizontally to view the full chart.</p>
+            <div class="chartViewport" tabindex="0" role="region" aria-label="Depreciation trend chart, horizontally scrollable">
               <svg id="chart" viewBox="0 0 980 460" role="img" aria-label="Depreciation trend chart"></svg>
             </div>
           </div>
@@ -79,7 +109,8 @@
                 <span><i class="line projected"></i>Projected</span>
               </div>
             </div>
-            <div class="chartViewport">
+            <p class="scrollHint"><span aria-hidden="true">&#8596;</span> Swipe or scroll horizontally to view the full chart.</p>
+            <div class="chartViewport" tabindex="0" role="region" aria-label="Depreciation amount chart, horizontally scrollable">
               <svg id="depreciationChart" viewBox="0 0 980 420" role="img" aria-label="Depreciation amount and percent chart"></svg>
             </div>
           </div>
@@ -89,23 +120,25 @@
               <span class="sectionCode">YEAR-BY-YEAR</span>
               <h2>Age Buckets</h2>
             </div>
-            <div class="tableWrap">
-              <table>
+            <div class="tableWrap" tabindex="0" role="region" aria-label="Year-by-year depreciation table, horizontally scrollable">
+              <table class="ageBucketTable">
+                <caption class="srOnly">Year-by-year vehicle value and depreciation details</caption>
                 <thead>
                   <tr>
-                    <th>Age</th>
-                    <th>Model Year</th>
-                    <th>Type</th>
-                    <th>Samples</th>
-                    <th>Average</th>
-                    <th>Median</th>
-                    <th>Q1</th>
-                    <th>Q3</th>
-                    <th>YoY Loss</th>
-                    <th>YoY %</th>
-                    <th>Total Loss</th>
-                    <th>Total %</th>
-                    <th>Gen Adj</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Model Year</th>
+                    <th scope="col">Calendar Year</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Samples</th>
+                    <th scope="col">Average</th>
+                    <th scope="col">Median</th>
+                    <th scope="col">Q1</th>
+                    <th scope="col">Q3</th>
+                    <th scope="col">YoY Loss</th>
+                    <th scope="col">YoY %</th>
+                    <th scope="col">Total Loss</th>
+                    <th scope="col">Total %</th>
+                    <th scope="col">Gen Adj</th>
                   </tr>
                 </thead>
                 <tbody id="bucketRows"></tbody>
@@ -176,6 +209,7 @@
               <input id="msrpUrl" placeholder="https://..." />
             </fieldset>
           </div>
+          <button id="analyzeImportedButton" class="secondaryButton analyzeImportedButton" type="button">Analyze Imported Data</button>
         </details>
       </aside>
     </main>

@@ -13,6 +13,7 @@ class VehicleQuery:
     start_year: int | None = None
     target_year: int | None = None
     max_age: int = 10
+    corrections: list[dict[str, str]] = field(default_factory=list)
 
     @property
     def display_name(self) -> str:
@@ -61,6 +62,7 @@ class BucketStats:
     observed: bool
     predicted: bool
     values: list[float] = field(default_factory=list)
+    model_years: list[int] = field(default_factory=list)
     average: float | None = None
     median: float | None = None
     q1: float | None = None

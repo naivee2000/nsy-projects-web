@@ -136,12 +136,20 @@
         </div>
         <p>把装卸文件内容（PDF/PNG等格式）填入Excel模版</p>
       </a>
+      <a class="project" href="/projects/car-compare/">
+        <div class="project-top">
+          <h2>Car Depreciation Research Tool</h2>
+          <span id="carCompareStatus" class="status">Login required</span>
+        </div>
+        <p>Research vehicle market values, depreciation curves, and generation-change impact.</p>
+      </a>
     </section>
   </main>
   <script>
     const accountStatus = document.getElementById("accountStatus");
     const authAction = document.getElementById("authAction");
     const demStatus = document.getElementById("demStatus");
+    const carCompareStatus = document.getElementById("carCompareStatus");
     authAction.href = `https://dem.nsyprojects.com/login?next=${encodeURIComponent(window.location.href)}`;
     if (document.cookie.split("; ").includes("nsy_signed_in=1")) {
       accountStatus.textContent = "Signed in";
@@ -149,6 +157,8 @@
       authAction.href = `https://dem.nsyprojects.com/logout?next=${encodeURIComponent(window.location.href)}`;
       demStatus.textContent = "Available";
       demStatus.classList.add("ready");
+      carCompareStatus.textContent = "Available";
+      carCompareStatus.classList.add("ready");
     }
   </script>
 </body>

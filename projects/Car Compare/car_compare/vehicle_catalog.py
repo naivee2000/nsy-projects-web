@@ -66,10 +66,10 @@ MAKE_ALIASES = {
 
 
 MODEL_CATALOG = {
-    "Acura": ["MDX", "RDX", "Integra", "TLX", "ZDX", "ADX", "NSX"],
+    "Acura": ["MDX", "RDX", "Integra", "ILX", "TLX", "ZDX", "ADX", "NSX"],
     "Alfa Romeo": ["Stelvio", "Giulia", "Tonale", "4C"],
-    "Aston Martin": ["DBX", "Vantage", "DB12", "DB11", "Vanquish"],
-    "Audi": ["Q3", "Q4 e-tron", "Q5", "Q7", "Q8", "A3", "A4", "A5", "A6", "A7", "A8", "e-tron", "SQ5", "RS 6"],
+    "Aston Martin": ["DBX", "DBS", "DB9", "Vantage", "DB12", "DB11", "Vanquish"],
+    "Audi": ["Q3", "Q4 e-tron", "Q5", "Q7", "Q8", "A3", "A4", "A5", "A6", "A7", "A8", "e-tron", "SQ5", "RS 3", "RS 5", "RS 6", "RS 7"],
     "Bentley": [
         "Continental GT",
         "Continental GTC",
@@ -96,16 +96,16 @@ MODEL_CATALOG = {
     "Buick": ["Encore GX", "Envision", "Enclave", "Envista"],
     "Cadillac": ["Escalade", "Escalade IQ", "XT4", "XT5", "XT6", "CT4", "CT5", "Lyriq", "Optiq", "Vistiq"],
     "Chevrolet": ["Silverado 1500", "Silverado", "Equinox", "Tahoe", "Suburban", "Traverse", "Trax", "Corvette", "Malibu", "Blazer", "Colorado"],
-    "Chrysler": ["Pacifica", "Voyager", "300"],
+    "Chrysler": ["Pacifica", "Voyager", "200", "300"],
     "Dodge": ["Charger", "Challenger", "Durango", "Hornet"],
     "Ferrari": ["Roma", "296", "SF90", "Purosangue", "812", "F8"],
     "FIAT": ["500e", "500X", "124 Spider"],
     "Ford": ["F-150", "F-250", "F-350", "Explorer", "Escape", "Bronco", "Bronco Sport", "Mustang", "Maverick", "Expedition", "Ranger", "Edge"],
     "Genesis": ["GV60", "GV70", "GV80", "G70", "G80", "G90"],
     "GMC": ["Sierra", "Yukon", "Terrain", "Acadia", "Canyon", "Hummer EV"],
-    "Honda": ["Civic", "Accord", "CR-V", "Passport", "Pilot", "Odyssey"],
+    "Honda": ["Civic", "Accord", "CR-V", "HR-V", "CR-Z", "Passport", "Pilot", "Odyssey"],
     "Hyundai": ["Elantra", "Sonata", "Tucson", "Santa Fe", "Palisade", "Venue", "Kona", "Ioniq 5", "Ioniq 6", "Ioniq 9", "Santa Cruz"],
-    "INFINITI": ["QX50", "QX55", "QX60", "QX80", "Q50"],
+    "INFINITI": ["QX50", "QX55", "QX60", "QX80", "Q50", "Q70"],
     "Jaguar": ["F-Pace", "E-Pace", "I-Pace", "XF", "F-Type"],
     "Jeep": ["Grand Cherokee", "Wrangler", "Compass", "Gladiator", "Wagoneer", "Grand Wagoneer", "Cherokee", "Renegade"],
     "Kia": ["Sportage", "Telluride", "Sorento", "Seltos", "Carnival", "K5", "K4", "Soul", "Niro", "EV6", "EV9"],
@@ -115,8 +115,8 @@ MODEL_CATALOG = {
     "Lincoln": ["Navigator", "Aviator", "Nautilus", "Corsair"],
     "Lucid": ["Air", "Gravity"],
     "Maserati": ["Grecale", "Levante", "Ghibli", "Quattroporte", "GranTurismo", "MC20"],
-    "Mazda": ["CX-5", "CX-50", "CX-30", "CX-90", "CX-70", "Mazda3", "MX-5 Miata"],
-    "McLaren": ["GT", "Artura", "720S", "750S", "765LT"],
+    "Mazda": ["CX-3", "CX-5", "CX-7", "CX-9", "CX-50", "CX-30", "CX-90", "CX-70", "Mazda3", "Mazda6", "MX-5 Miata"],
+    "McLaren": ["GT", "Artura", "570S", "650S", "720S", "750S", "765LT"],
     "Mercedes-Benz": [
         "C-Class",
         "E-Class",
@@ -136,7 +136,7 @@ MODEL_CATALOG = {
     "Mitsubishi": ["Outlander", "Outlander Sport", "Eclipse Cross", "Mirage"],
     "Nissan": ["Rogue", "Altima", "Sentra", "Pathfinder", "Frontier", "Armada", "Murano", "Kicks", "Leaf", "Ariya", "Z"],
     "Polestar": ["2", "3", "4"],
-    "Porsche": ["Cayenne", "911", "Panamera", "Macan", "Taycan", "718"],
+    "Porsche": ["Cayenne", "911", "914", "Panamera", "Macan", "Taycan", "718"],
     "RAM": ["1500", "2500", "3500", "ProMaster"],
     "Rivian": ["R1S", "R1T", "EDV"],
     "Rolls-Royce": ["Cullinan", "Ghost", "Phantom", "Spectre", "Wraith", "Dawn"],
@@ -145,7 +145,36 @@ MODEL_CATALOG = {
     "Toyota": ["Camry", "Corolla", "RAV4", "Tacoma", "Tundra", "4Runner", "Sienna", "Crown"],
     "VinFast": ["VF 6", "VF 7", "VF 8", "VF 9"],
     "Volkswagen": ["Atlas", "Atlas Cross Sport", "Tiguan", "Jetta", "Taos", "Golf", "ID 4", "Arteon"],
-    "Volvo": ["XC90", "XC60", "XC40", "S60", "S90", "V60", "V90", "EX30", "EX90", "C40"],
+    "Volvo": ["XC90", "XC60", "XC40", "S60", "S90", "V60", "V90", "EX30", "EX90", "C30", "C40"],
+}
+
+
+# Known trims are used only as a conservative spelling vocabulary. Unknown trims
+# remain untouched, and the normal exact-match rules still apply after parsing.
+TRIM_CATALOG: dict[tuple[str, str], list[str]] = {
+    ("Toyota", "Camry"): ["LE", "SE", "XLE", "XSE", "TRD", "Limited"],
+    ("Toyota", "RAV4"): ["LE", "XLE", "Limited", "Adventure", "TRD Off-Road"],
+    ("Honda", "Civic"): ["LX", "Sport", "EX", "EX-L", "Touring", "Sport Touring", "Si", "Type R"],
+    ("Honda", "Accord"): ["LX", "SE", "EX-L", "Sport", "Touring"],
+    ("Ford", "F-150"): ["XL", "XLT", "Lariat", "King Ranch", "Platinum", "Raptor"],
+    ("Ford", "Mustang"): ["EcoBoost", "GT", "Dark Horse", "Shelby GT500"],
+    ("Chevrolet", "Silverado 1500"): ["WT", "Custom", "LT", "RST", "LTZ", "High Country"],
+    ("BMW", "3 Series"): ["320i", "330i", "335i", "330e", "M340i", "320i xDrive", "330i xDrive", "335i xDrive", "M340i xDrive"],
+    ("BMW", "4 Series"): ["430i", "440i", "M440i", "430i xDrive", "440i xDrive", "M440i xDrive"],
+    ("BMW", "X5"): ["sDrive40i", "xDrive40i", "xDrive50e", "M60i"],
+    ("BMW", "M4"): ["Competition", "Competition xDrive", "CS", "CSL"],
+    ("Mercedes-Benz", "C-Class"): ["300", "300 4MATIC", "43 AMG", "63 AMG"],
+    ("Mercedes-Benz", "GLE"): ["350", "350 4MATIC", "450 4MATIC", "53 AMG", "63 AMG"],
+    ("Audi", "Q5"): ["Premium", "Premium Plus", "Prestige"],
+    ("Lexus", "RX"): ["350", "350 Premium", "350 Luxury", "500h F Sport Performance"],
+    ("Tesla", "Model 3"): ["Long Range AWD", "Performance"],
+    ("Tesla", "Model Y"): ["Long Range AWD", "Performance"],
+    ("Jeep", "Wrangler"): ["Sport", "Sahara", "Rubicon", "Willys"],
+    ("Subaru", "Outback"): ["Premium", "Limited", "Touring", "Touring XT", "Wilderness"],
+    ("Hyundai", "Tucson"): ["SE", "SEL", "XRT", "Limited"],
+    ("Kia", "Telluride"): ["LX", "S", "EX", "SX", "SX Prestige"],
+    ("Porsche", "911"): ["Carrera", "Carrera S", "Carrera GTS", "Carrera 4S", "Turbo", "Turbo S", "GT3"],
+    ("Porsche", "Cayenne"): ["Base", "S", "GTS", "Turbo", "Turbo E-Hybrid"],
 }
 
 
@@ -339,6 +368,13 @@ def make_candidates() -> list[tuple[list[str], str]]:
     return sorted(pairs, key=lambda item: len(item[0]), reverse=True)
 
 
+def make_aliases(make: str) -> list[str]:
+    """Return every accepted spelling for a canonical make, longest first."""
+    aliases = {alias for alias, canonical in MAKE_ALIASES.items() if canonical == make}
+    aliases.add(make.lower())
+    return sorted(aliases, key=lambda value: (len(value.split()), len(value)), reverse=True)
+
+
 def model_candidates(make: str) -> list[tuple[list[str], str]]:
     pairs = []
     for model in MODEL_CATALOG.get(make, []):
@@ -353,6 +389,10 @@ def model_candidates(make: str) -> list[tuple[list[str], str]]:
             ]
         )
     return sorted(pairs, key=lambda item: len(item[0]), reverse=True)
+
+
+def trim_candidates(make: str, model: str) -> list[str]:
+    return list(TRIM_CATALOG.get((make, model), []))
 
 
 def display_token(token: str) -> str:

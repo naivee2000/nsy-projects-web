@@ -17,11 +17,11 @@
       "additionalProperties": false,
       "required": ["price", "label", "source", "url", "year"],
       "properties": {
-        "price": { "type": ["number", "null"] },
+        "price": { "type": ["number", "null"], "minimum": 5000, "maximum": 10000000 },
         "label": { "type": "string" },
         "source": { "type": "string" },
         "url": { "type": "string" },
-        "year": { "type": ["integer", "null"] }
+        "year": { "type": ["integer", "null"], "minimum": 1980, "maximum": 2100 }
       }
     },
     "sources": {
@@ -62,10 +62,10 @@
         ],
         "properties": {
           "source": { "type": "string" },
-          "year": { "type": "integer" },
-          "price": { "type": "number" },
+          "year": { "type": "integer", "minimum": 1980, "maximum": 2100 },
+          "price": { "type": "number", "minimum": 500, "maximum": 10000000 },
           "trim": { "type": "string" },
-          "mileage": { "type": ["integer", "null"] },
+          "mileage": { "type": ["integer", "null"], "minimum": 0, "maximum": 1000000 },
           "title": { "type": "string" },
           "url": { "type": "string" },
           "vin": { "type": "string" },

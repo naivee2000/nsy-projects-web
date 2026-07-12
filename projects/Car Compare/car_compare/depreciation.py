@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 from collections import Counter, defaultdict
+from dataclasses import replace
+from datetime import datetime, timezone
 import re
 from typing import Any
+from urllib.parse import parse_qsl, urlsplit
 
 from car_compare.models import BucketStats, Listing, MSRP, VehicleQuery
 from car_compare.resolver import resolve_vehicle_query
@@ -10,7 +13,6 @@ from car_compare.statistics import mean, median, percentile, round_money, round_
 from car_compare.vehicle_match import matches_vehicle_text
 
 
-CURRENT_YEAR = 2026
 EVIDENCE_LISTING_LIMIT = 1000
 
 
@@ -18,45 +20,80 @@ def build_report(
     request: VehicleQuery,
     listings: list[Listing],
     msrp: MSRP,
-    current_year: int = CURRENT_YEAR,
+    current_year: int | None = None,
     generation_impact: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
+    current_year = current_year if current_year is not None else _runtime_current_year()
     filtered_raw = _filter_listings(request, listings)
-    filtered = dedupe_listings(filtered_raw)
+    deduped = dedupe_listings(filtered_raw)
+    filtered: list[Listing] = []
+    outside_horizon: list[Listing] = []
     grouped: dict[int, list[Listing]] = defaultdict(list)
-    for listing in filtered:
+    for listing in deduped:
         age = _listing_age(listing, current_year)
         if 0 <= age <= request.max_age:
+            filtered.append(listing)
             grouped[age].append(listing)
+        else:
+            outside_horizon.append(listing)
 
-    if not filtered and msrp.price <= 0:
+    effective_msrp = msrp
+    if msrp.price <= 0:
+        used_grouped = {
+            age: [row for row in rows if not _is_new_listing(row)]
+            for age, rows in grouped.items()
+        }
+        used_grouped = {age: rows for age, rows in used_grouped.items() if rows}
+        estimated_price = _effective_msrp(msrp, used_grouped)
+        if estimated_price > 0:
+            baseline_year = request.target_year or current_year
+            effective_msrp = MSRP(
+                price=estimated_price,
+                label="Estimated age-0 baseline extrapolated from youngest used-market median",
+                source="estimated_from_used_market",
+                url="",
+                year=baseline_year,
+            )
+
+    if not filtered and effective_msrp.price <= 0:
         buckets = _empty_buckets(request, current_year)
         return _report_payload(
             request=request,
-            msrp=msrp,
+            msrp=effective_msrp,
             filtered=filtered,
             filtered_raw=filtered_raw,
+            deduped_count=len(deduped),
+            outside_horizon=outside_horizon,
             buckets=buckets,
             current_year=current_year,
             data_quality="needs_collection",
             generation_impact=generation_impact,
         )
 
-    buckets: list[BucketStats] = [_age_zero_bucket(msrp, grouped.get(0, []), current_year)]
+    buckets: list[BucketStats] = [
+        _age_zero_bucket(
+            effective_msrp,
+            grouped.get(0, []),
+            current_year,
+            cohort_year=request.target_year,
+        )
+    ]
 
     for age in range(1, request.max_age + 1):
         rows = grouped.get(age, [])
+        bucket_model_year = request.target_year or (current_year - age)
         if rows:
             values = sorted(item.price for item in rows)
             source_counts = dict(Counter(item.source for item in rows))
             buckets.append(
                 BucketStats(
                     age=age,
-                    model_year=current_year - age,
+                    model_year=bucket_model_year,
                     sample_count=len(values),
                     observed=True,
                     predicted=False,
                     values=values,
+                    model_years=[request.target_year] if request.target_year else sorted({item.year for item in rows}),
                     average=mean(values),
                     median=median(values),
                     q1=percentile(values, 0.25),
@@ -71,23 +108,31 @@ def build_report(
             buckets.append(
                 BucketStats(
                     age=age,
-                    model_year=current_year - age,
+                    model_year=bucket_model_year,
                     sample_count=0,
                     observed=False,
                     predicted=True,
+                    model_years=[bucket_model_year],
                     source_counts={},
                     confidence="projected",
                 )
             )
 
-    _apply_trend_and_predictions(buckets, generation_impact, current_year)
+    _apply_trend_and_predictions(
+        buckets,
+        generation_impact,
+        current_year,
+        generation_base_year=request.target_year or current_year,
+    )
     _apply_depreciation(buckets)
     data_quality = "observed" if filtered else "msrp_only"
     return _report_payload(
         request=request,
-        msrp=msrp,
+        msrp=effective_msrp,
         filtered=filtered,
         filtered_raw=filtered_raw,
+        deduped_count=len(deduped),
+        outside_horizon=outside_horizon,
         buckets=buckets,
         current_year=current_year,
         data_quality=data_quality,
@@ -100,6 +145,8 @@ def _report_payload(
     msrp: MSRP,
     filtered: list[Listing],
     filtered_raw: list[Listing],
+    deduped_count: int,
+    outside_horizon: list[Listing],
     buckets: list[BucketStats],
     current_year: int,
     data_quality: str,
@@ -115,7 +162,9 @@ def _report_payload(
             "displayName": request.display_name,
             "listingCount": len(filtered),
             "rawListingCount": len(filtered_raw),
-            "duplicatesRemoved": max(0, len(filtered_raw) - len(filtered)),
+            "duplicatesRemoved": max(0, len(filtered_raw) - deduped_count),
+            "outsideHorizonRows": len(outside_horizon),
+            "outsideHorizonYears": dict(sorted(Counter(item.year for item in outside_horizon).items(), reverse=True)),
             "sources": dict(source_counts),
             "observedAges": [bucket.age for bucket in buckets if bucket.observed],
             "predictedAges": [bucket.age for bucket in buckets if bucket.predicted],
@@ -124,10 +173,17 @@ def _report_payload(
             "sourceUrls": source_urls[:20],
             "dataQuality": data_quality,
             "needsSourceCapture": len(filtered) == 0,
-            "needsMsrpCapture": msrp.source in {"needs_manufacturer_capture", "estimated_from_used_market"},
+            "needsMsrpCapture": (
+                msrp.source in {"needs_manufacturer_capture", "estimated_from_used_market"}
+                or (request.target_year is None and msrp.year is not None and msrp.year != current_year)
+                or (request.target_year is not None and msrp.year != request.target_year)
+            ),
         },
         "buckets": [_clean_bucket(bucket) for bucket in buckets],
-        "generationImpact": _clean_generation_impact(generation_impact, current_year),
+        "generationImpact": _clean_generation_impact(
+            generation_impact,
+            request.target_year or current_year,
+        ),
         "listings": [item.to_dict() for item in filtered[:250]],
         "evidence": {
             "sources": _evidence_sources(filtered, msrp),
@@ -192,7 +248,9 @@ def _listing_evidence(listing: Listing, index: int) -> dict[str, Any]:
 
 def _filter_listings(request: VehicleQuery, listings: list[Listing]) -> list[Listing]:
     if not request.make and not request.model:
-        return listings
+        # A year-only/empty query has no vehicle identity. Passing arbitrary
+        # rows through would create a cross-model depreciation curve.
+        return []
 
     start_year = request.start_year
     target_year = request.target_year
@@ -203,7 +261,7 @@ def _filter_listings(request: VehicleQuery, listings: list[Listing]) -> list[Lis
             continue
         if start_year and listing.year < start_year:
             continue
-        if target_year and listing.year < target_year - 10:
+        if target_year and listing.year != target_year:
             continue
         rows.append(listing)
 
@@ -213,51 +271,86 @@ def _filter_listings(request: VehicleQuery, listings: list[Listing]) -> list[Lis
 def _listing_age(listing: Listing, current_year: int) -> int:
     if _is_new_listing(listing) and listing.year >= current_year:
         return 0
+    if listing.year > current_year:
+        return -1
     return current_year - listing.year
 
 
 def _is_new_listing(listing: Listing) -> bool:
+    title = (listing.title or "").lower().lstrip()
+    if title.startswith("new arrival"):
+        return False
     condition = getattr(listing, "condition", "").lower()
     if condition == "new":
         return True
-    if (listing.title or "").lower().lstrip().startswith("new "):
+    if title.startswith("new "):
         return True
     haystack = f"{listing.source} {listing.confidence} {listing.title}".lower()
     return "new_vehicle" in haystack
 
 
-def _age_zero_bucket(msrp: MSRP, rows: list[Listing], current_year: int) -> BucketStats:
-    values = [item.price for item in rows if item.price > 0]
-    source_counts = Counter(item.source for item in rows)
+def _age_zero_bucket(
+    msrp: MSRP,
+    rows: list[Listing],
+    current_year: int,
+    cohort_year: int | None = None,
+) -> BucketStats:
+    # Current-model-year used/CPO rows belong to model-year age 0, but the
+    # bucket must stop calling itself a new-car market when they are present.
+    # MSRP remains the depreciation baseline in that mixed/current-year case.
+    market_rows = [item for item in rows if item.price > 0]
+    values = [item.price for item in market_rows]
+    source_counts = Counter(item.source for item in market_rows)
+    contains_used = any(not _is_new_listing(item) for item in market_rows)
+    model_years = sorted({item.year for item in market_rows})
+    model_year = model_years[0] if len(model_years) == 1 else None
 
     values = sorted(values)
     if not values:
+        if msrp.price > 0:
+            baseline_year = cohort_year or msrp.year or current_year
+            return BucketStats(
+                age=0,
+                model_year=baseline_year,
+                sample_count=0,
+                observed=False,
+                predicted=False,
+                average=msrp.price,
+                median=msrp.price,
+                trend_median=msrp.price,
+                model_years=[baseline_year],
+                source_counts={msrp.source: 1},
+                confidence="estimated_baseline" if msrp.source == "estimated_from_used_market" else "msrp_reference",
+            )
         return BucketStats(
             age=0,
             model_year=current_year,
             sample_count=0,
             observed=False,
             predicted=False,
+            model_years=[current_year],
             source_counts={},
-            confidence="msrp_reference" if msrp.price > 0 else "needs_collection",
+            confidence="needs_collection",
         )
 
+    observed_median = median(values)
     return BucketStats(
         age=0,
-        model_year=current_year,
+        model_year=model_year,
         sample_count=len(values),
         observed=True,
         predicted=False,
         values=values,
+        model_years=model_years,
         average=mean(values),
-        median=median(values),
+        median=observed_median,
         q1=percentile(values, 0.25),
         q3=percentile(values, 0.75),
         low=min(values),
         high=max(values),
-        trend_median=median(values),
+        trend_median=msrp.price if contains_used and msrp.price > 0 else observed_median,
         source_counts=dict(source_counts),
-        confidence="new_market",
+        confidence="current_year_market" if contains_used else "new_market",
     )
 
 
@@ -283,10 +376,12 @@ def _empty_buckets(request: VehicleQuery, current_year: int) -> list[BucketStats
     return [
         BucketStats(
             age=age,
-            model_year=current_year - age,
+            model_year=request.target_year or (current_year - age),
             sample_count=0,
             observed=False,
             predicted=False,
+            model_years=[request.target_year or (current_year - age)],
+            forecast_year=(request.target_year or current_year) + age,
             confidence="needs_collection",
         )
         for age in range(0, request.max_age + 1)
@@ -294,30 +389,79 @@ def _empty_buckets(request: VehicleQuery, current_year: int) -> list[BucketStats
 
 
 def dedupe_listings(listings: list[Listing]) -> list[Listing]:
-    by_vin: dict[str, Listing] = {}
-    no_vin: list[Listing] = []
-
-    for listing in listings:
-        vin = _normalize_vin(listing.vin)
-        if vin:
-            if vin in by_vin:
-                by_vin[vin] = _merge_duplicate(by_vin[vin], listing)
-            else:
-                listing.vin = vin
-                by_vin[vin] = listing
-            continue
-
-        match_index = None
-        for index, existing in enumerate(no_vin):
-            if _fallback_duplicate(existing, listing):
-                match_index = index
-                break
-        if match_index is None:
-            no_vin.append(listing)
+    # Normalize and sort copies so the result does not depend on which source
+    # happened to finish first. VIN groups are kept distinct by construction.
+    normalized = [replace(item, vin=_normalize_vin(item.vin)) for item in listings]
+    vin_rows: dict[str, list[Listing]] = defaultdict(list)
+    no_vin_rows: list[Listing] = []
+    for listing in normalized:
+        if listing.vin:
+            vin_rows[listing.vin].append(listing)
         else:
-            no_vin[match_index] = _merge_duplicate(no_vin[match_index], listing)
+            no_vin_rows.append(listing)
 
-    return list(by_vin.values()) + no_vin
+    by_vin = {
+        vin: _merge_group(rows)
+        for vin, rows in sorted(vin_rows.items())
+    }
+
+    no_vin_groups: list[list[Listing]] = []
+    for listing in sorted(no_vin_rows, key=_listing_sort_key):
+        matches = [
+            index
+            for index, group in enumerate(no_vin_groups)
+            if _fallback_duplicate(_merge_group(group), listing)
+        ]
+        if len(matches) == 1:
+            no_vin_groups[matches[0]].append(listing)
+        else:
+            # An ambiguous row that matches more than one cluster must not
+            # bridge two real vehicles together.
+            no_vin_groups.append([listing])
+
+    unmatched: list[Listing] = []
+    for group in no_vin_groups:
+        no_vin = _merge_group(group)
+        vin_matches = [vin for vin, existing in by_vin.items() if _fallback_duplicate(existing, no_vin)]
+        if len(vin_matches) == 1:
+            vin = vin_matches[0]
+            by_vin[vin] = _merge_duplicate(by_vin[vin], no_vin)
+        else:
+            unmatched.append(no_vin)
+
+    return sorted([*by_vin.values(), *unmatched], key=_output_listing_sort_key)
+
+
+def _merge_group(rows: list[Listing]) -> Listing:
+    ordered = sorted(rows, key=_listing_sort_key)
+    merged = replace(ordered[0])
+    for row in ordered[1:]:
+        merged = _merge_duplicate(merged, row)
+    return merged
+
+
+def _listing_sort_key(listing: Listing) -> tuple[object, ...]:
+    return (
+        listing.year,
+        float(listing.price),
+        listing.mileage if listing.mileage is not None else -1,
+        _norm(listing.title),
+        _norm(listing.trim),
+        _norm(listing.dealer),
+        listing.vin,
+        listing.source,
+        listing.url,
+        listing.condition,
+        listing.confidence,
+    )
+
+
+def _output_listing_sort_key(listing: Listing) -> tuple[object, ...]:
+    return (
+        -listing.year,
+        0 if _is_new_listing(listing) else 1,
+        *_listing_sort_key(listing)[1:],
+    )
 
 
 def _normalize_vin(vin: str) -> str:
@@ -332,19 +476,30 @@ def _fallback_duplicate(left: Listing, right: Listing) -> bool:
         return False
     if left.year != right.year:
         return False
-    if getattr(left, "condition", "") != getattr(right, "condition", ""):
+    if not _conditions_compatible(left.condition, right.condition):
         return False
-    if abs(left.price - right.price) > 500:
+    if _same_listing_identity(left, right):
+        return True
+    if _source_names(left.source) & _source_names(right.source):
+        # Without VIN/detail/stock identity, similar cards from one source are
+        # separate inventory. Source-local exact repeats are already removed by
+        # the adapter before reaching global cross-source deduplication.
+        return _exact_listing_fingerprint(left) == _exact_listing_fingerprint(right)
+    if not left.dealer or not right.dealer:
         return False
-    if left.mileage is not None and right.mileage is not None and abs(left.mileage - right.mileage) > 750:
+    if _norm(left.dealer) != _norm(right.dealer):
         return False
-    if left.dealer and right.dealer and _norm(left.dealer) != _norm(right.dealer):
+    if left.mileage is None or right.mileage is None:
+        return False
+    if abs(left.price - right.price) > 250:
+        return False
+    if abs(left.mileage - right.mileage) > 500:
         return False
 
     left_title = _norm(left.title or left.trim)
     right_title = _norm(right.title or right.trim)
     if not left_title or not right_title:
-        return True
+        return False
     left_tokens = set(left_title.split())
     right_tokens = set(right_title.split())
     shared = left_tokens & right_tokens
@@ -390,11 +545,150 @@ def _merge_url(left: str, right: str) -> str:
 
 
 def _merge_condition(left: str, right: str) -> str:
+    left = (left or "unknown").lower()
+    right = (right or "unknown").lower()
     if left == right:
         return left
     if "new" in {left, right}:
         return "new"
+    if "cpo" in {left, right}:
+        return "cpo"
+    if "used" in {left, right}:
+        return "used"
     return left or right or "used"
+
+
+def _conditions_compatible(left: str, right: str) -> bool:
+    left = (left or "unknown").lower()
+    right = (right or "unknown").lower()
+    if left == right:
+        return True
+    return {left, right} <= {"used", "cpo", "unknown"}
+
+
+def _same_listing_identity(left: Listing, right: Listing) -> bool:
+    left_urls = _detail_listing_urls(left.url)
+    right_urls = _detail_listing_urls(right.url)
+    if left_urls & right_urls:
+        return True
+    if not (_stock_ids(left) & _stock_ids(right)):
+        return False
+    if left.dealer and right.dealer and _norm(left.dealer) == _norm(right.dealer):
+        return True
+    left_title = _identity_title(left.title or left.trim)
+    right_title = _identity_title(right.title or right.trim)
+    if left_title and left_title == right_title:
+        if left.mileage is None or right.mileage is None:
+            return True
+        return abs(left.mileage - right.mileage) <= 1000
+    return False
+
+
+def _detail_listing_urls(value: str) -> set[str]:
+    return {
+        normalized
+        for raw in (value or "").split(" | ")
+        if _is_detail_listing_url(raw)
+        if (normalized := _normalize_listing_url(raw))
+    }
+
+
+def _is_detail_listing_url(value: str) -> bool:
+    try:
+        parsed = urlsplit((value or "").strip())
+    except ValueError:
+        return False
+    identity_keys = {"stock", "stockid", "listing", "listingid", "inventoryid", "vehicleid", "vin"}
+    for key, item in parse_qsl(parsed.query, keep_blank_values=False):
+        normalized_key = re.sub(r"[^a-z0-9]", "", key.lower())
+        if normalized_key in identity_keys and len(re.sub(r"[^A-Z0-9]", "", item.upper())) >= 5:
+            return True
+    if re.search(r"[A-HJ-NPR-Z0-9]{17}", parsed.path, re.I):
+        return True
+    return bool(
+        re.search(
+            r"/(?:vehicle|listing|inventory|stock|vehicle-details?)/[a-z0-9-]{5,}(?:/|$)",
+            parsed.path,
+            re.I,
+        )
+    )
+
+
+def _identity_title(value: str) -> str:
+    normalized = _norm(value)
+    return re.sub(r"^(?:new|used|cpo|certified)\s+", "", normalized).strip()
+
+
+def _exact_listing_fingerprint(listing: Listing) -> tuple[object, ...]:
+    return (
+        listing.year,
+        (listing.condition or "unknown").lower(),
+        _identity_title(listing.title),
+        _norm(listing.trim),
+        float(listing.price),
+        listing.mileage,
+        _norm(listing.dealer),
+    )
+
+
+def _source_names(value: str) -> set[str]:
+    return {item.strip().lower() for item in (value or "").split("+") if item.strip()}
+
+
+def _normalized_listing_urls(value: str) -> set[str]:
+    return {
+        normalized
+        for raw in (value or "").split(" | ")
+        if (normalized := _normalize_listing_url(raw))
+    }
+
+
+def _normalize_listing_url(value: str) -> str:
+    value = (value or "").strip()
+    if not value:
+        return ""
+    try:
+        parsed = urlsplit(value)
+    except ValueError:
+        return ""
+    host = (parsed.hostname or "").lower()
+    path = re.sub(r"/+", "/", parsed.path or "/").rstrip("/") or "/"
+    kept_query = []
+    for key, item in parse_qsl(parsed.query, keep_blank_values=False):
+        lowered = key.lower()
+        if lowered.startswith("utm_") or lowered in {"gclid", "fbclid", "ref", "source", "campaign"}:
+            continue
+        kept_query.append((lowered, item.strip()))
+    query = "&".join(f"{key}={item}" for key, item in sorted(kept_query))
+    return f"{host}{path}" + (f"?{query}" if query else "")
+
+
+def _stock_ids(listing: Listing) -> set[str]:
+    values: set[str] = set()
+    for raw_url in (listing.url or "").split(" | "):
+        try:
+            parsed = urlsplit(raw_url.strip())
+        except ValueError:
+            continue
+        for key, value in parse_qsl(parsed.query, keep_blank_values=False):
+            normalized_key = re.sub(r"[^a-z0-9]", "", key.lower())
+            if normalized_key in {"stock", "stockid", "listing", "listingid", "inventoryid", "vehicleid"}:
+                _add_stock_id(values, value)
+        for match in re.finditer(
+            r"(?:stock|listing|inventory|vehicle)[/_=-]+([a-z0-9-]{5,})",
+            parsed.path,
+            re.I,
+        ):
+            _add_stock_id(values, match.group(1))
+    for match in re.finditer(r"\bstock\s*(?:#|no\.?|id)?\s*[:#-]?\s*([a-z0-9-]{5,})\b", listing.title or "", re.I):
+        _add_stock_id(values, match.group(1))
+    return values
+
+
+def _add_stock_id(values: set[str], value: str) -> None:
+    normalized = re.sub(r"[^A-Z0-9]", "", (value or "").upper())
+    if len(normalized) >= 5:
+        values.add(normalized)
 
 
 def _norm(value: str) -> str:
@@ -404,13 +698,21 @@ def _norm(value: str) -> str:
 def _apply_trend_and_predictions(
     buckets: list[BucketStats],
     generation_impact: dict[str, Any] | None = None,
-    current_year: int = CURRENT_YEAR,
+    current_year: int | None = None,
+    generation_base_year: int | None = None,
 ) -> None:
-    last_trend = buckets[0].median if buckets[0].observed else None
+    current_year = current_year if current_year is not None else _runtime_current_year()
+    last_trend = buckets[0].trend_median or buckets[0].median
+    baseline_forecast_year = buckets[0].model_year or (
+        max(buckets[0].model_years) if buckets[0].model_years else current_year
+    )
     retention_rates: list[float] = []
     last_spread = (0.92, 1.08)
     for bucket in buckets:
-        bucket.forecast_year = current_year + bucket.age
+        if bucket.age == 0:
+            bucket.forecast_year = baseline_forecast_year
+        else:
+            bucket.forecast_year = baseline_forecast_year + bucket.age
         if bucket.age == 0:
             continue
 
@@ -452,7 +754,11 @@ def _apply_trend_and_predictions(
         bucket.confidence = "long_range_projected" if bucket.age > 10 else "projected"
         last_trend = projected
         retention_rates.append(rate)
-    _apply_generation_adjustments(buckets, generation_impact, current_year)
+    _apply_generation_adjustments(
+        buckets,
+        generation_impact,
+        generation_base_year if generation_base_year is not None else current_year,
+    )
 
 
 def _projection_rate(age: int, observed_rates: list[float]) -> float:
@@ -477,7 +783,7 @@ def _projection_rate(age: int, observed_rates: list[float]) -> float:
 
 
 def _apply_depreciation(buckets: list[BucketStats]) -> None:
-    baseline = buckets[0].trend_median if buckets[0].observed else None
+    baseline = buckets[0].trend_median or buckets[0].median
     previous = baseline
     for bucket in buckets:
         current = bucket.trend_median or bucket.median
@@ -620,3 +926,7 @@ def _clean_bucket(bucket: BucketStats) -> dict[str, Any]:
         elif isinstance(value, list):
             data[key] = [round_money(item) if isinstance(item, float) else item for item in value]
     return data
+
+
+def _runtime_current_year() -> int:
+    return datetime.now(timezone.utc).year

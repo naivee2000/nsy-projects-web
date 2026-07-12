@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import datetime, timezone
+
 from car_compare.models import Listing, MSRP, VehicleQuery
 
 
@@ -33,21 +35,32 @@ BMW_M4_COMPETITION_SAMPLE = [
 ]
 
 
-def default_msrp_for(request: VehicleQuery) -> MSRP:
-    name = request.display_name.lower()
-    if "bmw" in name and "m4" in name and "competition" in name:
+REFERENCE_MSRP_YEAR = 2026
+
+
+def default_msrp_for(request: VehicleQuery, current_year: int | None = None) -> MSRP:
+    runtime_year = current_year if current_year is not None else datetime.now(timezone.utc).year
+    if request.target_year and request.target_year != REFERENCE_MSRP_YEAR:
+        return MSRP(
+            price=0,
+            label=f"Needs official {request.target_year} historical MSRP capture",
+            source="needs_manufacturer_capture",
+            url="",
+            year=request.target_year,
+        )
+    if request.target_year is None and runtime_year != REFERENCE_MSRP_YEAR:
+        return MSRP(
+            price=0,
+            label=f"Needs official {runtime_year} MSRP capture",
+            source="needs_manufacturer_capture",
+            url="",
+            year=runtime_year,
+        )
+    if request.make == "BMW" and request.model == "M4" and request.trim == "Competition":
         return MSRP(
             price=86600,
-            label="BMW M4 Competition Coupe starting MSRP",
-            source="bmwusa",
-            url="https://www.bmwusa.com/vehicles/m-series/bmw-4-series-m-models/bmw-m4-coupe.html",
-            year=2026,
-        )
-    if "bmw" in name and "m4" in name:
-        return MSRP(
-            price=82200,
-            label="BMW M4 Coupe starting MSRP",
-            source="bmwusa",
+            label="2026 historical BMW M4 Competition Coupe starting MSRP (demo reference)",
+            source="bmwusa_demo_reference_2026",
             url="https://www.bmwusa.com/vehicles/m-series/bmw-4-series-m-models/bmw-m4-coupe.html",
             year=2026,
         )

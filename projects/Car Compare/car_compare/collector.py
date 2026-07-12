@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 import subprocess
 import threading
 import time
 import uuid
+from datetime import datetime, timezone
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
@@ -18,6 +20,16 @@ from car_compare.sources.source_plan import build_collection_plan
 
 
 CODEX_TIMEOUT_SECONDS = 900
+MIN_MODEL_YEAR = 1980
+MAX_SCHEMA_MODEL_YEAR = 2100
+MIN_LISTING_PRICE = 500
+MAX_LISTING_PRICE = 10_000_000
+MIN_MSRP_PRICE = 5_000
+MAX_MSRP_PRICE = 10_000_000
+# Backward-compatible listing bounds for callers migrating to the split names.
+MIN_VEHICLE_PRICE = MIN_LISTING_PRICE
+MAX_VEHICLE_PRICE = MAX_LISTING_PRICE
+MAX_MILEAGE = 1_000_000
 
 
 @dataclass
@@ -70,14 +82,26 @@ class CollectionManager:
     def availability(self) -> dict[str, Any]:
         path = self._codex_path()
         status = codex_login_status(path) if path else codex_login_status(self.config.codex_path)
+        website_available = bool(path and status["authenticated"])
+        visor_available = bool(self.config.use_visor_facets)
+        if website_available and visor_available:
+            message = "Visor facets and Codex website collector ready"
+        elif website_available:
+            message = "Codex website collector ready"
+        elif visor_available:
+            message = f"Visor facet collector ready; {status['message']}"
+        else:
+            message = status["message"]
         return {
-            "available": bool(path and status["authenticated"]),
+            "available": bool(visor_available or website_available),
+            "visorAvailable": visor_available,
+            "websiteCollectorAvailable": website_available,
             "codexPath": path,
             "codexHome": status["codexHome"],
             "authenticated": status["authenticated"],
             "authMethod": status["authMethod"],
             "dryRun": self.config.dry_run,
-            "message": "Codex collector ready" if path and status["authenticated"] else status["message"],
+            "message": message,
         }
 
     def start(self, query: str, max_age: int | None = None) -> CollectionJob:
@@ -113,7 +137,9 @@ class CollectionManager:
         job = self.get(job_id)
         if not job or not job.result:
             return None
-        return msrp_from_result(job.result)
+        msrp = msrp_from_result(job.result)
+        request = parse_vehicle_query(job.query)
+        return msrp if msrp and _msrp_matches_request(msrp, request) else None
 
     def _run_job(self, job_id: str, request: VehicleQuery) -> None:
         self._update(job_id, status="running", message="Starting Codex website collection")
@@ -306,7 +332,7 @@ class CollectionManager:
             )
             return
 
-        result = _merge_collector_results(facet_result, result)
+        result = _merge_collector_results(facet_result, result, request)
         self._write_job_result(job_id, result)
         final_status = "completed" if result.get("status") in {"success", "partial"} else "blocked"
         self._update(
@@ -360,7 +386,7 @@ Rules:
 - After clicking a load-more control, verify that listing count, visible listing text, or page height changed. If it does not change, record that in source notes and continue.
 - Stop on CAPTCHA, login-only wall, paywall, or access refusal. Do not bypass restrictions.
 - Each target includes required_keywords, exclude_keywords, model_aliases, and location_policy. Treat those as binding collection rules.
-- The resolver includes chips with mode="exact", mode="range", or mode="all". Exact/range chips restrict collection; all chips mean include every visible variant for that dimension.
+- The resolver includes chips with mode="exact", mode="range", mode="constrained", or mode="all". Exact/range chips restrict collection; constrained chips inherit named sibling exclusions from the exact trim; all chips mean include every visible variant for that dimension.
 - If trim, body_style, drivetrain, or powertrain is marked all, do not reject rows just because that field differs or is missing. Only require make/model and any exact chips.
 - Extract only listings where every required keyword appears as a separate visible token in the listing row/detail page and none of the exclude keywords appear. For example, GT is not the same token as GTC.
 - If a site redirects a model URL to all cars for the make, that is not automatically a failure. Continue only if visible rows can be filtered by the required/exclude rules; otherwise mark the source unavailable.
@@ -370,8 +396,9 @@ Rules:
 - Mark ordinary used examples with condition="used"; mark certified pre-owned with condition="cpo" when the page clearly says CPO/certified.
 - Capture VIN and dealer when visible; if VIN is only visible on detail pages, open a small number of listing detail pages when practical.
 - Deduplication happens in the app, but include VIN/dealer when possible.
+- Listing price must be the vehicle asking/sale price between $500 and $10,000,000. Never use a payment, down payment, discount, fee, delivery charge, package, option, rebate, MSRP, or market-value reference as listing price.
 - Try to collect enough listings across model years to support depreciation buckets.
-- Use manufacturer official MSRP when practical; if the manufacturer site also exposes current new inventory prices, include those as condition="new" listings. Otherwise set msrp to null.
+- Use manufacturer official MSRP between $5,000 and $10,000,000 when practical; never place a monthly payment in MSRP. If the manufacturer site also exposes current new inventory prices, include those as condition="new" listings. Otherwise set msrp to null.
 
 Return only JSON matching the provided schema. Do not include Markdown.
 """.strip()
@@ -399,9 +426,19 @@ def build_codex_command(codex_path: str, root: Path, schema_path: Path, output_p
     ]
 
 
-def _merge_collector_results(facet_result: dict[str, Any] | None, codex_result: dict[str, Any]) -> dict[str, Any]:
-    if not facet_result or not facet_result.get("listings"):
-        return codex_result
+def _merge_collector_results(
+    facet_result: dict[str, Any] | None,
+    codex_result: dict[str, Any],
+    request: VehicleQuery | None = None,
+) -> dict[str, Any]:
+    if not facet_result:
+        merged = dict(codex_result)
+        codex_msrp = msrp_from_result({"msrp": codex_result.get("msrp")})
+        if codex_msrp and (not request or _msrp_matches_request(codex_msrp, request)):
+            merged["msrp"] = codex_msrp.to_dict()
+        else:
+            merged["msrp"] = None
+        return merged
 
     merged = dict(codex_result)
     merged["query"] = codex_result.get("query") or facet_result.get("query")
@@ -417,8 +454,24 @@ def _merge_collector_results(facet_result: dict[str, Any] | None, codex_result: 
     merged["sources"] = [*(facet_result.get("sources") or []), *(codex_result.get("sources") or [])]
     merged["evidence"] = [*(facet_result.get("evidence") or []), *(codex_result.get("evidence") or [])]
     merged["listings"] = [*(facet_result.get("listings") or []), *(codex_result.get("listings") or [])]
-    merged["msrp"] = codex_result.get("msrp") or facet_result.get("msrp")
+    codex_msrp = msrp_from_result({"msrp": codex_result.get("msrp")})
+    facet_msrp = msrp_from_result({"msrp": facet_result.get("msrp")})
+    if codex_msrp and request and not _msrp_matches_request(codex_msrp, request):
+        codex_msrp = None
+    if facet_msrp and request and not _msrp_matches_request(facet_msrp, request):
+        facet_msrp = None
+    selected_msrp = codex_msrp or facet_msrp
+    merged["msrp"] = selected_msrp.to_dict() if selected_msrp else None
     return merged
+
+
+def _msrp_matches_request(msrp: MSRP, request: VehicleQuery) -> bool:
+    if request.target_year:
+        return msrp.year == request.target_year
+    if msrp.year is None:
+        return False
+    current_year = _runtime_current_year()
+    return current_year <= msrp.year <= current_year + 2
 
 
 def clean_codex_error(raw: str) -> str:
@@ -501,20 +554,38 @@ def _usage_limit_error(text: str) -> str:
 def listings_from_result(result: dict[str, Any]) -> list[Listing]:
     rows = []
     for item in result.get("listings") or []:
+        if not isinstance(item, dict):
+            continue
         try:
+            year_number = float(item["year"])
+            if not math.isfinite(year_number) or not year_number.is_integer():
+                continue
+            year = int(year_number)
+            price = float(item["price"])
+            mileage = _optional_int(item.get("mileage"))
+            if not MIN_MODEL_YEAR <= year <= _runtime_current_year() + 2:
+                continue
+            if not math.isfinite(price) or not MIN_LISTING_PRICE <= price <= MAX_LISTING_PRICE:
+                continue
+            if mileage is not None and not 0 <= mileage <= MAX_MILEAGE:
+                continue
+            title_condition = _condition_from_title(item.get("title"))
+            condition = title_condition or str(item.get("condition") or "unknown").lower()
+            if condition not in {"new", "used", "cpo", "unknown"}:
+                condition = "unknown"
             rows.append(
                 Listing(
                     source=str(item.get("source") or "codex_collector"),
-                    year=int(item["year"]),
-                    price=float(item["price"]),
+                    year=year,
+                    price=price,
                     trim=str(item.get("trim") or ""),
-                    mileage=_optional_int(item.get("mileage")),
+                    mileage=mileage,
                     title=str(item.get("title") or ""),
                     url=str(item.get("url") or ""),
                     vin=str(item.get("vin") or ""),
                     dealer=str(item.get("dealer") or ""),
                     confidence=str(item.get("confidence") or "codex_collected"),
-                    condition=str(item.get("condition") or _condition_from_title(item.get("title"))),
+                    condition=condition,
                 )
             )
         except (KeyError, TypeError, ValueError):
@@ -533,14 +604,17 @@ def msrp_from_result(result: dict[str, Any]) -> MSRP | None:
         price_float = float(price)
     except (TypeError, ValueError):
         return None
-    if price_float <= 0:
+    if not math.isfinite(price_float) or not MIN_MSRP_PRICE <= price_float <= MAX_MSRP_PRICE:
+        return None
+    year = _optional_int(item.get("year"))
+    if year is not None and not MIN_MODEL_YEAR <= year <= _runtime_current_year() + 2:
         return None
     return MSRP(
         price=price_float,
         label=str(item.get("label") or "Codex collected MSRP"),
         source=str(item.get("source") or "codex_collector"),
         url=str(item.get("url") or ""),
-        year=_optional_int(item.get("year")),
+        year=year,
     )
 
 
@@ -553,9 +627,22 @@ def _optional_int(value: Any) -> int | None:
         return None
 
 
+def _runtime_current_year() -> int:
+    return datetime.now(timezone.utc).year
+
+
 def _condition_from_title(value: Any) -> str:
     title = str(value or "").lower().strip()
-    return "new" if title.startswith("new ") else "used"
+    if title.startswith("new arrival"):
+        return "used"
+    if re.match(r"^used\b", title):
+        return "used"
+    if re.match(r"^(?:certified(?:\s+pre[- ]?owned)?|cpo)\b", title):
+        return "cpo"
+    if re.match(r"^new\b", title):
+        return "new"
+    # A neutral title has no authority over structured collector evidence.
+    return ""
 
 
 def _dry_run_result(request: VehicleQuery) -> dict[str, Any]:

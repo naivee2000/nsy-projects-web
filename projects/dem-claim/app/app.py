@@ -36,7 +36,29 @@ BASE_DIR = Path(__file__).resolve().parent
 PROJECT_NAME = "装卸时间计算表"
 DEFAULT_SKILL_ROOT = Path.home() / ".codex" / "skills" / "dem-claim-excel"
 SKILL_ROOT = Path(os.environ.get("DEM_SKILL_ROOT", DEFAULT_SKILL_ROOT)).expanduser().resolve()
-CODEX_BIN = os.environ.get("CODEX_BIN") or shutil.which("codex") or "/Applications/Codex.app/Contents/Resources/codex"
+CODEX_CONFIGURED_BIN = os.environ.get("CODEX_BIN", "").strip()
+CODEX_APP_BIN_CANDIDATES = (
+    "/Applications/ChatGPT.app/Contents/Resources/codex",
+    "/Applications/Codex.app/Contents/Resources/codex",
+)
+
+
+def resolve_codex_bin() -> str:
+    """Prefer a usable configured CLI, then recover from stale app-bundle paths."""
+    candidates = (CODEX_CONFIGURED_BIN, shutil.which("codex"), *CODEX_APP_BIN_CANDIDATES)
+    for candidate in candidates:
+        if not candidate:
+            continue
+        path = Path(candidate).expanduser()
+        if path.is_file() and os.access(path, os.X_OK):
+            return str(path)
+        resolved = shutil.which(candidate)
+        if resolved:
+            return resolved
+    return CODEX_CONFIGURED_BIN or "codex"
+
+
+CODEX_BIN = resolve_codex_bin()
 CODEX_FALLBACK_MODEL = os.environ.get("CODEX_FALLBACK_MODEL", "gpt-5.5")
 CODEX_FALLBACK_REASONING_EFFORT = os.environ.get("CODEX_FALLBACK_REASONING_EFFORT", "medium")
 CODEX_FALLBACK_CLEAN_CONFIG = os.environ.get("CODEX_FALLBACK_CLEAN_CONFIG", "1").lower() not in {"0", "false", "no"}
@@ -1974,7 +1996,7 @@ def check_paths() -> None:
     from_json = SKILL_ROOT / "scripts" / "dem_claim_from_json.py"
     if not partial.exists() or not from_json.exists():
         raise RuntimeError(f"DEM skill scripts are missing under: {SKILL_ROOT}")
-    if not Path(CODEX_BIN).exists() and not shutil.which(CODEX_BIN):
+    if not Path(CODEX_BIN).is_file() and not shutil.which(CODEX_BIN):
         raise RuntimeError(f"Codex CLI was not found: {CODEX_BIN}")
 
 
@@ -2370,7 +2392,7 @@ async def setup_status() -> JSONResponse:
         (SKILL_ROOT / "scripts" / name).exists()
         for name in ("dem_claim_extract_partial.py", "dem_claim_from_json.py")
     )
-    codex_ok = bool(Path(CODEX_BIN).exists() or shutil.which(CODEX_BIN))
+    codex_ok = bool(Path(CODEX_BIN).is_file() or shutil.which(CODEX_BIN))
     tesseract_ok = bool(shutil.which("tesseract"))
     package_status = {
         "fastapi": package_ok("fastapi"),
@@ -2384,6 +2406,7 @@ async def setup_status() -> JSONResponse:
             "skill_root": str(SKILL_ROOT),
             "skill_root_ok": skill_root_ok and scripts_ok,
             "codex_bin": CODEX_BIN,
+            "codex_configured_bin": CODEX_CONFIGURED_BIN or None,
             "codex_ok": codex_ok,
             "codex_auth_ok": codex_auth_ok(),
             "tesseract_ok": tesseract_ok,
