@@ -13,30 +13,44 @@ from unittest.mock import patch
 from dataclasses import replace
 from io import BytesIO
 from types import SimpleNamespace
+from urllib.parse import parse_qs, urlparse
 
 from car_compare.depreciation import build_report, dedupe_listings
 from pathlib import Path
 
 from car_compare.collector import (
+    CollectionJob,
     CollectionManager,
     CollectorConfig,
     _apply_browser_captures,
+    _browser_url_for_year,
+    _combined_year_coverage,
     _format_elapsed,
     _merge_collector_results,
     build_codex_command,
+    build_codex_prompt,
+    build_codex_web_search_command,
+    build_codex_web_search_prompt,
     clean_codex_error,
     codex_failure_message,
     listings_from_result,
     msrp_from_result,
 )
+from car_compare.capture_cache import CaptureCache, MAX_OLDER_TTL_SECONDS, MAX_RECENT_TTL_SECONDS, ResearchResultCache
+from car_compare.browser_runtime import browser_cdp_status, browser_cdp_url
 from car_compare.codex_cli import MACOS_CODEX_CLI_PATHS, codex_environment, codex_login_status, find_codex_cli
-from car_compare.generation_impact import GenerationResearchConfig, GenerationResearchManager
+from car_compare.generation_impact import GenerationResearchConfig, GenerationResearchManager, _generation_cache_identity
 from car_compare.models import Listing, MSRP, VehicleQuery
 from car_compare.parser import parse_vehicle_query
 from car_compare.resolver import resolve_vehicle_query
 from car_compare.sample_data import default_msrp_for, sample_listings_for
 from car_compare.shared_auth import SharedSessionAuth, valid_shared_session_token
 from car_compare.sources.browser_capture import parse_visible_listing_text
+from car_compare.sources.chrome_host import (
+    background_mode_enabled,
+    capture_is_access_wall,
+    capture_with_host_chrome,
+)
 from car_compare.sources.source_plan import MANUFACTURER_URLS, TOP_US_BRANDS, build_collection_plan
 from car_compare.sources.visor_facets import (
     NEW_SOURCE,
@@ -86,6 +100,40 @@ class SharedAuthTests(unittest.TestCase):
 
 
 class AppContractTests(unittest.TestCase):
+    def test_static_ui_exposes_single_and_two_vehicle_research_modes(self) -> None:
+        html = (web_app.STATIC / "index.html").read_text(encoding="utf-8")
+        javascript = (web_app.STATIC / "app.js").read_text(encoding="utf-8")
+        self.assertIn('id="singleModeButton"', html)
+        self.assertIn('id="compareModeButton"', html)
+        self.assertIn('id="compareQuery"', html)
+        self.assertIn('id="bucketTableHead"', html)
+        self.assertIn("async function startComparison()", javascript)
+        self.assertIn("const collectionTasks = run.vehicles.map", javascript)
+        self.assertIn("await Promise.all([...collectionTasks, ...generationTasks])", javascript)
+        self.assertIn("renderComparisonDepreciationChart", javascript)
+        self.assertIn("loss: finiteNumber(bucket.depreciation_from_previous)", javascript)
+        self.assertIn("Grouped bars show each year's dollar loss", javascript)
+        self.assertNotIn("Grouped bars show cumulative dollar loss", javascript)
+        self.assertIn("renderComparisonTable", javascript)
+        self.assertIn("Market Median", javascript)
+        self.assertIn("Curve Value", javascript)
+        self.assertIn("Raw Source Snapshots", javascript)
+        self.assertIn("background workers", javascript)
+
+    def test_codex_browser_action_surface_is_packaged(self) -> None:
+        html = (web_app.STATIC / "codex-action.html").read_text(encoding="utf-8")
+        javascript = (web_app.STATIC / "codex-action.js").read_text(encoding="utf-8")
+        main_html = (web_app.STATIC / "index.html").read_text(encoding="utf-8")
+        main_javascript = (web_app.STATIC / "app.js").read_text(encoding="utf-8")
+        self.assertIn('id="captureImportForm"', html)
+        self.assertIn("/api/codex-browser-actions", javascript)
+        self.assertIn("/api/codex-browser-capture", javascript)
+        self.assertIn('id="codexFallbackLink"', main_html)
+        self.assertIn("Repair Missing Source", main_html)
+        self.assertIn("beginFallbackMonitoring", main_javascript)
+        self.assertIn("codex://threads/new", main_javascript)
+        self.assertIn("@Chrome Use $collect-car-marketplaces", main_javascript)
+
     def test_json_body_contract_rejects_invalid_non_object_and_oversize_payloads(self) -> None:
         cases = [
             (b"{bad", 400),
@@ -457,6 +505,7 @@ class ParserTests(unittest.TestCase):
             "Kia Telluride SX": ("Kia", "Telluride", "SX"),
             "Porsche 911 Carrera": ("Porsche", "911", "Carrera"),
             "Porsche 911 Carrera S": ("Porsche", "911", "Carrera S"),
+            "Porsche 911 Base": ("Porsche", "911", "Base"),
             "Porsche Cayenne Base": ("Porsche", "Cayenne", "Base"),
         }
         for text, expected in cases.items():
@@ -498,6 +547,58 @@ class ResolverTests(unittest.TestCase):
         rejected = vehicle_text_match_score(query, "2024 Toyota Camry LE Sedan", source="autotrader_browser")
         self.assertTrue(accepted["accepted"])
         self.assertFalse(rejected["accepted"])
+
+    def test_configured_trim_scope_distinguishes_model_family_and_base(self) -> None:
+        all_911 = parse_vehicle_query("Porsche 911")
+        carrera = parse_vehicle_query("Porsche 911 Carrera")
+        base = parse_vehicle_query("Porsche 911 Base")
+
+        all_resolution = resolve_vehicle_query(all_911)
+        family_resolution = resolve_vehicle_query(carrera)
+        base_resolution = resolve_vehicle_query(base)
+        self.assertIn("trim", all_resolution["include_all"])
+        self.assertEqual(family_resolution["family"]["trim"], "Carrera family")
+        self.assertEqual(base_resolution["exact"]["trim"], "Base Carrera")
+
+        carrera_family = [
+            "2026 Porsche 911 Carrera Coupe",
+            "2026 Porsche 911 Carrera Cabriolet",
+            "2026 Porsche 911 Carrera S Coupe",
+            "2026 Porsche 911 Carrera T Coupe",
+            "2026 Porsche 911 Carrera 4 Coupe",
+            "2026 Porsche 911 Carrera 4S Cabriolet",
+            "2026 Porsche 911 Carrera GTS Coupe",
+            "2026 Porsche 911 Carrera 4 GTS Cabriolet",
+            "2016 Porsche 911 Carrera Black Edition Coupe",
+        ]
+        non_carrera_911 = [
+            "2026 Porsche 911 Turbo S Coupe",
+            "2026 Porsche 911 GT3 Coupe",
+            "2026 Porsche 911 Targa 4S",
+        ]
+        for title in [*carrera_family, *non_carrera_911]:
+            with self.subTest(scope="all", title=title):
+                self.assertTrue(vehicle_text_match_score(all_911, title)["accepted"])
+        for title in carrera_family:
+            with self.subTest(scope="family", title=title):
+                self.assertTrue(vehicle_text_match_score(carrera, title)["accepted"])
+        for title in non_carrera_911:
+            with self.subTest(scope="family_exclusion", title=title):
+                self.assertFalse(vehicle_text_match_score(carrera, title)["accepted"])
+        for title in carrera_family[:2]:
+            with self.subTest(scope="base", title=title):
+                self.assertTrue(vehicle_text_match_score(base, title)["accepted"])
+        for title in carrera_family[2:]:
+            with self.subTest(scope="base_exclusion", title=title):
+                self.assertFalse(vehicle_text_match_score(base, title)["accepted"])
+
+        # Models without an explicit family policy keep exact trim semantics.
+        self.assertFalse(
+            vehicle_text_match_score(
+                parse_vehicle_query("Honda Civic EX"),
+                "2024 Honda Civic EX-L Sedan",
+            )["accepted"]
+        )
 
     def test_exact_trim_discloses_named_drivetrain_sibling_exclusion(self) -> None:
         for text, sibling in [
@@ -1051,9 +1152,59 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(age_zero["sample_count"], 1)
         self.assertTrue(age_zero["observed"])
         self.assertEqual(age_zero["median"], 81000)
-        self.assertEqual(age_zero["trend_median"], 86600)
+        self.assertEqual(age_zero["trend_median"], 81000)
         self.assertEqual(age_zero["confidence"], "current_year_market")
         self.assertEqual(report["buckets"][1]["sample_count"], 0)
+
+    def test_observed_market_baseline_is_independent_of_display_msrp(self) -> None:
+        query = parse_vehicle_query("Porsche 911")
+        rows = [
+            Listing("market", 2026, 180000, title="Used 2026 Porsche 911 Carrera", condition="used"),
+            Listing("market", 2026, 226900, title="Used 2026 Porsche 911 GT3", condition="used"),
+            Listing("market", 2026, 300000, title="Used 2026 Porsche 911 Turbo S", condition="used"),
+            Listing("market", 2025, 200000, title="Used 2025 Porsche 911 Carrera S", condition="used"),
+            Listing("market", 2024, 210000, title="Used 2024 Porsche 911 GT3", condition="used"),
+        ]
+        low_msrp = build_report(query, rows, MSRP(135500, "Carrera MSRP", "porsche", ""), current_year=2026)
+        high_msrp = build_report(query, rows, MSRP(250000, "Display MSRP", "porsche", ""), current_year=2026)
+
+        for report in (low_msrp, high_msrp):
+            self.assertEqual(report["buckets"][0]["median"], 226900)
+            self.assertEqual(report["buckets"][0]["trend_median"], 226900)
+            self.assertEqual(report["buckets"][1]["depreciation_from_previous"], 26900)
+            self.assertEqual(report["buckets"][1]["depreciation_from_previous_pct"], 0.1186)
+            self.assertEqual(report["buckets"][2]["trend_median"], 210000)
+            self.assertEqual(report["buckets"][2]["depreciation_from_previous"], 0)
+            self.assertEqual(report["buckets"][2]["depreciation_from_baseline"], 16900)
+
+    def test_aggregate_population_weights_the_combined_market_median(self) -> None:
+        query = parse_vehicle_query("Porsche 911")
+        rows = [
+            Listing(
+                "visor_public_facets_new",
+                2026,
+                180000,
+                title="New 2026 Porsche 911 Carrera",
+                confidence="aggregate_facets",
+                condition="new",
+                market_weight=100,
+            ),
+            Listing(
+                "visor_public_facets",
+                2026,
+                300000,
+                title="Used 2026 Porsche 911 GT3",
+                confidence="aggregate_facets",
+                condition="used",
+                market_weight=10,
+            ),
+            Listing("edmunds_browser", 2026, 350000, title="Used 2026 Porsche 911 Turbo S", condition="used"),
+        ]
+        report = build_report(query, rows, MSRP(135500, "Carrera MSRP", "porsche", ""), current_year=2026)
+        age_zero = report["buckets"][0]
+        self.assertEqual(age_zero["sample_count"], 3)
+        self.assertEqual(age_zero["market_median"], 180000)
+        self.assertEqual(age_zero["trend_median"], 180000)
 
     def test_age_zero_can_include_new_vehicle_samples(self) -> None:
         query = parse_vehicle_query("Bentley Continental GT")
@@ -1342,14 +1493,41 @@ class BrowserCaptureTests(unittest.TestCase):
         self.assertEqual(len(listings), 1)
         self.assertEqual(listings[0].price, 71088)
 
+    def test_parse_porsche_finder_card_ignores_dealer_fee(self) -> None:
+        query = parse_vehicle_query("Porsche 911 Carrera S")
+        text = """
+        2025 Porsche 911 Carrera S (992 II)
+        Certified Pre-Owned
+        8,206 mi
+        $159,084.00
+        Excl. taxes, incl. fees
+        Estimated Dealer Fees: $85
+        """
+        listings = parse_visible_listing_text(
+            "porsche_finder_browser",
+            "https://finder.porsche.com/us/en-US/details/porsche-911-carrera-s-preowned-ABC123",
+            text,
+            query,
+        )
+        self.assertEqual(len(listings), 1)
+        self.assertEqual(listings[0].price, 159084)
+        self.assertEqual(listings[0].mileage, 8206)
+        self.assertEqual(listings[0].condition, "cpo")
+
     def test_parse_visible_text_rejects_neighbor_trim_variants(self) -> None:
         cases = [
             (
-                "Porsche 911 Carrera",
+                "Porsche 911 Base",
                 """
                 Used 2023 Porsche 911 Carrera S Coupe
                 8K mi
                 143,000
+                Used 2023 Porsche 911 Carrera T Coupe
+                7K mi
+                139,000
+                Used 2023 Porsche 911 Carrera 4 GTS Coupe
+                6K mi
+                169,000
                 Used 2023 Porsche 911 Carrera Coupe
                 9K mi
                 119,000
@@ -1688,8 +1866,22 @@ class VisorFacetTests(unittest.TestCase):
         carrera = parse_vehicle_query("porsche 911 carrera")
         self.assertTrue(_facet_value_matches_request(carrera, "Carrera Coupe"))
         self.assertTrue(_facet_value_matches_request(carrera, "Carrera Cabriolet"))
-        self.assertFalse(_facet_value_matches_request(carrera, "Carrera S Coupe"))
-        self.assertFalse(_facet_value_matches_request(carrera, "Carrera GTS Coupe"))
+        self.assertTrue(_facet_value_matches_request(carrera, "Carrera S Coupe"))
+        self.assertTrue(_facet_value_matches_request(carrera, "Carrera GTS Coupe"))
+        self.assertTrue(_facet_value_matches_request(carrera, "Carrera T Coupe"))
+        self.assertTrue(_facet_value_matches_request(carrera, "Carrera 4 Coupe"))
+        self.assertTrue(_facet_value_matches_request(carrera, "Carrera 4 GTS Coupe"))
+        self.assertFalse(_facet_value_matches_request(carrera, "Turbo S Coupe"))
+        self.assertFalse(_facet_value_matches_request(carrera, "Targa 4S"))
+
+        base_carrera = parse_vehicle_query("porsche 911 base")
+        self.assertTrue(_facet_value_matches_request(base_carrera, "Carrera Coupe"))
+        self.assertTrue(_facet_value_matches_request(base_carrera, "Carrera Cabriolet"))
+        self.assertTrue(_facet_value_matches_request(base_carrera, "Base"))
+        self.assertFalse(_facet_value_matches_request(base_carrera, "Carrera S Coupe"))
+        self.assertFalse(_facet_value_matches_request(base_carrera, "Carrera T Coupe"))
+        self.assertFalse(_facet_value_matches_request(base_carrera, "Carrera 4 GTS Coupe"))
+        self.assertFalse(_facet_value_matches_request(base_carrera, "Carrera Black Edition Cabriolet"))
 
         carrera_s = parse_vehicle_query("porsche 911 carrera s")
         self.assertTrue(_facet_value_matches_request(carrera_s, "Carrera S Coupe"))
@@ -1729,6 +1921,26 @@ class VisorFacetTests(unittest.TestCase):
             {"lower": 110000, "upper": 120000, "count": 1},
         ]
         self.assertEqual(_allocate_bin_samples(rare_tail, cap=40), [39, 1])
+
+    def test_visor_samples_preserve_represented_market_population(self) -> None:
+        query = parse_vehicle_query("Porsche 911")
+        row = VisorYearData(
+            year=2026,
+            url="https://example.test/911",
+            car_type="new",
+            price_stats={},
+            msrp_stats={},
+            mileage_stats={"median": 10},
+            price_bins=[
+                {"lower": 100000, "upper": 110000, "count": 100},
+                {"lower": 200000, "upper": 210000, "count": 10},
+            ],
+            num_found=110,
+        )
+        listings = _listings_from_years(query, [row], 2026)
+        self.assertEqual(len(listings), 40)
+        self.assertAlmostEqual(sum(item.market_weight for item in listings), 110)
+        self.assertAlmostEqual(sum(item.market_weight for item in listings if item.price < 200000), 100)
 
     def test_visor_vehicle_confirmation_uses_whole_model_tokens(self) -> None:
         query = parse_vehicle_query("BMW M4")
@@ -1845,6 +2057,50 @@ class CollectionPlanTests(unittest.TestCase):
         visor = next(target for target in plan["targets"] if target["source"] == "visor_api_or_facets")
         self.assertNotIn("trim=XSE", visor["url"])
 
+    def test_plan_exposes_family_and_base_trim_scopes(self) -> None:
+        family = build_collection_plan(parse_vehicle_query("Porsche 911 Carrera"))
+        base = build_collection_plan(parse_vehicle_query("Porsche 911 Base"))
+        self.assertEqual(family["matching"]["trim_scope"]["mode"], "family")
+        self.assertEqual(family["resolution"]["family"]["trim"], "Carrera family")
+        self.assertEqual(base["matching"]["trim_scope"]["mode"], "base")
+        self.assertIn("Carrera", base["matching"]["required_keywords"])
+        self.assertEqual(base["resolution"]["exact"]["trim"], "Base Carrera")
+
+    def test_porsche_finder_uses_nationwide_year_and_911_scope_filters(self) -> None:
+        all_plan = build_collection_plan(parse_vehicle_query("Porsche 911"), current_year=2026)
+        family_plan = build_collection_plan(parse_vehicle_query("Porsche 911 Carrera"), current_year=2026)
+        base_plan = build_collection_plan(parse_vehicle_query("Porsche 911 Base"), current_year=2026)
+        exact_plan = build_collection_plan(parse_vehicle_query("Porsche 911 Carrera S"), current_year=2026)
+
+        def finder(plan):
+            return next(target for target in plan["targets"] if target["source"] == "porsche_finder_browser")
+
+        all_query = parse_qs(urlparse(finder(all_plan)["url"]).query)
+        family_query = parse_qs(urlparse(finder(family_plan)["url"]).query)
+        base_query = parse_qs(urlparse(finder(base_plan)["url"]).query)
+        exact_query = parse_qs(urlparse(finder(exact_plan)["url"]).query)
+
+        self.assertEqual(all_query["position"], ["Los Angeles,34.0481,-118.2531,-1"])
+        self.assertEqual(all_query["minimum-model-year"], ["2016"])
+        self.assertEqual(all_query["maximum-model-year"], ["2026"])
+        self.assertNotIn("category", all_query)
+        self.assertIn("911-carrera-s-coupe", family_query["category"])
+        self.assertIn("911-carrera-t-cabriolet", family_query["category"])
+        self.assertIn("911-carrera-rs", family_query["category"])
+        self.assertNotIn("911-turbo-s-coupe", family_query["category"])
+        self.assertEqual(set(base_query["category"]), {"911-carrera-coupe", "911-carrera-convertible"})
+        self.assertEqual(set(exact_query["category"]), {"911-carrera-s-coupe", "911-carrera-s-convertible"})
+
+    def test_porsche_finder_is_porsche_only_and_exact_year_is_applied(self) -> None:
+        porsche = build_collection_plan(parse_vehicle_query("2022 Porsche Cayenne"), current_year=2026)
+        bmw = build_collection_plan(parse_vehicle_query("BMW M4 Competition"), current_year=2026)
+        finder = next(target for target in porsche["targets"] if target["source"] == "porsche_finder_browser")
+        query = parse_qs(urlparse(finder["url"]).query)
+        self.assertEqual(query["model"], ["cayenne"])
+        self.assertEqual(query["minimum-model-year"], ["2022"])
+        self.assertEqual(query["maximum-model-year"], ["2022"])
+        self.assertFalse(any(target["source"] == "porsche_finder_browser" for target in bmw["targets"]))
+
     def test_lexus_source_model_uses_number(self) -> None:
         query = parse_vehicle_query("lexus lc 500")
         plan = build_collection_plan(query)
@@ -1889,6 +2145,765 @@ class CollectionPlanTests(unittest.TestCase):
 
 
 class CollectorPayloadTests(unittest.TestCase):
+    def test_porsche_year_followup_preserves_repeated_categories(self) -> None:
+        raw = (
+            "https://finder.porsche.com/us/en-US/search/911?model=911&page=3"
+            "&category=911-carrera-coupe&category=911-carrera-convertible"
+            "&minimum-model-year=2020&maximum-model-year=2026"
+        )
+        query = parse_qs(urlparse(_browser_url_for_year(raw, "porsche_finder_browser", 2024)).query)
+        self.assertEqual(query["minimum-model-year"], ["2024"])
+        self.assertEqual(query["maximum-model-year"], ["2024"])
+        self.assertEqual(query["category"], ["911-carrera-coupe", "911-carrera-convertible"])
+        self.assertNotIn("page", query)
+
+    def test_background_mode_defaults_on_and_can_be_disabled(self) -> None:
+        with patch.dict(os.environ, {}, clear=True):
+            self.assertTrue(background_mode_enabled())
+        with patch.dict(os.environ, {"CAR_COMPARE_BACKGROUND_MODE": "0"}, clear=True):
+            self.assertFalse(background_mode_enabled())
+
+    def test_host_chrome_receives_background_flag(self) -> None:
+        capture = {
+            "url": "https://www.autotrader.com/cars-for-sale/",
+            "text": "listing text",
+            "pages": [],
+        }
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch("car_compare.sources.chrome_host.platform.system", return_value="Darwin"),
+            patch("car_compare.sources.chrome_host.shutil.which", return_value="/usr/bin/osascript"),
+            patch("car_compare.sources.chrome_host.Path.exists", return_value=True),
+            patch(
+                "car_compare.sources.chrome_host.subprocess.run",
+                return_value=SimpleNamespace(returncode=0, stdout=json.dumps(capture), stderr=""),
+            ) as run,
+            patch.dict(os.environ, {"CAR_COMPARE_BACKGROUND_MODE": "1"}),
+        ):
+            result = capture_with_host_chrome(
+                source="autotrader_browser",
+                url=capture["url"],
+                script_path=Path(tmp) / "capture.applescript",
+            )
+
+        self.assertEqual(run.call_args.args[0][-1], "1")
+        self.assertTrue(result["backgroundMode"])
+
+    def test_capture_cache_caps_ttl_and_isolates_trim_scope(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            cache = CaptureCache(
+                Path(tmp) / "cache.sqlite3",
+                recent_ttl_seconds=10 * MAX_RECENT_TTL_SECONDS,
+                older_ttl_seconds=10 * MAX_OLDER_TTL_SECONDS,
+            )
+            competition = parse_vehicle_query("BMW M4 Competition")
+            base = parse_vehicle_query("BMW M4 Base")
+            cache.store_year(
+                competition,
+                "autotrader_browser",
+                2026,
+                {"listings": [{"year": 2026, "price": 90000}]},
+                current_year=2026,
+                captured_at=100,
+            )
+            cache.store_year(
+                competition,
+                "autotrader_browser",
+                2020,
+                {"listings": [{"year": 2020, "price": 50000}]},
+                current_year=2026,
+                captured_at=100,
+            )
+
+            self.assertEqual(cache.recent_ttl_seconds, MAX_RECENT_TTL_SECONDS)
+            self.assertEqual(cache.older_ttl_seconds, MAX_OLDER_TTL_SECONDS)
+            self.assertEqual(len(cache.load(competition, "autotrader_browser", [2026], now=100 + MAX_RECENT_TTL_SECONDS - 1)), 1)
+            self.assertEqual(len(cache.load(competition, "autotrader_browser", [2020], now=100 + MAX_OLDER_TTL_SECONDS - 1)), 1)
+            self.assertEqual(cache.load(competition, "autotrader_browser", [2026], now=100 + MAX_RECENT_TTL_SECONDS + 1), [])
+            self.assertEqual(cache.load(competition, "autotrader_browser", [2020], now=100 + MAX_OLDER_TTL_SECONDS + 1), [])
+            self.assertEqual(cache.load(base, "autotrader_browser", [2020], now=101), [])
+
+    def test_cache_policy_migrates_existing_marketplace_and_review_rows_to_three_days(self) -> None:
+        self.assertEqual(MAX_RECENT_TTL_SECONDS, 3 * 24 * 60 * 60)
+        self.assertEqual(MAX_OLDER_TTL_SECONDS, 3 * 24 * 60 * 60)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "cache.sqlite3"
+            request = parse_vehicle_query("Porsche 911 Carrera")
+            old_marketplace = CaptureCache(path, recent_ttl_seconds=24 * 60 * 60)
+            old_marketplace.store_year(
+                request,
+                "porsche_finder_browser",
+                2026,
+                {"listings": [{"year": 2026, "price": 150000}]},
+                current_year=2026,
+                captured_at=100,
+            )
+            old_review = ResearchResultCache(path, ttl_seconds=24 * 60 * 60)
+            old_review.store("collector_review", {"query": "porsche 911 carrera"}, {"status": "success"}, captured_at=100)
+
+            marketplace = CaptureCache(path)
+            review = ResearchResultCache(path)
+            self.assertEqual(
+                len(marketplace.load(request, "porsche_finder_browser", [2026], now=100 + 2 * 24 * 60 * 60)),
+                1,
+            )
+            self.assertEqual(
+                review.load("collector_review", {"query": "porsche 911 carrera"}, now=100 + 2 * 24 * 60 * 60),
+                {"status": "success"},
+            )
+
+    def test_empty_cache_attempt_cannot_replace_accepted_rows(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            cache = CaptureCache(Path(tmp) / "cache.sqlite3")
+            request = parse_vehicle_query("BMW M4")
+            cache.store_year(
+                request,
+                "autotrader_browser",
+                2026,
+                {"listings": [{"year": 2026, "price": 90000}]},
+                current_year=2026,
+                captured_at=100,
+            )
+            cache.store_year(
+                request,
+                "autotrader_browser",
+                2026,
+                {"listings": []},
+                current_year=2026,
+                captured_at=200,
+                overwrite_existing=False,
+            )
+            entries = cache.load(request, "autotrader_browser", [2026], now=201)
+            self.assertEqual(entries[0].payload["listings"], [{"year": 2026, "price": 90000}])
+
+    def test_visor_facets_are_reused_from_three_day_result_cache(self) -> None:
+        facet_calls = 0
+
+        def collect_facets(request):
+            nonlocal facet_calls
+            facet_calls += 1
+            return {
+                "query": request.raw,
+                "status": "success",
+                "notes": [],
+                "sources": [{"source": "visor_public_facets", "status": "success"}],
+                "listings": [
+                    {
+                        "source": "visor_public_facets",
+                        "year": 2023,
+                        "price": 75000,
+                        "title": "2023 BMW M4 Competition Visor aggregate",
+                        "condition": "used",
+                    }
+                ],
+                "msrp": None,
+            }
+
+        with tempfile.TemporaryDirectory() as tmp:
+            manager = CollectionManager(CollectorConfig(root=Path(tmp), codex_path="", use_visor_facets=True))
+            request = parse_vehicle_query("2023 BMW M4 Competition")
+            for index in range(2):
+                job = CollectionJob(
+                    id=f"facet-cache-{index}",
+                    query=request.raw,
+                    status="queued",
+                    created_at=time.time(),
+                    updated_at=time.time(),
+                )
+                manager._jobs[job.id] = job
+                with (
+                    patch("car_compare.collector.collect_visor_public_facets", side_effect=collect_facets),
+                    patch("car_compare.collector.codex_login_status", return_value={"authenticated": False}),
+                    patch.object(manager, "_codex_path", return_value=""),
+                    patch.object(manager, "_browser_worker_available", return_value=False),
+                ):
+                    manager._run_job(job.id, request)
+
+        self.assertEqual(facet_calls, 1)
+
+    def test_combined_coverage_accepts_marketplace_rows_plus_aggregate_support(self) -> None:
+        request = parse_vehicle_query("2023 BMW M4 Competition")
+        rows = [
+            {
+                "source": "autotrader_browser",
+                "year": 2023,
+                "price": 70000 + index,
+                "mileage": 10000 + index,
+                "title": "2023 BMW M4 Competition Coupe",
+                "vin": f"WBS33AZ0{index:09d}"[-17:],
+            }
+            for index in range(15)
+        ]
+        audit = {
+            "source": "autotrader_browser",
+            "browser_verified": True,
+            "listings": rows,
+        }
+        baseline = {
+            "evidence": [
+                {"source": "visor_public_facets", "year": 2023, "price_bins": [{"count": 30}]}
+            ]
+        }
+
+        coverage = _combined_year_coverage(request, baseline, [audit])
+
+        self.assertTrue(coverage["met"])
+        self.assertEqual(coverage["years"][2023]["individual_rows"], 15)
+        self.assertTrue(coverage["years"][2023]["aggregate_support"])
+
+    def test_generation_research_reuses_fresh_persistent_cache(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            manager = GenerationResearchManager(GenerationResearchConfig(root=root))
+            request = parse_vehicle_query("BMW M4 Competition")
+            cached = {
+                "status": "success",
+                "query": request.raw,
+                "adjustments": [],
+                "sources": [],
+            }
+            manager._cache.store("generation_impact", _generation_cache_identity(request), cached)
+
+            job = manager.start(request.raw, request.max_age)
+
+            self.assertEqual(job.status, "completed")
+            self.assertTrue(job.cache_hit)
+            self.assertIsNotNone(job.result)
+
+    def test_second_collection_uses_verified_cache_without_browser_restart(self) -> None:
+        targets = [
+            {
+                "source": "autotrader_browser",
+                "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4?startYear=2023&endYear=2023",
+                "required_keywords": ["BMW", "M4", "Competition"],
+                "exclude_keywords": ["CS"],
+            },
+            {
+                "source": "edmunds_browser",
+                "url": "https://www.edmunds.com/inventory/srp.html?make=bmw&model=m4&year=2023",
+                "required_keywords": ["BMW", "M4", "Competition"],
+                "exclude_keywords": ["CS"],
+            },
+        ]
+        rows = [
+            {
+                "source": "autotrader_browser",
+                "year": 2023,
+                "price": 70000 + index,
+                "mileage": 10000 + index,
+                "title": "2023 BMW M4 Competition Coupe",
+                "vin": f"WBS33AZ0{index:09d}",
+            }
+            for index in range(15)
+        ]
+        browser_calls = 0
+
+        def fake_run(_command, *, input, **_kwargs):
+            nonlocal browser_calls
+            browser_calls += 1
+            payload = json.loads(input)
+            audits = []
+            for item in payload["targets"]:
+                accepted = rows if item["source"] == "autotrader_browser" else []
+                audits.append(
+                    {
+                        "source": item["source"],
+                        "url": item["url"],
+                        "status": "partial" if accepted else "blocked",
+                        "browser_verified": True,
+                        "browser_mode": "persistent_profile_headful",
+                        "pages_examined": 1,
+                        "cards_examined": len(accepted),
+                        "listings": accepted,
+                        "stop_reason": "source_exhausted" if accepted else "access_wall",
+                    }
+                )
+            return SimpleNamespace(returncode=0, stdout=json.dumps(audits), stderr="")
+
+        baseline = {
+            "evidence": [{"source": "visor_public_facets", "year": 2023, "price_bins": [{"count": 40}]}]
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            first_dir = root / "first"
+            second_dir = root / "second"
+            first_dir.mkdir()
+            second_dir.mkdir()
+            manager = CollectionManager(CollectorConfig(root=root))
+            request = parse_vehicle_query("2023 BMW M4 Competition")
+            with (
+                patch("car_compare.collector.build_collection_plan", return_value={"targets": targets}),
+                patch("car_compare.collector.subprocess.run", side_effect=fake_run),
+                patch.object(manager, "_run_host_chrome_fallbacks", side_effect=lambda _request, _payloads, audits, _job_dir: audits),
+                patch.object(manager, "_run_codex_search_fallbacks", side_effect=lambda _request, _payloads, audits, _job_dir: audits),
+            ):
+                first = manager._run_browser_sources(request, first_dir, baseline)
+                second = manager._run_browser_sources(request, second_dir, baseline)
+
+        self.assertEqual(browser_calls, 1)
+        self.assertTrue(first["combinedYearCoverage"]["met"])
+        self.assertTrue(second["combinedYearCoverage"]["met"])
+        self.assertEqual(second["collectionSummary"][0]["cacheEntries"], 1)
+
+    def test_codex_web_search_command_and_prompt_are_unattended(self) -> None:
+        command = build_codex_web_search_command(
+            codex_path="/opt/codex",
+            root=Path("/tmp/car-compare"),
+            schema_path=Path("/tmp/search-schema.json"),
+            output_path=Path("/tmp/search-output.json"),
+        )
+        self.assertLess(command.index("--search"), command.index("exec"))
+        self.assertIn("--ephemeral", command)
+        self.assertIn("never", command)
+        prompt = build_codex_web_search_prompt(
+            parse_vehicle_query("BMW M4 Competition"),
+            [2023],
+            ["https://www.edmunds.com/bmw/m4/2023/for-sale/"],
+        )
+        self.assertIn("verbatim source evidence", prompt)
+        self.assertIn("Do not use snippets or facts from any non-Edmunds host", prompt)
+
+    def test_codex_web_search_capture_uses_deterministic_parser(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            manager = CollectionManager(CollectorConfig(root=root))
+            request = parse_vehicle_query("2023 BMW M4 Competition")
+            payload = {
+                "source": "edmunds_browser",
+                "url": "https://www.edmunds.com/inventory/srp.html?make=bmw&model=m4&year=2023",
+                "start_year": 2023,
+                "end_year": 2023,
+            }
+            output = {
+                "source": "edmunds_browser",
+                "status": "partial",
+                "pages": [
+                    {
+                        "url": "https://www.edmunds.com/bmw/m4/2023/for-sale/",
+                        "model_year": 2023,
+                        "visible_text": (
+                            "2023 BMW M4 Competition Coupe\n$78,991\n19,795 miles\nVIN:\nWBS33AZ00PCM11056\n---\n"
+                            "2023 BMW M4 Base Coupe\n$65,000\n20,000 miles\nVIN:\nWBS53AZ00PCM11057\n"
+                        ),
+                    },
+                    {
+                        "url": "https://example.com/not-edmunds",
+                        "model_year": 2023,
+                        "visible_text": "2023 BMW M4 Competition Coupe\n$1,000\n1 mile",
+                    },
+                ],
+                "notes": [],
+            }
+
+            def fake_search(command, **_kwargs):
+                output_path = Path(command[command.index("-o") + 1])
+                output_path.write_text(json.dumps(output), encoding="utf-8")
+                return SimpleNamespace(returncode=0, stdout="", stderr="")
+
+            with (
+                patch("car_compare.collector.subprocess.run", side_effect=fake_search),
+                patch("car_compare.sources.browser_capture._runtime_current_year", return_value=2026),
+                patch("car_compare.collector._runtime_current_year", return_value=2026),
+            ):
+                audit = manager._collect_codex_web_search_source(
+                    request,
+                    payload,
+                    root,
+                    codex_path="/opt/codex",
+                    host_chrome_attempted=True,
+                )
+
+            self.assertEqual(audit["accepted"], 1)
+            self.assertFalse(audit["browser_verified"])
+            self.assertTrue(audit["search_verified"])
+            self.assertTrue(audit["deterministic_verified"])
+            self.assertEqual(audit["rejected_by_reason"], {"invalid_search_page": 1})
+            self.assertEqual(audit["listings"][0]["vin"], "WBS33AZ00PCM11056")
+
+    def test_host_chrome_capture_is_parsed_without_manual_import(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            manager = CollectionManager(CollectorConfig(root=Path(tmp)))
+            request = parse_vehicle_query("2025 BMW M4 Competition")
+            payload = {
+                "source": "autotrader_browser",
+                "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4?startYear=2025&endYear=2025",
+                "start_year": 2025,
+                "end_year": 2025,
+            }
+            capture = {
+                "title": "BMW M4 listings",
+                "url": payload["url"],
+                "requestedUrl": payload["url"],
+                "text": "Used 2025 BMW M4 Competition xDrive Coupe\n$83,999\n4,461 miles\n",
+                "pagesExamined": 1,
+                "cardsExamined": 1,
+                "loadMoreClicked": 0,
+            }
+            with (
+                patch("car_compare.collector.capture_with_host_chrome", return_value=capture),
+                patch("car_compare.sources.browser_capture._runtime_current_year", return_value=2026),
+                patch("car_compare.collector._runtime_current_year", return_value=2026),
+            ):
+                audit = manager._collect_host_chrome_source(request, payload, Path(tmp))
+
+            self.assertEqual(audit["accepted"], 1)
+            self.assertTrue(audit["host_chrome_attempted"])
+            self.assertEqual(audit["browser_mode"], "system_chrome_applescript")
+            self.assertTrue((Path(tmp) / "browser_capture_autotrader_browser.json").exists())
+
+    def test_host_chrome_access_wall_does_not_create_click_fallback(self) -> None:
+        self.assertTrue(
+            capture_is_access_wall(
+                {"title": "403 - Access Denied", "text": "Network restrictions or unusual activity."}
+            )
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            manager = CollectionManager(CollectorConfig(root=Path(tmp), dry_run=True))
+            job = CollectionJob(
+                id="zero-click-blocked",
+                query="BMW M4 Competition",
+                status="completed",
+                created_at=time.time(),
+                updated_at=time.time(),
+                result={
+                    "query": "BMW M4 Competition",
+                    "status": "partial",
+                    "sources": [
+                        {
+                            "source": "autotrader_browser",
+                            "status": "blocked",
+                            "accepted": 0,
+                            "host_chrome_attempted": True,
+                            "stop_reason": "host_chrome_access_wall",
+                        },
+                        {
+                            "source": "edmunds_browser",
+                            "status": "blocked",
+                            "accepted": 0,
+                            "host_chrome_attempted": True,
+                            "stop_reason": "host_chrome_access_wall",
+                        },
+                    ],
+                    "listings": [],
+                },
+            )
+            manager._jobs[job.id] = job
+            manager._sync_fallback_lease(job.id)
+            self.assertIsNone(manager.job_payload(job.id)["fallback"])
+
+    def test_codex_browser_capture_replaces_blocked_audit(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            manager = CollectionManager(CollectorConfig(root=Path(tmp), dry_run=True))
+            job = CollectionJob(
+                id="blocked-job",
+                query="BMW M4 Competition",
+                status="completed",
+                created_at=time.time(),
+                updated_at=time.time(),
+                max_age=5,
+                result={
+                    "query": "BMW M4 Competition",
+                    "status": "partial",
+                    "notes": [],
+                    "sources": [
+                        {"source": "autotrader_browser", "status": "blocked", "accepted": 0},
+                        {"source": "edmunds_browser", "status": "blocked", "accepted": 0},
+                    ],
+                    "listings": [],
+                },
+            )
+            manager._jobs[job.id] = job
+            manager._sync_fallback_lease(job.id)
+            with patch("car_compare.sources.browser_capture._runtime_current_year", return_value=2026):
+                result = manager.import_codex_browser_capture(
+                    job.id,
+                    source="autotrader_browser",
+                    url="https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4",
+                    visible_text=(
+                        "Used 2025 BMW M4\nCompetition Coupe\n$83,999\n4,461 miles\n"
+                        "Used 2025 BMW M4\nBase Coupe\n$75,000\n8,000 miles\n"
+                        "Used 2009 BMW M4\nCompetition Coupe\n$25,000\n80,000 miles\n"
+                    ),
+                    pages_examined=1,
+                    cards_examined=3,
+                    load_more_clicked=1,
+                )
+
+            self.assertEqual(result["accepted"], 1)
+            audit = json.loads(
+                (Path(tmp) / "data" / "collector_jobs" / job.id / "browser_capture_autotrader_browser.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(audit["browser_mode"], "codex_browser_action")
+            self.assertTrue(audit["browser_verified"])
+            self.assertEqual(len(manager.get(job.id).result["listings"]), 1)
+            actions = manager.browser_actions()
+            self.assertEqual([item["source"] for item in actions[0]["sources"]], ["edmunds_browser"])
+            restored = CollectionManager(CollectorConfig(root=Path(tmp), dry_run=True))
+            self.assertIsNotNone(restored.get(job.id))
+            self.assertEqual(restored.get(job.id).max_age, 5)
+            self.assertEqual([item["source"] for item in restored.browser_actions()[0]["sources"]], ["edmunds_browser"])
+            with patch("car_compare.sources.browser_capture._runtime_current_year", return_value=2026):
+                restored.import_codex_browser_capture(
+                    job.id,
+                    source="edmunds_browser",
+                    url="https://www.edmunds.com/inventory/srp.html?make=bmw&model=m4",
+                    visible_text="Used 2024 BMW M4 Competition Coupe\n$79,500\n9,200 miles\n",
+                )
+            self.assertEqual(restored.browser_actions(), [])
+            self.assertEqual(restored.job_payload(job.id)["fallback"]["status"], "completed")
+
+    def test_codex_browser_capture_rejects_wrong_source_host(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            manager = CollectionManager(CollectorConfig(root=Path(tmp), dry_run=True))
+            job = CollectionJob(
+                id="blocked-job",
+                query="BMW M4",
+                status="completed",
+                created_at=time.time(),
+                updated_at=time.time(),
+                result={
+                    "query": "BMW M4",
+                    "status": "partial",
+                    "sources": [{"source": "autotrader_browser", "status": "blocked", "accepted": 0}],
+                    "listings": [],
+                },
+            )
+            manager._jobs[job.id] = job
+            manager._sync_fallback_lease(job.id)
+            with self.assertRaisesRegex(ValueError, "autotrader.com"):
+                manager.import_codex_browser_capture(
+                    job.id,
+                    source="autotrader_browser",
+                    url="https://example.com/listings",
+                    visible_text="Used 2025 BMW M4 $83,999",
+                )
+
+    def test_fallback_lease_expires_and_old_results_do_not_reopen(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            manager = CollectionManager(CollectorConfig(root=root, dry_run=True))
+            job = CollectionJob(
+                id="expiring-job",
+                query="BMW M4 Competition",
+                status="completed",
+                created_at=time.time(),
+                updated_at=time.time(),
+                result={
+                    "query": "BMW M4 Competition",
+                    "status": "partial",
+                    "sources": [{"source": "autotrader_browser", "status": "blocked", "accepted": 0}],
+                    "listings": [],
+                },
+            )
+            manager._jobs[job.id] = job
+            manager._write_job_result(job.id, job.result)
+            manager._sync_fallback_lease(job.id)
+            self.assertEqual(manager.job_payload(job.id)["fallback"]["status"], "pending")
+
+            job.fallback_expires_at = time.time() - 1
+            manager._write_fallback_lease(job)
+            self.assertEqual(manager.browser_actions(), [])
+            self.assertEqual(manager.job_payload(job.id)["fallback"]["status"], "expired")
+            with self.assertRaisesRegex(RuntimeError, "not active"):
+                manager.import_codex_browser_capture(
+                    job.id,
+                    source="autotrader_browser",
+                    url="https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4",
+                    visible_text="Used 2025 BMW M4 Competition $83,999",
+                )
+
+            old_job_dir = root / "data" / "collector_jobs" / "old-job"
+            old_job_dir.mkdir(parents=True)
+            (old_job_dir / "collector_result.json").write_text(
+                json.dumps(
+                    {
+                        "query": "Porsche 911",
+                        "status": "partial",
+                        "sources": [{"source": "edmunds_browser", "status": "blocked", "accepted": 0}],
+                        "listings": [],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            restored = CollectionManager(CollectorConfig(root=root, dry_run=True))
+            self.assertEqual(restored.browser_actions(), [])
+
+    def test_optional_collection_browser_cdp_is_local(self) -> None:
+        url, configured = browser_cdp_url({})
+        self.assertEqual(url, "http://127.0.0.1:9222")
+        self.assertFalse(configured)
+        invalid = browser_cdp_status({"CAR_COMPARE_BROWSER_CDP_URL": "https://browser.example.com:9222"})
+        self.assertFalse(invalid["ready"])
+        self.assertEqual(invalid["mode"], "invalid")
+
+    def test_browser_sources_use_bounded_parallel_range_batch(self) -> None:
+        targets = [
+            {
+                "source": "autotrader_browser",
+                "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4",
+                "required_keywords": ["BMW", "M4"],
+                "exclude_keywords": [],
+            },
+            {
+                "source": "edmunds_browser",
+                "url": "https://www.edmunds.com/inventory/srp.html?make=bmw&model=m4",
+                "required_keywords": ["BMW", "M4"],
+                "exclude_keywords": [],
+            },
+        ]
+        batches: list[dict[str, object]] = []
+
+        def fake_run(_command, *, input, **_kwargs):
+            payload = json.loads(input)
+            batches.append(payload)
+            audits = [
+                {
+                    "source": item["source"],
+                    "url": item["url"],
+                    "status": "blocked",
+                    "browser_verified": True,
+                    "browser_mode": "persistent_profile_headful",
+                    "pages_examined": 1,
+                    "cards_examined": 1,
+                    "listings": [],
+                    "range_search": {"accepted": 0},
+                    "attempted_year_searches": 0,
+                    "avoided_year_searches": 0,
+                    "stop_reason": "access_wall",
+                }
+                for item in payload["targets"]
+            ]
+            return SimpleNamespace(returncode=0, stdout=json.dumps(audits), stderr="")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            manager = CollectionManager(CollectorConfig(root=Path(tmp)))
+            with (
+                patch("car_compare.collector.build_collection_plan", return_value={"targets": targets}),
+                patch("car_compare.collector.subprocess.run", side_effect=fake_run),
+                patch.object(manager, "_run_host_chrome_fallbacks", side_effect=lambda _request, _payloads, audits, _job_dir: audits),
+                patch.object(manager, "_run_codex_search_fallbacks", side_effect=lambda _request, _payloads, audits, _job_dir: audits),
+            ):
+                result = manager._run_browser_sources(parse_vehicle_query("BMW M4"), Path(tmp))
+
+        self.assertEqual(len(batches), 1)
+        self.assertEqual(batches[0]["max_concurrency"], 2)
+        self.assertEqual(
+            [item["source"] for item in batches[0]["targets"]],
+            ["autotrader_browser", "edmunds_browser"],
+        )
+        self.assertTrue(all(item["split_by_year"] is False for item in batches[0]["targets"]))
+        self.assertTrue(result["combinedYearCoverage"]["sparse_years"])
+
+    def test_new_marketplace_gets_bootstrap_pass_when_other_cache_meets_coverage(self) -> None:
+        targets = [
+            {
+                "source": "autotrader_browser",
+                "url": "https://www.autotrader.com/cars-for-sale/all-cars/porsche/911",
+                "required_keywords": ["Porsche", "911", "Carrera"],
+                "exclude_keywords": [],
+            },
+            {
+                "source": "edmunds_browser",
+                "url": "https://www.edmunds.com/inventory/srp.html?make=porsche&model=911",
+                "required_keywords": ["Porsche", "911", "Carrera"],
+                "exclude_keywords": [],
+            },
+            {
+                "source": "porsche_finder_browser",
+                "url": "https://finder.porsche.com/us/en-US/search/911?model=911",
+                "required_keywords": ["Porsche", "911", "Carrera"],
+                "exclude_keywords": [],
+            },
+        ]
+        cached = [
+            {
+                "source": source,
+                "url": target["url"],
+                "status": "collected",
+                "browser_verified": True,
+                "cache_years": list(range(2016, 2027)),
+                "listings": [],
+            }
+            for source, target in zip(("autotrader_browser", "edmunds_browser"), targets[:2])
+        ]
+        live = {
+            "source": "porsche_finder_browser",
+            "url": targets[2]["url"],
+            "status": "collected",
+            "browser_verified": True,
+            "browser_mode": "persistent_profile_headless",
+            "pages_examined": 1,
+            "cards_examined": 1,
+            "listings": [],
+            "stop_reason": "source_exhausted",
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            manager = CollectionManager(CollectorConfig(root=Path(tmp)))
+            with (
+                patch("car_compare.collector.build_collection_plan", return_value={"targets": targets}),
+                patch("car_compare.collector._combined_year_coverage", return_value={"years": {}, "sparse_years": [], "met": True}),
+                patch.object(manager, "_cached_browser_audits", return_value=cached),
+                patch.object(manager, "_run_browser_batch", return_value=[live]) as run_batch,
+                patch.object(manager, "_store_audit_cache"),
+            ):
+                manager._run_browser_sources(parse_vehicle_query("Porsche 911 Carrera"), Path(tmp))
+
+        requested = run_batch.call_args.args[0]
+        self.assertEqual([item["source"] for item in requested], ["porsche_finder_browser"])
+
+    def test_fresh_complete_source_year_cache_suppresses_sparse_recollection(self) -> None:
+        targets = [
+            {
+                "source": "autotrader_browser",
+                "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4",
+                "required_keywords": ["BMW", "M4"],
+                "exclude_keywords": [],
+            },
+            {
+                "source": "edmunds_browser",
+                "url": "https://www.edmunds.com/inventory/srp.html?make=bmw&model=m4",
+                "required_keywords": ["BMW", "M4"],
+                "exclude_keywords": [],
+            },
+        ]
+        cached = [
+            {
+                "source": target["source"],
+                "url": target["url"],
+                "status": "partial",
+                "browser_verified": True,
+                "cache_verified": True,
+                "cache_years": list(range(2016, 2027)),
+                "listings": [],
+            }
+            for target in targets
+        ]
+        sparse = {"years": {}, "sparse_years": [2016, 2017], "met": False}
+        with tempfile.TemporaryDirectory() as tmp:
+            manager = CollectionManager(CollectorConfig(root=Path(tmp)))
+            with (
+                patch("car_compare.collector.build_collection_plan", return_value={"targets": targets}),
+                patch("car_compare.collector._combined_year_coverage", return_value=sparse),
+                patch.object(manager, "_cached_browser_audits", return_value=cached),
+                patch.object(manager, "_run_browser_batch") as run_batch,
+                patch.object(manager, "_run_host_chrome_fallbacks") as host_fallback,
+                patch.object(manager, "_run_codex_search_fallbacks") as search_fallback,
+            ):
+                manager._run_browser_sources(parse_vehicle_query("BMW M4"), Path(tmp))
+
+        run_batch.assert_not_called()
+        host_fallback.assert_not_called()
+        search_fallback.assert_not_called()
+
+    def test_codex_review_does_not_repeat_marketplace_pass(self) -> None:
+        prompt = build_codex_prompt(
+            parse_vehicle_query("BMW M4"),
+            [{"source": "edmunds_browser", "status": "blocked", "stopReason": "access_wall_circuit_breaker"}],
+        )
+        self.assertIn("Do not call the tool again in this job", prompt)
+
     def test_macos_chatgpt_cli_location_is_recognized(self) -> None:
         self.assertIn(
             Path("/Applications/ChatGPT.app/Contents/Resources/codex"),
@@ -2169,6 +3184,31 @@ out.write_text(json.dumps({
         self.assertEqual(listings[0].vin, "SCBCG2ZG0NC000001")
         self.assertEqual(listings[0].condition, "new")
         self.assertEqual(listings[0].confidence, "new_inventory")
+
+    def test_legacy_facet_rows_recover_market_weights_from_raw_evidence(self) -> None:
+        result = {
+            "listings": [
+                {
+                    "source": "visor_public_facets",
+                    "year": 2025,
+                    "price": price,
+                    "title": f"2025 Porsche 911 Visor aggregate bin 1 sample {index}",
+                    "url": "https://example.test/911?year=2025",
+                    "confidence": "aggregate_facets",
+                }
+                for index, price in enumerate((190000, 200000), 1)
+            ],
+            "evidence": [
+                {
+                    "source": "visor_public_facets",
+                    "year": 2025,
+                    "url": "https://example.test/911?year=2025",
+                    "price_bins": [{"lower": 180000, "upper": 210000, "count": 100}],
+                }
+            ],
+        }
+        listings = listings_from_result(result)
+        self.assertEqual([item.market_weight for item in listings], [50, 50])
 
     def test_explicit_title_condition_overrides_contradictory_payload(self) -> None:
         base = {

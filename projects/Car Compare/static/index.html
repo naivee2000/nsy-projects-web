@@ -20,8 +20,13 @@
           </div>
         </div>
         <form id="searchForm" class="searchbar">
+          <fieldset class="modeSwitch" aria-label="Research mode">
+            <legend class="srOnly">Research mode</legend>
+            <button id="singleModeButton" type="button" aria-pressed="true">Single Car</button>
+            <button id="compareModeButton" type="button" aria-pressed="false">Compare Cars</button>
+          </fieldset>
           <label class="field queryField" for="query">
-            <span>Vehicle query</span>
+            <span id="queryLabel">Vehicle query</span>
             <input
               id="query"
               name="query"
@@ -34,6 +39,20 @@
             />
             <small id="queryHelp" class="fieldMessage">Enter a make, model, and trim. Common spelling mistakes are corrected automatically.</small>
             <small id="queryError" class="fieldMessage errorMessage" role="alert" hidden></small>
+          </label>
+          <label id="compareQueryField" class="field queryField compareQueryField" for="compareQuery" hidden>
+            <span>Car B</span>
+            <input
+              id="compareQuery"
+              name="compareQuery"
+              autocomplete="off"
+              autocapitalize="words"
+              placeholder="Porsche 911 Carrera S"
+              aria-describedby="compareQueryHelp compareQueryError"
+              aria-errormessage="compareQueryError"
+            />
+            <small id="compareQueryHelp" class="fieldMessage">Enter a make, model, and trim.</small>
+            <small id="compareQueryError" class="fieldMessage errorMessage" role="alert" hidden></small>
           </label>
           <label class="field yearControl" for="maxAge">
             <span>Horizon</span>
@@ -60,7 +79,16 @@
           </div>
         </div>
         <p id="runDetail">Checking available market sources.</p>
-        <button id="retryButton" class="secondaryButton retryButton" type="button" hidden>Retry research</button>
+        <div class="runActions">
+          <a
+            id="codexFallbackLink"
+            class="secondaryButton codexFallbackLink"
+            href="#"
+            title="Open Codex with Chrome to repair a marketplace source that automatic collection could not access."
+            hidden
+          >Repair Missing Source</a>
+          <button id="retryButton" class="secondaryButton retryButton" type="button" hidden>Retry research</button>
+        </div>
       </div>
 
       <section class="workspace">
@@ -84,7 +112,7 @@
                 <h2 id="chartTitle">Depreciation Trend</h2>
                 <p id="chartSub"></p>
               </div>
-              <div class="legend">
+              <div class="legend" id="valueLegend">
                 <span><i class="line observed"></i>Observed</span>
                 <span><i class="line projected"></i>Predicted</span>
                 <span><i class="dot"></i>Average</span>
@@ -103,7 +131,7 @@
                 <h2>Depreciation Amount</h2>
                 <p id="depreciationChartSub"></p>
               </div>
-              <div class="legend">
+              <div class="legend" id="lossLegend">
                 <span><i class="barIcon"></i>Total Loss</span>
                 <span><i class="line percent"></i>Total %</span>
                 <span><i class="line projected"></i>Projected</span>
@@ -118,12 +146,12 @@
           <div class="tableBand">
             <div class="bandHead">
               <span class="sectionCode">YEAR-BY-YEAR</span>
-              <h2>Age Buckets</h2>
+              <h2 id="tableTitle">Age Buckets</h2>
             </div>
             <div class="tableWrap" tabindex="0" role="region" aria-label="Year-by-year depreciation table, horizontally scrollable">
               <table class="ageBucketTable">
                 <caption class="srOnly">Year-by-year vehicle value and depreciation details</caption>
-                <thead>
+                <thead id="bucketTableHead">
                   <tr>
                     <th scope="col">Age</th>
                     <th scope="col">Model Year</th>

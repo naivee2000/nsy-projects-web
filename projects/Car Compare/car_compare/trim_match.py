@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 
 from car_compare.models import VehicleQuery
-from car_compare.vehicle_catalog import trim_candidates
+from car_compare.vehicle_catalog import trim_candidates, trim_scope_profile
 
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
@@ -12,10 +12,16 @@ M4_COMPETITION_FAMILY_EXCLUSIONS = {"cs", "csl", "gts", "gt3"}
 
 
 def trim_value_matches_request(request: VehicleQuery, value: str) -> bool:
+    scope = trim_scope_profile(request.make, request.model, request.trim)
+    observed = set(trim_tokens(value))
+    if scope["mode"] == "family":
+        return set(trim_tokens(str(scope["family"]))) <= observed
+    if scope["mode"] == "base":
+        return _matches_base_scope(scope, observed)
+
     requested = set(trim_tokens(request.trim))
     if not requested:
         return False
-    observed = set(trim_tokens(value))
     if not requested <= observed:
         return False
     return not has_conflicting_trim_variant(request, value)
@@ -26,6 +32,12 @@ def has_conflicting_trim_variant(request: VehicleQuery, value: str) -> bool:
     observed = set(trim_tokens(value))
     if not requested or not observed:
         return False
+
+    scope = trim_scope_profile(request.make, request.model, request.trim)
+    if scope["mode"] == "family":
+        return not set(trim_tokens(str(scope["family"]))) <= observed
+    if scope["mode"] == "base":
+        return not _matches_base_scope(scope, observed)
 
     if is_bmw_m4_competition_family(request):
         return bool(observed & M4_COMPETITION_FAMILY_EXCLUSIONS)
@@ -42,13 +54,17 @@ def has_conflicting_trim_variant(request: VehicleQuery, value: str) -> bool:
             return False
         return bool(observed & {"gt350", "gt500", "shelby"})
 
-    if request.make == "Porsche" and request.model == "911" and requested == {"carrera"}:
-        return bool(observed & {"4", "4s", "s", "gts", "t", "turbo"})
-
     if request.make == "BMW" and request.model == "M3" and requested == {"competition"}:
         return "xdrive" in observed
 
     return False
+
+
+def _matches_base_scope(scope: dict[str, object], observed: set[str]) -> bool:
+    base_tokens = set(trim_tokens(str(scope.get("base_trim") or "")))
+    identifies_base = bool(base_tokens and base_tokens <= observed) or "base" in observed
+    variants = {str(item).lower() for item in scope.get("base_variant_tokens") or []}
+    return identifies_base and not bool(observed & variants)
 
 
 def is_bmw_m4_competition_family(request: VehicleQuery) -> bool:

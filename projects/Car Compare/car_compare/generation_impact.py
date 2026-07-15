@@ -12,6 +12,7 @@ from typing import Any
 from car_compare.models import VehicleQuery
 from car_compare.parser import parse_vehicle_query
 from car_compare.codex_cli import codex_environment, codex_login_status, find_codex_cli
+from car_compare.capture_cache import ResearchResultCache
 
 
 GENERATION_RESEARCH_TIMEOUT_SECONDS = 900
@@ -30,6 +31,7 @@ class GenerationResearchJob:
     codex_path: str = ""
     process_id: int = 0
     started_at: float = 0
+    cache_hit: bool = False
 
     def to_dict(self) -> dict[str, Any]:
         data = asdict(self)
@@ -45,12 +47,17 @@ class GenerationResearchConfig:
     codex_path: str = ""
     dry_run: bool = False
     timeout_seconds: int = GENERATION_RESEARCH_TIMEOUT_SECONDS
+    cache_enabled: bool = True
+    cache_dir: Path | None = None
+    cache_ttl_seconds: int = 3 * 24 * 60 * 60
     jobs_dir: Path = field(init=False)
+    cache_path: Path = field(init=False)
     schema_path: Path = field(init=False)
     skill_path: Path = field(init=False)
 
     def __post_init__(self) -> None:
         self.jobs_dir = self.root / "data" / "generation_research_jobs"
+        self.cache_path = (self.cache_dir or (self.root / "data" / "cache")) / "collector_cache.sqlite3"
         self.schema_path = self.root / "car_compare" / "generation_impact_schema.json"
         self.skill_path = self.root / "skills" / "generation-impact-research"
 
@@ -59,6 +66,11 @@ class GenerationResearchManager:
     def __init__(self, config: GenerationResearchConfig):
         self.config = config
         self.config.jobs_dir.mkdir(parents=True, exist_ok=True)
+        self._cache = ResearchResultCache(
+            self.config.cache_path,
+            enabled=self.config.cache_enabled,
+            ttl_seconds=self.config.cache_ttl_seconds,
+        )
         self._jobs: dict[str, GenerationResearchJob] = {}
         self._lock = threading.Lock()
 
@@ -83,6 +95,7 @@ class GenerationResearchManager:
             "authMethod": status["authMethod"],
             "skillPath": str(self.config.skill_path),
             "dryRun": self.config.dry_run,
+            "resultCache": self._cache.status(),
             "message": message,
         }
 
@@ -90,19 +103,23 @@ class GenerationResearchManager:
         request = parse_vehicle_query(query)
         if max_age:
             request.max_age = max_age
+        cached = None if self.config.dry_run else self._cache.load("generation_impact", _generation_cache_identity(request))
         job = GenerationResearchJob(
             id=uuid.uuid4().hex,
             query=request.raw,
-            status="queued",
+            status="completed" if cached else "queued",
             created_at=time.time(),
             updated_at=time.time(),
-            message="Queued generation impact research",
+            message="Reused fresh generation-impact research" if cached else "Queued generation impact research",
+            result=normalize_generation_impact(cached) if cached else None,
             codex_path=self._codex_path(),
+            cache_hit=bool(cached),
         )
         with self._lock:
             self._jobs[job.id] = job
-        thread = threading.Thread(target=self._run_job, args=(job.id, request), daemon=True)
-        thread.start()
+        if not cached:
+            thread = threading.Thread(target=self._run_job, args=(job.id, request), daemon=True)
+            thread.start()
         return job
 
     def get(self, job_id: str) -> GenerationResearchJob | None:
@@ -211,6 +228,8 @@ class GenerationResearchManager:
             return
 
         result = normalize_generation_impact(result)
+        if result.get("status") in {"success", "partial"}:
+            self._cache.store("generation_impact", _generation_cache_identity(request), result)
         self._write_job_result(job_id, result)
         final_status = "completed" if result.get("status") in {"success", "partial"} else "blocked"
         self._update(job_id, status=final_status, message=f"Generation research {result.get('status', 'finished')}", result=result)
@@ -268,6 +287,15 @@ def build_generation_research_command(codex_path: str, root: Path, schema_path: 
         str(root),
         "-",
     ]
+
+
+def _generation_cache_identity(request: VehicleQuery) -> dict[str, Any]:
+    return {
+        "make": request.make.strip().casefold(),
+        "model": request.model.strip().casefold(),
+        "trim": request.trim.strip().casefold(),
+        "max_age": int(request.max_age),
+    }
 
 
 def normalize_generation_impact(result: dict[str, Any]) -> dict[str, Any]:

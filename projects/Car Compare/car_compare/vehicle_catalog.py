@@ -173,8 +173,48 @@ TRIM_CATALOG: dict[tuple[str, str], list[str]] = {
     ("Subaru", "Outback"): ["Premium", "Limited", "Touring", "Touring XT", "Wilderness"],
     ("Hyundai", "Tucson"): ["SE", "SEL", "XRT", "Limited"],
     ("Kia", "Telluride"): ["LX", "S", "EX", "SX", "SX Prestige"],
-    ("Porsche", "911"): ["Carrera", "Carrera S", "Carrera GTS", "Carrera 4S", "Turbo", "Turbo S", "GT3"],
+    ("Porsche", "911"): [
+        "Base",
+        "Carrera",
+        "Carrera S",
+        "Carrera T",
+        "Carrera 4",
+        "Carrera 4S",
+        "Carrera GTS",
+        "Carrera 4 GTS",
+        "Targa 4",
+        "Targa 4S",
+        "Targa 4 GTS",
+        "Turbo",
+        "Turbo S",
+        "GT2 RS",
+        "GT3",
+        "GT3 RS",
+    ],
     ("Porsche", "Cayenne"): ["Base", "S", "GTS", "Turbo", "Turbo E-Hybrid"],
+}
+
+
+# Some model ranges have a named trim family whose root is also sold as the
+# base car. These policies are intentionally opt-in: prefix similarity alone is
+# not enough to make Civic EX include EX-L or Mustang GT include Shelby GT500.
+TRIM_SCOPE_POLICIES: dict[tuple[str, str], list[dict[str, Any]]] = {
+    ("Porsche", "911"): [
+        {
+            "family": "Carrera",
+            "base_aliases": ["Base"],
+            "base_trim": "Carrera",
+            "base_variant_tokens": ["4", "4s", "s", "gts", "t", "targa", "black", "edition"],
+            "members": [
+                "Carrera Coupe/Cabriolet",
+                "Carrera S",
+                "Carrera T",
+                "Carrera 4/4S",
+                "Carrera GTS/4 GTS",
+                "Carrera-named historical variants",
+            ],
+        }
+    ],
 }
 
 
@@ -395,6 +435,24 @@ def trim_candidates(make: str, model: str) -> list[str]:
     return list(TRIM_CATALOG.get((make, model), []))
 
 
+def trim_scope_profile(make: str, model: str, trim: str) -> dict[str, Any]:
+    requested = _trim_scope_key(trim)
+    if not requested:
+        return {"mode": "all", "requested": ""}
+    for policy in TRIM_SCOPE_POLICIES.get((make, model), []):
+        family = str(policy.get("family") or "")
+        if requested == _trim_scope_key(family):
+            return {"mode": "family", "requested": trim, **policy}
+        base_aliases = {_trim_scope_key(str(item)) for item in policy.get("base_aliases") or []}
+        if requested in base_aliases:
+            return {"mode": "base", "requested": trim, **policy}
+    return {"mode": "exact", "requested": trim}
+
+
+def _trim_scope_key(value: str) -> str:
+    return " ".join(str(value or "").lower().replace("-", " ").split())
+
+
 def display_token(token: str) -> str:
     lowered = token.lower()
     if lowered in TOKEN_DISPLAY:
@@ -429,7 +487,9 @@ def source_model_contains_trim(model_query: str, trim: str) -> bool:
 def source_model_profile(make: str, model: str, trim: str, source: str = "generic") -> dict[str, Any]:
     override = SOURCE_MODEL_OVERRIDES.get((make, model), {})
     source_model = source_query_model(make, model, trim, source)
-    trim_tokens = [display_token(token) for token in trim.split() if token]
+    trim_scope = trim_scope_profile(make, model, trim)
+    matching_trim = str(trim_scope.get("base_trim") or trim) if trim_scope["mode"] == "base" else trim
+    trim_tokens = [display_token(token) for token in matching_trim.split() if token]
     if override.get("required_keywords"):
         required = list(override["required_keywords"])
     elif make == "Mercedes-Benz" and model in MERCEDES_CLASS_LETTERS:
@@ -450,6 +510,14 @@ def source_model_profile(make: str, model: str, trim: str, source: str = "generi
             "Treat Competition as a generation-aware family: include G8x Competition Coupe/Convertible and RWD/xDrive, "
             "plus 2016-2020 F82/F83 rows that visibly identify the factory Competition Package."
         )
+    if trim_scope["mode"] == "family":
+        notes.append(
+            f'{trim_scope["family"]} is a configured trim family; collect its named descendants as well as the root trim.'
+        )
+    elif trim_scope["mode"] == "base":
+        notes.append(
+            f'{trim} maps to the root {trim_scope["base_trim"]} trim; reject named descendants of that family.'
+        )
     return {
         "canonical_model": model,
         "source_model": source_model,
@@ -458,4 +526,5 @@ def source_model_profile(make: str, model: str, trim: str, source: str = "generi
         "exclude_keywords": sorted(excluded),
         "path_segments": list(path_segments),
         "notes": notes,
+        "trim_scope": trim_scope,
     }

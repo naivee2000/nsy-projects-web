@@ -15,6 +15,7 @@ from car_compare.codex_cli import codex_login_status
 from car_compare.collector import (
     CollectionManager,
     CollectorConfig,
+    DEFAULT_FALLBACK_LEASE_SECONDS,
     MAX_MSRP_PRICE,
     MIN_MSRP_PRICE,
     _msrp_matches_request,
@@ -38,6 +39,22 @@ ROOT = Path(__file__).resolve().parent
 STATIC = ROOT / "static"
 AUTH = SharedSessionAuth.from_environment()
 SAMPLE_MODE_ENABLED = os.environ.get("CAR_COMPARE_SAMPLE_MODE", "").lower() in {"1", "true", "yes"}
+
+
+def _environment_int(name: str, default: int) -> int:
+    try:
+        return int(os.environ.get(name, str(default)))
+    except ValueError:
+        return default
+
+
+def _environment_bool(name: str, default: bool = True) -> bool:
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    return raw.strip().lower() not in {"0", "false", "no", "off"}
+
+
 COLLECTION_REQUEST_KEYS: dict[str, str] = {}
 GENERATION_REQUEST_KEYS: dict[str, str] = {}
 COLLECTOR = CollectionManager(
@@ -46,6 +63,18 @@ COLLECTOR = CollectionManager(
         codex_path=os.environ.get("CODEX_BIN", "").strip(),
         dry_run=os.environ.get("CAR_COMPARE_COLLECTOR_DRY_RUN", "").lower() in {"1", "true", "yes"},
         use_visor_facets=os.environ.get("CAR_COMPARE_VISOR_FACETS", "1").lower() not in {"0", "false", "no"},
+        cache_enabled=_environment_bool("CAR_COMPARE_CACHE_ENABLED"),
+        cache_dir=(Path(os.environ["CAR_COMPARE_CACHE_DIR"]).expanduser() if os.environ.get("CAR_COMPARE_CACHE_DIR") else None),
+        recent_cache_ttl_seconds=_environment_int("CAR_COMPARE_RECENT_CACHE_TTL_SECONDS", 3 * 24 * 60 * 60),
+        older_cache_ttl_seconds=_environment_int("CAR_COMPARE_OLDER_CACHE_TTL_SECONDS", 3 * 24 * 60 * 60),
+        collector_review_cache_ttl_seconds=_environment_int("CAR_COMPARE_REVIEW_CACHE_TTL_SECONDS", 3 * 24 * 60 * 60),
+        marketplace_concurrency=_environment_int("CAR_COMPARE_MARKETPLACE_CONCURRENCY", 2),
+        codex_search_workers=_environment_int("CAR_COMPARE_CODEX_SEARCH_WORKERS", 3),
+        codex_search_batch_size=_environment_int("CAR_COMPARE_CODEX_SEARCH_BATCH_SIZE", 5),
+        background_mode=_environment_bool("CAR_COMPARE_BACKGROUND_MODE"),
+        fallback_lease_seconds=_environment_int(
+            "CAR_COMPARE_FALLBACK_LEASE_SECONDS", DEFAULT_FALLBACK_LEASE_SECONDS
+        ),
     )
 )
 GENERATION_RESEARCH = GenerationResearchManager(
@@ -53,6 +82,9 @@ GENERATION_RESEARCH = GenerationResearchManager(
         root=ROOT,
         codex_path=os.environ.get("CODEX_BIN", "").strip(),
         dry_run=os.environ.get("CAR_COMPARE_GENERATION_DRY_RUN", "").lower() in {"1", "true", "yes"},
+        cache_enabled=_environment_bool("CAR_COMPARE_CACHE_ENABLED"),
+        cache_dir=(Path(os.environ["CAR_COMPARE_CACHE_DIR"]).expanduser() if os.environ.get("CAR_COMPARE_CACHE_DIR") else None),
+        cache_ttl_seconds=_environment_int("CAR_COMPARE_GENERATION_CACHE_TTL_SECONDS", 3 * 24 * 60 * 60),
     )
 )
 
@@ -65,6 +97,9 @@ class CarCompareHandler(BaseHTTPRequestHandler):
             return
         if self.path == "/" or self.path.startswith("/?"):
             self._send_file(STATIC / "index.html")
+            return
+        if self.path == "/codex-action" or self.path.startswith("/codex-action?"):
+            self._send_file(STATIC / "codex-action.html")
             return
         if self.path == "/api/site-status":
             collector = COLLECTOR.availability()
@@ -92,6 +127,7 @@ class CarCompareHandler(BaseHTTPRequestHandler):
                         and codex["authenticated"]
                         and skill_path.is_file()
                         and collector["browserWorkerAvailable"]
+                        and collector["persistentBrowserReady"]
                         else "not-ready"
                     ),
                     "app": "car-compare",
@@ -103,19 +139,29 @@ class CarCompareHandler(BaseHTTPRequestHandler):
                     "browserWorker": {
                         "ok": collector["browserWorkerAvailable"],
                         "persistentBrowserConfigured": collector["persistentBrowserConfigured"],
+                        "persistentBrowserReady": collector["persistentBrowserReady"],
+                        "persistentBrowserMode": collector["persistentBrowserMode"],
+                        "persistentBrowserBackground": collector["persistentBrowserBackground"],
+                        "persistentBrowserName": collector["persistentBrowserName"],
+                        "hostChromeFallbackReady": collector["hostChromeFallbackReady"],
+                        "hostChromeBackground": collector["hostChromeBackground"],
+                        "backgroundMode": collector["backgroundMode"],
                         "path": str(ROOT / "scripts" / "car_compare_browser_mcp.mjs"),
                     },
                     "runtimeRoot": str(ROOT),
                 }
             )
             return
+        if self.path == "/api/codex-browser-actions":
+            self._send_json({"actions": COLLECTOR.browser_actions()})
+            return
         if self.path.startswith("/api/collect/"):
             job_id = self.path.removeprefix("/api/collect/").split("?", 1)[0]
-            job = COLLECTOR.get(job_id)
-            if not job:
+            payload = COLLECTOR.job_payload(job_id)
+            if not payload:
                 self._send_error(404, "Collection job not found")
                 return
-            self._send_json(job.to_dict())
+            self._send_json(payload)
             return
         if self.path.startswith("/api/generation-impact/"):
             job_id = self.path.removeprefix("/api/generation-impact/").split("?", 1)[0]
@@ -144,6 +190,7 @@ class CarCompareHandler(BaseHTTPRequestHandler):
             "/api/generation-impact",
             "/api/collection-plan",
             "/api/parse-visible-text",
+            "/api/codex-browser-capture",
         }
         if self.path not in known_paths:
             self._send_error(404, "Not found")
@@ -188,7 +235,10 @@ class CarCompareHandler(BaseHTTPRequestHandler):
                 if not job:
                     self._send_error(404, "Collection job not found")
                     return
-                if COLLECTION_REQUEST_KEYS.get(job_id) != _request_key(request):
+                job_request = parse_vehicle_query(job.query)
+                job_request.max_age = job.max_age
+                expected_request_key = COLLECTION_REQUEST_KEYS.get(job_id) or _request_key(job_request)
+                if expected_request_key != _request_key(request):
                     self._send_error(409, "Collection job does not match this vehicle query and horizon")
                     return
                 if job.result:
@@ -294,6 +344,29 @@ class CarCompareHandler(BaseHTTPRequestHandler):
                 request=request,
             )
             self._send_json({"listings": [item.to_dict() for item in listings]})
+            return
+
+        if self.path == "/api/codex-browser-capture":
+            try:
+                result = COLLECTOR.import_codex_browser_capture(
+                    str(body.get("jobId") or "").strip(),
+                    source=str(body.get("source") or "").strip(),
+                    url=str(body.get("url") or "").strip(),
+                    visible_text=str(body.get("visibleText") or ""),
+                    pages_examined=int(body.get("pagesExamined") or 1),
+                    cards_examined=int(body.get("cardsExamined") or 0),
+                    load_more_clicked=int(body.get("loadMoreClicked") or 0),
+                )
+            except KeyError as exc:
+                self._send_error(404, str(exc))
+                return
+            except RuntimeError as exc:
+                self._send_error(409, str(exc))
+                return
+            except (TypeError, ValueError) as exc:
+                self._send_error(400, str(exc))
+                return
+            self._send_json(result)
             return
 
     def log_message(self, fmt: str, *args: Any) -> None:

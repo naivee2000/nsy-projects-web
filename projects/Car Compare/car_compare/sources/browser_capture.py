@@ -69,7 +69,7 @@ def parse_visible_listing_text(
         title = _title_from_window(window)
         trim = _trim_from_title(title, request)
         condition_context = [*(lines[idx - 1 : idx] if idx else []), *window]
-        condition = "new" if _looks_new(condition_context) else "used"
+        condition = "new" if _looks_new(condition_context) else "cpo" if _looks_cpo(condition_context) else "used"
         listings.append(
             Listing(
                 source=source,
@@ -86,6 +86,17 @@ def parse_visible_listing_text(
         )
 
     return _dedupe(listings)
+
+
+def listing_year_in_scope(year: int, request: VehicleQuery) -> bool:
+    if request.target_year:
+        return year == request.target_year
+    current_year = _runtime_current_year()
+    start_year = max(
+        current_year - request.max_age,
+        request.start_year or current_year - request.max_age,
+    )
+    return start_year <= year <= current_year
 
 
 def _find_price(lines: list[str]) -> float | None:
@@ -224,6 +235,13 @@ def _looks_new(lines: list[str]) -> bool:
     return any(
         re.search(r"^(?:brand new|new vehicle|new)(?!\s+arrival\b)\b", line.strip(), re.I)
         for line in lines[:4]
+    )
+
+
+def _looks_cpo(lines: list[str]) -> bool:
+    return any(
+        re.search(r"\b(?:certified(?:\s+pre[- ]?owned)?|cpo)\b", line, re.I)
+        for line in lines[:8]
     )
 
 

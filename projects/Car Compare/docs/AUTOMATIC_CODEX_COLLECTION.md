@@ -13,6 +13,9 @@ User enters car query
 -> Codex calls the project-local browser MCP worker for Autotrader and Edmunds
 -> the worker flips pages and persists deterministic card/audit JSON beside the job
 -> the app accepts browser rows only from that audit
+-> if a marketplace is blocked or empty, the app retries once in the host Mac's regular Chrome
+-> if the network still refuses an official Edmunds page, native Codex web search captures indexed official listing blocks
+-> only a host-automation failure opens the short-lived manual Codex Desktop fallback lease
 -> app deduplicates listings and graphs depreciation
 ```
 
@@ -51,15 +54,23 @@ npm exec playwright install chromium
 npm run browser:self-test
 ```
 
-For marketplaces that reject fresh headless sessions, start a persistent normal Chrome/Chromium session:
+Verify that the worker can launch its persistent browser profile:
 
 ```bash
-chmod +x scripts/start_collection_browser.sh
-scripts/start_collection_browser.sh
-export CAR_COMPARE_BROWSER_CDP_URL="http://127.0.0.1:9222"
+python3 scripts/deploy_preflight.py --smoke-browser
 ```
 
-On a Linux deployment host without a graphical session, install `xvfb`; the start script runs Chrome inside that virtual display. The debugging endpoint binds to localhost and must not be exposed publicly.
+The worker owns Playwright's version-matched browser, runs it headlessly by default, and persists its session under `~/.car-compare/browser-profile`. This machine-local path avoids checking browser state into Git and works even when the project path contains spaces. No separate visible Chrome process, debug port, or machine-specific browser path is required. An explicitly configured localhost `CAR_COMPARE_BROWSER_CDP_URL` remains supported as an advanced override, but is reported as non-background because its window state is externally managed.
+
+The collection pass opens the Autotrader and Edmunds broad year-range pages concurrently in separate pages of one shared browser session. Porsche queries also open official Porsche Finder. Concurrent vehicle jobs still wait for the browser lock. After the range pass, the backend merges the marketplaces with fresh verified cache rows and Visor aggregate support. Only combined sparse years enter a bounded follow-up queue, so a well-supported marketplace year does not force a redundant crawl elsewhere. Confirmed access walls remain recorded and never trigger identity rotation or CAPTCHA bypasses.
+
+Porsche Finder always receives an explicit nationwide position radius (`-1`) because the site can restore a local radius when position is omitted. It uses `minimum-model-year` / `maximum-model-year`, repeated `category` filters for supported 911 trim scopes, `/details/` card links, and `page` pagination. The app still runs every card through deterministic year/model/trim matching.
+
+For `carcompare.nsyprojects.com`, use `ops/pm2-car-compare.example.cjs`. PM2 runs the backend with `CAR_COMPARE_BACKGROUND_MODE=1`; the backend launches one shared headless persistent-profile browser session with a configurable two-page worker pool. `python3 scripts/deploy_preflight.py --smoke-browser` verifies both a real browser launch and background mode.
+
+On the always-awake Mac, the event-driven regular-Chrome fallback is also background-oriented: it creates a private worker window, minimizes it immediately, restores the previously focused app, and closes the worker when capture finishes. Fallbacks run one at a time to avoid focus races. Chrome must remain installed in a logged-in graphical session with `View > Developer > Allow JavaScript from Apple Events` enabled. The process may remain visible in Dock or Activity Monitor, but no collection page should remain on the desktop. Set `CAR_COMPARE_BACKGROUND_MODE=0` only for temporary diagnosis.
+
+Set `CAR_COMPARE_CACHE_DIR` to a persistent disk. The SQLite cache uses WAL mode and atomic upserts, so it works for the local always-awake Mac and for a Linux deployment with a mounted volume. Marketplace rows, Visor facet snapshots, validated collection reviews, and generation research all have a maximum three-day TTL. Expired rows never satisfy coverage, and every listing cache hit is passed through the deterministic matcher again.
 
 The app checks `CODEX_BIN`, `PATH`, official standalone install locations on macOS/Linux/Windows, and these macOS desktop locations. To override discovery manually, use the path that exists on the host:
 
@@ -80,9 +91,19 @@ python3 app.py --host 127.0.0.1 --port 8787
 
 The app does not pass arbitrary shell commands from the browser. It only passes the vehicle query into a fixed Codex prompt with a fixed JSON schema.
 
-The MCP worker accepts HTTPS URLs only from an explicit marketplace allowlist. Every worker call records pages/cards examined, accepted rows, rejection reasons, pagination count, stop reason, and per-year quota status. Codex prose or search snippets cannot create accepted Autotrader/Edmunds rows without this audit.
+The MCP worker accepts HTTPS URLs only from an explicit marketplace allowlist. Every worker call records pages/cards examined, accepted rows, rejection reasons, pagination count, stop reason, and per-year quota status. Codex prose or search snippets cannot create accepted Autotrader, Edmunds, or Porsche Finder rows without this audit.
 
-The app should stay local-only unless auth is added. Automatic collection can consume Codex usage.
+A public marketplace may allow a visible browser session while refusing the deployment host's automated profile or network address. Treat that as source availability, not as permission to rotate identities or bypass a CAPTCHA/access wall. The app preserves already verified rows and Visor facets, records the refusal, and stops repeated requests for that source.
+
+On macOS, a blocked or empty audited source is retried automatically through `scripts/chrome_host_capture.applescript`. The script immediately minimizes a temporary regular-Chrome worker window, restores the previously focused app, scrolls rendered results, clicks only recognized pagination controls, and returns public visible text. `car_compare/sources/chrome_host.py` enforces the marketplace host allowlist, and the app parses and filters the capture deterministically before replacing the blocked audit. This path runs only during the collection and spends no model usage.
+
+If regular Chrome also receives a network refusal from Edmunds, the active job invokes native `codex --search` only for combined sparse years. Long horizons are split into small batches and up to three batches may run concurrently. The fixed `web_search_capture_schema.json` permits only official Edmunds page URLs plus verbatim visible text. The app validates every URL and runs `parse_visible_listing_text` plus the resolved trim rules before accepting a row. The search stage spends Codex usage only when needed and has no idle monitor. A temporary manual Chrome lease is retained only when automatic capture mechanisms cannot produce an authoritative result.
+
+Do not create a recurring five-minute Codex task. While a lease is pending, the report page polls the local job endpoint every five seconds; this is ordinary local HTTP traffic and does not invoke Codex. No polling remains after completion, expiry, navigation to a new run, or an error. The backend cannot silently start a Chrome-plugin desktop task, so the operator must click the handoff link and send the prefilled task on the host Mac.
+
+See [ALWAYS_AWAKE_HANDOFF.md](ALWAYS_AWAKE_HANDOFF.md) for the complete host installation and recovery guide.
+
+The app should stay local-only unless auth is added. Normal Codex review and an operator-started Chrome fallback can consume Codex usage; an idle app and an expired lease do not.
 
 ## Fallback
 

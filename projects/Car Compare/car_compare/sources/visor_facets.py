@@ -14,7 +14,7 @@ from typing import Any
 
 from car_compare.models import Listing, MSRP, VehicleQuery
 from car_compare.trim_match import trim_tokens, trim_value_matches_request
-from car_compare.vehicle_catalog import source_model_contains_trim, source_query_model
+from car_compare.vehicle_catalog import source_model_contains_trim, source_query_model, trim_scope_profile
 from car_compare.vehicle_match import vehicle_text_match_score
 
 
@@ -357,7 +357,8 @@ def _matching_filter_specs(request: VehicleQuery, car_type: str, year: int | Non
                 matches.append({"name": name, **item})
         if matches:
             break
-    return sorted(matches, key=lambda item: int(item.get("count", 0)), reverse=True)[:8]
+    limit = 16 if trim_scope_profile(request.make, request.model, request.trim)["mode"] == "family" else 8
+    return sorted(matches, key=lambda item: int(item.get("count", 0)), reverse=True)[:limit]
 
 
 def _parse_facet_items(text: str, name: str) -> list[dict[str, Any]]:
@@ -493,6 +494,7 @@ def _listings_from_years(request: VehicleQuery, rows: list[VisorYearData], curre
             if sample_count <= 0:
                 continue
             step = (upper - lower) / max(sample_count, 1)
+            market_weight = float(item["count"]) / sample_count
             for sample_index in range(sample_count):
                 price = lower + step * (sample_index + 0.5)
                 listings.append(
@@ -519,6 +521,7 @@ def _listings_from_years(request: VehicleQuery, rows: list[VisorYearData], curre
                         ),
                         confidence="new_vehicle_facets" if is_new else "aggregate_facets",
                         condition="new" if is_new else "used",
+                        market_weight=market_weight,
                     )
                 )
     return listings

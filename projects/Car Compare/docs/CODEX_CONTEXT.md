@@ -15,7 +15,7 @@ Car Compare is a local web app for researching vehicle depreciation.
 User flow:
 
 ```text
-user enters vehicle query
+user selects Single Car or Compare Cars and enters one or two vehicle queries
 -> parser resolves make/model/trim/year horizon
 -> Collect & Research pulls market data from public source adapters and local Codex website collection
 -> app builds age buckets and graph after collection finishes
@@ -31,6 +31,7 @@ The target behavior:
 - The user can choose a horizon up to 20 years.
 - Rows are deduplicated by VIN first, then likely same listing fields.
 - The first page opens empty. No default BMW query should run on load.
+- Compare mode starts both vehicle and generation jobs together. The backend browser lock coordinates per-vehicle browser ownership while independent work overlaps, then two unchanged single-vehicle reports are aligned by vehicle age.
 
 ## How To Run
 
@@ -59,20 +60,24 @@ Stop the old app process only if it is this Car Compare server and the user is o
 - `app.py`: local HTTP server and API routes.
 - `static/index.html`, `static/app.js`, `static/styles.css`: web UI.
 - `car_compare/parser.py`: natural vehicle query parsing.
-- `car_compare/vehicle_catalog.py`: make/model catalog, aliases, source model mapping.
-- `car_compare/trim_match.py`: exact-trim conflict rules.
-- `car_compare/sources/source_plan.py`: source URLs, Codex workflow instructions, manufacturer URLs.
+- `car_compare/vehicle_catalog.py`: make/model catalog, aliases, source model mapping, and opt-in trim-scope policies.
+- `car_compare/trim_match.py`: all/family/base/exact trim matching and conflict rules.
+- `car_compare/sources/source_plan.py`: source URLs, Codex workflow instructions, manufacturer URLs, and official Porsche Finder nationwide/911 category planning.
 - `car_compare/sources/visor_facets.py`: public Visor aggregate facet collector.
 - `car_compare/sources/browser_capture.py`: visible listing text parser.
 - `car_compare/collector.py`: background collection jobs and Codex CLI bridge.
 - `scripts/car_compare_browser_mcp.mjs`: project-local Playwright MCP worker used by Codex for audited pagination and card extraction.
-- `scripts/start_collection_browser.sh`: starts a persistent localhost-only Chrome/Chromium session for collection hosts.
+- `scripts/start_collection_browser.sh`: optional advanced CDP browser launcher; normal collection uses the worker-owned persistent profile.
 - `car_compare/codex_cli.py`: cross-platform CLI discovery, `CODEX_HOME`, and keyring-safe `codex login status` checks.
 - `car_compare/generation_impact.py`: Codex-backed generation timing / depreciation-shock research jobs.
 - `car_compare/generation_impact_schema.json`: structured output contract for generation-impact research.
 - `car_compare/depreciation.py`: dedupe, statistics, projections, report assembly.
 - `tests/test_core.py`: regression suite.
 - `skills/generation-impact-research/`: project-local Codex skill for generation-impact research.
+- `car_compare/sources/chrome_host.py` and `scripts/chrome_host_capture.applescript`: event-driven zero-click retry through the host Mac's regular Chrome.
+- `car_compare/web_search_capture_schema.json`: fixed output contract for native Codex indexed-source recovery after an Edmunds network refusal.
+- `skills/collect-car-marketplaces/`: optional supervised Codex `@Chrome` recovery when host Chrome automation is unavailable.
+- `docs/ALWAYS_AWAKE_HANDOFF.md`: deployment and operator runbook for the always-awake Codex Desktop host.
 - `scripts/install_project_skills.sh`: copies the project-local skill into another computer's local Codex skills folder.
 - `scripts/deploy_preflight.py`: verifies CLI discovery, login, schemas, and optional live `codex exec` on a deployment host.
 
@@ -91,11 +96,21 @@ The app uses two layers:
    These give aggregate market observations and are useful for nationwide trend buckets. They are not individual dealer VIN rows.
 
 2. Local Codex website collection.
-   The app starts the Codex CLI on the same computer and registers the project-local browser MCP directly on that process. Codex calls it for Autotrader and Edmunds; the worker flips pages, extracts visible cards deterministically, and writes an audit beside the job. The app discards browser-source rows that are not backed by that audit. Do not bypass CAPTCHAs, login walls, paywalls, or site restrictions.
+   The app starts the Codex CLI on the same computer and registers the project-local browser MCP directly on that process. Codex calls it for Autotrader and Edmunds, plus official Porsche Finder for Porsche queries; the worker flips pages, extracts visible cards deterministically, and writes an audit beside the job. The app discards browser-source rows that are not backed by that audit. Do not bypass CAPTCHAs, login walls, paywalls, or site restrictions.
 
 The collection job currently checks Visor facets first. If Codex is available, the job can continue into website collection afterward. If Codex fails after Visor returned rows, the app keeps the Visor data as a completed partial result.
 
-For deployment, run `npm install`, start `scripts/start_collection_browser.sh`, set `CAR_COMPARE_BROWSER_CDP_URL`, then run `python3 scripts/deploy_preflight.py --smoke-codex --smoke-browser` as the same operating-system account that will run the service. `GET /api/setup` reports readiness. Keep both the app and browser debugging endpoint on `127.0.0.1` and require authenticated proxy access before routing the public hostname, because user-triggered collection spends the deployment account's Codex usage.
+For deployment, run `npm install`, `npm exec playwright install chromium`, then `python3 scripts/deploy_preflight.py --smoke-codex --smoke-browser` as the same operating-system account that will run the service. The worker launches Playwright's version-matched browser and reuses the machine-local `~/.car-compare/browser-profile`, so `ops/pm2-car-compare.example.cjs` only manages the backend for `carcompare.nsyprojects.com`. `GET /api/setup` reports ready only when the project browser runtime is installed. Require authenticated proxy access before routing the public hostname, because user-triggered collection spends the deployment account's Codex usage.
+
+The audited worker opens Autotrader and Edmunds range pages concurrently in one shared headless persistent-profile browser session. It merges those results with fresh verified SQLite cache rows and Visor aggregate support, then follows up only on years that remain sparse across the combined evidence. A confirmed access wall remains disclosed while preserving every verified row. Do not add CAPTCHA solving, fingerprint spoofing, profile rotation, or other access-wall bypasses.
+
+When the backend Playwright profile is blocked or empty, the active collection retries through the host Mac's regular Chrome. In background mode, the AppleScript worker immediately minimizes its private window, restores the application the user was working in, serializes marketplace retries to avoid focus races, scrolls the rendered page, clicks recognized result pagination controls, and closes only its own window. It does not invoke Codex or poll while idle. The resulting audit uses `browser_mode=system_chrome_applescript` and `background_mode=true`. If host automation is disabled or fails before producing an audit, the older temporary `/api/codex-browser-actions` lease and `/codex-action` import surface remain available for supervised `@Chrome` recovery. Historical jobs without a lease are never revived.
+
+`CAR_COMPARE_BACKGROUND_MODE=1` is the default and should be explicit in deployed PM2 configuration. Playwright is headless; Codex CLI, Visor, cache, and generation research are already non-UI subprocesses. The real-Chrome fallback still requires a logged-in macOS graphical session and may show Chrome as a running application, but its collection window remains minimized. An explicitly supplied `CAR_COMPARE_BROWSER_CDP_URL` is reported as non-background because the app cannot guarantee that an externally managed browser is hidden. Use `CAR_COMPARE_BACKGROUND_MODE=0` only for diagnosis.
+
+When regular Chrome also receives an Edmunds network refusal, the active job may invoke native `codex --search` for combined sparse years. Long horizons use configurable five-year batches and bounded concurrent workers. Codex is constrained to official Edmunds year-page URLs and verbatim listing blocks by `web_search_capture_schema.json`. The app validates the host and reruns deterministic parsing and trim matching before writing a `codex_web_search` audit. This stage consumes Codex usage only for the active job; there is no scheduled monitor.
+
+The default lease is 1,200 seconds and can be set with `CAR_COMPARE_FALLBACK_LEASE_SECONDS` in the clamped range 300-3,600. Do not configure a recurring scheduled Codex task; it would consume usage while idle and is no longer part of this architecture.
 
 ## Generation Impact Research
 
@@ -109,7 +124,7 @@ For portability, keep the skill inside this project folder. On another computer,
 scripts/install_project_skills.sh
 ```
 
-This copies the skill into `${CODEX_HOME:-$HOME/.codex}/skills/generation-impact-research`. Generated research jobs under `data/generation_research_jobs/` are local outputs and should not be treated as core source.
+This copies both project skills into `${CODEX_HOME:-$HOME/.codex}/skills/`. Generated research jobs under `data/generation_research_jobs/` are local outputs and should not be treated as core source.
 
 ## Vehicle Matching Rules Already Fixed
 
@@ -120,8 +135,11 @@ These are important because wrong trim grouping changes the depreciation graph:
 - Lexus repeated/numeric inputs such as `Lexus RX RX 350` normalize to `Lexus RX 350`.
 - `Honda Civic EX` excludes `EX-L` and `EX-T`.
 - `Ford Mustang GT` excludes Shelby `GT500`.
-- `Porsche 911 Carrera` excludes `Carrera S`, `Carrera GTS`, `Carrera 4S`, etc.
-- `Porsche 911 Carrera S` stays separate from base `Carrera`.
+- `Porsche 911` includes all 911 variants.
+- `Porsche 911 Carrera` is a configured family search and includes the root Carrera plus Carrera S, T, 4/4S, GTS/4 GTS, and Carrera-named body variants.
+- `Porsche 911 Base` includes only root Carrera Coupe/Cabriolet rows; named descendants and special editions are excluded.
+- `Porsche 911 Carrera S` remains an exact descendant-trim search.
+- Models without a `TRIM_SCOPE_POLICIES` entry keep exact trim behavior, preventing prefix collisions such as `EX` vs `EX-L`.
 - `BMW M4 Competition` is a generation-aware family: 2021+ Competition coupe/convertible and RWD/xDrive variants qualify; 2016-2020 F82/F83 cars qualify when the factory ZCP Competition Package is visibly verified; Base, CS, CSL, and GTS remain excluded.
 - `BMW X5 xDrive40i`, `BMW 3 Series 330i`, and similar attached names parse cleanly.
 
@@ -163,14 +181,16 @@ Representative browser `Collect` runs were verified:
 - `Mercedes-Benz C-Class C300`: collected Visor facet rows.
 - `Honda Civic EX`: collected with a realistic multi-year horizon; a 1-year horizon may be too narrow because Visor may have no usable 2025/2026 EX rows.
 - `Ford Mustang GT`: collected and excluded Shelby variants.
-- `Porsche 911 Carrera`: collected and separated from Carrera S/GTS.
-- `Porsche 911 Carrera S`: collected separately.
+- `Porsche 911 Carrera`: configured as the inclusive Carrera family.
+- `Porsche 911 Base`: configured as root Carrera Coupe/Cabriolet only.
+- `Porsche 911 Carrera S`: remains available as a separate exact-trim search.
 
 ## Current UI State
 
 The opening page should be blank:
 
 - Vehicle input is empty.
+- `Single Car` is selected by default; `Compare Cars` reveals a second vehicle input and uses one shared horizon.
 - No `/api/research` call happens on load.
 - Chart, resolver, metrics, source evidence, and collection plan are blank.
 - Source/collector status still loads.

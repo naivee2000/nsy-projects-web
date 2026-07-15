@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Codex Chrome Capture</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body class="actionPage">
+    <main class="actionShell">
+      <header class="actionHeader">
+        <span class="emptyStateCode">CODEX CHROME ACTION</span>
+        <h1>Marketplace capture import</h1>
+        <p id="actionContext">Loading blocked collection jobs.</p>
+      </header>
+
+      <form id="captureImportForm" class="actionForm">
+        <label class="field" for="actionJobId">
+          <span>Collection job</span>
+          <select id="actionJobId" required></select>
+        </label>
+        <label class="field" for="actionSource">
+          <span>Marketplace</span>
+          <select id="actionSource" required></select>
+        </label>
+        <label class="field actionWide" for="actionUrl">
+          <span>Source URL</span>
+          <input id="actionUrl" type="url" required />
+        </label>
+        <label class="field actionWide" for="actionVisibleText">
+          <span>Visible result text</span>
+          <textarea id="actionVisibleText" rows="18" required></textarea>
+        </label>
+        <label class="field" for="actionPages">
+          <span>Pages examined</span>
+          <input id="actionPages" type="number" min="1" max="100" value="1" required />
+        </label>
+        <label class="field" for="actionCards">
+          <span>Cards examined</span>
+          <input id="actionCards" type="number" min="0" max="5000" value="0" required />
+        </label>
+        <label class="field" for="actionClicks">
+          <span>Expansion clicks</span>
+          <input id="actionClicks" type="number" min="0" max="100" value="0" required />
+        </label>
+        <button id="actionSubmit" type="submit">Import verified capture</button>
+      </form>
+      <div id="actionStatus" class="actionStatus" role="status" aria-live="polite"></div>
+    </main>
+    <script src="/static/codex-action.js"></script>
+  </body>
+</html>

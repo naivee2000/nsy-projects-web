@@ -4,7 +4,7 @@ import re
 
 from car_compare.models import VehicleQuery
 from car_compare.trim_match import has_conflicting_trim_variant, trim_tokens
-from car_compare.vehicle_catalog import MODEL_CATALOG, make_aliases, source_model_profile
+from car_compare.vehicle_catalog import MODEL_CATALOG, make_aliases, source_model_profile, trim_scope_profile
 
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
@@ -67,7 +67,8 @@ def vehicle_text_match_score(request: VehicleQuery, title: str, trim: str = "", 
             else "rejected_missing_tokens"
         )
     elif request.trim:
-        confidence = "exact_model_trim"
+        trim_mode = trim_scope_profile(request.make, request.model, request.trim)["mode"]
+        confidence = "model_trim_family" if trim_mode == "family" else "exact_model_base" if trim_mode == "base" else "exact_model_trim"
     else:
         confidence = "exact_model_all_trims"
 

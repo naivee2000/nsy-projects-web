@@ -47,8 +47,14 @@ Edmunds direct SRP URLs work for several tested models. If one is blank, use the
 
 Visor is best through its API/MCP when an API key is available. Public Visor pages are useful for facets, counts, trim/version distribution, and price/mileage bands.
 
-For exact trims, do not rely only on substring matching. Reject neighboring variants that add a distinct trim/drivetrain token the user did not ask for, such as `EX-L` for `EX`, `GT500` for `GT`, `Carrera S` for base `Carrera`, or xDrive for a non-xDrive BMW Competition query.
+Apply the resolver's trim scope instead of relying on substring matching. Model-wide searches include all trims; configured family searches include named descendants; `Base` keeps only the configured root trim; exact searches reject neighboring variants such as `EX-L` for `EX` or `GT500` for `GT`. Add new family behavior through `TRIM_SCOPE_POLICIES` rather than globally treating every trim prefix as a family.
 
 ## Stop Conditions
 
 Stop using a source and switch to another source or manual import if the page shows a CAPTCHA, paywall, login-only wall, or refuses to load public listings. Do not try to bypass restrictions.
+
+## Temporary Desktop Fallback
+
+If the normal persistent Playwright profile is refused, the active job automatically retries the source in the always-awake Mac's regular Chrome through the project AppleScript worker. The rendered text is imported through the same deterministic parser and saved as a `system_chrome_applescript` audit. This is event driven and requires no recurring queue monitor. `Open Codex + Chrome` is now only a manual recovery action when host Chrome automation cannot run.
+
+If Edmunds also refuses regular Chrome at the network level, the active job uses native Codex web search against exact official model-year sale pages. Codex returns verbatim blocks under a fixed schema; URL allowlisting and the existing deterministic parser remain authoritative. Successful evidence is labeled `codex_web_search`, `search_verified=true`, and `deterministic_verified=true`, never browser-verified.

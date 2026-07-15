@@ -37,6 +37,7 @@ class Listing:
     dealer: str = ""
     confidence: str = "observed"
     condition: str = "used"
+    market_weight: float = 1.0
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -69,6 +70,7 @@ class BucketStats:
     q3: float | None = None
     low: float | None = None
     high: float | None = None
+    market_median: float | None = None
     trend_median: float | None = None
     source_counts: dict[str, int] = field(default_factory=dict)
     depreciation_from_previous: float | None = None

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source", "status", "pages", "notes"],
+  "properties": {
+    "source": {
+      "type": "string",
+      "enum": ["edmunds_browser"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["collected", "partial", "unavailable"]
+    },
+    "pages": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "model_year", "visible_text"],
+        "properties": {
+          "url": { "type": "string" },
+          "model_year": { "type": "integer", "minimum": 1980, "maximum": 2100 },
+          "visible_text": { "type": "string", "maxLength": 250000 }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

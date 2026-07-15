@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import process from "node:process";
 
@@ -14,6 +15,7 @@ const ALLOWED_HOSTS = [
   "cars.com",
   "cargurus.com",
   "edmunds.com",
+  "finder.porsche.com",
   "bmwusa.com",
   "visor.vin",
 ];
@@ -21,6 +23,9 @@ const DEFAULT_MAX_PAGES = 20;
 const DEFAULT_TIMEOUT_MS = 5 * 60 * 1000;
 const RECENT_YEAR_TARGET = 15;
 const OLDER_YEAR_TARGET = 8;
+function defaultProfilePath() {
+  return path.join(os.homedir(), ".car-compare", "browser-profile");
+}
 
 function tokens(value) {
   return String(value || "")
@@ -43,6 +48,7 @@ function parsePrice(lines) {
   for (const line of lines) {
     if (/\b(?:month|monthly|down|payment|lease|finance|mo\.?\b)/i.test(line)) continue;
     if (/\bmsrp\b/i.test(line)) continue;
+    if (/\b(?:fee|fees|tax|taxes)\b/i.test(line)) continue;
     const match = line.includes("$")
       ? line.match(/\$\s*([0-9][0-9,]{3,})/)
       : line.match(/^\s*([0-9]{2,3}(?:,[0-9]{3})+)\s*$/);
@@ -91,7 +97,9 @@ function classifyCard(card, input) {
   const title = (titleLines.slice(0, 4).join(" ") || lines.slice(0, 4).join(" ")).slice(0, 500);
   const trim = lines.find((line) => /\bcompetition\b/i.test(line)) || "";
   const lower = text.toLowerCase();
-  const condition = /^new\b/i.test(title) || /\bnew vehicle\b/.test(lower) ? "new" : /\bcertified|\bcpo\b/.test(lower) ? "cpo" : "used";
+  const condition = lines.some((line) => /^(?:brand new|new vehicle|new)$/i.test(line))
+    ? "new"
+    : /\bcertified|\bcpo\b/.test(lower) ? "cpo" : "used";
   return {
     accepted: true,
     listing: {
@@ -110,26 +118,77 @@ function classifyCard(card, input) {
   };
 }
 
-async function launchBrowser() {
-  const cdpUrl = process.env.CAR_COMPARE_BROWSER_CDP_URL || "";
-  if (cdpUrl) {
-    const browser = await chromium.connectOverCDP(cdpUrl, { timeout: 15_000 });
-    return { browser, owned: false };
+function configuredCdpUrl() {
+  const configured = String(process.env.CAR_COMPARE_BROWSER_CDP_URL || "").trim().replace(/\/$/, "");
+  if (configured) return { url: configured, configured: true };
+  return { url: "", configured: false };
+}
+
+function backgroundModeEnabled() {
+  return !["0", "false", "no", "off"].includes(String(process.env.CAR_COMPARE_BACKGROUND_MODE || "1").trim().toLowerCase());
+}
+
+async function cdpEndpointReady(rawUrl) {
+  const url = new URL(rawUrl);
+  if (!['127.0.0.1', 'localhost', '::1'].includes(url.hostname)) {
+    throw new Error("The collection browser endpoint must use localhost.");
   }
-  const headless = process.env.CAR_COMPARE_BROWSER_HEADFUL !== "1";
+  const response = await fetch(`${rawUrl}/json/version`, { signal: AbortSignal.timeout(2000) });
+  if (!response.ok) return false;
+  const info = await response.json();
+  return Boolean(info.Browser && info.webSocketDebuggerUrl);
+}
+
+async function launchBrowser() {
+  const backgroundMode = backgroundModeEnabled();
+  const cdp = configuredCdpUrl();
+  if (cdp.configured) {
+    try {
+      if (!await cdpEndpointReady(cdp.url)) throw new Error("The configured endpoint is not ready.");
+      const browser = await chromium.connectOverCDP(cdp.url, { timeout: 30_000 });
+      return { browser, context: browser.contexts()[0], owned: false, mode: "persistent_cdp_configured", backgroundMode: false };
+    } catch (error) {
+      throw new Error(`Persistent collection browser unavailable at ${cdp.url}. ${error?.message || error}`);
+    }
+  }
+  const hasDisplay = process.platform !== "linux" || Boolean(process.env.DISPLAY || process.env.WAYLAND_DISPLAY);
+  const forceHeadful = process.env.CAR_COMPARE_BROWSER_HEADFUL === "1";
+  const headless = forceHeadful
+    ? false
+    : process.env.CAR_COMPARE_BROWSER_HEADLESS === "1" || backgroundMode || !hasDisplay;
   const executablePath = process.env.CAR_COMPARE_BROWSER_EXECUTABLE || "";
+  const profilePath = process.env.CAR_COMPARE_BROWSER_PROFILE || defaultProfilePath();
   const attempts = executablePath
     ? [{ executablePath }]
     : [{}, { channel: "chrome" }, { channel: "msedge" }];
   let lastError;
   for (const option of attempts) {
     try {
-      return { browser: await chromium.launch({ headless, ...option }), owned: true };
+      const context = await chromium.launchPersistentContext(profilePath, {
+        headless,
+        locale: "en-US",
+        viewport: { width: 1440, height: 1000 },
+        args: backgroundMode && !headless ? ["--start-minimized", "--window-position=-10000,-10000"] : [],
+        ...option,
+      });
+      return {
+        browser: context.browser(),
+        context,
+        owned: true,
+        mode: headless ? "persistent_profile_headless" : "persistent_profile_headful",
+        backgroundMode,
+      };
     } catch (error) {
       lastError = error;
     }
   }
   throw new Error(`No usable Chromium browser found. Run npm exec playwright install chromium. ${lastError?.message || ""}`);
+}
+
+async function closeBrowserSession(launched) {
+  if (!launched?.owned) return;
+  if (launched.context) await launched.context.close();
+  else if (launched.browser) await launched.browser.close();
 }
 
 async function extractCards(page) {
@@ -140,6 +199,7 @@ async function extractCards(page) {
       'a[href*="/inventory/"]',
       'a[href*="/vin/"]',
       'a[href*="listing"]',
+      'a[href*="/details/"]',
     ];
     const seen = new Set();
     const rows = [];
@@ -186,13 +246,35 @@ async function clickNext(page, source) {
   for (const candidate of locators) {
     const locator = candidate.first();
     if (!(await locator.isVisible().catch(() => false))) continue;
+    const listingSelector = [
+      'a[href*="/cars-for-sale/vehicle/"]',
+      'a[href*="/cars-for-sale/inventory/"]',
+      'a[href*="/inventory/"]',
+      'a[href*="/vin/"]',
+      'a[href*="listing"]',
+      'a[href*="/details/"]',
+    ].join(",");
     const beforeUrl = page.url();
     const beforeLength = await page.locator("body").innerText().then((text) => text.length).catch(() => 0);
+    const beforeCards = await extractCards(page).then((cards) => cards.length).catch(() => 0);
+    const beforeLinks = await page.locator(listingSelector).count().catch(() => 0);
     await locator.click({ timeout: 10_000 });
-    await page.waitForTimeout(1600);
-    await page.waitForLoadState("domcontentloaded", { timeout: 15_000 }).catch(() => {});
+    await page.waitForFunction(
+      ({ previousUrl, previousLength, previousLinks, selector }) => {
+        const listingLinks = document.querySelectorAll(selector).length;
+        const bodyLength = document.body?.innerText?.length || 0;
+        return location.href !== previousUrl || listingLinks > previousLinks || bodyLength > previousLength + 100;
+      },
+      { previousUrl: beforeUrl, previousLength: beforeLength, previousLinks: beforeLinks, selector: listingSelector },
+      { timeout: 10_000 },
+    ).catch(() => {});
+    await page.waitForTimeout(500);
     const afterLength = await page.locator("body").innerText().then((text) => text.length).catch(() => 0);
-    return { clicked: true, changed: page.url() !== beforeUrl || afterLength > beforeLength + 100 };
+    const afterCards = await extractCards(page).then((cards) => cards.length).catch(() => 0);
+    return {
+      clicked: true,
+      changed: page.url() !== beforeUrl || afterCards > beforeCards || afterLength > beforeLength + 100,
+    };
   }
   return { clicked: false, changed: false };
 }
@@ -208,9 +290,22 @@ function quotaSummary(listings, input) {
   return { counts, targets, sparse_years: sparseYears, met: sparseYears.length === 0 };
 }
 
-async function collectSingleSearch(input) {
+function opensAccessWallCircuit(result) {
+  return result?.stop_reason === "access_wall";
+}
+
+function sparseYearsAfterRange(result, input) {
+  const sparse = new Set(result?.year_quota?.sparse_years || []);
+  return Array.from(sparse)
+    .map(Number)
+    .filter((year) => year >= input.start_year && year <= input.end_year)
+    .sort((left, right) => right - left);
+}
+
+async function collectSingleSearch(input, browserSession = null) {
   if (!hostAllowed(input.url)) throw new Error("URL host is not in the Car Compare browser allowlist.");
-  const launched = await launchBrowser();
+  const launched = browserSession || await launchBrowser();
+  const ownsSession = browserSession == null;
   const browser = launched.browser;
   const startedAt = Date.now();
   const listings = [];
@@ -223,15 +318,19 @@ async function collectSingleSearch(input) {
   let detailPagesOpened = 0;
   let accessBlocked = false;
   let accessMessage = "";
+  let isolatedContext = null;
+  let page = null;
   try {
-    const context = launched.owned
-      ? await browser.newContext({
+    const context = launched.context || (
+      launched.owned
+        ? (isolatedContext = await browser.newContext({
           locale: "en-US",
-          userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131 Safari/537.36",
           viewport: { width: 1440, height: 1000 },
-        })
-      : browser.contexts()[0];
-    const page = await context.newPage();
+        }))
+        : browser.contexts()[0]
+    );
+    if (!context) throw new Error("The browser did not expose a usable context.");
+    page = await context.newPage();
     await page.goto(input.url, { waitUntil: "domcontentloaded", timeout: 45_000 });
     await page.waitForTimeout(3000);
 
@@ -302,7 +401,10 @@ async function collectSingleSearch(input) {
       pageRecords.push({ page: pageNumber, url: page.url(), cards_examined: cards.length, accepted_new: added, detail_pages_opened: historicalCandidates.slice(0, 8).length });
       stalePages = added ? 0 : stalePages + 1;
       const quota = quotaSummary(listings, input);
-      if (quota.met) {
+      const minimumPagesBeforeQuota = input.source === "porsche_finder_browser"
+        ? Math.min(input.max_pages, 3)
+        : 1;
+      if (quota.met && pageNumber >= minimumPagesBeforeQuota) {
         stopReason = "year_targets_met";
         break;
       }
@@ -322,10 +424,10 @@ async function collectSingleSearch(input) {
       loadMoreClicked += 1;
       if (!next.changed) stalePages += 1;
     }
-    await page.close();
-    if (launched.owned) await context.close();
   } finally {
-    if (launched.owned) await browser.close();
+    if (page) await page.close().catch(() => {});
+    if (isolatedContext) await isolatedContext.close().catch(() => {});
+    if (ownsSession) await closeBrowserSession(launched);
   }
 
   const quota = quotaSummary(listings, input);
@@ -333,6 +435,8 @@ async function collectSingleSearch(input) {
     version: 1,
     source: input.source,
     url: input.url,
+    browser_mode: launched.mode,
+    background_mode: Boolean(launched.backgroundMode),
     browser_verified: true,
     status: accessBlocked ? "blocked" : listings.length ? (quota.met ? "collected" : "partial") : "unavailable",
     pages_examined: pageRecords.length,
@@ -354,11 +458,15 @@ async function collectSingleSearch(input) {
 function urlForYear(rawUrl, source, year) {
   const url = new URL(rawUrl);
   url.searchParams.delete("pagenumber");
+  url.searchParams.delete("page");
   if (source === "autotrader_browser") {
     url.searchParams.set("startYear", String(year));
     url.searchParams.set("endYear", String(year));
   } else if (source === "edmunds_browser") {
     url.searchParams.set("year", String(year));
+  } else if (source === "porsche_finder_browser") {
+    url.searchParams.set("minimum-model-year", String(year));
+    url.searchParams.set("maximum-model-year", String(year));
   }
   return url.href;
 }
@@ -371,17 +479,32 @@ async function persistAudit(audit) {
   await fs.writeFile(path.join(auditDir, `browser_capture_${safeSource}.json`), JSON.stringify(audit, null, 2));
 }
 
-async function collectSource(input) {
-  if (!input.split_by_year || input.start_year === input.end_year) return collectSingleSearch(input);
+async function collectSource(input, browserSession = null) {
+  if (!input.split_by_year || input.start_year === input.end_year) return collectSingleSearch(input, browserSession);
   const results = [];
-  for (let year = input.end_year; year >= input.start_year; year -= 1) {
-    results.push(await collectSingleSearch({
-      ...input,
-      url: urlForYear(input.url, input.source, year),
-      start_year: year,
-      end_year: year,
-      skip_persist: true,
-    }));
+  const targetedResults = [];
+  const launched = browserSession || await launchBrowser();
+  const ownsSession = browserSession == null;
+  let rangeResult = null;
+  try {
+    rangeResult = await collectSingleSearch({ ...input, skip_persist: true }, launched);
+    results.push(rangeResult);
+    if (!opensAccessWallCircuit(rangeResult)) {
+      for (const year of sparseYearsAfterRange(rangeResult, input)) {
+        const result = await collectSingleSearch({
+          ...input,
+          url: urlForYear(input.url, input.source, year),
+          start_year: year,
+          end_year: year,
+          skip_persist: true,
+        }, launched);
+        results.push(result);
+        targetedResults.push(result);
+        if (opensAccessWallCircuit(result)) break;
+      }
+    }
+  } finally {
+    if (ownsSession) await closeBrowserSession(launched);
   }
 
   const listings = [];
@@ -398,14 +521,24 @@ async function collectSource(input) {
       seen.add(key);
       listings.push(row);
     }
-    pageRecords.push(...(result.page_records || []).map((record) => ({ ...record, search_year: result.year_quota ? Number(Object.keys(result.year_quota.targets || {})[0]) : null })));
+    const isRangeSearch = result === rangeResult;
+    pageRecords.push(...(result.page_records || []).map((record) => ({
+      ...record,
+      search_year: isRangeSearch ? null : (result.year_quota ? Number(Object.keys(result.year_quota.targets || {})[0]) : null),
+      search_scope: isRangeSearch ? "range" : "year",
+    })));
   }
   const quota = quotaSummary(listings, input);
   const anyBlocked = results.some((result) => result.status === "blocked");
+  const accessWallCircuitOpen = results.some((result) => result.stop_reason === "access_wall");
+  const requestedYears = input.end_year - input.start_year + 1;
+  const plannedTargetYears = rangeResult ? sparseYearsAfterRange(rangeResult, input) : [];
   const audit = {
     version: 1,
     source: input.source,
     url: input.url,
+    browser_mode: results[0]?.browser_mode || launched.mode,
+    background_mode: results.some((result) => result.background_mode) || Boolean(launched.backgroundMode),
     browser_verified: true,
     status: listings.length ? (quota.met ? "collected" : "partial") : anyBlocked ? "blocked" : "unavailable",
     pages_examined: results.reduce((sum, result) => sum + Number(result.pages_examined || 0), 0),
@@ -414,11 +547,31 @@ async function collectSource(input) {
     rejected_by_reason: rejected,
     load_more_clicked: results.reduce((sum, result) => sum + Number(result.load_more_clicked || 0), 0),
     detail_pages_opened: results.reduce((sum, result) => sum + Number(result.detail_pages_opened || 0), 0),
-    stop_reason: "year_searches_complete",
+    stop_reason: accessWallCircuitOpen
+      ? "access_wall_circuit_breaker"
+      : quota.met
+        ? "year_targets_met"
+        : targetedResults.length
+          ? "range_then_sparse_years_complete"
+          : "range_search_complete",
     access_message: results.filter((result) => result.access_message).map((result) => result.access_message).join(" | ").slice(0, 1000),
     year_quota: quota,
     page_records: pageRecords,
-    year_searches: results.map((result) => ({
+    requested_year_searches: requestedYears,
+    range_search: rangeResult ? {
+      status: rangeResult.status,
+      pages_examined: rangeResult.pages_examined,
+      cards_examined: rangeResult.cards_examined,
+      accepted: rangeResult.accepted,
+      load_more_clicked: rangeResult.load_more_clicked,
+      stop_reason: rangeResult.stop_reason,
+    } : null,
+    attempted_year_searches: targetedResults.length,
+    avoided_year_searches: Math.max(0, requestedYears - plannedTargetYears.length),
+    skipped_year_searches: accessWallCircuitOpen
+      ? Math.max(0, plannedTargetYears.length - targetedResults.length)
+      : 0,
+    year_searches: targetedResults.map((result) => ({
       year: Number(Object.keys(result.year_quota?.targets || {})[0] || 0),
       status: result.status,
       pages_examined: result.pages_examined,
@@ -445,18 +598,114 @@ function selfTest() {
   const historical = classifyCard({ url: "https://www.autotrader.com/cars-for-sale/inventory/2", text: "2018 BMW M4 Coupe with factory ZCP Competition Package\n$48,900\n31,000 miles" }, input);
   const rejected = classifyCard({ url: "https://www.autotrader.com/cars-for-sale/inventory/3", text: "2024 BMW M4 CS\n$119,000\n4,000 miles" }, input);
   if (!current.accepted || !historical.accepted || rejected.accepted || !hostAllowed(current.listing.url)) throw new Error("Browser worker self-test failed.");
+  const porscheInput = { ...input, source: "porsche_finder_browser", required_keywords: ["Porsche", "911", "Carrera"], exclude_keywords: [], start_year: 2025, end_year: 2025 };
+  const porsche = classifyCard({ url: "https://finder.porsche.com/us/en-US/details/porsche-911-carrera-s-preowned-ABC123", text: "2025 Porsche 911 Carrera S (992 II)\nCertified Pre-Owned\n8,206 mi\n$159,084.00\nEstimated Dealer Fees: $85" }, porscheInput);
+  const porscheNew = classifyCard({ url: "https://finder.porsche.com/us/en-US/details/porsche-911-carrera-new-DEF456", text: "2025 Porsche 911 Carrera (992 II)\nNew\n$141,250.00" }, porscheInput);
+  const yearlyPorsche = new URL(urlForYear("https://finder.porsche.com/us/en-US/search/911?model=911&page=3", "porsche_finder_browser", 2024));
+  if (!porsche.accepted || porsche.listing.condition !== "cpo" || porsche.listing.price !== 159084 || !porscheNew.accepted || porscheNew.listing.condition !== "new" || !hostAllowed(porsche.listing.url) || yearlyPorsche.searchParams.get("minimum-model-year") !== "2024" || yearlyPorsche.searchParams.get("maximum-model-year") !== "2024" || yearlyPorsche.searchParams.has("page")) {
+    throw new Error("Porsche Finder browser worker self-test failed.");
+  }
+  const sparseYears = sparseYearsAfterRange({ year_quota: { sparse_years: [2023, 2025, 2030] } }, { start_year: 2023, end_year: 2026 });
+  if (sparseYears.join(",") !== "2025,2023") throw new Error("Range-first collection self-test failed.");
+  const cdp = configuredCdpUrl();
+  if (cdp.configured || !opensAccessWallCircuit({ stop_reason: "access_wall" })) {
+    throw new Error("Browser runtime self-test failed.");
+  }
+  if (process.env.CAR_COMPARE_BACKGROUND_MODE == null && !backgroundModeEnabled()) {
+    throw new Error("Background browser mode should be enabled by default.");
+  }
   process.stdout.write("Car Compare browser worker self-test passed.\n");
+}
+
+async function writeJsonLine(value) {
+  const line = `${JSON.stringify(value)}\n`;
+  await new Promise((resolve, reject) => {
+    process.stdout.write(line, (error) => error ? reject(error) : resolve());
+  });
+}
+
+async function probeBrowser() {
+  const launched = await launchBrowser();
+  try {
+    return {
+      mode: launched.mode,
+      background_mode: Boolean(launched.backgroundMode),
+      contexts: launched.browser.contexts().length,
+      pages: launched.browser.contexts().reduce((total, context) => total + context.pages().length, 0),
+    };
+  } finally {
+    await closeBrowserSession(launched);
+  }
+}
+
+async function runtimeStatus() {
+  const executablePath = chromium.executablePath();
+  try {
+    await fs.access(executablePath);
+    return {
+      ready: true,
+      mode: backgroundModeEnabled() ? "persistent-profile-background" : "persistent-profile",
+      executable_path: executablePath,
+      profile_path: process.env.CAR_COMPARE_BROWSER_PROFILE || defaultProfilePath(),
+      background_mode: backgroundModeEnabled(),
+    };
+  } catch (error) {
+    return { ready: false, mode: "missing-browser", executable_path: executablePath, error: String(error?.message || error) };
+  }
+}
+
+async function collectBatch(inputs, maxConcurrency = 2) {
+  const launched = await launchBrowser();
+  const results = new Array(inputs.length);
+  const workerCount = Math.max(1, Math.min(4, Number(maxConcurrency) || 2, inputs.length || 1));
+  let nextIndex = 0;
+  try {
+    async function worker() {
+      while (nextIndex < inputs.length) {
+        const index = nextIndex;
+        nextIndex += 1;
+        const input = inputs[index];
+        try {
+          results[index] = await collectSource(input, launched);
+        } catch (error) {
+          results[index] = {
+            source: input.source,
+            url: input.url,
+            status: "unavailable",
+            browser_mode: launched.mode,
+            background_mode: Boolean(launched.backgroundMode),
+            browser_verified: false,
+            error: String(error?.message || error).slice(0, 1000),
+            listings: [],
+          };
+        }
+      }
+    }
+    await Promise.all(Array.from({ length: workerCount }, () => worker()));
+  } finally {
+    await closeBrowserSession(launched);
+  }
+  return results;
 }
 
 if (process.argv.includes("--self-test")) {
   selfTest();
+} else if (process.argv.includes("--runtime-status")) {
+  await writeJsonLine(await runtimeStatus());
+} else if (process.argv.includes("--probe-browser")) {
+  await writeJsonLine(await probeBrowser());
+} else if (process.argv.includes("--collect-batch-json")) {
+  const chunks = [];
+  for await (const chunk of process.stdin) chunks.push(chunk);
+  const input = JSON.parse(Buffer.concat(chunks).toString("utf8"));
+  await writeJsonLine(await collectBatch(input.targets || [], input.max_concurrency));
 } else if (process.argv.includes("--collect-json")) {
   const chunks = [];
   for await (const chunk of process.stdin) chunks.push(chunk);
   const input = JSON.parse(Buffer.concat(chunks).toString("utf8"));
   const audit = await collectSource(input);
-  process.stdout.write(`${JSON.stringify(audit)}\n`);
-  process.exit(0);
+  await writeJsonLine(audit);
+  process.exitCode = 0;
 } else {
   const server = new McpServer({ name: "car-compare-browser", version: "1.0.0" });
   server.registerTool("collect_vehicle_source", {

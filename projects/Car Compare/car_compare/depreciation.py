@@ -9,7 +9,7 @@ from urllib.parse import parse_qsl, urlsplit
 
 from car_compare.models import BucketStats, Listing, MSRP, VehicleQuery
 from car_compare.resolver import resolve_vehicle_query
-from car_compare.statistics import mean, median, percentile, round_money, round_pct
+from car_compare.statistics import round_money, round_pct, weighted_mean, weighted_median, weighted_percentile
 from car_compare.vehicle_match import matches_vehicle_text
 
 
@@ -84,6 +84,8 @@ def build_report(
         bucket_model_year = request.target_year or (current_year - age)
         if rows:
             values = sorted(item.price for item in rows)
+            weights = [item.market_weight for item in rows]
+            observed_median = weighted_median([item.price for item in rows], weights)
             source_counts = dict(Counter(item.source for item in rows))
             buckets.append(
                 BucketStats(
@@ -94,12 +96,13 @@ def build_report(
                     predicted=False,
                     values=values,
                     model_years=[request.target_year] if request.target_year else sorted({item.year for item in rows}),
-                    average=mean(values),
-                    median=median(values),
-                    q1=percentile(values, 0.25),
-                    q3=percentile(values, 0.75),
+                    average=weighted_mean([item.price for item in rows], weights),
+                    median=observed_median,
+                    q1=weighted_percentile([item.price for item in rows], weights, 0.25),
+                    q3=weighted_percentile([item.price for item in rows], weights, 0.75),
                     low=min(values),
                     high=max(values),
+                    market_median=observed_median,
                     source_counts=source_counts,
                     confidence="observed",
                 )
@@ -243,6 +246,7 @@ def _listing_evidence(listing: Listing, index: int) -> dict[str, Any]:
         "vin": listing.vin,
         "dealer": listing.dealer,
         "confidence": listing.confidence,
+        "market_weight": listing.market_weight,
     }
 
 
@@ -297,9 +301,10 @@ def _age_zero_bucket(
 ) -> BucketStats:
     # Current-model-year used/CPO rows belong to model-year age 0, but the
     # bucket must stop calling itself a new-car market when they are present.
-    # MSRP remains the depreciation baseline in that mixed/current-year case.
+    # Depreciation follows the observed market median; MSRP is reference-only.
     market_rows = [item for item in rows if item.price > 0]
     values = [item.price for item in market_rows]
+    weights = [item.market_weight for item in market_rows]
     source_counts = Counter(item.source for item in market_rows)
     contains_used = any(not _is_new_listing(item) for item in market_rows)
     model_years = sorted({item.year for item in market_rows})
@@ -333,7 +338,7 @@ def _age_zero_bucket(
             confidence="needs_collection",
         )
 
-    observed_median = median(values)
+    observed_median = weighted_median(values, weights)
     return BucketStats(
         age=0,
         model_year=model_year,
@@ -342,13 +347,14 @@ def _age_zero_bucket(
         predicted=False,
         values=values,
         model_years=model_years,
-        average=mean(values),
+        average=weighted_mean(values, weights),
         median=observed_median,
-        q1=percentile(values, 0.25),
-        q3=percentile(values, 0.75),
+        q1=weighted_percentile(values, weights, 0.25),
+        q3=weighted_percentile(values, weights, 0.75),
         low=min(values),
         high=max(values),
-        trend_median=msrp.price if contains_used and msrp.price > 0 else observed_median,
+        market_median=observed_median,
+        trend_median=observed_median,
         source_counts=dict(source_counts),
         confidence="current_year_market" if contains_used else "new_market",
     )
@@ -361,7 +367,8 @@ def _effective_msrp(msrp: MSRP, grouped: dict[int, list[Listing]]) -> float:
         return 0
     youngest_age = min(grouped)
     values = [row.price for row in grouped[youngest_age]]
-    med = median(values)
+    weights = [row.market_weight for row in grouped[youngest_age]]
+    med = weighted_median(values, weights)
     if med is None:
         return 0
     retention = 1.0
@@ -718,8 +725,6 @@ def _apply_trend_and_predictions(
 
         if bucket.observed and bucket.median is not None:
             raw_trend = bucket.median
-            if last_trend is not None and raw_trend > last_trend:
-                raw_trend = last_trend * 0.995
             bucket.trend_median = raw_trend
             if last_trend:
                 retention_rates.append(max(0.65, min(0.99, raw_trend / last_trend)))

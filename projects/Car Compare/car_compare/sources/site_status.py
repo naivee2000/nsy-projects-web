@@ -1,5 +1,14 @@
 SITE_STATUS = [
     {
+        "name": "Porsche Finder",
+        "status": "workable_official_browser_ui",
+        "tested": "2026-07-15",
+        "result": "Official search exposed 15 visible vehicle cards per page plus numbered pagination and explicit model, trim, condition, generation, year, and nationwide filters.",
+        "adapter": "Porsche-only audited browser source using official detail cards and deterministic model/trim/year filtering.",
+        "notes": "The URL must explicitly keep radius -1 (Nationwide); omitting position can restore a local 50-mile location. 911 category filters narrow Carrera family, Base, and known exact trims without replacing title validation.",
+        "url": "https://finder.porsche.com/us/en-US/search/911?model=911&position=Los%20Angeles%2C34.0481%2C-118.2531%2C-1",
+    },
+    {
         "name": "Autotrader",
         "status": "workable_browser_ui",
         "tested": "2026-07-05",

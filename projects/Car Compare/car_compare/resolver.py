@@ -5,7 +5,7 @@ from typing import Any
 
 from car_compare.models import VehicleQuery
 from car_compare.trim_match import is_bmw_m4_competition_family
-from car_compare.vehicle_catalog import MAKE_ALIASES, MODEL_CATALOG, source_model_profile, trim_candidates
+from car_compare.vehicle_catalog import MAKE_ALIASES, MODEL_CATALOG, source_model_profile, trim_candidates, trim_scope_profile
 
 
 BODY_STYLE_TERMS = {
@@ -49,6 +49,15 @@ def resolve_vehicle_query(request: VehicleQuery) -> dict[str, Any]:
     raw_tokens = _tokens(request.raw)
     trim_tokens = _tokens(request.trim)
     profile = source_model_profile(request.make, request.model, request.trim, "matching")
+    trim_scope = trim_scope_profile(request.make, request.model, request.trim)
+    trim_mode = "family" if trim_scope["mode"] == "family" else "exact" if request.trim else "all"
+    trim_value = (
+        f'{trim_scope["family"]} family'
+        if trim_scope["mode"] == "family"
+        else f'Base {trim_scope["base_trim"]}'
+        if trim_scope["mode"] == "base"
+        else request.trim or "All trims"
+    )
 
     body_style = _first_match(raw_tokens + trim_tokens, BODY_STYLE_TERMS)
     drivetrain = _first_match(raw_tokens + trim_tokens, DRIVETRAIN_TERMS)
@@ -62,7 +71,7 @@ def resolve_vehicle_query(request: VehicleQuery) -> dict[str, Any]:
     chips = [
         _chip("make", "Make", request.make or "Unknown", "exact" if request.make else "unknown", _corrected_confidence(request, "make", _make_confidence(request.make))),
         _chip("model", "Model", request.model or "Unknown", "exact" if request.model else "unknown", _corrected_confidence(request, "model", _model_confidence(request))),
-        _chip("trim", "Trim", request.trim or "All trims", "exact" if request.trim else "all", _corrected_confidence(request, "trim", "high" if request.trim else "broad")),
+        _chip("trim", "Trim", trim_value, trim_mode, _corrected_confidence(request, "trim", "high" if request.trim else "broad")),
         _chip("year", "Years", _year_label(request), _year_mode(request), "high" if (request.start_year or request.target_year) else "broad"),
         _chip("body_style", "Body", body_style or "All body styles", "exact" if body_style else "all", "medium" if body_style else "broad"),
         _chip(
@@ -77,6 +86,7 @@ def resolve_vehicle_query(request: VehicleQuery) -> dict[str, Any]:
 
     include_all = [chip["key"] for chip in chips if chip["mode"] == "all"]
     exact = {chip["key"]: chip["value"] for chip in chips if chip["mode"] in {"exact", "range"}}
+    family = {chip["key"]: chip["value"] for chip in chips if chip["mode"] == "family"}
     warnings = _warnings(request, include_all, trim_drivetrain_siblings)
 
     confidence = _overall_confidence(chips, warnings)
@@ -87,15 +97,17 @@ def resolve_vehicle_query(request: VehicleQuery) -> dict[str, Any]:
         "chips": chips,
         "include_all": include_all,
         "exact": exact,
+        "family": family,
         "matching": {
             "required_keywords": profile["required_keywords"],
             "exclude_keywords": profile["exclude_keywords"],
             "model_aliases": profile["model_aliases"],
-            "rule": "Exact chips restrict collection. All chips are intentionally broad and must not be used to reject rows.",
+            "rule": "Exact chips restrict collection, Family chips include configured descendants, and All chips include every matching variant.",
         },
         "website_rules": [
             "If trim/body/drivetrain/powertrain is All, include every visible variant that passes make/model matching.",
             "If a chip is Exact, require visible listing text or detail-page evidence for that value before collecting the row.",
+            "If a chip is Family, require the named family but allow its configured descendant trims.",
             "If drivetrain is Constrained by exact trim, reject the named drivetrain sibling variants listed in warnings.",
             "Never infer a missing trim/body/drivetrain from the website filter alone; verify it on the listing row or detail page.",
             "Reject rows with excluded sibling-model tokens even when a website returns them from a broad make page.",
@@ -173,6 +185,17 @@ def _warnings(
             "M4 Competition is resolved as a generation-aware family: include G8x Competition body/drivetrain variants "
             "and F82/F83 cars with a verified factory Competition Package; exclude Base, CS, CSL, and GTS variants."
         )
+    trim_scope = trim_scope_profile(request.make, request.model, request.trim)
+    if trim_scope["mode"] == "family":
+        warnings.append(
+            f'{trim_scope["family"]} is resolved as a trim family: include '
+            + ", ".join(str(item) for item in trim_scope.get("members") or [])
+            + "."
+        )
+    elif trim_scope["mode"] == "base":
+        warnings.append(
+            f'{request.trim} is resolved as the root {trim_scope["base_trim"]} trim; include Coupe/Cabriolet body styles but reject named descendants.'
+        )
     return warnings
 
 
@@ -183,7 +206,7 @@ def _overall_confidence(chips: list[dict[str, str]], warnings: list[str]) -> str
         return "low"
     if any(warning.startswith("Corrected ") for warning in warnings):
         return "medium"
-    exact_count = sum(1 for chip in chips if chip["mode"] in {"exact", "range"})
+    exact_count = sum(1 for chip in chips if chip["mode"] in {"exact", "range", "family"})
     return "high" if exact_count >= 3 else "medium"
 
 

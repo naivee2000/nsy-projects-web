@@ -1,6 +1,6 @@
 # Website Research Feasibility
 
-Test date: 2026-07-05
+Test dates: 2026-07-05 and 2026-07-15
 
 Example query: `BMW M4 Competition after 2021`
 
@@ -10,6 +10,7 @@ Example query: `BMW M4 Competition after 2021`
 | --- | --- | --- |
 | Autotrader | Workable through normal browser UI | Visible listing/card parser |
 | Edmunds | Workable through normal browser UI | Search-form navigation plus visible listing parser |
+| Porsche Finder | Workable official inventory for Porsche | Audited visible-card parser with nationwide/year/trim URL filters |
 | Visor | API-first | REST API/MCP for listings, public facets for aggregates |
 | BMW USA | Workable for current MSRP | Manufacturer MSRP adapter |
 
@@ -58,6 +59,16 @@ https://visor.vin/api
 ```
 
 Implementation note: Visor should be API/MCP-first when an API key is available. Its public filter pages can enrich confidence with sample counts and trim buckets.
+
+## Porsche Finder
+
+The official U.S. Porsche Finder exposes 15 visible listing cards per page, numbered pagination, a `Nationwide` radius, exact/range model years, condition, generation, model line, and repeatable trim categories. Omitting location can restore a saved local radius, so planned URLs explicitly retain a neutral coordinate with radius `-1`.
+
+```text
+https://finder.porsche.com/us/en-US/search/911?model=911&position=Los%20Angeles%2C34.0481%2C-118.2531%2C-1
+```
+
+Implementation note: collect `/details/` cards and follow `page` pagination. Use `minimum-model-year` and `maximum-model-year`. For the 911, repeated `category` values narrow Carrera family, Base, or known exact trims, while the deterministic title matcher remains authoritative.
 
 ## BMW USA MSRP
 

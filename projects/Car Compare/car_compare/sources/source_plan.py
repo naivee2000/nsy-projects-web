@@ -2,11 +2,12 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
+import re
 from urllib.parse import quote, quote_plus, urlencode
 
 from car_compare.models import VehicleQuery
 from car_compare.resolver import resolve_vehicle_query
-from car_compare.vehicle_catalog import source_model_profile, source_query_model
+from car_compare.vehicle_catalog import source_model_profile, source_query_model, trim_scope_profile
 
 
 TOP_US_BRAND_SOURCE_NOTE = (
@@ -107,6 +108,51 @@ MANUFACTURER_URLS = {
 }
 
 MANUFACTURER_MAKE_NAMES = {brand.lower() for brand in MANUFACTURER_URLS}
+
+PORSCHE_FINDER_POSITION = "Los Angeles,34.0481,-118.2531,-1"
+PORSCHE_911_CATEGORIES = {
+    "carrera": ["911-carrera-coupe", "911-carrera-convertible"],
+    "carrera t": ["911-carrera-t", "911-carrera-t-cabriolet"],
+    "carrera 4": ["911-carrera-4-coupe", "911-carrera-4-convertible"],
+    "carrera s": ["911-carrera-s-coupe", "911-carrera-s-convertible"],
+    "carrera 4s": ["911-carrera-4s-coupe", "911-carrera-4s-convertible"],
+    "carrera gts": ["911-carrera-gts-coupe", "911-carrera-gts-convertible"],
+    "carrera 4 gts": ["911-carrera-4-gts-coupe", "911-carrera-4-gts-convertible"],
+    "targa": ["911-targa", "911-targa-4", "911-targa-4s", "911-targa-4-gts"],
+    "targa 4": ["911-targa-4"],
+    "targa 4s": ["911-targa-4s"],
+    "targa 4 gts": ["911-targa-4-gts"],
+    "turbo": ["911-turbo-coupe", "911-turbo-convertible"],
+    "turbo s": ["911-turbo-s-coupe", "911-turbo-s-convertible"],
+    "gt3": ["911-gt3"],
+    "gt3 cup": ["911-gt3-cup"],
+    "gt3 touring": ["911-gt3-touring"],
+    "gt3 rs": ["911-gt3-rs"],
+    "gt2": ["911-gt2"],
+    "gt2 rs": ["911-gt2-rs"],
+    "speedster": ["911-speedster"],
+    "sc": ["911-sc-coupe"],
+    "carrera rs": ["911-carrera-rs"],
+    "rs america": ["911-carrera-rs-america"],
+    "spirit 70": ["911-spirit-70"],
+    "dakar": ["911-dakkar"],
+    "s/t": ["911-st"],
+    "r": ["911-r"],
+    "sport classic": ["911-sport-classic"],
+}
+PORSCHE_911_CARRERA_FAMILY_CATEGORIES = [
+    *PORSCHE_911_CATEGORIES["carrera"],
+    *PORSCHE_911_CATEGORIES["carrera t"],
+    *PORSCHE_911_CATEGORIES["carrera 4"],
+    *PORSCHE_911_CATEGORIES["carrera s"],
+    *PORSCHE_911_CATEGORIES["carrera 4s"],
+    *PORSCHE_911_CATEGORIES["carrera gts"],
+    *PORSCHE_911_CATEGORIES["carrera 4 gts"],
+    "911-carrera-targa",
+    "911-carrera-4-targa",
+    "911-carrera-rs",
+]
+
 @dataclass
 class SourceTarget:
     source: str
@@ -131,21 +177,26 @@ def build_collection_plan(request: VehicleQuery, current_year: int | None = None
     current_year = current_year if current_year is not None else _runtime_current_year()
     model_query = source_query_model(request.make, request.model, request.trim)
     matching = source_model_profile(request.make, request.model, request.trim, "matching")
+    trim_scope = trim_scope_profile(request.make, request.model, request.trim)
     resolution = resolve_vehicle_query(request)
     trim_keywords = _trim_keywords(matching)
-    targets = [
-        _manufacturer_target(request, model_query, matching),
-        _visor_new_target(request, matching, current_year),
-        _autotrader_target(request, current_year),
-        _edmunds_target(request, matching, current_year),
-        _visor_target(request, matching, current_year),
-    ]
+    targets = [_manufacturer_target(request, model_query, matching)]
+    if request.make == "Porsche":
+        targets.append(_porsche_finder_target(request, matching, trim_scope, current_year))
+    targets.extend(
+        [
+            _visor_new_target(request, matching, current_year),
+            _autotrader_target(request, current_year),
+            _edmunds_target(request, matching, current_year),
+            _visor_target(request, matching, current_year),
+        ]
+    )
     workflow = [
         "Open the source URL in the browser.",
         "Confirm the visible page is either a matching result page or a make-level fallback that still contains matching rows.",
         "Set the search radius/location to Nationwide, All miles, or equivalent. If a zip is required, use it only as a search unlock parameter.",
         "Before capturing a row, apply the target required_keywords and exclude_keywords as whole tokens.",
-        "For exact trims, reject neighboring variants that add a distinct trim/drivetrain token the user did not ask for.",
+        "Apply the resolved trim scope: exact trims reject neighboring variants, families include configured descendants, and model-wide searches include all trims.",
         "If a site returns all cars for a make, do not trust the page filter; collect only rows that pass the matching rule.",
         "Scroll through listings and click visible Load More / Show More / See More buttons when present.",
         "Extract visible listing text after each loaded section.",
@@ -162,6 +213,18 @@ def build_collection_plan(request: VehicleQuery, current_year: int | None = None
             "For 2021+ accept M4 Competition Coupe/Convertible and RWD/xDrive. For 2016-2020 accept an M4 only when "
             "the visible row/detail evidence identifies the factory ZCP Competition Package. Reject ordinary Base, CS, CSL, and GTS rows.",
         )
+    if trim_scope["mode"] == "family":
+        workflow.insert(
+            4,
+            f'For the {trim_scope["family"]} family, include the root and configured descendants: '
+            + ", ".join(str(item) for item in trim_scope.get("members") or [])
+            + ".",
+        )
+    elif trim_scope["mode"] == "base":
+        workflow.insert(
+            4,
+            f'For {request.trim}, include only the root {trim_scope["base_trim"]} trim in any body style; reject named descendants.',
+        )
 
     return {
         "query": request.to_dict(),
@@ -174,12 +237,14 @@ def build_collection_plan(request: VehicleQuery, current_year: int | None = None
             "model_aliases": matching["model_aliases"],
             "rule": (
                 "A captured row must contain every required keyword as a separate token, none of the excluded keywords, "
-                "and must not be a neighboring exact-trim variant such as EX-L for EX, GT500 for GT, Carrera S for Carrera, "
-                "or xDrive for a constrained exact trim. BMW M4 Competition is a named family exception: unspecified "
+                "and obey the resolved all/family/base/exact trim scope. Exact examples include EX vs EX-L and GT vs GT500. "
+                "BMW M4 Competition is a named family exception: unspecified "
                 "body style and drivetrain remain inclusive, and verified 2016-2020 factory Competition Package cars qualify."
             ),
             "include_all": resolution["include_all"],
             "exact": resolution["exact"],
+            "family": resolution["family"],
+            "trim_scope": trim_scope,
         },
         "targets": [target.to_dict() for target in targets],
         "codexWorkflow": workflow,
@@ -244,6 +309,65 @@ def _autotrader_target(request: VehicleQuery, current_year: int) -> SourceTarget
             *_year_validation(request),
         ],
     )
+
+
+def _porsche_finder_target(
+    request: VehicleQuery,
+    matching: dict[str, object],
+    trim_scope: dict[str, object],
+    current_year: int,
+) -> SourceTarget:
+    model_query = source_query_model(request.make, request.model, request.trim)
+    model_slug = re.sub(r"[^a-z0-9]+", "-", model_query.lower()).strip("-")
+    lower_year = request.target_year or max(
+        current_year - request.max_age,
+        request.start_year or current_year - request.max_age,
+    )
+    upper_year = request.target_year or current_year
+    categories = _porsche_finder_categories(request, trim_scope)
+    params: list[tuple[str, str]] = [
+        ("model", model_slug),
+        ("position", PORSCHE_FINDER_POSITION),
+        ("minimum-model-year", str(lower_year)),
+        ("maximum-model-year", str(upper_year)),
+    ]
+    params.extend(("category", category) for category in categories)
+    return SourceTarget(
+        source="porsche_finder_browser",
+        url=f"https://finder.porsche.com/us/en-US/search/{quote(model_slug)}?{urlencode(params)}",
+        method="browser_visible_text",
+        trim_keywords=_trim_keywords(matching),
+        required_keywords=list(matching["required_keywords"]),
+        exclude_keywords=list(matching["exclude_keywords"]),
+        model_aliases=list(matching["model_aliases"]),
+        load_more="Confirm Nationwide, then follow the numbered result pages / Next page control before each capture.",
+        fields=["year", "make", "model", "trim/version", "condition", "price", "mileage", "Porsche Center", "detail URL"],
+        notes=(
+            "Official Porsche Finder inventory from authorized Porsche Centers. URL categories narrow supported 911 scopes, "
+            "but every card must still pass the app's deterministic model, trim, and year rules."
+        ),
+        nationwide=True,
+        location_policy=(
+            "position carries a neutral coordinate only because Porsche Finder requires one; radius -1 is the site's "
+            "Nationwide setting and must remain -1 after navigation."
+        ),
+        validation=[
+            "Verify the visible radius says Nationwide; do not accept a restored 50-mile saved-location filter.",
+            "Collect New, Pre-Owned, Certified Pre-Owned, and Porsche Classic rows when they pass the requested scope.",
+            "For Porsche 911, treat URL categories as an efficiency filter only; deterministic title matching remains authoritative.",
+            *_year_validation(request),
+        ],
+    )
+
+
+def _porsche_finder_categories(request: VehicleQuery, trim_scope: dict[str, object]) -> list[str]:
+    if request.model != "911" or not request.trim:
+        return []
+    if trim_scope.get("mode") == "family" and str(trim_scope.get("family") or "").casefold() == "carrera":
+        return list(PORSCHE_911_CARRERA_FAMILY_CATEGORIES)
+    if trim_scope.get("mode") == "base":
+        return list(PORSCHE_911_CATEGORIES["carrera"])
+    return list(PORSCHE_911_CATEGORIES.get(request.trim.casefold(), []))
 
 
 def _edmunds_target(request: VehicleQuery, matching: dict[str, object], current_year: int) -> SourceTarget:
