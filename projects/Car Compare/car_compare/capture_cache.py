@@ -12,7 +12,11 @@ from typing import Any, Iterable
 from car_compare.models import VehicleQuery
 
 
-CACHE_SCHEMA_VERSION = 1
+# Version 2 invalidates marketplace captures created before the parser learned
+# to reject zero-result headings and postal codes.  Research results use their
+# own version because generation research was not affected by that corruption.
+CACHE_SCHEMA_VERSION = 2
+RESEARCH_CACHE_SCHEMA_VERSION = 1
 MAX_RECENT_TTL_SECONDS = 3 * 24 * 60 * 60
 MAX_OLDER_TTL_SECONDS = 3 * 24 * 60 * 60
 
@@ -315,7 +319,7 @@ def _entry_key(query_key: str, source: str, model_year: int) -> str:
 
 def _research_key(kind: str, identity: dict[str, Any]) -> str:
     raw = json.dumps(
-        {"version": CACHE_SCHEMA_VERSION, "kind": kind, "identity": identity},
+        {"version": RESEARCH_CACHE_SCHEMA_VERSION, "kind": kind, "identity": identity},
         sort_keys=True,
         separators=(",", ":"),
     )

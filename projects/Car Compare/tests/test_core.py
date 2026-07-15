@@ -111,12 +111,13 @@ class AppContractTests(unittest.TestCase):
         self.assertIn("const collectionTasks = run.vehicles.map", javascript)
         self.assertIn("await Promise.all([...collectionTasks, ...generationTasks])", javascript)
         self.assertIn("renderComparisonDepreciationChart", javascript)
-        self.assertIn("loss: finiteNumber(bucket.depreciation_from_previous)", javascript)
-        self.assertIn("Grouped bars show each year's dollar loss", javascript)
+        self.assertIn("change: bucketSignedPreviousChange", javascript)
+        self.assertIn("Grouped signed bars show each year's value movement", javascript)
         self.assertNotIn("Grouped bars show cumulative dollar loss", javascript)
         self.assertIn("renderComparisonTable", javascript)
         self.assertIn("Market Median", javascript)
         self.assertIn("Curve Value", javascript)
+        self.assertIn('scope="col">Outliers', javascript)
         self.assertIn("Raw Source Snapshots", javascript)
         self.assertIn("background workers", javascript)
 
@@ -821,7 +822,7 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(len(report["buckets"]), 21)
         self.assertEqual(report["buckets"][-1]["age"], 20)
         self.assertEqual(report["summary"]["maxAge"], 20)
-        self.assertEqual(report["buckets"][-1]["confidence"], "long_range_projected")
+        self.assertEqual(report["buckets"][-1]["confidence"], "long_range_projected_beyond_model_history")
 
     def test_unknown_car_needs_collection_not_fake_demo(self) -> None:
         query = parse_vehicle_query("Bentley Continental GT")
@@ -853,7 +854,15 @@ class ReportTests(unittest.TestCase):
                 "XSE",
                 45000,
                 "2022 Toyota Camry XSE",
-            )
+            ),
+            Listing(
+                "used_market_secondary",
+                2022,
+                25000,
+                "XSE",
+                45001,
+                "2022 Toyota Camry XSE second observation",
+            ),
         ]
         generation = {
             "status": "success",
@@ -1130,7 +1139,9 @@ class ReportTests(unittest.TestCase):
         rows = [Listing("market", 2005, 25000, "Competition", title="2005 BMW M4 Competition")]
         report = build_report(query, rows, MSRP(0, "No MSRP", "none", ""), current_year=2026)
         self.assertEqual(report["summary"]["listingCount"], 0)
-        self.assertEqual(report["summary"]["outsideHorizonRows"], 1)
+        self.assertEqual(report["summary"]["outsideHorizonRows"], 0)
+        self.assertEqual(report["summary"]["outsideLifecycleRows"], 1)
+        self.assertEqual(report["summary"]["outsideLifecycleYears"], {2005: 1})
         self.assertEqual(report["summary"]["dataQuality"], "needs_collection")
         self.assertEqual(sum(bucket["sample_count"] for bucket in report["buckets"]), 0)
 
@@ -1163,7 +1174,9 @@ class ReportTests(unittest.TestCase):
             Listing("market", 2026, 226900, title="Used 2026 Porsche 911 GT3", condition="used"),
             Listing("market", 2026, 300000, title="Used 2026 Porsche 911 Turbo S", condition="used"),
             Listing("market", 2025, 200000, title="Used 2025 Porsche 911 Carrera S", condition="used"),
+            Listing("market_secondary", 2025, 200000, title="Used 2025 Porsche 911 Carrera S second observation", condition="used"),
             Listing("market", 2024, 210000, title="Used 2024 Porsche 911 GT3", condition="used"),
+            Listing("market_secondary", 2024, 210000, title="Used 2024 Porsche 911 GT3 second observation", condition="used"),
         ]
         low_msrp = build_report(query, rows, MSRP(135500, "Carrera MSRP", "porsche", ""), current_year=2026)
         high_msrp = build_report(query, rows, MSRP(250000, "Display MSRP", "porsche", ""), current_year=2026)
@@ -1226,6 +1239,7 @@ class ReportTests(unittest.TestCase):
                 condition="new",
             ),
             Listing("visor_public_facets", 2025, 245000, title="2025 Bentley Continental GT", condition="used"),
+            Listing("market_secondary", 2025, 245000, title="2025 Bentley Continental GT second observation", condition="used"),
         ]
         report = build_report(
             request=query,
@@ -1290,6 +1304,14 @@ class ReportTests(unittest.TestCase):
                 title="2025 BMW M4 Competition Coupe",
                 condition="used",
             ),
+            Listing(
+                "used_market_secondary",
+                2025,
+                90000,
+                "Competition Coupe",
+                title="2025 BMW M4 Competition Coupe second observation",
+                condition="used",
+            ),
         ]
         report = build_report(
             request=query,
@@ -1319,7 +1341,7 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(age_two["generation_adjustment_label"], "New generation launch shock")
         self.assertEqual(age_two["depreciation_from_baseline"], 27100)
 
-    def test_generation_adjustment_applies_to_observed_future_proxy_age(self) -> None:
+    def test_generation_adjustment_does_not_rewrite_observed_future_proxy_age(self) -> None:
         query = parse_vehicle_query("BMW M4 Competition")
         query.max_age = 3
         rows = [
@@ -1332,9 +1354,21 @@ class ReportTests(unittest.TestCase):
                 confidence="new_inventory",
                 condition="new",
             ),
+            Listing(
+                "new_inventory_secondary",
+                2026,
+                100000,
+                "Competition Coupe",
+                title="New 2026 BMW M4 Competition Coupe second observation",
+                confidence="new_inventory",
+                condition="new",
+            ),
             Listing("used_market", 2025, 90000, "Competition Coupe", title="2025 BMW M4 Competition Coupe"),
+            Listing("used_market_secondary", 2025, 90000, "Competition Coupe", title="2025 BMW M4 Competition Coupe second observation"),
             Listing("used_market", 2024, 82000, "Competition Coupe", title="2024 BMW M4 Competition Coupe"),
+            Listing("used_market_secondary", 2024, 82000, "Competition Coupe", title="2024 BMW M4 Competition Coupe second observation"),
             Listing("used_market", 2023, 76000, "Competition Coupe", title="2023 BMW M4 Competition Coupe"),
+            Listing("used_market_secondary", 2023, 76000, "Competition Coupe", title="2023 BMW M4 Competition Coupe second observation"),
         ]
         report = build_report(
             request=query,
@@ -1359,11 +1393,11 @@ class ReportTests(unittest.TestCase):
         self.assertTrue(age_three["observed"])
         self.assertFalse(age_three["predicted"])
         self.assertEqual(age_three["forecast_year"], 2029)
-        self.assertEqual(age_three["generation_adjustment_pct"], 0.06)
-        self.assertEqual(age_three["generation_adjustment_ratio"], 0.94)
-        self.assertEqual(age_three["generation_unadjusted_median"], 76000)
-        self.assertEqual(age_three["median"], 71440)
-        self.assertEqual(age_three["depreciation_from_baseline"], 28560)
+        self.assertIsNone(age_three["generation_adjustment_pct"])
+        self.assertIsNone(age_three["generation_adjustment_ratio"])
+        self.assertIsNone(age_three["generation_unadjusted_median"])
+        self.assertEqual(age_three["median"], 76000)
+        self.assertEqual(age_three["depreciation_from_baseline"], 24000)
 
     def test_aggregate_facet_samples_are_not_deduped_as_dealer_duplicates(self) -> None:
         rows = [
@@ -3325,12 +3359,12 @@ out.write_text(json.dumps({
         facet = {
             "status": "success",
             "listings": [],
-            "msrp": {"price": 80000, "label": "2022 MSRP", "source": "visor", "url": "", "year": 2022},
+            "msrp": {"price": 80000, "label": "2022 BMW M4 Competition MSRP", "source": "visor", "url": "", "year": 2022},
         }
         codex = {
             "status": "success",
             "listings": [],
-            "msrp": {"price": 90000, "label": "2026 MSRP", "source": "codex", "url": "", "year": 2026},
+            "msrp": {"price": 90000, "label": "2026 BMW M4 Competition MSRP", "source": "codex", "url": "", "year": 2026},
         }
         merged = _merge_collector_results(facet, codex, request)
         self.assertEqual(merged["msrp"]["year"], 2022)

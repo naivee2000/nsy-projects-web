@@ -104,6 +104,7 @@
 
         <div id="resultsSurface" class="resultsSurface" tabindex="-1" aria-busy="false" hidden>
           <div id="resolverPanel" class="resolverPanel"></div>
+          <div id="interpretationNotice" class="interpretationNotice" role="note" hidden></div>
           <div class="metricRow" id="summaryMetrics"></div>
           <div class="chartShell">
             <div class="chartHead">
@@ -113,8 +114,8 @@
                 <p id="chartSub"></p>
               </div>
               <div class="legend" id="valueLegend">
-                <span><i class="line observed"></i>Observed</span>
-                <span><i class="line projected"></i>Predicted</span>
+                <span><i class="line observed"></i>Observed market</span>
+                <span><i class="line projected"></i>Projected</span>
                 <span><i class="dot"></i>Average</span>
               </div>
             </div>
@@ -128,12 +129,13 @@
             <div class="chartHead">
               <div>
                 <span class="sectionCode">LOSS PROFILE</span>
-                <h2>Depreciation Amount</h2>
+                <h2>Annual Value Movement</h2>
                 <p id="depreciationChartSub"></p>
               </div>
               <div class="legend" id="lossLegend">
-                <span><i class="barIcon"></i>Total Loss</span>
-                <span><i class="line percent"></i>Total %</span>
+                <span><i class="barIcon appreciation"></i>Appreciation</span>
+                <span><i class="barIcon depreciation"></i>Depreciation</span>
+                <span><i class="line percent"></i>Change from Age 0</span>
                 <span><i class="line projected"></i>Projected</span>
               </div>
             </div>

@@ -14,7 +14,12 @@ from typing import Any
 
 from car_compare.models import Listing, MSRP, VehicleQuery
 from car_compare.trim_match import trim_tokens, trim_value_matches_request
-from car_compare.vehicle_catalog import source_model_contains_trim, source_query_model, trim_scope_profile
+from car_compare.vehicle_catalog import (
+    collection_start_year,
+    source_model_contains_trim,
+    source_query_model,
+    trim_scope_profile,
+)
 from car_compare.vehicle_match import vehicle_text_match_score
 
 
@@ -432,9 +437,11 @@ def _contains_token_sequence(haystack: list[str], needle: list[str]) -> bool:
 def _requested_years(request: VehicleQuery, current_year: int) -> list[int]:
     if request.target_year:
         return [request.target_year]
-    years = list(range(current_year, current_year - request.max_age - 1, -1))
+    requested_start = current_year - request.max_age
     if request.start_year:
-        years = [year for year in years if year >= request.start_year]
+        requested_start = max(requested_start, request.start_year)
+    start_year = collection_start_year(request.make, request.model, requested_start)
+    years = list(range(current_year, start_year - 1, -1))
     return years
 
 

@@ -218,6 +218,14 @@ TRIM_SCOPE_POLICIES: dict[tuple[str, str], list[dict[str, Any]]] = {
 }
 
 
+# U.S.-market model-year boundaries are intentionally opt-in.  A missing entry
+# means "unknown", not that the model existed for every historical year.  Keep
+# this data model-level so every collector uses the same lifecycle boundary.
+MODEL_YEAR_BOUNDS_US: dict[tuple[str, str], dict[str, int | None]] = {
+    ("BMW", "M4"): {"first": 2015, "last": None},
+}
+
+
 MODEL_MAKE_HINTS = {
     "4runner": "Toyota",
     "718": "Porsche",
@@ -433,6 +441,68 @@ def model_candidates(make: str) -> list[tuple[list[str], str]]:
 
 def trim_candidates(make: str, model: str) -> list[str]:
     return list(TRIM_CATALOG.get((make, model), []))
+
+
+def model_year_bounds(make: str, model: str) -> dict[str, int | None]:
+    bounds = MODEL_YEAR_BOUNDS_US.get((make, model), {})
+    return {
+        "first": bounds.get("first"),
+        "last": bounds.get("last"),
+    }
+
+
+def collection_start_year(make: str, model: str, requested_start: int) -> int:
+    first_year = model_year_bounds(make, model)["first"]
+    return max(requested_start, first_year) if first_year is not None else requested_start
+
+
+def msrp_label_matches_scope(make: str, model: str, trim: str, label: str) -> bool:
+    """Conservatively reject a named-trim MSRP used for another trim scope."""
+    label_tokens = _scope_tokens(label)
+    if not label_tokens:
+        return False
+
+    matched_trims = [
+        candidate
+        for candidate in trim_candidates(make, model)
+        if _contains_scope_tokens(label_tokens, _scope_tokens(candidate))
+    ]
+    matched_trims.sort(key=lambda value: len(_scope_tokens(value)), reverse=True)
+    scope = trim_scope_profile(make, model, trim)
+
+    if scope["mode"] == "all":
+        allowed_base_trims: set[str] = set()
+        for policy in TRIM_SCOPE_POLICIES.get((make, model), []):
+            if policy.get("base_trim"):
+                allowed_base_trims.add(_trim_scope_key(str(policy["base_trim"])))
+            allowed_base_trims.update(
+                _trim_scope_key(str(alias))
+                for alias in policy.get("base_aliases") or []
+            )
+        return not any(
+            _trim_scope_key(candidate) not in allowed_base_trims
+            for candidate in matched_trims
+        )
+
+    expected = str(scope.get("base_trim") or scope.get("family") or trim)
+    if not _contains_scope_tokens(label_tokens, _scope_tokens(expected)):
+        return False
+    if not matched_trims:
+        return True
+    return _trim_scope_key(matched_trims[0]) == _trim_scope_key(expected)
+
+
+def _scope_tokens(value: str) -> list[str]:
+    return [token for token in _trim_scope_key(value).split() if token]
+
+
+def _contains_scope_tokens(haystack: list[str], needle: list[str]) -> bool:
+    if not needle or len(needle) > len(haystack):
+        return False
+    return any(
+        haystack[index : index + len(needle)] == needle
+        for index in range(len(haystack) - len(needle) + 1)
+    )
 
 
 def trim_scope_profile(make: str, model: str, trim: str) -> dict[str, Any]:

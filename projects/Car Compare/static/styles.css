@@ -664,6 +664,38 @@ button.isBusy .buttonSignal {
   opacity: 0.58;
 }
 
+.interpretationNotice {
+  padding: 14px 16px;
+  border: 1px solid #4b5c66;
+  border-left: 3px solid var(--projected);
+  border-radius: 7px;
+  background: #1c222d;
+  color: #dce3f7;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.interpretationNotice strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #f0f3ff;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.interpretationNotice ul {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.interpretationNotice .msrpScopeWarning {
+  color: #f7d99e;
+}
+
 .resultNotice .noticeAction {
   width: auto;
   margin-top: 9px;
@@ -1007,6 +1039,23 @@ button.isBusy .buttonSignal {
   height: 13px;
   border-radius: 2px;
   background: var(--warning);
+}
+
+.barIcon.appreciation {
+  background: var(--signal);
+}
+
+.barIcon.depreciation {
+  background: var(--warning);
+}
+
+.forecastRing {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  border: 2px solid var(--projected);
+  border-radius: 50%;
 }
 
 .vehicleSwatch,
@@ -1628,6 +1677,52 @@ summary:focus-visible {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 10px;
   font-weight: 700;
+}
+
+.badge.projected,
+.badge.sparse {
+  border-color: #625e9e;
+  background: #282643;
+  color: #cbc8ff;
+}
+
+.badge.sparse {
+  border-color: #7a6232;
+  background: #302819;
+  color: #f7d99e;
+}
+
+.badge.unavailable {
+  border-color: #5b656a;
+  color: var(--muted);
+}
+
+.movement {
+  white-space: nowrap;
+  font-weight: 750;
+}
+
+.movement.appreciation {
+  color: var(--signal);
+}
+
+.movement.depreciation {
+  color: var(--warning);
+}
+
+.movement.flat {
+  color: var(--muted);
+}
+
+.movement small {
+  display: block;
+  margin-top: 2px;
+  color: inherit;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 @keyframes scan {

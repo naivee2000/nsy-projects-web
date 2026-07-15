@@ -26,7 +26,7 @@ The target behavior:
 
 - Age 0 is MSRP plus actual new-car market samples when available.
 - Age 1+ is current market value of matching used examples by model year.
-- The graph shows median, average, Q1, Q3, low, high, yearly depreciation, and projection.
+- The graph shows median, average, Q1, Q3, IQR whiskers, signed yearly value movement, retained outlier evidence, and projection.
 - Generation-impact research is an optional forecast adjustment. It should never rewrite observed buckets; it only applies extra depreciation percentages to predicted buckets when a sourced research result is loaded.
 - The user can choose a horizon up to 20 years.
 - Rows are deduplicated by VIN first, then likely same listing fields.
@@ -118,7 +118,7 @@ The default lease is 1,200 seconds and can be set with `CAR_COMPARE_FALLBACK_LEA
 
 The `Generation Forecast` UI automatically starts `/api/generation-impact` for the current vehicle during normal research/collection flow. That route runs Codex with the project-local skill at `skills/generation-impact-research`. The expected result is JSON matching `car_compare/generation_impact_schema.json`.
 
-The depreciation engine applies `adjustments[].extra_depreciation_pct` by effective calendar year / age and carries that ratio through every later bucket. This lets a future replacement-generation event adjust observed proxy rows and predicted rows at or after the event year. Each adjusted bucket exposes `generation_adjustment_pct`, `generation_adjustment_ratio`, `generation_adjustment_label`, and `generation_adjustment_basis`, and the table shows the `Gen Adj` column.
+The depreciation engine applies `adjustments[].extra_depreciation_pct` by effective calendar year / age only to predicted buckets and carries that forecast ratio through later predicted buckets. Observed market medians and distributions remain unchanged. Each adjusted forecast bucket exposes `generation_adjustment_pct`, `generation_adjustment_ratio`, `generation_adjustment_label`, and `generation_adjustment_basis`, and the table shows the `Forecast Adj` column.
 
 For portability, keep the skill inside this project folder. On another computer, run:
 

@@ -10,10 +10,13 @@ from urllib.parse import parse_qsl, urlsplit
 from car_compare.models import BucketStats, Listing, MSRP, VehicleQuery
 from car_compare.resolver import resolve_vehicle_query
 from car_compare.statistics import round_money, round_pct, weighted_mean, weighted_median, weighted_percentile
+from car_compare.vehicle_catalog import model_year_bounds
 from car_compare.vehicle_match import matches_vehicle_text
 
 
 EVIDENCE_LISTING_LIMIT = 1000
+MIN_AUTHORITATIVE_BUCKET_SAMPLES = 2
+MIN_IQR_WHISKER_SAMPLES = 4
 
 
 def build_report(
@@ -26,10 +29,15 @@ def build_report(
     current_year = current_year if current_year is not None else _runtime_current_year()
     filtered_raw = _filter_listings(request, listings)
     deduped = dedupe_listings(filtered_raw)
+    lifecycle_bounds = model_year_bounds(request.make, request.model)
     filtered: list[Listing] = []
     outside_horizon: list[Listing] = []
+    outside_lifecycle: list[Listing] = []
     grouped: dict[int, list[Listing]] = defaultdict(list)
     for listing in deduped:
+        if not _within_model_year_bounds(listing.year, lifecycle_bounds):
+            outside_lifecycle.append(listing)
+            continue
         age = _listing_age(listing, current_year)
         if 0 <= age <= request.max_age:
             filtered.append(listing)
@@ -64,6 +72,8 @@ def build_report(
             filtered_raw=filtered_raw,
             deduped_count=len(deduped),
             outside_horizon=outside_horizon,
+            outside_lifecycle=outside_lifecycle,
+            model_year_bounds=lifecycle_bounds,
             buckets=buckets,
             current_year=current_year,
             data_quality="needs_collection",
@@ -81,32 +91,62 @@ def build_report(
 
     for age in range(1, request.max_age + 1):
         rows = grouped.get(age, [])
-        bucket_model_year = request.target_year or (current_year - age)
+        bucket_model_year = _bucket_model_year(request, current_year, age, lifecycle_bounds)
         if rows:
             values = sorted(item.price for item in rows)
             weights = [item.market_weight for item in rows]
             observed_median = weighted_median([item.price for item in rows], weights)
-            source_counts = dict(Counter(item.source for item in rows))
-            buckets.append(
-                BucketStats(
-                    age=age,
-                    model_year=bucket_model_year,
-                    sample_count=len(values),
-                    observed=True,
-                    predicted=False,
-                    values=values,
-                    model_years=[request.target_year] if request.target_year else sorted({item.year for item in rows}),
-                    average=weighted_mean([item.price for item in rows], weights),
-                    median=observed_median,
-                    q1=weighted_percentile([item.price for item in rows], weights, 0.25),
-                    q3=weighted_percentile([item.price for item in rows], weights, 0.75),
-                    low=min(values),
-                    high=max(values),
-                    market_median=observed_median,
-                    source_counts=source_counts,
-                    confidence="observed",
-                )
+            observed_q1 = weighted_percentile([item.price for item in rows], weights, 0.25)
+            observed_q3 = weighted_percentile([item.price for item in rows], weights, 0.75)
+            observed_low, observed_high, outlier_count = _iqr_whiskers(
+                values,
+                observed_q1,
+                observed_q3,
             )
+            source_counts = dict(Counter(item.source for item in rows))
+            model_years = [request.target_year] if request.target_year else sorted({item.year for item in rows})
+            if len(rows) >= MIN_AUTHORITATIVE_BUCKET_SAMPLES:
+                buckets.append(
+                    BucketStats(
+                        age=age,
+                        model_year=bucket_model_year,
+                        sample_count=len(values),
+                        observed=True,
+                        predicted=False,
+                        values=values,
+                        model_years=model_years,
+                        average=weighted_mean([item.price for item in rows], weights),
+                        median=observed_median,
+                        q1=observed_q1,
+                        q3=observed_q3,
+                        low=observed_low,
+                        high=observed_high,
+                        market_median=observed_median,
+                        source_counts=source_counts,
+                        outlier_count=outlier_count,
+                        confidence="observed",
+                    )
+                )
+            else:
+                # Keep a solitary accepted row as disclosed market evidence, but
+                # never let it define the authoritative trend. This is the
+                # failure mode that allowed a parsed ZIP code to become a whole
+                # model year's median. The projection pass below retains the raw
+                # market median and sample count while replacing chart values.
+                buckets.append(
+                    BucketStats(
+                        age=age,
+                        model_year=bucket_model_year,
+                        sample_count=len(values),
+                        observed=False,
+                        predicted=True,
+                        values=values,
+                        model_years=model_years,
+                        market_median=observed_median,
+                        source_counts=source_counts,
+                        confidence="insufficient_sample",
+                    )
+                )
         else:
             buckets.append(
                 BucketStats(
@@ -115,7 +155,7 @@ def build_report(
                     sample_count=0,
                     observed=False,
                     predicted=True,
-                    model_years=[bucket_model_year],
+                    model_years=[bucket_model_year] if bucket_model_year is not None else [],
                     source_counts={},
                     confidence="projected",
                 )
@@ -136,6 +176,8 @@ def build_report(
         filtered_raw=filtered_raw,
         deduped_count=len(deduped),
         outside_horizon=outside_horizon,
+        outside_lifecycle=outside_lifecycle,
+        model_year_bounds=lifecycle_bounds,
         buckets=buckets,
         current_year=current_year,
         data_quality=data_quality,
@@ -150,6 +192,8 @@ def _report_payload(
     filtered_raw: list[Listing],
     deduped_count: int,
     outside_horizon: list[Listing],
+    outside_lifecycle: list[Listing],
+    model_year_bounds: dict[str, int | None],
     buckets: list[BucketStats],
     current_year: int,
     data_quality: str,
@@ -168,9 +212,19 @@ def _report_payload(
             "duplicatesRemoved": max(0, len(filtered_raw) - deduped_count),
             "outsideHorizonRows": len(outside_horizon),
             "outsideHorizonYears": dict(sorted(Counter(item.year for item in outside_horizon).items(), reverse=True)),
+            "modelYearBounds": model_year_bounds,
+            "outsideLifecycleRows": len(outside_lifecycle),
+            "outsideLifecycleYears": dict(
+                sorted(Counter(item.year for item in outside_lifecycle).items(), reverse=True)
+            ),
             "sources": dict(source_counts),
             "observedAges": [bucket.age for bucket in buckets if bucket.observed],
             "predictedAges": [bucket.age for bucket in buckets if bucket.predicted],
+            "insufficientSampleAges": [
+                bucket.age
+                for bucket in buckets
+                if bucket.sample_count > 0 and not bucket.observed
+            ],
             "currentYear": current_year,
             "maxAge": request.max_age,
             "sourceUrls": source_urls[:20],
@@ -280,6 +334,27 @@ def _listing_age(listing: Listing, current_year: int) -> int:
     return current_year - listing.year
 
 
+def _within_model_year_bounds(year: int, bounds: dict[str, int | None]) -> bool:
+    first_year = bounds.get("first")
+    last_year = bounds.get("last")
+    if first_year is not None and year < first_year:
+        return False
+    if last_year is not None and year > last_year:
+        return False
+    return True
+
+
+def _bucket_model_year(
+    request: VehicleQuery,
+    current_year: int,
+    age: int,
+    bounds: dict[str, int | None] | None = None,
+) -> int | None:
+    model_year = request.target_year or (current_year - age)
+    lifecycle_bounds = bounds if bounds is not None else model_year_bounds(request.make, request.model)
+    return model_year if _within_model_year_bounds(model_year, lifecycle_bounds) else None
+
+
 def _is_new_listing(listing: Listing) -> bool:
     title = (listing.title or "").lower().lstrip()
     if title.startswith("new arrival"):
@@ -303,14 +378,19 @@ def _age_zero_bucket(
     # bucket must stop calling itself a new-car market when they are present.
     # Depreciation follows the observed market median; MSRP is reference-only.
     market_rows = [item for item in rows if item.price > 0]
-    values = [item.price for item in market_rows]
+    prices = [item.price for item in market_rows]
     weights = [item.market_weight for item in market_rows]
     source_counts = Counter(item.source for item in market_rows)
     contains_used = any(not _is_new_listing(item) for item in market_rows)
     model_years = sorted({item.year for item in market_rows})
     model_year = model_years[0] if len(model_years) == 1 else None
 
-    values = sorted(values)
+    # `prices` and `weights` are one aligned observation vector. Keep that
+    # pairing for every weighted statistic; `values` is only the sorted display
+    # copy returned in the report. Sorting prices alone used to attach aggregate
+    # population weights to different vehicles whenever new and used rows were
+    # ordered separately.
+    values = sorted(prices)
     if not values:
         if msrp.price > 0:
             baseline_year = cohort_year or msrp.year or current_year
@@ -338,7 +418,14 @@ def _age_zero_bucket(
             confidence="needs_collection",
         )
 
-    observed_median = weighted_median(values, weights)
+    observed_median = weighted_median(prices, weights)
+    observed_q1 = weighted_percentile(prices, weights, 0.25)
+    observed_q3 = weighted_percentile(prices, weights, 0.75)
+    observed_low, observed_high, outlier_count = _iqr_whiskers(
+        values,
+        observed_q1,
+        observed_q3,
+    )
     return BucketStats(
         age=0,
         model_year=model_year,
@@ -347,15 +434,16 @@ def _age_zero_bucket(
         predicted=False,
         values=values,
         model_years=model_years,
-        average=weighted_mean(values, weights),
+        average=weighted_mean(prices, weights),
         median=observed_median,
-        q1=weighted_percentile(values, weights, 0.25),
-        q3=weighted_percentile(values, weights, 0.75),
-        low=min(values),
-        high=max(values),
+        q1=observed_q1,
+        q3=observed_q3,
+        low=observed_low,
+        high=observed_high,
         market_median=observed_median,
         trend_median=observed_median,
         source_counts=dict(source_counts),
+        outlier_count=outlier_count,
         confidence="current_year_market" if contains_used else "new_market",
     )
 
@@ -379,15 +467,45 @@ def _effective_msrp(msrp: MSRP, grouped: dict[int, list[Listing]]) -> float:
     return med / retention
 
 
+def _iqr_whiskers(
+    values: list[float],
+    q1: float | None,
+    q3: float | None,
+) -> tuple[float | None, float | None, int]:
+    """Return Tukey whiskers while leaving the source observations untouched."""
+    if not values:
+        return None, None, 0
+    ordered = sorted(values)
+    if len(ordered) < MIN_IQR_WHISKER_SAMPLES or q1 is None or q3 is None:
+        return ordered[0], ordered[-1], 0
+    iqr = max(0.0, q3 - q1)
+    if iqr <= 0:
+        # Weighted aggregate facets can put both quartiles in one dominant bin.
+        # In that case Tukey fences would collapse to a single price and falsely
+        # classify every other represented bin as an outlier.
+        return ordered[0], ordered[-1], 0
+    lower_fence = q1 - (1.5 * iqr)
+    upper_fence = q3 + (1.5 * iqr)
+    inliers = [value for value in ordered if lower_fence <= value <= upper_fence]
+    if not inliers:
+        return ordered[0], ordered[-1], 0
+    return inliers[0], inliers[-1], len(ordered) - len(inliers)
+
+
 def _empty_buckets(request: VehicleQuery, current_year: int) -> list[BucketStats]:
+    lifecycle_bounds = model_year_bounds(request.make, request.model)
     return [
         BucketStats(
             age=age,
-            model_year=request.target_year or (current_year - age),
+            model_year=_bucket_model_year(request, current_year, age, lifecycle_bounds),
             sample_count=0,
             observed=False,
             predicted=False,
-            model_years=[request.target_year or (current_year - age)],
+            model_years=(
+                [model_year]
+                if (model_year := _bucket_model_year(request, current_year, age, lifecycle_bounds)) is not None
+                else []
+            ),
             forecast_year=(request.target_year or current_year) + age,
             confidence="needs_collection",
         )
@@ -747,7 +865,6 @@ def _apply_trend_and_predictions(
         q1_ratio, q3_ratio = last_spread
         bucket.predicted = True
         bucket.observed = False
-        bucket.sample_count = 0
         bucket.trend_median = projected
         bucket.median = projected
         bucket.average = projected * 1.01
@@ -755,8 +872,20 @@ def _apply_trend_and_predictions(
         bucket.q3 = projected * q3_ratio
         bucket.low = projected * max(0.68, q1_ratio - 0.08)
         bucket.high = projected * min(1.32, q3_ratio + 0.08)
-        bucket.values = []
-        bucket.confidence = "long_range_projected" if bucket.age > 10 else "projected"
+        if bucket.sample_count > 0:
+            bucket.confidence = (
+                "long_range_projected_sparse_sample"
+                if bucket.age > 10
+                else "projected_sparse_sample"
+            )
+        else:
+            beyond_history = bucket.model_year is None
+            if bucket.age > 10 and beyond_history:
+                bucket.confidence = "long_range_projected_beyond_model_history"
+            elif beyond_history:
+                bucket.confidence = "projected_beyond_model_history"
+            else:
+                bucket.confidence = "long_range_projected" if bucket.age > 10 else "projected"
         last_trend = projected
         retention_rates.append(rate)
     _apply_generation_adjustments(
@@ -791,19 +920,31 @@ def _apply_depreciation(buckets: list[BucketStats]) -> None:
     baseline = buckets[0].trend_median or buckets[0].median
     previous = baseline
     for bucket in buckets:
+        bucket.value_change_from_previous = None
+        bucket.value_change_from_previous_pct = None
+        bucket.value_change_from_baseline = None
+        bucket.value_change_from_baseline_pct = None
         current = bucket.trend_median or bucket.median
         if current is None:
             continue
         if bucket.age == 0:
             bucket.depreciation_from_previous = 0
             bucket.depreciation_from_previous_pct = 0
+            bucket.value_change_from_previous = 0
+            bucket.value_change_from_previous_pct = 0
         elif previous:
-            bucket.depreciation_from_previous = max(0, previous - current)
+            value_change = current - previous
+            bucket.value_change_from_previous = value_change
+            bucket.value_change_from_previous_pct = value_change / previous
+            bucket.depreciation_from_previous = max(0, -value_change)
             bucket.depreciation_from_previous_pct = (
                 bucket.depreciation_from_previous / previous if previous else None
             )
         if baseline:
-            bucket.depreciation_from_baseline = max(0, baseline - current)
+            value_change = current - baseline
+            bucket.value_change_from_baseline = value_change
+            bucket.value_change_from_baseline_pct = value_change / baseline
+            bucket.depreciation_from_baseline = max(0, -value_change)
             bucket.depreciation_from_baseline_pct = bucket.depreciation_from_baseline / baseline
         previous = current
 
@@ -817,7 +958,9 @@ def _apply_generation_adjustments(
     if not adjustments:
         return
     for bucket in buckets:
-        if bucket.age == 0:
+        # A generation event is a forecast scenario, not a correction to market
+        # evidence already observed for a historical model year.
+        if bucket.age == 0 or not bucket.predicted:
             continue
         active = [item for item in adjustments if item["age"] <= bucket.age]
         if not active:

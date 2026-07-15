@@ -36,4 +36,13 @@ git diff --check
 
 Browser verification covers typo correction (`BMW M4 Cometition`), both depreciation charts, immutable disabled inputs while collecting, offline manual import, zero-data recovery actions, and terminal input/button recovery.
 
+## 2026-07-15 market-integrity follow-up
+
+- Zero-result marketplace pages, search-result headings, and ZIP/postal values can no longer become vehicle listings or prices. Host-Chrome accepted rows cannot exceed its reported card count, and the marketplace cache version was advanced so contaminated captures are not reused.
+- Age 0 weighted statistics preserve each price/market-weight pair. A single age-bucket row remains visible as evidence but does not define an observed trend.
+- Curated U.S. model-year lifecycle bounds stop generic BMW M4 collection at model-year 2015 and exclude prelaunch rows from observed report data while retaining long-range age projections.
+- Value movement is signed: positive values are appreciation and negative values are depreciation. Broad all-trim queries are labeled as current cross-sectional market mix rather than same-trim longitudinal depreciation.
+- Generation-impact adjustments apply only to predicted forecast buckets. Observed medians, quartiles, and whiskers remain factual market summaries.
+- Box-plot low/high values use IQR whiskers when supported. Extreme rows remain in source evidence and are counted in `outlier_count` instead of stretching the chart.
+
 For a second computer or production host, continue with [DEPLOYMENT.md](DEPLOYMENT.md). It adds Codex login, Playwright, host-Chrome, shared-auth, persistent-cache, PM2, and Cloudflare verification to this code-level audit.

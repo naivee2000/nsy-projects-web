@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import re
 from datetime import datetime, timezone
+from urllib.parse import parse_qs, urlparse
 
 from car_compare.models import Listing, VehicleQuery
 from car_compare.vehicle_match import vehicle_text_match_score
-from car_compare.vehicle_catalog import make_candidates
+from car_compare.vehicle_catalog import collection_start_year, make_candidates
 
 
 PRICE_RE = re.compile(
@@ -33,6 +34,17 @@ NON_MILEAGE_CONTEXT_RE = re.compile(
     r"\b(?:epa|driving\s+range|range|warranty|coverage|radius|distance)\b",
     re.I,
 )
+ZERO_RESULTS_RE = re.compile(
+    r"(?im)^\s*(?:0\s+(?:matches|results|listings?|vehicles?)\b|"
+    r"no\s+(?:matching\s+)?(?:results?|matches|listings?|vehicles?|cars?)\s+found\b)"
+)
+SEARCH_RESULTS_HEADING_RE = re.compile(r"\bfor\s+sale\s+(?:in|near)\b", re.I)
+POSTAL_CONTEXT_RE = re.compile(r"\b(?:zip|postal(?:\s+code)?)\b", re.I)
+LISTING_CONDITION_RE = re.compile(
+    r"^\s*(?:brand\s+new|new|used|pre[- ]?owned|certified(?:\s+pre[- ]?owned)?|cpo)\b",
+    re.I,
+)
+DETAIL_PATH_RE = re.compile(r"/(?:vehicle|inventory|vin|details?)/", re.I)
 KNOWN_MAKE_TOKEN_GROUPS = [
     re.findall(r"[a-z0-9]+", " ".join(alias_tokens).lower())
     for alias_tokens, _ in make_candidates()
@@ -45,6 +57,9 @@ def parse_visible_listing_text(
     text: str,
     request: VehicleQuery,
 ) -> list[Listing]:
+    if ZERO_RESULTS_RE.search(text):
+        return []
+
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     listings: list[Listing] = []
     for idx, line in enumerate(lines):
@@ -60,13 +75,15 @@ def parse_visible_listing_text(
         if not match["accepted"]:
             continue
 
-        price = _find_price(window)
+        price = _find_price(window, url=url)
         if not price:
+            continue
+        if not _has_credible_listing_signals(window, price, url):
             continue
 
         mileage = _find_mileage(window)
         vin = _find_vin(window)
-        title = _title_from_window(window)
+        title = _title_from_window(window, url=url)
         trim = _trim_from_title(title, request)
         condition_context = [*(lines[idx - 1 : idx] if idx else []), *window]
         condition = "new" if _looks_new(condition_context) else "cpo" if _looks_cpo(condition_context) else "used"
@@ -96,15 +113,19 @@ def listing_year_in_scope(year: int, request: VehicleQuery) -> bool:
         current_year - request.max_age,
         request.start_year or current_year - request.max_age,
     )
+    start_year = collection_start_year(request.make, request.model, start_year)
     return start_year <= year <= current_year
 
 
-def _find_price(lines: list[str]) -> float | None:
+def _find_price(lines: list[str], *, url: str = "") -> float | None:
     candidates: list[tuple[int, int, int, float]] = []
+    url_postal_codes = _postal_codes_from_url(url)
     for line_index, line in enumerate(lines):
         matches = list(PRICE_RE.finditer(line))
         for index, match in enumerate(matches):
             if _looks_like_mileage_candidate(line, match):
+                continue
+            if _looks_like_postal_candidate(lines, line_index, match, url_postal_codes):
                 continue
             raw = match.group("value").replace(",", "")
             numeric_value = float(raw)
@@ -155,6 +176,39 @@ def _looks_like_mileage_candidate(line: str, match: re.Match[str]) -> bool:
     return "mi" in after or "mile" in after or before.endswith("k ")
 
 
+def _looks_like_postal_candidate(
+    lines: list[str],
+    line_index: int,
+    match: re.Match[str],
+    url_postal_codes: set[str],
+) -> bool:
+    if match.group("prefix") or SALE_PRICE_CONTEXT_RE.search(lines[line_index][: match.start()]):
+        return False
+    value = match.group("value").replace(",", "").split(".", 1)[0]
+    if not re.fullmatch(r"\d{5}", value) or not re.fullmatch(r"\s*\d{5}\s*", lines[line_index]):
+        return False
+    if value in url_postal_codes:
+        return True
+    nearby = " ".join(lines[max(0, line_index - 1) : line_index + 2])
+    return bool(POSTAL_CONTEXT_RE.search(nearby))
+
+
+def _postal_codes_from_url(url: str) -> set[str]:
+    if not url:
+        return set()
+    values = parse_qs(urlparse(url).query, keep_blank_values=False)
+    result: set[str] = set()
+    for key, candidates in values.items():
+        normalized_key = re.sub(r"[^a-z]", "", key.casefold())
+        if "zip" not in normalized_key and "postal" not in normalized_key:
+            continue
+        for candidate in candidates:
+            match = re.fullmatch(r"\s*(\d{5})(?:-\d{4})?\s*", candidate)
+            if match:
+                result.add(match.group(1))
+    return result
+
+
 def _listing_window(lines: list[str], start: int, request: VehicleQuery, limit: int = 16) -> list[str]:
     window = [lines[start]]
     for line in lines[start + 1 : start + limit]:
@@ -168,7 +222,7 @@ def _listing_window(lines: list[str], start: int, request: VehicleQuery, limit: 
 
 def _is_listing_header(line: str, request: VehicleQuery) -> bool:
     year = YEAR_RE.search(line)
-    if not year:
+    if not year or SEARCH_RESULTS_HEADING_RE.search(line):
         return False
     tail_tokens = re.findall(r"[a-z0-9]+", line[year.end() :].lower())
     request_tokens = re.findall(r"[a-z0-9]+", (request.make or "").lower())
@@ -182,15 +236,39 @@ def _contains_token_sequence(haystack: list[str], needle: list[str]) -> bool:
     return any(haystack[index : index + len(needle)] == needle for index in range(len(haystack) - len(needle) + 1))
 
 
-def _title_from_window(lines: list[str]) -> str:
+def _title_from_window(lines: list[str], *, url: str = "") -> str:
     title_lines: list[str] = []
     for line in lines[:4]:
-        if title_lines and (_find_price([line]) is not None or MILEAGE_RE.search(line) or VIN_RE.search(line)):
+        if title_lines and (_find_price([line], url=url) is not None or MILEAGE_RE.search(line) or VIN_RE.search(line)):
             break
         if title_lines and re.search(r"\b(?:check availability|see payment|no accidents|sponsored by)\b", line, re.I):
             break
         title_lines.append(line)
     return " ".join(title_lines) if title_lines else lines[0]
+
+
+def _has_credible_listing_signals(lines: list[str], price: float, url: str) -> bool:
+    if _find_mileage(lines) is not None or _find_vin(lines):
+        return True
+    if any(LISTING_CONDITION_RE.search(line) for line in lines[:4]):
+        return True
+    if _price_is_explicitly_labeled(lines, price):
+        return True
+    return bool(DETAIL_PATH_RE.search(urlparse(url).path))
+
+
+def _price_is_explicitly_labeled(lines: list[str], price: float) -> bool:
+    for line in lines:
+        for match in PRICE_RE.finditer(line):
+            try:
+                candidate = float(match.group("value").replace(",", ""))
+            except ValueError:
+                continue
+            if candidate != price:
+                continue
+            if match.group("prefix") or SALE_PRICE_CONTEXT_RE.search(line[: match.start()]):
+                return True
+    return False
 
 
 def _find_mileage(lines: list[str]) -> int | None:

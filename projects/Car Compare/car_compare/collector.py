@@ -30,6 +30,7 @@ from car_compare.sources.chrome_host import (
 )
 from car_compare.sources.visor_facets import collect_visor_public_facets
 from car_compare.sources.source_plan import build_collection_plan
+from car_compare.vehicle_catalog import collection_start_year, msrp_label_matches_scope
 from car_compare.vehicle_match import vehicle_text_match_score
 
 
@@ -749,7 +750,7 @@ class CollectionManager:
         plan = build_collection_plan(request)
         targets = [item for item in plan["targets"] if item["source"] in BROWSER_SOURCE_NAMES]
         current_year = _runtime_current_year()
-        start_year = request.target_year or max(current_year - request.max_age, request.start_year or current_year - request.max_age)
+        start_year = request.target_year or _requested_collection_start_year(request, current_year)
         end_year = request.target_year or current_year
         payloads = [
             {
@@ -986,19 +987,17 @@ class CollectionManager:
             rows_by_year.setdefault(listing.year, []).append(listing.to_dict())
         if not rows_by_year:
             quota_targets = (audit.get("year_quota") or {}).get("targets") or {}
+            lifecycle_start = None if request.target_year else _requested_collection_start_year(request, current_year)
             attempted_years = {
                 int(year)
                 for year in quota_targets
-                if str(year).isdigit()
+                if str(year).isdigit() and (lifecycle_start is None or int(year) >= lifecycle_start)
             }
             if not attempted_years:
                 if request.target_year:
                     attempted_years = {request.target_year}
                 else:
-                    first_year = max(
-                        current_year - request.max_age,
-                        request.start_year or current_year - request.max_age,
-                    )
+                    first_year = _requested_collection_start_year(request, current_year)
                     attempted_years = set(range(first_year, current_year + 1))
             rows_by_year = {year: [] for year in attempted_years}
         for year, rows in rows_by_year.items():
@@ -1357,6 +1356,8 @@ class CollectionManager:
         seen: set[tuple[Any, ...]] = set()
         access_message = ""
         access_blocked = False
+        zero_card_captures = 0
+        rows_over_card_count = 0
 
         search_index = 0
         while search_index < len(searches):
@@ -1377,20 +1378,30 @@ class CollectionManager:
                 raw_path = job_dir / f"host_chrome_{source}_{search_index}.json"
                 raw_path.write_text(json.dumps(capture, indent=2), encoding="utf-8")
                 break
-            for listing in parse_visible_listing_text(source, search_url, str(capture.get("text") or ""), request):
-                if not listing_year_in_scope(listing.year, request):
-                    continue
-                identity = (
-                    listing.vin,
-                    listing.year,
-                    round(listing.price),
-                    listing.mileage,
-                    listing.title.lower(),
-                )
-                if identity in seen:
-                    continue
-                seen.add(identity)
-                listings.append(listing)
+            if _capture_reports_zero_listing_cards(capture):
+                zero_card_captures += 1
+                capture["rejectedReason"] = "zero_listing_cards"
+            else:
+                reported_cards = _capture_listing_card_count(capture)
+                parsed_rows = parse_visible_listing_text(source, search_url, str(capture.get("text") or ""), request)
+                if reported_cards is not None and len(parsed_rows) > reported_cards:
+                    rows_over_card_count += len(parsed_rows) - reported_cards
+                    parsed_rows = parsed_rows[:reported_cards]
+                    capture["rejectedReason"] = "accepted_rows_exceeded_cards"
+                for listing in parsed_rows:
+                    if not listing_year_in_scope(listing.year, request):
+                        continue
+                    identity = (
+                        listing.vin,
+                        listing.year,
+                        round(listing.price),
+                        listing.mileage,
+                        listing.title.lower(),
+                    )
+                    if identity in seen:
+                        continue
+                    seen.add(identity)
+                    listings.append(listing)
             capture["acceptedNew"] = len(listings) - accepted_before
             raw_path = job_dir / f"host_chrome_{source}_{search_index}.json"
             raw_path.write_text(json.dumps(capture, indent=2), encoding="utf-8")
@@ -1426,9 +1437,18 @@ class CollectionManager:
                 else "unavailable"
             ),
             "pages_examined": pages_examined,
-            "cards_examined": max(cards_examined, len(listings)),
+            "cards_examined": (
+                cards_examined
+                if captures and all(_capture_listing_card_count(item) is not None for item in captures)
+                else max(cards_examined, len(listings))
+            ),
             "accepted": len(listings),
-            "rejected_by_reason": {},
+            "rejected_by_reason": (
+                {
+                    **({"zero_listing_cards": zero_card_captures} if zero_card_captures else {}),
+                    **({"accepted_rows_exceeded_cards": rows_over_card_count} if rows_over_card_count else {}),
+                }
+            ),
             "load_more_clicked": load_more_clicked,
             "detail_pages_opened": 0,
             "stop_reason": (
@@ -1946,11 +1966,18 @@ def _apply_browser_captures(result: dict[str, Any], job_dir: Path, request: Vehi
 
 def _msrp_matches_request(msrp: MSRP, request: VehicleQuery) -> bool:
     if request.target_year:
-        return msrp.year == request.target_year
-    if msrp.year is None:
-        return False
-    current_year = _runtime_current_year()
-    return current_year <= msrp.year <= current_year + 2
+        year_matches = msrp.year == request.target_year
+    elif msrp.year is None:
+        year_matches = False
+    else:
+        current_year = _runtime_current_year()
+        year_matches = current_year <= msrp.year <= current_year + 2
+    return year_matches and msrp_label_matches_scope(
+        request.make,
+        request.model,
+        request.trim,
+        msrp.label,
+    )
 
 
 def clean_codex_error(raw: str) -> str:
@@ -2165,10 +2192,7 @@ def _optional_int(value: Any) -> int | None:
 
 def _browser_year_quota(listings: list[Listing], request: VehicleQuery) -> dict[str, Any]:
     current_year = _runtime_current_year()
-    start_year = request.target_year or max(
-        current_year - request.max_age,
-        request.start_year or current_year - request.max_age,
-    )
+    start_year = request.target_year or _requested_collection_start_year(request, current_year)
     end_year = request.target_year or current_year
     counts: dict[int, int] = {}
     for listing in listings:
@@ -2184,6 +2208,28 @@ def _browser_year_quota(listings: list[Listing], request: VehicleQuery) -> dict[
         "sparse_years": sparse_years,
         "met": not sparse_years,
     }
+
+
+def _requested_collection_start_year(request: VehicleQuery, current_year: int) -> int:
+    requested_start = max(
+        current_year - request.max_age,
+        request.start_year or current_year - request.max_age,
+    )
+    return collection_start_year(request.make, request.model, requested_start)
+
+
+def _capture_reports_zero_listing_cards(capture: dict[str, Any]) -> bool:
+    card_count = _capture_listing_card_count(capture)
+    return card_count is not None and card_count <= 0
+
+
+def _capture_listing_card_count(capture: dict[str, Any]) -> int | None:
+    if "cardsExamined" not in capture:
+        return None
+    try:
+        return max(0, int(capture["cardsExamined"]))
+    except (TypeError, ValueError):
+        return None
 
 
 def _verified_audit_listings(request: VehicleQuery, audit: dict[str, Any]) -> list[Listing]:

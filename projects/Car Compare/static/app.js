@@ -48,6 +48,7 @@ const resultNotice = document.querySelector("#resultNotice");
 const runError = document.querySelector("#runError");
 const analyzeImportedButton = document.querySelector("#analyzeImportedButton");
 const advancedBlock = document.querySelector(".advancedBlock");
+const interpretationNotice = document.querySelector("#interpretationNotice");
 let activeJobId = "";
 let activeJobResult = null;
 let activeGenerationJobId = "";
@@ -83,6 +84,10 @@ const chartColors = Object.freeze({
   median: "#e9f0f2",
   loss: "#f4b85a",
   lossFill: "#4b371c",
+  appreciation: "#c9f255",
+  appreciationFill: "#2f3c1d",
+  depreciation: "#f4b85a",
+  depreciationFill: "#4b371c",
   lossProjectedFill: "#302d55",
   percent: "#ff7b72",
   carA: "#31d7c8",
@@ -1102,23 +1107,32 @@ function renderEmptyState() {
   rows.innerHTML = "";
   sourceEvidence.innerHTML = "";
   collectionPlan.innerHTML = "";
+  if (interpretationNotice) {
+    interpretationNotice.hidden = true;
+    interpretationNotice.innerHTML = "";
+  }
   renderGenerationImpact(activeGenerationImpact);
 }
 
 function renderReport(report) {
   if (activeRun) activeRun.lastReport = report;
   setSingleResultScaffolding();
-  const observed = report.buckets.filter((bucket) => bucket.observed).length;
-  const predicted = report.buckets.filter((bucket) => bucket.predicted).length;
+  const observed = report.buckets.filter(bucketIsObservedMarket).length;
+  const predicted = report.buckets.filter(bucketIsProjection).length;
+  const sparse = report.buckets.filter(bucketIsSparseProjection).length;
   const maxAge = report.summary.maxAge || Math.max(10, ...report.buckets.map((bucket) => bucket.age || 0));
   const ageOne = report.buckets.find((bucket) => bucket.age === 1);
   const horizonBucket = report.buckets.find((bucket) => bucket.age === maxAge);
   const estimatedBaseline = report.msrp?.source === "estimated_from_used_market";
+  const allTrimMarketMix = isAllTrimReport(report);
+  const msrpWarning = msrpScopeWarning(report);
 
   emptyWorkspace.hidden = true;
   resultsSurface.hidden = false;
 
-  chartTitle.textContent = report.summary.displayName || "Depreciation Trend";
+  chartTitle.textContent = allTrimMarketMix
+    ? `${report.summary.displayName || "Vehicle"} · All-Trim Market Mix`
+    : report.summary.displayName || "Depreciation Trend";
   const individualListingRows = Number(report.summary.individualListingRows ?? report.summary.dealerListings ?? 0);
   const dealerListings = Number(report.summary.dealerListings || 0);
   const aggregateObservationPoints = Number(report.summary.aggregateObservationPoints || 0);
@@ -1132,18 +1146,20 @@ function renderReport(report) {
   if (aggregateMarketCount) countParts.push(`${aggregateMarketCount.toLocaleString()} vehicles represented by aggregate facets`);
   if (sampleRows) countParts.push(`${sampleRows.toLocaleString()} demo rows`);
   if (!countParts.length) countParts.push("0 accepted market observations");
-  chartSub.textContent = `${countParts.join(" · ")} · ${observed} observed buckets · ${predicted} projected buckets`;
+  const bucketParts = [`${observed} observed market bucket${observed === 1 ? "" : "s"}`, `${predicted} projected bucket${predicted === 1 ? "" : "s"}`];
+  if (sparse) bucketParts.push(`${sparse} projected from insufficient samples`);
+  chartSub.textContent = `${allTrimMarketMix ? "Current market mix by model year · not trim-normalized · " : ""}${countParts.join(" · ")} · ${bucketParts.join(" · ")}`;
   depreciationChartSub.textContent = estimatedBaseline
-    ? "Bars show YoY dollar loss from an estimated Age 0 baseline; the line shows cumulative depreciation percentage"
-    : "Bars show YoY dollar loss between adjacent ages; the line shows cumulative depreciation from the Age 0 market median";
+    ? "Signed bars show annual value movement from an estimated Age 0 baseline; positive is appreciation and negative is depreciation"
+    : "Signed bars show annual value movement; the line shows signed change from the Age 0 market median";
   const generated = report.summary.generatedAt ? new Date(report.summary.generatedAt).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "just now";
   runStamp.textContent = `${generated} · ${maxAge}-year horizon`;
 
   renderResolver(report.resolution || report.collectionPlan?.resolution);
   metrics.innerHTML = [
-    [estimatedBaseline ? "Est. Baseline" : "MSRP Ref", report.msrp.price > 0 ? money.format(report.msrp.price) : "Needs MSRP"],
+    [estimatedBaseline ? "Est. Baseline" : msrpWarning ? "MSRP Ref · Scope Check" : "MSRP Reference", report.msrp.price > 0 ? money.format(report.msrp.price) : "Needs MSRP"],
     ["Age 1 Market Median", bucketMarketMedian(ageOne) ? money.format(bucketMarketMedian(ageOne)) : "No data"],
-    [`Age ${maxAge} Trend`, horizonBucket?.trend_median ? money.format(horizonBucket.trend_median) : "No data"],
+    [`Age ${maxAge} ${bucketIsProjection(horizonBucket) ? "Forecast" : "Market Value"}`, bucketDisplayValue(horizonBucket) ? money.format(bucketDisplayValue(horizonBucket)) : "No data"],
     ["Data Mix", individualListingRows ? `${individualListingRows} individual` : aggregateMarketCount ? `${aggregateMarketCount} aggregate` : sampleRows ? `${sampleRows} demo` : "No matches"],
     ["Duplicates", report.summary.duplicatesRemoved || 0],
     ["Status", reportStatusLabel(report)]
@@ -1158,16 +1174,19 @@ function renderReport(report) {
   renderGenerationImpact(report.generationImpact);
   renderPlan(report.collectionPlan);
   renderResultNotice(report);
+  renderInterpretationNotice(report);
 }
 
 function setSingleResultScaffolding() {
   valueLegend.innerHTML = `
-    <span><i class="line observed"></i>Observed</span>
-    <span><i class="line projected"></i>Predicted</span>
-    <span><i class="dot"></i>Average</span>`;
+    <span><i class="line observed"></i>Observed market</span>
+    <span><i class="line projected"></i>Projection / sparse estimate</span>
+    <span><i class="dot"></i>Average</span>
+    <span><i class="forecastRing"></i>Generation-adjusted forecast</span>`;
   lossLegend.innerHTML = `
-    <span><i class="barIcon"></i>YoY Loss</span>
-    <span><i class="line percent"></i>Total %</span>
+    <span><i class="barIcon appreciation"></i>Appreciation</span>
+    <span><i class="barIcon depreciation"></i>Depreciation</span>
+    <span><i class="line percent"></i>Change from Age 0</span>
     <span><i class="line projected"></i>Projected</span>`;
   tableTitle.textContent = "Age Buckets";
   bucketTable.classList.remove("comparisonTable");
@@ -1182,11 +1201,12 @@ function setSingleResultScaffolding() {
     <th scope="col">Curve Value</th>
     <th scope="col">Q1</th>
     <th scope="col">Q3</th>
-    <th scope="col">YoY Loss</th>
-    <th scope="col">YoY %</th>
-    <th scope="col">Total Loss</th>
-    <th scope="col">Total %</th>
-    <th scope="col">Gen Adj</th>
+    <th scope="col">YoY Movement</th>
+    <th scope="col">YoY Change</th>
+    <th scope="col">Since Age 0</th>
+    <th scope="col">Total Change</th>
+    <th scope="col">Outliers</th>
+    <th scope="col">Forecast Adj</th>
   </tr>`;
 }
 
@@ -1206,8 +1226,8 @@ function renderComparison(reportA, reportB) {
   resultsSurface.classList.remove("isStale");
   resultsSurface.setAttribute("aria-busy", "false");
   chartTitle.textContent = `${names[0]} vs ${names[1]}`;
-  chartSub.textContent = `${comparisonEvidenceSummary(reportA)} · ${comparisonEvidenceSummary(reportB)} · aligned by vehicle age`;
-  depreciationChartSub.textContent = "Grouped bars show each year's dollar loss; labeled dots show cumulative depreciation from each vehicle's own Age 0 median.";
+  chartSub.textContent = `${comparisonEvidenceSummary(reportA)} · ${comparisonEvidenceSummary(reportB)} · aligned by vehicle age${reports.some(isAllTrimReport) ? " · all-trim results are current market-mix views, not trim-normalized" : ""}`;
+  depreciationChartSub.textContent = "Grouped signed bars show each year's value movement; labeled dots show signed change from each vehicle's own Age 0 median.";
   const generated = generatedDates.length
     ? new Date(Math.max(...generatedDates)).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
     : "just now";
@@ -1220,8 +1240,8 @@ function renderComparison(reportA, reportB) {
   lossLegend.innerHTML = `
     <span><i class="vehicleSwatch"></i>Car A</span>
     <span><i class="vehicleSwatch carB"></i>Car B</span>
-    <span><i class="barSwatch"></i>YoY dollar loss</span>
-    <span><i class="styleSwatch"></i>Depreciation %</span>
+    <span><i class="barSwatch"></i>YoY value movement</span>
+    <span><i class="styleSwatch"></i>Change from Age 0</span>
     <span><i class="styleSwatch projected"></i>Predicted</span>`;
   tableTitle.textContent = "Comparison by Age";
 
@@ -1229,8 +1249,8 @@ function renderComparison(reportA, reportB) {
   metrics.innerHTML = [
     { label: `${names[0]} baseline`, value: fmtMoney(bucketDisplayValue(bucketAtAge(reportA, 0))), className: "carA" },
     { label: `${names[1]} baseline`, value: fmtMoney(bucketDisplayValue(bucketAtAge(reportB, 0))), className: "carB" },
-    { label: `Age ${comparisonAge} dollar loss`, value: `A ${fmtMoney(comparisonBuckets[0]?.depreciation_from_baseline) || "-"} · B ${fmtMoney(comparisonBuckets[1]?.depreciation_from_baseline) || "-"}`, className: "" },
-    { label: `Age ${comparisonAge} depreciation`, value: `A ${fmtPct(comparisonBuckets[0]?.depreciation_from_baseline_pct) || "-"} · B ${fmtPct(comparisonBuckets[1]?.depreciation_from_baseline_pct) || "-"}`, className: "" },
+    { label: `Age ${comparisonAge} value change`, value: `A ${fmtSignedMoney(bucketSignedBaselineChange(reportA.buckets, comparisonBuckets[0])) || "-"} · B ${fmtSignedMoney(bucketSignedBaselineChange(reportB.buckets, comparisonBuckets[1])) || "-"}`, className: "" },
+    { label: `Age ${comparisonAge} change %`, value: `A ${fmtSignedPct(bucketSignedBaselinePct(reportA.buckets, comparisonBuckets[0])) || "-"} · B ${fmtSignedPct(bucketSignedBaselinePct(reportB.buckets, comparisonBuckets[1])) || "-"}`, className: "" },
     { label: `Age ${maxAge} value`, value: `A ${fmtMoney(bucketDisplayValue(horizonBuckets[0])) || "-"} · B ${fmtMoney(bucketDisplayValue(horizonBuckets[1])) || "-"}`, className: "" },
     { label: "Accepted observations", value: `A ${Number(reportA.summary.listingCount || 0).toLocaleString()} · B ${Number(reportB.summary.listingCount || 0).toLocaleString()}`, className: "" },
   ].map((item) => `<div class="metric ${item.className}"><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value)}</strong></div>`).join("");
@@ -1248,6 +1268,7 @@ function renderComparison(reportA, reportB) {
   ], "plan");
   renderComparisonGenerationImpact(reportA, reportB);
   renderComparisonResultNotice(reportA, reportB);
+  renderComparisonInterpretationNotice(reportA, reportB);
 }
 
 function comparisonEvidenceSummary(report) {
@@ -1323,10 +1344,100 @@ function renderComparisonGenerationImpact(reportA, reportB) {
     return `<div class="comparisonGenerationItem ${index === 1 ? "carB" : "carA"}">
       <strong>${escapeHtml(report.summary.displayName || `Car ${index === 0 ? "A" : "B"}`)}</strong>
       ${adjustments.length
-        ? `<span>${escapeHtml(nextGen.expected_model_year ? `Next gen ${nextGen.expected_model_year}` : "Generation event researched")} · ${adjustments.map((item) => `Age ${item.age} ${fmtPct(item.extra_depreciation_pct)}`).join(" · ")}</span>`
+        ? `<span>Forecast scenario only · ${escapeHtml(nextGen.expected_model_year ? `Next gen ${nextGen.expected_model_year}` : "Generation event researched")} · ${adjustments.map((item) => `Age ${item.age} -${fmtPct(item.extra_depreciation_pct)}`).join(" · ")}</span>`
         : "<span>No generation adjustment loaded.</span>"}
     </div>`;
   }).join("")}</div>`;
+}
+
+function renderInterpretationNotice(report) {
+  if (!interpretationNotice) return;
+  const items = [];
+  if (isAllTrimReport(report)) {
+    items.push("All-trim market-mix view: each model year summarizes the variants offered in today's accepted listings. Premium or collectible trims can make an older model-year median rise. This is a cross-sectional asking-price comparison, not same-trim longitudinal depreciation; select a trim for a narrower result.");
+  }
+  const scopeWarning = msrpScopeWarning(report);
+  if (scopeWarning) items.push(scopeWarning);
+  const outlierCount = (report?.buckets || []).reduce(
+    (total, bucket) => total + Number(bucket?.outlier_count || 0),
+    0,
+  );
+  if (outlierCount) {
+    items.push(`${outlierCount} extreme price row${outlierCount === 1 ? " is" : "s are"} retained in source evidence but excluded from IQR box-plot whiskers.`);
+  }
+  if (!items.length) {
+    interpretationNotice.hidden = true;
+    interpretationNotice.innerHTML = "";
+    return;
+  }
+  interpretationNotice.hidden = false;
+  interpretationNotice.innerHTML = `<strong>How to read this result</strong><ul>${items.map((item, index) => `<li${index > 0 ? ' class="msrpScopeWarning"' : ""}>${escapeHtml(item)}</li>`).join("")}</ul>`;
+}
+
+function renderComparisonInterpretationNotice(reportA, reportB) {
+  if (!interpretationNotice) return;
+  const reports = [reportA, reportB];
+  const allTrim = reports.filter(isAllTrimReport);
+  const scopeWarnings = reports.map(msrpScopeWarning).filter(Boolean);
+  const items = [];
+  if (allTrim.length) {
+    items.push(`${allTrim.map((report) => report.summary?.displayName || "Vehicle").join(" and ")} ${allTrim.length === 1 ? "is an all-trim" : "are all-trim"} current market-mix ${allTrim.length === 1 ? "view" : "views"}, not same-trim longitudinal depreciation. Select a trim for a narrower comparison.`);
+  }
+  items.push(...scopeWarnings);
+  if (!items.length) {
+    interpretationNotice.hidden = true;
+    interpretationNotice.innerHTML = "";
+    return;
+  }
+  interpretationNotice.hidden = false;
+  interpretationNotice.innerHTML = `<strong>Comparison scope</strong><ul>${items.map((item, index) => `<li${index >= (allTrim.length ? 1 : 0) ? ' class="msrpScopeWarning"' : ""}>${escapeHtml(item)}</li>`).join("")}</ul>`;
+}
+
+function isAllTrimReport(report) {
+  const resolution = report?.resolution || report?.collectionPlan?.resolution || {};
+  if (Array.isArray(resolution.include_all) && resolution.include_all.includes("trim")) return true;
+  const trimChip = (resolution.chips || []).find((chip) => chip?.key === "trim");
+  if (trimChip) return trimChip.mode === "all" || /^all trims$/i.test(String(trimChip.value || ""));
+  if (!report?.query) return false;
+  return !String(report.query.trim || "").trim();
+}
+
+function msrpScopeWarning(report) {
+  if (!isAllTrimReport(report) || !finiteNumber(report?.msrp?.price)) return "";
+  const label = String(report?.msrp?.label || "").trim();
+  if (!label || /^user supplied msrp$/i.test(label) || report?.msrp?.source === "estimated_from_used_market") return "";
+  const scope = namedMsrpScope(report, label);
+  if (!scope) return "";
+  const vehicle = report?.summary?.displayName || report?.resolution?.canonical || "this model";
+  return `MSRP scope warning: ${money.format(report.msrp.price)} is labeled “${label}” and appears to reference ${scope}, while ${vehicle} includes all trims. Treat it as a named-configuration reference, not an all-trim baseline.`;
+}
+
+function namedMsrpScope(report, label) {
+  const model = String(report?.query?.model || "").trim();
+  if (model) {
+    const lowerLabel = label.toLowerCase();
+    const modelIndex = lowerLabel.indexOf(model.toLowerCase());
+    if (modelIndex >= 0) {
+      let suffix = label.slice(modelIndex + model.length);
+      suffix = suffix.split(/\b(?:base\s+msrp|starting\s+msrp|msrp|excluding|including|price)\b/i)[0];
+      suffix = suffix
+        .replace(/\b(?:coupe|coupé|convertible|cabriolet|sedan|suv|wagon|hatchback|roadster|spyder|awd|rwd|4wd|fwd)\b/gi, " ")
+        .replace(/[^a-z0-9+-]+/gi, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+      if (suffix && suffix.split(" ").length <= 6) return suffix;
+    }
+  }
+  const labelKey = normalizedWords(label);
+  const rows = [...(report?.listings || []), ...(report?.evidence?.listings || [])];
+  const candidates = unique(rows.map((row) => String(row?.trim || "").trim()).filter(Boolean))
+    .filter((trim) => normalizedWords(trim).length >= 2)
+    .sort((left, right) => normalizedWords(left).length - normalizedWords(right).length);
+  return candidates.find((trim) => labelKey.includes(normalizedWords(trim))) || "";
+}
+
+function normalizedWords(value) {
+  return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 }
 
 function bucketAtAge(report, age) {
@@ -1334,7 +1445,10 @@ function bucketAtAge(report, age) {
 }
 
 function bucketDisplayValue(bucket) {
-  return finiteNumber(bucket?.trend_median) ?? finiteNumber(bucket?.median);
+  if (!bucket) return null;
+  if (bucketIsSparseProjection(bucket) && !bucket.predicted) return null;
+  if (bucketIsObservedMarket(bucket)) return bucketMarketMedian(bucket);
+  return finiteNumber(bucket.trend_median) ?? finiteNumber(bucket.median);
 }
 
 function bucketMarketMedian(bucket) {
@@ -1343,6 +1457,107 @@ function bucketMarketMedian(bucket) {
     return finiteNumber(bucket.market_median);
   }
   return bucket.predicted ? null : finiteNumber(bucket.median);
+}
+
+function bucketIsObservedMarket(bucket) {
+  if (!bucket || bucketIsProjection(bucket)) return false;
+  return Boolean(bucket.observed) && bucketMarketMedian(bucket) !== null;
+}
+
+function bucketIsProjection(bucket) {
+  if (!bucket) return false;
+  const confidence = String(bucket.confidence || "").toLowerCase();
+  return Boolean(bucket.predicted) || confidence.includes("projected") || bucketIsSparseProjection(bucket);
+}
+
+function bucketIsSparseProjection(bucket) {
+  if (!bucket || Number(bucket.age) === 0) return false;
+  const confidence = String(bucket.confidence || "").toLowerCase();
+  if (/sparse|insufficient|low[_ -]?sample/.test(confidence)) return true;
+  return Boolean(bucket.observed) && Number(bucket.sample_count || 0) === 1;
+}
+
+function bucketIsUnavailable(bucket) {
+  if (!bucket) return true;
+  const confidence = String(bucket.confidence || "").toLowerCase();
+  return /not[_ -]?manufactured|unavailable|needs_age_zero|needs_collection/.test(confidence) && bucketDisplayValue(bucket) === null;
+}
+
+function bucketStatus(bucket) {
+  if (!bucket) return { label: "Unavailable", className: "unavailable" };
+  if (Number(bucket.age) === 0) return { label: ageZeroLabel(bucket), className: bucketIsProjection(bucket) ? "projected" : "observed" };
+  if (bucketIsUnavailable(bucket)) {
+    const confidence = String(bucket.confidence || "").toLowerCase();
+    return { label: confidence.includes("not_manufactured") ? "Not manufactured" : "Unavailable", className: "unavailable" };
+  }
+  if (bucketIsSparseProjection(bucket)) {
+    return { label: bucket.predicted ? "Insufficient sample → projected" : "Insufficient sample", className: "sparse" };
+  }
+  if (bucketIsProjection(bucket) && String(bucket.confidence || "").toLowerCase().includes("beyond_model_history")) {
+    return { label: "Projection beyond model history", className: "projected" };
+  }
+  if (bucketIsProjection(bucket) && bucket.generation_adjustment_pct) {
+    return { label: "Generation-adjusted forecast", className: "projected" };
+  }
+  if (bucketIsProjection(bucket)) {
+    return { label: Number(bucket.age) > 10 ? "Long-range projection" : "Projected", className: "projected" };
+  }
+  return { label: "Observed market", className: "observed" };
+}
+
+function bucketDistributionValue(bucket, field) {
+  let value = finiteNumber(bucket?.[field]);
+  if (value === null) return null;
+  const ratio = finiteNumber(bucket?.generation_adjustment_ratio);
+  if (bucketIsObservedMarket(bucket) && ratio !== null && ratio > 0 && ratio < 1) value /= ratio;
+  if (field === "median" && bucketIsObservedMarket(bucket)) return bucketMarketMedian(bucket) ?? value;
+  return value;
+}
+
+function bucketSignedPreviousChange(buckets, bucket) {
+  if (!bucket) return null;
+  const supplied = finiteNumber(bucket.value_change_from_previous);
+  if (supplied !== null) return supplied;
+  const ordered = [...(buckets || [])].sort((left, right) => Number(left.age) - Number(right.age));
+  const index = ordered.indexOf(bucket);
+  if (index < 0) return null;
+  if (Number(bucket.age) === 0) return 0;
+  const current = bucketDisplayValue(bucket);
+  const previous = bucketDisplayValue(ordered[index - 1]);
+  return current === null || previous === null ? null : current - previous;
+}
+
+function bucketSignedPreviousPct(buckets, bucket) {
+  if (!bucket) return null;
+  const supplied = finiteNumber(bucket.value_change_from_previous_pct);
+  if (supplied !== null) return supplied;
+  const ordered = [...(buckets || [])].sort((left, right) => Number(left.age) - Number(right.age));
+  const index = ordered.indexOf(bucket);
+  if (index < 0) return null;
+  if (Number(bucket.age) === 0) return 0;
+  const current = bucketDisplayValue(bucket);
+  const previous = bucketDisplayValue(ordered[index - 1]);
+  return current === null || previous === null || previous === 0 ? null : (current - previous) / previous;
+}
+
+function bucketSignedBaselineChange(buckets, bucket) {
+  if (!bucket) return null;
+  const supplied = finiteNumber(bucket.value_change_from_baseline);
+  if (supplied !== null) return supplied;
+  const baseline = [...(buckets || [])].sort((left, right) => Number(left.age) - Number(right.age))[0];
+  const current = bucketDisplayValue(bucket);
+  const start = bucketDisplayValue(baseline);
+  return current === null || start === null ? null : current - start;
+}
+
+function bucketSignedBaselinePct(buckets, bucket) {
+  if (!bucket) return null;
+  const supplied = finiteNumber(bucket.value_change_from_baseline_pct);
+  if (supplied !== null) return supplied;
+  const baseline = [...(buckets || [])].sort((left, right) => Number(left.age) - Number(right.age))[0];
+  const current = bucketDisplayValue(bucket);
+  const start = bucketDisplayValue(baseline);
+  return current === null || start === null || start === 0 ? null : (current - start) / start;
 }
 
 function reportStatusLabel(report) {
@@ -1479,9 +1694,11 @@ function renderChart(buckets) {
   const plotW = width - margin.left - margin.right;
   const plotH = height - margin.top - margin.bottom;
   const maxAge = Math.max(1, ...buckets.map((bucket) => Number(bucket.age) || 0));
-  const candidates = buckets.flatMap((b) => [b.high, b.q3, b.median, b.average, b.trend_median].filter(Boolean));
-  const accessibleTitle = `${chartTitle.textContent || "Vehicle"} depreciation trend`;
-  const accessibleDescription = `${candidates.length ? "Observed and projected value curve" : "No accepted market observations"} across vehicle ages 0 through ${maxAge}.`;
+  const candidates = buckets.flatMap((bucket) => bucketDisplayValue(bucket) === null
+    ? []
+    : ["high", "q3", "median", "average"].map((field) => bucketDistributionValue(bucket, field)).concat(bucketDisplayValue(bucket)).filter((value) => value !== null));
+  const accessibleTitle = `${chartTitle.textContent || "Vehicle"} market value trend`;
+  const accessibleDescription = `${candidates.length ? "Observed market and projected value curve" : "No accepted market observations"} across vehicle ages 0 through ${maxAge}.`;
   chart.setAttribute("aria-label", accessibleTitle);
   if (!candidates.length) {
     chart.innerHTML = `<title>${escapeHtml(accessibleTitle)}</title><desc>${escapeHtml(accessibleDescription)}</desc>
@@ -1512,8 +1729,14 @@ function renderChart(buckets) {
   }
   svg += `<text x="${margin.left + plotW / 2}" y="${height - 2}" text-anchor="middle" font-size="12" fill="${chartColors.text}">Vehicle age</text>`;
 
-  const observedPoints = buckets.filter((b) => b.trend_median && !b.predicted).map((b) => `${x(b.age)},${y(b.trend_median)}`);
-  const projectedPoints = buckets.filter((b) => b.trend_median && b.age >= firstPredictedAge(buckets) - 1).map((b) => `${x(b.age)},${y(b.trend_median)}`);
+  const observedPoints = buckets
+    .map((bucket) => ({ bucket, value: bucketDisplayValue(bucket) }))
+    .filter((point) => point.value !== null && !bucketIsProjection(point.bucket))
+    .map((point) => `${x(point.bucket.age)},${y(point.value)}`);
+  const projectedPoints = buckets
+    .map((bucket) => ({ bucket, value: bucketDisplayValue(bucket) }))
+    .filter((point) => point.value !== null && Number(point.bucket.age) >= firstPredictedAge(buckets) - 1)
+    .map((point) => `${x(point.bucket.age)},${y(point.value)}`);
   if (observedPoints.length > 1) {
     svg += `<polyline points="${observedPoints.join(" ")}" fill="none" stroke="${chartColors.observed}" stroke-width="3"></polyline>`;
   }
@@ -1522,26 +1745,37 @@ function renderChart(buckets) {
   }
 
   for (const bucket of buckets) {
-    if (!bucket.median || !bucket.q1 || !bucket.q3 || !bucket.low || !bucket.high) continue;
+    const median = bucketDisplayValue(bucket);
+    const q1 = bucketDistributionValue(bucket, "q1");
+    const q3 = bucketDistributionValue(bucket, "q3");
+    const low = bucketDistributionValue(bucket, "low");
+    const high = bucketDistributionValue(bucket, "high");
+    const average = bucketDistributionValue(bucket, "average") ?? median;
+    if ([median, q1, q3, low, high].some((value) => value === null)) continue;
     const cx = x(bucket.age);
     const boxW = bucket.age === 0 ? 14 : 38;
-    const color = bucket.predicted ? chartColors.projected : chartColors.observed;
-    const fill = bucket.predicted ? chartColors.projectedFill : chartColors.observedFill;
-    const lowY = y(bucket.low);
-    const highY = y(bucket.high);
-    const q1Y = y(bucket.q1);
-    const q3Y = y(bucket.q3);
-    const medY = y(bucket.median);
-    const avgY = bucket.average ? y(bucket.average) : medY;
-    const dash = bucket.predicted ? `stroke-dasharray="5 5"` : "";
-    svg += `<g tabindex="0" role="img" aria-label="Age ${bucket.age}, median ${escapeHtml(money.format(bucket.median))}">`;
-    svg += `<title>Age ${bucket.age}: median ${money.format(bucket.median)}</title>`;
+    const projected = bucketIsProjection(bucket);
+    const color = projected ? chartColors.projected : chartColors.observed;
+    const fill = projected ? chartColors.projectedFill : chartColors.observedFill;
+    const lowY = y(low);
+    const highY = y(high);
+    const q1Y = y(q1);
+    const q3Y = y(q3);
+    const medY = y(median);
+    const avgY = y(average);
+    const dash = projected ? `stroke-dasharray="5 5"` : "";
+    const status = bucketStatus(bucket).label;
+    svg += `<g tabindex="0" role="img" aria-label="Age ${bucket.age}, ${escapeHtml(status)}, median ${escapeHtml(money.format(median))}">`;
+    svg += `<title>Age ${bucket.age}: ${money.format(median)} · ${escapeHtml(status)}</title>`;
     svg += `<line x1="${cx}" y1="${highY}" x2="${cx}" y2="${lowY}" stroke="${color}" stroke-width="2" ${dash}></line>`;
     svg += `<line x1="${cx - 12}" y1="${highY}" x2="${cx + 12}" y2="${highY}" stroke="${color}" stroke-width="2" ${dash}></line>`;
     svg += `<line x1="${cx - 12}" y1="${lowY}" x2="${cx + 12}" y2="${lowY}" stroke="${color}" stroke-width="2" ${dash}></line>`;
     svg += `<rect x="${cx - boxW / 2}" y="${q3Y}" width="${boxW}" height="${Math.max(2, q1Y - q3Y)}" rx="4" fill="${fill}" stroke="${color}" stroke-width="2" ${dash}></rect>`;
     svg += `<line x1="${cx - boxW / 2}" y1="${medY}" x2="${cx + boxW / 2}" y2="${medY}" stroke="${chartColors.median}" stroke-width="2"></line>`;
     svg += `<circle cx="${cx}" cy="${avgY}" r="4.5" fill="${chartColors.average}" stroke="${chartColors.background}" stroke-width="1.5"></circle>`;
+    if (projected && bucket.generation_adjustment_pct) {
+      svg += `<circle cx="${cx}" cy="${medY}" r="9" fill="none" stroke="${chartColors.projected}" stroke-width="2"></circle>`;
+    }
     svg += `</g>`;
   }
 
@@ -1583,7 +1817,7 @@ function renderComparisonChart(reportA, reportB) {
   const x = (age) => margin.left + (Number(age) / maxAge) * plotW;
   const y = (value) => margin.top + (1 - (value - minValue) / (maxValue - minValue)) * plotH;
   const ageStep = maxAge <= 10 ? 1 : maxAge <= 15 ? 2 : 5;
-  let svg = `<title>${escapeHtml(accessibleTitle)}</title><desc>Median value curves aligned by vehicle age. Solid segments are observed and dashed segments are predicted.</desc>`;
+  let svg = `<title>${escapeHtml(accessibleTitle)}</title><desc>Market and forecast value curves aligned by vehicle age. Solid segments are observed market medians and dashed segments are projections.</desc>`;
   svg += `<rect x="0" y="0" width="${width}" height="${height}" fill="${chartColors.background}"></rect>`;
   for (const tick of tickValues(minValue, maxValue, 5)) {
     const ty = y(tick);
@@ -1603,17 +1837,18 @@ function renderComparisonChart(reportA, reportB) {
       .map((bucket) => ({ bucket, value: bucketDisplayValue(bucket) }))
       .filter((point) => point.value !== null);
     const firstProjected = firstPredictedAge(item.buckets);
-    const observed = points.filter((point) => !point.bucket.predicted).map((point) => `${x(point.bucket.age)},${y(point.value)}`);
+    const observed = points.filter((point) => !bucketIsProjection(point.bucket)).map((point) => `${x(point.bucket.age)},${y(point.value)}`);
     const projected = points.filter((point) => point.bucket.age >= firstProjected - 1).map((point) => `${x(point.bucket.age)},${y(point.value)}`);
     if (observed.length > 1) svg += `<polyline points="${observed.join(" ")}" fill="none" stroke="${item.color}" stroke-width="3"></polyline>`;
     if (projected.length > 1) svg += `<polyline points="${projected.join(" ")}" fill="none" stroke="${item.color}" stroke-width="3" stroke-dasharray="8 7"></polyline>`;
     for (const point of points) {
       const cx = x(point.bucket.age);
       const cy = y(point.value);
-      const dash = point.bucket.predicted ? ' stroke-dasharray="4 3"' : "";
+      const projectedPoint = bucketIsProjection(point.bucket);
+      const dash = projectedPoint ? ' stroke-dasharray="4 3"' : "";
       svg += `<g tabindex="0" role="img" aria-label="${escapeHtml(item.name)}, age ${point.bucket.age}, value ${escapeHtml(money.format(point.value))}">`;
-      svg += `<title>${escapeHtml(item.name)} · Age ${point.bucket.age} · ${money.format(point.value)}${point.bucket.predicted ? " · predicted" : " · observed"}</title>`;
-      if (point.bucket.generation_adjustment_pct) {
+      svg += `<title>${escapeHtml(item.name)} · Age ${point.bucket.age} · ${money.format(point.value)} · ${escapeHtml(bucketStatus(point.bucket).label)}</title>`;
+      if (projectedPoint && point.bucket.generation_adjustment_pct) {
         svg += `<circle cx="${cx}" cy="${cy}" r="8" fill="none" stroke="${chartColors.projected}" stroke-width="2"></circle>`;
       }
       svg += `<circle cx="${cx}" cy="${cy}" r="4.5" fill="${chartColors.background}" stroke="${item.color}" stroke-width="2.5"${dash}></circle>`;
@@ -1631,75 +1866,79 @@ function renderDepreciationChart(buckets) {
   const margin = { top: 44, right: 132, bottom: 48, left: 86 };
   const plotW = width - margin.left - margin.right;
   const plotH = height - margin.top - margin.bottom;
-  const points = buckets
+  const ordered = [...(buckets || [])].sort((left, right) => Number(left.age) - Number(right.age));
+  const points = ordered
     .map((bucket) => ({
+      bucket,
       age: Number(bucket.age) || 0,
-      loss: finiteNumber(bucket.depreciation_from_previous),
-      pct: finiteNumber(bucket.depreciation_from_baseline_pct),
-      predicted: Boolean(bucket.predicted)
+      change: bucketSignedPreviousChange(ordered, bucket),
+      pct: bucketSignedBaselinePct(ordered, bucket),
+      projected: bucketIsProjection(bucket)
     }))
-    .filter((point) => point.loss !== null && point.pct !== null);
-  const accessibleTitle = `${chartTitle.textContent || "Vehicle"} yearly dollar loss and cumulative depreciation`;
-  const accessibleDescription = `${points.length ? "Year-over-year dollar loss and cumulative percentage loss" : "No depreciation baseline available"} across the selected vehicle-age horizon.`;
+    .filter((point) => point.change !== null && point.pct !== null);
+  const accessibleTitle = `${chartTitle.textContent || "Vehicle"} annual value movement and signed change from baseline`;
+  const accessibleDescription = `${points.length ? "Year-over-year appreciation or depreciation and signed percentage change" : "No value baseline available"} across the selected vehicle-age horizon.`;
   depreciationChart.setAttribute("aria-label", accessibleTitle);
 
-  if (!points.length || Math.max(...points.map((point) => point.loss)) <= 0) {
+  if (points.length < 2) {
     depreciationChart.innerHTML = `<title>${escapeHtml(accessibleTitle)}</title><desc>${escapeHtml(accessibleDescription)}</desc>
       <rect x="0" y="0" width="${width}" height="${height}" fill="${chartColors.background}"></rect>
-      <text x="${width / 2}" y="${height / 2 - 8}" text-anchor="middle" class="emptyChart">No depreciation data yet</text>
+      <text x="${width / 2}" y="${height / 2 - 8}" text-anchor="middle" class="emptyChart">No value movement data yet</text>
       <text x="${width / 2}" y="${height / 2 + 22}" text-anchor="middle" font-size="13" fill="${chartColors.text}">Waiting for an Age 0 market baseline.</text>`;
     return;
   }
 
   const maxAge = Math.max(1, ...points.map((point) => point.age));
-  const maxLoss = Math.max(...points.map((point) => point.loss), 1) * 1.08;
-  const maxPct = Math.max(...points.map((point) => point.pct), 0.01) * 1.08;
+  const [minChange, maxChange] = paddedSignedDomain(points.map((point) => point.change), 1000);
+  const [minPct, maxPct] = paddedSignedDomain(points.map((point) => point.pct), 0.01);
   const xMax = maxAge + 0.65;
-  const zeroY = margin.top + plotH;
   const x = (age) => margin.left + (age / xMax) * plotW;
-  const yLoss = (value) => margin.top + (1 - value / maxLoss) * plotH;
-  const yPct = (value) => margin.top + (1 - value / maxPct) * plotH;
-  const dollarTicks = uniqueNumbers(tickValues(0, maxLoss, 5));
-  const pctTicks = uniqueNumbers(tickValues(0, maxPct, 5));
+  const yChange = (value) => margin.top + (1 - (value - minChange) / (maxChange - minChange)) * plotH;
+  const yPct = (value) => margin.top + (1 - (value - minPct) / (maxPct - minPct)) * plotH;
+  const zeroY = yChange(0);
+  const dollarTicks = signedTickValues(minChange, maxChange, 5);
+  const pctTicks = signedTickValues(minPct, maxPct, 5);
   const ageStep = maxAge <= 10 ? 1 : maxAge <= 15 ? 2 : 5;
   const barW = Math.min(40, Math.max(12, plotW / Math.max(points.length * 1.8, 1)));
 
   let svg = `<title>${escapeHtml(accessibleTitle)}</title><desc>${escapeHtml(accessibleDescription)}</desc>`;
   svg += `<rect x="0" y="0" width="${width}" height="${height}" fill="${chartColors.background}"></rect>`;
   for (const tick of dollarTicks) {
-    const ty = yLoss(tick);
+    const ty = yChange(tick);
     svg += `<line x1="${margin.left}" y1="${ty}" x2="${width - margin.right}" y2="${ty}" stroke="${chartColors.grid}"></line>`;
-    svg += `<text x="${margin.left - 12}" y="${ty + 4}" text-anchor="end" font-size="12" fill="${chartColors.text}">${money.format(tick)}</text>`;
+    svg += `<text x="${margin.left - 12}" y="${ty + 4}" text-anchor="end" font-size="12" fill="${chartColors.text}">${fmtSignedMoney(tick)}</text>`;
   }
   for (const tick of pctTicks) {
     const ty = yPct(tick);
-    svg += `<text x="${width - margin.right + 16}" y="${ty + 4}" text-anchor="start" font-size="12" fill="${chartColors.text}">${fmtAxisPct(tick)}</text>`;
+    svg += `<text x="${width - margin.right + 16}" y="${ty + 4}" text-anchor="start" font-size="12" fill="${chartColors.text}">${fmtSignedPct(tick)}</text>`;
   }
   for (let age = 0; age <= maxAge; age += ageStep) {
     const tx = x(age);
-    svg += `<line x1="${tx}" y1="${margin.top}" x2="${tx}" y2="${zeroY}" stroke="${chartColors.gridSoft}"></line>`;
+    svg += `<line x1="${tx}" y1="${margin.top}" x2="${tx}" y2="${margin.top + plotH}" stroke="${chartColors.gridSoft}"></line>`;
     svg += `<text x="${tx}" y="${height - 18}" text-anchor="middle" font-size="12" fill="${chartColors.text}">${age}</text>`;
   }
-  svg += `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${zeroY}" stroke="${chartColors.axis}"></line>`;
-  svg += `<line x1="${width - margin.right}" y1="${margin.top}" x2="${width - margin.right}" y2="${zeroY}" stroke="${chartColors.axis}"></line>`;
-  svg += `<line x1="${margin.left}" y1="${zeroY}" x2="${width - margin.right}" y2="${zeroY}" stroke="${chartColors.axis}"></line>`;
+  svg += `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + plotH}" stroke="${chartColors.axis}"></line>`;
+  svg += `<line x1="${width - margin.right}" y1="${margin.top}" x2="${width - margin.right}" y2="${margin.top + plotH}" stroke="${chartColors.axis}"></line>`;
+  svg += `<line x1="${margin.left}" y1="${zeroY}" x2="${width - margin.right}" y2="${zeroY}" stroke="${chartColors.axis}" stroke-width="2"></line>`;
   svg += `<text x="${margin.left + plotW / 2}" y="${height - 2}" text-anchor="middle" font-size="12" fill="${chartColors.text}">Vehicle age</text>`;
-  svg += `<text transform="translate(18 ${margin.top + plotH / 2}) rotate(-90)" text-anchor="middle" font-size="12" fill="${chartColors.text}">YoY depreciation dollars</text>`;
-  svg += `<text transform="translate(${width - 20} ${margin.top + plotH / 2}) rotate(90)" text-anchor="middle" font-size="12" fill="${chartColors.text}">Total depreciation %</text>`;
+  svg += `<text transform="translate(18 ${margin.top + plotH / 2}) rotate(-90)" text-anchor="middle" font-size="12" fill="${chartColors.text}">YoY value change</text>`;
+  svg += `<text transform="translate(${width - 20} ${margin.top + plotH / 2}) rotate(90)" text-anchor="middle" font-size="12" fill="${chartColors.text}">Change from Age 0 %</text>`;
 
   for (const point of points) {
     const cx = x(point.age);
-    const top = yLoss(point.loss);
-    const color = point.predicted ? chartColors.lossProjectedFill : chartColors.lossFill;
-    const stroke = point.predicted ? chartColors.projected : chartColors.loss;
-    svg += `<g tabindex="0" role="img" aria-label="Age ${point.age}, ${escapeHtml(money.format(point.loss))} year-over-year loss, ${escapeHtml(fmtPct(point.pct))} total depreciation">`;
-    svg += `<title>Age ${point.age}: ${money.format(point.loss)} YoY loss, ${fmtPct(point.pct)} total depreciation</title>`;
-    svg += `<rect x="${cx - barW / 2}" y="${top}" width="${barW}" height="${Math.max(0, zeroY - top)}" rx="4" fill="${color}" stroke="${stroke}" stroke-width="1.5"></rect>`;
+    const changeY = yChange(point.change);
+    const top = Math.min(changeY, zeroY);
+    const fill = point.change > 0 ? chartColors.appreciationFill : point.change < 0 ? chartColors.depreciationFill : chartColors.gridSoft;
+    const stroke = point.projected ? chartColors.projected : point.change > 0 ? chartColors.appreciation : chartColors.depreciation;
+    const dash = point.projected ? ' stroke-dasharray="5 4"' : "";
+    svg += `<g tabindex="0" role="img" aria-label="Age ${point.age}, ${escapeHtml(movementDescription(point.change))}, ${escapeHtml(fmtSignedPct(point.pct))} from Age 0">`;
+    svg += `<title>Age ${point.age}: ${escapeHtml(movementDescription(point.change))} · ${fmtSignedPct(point.pct)} from Age 0</title>`;
+    svg += `<rect x="${cx - barW / 2}" y="${top}" width="${barW}" height="${Math.max(1, Math.abs(zeroY - changeY))}" rx="4" fill="${fill}" stroke="${stroke}" stroke-width="1.5"${dash}></rect>`;
     svg += `</g>`;
   }
 
   const firstProjected = firstPredictedAge(buckets);
-  const pctObserved = points.filter((point) => !point.predicted).map((point) => `${x(point.age)},${yPct(point.pct)}`);
+  const pctObserved = points.filter((point) => !point.projected).map((point) => `${x(point.age)},${yPct(point.pct)}`);
   const pctProjected = points.filter((point) => point.age >= firstProjected - 1).map((point) => `${x(point.age)},${yPct(point.pct)}`);
   if (pctObserved.length > 1) {
     svg += `<polyline points="${pctObserved.join(" ")}" fill="none" stroke="${chartColors.percent}" stroke-width="3"></polyline>`;
@@ -1708,11 +1947,11 @@ function renderDepreciationChart(buckets) {
     svg += `<polyline points="${pctProjected.join(" ")}" fill="none" stroke="${chartColors.projected}" stroke-width="3" stroke-dasharray="8 7"></polyline>`;
   }
   for (const point of points) {
-    const stroke = point.predicted ? chartColors.projected : chartColors.percent;
+    const stroke = point.projected ? chartColors.projected : chartColors.percent;
     const cx = x(point.age);
     const cy = yPct(point.pct);
-    const labelY = Math.max(margin.top - 14, cy - 12);
-    svg += `<text x="${cx}" y="${labelY}" text-anchor="middle" font-size="11" font-weight="760" fill="${stroke}">${fmtPct(point.pct)}</text>`;
+    const labelY = point.pct >= 0 ? Math.max(14, cy - 12) : Math.min(height - margin.bottom + 18, cy + 18);
+    svg += `<text x="${cx}" y="${labelY}" text-anchor="middle" font-size="11" font-weight="760" fill="${stroke}">${fmtSignedPct(point.pct)}</text>`;
     svg += `<circle cx="${cx}" cy="${cy}" r="4.5" fill="${chartColors.background}" stroke="${stroke}" stroke-width="2"></circle>`;
   }
 
@@ -1728,9 +1967,10 @@ function renderComparisonDepreciationChart(reportA, reportB) {
     points: item.buckets.map((bucket) => ({
       bucket,
       age: Number(bucket.age) || 0,
-      loss: finiteNumber(bucket.depreciation_from_previous),
-      pct: finiteNumber(bucket.depreciation_from_baseline_pct),
-    })).filter((point) => point.loss !== null && point.pct !== null)
+      change: bucketSignedPreviousChange(item.buckets, bucket),
+      pct: bucketSignedBaselinePct(item.buckets, bucket),
+      projected: bucketIsProjection(bucket),
+    })).filter((point) => point.change !== null && point.pct !== null)
   }));
   const allPoints = series.flatMap((item) => item.points);
   const maxAge = Math.max(1, ...allPoints.map((point) => point.age));
@@ -1739,64 +1979,65 @@ function renderComparisonDepreciationChart(reportA, reportB) {
   const margin = { top: 62, right: 132, bottom: 48, left: 88 };
   const plotW = width - margin.left - margin.right;
   const plotH = height - margin.top - margin.bottom;
-  const accessibleTitle = `${series[0].name} and ${series[1].name} depreciation comparison`;
+  const accessibleTitle = `${series[0].name} and ${series[1].name} signed value movement comparison`;
   depreciationChart.setAttribute("viewBox", `0 0 ${width} ${height}`);
   depreciationChart.style.minWidth = `${width}px`;
   depreciationChart.setAttribute("aria-label", accessibleTitle);
 
-  if (!allPoints.length || Math.max(...allPoints.map((point) => point.loss), 0) <= 0) {
-    depreciationChart.innerHTML = `<title>${escapeHtml(accessibleTitle)}</title><desc>No depreciation baseline is available.</desc>
+  if (allPoints.length < 2) {
+    depreciationChart.innerHTML = `<title>${escapeHtml(accessibleTitle)}</title><desc>No comparable value baseline is available.</desc>
       <rect x="0" y="0" width="${width}" height="${height}" fill="${chartColors.background}"></rect>
-      <text x="${width / 2}" y="${height / 2}" text-anchor="middle" class="emptyChart">No comparable depreciation data yet</text>`;
+      <text x="${width / 2}" y="${height / 2}" text-anchor="middle" class="emptyChart">No comparable value movement yet</text>`;
     return;
   }
 
-  const maxLoss = Math.max(...allPoints.map((point) => point.loss), 1) * 1.12;
-  const maxPct = Math.max(...allPoints.map((point) => point.pct), 0.01) * 1.18;
+  const [minChange, maxChange] = paddedSignedDomain(allPoints.map((point) => point.change), 1000);
+  const [minPct, maxPct] = paddedSignedDomain(allPoints.map((point) => point.pct), 0.01);
   const xMax = maxAge + 0.7;
-  const zeroY = margin.top + plotH;
   const x = (age) => margin.left + (Number(age) / xMax) * plotW;
-  const yLoss = (value) => margin.top + (1 - value / maxLoss) * plotH;
-  const yPct = (value) => margin.top + (1 - value / maxPct) * plotH;
+  const yChange = (value) => margin.top + (1 - (value - minChange) / (maxChange - minChange)) * plotH;
+  const yPct = (value) => margin.top + (1 - (value - minPct) / (maxPct - minPct)) * plotH;
+  const zeroY = yChange(0);
   const ageStep = maxAge <= 10 ? 1 : maxAge <= 15 ? 2 : 5;
   const slotWidth = plotW / Math.max(maxAge + 1, 1);
   const barWidth = Math.min(28, Math.max(10, slotWidth * 0.28));
   const barGap = 3;
-  let svg = `<title>${escapeHtml(accessibleTitle)}</title><desc>Grouped bars compare year-over-year dollar loss. Colored lines and labeled dots compare cumulative depreciation percentage.</desc>`;
+  let svg = `<title>${escapeHtml(accessibleTitle)}</title><desc>Grouped signed bars compare year-over-year value movement. Colored lines and labeled dots compare signed change from each Age 0 baseline.</desc>`;
   svg += `<rect x="0" y="0" width="${width}" height="${height}" fill="${chartColors.background}"></rect>`;
-  for (const tick of uniqueNumbers(tickValues(0, maxLoss, 5))) {
-    const ty = yLoss(tick);
+  for (const tick of signedTickValues(minChange, maxChange, 5)) {
+    const ty = yChange(tick);
     svg += `<line x1="${margin.left}" y1="${ty}" x2="${width - margin.right}" y2="${ty}" stroke="${chartColors.grid}"></line>`;
-    svg += `<text x="${margin.left - 12}" y="${ty + 4}" text-anchor="end" font-size="12" fill="${chartColors.text}">${money.format(tick)}</text>`;
+    svg += `<text x="${margin.left - 12}" y="${ty + 4}" text-anchor="end" font-size="12" fill="${chartColors.text}">${fmtSignedMoney(tick)}</text>`;
   }
-  for (const tick of uniqueNumbers(tickValues(0, maxPct, 5))) {
+  for (const tick of signedTickValues(minPct, maxPct, 5)) {
     const ty = yPct(tick);
-    svg += `<text x="${width - margin.right + 16}" y="${ty + 4}" text-anchor="start" font-size="12" fill="${chartColors.text}">${fmtAxisPct(tick)}</text>`;
+    svg += `<text x="${width - margin.right + 16}" y="${ty + 4}" text-anchor="start" font-size="12" fill="${chartColors.text}">${fmtSignedPct(tick)}</text>`;
   }
   for (let age = 0; age <= maxAge; age += ageStep) {
     const tx = x(age);
-    svg += `<line x1="${tx}" y1="${margin.top}" x2="${tx}" y2="${zeroY}" stroke="${chartColors.gridSoft}"></line>`;
+    svg += `<line x1="${tx}" y1="${margin.top}" x2="${tx}" y2="${margin.top + plotH}" stroke="${chartColors.gridSoft}"></line>`;
     svg += `<text x="${tx}" y="${height - 18}" text-anchor="middle" font-size="12" fill="${chartColors.text}">${age}</text>`;
   }
-  svg += `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${zeroY}" stroke="${chartColors.axis}"></line>`;
-  svg += `<line x1="${width - margin.right}" y1="${margin.top}" x2="${width - margin.right}" y2="${zeroY}" stroke="${chartColors.axis}"></line>`;
-  svg += `<line x1="${margin.left}" y1="${zeroY}" x2="${width - margin.right}" y2="${zeroY}" stroke="${chartColors.axis}"></line>`;
+  svg += `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + plotH}" stroke="${chartColors.axis}"></line>`;
+  svg += `<line x1="${width - margin.right}" y1="${margin.top}" x2="${width - margin.right}" y2="${margin.top + plotH}" stroke="${chartColors.axis}"></line>`;
+  svg += `<line x1="${margin.left}" y1="${zeroY}" x2="${width - margin.right}" y2="${zeroY}" stroke="${chartColors.axis}" stroke-width="2"></line>`;
   svg += `<text x="${margin.left + plotW / 2}" y="${height - 2}" text-anchor="middle" font-size="12" fill="${chartColors.text}">Vehicle age</text>`;
-  svg += `<text transform="translate(18 ${margin.top + plotH / 2}) rotate(-90)" text-anchor="middle" font-size="12" fill="${chartColors.text}">YoY depreciation dollars</text>`;
-  svg += `<text transform="translate(${width - 20} ${margin.top + plotH / 2}) rotate(90)" text-anchor="middle" font-size="12" fill="${chartColors.text}">Total depreciation %</text>`;
+  svg += `<text transform="translate(18 ${margin.top + plotH / 2}) rotate(-90)" text-anchor="middle" font-size="12" fill="${chartColors.text}">YoY value change</text>`;
+  svg += `<text transform="translate(${width - 20} ${margin.top + plotH / 2}) rotate(90)" text-anchor="middle" font-size="12" fill="${chartColors.text}">Change from Age 0 %</text>`;
 
   series.forEach((item, seriesIndex) => {
     for (const point of item.points) {
       const cx = x(point.age) + (seriesIndex === 0 ? -(barWidth + barGap) / 2 : (barWidth + barGap) / 2);
-      const top = yLoss(point.loss);
-      const dash = point.bucket.predicted ? ' stroke-dasharray="5 4"' : "";
-      svg += `<g tabindex="0" role="img" aria-label="${escapeHtml(item.name)}, age ${point.age}, ${escapeHtml(money.format(point.loss))} year-over-year loss, ${escapeHtml(fmtPct(point.pct))} cumulative depreciation">`;
-      svg += `<title>${escapeHtml(item.name)} · Age ${point.age} · ${money.format(point.loss)} YoY loss · ${fmtPct(point.pct)} cumulative</title>`;
-      svg += `<rect x="${cx - barWidth / 2}" y="${top}" width="${barWidth}" height="${Math.max(0, zeroY - top)}" rx="3" fill="${item.fill}" stroke="${item.color}" stroke-width="1.5"${dash}></rect>`;
+      const changeY = yChange(point.change);
+      const top = Math.min(changeY, zeroY);
+      const dash = point.projected ? ' stroke-dasharray="5 4"' : "";
+      svg += `<g tabindex="0" role="img" aria-label="${escapeHtml(item.name)}, age ${point.age}, ${escapeHtml(movementDescription(point.change))}, ${escapeHtml(fmtSignedPct(point.pct))} from Age 0">`;
+      svg += `<title>${escapeHtml(item.name)} · Age ${point.age} · ${escapeHtml(movementDescription(point.change))} · ${fmtSignedPct(point.pct)} from Age 0</title>`;
+      svg += `<rect x="${cx - barWidth / 2}" y="${top}" width="${barWidth}" height="${Math.max(1, Math.abs(zeroY - changeY))}" rx="3" fill="${item.fill}" stroke="${item.color}" stroke-width="1.5"${dash}></rect>`;
       svg += `</g>`;
     }
     const firstProjected = firstPredictedAge(item.buckets);
-    const observed = item.points.filter((point) => !point.bucket.predicted).map((point) => `${x(point.age)},${yPct(point.pct)}`);
+    const observed = item.points.filter((point) => !point.projected).map((point) => `${x(point.age)},${yPct(point.pct)}`);
     const projected = item.points.filter((point) => point.age >= firstProjected - 1).map((point) => `${x(point.age)},${yPct(point.pct)}`);
     if (observed.length > 1) svg += `<polyline points="${observed.join(" ")}" fill="none" stroke="${item.color}" stroke-width="3"></polyline>`;
     if (projected.length > 1) svg += `<polyline points="${projected.join(" ")}" fill="none" stroke="${item.color}" stroke-width="3" stroke-dasharray="8 7"></polyline>`;
@@ -1820,9 +2061,9 @@ function renderComparisonDepreciationChart(reportA, reportB) {
       const close = otherY !== null && Math.abs(cy - otherY) < 22;
       const closeAnchor = close ? Math.min(cy, otherY) : cy;
       const labelY = age === 0 ? null : Math.max(16, closeAnchor - (close ? (seriesIndex === 0 ? 12 : 31) : 12));
-      const dash = point.bucket.predicted ? ' stroke-dasharray="4 3"' : "";
+      const dash = point.projected ? ' stroke-dasharray="4 3"' : "";
       if (labelY !== null) {
-        svg += `<text x="${cx}" y="${labelY}" text-anchor="middle" font-size="10.5" font-weight="760" fill="${item.color}" stroke="${chartColors.background}" stroke-width="3" paint-order="stroke">${item.shortName} ${fmtPct(point.pct)}</text>`;
+        svg += `<text x="${cx}" y="${labelY}" text-anchor="middle" font-size="10.5" font-weight="760" fill="${item.color}" stroke="${chartColors.background}" stroke-width="3" paint-order="stroke">${item.shortName} ${fmtSignedPct(point.pct)}</text>`;
       }
       svg += `<circle cx="${cx}" cy="${cy}" r="4.5" fill="${chartColors.background}" stroke="${item.color}" stroke-width="2.5"${dash}></circle>`;
     });
@@ -1852,26 +2093,27 @@ function planMarkup(plan) {
 function renderTable(buckets) {
   rows.innerHTML = buckets
     .map((bucket) => {
-      const type = bucket.age === 0
-        ? ageZeroLabel(bucket)
-        : bucket.generation_adjustment_pct
-          ? bucket.predicted ? "Predicted + Gen" : "Forecast Adj"
-          : bucket.predicted && bucket.age > 10 ? "Long Projection" : bucket.predicted ? "Predicted" : "Observed";
+      const status = bucketStatus(bucket);
+      const previousChange = bucketSignedPreviousChange(buckets, bucket);
+      const previousPct = bucketSignedPreviousPct(buckets, bucket);
+      const baselineChange = bucketSignedBaselineChange(buckets, bucket);
+      const baselinePct = bucketSignedBaselinePct(buckets, bucket);
       return `<tr>
         <td>Age ${bucket.age}</td>
         <td>${bucket.model_year ?? ""}</td>
         <td>${bucket.forecast_year ?? ""}</td>
-        <td><span class="badge">${type}</span></td>
+        <td><span class="badge ${status.className}">${escapeHtml(status.label)}</span></td>
         <td>${bucket.sample_count}</td>
-        <td>${fmtMoney(bucket.average)}</td>
+        <td>${fmtMoney(bucketDistributionValue(bucket, "average"))}</td>
         <td>${fmtMoney(bucketMarketMedian(bucket))}</td>
         <td>${fmtMoney(bucketDisplayValue(bucket))}</td>
-        <td>${fmtMoney(bucket.q1)}</td>
-        <td>${fmtMoney(bucket.q3)}</td>
-        <td>${fmtMoney(bucket.depreciation_from_previous)}</td>
-        <td>${fmtPct(bucket.depreciation_from_previous_pct)}</td>
-        <td>${fmtMoney(bucket.depreciation_from_baseline)}</td>
-        <td>${fmtPct(bucket.depreciation_from_baseline_pct)}</td>
+        <td>${fmtMoney(bucketDistributionValue(bucket, "q1"))}</td>
+        <td>${fmtMoney(bucketDistributionValue(bucket, "q3"))}</td>
+        <td>${movementMarkup(previousChange)}</td>
+        <td>${movementPercentMarkup(previousPct)}</td>
+        <td>${movementMarkup(baselineChange)}</td>
+        <td>${movementPercentMarkup(baselinePct)}</td>
+        <td>${Number(bucket.outlier_count || 0).toLocaleString()}</td>
         <td>${renderGenerationCell(bucket)}</td>
       </tr>`;
     })
@@ -1890,8 +2132,8 @@ function renderComparisonTable(reportA, reportB) {
       <th scope="col" rowspan="2">Difference</th>
     </tr>
     <tr>
-      <th scope="col">Market Median</th><th scope="col">Curve Value</th><th scope="col">Total Loss</th><th scope="col">Loss %</th>
-      <th scope="col">Market Median</th><th scope="col">Curve Value</th><th scope="col">Total Loss</th><th scope="col">Loss %</th>
+      <th scope="col">Market Median</th><th scope="col">Curve Value</th><th scope="col">Since Age 0</th><th scope="col">Change %</th>
+      <th scope="col">Market Median</th><th scope="col">Curve Value</th><th scope="col">Since Age 0</th><th scope="col">Change %</th>
     </tr>`;
   rows.innerHTML = Array.from({ length: maxAge + 1 }, (_, age) => {
     const bucketA = bucketAtAge(reportA, age);
@@ -1900,25 +2142,25 @@ function renderComparisonTable(reportA, reportB) {
       <td>Age ${age}</td>
       <td>${fmtMoney(bucketMarketMedian(bucketA))}</td>
       <td>${fmtMoney(bucketDisplayValue(bucketA))}</td>
-      <td>${fmtMoney(bucketA?.depreciation_from_baseline)}</td>
-      <td>${fmtPct(bucketA?.depreciation_from_baseline_pct)}</td>
+      <td>${movementMarkup(bucketSignedBaselineChange(reportA.buckets, bucketA))}</td>
+      <td>${movementPercentMarkup(bucketSignedBaselinePct(reportA.buckets, bucketA))}</td>
       <td>${fmtMoney(bucketMarketMedian(bucketB))}</td>
       <td>${fmtMoney(bucketDisplayValue(bucketB))}</td>
-      <td>${fmtMoney(bucketB?.depreciation_from_baseline)}</td>
-      <td>${fmtPct(bucketB?.depreciation_from_baseline_pct)}</td>
-      <td class="differenceCell">${comparisonDifference(bucketA, bucketB, nameA, nameB)}</td>
+      <td>${movementMarkup(bucketSignedBaselineChange(reportB.buckets, bucketB))}</td>
+      <td>${movementPercentMarkup(bucketSignedBaselinePct(reportB.buckets, bucketB))}</td>
+      <td class="differenceCell">${comparisonDifference(reportA, bucketA, reportB, bucketB, nameA, nameB)}</td>
     </tr>`;
   }).join("");
 }
 
-function comparisonDifference(bucketA, bucketB, nameA, nameB) {
-  const pctA = finiteNumber(bucketA?.depreciation_from_baseline_pct);
-  const pctB = finiteNumber(bucketB?.depreciation_from_baseline_pct);
+function comparisonDifference(reportA, bucketA, reportB, bucketB, nameA, nameB) {
+  const pctA = bucketSignedBaselinePct(reportA.buckets, bucketA);
+  const pctB = bucketSignedBaselinePct(reportB.buckets, bucketB);
   if (pctA === null || pctB === null) return "-";
   const difference = Math.abs(pctA - pctB);
-  if (difference < 0.0005) return "Equal depreciation";
-  const lowerName = pctA < pctB ? nameA : nameB;
-  return `<strong>${escapeHtml(lowerName)}</strong> ${fmtPoints(difference)} lower`;
+  if (difference < 0.0005) return "Equal value retention";
+  const strongerName = pctA > pctB ? nameA : nameB;
+  return `<strong>${escapeHtml(strongerName)}</strong> retained ${fmtPoints(difference)} more value`;
 }
 
 function renderGenerationCell(bucket) {
@@ -1928,7 +2170,8 @@ function renderGenerationCell(bucket) {
   const ratio = bucket.generation_adjustment_ratio ? ` · x${Number(bucket.generation_adjustment_ratio).toFixed(2)}` : "";
   const year = bucket.generation_adjustment_year ? ` · ${bucket.generation_adjustment_year}` : "";
   const original = bucket.generation_unadjusted_median ? `Before adjustment: ${fmtMoney(bucket.generation_unadjusted_median)}. ` : "";
-  return `<span class="impactBadge" title="${escapeHtml(`${original}${basis}`)}">${escapeHtml(label)} ${fmtPct(bucket.generation_adjustment_pct)}${escapeHtml(ratio)}${escapeHtml(year)}</span>`;
+  const scope = bucketIsProjection(bucket) ? "Forecast only" : "Legacy overlay; raw market median retained";
+  return `<span class="impactBadge" title="${escapeHtml(`${scope}. ${original}${basis}`)}">${escapeHtml(scope)} · -${fmtPct(bucket.generation_adjustment_pct)} · ${escapeHtml(label)}${escapeHtml(ratio)}${escapeHtml(year)}</span>`;
 }
 
 function renderGenerationImpact(impact) {
@@ -1942,6 +2185,7 @@ function renderGenerationImpact(impact) {
   generationImpactPanel.innerHTML = `<div class="generationSummary">
     <strong>${escapeHtml(nextGen.expected_model_year ? `Next gen ${nextGen.expected_model_year}` : "Generation timing researched")}</strong>
     <span>${escapeHtml(nextGen.confidence || "unknown")} confidence · base shock ${fmtPct(estimate.extra_drop_pct)}</span>
+    <span>Forecast scenario only. Observed market medians remain unadjusted source summaries.</span>
     <span>${escapeHtml(estimate.rationale || nextGen.notes || "")}</span>
     <div class="impactList">
       ${impact.adjustments.map((item) => `<span>${escapeHtml(`Age ${item.age}`)} · ${item.calendar_year || ""} · ${fmtPct(item.extra_depreciation_pct)}</span>`).join("")}
@@ -2145,6 +2389,34 @@ function tickValues(minValue, maxValue, count) {
   return ticks.slice(0, count + 1);
 }
 
+function paddedSignedDomain(values, minimumSpan) {
+  const finite = (values || []).map(finiteNumber).filter((value) => value !== null);
+  if (!finite.length) return [-minimumSpan, minimumSpan];
+  let minimum = Math.min(0, ...finite);
+  let maximum = Math.max(0, ...finite);
+  if (minimum === maximum) return [-minimumSpan, minimumSpan];
+  const padding = Math.max(minimumSpan * 0.1, (maximum - minimum) * 0.1);
+  if (minimum < 0) minimum -= padding;
+  if (maximum > 0) maximum += padding;
+  if (maximum - minimum < minimumSpan) {
+    const extra = (minimumSpan - (maximum - minimum)) / 2;
+    minimum -= extra;
+    maximum += extra;
+  }
+  return [minimum, maximum];
+}
+
+function signedTickValues(minimum, maximum, count) {
+  const span = maximum - minimum;
+  const step = niceNumber(span / Math.max(2, count - 1));
+  const ticks = [];
+  for (let value = Math.ceil(minimum / step) * step; value <= maximum + step * 0.01; value += step) {
+    ticks.push(Number(value.toFixed(8)));
+  }
+  if (minimum <= 0 && maximum >= 0 && !ticks.some((value) => Math.abs(value) < step * 0.001)) ticks.push(0);
+  return uniqueNumbers(ticks).sort((left, right) => left - right);
+}
+
 function niceNumber(value) {
   const exponent = Math.floor(Math.log10(value));
   const fraction = value / Math.pow(10, exponent);
@@ -2153,8 +2425,8 @@ function niceNumber(value) {
 }
 
 function firstPredictedAge(buckets) {
-  const found = buckets.find((bucket) => bucket.predicted);
-  return found ? found.age : 11;
+  const found = (buckets || []).find(bucketIsProjection);
+  return found ? Number(found.age) : Number.POSITIVE_INFINITY;
 }
 
 function fmtMoney(value) {
@@ -2163,6 +2435,42 @@ function fmtMoney(value) {
 
 function fmtPct(value) {
   return value == null ? "" : `${(value * 100).toFixed(1)}%`;
+}
+
+function fmtSignedMoney(value) {
+  const number = finiteNumber(value);
+  if (number === null) return "";
+  if (Math.abs(number) < 0.005) return money.format(0);
+  return `${number > 0 ? "+" : "-"}${money.format(Math.abs(number))}`;
+}
+
+function fmtSignedPct(value) {
+  const number = finiteNumber(value);
+  if (number === null) return "";
+  if (Math.abs(number) < 0.00005) return "0.0%";
+  return `${number > 0 ? "+" : "-"}${(Math.abs(number) * 100).toFixed(1)}%`;
+}
+
+function movementDescription(value) {
+  const number = finiteNumber(value);
+  if (number === null) return "No comparable value";
+  if (Math.abs(number) < 0.005) return "No value change";
+  return `${money.format(Math.abs(number))} ${number > 0 ? "appreciation" : "depreciation"}`;
+}
+
+function movementMarkup(value) {
+  const number = finiteNumber(value);
+  if (number === null) return "";
+  const className = number > 0.005 ? "appreciation" : number < -0.005 ? "depreciation" : "flat";
+  const label = className === "appreciation" ? "appreciation" : className === "depreciation" ? "depreciation" : "no change";
+  return `<span class="movement ${className}">${fmtSignedMoney(number)}<small>${label}</small></span>`;
+}
+
+function movementPercentMarkup(value) {
+  const number = finiteNumber(value);
+  if (number === null) return "";
+  const className = number > 0.00005 ? "appreciation" : number < -0.00005 ? "depreciation" : "flat";
+  return `<span class="movement ${className}">${fmtSignedPct(number)}</span>`;
 }
 
 function fmtPoints(value) {

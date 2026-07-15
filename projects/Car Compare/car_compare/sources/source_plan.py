@@ -7,7 +7,13 @@ from urllib.parse import quote, quote_plus, urlencode
 
 from car_compare.models import VehicleQuery
 from car_compare.resolver import resolve_vehicle_query
-from car_compare.vehicle_catalog import source_model_profile, source_query_model, trim_scope_profile
+from car_compare.vehicle_catalog import (
+    collection_start_year,
+    model_year_bounds,
+    source_model_profile,
+    source_query_model,
+    trim_scope_profile,
+)
 
 
 TOP_US_BRAND_SOURCE_NOTE = (
@@ -229,6 +235,7 @@ def build_collection_plan(request: VehicleQuery, current_year: int | None = None
     return {
         "query": request.to_dict(),
         "resolution": resolution,
+        "modelYearBounds": model_year_bounds(request.make, request.model),
         "modelQuery": model_query,
         "matching": {
             "canonical": request.display_name,
@@ -286,7 +293,7 @@ def _autotrader_target(request: VehicleQuery, current_year: int) -> SourceTarget
         params["startYear"] = str(request.target_year)
         params["endYear"] = str(request.target_year)
     else:
-        lower_year = max(current_year - request.max_age, request.start_year or current_year - request.max_age)
+        lower_year = _requested_start_year(request, current_year)
         params["startYear"] = str(lower_year)
         params["endYear"] = str(current_year)
     return SourceTarget(
@@ -319,10 +326,7 @@ def _porsche_finder_target(
 ) -> SourceTarget:
     model_query = source_query_model(request.make, request.model, request.trim)
     model_slug = re.sub(r"[^a-z0-9]+", "-", model_query.lower()).strip("-")
-    lower_year = request.target_year or max(
-        current_year - request.max_age,
-        request.start_year or current_year - request.max_age,
-    )
+    lower_year = request.target_year or _requested_start_year(request, current_year)
     upper_year = request.target_year or current_year
     categories = _porsche_finder_categories(request, trim_scope)
     params: list[tuple[str, str]] = [
@@ -380,7 +384,7 @@ def _edmunds_target(request: VehicleQuery, matching: dict[str, object], current_
     if request.target_year:
         params["year"] = str(request.target_year)
     else:
-        lower_year = max(current_year - request.max_age, request.start_year or current_year - request.max_age)
+        lower_year = _requested_start_year(request, current_year)
         params["year"] = f"{lower_year}-{current_year}"
     return SourceTarget(
         source="edmunds_browser",
@@ -441,7 +445,7 @@ def _visor_target(request: VehicleQuery, matching: dict[str, object], current_ye
     if request.target_year:
         params["year"] = str(request.target_year)
     else:
-        lower_year = max(current_year - request.max_age, request.start_year or current_year - request.max_age)
+        lower_year = _requested_start_year(request, current_year)
         params["year"] = ",".join(str(year) for year in range(lower_year, current_year + 1))
     return SourceTarget(
         source="visor_api_or_facets",
@@ -468,11 +472,24 @@ def _trim_keywords(profile: dict[str, object]) -> list[str]:
 
 
 def _year_validation(request: VehicleQuery) -> list[str]:
+    first_year = model_year_bounds(request.make, request.model)["first"]
     if request.target_year:
+        if first_year is not None and request.target_year < first_year:
+            return [
+                f"U.S.-market lifecycle metadata starts at model-year {first_year}; do not substitute a search-page heading or another model for {request.target_year}."
+            ]
         return [f"Accept only model-year {request.target_year}; do not treat a broad or ignored year filter as valid."]
     if request.start_year:
         return [f"Accept only model-year {request.start_year} or newer."]
     return []
+
+
+def _requested_start_year(request: VehicleQuery, current_year: int) -> int:
+    requested = max(
+        current_year - request.max_age,
+        request.start_year or current_year - request.max_age,
+    )
+    return collection_start_year(request.make, request.model, requested)
 
 
 def _slug(value: str) -> str:

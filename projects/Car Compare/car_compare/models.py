@@ -73,10 +73,15 @@ class BucketStats:
     market_median: float | None = None
     trend_median: float | None = None
     source_counts: dict[str, int] = field(default_factory=dict)
+    outlier_count: int = 0
     depreciation_from_previous: float | None = None
     depreciation_from_previous_pct: float | None = None
     depreciation_from_baseline: float | None = None
     depreciation_from_baseline_pct: float | None = None
+    value_change_from_previous: float | None = None
+    value_change_from_previous_pct: float | None = None
+    value_change_from_baseline: float | None = None
+    value_change_from_baseline_pct: float | None = None
     generation_adjustment_pct: float | None = None
     generation_adjustment_ratio: float | None = None
     generation_adjustment_year: int | None = None

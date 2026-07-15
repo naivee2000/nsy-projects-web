@@ -14,8 +14,8 @@ It accepts natural vehicle queries such as `BMW M4 Competition after 2021`, norm
 
 - age 0 MSRP plus actual new-car market samples when sources expose them
 - observed market values by vehicle age
-- average, median, Q1, Q3, min, max
-- yearly depreciation in dollars and percent
+- average, median, Q1, Q3, IQR whiskers, and retained outlier evidence
+- signed yearly value movement and cumulative change, including appreciation
 - projected values out to the selected horizon, up to 20 years, when data is thin
 - optional Codex generation-impact research for future new-generation depreciation shocks
 - source feasibility status for Edmunds, Autotrader, Visor, and manufacturer MSRP
@@ -60,7 +60,7 @@ This makes it easier to add more websites later. Each source can be tested and f
 
 `Single Car` preserves the original one-vehicle report. `Compare Cars` accepts Car A and Car B with one shared horizon and one `Compare & Research` action. Both vehicle jobs and generation researchers start together; the backend browser lock coordinates each vehicle's audited browser stage while their Visor, Codex review, and generation work can overlap. Each vehicle still receives its own normal depreciation report and generation-impact result, aligned by vehicle age without changing the depreciation formula.
 
-In comparison results, vehicle color stays consistent across charts. Solid line segments are observed, dashed segments are predicted, grouped bars are year-over-year dollar loss, and the labeled percentage dots remain cumulative from each vehicle's own Age 0 market baseline. Source evidence and collection plans remain separate under Car A and Car B tabs.
+In comparison results, vehicle color stays consistent across charts. Solid line segments are observed, dashed segments are predicted, grouped bars are signed year-over-year value movement, and the labeled percentage dots show signed change from each vehicle's own Age 0 market baseline. Source evidence and collection plans remain separate under Car A and Car B tabs.
 
 ## Data Collection Modes
 
