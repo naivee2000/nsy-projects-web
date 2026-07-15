@@ -7,9 +7,11 @@ import re
 from typing import Any
 from urllib.parse import parse_qsl, urlsplit
 
+from car_compare.condition import is_implausible_new, sanitize_listing_condition
 from car_compare.models import BucketStats, Listing, MSRP, VehicleQuery
 from car_compare.resolver import resolve_vehicle_query
 from car_compare.statistics import round_money, round_pct, weighted_mean, weighted_median, weighted_percentile
+from car_compare.trim_normalization import build_trim_normalization
 from car_compare.vehicle_catalog import model_year_bounds
 from car_compare.vehicle_match import matches_vehicle_text
 
@@ -27,8 +29,20 @@ def build_report(
     generation_impact: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     current_year = current_year if current_year is not None else _runtime_current_year()
-    filtered_raw = _filter_listings(request, listings)
-    deduped = dedupe_listings(filtered_raw)
+    normalized_listings = [
+        replace(
+            listing,
+            condition=sanitize_listing_condition(
+                listing.condition,
+                listing.title,
+                listing.year,
+                current_year=current_year,
+            ),
+        )
+        for listing in listings
+    ]
+    filtered_raw = _filter_listings(request, normalized_listings)
+    deduped, dedupe_diagnostics = dedupe_listings_with_diagnostics(filtered_raw)
     lifecycle_bounds = model_year_bounds(request.make, request.model)
     filtered: list[Listing] = []
     outside_horizon: list[Listing] = []
@@ -65,12 +79,15 @@ def build_report(
 
     if not filtered and effective_msrp.price <= 0:
         buckets = _empty_buckets(request, current_year)
+        trim_normalization = build_trim_normalization(request, filtered)
+        _apply_trim_normalization(buckets, trim_normalization)
         return _report_payload(
             request=request,
             msrp=effective_msrp,
             filtered=filtered,
             filtered_raw=filtered_raw,
             deduped_count=len(deduped),
+            dedupe_diagnostics=dedupe_diagnostics,
             outside_horizon=outside_horizon,
             outside_lifecycle=outside_lifecycle,
             model_year_bounds=lifecycle_bounds,
@@ -78,7 +95,10 @@ def build_report(
             current_year=current_year,
             data_quality="needs_collection",
             generation_impact=generation_impact,
+            trim_normalization=trim_normalization,
         )
+
+    trim_normalization = build_trim_normalization(request, filtered)
 
     buckets: list[BucketStats] = [
         _age_zero_bucket(
@@ -122,6 +142,7 @@ def build_report(
                         low=observed_low,
                         high=observed_high,
                         market_median=observed_median,
+                        curve_median=observed_median,
                         source_counts=source_counts,
                         outlier_count=outlier_count,
                         confidence="observed",
@@ -161,6 +182,7 @@ def build_report(
                 )
             )
 
+    _apply_trim_normalization(buckets, trim_normalization)
     _apply_trend_and_predictions(
         buckets,
         generation_impact,
@@ -175,6 +197,7 @@ def build_report(
         filtered=filtered,
         filtered_raw=filtered_raw,
         deduped_count=len(deduped),
+        dedupe_diagnostics=dedupe_diagnostics,
         outside_horizon=outside_horizon,
         outside_lifecycle=outside_lifecycle,
         model_year_bounds=lifecycle_bounds,
@@ -182,6 +205,7 @@ def build_report(
         current_year=current_year,
         data_quality=data_quality,
         generation_impact=generation_impact,
+        trim_normalization=trim_normalization,
     )
 
 
@@ -191,6 +215,7 @@ def _report_payload(
     filtered: list[Listing],
     filtered_raw: list[Listing],
     deduped_count: int,
+    dedupe_diagnostics: dict[str, Any],
     outside_horizon: list[Listing],
     outside_lifecycle: list[Listing],
     model_year_bounds: dict[str, int | None],
@@ -198,6 +223,7 @@ def _report_payload(
     current_year: int,
     data_quality: str,
     generation_impact: dict[str, Any] | None,
+    trim_normalization: dict[str, Any],
 ) -> dict[str, Any]:
     source_counts = Counter(item.source for item in filtered)
     source_urls = sorted({item.url for item in filtered if item.url})
@@ -210,6 +236,19 @@ def _report_payload(
             "listingCount": len(filtered),
             "rawListingCount": len(filtered_raw),
             "duplicatesRemoved": max(0, len(filtered_raw) - deduped_count),
+            "dedupeDiagnostics": dedupe_diagnostics,
+            "conditionDiagnostics": {
+                "counts": dict(Counter((item.condition or "unknown").lower() for item in filtered)),
+                "implausibleNewRows": sum(
+                    1
+                    for item in filtered
+                    if is_implausible_new(item.condition, item.title, item.year, current_year)
+                ),
+                "conditionConflicts": sum(
+                    1 for item in filtered if "condition_conflict" in (item.confidence or "").lower()
+                ),
+            },
+            "trimNormalization": _clean_trim_normalization(trim_normalization),
             "outsideHorizonRows": len(outside_horizon),
             "outsideHorizonYears": dict(sorted(Counter(item.year for item in outside_horizon).items(), reverse=True)),
             "modelYearBounds": model_year_bounds,
@@ -441,6 +480,7 @@ def _age_zero_bucket(
         low=observed_low,
         high=observed_high,
         market_median=observed_median,
+        curve_median=observed_median,
         trend_median=observed_median,
         source_counts=dict(source_counts),
         outlier_count=outlier_count,
@@ -513,10 +553,44 @@ def _empty_buckets(request: VehicleQuery, current_year: int) -> list[BucketStats
     ]
 
 
+def _apply_trim_normalization(
+    buckets: list[BucketStats],
+    normalization: dict[str, Any],
+) -> None:
+    normalized_years = normalization.get("years") or {}
+    applied = normalization.get("status") == "applied"
+    for bucket in buckets:
+        if bucket.observed:
+            bucket.curve_median = bucket.market_median if bucket.market_median is not None else bucket.median
+        if not applied or bucket.model_year is None:
+            continue
+        year_data = normalized_years.get(bucket.model_year) or normalized_years.get(str(bucket.model_year))
+        if not isinstance(year_data, dict):
+            continue
+        try:
+            normalized_median = float(year_data["median"])
+            coverage = float(year_data["coverage"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        bucket.trim_normalized_median = normalized_median
+        bucket.trim_normalization_coverage_pct = coverage
+        bucket.trim_cohort_counts = {
+            str(key): int(value)
+            for key, value in (year_data.get("cohortCounts") or {}).items()
+        }
+        bucket.curve_median = normalized_median
+
+
 def dedupe_listings(listings: list[Listing]) -> list[Listing]:
+    return dedupe_listings_with_diagnostics(listings)[0]
+
+
+def dedupe_listings_with_diagnostics(listings: list[Listing]) -> tuple[list[Listing], dict[str, Any]]:
     # Normalize and sort copies so the result does not depend on which source
     # happened to finish first. VIN groups are kept distinct by construction.
     normalized = [replace(item, vin=_normalize_vin(item.vin)) for item in listings]
+    removed_by_method: Counter[str] = Counter()
+    raw_exact_groups = _count_cross_source_exact_groups(normalized)
     vin_rows: dict[str, list[Listing]] = defaultdict(list)
     no_vin_rows: list[Listing] = []
     for listing in normalized:
@@ -525,20 +599,23 @@ def dedupe_listings(listings: list[Listing]) -> list[Listing]:
         else:
             no_vin_rows.append(listing)
 
-    by_vin = {
-        vin: _merge_group(rows)
-        for vin, rows in sorted(vin_rows.items())
-    }
+    by_vin = {}
+    for vin, rows in sorted(vin_rows.items()):
+        by_vin[vin] = _merge_group(rows)
+        if len(rows) > 1:
+            removed_by_method["vin"] += len(rows) - 1
 
     no_vin_groups: list[list[Listing]] = []
     for listing in sorted(no_vin_rows, key=_listing_sort_key):
         matches = [
-            index
+            (index, method)
             for index, group in enumerate(no_vin_groups)
-            if _fallback_duplicate(_merge_group(group), listing)
+            if (method := _duplicate_match_method(_merge_group(group), listing))
         ]
         if len(matches) == 1:
-            no_vin_groups[matches[0]].append(listing)
+            index, method = matches[0]
+            no_vin_groups[index].append(listing)
+            removed_by_method[method] += 1
         else:
             # An ambiguous row that matches more than one cluster must not
             # bridge two real vehicles together.
@@ -547,14 +624,27 @@ def dedupe_listings(listings: list[Listing]) -> list[Listing]:
     unmatched: list[Listing] = []
     for group in no_vin_groups:
         no_vin = _merge_group(group)
-        vin_matches = [vin for vin, existing in by_vin.items() if _fallback_duplicate(existing, no_vin)]
+        vin_matches = [
+            (vin, method)
+            for vin, existing in by_vin.items()
+            if (method := _duplicate_match_method(existing, no_vin))
+        ]
         if len(vin_matches) == 1:
-            vin = vin_matches[0]
+            vin, method = vin_matches[0]
             by_vin[vin] = _merge_duplicate(by_vin[vin], no_vin)
+            removed_by_method[method] += 1
         else:
             unmatched.append(no_vin)
 
-    return sorted([*by_vin.values(), *unmatched], key=_output_listing_sort_key)
+    result = sorted([*by_vin.values(), *unmatched], key=_output_listing_sort_key)
+    diagnostics = {
+        "rawIndividualRows": sum(1 for item in normalized if not _is_aggregate_observation(item)),
+        "totalRemoved": max(0, len(normalized) - len(result)),
+        "removedByMethod": dict(sorted(removed_by_method.items())),
+        "rawCrossSourceExactGroups": raw_exact_groups,
+        "unresolvedCrossSourceExactGroups": _count_cross_source_exact_groups(result),
+    }
+    return result, diagnostics
 
 
 def _merge_group(rows: list[Listing]) -> Listing:
@@ -597,39 +687,50 @@ def _normalize_vin(vin: str) -> str:
 
 
 def _fallback_duplicate(left: Listing, right: Listing) -> bool:
+    return bool(_duplicate_match_method(left, right))
+
+
+def _duplicate_match_method(left: Listing, right: Listing) -> str:
     if _is_aggregate_observation(left) or _is_aggregate_observation(right):
-        return False
+        return ""
     if left.year != right.year:
-        return False
+        return ""
+    if left.vin and right.vin and left.vin != right.vin:
+        return ""
+    identity_method = _same_listing_identity_method(left, right)
+    if identity_method:
+        return identity_method
     if not _conditions_compatible(left.condition, right.condition):
-        return False
-    if _same_listing_identity(left, right):
-        return True
-    if _source_names(left.source) & _source_names(right.source):
+        return ""
+    overlapping_sources = bool(_source_names(left.source) & _source_names(right.source))
+    if overlapping_sources:
         # Without VIN/detail/stock identity, similar cards from one source are
         # separate inventory. Source-local exact repeats are already removed by
         # the adapter before reaching global cross-source deduplication.
-        return _exact_listing_fingerprint(left) == _exact_listing_fingerprint(right)
+        return "same_source_exact" if _exact_listing_fingerprint(left) == _exact_listing_fingerprint(right) else ""
+    left_fingerprint = _cross_source_exact_fingerprint(left)
+    if left_fingerprint and left_fingerprint == _cross_source_exact_fingerprint(right):
+        return "cross_source_exact"
     if not left.dealer or not right.dealer:
-        return False
+        return ""
     if _norm(left.dealer) != _norm(right.dealer):
-        return False
+        return ""
     if left.mileage is None or right.mileage is None:
-        return False
+        return ""
     if abs(left.price - right.price) > 250:
-        return False
+        return ""
     if abs(left.mileage - right.mileage) > 500:
-        return False
+        return ""
 
     left_title = _norm(left.title or left.trim)
     right_title = _norm(right.title or right.trim)
     if not left_title or not right_title:
-        return False
+        return ""
     left_tokens = set(left_title.split())
     right_tokens = set(right_title.split())
     shared = left_tokens & right_tokens
     required = max(2, min(len(left_tokens), len(right_tokens)) // 2)
-    return len(shared) >= required
+    return "dealer_fuzzy" if len(shared) >= required else ""
 
 
 def _is_aggregate_observation(listing: Listing) -> bool:
@@ -647,8 +748,13 @@ def _merge_duplicate(left: Listing, right: Listing) -> Listing:
     left.url = _merge_url(left.url, right.url)
     left.vin = _normalize_vin(left.vin or right.vin)
     left.dealer = left.dealer or right.dealer
-    left.confidence = "deduped"
-    left.condition = _merge_condition(left.condition, right.condition)
+    merged_condition = _merge_condition(left.condition, right.condition)
+    condition_conflict = merged_condition == "unknown" and "new" in {
+        (left.condition or "unknown").lower(),
+        (right.condition or "unknown").lower(),
+    }
+    left.confidence = "deduped_condition_conflict" if condition_conflict else "deduped"
+    left.condition = merged_condition
     return left
 
 
@@ -674,13 +780,16 @@ def _merge_condition(left: str, right: str) -> str:
     right = (right or "unknown").lower()
     if left == right:
         return left
-    if "new" in {left, right}:
+    values = {left, right}
+    if values == {"new", "unknown"}:
         return "new"
-    if "cpo" in {left, right}:
+    if "new" in values:
+        return "unknown"
+    if "cpo" in values:
         return "cpo"
-    if "used" in {left, right}:
+    if "used" in values:
         return "used"
-    return left or right or "used"
+    return "unknown"
 
 
 def _conditions_compatible(left: str, right: str) -> bool:
@@ -692,21 +801,25 @@ def _conditions_compatible(left: str, right: str) -> bool:
 
 
 def _same_listing_identity(left: Listing, right: Listing) -> bool:
+    return bool(_same_listing_identity_method(left, right))
+
+
+def _same_listing_identity_method(left: Listing, right: Listing) -> str:
     left_urls = _detail_listing_urls(left.url)
     right_urls = _detail_listing_urls(right.url)
     if left_urls & right_urls:
-        return True
+        return "detail_url"
     if not (_stock_ids(left) & _stock_ids(right)):
-        return False
+        return ""
     if left.dealer and right.dealer and _norm(left.dealer) == _norm(right.dealer):
-        return True
+        return "stock_id"
     left_title = _identity_title(left.title or left.trim)
     right_title = _identity_title(right.title or right.trim)
     if left_title and left_title == right_title:
         if left.mileage is None or right.mileage is None:
-            return True
-        return abs(left.mileage - right.mileage) <= 1000
-    return False
+            return "stock_id"
+        return "stock_id" if abs(left.mileage - right.mileage) <= 1000 else ""
+    return ""
 
 
 def _detail_listing_urls(value: str) -> set[str]:
@@ -753,6 +866,70 @@ def _exact_listing_fingerprint(listing: Listing) -> tuple[object, ...]:
         float(listing.price),
         listing.mileage,
         _norm(listing.dealer),
+    )
+
+
+def _cross_source_exact_fingerprint(listing: Listing) -> tuple[object, ...] | None:
+    trim_identity = _identity_trim(listing.trim)
+    title_identity = _identity_title(listing.title or listing.trim)
+    vehicle_identity = trim_identity or title_identity
+    if listing.mileage is None or not vehicle_identity:
+        return None
+    return (
+        listing.year,
+        vehicle_identity,
+        round(float(listing.price), 2),
+        listing.mileage,
+    )
+
+
+def _identity_trim(value: str) -> str:
+    normalized = _norm(value)
+    if not normalized:
+        return ""
+    patterns = [
+        (r"\bgt3 rs\b", "gt3 rs"),
+        (r"\bgt2 rs\b", "gt2 rs"),
+        (r"\bgt3\b", "gt3"),
+        (r"\bturbo s\b", "turbo s"),
+        (r"\bturbo\b", "turbo"),
+        (r"\btarga 4 gts\b", "targa 4 gts"),
+        (r"\btarga 4s\b", "targa 4s"),
+        (r"\btarga 4\b", "targa 4"),
+        (r"\bcarrera 4 gts\b", "carrera 4 gts"),
+        (r"\bcarrera gts\b", "carrera gts"),
+        (r"\bcarrera 4s\b", "carrera 4s"),
+        (r"\bcarrera s\b", "carrera s"),
+        (r"\bcarrera 4\b", "carrera 4"),
+        (r"\bcarrera t\b", "carrera t"),
+        (r"\bcarrera\b", "carrera"),
+        (r"\bcompetition xdrive\b", "competition xdrive"),
+        (r"\bcompetition\b", "competition"),
+        (r"\bcsl\b", "csl"),
+        (r"\bcs\b", "cs"),
+        (r"\bgts\b", "gts"),
+    ]
+    for pattern, label in patterns:
+        if re.search(pattern, normalized):
+            return label
+    normalized = re.split(r"\b(?:certified|pre owned|used|new|in transit)\b", normalized, maxsplit=1)[0]
+    normalized = re.sub(r"\b(?:coupe|convertible|cabriolet|sedan|roadster)\b", " ", normalized)
+    return re.sub(r"\s+", " ", normalized).strip()
+
+
+def _count_cross_source_exact_groups(listings: list[Listing]) -> int:
+    groups: dict[tuple[object, ...], list[Listing]] = defaultdict(list)
+    for listing in listings:
+        if _is_aggregate_observation(listing):
+            continue
+        if listing.mileage is None:
+            continue
+        fingerprint = (listing.year, round(float(listing.price), 2), listing.mileage)
+        groups[fingerprint].append(listing)
+    return sum(
+        1
+        for rows in groups.values()
+        if len(rows) > 1 and len(set().union(*(_source_names(row.source) for row in rows))) > 1
     )
 
 
@@ -827,7 +1004,7 @@ def _apply_trend_and_predictions(
     generation_base_year: int | None = None,
 ) -> None:
     current_year = current_year if current_year is not None else _runtime_current_year()
-    last_trend = buckets[0].trend_median or buckets[0].median
+    last_trend = buckets[0].curve_median or buckets[0].trend_median or buckets[0].median
     baseline_forecast_year = buckets[0].model_year or (
         max(buckets[0].model_years) if buckets[0].model_years else current_year
     )
@@ -841,8 +1018,8 @@ def _apply_trend_and_predictions(
         if bucket.age == 0:
             continue
 
-        if bucket.observed and bucket.median is not None:
-            raw_trend = bucket.median
+        if bucket.observed and (bucket.curve_median is not None or bucket.median is not None):
+            raw_trend = bucket.curve_median if bucket.curve_median is not None else bucket.median
             bucket.trend_median = raw_trend
             if last_trend:
                 retention_rates.append(max(0.65, min(0.99, raw_trend / last_trend)))
@@ -866,6 +1043,7 @@ def _apply_trend_and_predictions(
         bucket.predicted = True
         bucket.observed = False
         bucket.trend_median = projected
+        bucket.curve_median = projected
         bucket.median = projected
         bucket.average = projected * 1.01
         bucket.q1 = projected * q1_ratio
@@ -917,14 +1095,14 @@ def _projection_rate(age: int, observed_rates: list[float]) -> float:
 
 
 def _apply_depreciation(buckets: list[BucketStats]) -> None:
-    baseline = buckets[0].trend_median or buckets[0].median
+    baseline = buckets[0].curve_median or buckets[0].trend_median or buckets[0].median
     previous = baseline
     for bucket in buckets:
         bucket.value_change_from_previous = None
         bucket.value_change_from_previous_pct = None
         bucket.value_change_from_baseline = None
         bucket.value_change_from_baseline_pct = None
-        current = bucket.trend_median or bucket.median
+        current = bucket.curve_median or bucket.trend_median or bucket.median
         if current is None:
             continue
         if bucket.age == 0:
@@ -988,7 +1166,7 @@ def _apply_generation_adjustments(
 def _scale_bucket_prices(bucket: BucketStats, scale: float) -> None:
     if scale <= 0:
         return
-    for field in ("average", "median", "q1", "q3", "low", "high"):
+    for field in ("average", "median", "curve_median", "q1", "q3", "low", "high"):
         value = getattr(bucket, field)
         if value is not None:
             setattr(bucket, field, value * scale)
@@ -1074,6 +1252,19 @@ def _clean_bucket(bucket: BucketStats) -> dict[str, Any]:
         elif isinstance(value, list):
             data[key] = [round_money(item) if isinstance(item, float) else item for item in value]
     return data
+
+
+def _clean_trim_normalization(value: dict[str, Any]) -> dict[str, Any]:
+    def clean(item: Any) -> Any:
+        if isinstance(item, float):
+            return round(item, 4)
+        if isinstance(item, dict):
+            return {str(key): clean(child) for key, child in item.items() if key != "years"}
+        if isinstance(item, list):
+            return [clean(child) for child in item]
+        return item
+
+    return clean(value)
 
 
 def _runtime_current_year() -> int:

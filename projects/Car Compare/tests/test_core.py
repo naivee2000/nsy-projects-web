@@ -15,7 +15,8 @@ from io import BytesIO
 from types import SimpleNamespace
 from urllib.parse import parse_qs, urlparse
 
-from car_compare.depreciation import build_report, dedupe_listings
+from car_compare.condition import sanitize_listing_condition
+from car_compare.depreciation import build_report, dedupe_listings, dedupe_listings_with_diagnostics
 from pathlib import Path
 
 from car_compare.collector import (
@@ -45,7 +46,7 @@ from car_compare.parser import parse_vehicle_query
 from car_compare.resolver import resolve_vehicle_query
 from car_compare.sample_data import default_msrp_for, sample_listings_for
 from car_compare.shared_auth import SharedSessionAuth, valid_shared_session_token
-from car_compare.sources.browser_capture import parse_visible_listing_text
+from car_compare.sources.browser_capture import parse_visible_listing_cards, parse_visible_listing_text
 from car_compare.sources.chrome_host import (
     background_mode_enabled,
     capture_is_access_wall,
@@ -69,6 +70,7 @@ from car_compare.sources.visor_facets import (
     _visor_url,
 )
 from car_compare.statistics import percentile
+from car_compare.trim_normalization import build_trim_normalization, canonical_trim_cohort
 from car_compare.vehicle_match import vehicle_text_match_score
 from car_compare.vehicle_catalog import MODEL_CATALOG
 import app as web_app
@@ -1108,6 +1110,206 @@ class ReportTests(unittest.TestCase):
         missing_mileage = [replace(complete[0], mileage=None), replace(complete[1], mileage=None)]
         self.assertEqual(len(dedupe_listings(missing_mileage)), 2)
 
+    def test_collection_inconsistency_benchmarks_clear_forty_percent_targets(self) -> None:
+        fixture = json.loads(
+            (Path(__file__).parent / "fixtures" / "collection_inconsistency_benchmarks.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        limits = fixture["baselines"]
+
+        duplicate_rows = []
+        for index in range(limits["porsche_cross_source_duplicate_groups"]):
+            price = 120_000 + (index * 1_000)
+            mileage = 1_000 + index
+            right_trim = "Carrera S (992 I) Certified Pre-Owned Black" if index < 20 else "Carrera 4S"
+            duplicate_rows.extend(
+                [
+                    Listing(
+                        "edmunds_browser",
+                        2024,
+                        price,
+                        "Carrera S Coupe",
+                        mileage,
+                        "2024 Porsche 911 Carrera S Coupe",
+                        condition="used",
+                    ),
+                    Listing(
+                        "porsche_finder_browser",
+                        2024,
+                        price,
+                        right_trim,
+                        mileage,
+                        f"2024 Porsche 911 {right_trim}",
+                        condition="cpo",
+                    ),
+                ]
+            )
+        _, diagnostics = dedupe_listings_with_diagnostics(duplicate_rows)
+        self.assertEqual(
+            diagnostics["rawCrossSourceExactGroups"],
+            limits["porsche_cross_source_duplicate_groups"],
+        )
+        self.assertLessEqual(
+            diagnostics["unresolvedCrossSourceExactGroups"],
+            limits["maximum_allowed_duplicate_groups"],
+        )
+
+        sanitized_conditions = [
+            sanitize_listing_condition("new", "2018 Porsche 911 Carrera S", 2018, current_year=2026)
+            for _ in range(limits["implausible_historical_new_rows"])
+        ]
+        self.assertLessEqual(
+            sanitized_conditions.count("new"),
+            limits["maximum_allowed_historical_new_rows"],
+        )
+
+        cohort_titles = {
+            "base": "Carrera",
+            "s": "Carrera S",
+            "gts": "Carrera GTS",
+            "turbo": "Turbo S",
+            "gt_special": "GT3",
+        }
+        trim_rows = []
+        for raw_year, counts in fixture["porsche_trim_counts"].items():
+            year = int(raw_year)
+            for cohort, count in counts.items():
+                trim = cohort_titles[cohort]
+                cohort_premium = ["base", "s", "gts", "turbo", "gt_special"].index(cohort) * 30_000
+                for index in range(count):
+                    trim_rows.append(
+                        Listing(
+                            "benchmark_browser",
+                            year,
+                            80_000 + cohort_premium + ((year - 2006) * 1_500) + index,
+                            trim,
+                            10_000 + index,
+                            f"{year} Porsche 911 {trim}",
+                        )
+                    )
+        normalization = build_trim_normalization(parse_vehicle_query("Porsche 911"), trim_rows)
+        self.assertEqual(normalization["status"], "applied")
+        self.assertLessEqual(normalization["divergenceRatio"], limits["maximum_divergence_ratio"])
+        self.assertGreaterEqual(normalization["yearRetention"], limits["minimum_year_retention"])
+
+        report = build_report(
+            parse_vehicle_query("Porsche 911"),
+            trim_rows,
+            MSRP(135000, "Porsche 911 MSRP", "porsche", ""),
+            current_year=2026,
+        )
+        self.assertEqual(report["summary"]["trimNormalization"]["status"], "applied")
+        normalized_bucket = next(
+            bucket for bucket in report["buckets"] if bucket["trim_normalized_median"] is not None
+        )
+        self.assertEqual(normalized_bucket["curve_median"], normalized_bucket["trim_normalized_median"])
+        self.assertIsNotNone(normalized_bucket["market_median"])
+
+    def test_trim_normalization_keeps_exact_trim_and_sparse_queries_raw(self) -> None:
+        exact = build_trim_normalization(
+            parse_vehicle_query("Porsche 911 Carrera S"),
+            [Listing("market", 2024, 150000, "Carrera S", title="2024 Porsche 911 Carrera S")],
+        )
+        self.assertEqual(exact["status"], "exact_trim")
+
+        sparse = build_trim_normalization(
+            parse_vehicle_query("Porsche 911"),
+            [
+                Listing("market", 2024, 150000, "Carrera S", title="2024 Porsche 911 Carrera S"),
+                Listing("market", 2023, 145000, "Carrera S", title="2023 Porsche 911 Carrera S"),
+            ],
+        )
+        self.assertEqual(sparse["status"], "insufficient_coverage")
+
+    def test_trim_normalization_generalizes_across_catalog_and_uncatalogued_models(self) -> None:
+        cases = [
+            ("Toyota Camry", "LE FWD Sedan", "XSE AWD Sedan", "catalog"),
+            ("Ford Mustang", "EcoBoost Coupe", "GT Coupe", "catalog"),
+            ("Mercedes GLE", "GLE 350 4MATIC SUV", "GLE 450 4MATIC SUV", "catalog"),
+            ("Nissan Rogue", "SV AWD SUV", "SL AWD SUV", "generic"),
+        ]
+        for query_text, lower_trim, upper_trim, strategy in cases:
+            with self.subTest(query_text=query_text):
+                query = parse_vehicle_query(query_text)
+                rows = []
+                for year, counts in [(2024, (8, 2)), (2023, (2, 8)), (2022, (5, 5))]:
+                    for cohort_index, (trim, count) in enumerate(zip((lower_trim, upper_trim), counts)):
+                        for index in range(count):
+                            rows.append(
+                                Listing(
+                                    "general_market",
+                                    year,
+                                    25_000 + (cohort_index * 20_000) + index,
+                                    trim,
+                                    10_000 + index,
+                                    f"{year} {query.make} {query.model} {trim}",
+                                )
+                            )
+                normalization = build_trim_normalization(query, rows)
+                self.assertEqual(normalization["status"], "applied")
+                self.assertEqual(normalization["yearRetention"], 1.0)
+                self.assertLessEqual(normalization["divergenceRatio"], 0.60)
+                self.assertGreater(normalization["cohortStrategyCounts"].get(strategy, 0), 0)
+
+    def test_generic_trim_cohort_removes_page_noise_but_preserves_configuration(self) -> None:
+        query = parse_vehicle_query("Nissan Rogue")
+        listing = Listing(
+            "market",
+            2024,
+            30_000,
+            "2024 Nissan Rogue SV AWD Certified Pre-Owned SUV",
+            title="2024 Nissan Rogue SV AWD Certified Pre-Owned SUV",
+        )
+        self.assertEqual(canonical_trim_cohort(query, listing), "sv_awd")
+
+        configuration_only = replace(listing, trim="Hybrid AWD")
+        self.assertEqual(canonical_trim_cohort(query, configuration_only), "")
+
+        noisy = replace(listing, trim="Limited AWD with premium technology package and panoramic roof")
+        self.assertEqual(canonical_trim_cohort(query, noisy), "")
+
+    def test_identity_and_condition_rules_apply_to_general_market_rows(self) -> None:
+        rows = [
+            Listing("one", 2024, 31_500, "XSE Sedan", 20_000, "2024 Toyota Camry XSE Sedan"),
+            Listing("two", 2024, 31_500, "XSE", 20_000, "Used 2024 Toyota Camry XSE"),
+        ]
+        deduped, diagnostics = dedupe_listings_with_diagnostics(rows)
+        self.assertEqual(len(deduped), 1)
+        self.assertEqual(diagnostics["removedByMethod"]["cross_source_exact"], 1)
+        self.assertEqual(
+            sanitize_listing_condition("new", "2018 Toyota Camry XSE", 2018, current_year=2026),
+            "unknown",
+        )
+
+    def test_strong_identity_condition_conflict_becomes_unknown(self) -> None:
+        rows = [
+            Listing(
+                "one",
+                2026,
+                100000,
+                "Competition",
+                100,
+                "New 2026 BMW M4 Competition",
+                url="https://dealer.test/vehicle/ABC123",
+                condition="new",
+            ),
+            Listing(
+                "two",
+                2026,
+                100000,
+                "Competition",
+                100,
+                "Used 2026 BMW M4 Competition",
+                url="https://dealer.test/vehicle/ABC123",
+                condition="used",
+            ),
+        ]
+        deduped = dedupe_listings(rows)
+        self.assertEqual(len(deduped), 1)
+        self.assertEqual(deduped[0].condition, "unknown")
+        self.assertEqual(deduped[0].confidence, "deduped_condition_conflict")
+
     def test_target_year_is_an_exact_filter(self) -> None:
         query = parse_vehicle_query("2022 BMW M4 Competition")
         rows = [
@@ -1447,6 +1649,63 @@ class BrowserCaptureTests(unittest.TestCase):
         """
         listings = parse_visible_listing_text("edmunds_browser", "https://example.test", text, query)
         self.assertEqual(listings[0].vin, "WBS43AZ02PCN03113")
+
+    def test_global_new_filter_does_not_mark_historical_listing_new(self) -> None:
+        query = parse_vehicle_query("Porsche 911")
+        text = """
+        New
+        2018 Porsche 911 Carrera S
+        $109,500
+        31,000 miles
+        """
+        listing = parse_visible_listing_text(
+            "edmunds_browser",
+            "https://www.edmunds.com/porsche/911/",
+            text,
+            query,
+        )[0]
+        self.assertEqual(listing.condition, "used")
+
+    def test_structured_card_preserves_detail_url_condition_and_dealer(self) -> None:
+        query = parse_vehicle_query("Porsche 911")
+        detail_url = "https://www.autotrader.com/cars-for-sale/vehicle/ABC123"
+        listings = parse_visible_listing_cards(
+            "autotrader_browser",
+            [
+                {
+                    "url": detail_url,
+                    "text": (
+                        "Certified Pre-Owned\n"
+                        "2025 Porsche 911 Carrera S\n"
+                        "$202,933\n"
+                        "54 miles\n"
+                        "Sponsored by Porsche Center North"
+                    ),
+                }
+            ],
+            query,
+        )
+        self.assertEqual(len(listings), 1)
+        self.assertEqual(listings[0].url, detail_url)
+        self.assertEqual(listings[0].condition, "cpo")
+        self.assertEqual(listings[0].dealer, "Porsche Center North")
+
+    def test_cached_historical_new_row_is_sanitized(self) -> None:
+        listing = listings_from_result(
+            {
+                "listings": [
+                    {
+                        "source": "edmunds_browser",
+                        "year": 2006,
+                        "price": 45000,
+                        "mileage": 91816,
+                        "title": "2006 Porsche 911 Carrera S Convertible",
+                        "condition": "new",
+                    }
+                ]
+            }
+        )[0]
+        self.assertEqual(listing.condition, "unknown")
 
     def test_parse_multiline_bentley_autotrader_capture(self) -> None:
         query = parse_vehicle_query("Bentley Continental GT Speed")
@@ -3353,6 +3612,34 @@ out.write_text(json.dumps({
         merged = _merge_collector_results(facet, codex)
         self.assertEqual(merged["msrp"]["price"], 50000)
         self.assertEqual(merged["msrp"]["source"], "visor")
+
+    def test_merge_omits_unavailable_visor_alias_when_public_facets_succeeded(self) -> None:
+        facet = {
+            "status": "success",
+            "sources": [
+                {"source": "visor_public_facets", "status": "success"},
+                {"source": "visor_public_facets_new", "status": "success"},
+            ],
+            "listings": [{"source": "visor_public_facets", "year": 2023, "price": 200000}],
+            "msrp": None,
+        }
+        codex = {
+            "status": "partial",
+            "sources": [
+                {"source": "visor_api_or_facets", "status": "unavailable"},
+                {"source": "visor_new_facets", "status": "blocked"},
+                {"source": "manufacturer_official_new", "status": "partial"},
+            ],
+            "listings": [],
+            "msrp": None,
+        }
+
+        merged = _merge_collector_results(facet, codex)
+
+        self.assertEqual(
+            [item["source"] for item in merged["sources"]],
+            ["visor_public_facets", "visor_public_facets_new", "manufacturer_official_new"],
+        )
 
     def test_merge_binds_automatic_msrp_to_target_year(self) -> None:
         request = parse_vehicle_query("2022 BMW M4 Competition")

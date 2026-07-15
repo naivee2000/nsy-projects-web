@@ -16,12 +16,17 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
+from car_compare.condition import sanitize_listing_condition
 from car_compare.models import Listing, MSRP, VehicleQuery
 from car_compare.parser import parse_vehicle_query
 from car_compare.browser_runtime import browser_cdp_status
 from car_compare.capture_cache import CaptureCache, ResearchResultCache
 from car_compare.codex_cli import codex_environment, codex_login_status, find_codex_cli
-from car_compare.sources.browser_capture import listing_year_in_scope, parse_visible_listing_text
+from car_compare.sources.browser_capture import (
+    listing_year_in_scope,
+    parse_visible_listing_cards,
+    parse_visible_listing_text,
+)
 from car_compare.sources.chrome_host import (
     capture_access_message,
     capture_is_access_wall,
@@ -1383,7 +1388,22 @@ class CollectionManager:
                 capture["rejectedReason"] = "zero_listing_cards"
             else:
                 reported_cards = _capture_listing_card_count(capture)
-                parsed_rows = parse_visible_listing_text(source, search_url, str(capture.get("text") or ""), request)
+                structured_rows = parse_visible_listing_cards(
+                    source,
+                    capture.get("cards") or [],
+                    request,
+                )
+                text_rows = parse_visible_listing_text(
+                    source,
+                    search_url,
+                    str(capture.get("text") or ""),
+                    request,
+                )
+                structured_keys = {_capture_listing_identity(item) for item in structured_rows}
+                parsed_rows = [
+                    *structured_rows,
+                    *(item for item in text_rows if _capture_listing_identity(item) not in structured_keys),
+                ]
                 if reported_cards is not None and len(parsed_rows) > reported_cards:
                     rows_over_card_count += len(parsed_rows) - reported_cards
                     parsed_rows = parsed_rows[:reported_cards]
@@ -1814,7 +1834,10 @@ def _merge_collector_results(
         merged["status"] = codex_result.get("status") or facet_result.get("status") or "blocked"
 
     merged["notes"] = [*(facet_result.get("notes") or []), *(codex_result.get("notes") or [])]
-    merged["sources"] = [*(facet_result.get("sources") or []), *(codex_result.get("sources") or [])]
+    merged["sources"] = _merge_source_audits(
+        facet_result.get("sources") or [],
+        codex_result.get("sources") or [],
+    )
     merged["evidence"] = [*(facet_result.get("evidence") or []), *(codex_result.get("evidence") or [])]
     merged["listings"] = [*(facet_result.get("listings") or []), *(codex_result.get("listings") or [])]
     codex_msrp = msrp_from_result({"msrp": codex_result.get("msrp")})
@@ -1825,6 +1848,42 @@ def _merge_collector_results(
         facet_msrp = None
     selected_msrp = codex_msrp or facet_msrp
     merged["msrp"] = selected_msrp.to_dict() if selected_msrp else None
+    return merged
+
+
+def _merge_source_audits(
+    facet_sources: list[dict[str, Any]],
+    codex_sources: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Merge source disclosures without contradictory fallback placeholders.
+
+    The collection plan uses generic Visor target names while the deterministic
+    adapter records its concrete public-facet source names. A cached review can
+    therefore report the generic target as unavailable even though the public
+    facet adapter succeeded in the same job. Keep a real fallback result, but
+    omit only unavailable/blocked aliases that have already been satisfied by
+    the deterministic adapter.
+    """
+
+    aliases = {
+        "visor_api_or_facets": "visor_public_facets",
+        "visor_new_facets": "visor_public_facets_new",
+    }
+    available_statuses = {"success", "collected", "cached"}
+    superseded_statuses = {"unavailable", "blocked"}
+    available_sources = {
+        str(item.get("source") or "")
+        for item in facet_sources
+        if str(item.get("status") or "").lower() in available_statuses
+    }
+
+    merged = [dict(item) for item in facet_sources]
+    for item in codex_sources:
+        source = str(item.get("source") or "")
+        status = str(item.get("status") or "").lower()
+        if aliases.get(source) in available_sources and status in superseded_statuses:
+            continue
+        merged.append(dict(item))
     return merged
 
 
@@ -2076,10 +2135,14 @@ def listings_from_result(result: dict[str, Any]) -> list[Listing]:
                 continue
             if mileage is not None and not 0 <= mileage <= MAX_MILEAGE:
                 continue
-            title_condition = _condition_from_title(item.get("title"))
-            condition = title_condition or str(item.get("condition") or "unknown").lower()
-            if condition not in {"new", "used", "cpo", "unknown"}:
-                condition = "unknown"
+            title = str(item.get("title") or "")
+            title_condition = _condition_from_title(title)
+            condition = sanitize_listing_condition(
+                title_condition or str(item.get("condition") or "unknown"),
+                title,
+                year,
+                current_year=_runtime_current_year(),
+            )
             try:
                 market_weight = float(item.get("market_weight", legacy_weights.get(item_index, 1.0)))
             except (TypeError, ValueError):
@@ -2093,7 +2156,7 @@ def listings_from_result(result: dict[str, Any]) -> list[Listing]:
                     price=price,
                     trim=str(item.get("trim") or ""),
                     mileage=mileage,
-                    title=str(item.get("title") or ""),
+                    title=title,
                     url=str(item.get("url") or ""),
                     vin=str(item.get("vin") or ""),
                     dealer=str(item.get("dealer") or ""),
@@ -2587,6 +2650,16 @@ def _condition_from_title(value: Any) -> str:
         return "new"
     # A neutral title has no authority over structured collector evidence.
     return ""
+
+
+def _capture_listing_identity(listing: Listing) -> tuple[object, ...]:
+    return (
+        listing.vin,
+        listing.year,
+        round(listing.price),
+        listing.mileage,
+        listing.title.lower(),
+    )
 
 
 def _dry_run_result(request: VehicleQuery) -> dict[str, Any]:

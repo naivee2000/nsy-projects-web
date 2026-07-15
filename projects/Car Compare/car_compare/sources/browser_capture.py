@@ -4,6 +4,7 @@ import re
 from datetime import datetime, timezone
 from urllib.parse import parse_qs, urlparse
 
+from car_compare.condition import sanitize_listing_condition
 from car_compare.models import Listing, VehicleQuery
 from car_compare.vehicle_match import vehicle_text_match_score
 from car_compare.vehicle_catalog import collection_start_year, make_candidates
@@ -44,6 +45,10 @@ LISTING_CONDITION_RE = re.compile(
     r"^\s*(?:brand\s+new|new|used|pre[- ]?owned|certified(?:\s+pre[- ]?owned)?|cpo)\b",
     re.I,
 )
+DEALER_LABEL_RE = re.compile(
+    r"^(?:sponsored by|dealer|seller|sold by|provided by)\s*:?\s*(?P<dealer>.+)$",
+    re.I,
+)
 DETAIL_PATH_RE = re.compile(r"/(?:vehicle|inventory|vin|details?)/", re.I)
 KNOWN_MAKE_TOKEN_GROUPS = [
     re.findall(r"[a-z0-9]+", " ".join(alias_tokens).lower())
@@ -56,6 +61,8 @@ def parse_visible_listing_text(
     url: str,
     text: str,
     request: VehicleQuery,
+    *,
+    card_scoped: bool = False,
 ) -> list[Listing]:
     if ZERO_RESULTS_RE.search(text):
         return []
@@ -85,8 +92,17 @@ def parse_visible_listing_text(
         vin = _find_vin(window)
         title = _title_from_window(window, url=url)
         trim = _trim_from_title(title, request)
-        condition_context = [*(lines[idx - 1 : idx] if idx else []), *window]
-        condition = "new" if _looks_new(condition_context) else "cpo" if _looks_cpo(condition_context) else "used"
+        condition_context = [*(lines[idx - 1 : idx] if card_scoped and idx else []), *window]
+        declared_condition = (
+            "cpo"
+            if _looks_cpo(condition_context)
+            else "used"
+            if _looks_used(condition_context)
+            else "new"
+            if _looks_new(condition_context)
+            else "used"
+        )
+        condition = sanitize_listing_condition(declared_condition, title, listing_year)
         listings.append(
             Listing(
                 source=source,
@@ -97,11 +113,37 @@ def parse_visible_listing_text(
                 title=title,
                 url=url,
                 vin=vin,
+                dealer=_find_dealer(window),
                 confidence=str(match["confidence"]),
                 condition=condition,
             )
         )
 
+    return _dedupe(listings)
+
+
+def parse_visible_listing_cards(
+    source: str,
+    cards: list[dict[str, object]],
+    request: VehicleQuery,
+) -> list[Listing]:
+    listings: list[Listing] = []
+    for card in cards:
+        if not isinstance(card, dict):
+            continue
+        text = str(card.get("text") or "").strip()
+        url = str(card.get("url") or "").strip()
+        if not text or not url:
+            continue
+        listings.extend(
+            parse_visible_listing_text(
+                source,
+                url,
+                text,
+                request,
+                card_scoped=True,
+            )
+        )
     return _dedupe(listings)
 
 
@@ -309,9 +351,27 @@ def _find_vin(lines: list[str]) -> str:
     return ""
 
 
+def _find_dealer(lines: list[str]) -> str:
+    for line in lines:
+        match = DEALER_LABEL_RE.match(line.strip())
+        if not match:
+            continue
+        dealer = re.sub(r"\s+", " ", match.group("dealer")).strip(" -:|")
+        if 2 <= len(dealer) <= 160:
+            return dealer
+    return ""
+
+
 def _looks_new(lines: list[str]) -> bool:
     return any(
         re.search(r"^(?:brand new|new vehicle|new)(?!\s+arrival\b)\b", line.strip(), re.I)
+        for line in lines[:4]
+    )
+
+
+def _looks_used(lines: list[str]) -> bool:
+    return any(
+        re.search(r"^(?:used|pre[- ]?owned)\b", line.strip(), re.I)
         for line in lines[:4]
     )
 

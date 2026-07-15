@@ -1125,12 +1125,15 @@ function renderReport(report) {
   const horizonBucket = report.buckets.find((bucket) => bucket.age === maxAge);
   const estimatedBaseline = report.msrp?.source === "estimated_from_used_market";
   const allTrimMarketMix = isAllTrimReport(report);
+  const trimNormalized = trimNormalizationApplied(report);
   const msrpWarning = msrpScopeWarning(report);
 
   emptyWorkspace.hidden = true;
   resultsSurface.hidden = false;
 
-  chartTitle.textContent = allTrimMarketMix
+  chartTitle.textContent = trimNormalized
+    ? `${report.summary.displayName || "Vehicle"} · Trim-Normalized Depreciation`
+    : allTrimMarketMix
     ? `${report.summary.displayName || "Vehicle"} · All-Trim Market Mix`
     : report.summary.displayName || "Depreciation Trend";
   const individualListingRows = Number(report.summary.individualListingRows ?? report.summary.dealerListings ?? 0);
@@ -1148,9 +1151,11 @@ function renderReport(report) {
   if (!countParts.length) countParts.push("0 accepted market observations");
   const bucketParts = [`${observed} observed market bucket${observed === 1 ? "" : "s"}`, `${predicted} projected bucket${predicted === 1 ? "" : "s"}`];
   if (sparse) bucketParts.push(`${sparse} projected from insufficient samples`);
-  chartSub.textContent = `${allTrimMarketMix ? "Current market mix by model year · not trim-normalized · " : ""}${countParts.join(" · ")} · ${bucketParts.join(" · ")}`;
+  chartSub.textContent = `${trimNormalized ? "Fixed reference trim mix · raw market medians remain in the table · " : allTrimMarketMix ? "Current market mix by model year · normalization unavailable · " : ""}${countParts.join(" · ")} · ${bucketParts.join(" · ")}`;
   depreciationChartSub.textContent = estimatedBaseline
     ? "Signed bars show annual value movement from an estimated Age 0 baseline; positive is appreciation and negative is depreciation"
+    : trimNormalized
+    ? "Signed bars show movement along the trim-normalized curve; the raw market median remains in the table"
     : "Signed bars show annual value movement; the line shows signed change from the Age 0 market median";
   const generated = report.summary.generatedAt ? new Date(report.summary.generatedAt).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "just now";
   runStamp.textContent = `${generated} · ${maxAge}-year horizon`;
@@ -1179,7 +1184,7 @@ function renderReport(report) {
 
 function setSingleResultScaffolding() {
   valueLegend.innerHTML = `
-    <span><i class="line observed"></i>Observed market</span>
+    <span><i class="line observed"></i>Observed curve</span>
     <span><i class="line projected"></i>Projection / sparse estimate</span>
     <span><i class="dot"></i>Average</span>
     <span><i class="forecastRing"></i>Generation-adjusted forecast</span>`;
@@ -1226,7 +1231,8 @@ function renderComparison(reportA, reportB) {
   resultsSurface.classList.remove("isStale");
   resultsSurface.setAttribute("aria-busy", "false");
   chartTitle.textContent = `${names[0]} vs ${names[1]}`;
-  chartSub.textContent = `${comparisonEvidenceSummary(reportA)} · ${comparisonEvidenceSummary(reportB)} · aligned by vehicle age${reports.some(isAllTrimReport) ? " · all-trim results are current market-mix views, not trim-normalized" : ""}`;
+  const normalizedResults = reports.filter(trimNormalizationApplied).length;
+  chartSub.textContent = `${comparisonEvidenceSummary(reportA)} · ${comparisonEvidenceSummary(reportB)} · aligned by vehicle age${normalizedResults ? ` · ${normalizedResults} trim-normalized curve${normalizedResults === 1 ? "" : "s"}` : reports.some(isAllTrimReport) ? " · all-trim normalization unavailable" : ""}`;
   depreciationChartSub.textContent = "Grouped signed bars show each year's value movement; labeled dots show signed change from each vehicle's own Age 0 median.";
   const generated = generatedDates.length
     ? new Date(Math.max(...generatedDates)).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })
@@ -1354,7 +1360,9 @@ function renderInterpretationNotice(report) {
   if (!interpretationNotice) return;
   const items = [];
   if (isAllTrimReport(report)) {
-    items.push("All-trim market-mix view: each model year summarizes the variants offered in today's accepted listings. Premium or collectible trims can make an older model-year median rise. This is a cross-sectional asking-price comparison, not same-trim longitudinal depreciation; select a trim for a narrower result.");
+    items.push(trimNormalizationApplied(report)
+      ? "The main curve holds the accepted trim mix more consistent across model years. Raw all-trim market medians remain in the table and may still rise when premium or collectible variants dominate current inventory."
+      : "All-trim normalization did not have enough supported cohorts, so the curve remains a current market-mix view. Select a trim for a narrower result.");
   }
   const scopeWarning = msrpScopeWarning(report);
   if (scopeWarning) items.push(scopeWarning);
@@ -1381,7 +1389,8 @@ function renderComparisonInterpretationNotice(reportA, reportB) {
   const scopeWarnings = reports.map(msrpScopeWarning).filter(Boolean);
   const items = [];
   if (allTrim.length) {
-    items.push(`${allTrim.map((report) => report.summary?.displayName || "Vehicle").join(" and ")} ${allTrim.length === 1 ? "is an all-trim" : "are all-trim"} current market-mix ${allTrim.length === 1 ? "view" : "views"}, not same-trim longitudinal depreciation. Select a trim for a narrower comparison.`);
+    const normalizedCount = allTrim.filter(trimNormalizationApplied).length;
+    items.push(`${normalizedCount} of ${allTrim.length} all-trim result${allTrim.length === 1 ? "" : "s"} use${normalizedCount === 1 ? "s" : ""} a fixed reference trim mix. Raw market medians remain visible for comparison.`);
   }
   items.push(...scopeWarnings);
   if (!items.length) {
@@ -1400,6 +1409,10 @@ function isAllTrimReport(report) {
   if (trimChip) return trimChip.mode === "all" || /^all trims$/i.test(String(trimChip.value || ""));
   if (!report?.query) return false;
   return !String(report.query.trim || "").trim();
+}
+
+function trimNormalizationApplied(report) {
+  return String(report?.summary?.trimNormalization?.status || "").toLowerCase() === "applied";
 }
 
 function msrpScopeWarning(report) {
@@ -1447,6 +1460,8 @@ function bucketAtAge(report, age) {
 function bucketDisplayValue(bucket) {
   if (!bucket) return null;
   if (bucketIsSparseProjection(bucket) && !bucket.predicted) return null;
+  const curveMedian = finiteNumber(bucket.curve_median);
+  if (curveMedian !== null) return curveMedian;
   if (bucketIsObservedMarket(bucket)) return bucketMarketMedian(bucket);
   return finiteNumber(bucket.trend_median) ?? finiteNumber(bucket.median);
 }
@@ -1501,6 +1516,9 @@ function bucketStatus(bucket) {
   }
   if (bucketIsProjection(bucket)) {
     return { label: Number(bucket.age) > 10 ? "Long-range projection" : "Projected", className: "projected" };
+  }
+  if (finiteNumber(bucket.trim_normalized_median) !== null) {
+    return { label: "Trim-normalized market", className: "observed" };
   }
   return { label: "Observed market", className: "observed" };
 }

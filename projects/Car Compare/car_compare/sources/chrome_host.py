@@ -99,6 +99,19 @@ def capture_with_host_chrome(
     for page in capture.get("pages") or []:
         if isinstance(page, dict) and page.get("url"):
             _validate_source_url(str(page["url"]), expected_host)
+    valid_cards = []
+    for card in capture.get("cards") or []:
+        if not isinstance(card, dict):
+            continue
+        card_url = str(card.get("url") or "")
+        card_text = str(card.get("text") or "")
+        try:
+            _validate_source_url(card_url, expected_host)
+        except ValueError:
+            continue
+        if card_text.strip():
+            valid_cards.append({"url": card_url, "text": card_text})
+    capture["cards"] = valid_cards
     capture["source"] = source
     capture["requestedUrl"] = url
     capture["browserMode"] = status["mode"]

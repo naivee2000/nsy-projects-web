@@ -12,11 +12,11 @@ from typing import Any, Iterable
 from car_compare.models import VehicleQuery
 
 
-# Version 2 invalidates marketplace captures created before the parser learned
-# to reject zero-result headings and postal codes.  Research results use their
-# own version because generation research was not affected by that corruption.
-CACHE_SCHEMA_VERSION = 2
-RESEARCH_CACHE_SCHEMA_VERSION = 1
+# Version 3 invalidates marketplace captures created before structured listing
+# identity and card-scoped condition parsing. Research version 2 prevents old
+# reports from bypassing the new dedupe and trim-normalization rules.
+CACHE_SCHEMA_VERSION = 3
+RESEARCH_CACHE_SCHEMA_VERSION = 2
 MAX_RECENT_TTL_SECONDS = 3 * 24 * 60 * 60
 MAX_OLDER_TTL_SECONDS = 3 * 24 * 60 * 60
 

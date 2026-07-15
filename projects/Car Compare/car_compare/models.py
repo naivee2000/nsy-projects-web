@@ -71,6 +71,10 @@ class BucketStats:
     low: float | None = None
     high: float | None = None
     market_median: float | None = None
+    curve_median: float | None = None
+    trim_normalized_median: float | None = None
+    trim_normalization_coverage_pct: float | None = None
+    trim_cohort_counts: dict[str, int] = field(default_factory=dict)
     trend_median: float | None = None
     source_counts: dict[str, int] = field(default_factory=dict)
     outlier_count: int = 0
