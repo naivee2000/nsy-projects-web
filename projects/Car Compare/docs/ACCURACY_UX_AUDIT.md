@@ -35,3 +35,5 @@ git diff --check
 ```
 
 Browser verification covers typo correction (`BMW M4 Cometition`), both depreciation charts, immutable disabled inputs while collecting, offline manual import, zero-data recovery actions, and terminal input/button recovery.
+
+For a second computer or production host, continue with [DEPLOYMENT.md](DEPLOYMENT.md). It adds Codex login, Playwright, host-Chrome, shared-auth, persistent-cache, PM2, and Cloudflare verification to this code-level audit.

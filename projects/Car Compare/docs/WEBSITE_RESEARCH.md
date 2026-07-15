@@ -91,3 +91,7 @@ https://www.bmwusa.com/vehicles/m-series/bmw-4-series-m-models/bmw-m4-coupe.html
 7. Deduplicate by VIN first, then by same year/title/trim/price/mileage/dealer.
 8. Cache raw capture text and parsed listings separately.
 9. Mark source confidence in the report.
+
+## Runtime And Cache Note
+
+Automatic collection starts with fresh completed source-year cache entries and opens only missing or expired applicable sources. Autotrader and Edmunds apply generally; Porsche Finder applies only to Porsche. All accepted marketplace rows and Visor facet snapshots expire after at most three days, and an empty retry cannot replace richer accepted cache data. See [DEPLOYMENT.md](DEPLOYMENT.md) for the production cache and browser-host setup.

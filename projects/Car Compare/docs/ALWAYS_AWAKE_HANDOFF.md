@@ -1,16 +1,18 @@
 # Always-Awake Mac Handoff
 
-This guide moves Car Compare to the Mac that stays awake. The current design performs marketplace collection without a user click and without a recurring Codex monitor.
+This is the detailed operator and recovery runbook for the Mac that stays awake. Use [DEPLOYMENT.md](DEPLOYMENT.md) first for a clean website install. The current design performs marketplace collection without a user click and without a recurring Codex monitor.
 
 ## Zero-Click Flow
 
 ```text
 Collect & Research starts
--> fresh verified SQLite cache rows load
--> Visor public facets run
--> the project Playwright profile opens Autotrader and Edmunds range pages concurrently in a headless browser
--> combined year coverage is calculated across cache, facets, and both marketplaces
--> only genuinely sparse years enter bounded follow-up queues
+-> fresh verified SQLite cache rows and completed source-year audits load
+-> complete source-years skip collection for three days, even when their sample is sparse
+-> missing or expired Visor facets collect
+-> the project Playwright profile opens missing Autotrader and Edmunds range pages concurrently in a headless browser
+-> Porsche queries also open missing official Porsche Finder coverage with a nationwide radius
+-> combined year coverage is calculated across cache, facets, and applicable marketplaces
+-> only genuinely sparse missing evidence enters bounded follow-up queues
 -> a blocked or empty source is retried once in a minimized regular-Chrome worker window
 -> Chrome scrolls and clicks recognized result pagination controls
 -> rendered text returns directly to Car Compare
@@ -27,7 +29,7 @@ The host-Chrome retry is event driven. It starts only inside an active collectio
 
 The indexed-source stage is defined by `car_compare/web_search_capture_schema.json`. Codex may return only official Edmunds page URLs and verbatim page text. The app rejects another host, an out-of-range year, empty evidence, and every row the deterministic vehicle parser cannot recover. Search prose alone never becomes a listing.
 
-The older `Open Codex + Chrome` lease remains a manual recovery path only when host Chrome automation is unavailable. A completed automatic host-Chrome attempt does not ask the operator to click the same blocked source again.
+The `Repair Missing Source` lease remains a manual recovery path only when host Chrome automation is unavailable. A completed automatic host-Chrome attempt does not ask the operator to click the same blocked source again.
 
 ## Persistent Cache
 
@@ -46,7 +48,7 @@ export CAR_COMPARE_CODEX_SEARCH_BATCH_SIZE=5
 export CAR_COMPARE_BACKGROUND_MODE=1
 ```
 
-The SQLite file is `collector_cache.sqlite3`. WAL mode and atomic upserts support concurrent job threads. Cache keys isolate make, model, trim scope, source, and year. Every row is deterministically revalidated when read. Marketplace rows, Visor facet snapshots, validated collection reviews, and generation research can remain fresh for at most three days. Larger environment values are clamped to that limit.
+The SQLite file is `collector_cache.sqlite3`. WAL mode and atomic upserts support concurrent job threads. Cache keys isolate make, model, trim scope, source, and year. Every row is deterministically revalidated when read. Marketplace rows, Visor facet snapshots, validated collection reviews, and generation research can remain fresh for at most three days. Larger environment values are clamped to that limit. A completed source-year cache suppresses that source until expiry even when the accepted sample is small, and an empty attempt cannot replace a richer accepted cache row.
 
 ## Requirements
 
@@ -141,14 +143,14 @@ Create the local PM2 configuration:
 
 ```bash
 cd "/path/to/Car Compare"
-cp ops/pm2-car-compare.example.cjs ops/pm2-car-compare.cjs
+cp ops/pm2-car-compare.example.cjs ops/pm2-car-compare.config.cjs
 ```
 
-Edit `repoRoot`, `CODEX_BIN`, authentication values, and `CAR_COMPARE_PUBLIC_ORIGIN`. Start and persist it:
+The `*.config.cjs` copy is ignored by Git. Edit `repoRoot`, the Python executable, `CODEX_BIN`, authentication values, `CAR_COMPARE_PUBLIC_ORIGIN`, and the persistent cache path. `CAR_COMPARE_AUTH_USERNAME` and `CAR_COMPARE_SESSION_SECRET` must match the NSY login service exactly. Start and persist it:
 
 ```bash
 mkdir -p ops/logs
-pm2 start ops/pm2-car-compare.cjs
+pm2 start ops/pm2-car-compare.config.cjs
 pm2 save
 pm2 startup
 ```
@@ -223,8 +225,10 @@ Per-job evidence is stored under:
 data/collector_jobs/<job-id>/collector_result.json
 data/collector_jobs/<job-id>/browser_capture_autotrader_browser.json
 data/collector_jobs/<job-id>/browser_capture_edmunds_browser.json
+data/collector_jobs/<job-id>/browser_capture_porsche_finder_browser.json
 data/collector_jobs/<job-id>/host_chrome_autotrader_browser_*.json
 data/collector_jobs/<job-id>/host_chrome_edmunds_browser_*.json
+data/collector_jobs/<job-id>/host_chrome_porsche_finder_browser_*.json
 data/collector_jobs/<job-id>/codex_web_search_edmunds_browser.json
 data/collector_jobs/<job-id>/codex_web_search_edmunds_browser.stderr.log
 data/collector_jobs/<job-id>/codex_stdout.log
@@ -283,7 +287,7 @@ No recurring task should poll that queue.
 - **Codex login missing:** run `codex login` as the backend macOS user.
 - **Browser packages missing:** run `npm install` and `npm exec playwright install chromium`.
 - **Backend restart:** PM2 restores the service. A new collection starts a fresh event-driven capture.
-- **Manual fallback shown:** host Chrome was unavailable or failed before producing an authoritative audit. Inspect the source audit and preflight output.
+- **Repair Missing Source shown:** host Chrome was unavailable or failed before producing an authoritative audit. The action repairs only the source named by the app; inspect the source audit and preflight output.
 
 ## Portable Backup
 
@@ -319,9 +323,14 @@ rm -f skill_backups/collect-car-marketplaces.zip
 - [ ] `Allow JavaScript from Apple Events` enabled
 - [ ] macOS Automation permission granted
 - [ ] `CAR_COMPARE_BACKGROUND_MODE=1` configured in PM2
+- [ ] All cache TTL values are `259200` and the cache directory is persistent
+- [ ] Shared NSY auth username and session secret match the login service
+- [ ] `CAR_COMPARE_PUBLIC_ORIGIN=https://carcompare.nsyprojects.com` is configured
 - [ ] `deploy_preflight.py --smoke-browser --desktop-fallback` passes
 - [ ] PM2 service saved and healthy
 - [ ] Cloudflare route reaches local port 8787
 - [ ] No recurring five-minute task configured
 - [ ] One unattended job produces a `system_chrome_applescript` audit
+- [ ] One Porsche job plans and audits official Porsche Finder
+- [ ] A repeated query uses fresh cache without reopening complete sources
 - [ ] A network-blocked official page produces a `codex_web_search` audit or remains truthfully unavailable

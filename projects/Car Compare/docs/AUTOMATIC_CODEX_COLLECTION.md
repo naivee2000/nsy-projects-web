@@ -1,6 +1,6 @@
 # Automatic Codex Collection
 
-The app can start a local Codex collection job from the `Collect` button.
+The app starts marketplace collection and Codex research from the single `Collect & Research` action.
 
 ## How It Works
 
@@ -8,9 +8,11 @@ The app can start a local Codex collection job from the `Collect` button.
 User enters car query
 -> app parses make/model/trim
 -> app builds source plan
--> app checks Visor public used and new-car facets first
+-> app loads fresh completed source-year cache entries
+-> app collects only missing or expired Visor facets
 -> app can continue into a local Codex CLI job for website collection when Codex is available
--> Codex calls the project-local browser MCP worker for Autotrader and Edmunds
+-> Codex calls the project-local browser MCP worker for missing Autotrader and Edmunds coverage
+-> Porsche queries also add missing official Porsche Finder coverage
 -> the worker flips pages and persists deterministic card/audit JSON beside the job
 -> the app accepts browser rows only from that audit
 -> if a marketplace is blocked or empty, the app retries once in the host Mac's regular Chrome
@@ -27,7 +29,7 @@ If Codex fails after Visor returned usable rows, the job should complete with a 
 
 ## How To Know It Is Running
 
-After you click `Collect`, the Collector panel should move through these states:
+After you click `Collect & Research`, the Collector panel should move through these states:
 
 - `queued`: the app accepted the job.
 - `running: Codex process started (PID ...)`: the local Codex process is alive.
@@ -62,7 +64,7 @@ python3 scripts/deploy_preflight.py --smoke-browser
 
 The worker owns Playwright's version-matched browser, runs it headlessly by default, and persists its session under `~/.car-compare/browser-profile`. This machine-local path avoids checking browser state into Git and works even when the project path contains spaces. No separate visible Chrome process, debug port, or machine-specific browser path is required. An explicitly configured localhost `CAR_COMPARE_BROWSER_CDP_URL` remains supported as an advanced override, but is reported as non-background because its window state is externally managed.
 
-The collection pass opens the Autotrader and Edmunds broad year-range pages concurrently in separate pages of one shared browser session. Porsche queries also open official Porsche Finder. Concurrent vehicle jobs still wait for the browser lock. After the range pass, the backend merges the marketplaces with fresh verified cache rows and Visor aggregate support. Only combined sparse years enter a bounded follow-up queue, so a well-supported marketplace year does not force a redundant crawl elsewhere. Confirmed access walls remain recorded and never trigger identity rotation or CAPTCHA bypasses.
+The collection pass opens missing Autotrader and Edmunds broad year-range pages concurrently in separate pages of one shared browser session. Porsche queries also open missing official Porsche Finder coverage. Concurrent vehicle jobs still wait for the browser lock. A fresh completed source-year set suppresses that source for three days even when its sample is below the preferred row target. After the range pass, the backend merges marketplaces with cache and Visor aggregate support; only sparse missing evidence enters a bounded follow-up queue. Confirmed access walls remain recorded and never trigger identity rotation or CAPTCHA bypasses.
 
 Porsche Finder always receives an explicit nationwide position radius (`-1`) because the site can restore a local radius when position is omitted. It uses `minimum-model-year` / `maximum-model-year`, repeated `category` filters for supported 911 trim scopes, `/details/` card links, and `page` pagination. The app still runs every card through deterministic year/model/trim matching.
 
@@ -70,7 +72,7 @@ For `carcompare.nsyprojects.com`, use `ops/pm2-car-compare.example.cjs`. PM2 run
 
 On the always-awake Mac, the event-driven regular-Chrome fallback is also background-oriented: it creates a private worker window, minimizes it immediately, restores the previously focused app, and closes the worker when capture finishes. Fallbacks run one at a time to avoid focus races. Chrome must remain installed in a logged-in graphical session with `View > Developer > Allow JavaScript from Apple Events` enabled. The process may remain visible in Dock or Activity Monitor, but no collection page should remain on the desktop. Set `CAR_COMPARE_BACKGROUND_MODE=0` only for temporary diagnosis.
 
-Set `CAR_COMPARE_CACHE_DIR` to a persistent disk. The SQLite cache uses WAL mode and atomic upserts, so it works for the local always-awake Mac and for a Linux deployment with a mounted volume. Marketplace rows, Visor facet snapshots, validated collection reviews, and generation research all have a maximum three-day TTL. Expired rows never satisfy coverage, and every listing cache hit is passed through the deterministic matcher again.
+Set `CAR_COMPARE_CACHE_DIR` to a persistent disk. The SQLite cache uses WAL mode and atomic upserts, so it works for the local always-awake Mac and for a Linux deployment with a mounted volume. Marketplace rows, Visor facet snapshots, validated collection reviews, and generation research all have a maximum three-day TTL. Expired rows never satisfy coverage, every listing cache hit is passed through the deterministic matcher again, and an empty attempt cannot replace richer accepted cache data.
 
 The app checks `CODEX_BIN`, `PATH`, official standalone install locations on macOS/Linux/Windows, and these macOS desktop locations. To override discovery manually, use the path that exists on the host:
 
@@ -99,11 +101,11 @@ On macOS, a blocked or empty audited source is retried automatically through `sc
 
 If regular Chrome also receives a network refusal from Edmunds, the active job invokes native `codex --search` only for combined sparse years. Long horizons are split into small batches and up to three batches may run concurrently. The fixed `web_search_capture_schema.json` permits only official Edmunds page URLs plus verbatim visible text. The app validates every URL and runs `parse_visible_listing_text` plus the resolved trim rules before accepting a row. The search stage spends Codex usage only when needed and has no idle monitor. A temporary manual Chrome lease is retained only when automatic capture mechanisms cannot produce an authoritative result.
 
-Do not create a recurring five-minute Codex task. While a lease is pending, the report page polls the local job endpoint every five seconds; this is ordinary local HTTP traffic and does not invoke Codex. No polling remains after completion, expiry, navigation to a new run, or an error. The backend cannot silently start a Chrome-plugin desktop task, so the operator must click the handoff link and send the prefilled task on the host Mac.
+Do not create a recurring five-minute Codex task. While a lease is pending, the report page polls the local job endpoint every five seconds; this is ordinary local HTTP traffic and does not invoke Codex. No polling remains after completion, expiry, navigation to a new run, or an error. The backend cannot silently start a Chrome-plugin desktop task, so the operator uses `Repair Missing Source` and sends the prefilled task on the host Mac only when automatic recovery failed.
 
-See [ALWAYS_AWAKE_HANDOFF.md](ALWAYS_AWAKE_HANDOFF.md) for the complete host installation and recovery guide.
+See [DEPLOYMENT.md](DEPLOYMENT.md) for clean installation and [ALWAYS_AWAKE_HANDOFF.md](ALWAYS_AWAKE_HANDOFF.md) for detailed recovery.
 
-The app should stay local-only unless auth is added. Normal Codex review and an operator-started Chrome fallback can consume Codex usage; an idle app and an expired lease do not.
+The backend stays bound to `127.0.0.1` and is published only through the authenticated `carcompare.nsyprojects.com` route. Normal Codex review and an operator-started Chrome fallback can consume the deployment account's Codex usage; an idle app and an expired lease do not.
 
 ## Fallback
 

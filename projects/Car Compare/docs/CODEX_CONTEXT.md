@@ -77,6 +77,7 @@ Stop the old app process only if it is this Car Compare server and the user is o
 - `car_compare/sources/chrome_host.py` and `scripts/chrome_host_capture.applescript`: event-driven zero-click retry through the host Mac's regular Chrome.
 - `car_compare/web_search_capture_schema.json`: fixed output contract for native Codex indexed-source recovery after an Edmunds network refusal.
 - `skills/collect-car-marketplaces/`: optional supervised Codex `@Chrome` recovery when host Chrome automation is unavailable.
+- `docs/DEPLOYMENT.md`: canonical clean-install and website deployment guide.
 - `docs/ALWAYS_AWAKE_HANDOFF.md`: deployment and operator runbook for the always-awake Codex Desktop host.
 - `scripts/install_project_skills.sh`: copies the project-local skill into another computer's local Codex skills folder.
 - `scripts/deploy_preflight.py`: verifies CLI discovery, login, schemas, and optional live `codex exec` on a deployment host.
@@ -84,6 +85,7 @@ Stop the old app process only if it is this Car Compare server and the user is o
 Docs:
 
 - `README.md`: user-facing overview and run instructions.
+- `docs/DEPLOYMENT.md`: start here when installing or updating the production website host.
 - `docs/AUTOMATIC_CODEX_COLLECTION.md`: how the Collect button bridges to Codex.
 - `docs/CODEX_COLLECTION_WORKFLOW.md`: how Codex should operate websites.
 - `docs/WEBSITE_RESEARCH.md`: original source feasibility notes.
@@ -98,11 +100,11 @@ The app uses two layers:
 2. Local Codex website collection.
    The app starts the Codex CLI on the same computer and registers the project-local browser MCP directly on that process. Codex calls it for Autotrader and Edmunds, plus official Porsche Finder for Porsche queries; the worker flips pages, extracts visible cards deterministically, and writes an audit beside the job. The app discards browser-source rows that are not backed by that audit. Do not bypass CAPTCHAs, login walls, paywalls, or site restrictions.
 
-The collection job currently checks Visor facets first. If Codex is available, the job can continue into website collection afterward. If Codex fails after Visor returned rows, the app keeps the Visor data as a completed partial result.
+The collection job first loads fresh completed source-year cache entries. It collects only missing or expired Visor facets and applicable marketplaces. If Codex fails after another source returned rows, the app keeps that verified data as a completed partial result.
 
-For deployment, run `npm install`, `npm exec playwright install chromium`, then `python3 scripts/deploy_preflight.py --smoke-codex --smoke-browser` as the same operating-system account that will run the service. The worker launches Playwright's version-matched browser and reuses the machine-local `~/.car-compare/browser-profile`, so `ops/pm2-car-compare.example.cjs` only manages the backend for `carcompare.nsyprojects.com`. `GET /api/setup` reports ready only when the project browser runtime is installed. Require authenticated proxy access before routing the public hostname, because user-triggered collection spends the deployment account's Codex usage.
+For deployment, follow `docs/DEPLOYMENT.md`. Run `npm install`, `npm exec playwright install chromium`, then `python3 scripts/deploy_preflight.py --smoke-codex --smoke-browser --desktop-fallback` as the same operating-system account that will run the service. The worker launches Playwright's version-matched browser and reuses the machine-local `~/.car-compare/browser-profile`, so `ops/pm2-car-compare.example.cjs` only manages the backend for `carcompare.nsyprojects.com`. `GET /api/setup` reports ready only when the project browser runtime is installed. Keep the backend on `127.0.0.1`, reuse the signed NSY session, and route the public hostname through Cloudflare Tunnel because user-triggered collection spends the deployment account's Codex usage.
 
-The audited worker opens Autotrader and Edmunds range pages concurrently in one shared headless persistent-profile browser session. It merges those results with fresh verified SQLite cache rows and Visor aggregate support, then follows up only on years that remain sparse across the combined evidence. A confirmed access wall remains disclosed while preserving every verified row. Do not add CAPTCHA solving, fingerprint spoofing, profile rotation, or other access-wall bypasses.
+The audited worker opens missing Autotrader and Edmunds range pages concurrently in one shared headless persistent-profile browser session. Porsche queries add missing official Porsche Finder coverage. A fresh completed source-year capture suppresses that source for three days even when its sample is below the preferred target; an empty attempt cannot replace richer accepted cache data. The app merges new results with cache and Visor support, then follows up only on sparse missing evidence. A confirmed access wall remains disclosed while preserving every verified row. Do not add CAPTCHA solving, fingerprint spoofing, profile rotation, or other access-wall bypasses.
 
 When the backend Playwright profile is blocked or empty, the active collection retries through the host Mac's regular Chrome. In background mode, the AppleScript worker immediately minimizes its private window, restores the application the user was working in, serializes marketplace retries to avoid focus races, scrolls the rendered page, clicks recognized result pagination controls, and closes only its own window. It does not invoke Codex or poll while idle. The resulting audit uses `browser_mode=system_chrome_applescript` and `background_mode=true`. If host automation is disabled or fails before producing an audit, the older temporary `/api/codex-browser-actions` lease and `/codex-action` import surface remain available for supervised `@Chrome` recovery. Historical jobs without a lease are never revived.
 
@@ -205,6 +207,7 @@ Use these after edits:
 python3 -m unittest discover -s tests
 python3 -m py_compile app.py car_compare/*.py car_compare/sources/*.py
 node --check static/app.js
+python3 scripts/deploy_preflight.py --smoke-browser
 ```
 
 For browser verification, use the actual local app at `http://127.0.0.1:8787`. At minimum check:
@@ -216,7 +219,7 @@ For browser verification, use the actual local app at `http://127.0.0.1:8787`. A
 ## Known Limitations And Next Good Improvements
 
 - Visor public facets are aggregate data, not individual listing URLs/VINs.
-- Autotrader and Edmunds collection depends on what a normal browser can see.
+- Autotrader, Edmunds, and Porsche Finder collection depends on what a normal browser can see; Porsche Finder is scheduled only for Porsche.
 - Codex website collection can consume usage and may fail from usage limits, site walls, or browser availability.
 - Manufacturer MSRP/new inventory collection is planned through source plan instructions, but true listing-level official adapters can still be improved.
 - Some trims have sparse data for very new model years; a longer horizon can be necessary.
@@ -224,4 +227,4 @@ For browser verification, use the actual local app at `http://127.0.0.1:8787`. A
 
 ## Boundary
 
-Keep this app local-first. Do not add login/auth/public deployment behavior unless the user explicitly asks. If deployment is discussed later, preserve the boundary between shared project code and machine-local Codex/runtime/secrets.
+Keep the backend local-bound at `127.0.0.1` and publish it only through the authenticated `carcompare.nsyprojects.com` Cloudflare route. Shared code, schemas, skills, safe templates, and docs belong in Git. Codex auth, Chrome state, cache/job data, private PM2 values, NSY session secrets, and Cloudflare credentials stay machine-local.

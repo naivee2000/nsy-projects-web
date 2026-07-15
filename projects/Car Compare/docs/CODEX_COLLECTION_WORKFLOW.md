@@ -45,6 +45,8 @@ Autotrader may redirect model-specific URLs to a make-level result page. That is
 
 Edmunds direct SRP URLs work for several tested models. If one is blank, use the visible Used Cars search form and select make/model manually.
 
+Porsche queries add official Porsche Finder. Keep its explicit nationwide radius, model-year range, and generated trim categories; follow numbered pages or visible next-page controls and accept only `/details/` listing cards that pass the same deterministic trim matcher.
+
 Visor is best through its API/MCP when an API key is available. Public Visor pages are useful for facets, counts, trim/version distribution, and price/mileage bands.
 
 Apply the resolver's trim scope instead of relying on substring matching. Model-wide searches include all trims; configured family searches include named descendants; `Base` keeps only the configured root trim; exact searches reject neighboring variants such as `EX-L` for `EX` or `GT500` for `GT`. Add new family behavior through `TRIM_SCOPE_POLICIES` rather than globally treating every trim prefix as a family.
@@ -55,6 +57,8 @@ Stop using a source and switch to another source or manual import if the page sh
 
 ## Temporary Desktop Fallback
 
-If the normal persistent Playwright profile is refused, the active job automatically retries the source in the always-awake Mac's regular Chrome through the project AppleScript worker. The rendered text is imported through the same deterministic parser and saved as a `system_chrome_applescript` audit. This is event driven and requires no recurring queue monitor. `Open Codex + Chrome` is now only a manual recovery action when host Chrome automation cannot run.
+If the normal persistent Playwright profile is refused, the active job automatically retries the source in the always-awake Mac's regular Chrome through the project AppleScript worker. The rendered text is imported through the same deterministic parser and saved as a `system_chrome_applescript` audit. This is event driven and requires no recurring queue monitor. `Repair Missing Source` is only a manual recovery action when host Chrome automation cannot run.
 
 If Edmunds also refuses regular Chrome at the network level, the active job uses native Codex web search against exact official model-year sale pages. Codex returns verbatim blocks under a fixed schema; URL allowlisting and the existing deterministic parser remain authoritative. Successful evidence is labeled `codex_web_search`, `search_verified=true`, and `deterministic_verified=true`, never browser-verified.
+
+Fresh completed source-year captures are reused for three days and skipped before browser collection. Manual repair should target only the source named by the active lease. See [DEPLOYMENT.md](DEPLOYMENT.md) for host installation and cache settings.
