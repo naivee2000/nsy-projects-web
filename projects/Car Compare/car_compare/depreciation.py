@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 from dataclasses import replace
 from datetime import datetime, timezone
+from math import sqrt
 import re
 from typing import Any
 from urllib.parse import parse_qsl, urlsplit
@@ -19,6 +20,9 @@ from car_compare.vehicle_match import matches_vehicle_text
 EVIDENCE_LISTING_LIMIT = 1000
 MIN_AUTHORITATIVE_BUCKET_SAMPLES = 2
 MIN_IQR_WHISKER_SAMPLES = 4
+MAX_STABLE_NEIGHBOR_SPREAD = 0.30
+MIN_ISOLATED_CURVE_DEVIATION = 0.35
+MAX_RAW_ANCHOR_DEVIATION = 0.25
 
 
 def build_report(
@@ -183,6 +187,7 @@ def build_report(
             )
 
     _apply_trim_normalization(buckets, trim_normalization)
+    _stabilize_observed_curve(buckets)
     _apply_trend_and_predictions(
         buckets,
         generation_impact,
@@ -249,6 +254,9 @@ def _report_payload(
                 ),
             },
             "trimNormalization": _clean_trim_normalization(trim_normalization),
+            "curveStabilizedAges": [
+                bucket.age for bucket in buckets if bucket.curve_adjustment_reason
+            ],
             "outsideHorizonRows": len(outside_horizon),
             "outsideHorizonYears": dict(sorted(Counter(item.year for item in outside_horizon).items(), reverse=True)),
             "modelYearBounds": model_year_bounds,
@@ -579,6 +587,73 @@ def _apply_trim_normalization(
             for key, value in (year_data.get("cohortCounts") or {}).items()
         }
         bucket.curve_median = normalized_median
+
+
+def _stabilize_observed_curve(buckets: list[BucketStats]) -> None:
+    """Replace isolated, unsupported curve spikes without hiding raw evidence."""
+    if len(buckets) < 3:
+        return
+
+    original_values = [
+        bucket.curve_median if bucket.curve_median is not None else bucket.market_median
+        for bucket in buckets
+    ]
+    adjustments: list[tuple[BucketStats, float, str]] = []
+    for index in range(1, len(buckets) - 1):
+        previous = buckets[index - 1]
+        bucket = buckets[index]
+        following = buckets[index + 1]
+        if not (previous.observed and bucket.observed and following.observed):
+            continue
+        if not (previous.age + 1 == bucket.age == following.age - 1):
+            continue
+
+        previous_value = original_values[index - 1]
+        current_value = original_values[index]
+        following_value = original_values[index + 1]
+        if not previous_value or not current_value or not following_value:
+            continue
+
+        anchor = sqrt(previous_value * following_value)
+        neighbor_spread = abs(previous_value - following_value) / anchor
+        curve_deviation = abs(current_value - anchor) / anchor
+        if (
+            neighbor_spread > MAX_STABLE_NEIGHBOR_SPREAD
+            or curve_deviation < MIN_ISOLATED_CURVE_DEVIATION
+        ):
+            continue
+
+        market_median = bucket.market_median
+        normalized_mismatch = (
+            market_median is not None
+            and bucket.trim_normalized_median is not None
+            and abs(market_median - anchor) / anchor <= MAX_RAW_ANCHOR_DEVIATION
+            and abs(current_value - market_median) / market_median >= MIN_ISOLATED_CURVE_DEVIATION
+        )
+        if normalized_mismatch:
+            adjustments.append(
+                (
+                    bucket,
+                    market_median,
+                    "Trim-normalized spike replaced by the raw market median because adjacent model years support the raw level.",
+                )
+            )
+            continue
+
+        independent_sources = len([count for count in bucket.source_counts.values() if count > 0])
+        if bucket.sample_count < MIN_IQR_WHISKER_SAMPLES and independent_sources < 2:
+            adjustments.append(
+                (
+                    bucket,
+                    anchor,
+                    "Low-sample isolated spike replaced by interpolation between adjacent model years.",
+                )
+            )
+
+    for bucket, replacement, reason in adjustments:
+        bucket.curve_unadjusted_median = bucket.curve_median
+        bucket.curve_median = replacement
+        bucket.curve_adjustment_reason = reason
 
 
 def dedupe_listings(listings: list[Listing]) -> list[Listing]:

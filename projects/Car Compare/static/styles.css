@@ -1725,6 +1725,23 @@ summary:focus-visible {
   text-transform: uppercase;
 }
 
+.curveValue.stabilized {
+  color: var(--accent);
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.curveValue.stabilized small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
 @keyframes scan {
   from {
     transform: translateX(0);

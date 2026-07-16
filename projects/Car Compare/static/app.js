@@ -1153,10 +1153,10 @@ function renderReport(report) {
   if (sparse) bucketParts.push(`${sparse} projected from insufficient samples`);
   chartSub.textContent = `${trimNormalized ? "Fixed reference trim mix · raw market medians remain in the table · " : allTrimMarketMix ? "Current market mix by model year · normalization unavailable · " : ""}${countParts.join(" · ")} · ${bucketParts.join(" · ")}`;
   depreciationChartSub.textContent = estimatedBaseline
-    ? "Signed bars show annual value movement from an estimated Age 0 baseline; positive is appreciation and negative is depreciation"
+    ? "Bars use adjacent Curve Values for YoY dollars; the line uses the same curve for total change from the estimated Age 0 baseline"
     : trimNormalized
-    ? "Signed bars show movement along the trim-normalized curve; the raw market median remains in the table"
-    : "Signed bars show annual value movement; the line shows signed change from the Age 0 market median";
+    ? "Bars use adjacent Curve Values for YoY dollars; the line uses the same curve from Age 0; raw market medians remain in the table"
+    : "Bars use adjacent Curve Values for YoY dollars; the line uses the same curve for total change from Age 0";
   const generated = report.summary.generatedAt ? new Date(report.summary.generatedAt).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "just now";
   runStamp.textContent = `${generated} · ${maxAge}-year horizon`;
 
@@ -1206,10 +1206,10 @@ function setSingleResultScaffolding() {
     <th scope="col">Curve Value</th>
     <th scope="col">Q1</th>
     <th scope="col">Q3</th>
-    <th scope="col">YoY Movement</th>
-    <th scope="col">YoY Change</th>
-    <th scope="col">Since Age 0</th>
-    <th scope="col">Total Change</th>
+    <th scope="col">YoY Curve $</th>
+    <th scope="col">YoY Curve %</th>
+    <th scope="col">From Age 0 $</th>
+    <th scope="col">From Age 0 %</th>
     <th scope="col">Outliers</th>
     <th scope="col">Forecast Adj</th>
   </tr>`;
@@ -1517,6 +1517,9 @@ function bucketStatus(bucket) {
   if (bucketIsProjection(bucket)) {
     return { label: Number(bucket.age) > 10 ? "Long-range projection" : "Projected", className: "projected" };
   }
+  if (bucket.curve_adjustment_reason) {
+    return { label: "Stabilized curve", className: "observed" };
+  }
   if (finiteNumber(bucket.trim_normalized_median) !== null) {
     return { label: "Trim-normalized market", className: "observed" };
   }
@@ -1534,8 +1537,6 @@ function bucketDistributionValue(bucket, field) {
 
 function bucketSignedPreviousChange(buckets, bucket) {
   if (!bucket) return null;
-  const supplied = finiteNumber(bucket.value_change_from_previous);
-  if (supplied !== null) return supplied;
   const ordered = [...(buckets || [])].sort((left, right) => Number(left.age) - Number(right.age));
   const index = ordered.indexOf(bucket);
   if (index < 0) return null;
@@ -1547,8 +1548,6 @@ function bucketSignedPreviousChange(buckets, bucket) {
 
 function bucketSignedPreviousPct(buckets, bucket) {
   if (!bucket) return null;
-  const supplied = finiteNumber(bucket.value_change_from_previous_pct);
-  if (supplied !== null) return supplied;
   const ordered = [...(buckets || [])].sort((left, right) => Number(left.age) - Number(right.age));
   const index = ordered.indexOf(bucket);
   if (index < 0) return null;
@@ -1560,8 +1559,6 @@ function bucketSignedPreviousPct(buckets, bucket) {
 
 function bucketSignedBaselineChange(buckets, bucket) {
   if (!bucket) return null;
-  const supplied = finiteNumber(bucket.value_change_from_baseline);
-  if (supplied !== null) return supplied;
   const baseline = [...(buckets || [])].sort((left, right) => Number(left.age) - Number(right.age))[0];
   const current = bucketDisplayValue(bucket);
   const start = bucketDisplayValue(baseline);
@@ -1570,8 +1567,6 @@ function bucketSignedBaselineChange(buckets, bucket) {
 
 function bucketSignedBaselinePct(buckets, bucket) {
   if (!bucket) return null;
-  const supplied = finiteNumber(bucket.value_change_from_baseline_pct);
-  if (supplied !== null) return supplied;
   const baseline = [...(buckets || [])].sort((left, right) => Number(left.age) - Number(right.age))[0];
   const current = bucketDisplayValue(bucket);
   const start = bucketDisplayValue(baseline);
@@ -2124,7 +2119,7 @@ function renderTable(buckets) {
         <td>${bucket.sample_count}</td>
         <td>${fmtMoney(bucketDistributionValue(bucket, "average"))}</td>
         <td>${fmtMoney(bucketMarketMedian(bucket))}</td>
-        <td>${fmtMoney(bucketDisplayValue(bucket))}</td>
+        <td>${curveValueMarkup(bucket)}</td>
         <td>${fmtMoney(bucketDistributionValue(bucket, "q1"))}</td>
         <td>${fmtMoney(bucketDistributionValue(bucket, "q3"))}</td>
         <td>${movementMarkup(previousChange)}</td>
@@ -2150,8 +2145,8 @@ function renderComparisonTable(reportA, reportB) {
       <th scope="col" rowspan="2">Difference</th>
     </tr>
     <tr>
-      <th scope="col">Market Median</th><th scope="col">Curve Value</th><th scope="col">Since Age 0</th><th scope="col">Change %</th>
-      <th scope="col">Market Median</th><th scope="col">Curve Value</th><th scope="col">Since Age 0</th><th scope="col">Change %</th>
+      <th scope="col">Market Median</th><th scope="col">Curve Value</th><th scope="col">From Age 0 $</th><th scope="col">From Age 0 %</th>
+      <th scope="col">Market Median</th><th scope="col">Curve Value</th><th scope="col">From Age 0 $</th><th scope="col">From Age 0 %</th>
     </tr>`;
   rows.innerHTML = Array.from({ length: maxAge + 1 }, (_, age) => {
     const bucketA = bucketAtAge(reportA, age);
@@ -2159,11 +2154,11 @@ function renderComparisonTable(reportA, reportB) {
     return `<tr>
       <td>Age ${age}</td>
       <td>${fmtMoney(bucketMarketMedian(bucketA))}</td>
-      <td>${fmtMoney(bucketDisplayValue(bucketA))}</td>
+      <td>${curveValueMarkup(bucketA)}</td>
       <td>${movementMarkup(bucketSignedBaselineChange(reportA.buckets, bucketA))}</td>
       <td>${movementPercentMarkup(bucketSignedBaselinePct(reportA.buckets, bucketA))}</td>
       <td>${fmtMoney(bucketMarketMedian(bucketB))}</td>
-      <td>${fmtMoney(bucketDisplayValue(bucketB))}</td>
+      <td>${curveValueMarkup(bucketB)}</td>
       <td>${movementMarkup(bucketSignedBaselineChange(reportB.buckets, bucketB))}</td>
       <td>${movementPercentMarkup(bucketSignedBaselinePct(reportB.buckets, bucketB))}</td>
       <td class="differenceCell">${comparisonDifference(reportA, bucketA, reportB, bucketB, nameA, nameB)}</td>
@@ -2482,6 +2477,16 @@ function movementMarkup(value) {
   const className = number > 0.005 ? "appreciation" : number < -0.005 ? "depreciation" : "flat";
   const label = className === "appreciation" ? "appreciation" : className === "depreciation" ? "depreciation" : "no change";
   return `<span class="movement ${className}">${fmtSignedMoney(number)}<small>${label}</small></span>`;
+}
+
+function curveValueMarkup(bucket) {
+  const value = bucketDisplayValue(bucket);
+  if (value === null) return "";
+  const reason = String(bucket?.curve_adjustment_reason || "").trim();
+  if (!reason) return fmtMoney(value);
+  const original = finiteNumber(bucket?.curve_unadjusted_median);
+  const detail = `${reason}${original === null ? "" : ` Original curve value: ${fmtMoney(original)}.`}`;
+  return `<span class="curveValue stabilized" title="${escapeHtml(detail)}">${fmtMoney(value)}<small>stabilized</small></span>`;
 }
 
 function movementPercentMarkup(value) {

@@ -2,12 +2,43 @@ from __future__ import annotations
 
 import unittest
 
-from car_compare.depreciation import build_report
-from car_compare.models import Listing, MSRP
+from car_compare.depreciation import _apply_depreciation, _stabilize_observed_curve, build_report
+from car_compare.models import BucketStats, Listing, MSRP
 from car_compare.parser import parse_vehicle_query
 
 
 class DepreciationRegressionTests(unittest.TestCase):
+    def test_isolated_normalized_spike_falls_back_and_all_changes_reconcile(self) -> None:
+        buckets = [
+            BucketStats(0, 2026, 20, True, False, market_median=97_096, curve_median=97_096),
+            BucketStats(1, 2025, 20, True, False, market_median=40_000, curve_median=40_000),
+            BucketStats(
+                2,
+                2024,
+                20,
+                True,
+                False,
+                market_median=40_000,
+                curve_median=94_285,
+                trim_normalized_median=94_285,
+                source_counts={"market_a": 10, "market_b": 10},
+            ),
+            BucketStats(3, 2023, 20, True, False, market_median=38_942, curve_median=38_942),
+        ]
+
+        _stabilize_observed_curve(buckets)
+        _apply_depreciation(buckets)
+
+        self.assertEqual(buckets[2].curve_unadjusted_median, 94_285)
+        self.assertEqual(buckets[2].curve_median, 40_000)
+        self.assertIn("raw market median", buckets[2].curve_adjustment_reason)
+        self.assertEqual(buckets[3].depreciation_from_previous, 1_058)
+        self.assertEqual(buckets[3].depreciation_from_baseline, 58_154)
+        self.assertEqual(
+            buckets[3].curve_median + buckets[3].depreciation_from_baseline,
+            buckets[0].curve_median,
+        )
+
     def test_age_zero_weighted_statistics_preserve_price_weight_pairs(self) -> None:
         query = parse_vehicle_query("Porsche 911")
         query.max_age = 1

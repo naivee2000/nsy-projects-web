@@ -28,6 +28,8 @@ The target behavior:
 - Age 1+ is current market value of matching used examples by model year.
 - The graph shows median, average, Q1, Q3, IQR whiskers, signed yearly value movement, retained outlier evidence, and projection.
 - Generation-impact research is an optional forecast adjustment. It should never rewrite observed buckets; it only applies extra depreciation percentages to predicted buckets when a sourced research result is loaded.
+- `Curve Value` is the sole basis for depreciation math. YoY change compares adjacent curve values; total change compares each curve value with Age 0. Raw market medians remain visible but are not mixed into those calculations.
+- Isolated trim-normalization spikes fall back to a neighboring-year-supported raw market median and are disclosed through `curve_unadjusted_median` and `curve_adjustment_reason`. Low-sample isolated spikes may be interpolated when they lack independent-source support.
 - The user can choose a horizon up to 20 years.
 - Rows are deduplicated by VIN first, then likely same listing fields.
 - The first page opens empty. No default BMW query should run on load.

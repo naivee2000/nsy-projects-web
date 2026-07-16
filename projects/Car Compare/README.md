@@ -63,6 +63,8 @@ This makes it easier to add more websites later. Each source can be tested and f
 
 In comparison results, vehicle color stays consistent across charts. Solid line segments are observed, dashed segments are predicted, grouped bars are signed year-over-year value movement, and the labeled percentage dots show signed change from each vehicle's own Age 0 market baseline. Source evidence and collection plans remain separate under Car A and Car B tabs.
 
+All depreciation fields use the displayed `Curve Value` as their only calculation basis: YoY dollars and percentages compare adjacent ages, while `From Age 0` dollars and percentages compare the current age with Age 0. The raw `Market Median` remains visible as evidence but is never mixed into curve-based change calculations. A trim-normalized value that forms a large isolated spike while its raw median agrees with adjacent model years falls back to the raw median and is labeled `stabilized`; low-sample isolated spikes may use adjacent-year interpolation. The original value and reason remain in the report payload.
+
 ## Data Collection Modes
 
 1. **Explicit demo mode**

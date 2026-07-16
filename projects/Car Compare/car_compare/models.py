@@ -72,6 +72,8 @@ class BucketStats:
     high: float | None = None
     market_median: float | None = None
     curve_median: float | None = None
+    curve_unadjusted_median: float | None = None
+    curve_adjustment_reason: str = ""
     trim_normalized_median: float | None = None
     trim_normalization_coverage_pct: float | None = None
     trim_cohort_counts: dict[str, int] = field(default_factory=dict)
