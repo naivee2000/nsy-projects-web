@@ -3,21 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About Shaoyang Ni — a computer science graduate student interested in data, software, AI, and practical problem-solving.">
   <title>About Me - NSY Projects</title>
   <style>
     :root {
       color-scheme: light;
-      --bg: #f4f6f8;
+      --bg: #f6f7f8;
       --surface: #ffffff;
       --ink: #182230;
-      --muted: #667085;
-      --line: #d0d5dd;
+      --muted: #647184;
+      --line: #dce2e8;
       --primary: #175cd3;
       --primary-strong: #1849a9;
-      --green: #067647;
+      --green: #08745b;
+      --green-soft: #e8f5f1;
     }
+
     * { box-sizing: border-box; }
-    html { min-width: 320px; }
+
+    html {
+      min-width: 320px;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -26,129 +34,437 @@
       color: var(--ink);
       letter-spacing: 0;
     }
-    main {
-      width: min(920px, calc(100vw - 32px));
-      margin: 0 auto;
-      padding: 28px 0 54px;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 28px;
-    }
-    .page-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 10px;
-      align-items: center;
-    }
-    a {
-      color: var(--primary);
-      font-size: 13px;
+
+    a { color: inherit; }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 10;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background: var(--ink);
+      color: #ffffff;
       font-weight: 800;
       text-decoration: none;
+      transform: translateY(-160%);
     }
-    button,
-    .action {
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      min-height: 74px;
+      padding: 0 clamp(18px, 4vw, 52px);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      min-width: max-content;
+      color: var(--ink);
+      font-size: 19px;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .mark {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #aeb9c6;
+      border-radius: 7px;
+      background:
+        linear-gradient(135deg, #ffffff, #dfe9f6),
+        linear-gradient(90deg, transparent 0 13px, rgba(24, 90, 188, 0.58) 13px 16px, transparent 16px),
+        linear-gradient(180deg, transparent 0 16px, rgba(11, 122, 90, 0.54) 16px 19px, transparent 19px);
+      box-shadow: 0 8px 22px rgba(16, 24, 40, 0.10);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(18px, 4vw, 40px);
+      flex: 1;
+    }
+
+    nav a,
+    .header-action {
       min-height: 38px;
-      border-radius: 6px;
-      padding: 0 12px;
-      font: inherit;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 760;
       text-decoration: none;
+      white-space: nowrap;
     }
-    button {
+
+    nav a:hover,
+    nav a[aria-current="page"] { color: var(--ink); }
+
+    nav a[aria-current="page"] {
+      box-shadow: inset 0 -2px var(--primary);
+    }
+
+    .header-action {
+      min-width: 86px;
+      padding: 0 15px;
       border: 1px solid var(--line);
-      background: #ffffff;
-      color: var(--ink);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--primary-strong);
     }
-    .action {
-      background: var(--primary);
+
+    .header-action:hover { border-color: #a9bddb; }
+
+    .header-action.signed-in {
+      border-color: var(--green);
+      background: var(--green);
       color: #ffffff;
     }
-    .action.signed-in {
-      background: var(--green);
+
+    main {
+      width: min(940px, calc(100vw - 36px));
+      margin: 0 auto;
+      padding: clamp(72px, 9vw, 112px) 0 84px;
     }
+
+    .intro {
+      max-width: 800px;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
     h1 {
       margin: 0;
-      font-size: clamp(36px, 5vw, 58px);
-      line-height: 1;
-      letter-spacing: 0;
+      font-size: clamp(44px, 7vw, 70px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
     }
-    .panel {
+
+    .lead {
+      max-width: 760px;
+      margin: 25px 0 0;
+      color: #39475a;
+      font-size: clamp(19px, 2.4vw, 23px);
+      line-height: 1.65;
+    }
+
+    .intro-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .intro-links a {
+      color: var(--primary-strong);
+      font-size: 14px;
+      font-weight: 820;
+      text-underline-offset: 4px;
+    }
+
+    .content-divider {
+      height: 1px;
+      margin: clamp(54px, 7vw, 76px) 0;
+      border: 0;
+      background: var(--line);
+    }
+
+    .profile-layout {
       display: grid;
-      gap: 14px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-      padding: 24px;
-      box-shadow: 0 18px 42px rgba(16, 24, 40, 0.08);
+      grid-template-columns: minmax(0, 1fr) 240px;
+      gap: clamp(48px, 8vw, 88px);
+      align-items: start;
     }
-    p {
-      max-width: 700px;
-      margin: 0;
+
+    .prose {
+      max-width: 650px;
+    }
+
+    .prose h2 {
+      margin: 0 0 20px;
+      font-size: 26px;
+      line-height: 1.2;
+      letter-spacing: -0.018em;
+    }
+
+    .prose p {
+      margin: 0 0 22px;
       color: var(--muted);
       font-size: 16px;
-      line-height: 1.65;
-      letter-spacing: 0;
+      line-height: 1.78;
     }
-    .topic {
+
+    .prose p:last-child { margin-bottom: 0; }
+
+    .prose strong {
+      color: var(--ink);
+      font-weight: 760;
+    }
+
+    .snapshot {
+      padding-left: 22px;
+      border-left: 2px solid #b8d8cf;
+    }
+
+    .snapshot h2 {
+      margin: 0 0 22px;
+      font-size: 16px;
+    }
+
+    .snapshot dl {
       display: grid;
-      gap: 8px;
-    }
-    h2 {
+      gap: 20px;
       margin: 0;
-      font-size: 20px;
-      line-height: 1.2;
-      letter-spacing: 0;
     }
-    @media (max-width: 560px) {
-      header {
-        align-items: start;
-        flex-direction: column;
+
+    .snapshot dt {
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .snapshot dd {
+      margin: 0;
+      color: #344258;
+      font-size: 14px;
+      font-weight: 680;
+      line-height: 1.55;
+    }
+
+    .section {
+      margin-top: clamp(46px, 6vw, 62px);
+    }
+
+    .working-style {
+      max-width: 760px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .working-style h2 {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.25;
+    }
+
+    .working-style p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.72;
+    }
+
+    .personal-note {
+      max-width: 700px;
+      padding: 26px 0 0 24px;
+      border-left: 3px solid var(--green);
+    }
+
+    .personal-note h2 {
+      margin: 0 0 13px;
+      font-size: 23px;
+    }
+
+    .personal-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .footer-inner {
+      width: min(940px, calc(100vw - 36px));
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 680;
+    }
+
+    .footer-inner a {
+      color: var(--primary-strong);
+      font-weight: 800;
+      text-underline-offset: 3px;
+    }
+
+    :focus-visible {
+      outline: 3px solid #78aef7;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 760px) {
+      .site-header {
+        flex-wrap: wrap;
+        gap: 10px;
+        min-height: 0;
+        padding: 13px 18px;
       }
-      .page-actions {
+
+      nav {
+        order: 3;
+        flex: 0 0 100%;
         width: 100%;
         justify-content: flex-start;
+        gap: 22px;
+        overflow-x: auto;
       }
+
+      nav a,
+      .header-action {
+        min-height: 34px;
+        font-size: 13px;
+      }
+
+      .profile-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .snapshot {
+        max-width: 520px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .snapshot dl {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+    @media (max-width: 560px) {
+      main { padding-top: 58px; }
+
+      .snapshot dl {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 22px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <header>
-      <h1>About Me</h1>
-      <div class="page-actions">
-        <a class="action" href="index.html">Home</a>
-        <a id="authAction" class="action" href="https://dem.nsyprojects.com/login">Sign in</a>
-      </div>
-    </header>
-    <section class="panel" aria-label="About me">
-      <div class="topic">
-        <h2>Background</h2>
-        <p>I studied Applied Mathematics and Quantitative Sciences at Emory University and am currently studying Computer Science at the University of Chicago.</p>
-      </div>
-      <div class="topic">
-        <h2>Focus</h2>
-        <p>I am interested in data, programming, AI-assisted prototypes, and practical tools that turn messy workflows into something clearer and easier to use.</p>
-      </div>
-      <div class="topic">
-        <h2>Projects</h2>
-        <p>This site collects small tools and experiments as they become useful enough to share.</p>
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="NSY Projects home">
+      <span class="mark" aria-hidden="true"></span>
+      <span>NSY Projects</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About Me</a>
+      <a href="projects.html">Projects</a>
+    </nav>
+    <a id="authAction" class="header-action" href="https://dem.nsyprojects.com/login">Sign in</a>
+  </header>
+
+  <main id="mainContent">
+    <section class="intro" aria-labelledby="pageTitle">
+      <p class="eyebrow">About me</p>
+      <h1 id="pageTitle">Hi, I’m Shaoyang.</h1>
+      <p class="lead">I’m a computer science graduate student who enjoys using data, code, and AI to understand difficult problems and make everyday work a little simpler.</p>
+      <div class="intro-links">
+        <a href="https://www.linkedin.com/in/naivee-ni/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="projects.html">Projects on this site</a>
       </div>
     </section>
+
+    <hr class="content-divider">
+
+    <section class="profile-layout" aria-label="Introduction">
+      <div class="prose">
+        <h2>A little about my background</h2>
+        <p>I studied <strong>Applied Mathematics and Quantitative Science at Emory University</strong>, where I worked on global optimization research and student data science projects. I’m now pursuing a <strong>Master’s in Computer Science at the University of Chicago</strong>, with a focus on artificial intelligence.</p>
+        <p>My professional experience has taken me through energy, automotive, telecommunications, and technology. At Rystad Energy, I built market reports, automated recurring workflows, and designed an AI-assisted SQL tool. At CarMax and in earlier roles at Ericsson and Raise3D, I worked with business analysis, data quality, dashboards, and forecasting.</p>
+        <p>I’m most interested in AI-assisted development, automation, and small software products that make complicated or repetitive work easier. This website is where I share the practical experiments that grow from those interests.</p>
+      </div>
+
+      <aside class="snapshot" aria-labelledby="snapshotTitle">
+        <h2 id="snapshotTitle">Quick introduction</h2>
+        <dl>
+          <div>
+            <dt>Studying</dt>
+            <dd>Computer Science and Artificial Intelligence</dd>
+          </div>
+          <div>
+            <dt>Background</dt>
+            <dd>Applied mathematics, analytics, and business problem-solving</dd>
+          </div>
+          <div>
+            <dt>Usually working with</dt>
+            <dd>Python, SQL, Excel, Power BI, and AI coding tools</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section working-style" aria-labelledby="workTitle">
+      <h2 id="workTitle">What I like to work on</h2>
+      <p>I like projects that sit between technical detail and real human use: cleaning up a difficult process, making information easier to understand, or testing whether a new tool can solve a familiar problem. I usually work with Python, SQL, Excel, Power BI, and AI coding tools.</p>
+    </section>
+
+    <section class="section personal-note" aria-labelledby="personalTitle">
+      <h2 id="personalTitle">Outside of work</h2>
+      <p>I enjoy skiing, squash, running, playing piano, gaming, cooking, and traveling. I like trying new things, learning through practice, and finding the small details that make an activity more satisfying.</p>
+    </section>
   </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="currentYear">2026</span> Shaoyang Ni</span>
+      <a href="https://www.linkedin.com/in/naivee-ni/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+    </div>
+  </footer>
+
   <script>
     const authAction = document.getElementById("authAction");
+    const currentYear = document.getElementById("currentYear");
+
+    currentYear.textContent = new Date().getFullYear();
     authAction.href = `https://dem.nsyprojects.com/login?next=${encodeURIComponent(window.location.href)}`;
+
     if (document.cookie.split("; ").includes("nsy_signed_in=1")) {
       authAction.textContent = "Signed in";
       authAction.href = "https://dem.nsyprojects.com/";
