@@ -12,11 +12,12 @@ from typing import Any, Iterable
 from car_compare.models import VehicleQuery
 
 
-# Version 3 invalidates marketplace captures created before structured listing
-# identity and card-scoped condition parsing. Research version 2 prevents old
-# reports from bypassing the new dedupe and trim-normalization rules.
-CACHE_SCHEMA_VERSION = 3
-RESEARCH_CACHE_SCHEMA_VERSION = 2
+# Version 4 invalidates marketplace captures created before scoped missing-make
+# cards, drivetrain context, and the expanded trim aliases were validated.
+# Research version 3 prevents an optional cached review from reintroducing rows
+# classified under the preceding matching rules.
+CACHE_SCHEMA_VERSION = 4
+RESEARCH_CACHE_SCHEMA_VERSION = 3
 MAX_RECENT_TTL_SECONDS = 3 * 24 * 60 * 60
 MAX_OLDER_TTL_SECONDS = 3 * 24 * 60 * 60
 
