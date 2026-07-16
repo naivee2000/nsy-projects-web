@@ -7,6 +7,7 @@ This repository holds the public NSY Projects website and the backend project ap
 - `web_ui/` - static website files for Cloudflare Pages at `https://nsyprojects.com/`.
 - `projects/` - one folder per backend or tool project.
 - `projects/dem-claim/` - DEM claim Excel workflow, including its FastAPI app, local runner, deployment notes, ops templates, and test files.
+- `projects/Car Compare/` - authenticated vehicle depreciation research app for `https://carcompare.nsyprojects.com/`, including its browser workers, project skills, cache layer, deployment guide, and tests.
 
 Future projects should be added as `projects/<project-slug>/` so each project keeps its own app code, docs, tests, and deployment notes in one place.
 
@@ -15,12 +16,13 @@ Future projects should be added as `projects/<project-slug>/` so each project ke
 GitHub stores the shared project code. Each computer still keeps its own private runtime setup outside Git:
 
 - Codex app/CLI login and `~/.codex/auth.json`
-- installed `dem-claim-excel` Codex skill under `~/.codex/skills/dem-claim-excel`
+- installed project Codex skills under `~/.codex/skills/`
+- Car Compare Chrome/Playwright profile and Apple Events permission
 - Tesseract install
 - Python virtual environments
-- PM2 secrets, Cloudflare tunnel credentials, logs, uploads, and generated Excel outputs
+- PM2 secrets, Cloudflare tunnel credentials, caches, logs, uploads, collector evidence, and generated outputs
 
-The DEM app fallback path runs local `codex exec` on the computer that deploys or tests the app. That is intentional. Do not commit Codex credentials or Cloudflare credentials to this repo.
+Both backend projects run local Codex processes on the computer that deploys or tests the app. That is intentional. Do not commit Codex credentials, shared session secrets, browser state, or Cloudflare credentials to this repo.
 
 ## Working Across Computers
 
@@ -38,11 +40,18 @@ git commit -m "Describe the change"
 git push
 ```
 
-On the deploy computer, pull the latest code and restart the backend process:
+On the deploy computer, pull the latest code and restart the backend process that changed:
 
 ```bash
 git pull
+# Run the command for the backend that changed:
 pm2 restart nsy-dem-app
+pm2 restart nsy-car-compare --update-env
 ```
 
-See `projects/dem-claim/README.md` for the DEM app details.
+Deployment entrypoints:
+
+- `projects/dem-claim/docs/DEPLOYMENT.md`
+- `projects/Car Compare/docs/DEPLOYMENT.md`
+
+For Car Compare, the deploy computer should also run `python3 scripts/benchmark_search_accuracy.py` from `projects/Car Compare`. The current acceptance record, seven browser samples, and runtime limits are in `projects/Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md`. Production should keep `CAR_COMPARE_CODEX_COLLECTION_REVIEW=0`; deterministic collection remains enabled and automatic generation-impact research is unaffected.

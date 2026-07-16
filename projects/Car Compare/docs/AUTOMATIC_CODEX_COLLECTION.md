@@ -10,8 +10,7 @@ User enters car query
 -> app builds source plan
 -> app loads fresh completed source-year cache entries
 -> app collects only missing or expired Visor facets
--> app can continue into a local Codex CLI job for website collection when Codex is available
--> Codex calls the project-local browser MCP worker for missing Autotrader and Edmunds coverage
+-> app starts the project-local deterministic browser worker for missing Autotrader and Edmunds coverage
 -> Porsche queries also add missing official Porsche Finder coverage
 -> the worker flips pages and persists deterministic card/audit JSON beside the job
 -> the app accepts browser rows only from that audit
@@ -64,7 +63,7 @@ python3 scripts/deploy_preflight.py --smoke-browser
 
 The worker owns Playwright's version-matched browser, runs it headlessly by default, and persists its session under `~/.car-compare/browser-profile`. This machine-local path avoids checking browser state into Git and works even when the project path contains spaces. No separate visible Chrome process, debug port, or machine-specific browser path is required. An explicitly configured localhost `CAR_COMPARE_BROWSER_CDP_URL` remains supported as an advanced override, but is reported as non-background because its window state is externally managed.
 
-The collection pass opens missing Autotrader and Edmunds broad year-range pages concurrently in separate pages of one shared browser session. Porsche queries also open missing official Porsche Finder coverage. Concurrent vehicle jobs still wait for the browser lock. A fresh completed source-year set suppresses that source for three days even when its sample is below the preferred row target. After the range pass, the backend merges marketplaces with cache and Visor aggregate support; only sparse missing evidence enters a bounded follow-up queue. Confirmed access walls remain recorded and never trigger identity rotation or CAPTCHA bypasses.
+The collection pass opens missing Autotrader and Edmunds broad year-range pages concurrently in separate pages of one shared browser session. Porsche queries also open missing official Porsche Finder coverage. Concurrent vehicle jobs still wait for the browser lock. A source examines at most five broad pages. After the range pass, the backend merges marketplaces with cache and Visor aggregate support; one follow-up round may open at most four sparse year pages. A fresh completed source-year set suppresses that source for three days even when its sample is below the preferred row target. Confirmed access walls remain recorded and never trigger identity rotation or CAPTCHA bypasses.
 
 Porsche Finder always receives an explicit nationwide position radius (`-1`) because the site can restore a local radius when position is omitted. It uses `minimum-model-year` / `maximum-model-year`, repeated `category` filters for supported 911 trim scopes, `/details/` card links, and `page` pagination. The app still runs every card through deterministic year/model/trim matching.
 
@@ -99,13 +98,13 @@ A public marketplace may allow a visible browser session while refusing the depl
 
 On macOS, a blocked or empty audited source is retried automatically through `scripts/chrome_host_capture.applescript`. The script immediately minimizes a temporary regular-Chrome worker window, restores the previously focused app, scrolls rendered results, clicks only recognized pagination controls, and returns public visible text. `car_compare/sources/chrome_host.py` enforces the marketplace host allowlist, and the app parses and filters the capture deterministically before replacing the blocked audit. This path runs only during the collection and spends no model usage.
 
-If regular Chrome also receives a network refusal from Edmunds, the active job invokes native `codex --search` only for combined sparse years. Long horizons are split into small batches and up to three batches may run concurrently. The fixed `web_search_capture_schema.json` permits only official Edmunds page URLs plus verbatim visible text. The app validates every URL and runs `parse_visible_listing_text` plus the resolved trim rules before accepting a row. The search stage spends Codex usage only when needed and has no idle monitor. A temporary manual Chrome lease is retained only when automatic capture mechanisms cannot produce an authoritative result.
+If regular Chrome also receives a network refusal from Edmunds, the active job invokes native `codex --search` for at most four critical years with fewer than two individual rows and no aggregate support. The fixed `web_search_capture_schema.json` permits only official Edmunds page URLs plus verbatim visible text. The app validates every URL and runs `parse_visible_listing_text` plus the resolved trim rules before accepting a row. The search stage spends Codex usage only when needed and has no idle monitor. A temporary manual Chrome lease is retained only when automatic capture mechanisms cannot produce an authoritative result.
 
 Do not create a recurring five-minute Codex task. While a lease is pending, the report page polls the local job endpoint every five seconds; this is ordinary local HTTP traffic and does not invoke Codex. No polling remains after completion, expiry, navigation to a new run, or an error. The backend cannot silently start a Chrome-plugin desktop task, so the operator uses `Repair Missing Source` and sends the prefilled task on the host Mac only when automatic recovery failed.
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for clean installation and [ALWAYS_AWAKE_HANDOFF.md](ALWAYS_AWAKE_HANDOFF.md) for detailed recovery.
 
-The backend stays bound to `127.0.0.1` and is published only through the authenticated `carcompare.nsyprojects.com` route. Normal Codex review and an operator-started Chrome fallback can consume the deployment account's Codex usage; an idle app and an expired lease do not.
+The backend stays bound to `127.0.0.1` and is published only through the authenticated `carcompare.nsyprojects.com` route. Deterministic collection review is disabled by default with `CAR_COMPARE_CODEX_COLLECTION_REVIEW=0`; generation research and indexed-source recovery can still consume the deployment account's Codex usage during an active run. An idle app and an expired lease do not.
 
 ## Fallback
 

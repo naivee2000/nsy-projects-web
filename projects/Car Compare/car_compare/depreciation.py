@@ -707,6 +707,8 @@ def _duplicate_match_method(left: Listing, right: Listing) -> str:
         # Without VIN/detail/stock identity, similar cards from one source are
         # separate inventory. Source-local exact repeats are already removed by
         # the adapter before reaching global cross-source deduplication.
+        if _same_source_detail_echo(left, right):
+            return "same_source_detail_echo"
         return "same_source_exact" if _exact_listing_fingerprint(left) == _exact_listing_fingerprint(right) else ""
     left_fingerprint = _cross_source_exact_fingerprint(left)
     if left_fingerprint and left_fingerprint == _cross_source_exact_fingerprint(right):
@@ -820,6 +822,20 @@ def _same_listing_identity_method(left: Listing, right: Listing) -> str:
             return "stock_id"
         return "stock_id" if abs(left.mileage - right.mileage) <= 1000 else ""
     return ""
+
+
+def _same_source_detail_echo(left: Listing, right: Listing) -> bool:
+    left_detail = bool(_detail_listing_urls(left.url))
+    right_detail = bool(_detail_listing_urls(right.url))
+    if left_detail == right_detail:
+        return False
+    if abs(float(left.price) - float(right.price)) > 1:
+        return False
+    if _identity_title(left.title or left.trim) != _identity_title(right.title or right.trim):
+        return False
+    if left.mileage is not None and right.mileage is not None:
+        return abs(left.mileage - right.mileage) <= 50
+    return True
 
 
 def _detail_listing_urls(value: str) -> set[str]:

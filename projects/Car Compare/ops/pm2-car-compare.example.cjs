@@ -23,6 +23,8 @@ module.exports = {
         CAR_COMPARE_OLDER_CACHE_TTL_SECONDS: "259200",
         CAR_COMPARE_GENERATION_CACHE_TTL_SECONDS: "259200",
         CAR_COMPARE_REVIEW_CACHE_TTL_SECONDS: "259200",
+        // Deterministic audits finalize collection; generation research still runs automatically.
+        CAR_COMPARE_CODEX_COLLECTION_REVIEW: "0",
         // Two browser pages and up to three small indexed-search batches run concurrently.
         CAR_COMPARE_MARKETPLACE_CONCURRENCY: "2",
         CAR_COMPARE_CODEX_SEARCH_WORKERS: "3",

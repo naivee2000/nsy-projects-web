@@ -27,10 +27,13 @@ DEM claim processing, real login/session code, uploads, OCR, and Excel generatio
 - DEM backend domain: `https://dem.nsyprojects.com/`.
 - Car Compare backend domain: `https://carcompare.nsyprojects.com/`.
 - DEM backend runs separately through the FastAPI app in `../projects/dem-claim/app/`.
+- Car Compare runs separately through `../projects/Car Compare/app.py`; its canonical host instructions are in `../projects/Car Compare/docs/DEPLOYMENT.md`.
+- Before publishing a Car Compare backend update, run its unit tests, `scripts/benchmark_search_accuracy.py`, browser-worker self-test, and deploy preflight as documented in `../projects/Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md`.
 - Do not put upload, OCR, workbook generation, or password checking code into this static folder.
 - The Projects page should stay app-neutral: the top-right control is account state only, while each project card links to its own stable `/projects/<slug>/` entry.
 - Future backend apps should use their own subdomain, such as `invoice.nsyprojects.com` or `ops.nsyprojects.com`, with Cloudflare Tunnel routing each hostname to the right local port or server.
 - Static-only future projects can stay under `nsyprojects.com/projects/<slug>/` or deploy as separate Cloudflare Pages routes.
+- The static Car Compare project page is only a stable redirect. Do not move collection, shared-session validation, Codex, browser automation, or cache logic into `web_ui/`.
 
 ## Current Verified Flow
 

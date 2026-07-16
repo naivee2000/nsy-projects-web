@@ -60,6 +60,9 @@ BROWSER_SOURCE_HOSTS = {
 DEFAULT_FALLBACK_LEASE_SECONDS = 20 * 60
 MIN_FALLBACK_LEASE_SECONDS = 5 * 60
 MAX_FALLBACK_LEASE_SECONDS = 60 * 60
+BROAD_RANGE_MAX_PAGES = 5
+MAX_TARGETED_FOLLOWUPS = 4
+MAX_CODEX_SEARCH_YEARS = 4
 
 
 @dataclass
@@ -119,6 +122,7 @@ class CollectorConfig:
     recent_cache_ttl_seconds: int = 3 * 24 * 60 * 60
     older_cache_ttl_seconds: int = 3 * 24 * 60 * 60
     collector_review_cache_ttl_seconds: int = 3 * 24 * 60 * 60
+    codex_review_enabled: bool = True
     marketplace_concurrency: int = 2
     codex_search_workers: int = 3
     codex_search_batch_size: int = 5
@@ -506,6 +510,30 @@ class CollectionManager:
                 )
                 browser_result = self._run_browser_sources(request, job_dir, facet_result)
             facet_result = _merge_collector_results(facet_result, browser_result, request)
+        if not self.config.codex_review_enabled:
+            result = facet_result or {
+                "query": request.raw,
+                "status": "blocked",
+                "notes": [],
+                "sources": [],
+                "listings": [],
+                "msrp": None,
+            }
+            result = _apply_browser_captures(result, job_dir, request)
+            result.setdefault("notes", []).append(
+                "Deterministic collection completed; the optional Codex collection review was skipped."
+            )
+            if result.get("listings") and result.get("status") not in {"success", "partial"}:
+                result["status"] = "partial"
+            self._write_job_result(job_id, result)
+            final_status = "completed" if result.get("status") in {"success", "partial"} else "blocked"
+            self._update(
+                job_id,
+                status=final_status,
+                message=f"Deterministic collection {result.get('status', 'finished')}",
+                result=result,
+            )
+            return
         cached_review = self._result_cache.load("collector_review", _collector_review_cache_identity(request))
         if cached_review:
             result = _merge_collector_results(facet_result, cached_review, request)
@@ -763,10 +791,11 @@ class CollectionManager:
                 "url": target["url"],
                 "required_keywords": target["required_keywords"],
                 "exclude_keywords": target["exclude_keywords"],
+                "make_keywords": [request.make],
                 "start_year": start_year,
                 "end_year": end_year,
                 "current_year": current_year,
-                "max_pages": 3,
+                "max_pages": BROAD_RANGE_MAX_PAGES,
                 "split_by_year": False,
                 "skip_persist": True,
             }
@@ -791,7 +820,7 @@ class CollectionManager:
                 self._store_audit_cache(request, audit, current_year)
             audits = _merge_audits_by_source(request, payloads, [*audits, *range_audits])
 
-            for _round in range(2):
+            for _round in range(1):
                 coverage = _combined_year_coverage(request, baseline_result, audits)
                 followups = _plan_browser_followups(request, range_payloads, audits, coverage["sparse_years"])
                 if not followups:
@@ -820,12 +849,13 @@ class CollectionManager:
 
         coverage = _combined_year_coverage(request, baseline_result, audits)
         if coverage["sparse_years"]:
+            critical_years = _critical_missing_years(coverage)
             search_payloads = [
-                {**payload, "target_years": list(coverage["sparse_years"])}
+                {**payload, "target_years": critical_years}
                 for payload in payloads
                 if str(payload["source"]) in refreshable_sources
             ]
-            if search_payloads:
+            if critical_years and search_payloads:
                 search_audits = self._run_codex_search_fallbacks(
                     request, search_payloads, audits, job_dir
                 )
@@ -1046,11 +1076,7 @@ class CollectionManager:
             source = str(payload.get("source") or "")
             existing = by_source.get(source) or {}
             existing_status = str(existing.get("status") or "unavailable")
-            if (
-                not payload.get("target_years")
-                and existing_status not in {"blocked", "unavailable"}
-                and existing.get("listings")
-            ):
+            if existing_status not in {"blocked", "unavailable"} and existing.get("listings"):
                 continue
             if payload.get("target_years") == []:
                 continue
@@ -1426,11 +1452,6 @@ class CollectionManager:
             raw_path = job_dir / f"host_chrome_{source}_{search_index}.json"
             raw_path.write_text(json.dumps(capture, indent=2), encoding="utf-8")
 
-            if search_index == 0:
-                sparse_years = sorted(_browser_year_quota(listings, request)["sparse_years"], reverse=True)
-                target_years = {int(year) for year in payload.get("target_years") or sparse_years}
-                sparse_years = [year for year in sparse_years if year in target_years]
-                searches.extend((_browser_url_for_year(requested_url, source, year), year) for year in sparse_years)
             search_index += 1
 
         quota = _browser_year_quota(listings, request)
@@ -2566,7 +2587,14 @@ def _plan_browser_followups(
         counts[source] = source_counts
 
     followups: list[dict[str, Any]] = []
-    for year in sorted({int(item) for item in sparse_years}, reverse=True):
+    ranked_years = sorted(
+        {int(item) for item in sparse_years},
+        key=lambda year: (
+            sum(source_counts.get(year, 0) for source_counts in counts.values()),
+            -year,
+        ),
+    )[:MAX_TARGETED_FOLLOWUPS]
+    for year in ranked_years:
         candidates = []
         for source in sorted(BROWSER_SOURCE_NAMES):
             audit = by_source.get(source) or {}
@@ -2589,6 +2617,20 @@ def _plan_browser_followups(
             }
         )
     return followups
+
+
+def _critical_missing_years(coverage: dict[str, Any]) -> list[int]:
+    years = coverage.get("years") if isinstance(coverage.get("years"), dict) else {}
+    critical = []
+    for raw_year in coverage.get("sparse_years") or []:
+        year = int(raw_year)
+        item = years.get(year) or years.get(str(year)) or {}
+        if int(item.get("individual_rows") or 0) >= 2:
+            continue
+        if item.get("aggregate_support"):
+            continue
+        critical.append(year)
+    return sorted(critical, reverse=True)[:MAX_CODEX_SEARCH_YEARS]
 
 
 def _browser_url_for_year(raw_url: str, source: str, year: int) -> str:

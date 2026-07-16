@@ -1,6 +1,6 @@
 # Car Compare Website Deployment
 
-Last updated: 2026-07-15
+Last updated: 2026-07-16
 
 This is the canonical clean-install guide for deploying Car Compare from GitHub to the always-awake Mac that serves `https://carcompare.nsyprojects.com/`. For detailed browser recovery and evidence files, continue with [ALWAYS_AWAKE_HANDOFF.md](ALWAYS_AWAKE_HANDOFF.md).
 
@@ -21,6 +21,7 @@ authenticated browser
 - The app reuses the signed session issued by `https://dem.nsyprojects.com/login`.
 - Autotrader and Edmunds are general marketplace sources. Porsche queries also use official Porsche Finder.
 - Marketplace rows, Visor facet snapshots, collection reviews, and generation research expire after at most three days.
+- Deterministic marketplace audits finalize collection by default. The separate generation-impact researcher remains automatic.
 - There is no recurring five-minute Codex task.
 
 ## GitHub Versus Machine-Local State
@@ -114,6 +115,7 @@ CAR_COMPARE_RECENT_CACHE_TTL_SECONDS=259200
 CAR_COMPARE_OLDER_CACHE_TTL_SECONDS=259200
 CAR_COMPARE_GENERATION_CACHE_TTL_SECONDS=259200
 CAR_COMPARE_REVIEW_CACHE_TTL_SECONDS=259200
+CAR_COMPARE_CODEX_COLLECTION_REVIEW=0
 CAR_COMPARE_BACKGROUND_MODE=1
 CAR_COMPARE_HOST_CHROME_FALLBACK=1
 CAR_COMPARE_CODEX_SEARCH_FALLBACK=1
@@ -166,6 +168,16 @@ Do not route port 8787 directly to the internet. The backend should remain bound
 5. Repeat the same query. Fresh complete source-year cache entries should skip those sources for three days, even when a source has fewer rows than the desired sample target.
 6. Confirm `Repair Missing Source` appears only when automatic Playwright and host-Chrome recovery could not produce an authoritative audit.
 
+Run the portable accuracy gate before the live source checks:
+
+```bash
+python3 -m unittest discover -s tests -p 'test_*.py'
+python3 scripts/benchmark_search_accuracy.py
+node scripts/car_compare_browser_mcp.mjs --self-test
+```
+
+The benchmark must remain at or above 88% and currently verifies 60/60 labels. See [PERFORMANCE_ACCURACY_BENCHMARK.md](PERFORMANCE_ACCURACY_BENCHMARK.md) for the seven browser runs and measured runtime reduction.
+
 Porsche Finder is only scheduled for Porsche. If existing Autotrader, Edmunds, and Visor cache entries are fresh, adding or repairing Porsche Finder should collect only that missing source instead of reopening every marketplace.
 
 Per-job evidence is under `data/collector_jobs/<job-id>/`. The cache database is `<CAR_COMPARE_CACHE_DIR>/collector_cache.sqlite3`.
@@ -213,6 +225,8 @@ See [ALWAYS_AWAKE_HANDOFF.md](ALWAYS_AWAKE_HANDOFF.md) for detailed audit filena
 - [ ] Google Chrome and Apple Events JavaScript access are ready
 - [ ] Private PM2 config uses the shared NSY username and session secret
 - [ ] Cache directory is persistent and all TTLs are 259200 seconds
+- [ ] `CAR_COMPARE_CODEX_COLLECTION_REVIEW=0` is explicit unless a deliberate paid review experiment is being run
+- [ ] Unit tests, deterministic accuracy benchmark, and browser worker self-test pass
 - [ ] PM2 starts at login and local `/api/health` is healthy
 - [ ] Cloudflare routes the hostname to `127.0.0.1:8787`
 - [ ] Unauthenticated users redirect to NSY login

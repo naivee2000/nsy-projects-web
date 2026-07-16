@@ -68,6 +68,7 @@ COLLECTOR = CollectionManager(
         recent_cache_ttl_seconds=_environment_int("CAR_COMPARE_RECENT_CACHE_TTL_SECONDS", 3 * 24 * 60 * 60),
         older_cache_ttl_seconds=_environment_int("CAR_COMPARE_OLDER_CACHE_TTL_SECONDS", 3 * 24 * 60 * 60),
         collector_review_cache_ttl_seconds=_environment_int("CAR_COMPARE_REVIEW_CACHE_TTL_SECONDS", 3 * 24 * 60 * 60),
+        codex_review_enabled=_environment_bool("CAR_COMPARE_CODEX_COLLECTION_REVIEW", False),
         marketplace_concurrency=_environment_int("CAR_COMPARE_MARKETPLACE_CONCURRENCY", 2),
         codex_search_workers=_environment_int("CAR_COMPARE_CODEX_SEARCH_WORKERS", 3),
         codex_search_batch_size=_environment_int("CAR_COMPARE_CODEX_SEARCH_BATCH_SIZE", 5),

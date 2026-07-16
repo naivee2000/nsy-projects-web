@@ -8,6 +8,11 @@ from car_compare.vehicle_catalog import MODEL_CATALOG, make_aliases, source_mode
 
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
+SCOPED_BROWSER_SOURCES = {
+    "autotrader_browser",
+    "edmunds_browser",
+    "porsche_finder_browser",
+}
 
 
 def matches_vehicle_text(request: VehicleQuery, title: str, trim: str = "", source: str = "") -> bool:
@@ -25,6 +30,8 @@ def vehicle_text_match_score(request: VehicleQuery, title: str, trim: str = "", 
         }
     haystack = f"{title} {trim}"
     tokens = set(_tokens(haystack))
+    if _bmw_m4_zcp_evidence(request, haystack):
+        tokens.add("competition")
     canonical_make_tokens = set(_tokens(request.make))
     make_groups = [set(_tokens(alias)) for alias in make_aliases(request.make)]
     make_matched = any(group and group <= tokens for group in make_groups)
@@ -39,8 +46,12 @@ def vehicle_text_match_score(request: VehicleQuery, title: str, trim: str = "", 
         family_tokens = set(_tokens(request.model))
         required = [token for token in required if token not in family_tokens]
     exclude = set(_tokens(" ".join(profile["exclude_keywords"])))
-    missing_make = [] if make_matched else sorted(canonical_make_tokens)
     missing_required = [token for token in required if token not in tokens]
+    scoped_model_evidence = (
+        source in SCOPED_BROWSER_SOURCES
+        and not missing_required
+    )
+    missing_make = [] if make_matched or scoped_model_evidence else sorted(canonical_make_tokens)
     excluded = sorted(tokens & exclude)
     missing = sorted(set(missing_make + missing_required))
     model_conflict = _has_conflicting_model_variant(request, haystack)
@@ -114,6 +125,15 @@ def _bmw_family_trim_identifies_model(request: VehicleQuery, observed: set[str])
     return bool(re.fullmatch(r"m?[34]\d{2}[ie]?", primary))
 
 
+def _bmw_m4_zcp_evidence(request: VehicleQuery, value: str) -> bool:
+    if request.make != "BMW" or request.model != "M4" or request.trim.casefold() != "competition":
+        return False
+    if not re.search(r"\bzcp\b", value, re.I):
+        return False
+    year_match = re.search(r"\b(20\d{2})\b", value)
+    return bool(year_match and 2016 <= int(year_match.group(1)) <= 2020)
+
+
 def _contains_token_sequence(haystack: list[str], needle: list[str]) -> bool:
     if not needle or len(needle) > len(haystack):
         return False
@@ -137,6 +157,7 @@ def _split_attached_terms(value: str) -> str:
     replacements = {
         r"\b(m[2345])competition\b": r"\1 competition",
         r"\b(m[2345])comp\b": r"\1 competition",
+        r"\bcomp\b": "competition",
         r"\bf\s*[- ]?\s*(150|250|350)\b": r"f \1",
         r"\b(cr|hr)\s*-?\s*v\b": r"\1 v",
         r"\b(cx)\s*-?\s*(30|5|50|70|90)\b": r"\1 \2",
@@ -149,6 +170,12 @@ def _split_attached_terms(value: str) -> str:
         r"\b(cla|cle)\s*(\d{2,3})\b": r"\1 \2",
         r"\b([cesg])\s*(\d{2,3})\b": r"\1 \2",
         r"\b(gt)(c)\b": r"\1c",
+        r"\bc2s\b": "carrera s",
+        r"\bc4s\b": "carrera 4s",
+        r"\bc2\b": "carrera",
+        r"\bc4\b": "carrera 4",
+        r"\bdual\s+motor\b": "awd",
+        r"\blr\b": "long range",
     }
     result = value
     for pattern, replacement in replacements.items():

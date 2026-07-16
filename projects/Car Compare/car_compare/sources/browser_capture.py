@@ -6,6 +6,7 @@ from urllib.parse import parse_qs, urlparse
 
 from car_compare.condition import sanitize_listing_condition
 from car_compare.models import Listing, VehicleQuery
+from car_compare.trim_match import trim_tokens
 from car_compare.vehicle_match import vehicle_text_match_score
 from car_compare.vehicle_catalog import collection_start_year, make_candidates
 
@@ -92,6 +93,7 @@ def parse_visible_listing_text(
         vin = _find_vin(window)
         title = _title_from_window(window, url=url)
         trim = _trim_from_title(title, request)
+        trim = _append_verified_drivetrain_context(trim, haystack, request)
         condition_context = [*(lines[idx - 1 : idx] if card_scoped and idx else []), *window]
         declared_condition = (
             "cpo"
@@ -392,6 +394,17 @@ def _trim_from_title(title: str, request: VehicleQuery) -> str:
     if len(parts) == 2:
         return re.sub(r"\s+", " ", parts[1]).strip()
     return request.trim
+
+
+def _append_verified_drivetrain_context(trim: str, haystack: str, request: VehicleQuery) -> str:
+    requested = set(trim_tokens(request.trim))
+    observed = set(trim_tokens(haystack))
+    trim_identity = set(trim_tokens(trim))
+    additions = []
+    for token, label in (("awd", "AWD"), ("rwd", "RWD"), ("fwd", "FWD"), ("4wd", "4WD")):
+        if token in requested and token in observed and token not in trim_identity:
+            additions.append(label)
+    return " ".join([trim, *additions]).strip()
 
 
 def _dedupe(listings: list[Listing]) -> list[Listing]:

@@ -9,6 +9,7 @@ from car_compare.vehicle_catalog import trim_candidates, trim_scope_profile
 TOKEN_RE = re.compile(r"[a-z0-9]+")
 BODY_STYLE_TOKENS = {"cabriolet", "convertible", "coupe", "hatchback", "roadster", "sedan", "suv", "wagon"}
 M4_COMPETITION_FAMILY_EXCLUSIONS = {"cs", "csl", "gts", "gt3"}
+MENTION_ONLY_TOKENS = {"available", "compatible", "option", "optional", "separately", "style", "look"}
 
 
 def trim_value_matches_request(request: VehicleQuery, value: str) -> bool:
@@ -40,7 +41,7 @@ def has_conflicting_trim_variant(request: VehicleQuery, value: str) -> bool:
         return not _matches_base_scope(scope, observed)
 
     if is_bmw_m4_competition_family(request):
-        return bool(observed & M4_COMPETITION_FAMILY_EXCLUSIONS)
+        return bool(observed & M4_COMPETITION_FAMILY_EXCLUSIONS) or _requested_trim_is_mention_only(request, value)
 
     recognized = _recognized_catalog_trim(request, value)
     if recognized:
@@ -107,6 +108,16 @@ def _recognized_catalog_trim(request: VehicleQuery, value: str) -> str:
     return matches[0][2]
 
 
+def _requested_trim_is_mention_only(request: VehicleQuery, value: str) -> bool:
+    tokens = trim_tokens(value)
+    requested = trim_tokens(request.trim)
+    index = _sequence_index(tokens, requested)
+    if index < 0:
+        return False
+    trailing = set(tokens[index + len(requested) : index + len(requested) + 5])
+    return bool(trailing & MENTION_ONLY_TOKENS)
+
+
 def _sequence_index(haystack: list[str], needle: list[str]) -> int:
     if not needle or len(needle) > len(haystack):
         return -1
@@ -131,6 +142,13 @@ def trim_tokens(value: str) -> list[str]:
         r"\b(lc|ls|lx|rx|gx|nx|tx|is|es|rc)\s*(\d{3}h?)\b": r"\1 \2",
         r"\b(m[2345])competition\b": r"\1 competition",
         r"\b(m[2345])comp\b": r"\1 competition",
+        r"\bcomp\b": "competition",
+        r"\bc2s\b": "carrera s",
+        r"\bc4s\b": "carrera 4s",
+        r"\bc2\b": "carrera",
+        r"\bc4\b": "carrera 4",
+        r"\bdual\s+motor\b": "awd",
+        r"\blr\b": "long range",
     }
     for pattern, replacement in replacements.items():
         normalized = re.sub(pattern, replacement, normalized)

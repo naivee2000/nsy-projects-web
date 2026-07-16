@@ -46,3 +46,7 @@ Browser verification covers typo correction (`BMW M4 Cometition`), both deprecia
 - Box-plot low/high values use IQR whiskers when supported. Extreme rows remain in source evidence and are counted in `outlier_count` instead of stretching the chart.
 
 For a second computer or production host, continue with [DEPLOYMENT.md](DEPLOYMENT.md). It adds Codex login, Playwright, host-Chrome, shared-auth, persistent-cache, PM2, and Cloudflare verification to this code-level audit.
+
+## 2026-07-16 accuracy and runtime acceptance
+
+The portable 60-label fixture now passes 60/60 across BMW M4 Competition, Porsche 911 Carrera, Honda Civic EX, Ford Mustang GT, Mercedes-Benz C-Class C300, Toyota Camry XSE, and Tesla Model 3 Long Range AWD. That is a 36.37% relative improvement over the recorded 44/60 baseline. The same cold BMW browser workflow fell from 13:58 to 2:36, an 81.4% reduction. Seven user-like browser runs, exact commands, job behavior, and bounded crawl budgets are recorded in [PERFORMANCE_ACCURACY_BENCHMARK.md](PERFORMANCE_ACCURACY_BENCHMARK.md).

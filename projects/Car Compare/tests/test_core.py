@@ -26,8 +26,10 @@ from car_compare.collector import (
     _apply_browser_captures,
     _browser_url_for_year,
     _combined_year_coverage,
+    _critical_missing_years,
     _format_elapsed,
     _merge_collector_results,
+    _plan_browser_followups,
     build_codex_command,
     build_codex_prompt,
     build_codex_web_search_command,
@@ -984,6 +986,31 @@ class ReportTests(unittest.TestCase):
             ),
         ]
         self.assertEqual(len(dedupe_listings(rows)), 2)
+
+    def test_dedupe_merges_same_source_detail_and_summary_echo(self) -> None:
+        rows = [
+            Listing(
+                "edmunds_browser",
+                2023,
+                25596,
+                title="2023 Honda Civic EX Sedan",
+                url="https://www.edmunds.com/honda/civic/2023/vin/2HGFE1F76PH308805/",
+            ),
+            Listing(
+                "edmunds_browser",
+                2023,
+                25596,
+                mileage=13802,
+                title="2023 Honda Civic EX Sedan",
+                url="https://www.edmunds.com/inventory/srp.html?make=honda&model=civic",
+            ),
+        ]
+
+        deduped, diagnostics = dedupe_listings_with_diagnostics(rows)
+
+        self.assertEqual(len(deduped), 1)
+        self.assertEqual(diagnostics["removedByMethod"], {"same_source_detail_echo": 1})
+        self.assertEqual(deduped[0].mileage, 13802)
 
     def test_dedupe_same_detail_url_allows_price_drift_and_cpo_used(self) -> None:
         rows = [
@@ -2438,6 +2465,82 @@ class CollectionPlanTests(unittest.TestCase):
 
 
 class CollectorPayloadTests(unittest.TestCase):
+    def test_sparse_followup_budget_caps_individual_year_pages(self) -> None:
+        request = parse_vehicle_query("BMW M4 Competition")
+        payloads = [
+            {
+                "source": "autotrader_browser",
+                "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4?startYear=2016&endYear=2026",
+            },
+            {
+                "source": "edmunds_browser",
+                "url": "https://www.edmunds.com/inventory/srp.html?make=bmw&model=m4&year=2016-2026",
+            },
+        ]
+        audits = [
+            {
+                "source": source["source"],
+                "status": "partial",
+                "browser_verified": True,
+                "listings": [],
+            }
+            for source in payloads
+        ]
+
+        followups = _plan_browser_followups(
+            request,
+            payloads,
+            audits,
+            list(range(2016, 2027)),
+        )
+
+        self.assertEqual(len(followups), 4)
+        self.assertEqual([item["start_year"] for item in followups], [2026, 2025, 2024, 2023])
+
+    def test_codex_search_recovery_only_targets_four_unsupported_years(self) -> None:
+        coverage = {
+            "sparse_years": list(range(2016, 2027)),
+            "years": {
+                year: {
+                    "individual_rows": 0 if year <= 2024 else 3,
+                    "aggregate_support": year in {2018, 2019},
+                }
+                for year in range(2016, 2027)
+            },
+        }
+
+        self.assertEqual(_critical_missing_years(coverage), [2024, 2023, 2022, 2021])
+
+    def test_host_chrome_fallback_uses_one_broad_range_capture(self) -> None:
+        request = parse_vehicle_query("BMW M4 Competition")
+        request.max_age = 10
+        payload = {
+            "source": "autotrader_browser",
+            "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4?startYear=2016&endYear=2026",
+            "start_year": 2016,
+            "end_year": 2026,
+            "target_years": list(range(2016, 2027)),
+        }
+        capture = {
+            "requestedUrl": payload["url"],
+            "readyState": "complete",
+            "title": "BMW M4 listings",
+            "text": "",
+            "cards": [],
+            "cardsExamined": 0,
+            "pagesExamined": 3,
+            "loadMoreClicked": 2,
+            "backgroundMode": True,
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            manager = CollectionManager(CollectorConfig(root=Path(tmp)))
+            with patch("car_compare.collector.capture_with_host_chrome", return_value=capture) as capture_call:
+                audit = manager._collect_host_chrome_source(request, payload, Path(tmp))
+
+        capture_call.assert_called_once()
+        self.assertEqual(audit["attempted_year_searches"], 0)
+        self.assertEqual(audit["pages_examined"], 3)
+
     def test_porsche_year_followup_preserves_repeated_categories(self) -> None:
         raw = (
             "https://finder.porsche.com/us/en-US/search/911?model=911&page=3"

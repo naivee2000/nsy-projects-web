@@ -1,0 +1,107 @@
+{
+  "description": "Audited marketplace-card shorthand and near-match benchmark for seven representative user searches.",
+  "baseline": {
+    "correct": 44,
+    "total": 60,
+    "accuracy": 0.7333,
+    "minimum_relative_improvement": 0.2,
+    "target_accuracy": 0.88
+  },
+  "samples": [
+    {
+      "query": "BMW M4 Competition",
+      "cases": [
+        [true, "2024 BMW M4 Competition xDrive Coupe"],
+        [true, "2022 BMW M4 Competition Convertible"],
+        [true, "2018 BMW M4 Coupe Competition Package"],
+        [true, "2018 BMW M4 ZCP Coupe"],
+        [true, "2020 M4 ZCP Coupe"],
+        [true, "2024 M4 Comp xDrive"],
+        [false, "2024 BMW M4 Coupe"],
+        [false, "2024 BMW M4 CS"],
+        [false, "2018 BMW M4 Competition Package available"],
+        [false, "2024 BMW M440i Competition Package"]
+      ]
+    },
+    {
+      "query": "Porsche 911 Carrera",
+      "cases": [
+        [true, "2025 Porsche 911 Carrera Coupe"],
+        [true, "2024 Porsche 911 Carrera S Cabriolet"],
+        [true, "2023 Porsche 911 Carrera 4S"],
+        [true, "2022 Porsche 911 Carrera T"],
+        [true, "2024 Porsche 911 C4S"],
+        [true, "2023 911 C2S Cabriolet"],
+        [true, "2025 911 Carrera T"],
+        [false, "2024 Porsche 911 Turbo S"],
+        [false, "2024 Porsche 911 GT3"],
+        [false, "2024 Porsche 911 Targa 4"]
+      ]
+    },
+    {
+      "query": "Honda Civic EX",
+      "cases": [
+        [true, "2024 Honda Civic EX Sedan"],
+        [true, "2020 Honda Civic EX Coupe"],
+        [true, "2024 Civic EX Sedan"],
+        [true, "2020 Civic EX Coupe"],
+        [false, "2024 Honda Civic EX-L"],
+        [false, "2018 Honda Civic EX-T"],
+        [false, "2024 Honda Civic Touring"],
+        [false, "2024 Honda Accord EX"]
+      ]
+    },
+    {
+      "query": "Ford Mustang GT",
+      "cases": [
+        [true, "2024 Ford Mustang GT Fastback"],
+        [true, "2023 Ford Mustang GT Premium Convertible"],
+        [true, "2024 Mustang GT Fastback"],
+        [true, "2023 Mustang GT Premium Convertible"],
+        [false, "2020 Ford Mustang Shelby GT350"],
+        [false, "2022 Ford Mustang Shelby GT500"],
+        [false, "2024 Ford Mustang EcoBoost"],
+        [false, "2024 Ford Mustang Mach 1"]
+      ]
+    },
+    {
+      "query": "Mercedes-Benz C-Class C300",
+      "cases": [
+        [true, "2024 Mercedes-Benz C 300 Sedan"],
+        [false, "2023 Mercedes-Benz C300 4MATIC Sedan"],
+        [true, "2022 Mercedes C 300 Coupe"],
+        [false, "2023 C300 4MATIC Sedan"],
+        [true, "2024 C 300 Sedan"],
+        [false, "2024 Mercedes-Benz C 43 AMG"],
+        [false, "2024 Mercedes-Benz C 63 AMG"],
+        [false, "2024 Mercedes-Benz GLC 300"]
+      ]
+    },
+    {
+      "query": "Toyota Camry XSE",
+      "cases": [
+        [true, "2025 Toyota Camry XSE Sedan"],
+        [true, "2024 Toyota Camry XSE AWD"],
+        [true, "2023 Toyota Camry XSE V6"],
+        [true, "2025 Toyota Camry XSE Hybrid"],
+        [true, "2024 Camry XSE AWD"],
+        [false, "2025 Toyota Camry XLE"],
+        [false, "2024 Toyota Camry SE"],
+        [false, "2024 Toyota Camry TRD"]
+      ]
+    },
+    {
+      "query": "Tesla Model 3 Long Range AWD",
+      "cases": [
+        [true, "2024 Tesla Model 3 Long Range AWD"],
+        [true, "2023 Tesla Model 3 Long Range All-Wheel Drive"],
+        [true, "2022 Tesla Model 3 Long Range Dual Motor"],
+        [true, "2022 Model 3 Long Range Dual Motor"],
+        [true, "2023 Tesla Model 3 LR AWD"],
+        [false, "2024 Tesla Model 3 Long Range RWD"],
+        [false, "2024 Tesla Model 3 Performance"],
+        [false, "2024 Tesla Model Y Long Range AWD"]
+      ]
+    }
+  ]
+}

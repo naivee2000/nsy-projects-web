@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -14,6 +15,7 @@ from car_compare.collector import (
 from car_compare.models import MSRP
 from car_compare.parser import parse_vehicle_query
 from car_compare.sources.browser_capture import listing_year_in_scope, parse_visible_listing_text
+from car_compare.vehicle_match import vehicle_text_match_score
 
 
 BMW_ZERO_RESULTS_TEXT = """
@@ -40,6 +42,40 @@ Expand your search distance
 
 
 class VisibleListingRegressionTests(unittest.TestCase):
+    def test_seven_car_marketplace_accuracy_benchmark_improves_twenty_percent(self) -> None:
+        fixture = json.loads(
+            (Path(__file__).parent / "fixtures" / "search_accuracy_benchmark.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        correct = 0
+        total = 0
+        for sample in fixture["samples"]:
+            request = parse_vehicle_query(sample["query"])
+            for expected, title in sample["cases"]:
+                actual = bool(
+                    vehicle_text_match_score(request, title, "", "autotrader_browser")["accepted"]
+                )
+                correct += int(actual == expected)
+                total += 1
+        accuracy = correct / total
+        self.assertGreaterEqual(accuracy, fixture["baseline"]["target_accuracy"])
+
+    def test_card_parser_preserves_verified_requested_drivetrain_context(self) -> None:
+        request = parse_vehicle_query("Tesla Model 3 Long Range AWD")
+        listings = parse_visible_listing_text(
+            "edmunds_browser",
+            "https://www.edmunds.com/tesla/model-3/2022/vin/5YJ3E1EB1NF234347/",
+            "2022 Tesla Model 3 Long Range Sedan\n$19,995\n81,994 miles\nAWD/4WD\nVIN: 5YJ3E1EB1NF234347",
+            request,
+        )
+
+        self.assertEqual(len(listings), 1)
+        self.assertIn("AWD", listings[0].trim)
+        self.assertTrue(
+            vehicle_text_match_score(request, listings[0].title, listings[0].trim, listings[0].source)["accepted"]
+        )
+
     def test_bmw_zero_results_search_page_cannot_create_zip_price_listing(self) -> None:
         request = parse_vehicle_query("BMW M4")
         url = (

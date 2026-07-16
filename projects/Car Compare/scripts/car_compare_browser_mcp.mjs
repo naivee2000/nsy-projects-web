@@ -32,6 +32,15 @@ function tokens(value) {
     .toLowerCase()
     .replace(/\bx\s+drive\b/g, "xdrive")
     .replace(/\b4\s*matic\b/g, "4matic")
+    .replace(/\b(m[2345])comp\b/g, "$1 competition")
+    .replace(/\bcomp\b/g, "competition")
+    .replace(/\bzcp\b/g, "zcp competition")
+    .replace(/\bc2s\b/g, "carrera s")
+    .replace(/\bc4s\b/g, "carrera 4s")
+    .replace(/\bc2\b/g, "carrera")
+    .replace(/\bc4\b/g, "carrera 4")
+    .replace(/\bdual\s+motor\b/g, "awd")
+    .replace(/\blr\b/g, "long range")
     .match(/[a-z0-9]+/g) || [];
 }
 
@@ -77,8 +86,9 @@ function classifyCard(card, input) {
   const text = lines.join(" ");
   const observed = new Set(tokens(text));
   const required = tokens(input.required_keywords.join(" "));
+  const makeTokens = new Set(tokens((input.make_keywords || []).join(" ")));
   const excluded = tokens(input.exclude_keywords.join(" "));
-  const missing = required.filter((token) => !observed.has(token));
+  const missing = required.filter((token) => !observed.has(token) && !makeTokens.has(token));
   const conflicting = excluded.filter((token) => observed.has(token));
   const year = Number(text.match(/\b(?:19|20)\d{2}\b/)?.[0] || 0);
   const price = parsePrice(lines);
@@ -89,6 +99,9 @@ function classifyCard(card, input) {
   if (!price) return { accepted: false, reason: "missing_price" };
 
   const m4CompetitionFamily = required.includes("m4") && required.includes("competition");
+  if (m4CompetitionFamily && /\bcompetition\s+package\s+(?:is\s+)?(?:available|optional|sold\s+separately)\b/i.test(text)) {
+    return { accepted: false, reason: "unverified_historical_competition_package" };
+  }
   if (m4CompetitionFamily && year >= 2016 && year <= 2020 && !(observed.has("zcp") || (observed.has("competition") && observed.has("package")))) {
     return { accepted: false, reason: "unverified_historical_competition_package" };
   }
@@ -714,6 +727,7 @@ if (process.argv.includes("--self-test")) {
       source: z.string(),
       url: z.string().url(),
       required_keywords: z.array(z.string()),
+      make_keywords: z.array(z.string()).default([]),
       exclude_keywords: z.array(z.string()).default([]),
       start_year: z.number().int().min(1980).max(2100),
       end_year: z.number().int().min(1980).max(2100),

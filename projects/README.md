@@ -11,4 +11,4 @@ Put that project's app code, docs, local runner scripts, test files, and deploym
 Current projects:
 
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
-- `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`.
+- `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.

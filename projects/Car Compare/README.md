@@ -25,6 +25,7 @@ It accepts natural vehicle queries such as `BMW M4 Competition after 2021`, norm
 Obvious catalog-backed spelling mistakes are corrected conservatively before collection. For example, `BMW M4 Cometition` resolves to `BMW M4 Competition`, and the Parsed Vehicle panel discloses the correction. Unknown or ambiguous trim names are left unchanged. When verified new-market samples are unavailable, the official MSRP reference is used as the Age 0 depreciation baseline and remains labeled `MSRP Ref` rather than being presented as an observed listing.
 
 The completed seven-point search-accuracy audit and seven-point UX audit are documented in [docs/ACCURACY_UX_AUDIT.md](docs/ACCURACY_UX_AUDIT.md).
+The current 60-label accuracy gate, seven live browser samples, and runtime acceptance record are in [docs/PERFORMANCE_ACCURACY_BENCHMARK.md](docs/PERFORMANCE_ACCURACY_BENCHMARK.md).
 
 ## Run
 
@@ -58,7 +59,7 @@ This makes it easier to add more websites later. Each source can be tested and f
 
 ## Single And Compare Modes
 
-`Single Car` preserves the original one-vehicle report. `Compare Cars` accepts Car A and Car B with one shared horizon and one `Compare & Research` action. Both vehicle jobs and generation researchers start together; the backend browser lock coordinates each vehicle's audited browser stage while their Visor, Codex review, and generation work can overlap. Each vehicle still receives its own normal depreciation report and generation-impact result, aligned by vehicle age without changing the depreciation formula.
+`Single Car` preserves the original one-vehicle report. `Compare Cars` accepts Car A and Car B with one shared horizon and one `Compare & Research` action. Both vehicle jobs and generation researchers start together; the backend browser lock coordinates each vehicle's audited browser stage while Visor, cache, and generation work can overlap. Each vehicle still receives its own normal depreciation report and generation-impact result, aligned by vehicle age without changing the depreciation formula.
 
 In comparison results, vehicle color stays consistent across charts. Solid line segments are observed, dashed segments are predicted, grouped bars are signed year-over-year value movement, and the labeled percentage dots show signed change from each vehicle's own Age 0 market baseline. Source evidence and collection plans remain separate under Car A and Car B tabs.
 
@@ -73,8 +74,8 @@ In comparison results, vehicle color stays consistent across charts. Solid line 
 3. **Automatic collection**
    `Collect & Research` first loads fresh source-year cache entries. It collects only missing or expired Visor facets, Autotrader, Edmunds, and, for Porsche queries, official Porsche Finder. Missing browser sources start with the full requested year range, expand visible results, and use bounded single-year follow-ups only where evidence remains sparse. If both browser profiles are refused, native Codex web search can collect verbatim blocks from indexed official Edmunds year pages. Every cache, browser, or search row is revalidated by the deterministic parser. Unverified Codex prose is discarded.
 
-4. **Codex website collection review**
-   If Codex is installed/logged in on the same computer, the app registers the same project-local browser worker as an MCP tool and starts a fixed-schema review job. If Codex fails, times out, or reaches a usage limit, audited browser rows and Visor facets remain available as a completed partial result.
+4. **Deterministic collection finalization**
+   Browser, cache, and indexed-source rows are accepted only after the same deterministic matcher validates them. The redundant post-collection Codex review is disabled by default with `CAR_COMPARE_CODEX_COLLECTION_REVIEW=0`. Generation-impact research remains automatic and separate.
 
 5. **API/source adapters**
    Visor should still be treated as API/MCP-first when an API key is available. Public facets are good for depreciation trends; the listings API is the cleaner path for listing-level VIN/dealer data.
@@ -146,11 +147,11 @@ The public route is `https://carcompare.nsyprojects.com/`. The deployment reuses
 
 The PM2 template is `ops/pm2-car-compare.example.cjs`. The worker is started by the backend for each collection pass and reuses its project-local browser profile, so PM2 only needs to manage the Car Compare backend. The live Cloudflare tunnel should route `carcompare.nsyprojects.com` to `http://127.0.0.1:8787` before its final 404 ingress rule.
 
-Autotrader and Edmunds open their broad year-range pages concurrently inside one shared browser session when their cache is missing or expired. Porsche queries add official Porsche Finder with an explicit nationwide radius; its 911 URL categories distinguish all trims, Carrera family, Base, and known exact trims before deterministic card validation. Each missing source expands visible load-more or next-page controls. A fresh completed source-year set suppresses recollection for that source for three days even when its row count is below the preferred sample target. Newly added or expired sources collect independently, and only still-sparse missing evidence enters bounded follow-up queues.
+Autotrader and Edmunds open their broad year-range pages concurrently inside one shared browser session when their cache is missing or expired. Porsche queries add official Porsche Finder with an explicit nationwide radius; its 911 URL categories distinguish all trims, Carrera family, Base, and known exact trims before deterministic card validation. Each source examines at most five broad pages, followed by one round of at most four sparse year pages. A fresh completed source-year set suppresses recollection for that source for three days even when its row count is below the preferred sample target. Newly added or expired sources collect independently.
 
 When the backend browser profile is refused or returns no rows, the app automatically retries that source in the host Mac's regular Google Chrome. The project AppleScript worker creates and immediately minimizes its own temporary window, restores the app the user was working in, scrolls rendered results, clicks recognized load-more or next-page controls, and returns public listing-card text plus same-site detail URLs to the deterministic parser. Whole-page visible text remains a compatibility fallback. The worker then closes its own window. It runs only during the active collection and does not invoke a model or require an operator click. A short-lived `Repair Missing Source` action remains only as a manual recovery path when host Chrome automation is unavailable. No recurring Codex scheduled task is required.
 
-When the host network still blocks an official Edmunds result page, the active job can invoke `codex --search` only for combined sparse years. Long horizons are split into configurable five-year batches with up to three concurrent workers. Codex returns only official Edmunds URLs and verbatim listing blocks under `car_compare/web_search_capture_schema.json`; the app then validates the host and reruns deterministic year/model/trim parsing. This fallback consumes Codex usage only for that active job and never polls while idle. Set `CAR_COMPARE_CODEX_SEARCH_FALLBACK=0` to disable it.
+When the host network still blocks an official Edmunds result page, the active job can invoke `codex --search` for at most four critical years with fewer than two individual rows and no aggregate support. Codex returns only official Edmunds URLs and verbatim listing blocks under `car_compare/web_search_capture_schema.json`; the app then validates the host and reruns deterministic year/model/trim parsing. This fallback consumes Codex usage only for that active job and never polls while idle. Set `CAR_COMPARE_CODEX_SEARCH_FALLBACK=0` to disable it.
 
 ## Persistent Cache And Concurrency
 
@@ -167,12 +168,13 @@ CAR_COMPARE_RECENT_CACHE_TTL_SECONDS=259200
 CAR_COMPARE_OLDER_CACHE_TTL_SECONDS=259200
 CAR_COMPARE_GENERATION_CACHE_TTL_SECONDS=259200
 CAR_COMPARE_REVIEW_CACHE_TTL_SECONDS=259200
+CAR_COMPARE_CODEX_COLLECTION_REVIEW=0
 CAR_COMPARE_MARKETPLACE_CONCURRENCY=2
 CAR_COMPARE_CODEX_SEARCH_WORKERS=3
 CAR_COMPARE_CODEX_SEARCH_BATCH_SIZE=5
 ```
 
-The validated Codex collection review is cached for up to three days as well. A repeat run revalidates fresh cached marketplace and Visor rows, skips complete source-year captures, and can finish without reopening source pages or launching another review model call. An empty or blocked attempt cannot overwrite a richer accepted cache entry. Comparison mode starts both vehicles' collection and generation work together. The backend browser lock still serializes ownership between vehicle jobs, while cache reads, generation research, Codex review, and the other vehicle's non-browser work can overlap safely.
+An optional Codex collection review can still be enabled for diagnosis and is cached for up to three days, but production leaves it disabled. A repeat run revalidates fresh cached marketplace and Visor rows and skips complete source-year captures. An empty or blocked attempt cannot overwrite a richer accepted cache entry. Comparison mode starts both vehicles' collection and generation work together. The backend browser lock still serializes ownership between vehicle jobs, while cache reads, generation research, and the other vehicle's non-browser work can overlap safely.
 
 The first page intentionally opens empty. It should not auto-run a default BMW query anymore.
 
@@ -203,16 +205,15 @@ The normalization layer deduplicates before calculating statistics:
 
 ## Current Verification Snapshot
 
-Last verified locally on 2026-07-14:
+Last verified locally on 2026-07-16:
 
-- Live one-year job `4bfca2877827420fb4f9bbdddf55aaf1` collected 11 Autotrader plus 5 Edmunds rows, combined them with Visor support, met the 15-row target, and skipped indexed Edmunds recovery.
-- Its first marketplace-cache repeat used zero browser pages. After the review cache was populated, job `558049d3a70b4a228da6c0ba307ad94f` finished in about 20 seconds with no marketplace browser or Codex collection process.
-- SQLite showed marketplace rows and the validated review expiring after three days.
-- A no-click `BMW M4 Competition` collection completed from the API in 413 seconds as job `8fb58f1ce05449a0aebd92ea7050f8c9`.
-- Visor represented 344 vehicles through public aggregate facets.
-- The normal Playwright profile was refused, then the automatic regular-Chrome retry accepted 115 exact Autotrader rows across model years 2021-2026.
-- Edmunds returned an IP-level 403 locally; native Codex web search then supplied official year-page evidence and the deterministic parser accepted 55 exact rows.
-- The final report contained 170 individual marketplace rows, had no pending manual fallback lease, and `/api/codex-browser-actions` was empty.
+- The portable seven-vehicle fixture passed 60/60 classifications, up from the recorded 44/60 baseline: a 36.37% relative accuracy improvement.
+- The same cold `BMW M4 Competition` browser workflow fell from 13:58 to 2:36, an 81.4% runtime reduction.
+- Seven normal UI runs covered BMW M4 Competition, Porsche 911 Carrera, Honda Civic EX, Ford Mustang GT, Mercedes-Benz C-Class C300, Toyota Camry XSE, and Tesla Model 3 Long Range AWD.
+- The seven-run median was 2:21. Porsche Carrera was slowest at 5:57 because it intentionally resolves a broad trim family; Ford Mustang GT was fastest at 1:22.
+- The corrected Tesla run retained 28 report rows plus 221 aggregate vehicles after preserving AWD evidence from the same listing block.
+- All 196 regression tests passed, the browser worker self-test passed, Python compilation passed, and the deterministic benchmark had zero false positives and zero false negatives.
+- Detailed rows, commands, and acceptance thresholds are in [docs/PERFORMANCE_ACCURACY_BENCHMARK.md](docs/PERFORMANCE_ACCURACY_BENCHMARK.md).
 
 Previously verified interface and resolver behavior:
 
@@ -225,6 +226,7 @@ Quick checks:
 
 ```bash
 python3 -m unittest discover -s tests
+python3 scripts/benchmark_search_accuracy.py
 python3 -m py_compile app.py car_compare/*.py car_compare/sources/*.py
-node --check static/app.js
+node scripts/car_compare_browser_mcp.mjs --self-test
 ```

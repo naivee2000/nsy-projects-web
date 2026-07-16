@@ -12,14 +12,14 @@ Collect & Research starts
 -> the project Playwright profile opens missing Autotrader and Edmunds range pages concurrently in a headless browser
 -> Porsche queries also open missing official Porsche Finder coverage with a nationwide radius
 -> combined year coverage is calculated across cache, facets, and applicable marketplaces
--> only genuinely sparse missing evidence enters bounded follow-up queues
+-> one bounded follow-up round opens at most four sparse year pages
 -> a blocked or empty source is retried once in a minimized regular-Chrome worker window
 -> Chrome scrolls and clicks recognized result pagination controls
 -> rendered text returns directly to Car Compare
--> if the host network still refuses an official source page, Codex native web search opens only sparse indexed year pages in small parallel batches
+-> if the host network still refuses an official source page, Codex native web search opens at most four critical unsupported year pages
 -> Codex returns verbatim listing blocks under a fixed schema
 -> Car Compare parses, filters, and audits rows deterministically
--> Codex reviews the completed coverage and generation forecast
+-> deterministic audits finalize collection; Codex generation research remains automatic
 -> the minimized Chrome worker window closes
 ```
 
@@ -42,13 +42,16 @@ export CAR_COMPARE_RECENT_CACHE_TTL_SECONDS=259200
 export CAR_COMPARE_OLDER_CACHE_TTL_SECONDS=259200
 export CAR_COMPARE_GENERATION_CACHE_TTL_SECONDS=259200
 export CAR_COMPARE_REVIEW_CACHE_TTL_SECONDS=259200
+export CAR_COMPARE_CODEX_COLLECTION_REVIEW=0
 export CAR_COMPARE_MARKETPLACE_CONCURRENCY=2
 export CAR_COMPARE_CODEX_SEARCH_WORKERS=3
 export CAR_COMPARE_CODEX_SEARCH_BATCH_SIZE=5
 export CAR_COMPARE_BACKGROUND_MODE=1
 ```
 
-The SQLite file is `collector_cache.sqlite3`. WAL mode and atomic upserts support concurrent job threads. Cache keys isolate make, model, trim scope, source, and year. Every row is deterministically revalidated when read. Marketplace rows, Visor facet snapshots, validated collection reviews, and generation research can remain fresh for at most three days. Larger environment values are clamped to that limit. A completed source-year cache suppresses that source until expiry even when the accepted sample is small, and an empty attempt cannot replace a richer accepted cache row.
+The SQLite file is `collector_cache.sqlite3`. WAL mode and atomic upserts support concurrent job threads. Cache keys isolate make, model, trim scope, source, and year. Every row is deterministically revalidated when read. Marketplace rows, Visor facet snapshots, optional collection reviews, and generation research can remain fresh for at most three days. Larger environment values are clamped to that limit. A completed source-year cache suppresses that source until expiry even when the accepted sample is small, and an empty attempt cannot replace a richer accepted cache row.
+
+The range worker examines at most five pages per source. Host Chrome is attempted only for blocked, unavailable, or empty sources and performs one broad range capture. Indexed Edmunds recovery is limited to four critical unsupported years. These limits prevent a 10-15 year request from turning into another exhaustive year-by-year crawl. Keep `CAR_COMPARE_CODEX_COLLECTION_REVIEW=0` in production; it skips a redundant collection review without disabling generation-impact research.
 
 ## Requirements
 
