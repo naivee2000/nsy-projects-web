@@ -1,19 +1,19 @@
-# Codex Context: Stock & Options Strategy Lab
+# Codex Context: Long-Term Stock Allocation Lab
 
-This folder is a self-contained private research app under `projects/Stock Strategy Test`.
+This folder is a self-contained public research app under `projects/Stock Strategy Test`.
 
 ## Product Boundary
 
 - Beginner-first allocations among shares, long calls, long puts, cash-secured short puts, and cash across verified U.S. stocks/ETFs.
 - Fixture mode must always work without a token.
 - Market Data is a replaceable provider and must remain vault-first and quota-aware.
-- No raw licensed-data export or unauthenticated data routes.
+- Public mode allows only the simulator/status/search/job-polling routes. Credential changes, provider collection, imports, saved-run listings, and raw licensed-data routes remain unavailable.
 - Cash-secured short puts are the only short option. Rational early assignment and an unassigned comparison are modeled; margin, brokerage execution, and public advice remain excluded.
 - Historical option runs crossing a detected adjusting split are rejected.
 
 ## Important Files
 
-- `app.py`: HTTP routes, shared-auth gate, static serving, and runtime wiring.
+- `app.py`: HTTP routes, safe public-mode gate, optional shared auth, rate limiting, static serving, and runtime wiring.
 - `stock_strategy_lab/models.py`: strategy/data/result contracts.
 - `stock_strategy_lab/engine.py`: deterministic simulation and allocation sweeps.
 - `stock_strategy_lab/providers.py`: fixtures and Market Data adapter.
@@ -36,4 +36,4 @@ node --check static/app.js
 .venv/bin/python scripts/deploy_preflight.py
 ```
 
-Keep `data/`, credentials, logs, private PM2/Cloudflare files, raw provider responses, and virtual environments out of Git. Production is `nsy-stock-strategy` on `127.0.0.1:8790` behind `strategy.nsyprojects.com`, reusing the NSY session.
+Keep `data/`, credentials, logs, private PM2/Cloudflare files, raw provider responses, and virtual environments out of Git. Production is `nsy-stock-strategy` on `127.0.0.1:8790` behind `strategy.nsyprojects.com` with `STOCK_STRATEGY_PUBLIC_MODE=1`.

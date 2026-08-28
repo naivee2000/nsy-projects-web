@@ -145,10 +145,10 @@
       </a>
       <a class="project" href="/projects/stock-strategy-test/">
         <div class="project-top">
-          <h2>Stock &amp; Options Strategy Lab</h2>
-          <span id="stockStrategyStatus" class="status">Login required</span>
+          <h2>Long-Term Stock Allocation Lab</h2>
+          <span class="status ready">Public access</span>
         </div>
-        <p>Compare beginner-friendly allocations across shares, calls, and puts using historical or built-in learning data.</p>
+        <p>Distribute a portfolio across stocks, options, and cash, then compare the long-term result with SPY and QQQ.</p>
       </a>
     </section>
   </main>
@@ -157,7 +157,6 @@
     const authAction = document.getElementById("authAction");
     const demStatus = document.getElementById("demStatus");
     const carCompareStatus = document.getElementById("carCompareStatus");
-    const stockStrategyStatus = document.getElementById("stockStrategyStatus");
     authAction.href = `https://dem.nsyprojects.com/login?next=${encodeURIComponent(window.location.href)}`;
     if (document.cookie.split("; ").includes("nsy_signed_in=1")) {
       accountStatus.textContent = "Signed in";
@@ -167,8 +166,6 @@
       demStatus.classList.add("ready");
       carCompareStatus.textContent = "Available";
       carCompareStatus.classList.add("ready");
-      stockStrategyStatus.textContent = "Available";
-      stockStrategyStatus.classList.add("ready");
     }
   </script>
 </body>

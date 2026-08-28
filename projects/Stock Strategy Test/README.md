@@ -1,6 +1,6 @@
-# Stock & Options Strategy Lab
+# Long-Term Stock Allocation Lab
 
-A private, beginner-friendly app for testing shares and options together on one page. Search for a U.S. stock or ETF, then add its **Shares**, **Long call**, **Protective put**, or **Cash-secured short put** as a separate allocation row. The same ticker can be used in more than one way, each with its own percentage. A cash allocation and one-click balancing controls make it easy to bring the portfolio to exactly 100%. Results are compared with investing the same starting money entirely in SPY and QQQ.
+A beginner-friendly app for testing shares and options together on one page. The production website is public and does not require login. Public mode exposes only the simulator, uses retained option evidence read-only, rate-limits runs, and blocks credential, collection, import, saved-run, and licensed-data controls. Search for a U.S. stock or ETF, then add its **Shares**, **Long call**, **Protective put**, or **Cash-secured short put** as a separate allocation row. The same ticker can be used in more than one way, each with its own percentage. A cash allocation and one-click balancing controls make it easy to bring the portfolio to exactly 100%. Results are compared with investing the same starting money entirely in SPY and QQQ.
 
 The app is an educational simulator, not investment advice. Historical results do not predict future performance.
 

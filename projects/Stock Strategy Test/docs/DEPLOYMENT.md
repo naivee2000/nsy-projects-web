@@ -1,13 +1,13 @@
-# Stock Strategy Lab Deployment
+# Long-Term Stock Allocation Lab Deployment
 
-Last updated: 2026-07-17
+Last updated: 2026-08-28
 
 This is the production runbook for `https://strategy.nsyprojects.com/` on the always-on NSY Mac.
 
 ## Production Shape
 
 ```text
-authenticated browser
+public browser (no login)
 -> strategy.nsyprojects.com
 -> Cloudflare Tunnel
 -> 127.0.0.1:8790
@@ -15,7 +15,7 @@ authenticated browser
 -> Python app + DuckDB vault + SQLite metadata
 ```
 
-The service binds only to localhost. The app reuses the HMAC session issued by `dem.nsyprojects.com`; only `/api/health` is public. Provider credentials, market history, quota records, saved runs, logs, Cloudflare credentials, and the private PM2 file remain on the deployment machine.
+The service binds only to localhost. `STOCK_STRATEGY_PUBLIC_MODE=1` opens the simulator, search, status, and unguessable job-polling routes without login. Credential changes, CSV imports, provider collection, saved-run listings, and licensed-data controls return `403`. Public modeled runs reuse retained exact option evidence read-only and cannot trigger Market Data downloads. Provider credentials, market history, quota records, saved runs, logs, Cloudflare credentials, and the private PM2 file remain on the deployment machine.
 
 ## 1. Install
 
@@ -37,9 +37,10 @@ mkdir -p ops/logs
 Edit the ignored config:
 
 - Point `repoRoot` at this checkout.
-- Set `MARKETDATA_API_TOKEN` to the personal account token.
 - Put `STOCK_STRATEGY_DATA_DIR` on persistent writable storage.
-- Use the same username, HMAC secret, and cookie name as the NSY login service.
+- Set `STOCK_STRATEGY_PUBLIC_MODE=1` and keep the per-visitor public run limit enabled.
+- Optionally provide `TIINGO_API_TOKEN` on the host for transient real-share history. Without it, the public app automatically uses built-in demo data.
+- Do not expose a Market Data token in public mode. Retained option records are read-only and exact-option downloads stay disabled.
 - Keep `STOCK_STRATEGY_PUBLIC_ORIGIN=https://strategy.nsyprojects.com`.
 
 Start and persist it:
@@ -51,7 +52,7 @@ pm2 status nsy-stock-strategy
 curl -fsS http://127.0.0.1:8790/api/health
 ```
 
-Expected health payload: `{"status":"ok","app":"stock-strategy-lab"}`.
+Expected health payload: `{"status":"ok","app":"long-term-stock-allocation-lab","publicMode":true}`.
 
 ## 3. Add the Cloudflare Route
 
@@ -64,19 +65,13 @@ ingress:
   - service: http_status:404
 ```
 
-Restart the existing tunnel. Confirm an unauthenticated page request redirects to NSY login, an unauthenticated API request returns 401, and a signed-in user can open the lab.
+Restart the existing tunnel. Confirm the page opens without login, a demo backtest completes, and owner-only routes such as `POST /api/settings/tiingo-token` return `403`.
 
 ## 4. Controlled Real-Data Smoke Test
 
-Real smoke tests consume provider credits and are intentionally not part of automated tests. In the authenticated UI:
+Real smoke tests consume provider allowance and are intentionally not part of automated tests. Public production must not trigger Market Data collection. If a host Tiingo token is configured, run one modest share-only Free automatic test and confirm the UI reports transient server share data. Otherwise verify Built-in demo mode only.
 
-1. Add one modest symbol with **Only Contracts Used** or **Balanced Monthly**.
-2. Note the displayed credits before sync.
-3. Run **Sync safely now** once.
-4. Confirm the coverage dates, contract count, and updated remaining-credit header value.
-5. Run the same short backtest twice. The second run should reuse vault records and not repeat covered calls.
-
-Do not test `Full` collection first on a large ETF. Historical chains may be billed by returned contract count, and unexpectedly large chains can consume multiple credits.
+Owner-only provider synchronization should be performed from a separate local/private maintenance workflow, never through the public hostname.
 
 ## Collector Operation
 
@@ -128,11 +123,11 @@ pm2 status nsy-stock-strategy
 
 - [ ] Fixture test suite passes without a provider token
 - [ ] Preflight finds DuckDB and writable persistent storage
-- [ ] Private PM2 config uses the shared NSY session secret
+- [ ] Private PM2 config enables public mode and a per-visitor run limit
 - [ ] Backend listens only on `127.0.0.1:8790`
 - [ ] Cloudflare hostname routes through the existing tunnel
-- [ ] Public health works and every other surface requires the shared session
-- [ ] One disclosed-credit real-data smoke test succeeds
-- [ ] Repeated covered backtest does not refetch the same records
+- [ ] Public page and demo backtest work without login
+- [ ] Credential, import, collection, saved-run listing, and purge routes return `403`
+- [ ] Public modeled tests cannot download new exact-option records
 - [ ] Data directory, secrets, private ops config, and logs are ignored by Git
 - [ ] Account owner understands the provider-deletion obligation

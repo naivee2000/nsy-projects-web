@@ -12,4 +12,4 @@ Current projects:
 
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
-- `Stock Strategy Test/` - private stock, call, and put allocation lab served at `strategy.nsyprojects.com`. It includes fixture-mode backtests, a quota-aware personal history vault, and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
+- `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.

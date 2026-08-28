@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict, deque
 import csv
 from datetime import date, datetime, timedelta
 from io import StringIO
@@ -9,6 +10,8 @@ import mimetypes
 import os
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+import threading
+import time
 from typing import Any
 from urllib.parse import parse_qs, unquote, urlsplit
 from zoneinfo import ZoneInfo
@@ -35,6 +38,17 @@ STATIC = ROOT / "static"
 DATA_DIR = Path(os.environ.get("STOCK_STRATEGY_DATA_DIR", ROOT / "data")).expanduser()
 MAX_REQUEST_BYTES = 10 * 1024 * 1024
 
+
+def environment_flag(name: str, default: bool = False) -> bool:
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    return raw.strip().lower() in {"1", "true", "yes", "on"}
+
+
+PUBLIC_MODE = environment_flag("STOCK_STRATEGY_PUBLIC_MODE")
+PUBLIC_BACKTESTS_PER_HOUR = max(1, int(os.environ.get("STOCK_STRATEGY_PUBLIC_BACKTESTS_PER_HOUR", "12")))
+
 VAULT = MarketVault(DATA_DIR)
 STORE = AppStore(DATA_DIR)
 TOKEN_STORE = LocalTokenStore(DATA_DIR)
@@ -51,7 +65,13 @@ REFERENCE_DATA = FreeReferenceData(DATA_DIR)
 ACCURACY = AccuracyCalibration(VAULT, STORE, MARKET_DATA, REFERENCE_DATA)
 DEMO_PORTFOLIO = DemoPortfolioProvider()
 UNIFIED_REAL = HybridMarketProvider(TIINGO, MARKET_DATA)
-FREE_MODELED = FreeModeledProvider(TIINGO, DATA_DIR, fred=REFERENCE_DATA, calibration=ACCURACY)
+FREE_MODELED = FreeModeledProvider(
+    TIINGO,
+    DATA_DIR,
+    fred=REFERENCE_DATA,
+    calibration=ACCURACY,
+    allow_exact_downloads=not PUBLIC_MODE,
+)
 ONCLICK = OnclickBacktestProvider(
     TIINGO,
     strict_quality=True,
@@ -79,14 +99,51 @@ class RequestError(ValueError):
         self.status = status
 
 
+def public_route_allowed(method: str, path: str) -> bool:
+    if path == "/api/health":
+        return True
+    if method == "GET":
+        return (
+            path in {"/", "/options", "/options/", "/api/portfolio/status", "/api/portfolio/search"}
+            or path.startswith("/static/")
+            or path.startswith("/api/backtests/")
+        )
+    return method == "POST" and path == "/api/portfolio/backtests"
+
+
+class PublicBacktestLimiter:
+    def __init__(self, limit: int, window_seconds: int = 3600):
+        self.limit = limit
+        self.window_seconds = window_seconds
+        self._requests: dict[str, deque[float]] = defaultdict(deque)
+        self._lock = threading.Lock()
+
+    def allow(self, client_key: str, now: float | None = None) -> bool:
+        current = time.monotonic() if now is None else now
+        cutoff = current - self.window_seconds
+        with self._lock:
+            requests = self._requests[client_key]
+            while requests and requests[0] <= cutoff:
+                requests.popleft()
+            if len(requests) >= self.limit:
+                return False
+            requests.append(current)
+            return True
+
+
+PUBLIC_BACKTEST_LIMITER = PublicBacktestLimiter(PUBLIC_BACKTESTS_PER_HOUR)
+
+
 class StrategyLabHandler(BaseHTTPRequestHandler):
-    server_version = "StockStrategyLab/0.1"
+    server_version = "LongTermStockAllocationLab/0.1"
 
     def do_GET(self) -> None:
         parsed_url = urlsplit(self.path)
         path = parsed_url.path
         if path == "/api/health":
-            self._send_json({"status": "ok", "app": "stock-strategy-lab"})
+            self._send_json(
+                {"status": "ok", "app": "long-term-stock-allocation-lab", "publicMode": PUBLIC_MODE}
+            )
             return
         if not self._require_auth():
             return
@@ -216,6 +273,15 @@ class StrategyLabHandler(BaseHTTPRequestHandler):
             if path == "/api/portfolio/backtests":
                 request = portfolio_backtest_request(body)
                 provider_name = request.pop("provider")
+                if PUBLIC_MODE:
+                    if provider_name not in {"demo", "modeled"}:
+                        raise RequestError(403, "This public lab supports demo and free automatic tests only")
+                    client_key = self.headers.get("CF-Connecting-IP") or self.client_address[0]
+                    if not PUBLIC_BACKTEST_LIMITER.allow(client_key):
+                        raise RequestError(
+                            429,
+                            f"This public lab allows {PUBLIC_BACKTESTS_PER_HOUR} tests per hour from one visitor. Please try again later.",
+                        )
                 provider = (
                     FREE_MODELED
                     if provider_name == "modeled"
@@ -348,7 +414,14 @@ class StrategyLabHandler(BaseHTTPRequestHandler):
 
     def _require_auth(self) -> bool:
         path = urlsplit(self.path).path
-        if path == "/api/health" or not AUTH.enabled:
+        if path == "/api/health":
+            return True
+        if PUBLIC_MODE:
+            if public_route_allowed(self.command, path):
+                return True
+            self._send_json({"error": "This owner-only control is unavailable in the public lab"}, status=403)
+            return False
+        if not AUTH.enabled:
             return True
         if AUTH.valid_cookie_header(self.headers.get("Cookie")):
             return True
@@ -532,6 +605,13 @@ def portfolio_backtest_request(payload: dict[str, Any]) -> dict[str, Any]:
         end = date.fromisoformat(str(payload.get("endDate") or ""))
     except (TypeError, ValueError) as exc:
         raise RequestError(400, "Enter valid dates and starting money") from exc
+    if PUBLIC_MODE:
+        if provider not in {"demo", "modeled"}:
+            raise RequestError(403, "This public lab supports demo and free automatic tests only")
+        if start >= end:
+            raise RequestError(400, "The test end date must be after the start date")
+        if (end - start).days > 16 * 366:
+            raise RequestError(400, "Public tests are limited to a 15-year history window")
     has_options = any(item.kind != "stock" for item in holdings)
     if provider == "modeled" and not TIINGO.available:
         imported = {item["symbol"] for item in VAULT.list_symbols("user-csv")}
@@ -645,7 +725,7 @@ def option_rule_request(
 
 
 def portfolio_status() -> dict[str, Any]:
-    return {
+    status = {
         "tiingo": {
             "configured": TIINGO.available,
             "source": TIINGO_TOKEN_SOURCE,
@@ -687,6 +767,8 @@ def portfolio_status() -> dict[str, Any]:
         "pricingCalibration": ACCURACY.status(),
         "referenceData": REFERENCE_DATA.status(),
         "demoAvailable": True,
+        "publicMode": PUBLIC_MODE,
+        "publicBacktestsPerHour": PUBLIC_BACKTESTS_PER_HOUR if PUBLIC_MODE else None,
         "dataSourceNote": (
             "Free automatic uses real share history transiently from Tiingo, or a CSV you own. Raw Tiingo rows are not "
             "saved; saved runs keep summary calculations only. Options are clearly labeled estimates backed by historical "
@@ -694,6 +776,38 @@ def portfolio_status() -> dict[str, Any]:
             "optional for exact recent option quotes and the strict accuracy evidence gate."
         ),
     }
+    if PUBLIC_MODE:
+        status["tiingo"] = {
+            "configured": TIINGO.available,
+            "source": "server" if TIINGO.available else "none",
+            "validated": TIINGO.token_validated,
+            "canRemove": False,
+            "storageMode": "transient",
+            "requestsThisRun": TIINGO.requests_this_run,
+            "importedSymbols": [],
+        }
+        status["marketdata"] = {
+            "configured": False,
+            "source": "unavailable",
+            "validated": False,
+            "canRemove": False,
+            "historyYears": None,
+            "windowStart": None,
+            "quota": {},
+        }
+        status["onclick"] = {
+            "available": False,
+            "experimental": True,
+            "requiresToken": False,
+            "requiresMarketDataToken": True,
+        }
+        status["pricingCalibration"] = {}
+        status["dataSourceNote"] = (
+            "Public mode offers built-in demo data and, when the server data connection is available, transient real share "
+            "history with locally modeled options. Visitors cannot change credentials, download licensed records, or run "
+            "provider-collection jobs."
+        )
+    return status
 
 
 def import_stock_csv(payload: dict[str, Any]) -> dict[str, Any]:

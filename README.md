@@ -8,7 +8,7 @@ This repository holds the public NSY Projects website and the backend project ap
 - `projects/` - one folder per backend or tool project.
 - `projects/dem-claim/` - DEM claim Excel workflow, including its FastAPI app, local runner, deployment notes, ops templates, and test files.
 - `projects/Car Compare/` - authenticated vehicle depreciation research app for `https://carcompare.nsyprojects.com/`, including its browser workers, project skills, cache layer, deployment guide, and tests.
-- `projects/Stock Strategy Test/` - authenticated stock/options allocation research lab for `https://strategy.nsyprojects.com/`, including fixture backtests, a personal Market Data history vault, deployment guide, and tests.
+- `projects/Stock Strategy Test/` - public Long-Term Stock Allocation Lab for `https://strategy.nsyprojects.com/`, including safe public backtests, fixture data, an owner-only Market Data history vault, deployment guide, and tests.
 
 Future projects should be added as `projects/<project-slug>/` so each project keeps its own app code, docs, tests, and deployment notes in one place.
 

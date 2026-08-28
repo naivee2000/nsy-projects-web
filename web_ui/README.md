@@ -7,6 +7,7 @@ This folder holds the static website design for `NSYPROJECTS.COM`.
 - `projects.html` is the public project directory.
 - `projects/dem-claim/index.html` is the stable NSY project URL and redirects to the live DEM claim workflow.
 - `projects/car-compare/index.html` is the stable NSY project URL and redirects to the authenticated Car Compare app.
+- `projects/stock-strategy-test/index.html` is the stable NSY project URL and redirects to the public Long-Term Stock Allocation Lab.
 - `assets/hero-projects.png` is an original generated hero background for this site.
 - `_redirects` keeps old login URLs pointed at the real backend sign-in.
 
@@ -26,6 +27,7 @@ DEM claim processing, real login/session code, uploads, OCR, and Excel generatio
 - Public site domain: `https://nsyprojects.com/`.
 - DEM backend domain: `https://dem.nsyprojects.com/`.
 - Car Compare backend domain: `https://carcompare.nsyprojects.com/`.
+- Long-Term Stock Allocation Lab domain: `https://strategy.nsyprojects.com/` (public, no login).
 - DEM backend runs separately through the FastAPI app in `../projects/dem-claim/app/`.
 - Car Compare runs separately through `../projects/Car Compare/app.py`; its canonical host instructions are in `../projects/Car Compare/docs/DEPLOYMENT.md`.
 - Before publishing a Car Compare backend update, run its unit tests, `scripts/benchmark_search_accuracy.py`, browser-worker self-test, and deploy preflight as documented in `../projects/Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md`.

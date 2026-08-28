@@ -56,11 +56,19 @@ async function searchSymbols(){const query=value("symbolQuery").trim();if(!query
 async function loadStatus(){
   try{
     state.status=await api("/api/portfolio/status");
+    const publicMode=Boolean(state.status.publicMode);
     const tiingo=state.status.tiingo.configured;
     const imported=state.status.tiingo.importedSymbols||[];
     const freeReady=Boolean(state.status.modeled.available);
     const options=state.status.marketdata.configured;
-    const selected=provider();
+    document.querySelectorAll("[data-owner-only]").forEach(element=>{element.hidden=publicMode;});
+    byId("publicAccessNote").hidden=!publicMode;
+    byId("modeledSourceChoice").hidden=publicMode&&!freeReady;
+    let selected=provider();
+    if(publicMode&&(["real","onclick"].includes(selected)||(selected==="modeled"&&!freeReady))){
+      document.querySelector('input[name="provider"][value="demo"]').checked=true;
+      selected="demo";
+    }
     byId("tokenStatus").textContent=tiingo?"Token connected":(imported.length?`${imported.length} CSV ${imported.length===1?"symbol":"symbols"}`:"Not connected");
     byId("clearToken").disabled=!state.status.tiingo.canRemove;
     byId("marketDataStatus").textContent=options?"Connected":"Not connected";
@@ -74,7 +82,7 @@ async function loadStatus(){
     const quotaText=quota.remaining!=null?` ${Number(quota.remaining).toLocaleString()} of ${Number(quota.limit||0).toLocaleString()} exact-option credits remained after the last request.`:"";
     if(selected==="modeled"){
       const importedText=imported.length?` Local CSV history is available for ${imported.map(item=>item.symbol).join(", ")}.`:"";
-      byId("realDataHelp").textContent=`Free automatic uses retained exact SPY/QQQ bid/ask quotes first, then calibrated or clearly labeled extrapolated American-option estimates. Real share prices come transiently from Tiingo or CSV files you own.${importedText}`;
+      byId("realDataHelp").textContent=publicMode?"Free automatic uses transient server-provided share history and read-only retained option evidence. Public tests cannot change credentials or trigger exact-option downloads.":`Free automatic uses retained exact SPY/QQQ bid/ask quotes first, then calibrated or clearly labeled extrapolated American-option estimates. Real share prices come transiently from Tiingo or CSV files you own.${importedText}`;
     }else if(selected==="onclick"){
       byId("realDataHelp").textContent=`Strict validation uses Tiingo shares plus Market Data historical chains and required bid/ask quotes. Missing evidence stops the run.${windowText}${quotaText}`;
     }else if(selected==="real"){
@@ -107,7 +115,7 @@ async function validateAccuracy(){const button=byId("validateAccuracy");button.d
 
 function payload(){const advanced={targetDelta:Number(value("targetDelta")),minOpenInterest:Number(value("minOpenInterest")),maxSpreadPct:Number(value("maxSpread")),expirationType:"monthly"};const holdingPayload=state.holdings.map(item=>{const base={symbol:item.symbol,kind:item.kind,weight:item.weight};return item.kind==="stock"?base:{...base,optionRule:{...advanced,...ensureOptionRule(item)}};});return{provider:provider(),holdings:holdingPayload,cashWeight:state.cashWeight,startDate:value("startDate"),endDate:value("endDate"),initialCapital:Number(value("initialCapital")),rebalance:value("rebalance"),callRule:{...advanced,...defaultOptionRule("call")},putRule:{...advanced,...defaultOptionRule("put")},optionCommission:0.04};}
 async function waitForBacktest(job){const started=Date.now();let current=job;while(current.status==="queued"||current.status==="running"){const elapsed=Math.max(1,Math.round((Date.now()-started)/1000));byId("loadingDetail").textContent=`${current.stage||"Loading market data"} · ${elapsed}s elapsed. Free provider rows stay only in memory; all model scenarios reuse this run's download.`;await wait(700);current=await api(`/api/backtests/${encodeURIComponent(job.id)}`);}if(current.status==="failed")throw new Error(current.error||"The backtest could not complete.");if(!current.result)throw new Error("The completed backtest did not return a result.");return current.result;}
-async function runStrategy(){if(state.running||Math.abs(portfolioTotal()-100)>0.05||experimentalIssue())return;state.running=true;updateAllocationSummary();byId("emptyResult").hidden=true;byId("resultContent").hidden=true;byId("errorBanner").hidden=true;byId("loadingResult").hidden=false;const optionCount=state.holdings.filter(item=>item.kind!=="stock"&&item.weight>0).length;byId("loadingDetail").textContent=provider()==="modeled"?`Loading free share history, then pricing ${optionCount} option allocation${optionCount===1?"":"s"}. Retained exact quotes are reused first; a few recent missing contracts may be saved without crossing the 30-credit reserve.`:(provider()==="onclick"?`Selecting and verifying ${optionCount} option sleeve${optionCount===1?"":"s"} in parallel, then combining them with shares and cash.`:(provider()==="real"?`Starting the background exact-data job. Saved dates are reused.`:"Starting the comparison."));try{const job=await api("/api/portfolio/backtests",{method:"POST",body:JSON.stringify(payload())});const result=await waitForBacktest(job);renderResult(result);await loadStatus();}catch(error){const evidenceNote=provider()==="modeled"?"": " No missing exact prices were silently estimated.";byId("errorBanner").textContent=`${error.message}${evidenceNote}`;byId("errorBanner").hidden=false;byId("emptyResult").hidden=false;}finally{state.running=false;byId("loadingResult").hidden=true;updateAllocationSummary();}}
+async function runStrategy(){if(state.running||Math.abs(portfolioTotal()-100)>0.05||experimentalIssue())return;state.running=true;updateAllocationSummary();byId("emptyResult").hidden=true;byId("resultContent").hidden=true;byId("errorBanner").hidden=true;byId("loadingResult").hidden=false;const optionCount=state.holdings.filter(item=>item.kind!=="stock"&&item.weight>0).length;const publicMode=Boolean(state.status?.publicMode);byId("loadingDetail").textContent=provider()==="modeled"?(publicMode?`Loading transient share history, then pricing ${optionCount} option allocation${optionCount===1?"":"s"} from read-only retained evidence and disclosed models.`:`Loading free share history, then pricing ${optionCount} option allocation${optionCount===1?"":"s"}. Retained exact quotes are reused first; a few recent missing contracts may be saved without crossing the 30-credit reserve.`):(provider()==="onclick"?`Selecting and verifying ${optionCount} option sleeve${optionCount===1?"":"s"} in parallel, then combining them with shares and cash.`:(provider()==="real"?`Starting the background exact-data job. Saved dates are reused.`:"Starting the comparison."));try{const job=await api("/api/portfolio/backtests",{method:"POST",body:JSON.stringify(payload())});const result=await waitForBacktest(job);renderResult(result);await loadStatus();}catch(error){const evidenceNote=provider()==="modeled"?"": " No missing exact prices were silently estimated.";byId("errorBanner").textContent=`${error.message}${evidenceNote}`;byId("errorBanner").hidden=false;byId("emptyResult").hidden=false;}finally{state.running=false;byId("loadingResult").hidden=true;updateAllocationSummary();}}
 
 function renderResult(result){
   byId("resultContent").hidden=false;

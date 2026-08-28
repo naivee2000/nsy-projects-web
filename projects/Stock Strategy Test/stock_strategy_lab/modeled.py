@@ -146,12 +146,14 @@ class FreeModeledProvider:
         data_dir: Path,
         fred: Any | None = None,
         calibration: Any | None = None,
+        allow_exact_downloads: bool = True,
     ):
         self.stock_provider = stock_provider
         self.reference = fred or FreeReferenceData(data_dir)
         # Keep this public alias for older local tests and integrations.
         self.fred = self.reference
         self.calibration = calibration
+        self.allow_exact_downloads = allow_exact_downloads
         self._bars: dict[str, list[StockBar]] = {}
         self._bar_dates: dict[str, list[str]] = {}
         self._bar_prices: dict[str, list[float]] = {}
@@ -201,7 +203,12 @@ class FreeModeledProvider:
         symbol = symbol.upper()
         stock_price = self._stock_price(symbol, market_date)
         if self.calibration is not None:
-            exact = self.calibration.exact_chain(symbol, market_date, rule, download=True)
+            exact = self.calibration.exact_chain(
+                symbol,
+                market_date,
+                rule,
+                download=self.allow_exact_downloads,
+            )
             if exact:
                 for quote in exact:
                     with self._lock:
@@ -251,7 +258,12 @@ class FreeModeledProvider:
         if self.calibration is not None and not option_symbol.startswith("MODEL:"):
             exact_by_date = {
                 item.market_date: item
-                for item in self.calibration.exact_series(option_symbol, start, end, download=True)
+                for item in self.calibration.exact_series(
+                    option_symbol,
+                    start,
+                    end,
+                    download=self.allow_exact_downloads,
+                )
             }
         output: list[OptionQuote] = []
         for bar in bars:

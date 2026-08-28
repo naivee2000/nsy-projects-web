@@ -41,11 +41,18 @@ class UiAcceptanceTests(unittest.TestCase):
             )
 
     def test_portfolio_actions_and_benchmarks_are_explicit(self) -> None:
+        self.assertIn("Long-Term Stock Allocation Lab", self.html)
         self.assertIn("Run strategy comparison", self.html)
         self.assertIn("100% QQQ", self.html)
         self.assertIn("100% SPY", self.html)
         self.assertIn("Restore target percentages", self.html)
         self.assertIn("run_portfolio", (ROOT / "app.py").read_text(encoding="utf-8"))
+
+    def test_public_ui_marks_owner_only_controls(self) -> None:
+        self.assertIn('id="publicAccessNote"', self.html)
+        self.assertIn("data-owner-only", self.html)
+        self.assertIn('state.status.publicMode', self.javascript)
+        self.assertIn("Credential changes, licensed-data downloads", self.html)
 
     def test_stock_picker_requires_verified_search_result(self) -> None:
         self.assertIn("Search stocks and ETFs", self.html)
