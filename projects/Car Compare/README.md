@@ -171,12 +171,14 @@ CAR_COMPARE_OLDER_CACHE_TTL_SECONDS=259200
 CAR_COMPARE_GENERATION_CACHE_TTL_SECONDS=259200
 CAR_COMPARE_REVIEW_CACHE_TTL_SECONDS=259200
 CAR_COMPARE_CODEX_COLLECTION_REVIEW=0
+CAR_COMPARE_CODEX_COLLECTION_REASONING_EFFORT=low
+CAR_COMPARE_CODEX_GENERATION_REASONING_EFFORT=high
 CAR_COMPARE_MARKETPLACE_CONCURRENCY=2
 CAR_COMPARE_CODEX_SEARCH_WORKERS=3
 CAR_COMPARE_CODEX_SEARCH_BATCH_SIZE=5
 ```
 
-An optional Codex collection review can still be enabled for diagnosis and is cached for up to three days, but production leaves it disabled. A repeat run revalidates fresh cached marketplace and Visor rows and skips complete source-year captures. An empty or blocked attempt cannot overwrite a richer accepted cache entry. Comparison mode starts both vehicles' collection and generation work together. The backend browser lock still serializes ownership between vehicle jobs, while cache reads, generation research, and the other vehicle's non-browser work can overlap safely.
+Codex collection and indexed-source fallback run at `low` reasoning for latency-sensitive structured extraction. Generation-impact research runs independently at `high` reasoning for source comparison and forecast judgment. Invalid environment values fall back to those workload defaults. An optional Codex collection review can still be enabled for diagnosis and is cached for up to three days, but production leaves it disabled. A repeat run revalidates fresh cached marketplace and Visor rows and skips complete source-year captures. An empty or blocked attempt cannot overwrite a richer accepted cache entry. Comparison mode starts both vehicles' collection and generation work together. The backend browser lock still serializes ownership between vehicle jobs, while cache reads, generation research, and the other vehicle's non-browser work can overlap safely.
 
 The first page intentionally opens empty. It should not auto-run a default BMW query anymore.
 

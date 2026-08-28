@@ -163,9 +163,9 @@ ps -axo pid,etime,command | rg "codex exec"
 4. Run a tiny Codex CLI smoke:
 
 ```bash
-"/Applications/Codex.app/Contents/Resources/codex" exec \
+"/Applications/ChatGPT.app/Contents/Resources/codex" exec \
   --ignore-user-config --ephemeral --ignore-rules --skip-git-repo-check \
-  -m gpt-5.5 -c model_reasoning_effort="low" \
+  -m gpt-5.6-terra -c model_reasoning_effort="medium" \
   --sandbox read-only 'Return exactly OK.'
 ```
 

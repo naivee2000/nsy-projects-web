@@ -61,6 +61,10 @@ COLLECTOR = CollectionManager(
     CollectorConfig(
         root=ROOT,
         codex_path=os.environ.get("CODEX_BIN", "").strip(),
+        codex_reasoning_effort=os.environ.get(
+            "CAR_COMPARE_CODEX_COLLECTION_REASONING_EFFORT",
+            "low",
+        ),
         dry_run=os.environ.get("CAR_COMPARE_COLLECTOR_DRY_RUN", "").lower() in {"1", "true", "yes"},
         use_visor_facets=os.environ.get("CAR_COMPARE_VISOR_FACETS", "1").lower() not in {"0", "false", "no"},
         cache_enabled=_environment_bool("CAR_COMPARE_CACHE_ENABLED"),
@@ -82,6 +86,10 @@ GENERATION_RESEARCH = GenerationResearchManager(
     GenerationResearchConfig(
         root=ROOT,
         codex_path=os.environ.get("CODEX_BIN", "").strip(),
+        codex_reasoning_effort=os.environ.get(
+            "CAR_COMPARE_CODEX_GENERATION_REASONING_EFFORT",
+            "high",
+        ),
         dry_run=os.environ.get("CAR_COMPARE_GENERATION_DRY_RUN", "").lower() in {"1", "true", "yes"},
         cache_enabled=_environment_bool("CAR_COMPARE_CACHE_ENABLED"),
         cache_dir=(Path(os.environ["CAR_COMPARE_CACHE_DIR"]).expanduser() if os.environ.get("CAR_COMPARE_CACHE_DIR") else None),

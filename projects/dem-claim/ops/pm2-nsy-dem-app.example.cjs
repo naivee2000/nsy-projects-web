@@ -17,6 +17,8 @@ module.exports = {
         DEM_JOB_RETENTION_HOURS: "24",
         DEM_JOB_CLEANUP_INTERVAL_SECONDS: "3600",
         CODEX_BIN: "/Applications/ChatGPT.app/Contents/Resources/codex",
+        CODEX_FALLBACK_MODEL: "gpt-5.6-terra",
+        CODEX_FALLBACK_REASONING_EFFORT: "medium",
         DEM_AUTH_USERNAME: "admin",
         DEM_AUTH_PASSWORD_HASH: "pbkdf2_sha256$...",
         DEM_SESSION_SECRET: "replace-with-a-long-random-secret",

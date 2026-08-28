@@ -59,7 +59,7 @@ def resolve_codex_bin() -> str:
 
 
 CODEX_BIN = resolve_codex_bin()
-CODEX_FALLBACK_MODEL = os.environ.get("CODEX_FALLBACK_MODEL", "gpt-5.5")
+CODEX_FALLBACK_MODEL = os.environ.get("CODEX_FALLBACK_MODEL", "gpt-5.6-terra")
 CODEX_FALLBACK_REASONING_EFFORT = os.environ.get("CODEX_FALLBACK_REASONING_EFFORT", "medium")
 CODEX_FALLBACK_CLEAN_CONFIG = os.environ.get("CODEX_FALLBACK_CLEAN_CONFIG", "1").lower() not in {"0", "false", "no"}
 JOB_ROOT = Path(os.environ.get("DEM_JOB_ROOT", BASE_DIR / "web_outputs")).expanduser().resolve()

@@ -41,8 +41,19 @@ from car_compare.collector import (
 )
 from car_compare.capture_cache import CaptureCache, MAX_OLDER_TTL_SECONDS, MAX_RECENT_TTL_SECONDS, ResearchResultCache
 from car_compare.browser_runtime import browser_cdp_status, browser_cdp_url
-from car_compare.codex_cli import MACOS_CODEX_CLI_PATHS, codex_environment, codex_login_status, find_codex_cli
-from car_compare.generation_impact import GenerationResearchConfig, GenerationResearchManager, _generation_cache_identity
+from car_compare.codex_cli import (
+    MACOS_CODEX_CLI_PATHS,
+    codex_environment,
+    codex_login_status,
+    find_codex_cli,
+    normalize_codex_reasoning_effort,
+)
+from car_compare.generation_impact import (
+    GenerationResearchConfig,
+    GenerationResearchManager,
+    _generation_cache_identity,
+    build_generation_research_command,
+)
 from car_compare.models import Listing, MSRP, VehicleQuery
 from car_compare.parser import parse_vehicle_query
 from car_compare.resolver import resolve_vehicle_query
@@ -3345,6 +3356,27 @@ class CollectorPayloadTests(unittest.TestCase):
         )
         self.assertEqual(command[:4], ["/usr/local/bin/codex", "--ask-for-approval", "never", "exec"])
         self.assertIn("--output-schema", command)
+        self.assertIn('model_reasoning_effort="low"', command)
+
+    def test_codex_workloads_pin_recommended_reasoning_efforts(self) -> None:
+        web_search = build_codex_web_search_command(
+            codex_path="/usr/local/bin/codex",
+            root=Path("/tmp/car-compare"),
+            schema_path=Path("/tmp/search-schema.json"),
+            output_path=Path("/tmp/search-output.json"),
+        )
+        generation = build_generation_research_command(
+            codex_path="/usr/local/bin/codex",
+            root=Path("/tmp/car-compare"),
+            schema_path=Path("/tmp/generation-schema.json"),
+            output_path=Path("/tmp/generation-output.json"),
+        )
+        self.assertIn('model_reasoning_effort="low"', web_search)
+        self.assertIn('model_reasoning_effort="high"', generation)
+        self.assertEqual(normalize_codex_reasoning_effort("invalid", "low"), "low")
+        self.assertEqual(normalize_codex_reasoning_effort(" XHIGH ", "high"), "xhigh")
+        request = parse_vehicle_query("BMW M4")
+        self.assertEqual(_generation_cache_identity(request)["reasoning_effort"], "high")
 
     def test_codex_command_registers_project_browser_mcp(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

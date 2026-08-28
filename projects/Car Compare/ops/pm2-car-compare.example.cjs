@@ -12,6 +12,9 @@ module.exports = {
       interpreter: "none",
       env: {
         CODEX_BIN: "/Applications/ChatGPT.app/Contents/Resources/codex",
+        // Fast structured extraction for collection; deeper synthesis for generation research.
+        CAR_COMPARE_CODEX_COLLECTION_REASONING_EFFORT: "low",
+        CAR_COMPARE_CODEX_GENERATION_REASONING_EFFORT: "high",
         CAR_COMPARE_AUTH_USERNAME: "admin",
         CAR_COMPARE_SESSION_SECRET: "use-the-same-secret-as-the-NSY-login-service",
         CAR_COMPARE_PUBLIC_ORIGIN: "https://carcompare.nsyprojects.com",

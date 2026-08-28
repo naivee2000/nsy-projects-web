@@ -21,7 +21,13 @@ from car_compare.models import Listing, MSRP, VehicleQuery
 from car_compare.parser import parse_vehicle_query
 from car_compare.browser_runtime import browser_cdp_status
 from car_compare.capture_cache import CaptureCache, ResearchResultCache
-from car_compare.codex_cli import codex_environment, codex_login_status, find_codex_cli
+from car_compare.codex_cli import (
+    codex_environment,
+    codex_login_status,
+    codex_reasoning_config_args,
+    find_codex_cli,
+    normalize_codex_reasoning_effort,
+)
 from car_compare.sources.browser_capture import (
     listing_year_in_scope,
     parse_visible_listing_cards,
@@ -113,6 +119,7 @@ class CollectionJob:
 class CollectorConfig:
     root: Path
     codex_path: str = ""
+    codex_reasoning_effort: str = "low"
     dry_run: bool = False
     timeout_seconds: int = CODEX_TIMEOUT_SECONDS
     fallback_lease_seconds: int = DEFAULT_FALLBACK_LEASE_SECONDS
@@ -135,6 +142,10 @@ class CollectorConfig:
     chrome_host_script_path: Path = field(init=False)
 
     def __post_init__(self) -> None:
+        self.codex_reasoning_effort = normalize_codex_reasoning_effort(
+            self.codex_reasoning_effort,
+            "low",
+        )
         self.fallback_lease_seconds = max(
             MIN_FALLBACK_LEASE_SECONDS,
             min(MAX_FALLBACK_LEASE_SECONDS, int(self.fallback_lease_seconds)),
@@ -253,6 +264,7 @@ class CollectionManager:
             "collectorReviewCache": self._result_cache.status(),
             "marketplaceConcurrency": self.config.marketplace_concurrency,
             "codexSearchWorkers": self.config.codex_search_workers,
+            "codexReasoningEffort": self.config.codex_reasoning_effort,
             "backgroundMode": self.config.background_mode,
             "message": message,
         }
@@ -586,6 +598,7 @@ class CollectionManager:
             schema_path=self.config.schema_path,
             output_path=output_path,
             browser_server_path=self.config.browser_server_path,
+            reasoning_effort=self.config.codex_reasoning_effort,
         )
         start_time = time.time()
         try:
@@ -1226,6 +1239,7 @@ class CollectionManager:
                 root=self.config.root,
                 schema_path=self.config.web_search_schema_path,
                 output_path=batch_output,
+                reasoning_effort=self.config.codex_reasoning_effort,
             )
             page_urls = [_edmunds_search_page_url(request, year) for year in batch_years]
             completed = subprocess.run(
@@ -1705,6 +1719,7 @@ def build_codex_command(
     schema_path: Path,
     output_path: Path,
     browser_server_path: Path | None = None,
+    reasoning_effort: str = "low",
 ) -> list[str]:
     command = [
         codex_path,
@@ -1712,6 +1727,7 @@ def build_codex_command(
         "never",
         "exec",
     ]
+    command.extend(codex_reasoning_config_args(reasoning_effort, "low"))
     if browser_server_path and browser_server_path.exists() and shutil.which("node"):
         command.extend(
             [
@@ -1749,6 +1765,7 @@ def build_codex_web_search_command(
     root: Path,
     schema_path: Path,
     output_path: Path,
+    reasoning_effort: str = "low",
 ) -> list[str]:
     return [
         codex_path,
@@ -1756,6 +1773,7 @@ def build_codex_web_search_command(
         "--ask-for-approval",
         "never",
         "exec",
+        *codex_reasoning_config_args(reasoning_effort, "low"),
         "--ephemeral",
         "--ignore-user-config",
         "--ignore-rules",

@@ -15,6 +15,22 @@ MACOS_CODEX_CLI_PATHS = (
     Path.home() / "Applications/ChatGPT.app/Contents/Resources/codex",
     Path.home() / "Applications/Codex.app/Contents/Resources/codex",
 )
+CODEX_REASONING_EFFORTS = frozenset({"none", "low", "medium", "high", "xhigh", "max"})
+
+
+def normalize_codex_reasoning_effort(value: str, default: str) -> str:
+    """Return a supported Codex reasoning effort with a safe workload default."""
+    normalized_default = str(default or "").strip().lower()
+    if normalized_default not in CODEX_REASONING_EFFORTS:
+        raise ValueError(f"Unsupported default Codex reasoning effort: {default}")
+    normalized = str(value or "").strip().lower()
+    return normalized if normalized in CODEX_REASONING_EFFORTS else normalized_default
+
+
+def codex_reasoning_config_args(value: str, default: str) -> list[str]:
+    """Build an invocation-local override that survives ``--ignore-user-config``."""
+    effort = normalize_codex_reasoning_effort(value, default)
+    return ["--config", f'model_reasoning_effort="{effort}"']
 
 
 def codex_home() -> Path:

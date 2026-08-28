@@ -11,7 +11,13 @@ from typing import Any
 
 from car_compare.models import VehicleQuery
 from car_compare.parser import parse_vehicle_query
-from car_compare.codex_cli import codex_environment, codex_login_status, find_codex_cli
+from car_compare.codex_cli import (
+    codex_environment,
+    codex_login_status,
+    codex_reasoning_config_args,
+    find_codex_cli,
+    normalize_codex_reasoning_effort,
+)
 from car_compare.capture_cache import ResearchResultCache
 
 
@@ -45,6 +51,7 @@ class GenerationResearchJob:
 class GenerationResearchConfig:
     root: Path
     codex_path: str = ""
+    codex_reasoning_effort: str = "high"
     dry_run: bool = False
     timeout_seconds: int = GENERATION_RESEARCH_TIMEOUT_SECONDS
     cache_enabled: bool = True
@@ -56,6 +63,10 @@ class GenerationResearchConfig:
     skill_path: Path = field(init=False)
 
     def __post_init__(self) -> None:
+        self.codex_reasoning_effort = normalize_codex_reasoning_effort(
+            self.codex_reasoning_effort,
+            "high",
+        )
         self.jobs_dir = self.root / "data" / "generation_research_jobs"
         self.cache_path = (self.cache_dir or (self.root / "data" / "cache")) / "collector_cache.sqlite3"
         self.schema_path = self.root / "car_compare" / "generation_impact_schema.json"
@@ -95,6 +106,7 @@ class GenerationResearchManager:
             "authMethod": status["authMethod"],
             "skillPath": str(self.config.skill_path),
             "dryRun": self.config.dry_run,
+            "codexReasoningEffort": self.config.codex_reasoning_effort,
             "resultCache": self._cache.status(),
             "message": message,
         }
@@ -103,7 +115,8 @@ class GenerationResearchManager:
         request = parse_vehicle_query(query)
         if max_age:
             request.max_age = max_age
-        cached = None if self.config.dry_run else self._cache.load("generation_impact", _generation_cache_identity(request))
+        cache_identity = _generation_cache_identity(request, self.config.codex_reasoning_effort)
+        cached = None if self.config.dry_run else self._cache.load("generation_impact", cache_identity)
         job = GenerationResearchJob(
             id=uuid.uuid4().hex,
             query=request.raw,
@@ -168,6 +181,7 @@ class GenerationResearchManager:
             root=self.config.root,
             schema_path=self.config.schema_path,
             output_path=output_path,
+            reasoning_effort=self.config.codex_reasoning_effort,
         )
         start_time = time.time()
         try:
@@ -229,7 +243,11 @@ class GenerationResearchManager:
 
         result = normalize_generation_impact(result)
         if result.get("status") in {"success", "partial"}:
-            self._cache.store("generation_impact", _generation_cache_identity(request), result)
+            self._cache.store(
+                "generation_impact",
+                _generation_cache_identity(request, self.config.codex_reasoning_effort),
+                result,
+            )
         self._write_job_result(job_id, result)
         final_status = "completed" if result.get("status") in {"success", "partial"} else "blocked"
         self._update(job_id, status=final_status, message=f"Generation research {result.get('status', 'finished')}", result=result)
@@ -267,12 +285,19 @@ Return only JSON matching the provided schema. Do not edit project files. Do not
 """.strip()
 
 
-def build_generation_research_command(codex_path: str, root: Path, schema_path: Path, output_path: Path) -> list[str]:
+def build_generation_research_command(
+    codex_path: str,
+    root: Path,
+    schema_path: Path,
+    output_path: Path,
+    reasoning_effort: str = "high",
+) -> list[str]:
     return [
         codex_path,
         "--ask-for-approval",
         "never",
         "exec",
+        *codex_reasoning_config_args(reasoning_effort, "high"),
         "--ephemeral",
         "--ignore-user-config",
         "--ignore-rules",
@@ -289,12 +314,13 @@ def build_generation_research_command(codex_path: str, root: Path, schema_path: 
     ]
 
 
-def _generation_cache_identity(request: VehicleQuery) -> dict[str, Any]:
+def _generation_cache_identity(request: VehicleQuery, reasoning_effort: str = "high") -> dict[str, Any]:
     return {
         "make": request.make.strip().casefold(),
         "model": request.model.strip().casefold(),
         "trim": request.trim.strip().casefold(),
         "max_age": int(request.max_age),
+        "reasoning_effort": normalize_codex_reasoning_effort(reasoning_effort, "high"),
     }
 
 
