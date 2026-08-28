@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Build and compare a historical portfolio of shares, calls, puts, and cash." />
+  <title>Portfolio Strategy Lab</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <a class="skipLink" href="#strategyControls">Skip to strategy controls</a>
+  <header class="topbar">
+    <div class="brand"><span class="brandMark" aria-hidden="true">P</span><span><strong>Portfolio Strategy Lab</strong><small>Shares, calls, puts &amp; cash</small></span></div>
+    <div id="dataBadge" class="dataBadge"><i></i> Checking free data</div>
+  </header>
+
+  <main class="workspace">
+    <aside id="strategyControls" class="controlRail" aria-label="Strategy controls">
+      <div class="railIntro"><p class="eyebrow">DESIGN YOUR STRATEGY</p><h1>Build the portfolio.</h1><p>Search once, then choose shares, a long option, or a cash-secured short put. Give every row its own percentage.</p></div>
+
+      <section class="controlSection">
+        <div class="sectionTitle"><span>1</span><div><h2>Test period</h2><p>When would this strategy have run?</p></div></div>
+        <div class="twoFields">
+          <label class="field"><span>From</span><input id="startDate" type="date" required /></label>
+          <label class="field"><span>To</span><input id="endDate" type="date" required /></label>
+        </div>
+        <div class="historyRangeRow" aria-label="Quick history range">
+          <span>Quick range</span>
+          <div><button type="button" data-history-years="5">5 years</button><button type="button" data-history-years="10">10 years</button><button type="button" data-history-years="15">15 years</button></div>
+        </div>
+        <p class="historyHelp">Free automatic tests use real share history and reference-backed modeled options, so paid option history is not required.</p>
+        <label class="field"><span>Starting money</span><div class="moneyField"><i>$</i><input id="initialCapital" type="number" min="100" max="1000000000" step="100" value="100000" /></div></label>
+        <label class="field"><span>Restore target percentages</span><select id="rebalance"><option value="none">Never — buy and hold</option><option value="monthly">Every month</option><option value="quarterly" selected>Every quarter</option><option value="annual">Every year</option></select><small>Rebalancing sells overweight holdings and buys underweight holdings.</small></label>
+      </section>
+
+      <section class="controlSection holdingsSection">
+        <div class="sectionTitle"><span>2</span><div><h2>Investments and cash</h2><p>Each share or option choice gets an independent percentage.</p></div></div>
+        <div class="presetRow"><button type="button" data-preset="balanced">Balanced shares, options &amp; cash</button><button type="button" data-preset="growth">30% SPY / 70% QQQ</button><button type="button" data-preset="cash">60% SPY / 30% QQQ / 10% cash</button></div>
+        <div id="holdingsList" class="holdingsList" aria-live="polite"></div>
+        <div class="allocationTools"><div class="allocationButtons"><button id="normalizeButton" type="button">Normalize to 100%</button><button id="fillCashButton" type="button">Put remainder in cash</button></div><small id="allocationHelp">Ready to run.</small></div>
+        <div id="allocationTotalRow" class="allocationTotal valid"><span>Portfolio total</span><strong id="allocationTotal">100%</strong></div>
+
+        <div class="symbolSearch">
+          <label class="field" for="symbolQuery"><span>Search stocks and ETFs</span><input id="symbolQuery" autocomplete="off" placeholder="Try Apple, VTI, or QQQ" aria-controls="searchResults" aria-expanded="false" /></label>
+          <div id="searchResults" class="searchResults" role="listbox" hidden></div>
+          <p id="searchHelp">Find a verified ticker, then choose shares or an option position.</p>
+        </div>
+      </section>
+
+      <section class="controlSection sourceSection">
+        <div class="sectionTitle"><span>3</span><div><h2>Option selection</h2><p>Every call and put has its own expiration, replacement, and strike settings inside its investment row above.</p></div></div>
+        <div id="optionRules" class="optionRules inactive">
+          <p class="perRowRuleHelp"><strong>Per-option controls:</strong> open “Expiration, roll &amp; strike” beneath any call or put allocation to edit that position without changing the others.</p>
+          <details class="advancedPanel"><summary>Advanced option selection</summary><div class="advancedBody"><div class="twoFields"><label class="field"><span>Target absolute delta</span><input id="targetDelta" type="number" min="0.01" max="0.99" step="0.01" value="0.50" /><small>Approximately how strongly the option moves with the stock.</small></label><label class="field"><span>Minimum open interest</span><input id="minOpenInterest" type="number" min="0" step="1" value="100" /></label></div><label class="field"><span>Maximum bid/ask spread</span><select id="maxSpread"><option value="0.10">10% — strict</option><option value="0.20" selected>20% — balanced</option><option value="0.35">35% — flexible</option><option value="1">Any up to 100%</option></select></label><p class="feeAssumption"><strong>Robinhood fee model:</strong> $0 commission and an estimated $0.04 regulatory/clearing fee per stock or ETF option contract per transaction. Minor sell-only SEC and FINRA fees are not modeled.</p></div></details>
+        </div>
+      </section>
+
+      <section class="controlSection sourceSection">
+        <div class="sectionTitle"><span>4</span><div><h2>Price source</h2><p>The recommended mode is free and returns the result automatically.</p></div></div>
+        <label class="sourceChoice"><input type="radio" name="provider" value="modeled" checked /><span><strong class="sourceTitle">Free automatic <span class="infoTip" tabindex="0" aria-label="About Free automatic" aria-describedby="sourceInfoModeled">i<span id="sourceInfoModeled" class="infoBubble" role="tooltip">Recommended for long tests. Share prices are real. The app reuses saved SPY/QQQ bid/ask quotes first, then clearly labels calibrated or older extrapolated option estimates.</span></span></strong><small>Real shares, retained exact SPY/QQQ quotes when available, then clearly labeled calibrated or extrapolated estimates.</small></span></label>
+        <label class="sourceChoice"><input type="radio" name="provider" value="demo" /><span><strong class="sourceTitle">Built-in demo <span class="infoTip" tabindex="0" aria-label="About Built-in demo" aria-describedby="sourceInfoDemo">i<span id="sourceInfoDemo" class="infoBubble" role="tooltip">Practice mode only. It uses predictable invented prices so you can learn the controls; it should not be used to judge a real investment strategy.</span></span></strong><small>No account; useful for learning the controls.</small></span></label>
+        <label class="sourceChoice"><input type="radio" name="provider" value="real" /><span><strong class="sourceTitle">Exact recent option quotes <span class="infoTip" tabindex="0" aria-label="About Exact recent option quotes" aria-describedby="sourceInfoReal">i<span id="sourceInfoReal" class="infoBubble" role="tooltip">Best for recent periods. It uses Tiingo share prices and Market Data option bid/ask quotes. Missing daily quotes are disclosed and may use the documented degraded valuation rule.</span></span></strong><small>Optional validation with Tiingo shares and your Market Data account.</small></span></label>
+        <label class="sourceChoice experimentalChoice"><input type="radio" name="provider" value="onclick" /><span><strong class="sourceTitle">Strict recent validation <span class="infoTip" tabindex="0" aria-label="About Strict recent validation" aria-describedby="sourceInfoStrict">i<span id="sourceInfoStrict" class="infoBubble" role="tooltip">Audit mode for recent data. Missing executable option evidence stops the test instead of estimating it. It currently uses buy-and-hold sleeves and excludes cash-secured short puts.</span></span></strong><small>Requires both tokens and rejects missing historical option evidence.</small></span></label>
+        <details id="tokenPanel" class="tokenPanel"><summary>Free share-data settings <b id="tokenStatus">Not connected</b></summary><div class="tokenBody"><p>Create a free personal Tiingo account, then paste its API token. The token is saved on this computer; Tiingo price rows are used during a run and are not kept afterward.</p><form id="tokenForm"><label class="field"><span>Tiingo API token</span><input id="tiingoToken" type="password" autocomplete="new-password" placeholder="Paste token" required /></label><div class="tokenButtons"><button class="secondaryButton" type="submit">Save token</button><button id="clearToken" class="textButton" type="button" disabled>Remove</button></div><p id="tokenMessage" role="status"></p></form><a href="https://www.tiingo.com/account/api/token" target="_blank" rel="noreferrer">Open Tiingo token page</a><div class="ownedDataImport"><strong>Or import price history you own</strong><p>A CSV can stay locally and avoids another Tiingo request. Include Date, Close, and preferably Adjusted Close, Dividends, and Stock Splits.</p><form id="csvImportForm"><div class="csvImportFields"><label class="field"><span>Ticker</span><input id="csvSymbol" maxlength="12" placeholder="SPY" required /></label><label class="field"><span>Daily-price CSV</span><input id="csvFile" type="file" accept=".csv,text/csv" required /></label></div><button class="secondaryButton" type="submit">Import local history</button><p id="csvMessage" role="status"></p></form></div></div></details>
+        <details id="marketDataPanel" class="tokenPanel"><summary>Optional exact-options connection <b id="marketDataStatus">Not connected</b></summary><div class="tokenBody"><p>Market Data is optional. It supplies exact historical option chains for recent validation and stays only on this computer.</p><form id="marketDataForm"><label class="field"><span>Market Data API token</span><input id="marketDataToken" type="password" autocomplete="new-password" placeholder="Paste token" required /></label><div class="tokenButtons"><button class="secondaryButton" type="submit">Save token</button><button id="clearMarketDataToken" class="textButton" type="button" disabled>Remove</button></div><p id="marketDataMessage" role="status"></p></form><a href="https://www.marketdata.app/signup" target="_blank" rel="noreferrer">Open Market Data signup</a></div></details>
+        <section id="accuracyPanel" class="accuracyPanel" aria-labelledby="accuracyPanelTitle">
+          <div class="accuracyPanelHead"><div><strong id="accuracyPanelTitle">Improve option accuracy</strong><span id="accuracyCoverage">Checking local evidence…</span></div><b id="accuracyStatus">Not measured</b></div>
+          <p>Gradually retain weekly SPY/QQQ chains and held-out contract histories inside the free one-year window. Calibration uses at most 70 credits per New York day and keeps 30 credits untouched for interactive tests.</p>
+          <div class="accuracyActions"><button id="syncAccuracy" class="secondaryButton" type="button">Save next calibration batch</button><button id="validateAccuracy" class="textButton accuracyValidate" type="button">Check measured accuracy</button></div>
+          <p id="accuracyMessage" role="status"></p>
+        </section>
+        <p id="realDataHelp" class="realDataHelp">Real share history plus clearly labeled option estimates works with a free Tiingo connection or complete CSV files you own. No paid option plan is required; retained exact quotes improve the result whenever they are available.</p>
+      </section>
+
+      <div id="strategySentence" class="strategySentence"></div>
+      <button id="runButton" class="runButton" type="button">Run strategy comparison</button>
+      <p class="riskNote">Research only. Long options can lose their entire premium; short puts can lose much of their reserved collateral. Modeled and historical results do not predict future performance. This app does not place trades.</p>
+    </aside>
+
+    <section class="resultsPane" aria-label="Strategy results">
+      <header class="resultsHeader"><div><p class="eyebrow">YOUR STRATEGY VS THE MARKET</p><h2>What would the same money have become?</h2><p id="resultSubtitle">Adjust the portfolio on the left, then run the comparison.</p></div><div class="legend"><span><i class="strategySwatch"></i>Your strategy</span><span id="rangeLegend"><i class="rangeSwatch"></i>Measured model range</span><span><i class="qqqSwatch"></i>100% QQQ</span><span><i class="spySwatch"></i>100% SPY</span></div></header>
+
+      <section id="emptyResult" class="emptyResult"><div class="emptyChart"><svg viewBox="0 0 900 380" aria-hidden="true"><path d="M0 330 C120 305 180 320 270 250 S410 255 500 170 S690 210 900 65"/><path d="M0 335 C160 300 230 290 350 260 S520 235 650 180 S790 165 900 120"/></svg></div><strong>Your comparison will appear here.</strong><p>The graph uses the same starting money for your portfolio, SPY, and QQQ.</p></section>
+
+      <section id="loadingResult" class="loadingResult" hidden><span class="spinner"></span><div><strong>Loading historical prices</strong><p id="loadingDetail">Preparing the comparison…</p></div></section>
+      <div id="errorBanner" class="errorBanner" role="alert" hidden></div>
+
+      <section id="resultContent" hidden>
+        <div id="metricCards" class="metricCards"></div>
+        <section class="chartCard">
+          <div class="chartTop"><div><strong>Portfolio value over time</strong><span id="chartRange"></span></div><div id="chartMode" class="chartMode">Adjusted daily close</div></div>
+          <div id="coverageNotice" class="coverageNotice" hidden></div>
+          <div class="chartToolbar">
+            <div class="rangeButtons" aria-label="Chart time window"><button type="button" data-chart-range="1m">1M</button><button type="button" data-chart-range="3m">3M</button><button type="button" data-chart-range="1y">1Y</button><button type="button" data-chart-range="3y">3Y</button><button type="button" data-chart-range="5y">5Y</button><button type="button" data-chart-range="all" class="active" aria-pressed="true">All</button></div>
+            <div class="zoomButtons" aria-label="Chart zoom"><button id="zoomOut" type="button" aria-label="Zoom chart out">−</button><span id="zoomLabel">Fit</span><button id="zoomIn" type="button" aria-label="Zoom chart in">+</button><button id="fitChart" type="button">Fit all</button></div>
+          </div>
+          <div id="chartScroll" class="chartScroll" tabindex="0" aria-label="Scrollable performance chart"><div id="chartCanvas" class="chartCanvas"><svg id="performanceChart" viewBox="0 0 1000 470" role="img" aria-label="Strategy, QQQ, and SPY value over time"></svg><div id="chartTooltip" class="chartTooltip" hidden></div></div></div>
+          <p class="chartHint">Hover or touch the chart for values and gains. Zoom in, then scroll horizontally to inspect precise dates.</p>
+        </section>
+        <section class="explanationCard"><p class="eyebrow">WHAT HAPPENED?</p><h3 id="plainSummary"></h3><div id="warningList" class="warningList"></div></section>
+        <section id="qualityCard" class="qualityCard"><div class="qualityHead"><div><p class="eyebrow">HOW RELIABLE IS THIS RESULT?</p><h3 id="qualityTitle">Data and model quality</h3></div><span id="qualityBadge" class="qualityBadge">Checking</span></div><div id="qualityGrid" class="qualityGrid"></div><p id="sensitivityText" class="sensitivityText"></p><p id="validationText" class="validationText"></p></section>
+        <div class="bottomGrid"><section class="tableCard"><div class="cardHead"><h3>Where the strategy ended</h3><span>Target versus ending mix</span></div><div class="tableWrap"><table><thead><tr><th>Holding</th><th>Target</th><th>Ending</th><th>Ending value</th></tr></thead><tbody id="breakdownRows"></tbody></table></div></section><section class="assumptionsCard"><h3>Important assumptions</h3><ul id="assumptionList"></ul></section></div>
+      </section>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
