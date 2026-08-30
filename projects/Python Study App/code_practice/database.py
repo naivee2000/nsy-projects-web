@@ -1,0 +1,289 @@
+from __future__ import annotations
+
+import json
+import os
+import sqlite3
+from contextlib import contextmanager
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Iterator
+
+from .learning import next_review
+from .schemas import Attempt, AttemptCreate, ReviewState
+
+
+APP_ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = Path(os.environ.get("CODE_PRACTICE_DATA_DIR", APP_ROOT / "data"))
+DB_PATH = Path(os.environ.get("CODE_PRACTICE_DB", DATA_DIR / "code_practice.db"))
+
+
+MIGRATION_VERSION = 1
+MIGRATION_STATEMENTS = [
+    """
+    CREATE TABLE IF NOT EXISTS attempts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        problem_id TEXT NOT NULL,
+        problem_version INTEGER NOT NULL,
+        source_code TEXT NOT NULL,
+        result TEXT NOT NULL,
+        runtime_ms REAL NOT NULL,
+        tests_passed INTEGER NOT NULL,
+        tests_total INTEGER NOT NULL,
+        elapsed_study_seconds INTEGER NOT NULL DEFAULT 0,
+        hint_level INTEGER NOT NULL DEFAULT 0,
+        created_at TEXT NOT NULL
+    );
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS review_states (
+        problem_id TEXT PRIMARY KEY,
+        interval_index INTEGER NOT NULL,
+        due_at TEXT NOT NULL,
+        latest_result TEXT NOT NULL,
+        latest_accepted_source TEXT
+    );
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS drafts (
+        problem_id TEXT PRIMARY KEY,
+        source_code TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+    );
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS hint_events (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        problem_id TEXT NOT NULL,
+        hint_level INTEGER NOT NULL,
+        created_at TEXT NOT NULL
+    );
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS generated_variants (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        problem_id TEXT NOT NULL UNIQUE,
+        seed_problem_id TEXT NOT NULL,
+        status TEXT NOT NULL,
+        problem_json TEXT NOT NULL,
+        validation_json TEXT NOT NULL DEFAULT '{}',
+        generated_at TEXT NOT NULL,
+        reviewed_at TEXT
+    );
+    """,
+    "CREATE INDEX IF NOT EXISTS idx_attempts_problem_created ON attempts(problem_id, created_at DESC);",
+    "CREATE INDEX IF NOT EXISTS idx_attempts_created ON attempts(created_at DESC);",
+    "CREATE INDEX IF NOT EXISTS idx_review_states_due ON review_states(due_at);",
+    "CREATE INDEX IF NOT EXISTS idx_variants_status ON generated_variants(status);",
+]
+
+
+def connect() -> sqlite3.Connection:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    connection = sqlite3.connect(DB_PATH)
+    connection.row_factory = sqlite3.Row
+    connection.execute("PRAGMA foreign_keys = ON")
+    return connection
+
+
+@contextmanager
+def db_session() -> Iterator[sqlite3.Connection]:
+    connection = connect()
+    try:
+        yield connection
+        connection.commit()
+    finally:
+        connection.close()
+
+
+def initialize_database() -> None:
+    with db_session() as connection:
+        connection.execute(
+            """
+            CREATE TABLE IF NOT EXISTS schema_migrations (
+                version INTEGER PRIMARY KEY,
+                applied_at TEXT NOT NULL
+            )
+            """
+        )
+        applied = connection.execute(
+            "SELECT 1 FROM schema_migrations WHERE version = ?", (MIGRATION_VERSION,)
+        ).fetchone()
+        if not applied:
+            for statement in MIGRATION_STATEMENTS:
+                connection.execute(statement)
+            connection.execute(
+                "INSERT INTO schema_migrations(version, applied_at) VALUES (?, ?)",
+                (MIGRATION_VERSION, datetime.now(timezone.utc).isoformat()),
+            )
+        connection.execute("PRAGMA optimize")
+
+
+def _attempt_from_row(row: sqlite3.Row) -> Attempt:
+    return Attempt(**dict(row))
+
+
+def list_attempts(limit: int = 500) -> list[Attempt]:
+    with db_session() as connection:
+        rows = connection.execute(
+            "SELECT * FROM attempts ORDER BY created_at DESC LIMIT ?", (limit,)
+        ).fetchall()
+    return [_attempt_from_row(row) for row in rows]
+
+
+def save_attempt(payload: AttemptCreate) -> Attempt:
+    now = datetime.now(timezone.utc)
+    with db_session() as connection:
+        cursor = connection.execute(
+            """
+            INSERT INTO attempts (
+                problem_id, problem_version, source_code, result, runtime_ms,
+                tests_passed, tests_total, elapsed_study_seconds, hint_level, created_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                payload.problem_id,
+                payload.problem_version,
+                payload.source_code,
+                payload.result,
+                payload.runtime_ms,
+                payload.tests_passed,
+                payload.tests_total,
+                payload.elapsed_study_seconds,
+                payload.hint_level,
+                now.isoformat(),
+            ),
+        )
+        previous = connection.execute(
+            "SELECT interval_index FROM review_states WHERE problem_id = ?", (payload.problem_id,)
+        ).fetchone()
+        index, due_at = next_review(
+            previous["interval_index"] if previous else None,
+            payload.result == "accepted",
+            now,
+        )
+        accepted_source = payload.source_code if payload.result == "accepted" else None
+        connection.execute(
+            """
+            INSERT INTO review_states(problem_id, interval_index, due_at, latest_result, latest_accepted_source)
+            VALUES (?, ?, ?, ?, ?)
+            ON CONFLICT(problem_id) DO UPDATE SET
+                interval_index = excluded.interval_index,
+                due_at = excluded.due_at,
+                latest_result = excluded.latest_result,
+                latest_accepted_source = COALESCE(excluded.latest_accepted_source, review_states.latest_accepted_source)
+            """,
+            (payload.problem_id, index, due_at.isoformat(), payload.result, accepted_source),
+        )
+        row = connection.execute("SELECT * FROM attempts WHERE id = ?", (cursor.lastrowid,)).fetchone()
+    return _attempt_from_row(row)
+
+
+def list_review_states() -> list[ReviewState]:
+    with db_session() as connection:
+        rows = connection.execute("SELECT * FROM review_states ORDER BY due_at").fetchall()
+    return [ReviewState(**dict(row)) for row in rows]
+
+
+def save_draft(problem_id: str, source_code: str) -> None:
+    with db_session() as connection:
+        connection.execute(
+            """
+            INSERT INTO drafts(problem_id, source_code, updated_at) VALUES (?, ?, ?)
+            ON CONFLICT(problem_id) DO UPDATE SET source_code = excluded.source_code, updated_at = excluded.updated_at
+            """,
+            (problem_id, source_code, datetime.now(timezone.utc).isoformat()),
+        )
+
+
+def get_draft(problem_id: str) -> str | None:
+    with db_session() as connection:
+        row = connection.execute("SELECT source_code FROM drafts WHERE problem_id = ?", (problem_id,)).fetchone()
+    return row["source_code"] if row else None
+
+
+def record_hint(problem_id: str, hint_level: int) -> None:
+    with db_session() as connection:
+        connection.execute(
+            "INSERT INTO hint_events(problem_id, hint_level, created_at) VALUES (?, ?, ?)",
+            (problem_id, hint_level, datetime.now(timezone.utc).isoformat()),
+        )
+
+
+def highest_hint(problem_id: str) -> int:
+    with db_session() as connection:
+        row = connection.execute(
+            "SELECT COALESCE(MAX(hint_level), 0) AS level FROM hint_events WHERE problem_id = ?",
+            (problem_id,),
+        ).fetchone()
+    return int(row["level"])
+
+
+def approved_variant_rows() -> list[dict]:
+    with db_session() as connection:
+        rows = connection.execute(
+            "SELECT problem_json FROM generated_variants WHERE status = 'approved' ORDER BY id"
+        ).fetchall()
+    problems = []
+    for row in rows:
+        problem = json.loads(row["problem_json"])
+        problem["status"] = "approved"
+        problems.append(problem)
+    return problems
+
+
+def save_variant(problem_json: dict, seed_problem_id: str, status: str = "draft", validation: dict | None = None) -> None:
+    problem_id = str(problem_json["id"])
+    with db_session() as connection:
+        connection.execute(
+            """
+            INSERT INTO generated_variants(
+                problem_id, seed_problem_id, status, problem_json, validation_json, generated_at
+            ) VALUES (?, ?, ?, ?, ?, ?)
+            ON CONFLICT(problem_id) DO UPDATE SET
+                seed_problem_id = excluded.seed_problem_id,
+                status = excluded.status,
+                problem_json = excluded.problem_json,
+                validation_json = excluded.validation_json,
+                generated_at = excluded.generated_at,
+                reviewed_at = NULL
+            """,
+            (
+                problem_id,
+                seed_problem_id,
+                status,
+                json.dumps(problem_json),
+                json.dumps(validation or {}),
+                datetime.now(timezone.utc).isoformat(),
+            ),
+        )
+
+
+def list_variants() -> list[dict]:
+    with db_session() as connection:
+        rows = connection.execute("SELECT * FROM generated_variants ORDER BY id DESC").fetchall()
+    return [
+        {
+            **dict(row),
+            "problem": json.loads(row["problem_json"]),
+            "validation": json.loads(row["validation_json"]),
+        }
+        for row in rows
+    ]
+
+
+def update_variant_status(problem_id: str, status: str, validation: dict | None = None) -> bool:
+    with db_session() as connection:
+        cursor = connection.execute(
+            """
+            UPDATE generated_variants
+            SET status = ?, validation_json = COALESCE(?, validation_json), reviewed_at = ?
+            WHERE problem_id = ?
+            """,
+            (
+                status,
+                json.dumps(validation) if validation is not None else None,
+                datetime.now(timezone.utc).isoformat(),
+                problem_id,
+            ),
+        )
+    return cursor.rowcount == 1

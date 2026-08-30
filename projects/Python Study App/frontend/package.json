@@ -1,0 +1,33 @@
+{
+  "name": "code-practice-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "tsc -b && vite build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "lucide-react": "^0.468.0",
+    "pyodide": "^0.27.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.7.2",
+    "vite": "^8.2.2",
+    "vite-plugin-static-copy": "^4.1.1",
+    "vitest": "^4.1.11"
+  },
+  "overrides": {
+    "dompurify": "^3.4.14"
+  }
+}
