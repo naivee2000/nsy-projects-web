@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 
 from fastapi.testclient import TestClient
 
+from code_practice import database
 from code_practice.app import app
 from code_practice.catalog import get_catalog, refresh_catalog
 from code_practice.database import connect, get_draft, list_attempts, save_attempt, save_variant
@@ -31,6 +32,30 @@ def test_schema_migration_is_versioned_and_idempotent():
     with connect() as connection:
         versions = connection.execute("SELECT version FROM schema_migrations").fetchall()
     assert [row["version"] for row in versions] == [1, 2, 3]
+
+
+def test_progress_seed_installs_once_and_never_overwrites_runtime(tmp_path, monkeypatch):
+    seed_dir = tmp_path / "seed"
+    seed_db = seed_dir / "initial_progress.db"
+    monkeypatch.setattr(database, "DATA_DIR", seed_dir)
+    monkeypatch.setattr(database, "DB_PATH", seed_db)
+    monkeypatch.setattr(database, "SEED_DB_PATH", None)
+    database.initialize_database()
+    database.save_draft("pair-sum-indices", "seed draft")
+
+    runtime_dir = tmp_path / "persistent-runtime"
+    runtime_db = runtime_dir / "code_practice.db"
+    monkeypatch.setattr(database, "DATA_DIR", runtime_dir)
+    monkeypatch.setattr(database, "DB_PATH", runtime_db)
+    monkeypatch.setattr(database, "SEED_DB_PATH", seed_db)
+
+    assert database.install_seed_database() is True
+    assert database.get_draft("pair-sum-indices") == "seed draft"
+    database.save_draft("pair-sum-indices", "online progress")
+
+    assert database.install_seed_database() is False
+    database.initialize_database()
+    assert database.get_draft("pair-sum-indices") == "online progress"
 
 
 def test_draft_attempt_hint_and_progress_persist():

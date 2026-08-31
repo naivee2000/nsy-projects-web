@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import sqlite3
 from contextlib import contextmanager
 from datetime import datetime, timezone
@@ -15,6 +16,8 @@ from .schemas import Attempt, AttemptCreate, ReviewState
 APP_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = Path(os.environ.get("CODE_PRACTICE_DATA_DIR", APP_ROOT / "data"))
 DB_PATH = Path(os.environ.get("CODE_PRACTICE_DB", DATA_DIR / "code_practice.db"))
+_seed_path = os.environ.get("CODE_PRACTICE_SEED_DB", "").strip()
+SEED_DB_PATH: Path | None = Path(_seed_path).expanduser() if _seed_path else None
 
 
 MIGRATION_VERSION = 3
@@ -116,6 +119,28 @@ MIGRATION_3_STATEMENTS = [
 MIGRATIONS = {1: MIGRATION_STATEMENTS, 2: MIGRATION_2_STATEMENTS, 3: MIGRATION_3_STATEMENTS}
 
 
+def install_seed_database() -> bool:
+    """Copy the versioned progress snapshot only when no runtime database exists."""
+    if DB_PATH.exists() or SEED_DB_PATH is None or not SEED_DB_PATH.is_file():
+        return False
+    if SEED_DB_PATH.resolve() == DB_PATH.resolve():
+        raise RuntimeError("CODE_PRACTICE_SEED_DB must differ from the runtime database path")
+
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    with sqlite3.connect(f"file:{SEED_DB_PATH.resolve()}?mode=ro", uri=True) as seed_connection:
+        integrity = seed_connection.execute("PRAGMA integrity_check").fetchone()
+        if not integrity or integrity[0] != "ok":
+            raise RuntimeError("The configured Code Practice progress seed is not a valid SQLite database")
+
+    temporary_path = DB_PATH.with_name(f".{DB_PATH.name}.seed-{os.getpid()}")
+    try:
+        shutil.copy2(SEED_DB_PATH, temporary_path)
+        os.replace(temporary_path, DB_PATH)
+    finally:
+        temporary_path.unlink(missing_ok=True)
+    return True
+
+
 def connect() -> sqlite3.Connection:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     connection = sqlite3.connect(DB_PATH)
@@ -135,6 +160,7 @@ def db_session() -> Iterator[sqlite3.Connection]:
 
 
 def initialize_database() -> None:
+    install_seed_database()
     with db_session() as connection:
         connection.execute(
             """

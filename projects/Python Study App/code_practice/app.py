@@ -5,8 +5,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -29,10 +29,12 @@ from .database import (
 )
 from .learning import prerequisites_met, topic_mastery
 from .schemas import AttemptCreate, ProblemDefinition
+from .shared_auth import SharedSessionAuth
 
 
 APP_ROOT = Path(__file__).resolve().parent.parent
 FRONTEND_DIST = APP_ROOT / "frontend" / "dist"
+AUTH = SharedSessionAuth.from_environment()
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
@@ -41,6 +43,20 @@ async def lifespan(_app: FastAPI):
 
 
 app = FastAPI(title="Code Practice Lab", version="0.1.0", lifespan=lifespan)
+
+
+@app.middleware("http")
+async def require_online_auth(request: Request, call_next: Any) -> Response:
+    if request.url.path == "/api/health" or not AUTH.enabled:
+        return await call_next(request)
+    if AUTH.valid_token(request.cookies.get(AUTH.cookie_name)):
+        return await call_next(request)
+    if request.url.path.startswith("/api/"):
+        return JSONResponse({"detail": "Authentication required."}, status_code=401)
+    target = request.url.path
+    if request.url.query:
+        target = f"{target}?{request.url.query}"
+    return RedirectResponse(AUTH.login_redirect(target), status_code=303)
 
 
 class DraftPayload(BaseModel):
@@ -69,7 +85,8 @@ class CoachPayload(BaseModel):
 def health() -> dict[str, Any]:
     return {
         "ok": True,
-        "mode": "local-only",
+        "mode": "authenticated-website" if AUTH.enabled else "local-only",
+        "authEnabled": AUTH.enabled,
         "problemCount": len(get_catalog()),
         "time": datetime.now(timezone.utc).isoformat(),
     }

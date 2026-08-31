@@ -25,7 +25,17 @@ SIGNED_IN_COOKIE_NAME = os.environ.get("NSY_SIGNED_IN_COOKIE_NAME", "nsy_signed_
 AUTH_SESSION_TTL_SECONDS = int(os.environ.get("DEM_SESSION_TTL_SECONDS", "86400"))
 AUTH_COOKIE_SECURE = os.environ.get("DEM_COOKIE_SECURE", "1").lower() not in {"0", "false", "no"}
 AUTH_ENABLED = bool(AUTH_USERNAME and AUTH_PASSWORD_HASH and AUTH_SESSION_SECRET)
-ALLOWED_NEXT_HOSTS = {"nsyprojects.com", "www.nsyprojects.com", "dem.nsyprojects.com", "carcompare.nsyprojects.com"}
+ALLOWED_NEXT_HOSTS = {
+    "nsyprojects.com",
+    "www.nsyprojects.com",
+    "dem.nsyprojects.com",
+    "carcompare.nsyprojects.com",
+    *{
+        host.strip()
+        for host in os.environ.get("DEM_ALLOWED_NEXT_HOSTS", "").split(",")
+        if host.strip()
+    },
+}
 
 
 LOGIN_HTML = r"""<!doctype html>

@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 100 distinct problems, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and local SQLite persistence. It runs only at `127.0.0.1` and has no deployment configuration.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 100 distinct problems, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel.
 
 ## Python Study App
 
@@ -24,7 +24,7 @@ cd "projects/Python Study App"
 ./run_local.sh
 ```
 
-Then open `http://127.0.0.1:8765`. The server intentionally binds only to the local computer; normal study sessions require no login or cloud service.
+Then open `http://127.0.0.1:8765`. Local study sessions require no login or cloud service. Private website deployment reuses the NSY sign-in session while still binding the backend only to the deployment computer's loopback interface.
 
 After an unresolved run, the built-in offline coach provides small diagnostic nudges without giving away the answer. The optional **Ask Codex coach** button can send the current draft, problem description, and visible failure evidence to the locally installed, ChatGPT-authenticated Codex CLI. Codex runs in an ephemeral read-only session, receives no hidden tests or reference solution, and its reply is filtered to reject complete solutions or replacement functions. If Codex is unavailable, unauthenticated, times out, or returns answer-like content, the app keeps the offline coaching response instead. This optional feature may require an internet connection even though the study app itself is local-only.
 
@@ -42,4 +42,6 @@ The library completion filter can show all problems, only unsolved problems, or 
 
 The Today page assigns one fixed set per local calendar day: five problems when the set is easy, four when at least one medium problem is included, or three when a hard/advanced problem is included. Completed items disappear from that fixed set without being replaced. After the final assigned problem passes, the app shows a finished message and waits until the next day to create another set. A separate fixed daily review checklist selects up to five previously passed problems, prioritizing the earliest spaced-review dates. A review disappears after another successful full submission that day, is not replaced, and the section shows a finished message after every assigned review is checked.
 
-Detailed setup, testing, backups, architecture, and coaching safeguards are documented in `Python Study App/README.md`.
+The private repository also carries a one-time SQLite seed containing the current owner progress. On the first website start, it is copied to a persistent directory outside the checkout. Later online progress lives only in that deployment-host database and survives restarts and Git pulls without being overwritten by the seed.
+
+Detailed setup, testing, backups, architecture, and coaching safeguards are documented in `Python Study App/README.md`; deployment and progress-transfer instructions are in `Python Study App/docs/DEPLOYMENT.md`.

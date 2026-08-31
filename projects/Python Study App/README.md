@@ -1,6 +1,6 @@
 # Code Practice Lab
 
-A private, local-only Python interview-practice app. It includes 100 distinct coding problems, a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, SQLite progress, and an optional Codex-assisted variant workflow.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It includes 100 distinct coding problems, a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow.
 
 ## Start the app
 
@@ -10,7 +10,7 @@ Requirements: Python 3, Node.js/npm, and macOS or another Unix-like system.
 ./run_local.sh
 ```
 
-The first run installs dependencies and builds the frontend. Later runs work without internet. Open [http://127.0.0.1:8765](http://127.0.0.1:8765). The server binds only to `127.0.0.1`; there is no login or deployment mode.
+The first run installs dependencies and builds the frontend. Later runs work without internet. Open [http://127.0.0.1:8765](http://127.0.0.1:8765). Local mode binds only to `127.0.0.1` and does not require login.
 
 If frontend source changes, run `npm --prefix frontend run build` before starting again, or remove `frontend/dist` and use `./run_local.sh`.
 
@@ -55,6 +55,12 @@ The submitted Python runs in a fresh browser Web Worker. FastAPI stores results 
 
 Backups are written under `backups/`, which is intentionally excluded from Git.
 
+## Private website and one-time progress transfer
+
+The tracked `seed_data/initial_progress.db` snapshot transfers the owner's current progress to the deployment Mac once. Production copies it only when its persistent runtime database does not yet exist. New online progress is then stored on the deployment Mac and is never overwritten by the seed or later Git pulls.
+
+The private website mode reuses the existing NSY sign-in session and keeps FastAPI bound to localhost behind Cloudflare Tunnel. Complete installation, PM2, authentication, persistence, backup, and update instructions are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
 ## Validate the project
 
 ```bash
@@ -78,8 +84,9 @@ Generated problems remain drafts until validation passes and you explicitly appr
 
 ## Project boundaries
 
-- One local user
+- One owner, using either local mode or an authenticated private website
 - Python function-signature problems only
-- No authentication, hosting, PM2, Cloudflare, or synchronization
+- One-time seed transfer to a persistent deployment-host SQLite database; no ongoing two-way database synchronization
+- Public deployment requires the shared NSY sign-in session and a localhost-only backend
 - No server-side execution of submitted answers
 - Optional Codex coaching never blocks offline studying

@@ -9,6 +9,7 @@ This repository holds the public NSY Projects website and the backend project ap
 - `projects/dem-claim/` - DEM claim Excel workflow, including its FastAPI app, local runner, deployment notes, ops templates, and test files.
 - `projects/Car Compare/` - authenticated vehicle depreciation research app for `https://carcompare.nsyprojects.com/`, including its browser workers, project skills, cache layer, deployment guide, and tests.
 - `projects/Stock Strategy Test/` - public Long-Term Stock Allocation Lab for `https://strategy.nsyprojects.com/`, including safe public backtests, fixture data, an owner-only Market Data history vault, deployment guide, and tests.
+- `projects/Python Study App/` - authenticated Code Practice Lab with a browser-isolated Python judge, a one-time owner-progress seed, and persistent deployment-host SQLite storage.
 
 Future projects should be added as `projects/<project-slug>/` so each project keeps its own app code, docs, tests, and deployment notes in one place.
 
@@ -24,6 +25,8 @@ GitHub stores the shared project code. Each computer still keeps its own private
 - PM2 secrets, Cloudflare tunnel credentials, caches, logs, uploads, collector evidence, and generated outputs
 
 Both backend projects run local Codex processes on the computer that deploys or tests the app. That is intentional. Do not commit Codex credentials, shared session secrets, browser state, or Cloudflare credentials to this repo.
+
+The Python Study App has one deliberate private-repository exception for data portability: `seed_data/initial_progress.db` is a one-time owner-progress snapshot. Its live website database remains outside the checkout and must never be recommitted after online studying begins.
 
 ## Working Across Computers
 
@@ -49,6 +52,7 @@ git pull
 pm2 restart nsy-dem-app
 pm2 restart nsy-car-compare --update-env
 pm2 restart nsy-stock-strategy --update-env
+pm2 restart nsy-python-study --update-env
 ```
 
 Deployment entrypoints:
@@ -56,5 +60,6 @@ Deployment entrypoints:
 - `projects/dem-claim/docs/DEPLOYMENT.md`
 - `projects/Car Compare/docs/DEPLOYMENT.md`
 - `projects/Stock Strategy Test/docs/DEPLOYMENT.md`
+- `projects/Python Study App/docs/DEPLOYMENT.md`
 
 For Car Compare, the deploy computer should also run `python3 scripts/benchmark_search_accuracy.py` from `projects/Car Compare`. The current acceptance record, seven browser samples, and runtime limits are in `projects/Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md`. Production should keep `CAR_COMPARE_CODEX_COLLECTION_REVIEW=0`; deterministic collection remains enabled and automatic generation-impact research is unaffected.
