@@ -7,6 +7,7 @@ from typing import Any, Callable
 
 from .content_solutions import ListNode, SOLUTIONS, TreeNode
 from .content_oracles import ORACLES
+from .example_content import examples_for
 from .schemas import (
     DifficultyRubric,
     FunctionSignature,
@@ -116,15 +117,16 @@ def _wrong_solutions(spec: SeedSpec) -> list[str]:
 
 
 def build_problem(spec: SeedSpec) -> ProblemDefinition:
-    all_inputs = spec.visible_inputs + spec.hidden_inputs
+    examples = examples_for(spec.id)
+    all_inputs = [arguments for arguments, _explanation in examples] + spec.hidden_inputs
     tests = [
         TestCase(
             id=f"{spec.id}-{'example' if index < len(spec.visible_inputs) else 'hidden'}-{index + 1}",
             arguments=arguments,
             expected=_expected(spec, arguments),
             comparator=spec.comparator,
-            visible=index < len(spec.visible_inputs),
-            explanation="Visible example" if index < len(spec.visible_inputs) else None,
+            visible=index < len(examples),
+            explanation=examples[index][1] if index < len(examples) else None,
         )
         for index, arguments in enumerate(all_inputs)
     ]

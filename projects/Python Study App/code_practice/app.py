@@ -14,6 +14,8 @@ from .catalog import get_catalog, problem_summary, public_problem
 from .coach import build_coaching
 from .codex_coach import codex_status, request_codex_coaching
 from .database import (
+    get_daily_assignment,
+    get_daily_review_assignment,
     get_draft,
     highest_hint,
     initialize_database,
@@ -21,6 +23,8 @@ from .database import (
     list_review_states,
     record_hint,
     save_attempt,
+    save_daily_assignment,
+    save_daily_review_assignment,
     save_draft,
 )
 from .learning import prerequisites_met, topic_mastery
@@ -236,39 +240,83 @@ def dashboard() -> dict[str, Any]:
     reviews = list_review_states()
     solved = {attempt.problem_id for attempt in attempts if attempt.result == "accepted"}
     now = datetime.now(timezone.utc)
-    due_ids = [
-        review.problem_id
-        for review in reviews
-        if review.due_at <= now and review.problem_id in catalog and review.problem_id not in solved
-    ]
-    recommendations: list[ProblemDefinition] = []
+    today_key = datetime.now().astimezone().date().isoformat()
+    daily_ids = get_daily_assignment(today_key)
+    if daily_ids is None:
+        due_ids = [
+            review.problem_id
+            for review in reviews
+            if review.due_at <= now and review.problem_id in catalog and review.problem_id not in solved
+        ]
+        selected: list[ProblemDefinition] = []
 
-    for problem_id in due_ids:
-        if len(recommendations) == 3:
-            break
-        recommendations.append(catalog[problem_id])
+        def recommendation_limit(items: list[ProblemDefinition]) -> int:
+            if any(problem.difficulty >= 8 for problem in items):
+                return 3
+            if any(4 <= problem.difficulty <= 7 for problem in items):
+                return 4
+            return 5
 
-    weak_topics = [topic for topic, _score in sorted(mastery.items(), key=lambda item: item[1])]
-    for topic in weak_topics:
-        candidate = next(
-            (
-                problem for problem in catalog.values()
-                if problem.id not in solved
-                and topic in problem.topics
-                and problem not in recommendations
-                and prerequisites_met(problem, mastery)
-            ),
-            None,
-        )
-        if candidate and len(recommendations) < 3:
-            recommendations.append(candidate)
-            break
+        def at_capacity() -> bool:
+            return len(selected) >= recommendation_limit(selected)
 
-    for problem in sorted(catalog.values(), key=lambda item: item.difficulty):
-        if len(recommendations) == 3:
-            break
-        if problem.id not in solved and problem.difficulty <= 7 and problem not in recommendations and prerequisites_met(problem, mastery):
-            recommendations.append(problem)
+        def add_recommendation(problem: ProblemDefinition) -> bool:
+            if problem.id in solved or problem in selected or not prerequisites_met(problem, mastery):
+                return False
+            proposed = [*selected, problem]
+            if len(proposed) > recommendation_limit(proposed):
+                return False
+            selected.append(problem)
+            return True
+
+        for problem_id in due_ids:
+            if at_capacity():
+                break
+            add_recommendation(catalog[problem_id])
+
+        weak_topics = [topic for topic, _score in sorted(mastery.items(), key=lambda item: item[1])]
+        for topic in weak_topics:
+            candidate = next(
+                (
+                    problem for problem in catalog.values()
+                    if topic in problem.topics and problem.id not in solved and problem not in selected
+                ),
+                None,
+            )
+            if candidate and add_recommendation(candidate):
+                break
+            if at_capacity():
+                break
+
+        for problem in sorted(catalog.values(), key=lambda item: item.difficulty):
+            if at_capacity():
+                break
+            add_recommendation(problem)
+
+        daily_ids = save_daily_assignment(today_key, [problem.id for problem in selected])
+
+    assigned = [catalog[problem_id] for problem_id in daily_ids if problem_id in catalog]
+    recommendations = [problem for problem in assigned if problem.id not in solved]
+    daily_complete = not recommendations
+
+    daily_review = get_daily_review_assignment(today_key)
+    if daily_review is None:
+        review_ids = [
+            review.problem_id
+            for review in reviews
+            if review.problem_id in solved and review.problem_id in catalog
+        ]
+        review_ids.extend(sorted(solved.difference(review_ids)))
+        daily_review = save_daily_review_assignment(today_key, review_ids[:5])
+    review_assigned_at, assigned_review_ids = daily_review
+    reviewed_today = {
+        attempt.problem_id
+        for attempt in attempts
+        if attempt.result == "accepted" and attempt.created_at > review_assigned_at
+    }
+    remaining_review_ids = [problem_id for problem_id in assigned_review_ids if problem_id not in reviewed_today]
+    review_recommendations = [catalog[problem_id] for problem_id in remaining_review_ids if problem_id in catalog]
+    review_complete = bool(assigned_review_ids) and not review_recommendations
 
     challenge = next(
         (
@@ -278,7 +326,14 @@ def dashboard() -> dict[str, Any]:
         None,
     )
     return {
-        "recommendations": [problem_summary(problem, solved) for problem in recommendations[:3]],
+        "recommendations": [problem_summary(problem, solved) for problem in recommendations],
+        "dailyComplete": daily_complete,
+        "dailyAssignedCount": len(assigned),
+        "dailyRemainingCount": len(recommendations),
+        "reviewRecommendations": [problem_summary(problem, solved) for problem in review_recommendations],
+        "reviewComplete": review_complete,
+        "reviewAssignedCount": len(assigned_review_ids),
+        "reviewRemainingCount": len(review_recommendations),
         "weeklyChallenge": problem_summary(challenge, solved) if challenge else None,
         "mastery": mastery,
         "solvedCount": len(solved),

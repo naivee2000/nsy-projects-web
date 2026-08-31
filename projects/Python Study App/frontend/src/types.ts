@@ -46,6 +46,13 @@ export type Problem = {
 
 export type Dashboard = {
   recommendations: ProblemSummary[];
+  reviewRecommendations: ProblemSummary[];
+  reviewComplete: boolean;
+  reviewAssignedCount: number;
+  reviewRemainingCount: number;
+  dailyComplete: boolean;
+  dailyAssignedCount: number;
+  dailyRemainingCount: number;
   weeklyChallenge: ProblemSummary | null;
   mastery: Record<string, number>;
   solvedCount: number;

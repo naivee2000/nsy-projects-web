@@ -29,6 +29,7 @@ import type { CoachReply, Dashboard, JudgeResult, Problem, ProblemSummary, Signa
 
 
 type View = "dashboard" | "library" | "problem";
+type ProblemOrigin = Exclude<View, "problem">;
 
 async function api<T>(path: string, options?: RequestInit): Promise<T> {
   const response = await fetch(path, {
@@ -147,6 +148,7 @@ function EmptyState({ children }: { children: string }) {
 
 export default function App() {
   const [view, setView] = useState<View>("dashboard");
+  const [problemOrigin, setProblemOrigin] = useState<ProblemOrigin>("dashboard");
   const [dashboard, setDashboard] = useState<Dashboard | null>(null);
   const [problems, setProblems] = useState<ProblemSummary[]>([]);
   const [problem, setProblem] = useState<Problem | null>(null);
@@ -295,6 +297,7 @@ export default function App() {
   const openProblem = async (id: string) => {
     try {
       const detail = await api<Problem>(`/api/problems/${id}`);
+      if (view !== "problem") setProblemOrigin(view);
       setProblem(detail);
       setSource(detail.savedDraft);
       setRevealedHints(detail.revealedHints || []);
@@ -475,9 +478,20 @@ export default function App() {
             </section>
 
             <section className="section-block">
-              <div className="section-heading"><div><span className="section-number">01</span><h2>Your next problems</h2><p>Reviews first, then a weak area, then something new.</p></div><button className="text-button" onClick={() => navigate("library")}>Browse all <ChevronRight size={16} /></button></div>
+              <div className="section-heading"><div><span className="section-number">01</span><h2>Your next problems</h2><p>Five easy, four with a medium, or three with a hard problem.</p></div><button className="text-button" onClick={() => navigate("library")}>Browse all <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
-                {dashboard?.recommendations.length ? dashboard.recommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={index} />) : <EmptyState>Loading your first recommendations…</EmptyState>}
+                {dashboard?.recommendations.length
+                  ? dashboard.recommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={index} />)
+                  : <EmptyState>{dashboard?.dailyComplete ? "Daily session finished — you completed every assigned problem. Come back tomorrow for a new set." : "Loading your daily recommendations…"}</EmptyState>}
+              </div>
+            </section>
+
+            <section className="section-block review-section">
+              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>Three to five passed problems, with the next spaced reviews first.</p></div><button className="text-button" onClick={() => { setCompletion("passed"); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
+              <div className="problem-stack">
+                {dashboard?.reviewRecommendations.length
+                  ? dashboard.reviewRecommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={index} />)
+                  : <EmptyState>{dashboard?.reviewComplete ? "Review finished — every assigned review problem was checked today." : "Passed problems will appear here for review."}</EmptyState>}
               </div>
             </section>
 
@@ -514,7 +528,7 @@ export default function App() {
         {view === "problem" && problem && (
           <div className="workspace-page">
             <header className="workspace-header">
-              <button className="back-button" onClick={() => navigate("library")}><ArrowLeft size={17} /> Library</button>
+              <button className="back-button" onClick={() => navigate(problemOrigin)}><ArrowLeft size={17} /> Back</button>
               <div className="workspace-title"><span>{problem.topics[0]}</span><h1>{problem.title}</h1></div>
               <div className="workspace-meta">{problem.solved && <span className="workspace-passed"><Check size={14} /> Passed</span>}<DifficultyPill score={problem.difficulty} /><span><Clock3 size={15} /> {problem.estimated_minutes} min</span></div>
             </header>
@@ -529,7 +543,11 @@ export default function App() {
                 <div className="complexity-row"><span>Target time <strong>{problem.target_time_complexity}</strong></span><span>Target space <strong>{problem.target_space_complexity}</strong></span></div>
                 <h2>Examples</h2>
                 {problem.tests.map((test, index) => (
-                  <div className="example" key={test.id}><span>EXAMPLE {index + 1}</span><code>Input: {JSON.stringify(test.arguments)}{"\n"}Output: {JSON.stringify(test.expected)}</code></div>
+                  <div className="example" key={test.id}>
+                    <span>EXAMPLE {index + 1}</span>
+                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}Output: {JSON.stringify(test.expected)}</code>
+                    {test.explanation && <p>{test.explanation}</p>}
+                  </div>
                 ))}
                 <h2>Constraints</h2>
                 <ul className="constraints">{problem.constraints.map((item) => <li key={item}>{item}</li>)}</ul>

@@ -13,3 +13,33 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 100 distinct problems, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and local SQLite persistence. It runs only at `127.0.0.1` and has no deployment configuration.
+
+## Python Study App
+
+Start the complete frontend and backend with one command:
+
+```bash
+cd "projects/Python Study App"
+./run_local.sh
+```
+
+Then open `http://127.0.0.1:8765`. The server intentionally binds only to the local computer; normal study sessions require no login or cloud service.
+
+After an unresolved run, the built-in offline coach provides small diagnostic nudges without giving away the answer. The optional **Ask Codex coach** button can send the current draft, problem description, and visible failure evidence to the locally installed, ChatGPT-authenticated Codex CLI. Codex runs in an ephemeral read-only session, receives no hidden tests or reference solution, and its reply is filtered to reject complete solutions or replacement functions. If Codex is unavailable, unauthenticated, times out, or returns answer-like content, the app keeps the offline coaching response instead. This optional feature may require an internet connection even though the study app itself is local-only.
+
+Inside a problem, drag the vertical divider between the instructions and Python editor to give either panel more room. Drag the horizontal divider below the Run/Submit bar to resize the code editor against the results and coaching area. Both splits are saved in browser storage, support arrow-key adjustments when focused, and reset to their default sizes when double-clicked.
+
+The problem workspace has a true **Back** button. A problem opened from Today returns to Today, while a problem opened from the Library returns to the Library with its filters preserved.
+
+Passing the visible examples is labeled **Examples passed** and prompts the learner to submit. A successful full submission, including hidden tests, persistently marks the problem **Passed** in the workspace header and problem library, and updates dashboard progress.
+
+All 100 problems use two hand-curated visible examples instead of shared placeholder inputs. Each pair demonstrates the problem's defining rule plus a contrasting or boundary case, and the interface explains in plain language why each output follows from its input. Catalog tests require these explanations and verify representative regression cases such as balanced prefix sums, valid versus invalid mappings, invalid bracket nesting, and missing/repeated matrix values.
+
+The Easy catalog is benchmarked against reusable patterns in LeetCode's official Easy problems, while retaining original wording and implementations. A quality audit removed seven syntax-only exercises—including Range Span and Longest Word Length—and replaced them with Balanced Pivot Index, Word Pattern Bijection, Formable Word Total, Missing and Repeated Grid Values, Flood Fill Region, Deduplicate a Sorted Linked List, and Recursive Step Combinations. The catalog remains exactly 100 problems: 33 easy, 56 medium, and 11 advanced.
+
+The library completion filter can show all problems, only unsolved problems, or only passed problems for review. Daily recommendations and the optional weekly challenge exclude problems already marked Passed.
+
+The Today page assigns one fixed set per local calendar day: five problems when the set is easy, four when at least one medium problem is included, or three when a hard/advanced problem is included. Completed items disappear from that fixed set without being replaced. After the final assigned problem passes, the app shows a finished message and waits until the next day to create another set. A separate fixed daily review checklist selects up to five previously passed problems, prioritizing the earliest spaced-review dates. A review disappears after another successful full submission that day, is not replaced, and the section shows a finished message after every assigned review is checked.
+
+Detailed setup, testing, backups, architecture, and coaching safeguards are documented in `Python Study App/README.md`.

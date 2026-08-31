@@ -17,7 +17,7 @@ DATA_DIR = Path(os.environ.get("CODE_PRACTICE_DATA_DIR", APP_ROOT / "data"))
 DB_PATH = Path(os.environ.get("CODE_PRACTICE_DB", DATA_DIR / "code_practice.db"))
 
 
-MIGRATION_VERSION = 1
+MIGRATION_VERSION = 3
 MIGRATION_STATEMENTS = [
     """
     CREATE TABLE IF NOT EXISTS attempts (
@@ -75,6 +75,45 @@ MIGRATION_STATEMENTS = [
     "CREATE INDEX IF NOT EXISTS idx_review_states_due ON review_states(due_at);",
     "CREATE INDEX IF NOT EXISTS idx_variants_status ON generated_variants(status);",
 ]
+MIGRATION_2_STATEMENTS = [
+    """
+    CREATE TABLE IF NOT EXISTS daily_sessions (
+        assignment_date TEXT PRIMARY KEY,
+        created_at TEXT NOT NULL
+    );
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS daily_session_problems (
+        assignment_date TEXT NOT NULL,
+        position INTEGER NOT NULL,
+        problem_id TEXT NOT NULL,
+        PRIMARY KEY (assignment_date, position),
+        UNIQUE (assignment_date, problem_id),
+        FOREIGN KEY (assignment_date) REFERENCES daily_sessions(assignment_date) ON DELETE CASCADE
+    );
+    """,
+    "CREATE INDEX IF NOT EXISTS idx_daily_session_problems_date ON daily_session_problems(assignment_date, position);",
+]
+MIGRATION_3_STATEMENTS = [
+    """
+    CREATE TABLE IF NOT EXISTS daily_review_sessions (
+        assignment_date TEXT PRIMARY KEY,
+        assigned_at TEXT NOT NULL
+    );
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS daily_review_problems (
+        assignment_date TEXT NOT NULL,
+        position INTEGER NOT NULL,
+        problem_id TEXT NOT NULL,
+        PRIMARY KEY (assignment_date, position),
+        UNIQUE (assignment_date, problem_id),
+        FOREIGN KEY (assignment_date) REFERENCES daily_review_sessions(assignment_date) ON DELETE CASCADE
+    );
+    """,
+    "CREATE INDEX IF NOT EXISTS idx_daily_review_problems_date ON daily_review_problems(assignment_date, position);",
+]
+MIGRATIONS = {1: MIGRATION_STATEMENTS, 2: MIGRATION_2_STATEMENTS, 3: MIGRATION_3_STATEMENTS}
 
 
 def connect() -> sqlite3.Connection:
@@ -105,15 +144,18 @@ def initialize_database() -> None:
             )
             """
         )
-        applied = connection.execute(
-            "SELECT 1 FROM schema_migrations WHERE version = ?", (MIGRATION_VERSION,)
-        ).fetchone()
-        if not applied:
-            for statement in MIGRATION_STATEMENTS:
+        applied = {
+            row["version"]
+            for row in connection.execute("SELECT version FROM schema_migrations").fetchall()
+        }
+        for version, statements in MIGRATIONS.items():
+            if version in applied:
+                continue
+            for statement in statements:
                 connection.execute(statement)
             connection.execute(
                 "INSERT INTO schema_migrations(version, applied_at) VALUES (?, ?)",
-                (MIGRATION_VERSION, datetime.now(timezone.utc).isoformat()),
+                (version, datetime.now(timezone.utc).isoformat()),
             )
         connection.execute("PRAGMA optimize")
 
@@ -182,6 +224,72 @@ def list_review_states() -> list[ReviewState]:
     with db_session() as connection:
         rows = connection.execute("SELECT * FROM review_states ORDER BY due_at").fetchall()
     return [ReviewState(**dict(row)) for row in rows]
+
+
+def get_daily_assignment(assignment_date: str) -> list[str] | None:
+    with db_session() as connection:
+        session = connection.execute(
+            "SELECT 1 FROM daily_sessions WHERE assignment_date = ?", (assignment_date,)
+        ).fetchone()
+        if not session:
+            return None
+        rows = connection.execute(
+            "SELECT problem_id FROM daily_session_problems WHERE assignment_date = ? ORDER BY position",
+            (assignment_date,),
+        ).fetchall()
+    return [row["problem_id"] for row in rows]
+
+
+def save_daily_assignment(assignment_date: str, problem_ids: list[str]) -> list[str]:
+    with db_session() as connection:
+        connection.execute(
+            "INSERT OR IGNORE INTO daily_sessions(assignment_date, created_at) VALUES (?, ?)",
+            (assignment_date, datetime.now(timezone.utc).isoformat()),
+        )
+        connection.executemany(
+            "INSERT OR IGNORE INTO daily_session_problems(assignment_date, position, problem_id) VALUES (?, ?, ?)",
+            [(assignment_date, position, problem_id) for position, problem_id in enumerate(problem_ids)],
+        )
+        rows = connection.execute(
+            "SELECT problem_id FROM daily_session_problems WHERE assignment_date = ? ORDER BY position",
+            (assignment_date,),
+        ).fetchall()
+    return [row["problem_id"] for row in rows]
+
+
+def get_daily_review_assignment(assignment_date: str) -> tuple[datetime, list[str]] | None:
+    with db_session() as connection:
+        session = connection.execute(
+            "SELECT assigned_at FROM daily_review_sessions WHERE assignment_date = ?", (assignment_date,)
+        ).fetchone()
+        if not session:
+            return None
+        rows = connection.execute(
+            "SELECT problem_id FROM daily_review_problems WHERE assignment_date = ? ORDER BY position",
+            (assignment_date,),
+        ).fetchall()
+    return datetime.fromisoformat(session["assigned_at"]), [row["problem_id"] for row in rows]
+
+
+def save_daily_review_assignment(assignment_date: str, problem_ids: list[str]) -> tuple[datetime, list[str]]:
+    assigned_at = datetime.now(timezone.utc)
+    with db_session() as connection:
+        connection.execute(
+            "INSERT OR IGNORE INTO daily_review_sessions(assignment_date, assigned_at) VALUES (?, ?)",
+            (assignment_date, assigned_at.isoformat()),
+        )
+        connection.executemany(
+            "INSERT OR IGNORE INTO daily_review_problems(assignment_date, position, problem_id) VALUES (?, ?, ?)",
+            [(assignment_date, position, problem_id) for position, problem_id in enumerate(problem_ids)],
+        )
+        session = connection.execute(
+            "SELECT assigned_at FROM daily_review_sessions WHERE assignment_date = ?", (assignment_date,)
+        ).fetchone()
+        rows = connection.execute(
+            "SELECT problem_id FROM daily_review_problems WHERE assignment_date = ? ORDER BY position",
+            (assignment_date,),
+        ).fetchall()
+    return datetime.fromisoformat(session["assigned_at"]), [row["problem_id"] for row in rows]
 
 
 def save_draft(problem_id: str, source_code: str) -> None:

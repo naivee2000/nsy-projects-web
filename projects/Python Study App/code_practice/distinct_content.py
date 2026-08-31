@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from .content_solutions import ListNode, TreeNode
+from .example_content import examples_for
 from .schemas import DifficultyRubric, FunctionSignature, ParameterDefinition, ProblemDefinition, TestCase
 
 
@@ -102,6 +103,8 @@ def _rubric(score: int) -> DifficultyRubric:
 def build_problem(spec: DistinctSpec) -> ProblemDefinition:
     if len(spec.cases) != 14:
         raise ValueError(f"{spec.id} needs exactly fourteen deterministic cases")
+    examples = examples_for(spec.id)
+    cases = [arguments for arguments, _explanation in examples] + spec.cases[2:]
     tests = [
         TestCase(
             id=f"{spec.id}-{'example' if index < 2 else 'hidden'}-{index + 1}",
@@ -109,9 +112,9 @@ def build_problem(spec: DistinctSpec) -> ProblemDefinition:
             expected=_expected(spec, arguments),
             comparator=spec.comparator,
             visible=index < 2,
-            explanation="Visible example" if index < 2 else None,
+            explanation=examples[index][1] if index < 2 else None,
         )
-        for index, arguments in enumerate(spec.cases)
+        for index, arguments in enumerate(cases)
     ]
     params = ", ".join(f"{name}: {annotation}" for name, annotation, _adapter in spec.parameters)
     source = _source(spec)
@@ -120,8 +123,14 @@ def build_problem(spec: DistinctSpec) -> ProblemDefinition:
         id=spec.id,
         title=spec.title,
         summary=spec.summary,
-        statement=f"{spec.summary} Implement `{spec.function_name}` and return the required result without changing the callable signature.",
-        constraints=["Inputs follow the declared Python and JSON-compatible types.", "Return a deterministic result for every valid input."],
+        statement=REPLACEMENT_STATEMENTS.get(
+            spec.id,
+            f"{spec.summary} Implement `{spec.function_name}` and return the required result without changing the callable signature.",
+        ),
+        constraints=REPLACEMENT_CONSTRAINTS.get(
+            spec.id,
+            ["Inputs follow the declared Python and JSON-compatible types.", "Return a deterministic result for every valid input."],
+        ),
         topics=spec.topics,
         prerequisites=spec.topics[:1] if spec.difficulty >= 5 else [],
         signature=FunctionSignature(
@@ -254,6 +263,74 @@ SMALL_TEXT_CASES = [[value] for value in [
     "abc", "aab", "", "a", "ab", "aba", "aa", "ABC", "12", "xy", "abba", "abcd", "a1", "race",
 ]]
 RECURSION_CASES = [[n] for n in [5, 7, 0, 1, 2, 3, 4, 6, 8, 10, 12, 15, 20, 25]]
+PIVOT_CASES = [
+    [[1, 7, 3, 6, 5, 6]], [[1, 2, 3]], [[2, 1, -1]], [[0]], [[0, 0, 0]],
+    [[1, -1, 0]], [[-1, -1, -1, -1, -1, 0]], [[3, -1, -2, 0]],
+    [[-2, 5, -3, 0]], [[10, -10, 0]], [[1, 2, 1]], [[5, 0, 0, 5]],
+    [[-4, 2, 2, 0]], [[]],
+]
+WORD_PATTERN_CASES = [
+    ["abba", "red blue blue red"], ["abba", "red blue blue green"],
+    ["aaaa", "red red red red"], ["abba", "red red red red"],
+    ["abc", "one two three"], ["abc", "one two"], ["abca", "sun moon star sun"],
+    ["abca", "sun moon sun sun"], ["a", "solo"], ["ab", "same same"],
+    ["abcabc", "x y z x y z"], ["abcabc", "x y z x z y"],
+    ["", ""], ["aa", "left right"],
+]
+FORMABLE_WORD_CASES = [
+    [["cat", "hat", "tree"], "atach"], [["hello", "world", "hold"], "welldonehoneyr"],
+    [[], "abc"], [["a"], ""], [["a", "aa", "aaa"], "aa"],
+    [["book", "boot", "cook"], "obokt"], [["stone", "tones", "notes"], "stone"],
+    [["abc", "abd", "cab"], "abc"], [["zz", "z", "zzz"], "zz"],
+    [["apple", "pear"], "appeal"], [["one", "two", "three"], "threeone"],
+    [["miss", "sip"], "mississippi"], [["x"], "xyz"], [["ab", "ba", "aa"], "aab"],
+]
+MISSING_GRID_CASES = [
+    [[[1, 3], [2, 2]]], [[[9, 1, 7], [8, 9, 2], [3, 4, 6]]],
+    [[[1, 1], [3, 4]]], [[[1, 2], [4, 4]]], [[[2, 3], [4, 2]]],
+    [[[4, 1], [3, 1]]], [[[1, 2, 3], [4, 5, 6], [7, 7, 9]]],
+    [[[1, 2, 3], [4, 5, 6], [8, 9, 9]]], [[[2, 2, 3], [4, 5, 6], [7, 8, 9]]],
+    [[[1, 2, 3], [4, 5, 5], [7, 8, 9]]], [[[1, 2], [3, 3]]],
+    [[[2, 1], [4, 2]]], [[[1, 3], [4, 1]]], [[[4, 2], [3, 2]]],
+]
+FLOOD_FILL_CASES = [
+    [[ [1, 1, 1], [1, 1, 0], [1, 0, 1] ], 1, 1, 2],
+    [[ [0, 0, 0], [0, 0, 0] ], 0, 0, 0],
+    [[[1]], 0, 0, 3], [[[2, 2], [2, 2]], 1, 1, 5],
+    [[[1, 2], [2, 1]], 0, 0, 9], [[[1, 1, 2], [2, 1, 2]], 0, 1, 3],
+    [[[0, 1, 0], [1, 1, 1], [0, 1, 0]], 1, 1, 2],
+    [[[4, 4, 4], [4, 5, 4], [4, 4, 4]], 1, 1, 7],
+    [[[3, 3, 0], [0, 3, 0]], 0, 0, 8], [[[1, 2, 2, 2]], 0, 2, 6],
+    [[[1], [1], [2]], 1, 0, 4], [[[7, 8], [8, 8]], 1, 1, 7],
+    [[[0, 0], [0, 1]], 1, 1, 2], [[[5, 5], [5, 5]], 0, 1, 5],
+]
+SORTED_LINKED_CASES = [
+    [[1, 1, 2, 3, 3]], [[1, 1, 1]], [[]], [[7]], [[1, 2, 3]],
+    [[-2, -2, -1, 0, 0]], [[1, 1]], [[1, 2, 2]], [[0, 0, 0, 1]],
+    [[1, 2, 3, 3, 3]], [[-5, -5, -5, -4]], [[2, 2, 3, 3, 4, 4]],
+    [[1, 1, 2, 2, 3, 3, 4]], [[10, 20, 20, 30]],
+]
+CLIMB_CASES = [[n] for n in [5, 4, 0, 1, 2, 3, 6, 7, 8, 10, 12, 15, 20, 25]]
+
+REPLACEMENT_STATEMENTS = {
+    "balanced-pivot-index": "For an index to be balanced, neither side includes the value at that index. Return the first balanced index from left to right. Return -1 when no index works, including for an empty list.",
+    "word-pattern-bijection": "Split the text on whitespace. The number of words must equal the number of pattern characters, and the correspondence must work in both directions: one character cannot represent two words and two characters cannot represent the same word.",
+    "formable-word-total": "Evaluate every candidate word independently against the same letter inventory. A letter may be used only as many times as it occurs in the inventory while forming one word; inventory use resets before checking the next word. Add the lengths of all formable words.",
+    "missing-repeated-grid-values": "For an n × n grid, the intended values are 1 through n². Exactly one value occurs twice and exactly one value is absent. Return the repeated value first and the missing value second.",
+    "flood-fill-region": "Starting at the given row and column, recolor that cell and every cell connected to it through up, down, left, or right moves that has the starting cell's original color. Diagonal contact does not connect regions.",
+    "deduplicate-sorted-linked-list": "The linked list is sorted in nondecreasing order, so equal values are adjacent. Rewire next pointers so that one node remains for each distinct value, and return the original head. Do not create a replacement list.",
+    "recursive-step-combinations": "For nonnegative n, count ordered sequences of 1-step and 2-step moves whose total is n. Different move orders count separately. For n = 0, the empty sequence counts as one way. Use a recursive recurrence with memoization.",
+}
+
+REPLACEMENT_CONSTRAINTS = {
+    "balanced-pivot-index": ["0 ≤ len(nums) ≤ 10,000.", "Values may be negative, zero, or positive."],
+    "word-pattern-bijection": ["The text contains whitespace-separated nonempty words.", "Pattern and text may be empty; their token counts must still match."],
+    "formable-word-total": ["Words and letters contain lowercase English letters.", "Each candidate is checked independently against the full inventory."],
+    "missing-repeated-grid-values": ["2 ≤ n ≤ 50.", "Cells contain values from 1 through n², with exactly one repeated and one missing value."],
+    "flood-fill-region": ["The image is nonempty and rectangular.", "The starting row and column are valid image coordinates."],
+    "deduplicate-sorted-linked-list": ["The list is sorted in nondecreasing order.", "The input may be an empty linked list."],
+    "recursive-step-combinations": ["0 ≤ n ≤ 30.", "Use recursion with memoization rather than enumerating every move sequence."],
+}
 
 
 SPECS: list[DistinctSpec] = []
@@ -265,10 +342,13 @@ def add(*items: DistinctSpec) -> None:
 
 # Array fundamentals: four different operations over the same broad data type.
 add(
-    S("array-range-span", "Range Span", "Return the difference between the largest and smallest values, or 0 for an empty list.", ["arrays"], "array_range_span", [("nums", "list[int]", "raw")], "int", """
-        if not nums: return 0
-        return max(nums) - min(nums)
-    """, ARRAY_CASES, 2, "O(n)", "O(1)", "Track both extremes during one scan.", "Update a running minimum and maximum, then subtract them."),
+    S("balanced-pivot-index", "Balanced Pivot Index", "Return the leftmost index whose left-side sum equals its right-side sum, or -1.", ["arrays", "prefix-sums"], "balanced_pivot_index", [("nums", "list[int]", "raw")], "int", """
+        total = sum(nums); left = 0
+        for index, value in enumerate(nums):
+            if left == total - left - value: return index
+            left += value
+        return -1
+    """, PIVOT_CASES, 3, "O(n)", "O(1)", "The right-side sum can be derived from the total, the left sum, and the current value.", "Maintain the sum strictly left of each index and return the first index where it matches the derived right sum."),
     S("longest-increasing-run", "Longest Increasing Run", "Return the longest contiguous run whose values strictly increase.", ["arrays"], "longest_increasing_run", [("nums", "list[int]", "raw")], "int", """
         best = current = 0
         for i, value in enumerate(nums):
@@ -300,8 +380,24 @@ add(
                 parts.append(text[start] + str(i - start)); start = i
         return "".join(parts)
     """, TEXT_CASES, 3, "O(n)", "O(n)", "A run ends at the first different character or the end of the string.", "Track the run start, emit its character and length, then begin the next run."),
-    S("reverse-word-order", "Reverse Word Order", "Return whitespace-separated words in reverse order with single spaces.", ["strings"], "reverse_word_order", [("text", "str", "raw")], "str", "return \" \".join(reversed(text.split()))", TEXT_CASES, 2, "O(n)", "O(n)", "Splitting without an explicit separator normalizes repeated whitespace.", "Split into words, reverse the word sequence, and join with one space."),
-    S("longest-word-length", "Longest Word Length", "Return the length of the longest whitespace-separated word.", ["strings"], "longest_word_length", [("text", "str", "raw")], "int", "return max((len(word) for word in text.split()), default=0)", TEXT_CASES, 2, "O(n)", "O(n)", "Only word boundaries matter, not the original spacing.", "Split into words and keep the maximum length, defaulting to zero."),
+    S("word-pattern-bijection", "Word Pattern Bijection", "Return whether pattern characters and whitespace-separated words form a one-to-one correspondence.", ["strings", "hash-maps"], "word_pattern_bijection", [("pattern", "str", "raw"), ("text", "str", "raw")], "bool", """
+        words = text.split()
+        if len(pattern) != len(words): return False
+        char_to_word, word_to_char = {}, {}
+        for char, word in zip(pattern, words):
+            if char in char_to_word and char_to_word[char] != word: return False
+            if word in word_to_char and word_to_char[word] != char: return False
+            char_to_word[char] = word; word_to_char[word] = char
+        return True
+    """, WORD_PATTERN_CASES, 3, "O(n)", "O(k)", "A valid pattern requires mappings in both directions, not just character-to-word consistency.", "Split the text, reject unequal lengths, and maintain synchronized character-to-word and word-to-character maps."),
+    S("formable-word-total", "Formable Word Total", "Given candidate words and available letters, return the total length of words that can each be formed without reusing a letter.", ["strings", "hash-maps"], "formable_word_total", [("words", "list[str]", "raw"), ("letters", "str", "raw")], "int", """
+        from collections import Counter
+        available = Counter(letters); total = 0
+        for word in words:
+            needed = Counter(word)
+            if all(needed[char] <= available[char] for char in needed): total += len(word)
+        return total
+    """, FORMABLE_WORD_CASES, 3, "O(total characters)", "O(k)", "Each candidate gets a fresh copy of the same letter inventory, but repeated letters inside one word still require repeated supply.", "Count available letters once, compare each word's frequency requirements, and add only the lengths of feasible words."),
 )
 
 # Two-string relationships, from easy counting through dynamic programming.
@@ -450,7 +546,14 @@ add(
         n = len(matrix)
         return sum(matrix[i][i] + matrix[i][n-1-i] for i in range(n)) - (matrix[n//2][n//2] if n % 2 else 0)
     """, MATRIX_CASES, 3, "O(n)", "O(1)", "Odd-sized matrices share one center across both diagonals.", "Add symmetric diagonal entries per row and subtract the center once when needed."),
-    S("count-negative-cells", "Count Negative Cells", "Return the number of negative values in a square matrix.", ["matrices"], "count_negative_cells", [("matrix", "list[list[int]]", "raw")], "int", "return sum(value < 0 for row in matrix for value in row)", MATRIX_CASES, 2, "O(n²)", "O(1)", "Every cell contributes independently to the count.", "Scan every row and count values below zero."),
+    S("missing-repeated-grid-values", "Missing and Repeated Grid Values", "A square grid should contain every value from 1 through n² once; return [repeated, missing].", ["matrices", "hash-maps"], "missing_repeated_grid_values", [("grid", "list[list[int]]", "raw")], "list[int]", """
+        from collections import Counter
+        counts = Counter(value for row in grid for value in row)
+        limit = len(grid) ** 2
+        repeated = next(value for value, count in counts.items() if count == 2)
+        missing = next(value for value in range(1, limit + 1) if counts[value] == 0)
+        return [repeated, missing]
+    """, MISSING_GRID_CASES, 3, "O(n²)", "O(n²)", "The expected value range supplies the missing candidate while frequencies identify the duplicate.", "Count all cells, find the value with frequency two, then scan 1 through n² for frequency zero."),
 )
 
 # Binary-grid geometry and connectivity.
@@ -484,11 +587,16 @@ add(
         for c in range(len(grid[0])): visit(0,c); visit(len(grid)-1,c)
         return sum(grid[r][c] and (r,c) not in seen for r in range(len(grid)) for c in range(len(grid[0])))
     """, BINARY_GRID_CASES, 6, "O(rc)", "O(rc)", "Only land connected to a boundary can escape.", "Flood-fill from every boundary land cell, then count unvisited land."),
-    S("boundary-land-cells", "Boundary Land Cells", "Count 1-cells located on the outer border of the grid.", ["matrices"], "boundary_land_cells", [("grid", "list[list[int]]", "raw")], "int", """
-        if not grid or not grid[0]: return 0
-        rows, cols = len(grid), len(grid[0])
-        return sum(grid[r][c] for r in range(rows) for c in range(cols) if r in (0,rows-1) or c in (0,cols-1))
-    """, BINARY_GRID_CASES, 2, "O(rc)", "O(1)", "A border coordinate has an extreme row or column index.", "Check the border predicate before adding each cell."),
+    S("flood-fill-region", "Flood Fill Region", "Recolor the four-directionally connected region containing a starting cell and return the image.", ["graphs", "recursion", "matrices"], "flood_fill_region", [("image", "list[list[int]]", "raw"), ("start_row", "int", "raw"), ("start_col", "int", "raw"), ("new_color", "int", "raw")], "list[list[int]]", """
+        original = image[start_row][start_col]
+        if original == new_color: return image
+        def fill(row, col):
+            if not (0 <= row < len(image) and 0 <= col < len(image[0])) or image[row][col] != original: return
+            image[row][col] = new_color
+            fill(row + 1, col); fill(row - 1, col); fill(row, col + 1); fill(row, col - 1)
+        fill(start_row, start_col)
+        return image
+    """, FLOOD_FILL_CASES, 3, "O(rc)", "O(rc)", "Only cells connected through the original color belong to the starting region.", "Save the original color, guard the no-change case, then recursively recolor matching four-directional neighbors."),
 )
 
 # Directed-graph ordering, cycles, reachability, and shortest paths.
@@ -626,11 +734,13 @@ add(
 
 # Linked-list questions use adapters but ask unrelated operations.
 add(
-    S("linked-list-length", "Linked List Length", "Return the number of nodes in a singly linked list.", ["linked-lists"], "linked_list_length", [("head", "ListNode | None", "listnode")], "int", """
-        length = 0
-        while head: length += 1; head = head.next
-        return length
-    """, LINKED_CASES, 2, "O(n)", "O(1)", "Each next pointer advances to exactly one new node.", "Walk until None and increment once per node."),
+    S("deduplicate-sorted-linked-list", "Deduplicate a Sorted Linked List", "Remove repeated values from a sorted linked list in place and return its head.", ["linked-lists", "pointer-manipulation"], "deduplicate_sorted_linked_list", [("head", "ListNode | None", "listnode")], "ListNode | None", """
+        current = head
+        while current and current.next:
+            if current.val == current.next.val: current.next = current.next.next
+            else: current = current.next
+        return head
+    """, SORTED_LINKED_CASES, 3, "O(n)", "O(1)", "Sorting makes duplicate nodes adjacent, so one pointer can remove repeats without extra storage.", "Compare each node with its successor; bypass equal successors and advance only after the next value changes.", return_adapter="listnode"),
     S("linked-middle-value", "Linked Middle Value", "Return the second middle value for even length, or None for an empty list.", ["linked-lists", "two-pointers"], "linked_middle_value", [("head", "ListNode | None", "listnode")], "int | None", """
         slow = fast = head
         while fast and fast.next: slow = slow.next; fast = fast.next.next
@@ -846,10 +956,13 @@ add(
 
 # Explicit recursion foundations progress from easy base cases to memoized recurrence.
 add(
-    S("recursive-sum-to-n", "Recursive Sum to N", "Return 1 + 2 + ... + n using a recursive definition.", ["recursion", "math"], "recursive_sum_to_n", [("n", "int", "raw")], "int", """
-        if n <= 0: return 0
-        return n + recursive_sum_to_n(n-1)
-    """, RECURSION_CASES, 2, "O(n)", "O(n)", "The zero case stops the recursion and contributes nothing.", "Reduce n by one and add the current n while calls unwind."),
+    S("recursive-step-combinations", "Recursive Step Combinations", "Return the number of ordered ways to cover n steps using moves of one or two steps.", ["recursion", "dynamic-programming"], "recursive_step_combinations", [("n", "int", "raw")], "int", """
+        memo = {0: 1, 1: 1}
+        def ways(remaining):
+            if remaining not in memo: memo[remaining] = ways(remaining - 1) + ways(remaining - 2)
+            return memo[remaining]
+        return ways(n)
+    """, CLIMB_CASES, 3, "O(n)", "O(n)", "Every valid final move comes from a solution with one or two fewer steps.", "Use the two recursive predecessor states and memoize them so each step count is solved once."),
     S("recursive-digit-sum", "Recursive Digit Sum", "Return the sum of the decimal digits of a nonnegative integer recursively.", ["recursion", "math"], "recursive_digit_sum", [("n", "int", "raw")], "int", """
         if n < 10: return n
         return n % 10 + recursive_digit_sum(n // 10)

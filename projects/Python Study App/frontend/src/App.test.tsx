@@ -6,6 +6,13 @@ vi.mock("@monaco-editor/react", () => ({ default: () => <div>Editor</div> }));
 
 const dashboard = {
   recommendations: [{ id: "pair-sum-indices", version: 1, title: "Pair Sum Indices", summary: "Find a pair.", topics: ["arrays"], prerequisites: [], difficulty: 2, estimatedMinutes: 15, solved: false }],
+  reviewRecommendations: [{ id: "bracket-balance", version: 1, title: "Bracket Balance", summary: "Validate brackets.", topics: ["stacks"], prerequisites: [], difficulty: 2, estimatedMinutes: 15, solved: true }],
+  reviewComplete: false,
+  reviewAssignedCount: 1,
+  reviewRemainingCount: 1,
+  dailyComplete: false,
+  dailyAssignedCount: 5,
+  dailyRemainingCount: 5,
   weeklyChallenge: null,
   mastery: {},
   solvedCount: 0,
@@ -31,6 +38,48 @@ test("shows the daily recommendation and local-only boundary", async () => {
   await waitFor(() => expect(screen.getByText("Pair Sum Indices")).toBeInTheDocument());
   expect(screen.getByText("Local mode")).toBeInTheDocument();
   expect(screen.getByText("Your next problems")).toBeInTheDocument();
+  expect(screen.getByText("Review completed problems")).toBeInTheDocument();
+  expect(screen.getByText("Bracket Balance")).toBeInTheDocument();
+});
+
+test("returns from a problem to the page that opened it", async () => {
+  const problem = {
+    id: "pair-sum-indices",
+    version: 1,
+    title: "Pair Sum Indices",
+    summary: "Find a pair.",
+    statement: "Return two indices.",
+    constraints: ["Two or more values."],
+    topics: ["arrays"],
+    prerequisites: [],
+    difficulty: 2,
+    estimated_minutes: 15,
+    target_time_complexity: "O(n)",
+    target_space_complexity: "O(n)",
+    signature: { name: "pair_sum_indices", parameters: [], returns: "list[int]", return_adapter: "raw" },
+    starter_code: "def pair_sum_indices(nums, target): return []",
+    savedDraft: "def pair_sum_indices(nums, target): return []",
+    tests: [],
+    revealedHintLevel: 0,
+    revealedHints: [],
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({
+    ok: true,
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : dashboard.recommendations),
+  })));
+
+  render(<App />);
+
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  expect(await screen.findByRole("button", { name: "Back" })).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: "Back" }));
+  expect(await screen.findByText("Your next problems")).toBeInTheDocument();
+
+  fireEvent.click(screen.getByRole("button", { name: "Library" }));
+  expect(await screen.findByText("Practice library")).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: /Pair Sum Indices/ }));
+  fireEvent.click(await screen.findByRole("button", { name: "Back" }));
+  expect(await screen.findByText("Practice library")).toBeInTheDocument();
 });
 
 test("automatically opens progressive local coaching after a wrong run", async () => {
@@ -50,7 +99,7 @@ test("automatically opens progressive local coaching after a wrong run", async (
     signature: { name: "pair_sum_indices", parameters: [], returns: "list[int]", return_adapter: "raw" },
     starter_code: "def pair_sum_indices(nums, target): return []",
     savedDraft: "def pair_sum_indices(nums, target): return []",
-    tests: [{ id: "example-1", arguments: [[2, 7], 9], expected: [0, 1], comparator: "exact", visible: true }],
+    tests: [{ id: "example-1", arguments: [[2, 7], 9], expected: [0, 1], comparator: "exact", visible: true, explanation: "The two values add to the target." }],
     revealedHintLevel: 0,
     revealedHints: [],
   };
@@ -99,6 +148,7 @@ test("automatically opens progressive local coaching after a wrong run", async (
 
   render(<App />);
   fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  expect(await screen.findByText("The two values add to the target.")).toBeInTheDocument();
   fireEvent.click(await screen.findByRole("button", { name: "Run examples" }));
   expect(await screen.findByText("LOCAL COACH")).toBeInTheDocument();
   expect(screen.getByText("STEP 1 / 3")).toBeInTheDocument();
@@ -228,4 +278,37 @@ test("filters the library to passed or unsolved problems", async () => {
   fireEvent.change(completionFilter, { target: { value: "unsolved" } });
   expect(screen.getByText("Unsolved Problem")).toBeInTheDocument();
   expect(screen.queryByText("Passed Problem")).not.toBeInTheDocument();
+});
+
+test("shows a finished sentence instead of refilling the completed daily set", async () => {
+  const finishedDashboard = {
+    ...dashboard,
+    recommendations: [],
+    dailyComplete: true,
+    dailyRemainingCount: 0,
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({
+    ok: true,
+    json: () => Promise.resolve(url.includes("dashboard") ? finishedDashboard : dashboard.recommendations),
+  })));
+
+  render(<App />);
+  expect(await screen.findByText("Daily session finished — you completed every assigned problem. Come back tomorrow for a new set.")).toBeInTheDocument();
+  expect(screen.queryByText("Loading your daily recommendations…")).not.toBeInTheDocument();
+});
+
+test("shows a finished sentence after all assigned reviews are checked", async () => {
+  const finishedReviews = {
+    ...dashboard,
+    reviewRecommendations: [],
+    reviewComplete: true,
+    reviewRemainingCount: 0,
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({
+    ok: true,
+    json: () => Promise.resolve(url.includes("dashboard") ? finishedReviews : dashboard.recommendations),
+  })));
+
+  render(<App />);
+  expect(await screen.findByText("Review finished — every assigned review problem was checked today.")).toBeInTheDocument();
 });
