@@ -143,6 +143,13 @@
         </div>
         <p>Research vehicle market values, depreciation curves, and generation-change impact.</p>
       </a>
+      <a class="project" href="/projects/python-study/">
+        <div class="project-top">
+          <h2>Python Study App</h2>
+          <span id="pythonStudyStatus" class="status">Login required</span>
+        </div>
+        <p>Practice Python interview problems with guided hints, saved drafts, and persistent progress tracking.</p>
+      </a>
       <a class="project" href="/projects/stock-strategy-test/">
         <div class="project-top">
           <h2>Long-Term Stock Allocation Lab</h2>
@@ -157,6 +164,7 @@
     const authAction = document.getElementById("authAction");
     const demStatus = document.getElementById("demStatus");
     const carCompareStatus = document.getElementById("carCompareStatus");
+    const pythonStudyStatus = document.getElementById("pythonStudyStatus");
     authAction.href = `https://dem.nsyprojects.com/login?next=${encodeURIComponent(window.location.href)}`;
     if (document.cookie.split("; ").includes("nsy_signed_in=1")) {
       accountStatus.textContent = "Signed in";
@@ -166,6 +174,8 @@
       demStatus.classList.add("ready");
       carCompareStatus.textContent = "Available";
       carCompareStatus.classList.add("ready");
+      pythonStudyStatus.textContent = "Available";
+      pythonStudyStatus.classList.add("ready");
     }
   </script>
 </body>
