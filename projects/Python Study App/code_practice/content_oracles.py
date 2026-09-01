@@ -4,6 +4,8 @@ import random
 import string
 from typing import Any, Callable
 
+from .content_solutions import ListNode
+
 
 def pair_sum_indices(nums, target):
     for left in range(len(nums)):
@@ -31,6 +33,22 @@ def normalized_palindrome(text):
 
 def merge_sorted_values(left, right):
     return sorted(left + right)
+
+
+def merge_sorted_linked_lists(list1, list2):
+    values = []
+    while list1:
+        values.append(list1.val)
+        list1 = list1.next
+    while list2:
+        values.append(list2.val)
+        list2 = list2.next
+    dummy = ListNode()
+    tail = dummy
+    for value in sorted(values):
+        tail.next = ListNode(value)
+        tail = tail.next
+    return dummy.next
 
 
 def longest_unique_span(text):
@@ -81,6 +99,7 @@ ORACLES: dict[str, Callable[..., Any]] = {
         max_single_trade_profit,
         normalized_palindrome,
         merge_sorted_values,
+        merge_sorted_linked_lists,
         longest_unique_span,
         days_until_warmer,
         merge_intervals,
@@ -120,6 +139,10 @@ def _merge_case(rng: random.Random) -> list[Any]:
     ]
 
 
+def _merge_linked_case(rng: random.Random) -> list[Any]:
+    return _merge_case(rng)
+
+
 def _unique_case(rng: random.Random) -> list[Any]:
     return ["".join(rng.choice("abcdef") for _ in range(rng.randint(0, 30)))]
 
@@ -142,6 +165,7 @@ RANDOM_CASES: dict[str, Callable[[random.Random], list[Any]]] = {
     "max_single_trade_profit": _prices_case,
     "normalized_palindrome": _palindrome_case,
     "merge_sorted_values": _merge_case,
+    "merge_sorted_linked_lists": _merge_linked_case,
     "longest_unique_span": _unique_case,
     "days_until_warmer": _temperature_case,
     "merge_intervals": _interval_case,
@@ -154,6 +178,25 @@ def verify_randomized(function_name: str, optimized: Callable[..., Any], count: 
     rng = random.Random(seed)
     for index in range(count):
         arguments = case_factory(rng)
-        actual = optimized(*[value[:] if isinstance(value, list) else value for value in arguments])
-        expected = oracle(*[value[:] if isinstance(value, list) else value for value in arguments])
+        if function_name == "merge_sorted_linked_lists":
+            def make_list(values):
+                dummy = ListNode()
+                tail = dummy
+                for value in values:
+                    tail.next = ListNode(value)
+                    tail = tail.next
+                return dummy.next
+
+            def list_values(head):
+                values = []
+                while head:
+                    values.append(head.val)
+                    head = head.next
+                return values
+
+            actual = list_values(optimized(*[make_list(value) for value in arguments]))
+            expected = list_values(oracle(*[make_list(value) for value in arguments]))
+        else:
+            actual = optimized(*[value[:] if isinstance(value, list) else value for value in arguments])
+            expected = oracle(*[value[:] if isinstance(value, list) else value for value in arguments])
         assert actual == expected, f"{function_name} disagreed with its oracle on randomized case {index}: {arguments}"

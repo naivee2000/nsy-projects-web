@@ -217,6 +217,17 @@ SEEDS = [
         [[[]], [[1, 2]], [[2, 1]], [[-1, 0, 1]], [[5, 5, 5]], [[1, 2, 3, 4, 5]], [[9, 8, 7, 6]], [[0]], [[-3, -2]], [[10, 20, 30]], [[1, -1, 2, -2]], [[100, 50, 0]]],
     ),
     SeedSpec(
+        "merge-sorted-linked-lists", "Merge Two Sorted Linked Lists", "Splice two ordered linked chains into one sorted chain.",
+        "You are given the heads of two singly linked lists whose values are sorted in nondecreasing order. Merge them by reconnecting the existing nodes, then return the head of the combined sorted list. The interface displays linked lists as arrays, but your function receives `ListNode` objects.",
+        ["linked-lists", "two-pointers", "pointer-manipulation"], ["linked-lists"], "merge_sorted_linked_lists", [("list1", "ListNode | None", "listnode"), ("list2", "ListNode | None", "listnode")],
+        "ListNode | None", "listnode", EASY_3, 25, "O(n + m)", "O(1)",
+        ["0 <= total node count <= 50,000", "Each input list is sorted in nondecreasing order.", "Reuse the supplied nodes rather than allocating a separate node for every value."],
+        ["At every step, the smaller current node must come next in the merged chain.", "Use a temporary dummy head so attaching the first real node needs no special case.", "Move a tail pointer forward after linking the smaller of `list1` and `list2`, then attach the nonempty remainder.", "A dummy head and two moving list pointers merge the chains in linear time and constant auxiliary space."],
+        "Create a temporary dummy head and keep a tail at the end of the merged portion. Compare the two current node values, connect the tail to the smaller node, and advance only that input. Once either input ends, connect the remaining chain directly because it is already sorted. Return `dummy.next`; only the temporary sentinel is new, while all result nodes come from the inputs.",
+        [[[1, 2, 4], [1, 3, 4]], [[], [0]]],
+        [[[], []], [[1], []], [[], [-2, 5]], [[1], [2]], [[2], [1]], [[1, 1], [1, 1]], [[-3, 0, 7], [-2, 4, 8]], [[1, 3, 5], [2, 4, 6]], [[1, 2], [3, 4]], [[3, 4], [1, 2]], [[-5, -1], [-6, 0]], [[0, 2, 2, 9], [0, 2, 10]]],
+    ),
+    SeedSpec(
         "max-single-trade-profit", "Best Single Trade", "Choose one buy and one later sell.",
         "Given daily prices, return the greatest profit from buying once and selling on a later day. Return 0 if no profitable trade exists.",
         ["arrays", "greedy"], [], "max_single_trade_profit", [("prices", "list[int]", "raw")], "int", "raw", EASY_3, 20, "O(n)", "O(1)",

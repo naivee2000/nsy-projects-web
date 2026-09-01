@@ -16,7 +16,7 @@ const dashboard = {
   weeklyChallenge: null,
   mastery: {},
   solvedCount: 0,
-  totalProblems: 100,
+  totalProblems: 101,
   attemptCount: 0,
 };
 

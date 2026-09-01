@@ -14,15 +14,22 @@ def test_health_problem_detail_and_hidden_boundary():
         health = client.get("/api/health")
         assert health.status_code == 200
         assert health.json()["mode"] == "local-only"
-        assert health.json()["problemCount"] == 100
+        assert health.json()["problemCount"] == 101
 
         listing = client.get("/api/problems").json()
-        assert len(listing) == 100
+        assert len(listing) == 101
         detail = client.get("/api/problems/pair-sum-indices").json()
         assert len(detail["tests"]) == 2
         assert "reference_solution" not in detail
         package = client.post("/api/problems/pair-sum-indices/submission-package").json()
         assert len(package["tests"]) == 12
+
+        linked_detail = client.get("/api/problems/merge-sorted-linked-lists").json()
+        assert [parameter["adapter"] for parameter in linked_detail["signature"]["parameters"]] == ["listnode", "listnode"]
+        assert linked_detail["signature"]["return_adapter"] == "listnode"
+        assert len(linked_detail["tests"]) == 2
+        linked_package = client.post("/api/problems/merge-sorted-linked-lists/submission-package").json()
+        assert len(linked_package["tests"]) == 12
 
 
 def test_schema_migration_is_versioned_and_idempotent():

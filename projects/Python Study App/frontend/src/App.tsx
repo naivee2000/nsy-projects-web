@@ -472,7 +472,7 @@ export default function App() {
             </header>
 
             <section className="stat-grid" aria-label="Study progress">
-              <div className="stat-card accent"><span><ListChecks size={18} /> SOLVED</span><strong>{dashboard?.solvedCount ?? "—"}<small> / {dashboard?.totalProblems ?? 100}</small></strong><div className="meter"><i style={{ width: `${dashboard ? dashboard.solvedCount / dashboard.totalProblems * 100 : 0}%` }} /></div></div>
+              <div className="stat-card accent"><span><ListChecks size={18} /> SOLVED</span><strong>{dashboard?.solvedCount ?? "—"}<small> / {dashboard?.totalProblems ?? 101}</small></strong><div className="meter"><i style={{ width: `${dashboard ? dashboard.solvedCount / dashboard.totalProblems * 100 : 0}%` }} /></div></div>
               <div className="stat-card"><span><BrainCircuit size={18} /> ATTEMPTS</span><strong>{dashboard?.attemptCount ?? "—"}</strong><small>Every attempt is useful data.</small></div>
               <div className="stat-card"><span><Gauge size={18} /> STRONGEST TOPIC</span><strong className="topic-stat">{dashboard && Object.keys(dashboard.mastery).length ? Object.entries(dashboard.mastery).sort((a,b) => b[1]-a[1])[0][0] : "Start solving"}</strong><small>{dashboard && Object.keys(dashboard.mastery).length ? `${Object.entries(dashboard.mastery).sort((a,b) => b[1]-a[1])[0][1]}% mastery` : "Your roadmap adapts here."}</small></div>
             </section>

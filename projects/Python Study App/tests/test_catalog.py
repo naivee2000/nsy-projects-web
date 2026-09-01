@@ -2,26 +2,26 @@ from collections import Counter
 
 from code_practice.content import PROBLEMS
 from code_practice.content_oracles import RANDOM_CASES, verify_randomized
-from code_practice.content_solutions import SOLUTIONS
+from code_practice.content_solutions import ListNode, SOLUTIONS
 from code_practice.validation import validate_problem
 from code_practice.validation import content_fingerprint
 
 
 def test_catalog_has_required_size_topics_and_distribution():
-    assert len(PROBLEMS) == 100
-    assert len({problem.id for problem in PROBLEMS}) == 100
+    assert len(PROBLEMS) == 101
+    assert len({problem.id for problem in PROBLEMS}) == 101
     assert len({topic for problem in PROBLEMS for topic in problem.topics}) >= 8
     distribution = Counter(
         "easy" if problem.difficulty <= 3 else "medium" if problem.difficulty <= 7 else "advanced"
         for problem in PROBLEMS
     )
-    assert distribution == {"easy": 33, "medium": 56, "advanced": 11}
+    assert distribution == {"easy": 34, "medium": 56, "advanced": 11}
 
 
 def test_catalog_uses_distinct_callable_questions_and_recursion_progression():
-    assert len({problem.signature.name for problem in PROBLEMS}) == 100
-    assert len({problem.title for problem in PROBLEMS}) == 100
-    assert len({content_fingerprint(problem) for problem in PROBLEMS}) == 100
+    assert len({problem.signature.name for problem in PROBLEMS}) == 101
+    assert len({problem.title for problem in PROBLEMS}) == 101
+    assert len({content_fingerprint(problem) for problem in PROBLEMS}) == 101
     assert not any("boundary-lab" in problem.id or "trace-lab" in problem.id or "constraint-sprint" in problem.id for problem in PROBLEMS)
     recursion_difficulties = {problem.difficulty for problem in PROBLEMS if "recursion" in problem.topics}
     assert any(score <= 3 for score in recursion_difficulties)
@@ -60,6 +60,26 @@ def test_rule_specific_examples_cover_normal_and_contrasting_cases():
 
     brackets = [test for test in by_id["valid-brackets"].tests if test.visible]
     assert [test.expected for test in brackets] == [True, False]
+
+    merged_lists = [test for test in by_id["merge-sorted-linked-lists"].tests if test.visible]
+    assert [test.expected for test in merged_lists] == [[1, 1, 2, 3, 4, 4], [0]]
+
+
+def test_linked_list_merge_splices_the_original_nodes():
+    first = ListNode(1, ListNode(4))
+    second = ListNode(2, ListNode(3))
+    original_node_ids = {id(first), id(first.next), id(second), id(second.next)}
+
+    merged = SOLUTIONS["merge_sorted_linked_lists"](first, second)
+    merged_node_ids = set()
+    values = []
+    while merged:
+        merged_node_ids.add(id(merged))
+        values.append(merged.val)
+        merged = merged.next
+
+    assert values == [1, 2, 3, 4]
+    assert merged_node_ids == original_node_ids
 
 
 def test_syntax_only_easy_exercises_are_replaced_by_reasoning_patterns():

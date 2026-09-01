@@ -1,6 +1,6 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It includes 100 distinct coding problems, a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It includes 101 distinct coding problems, a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow.
 
 ## Start the app
 
@@ -31,7 +31,7 @@ If frontend source changes, run `npm --prefix frontend run build` before startin
 
 The catalog uses original wording and implementations; it does not copy LeetCode statements. LeetCode's official Easy catalog and study-plan patterns are used only as a difficulty benchmark: an Easy problem should still require at least one reusable invariant, data-structure choice, recurrence, or edge-case decision.
 
-A catalog audit replaced seven syntax-level exercises while keeping the total at exactly 100 problems (33 easy, 56 medium, and 11 advanced):
+A catalog audit replaced seven syntax-level exercises with stronger interview patterns. A two-chain, node-splicing linked-list merge was then added as a separate exercise, bringing the catalog to 101 problems (34 easy, 56 medium, and 11 advanced):
 
 - Range Span → **Balanced Pivot Index** for running-left and derived-right prefix sums.
 - Reverse Word Order → **Word Pattern Bijection** for two-way mapping consistency.
@@ -40,6 +40,7 @@ A catalog audit replaced seven syntax-level exercises while keeping the total at
 - Boundary Land Cells → **Flood Fill Region** for recursive connectivity and the same-color guard.
 - Linked List Length → **Deduplicate a Sorted Linked List** for in-place pointer rewiring.
 - Recursive Sum to N → **Recursive Step Combinations** for a memoized two-state recurrence.
+- **Merge Two Sorted Linked Lists** was added for dummy-head, tail-pointer, and in-place node-splicing practice.
 
 Short introductory problems remain only when they isolate a useful interview pattern. Examples include local peaks for safe neighbor boundaries, matrix transposition for coordinate mapping, run-length encoding for run-boundary state, recursive tree sum/leaf count for structural base cases, and linked-list middle for fast/slow pointers.
 

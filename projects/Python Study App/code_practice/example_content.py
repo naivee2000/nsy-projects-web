@@ -23,6 +23,10 @@ EXAMPLE_CONTENT: dict[str, list[tuple[list[Any], str]]] = {
         ([[1, 2, 3, 4]], "Every next pointer is reversed, producing the values in the opposite order."),
         ([[7]], "A one-node linked list is unchanged after reversal."),
     ],
+    "merge-sorted-linked-lists": [
+        ([[1, 2, 4], [1, 3, 4]], "Taking the smaller current node from each chain produces [1, 1, 2, 3, 4, 4] without sorting again."),
+        ([[], [0]], "When the first chain is empty, the existing second chain is already the complete merged result."),
+    ],
     "max-single-trade-profit": [
         ([[7, 1, 5, 3, 6, 4]], "Buying at 1 and later selling at 6 gives the best profit of 5."),
         ([[7, 6, 4, 3, 1]], "Prices only fall, so making no trade gives a profit of 0."),

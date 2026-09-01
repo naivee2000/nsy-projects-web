@@ -63,6 +63,21 @@ def reverse_linked_list(head):
     return previous
 
 
+def merge_sorted_linked_lists(list1, list2):
+    dummy = ListNode()
+    tail = dummy
+    while list1 and list2:
+        if list1.val <= list2.val:
+            tail.next = list1
+            list1 = list1.next
+        else:
+            tail.next = list2
+            list2 = list2.next
+        tail = tail.next
+    tail.next = list1 if list1 else list2
+    return dummy.next
+
+
 def max_single_trade_profit(prices):
     lowest = float("inf")
     best = 0
@@ -381,6 +396,7 @@ SOLUTIONS = {
         valid_brackets,
         binary_search_index,
         reverse_linked_list,
+        merge_sorted_linked_lists,
         max_single_trade_profit,
         normalized_palindrome,
         merge_sorted_values,
