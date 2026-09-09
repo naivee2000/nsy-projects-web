@@ -118,7 +118,7 @@ else:
             with contextlib.redirect_stdout(console_output), contextlib.redirect_stderr(console_output):
                 actual = serialize(function(*arguments), job["signature"].get("return_adapter", "raw"))
             passed = matches(actual, test["expected"], test.get("comparator", "exact"))
-            cases.append({"id": test["id"], "passed": passed, "actual": actual, "expected": test["expected"], "visible": True, "arguments": test["arguments"]})
+            cases.append({"id": test["id"], "passed": passed, "actual": actual, "expected": test["expected"], "visible": test.get("visible", False), "arguments": test["arguments"] if test.get("visible", False) or not passed else None})
             if not passed:
                 status = "wrong_answer"
                 message = "A test produced an unexpected result."
@@ -127,7 +127,7 @@ else:
         except Exception as error:
             status = "runtime_error"
             message = f"{type(error).__name__}: {error}"
-            cases.append({"id": test["id"], "passed": False, "error": message, "expected": test["expected"], "visible": True, "arguments": test["arguments"]})
+            cases.append({"id": test["id"], "passed": False, "error": message, "expected": test["expected"], "visible": test.get("visible", False), "arguments": test["arguments"]})
             if job.get("stopOnFailure", False):
                 break
     result_payload = {"status": status, "message": message, "cases": cases, "stdout": console_output.getvalue()}

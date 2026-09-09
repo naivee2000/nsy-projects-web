@@ -149,8 +149,8 @@ def validate_problem(problem: ProblemDefinition, existing_fingerprints: set[str]
             "referenceFailures": [],
             "bruteForceFailures": [],
             "wrongSolutionsRejected": [],
-            "testCases": len(problem.tests),
-            "explainedExamples": sum(bool(test.explanation) for test in problem.tests),
+            "visibleTests": sum(test.visible for test in problem.tests),
+            "hiddenTests": sum(not test.visible for test in problem.tests),
             "fingerprint": fingerprint,
         }
 
@@ -185,7 +185,7 @@ def validate_problem(problem: ProblemDefinition, existing_fingerprints: set[str]
         "referenceFailures": reference_failures,
         "bruteForceFailures": brute_force_failures,
         "wrongSolutionsRejected": wrong_solution_results,
-        "testCases": len(problem.tests),
-        "explainedExamples": sum(bool(test.explanation) for test in problem.tests),
+        "visibleTests": sum(test.visible for test in problem.tests),
+        "hiddenTests": sum(not test.visible for test in problem.tests),
         "fingerprint": fingerprint,
     }

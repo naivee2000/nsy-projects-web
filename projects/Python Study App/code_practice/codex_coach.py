@@ -62,6 +62,7 @@ def _test_evidence(cases: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "passed": case.get("passed", False),
         }
         for case in cases
+        if case.get("visible") or not case.get("passed")
     ][:4]
 
 

@@ -27,7 +27,7 @@ from .database import (
     save_daily_review_assignment,
     save_draft,
 )
-from .learning import prerequisites_met, prioritized_review_problems, topic_mastery
+from .learning import choose_daily_session, prerequisites_met, prioritized_review_problems, topic_mastery
 from .schemas import AttemptCreate, ProblemDefinition
 from .shared_auth import SharedSessionAuth
 from .starter_code import with_support_classes
@@ -152,10 +152,7 @@ def submission_package(problem_id: str) -> dict[str, Any]:
         "problemId": problem.id,
         "version": problem.version,
         "signature": problem.signature.model_dump(mode="json"),
-        "tests": [
-            {**test.model_dump(mode="json"), "visible": True}
-            for test in problem.tests
-        ],
+        "tests": [test.model_dump(mode="json") for test in problem.tests if not test.visible],
         "timeoutMs": 3000,
     }
 
@@ -272,51 +269,33 @@ def dashboard() -> dict[str, Any]:
             for review in reviews
             if review.due_at <= now and review.problem_id in catalog and review.problem_id not in solved
         ]
-        selected: list[ProblemDefinition] = []
+        prioritized: list[ProblemDefinition] = []
 
-        def recommendation_limit(items: list[ProblemDefinition]) -> int:
-            if any(problem.difficulty >= 8 for problem in items):
-                return 3
-            if any(4 <= problem.difficulty <= 7 for problem in items):
-                return 4
-            return 5
-
-        def at_capacity() -> bool:
-            return len(selected) >= recommendation_limit(selected)
-
-        def add_recommendation(problem: ProblemDefinition) -> bool:
-            if problem.id in solved or problem in selected or not prerequisites_met(problem, mastery):
+        def add_candidate(problem: ProblemDefinition) -> bool:
+            if problem.id in solved or problem in prioritized or not prerequisites_met(problem, mastery):
                 return False
-            proposed = [*selected, problem]
-            if len(proposed) > recommendation_limit(proposed):
-                return False
-            selected.append(problem)
+            prioritized.append(problem)
             return True
 
         for problem_id in due_ids:
-            if at_capacity():
-                break
-            add_recommendation(catalog[problem_id])
+            add_candidate(catalog[problem_id])
 
         weak_topics = [topic for topic, _score in sorted(mastery.items(), key=lambda item: item[1])]
         for topic in weak_topics:
             candidate = next(
                 (
                     problem for problem in catalog.values()
-                    if topic in problem.topics and problem.id not in solved and problem not in selected
+                    if topic in problem.topics and problem.id not in solved and problem not in prioritized
                 ),
                 None,
             )
-            if candidate and add_recommendation(candidate):
-                break
-            if at_capacity():
+            if candidate and add_candidate(candidate):
                 break
 
-        for problem in sorted(catalog.values(), key=lambda item: item.difficulty):
-            if at_capacity():
-                break
-            add_recommendation(problem)
+        for problem in sorted(catalog.values(), key=lambda item: (item.difficulty, item.title)):
+            add_candidate(problem)
 
+        selected = choose_daily_session(prioritized)
         daily_ids = save_daily_assignment(today_key, [problem.id for problem in selected])
 
     assigned = [catalog[problem_id] for problem_id in daily_ids if problem_id in catalog]

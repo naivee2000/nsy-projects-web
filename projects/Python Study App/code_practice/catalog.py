@@ -40,10 +40,7 @@ def problem_summary(problem: ProblemDefinition, solved_ids: set[str] | None = No
 def public_problem(problem: ProblemDefinition) -> dict[str, Any]:
     payload = problem.model_dump(mode="json")
     payload["difficulty"] = problem.difficulty
-    payload["tests"] = [
-        {**test.model_dump(mode="json"), "visible": True}
-        for test in problem.tests
-    ]
+    payload["tests"] = [test.model_dump(mode="json") for test in problem.tests if test.visible]
     payload.pop("reference_solution", None)
     payload.pop("brute_force_solution", None)
     payload.pop("known_wrong_solutions", None)

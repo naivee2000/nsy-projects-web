@@ -483,7 +483,7 @@ export default function App() {
             </section>
 
             <section className="section-block">
-              <div className="section-heading"><div><span className="section-number">01</span><h2>Your next problems</h2><p>Five easy, four with a medium, or three with a hard problem.</p></div><button className="text-button" onClick={() => navigate("library")}>Browse all <ChevronRight size={16} /></button></div>
+              <div className="section-heading"><div><span className="section-number">01</span><h2>Your next problems</h2><p>Five Easy; two Medium plus one Easy (or at most three Medium); or one Hard plus at most one Medium.</p></div><button className="text-button" onClick={() => navigate("library")}>Browse all <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.recommendations.length
                   ? dashboard.recommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={index} />)
@@ -492,7 +492,7 @@ export default function App() {
             </section>
 
             <section className="section-block review-section">
-              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>Up to five passed problems, prioritizing harder work, repeat failures, study time, hints, and due dates.</p></div><button className="text-button" onClick={() => { setCompletion("passed"); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
+              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>Up to five passed problems, emphasizing linked lists, recursion, binary search, and recursive grid work.</p></div><button className="text-button" onClick={() => { setCompletion("passed"); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.reviewRecommendations.length
                   ? dashboard.reviewRecommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={index} />)
@@ -554,15 +554,6 @@ export default function App() {
                     {test.explanation && <p>{test.explanation}</p>}
                   </div>
                 ))}
-                <div className="test-case-heading"><h2>Test cases</h2><small>All {problem.tests.length} cases are visible</small></div>
-                <div className="test-case-list">
-                  {problem.tests.map((test, index) => (
-                    <div className="test-case" key={`case-${test.id}`}>
-                      <span>CASE {index + 1}</span>
-                      <code>Input: {JSON.stringify(test.arguments)}{"\n"}Expected: {JSON.stringify(test.expected)}</code>
-                    </div>
-                  ))}
-                </div>
                 <h2>Constraints</h2>
                 <ul className="constraints">{problem.constraints.map((item) => <li key={item}>{item}</li>)}</ul>
                 <div className="hint-section">
@@ -645,13 +636,20 @@ export default function App() {
                       <small>{Math.round(result.runtimeMs)} ms</small>
                     </div>
                     <p>{result.message}</p>
-                    {result.status === "accepted" && resultMode === "run" && <p className="completion-note">Your examples passed. Submit next to run every visible test case and mark this problem Passed.</p>}
+                    {result.status === "accepted" && resultMode === "run" && <p className="completion-note">Your code is correct for the examples shown. Submit next to check the hidden tests and mark this problem Passed.</p>}
                     {result.status === "accepted" && resultMode === "submit" && <p className="completion-note completion-saved"><Check size={14} /> This problem is marked Passed and saved to your progress.</p>}
                     {result.stdout && <div className="console-output"><span>PRINT OUTPUT</span><pre>{result.stdout}</pre></div>}
-                    {result.cases.map((item, index) => <div className="case-row" key={item.id}>
-                      <span>{item.passed ? <Check size={14} /> : <CircleAlert size={14} />}Test case {index + 1} · {item.passed ? "passed" : "needs work"}</span>
-                      <code>Input {JSON.stringify(item.arguments)}{"\n"}Expected {JSON.stringify(item.expected)}{"\n"}{item.error ? `Error ${item.error}` : `Current result ${JSON.stringify(item.actual)}`}</code>
-                    </div>)}
+                    {result.cases.map((item, index) => resultMode === "submit" && !item.passed ? (
+                      <details className="case-row failed-case" key={item.id}>
+                        <summary><CircleAlert size={14} /> Hidden test {index + 1} · needs work <span>Click to inspect</span></summary>
+                        <code>Test case {JSON.stringify(item.arguments)}{"\n"}Expected {JSON.stringify(item.expected)}{"\n"}{item.error ? `Error ${item.error}` : `Your code yielded ${JSON.stringify(item.actual)}`}</code>
+                      </details>
+                    ) : (
+                      <div className="case-row" key={item.id}>
+                        <span>{item.passed ? <Check size={14} /> : <CircleAlert size={14} />}{resultMode === "submit" ? "Hidden test" : "Example"} {index + 1} · {item.passed ? "passed" : "needs work"}</span>
+                        {resultMode === "run" && <code>Test case {JSON.stringify(item.arguments)}{"\n"}Expected {JSON.stringify(item.expected)}{"\n"}{item.error ? `Error ${item.error}` : `Your code yielded ${JSON.stringify(item.actual)}`}</code>}
+                      </div>
+                    ))}
                     {result.status !== "accepted" && (coach || coaching) && <aside className="coach-card" aria-live="polite">
                       <div className="coach-label"><BrainCircuit size={15} /><span>{coach?.source === "codex-cli" ? "CODEX COACH" : "LOCAL COACH"}</span>{coach && <small>STEP {coach.step} / {coach.maxSteps}</small>}</div>
                       {coaching && !coach ? <div className="coach-loading"><LoaderCircle className="spin" size={16} /> Reading the failed run…</div> : coach && <>

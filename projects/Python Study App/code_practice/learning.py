@@ -10,6 +10,16 @@ from .schemas import Attempt, ProblemDefinition, ReviewState
 REVIEW_INTERVALS = (1, 3, 7, 14, 30, 60)
 HINT_SCORES = {0: 1.0, 1: 0.8, 2: 0.6, 3: 0.4, 4: 0.2}
 
+# Personal review preferences. These are intentionally separate from canonical
+# difficulty: they change what this one-user app reviews, not how a problem is
+# rated in the library.
+REVIEW_FOCUS_WEIGHTS = {
+    "linked-lists": 60.0,
+    "recursion": 50.0,
+    "binary-search": 60.0,
+}
+GRID_RECURSION_BONUS = 80.0
+
 
 def attempt_score(attempt: Attempt) -> float:
     if attempt.result != "accepted":
@@ -46,6 +56,52 @@ def prerequisites_met(problem: ProblemDefinition, mastery: dict[str, float]) -> 
     return all(mastery.get(topic, 0.0) >= 70.0 for topic in problem.prerequisites)
 
 
+def choose_daily_session(candidates: Iterable[ProblemDefinition]) -> list[ProblemDefinition]:
+    """Build one workload-capped session from candidates in priority order."""
+    ordered: list[ProblemDefinition] = []
+    seen: set[str] = set()
+    for problem in candidates:
+        if problem.id not in seen:
+            ordered.append(problem)
+            seen.add(problem.id)
+    if not ordered:
+        return []
+
+    anchor = ordered[0]
+    easy = [problem for problem in ordered if problem.difficulty <= 3]
+    medium = [problem for problem in ordered if 4 <= problem.difficulty <= 7]
+    hard = [problem for problem in ordered if problem.difficulty >= 8]
+
+    if anchor.difficulty >= 8:
+        # A hard problem is the main workload. Pair it with no more than one
+        # medium problem, and do not pad the day with extra easy work.
+        return [hard[0], *medium[:1]]
+
+    if anchor.difficulty >= 4:
+        # Prefer two medium patterns plus one easy reinforcement. If there is
+        # no easy work left, a third medium is the absolute daily maximum.
+        if easy:
+            return [*medium[:2], easy[0]]
+        return medium[:3]
+
+    return easy[:5]
+
+
+def is_grid_recursion_problem(problem: ProblemDefinition) -> bool:
+    """Include explicitly recursive grids and DFS grid/field traversal."""
+    topics = set(problem.topics)
+    return "matrices" in topics and bool({"recursion", "depth-first-search"} & topics)
+
+
+def review_focus_boost(problem: ProblemDefinition) -> float:
+    """Return the owner's personal weak-topic priority boost."""
+    topics = set(problem.topics)
+    boost = sum(weight for topic, weight in REVIEW_FOCUS_WEIGHTS.items() if topic in topics)
+    if is_grid_recursion_problem(problem):
+        boost += GRID_RECURSION_BONUS
+    return boost
+
+
 def review_priority_score(
     problem: ProblemDefinition,
     attempts: Iterable[Attempt],
@@ -69,7 +125,6 @@ def review_priority_score(
     total_study_seconds = sum(attempt.elapsed_study_seconds for attempt in history)
     expected_seconds = max(1, problem.estimated_minutes * 60)
     study_load = min(total_study_seconds / expected_seconds, 3.0)
-    highest_hint = max((attempt.hint_level for attempt in history), default=0)
     latest_failed = bool(history and history[-1].result != "accepted")
 
     due_score = 0.0
@@ -83,9 +138,9 @@ def review_priority_score(
 
     return round(
         problem.difficulty * 20.0
+        + review_focus_boost(problem)
         + min(review_failures, 3) * 30.0
         + study_load * 15.0
-        + highest_hint * 8.0
         + (25.0 if latest_failed else 0.0)
         + due_score,
         3,
@@ -114,10 +169,34 @@ def prioritized_review_problems(
         ),
     )
     # Reserve most of a full review set for medium/advanced work when enough has
-    # been completed. The final slot remains flexible for a highly due or
-    # historically troublesome Easy problem.
+    # been completed. Within those slots, lead with recursive matrix/field work,
+    # then the owner's other weak topics. The final slot can reinforce an Easy
+    # focus problem without making the whole review set too easy.
     challenging = [problem for problem in ranked if problem.difficulty >= 4]
-    selected = challenging[:min(4, limit)]
-    selected_ids = {problem.id for problem in selected}
-    selected.extend(problem for problem in ranked if problem.id not in selected_ids)
+    challenging_focus = [problem for problem in challenging if review_focus_boost(problem) > 0]
+    grid_focus = [problem for problem in challenging_focus if is_grid_recursion_problem(problem)]
+    all_focus = [problem for problem in ranked if review_focus_boost(problem) > 0]
+
+    selected: list[ProblemDefinition] = []
+    selected_ids: set[str] = set()
+
+    def add(problem: ProblemDefinition) -> None:
+        if problem.id not in selected_ids and len(selected) < limit:
+            selected.append(problem)
+            selected_ids.add(problem.id)
+
+    if grid_focus:
+        add(grid_focus[0])
+    for problem in challenging_focus:
+        if len(selected) >= min(3, limit):
+            break
+        add(problem)
+    for problem in challenging:
+        if len(selected) >= min(4, limit):
+            break
+        add(problem)
+    for problem in all_focus:
+        add(problem)
+    for problem in ranked:
+        add(problem)
     return selected[:limit]

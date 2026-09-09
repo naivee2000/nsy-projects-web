@@ -32,12 +32,12 @@ def test_catalog_uses_distinct_callable_questions_and_recursion_progression():
 def test_every_problem_meets_content_contract():
     for problem in PROBLEMS:
         assert problem.status == "approved"
-        explained_examples = [test for test in problem.tests if test.explanation]
-        assert len(problem.tests) >= 14
-        assert all(test.visible for test in problem.tests)
-        assert len(explained_examples) >= 2
-        assert all(test.explanation != "Visible example" for test in explained_examples)
-        assert len({repr(test.arguments) for test in explained_examples}) == len(explained_examples)
+        visible_examples = [test for test in problem.tests if test.visible]
+        hidden_tests = [test for test in problem.tests if not test.visible]
+        assert len(visible_examples) >= 2
+        assert len(hidden_tests) >= 12
+        assert all(test.explanation and test.explanation != "Visible example" for test in visible_examples)
+        assert len({repr(test.arguments) for test in visible_examples}) == len(visible_examples)
         assert len(problem.hints) == 4
         assert problem.editorial
         assert problem.reference_solution

@@ -149,7 +149,6 @@ test("automatically opens progressive local coaching after a wrong run", async (
   render(<App />);
   fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
   expect(await screen.findByText("The two values add to the target.")).toBeInTheDocument();
-  expect(screen.getByText("All 1 cases are visible")).toBeInTheDocument();
   fireEvent.click(await screen.findByRole("button", { name: "Run examples" }));
   expect(await screen.findByText("LOCAL COACH")).toBeInTheDocument();
   expect(screen.getByText("STEP 1 / 3")).toBeInTheDocument();
@@ -230,8 +229,8 @@ test("marks a problem Passed after a successful full submission", async () => {
   vi.stubGlobal("fetch", vi.fn((url: string) => {
     const payload = url.includes("submission-package")
       ? { signature: problem.signature, tests: [
-          { id: "case-1", arguments: [[2, 7], 9], expected: [0, 1], comparator: "exact", visible: true },
-          { id: "case-2", arguments: [[3, 2, 4], 6], expected: [1, 2], comparator: "exact", visible: true },
+          { id: "case-1", arguments: [[2, 7], 9], expected: [0, 1], comparator: "exact", visible: false },
+          { id: "case-2", arguments: [[3, 2, 4], 6], expected: [1, 2], comparator: "exact", visible: false },
         ], timeoutMs: 3000 }
       : url.endsWith("/pair-sum-indices") ? problem
       : url.includes("dashboard") ? dashboard
@@ -247,8 +246,8 @@ test("marks a problem Passed after a successful full submission", async () => {
       queueMicrotask(() => this.onmessage?.({ data: payload.type === "warmup"
         ? { type: "ready" }
         : { status: "accepted", message: "All tests passed.", runtimeMs: 5, cases: [
-            { id: "case-1", passed: true, visible: true, arguments: [[2, 7], 9], expected: [0, 1], actual: [0, 1] },
-            { id: "case-2", passed: true, visible: true, arguments: [[3, 2, 4], 6], expected: [1, 2], actual: [1, 2] },
+            { id: "case-1", passed: true, visible: false, expected: [0, 1], actual: [0, 1] },
+            { id: "case-2", passed: true, visible: false, expected: [1, 2], actual: [1, 2] },
           ] } } as MessageEvent));
     }
     terminate() {}
@@ -259,10 +258,91 @@ test("marks a problem Passed after a successful full submission", async () => {
   fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
   fireEvent.click(await screen.findByRole("button", { name: "Submit" }));
   expect(await screen.findByText("This problem is marked Passed and saved to your progress.")).toBeInTheDocument();
-  expect(screen.getByText(/Test case 2 · passed/)).toBeInTheDocument();
-  expect(screen.getByText(/Input \[\[3,2,4\],6\]/)).toBeInTheDocument();
+  expect(screen.getByText(/Hidden test 2 · passed/)).toBeInTheDocument();
+  expect(screen.queryByText(/Test case \[\[3,2,4\],6\]/)).not.toBeInTheDocument();
   expect(screen.getByText("Passed", { selector: ".workspace-passed" })).toBeInTheDocument();
   expect(fetch).toHaveBeenCalledWith("/api/attempts", expect.objectContaining({ method: "POST" }));
+});
+
+test("reveals a failed hidden test only after its dropdown is opened", async () => {
+  const problem = {
+    id: "pair-sum-indices",
+    version: 1,
+    title: "Pair Sum Indices",
+    summary: "Find a pair.",
+    statement: "Return two indices.",
+    constraints: ["Two or more values."],
+    topics: ["arrays"],
+    prerequisites: [],
+    difficulty: 2,
+    estimated_minutes: 15,
+    target_time_complexity: "O(n)",
+    target_space_complexity: "O(n)",
+    signature: { name: "pair_sum_indices", parameters: [], returns: "list[int]", return_adapter: "raw" },
+    starter_code: "def pair_sum_indices(nums, target): return []",
+    savedDraft: "def pair_sum_indices(nums, target): return []",
+    tests: [],
+    solved: false,
+    revealedHintLevel: 0,
+    revealedHints: [],
+  };
+  const hiddenTests = [
+    { id: "case-1", arguments: [[2, 7], 9], expected: [0, 1], comparator: "exact", visible: false },
+    { id: "case-2", arguments: [[3, 2, 4], 6], expected: [1, 2], comparator: "exact", visible: false },
+  ];
+  const coach = {
+    step: 1,
+    maxSteps: 3,
+    title: "Compare one mismatch",
+    observation: "One test needs work.",
+    nudge: "Trace the input.",
+    question: "Which index was skipped?",
+    canContinue: false,
+    source: "offline-static-coach",
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => {
+    const payload = url.includes("submission-package") ? { signature: problem.signature, tests: hiddenTests, timeoutMs: 3000 }
+      : url.endsWith("/coach") ? coach
+      : url.endsWith("/pair-sum-indices") ? problem
+      : url.includes("dashboard") ? dashboard
+      : url.endsWith("/api/problems") ? dashboard.recommendations
+      : {};
+    return Promise.resolve({ ok: true, json: () => Promise.resolve(payload) });
+  }));
+
+  const submittedJobs: Array<{ stopOnFailure?: boolean; tests?: unknown[] }> = [];
+  class FailedHiddenWorker {
+    onmessage: ((event: MessageEvent) => void) | null = null;
+    onerror: ((event: ErrorEvent) => void) | null = null;
+    postMessage(payload: { type?: string; stopOnFailure?: boolean; tests?: unknown[] }) {
+      if (!payload.type) submittedJobs.push(payload);
+      queueMicrotask(() => this.onmessage?.({ data: payload.type === "warmup"
+        ? { type: "ready" }
+        : { status: "wrong_answer", message: "A test produced an unexpected result.", runtimeMs: 6, cases: [
+            { id: "case-1", passed: true, visible: false, expected: [0, 1], actual: [0, 1] },
+            { id: "case-2", passed: false, visible: false, arguments: [[3, 2, 4], 6], expected: [1, 2], actual: [] },
+          ] } } as MessageEvent));
+    }
+    terminate() {}
+  }
+  vi.stubGlobal("Worker", FailedHiddenWorker);
+
+  render(<App />);
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  fireEvent.click(await screen.findByRole("button", { name: "Submit" }));
+
+  const inspectLabel = await screen.findByText("Click to inspect");
+  const details = inspectLabel.closest("details");
+  expect(details).not.toHaveAttribute("open");
+  expect(screen.getByText(/Hidden test 1 · passed/)).toBeInTheDocument();
+  expect(submittedJobs[0].tests).toHaveLength(2);
+  expect(submittedJobs[0].stopOnFailure).toBe(false);
+
+  fireEvent.click(inspectLabel.closest("summary")!);
+  expect(details).toHaveAttribute("open");
+  expect(screen.getByText(/Test case \[\[3,2,4\],6\]/)).toBeInTheDocument();
+  expect(screen.getByText(/Expected \[1,2\]/)).toBeInTheDocument();
+  expect(screen.getByText(/Your code yielded \[\]/)).toBeInTheDocument();
 });
 
 test("filters the library to passed or unsolved problems", async () => {

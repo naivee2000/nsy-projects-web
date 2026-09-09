@@ -79,11 +79,12 @@ class ProblemDefinition(BaseModel):
 
     @model_validator(mode="after")
     def validate_learning_content(self) -> "ProblemDefinition":
-        explained_examples = sum(bool(test.explanation) for test in self.tests)
-        if len(self.tests) < 14:
-            raise ValueError("a problem needs at least fourteen test cases")
-        if explained_examples < 2:
-            raise ValueError("a problem needs at least two explained examples")
+        visible = sum(test.visible for test in self.tests)
+        hidden = len(self.tests) - visible
+        if visible < 2:
+            raise ValueError("a problem needs at least two visible examples")
+        if hidden < 12:
+            raise ValueError("a problem needs at least twelve hidden tests")
         if len(self.hints) != 4:
             raise ValueError("hints must contain concept, strategy, pseudocode, and editorial levels")
         if len(self.known_wrong_solutions) < 2:

@@ -130,7 +130,7 @@ def build_problem(spec: SeedSpec) -> ProblemDefinition:
             arguments=arguments,
             expected=_expected(spec, arguments),
             comparator=spec.comparator,
-            visible=True,
+            visible=index < len(examples),
             explanation=examples[index][1] if index < len(examples) else None,
         )
         for index, arguments in enumerate(all_inputs)

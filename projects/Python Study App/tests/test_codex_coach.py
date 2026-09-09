@@ -11,7 +11,7 @@ from code_practice.content import PROBLEMS
 PROBLEM = next(problem for problem in PROBLEMS if problem.id == "pair-sum-indices")
 CASES = [
     {"id": "case-1", "visible": True, "passed": False, "arguments": [[3, 2, 4], 6], "expected": [1, 2], "actual": []},
-    {"id": "case-2", "visible": True, "passed": False, "arguments": [[1, 8, 2, 7], 9], "expected": [0, 1], "actual": []},
+    {"id": "case-2", "visible": False, "passed": False, "arguments": [[1, 8, 2, 7], 9], "expected": [0, 1], "actual": []},
 ]
 
 

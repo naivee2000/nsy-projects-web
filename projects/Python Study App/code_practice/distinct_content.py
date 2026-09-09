@@ -112,7 +112,7 @@ def build_problem(spec: DistinctSpec) -> ProblemDefinition:
             arguments=arguments,
             expected=_expected(spec, arguments),
             comparator=spec.comparator,
-            visible=True,
+            visible=index < 2,
             explanation=examples[index][1] if index < 2 else None,
         )
         for index, arguments in enumerate(cases)
