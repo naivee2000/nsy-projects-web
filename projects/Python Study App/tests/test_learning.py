@@ -1,7 +1,15 @@
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
-from code_practice.learning import REVIEW_INTERVALS, attempt_score, next_review, topic_mastery
-from code_practice.schemas import Attempt
+from code_practice.content import PROBLEMS
+from code_practice.learning import (
+    REVIEW_INTERVALS,
+    attempt_score,
+    next_review,
+    prioritized_review_problems,
+    review_priority_score,
+    topic_mastery,
+)
+from code_practice.schemas import Attempt, ReviewState
 
 
 def make_attempt(problem_id="pair-sum-indices", result="accepted", hint=0, attempt_id=1):
@@ -45,3 +53,67 @@ def test_review_intervals_advance_and_failure_resets():
     assert index == 0
     assert (due - now).days == 1
 
+
+def test_review_priority_prefers_harder_and_observed_struggle():
+    now = datetime(2026, 9, 7, 12, tzinfo=timezone.utc)
+    catalog = {problem.id: problem for problem in PROBLEMS}
+    easy = catalog["pair-sum-indices"]
+    medium = catalog["merge-intervals"]
+    hard = catalog["minimum-window"]
+
+    attempts = [
+        make_attempt(easy.id, attempt_id=1),
+        make_attempt(medium.id, attempt_id=2),
+        make_attempt(hard.id, attempt_id=3),
+    ]
+    attempts = [attempt.model_copy(update={"created_at": now - timedelta(days=5)}) for attempt in attempts]
+    reviews = [
+        ReviewState(
+            problem_id=problem.id,
+            interval_index=0,
+            due_at=now - timedelta(days=1),
+            latest_result="accepted",
+        )
+        for problem in (easy, medium, hard)
+    ]
+    ranked = prioritized_review_problems(catalog, attempts, reviews, {easy.id, medium.id, hard.id}, now)
+    assert [problem.id for problem in ranked] == [hard.id, medium.id, easy.id]
+
+    equally_difficult = [problem for problem in PROBLEMS if problem.difficulty == 5][:2]
+    steady, struggled = equally_difficult
+    steady_history = [make_attempt(steady.id, attempt_id=10).model_copy(update={"created_at": now - timedelta(days=5)})]
+    struggled_history = [
+        make_attempt(struggled.id, attempt_id=11).model_copy(update={"created_at": now - timedelta(days=5)}),
+        make_attempt(struggled.id, result="wrong_answer", hint=3, attempt_id=12).model_copy(
+            update={"created_at": now - timedelta(days=1), "elapsed_study_seconds": struggled.estimated_minutes * 120}
+        ),
+    ]
+    steady_review = ReviewState(problem_id=steady.id, interval_index=0, due_at=now, latest_result="accepted")
+    struggled_review = ReviewState(problem_id=struggled.id, interval_index=0, due_at=now, latest_result="wrong_answer")
+    assert review_priority_score(struggled, struggled_history, struggled_review, now) > review_priority_score(
+        steady, steady_history, steady_review, now
+    )
+
+    challenging = [problem for problem in PROBLEMS if 4 <= problem.difficulty <= 7][:4]
+    mixed = [easy, *challenging]
+    mixed_attempts = [
+        make_attempt(problem.id, attempt_id=20 + index).model_copy(update={"created_at": now - timedelta(days=5)})
+        for index, problem in enumerate(mixed)
+    ]
+    mixed_reviews = [
+        ReviewState(
+            problem_id=problem.id,
+            interval_index=0,
+            due_at=now - timedelta(days=100) if problem.id == easy.id else now + timedelta(days=1),
+            latest_result="accepted",
+        )
+        for problem in mixed
+    ]
+    balanced = prioritized_review_problems(
+        catalog,
+        mixed_attempts,
+        mixed_reviews,
+        {problem.id for problem in mixed},
+        now,
+    )
+    assert all(problem.difficulty >= 4 for problem in balanced[:4])

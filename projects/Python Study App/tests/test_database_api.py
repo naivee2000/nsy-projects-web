@@ -9,7 +9,7 @@ from code_practice.database import connect, get_draft, list_attempts, save_attem
 from code_practice.schemas import AttemptCreate
 
 
-def test_health_problem_detail_and_hidden_boundary():
+def test_health_problem_detail_exposes_every_test_case():
     with TestClient(app) as client:
         health = client.get("/api/health")
         assert health.status_code == 200
@@ -19,17 +19,28 @@ def test_health_problem_detail_and_hidden_boundary():
         listing = client.get("/api/problems").json()
         assert len(listing) == 101
         detail = client.get("/api/problems/pair-sum-indices").json()
-        assert len(detail["tests"]) == 2
+        assert len(detail["tests"]) == 14
+        assert all(test["visible"] and test["arguments"] is not None for test in detail["tests"])
         assert "reference_solution" not in detail
         package = client.post("/api/problems/pair-sum-indices/submission-package").json()
-        assert len(package["tests"]) == 12
+        assert len(package["tests"]) == 14
+        assert all(test["visible"] and test["arguments"] is not None for test in package["tests"])
 
         linked_detail = client.get("/api/problems/merge-sorted-linked-lists").json()
         assert [parameter["adapter"] for parameter in linked_detail["signature"]["parameters"]] == ["listnode", "listnode"]
         assert linked_detail["signature"]["return_adapter"] == "listnode"
-        assert len(linked_detail["tests"]) == 2
+        assert len(linked_detail["tests"]) == 14
         linked_package = client.post("/api/problems/merge-sorted-linked-lists/submission-package").json()
-        assert len(linked_package["tests"]) == 12
+        assert len(linked_package["tests"]) == 14
+
+
+def test_existing_node_draft_receives_the_visible_support_class():
+    database.save_draft("reverse-linked-list", "def reverse_linked_list(head):\n    return head\n")
+    with TestClient(app) as client:
+        detail = client.get("/api/problems/reverse-linked-list").json()
+    assert detail["savedDraft"].startswith("# Data structure supplied to this problem.\nclass ListNode:")
+    assert detail["savedDraft"].count("class ListNode:") == 1
+    assert "def reverse_linked_list(head):" in detail["savedDraft"]
 
 
 def test_schema_migration_is_versioned_and_idempotent():
@@ -84,8 +95,8 @@ def test_draft_attempt_hint_and_progress_persist():
             "source_code": "def pair_sum_indices(nums, target): return [0, 1]",
             "result": "accepted",
             "runtime_ms": 2.5,
-            "tests_passed": 12,
-            "tests_total": 12,
+            "tests_passed": 14,
+            "tests_total": 14,
             "elapsed_study_seconds": 30,
             "hint_level": 2,
         }
@@ -124,8 +135,8 @@ def test_dashboard_adapts_daily_count_and_separates_completed_reviews():
             "source_code": "def pair_sum_indices(nums, target): return [0, 1]",
             "result": "accepted",
             "runtime_ms": 2.5,
-            "tests_passed": 12,
-            "tests_total": 12,
+            "tests_passed": 14,
+            "tests_total": 14,
             "elapsed_study_seconds": 30,
             "hint_level": 0,
         }
@@ -169,8 +180,8 @@ def test_dashboard_caps_primary_at_four_when_medium_is_included_and_reviews_at_f
                 source_code=problem.reference_solution,
                 result="accepted",
                 runtime_ms=1,
-                tests_passed=12,
-                tests_total=12,
+                tests_passed=14,
+                tests_total=14,
                 elapsed_study_seconds=1,
                 hint_level=0,
             ))
@@ -184,6 +195,31 @@ def test_dashboard_caps_primary_at_four_when_medium_is_included_and_reviews_at_f
         assert all(problem["solved"] for problem in payload["reviewRecommendations"])
 
 
+def test_dashboard_orders_daily_reviews_by_difficulty():
+    catalog = get_catalog()
+    reviewed = [catalog["pair-sum-indices"], catalog["merge-intervals"], catalog["minimum-window"]]
+    for problem in reviewed:
+        save_attempt(AttemptCreate(
+            problem_id=problem.id,
+            problem_version=problem.version,
+            source_code=problem.reference_solution,
+            result="accepted",
+            runtime_ms=1,
+            tests_passed=14,
+            tests_total=14,
+            elapsed_study_seconds=60,
+            hint_level=0,
+        ))
+
+    with TestClient(app) as client:
+        payload = client.get("/api/dashboard").json()
+    assert [problem["id"] for problem in payload["reviewRecommendations"]] == [
+        "minimum-window",
+        "merge-intervals",
+        "pair-sum-indices",
+    ]
+
+
 def test_dashboard_caps_primary_at_three_when_hard_is_included():
     for problem in get_catalog().values():
         if problem.difficulty <= 7:
@@ -193,8 +229,8 @@ def test_dashboard_caps_primary_at_three_when_hard_is_included():
                 source_code=problem.reference_solution,
                 result="accepted",
                 runtime_ms=1,
-                tests_passed=12,
-                tests_total=12,
+                tests_passed=14,
+                tests_total=14,
                 elapsed_study_seconds=1,
                 hint_level=0,
             ))

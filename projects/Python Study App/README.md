@@ -17,11 +17,11 @@ If frontend source changes, run `npm --prefix frontend run build` before startin
 ## Study workflow
 
 - **Today** assigns one fixed daily set: five easy problems, four when the set includes medium work, or three when it includes a hard/advanced problem. Finished items disappear without being replaced, and a completion message remains until the next local calendar day.
-- **Daily review** separately assigns up to five previously passed problems and removes each one after a successful review submission that day.
+- **Daily review** separately assigns up to five previously passed problems and removes each one after a successful review submission that day. Its score prioritizes difficulty and due dates, then raises problems that took longer, needed more hints, or failed again after their first successful solve.
 - **Library** filters all approved problems by title and topic.
 - **Back navigation** returns a problem to the page that opened it—Today or Library—without clearing the Library filters.
-- **Run examples** executes only visible tests. Every problem has two hand-curated teaching examples: a representative case, a contrasting or boundary case, and a short explanation of why the shown output is correct.
-- **Submit** executes the hidden package and records the outcome.
+- **Run examples** executes the two hand-curated teaching examples: a representative case, a contrasting or boundary case, and a short explanation of why each shown output is correct.
+- **Submit** executes all 14 visible test cases, shows every input, expected value, and current result or error, then records the outcome.
 - **Local Coach** explains one likely mistake at a time after an unresolved run. Its three-step ladder moves from concrete evidence to a debugging question without revealing the full solution.
 - **Ask Codex coach** is optional and runs only after an explicit click. It sends the problem, visible failure evidence, and current draft to the locally authenticated Codex CLI for deeper Socratic feedback. It requires Codex login and may require internet access.
 - Hints unlock in concept, strategy, pseudocode, and editorial order.
@@ -46,7 +46,7 @@ Short introductory problems remain only when they isolate a useful interview pat
 
 Research references: [LeetCode 75](https://leetcode.com/studyplan/leetcode-75/), [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/), [Word Pattern](https://leetcode.com/problems/word-pattern/), [Find Words That Can Be Formed by Characters](https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/), [Find Missing and Repeated Values](https://leetcode.com/problems/find-missing-and-repeated-values/), [Flood Fill](https://leetcode.com/problems/flood-fill/), [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/), and [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/).
 
-The submitted Python runs in a fresh browser Web Worker. FastAPI stores results but never executes submitted code. The offline coach performs static syntax-tree inspection only, so normal studying does not depend on an AI service or internet connection. The optional Codex coach runs ephemerally in a read-only sandbox, receives no reference solution or hidden-test evidence, and is filtered to reject complete solutions and code-heavy answers. Hidden tests are hidden from the normal problem response, but—as expected for a personal browser judge—they can be inspected with browser developer tools.
+The submitted Python runs in a fresh browser Web Worker. FastAPI stores results but never executes submitted code. All deterministic test cases are intentionally visible in the problem pane and result panel; only reference and known-wrong solutions remain server-side. Linked-list and tree exercises include the concrete `ListNode` or `TreeNode` class in the editable starter code, including when an older saved draft is reopened. The offline coach performs static syntax-tree inspection only, so normal studying does not depend on an AI service or internet connection. The optional Codex coach runs ephemerally in a read-only sandbox, receives test evidence but no reference solution, and is filtered to reject complete solutions and code-heavy answers.
 
 ## Back up progress
 

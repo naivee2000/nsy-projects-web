@@ -49,6 +49,11 @@ function difficultyLabel(score: number) {
   return "Advanced";
 }
 
+function teachingExamples(tests: TestCase[]) {
+  const explained = tests.filter((test) => Boolean(test.explanation));
+  return explained.length ? explained : tests.slice(0, 2);
+}
+
 function clampEditorSplit(requested: number, paneHeight: number) {
   const flexibleHeight = Math.max(1, paneHeight - 110);
   const minimum = Math.max(20, (180 / flexibleHeight) * 100);
@@ -322,8 +327,8 @@ export default function App() {
     try {
       const packageData = mode === "submit"
         ? await api<{ signature: Signature; tests: TestCase[]; timeoutMs: number }>(`/api/problems/${problem.id}/submission-package`, { method: "POST" })
-        : { signature: problem.signature, tests: problem.tests, timeoutMs: 3000 };
-      const nextResult = await runJudge(source, packageData.signature, packageData.tests, packageData.timeoutMs, mode === "submit");
+        : { signature: problem.signature, tests: teachingExamples(problem.tests), timeoutMs: 3000 };
+      const nextResult = await runJudge(source, packageData.signature, packageData.tests, packageData.timeoutMs);
       setResult(nextResult);
       if (nextResult.status !== "accepted") {
         setCoaching(true);
@@ -487,7 +492,7 @@ export default function App() {
             </section>
 
             <section className="section-block review-section">
-              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>Three to five passed problems, with the next spaced reviews first.</p></div><button className="text-button" onClick={() => { setCompletion("passed"); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
+              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>Up to five passed problems, prioritizing harder work, repeat failures, study time, hints, and due dates.</p></div><button className="text-button" onClick={() => { setCompletion("passed"); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.reviewRecommendations.length
                   ? dashboard.reviewRecommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={index} />)
@@ -505,7 +510,7 @@ export default function App() {
 
         {view === "library" && (
           <div className="page library-page">
-            <header className="compact-header"><span className="eyebrow">PROBLEM CATALOG</span><h1>Practice library</h1><p>One hundred distinct coding problems, from fundamentals and recursion basics to advanced interview techniques.</p></header>
+            <header className="compact-header"><span className="eyebrow">PROBLEM CATALOG</span><h1>Practice library</h1><p>101 distinct coding problems, from fundamentals and recursion basics to advanced interview techniques.</p></header>
             <div className="library-tools">
               <label className="search-box"><Search size={18} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search title, topic, or pattern" /></label>
               <select value={topic} onChange={(event) => setTopic(event.target.value)} aria-label="Filter by topic">
@@ -542,13 +547,22 @@ export default function App() {
                 <p className="statement">{problem.statement}</p>
                 <div className="complexity-row"><span>Target time <strong>{problem.target_time_complexity}</strong></span><span>Target space <strong>{problem.target_space_complexity}</strong></span></div>
                 <h2>Examples</h2>
-                {problem.tests.map((test, index) => (
+                {teachingExamples(problem.tests).map((test, index) => (
                   <div className="example" key={test.id}>
                     <span>EXAMPLE {index + 1}</span>
                     <code>Input: {JSON.stringify(test.arguments)}{"\n"}Output: {JSON.stringify(test.expected)}</code>
                     {test.explanation && <p>{test.explanation}</p>}
                   </div>
                 ))}
+                <div className="test-case-heading"><h2>Test cases</h2><small>All {problem.tests.length} cases are visible</small></div>
+                <div className="test-case-list">
+                  {problem.tests.map((test, index) => (
+                    <div className="test-case" key={`case-${test.id}`}>
+                      <span>CASE {index + 1}</span>
+                      <code>Input: {JSON.stringify(test.arguments)}{"\n"}Expected: {JSON.stringify(test.expected)}</code>
+                    </div>
+                  ))}
+                </div>
                 <h2>Constraints</h2>
                 <ul className="constraints">{problem.constraints.map((item) => <li key={item}>{item}</li>)}</ul>
                 <div className="hint-section">
@@ -631,13 +645,12 @@ export default function App() {
                       <small>{Math.round(result.runtimeMs)} ms</small>
                     </div>
                     <p>{result.message}</p>
-                    {result.status === "accepted" && resultMode === "run" && <p className="completion-note">Your examples passed. Submit next to check the hidden tests and mark this problem Passed.</p>}
+                    {result.status === "accepted" && resultMode === "run" && <p className="completion-note">Your examples passed. Submit next to run every visible test case and mark this problem Passed.</p>}
                     {result.status === "accepted" && resultMode === "submit" && <p className="completion-note completion-saved"><Check size={14} /> This problem is marked Passed and saved to your progress.</p>}
                     {result.stdout && <div className="console-output"><span>PRINT OUTPUT</span><pre>{result.stdout}</pre></div>}
-                    {result.cases.slice(0, 6).map((item, index) => <div className="case-row" key={item.id}>
-                      <span>{item.passed ? <Check size={14} /> : <CircleAlert size={14} />}Sample {index + 1} · {item.passed ? "passed" : "needs work"}</span>
-                      {item.visible && <code>Expected {JSON.stringify(item.expected)} · Current result {item.error || JSON.stringify(item.actual)}</code>}
-                      {!item.visible && !item.passed && <code>A hidden test did not match the expected result.</code>}
+                    {result.cases.map((item, index) => <div className="case-row" key={item.id}>
+                      <span>{item.passed ? <Check size={14} /> : <CircleAlert size={14} />}Test case {index + 1} · {item.passed ? "passed" : "needs work"}</span>
+                      <code>Input {JSON.stringify(item.arguments)}{"\n"}Expected {JSON.stringify(item.expected)}{"\n"}{item.error ? `Error ${item.error}` : `Current result ${JSON.stringify(item.actual)}`}</code>
                     </div>)}
                     {result.status !== "accepted" && (coach || coaching) && <aside className="coach-card" aria-live="polite">
                       <div className="coach-label"><BrainCircuit size={15} /><span>{coach?.source === "codex-cli" ? "CODEX COACH" : "LOCAL COACH"}</span>{coach && <small>STEP {coach.step} / {coach.maxSteps}</small>}</div>

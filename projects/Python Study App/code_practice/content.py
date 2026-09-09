@@ -15,6 +15,7 @@ from .schemas import (
     ProblemDefinition,
     TestCase,
 )
+from .starter_code import with_support_classes
 
 
 @dataclass(frozen=True)
@@ -36,8 +37,8 @@ class SeedSpec:
     constraints: list[str]
     hints: list[str]
     editorial: str
-    visible_inputs: list[list[Any]]
-    hidden_inputs: list[list[Any]]
+    example_inputs: list[list[Any]]
+    additional_inputs: list[list[Any]]
     comparator: str = "exact"
 
 
@@ -95,7 +96,7 @@ def _expected(spec: SeedSpec, arguments: list[Any]) -> Any:
 def _starter(spec: SeedSpec) -> str:
     params = ", ".join(f"{name}: {annotation}" for name, annotation, _adapter in spec.parameters)
     if spec.id == "pair-sum-indices":
-        return (
+        source = (
             f"def {spec.function_name}({params}) -> {spec.returns}:\n"
             "    result = []\n"
             "    # Write your solution here. You can run this at any point.\n"
@@ -105,7 +106,11 @@ def _starter(spec: SeedSpec) -> str:
             "sample_target = 9\n"
             "print(\"Current result:\", pair_sum_indices(sample_nums, sample_target))\n"
         )
-    return f"def {spec.function_name}({params}) -> {spec.returns}:\n    # Write your solution here.\n    pass\n"
+    else:
+        source = f"def {spec.function_name}({params}) -> {spec.returns}:\n    # Write your solution here.\n    pass\n"
+    adapters = [adapter for _name, _annotation, adapter in spec.parameters]
+    adapters.append(spec.return_adapter)
+    return with_support_classes(source, adapters)
 
 
 def _wrong_solutions(spec: SeedSpec) -> list[str]:
@@ -118,14 +123,14 @@ def _wrong_solutions(spec: SeedSpec) -> list[str]:
 
 def build_problem(spec: SeedSpec) -> ProblemDefinition:
     examples = examples_for(spec.id)
-    all_inputs = [arguments for arguments, _explanation in examples] + spec.hidden_inputs
+    all_inputs = [arguments for arguments, _explanation in examples] + spec.additional_inputs
     tests = [
         TestCase(
-            id=f"{spec.id}-{'example' if index < len(spec.visible_inputs) else 'hidden'}-{index + 1}",
+            id=f"{spec.id}-case-{index + 1}",
             arguments=arguments,
             expected=_expected(spec, arguments),
             comparator=spec.comparator,
-            visible=index < len(examples),
+            visible=True,
             explanation=examples[index][1] if index < len(examples) else None,
         )
         for index, arguments in enumerate(all_inputs)

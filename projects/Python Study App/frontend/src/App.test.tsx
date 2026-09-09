@@ -140,7 +140,7 @@ test("automatically opens progressive local coaching after a wrong run", async (
     postMessage(payload: { type?: string }) {
       queueMicrotask(() => this.onmessage?.({ data: payload.type === "warmup"
         ? { type: "ready" }
-        : { status: "wrong_answer", message: "A test produced an unexpected result.", runtimeMs: 8, cases: [{ id: "example-1", passed: false, actual: [], expected: [0, 1], visible: true }] } } as MessageEvent));
+        : { status: "wrong_answer", message: "A test produced an unexpected result.", runtimeMs: 8, cases: [{ id: "example-1", passed: false, actual: [], expected: [0, 1], visible: true, arguments: [[2, 7], 9] }] } } as MessageEvent));
     }
     terminate() {}
   }
@@ -149,6 +149,7 @@ test("automatically opens progressive local coaching after a wrong run", async (
   render(<App />);
   fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
   expect(await screen.findByText("The two values add to the target.")).toBeInTheDocument();
+  expect(screen.getByText("All 1 cases are visible")).toBeInTheDocument();
   fireEvent.click(await screen.findByRole("button", { name: "Run examples" }));
   expect(await screen.findByText("LOCAL COACH")).toBeInTheDocument();
   expect(screen.getByText("STEP 1 / 3")).toBeInTheDocument();
@@ -228,7 +229,10 @@ test("marks a problem Passed after a successful full submission", async () => {
   };
   vi.stubGlobal("fetch", vi.fn((url: string) => {
     const payload = url.includes("submission-package")
-      ? { signature: problem.signature, tests: [{ id: "hidden-1", arguments: [[2, 7], 9], expected: [0, 1], comparator: "exact", visible: false }], timeoutMs: 3000 }
+      ? { signature: problem.signature, tests: [
+          { id: "case-1", arguments: [[2, 7], 9], expected: [0, 1], comparator: "exact", visible: true },
+          { id: "case-2", arguments: [[3, 2, 4], 6], expected: [1, 2], comparator: "exact", visible: true },
+        ], timeoutMs: 3000 }
       : url.endsWith("/pair-sum-indices") ? problem
       : url.includes("dashboard") ? dashboard
       : url.endsWith("/api/problems") ? dashboard.recommendations
@@ -242,7 +246,10 @@ test("marks a problem Passed after a successful full submission", async () => {
     postMessage(payload: { type?: string }) {
       queueMicrotask(() => this.onmessage?.({ data: payload.type === "warmup"
         ? { type: "ready" }
-        : { status: "accepted", message: "All hidden tests passed.", runtimeMs: 5, cases: [{ id: "hidden-1", passed: true, visible: false }] } } as MessageEvent));
+        : { status: "accepted", message: "All tests passed.", runtimeMs: 5, cases: [
+            { id: "case-1", passed: true, visible: true, arguments: [[2, 7], 9], expected: [0, 1], actual: [0, 1] },
+            { id: "case-2", passed: true, visible: true, arguments: [[3, 2, 4], 6], expected: [1, 2], actual: [1, 2] },
+          ] } } as MessageEvent));
     }
     terminate() {}
   }
@@ -252,6 +259,8 @@ test("marks a problem Passed after a successful full submission", async () => {
   fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
   fireEvent.click(await screen.findByRole("button", { name: "Submit" }));
   expect(await screen.findByText("This problem is marked Passed and saved to your progress.")).toBeInTheDocument();
+  expect(screen.getByText(/Test case 2 · passed/)).toBeInTheDocument();
+  expect(screen.getByText(/Input \[\[3,2,4\],6\]/)).toBeInTheDocument();
   expect(screen.getByText("Passed", { selector: ".workspace-passed" })).toBeInTheDocument();
   expect(fetch).toHaveBeenCalledWith("/api/attempts", expect.objectContaining({ method: "POST" }));
 });

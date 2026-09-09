@@ -35,29 +35,29 @@ def content_fingerprint(problem: ProblemDefinition) -> str:
     return hashlib.sha256((normalized + signature).encode()).hexdigest()
 
 
-def _listnode(values: list[int] | None) -> ListNode | None:
-    dummy = ListNode()
+def _listnode(values: list[int] | None, node_type: type = ListNode) -> Any:
+    dummy = node_type()
     tail = dummy
     for value in values or []:
-        tail.next = ListNode(value)
+        tail.next = node_type(value)
         tail = tail.next
     return dummy.next
 
 
-def _treenode(values: list[int | None] | None) -> TreeNode | None:
+def _treenode(values: list[int | None] | None, node_type: type = TreeNode) -> Any:
     if not values or values[0] is None:
         return None
-    root = TreeNode(values[0])
+    root = node_type(values[0])
     queue = deque([root])
     index = 1
     while queue and index < len(values):
         node = queue.popleft()
         if index < len(values) and values[index] is not None:
-            node.left = TreeNode(values[index])
+            node.left = node_type(values[index])
             queue.append(node.left)
         index += 1
         if index < len(values) and values[index] is not None:
-            node.right = TreeNode(values[index])
+            node.right = node_type(values[index])
             queue.append(node.right)
         index += 1
     return root
@@ -96,9 +96,9 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
         arguments = []
         for value, parameter in zip(json.loads(json.dumps(test.arguments)), problem.signature.parameters):
             if parameter.adapter == "listnode":
-                value = _listnode(value)
+                value = _listnode(value, namespace.get("ListNode", ListNode))
             elif parameter.adapter == "treenode":
-                value = _treenode(value)
+                value = _treenode(value, namespace.get("TreeNode", TreeNode))
             arguments.append(value)
         actual = _serialize(function(*arguments), problem.signature.return_adapter)
         return compare(actual, test.expected, test.comparator), None
@@ -149,8 +149,8 @@ def validate_problem(problem: ProblemDefinition, existing_fingerprints: set[str]
             "referenceFailures": [],
             "bruteForceFailures": [],
             "wrongSolutionsRejected": [],
-            "visibleTests": sum(test.visible for test in problem.tests),
-            "hiddenTests": sum(not test.visible for test in problem.tests),
+            "testCases": len(problem.tests),
+            "explainedExamples": sum(bool(test.explanation) for test in problem.tests),
             "fingerprint": fingerprint,
         }
 
@@ -185,7 +185,7 @@ def validate_problem(problem: ProblemDefinition, existing_fingerprints: set[str]
         "referenceFailures": reference_failures,
         "bruteForceFailures": brute_force_failures,
         "wrongSolutionsRejected": wrong_solution_results,
-        "visibleTests": sum(test.visible for test in problem.tests),
-        "hiddenTests": sum(not test.visible for test in problem.tests),
+        "testCases": len(problem.tests),
+        "explainedExamples": sum(bool(test.explanation) for test in problem.tests),
         "fingerprint": fingerprint,
     }

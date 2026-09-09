@@ -38,7 +38,7 @@ Return only a JSON array. Every item must satisfy the supplied JSON schema.
 Each variant must change at least two of: data_model, operation, output_shape,
 constraints, algorithm_combination. Keep the learning objective recognizable,
 but do not merely rename the story or change numbers. Include exactly four hints,
-at least two visible tests, at least twelve hidden tests, a reference solution,
+at least fourteen visible tests, including two explained examples, a reference solution,
 a brute-force solution, two known-wrong solutions, and expected outputs.
 Set status to draft, seed_problem_id to {seed.id!r}, prompt_version to {PROMPT_VERSION!r},
 and list the selected dimensions in variation_dimensions.

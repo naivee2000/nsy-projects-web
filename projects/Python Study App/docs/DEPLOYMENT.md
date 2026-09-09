@@ -13,7 +13,7 @@ authenticated browser
 → persistent SQLite database on the deployment Mac
 ```
 
-The service must remain bound to `127.0.0.1`. The Cloudflare route is the only public route, and the existing NSY sign-in session protects the page, saved drafts, attempt source code, hidden submission packages, and progress APIs.
+The service must remain bound to `127.0.0.1`. The Cloudflare route is the only public route, and the existing NSY sign-in session protects the page, saved drafts, attempt source code, visible submission packages, and progress APIs.
 
 ## How the one-time progress transfer works
 

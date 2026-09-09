@@ -162,6 +162,13 @@ h1, h2, h3, p { margin-top: 0; }
 .case-row { border-top: 1px solid #303638; padding: 8px 0; display: grid; gap: 5px; }
 .case-row span { display: flex; align-items: center; gap: 6px; font-family: "DM Mono"; font-size: 12px; }
 .case-row code { color: #e7b9ae; font-size: 12px; white-space: pre-wrap; }
+.test-case-heading { margin-top: 28px; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.test-case-heading h2 { margin: 0; }
+.test-case-heading small { color: var(--muted); font-family: "DM Mono"; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
+.test-case-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.test-case { min-width: 0; border: 1px solid var(--line); background: #efeee8; }
+.test-case span { display: block; padding: 6px 8px; border-bottom: 1px solid var(--line); color: var(--muted); font-family: "DM Mono"; font-size: 10px; letter-spacing: .06em; }
+.test-case code { display: block; overflow-wrap: anywhere; padding: 8px; color: var(--ink); font-size: 11px; line-height: 1.45; white-space: pre-wrap; }
 .coach-card { margin-top: 14px; border: 1px solid #48625d; background: #1c2827; padding: 13px; }
 .coach-label { display: flex; align-items: center; gap: 7px; color: #68cbb1; font-family: "DM Mono"; font-size: 12px; letter-spacing: .08em; }
 .coach-label small { margin-left: auto; color: #81938e; }

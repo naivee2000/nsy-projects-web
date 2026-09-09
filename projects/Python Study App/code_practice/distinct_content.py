@@ -8,6 +8,7 @@ from typing import Any
 from .content_solutions import ListNode, TreeNode
 from .example_content import examples_for
 from .schemas import DifficultyRubric, FunctionSignature, ParameterDefinition, ProblemDefinition, TestCase
+from .starter_code import with_support_classes
 
 
 @dataclass(frozen=True)
@@ -107,11 +108,11 @@ def build_problem(spec: DistinctSpec) -> ProblemDefinition:
     cases = [arguments for arguments, _explanation in examples] + spec.cases[2:]
     tests = [
         TestCase(
-            id=f"{spec.id}-{'example' if index < 2 else 'hidden'}-{index + 1}",
+            id=f"{spec.id}-case-{index + 1}",
             arguments=arguments,
             expected=_expected(spec, arguments),
             comparator=spec.comparator,
-            visible=index < 2,
+            visible=True,
             explanation=examples[index][1] if index < 2 else None,
         )
         for index, arguments in enumerate(cases)
@@ -139,7 +140,10 @@ def build_problem(spec: DistinctSpec) -> ProblemDefinition:
             returns=spec.returns,
             return_adapter=spec.return_adapter,
         ),
-        starter_code=f"def {spec.function_name}({params}) -> {spec.returns}:\n    # Write your solution here.\n    pass\n",
+        starter_code=with_support_classes(
+            f"def {spec.function_name}({params}) -> {spec.returns}:\n    # Write your solution here.\n    pass\n",
+            [*[adapter for _name, _annotation, adapter in spec.parameters], spec.return_adapter],
+        ),
         reference_solution=source,
         brute_force_solution=source,
         known_wrong_solutions=[

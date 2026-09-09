@@ -39,28 +39,28 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def make_listnode(values):
-    dummy = ListNode()
+def make_listnode(values, node_type=ListNode):
+    dummy = node_type()
     tail = dummy
     for value in values or []:
-        tail.next = ListNode(value)
+        tail.next = node_type(value)
         tail = tail.next
     return dummy.next
 
-def make_treenode(values):
+def make_treenode(values, node_type=TreeNode):
     if not values or values[0] is None:
         return None
-    root = TreeNode(values[0])
+    root = node_type(values[0])
     queue = deque([root])
     index = 1
     while queue and index < len(values):
         node = queue.popleft()
         if index < len(values) and values[index] is not None:
-            node.left = TreeNode(values[index])
+            node.left = node_type(values[index])
             queue.append(node.left)
         index += 1
         if index < len(values) and values[index] is not None:
-            node.right = TreeNode(values[index])
+            node.right = node_type(values[index])
             queue.append(node.right)
         index += 1
     return root
@@ -111,14 +111,14 @@ else:
             arguments = []
             for value, parameter in zip(test["arguments"], job["signature"]["parameters"]):
                 if parameter.get("adapter") == "listnode":
-                    value = make_listnode(value)
+                    value = make_listnode(value, namespace.get("ListNode", ListNode))
                 elif parameter.get("adapter") == "treenode":
-                    value = make_treenode(value)
+                    value = make_treenode(value, namespace.get("TreeNode", TreeNode))
                 arguments.append(value)
             with contextlib.redirect_stdout(console_output), contextlib.redirect_stderr(console_output):
                 actual = serialize(function(*arguments), job["signature"].get("return_adapter", "raw"))
             passed = matches(actual, test["expected"], test.get("comparator", "exact"))
-            cases.append({"id": test["id"], "passed": passed, "actual": actual, "expected": test["expected"], "visible": test.get("visible", False), "arguments": test["arguments"] if test.get("visible", False) else None})
+            cases.append({"id": test["id"], "passed": passed, "actual": actual, "expected": test["expected"], "visible": True, "arguments": test["arguments"]})
             if not passed:
                 status = "wrong_answer"
                 message = "A test produced an unexpected result."
@@ -127,7 +127,7 @@ else:
         except Exception as error:
             status = "runtime_error"
             message = f"{type(error).__name__}: {error}"
-            cases.append({"id": test["id"], "passed": False, "error": message, "expected": test["expected"], "visible": test.get("visible", False), "arguments": test["arguments"] if test.get("visible", False) else None})
+            cases.append({"id": test["id"], "passed": False, "error": message, "expected": test["expected"], "visible": True, "arguments": test["arguments"]})
             if job.get("stopOnFailure", False):
                 break
     result_payload = {"status": status, "message": message, "cases": cases, "stdout": console_output.getvalue()}

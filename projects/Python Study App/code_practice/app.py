@@ -27,9 +27,10 @@ from .database import (
     save_daily_review_assignment,
     save_draft,
 )
-from .learning import prerequisites_met, topic_mastery
+from .learning import prerequisites_met, prioritized_review_problems, topic_mastery
 from .schemas import AttemptCreate, ProblemDefinition
 from .shared_auth import SharedSessionAuth
+from .starter_code import with_support_classes
 
 
 APP_ROOT = Path(__file__).resolve().parent.parent
@@ -125,7 +126,10 @@ def problem_detail(problem_id: str) -> dict[str, Any]:
         raise HTTPException(404, "Problem not found")
     payload = public_problem(problem)
     payload["solved"] = problem_id in _solved_ids()
-    payload["savedDraft"] = get_draft(problem_id) or problem.starter_code
+    saved_source = get_draft(problem_id) or problem.starter_code
+    adapters = [parameter.adapter for parameter in problem.signature.parameters]
+    adapters.append(problem.signature.return_adapter)
+    payload["savedDraft"] = with_support_classes(saved_source, adapters)
     revealed = highest_hint(problem_id)
     payload["revealedHintLevel"] = revealed
     payload["revealedHints"] = [
@@ -148,7 +152,10 @@ def submission_package(problem_id: str) -> dict[str, Any]:
         "problemId": problem.id,
         "version": problem.version,
         "signature": problem.signature.model_dump(mode="json"),
-        "tests": [test.model_dump(mode="json") for test in problem.tests if not test.visible],
+        "tests": [
+            {**test.model_dump(mode="json"), "visible": True}
+            for test in problem.tests
+        ],
         "timeoutMs": 3000,
     }
 
@@ -318,13 +325,8 @@ def dashboard() -> dict[str, Any]:
 
     daily_review = get_daily_review_assignment(today_key)
     if daily_review is None:
-        review_ids = [
-            review.problem_id
-            for review in reviews
-            if review.problem_id in solved and review.problem_id in catalog
-        ]
-        review_ids.extend(sorted(solved.difference(review_ids)))
-        daily_review = save_daily_review_assignment(today_key, review_ids[:5])
+        review_problems = prioritized_review_problems(catalog, attempts, reviews, solved, now, limit=5)
+        daily_review = save_daily_review_assignment(today_key, [problem.id for problem in review_problems])
     review_assigned_at, assigned_review_ids = daily_review
     reviewed_today = {
         attempt.problem_id

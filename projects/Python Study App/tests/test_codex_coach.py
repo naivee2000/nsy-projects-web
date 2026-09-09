@@ -10,8 +10,8 @@ from code_practice.content import PROBLEMS
 
 PROBLEM = next(problem for problem in PROBLEMS if problem.id == "pair-sum-indices")
 CASES = [
-    {"id": "visible", "visible": True, "passed": False, "arguments": [[3, 2, 4], 6], "expected": [1, 2], "actual": []},
-    {"id": "hidden", "visible": False, "passed": False, "expected": "SECRET-HIDDEN-OUTPUT", "actual": []},
+    {"id": "case-1", "visible": True, "passed": False, "arguments": [[3, 2, 4], 6], "expected": [1, 2], "actual": []},
+    {"id": "case-2", "visible": True, "passed": False, "arguments": [[1, 8, 2, 7], 9], "expected": [0, 1], "actual": []},
 ]
 
 
@@ -25,7 +25,7 @@ def fake_runner_with(payload: dict[str, str], captured: dict[str, object]):
     return run
 
 
-def test_codex_coach_uses_ephemeral_read_only_structured_run_without_hidden_answers():
+def test_codex_coach_uses_ephemeral_read_only_structured_run_with_test_evidence():
     captured: dict[str, object] = {}
     response = request_codex_coaching(
         PROBLEM,
@@ -51,7 +51,7 @@ def test_codex_coach_uses_ephemeral_read_only_structured_run_without_hidden_answ
     assert command[command.index("--sandbox") + 1] == "read-only"
     assert "--output-schema" in command
     prompt = str(captured["prompt"])
-    assert "SECRET-HIDDEN-OUTPUT" not in prompt
+    assert "[[1, 8, 2, 7], 9]" in prompt
     assert "seen[partner]" not in prompt
     assert "Never provide a complete solution" in prompt
 

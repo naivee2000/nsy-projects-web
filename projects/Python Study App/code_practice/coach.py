@@ -90,8 +90,7 @@ def _code_observation(source_code: str, problem: ProblemDefinition) -> str:
 
 
 def _case_observation(cases: list[dict[str, Any]]) -> str:
-    visible = [case for case in cases if case.get("visible")]
-    failed = next((case for case in visible if not case.get("passed")), None)
+    failed = next((case for case in cases if not case.get("passed")), None)
     if failed:
         actual = failed.get("error") or failed.get("actual")
         expected = failed.get("expected")
@@ -100,7 +99,7 @@ def _case_observation(cases: list[dict[str, Any]]) -> str:
         return f"{input_note} the expected result is {expected!r}, but the function currently produces {actual!r}."
     passed = sum(bool(case.get("passed")) for case in cases)
     if cases:
-        return f"The submission passes {passed} of {len(cases)} reported tests; the mismatch occurs outside the visible examples."
+        return f"The submission passes {passed} of {len(cases)} reported tests."
     return "The run stopped before it could produce a comparable result."
 
 
@@ -121,7 +120,7 @@ def build_coaching(
         steps = (
             ("Make Python readable first", message, code_note, "What is the smallest indentation or punctuation change that lets the function run?"),
             ("Check the function boundary", case_note, "Confirm every line belonging to the function is indented consistently.", "Does `return` line up with the statements that should run before it?"),
-            ("Run one tiny example", case_note, "After syntax is fixed, run the first visible example before changing the algorithm.", "What value should each variable hold immediately before `return`?"),
+            ("Run one tiny example", case_note, "After syntax is fixed, run the first example before changing the algorithm.", "What value should each variable hold immediately before `return`?"),
         )
     elif status == "runtime_error":
         steps = (
