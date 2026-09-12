@@ -227,11 +227,13 @@ def matches(actual, expected, comparator):
         return isinstance(actual, list) and sorted(actual) == sorted(expected)
     if comparator == "unordered_nested":
         return isinstance(actual, list) and normalize_nested(actual) == normalize_nested(expected)
-    if comparator == "wiggle":
+    if comparator in {"wiggle", "strict_wiggle"}:
+        strict = comparator == "strict_wiggle"
         return (isinstance(actual, list) and isinstance(expected, list)
+                and all(type(value) is int for value in actual + expected)
                 and Counter(actual) == Counter(expected)
-                and all((actual[index - 1] <= actual[index]) if index % 2
-                        else (actual[index - 1] >= actual[index])
+                and all(((actual[index - 1] < actual[index]) if strict else (actual[index - 1] <= actual[index])) if index % 2
+                        else ((actual[index - 1] > actual[index]) if strict else (actual[index - 1] >= actual[index]))
                         for index in range(1, len(actual))))
     return actual == expected
 

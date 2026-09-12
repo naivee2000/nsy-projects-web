@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 320 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is in progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 326 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is in progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [326-problem handoff checklist](Python%20Study%20App/docs/RELEASE_CHECKPOINT.md) covers updating the other computer without replacing its progress.
 
 ## Python Study App
 
@@ -41,7 +41,7 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
 The workbook expansion currently accounts for 3,629 rows: 72 existing equivalents,
-219 verified new problems, 155 documented design/interactive exclusions, and 3,183
+225 verified new problems, 155 documented design/interactive exclusions, and 3,177
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -176,6 +176,12 @@ segment touches and overlaps, empty-string pairs, and both index orders.
 The palindrome reference combines linear prefix/suffix preprocessing with a
 reversed-word trie. Maximum-size fixtures include 500-digit arrays, 300 tickets,
 100,000 segments, and 5,000 unique 300-character words.
+Batch thirty-one adds Wiggle Sort II, Longest Substring with At Most K Distinct
+Characters, Power of Four, Integer Break, Reverse String, and Reverse Vowels.
+The judge and instructions distinguish strict alternating inequalities from
+ordinary Wiggle Sort, accepting alternative valid arrangements while rejecting
+equal neighbors, changed values, and returned copies. All 225 imports have
+passing reports tied to the updated judge contract.
 The overlap total includes 69 original exercises plus three approved imports that
 also cover other workbook contracts. Rotated minimum 153 maps to 154 after
 500 seeded correctness/logarithmic-read checks, without a duplicate progress ID.
@@ -191,6 +197,8 @@ target, judge, or proof data blocks publication rather than silently retaining
 an unproved equivalence. Normal studying does not execute these offline checks.
 
 Published content is portable under `Python Study App/catalog_data/`; startup does not execute reference solutions. Transfer this folder with the app, retain the destination computer's existing progress database, and restart after updates. Rebuild packaged content with `.venv/bin/python -m code_practice.package_catalog` from the app folder; that command never opens or replaces progress. Backup and restoration instructions and the interim browser benchmark command are in the app README. Full import and full-catalog performance acceptance remain unfinished.
+
+The 326-problem checkpoint freezes the currently verified content for handoff; it does not declare the workbook goal complete. Backups now respect `CODE_PRACTICE_DB` and `CODE_PRACTICE_DATA_DIR`, with an optional external `CODE_PRACTICE_BACKUP_DIR`. After transfer, continuing catalog development on this laptop cannot affect the website until another explicit code update. Runtime progress and the existing seed snapshot were not changed during checkpoint preparation.
 
 Monaco editor and Pyodide runtime assets are included in the local frontend build, so studying needs no CDN after installation. Import validation runs in bounded per-problem processes and quarantines failures. The Chrome check uses a temporary progress database, blocks external requests, tests restart persistence, measures 100 requests per API route, and records OS-reported backend peak memory. No deployment or push is part of this expansion work.
 

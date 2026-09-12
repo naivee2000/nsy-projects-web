@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-345",
+  "content_sha256": "e6dd4b3b2b8f6062830159507a3119b320017fa876698f8dca64b7cd9d651a9e",
+  "source_hash": "5c9b243c339ad5583d5efaa044e68b289f5b6acd2248388e570c57dfc2ebc7fa",
+  "visible_tests": 2,
+  "hidden_tests": 17,
+  "reference_passed": 19,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores uppercase vowels and leaves them in the wrong positions.",
+      "failed_cases": [
+        "lc-345-1",
+        "lc-345-6",
+        "lc-345-7",
+        "lc-345-10",
+        "lc-345-12",
+        "lc-345-13",
+        "lc-345-14",
+        "lc-345-17",
+        "lc-345-stress-1"
+      ]
+    },
+    {
+      "reason": "Reverses consonants and punctuation as well as vowels.",
+      "failed_cases": [
+        "lc-345-1",
+        "lc-345-2",
+        "lc-345-8",
+        "lc-345-9",
+        "lc-345-10",
+        "lc-345-11",
+        "lc-345-13",
+        "lc-345-15",
+        "lc-345-16",
+        "lc-345-17"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4392,
+  "oracle_implementation": "code_practice/import_batch_031.py:reverse_vowels_oracle",
+  "validator_implementation_sha256": "e7eee8b8dbbf4f58f381a465a6ccb1ea38772afadc2be8dee13b6ca008ee06d5",
+  "batch_implementation_sha256": "c9eb06606350a51223c3f9f271837ab7d82705ecae8d56c6dea10b63c399b0de",
+  "judge_contract_sha256": "c43a320dde400e344accb06ef5478884513f5e88bf33554d7d18cc84a57fc620",
+  "elapsed_seconds": 0.072,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

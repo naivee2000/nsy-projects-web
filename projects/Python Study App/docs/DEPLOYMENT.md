@@ -2,6 +2,8 @@
 
 This deployment keeps the FastAPI service and SQLite progress on the always-on website Mac. GitHub carries one initial progress snapshot; after first start, the deployment Mac's persistent database becomes the only live copy.
 
+For the verified 326-problem release and the existing-install update sequence, see [RELEASE_CHECKPOINT.md](RELEASE_CHECKPOINT.md). The remaining workbook imports are development work, not a prerequisite for using this checkpoint. Preparing it did not deploy, push, or refresh the progress seed.
+
 ## Production shape
 
 ```text
@@ -33,7 +35,7 @@ On startup:
 
 Deleting the persistent runtime database causes the next start to return to the original seed snapshot. Keep backups of the runtime database after online studying begins.
 
-## 1. Refresh the seed before the first push
+## 1. Refresh the seed only for a first-time progress transfer
 
 On the current study Mac:
 
@@ -44,6 +46,7 @@ sqlite3 seed_data/initial_progress.db "PRAGMA integrity_check;"
 ```
 
 Commit the seed only to the private repository. It contains personal draft and attempt source code.
+Skip this step if the website computer already has the progress you want to keep. Pulling a refreshed seed will not merge it into an existing runtime database. A later deliberate migration must be backed up and handled separately; do not delete the destination database just to force seed installation.
 
 ## 2. Install on the deployment Mac
 
@@ -118,11 +121,14 @@ Restart the existing tunnel. Confirm an unauthenticated browser is sent to the N
 
 ## Updating code without losing progress
 
+Start at the repository root, on `main`. Back up the destination runtime database first using its actual configured path (see below). If `git status --short` shows local changes, stop and resolve them without discarding private configuration or work.
+
 ```bash
+git status --short
 git pull --ff-only
 cd "projects/Python Study App"
 .venv/bin/python -m pip install -r requirements.txt
-npm --prefix frontend install
+npm --prefix frontend ci
 npm --prefix frontend run build
 PYTHONPATH=. .venv/bin/pytest -q
 pm2 restart nsy-python-study --update-env
@@ -138,6 +144,15 @@ Stop writes briefly or use SQLite's online backup command:
 ```bash
 sqlite3 "/path/to/persistent/code-practice-data/code_practice.db" ".backup '/path/to/backups/code-practice-$(date +%Y%m%d-%H%M%S).db'"
 ```
+
+Alternatively, from the app folder, the helper accepts the same database location as the app:
+
+```bash
+CODE_PRACTICE_DATA_DIR="/path/to/persistent/code-practice-data" \
+CODE_PRACTICE_BACKUP_DIR="/path/to/backups" ./backup_data.sh
+```
+
+Use `CODE_PRACTICE_DB="/exact/path/to/progress.db"` instead if the service has a custom filename. Supply these settings in the terminal explicitly; PM2's private environment does not export them to your shell.
 
 Do not refresh or recommit `seed_data/initial_progress.db` after online studying begins unless deliberately performing another one-time migration. The deployment runtime database is authoritative from that point forward.
 

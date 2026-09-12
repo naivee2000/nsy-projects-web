@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-343",
+  "content_sha256": "2365ac14dc58650d6b59514e9945ef3c5111e4bab4b49236f6100226deb632a9",
+  "source_hash": "8e259e503710d86e0ee0c136afbdbad5cb7c1daa0f9c2b858a9bc4bc432e3518",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Uses exactly two balanced parts and misses products using three or more parts.",
+      "failed_cases": [
+        "lc-343-2",
+        "lc-343-8",
+        "lc-343-9",
+        "lc-343-10",
+        "lc-343-11",
+        "lc-343-12",
+        "lc-343-13",
+        "lc-343-14",
+        "lc-343-15",
+        "lc-343-16",
+        "lc-343-17",
+        "lc-343-18"
+      ]
+    },
+    {
+      "reason": "Leaves a remainder-one factor after taking threes instead of replacing 3+1 by 2+2.",
+      "failed_cases": [
+        "lc-343-2",
+        "lc-343-4",
+        "lc-343-7",
+        "lc-343-12",
+        "lc-343-15",
+        "lc-343-18"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4390,
+  "oracle_implementation": "code_practice/import_batch_031.py:integer_break_oracle",
+  "validator_implementation_sha256": "e7eee8b8dbbf4f58f381a465a6ccb1ea38772afadc2be8dee13b6ca008ee06d5",
+  "batch_implementation_sha256": "c9eb06606350a51223c3f9f271837ab7d82705ecae8d56c6dea10b63c399b0de",
+  "judge_contract_sha256": "c43a320dde400e344accb06ef5478884513f5e88bf33554d7d18cc84a57fc620",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,9 @@
 # Workbook catalog expansion
 
 Status: in progress. Pending and quarantined records are not runnable imports.
+The owner requested a stable handoff before resuming expansion. The current
+326-problem checkpoint is documented in [RELEASE_CHECKPOINT.md](RELEASE_CHECKPOINT.md);
+preparing it does not complete the goal or authorize deployment.
 
 The source workbook has 3,629 unique problem names in rows 7–3635. The
 scope includes ordinary functions, binary trees, linked lists, and Hard problems.
@@ -43,9 +46,18 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 72 existing equivalents (69 original exercises and
   three approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,183 rows remain pending.
-- 219 new imports in thirty reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 320 problems.
+  design/interactive exclusions; 3,177 rows remain pending.
+- 225 new imports in thirty-one reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 326 problems.
+- Batch thirty-one covers LeetCode 324, 340, and 342–345: strict wiggle mutation,
+  variable-budget distinct-character windows, powers of four, integer-product
+  splitting, in-place character reversal, and vowel-only reversal. The schema
+  and both judges distinguish strict from non-strict wiggles, preserve integer
+  multiplicities, and reject invalid expectations, mixed modes, equal neighbors,
+  booleans/floats, and returned copies. Independent exhaustive short-domain
+  checks support the references. Source-scale cases include 50,000-value arrays,
+  50,000-character windows, 100,000-character lists, and 300,000-character strings.
+  All previous 320 packaged entries retain identical content, versions, and IDs.
 - Batch thirty covers LeetCode 321, 332, 335, and 336: maximal digit merging,
   lexicographically smallest Euler itineraries, constant-space self-crossing
   detection, and palindrome pairs using KMP boundary flags and a reversed trie.
@@ -320,28 +332,30 @@ correctness. Generated tests must meet each problem's actual constraints.
 - Monaco assets now ship locally along with Pyodide. Browser checks block
   external requests and verify editor loading, reference execution, timeout
   recovery, and progress persistence across a real backend restart.
-- The shared judge now has validated contracts for flexible wiggle outputs,
+- The shared judge now has validated contracts for flexible and strict wiggle outputs,
   declared read-only parameters, and optional existing-node results. It also has
   a validated contract for selecting real TreeNode
   arguments from an input tree and requiring the returned node to retain its
   identity. Both batch-twenty-four LCA exercises use the contract, and copied
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
-  afterward. All 219 published imports have matching passing reports in the
-  320-problem package.
+  afterward. All 225 published imports have matching passing reports in the
+  326-problem package after revalidation against the strict-wiggle judge update.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 320-problem Chrome/M3 Pro run: library/search p95 1.13/1.05 ms,
-  detail p95 1.11 ms for Word Search and 1.15 ms for the 100,000-node selected-
+- Current 326-problem Chrome/M3 Pro run: library/search p95 1.15/1.06 ms,
+  detail p95 1.13 ms for Word Search and 1.09 ms for the 100,000-node selected-
   list problem, and dashboard p95 1.39 ms (100 requests per route). Startup is
-  339 ms and backend peak RSS is 85.19 MiB after loading the largest linked-list
-  detail. All 219 imported references and
+  335 ms and backend peak RSS is 84.13 MiB after loading the largest linked-list
+  detail. All 225 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The four batch-thirty suites complete within 781 ms after runtime load.
-  Palindrome Pairs takes 780.3 ms including 1.5 million input characters and
-  the separate 5000-pair output case. Create Maximum Number takes 116.4 ms,
-  Self Crossing takes 113.8 ms, and Reconstruct Itinerary takes 31.7 ms.
-  Tree Height's suite with 20,000-node chains takes 100 ms. Existing
+  The six batch-thirty-one suites complete within 108 ms after runtime load;
+  strict wiggle takes 107.7 ms, the K-distinct window 82.9 ms, character reversal
+  66.5 ms, and vowel reversal 96.4 ms including their source-scale cases.
+  Palindrome Pairs takes 795 ms including 1.5 million input characters and
+  the separate 5000-pair output case. Create Maximum Number takes 115.4 ms,
+  Self Crossing takes 114 ms, and Reconstruct Itinerary takes 32.1 ms.
+  Tree Height's suite with 20,000-node chains takes 101.4 ms. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
   returned-copy/count-only rejection, strict prefix counts, and reordered survivors.
@@ -353,10 +367,13 @@ correctness. Generated tests must meet each problem's actual constraints.
   wrong deleted value and replacement nodes whose displayed values look correct.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
-- Current automated suite: 260 backend tests and 12 frontend tests pass. The
+- Current automated suite: 281 backend tests and 14 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.
+- Transfer-script tests verify local/custom database path precedence, external
+  backup destinations, valid SQLite snapshots, missing-source refusal, and
+  unchanged source databases. The handoff retains the existing progress seed.
 - Atomic ledger/report/candidate saves preserve the previous complete JSON file
   if replacement is interrupted; a regression test exercises that failure path.
 

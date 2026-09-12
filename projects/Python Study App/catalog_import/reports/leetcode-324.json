@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-324",
+  "content_sha256": "d54c6c1582fb7aed15f7826e4e28a4db5d9f57ea526326817540c5cd7fc121e9",
+  "source_hash": "9d76dce01a1d719641f6bc3ef63f587ed09f71a457e7bd69c5e884f90421a4c0",
+  "visible_tests": 2,
+  "hidden_tests": 17,
+  "reference_passed": 19,
+  "wrong_solutions": [
+    {
+      "reason": "Repairs only non-strict inequalities and may leave equal neighbors.",
+      "failed_cases": [
+        "lc-324-11",
+        "lc-324-13",
+        "lc-324-14",
+        "lc-324-16",
+        "lc-324-stress-1",
+        "lc-324-stress-2"
+      ]
+    },
+    {
+      "reason": "Interleaves halves in ascending order, allowing repeated middle values to meet at a peak/valley boundary.",
+      "failed_cases": [
+        "lc-324-13",
+        "lc-324-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4371,
+  "oracle_implementation": "code_practice/import_batch_031.py:wiggle_oracle",
+  "validator_implementation_sha256": "e7eee8b8dbbf4f58f381a465a6ccb1ea38772afadc2be8dee13b6ca008ee06d5",
+  "batch_implementation_sha256": "c9eb06606350a51223c3f9f271837ab7d82705ecae8d56c6dea10b63c399b0de",
+  "judge_contract_sha256": "c43a320dde400e344accb06ef5478884513f5e88bf33554d7d18cc84a57fc620",
+  "elapsed_seconds": 0.087,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -166,6 +166,14 @@ try {
   await readOnlyNote.waitFor();
   assert((await readOnlyNote.textContent()).includes('remain unchanged'));
   report.checks.push('flexible wiggle outputs and read-only parameters are explained in the problem UI');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Wiggle Sort II');
+  await page.getByRole('button', { name: /Wiggle Sort II.*Medium/ }).click();
+  const strictWiggleNote = page.getByRole('note').filter({ hasText: 'Strict wiggle judging' });
+  await strictWiggleNote.waitFor();
+  assert((await strictWiggleNote.textContent()).includes('Adjacent values must not be equal'));
+  assert((await page.locator('.example code').first().textContent()).includes('One valid output'));
+  report.checks.push('strict wiggle examples explain inequality and multiple valid arrangements');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -303,6 +311,19 @@ try {
     'def wiggle_sort(nums):\n    nums.sort()')).status, 'wrong_answer');
   assert.equal((await judge(page, wiggleCase,
     'def wiggle_sort(nums):\n    nums[:] = [1, 4, 2, 5, 3, 3]')).status, 'wrong_answer');
+  const strictWiggle = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-324.json'), 'utf8'));
+  const strictCase = { ...strictWiggle, tests: [{ id: 'strict-wiggle', arguments: [[1, 1, 2, 2, 3, 3]],
+    expected: [2, 3, 1, 3, 1, 2], comparator: 'strict_wiggle', visible: true }] };
+  assert.equal((await judge(page, strictCase,
+    'def wiggle_sort_strict(nums):\n    nums[:] = [1, 2, 1, 3, 2, 3]')).status, 'accepted');
+  for (const output of ['[1, 2, 2, 3, 1, 3]', '[1, 3, 1, 3, 1, 3]',
+    '[True, 2, 1, 3, 2, 3]', '[1.0, 2, 1, 3, 2, 3]', '[[1], 2, 1, 3, 2, 3]']) {
+    assert.equal((await judge(page, strictCase,
+      `def wiggle_sort_strict(nums):\n    nums[:] = ${output}`)).status, 'wrong_answer');
+  }
+  assert.equal((await judge(page, strictCase,
+    'def wiggle_sort_strict(nums):\n    return [1, 2, 1, 3, 2, 3]')).status, 'wrong_answer');
+  report.checks.push('strict wiggle accepts alternative integer permutations and rejects equality, changed multisets, noninteger values, and returned copies');
   const successor = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-285.json'), 'utf8'));
   const noSuccessor = { ...successor, tests: [{ id: 'no-successor', arguments: [[2, 1, 3], 3], expected: null }] };
   assert.equal((await judge(page, noSuccessor, successor.reference_solution)).status, 'accepted');

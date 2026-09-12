@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-342",
+  "content_sha256": "046c7980a08a4d46a9232140f2284b0982881cea3e448f38a897262fc5482c75",
+  "source_hash": "ddeb426d663970aa6b5c3ab90cb7e3c06ad780102fdbdefa1d4a8c7f81f64d82",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Checks for one set bit but accepts odd-exponent powers of two.",
+      "failed_cases": [
+        "lc-342-2",
+        "lc-342-6",
+        "lc-342-11"
+      ]
+    },
+    {
+      "reason": "Accepts every positive multiple of four, even when other prime factors remain.",
+      "failed_cases": [
+        "lc-342-2",
+        "lc-342-10",
+        "lc-342-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4389,
+  "oracle_implementation": "code_practice/import_batch_031.py:power_four_oracle",
+  "validator_implementation_sha256": "e7eee8b8dbbf4f58f381a465a6ccb1ea38772afadc2be8dee13b6ca008ee06d5",
+  "batch_implementation_sha256": "c9eb06606350a51223c3f9f271837ab7d82705ecae8d56c6dea10b63c399b0de",
+  "judge_contract_sha256": "c43a320dde400e344accb06ef5478884513f5e88bf33554d7d18cc84a57fc620",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

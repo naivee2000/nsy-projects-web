@@ -1,10 +1,12 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 320 runnable problems (101 original exercises plus 219 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 326 runnable problems (101 original exercises plus 225 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+
+The **326-problem handoff checkpoint** is ready for a deliberate update on the other computer. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md). Continuing development on this laptop does not change the website until you push, pull, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update.
 
 ## Start the app
 
-Requirements: Python 3, Node.js/npm, and macOS or another Unix-like system.
+Requirements: Python 3.11 or newer, Node.js 22.12+ (24 LTS recommended), npm, SQLite CLI for backup/seed commands, and macOS or another Unix-like system.
 
 ```bash
 ./run_local.sh
@@ -12,7 +14,7 @@ Requirements: Python 3, Node.js/npm, and macOS or another Unix-like system.
 
 The first run installs dependencies and builds the frontend. Later runs work without internet. Open [http://127.0.0.1:8765](http://127.0.0.1:8765). Local mode binds only to `127.0.0.1` and does not require login.
 
-If frontend source changes, run `npm --prefix frontend run build` before starting again, or remove `frontend/dist` and use `./run_local.sh`.
+The local runner rebuilds the frontend on each start. After pulling dependency changes, first run `.venv/bin/python -m pip install -r requirements.txt` and `npm --prefix frontend ci`, then `./run_local.sh`.
 
 ## Study workflow
 
@@ -55,6 +57,7 @@ The submitted Python runs in a fresh browser Web Worker. FastAPI stores results 
 ```
 
 Backups are written under `backups/`, which is intentionally excluded from Git.
+The helper uses `CODE_PRACTICE_DB` first, then `CODE_PRACTICE_DATA_DIR/code_practice.db`, then the local default. Set `CODE_PRACTICE_BACKUP_DIR` to store backups outside the checkout. Environment settings inside PM2 are not automatically present in a terminal; supply the production paths explicitly when backing up the website database.
 
 ## Workbook expansion and portable catalog
 
@@ -65,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 72 existing equivalents, 219 verified imports, 155 documented
-design/interactive exclusions, and 3,183 pending records. Ordinary tree and
+Current status: 72 existing equivalents, 225 verified imports, 155 documented
+design/interactive exclusions, and 3,177 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Thirty reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Thirty-one reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -265,6 +268,15 @@ processing target. Stress tests cover 500-digit arrays, 300 tickets, 100,000
 segments, 5,000 unique 300-character words, and 5,000 emitted palindrome pairs.
 Exhaustive small-domain checks use independent index selection, ticket search,
 segment intersections, and direct concatenation oracles.
+Batch thirty-one adds Wiggle Sort II, an at-most-K-distinct-character window,
+Power of Four, Integer Break, in-place Reverse String, and Reverse Vowels.
+Strict wiggle judging accepts any original-value permutation alternating `<, >`
+and rejects equal neighbors, changed duplicate counts, and returned copies.
+The problem pane distinguishes this from ordinary non-strict Wiggle Sort.
+Schema tests also reject malformed expectations and mixed comparison modes.
+Independent small-domain checks and source-scale cases cover 50,000-value wiggles,
+50,000-character windows, 100,000-character mutations, and 300,000-character
+vowel scans. All 225 imports were revalidated against the updated judge contract.
 Of the 72 overlaps, 69 map to original exercises and three map to approved
 imports. Unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
@@ -302,7 +314,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The release package contains 320 problems; future
+been checked against every reviewed batch. The release package contains 326 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

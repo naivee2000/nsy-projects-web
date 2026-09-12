@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-344",
+  "content_sha256": "9a1efdebc57f16d6e6e4b3fac936498b04cde2f07fdd6bc91e8fc58659839f65",
+  "source_hash": "c8a54795cf9a25a7d0becd839e7b11c11db9732b7fab85175f1055224bc9f630",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Returns a new list while leaving the input unchanged.",
+      "failed_cases": [
+        "lc-344-1",
+        "lc-344-2",
+        "lc-344-4",
+        "lc-344-5",
+        "lc-344-6",
+        "lc-344-9",
+        "lc-344-10",
+        "lc-344-11",
+        "lc-344-12",
+        "lc-344-13",
+        "lc-344-16",
+        "lc-344-stress-1"
+      ]
+    },
+    {
+      "reason": "Swaps every pair twice by scanning the entire list, undoing the reversal.",
+      "failed_cases": [
+        "lc-344-1",
+        "lc-344-2",
+        "lc-344-4",
+        "lc-344-5",
+        "lc-344-6",
+        "lc-344-9",
+        "lc-344-10",
+        "lc-344-11",
+        "lc-344-12",
+        "lc-344-13",
+        "lc-344-16",
+        "lc-344-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4391,
+  "oracle_implementation": "code_practice/import_batch_031.py:reverse_characters_oracle",
+  "validator_implementation_sha256": "e7eee8b8dbbf4f58f381a465a6ccb1ea38772afadc2be8dee13b6ca008ee06d5",
+  "batch_implementation_sha256": "c9eb06606350a51223c3f9f271837ab7d82705ecae8d56c6dea10b63c399b0de",
+  "judge_contract_sha256": "c43a320dde400e344accb06ef5478884513f5e88bf33554d7d18cc84a57fc620",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

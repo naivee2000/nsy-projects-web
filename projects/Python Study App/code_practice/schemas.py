@@ -1,12 +1,13 @@
 from __future__ import annotations
 
+from collections import Counter
 from datetime import datetime
 from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
-Comparator = Literal["exact", "float", "unordered", "unordered_nested", "balanced_bst", "wiggle"]
+Comparator = Literal["exact", "float", "unordered", "unordered_nested", "balanced_bst", "wiggle", "strict_wiggle"]
 ParameterAdapter = Literal["raw", "listnode", "listnode_ref", "treenode", "treenode_ref"]
 ReturnAdapter = Literal["raw", "listnode", "treenode", "treenode_value"]
 AttemptResult = Literal["accepted", "wrong_answer", "syntax_error", "runtime_error", "timeout"]
@@ -227,15 +228,26 @@ class ProblemDefinition(BaseModel):
                 if (any(a > b for a, b in zip(values, values[1:]))
                         or expected is None or not expected[1] or expected[0] != values):
                     raise ValueError("Balanced-BST expectation must be balanced and preserve the entire sorted input inorder")
-        if any(t.comparator == "wiggle" for t in self.tests):
+        wiggle_modes = {t.comparator for t in self.tests} & {"wiggle", "strict_wiggle"}
+        if wiggle_modes:
             mutated = self.signature.mutated_parameter
             if (self.signature.result_mode != "mutated_argument" or mutated is None
+                    or len(wiggle_modes) != 1
                     or self.signature.parameters[mutated].adapter != "raw"
                     or not self.signature.parameters[mutated].annotation.startswith("list[")
-                    or any(t.comparator != "wiggle" for t in self.tests)):
+                    or any(t.comparator not in wiggle_modes for t in self.tests)):
                 raise ValueError("Wiggle judging requires one consistently compared mutated raw list")
-            if any(not isinstance(test.expected, list) for test in self.tests):
-                raise ValueError("Wiggle expectations must be valid list arrangements")
+            strict = "strict_wiggle" in wiggle_modes
+            for test in self.tests:
+                original = test.arguments[mutated] if len(test.arguments) > mutated else None
+                expected = test.expected
+                if (not isinstance(original, list) or not isinstance(expected, list)
+                        or any(type(value) is not int for value in original + expected)
+                        or Counter(original) != Counter(expected)
+                        or any(not ((a < b if strict else a <= b) if index % 2
+                                    else (a > b if strict else a >= b))
+                               for index, (a, b) in enumerate(zip(expected, expected[1:]), 1))):
+                    raise ValueError("Wiggle expectations must be valid integer permutations with the declared inequalities")
         if self.signature.node_policy != "reuse_input_nodes" and any(t.expected_node_order is not None for t in self.tests):
             raise ValueError("Expected node order requires the node-reuse policy")
         if self.signature.result_mode == "returned_prefix":

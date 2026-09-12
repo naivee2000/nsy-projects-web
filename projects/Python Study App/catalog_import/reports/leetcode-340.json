@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-340",
+  "content_sha256": "a4f849f2d988e43a0134d33ad93e9b8a681d54be62efb852e12996de6b587cbf",
+  "source_hash": "9738a74316609c49fa30618cf2df17ad5c98cb830870381f4aa5f65fbbb7cac7",
+  "visible_tests": 2,
+  "hidden_tests": 18,
+  "reference_passed": 20,
+  "wrong_solutions": [
+    {
+      "reason": "Requires exactly k distinct characters and rejects valid shorter alphabets.",
+      "failed_cases": [
+        "lc-340-6"
+      ]
+    },
+    {
+      "reason": "Examines only a window starting at index zero and misses a better suffix window.",
+      "failed_cases": [
+        "lc-340-2",
+        "lc-340-11",
+        "lc-340-17"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4387,
+  "oracle_implementation": "code_practice/import_batch_031.py:distinct_window_oracle",
+  "validator_implementation_sha256": "e7eee8b8dbbf4f58f381a465a6ccb1ea38772afadc2be8dee13b6ca008ee06d5",
+  "batch_implementation_sha256": "c9eb06606350a51223c3f9f271837ab7d82705ecae8d56c6dea10b63c399b0de",
+  "judge_contract_sha256": "c43a320dde400e344accb06ef5478884513f5e88bf33554d7d18cc84a57fc620",
+  "elapsed_seconds": 0.077,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

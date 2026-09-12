@@ -58,6 +58,28 @@ test.each(["returned_prefix", "mutated_argument"])("explains %s grading beside t
   expect(note).toHaveTextContent("nums");
 });
 
+test.each(["wiggle", "strict_wiggle"])("explains %s inequalities and alternative outputs", async (comparator) => {
+  const problem = {
+    id: "pair-sum-indices", version: 1, title: "Wiggle exercise", summary: "Arrange the values.",
+    statement: "Modify the list.", constraints: ["Integer list."], topics: ["arrays"], prerequisites: [],
+    difficulty: 6, estimated_minutes: 35, target_time_complexity: "O(n log n)", target_space_complexity: "O(n)",
+    signature: { name: "arrange", parameters: [{ name: "nums", annotation: "list[int]", adapter: "raw" }],
+      returns: "None", return_adapter: "raw", result_mode: "mutated_argument", mutated_parameter: 0 },
+    starter_code: "def arrange(nums): pass", savedDraft: "def arrange(nums): pass",
+    tests: [{ id: "wiggle-example", arguments: [[1, 2, 2, 3]], expected: [2, 3, 1, 2], comparator, visible: true, explanation: "One arrangement." }],
+    revealedHintLevel: 0, revealedHints: [], solved: false,
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : libraryPage()),
+  })));
+  render(<App />);
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  const note = await screen.findByText(comparator === "strict_wiggle" ? /Strict wiggle judging/ : /Flexible wiggle judging/);
+  expect(note).toHaveTextContent(comparator === "strict_wiggle" ? "<, >, <, >" : "≤, ≥, ≤, ≥");
+  if (comparator === "strict_wiggle") expect(note).toHaveTextContent("Adjacent values must not be equal");
+  expect(await screen.findByText(/One valid output:/)).toBeInTheDocument();
+});
+
 test("explains alternative valid tree shapes and preserves actual output with a contract error", async () => {
   const problem = {
     id: "pair-sum-indices", version: 1, title: "Build a balanced tree", summary: "Build a tree.",

@@ -1,0 +1,262 @@
+{
+  "id": "leetcode-343",
+  "version": 1,
+  "status": "approved",
+  "title": "Integer Break",
+  "summary": "Given an integer n, divide it into at least two positive integers and find the maximum product of these integers.",
+  "statement": "Given an integer n, divide it into at least two positive integers and find the maximum product of these integers.",
+  "constraints": [
+    "2 <= n <= 58.",
+    "Split n into AT LEAST TWO positive integers summing to n. Return the maximum product; the parts need not be distinct or equal."
+  ],
+  "topics": [
+    "math",
+    "dynamic-programming",
+    "greedy"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "max_integer_break_product",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def max_integer_break_product(n: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def max_integer_break_product(n):\n    if n <= 3:\n        return n-1\n    threes, remainder = divmod(n,3)\n    if remainder == 0:\n        return 3**threes\n    if remainder == 1:\n        return 3**(threes-1)*4\n    return 3**threes*2\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def max_integer_break_product(n):\n    return (n//2)*(n-n//2)\n",
+    "def max_integer_break_product(n):\n    if n <= 3:\n        return n-1\n    threes, remainder = divmod(n,3)\n    if remainder == 0:\n        return 3**threes\n    if remainder == 1:\n        return 3**threes\n    return 3**threes*2\n"
+  ],
+  "target_time_complexity": "O(1) for the bounded input domain",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "You may use more than two parts; first consider dynamic programming over all split points.",
+    "For n>=4, factors of 3 are usually best, but a final 1 should be combined with a 3 to make 2+2.",
+    "Handle n<=3 as n-1. Divide n by 3: remainder 0 gives 3^q, remainder 1 gives 4*3^(q-1), remainder 2 gives 2*3^q.",
+    "Any part at least 5 improves when split into 3 and the rest; 3+1 yields product 3, worse than 2+2 giving 4."
+  ],
+  "editorial": "For small n the requirement to split is decisive: 2 maps to 1 and 3 to 2. For larger n, parts of size at least 5 improve when split, ones are wasteful, and three 2s have product 8 while two 3s have product 9. Thus use threes except for a final remainder 1, which becomes two twos. The oracle independently maximizes products over every first split using dynamic programming, and tests cover every allowed n.",
+  "tests": [
+    {
+      "id": "lc-343-1",
+      "arguments": [
+        2
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The only legal split is 1+1, whose product is 1. Keeping 2 unsplit is forbidden.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-2",
+      "arguments": [
+        10
+      ],
+      "expected": 36,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Split as 3+3+4 for product 36; a balanced two-part split 5+5 gives only 25.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-3",
+      "arguments": [
+        3
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-4",
+      "arguments": [
+        4
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-5",
+      "arguments": [
+        5
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-6",
+      "arguments": [
+        6
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-7",
+      "arguments": [
+        7
+      ],
+      "expected": 12,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-8",
+      "arguments": [
+        8
+      ],
+      "expected": 18,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-9",
+      "arguments": [
+        9
+      ],
+      "expected": 27,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-10",
+      "arguments": [
+        11
+      ],
+      "expected": 54,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-11",
+      "arguments": [
+        12
+      ],
+      "expected": 81,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-12",
+      "arguments": [
+        13
+      ],
+      "expected": 108,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-13",
+      "arguments": [
+        14
+      ],
+      "expected": 162,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-14",
+      "arguments": [
+        15
+      ],
+      "expected": 243,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-15",
+      "arguments": [
+        16
+      ],
+      "expected": 324,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-16",
+      "arguments": [
+        17
+      ],
+      "expected": 486,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-17",
+      "arguments": [
+        57
+      ],
+      "expected": 1162261467,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-343-18",
+      "arguments": [
+        58
+      ],
+      "expected": 1549681956,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

@@ -2,7 +2,8 @@
 set -euo pipefail
 
 APP_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-SOURCE_DB="${CODE_PRACTICE_DB:-$APP_DIR/data/code_practice.db}"
+DATA_DIR="${CODE_PRACTICE_DATA_DIR:-$APP_DIR/data}"
+SOURCE_DB="${CODE_PRACTICE_DB:-$DATA_DIR/code_practice.db}"
 SEED_DIR="$APP_DIR/seed_data"
 SEED_DB="$SEED_DIR/initial_progress.db"
 
