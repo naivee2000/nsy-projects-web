@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 260,
+  "count": 270,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -4279,6 +4279,42 @@
       "source_id": 233
     },
     {
+      "id": "leetcode-235",
+      "version": 1,
+      "status": "approved",
+      "title": "Lowest Common Ancestor of a Binary Search Tree",
+      "summary": "In a binary search tree, identify the lowest common ancestor of two specified nodes.",
+      "topics": [
+        "trees",
+        "binary-search",
+        "binary-search-trees"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-235.json",
+      "content_sha256": "17bd933dbe61605595ecdaf811669b568c9e12a4878b6c22f1adab9facca2a3d",
+      "source_id": 235
+    },
+    {
+      "id": "leetcode-236",
+      "version": 1,
+      "status": "approved",
+      "title": "Lowest Common Ancestor of a Binary Tree",
+      "summary": "Given a binary tree, identify the lowest common ancestor of two specified nodes.",
+      "topics": [
+        "trees",
+        "depth-first-search",
+        "lowest-common-ancestor"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-236.json",
+      "content_sha256": "6739a241a84cfd2de1930eb7f4c143fc4df84894092959a5cdcd2e771b6565fe",
+      "source_id": 236
+    },
+    {
       "id": "leetcode-238",
       "version": 1,
       "status": "approved",
@@ -4521,6 +4557,24 @@
       "source_id": 254
     },
     {
+      "id": "leetcode-255",
+      "version": 1,
+      "status": "approved",
+      "title": "Verify Preorder Sequence in Binary Search Tree",
+      "summary": "Determine if the given array of unique integers represents a valid preorder traversal sequence of a binary search tree.",
+      "topics": [
+        "arrays",
+        "stacks",
+        "binary-search-trees"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-255.json",
+      "content_sha256": "23bc9eef0963ea5f978e089075b26d19e1c003e743a2c3f40b32934d25156b8a",
+      "source_id": 255
+    },
+    {
       "id": "leetcode-256",
       "version": 1,
       "status": "approved",
@@ -4538,6 +4592,24 @@
       "source_id": 256
     },
     {
+      "id": "leetcode-257",
+      "version": 1,
+      "status": "approved",
+      "title": "Binary Tree Paths",
+      "summary": "Provide all paths from the tree's root to its leaf nodes, listed in any order.",
+      "topics": [
+        "trees",
+        "recursion",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-257.json",
+      "content_sha256": "3457ce662bf2af3ac9844f50c39d1e6833a1a49b13dcdc06bccf88699056f27e",
+      "source_id": 257
+    },
+    {
       "id": "leetcode-258",
       "version": 1,
       "status": "approved",
@@ -4553,6 +4625,113 @@
       "path": "problems/leetcode-258.json",
       "content_sha256": "fc01401b900e9e35106e65c4a33b56bd679d89ccc12a28f0973430db0e79ae7d",
       "source_id": 258
+    },
+    {
+      "id": "leetcode-259",
+      "version": 1,
+      "status": "approved",
+      "title": "3Sum Smaller",
+      "summary": "Given an array of n integers named nums and an integer target, determine the count of unique triplets (i, j, k) where i, j, and k are indices such that 0 <= i < j < k < n, and the sum of nums[i], nums[j], and nums[k] is less than the target.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-259.json",
+      "content_sha256": "44e9443427d3c42c8fa723ce7560c37ce3276a0fc41ea176a6850d37c93f4dc6",
+      "source_id": 259
+    },
+    {
+      "id": "leetcode-260",
+      "version": 1,
+      "status": "approved",
+      "title": "Single Number III",
+      "summary": "Given an integer array where exactly two numbers appear once and all other numbers appear twice, find the two unique numbers.",
+      "topics": [
+        "arrays",
+        "bit-manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-260.json",
+      "content_sha256": "812363aafff16e73313e43a2f0d5064ab15e91f6bd26033aab04221230c268cb",
+      "source_id": 260
+    },
+    {
+      "id": "leetcode-261",
+      "version": 1,
+      "status": "approved",
+      "title": "Graph Valid Tree",
+      "summary": "Determine if a graph with n nodes and given edges forms a valid tree by checking for a single connected component and no cycles.",
+      "topics": [
+        "graphs",
+        "union-find",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-261.json",
+      "content_sha256": "a36c951f196144739eeba5ea93f9e12d8e15f86becc1324b13dc00359ca03fc4",
+      "source_id": 261
+    },
+    {
+      "id": "leetcode-263",
+      "version": 1,
+      "status": "approved",
+      "title": "Ugly Number",
+      "summary": "An ugly number is defined as a positive integer that only has the prime factors 2, 3, and 5.",
+      "topics": [
+        "math",
+        "number-theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-263.json",
+      "content_sha256": "fb5e83e449384e200c5dcd40647cd35a62d942d27879229c6f0f4c7b5d608658",
+      "source_id": 263
+    },
+    {
+      "id": "leetcode-264",
+      "version": 1,
+      "status": "approved",
+      "title": "Ugly Number II",
+      "summary": "An ugly number is defined as a positive integer whose prime factors are restricted to 2, 3, and 5.",
+      "topics": [
+        "dynamic-programming",
+        "math",
+        "number-theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-264.json",
+      "content_sha256": "c58724c8064db87d326269094a07fb23ba0ea25560f76303b1b7c3d3faa9fd06",
+      "source_id": 264
+    },
+    {
+      "id": "leetcode-265",
+      "version": 1,
+      "status": "approved",
+      "title": "Paint House II",
+      "summary": "Given an n x k cost matrix where each element costs[i][j] represents the cost to paint house i with color j, find the minimum cost to paint all houses such that no two adjacent houses have the same color.",
+      "topics": [
+        "arrays",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-265.json",
+      "content_sha256": "383e399667a08e28a5f5a30f47c73ffa859d8126aa7b2e50cb1272f057afcd1f",
+      "source_id": 265
     },
     {
       "id": "leetcode-268",

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-235",
+  "content_sha256": "17bd933dbe61605595ecdaf811669b568c9e12a4878b6c22f1adab9facca2a3d",
+  "source_hash": "257c45ca060757866a95ad992abfc707f68f613a83ff66541f995e874f36700c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Always returns the root, even when both selected nodes lie inside a lower subtree.",
+      "failed_cases": [
+        "lc-235-2",
+        "lc-235-5",
+        "lc-235-6",
+        "lc-235-8",
+        "lc-235-10",
+        "lc-235-11",
+        "lc-235-13",
+        "lc-235-stress-1"
+      ]
+    },
+    {
+      "reason": "Always returns p, even when p is not an ancestor of q.",
+      "failed_cases": [
+        "lc-235-1",
+        "lc-235-4",
+        "lc-235-5",
+        "lc-235-6",
+        "lc-235-7",
+        "lc-235-8",
+        "lc-235-9",
+        "lc-235-10",
+        "lc-235-13",
+        "lc-235-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4282,
+  "oracle_implementation": "code_practice/import_batch_024.py:lca_oracle",
+  "validator_implementation_sha256": "19c13380d170d5e47546c0797e96ea53a45a472b6431938cd014b7076e07c7bc",
+  "batch_implementation_sha256": "948020db043847e0410d4fa9cfc7071964b89b8546d684c78efb2ba8575e5504",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.406,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

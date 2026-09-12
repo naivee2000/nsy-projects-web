@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-263",
+  "content_sha256": "fb5e83e449384e200c5dcd40647cd35a62d942d27879229c6f0f4c7b5d608658",
+  "source_hash": "c56d555dd048b23e5f56fa7e1a1fd45c48507a6198d2c442238a5aeccb4a334d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts any positive number divisible by one allowed prime, even when another factor such as 7 remains.",
+      "failed_cases": [
+        "lc-263-2"
+      ]
+    },
+    {
+      "reason": "Divides by each allowed prime only once and rejects valid higher powers such as 8.",
+      "failed_cases": [
+        "lc-263-11",
+        "lc-263-13",
+        "lc-263-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4310,
+  "oracle_implementation": "code_practice/import_batch_024.py:ugly_oracle",
+  "validator_implementation_sha256": "19c13380d170d5e47546c0797e96ea53a45a472b6431938cd014b7076e07c7bc",
+  "batch_implementation_sha256": "948020db043847e0410d4fa9cfc7071964b89b8546d684c78efb2ba8575e5504",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

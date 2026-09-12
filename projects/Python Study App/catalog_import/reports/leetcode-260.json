@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-260",
+  "content_sha256": "812363aafff16e73313e43a2f0d5064ab15e91f6bd26033aab04221230c268cb",
+  "source_hash": "195e8161eff59a4ae1abc6da3cda6e95f6f35633a2d3ed3e5f674b8e7fc9e14a",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns only the XOR of the two answers rather than separating them.",
+      "failed_cases": [
+        "lc-260-1",
+        "lc-260-2",
+        "lc-260-3",
+        "lc-260-4",
+        "lc-260-5",
+        "lc-260-6",
+        "lc-260-7",
+        "lc-260-8",
+        "lc-260-9",
+        "lc-260-10",
+        "lc-260-11",
+        "lc-260-12",
+        "lc-260-13",
+        "lc-260-14",
+        "lc-260-stress-1"
+      ]
+    },
+    {
+      "reason": "Partitions by sign, which does not separate two singletons having the same sign.",
+      "failed_cases": [
+        "lc-260-1",
+        "lc-260-3",
+        "lc-260-4",
+        "lc-260-5",
+        "lc-260-6",
+        "lc-260-7",
+        "lc-260-8",
+        "lc-260-11",
+        "lc-260-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4307,
+  "oracle_implementation": "code_practice/import_batch_024.py:two_singles_oracle",
+  "validator_implementation_sha256": "19c13380d170d5e47546c0797e96ea53a45a472b6431938cd014b7076e07c7bc",
+  "batch_implementation_sha256": "948020db043847e0410d4fa9cfc7071964b89b8546d684c78efb2ba8575e5504",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -217,6 +217,19 @@ try {
   assert(copiedTree.cases[0].error.includes('original nodes'));
   assert.equal((await judge(page, equalTree, flattening.reference_solution)).status, 'accepted');
   report.checks.push('in-place tree/list identity checked: copied nodes and wrong equal-value node order rejected, correct rewiring accepted');
+  const lca = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-236.json'), 'utf8'));
+  const descendantLca = { ...lca, tests: [lca.tests[1]] };
+  assert.equal((await judge(page, descendantLca,
+    'def lowest_common_ancestor(root, p, q):\n    return p')).status, 'accepted');
+  const copiedAncestor = await judge(page, descendantLca,
+    'def lowest_common_ancestor(root, p, q):\n    return TreeNode(p.val)');
+  assert.equal(copiedAncestor.status, 'wrong_answer');
+  assert(copiedAncestor.cases[0].error.includes('existing node'));
+  const mutatedAncestor = await judge(page, descendantLca,
+    'def lowest_common_ancestor(root, p, q):\n    p.left = None\n    return p');
+  assert.equal(mutatedAncestor.status, 'wrong_answer');
+  assert(mutatedAncestor.cases[0].error.includes('existing node'));
+  report.checks.push('selected TreeNode arguments are real input references; copied return nodes and input-tree mutations are rejected');
   const arrayBst = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-108.json'), 'utf8'));
   const listBst = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-109.json'), 'utf8'));
   const treeCase = (problem, values, expected) => ({ ...problem, tests: [{

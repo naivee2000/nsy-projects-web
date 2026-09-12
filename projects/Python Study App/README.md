@@ -1,6 +1,6 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 260 runnable problems (101 original exercises plus 159 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 270 runnable problems (101 original exercises plus 169 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
 ## Start the app
 
@@ -65,13 +65,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 70 existing equivalents, 159 verified imports, 130 documented
-design/interactive exclusions, and 3,270 pending records. Ordinary tree and
+Current status: 70 existing equivalents, 169 verified imports, 130 documented
+design/interactive exclusions, and 3,260 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Twenty-three reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Twenty-four reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -199,6 +199,15 @@ and Add Digits. Tests distinguish same-word occurrences, exhaust all generation
 lengths through 14, count the full 15-digit strobogrammatic domain, preserve
 cyclic shifts and duplicate strings, allow touching meetings, and compare factor
 and painting results against direct enumeration.
+Batch twenty-four adds Lowest Common Ancestor for BSTs and arbitrary binary
+trees, Verify Preorder Sequence in BST, Binary Tree Paths, 3Sum Smaller, Single
+Number III, Graph Valid Tree, Ugly Number I/II, and Paint House II. The LCA
+problems receive the actual `p` and `q` nodes selected from the input tree and
+must return an existing node without mutating the tree. Regressions cover
+100,000-node chains, exhaustive short BST preorder sequences and simple graphs,
+duplicate tree paths, signed singleton pairs, the 1,690th ugly number, and
+independent small painting assignments. Recursive-tree and binary-search study
+priorities remain intact.
 Of the 70 overlaps, 69 map to original exercises and one maps to an approved
 import: unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
@@ -228,7 +237,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place and selected-TreeNode extensions have been checked against
-every reviewed batch. The release package remains at 260 problems; future
+every reviewed batch. The release package contains 270 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-259",
+  "content_sha256": "44e9443427d3c42c8fa723ce7560c37ce3276a0fc41ea176a6850d37c93f4dc6",
+  "source_hash": "b4aa117490fc1faea15e8f5ea970864d074bafecd42d6f5a03ea955814bd99da",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a non-strict comparison and counts triples whose sum equals target.",
+      "failed_cases": [
+        "lc-259-1",
+        "lc-259-7",
+        "lc-259-9",
+        "lc-259-10",
+        "lc-259-12",
+        "lc-259-13",
+        "lc-259-14",
+        "lc-259-stress-1"
+      ]
+    },
+    {
+      "reason": "Counts only the current middle/right pair, missing all right-middle valid choices implied by sorted order.",
+      "failed_cases": [
+        "lc-259-1",
+        "lc-259-9",
+        "lc-259-10",
+        "lc-259-11",
+        "lc-259-13",
+        "lc-259-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4306,
+  "oracle_implementation": "code_practice/import_batch_024.py:three_sum_smaller_oracle",
+  "validator_implementation_sha256": "19c13380d170d5e47546c0797e96ea53a45a472b6431938cd014b7076e07c7bc",
+  "batch_implementation_sha256": "948020db043847e0410d4fa9cfc7071964b89b8546d684c78efb2ba8575e5504",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.789,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

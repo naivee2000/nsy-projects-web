@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-261",
+  "content_sha256": "a36c951f196144739eeba5ea93f9e12d8e15f86becc1324b13dc00359ca03fc4",
+  "source_hash": "8b7ca9961b66f089e32cfd7bb3c02a476d5fbbaea5bd54f3f9ce8bfaf793eef3",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only the edge count and accepts a disconnected component containing a cycle.",
+      "failed_cases": [
+        "lc-261-9",
+        "lc-261-13"
+      ]
+    },
+    {
+      "reason": "Checks only connectivity and accepts connected graphs that contain extra cycle edges.",
+      "failed_cases": [
+        "lc-261-2",
+        "lc-261-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4308,
+  "oracle_implementation": "code_practice/import_batch_024.py:valid_tree_oracle",
+  "validator_implementation_sha256": "19c13380d170d5e47546c0797e96ea53a45a472b6431938cd014b7076e07c7bc",
+  "batch_implementation_sha256": "948020db043847e0410d4fa9cfc7071964b89b8546d684c78efb2ba8575e5504",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.153,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

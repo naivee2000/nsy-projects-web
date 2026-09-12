@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-264",
+  "content_sha256": "c58724c8064db87d326269094a07fb23ba0ea25560f76303b1b7c3d3faa9fd06",
+  "source_hash": "a68e43ee082bf56815f83302f8f39290cd987dc966c53bc0f5da3f63c904947e",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the next sequence value after the requested one, an off-by-one error.",
+      "failed_cases": [
+        "lc-264-1",
+        "lc-264-2",
+        "lc-264-3",
+        "lc-264-4",
+        "lc-264-5",
+        "lc-264-6",
+        "lc-264-7",
+        "lc-264-8",
+        "lc-264-9",
+        "lc-264-10",
+        "lc-264-11",
+        "lc-264-12",
+        "lc-264-13",
+        "lc-264-14",
+        "lc-264-stress-1"
+      ]
+    },
+    {
+      "reason": "Generates products of only 2 and 3 and omits values requiring factor 5.",
+      "failed_cases": [
+        "lc-264-1",
+        "lc-264-6",
+        "lc-264-7",
+        "lc-264-8",
+        "lc-264-9",
+        "lc-264-10",
+        "lc-264-11",
+        "lc-264-12",
+        "lc-264-13",
+        "lc-264-14",
+        "lc-264-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4311,
+  "oracle_implementation": "code_practice/import_batch_024.py:nth_ugly_oracle",
+  "validator_implementation_sha256": "19c13380d170d5e47546c0797e96ea53a45a472b6431938cd014b7076e07c7bc",
+  "batch_implementation_sha256": "948020db043847e0410d4fa9cfc7071964b89b8546d684c78efb2ba8575e5504",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
