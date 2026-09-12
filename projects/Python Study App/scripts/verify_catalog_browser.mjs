@@ -27,10 +27,23 @@ const manifestText = await fs.readFile(manifestPath, 'utf8');
 const ledgerText = await fs.readFile(ledgerPath, 'utf8');
 const manifest = JSON.parse(manifestText);
 const ledger = JSON.parse(ledgerText);
+const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
+const judgeHash = createHash('sha256');
+for (const name of ['code_practice/schemas.py', 'code_practice/validation.py', 'frontend/public/judge-worker.js']) {
+  judgeHash.update(name);
+  judgeHash.update(await fs.readFile(path.join(root, name)));
+}
+const workerAsset = await fs.readFile(path.join(root, 'frontend/dist/judge-worker.js'));
+assert.equal(sha256(workerAsset), sha256(await fs.readFile(path.join(root, 'frontend/public/judge-worker.js'))),
+  'Rebuild the frontend before verifying a changed judge worker');
 const report = { scope: 'Current published catalog; not the final full-catalog acceptance benchmark',
   catalogCount: manifest.count, workbookCounts: ledger.counts, generatedAt: new Date().toISOString(),
   catalogManifestSha256: createHash('sha256').update(manifestText).digest('hex'),
   ledgerSha256: createHash('sha256').update(ledgerText).digest('hex'),
+  judgeContractSha256: judgeHash.digest('hex'),
+  workerAssetSha256: sha256(workerAsset),
+  frontendIndexSha256: sha256(await fs.readFile(path.join(root, 'frontend/dist/index.html'))),
+  browserVerifierSha256: sha256(await fs.readFile(fileURLToPath(import.meta.url))),
   hardware: { platform: os.platform(), architecture: os.arch(), cpu: os.cpus()[0].model, memoryGiB: os.totalmem() / 2**30 },
   worker: [], endpoints: {}, checks: [] };
 
@@ -188,6 +201,13 @@ try {
   await page.getByRole('note').waitFor();
   assert((await page.getByRole('note').textContent()).includes('a returned copy is not used'));
   report.checks.push('new array-rotation problem explains original-input mutation beside its examples');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Recover Binary Search Tree');
+  await page.getByRole('button', { name: /Recover Binary Search Tree.*Medium/ }).click();
+  const structureNote = page.getByRole('note').filter({ hasText: 'Tree-structure judging' });
+  await structureNote.waitFor();
+  assert((await structureNote.textContent()).includes('Temporary traversal links must be restored'));
+  report.checks.push('BST recovery explains value changes, preserved original nodes, and restored temporary links');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -195,6 +215,7 @@ try {
     assert.equal(result.status, 'accepted', `${entry.id}: ${JSON.stringify(result)}`);
     assert.equal(result.cases.length, problem.tests.length);
     report.worker.push({ id: entry.id, status: result.status, cases: result.cases.length, runtimeMs: result.runtimeMs });
+    if (report.worker.length % 25 === 0) console.log(`Verified ${report.worker.length} reference suites in Chrome`);
   }
   for (const id of [148, 149, 156, 164, 186, 189, 203]) {
     const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
@@ -211,6 +232,37 @@ try {
   assert(unchangedUpside.cases[0].error.includes('required order'));
   assert.equal((await judge(page, equalUpside, upside.reference_solution)).status, 'accepted');
   report.checks.push('batch 34 wrong algorithms rejected; upside-down tree checks original nodes even when output values coincide');
+  const recovery = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-99.json'), 'utf8'));
+  for (const wrong of recovery.known_wrong_solutions) {
+    assert.equal((await judge(page, recovery, wrong)).status, 'wrong_answer');
+  }
+  const recoveryPair = { ...recovery, tests: [{ id: 'recover-pair', arguments: [[1,2]], expected: [2,1] }] };
+  for (const body of ['root.val = 2; root.left = TreeNode(1)', 'root.val = 2.0; root.left.val = 1',
+    'root.val = 2; root.left.val = True',
+    'Ghost=type("Ghost",(TreeNode,),{"__bool__":lambda self:False}); root.val=2; root.left.val=1; root.right=Ghost(None)']) {
+    const result = await judge(page, recoveryPair, `def recover_bst(root):\n    ${body}`);
+    assert.equal(result.status, 'wrong_answer');
+    assert(result.cases[0].error.includes('preserve every original node'));
+  }
+  const recoveryChildren = { ...recovery, tests: [{ id: 'recover-children', arguments: [[2,3,1]], expected: [2,1,3] }] };
+  const switchedNodes = await judge(page, recoveryChildren, 'def recover_bst(root):\n    root.left,root.right = root.right,root.left');
+  assert.equal(switchedNodes.status, 'wrong_answer');
+  assert.deepEqual(switchedNodes.cases[0].actual, switchedNodes.cases[0].expected);
+  const leftoverThread = await judge(page, recoveryPair, 'def recover_bst(root):\n    root.left.right = root');
+  assert.equal(leftoverThread.status, 'runtime_error');
+  assert(leftoverThread.cases[0].error.includes('cycle'));
+  assert.equal((await judge(page, recoveryPair,
+    'def recover_bst(root):\n    child=root.left; child.right=root; child.right=None; root.val=2; child.val=1')).status, 'accepted');
+  assert.equal((await judge(page, recoveryPair, `class TreeNode:
+    def __init__(self,val=0,left=None,right=None):
+        self.val,self.left,self.right=val,left,right
+    def __bool__(self):
+        return False
+def recover_bst(root):
+    root.val,root.left.val=root.left.val,root.val
+`)).status, 'accepted');
+  assert.equal((await judge(page, recoveryChildren, recovery.reference_solution)).status, 'accepted');
+  report.checks.push('BST recovery rejects copied/swapped/falsey-added nodes and noninteger values; real falsey nodes and restored Morris threads pass, leftover cycles fail, and the next run recovers');
   const tree = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-226.json'), 'utf8'));
   const compact = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-26.json'), 'utf8'));
   for (const source of ['def remove_duplicates(nums):\n    return len(set(nums))', 'def remove_duplicates(nums):\n    return True']) {

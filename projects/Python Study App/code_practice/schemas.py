@@ -75,7 +75,7 @@ class FunctionSignature(BaseModel):
     returns: str
     return_adapter: ReturnAdapter = "raw"
     node_policy: Literal[
-        "values", "reuse_input_nodes", "return_input_node", "delete_referenced_list_node"
+        "values", "reuse_input_nodes", "return_input_node", "delete_referenced_list_node", "preserve_tree_structure"
     ] = "values"
     result_mode: Literal["return", "mutated_argument", "returned_prefix"] = "return"
     mutated_parameter: int | None = Field(default=None, ge=0)
@@ -119,6 +119,11 @@ class FunctionSignature(BaseModel):
             if (self.result_mode != "return" or self.return_adapter != "treenode_value"
                     or not any(parameter.adapter == "treenode" for parameter in self.parameters)):
                 raise ValueError("Returned-node identity requires a TreeNode input and TreeNode value output")
+        elif self.node_policy == "preserve_tree_structure":
+            if (self.result_mode != "mutated_argument" or self.mutated_parameter is None
+                    or self.parameters[self.mutated_parameter].adapter != "treenode"
+                    or self.returns != "None" or self.return_adapter != "raw"):
+                raise ValueError("Preserved tree structure requires a mutated TreeNode argument and no return value")
         elif self.node_policy == "delete_referenced_list_node":
             if (self.result_mode != "mutated_argument" or self.mutated_parameter is None
                     or self.parameters[self.mutated_parameter].adapter != "listnode_ref"

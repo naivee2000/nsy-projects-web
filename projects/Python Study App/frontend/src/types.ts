@@ -30,7 +30,7 @@ export type TestCase = {
 };
 
 export type Parameter = { name: string; annotation: string; adapter: "raw" | "listnode" | "listnode_ref" | "treenode" | "treenode_ref"; source_parameter?: number | null };
-export type Signature = { name: string; parameters: Parameter[]; returns: string; return_adapter: string; node_policy?: "values" | "reuse_input_nodes" | "return_input_node" | "delete_referenced_list_node"; result_mode?: "return" | "mutated_argument" | "returned_prefix"; mutated_parameter?: number | null; immutable_parameters?: number[] };
+export type Signature = { name: string; parameters: Parameter[]; returns: string; return_adapter: string; node_policy?: "values" | "reuse_input_nodes" | "return_input_node" | "delete_referenced_list_node" | "preserve_tree_structure"; result_mode?: "return" | "mutated_argument" | "returned_prefix"; mutated_parameter?: number | null; immutable_parameters?: number[] };
 
 export type Problem = {
   id: string;

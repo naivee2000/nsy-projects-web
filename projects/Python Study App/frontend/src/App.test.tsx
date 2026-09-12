@@ -58,6 +58,27 @@ test.each(["returned_prefix", "mutated_argument"])("explains %s grading beside t
   expect(note).toHaveTextContent("nums");
 });
 
+test("explains value-only tree recovery without permitting replacement nodes", async () => {
+  const problem = {
+    id: "pair-sum-indices", version: 1, title: "Recover BST", summary: "Fix two values.",
+    statement: "Keep the original links.", constraints: ["Two swapped values."], topics: ["trees"], prerequisites: [],
+    difficulty: 6, estimated_minutes: 35, target_time_complexity: "O(n)", target_space_complexity: "O(1)",
+    signature: { name: "recover_bst", parameters: [{ name: "root", annotation: "TreeNode | None", adapter: "treenode" }],
+      returns: "None", return_adapter: "raw", result_mode: "mutated_argument", mutated_parameter: 0, node_policy: "preserve_tree_structure" },
+    starter_code: "def recover_bst(root): pass", savedDraft: "def recover_bst(root): pass", tests: [],
+    revealedHintLevel: 0, revealedHints: [], solved: false,
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : libraryPage()),
+  })));
+  render(<App />);
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  const note = await screen.findByText(/Tree-structure judging/);
+  expect(note).toHaveTextContent("change only integer node values");
+  expect(note).toHaveTextContent("rebuilding an identical-looking tree does not count");
+  expect(note).toHaveTextContent("Temporary traversal links must be restored");
+});
+
 test.each(["wiggle", "strict_wiggle"])("explains %s inequalities and alternative outputs", async (comparator) => {
   const problem = {
     id: "pair-sum-indices", version: 1, title: "Wiggle exercise", summary: "Arrange the values.",

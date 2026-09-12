@@ -3,7 +3,7 @@
 Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
 345-problem checkpoint is documented in [RELEASE_CHECKPOINT.md](RELEASE_CHECKPOINT.md).
-Expansion has resumed locally; `main` contains 352 verified problems. Both the
+Expansion has resumed locally; `main` contains 353 verified problems. Both the
 345- and 326-problem tags are unchanged, and neither checkpoint preparation nor
 resumed work authorizes deployment.
 
@@ -48,9 +48,26 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 72 existing equivalents (69 original exercises and
   three approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,151 rows remain pending.
-- 251 new imports in thirty-four reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 352 problems.
+  design/interactive exclusions; 3,150 rows remain pending.
+- 252 new imports in thirty-five reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 353 problems.
+- Batch thirty-five covers LeetCode 99, Recover Binary Search Tree. It adds
+  `preserve_tree_structure` for value-only mutation of a selected TreeNode
+  argument. Schema restrictions reject incompatible return/prefix/list modes;
+  native and browser checks preserve original nodes and every left/right link,
+  reject noninteger values, and permit temporary threads only if restored.
+  The Morris reference uses constant auxiliary space and supports 1,000-node
+  left/right chains. A path-order/sorted-value oracle is independently audited
+  with conventional inorder traversal. Regressions cover every swapped pair
+  on all tree shapes through seven nodes and ensure all fixtures have exactly
+  two misplaced values. Both wrong algorithms fail: first-inversion-only repair
+  and local parent-child repair. Existing problem IDs, content, progress, and
+  handoff tags remain unchanged; every import is revalidated for this judge change.
+  An additional adversarial fixture exposed a falsey replacement child whose
+  null value disappeared from compact tree output. Identity snapshots now use
+  explicit None checks, not truthiness; inserted children cannot masquerade as
+  missing links. This also strengthens returned-input-node immutability. Tests
+  accept genuine falsey nodes when their original links are preserved.
 - Batch thirty-four covers LeetCode 148–149, 156, 164, 186, 189, and 203:
   bottom-up linked-list merge sort, exact normalized line directions, recursive
   upside-down trees, linear-time maximum gaps, character-array word reversal,
@@ -385,21 +402,19 @@ correctness. Generated tests must meet each problem's actual constraints.
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
   afterward. Ordered integer groups now also accept within-group permutations
-  while preserving outer order and duplicate counts. All 251 published imports
-  have matching passing reports in the 352-problem package; the shared judge is
-  unchanged since the batch-thirty-three revalidation.
+  while preserving outer order and duplicate counts. All 252 published imports
+  have matching passing reports in the 353-problem package after revalidation
+  against value-only tree mutation and explicit-None identity snapshots.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 352-problem Chrome/M3 Pro run: library/search p95 1.57/1.59 ms,
-  detail p95 1.51 ms for Word Search and 1.60 ms for the 100,000-node selected-
-  list problem, and dashboard p95 5.13 ms (100 requests per route). Startup is
-  341 ms and backend peak RSS is 120.72 MiB across browsing large array and
-  linked-list details and restarting. All 251 imported references and
+- Current 353-problem Chrome/M3 Pro run: library/search p95 1.66/1.46 ms,
+  detail p95 1.53 ms for Word Search and 3.24 ms for the 100,000-node selected-
+  list problem, and dashboard p95 4.09 ms (100 requests per route). Startup is
+  341 ms and backend peak RSS is 126.70 MiB across browsing large array and
+  linked-list details and restarting. All 252 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  All seven batch-thirty-four suites finish within 300 ms after runtime load.
-  Linked-list sorting takes 299.6 ms including both 50,000-node cases; collinearity
-  takes 85 ms, upside-down trees 34.6 ms, bucket gaps 159.6 ms, character-word
-  mutation 91.2 ms, array rotation 198.8 ms, and linked deletion 52.8 ms. Existing
+  The Recover Binary Search Tree suite finishes in 42.8 ms after runtime load,
+  including both 1,000-node chains and all sixteen deterministic cases. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
   returned-copy/count-only rejection, strict prefix counts, and reordered survivors.
@@ -413,9 +428,14 @@ correctness. Generated tests must meet each problem's actual constraints.
   reversed rounds, changed multiplicities, omitted groups, and noninteger values.
   Each new batch-thirty-four wrong algorithm is also rejected in the browser,
   and an unchanged all-equal upside-down tree fails the original-node-order check.
+  BST recovery also rejects both wrong algorithms, replacement/swapped nodes,
+  noninteger values, and falsey inserted children. Genuine falsey original nodes
+  with preserved links and restored Morris threads pass; leftover cycles fail.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
-- Current automated suite: 319 backend tests and 15 frontend tests pass. The
+  Reports also bind the judge contract, built worker, frontend index, and browser
+  verifier hashes; the verifier refuses a stale built worker until it is rebuilt.
+- Current automated suite: 343 backend tests and 16 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

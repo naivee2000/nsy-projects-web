@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 352 runnable problems (101 original exercises plus 251 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 353 runnable problems (101 original exercises plus 252 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **345-problem handoff checkpoint** is tagged `python-study-345-checkpoint`; both it and the earlier 326-problem tag remain unchanged. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md) for exact-version update commands. Goal work has resumed locally, adding seven verified problems on `main`. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update.
+The transfer-ready **345-problem handoff checkpoint** is tagged `python-study-345-checkpoint`; both it and the earlier 326-problem tag remain unchanged. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md) for exact-version update commands. Goal work has resumed locally, adding eight verified problems on `main`. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 72 existing equivalents, 251 verified imports, 155 documented
-design/interactive exclusions, and 3,151 pending records. Ordinary tree and
+Current status: 72 existing equivalents, 252 verified imports, 155 documented
+design/interactive exclusions, and 3,150 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Thirty-four reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Thirty-five reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -313,6 +313,13 @@ checks original-node order even when all values match. Character-array reversal
 and in-place rotation are observably distinct from the existing string/list-returning
 exercises: a returned copy does not satisfy their mutation contracts. No existing
 problem content, IDs, saved progress, or frozen handoff tags changed.
+Batch thirty-five adds Recover Binary Search Tree with the source's exact
+value-swapping contract. A new tree-structure policy permits changed integer
+values but preserves every original left/right link; copied nodes and swapped
+node positions fail even if the displayed tree is correct. Restored temporary
+Morris threads are allowed. The constant-space reference handles 1,000-node
+chains, and exhaustive tests cover every swapped pair on every tree shape through
+seven nodes. All imports are revalidated when this shared judge contract changes.
 Of the 72 overlaps, 69 map to original exercises and three map to approved
 imports. Unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
@@ -350,7 +357,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 352 problems; future
+been checked against every reviewed batch. The current package contains 353 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

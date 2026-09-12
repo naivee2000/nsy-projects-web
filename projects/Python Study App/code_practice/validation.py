@@ -185,8 +185,8 @@ def _tree_identity_snapshot(root: Any) -> dict:
             raise ValueError("Node structure contains a cycle or shared child")
         if len(result) >= 100_000:
             raise ValueError("Node structure exceeds the supported node limit")
-        result[id(node)] = (node, node.val, id(node.left) if node.left else None,
-                            id(node.right) if node.right else None)
+        result[id(node)] = (node, node.val, id(node.left) if node.left is not None else None,
+                            id(node.right) if node.right is not None else None)
         stack.extend((node.right, node.left))
     return result
 
@@ -246,6 +246,8 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
             for argument, parameter in zip(arguments, problem.signature.parameters):
                 if parameter.adapter == "treenode":
                     original_tree_nodes.update(_tree_identity_snapshot(argument))
+        elif problem.signature.node_policy == "preserve_tree_structure":
+            original_tree_nodes = _tree_identity_snapshot(arguments[problem.signature.mutated_parameter])
         output = function(*arguments)
         if mode == "return":
             actual = _serialize(output, problem.signature.return_adapter, test.comparator == "balanced_bst")
@@ -275,8 +277,14 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
             if output is not None and id(output) not in original_tree_nodes:
                 return False, None
             if any(node.val != value
-                   or (id(node.left) if node.left else None) != left
-                   or (id(node.right) if node.right else None) != right
+                   or (id(node.left) if node.left is not None else None) != left
+                   or (id(node.right) if node.right is not None else None) != right
+                   for node, value, left, right in original_tree_nodes.values()):
+                return False, None
+        elif problem.signature.node_policy == "preserve_tree_structure":
+            if any(type(node.val) is not int
+                   or (id(node.left) if node.left is not None else None) != left
+                   or (id(node.right) if node.right is not None else None) != right
                    for node, value, left, right in original_tree_nodes.values()):
                 return False, None
         elif problem.signature.node_policy == "delete_referenced_list_node":
