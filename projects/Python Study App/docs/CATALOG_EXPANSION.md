@@ -3,7 +3,7 @@
 Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
 363-problem checkpoint is documented in [RELEASE_363_CHECKPOINT.md](RELEASE_363_CHECKPOINT.md).
-Expansion has resumed locally; `main` contains 371 verified problems. The 363-,
+Expansion has resumed locally; `main` contains 380 verified problems. The 363-,
 345-, and 326-problem tags are unchanged. New development does not change the
 other computer or authorize a push/deployment.
 
@@ -48,9 +48,29 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 73 existing equivalents (69 original exercises and
   four approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,131 rows remain pending.
-- 270 new imports in thirty-seven reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 371 problems.
+  design/interactive exclusions; 3,122 rows remain pending.
+- 279 new imports in thirty-eight reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 380 problems.
+- Batch thirty-eight covers LeetCode 415–421 and 423–424: digitwise addition,
+  one-use subset-sum DP, reverse ocean traversal, cyclic row transitions,
+  straight-ship starts, minimum password edits, XOR prefixes, digit inventories,
+  and replacement-budget windows. Oracles use small exact integers, subset masks,
+  independent downhill floods from every cell, literal word placement, connected
+  components, edit distance to a valid-password automaton, all XOR pairs,
+  digit-count vector search, and every substring.
+  Password search enumerates keep/delete/insert/replace transitions; three new
+  character representatives per class suffice to avoid both neighboring output
+  characters without excluding a valid edit. Original characters remain available
+  as free keep transitions. An independent literal edit BFS checks every six-
+  character word over a three-character alphabet, and longer mixed/punctuation
+  inputs test deletion/replacement interactions through length 50.
+  Regressions exhaust 19,683 ternary 3-by-3 ocean maps, all valid small ship boards,
+  positive subset multisets, word widths, XOR multisets, digit inventories, and
+  short uppercase windows at every budget. Source-scale cases include 200-by-200
+  grids, 200,000 XOR values, 10,000-digit inputs, and 100,000-character strings.
+  Ocean results preserve row/column order inside each pair; grid/recursion review
+  priority remains active. The judge and all 371 previous problem payloads/IDs
+  are unchanged, and the 363-problem transfer tag remains frozen.
 - Batch thirty-seven covers LeetCode 18, 30, 47, 87, 407, 410, and 413–414:
   unique value quadruplets, word-multiset windows, numeric permutations,
   recursive scrambling, boundary-heap water retention, capacity binary search,
@@ -442,18 +462,18 @@ correctness. Generated tests must meet each problem's actual constraints.
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
   afterward. Ordered integer groups now also accept within-group permutations
-  while preserving outer order and duplicate counts. All 270 published imports
-  have matching passing reports in the 371-problem package. The judge is unchanged
+  while preserving outer order and duplicate counts. All 279 published imports
+  have matching passing reports in the 380-problem package. The judge is unchanged
   since revalidation for value-only tree mutation and explicit-None identity snapshots.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 371-problem Chrome/M3 Pro run: library/search p95 4.01/2.89 ms,
-  detail p95 1.58 ms for Word Search and 1.52 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.89 ms (100 requests per route). Startup is
-  340 ms and backend peak RSS is 118.61 MiB across browsing large array and
-  linked-list details and restarting. All 270 imported references and
+- Current 380-problem Chrome/M3 Pro run: library/search p95 1.48/1.72 ms,
+  detail p95 1.63 ms for Word Search and 1.55 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.81 ms (100 requests per route). Startup is
+  346 ms and backend peak RSS is 131.45 MiB across browsing large array and
+  linked-list details and restarting. All 279 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The Recover Binary Search Tree suite finishes in 42.7 ms after runtime load,
+  The Recover Binary Search Tree suite finishes in 43.7 ms after runtime load,
   including both 1,000-node chains and all sixteen deterministic cases. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
@@ -476,13 +496,17 @@ correctness. Generated tests must meet each problem's actual constraints.
   All sixteen batch-thirty-seven wrong algorithms are also rejected. Numeric
   permutations accept reversed outer order but reject duplicate/missing rows
   and collapsing all rows to the same internal order. Its 40,320-output boundary
-  passes within a 261.9 ms suite; both 200-by-200 basin cases pass within a
-  208.2 ms suite after Pyodide load. The row-order explanation renders in the UI.
+  passes within a 256.1 ms suite; both 200-by-200 basin cases pass within a
+  233.6 ms suite after Pyodide load. The row-order explanation renders in the UI.
+  All eighteen batch-thirty-eight wrong algorithms are rejected. Ocean coordinates
+  accept reordered cells but reject row/column swaps, omissions, and duplicates;
+  the plateau and coordinate rules render in the UI. Source-scale XOR, subset DP,
+  and ocean suites finish in 571.1, 355.3, and 275.2 ms respectively after load.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
   Reports also bind the judge contract, built worker, frontend index, and browser
   verifier hashes; the verifier refuses a stale built worker until it is rebuilt.
-- Current automated suite: 367 backend tests and 16 frontend tests pass. The
+- Current automated suite: 379 backend tests and 16 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

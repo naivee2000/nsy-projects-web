@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 371,
+  "count": 380,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -6673,6 +6673,166 @@
       "path": "problems/leetcode-414.json",
       "content_sha256": "10d7f9ecb06c599cc0906c9f98216c795b56103145d2df95054c75525ba9a191",
       "source_id": 414
+    },
+    {
+      "id": "leetcode-415",
+      "version": 1,
+      "status": "approved",
+      "title": "Add Strings",
+      "summary": "Given two non-negative integers as strings, compute their sum and return the result as a string without using built-in large integer libraries or direct integer conversion.",
+      "topics": [
+        "strings",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-415.json",
+      "content_sha256": "4e5aaeb819e8f8f6dea9435f6718711d6c8a6efedac3ed2d761570885f82bf7b",
+      "source_id": 415
+    },
+    {
+      "id": "leetcode-416",
+      "version": 1,
+      "status": "approved",
+      "title": "Partition Equal Subset Sum",
+      "summary": "Determine if an integer array can be divided into two subsets with equal sums.",
+      "topics": [
+        "arrays",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-416.json",
+      "content_sha256": "94606e1546b819915f875d7efaed6c5a50f414962b2f6cf5e9a0b2391111b95b",
+      "source_id": 416
+    },
+    {
+      "id": "leetcode-417",
+      "version": 1,
+      "status": "approved",
+      "title": "Pacific Atlantic Water Flow",
+      "summary": "Given an m x n grid where each cell's height is defined, identify all cells from which water can flow to both the Pacific and Atlantic oceans.",
+      "topics": [
+        "matrices",
+        "graphs",
+        "depth-first-search",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-417.json",
+      "content_sha256": "086261845bcb3cdc1b78ec6db239bf1081f1a1e0dc2097d8d076f437d70f5051",
+      "source_id": 417
+    },
+    {
+      "id": "leetcode-418",
+      "version": 1,
+      "status": "approved",
+      "title": "Sentence Screen Fitting",
+      "summary": "Determine how many times a given sentence, with words in their original order and no splitting, can fit on a screen defined by rows and columns, ensuring each word occupies a separate space.",
+      "topics": [
+        "strings",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-418.json",
+      "content_sha256": "e715effffab4365ea3da6a4c178487871220860c038e3f0c46530da38554a2f7",
+      "source_id": 418
+    },
+    {
+      "id": "leetcode-419",
+      "version": 1,
+      "status": "approved",
+      "title": "Battleships in a Board",
+      "summary": "Given an m x n matrix board where each cell is either a battleship 'X' or empty '.', return the total number of distinct battleships on the board.",
+      "topics": [
+        "matrices",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-419.json",
+      "content_sha256": "315b3254b949ab7948c503023bbee17762c0f0de8c160607e15651392023643b",
+      "source_id": 419
+    },
+    {
+      "id": "leetcode-420",
+      "version": 1,
+      "status": "approved",
+      "title": "Strong Password Checker",
+      "summary": "A password is considered strong if it is between 6 and 20 characters long, includes at least one lowercase letter, one uppercase letter, and one digit, and does not contain three consecutive identical characters.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [
+        "strings",
+        "greedy"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-420.json",
+      "content_sha256": "abc4d9904a8b6373bdde624891cacc482e2085d99e4591e05c9d55ac64d8ebe2",
+      "source_id": 420
+    },
+    {
+      "id": "leetcode-421",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum XOR of Two Numbers in an Array",
+      "summary": "For an integer array nums, find the highest value of the bitwise XOR operation between any two elements nums[i] and nums[j] where i and j range from 0 to n-1.",
+      "topics": [
+        "arrays",
+        "bit-manipulation",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-421.json",
+      "content_sha256": "603bee487356fe57a97abd63407ff3df0842dd3d6c772de8350773ff76749bd7",
+      "source_id": 421
+    },
+    {
+      "id": "leetcode-423",
+      "version": 1,
+      "status": "approved",
+      "title": "Reconstruct Original Digits from English",
+      "summary": "Given a string s with digits represented in English but out of order, output the digits in ascending order.",
+      "topics": [
+        "strings",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-423.json",
+      "content_sha256": "172dda44693fa328b304ddafc740b1338c4cfadba69585b34b60dda1a11fd84e",
+      "source_id": 423
+    },
+    {
+      "id": "leetcode-424",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Repeating Character Replacement",
+      "summary": "Given a string s and an integer k , you can change any character in the string to any other uppercase English letter at most k times.",
+      "topics": [
+        "strings",
+        "sliding-window",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-424.json",
+      "content_sha256": "3dae6c3ade8017fdb6e80e99c6bf2c9072b391a5b0fb67254b13dfa78f472675",
+      "source_id": 424
     },
     {
       "id": "leetcode-543",

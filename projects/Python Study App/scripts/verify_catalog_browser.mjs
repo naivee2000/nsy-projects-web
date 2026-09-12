@@ -218,6 +218,12 @@ try {
   await page.getByRole('button', { name: /Permutations II.*Medium/ }).click();
   assert((await page.locator('.problem-pane').textContent()).includes('order inside a permutation matters'));
   report.checks.push('numeric permutations explain outer-order flexibility without discarding row order');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Pacific Atlantic Water Flow');
+  await page.getByRole('button', { name: /Pacific Atlantic Water Flow.*Medium/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('equal or lower heights'));
+  assert((await page.locator('.problem-pane').textContent()).includes('zero-based [row,column]'));
+  report.checks.push('ocean-flow instructions explain downhill plateaus and ordered row/column coordinates');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -255,6 +261,23 @@ try {
       `def unique_number_permutations(nums):\n    return ${output}`)).status, 'wrong_answer');
   }
   report.checks.push('batch 37 wrong algorithms rejected; numeric permutations accept reversed outer order but reject duplicate, missing, and row-order-collapsed results');
+  for (const id of [415, 416, 417, 418, 419, 420, 421, 423, 424]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `leetcode-${id} wrong fixture`);
+    }
+  }
+  const ocean = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-417.json'), 'utf8'));
+  const coordinates = [[0,2],[1,0],[1,1],[1,2]];
+  const oceanCase = { ...ocean, tests: [{ id: 'rectangular-coordinates', arguments: [[[1,2,3],[4,5,6]]],
+    expected: coordinates, comparator: 'unordered' }] };
+  assert.equal((await judge(page, oceanCase,
+    `def pacific_atlantic_cells(heights):\n    return ${JSON.stringify([...coordinates].reverse())}`)).status, 'accepted');
+  for (const output of [coordinates.map(([r,c]) => [c,r]), [...coordinates,coordinates[0]], coordinates.slice(1)]) {
+    assert.equal((await judge(page, oceanCase,
+      `def pacific_atlantic_cells(heights):\n    return ${JSON.stringify(output)}`)).status, 'wrong_answer');
+  }
+  report.checks.push('batch 38 wrong algorithms rejected; ocean coordinates allow outer reorder but reject transposition, missing cells, and duplicates');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
     expected: [1,1,1], expected_node_order: [1,2,0] }] };

@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-423",
+  "content_sha256": "172dda44693fa328b304ddafc740b1338c4cfadba69585b34b60dda1a11fd84e",
+  "source_hash": "b7e6bde85e7b97ea7518c4784a5d716966fc31425167cf9c2f7843114ac009b9",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the h in eight as another three instead of subtracting known digits.",
+      "failed_cases": [
+        "lc-423-11",
+        "lc-423-14",
+        "lc-423-stress-2"
+      ]
+    },
+    {
+      "reason": "Emits each present digit only once, losing multiplicities.",
+      "failed_cases": [
+        "lc-423-13",
+        "lc-423-stress-1",
+        "lc-423-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4470,
+  "oracle_implementation": "code_practice/import_batch_038.py:digits_oracle",
+  "validator_implementation_sha256": "bb0931cad8a6f9ba3bd8149c64a79054d96170e955e1390f7aed24a548bc33c9",
+  "batch_implementation_sha256": "709584d3fba0c7ff2bb74747cc83f6519b23039a7370f2479c0b871d3b5d95f2",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.152,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

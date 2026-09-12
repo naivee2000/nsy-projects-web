@@ -1,0 +1,254 @@
+{
+  "id": "leetcode-420",
+  "version": 1,
+  "status": "approved",
+  "title": "Strong Password Checker",
+  "summary": "A password is considered strong if it is between 6 and 20 characters long, includes at least one lowercase letter, one uppercase letter, and one digit, and does not contain three consecutive identical characters.",
+  "statement": "A password is considered strong if it is between 6 and 20 characters long, includes at least one lowercase letter, one uppercase letter, and one digit, and does not contain three consecutive identical characters. Given a string password, determine the minimum number of steps required to make it strong. If the password already meets the criteria, return 0. Steps can include adding, removing, or substituting a single character at a time.",
+  "constraints": [
+    "1 <= password.length <= 50; ASCII letters, digits, dot, or exclamation mark.",
+    "Strong means length 6–20 inclusive, at least one lowercase/uppercase/digit, and no three equal consecutive characters.",
+    "One step inserts, deletes, or replaces one character. Return the minimum edits under these puzzle rules, not a security-strength rating."
+  ],
+  "topics": [
+    "strings",
+    "greedy"
+  ],
+  "prerequisites": [
+    "strings",
+    "greedy"
+  ],
+  "signature": {
+    "name": "strong_password_edits",
+    "parameters": [
+      {
+        "name": "password",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def strong_password_edits(password: str) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def strong_password_edits(password):\n    missing = int(not any('a'<=c<='z' for c in password))\n    missing += int(not any('A'<=c<='Z' for c in password))\n    missing += int(not any('0'<=c<='9' for c in password))\n    replacements = zero = one = 0\n    start = 0\n    while start<len(password):\n        end = start+1\n        while end<len(password) and password[end]==password[start]:\n            end += 1\n        length = end-start\n        replacements += length//3\n        if length>=3:\n            zero += int(length%3==0)\n            one += int(length%3==1)\n        start = end\n    if len(password)<6:\n        return max(6-len(password),missing)\n    if len(password)<=20:\n        return max(replacements,missing)\n    deletions = len(password)-20\n    remaining = deletions\n    used = min(remaining,zero)\n    replacements -= used\n    remaining -= used\n    used = min(remaining,2*one)\n    replacements -= used//2\n    remaining -= used\n    replacements = max(0,replacements-remaining//3)\n    return deletions+max(replacements,missing)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def strong_password_edits(password):\n    missing = int(not any('a'<=c<='z' for c in password))\n    missing += int(not any('A'<=c<='Z' for c in password))\n    missing += int(not any('0'<=c<='9' for c in password))\n    replacements = zero = one = 0\n    start = 0\n    while start<len(password):\n        end = start+1\n        while end<len(password) and password[end]==password[start]:\n            end += 1\n        length = end-start\n        replacements += length//3\n        if length>=3:\n            zero += int(length%3==0)\n            one += int(length%3==1)\n        start = end\n    if len(password)<6:\n        return max(6-len(password),missing)\n    if len(password)<=20:\n        return replacements+missing\n    deletions = len(password)-20\n    remaining = deletions\n    used = min(remaining,zero)\n    replacements -= used\n    remaining -= used\n    used = min(remaining,2*one)\n    replacements -= used//2\n    remaining -= used\n    replacements = max(0,replacements-remaining//3)\n    return deletions+max(replacements,missing)\n",
+    "def strong_password_edits(password):\n    missing = int(not any('a'<=c<='z' for c in password))\n    missing += int(not any('A'<=c<='Z' for c in password))\n    missing += int(not any('0'<=c<='9' for c in password))\n    replacements = zero = one = 0\n    start = 0\n    while start<len(password):\n        end = start+1\n        while end<len(password) and password[end]==password[start]:\n            end += 1\n        length = end-start\n        replacements += length//3\n        if length>=3:\n            zero += int(length%3==0)\n            one += int(length%3==1)\n        start = end\n    if len(password)<6:\n        return max(6-len(password),missing)\n    if len(password)<=20:\n        return max(replacements,missing)\n    deletions = len(password)-20\n    remaining = deletions\n    used = 0\n    replacements -= used\n    remaining -= used\n    used = min(remaining,2*one)\n    replacements -= used//2\n    remaining -= used\n    replacements = max(0,replacements-remaining//3)\n    return deletions+max(replacements,missing)\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Length, missing character classes, and runs interact; an edit can solve more than one issue.",
+    "A repeated run needs length//3 replacements unless insertions or mandatory deletions reduce it.",
+    "Short: max(6-n,missing). Medium: max(run replacements,missing). Long: delete n-20, prioritizing run lengths mod 3 equal to 0, then 1, then groups of 3.",
+    "One deletion saves a replacement for 3k runs; two for 3k+1; three thereafter. Combine remaining replacement work with missing classes using max, not addition."
+  ],
+  "editorial": "For short inputs, required insertions can break runs and supply missing classes. At lengths 6–20, each disjoint triple in a run needs one replacement, which can also add a missing class. For longer inputs, deletions are mandatory. Spend them where they save replacements most cheaply: first one on each 3k run, then two on each 3k+1 run, then triples. Add mandatory deletions to the maximum of remaining replacements and missing classes. Three run counters suffice for O(1) space. These are the exercise rules only; the function does not assess real-world password security.",
+  "tests": [
+    {
+      "id": "lc-420-1",
+      "arguments": [
+        "a"
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Five insertions reach length 6; choose inserted characters to supply an uppercase letter and a digit while avoiding triples.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-2",
+      "arguments": [
+        "aaaAAA000bbbBBB111ccc"
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Length 21 forces one deletion. Deleting from a length-three run fixes that run; six replacements fix the remaining runs: 7 edits.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-3",
+      "arguments": [
+        "aA1"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-4",
+      "arguments": [
+        "1337C0d3"
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-5",
+      "arguments": [
+        "aaa111"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-6",
+      "arguments": [
+        "aaaaaa"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-7",
+      "arguments": [
+        "aA0bB1"
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-8",
+      "arguments": [
+        "ABABAB"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-9",
+      "arguments": [
+        "!!!!!"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-10",
+      "arguments": [
+        "aaaaaaaaaaaaaaaaaaaa"
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-11",
+      "arguments": [
+        "aaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-12",
+      "arguments": [
+        "aaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-13",
+      "arguments": [
+        "aaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-14",
+      "arguments": [
+        "aaaB1aaaB1aaaB1aaaB1aaa"
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-stress-1",
+      "arguments": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "expected": 36,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-stress-2",
+      "arguments": [
+        "aA0aA0aA0aA0aA0aA0aA0aA0aA0aA0aA0aA0aA0aA0aA0aA0aA"
+      ],
+      "expected": 30,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-420-stress-3",
+      "arguments": [
+        ".................................................."
+      ],
+      "expected": 36,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

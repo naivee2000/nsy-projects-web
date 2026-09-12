@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 371 runnable problems (101 original exercises plus 270 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 380 runnable problems (101 original exercises plus 279 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **363-problem handoff checkpoint** is tagged `python-study-363-checkpoint`; the earlier 345- and 326-problem tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_363_CHECKPOINT.md) for exact-version update commands. Goal work has resumed locally, adding eight verified problems on `main` without changing that tag. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **363-problem handoff checkpoint** is tagged `python-study-363-checkpoint`; the earlier 345- and 326-problem tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_363_CHECKPOINT.md) for exact-version update commands. Goal work has resumed locally, adding seventeen verified problems on `main` without changing that tag. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 73 existing equivalents, 270 verified imports, 155 documented
-design/interactive exclusions, and 3,131 pending records. Ordinary tree and
+Current status: 73 existing equivalents, 279 verified imports, 155 documented
+design/interactive exclusions, and 3,122 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Thirty-seven reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Thirty-eight reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -341,6 +341,17 @@ source-scale fixtures include 40,320 permutations, 200-by-200 basins, 5,000
 repeated words, and 1,000-element partition searches. Recursive permutation/
 scramble and binary-search exercises retain weak-topic priorities. Existing
 problem IDs, content, progress, and the 363-problem handoff tag remain unchanged.
+Batch thirty-eight adds Add Strings, Partition Equal Subset Sum, Pacific Atlantic
+Water Flow, Sentence Screen Fitting, Battleships in a Board, Strong Password
+Checker, Maximum XOR of Two Numbers, Reconstruct Original Digits, and Longest
+Repeating Character Replacement. Ocean traversal retains the stronger recursive-
+matrix review priority, with an explicit DFS stack for 40,000-cell plateaus.
+The password puzzle's minimum-edit formula is checked against a separate exact
+edit-distance automaton search and literal small-alphabet edits, not another
+copy of the same formula. Source-scale tests cover 10,000-digit addition,
+20,000-by-20,000 screen counts, 200,000 XOR inputs, and 100,000-character windows.
+Coordinate lists may be reordered, but swapping row/column or duplicating cells
+fails. Existing content, progress IDs, and all handoff tags remain unchanged.
 Of the 73 overlaps, 69 map to original exercises and four map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
@@ -382,7 +393,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 371 problems; future
+been checked against every reviewed batch. The current package contains 380 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

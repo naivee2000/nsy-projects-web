@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-418",
+  "content_sha256": "e715effffab4365ea3da6a4c178487871220860c038e3f0c46530da38554a2f7",
+  "source_hash": "04303ecc54c19b2198df46d70d044f06163d3afa563f2a3bdc38990e756b829e",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Requires a trailing space after the last word, wasting an otherwise usable column.",
+      "failed_cases": [
+        "lc-418-3",
+        "lc-418-5",
+        "lc-418-7",
+        "lc-418-8",
+        "lc-418-11",
+        "lc-418-12"
+      ]
+    },
+    {
+      "reason": "Restarts from the first word on every row instead of continuing sentence order.",
+      "failed_cases": [
+        "lc-418-1",
+        "lc-418-2",
+        "lc-418-10",
+        "lc-418-11",
+        "lc-418-12",
+        "lc-418-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4465,
+  "oracle_implementation": "code_practice/import_batch_038.py:screen_oracle",
+  "validator_implementation_sha256": "bb0931cad8a6f9ba3bd8149c64a79054d96170e955e1390f7aed24a548bc33c9",
+  "batch_implementation_sha256": "709584d3fba0c7ff2bb74747cc83f6519b23039a7370f2479c0b871d3b5d95f2",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

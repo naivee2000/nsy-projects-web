@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-416",
+  "content_sha256": "94606e1546b819915f875d7efaed6c5a50f414962b2f6cf5e9a0b2391111b95b",
+  "source_hash": "dfbf5868b3d8b988285b91609346b1a54e15a567f0aa40ff1388fe61a23b7b20",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Updates sums upward, accidentally allowing reuse of the same occurrence.",
+      "failed_cases": [
+        "lc-416-2",
+        "lc-416-9"
+      ]
+    },
+    {
+      "reason": "Assumes every even total can be partitioned.",
+      "failed_cases": [
+        "lc-416-2",
+        "lc-416-4",
+        "lc-416-9",
+        "lc-416-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4463,
+  "oracle_implementation": "code_practice/import_batch_038.py:partition_oracle",
+  "validator_implementation_sha256": "bb0931cad8a6f9ba3bd8149c64a79054d96170e955e1390f7aed24a548bc33c9",
+  "batch_implementation_sha256": "709584d3fba0c7ff2bb74747cc83f6519b23039a7370f2479c0b871d3b5d95f2",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.22,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

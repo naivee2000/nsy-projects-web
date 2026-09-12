@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-420",
+  "content_sha256": "abc4d9904a8b6373bdde624891cacc482e2085d99e4591e05c9d55ac64d8ebe2",
+  "source_hash": "175be5141a9c7fb0d9464f2bfa1628f9b3a34eeb930428bf857551a1c7a525ab",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Adds missing-type fixes and repeated-run replacements even when one replacement fixes both.",
+      "failed_cases": [
+        "lc-420-5",
+        "lc-420-6",
+        "lc-420-10"
+      ]
+    },
+    {
+      "reason": "Ignores one-deletion savings on runs whose lengths are multiples of three.",
+      "failed_cases": [
+        "lc-420-2",
+        "lc-420-11",
+        "lc-420-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4467,
+  "oracle_implementation": "code_practice/import_batch_038.py:password_oracle",
+  "validator_implementation_sha256": "bb0931cad8a6f9ba3bd8149c64a79054d96170e955e1390f7aed24a548bc33c9",
+  "batch_implementation_sha256": "709584d3fba0c7ff2bb74747cc83f6519b23039a7370f2479c0b871d3b5d95f2",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.219,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

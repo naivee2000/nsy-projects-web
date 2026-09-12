@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-421",
+  "content_sha256": "603bee487356fe57a97abd63407ff3df0842dd3d6c772de8350773ff76749bd7",
+  "source_hash": "90db4454de5f38a1d08fd98873e158b5cbd98eb89bcd277f4fd8c7b8f064e6c8",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Omits bit 30, losing the highest allowed input bit.",
+      "failed_cases": [
+        "lc-421-9",
+        "lc-421-10",
+        "lc-421-stress-1"
+      ]
+    },
+    {
+      "reason": "Assumes the two numerically largest values have the largest XOR.",
+      "failed_cases": [
+        "lc-421-1",
+        "lc-421-13",
+        "lc-421-14",
+        "lc-421-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4468,
+  "oracle_implementation": "code_practice/import_batch_038.py:xor_oracle",
+  "validator_implementation_sha256": "bb0931cad8a6f9ba3bd8149c64a79054d96170e955e1390f7aed24a548bc33c9",
+  "batch_implementation_sha256": "709584d3fba0c7ff2bb74747cc83f6519b23039a7370f2479c0b871d3b5d95f2",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.658,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

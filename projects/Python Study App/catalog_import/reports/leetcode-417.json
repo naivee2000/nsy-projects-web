@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-417",
+  "content_sha256": "086261845bcb3cdc1b78ec6db239bf1081f1a1e0dc2097d8d076f437d70f5051",
+  "source_hash": "f8fbb1a1cbec1f13db6f4091ce8129ecbdae261e6c7730bb5430a5a828da7e44",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Disallows equal-height connections when reversing the flow.",
+      "failed_cases": [
+        "lc-417-1",
+        "lc-417-2",
+        "lc-417-10",
+        "lc-417-11",
+        "lc-417-14",
+        "lc-417-stress-1"
+      ]
+    },
+    {
+      "reason": "Walks downhill from the oceans instead of reversing the flow uphill.",
+      "failed_cases": [
+        "lc-417-1",
+        "lc-417-7",
+        "lc-417-8",
+        "lc-417-9",
+        "lc-417-10",
+        "lc-417-11",
+        "lc-417-12",
+        "lc-417-13",
+        "lc-417-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4464,
+  "oracle_implementation": "code_practice/import_batch_038.py:oceans_oracle",
+  "validator_implementation_sha256": "bb0931cad8a6f9ba3bd8149c64a79054d96170e955e1390f7aed24a548bc33c9",
+  "batch_implementation_sha256": "709584d3fba0c7ff2bb74747cc83f6519b23039a7370f2479c0b871d3b5d95f2",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.377,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

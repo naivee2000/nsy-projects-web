@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-419",
+  "content_sha256": "315b3254b949ab7948c503023bbee17762c0f0de8c160607e15651392023643b",
+  "source_hash": "387991eabf97861d995a054c86eef8da1b04f55c2833133287744b984e3685d6",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts occupied cells instead of ships.",
+      "failed_cases": [
+        "lc-419-1",
+        "lc-419-5",
+        "lc-419-6",
+        "lc-419-9",
+        "lc-419-10",
+        "lc-419-11",
+        "lc-419-13",
+        "lc-419-14",
+        "lc-419-stress-2"
+      ]
+    },
+    {
+      "reason": "Counts each segment of a vertical ship as a separate horizontal start.",
+      "failed_cases": [
+        "lc-419-1",
+        "lc-419-6",
+        "lc-419-10",
+        "lc-419-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4466,
+  "oracle_implementation": "code_practice/import_batch_038.py:ships_oracle",
+  "validator_implementation_sha256": "bb0931cad8a6f9ba3bd8149c64a79054d96170e955e1390f7aed24a548bc33c9",
+  "batch_implementation_sha256": "709584d3fba0c7ff2bb74747cc83f6519b23039a7370f2479c0b871d3b5d95f2",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
