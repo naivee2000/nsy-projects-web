@@ -1,0 +1,261 @@
+{
+  "id": "leetcode-326",
+  "version": 1,
+  "status": "approved",
+  "title": "Power of Three",
+  "summary": "Determine if an integer is a power of three by checking if there exists an integer x such that the given number equals 3 raised to the power of x.",
+  "statement": "Determine if an integer is a power of three by checking if there exists an integer x such that the given number equals 3 raised to the power of x.",
+  "constraints": [
+    "-(2^31) <= n <= 2^31-1. Return whether n = 3^x for a nonnegative integer x.",
+    "1 is 3^0 and is valid. Zero, negatives, and multiples of 3 containing other factors are invalid."
+  ],
+  "topics": [
+    "math",
+    "recursion"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "is_power_of_three",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def is_power_of_three(n: int) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def is_power_of_three(n):\n    if n <= 0:\n        return False\n    while n % 3 == 0:\n        n //= 3\n    return n == 1\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def is_power_of_three(n):\n    return n == 1 or (n > 0 and n % 3 == 0)\n",
+    "def is_power_of_three(n):\n    if n <= 1:\n        return False\n    while n % 3 == 0:\n        n //= 3\n    return n == 1\n"
+  ],
+  "target_time_complexity": "O(log n) for positive n",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Repeated division by 3 removes exactly the allowed prime factors.",
+    "Reject nonpositive inputs first; then keep dividing while the remainder is zero.",
+    "While n%3==0, set n=n//3. The original number was a power of three exactly when the remaining n is 1.",
+    "For this fixed 32-bit domain, the optional loop-free method checks whether positive n divides 3^19=1162261467."
+  ],
+  "editorial": "Repeatedly remove factors of three. A positive integer is a power of three exactly when no factor remains afterward. The n=1 case succeeds without entering the loop. The independent oracle checks membership in the complete finite set of 32-bit powers. This differs from power-of-two exercises because divisibility is by three.",
+  "tests": [
+    {
+      "id": "lc-326-1",
+      "arguments": [
+        27
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "27 = 3×3×3, so return true.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-2",
+      "arguments": [
+        45
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "45 is divisible by 3, but after removing its two factors of 3, a factor 5 remains. Return false.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-3",
+      "arguments": [
+        0
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-4",
+      "arguments": [
+        1
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-5",
+      "arguments": [
+        -1
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-6",
+      "arguments": [
+        2
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-7",
+      "arguments": [
+        3
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-8",
+      "arguments": [
+        6
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-9",
+      "arguments": [
+        9
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-10",
+      "arguments": [
+        12
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-11",
+      "arguments": [
+        18
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-12",
+      "arguments": [
+        81
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-13",
+      "arguments": [
+        243
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-14",
+      "arguments": [
+        244
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-15",
+      "arguments": [
+        -27
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-16",
+      "arguments": [
+        1162261467
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-17",
+      "arguments": [
+        2147483647
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-326-18",
+      "arguments": [
+        -2147483648
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

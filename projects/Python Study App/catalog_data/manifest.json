@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 307,
+  "count": 316,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -5444,6 +5444,178 @@
       "path": "problems/leetcode-317.json",
       "content_sha256": "b79f0fc9c98aecbdcc8b260e65c5bde25f1b88081875f6a0a22bfbf8f8f96dda",
       "source_id": 317
+    },
+    {
+      "id": "leetcode-318",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Product of Word Lengths",
+      "summary": "Given an array of strings, find the highest product of the lengths of two distinct strings that share no common letters, or return 0 if no such pair exists.",
+      "topics": [
+        "strings",
+        "bit-manipulation",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-318.json",
+      "content_sha256": "b5f650e8f1d70aa575242aad0afb7c3a98e51dae5036f2c1494127452b6cf798",
+      "source_id": 318
+    },
+    {
+      "id": "leetcode-320",
+      "version": 1,
+      "status": "approved",
+      "title": "Generalized Abbreviation",
+      "summary": "Given a string, generate all possible generalized abbreviations by replacing any number of non-overlapping and non-adjacent substrings with their lengths.",
+      "topics": [
+        "recursion",
+        "backtracking",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-320.json",
+      "content_sha256": "350ffa2050d09f780b32243d71ca47115e87c9d59598fe3dc9cb61ee4e812cd0",
+      "source_id": 320
+    },
+    {
+      "id": "leetcode-326",
+      "version": 1,
+      "status": "approved",
+      "title": "Power of Three",
+      "summary": "Determine if an integer is a power of three by checking if there exists an integer x such that the given number equals 3 raised to the power of x.",
+      "topics": [
+        "math",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-326.json",
+      "content_sha256": "1780980029a5736327e700719e39aa792a25af4a1639337db7c3b574b718ba07",
+      "source_id": 326
+    },
+    {
+      "id": "leetcode-327",
+      "version": 1,
+      "status": "approved",
+      "title": "Count of Range Sum",
+      "summary": "Determine the count of range sums within the inclusive interval [lower, upper] for a given integer array and two integer bounds.",
+      "topics": [
+        "prefix-sums",
+        "divide-and-conquer",
+        "recursion",
+        "binary-search"
+      ],
+      "prerequisites": [
+        "prefix-sums",
+        "binary-search"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-327.json",
+      "content_sha256": "d887e487c3a58761fae203cc7aa748dd1d05ffc8eff05773aefde816551f8e18",
+      "source_id": 327
+    },
+    {
+      "id": "leetcode-329",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Increasing Path in a Matrix",
+      "summary": "Return the number of cells on the longest strictly increasing path in matrix.",
+      "topics": [
+        "matrices",
+        "graphs",
+        "recursion",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "matrices",
+        "recursion"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-329.json",
+      "content_sha256": "c570c9de8ad95cd5c7522c2d5f47db12814b88b444b54117fcabd694409dd60f",
+      "source_id": 329
+    },
+    {
+      "id": "leetcode-330",
+      "version": 1,
+      "status": "approved",
+      "title": "Patching Array",
+      "summary": "Given a sorted integer array nums and an integer n, ensure all numbers in the range [1, n] can be formed by summing some elements of the array.",
+      "topics": [
+        "greedy",
+        "arrays",
+        "intervals"
+      ],
+      "prerequisites": [
+        "arrays",
+        "greedy"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-330.json",
+      "content_sha256": "0881e6f72984169d0ee636ea9e11894a0e234b76814ba52eedc5dc622e388b1f",
+      "source_id": 330
+    },
+    {
+      "id": "leetcode-331",
+      "version": 1,
+      "status": "approved",
+      "title": "Verify Preorder Serialization of a Binary Tree",
+      "summary": "Given a string of comma-separated values representing a preorder traversal of a binary tree, where '#' denotes a null node, determine if the string is a valid serialization of the tree.",
+      "topics": [
+        "trees",
+        "stacks",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-331.json",
+      "content_sha256": "51249ef3f4bfa9e8d16d3fc2d7e661ce1f4c7b280f993eebef8c3ebfb18328fb",
+      "source_id": 331
+    },
+    {
+      "id": "leetcode-333",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest BST Subtree",
+      "summary": "Given a binary tree, identify the largest subtree that forms a Binary Search Tree (BST).",
+      "topics": [
+        "trees",
+        "recursion",
+        "binary-search-trees"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-333.json",
+      "content_sha256": "65a2604919b8d33024354d62dc6f9257504e879e9755000e3110a19a0ccdce71",
+      "source_id": 333
+    },
+    {
+      "id": "leetcode-337",
+      "version": 1,
+      "status": "approved",
+      "title": "House Robber III",
+      "summary": "Given a binary tree representing houses, where each node is a house and each house has a value representing the amount of money in it, the thief must determine the maximum amount of money he can steal without robbing two directly connected houses, which would trigger an alarm.",
+      "topics": [
+        "trees",
+        "recursion",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-337.json",
+      "content_sha256": "617422f63708a61fd8b28068c5f9db5866fa5cead269c29b22f00b04469c5616",
+      "source_id": 337
     },
     {
       "id": "leetcode-338",

@@ -41,11 +41,22 @@ correctness. Generated tests must meet each problem's actual constraints.
 ## Current checkpoint
 
 - All 3,629 workbook rows have portable source snapshots and ledger records.
-- Current behavioral mapping: 71 existing equivalents (69 original exercises and
-  two approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,197 rows remain pending.
-- 206 new imports in twenty-eight reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 307 problems.
+- Current behavioral mapping: 72 existing equivalents (69 original exercises and
+  three approved imports). Static evidence identifies 155 approved-scope
+  design/interactive exclusions; 3,187 rows remain pending.
+- 215 new imports in twenty-nine reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 316 problems.
+- Batch twenty-nine covers LeetCode 318, 320, 326–327, 329–331, 333, and 337:
+  letter-mask products, recursive abbreviations, powers of three, inclusive
+  range-sum counting, increasing matrix paths, minimal array patches, preorder
+  serialization, largest BST subtrees, and tree house selection. Exhaustive
+  tests cover short strings/arrays/grids, all binary tree shapes through five
+  nodes with ternary values, and subset-sum search for optimal patch counts.
+  Stress fixtures include 1000 words of 1000 letters, all 32768 abbreviations
+  at length 15, 100000-element range sums, a 200-by-200 snake of length 40000,
+  and 10000-node trees. Source 319 maps to 69 using the perfect-square/divisor
+  proof, 500 literal simulations, 500 full-domain square enumerations, and
+  square-adjacent boundaries through 10^9. The original progress ID is retained.
 - Batch twenty-eight covers LeetCode 312–317: interval balloon DP, generalized
   prime-product streams, binary-tree vertical traversal, strictly smaller suffix
   frequencies, minimal distinct-letter subsequences, and shortest travel sums
@@ -306,21 +317,21 @@ correctness. Generated tests must meet each problem's actual constraints.
   identity. Both batch-twenty-four LCA exercises use the contract, and copied
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
-  afterward. All 206 published imports have matching passing reports in the
-  307-problem package.
+  afterward. All 215 published imports have matching passing reports in the
+  316-problem package.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 307-problem Chrome/M3 Pro run: library/search p95 1.51/1.33 ms,
-  detail p95 1.42 ms for Word Search and 1.48 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.74 ms (100 requests per route). Startup is
-  343 ms and backend peak RSS is 87.36 MiB after loading the largest linked-list
-  detail. All 206 imported references and
+- Current 316-problem Chrome/M3 Pro run: library/search p95 1.18/1.09 ms,
+  detail p95 1.15 ms for Word Search and 1.15 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.36 ms (100 requests per route). Startup is
+  340 ms and backend peak RSS is 86.81 MiB after loading the largest linked-list
+  detail. All 215 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The six batch-twenty-eight suites complete within 994 ms after runtime load.
-  Burst Balloons takes 993.9 ms including its 300-balloon cubic DP case; Super
-  Ugly Number takes 520.5 ms including n=100000 with 100 primes; suffix counts
-  take 174.8 ms including 100,000 entries. The other three stay below 49 ms.
-  Tree Height's suite with 20,000-node chains takes 108.3 ms. Existing
+  The nine batch-twenty-nine suites complete within 505 ms after runtime load.
+  Count of Range Sum takes 505 ms including its 100,000-element case; the
+  increasing matrix path takes 147.7 ms including a 40,000-cell snake; all
+  32,768 length-15 abbreviations take 64.8 ms. The other six stay below 52 ms.
+  Tree Height's suite with 20,000-node chains takes 99.4 ms. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
   returned-copy/count-only rejection, strict prefix counts, and reordered survivors.
@@ -332,7 +343,7 @@ correctness. Generated tests must meet each problem's actual constraints.
   wrong deleted value and replacement nodes whose displayed values look correct.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
-- Current automated suite: 242 backend tests and 12 frontend tests pass. The
+- Current automated suite: 253 backend tests and 12 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

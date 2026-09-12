@@ -4,9 +4,9 @@
   "workbook_sha256": "d4d791913078d0275fb404f4e61ff914b039f74f44ff4a2774070685e82e8e46",
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
-    "overlap": 71,
-    "imported": 206,
-    "pending": 3197,
+    "overlap": 72,
+    "imported": 215,
+    "pending": 3187,
     "excluded": 155
   },
   "record_count": 3629,
@@ -3543,10 +3543,11 @@
       "title": "Maximum Product of Word Lengths",
       "difficulty": "Medium",
       "source_hash": "dd75b465a041d4849f7454185cfdbf943258b0fbcca22da44ce71c317b0773b6",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-318.json",
+      "problem_id": "leetcode-318"
     },
     {
       "source_id": 319,
@@ -3554,10 +3555,11 @@
       "title": "Bulb Switcher",
       "difficulty": "Medium",
       "source_hash": "96e38bc1896eb94f07fc21941e35874391887f54bc744c3b81d10566bf794b9e",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "leetcode-69",
+      "reason": "Bulb i is toggled once per positive divisor, so it remains on exactly when i is a perfect square (only squares have an unpaired divisor). Thus the number lit among 1..n is floor(sqrt(n)), exactly the existing integer-square-root result. The target's 0..2^31-1 input domain covers all source n in 0..10^9, and its binary-search implementation satisfies the source's performance needs. Keep the existing progress ID.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-319.json"
     },
     {
       "source_id": 320,
@@ -3565,10 +3567,11 @@
       "title": "Generalized Abbreviation",
       "difficulty": "Medium",
       "source_hash": "7d5b99f38a63275dcb6b1035b4369f152789deb2e51243c7c7275e92eeada9eb",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-320.json",
+      "problem_id": "leetcode-320"
     },
     {
       "source_id": 321,
@@ -3631,10 +3634,11 @@
       "title": "Power of Three",
       "difficulty": "Easy",
       "source_hash": "4a0a155e5ca29071bd833af997c4287751ddf8fe9d63db1f0f5c4fd93981a9fa",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-326.json",
+      "problem_id": "leetcode-326"
     },
     {
       "source_id": 327,
@@ -3642,10 +3646,11 @@
       "title": "Count of Range Sum",
       "difficulty": "Hard",
       "source_hash": "0d8409f77136a425fbce758cb9bf25b1dfdbfb4f9046f30e7bafa4bcfe39e6f7",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-327.json",
+      "problem_id": "leetcode-327"
     },
     {
       "source_id": 328,
@@ -3664,10 +3669,11 @@
       "title": "Longest Increasing Path in a Matrix",
       "difficulty": "Hard",
       "source_hash": "715b33d73ff49c2b02f621cfcae55bb85fd9cbd816a994d57aca22ada475676a",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-329.json",
+      "problem_id": "leetcode-329"
     },
     {
       "source_id": 330,
@@ -3675,10 +3681,11 @@
       "title": "Patching Array",
       "difficulty": "Hard",
       "source_hash": "60271d4d58c57f8b2276bb6ef3c56b3ce18c132bf9f8e387c8884357c4bcd415",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-330.json",
+      "problem_id": "leetcode-330"
     },
     {
       "source_id": 331,
@@ -3686,10 +3693,11 @@
       "title": "Verify Preorder Serialization of a Binary Tree",
       "difficulty": "Medium",
       "source_hash": "e49e6a636ce4b1a672d55f15efd6eb42e56be7eebc04673fb19ed7500b92fa7d",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-331.json",
+      "problem_id": "leetcode-331"
     },
     {
       "source_id": 332,
@@ -3708,10 +3716,11 @@
       "title": "Largest BST Subtree",
       "difficulty": "Medium",
       "source_hash": "53c9eb4ac3fa1c6b4b4f969ac1be9900ad18fa7993b08b99eb40f98f2cd0ac78",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-333.json",
+      "problem_id": "leetcode-333"
     },
     {
       "source_id": 334,
@@ -3752,10 +3761,11 @@
       "title": "House Robber III",
       "difficulty": "Medium",
       "source_hash": "37b554207b9347d871a78d5fe0d09d1948b33f9b7e8b73147a08c9a7c1660eb1",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-337.json",
+      "problem_id": "leetcode-337"
     },
     {
       "source_id": 338,

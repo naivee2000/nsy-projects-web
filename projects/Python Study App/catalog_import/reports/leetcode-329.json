@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-329",
+  "content_sha256": "c570c9de8ad95cd5c7522c2d5f47db12814b88b444b54117fcabd694409dd60f",
+  "source_hash": "715b33d73ff49c2b02f621cfcae55bb85fd9cbd816a994d57aca22ada475676a",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Allows diagonal movement, joining cells that are not four-direction neighbors.",
+      "failed_cases": [
+        "lc-329-1",
+        "lc-329-10",
+        "lc-329-11",
+        "lc-329-12",
+        "lc-329-16"
+      ]
+    },
+    {
+      "reason": "Requires an increase of exactly one and misses valid larger increases.",
+      "failed_cases": [
+        "lc-329-1",
+        "lc-329-2",
+        "lc-329-13",
+        "lc-329-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4376,
+  "oracle_implementation": "code_practice/import_batch_029.py:increasing_path_oracle",
+  "validator_implementation_sha256": "66319267d9bad5fcad98df90fde40aec9d2163a10f66298b1792a4c9b4acd980",
+  "batch_implementation_sha256": "64f8dbb2bab54b002882bc7d43d2abed574e998729b13480b7977a994d54915f",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.339,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

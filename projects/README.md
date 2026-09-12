@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 307 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is in progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 316 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is in progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel.
 
 ## Python Study App
 
@@ -40,8 +40,8 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
-The workbook expansion currently accounts for 3,629 rows: 71 existing equivalents,
-206 verified new problems, 155 documented design/interactive exclusions, and 3,197
+The workbook expansion currently accounts for 3,629 rows: 72 existing equivalents,
+215 verified new problems, 155 documented design/interactive exclusions, and 3,187
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -164,12 +164,21 @@ and Shortest Distance from All Buildings. Tests preserve changing balloon
 neighbors, duplicate product suppression, tree-position ties, strict suffix
 counts, subsequence order, and impassable building cells. Source-scale fixtures
 include 300 balloons, 100,000 values, 100 primes, and 50-by-50 grids.
-The overlap total includes 69 original exercises plus two approved imports that
+Batch twenty-nine adds Maximum Product of Word Lengths, Generalized Abbreviation,
+Power of Three, Count of Range Sum, Longest Increasing Path in a Matrix, Patching
+Array, Verify Preorder Serialization, Largest BST Subtree, and House Robber III.
+It covers recursive generation, signed prefix sums, greedy subset coverage, and
+tree/grid dynamic programming, including a 40,000-cell path and 10,000-node
+trees. Each has independent oracle checks and source-scale fixtures.
+The overlap total includes 69 original exercises plus three approved imports that
 also cover other workbook contracts. Rotated minimum 153 maps to 154 after
 500 seeded correctness/logarithmic-read checks, without a duplicate progress ID.
 Smallest Subsequence of Distinct Characters (1081) maps to Remove Duplicate
 Letters (316), supported by 500 independent subsequence oracle comparisons,
 the source sample, and 1,000-character boundaries.
+Bulb Switcher (319) maps to integer square root (69): exactly the perfect-square
+bulb positions remain on. Evidence includes 500 literal toggle simulations,
+500 full-domain square counts, and n=1,000,000,000 boundaries.
 Run `.venv/bin/python -m code_practice.reconcile_overlaps` from the app folder
 after revalidating changed overlap targets and before repackaging. Stale source,
 target, judge, or proof data blocks publication rather than silently retaining

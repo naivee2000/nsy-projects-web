@@ -25,6 +25,11 @@ DECISIONS = {
         "source_hash": "21833734d4fc27642ee4a1466650a165e1dfcb72dcf09167572f4298a6901938",
         "reason": "Both contracts return the lexicographically smallest subsequence containing every distinct lowercase letter exactly once. The approved Remove Duplicate Letters entry accepts the entire 1–1000-character source domain (and up to 10000 characters). Source descriptions explicitly identify the equivalence; exhaustive-subsequence oracle comparisons verify behavior. One existing progress ID is retained.",
     },
+    319: {
+        "target_source_id": 69,
+        "source_hash": "96e38bc1896eb94f07fc21941e35874391887f54bc744c3b81d10566bf794b9e",
+        "reason": "Bulb i is toggled once per positive divisor, so it remains on exactly when i is a perfect square (only squares have an unpaired divisor). Thus the number lit among 1..n is floor(sqrt(n)), exactly the existing integer-square-root result. The target's 0..2^31-1 input domain covers all source n in 0..10^9, and its binary-search implementation satisfies the source's performance needs. Keep the existing progress ID.",
+    },
 }
 
 
@@ -137,6 +142,42 @@ def check_distinct_subsequence(payload, source):
             "domain": "1–1000 lowercase letters; order-preserving subsequence with each distinct letter exactly once"}
 
 
+def check_bulb_square_root(payload, source):
+    from .build_import_batch import workbook_sample
+    namespace = {}
+    exec(compile(payload["reference_solution"], "<reviewed-bulb-square-root>", "exec"), namespace)
+    function = namespace[payload["signature"]["name"]]
+    # Parameter spelling differs (source n, target x), but both take one integer.
+    sample = workbook_sample(source['sample'], [{'name': 'n'}])
+    if sample is None or function(*sample[0]) != sample[1]:
+        raise ValueError('Bulb workbook sample disagrees')
+    rng = random.Random(4047 + 319)
+    for _ in range(500):
+        n = rng.randint(0, 2000)
+        bulbs = [False] * (n+1)
+        for step in range(1, n+1):
+            for position in range(step, n+1, step):
+                bulbs[position] = not bulbs[position]
+        if function(n) != sum(bulbs):
+            raise ValueError('Overlap reference disagrees with literal bulb simulation')
+    squares = [value*value for value in range(1, 31623)]
+    for _ in range(500):
+        n = rng.randint(0, 10**9)
+        if function(n) != sum(square <= n for square in squares):
+            raise ValueError('Overlap reference disagrees with perfect-square enumeration')
+    boundaries = {0, 1, 10**9}
+    for root in (2, 3, 31, 100, 1000, 31622):
+        boundaries.update((root*root-1, root*root, root*root+1))
+    for n in sorted(boundaries):
+        if function(n) != sum(square <= n for square in squares):
+            raise ValueError('Bulb square boundary disagrees')
+    return {'oracle_inputs': 1000, 'oracle_seed': 4366,
+            'literal_simulation_inputs': 500, 'full_domain_square_enumeration_inputs': 500,
+            'workbook_sample_checked': True, 'deterministic_inputs': len(boundaries)+1,
+            'largest_input': 10**9,
+            'domain': 'n=0..10^9; odd divisor counts occur exactly at perfect-square bulb positions'}
+
+
 def restore_import_overlaps(records, previous, root=ROOT):
     """Preserve proved mappings on unchanged re-extraction, never stale ones."""
     by_id = {record["source_id"]: record for record in records}
@@ -170,7 +211,8 @@ def reconcile(root=ROOT):
                 raise ValueError("Source changed since the behavioral review")
             target = records[decision["target_source_id"]]
             payload = load_verified_import(target, root)
-            checker = {153: check_unique_rotations, 1081: check_distinct_subsequence}[source_id]
+            checker = {153: check_unique_rotations, 1081: check_distinct_subsequence,
+                       319: check_bulb_square_root}[source_id]
             evidence = checker(payload, sources[source_id])
             report = {"valid": True, "source_id": source_id, "source_hash": record["source_hash"],
                       "target_problem_id": target["problem_id"], "target_source_hash": target["source_hash"],
