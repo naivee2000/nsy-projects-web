@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-149",
+  "content_sha256": "98b923ff285aa6ae58faec01e5d7931c83eb93d141ece80f529e5dfc545d45be",
+  "source_hash": "5ea9ba5e4dbb52b1306a6c9721baa1556b260d2d71f761a0a9d5e744e4c7628d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal displacement vectors instead of equal directions, missing unequal point spacing.",
+      "failed_cases": [
+        "lc-149-1",
+        "lc-149-2",
+        "lc-149-5",
+        "lc-149-6",
+        "lc-149-8",
+        "lc-149-9",
+        "lc-149-10",
+        "lc-149-12",
+        "lc-149-stress-1",
+        "lc-149-stress-2"
+      ]
+    },
+    {
+      "reason": "Skips vertical lines to avoid a zero denominator, although vertical lines are valid.",
+      "failed_cases": [
+        "lc-149-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4196,
+  "oracle_implementation": "code_practice/import_batch_034.py:points_oracle",
+  "validator_implementation_sha256": "4695aafcd95a5830a4a1c5246f25502efa8180ef6b115a2391c6fac923d228fd",
+  "batch_implementation_sha256": "7b1c2545554d48e7e8dd80bd9d5e4d24f275b564540ef227f30328d71341624d",
+  "judge_contract_sha256": "fc0b9206a08f55026d26b2fb601f8582f1e123ec812a560f7f98e796c7a87cef",
+  "elapsed_seconds": 0.105,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

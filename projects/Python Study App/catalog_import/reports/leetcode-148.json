@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-148",
+  "content_sha256": "8d27a0b989ef559e82deae54a5125f7f370ff8982bf1a049715d7bbae9f864e7",
+  "source_hash": "a12b9eab8e04bbf56db02c0d924d05b115bcbe60e375533465cd006d8023b95c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Merges in descending rather than ascending order.",
+      "failed_cases": [
+        "lc-148-1",
+        "lc-148-2",
+        "lc-148-5",
+        "lc-148-6",
+        "lc-148-8",
+        "lc-148-9",
+        "lc-148-10",
+        "lc-148-11",
+        "lc-148-13",
+        "lc-148-14",
+        "lc-148-stress-1",
+        "lc-148-stress-2"
+      ]
+    },
+    {
+      "reason": "Performs only the width-one pass; sorted pairs do not imply a sorted whole chain.",
+      "failed_cases": [
+        "lc-148-1",
+        "lc-148-2",
+        "lc-148-8",
+        "lc-148-9",
+        "lc-148-10",
+        "lc-148-11",
+        "lc-148-13",
+        "lc-148-14",
+        "lc-148-stress-1",
+        "lc-148-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4195,
+  "oracle_implementation": "code_practice/import_batch_034.py:sort_oracle",
+  "validator_implementation_sha256": "4695aafcd95a5830a4a1c5246f25502efa8180ef6b115a2391c6fac923d228fd",
+  "batch_implementation_sha256": "7b1c2545554d48e7e8dd80bd9d5e4d24f275b564540ef227f30328d71341624d",
+  "judge_contract_sha256": "fc0b9206a08f55026d26b2fb601f8582f1e123ec812a560f7f98e796c7a87cef",
+  "elapsed_seconds": 0.336,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

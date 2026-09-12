@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 345 runnable problems (101 original exercises plus 244 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 352 runnable problems (101 original exercises plus 251 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **345-problem handoff checkpoint** is tagged `python-study-345-checkpoint`; the earlier 326-problem tag remains unchanged. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md) for exact-version update commands. Expansion is paused at this handoff until the owner requests resumption. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update.
+The transfer-ready **345-problem handoff checkpoint** is tagged `python-study-345-checkpoint`; both it and the earlier 326-problem tag remain unchanged. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md) for exact-version update commands. Goal work has resumed locally, adding seven verified problems on `main`. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 72 existing equivalents, 244 verified imports, 155 documented
-design/interactive exclusions, and 3,158 pending records. Ordinary tree and
+Current status: 72 existing equivalents, 251 verified imports, 155 documented
+design/interactive exclusions, and 3,151 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Thirty-three reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Thirty-four reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -303,6 +303,16 @@ subsequences, ordered sequences, and matrix ranks. Stress fixtures cover 100-by-
 rectangles, 100-node chains, 2,000-digit exponents, n=200 guessing games, and
 300-by-300 sorted matrices. All 244 imports were revalidated after the new
 comparison mode. All previously published 336 entries retain their IDs and content.
+Batch thirty-four adds Sort List, Max Points on a Line, Binary Tree Upside Down,
+Maximum Gap, Reverse Words in a String II, Rotate Array, and Remove Linked List
+Elements. Independent regressions exhaust short lists, grid-point subsets, every
+valid upside-down tree shape through ten nodes, small bucket-gap arrays, word
+sequences, rotations, and deletions. Source-scale fixtures include 50,000-node
+sorts and 100,000-element mutation/bucket exercises. The recursive tree transform
+checks original-node order even when all values match. Character-array reversal
+and in-place rotation are observably distinct from the existing string/list-returning
+exercises: a returned copy does not satisfy their mutation contracts. No existing
+problem content, IDs, saved progress, or frozen handoff tags changed.
 Of the 72 overlaps, 69 map to original exercises and three map to approved
 imports. Unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
@@ -340,7 +350,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 345 problems; future
+been checked against every reviewed batch. The current package contains 352 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

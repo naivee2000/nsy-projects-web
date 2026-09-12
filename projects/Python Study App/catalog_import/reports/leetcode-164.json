@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-164",
+  "content_sha256": "10fc0c047fc6f938aa67cc0769f5979b97cce46ffdce4d9e311bad8fc43bb1b6",
+  "source_hash": "dcac8ac81d90d035985f5fdcb47ebe51c5f53144d907ec459b3527d1458e0bfc",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the whole range, ignoring the values that divide it into adjacent gaps.",
+      "failed_cases": [
+        "lc-164-1",
+        "lc-164-8",
+        "lc-164-9",
+        "lc-164-10",
+        "lc-164-13",
+        "lc-164-14",
+        "lc-164-stress-1"
+      ]
+    },
+    {
+      "reason": "Measures consecutive input positions instead of sorted neighbors.",
+      "failed_cases": [
+        "lc-164-1",
+        "lc-164-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4211,
+  "oracle_implementation": "code_practice/import_batch_034.py:gap_oracle",
+  "validator_implementation_sha256": "4695aafcd95a5830a4a1c5246f25502efa8180ef6b115a2391c6fac923d228fd",
+  "batch_implementation_sha256": "7b1c2545554d48e7e8dd80bd9d5e4d24f275b564540ef227f30328d71341624d",
+  "judge_contract_sha256": "fc0b9206a08f55026d26b2fb601f8582f1e123ec812a560f7f98e796c7a87cef",
+  "elapsed_seconds": 0.145,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

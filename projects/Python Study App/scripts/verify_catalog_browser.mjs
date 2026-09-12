@@ -182,6 +182,12 @@ try {
   assert((await groupsNote.textContent()).includes('keep the groups in their required order'));
   assert((await page.locator('.example code').first().textContent()).includes('One valid output'));
   report.checks.push('leaf examples distinguish within-round permutations from chronological group order');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Rotate Array');
+  await page.getByRole('button', { name: /Rotate Array.*Medium/ }).click();
+  await page.getByRole('note').waitFor();
+  assert((await page.getByRole('note').textContent()).includes('a returned copy is not used'));
+  report.checks.push('new array-rotation problem explains original-input mutation beside its examples');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -190,6 +196,21 @@ try {
     assert.equal(result.cases.length, problem.tests.length);
     report.worker.push({ id: entry.id, status: result.status, cases: result.cases.length, runtimeMs: result.runtimeMs });
   }
+  for (const id of [148, 149, 156, 164, 186, 189, 203]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `leetcode-${id} wrong fixture`);
+    }
+  }
+  const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
+  const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
+    expected: [1,1,1], expected_node_order: [1,2,0] }] };
+  const unchangedUpside = await judge(page, equalUpside, 'def upside_down_tree(root):\n    return root');
+  assert.equal(unchangedUpside.status, 'wrong_answer');
+  assert.deepEqual(unchangedUpside.cases[0].actual, unchangedUpside.cases[0].expected);
+  assert(unchangedUpside.cases[0].error.includes('required order'));
+  assert.equal((await judge(page, equalUpside, upside.reference_solution)).status, 'accepted');
+  report.checks.push('batch 34 wrong algorithms rejected; upside-down tree checks original nodes even when output values coincide');
   const tree = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-226.json'), 'utf8'));
   const compact = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-26.json'), 'utf8'));
   for (const source of ['def remove_duplicates(nums):\n    return len(set(nums))', 'def remove_duplicates(nums):\n    return True']) {

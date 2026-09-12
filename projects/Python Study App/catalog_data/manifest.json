@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 345,
+  "count": 352,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -3517,6 +3517,45 @@
       "source_id": 145
     },
     {
+      "id": "leetcode-148",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort List",
+      "summary": "Given the starting node of a linked list, rearrange the nodes in the list to be in ascending order.",
+      "topics": [
+        "linked-lists",
+        "merge-sort",
+        "divide-and-conquer"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-148.json",
+      "content_sha256": "8d27a0b989ef559e82deae54a5125f7f370ff8982bf1a049715d7bbae9f864e7",
+      "source_id": 148
+    },
+    {
+      "id": "leetcode-149",
+      "version": 1,
+      "status": "approved",
+      "title": "Max Points on a Line",
+      "summary": "Provide an array of points on the X-Y plane, and determine the greatest count of points that align on a single straight line.",
+      "topics": [
+        "geometry",
+        "hash-maps",
+        "arrays"
+      ],
+      "prerequisites": [
+        "arrays",
+        "hash-maps"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-149.json",
+      "content_sha256": "98b923ff285aa6ae58faec01e5d7931c83eb93d141ece80f529e5dfc545d45be",
+      "source_id": 149
+    },
+    {
       "id": "leetcode-150",
       "version": 1,
       "status": "approved",
@@ -3587,6 +3626,24 @@
       "source_id": 154
     },
     {
+      "id": "leetcode-156",
+      "version": 1,
+      "status": "approved",
+      "title": "Binary Tree Upside Down",
+      "summary": "Given a binary tree's root, invert the tree by making the original left child the new root, the original root the new right child, and the original right child the new left child, level by level.",
+      "topics": [
+        "trees",
+        "recursion",
+        "pointer-manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-156.json",
+      "content_sha256": "7350b5803ec189f7c4a363ca4b61f106193487d882c64ac308442dc29bf43a5f",
+      "source_id": 156
+    },
+    {
       "id": "leetcode-159",
       "version": 1,
       "status": "approved",
@@ -3637,6 +3694,24 @@
       "path": "problems/leetcode-163.json",
       "content_sha256": "5a970270da6f931c73976479900e9ac7e07c10010b31eff781f43fc7fe63e71e",
       "source_id": 163
+    },
+    {
+      "id": "leetcode-164",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Gap",
+      "summary": "Given an integer array nums, determine the largest difference between consecutive elements after sorting the array.",
+      "topics": [
+        "arrays",
+        "bucket-sort",
+        "pigeonhole-principle"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-164.json",
+      "content_sha256": "10fc0c047fc6f938aa67cc0769f5979b97cce46ffdce4d9e311bad8fc43bb1b6",
+      "source_id": 164
     },
     {
       "id": "leetcode-165",
@@ -3763,6 +3838,24 @@
       "source_id": 179
     },
     {
+      "id": "leetcode-186",
+      "version": 1,
+      "status": "approved",
+      "title": "Reverse Words in a String II",
+      "summary": "Given a character array s, reverse the sequence of words within it.",
+      "topics": [
+        "strings",
+        "two-pointers",
+        "in-place"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-186.json",
+      "content_sha256": "a8aafa9d6dfab18db468825b57e3edaeb5dfcb50e9d77257abc1caa19021de6a",
+      "source_id": 186
+    },
+    {
       "id": "leetcode-187",
       "version": 1,
       "status": "approved",
@@ -3799,6 +3892,24 @@
       "path": "problems/leetcode-188.json",
       "content_sha256": "2b7f0fd2ee03828e0edb7115fa144c149d23698e780969329794ef8823a7703d",
       "source_id": 188
+    },
+    {
+      "id": "leetcode-189",
+      "version": 1,
+      "status": "approved",
+      "title": "Rotate Array",
+      "summary": "Given an integer array nums, rotate it to the right by k non-negative steps.",
+      "topics": [
+        "arrays",
+        "two-pointers",
+        "in-place"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-189.json",
+      "content_sha256": "bbaeb447cf90dc193d3d0c0111e0ad5a1b7b348c32bdd42456dd52a956ca9118",
+      "source_id": 189
     },
     {
       "id": "leetcode-190",
@@ -3867,6 +3978,24 @@
       "path": "problems/leetcode-202.json",
       "content_sha256": "366c0c9616b64641d4da57d32c47c0b854c1b726b33be356b8a2853cffa99caf",
       "source_id": 202
+    },
+    {
+      "id": "leetcode-203",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Linked List Elements",
+      "summary": "Given the starting node of a linked list and an integer value, eliminate all nodes whose value matches the given integer, then return the updated starting node of the list.",
+      "topics": [
+        "linked-lists",
+        "pointer-manipulation",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-203.json",
+      "content_sha256": "e0e566d0e033179fcb8e1990599ae2f3b9db1e57145677c38a675845b3b13afd",
+      "source_id": 203
     },
     {
       "id": "leetcode-204",

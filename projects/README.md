@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 345 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is unfinished and paused for handoff. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [345-problem handoff checklist](Python%20Study%20App/docs/RELEASE_CHECKPOINT.md) covers the frozen `python-study-345-checkpoint` release and updating the other computer without replacing its progress; the earlier 326-problem tag remains unchanged.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 352 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion has resumed locally and remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [345-problem handoff checklist](Python%20Study%20App/docs/RELEASE_CHECKPOINT.md) covers the frozen `python-study-345-checkpoint` release and updating the other computer without replacing its progress; both handoff tags remain unchanged while `main` adds seven verified problems.
 
 ## Python Study App
 
@@ -41,7 +41,7 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
 The workbook expansion currently accounts for 3,629 rows: 72 existing equivalents,
-244 verified new problems, 155 documented design/interactive exclusions, and 3,158
+251 verified new problems, 155 documented design/interactive exclusions, and 3,151
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -197,6 +197,14 @@ rank selection. A new ordered-group comparator accepts leaf permutations within
 each removal round while rejecting changed round order or duplicate counts.
 All 244 imported references were revalidated against the updated judge; existing
 problem content, progress IDs, and the 326-problem handoff tag remain unchanged.
+Batch thirty-four adds bottom-up linked-list sorting, exact collinearity counts,
+recursive upside-down tree rewiring, linear-time bucket gaps, in-place word and
+array rearrangement, and linked-list element removal. Exhaustive regressions
+cover short inputs and every valid upside-down tree shape through ten nodes;
+large cases reach 50,000 list nodes and 100,000 array elements. Repeated values
+do not relax original-node identity checks. The two mutation exercises remain
+distinct from existing return-a-string/list contracts. All 345 checkpoint problems
+retain their content and progress IDs, and neither handoff tag is moved.
 The overlap total includes 69 original exercises plus three approved imports that
 also cover other workbook contracts. Rotated minimum 153 maps to 154 after
 500 seeded correctness/logarithmic-read checks, without a duplicate progress ID.
@@ -213,7 +221,7 @@ an unproved equivalence. Normal studying does not execute these offline checks.
 
 Published content is portable under `Python Study App/catalog_data/`; startup does not execute reference solutions. Transfer this folder with the app, retain the destination computer's existing progress database, and restart after updates. Rebuild packaged content with `.venv/bin/python -m code_practice.package_catalog` from the app folder; that command never opens or replaces progress. Backup and restoration instructions and the interim browser benchmark command are in the app README. Full import and full-catalog performance acceptance remain unfinished.
 
-The 345-problem checkpoint freezes the currently verified content for handoff; it does not declare the workbook goal complete. Expansion waits for the owner's request to resume after updating the other computer. Backups respect `CODE_PRACTICE_DB` and `CODE_PRACTICE_DATA_DIR`, with an optional external `CODE_PRACTICE_BACKUP_DIR`. After transfer, continuing catalog development on this laptop cannot affect the website until another explicit code update. Runtime progress and the existing seed snapshot were not changed during checkpoint preparation. The earlier `python-study-326-checkpoint` remains available unchanged.
+The 345-problem checkpoint freezes verified content for handoff; it does not declare the workbook goal complete. The resumed goal adds validated content only on local `main`, not to either frozen tag or the other computer. Backups respect `CODE_PRACTICE_DB` and `CODE_PRACTICE_DATA_DIR`, with an optional external `CODE_PRACTICE_BACKUP_DIR`. After transfer, continuing catalog development on this laptop cannot affect the website until another explicit code update. Runtime progress and the existing seed snapshot were not changed during checkpoint preparation or resumed expansion. The earlier `python-study-326-checkpoint` remains available unchanged.
 
 Monaco editor and Pyodide runtime assets are included in the local frontend build, so studying needs no CDN after installation. Import validation runs in bounded per-problem processes and quarantines failures. The Chrome check uses a temporary progress database, blocks external requests, tests restart persistence, measures 100 requests per API route, and records OS-reported backend peak memory. No deployment or push is part of this expansion work.
 

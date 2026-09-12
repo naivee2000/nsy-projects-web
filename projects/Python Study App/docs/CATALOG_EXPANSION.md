@@ -2,9 +2,10 @@
 
 Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
-326-problem checkpoint is documented in [RELEASE_CHECKPOINT.md](RELEASE_CHECKPOINT.md).
-Expansion has resumed locally; `main` contains 345 verified problems. The tag is
-unchanged, and neither checkpoint preparation nor resumed work authorizes deployment.
+345-problem checkpoint is documented in [RELEASE_CHECKPOINT.md](RELEASE_CHECKPOINT.md).
+Expansion has resumed locally; `main` contains 352 verified problems. Both the
+345- and 326-problem tags are unchanged, and neither checkpoint preparation nor
+resumed work authorizes deployment.
 
 The source workbook has 3,629 unique problem names in rows 7–3635. The
 scope includes ordinary functions, binary trees, linked lists, and Hard problems.
@@ -47,9 +48,23 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 72 existing equivalents (69 original exercises and
   three approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,158 rows remain pending.
-- 244 new imports in thirty-three reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 345 problems.
+  design/interactive exclusions; 3,151 rows remain pending.
+- 251 new imports in thirty-four reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 352 problems.
+- Batch thirty-four covers LeetCode 148–149, 156, 164, 186, 189, and 203:
+  bottom-up linked-list merge sort, exact normalized line directions, recursive
+  upside-down trees, linear-time maximum gaps, character-array word reversal,
+  in-place array rotation, and linked-list filtering. Oracles independently sort
+  values, count cross-product collinearity, remap binary paths, index rotations,
+  and filter values. Exhaustive tests cover short lists/arrays, every subset of
+  a 3-by-3 coordinate grid, every allowed tree shape through ten nodes, and short
+  word/rotation/deletion cases. Stress tests include 50,000-node lists, 300 points,
+  ten-node recursive chains, and 100,000-character/value arrays. The source
+  mutation contracts distinguish 186 from string-returning 151 and 189 from the
+  original return-a-list rotation; returned copies are rejected. Original tree
+  identity/order remains enforced with equal values. No shared judge extension
+  was needed, all 345 previous problems retain identical content/versions/IDs,
+  and the handoff tags and progress seed remain unchanged.
 - Batch thirty-three covers LeetCode 363, 366–367, 371–372, and 375–378:
   bounded rectangular sums, simultaneous leaf-removal groups, exact square
   predicates, signed carry propagation, decimal modular powers, minimax guessing,
@@ -370,22 +385,21 @@ correctness. Generated tests must meet each problem's actual constraints.
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
   afterward. Ordered integer groups now also accept within-group permutations
-  while preserving outer order and duplicate counts. All 244 published imports
-  have matching passing reports in the 345-problem package after revalidation
-  against the ordered-group judge update.
+  while preserving outer order and duplicate counts. All 251 published imports
+  have matching passing reports in the 352-problem package; the shared judge is
+  unchanged since the batch-thirty-three revalidation.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 345-problem Chrome/M3 Pro run: library/search p95 1.22/1.09 ms,
-  detail p95 2.25 ms for Word Search and 1.18 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.49 ms (100 requests per route). Startup is
-  338 ms and backend peak RSS is 84.23 MiB after loading the largest linked-list
-  detail. All 244 imported references and
+- Current 352-problem Chrome/M3 Pro run: library/search p95 1.57/1.59 ms,
+  detail p95 1.51 ms for Word Search and 1.60 ms for the 100,000-node selected-
+  list problem, and dashboard p95 5.13 ms (100 requests per route). Startup is
+  341 ms and backend peak RSS is 120.72 MiB across browsing large array and
+  linked-list details and restarting. All 251 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  All nine batch-thirty-three suites finish within 886 ms after runtime load.
-  The rectangle suite takes 885.9 ms including its large positive and negative grids;
-  minimax guessing takes 342.5 ms including n=200; matrix rank takes 83.5 ms
-  including 300-by-300 inputs. Leaf rounds take 32 ms, modular powers 34.4 ms,
-  ordered sums 34.8 ms, and signed bitwise addition 30.5 ms. Existing
+  All seven batch-thirty-four suites finish within 300 ms after runtime load.
+  Linked-list sorting takes 299.6 ms including both 50,000-node cases; collinearity
+  takes 85 ms, upside-down trees 34.6 ms, bucket gaps 159.6 ms, character-word
+  mutation 91.2 ms, array rotation 198.8 ms, and linked deletion 52.8 ms. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
   returned-copy/count-only rejection, strict prefix counts, and reordered survivors.
@@ -397,9 +411,11 @@ correctness. Generated tests must meet each problem's actual constraints.
   wrong deleted value and replacement nodes whose displayed values look correct.
   Ordered-group checks accept different within-round leaf orderings and reject
   reversed rounds, changed multiplicities, omitted groups, and noninteger values.
+  Each new batch-thirty-four wrong algorithm is also rejected in the browser,
+  and an unchanged all-equal upside-down tree fails the original-node-order check.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
-- Current automated suite: 311 backend tests and 15 frontend tests pass. The
+- Current automated suite: 319 backend tests and 15 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

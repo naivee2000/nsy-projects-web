@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-186",
+  "content_sha256": "a8aafa9d6dfab18db468825b57e3edaeb5dfcb50e9d77257abc1caa19021de6a",
+  "source_hash": "800d5fa659ec2aca36a27ab68375ba8a050cd12888a3f1085e56e774212d3abe",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the letters inside every word as well as the word order.",
+      "failed_cases": [
+        "lc-186-1",
+        "lc-186-2",
+        "lc-186-4",
+        "lc-186-5",
+        "lc-186-7",
+        "lc-186-8",
+        "lc-186-10",
+        "lc-186-12",
+        "lc-186-13",
+        "lc-186-14",
+        "lc-186-stress-1"
+      ]
+    },
+    {
+      "reason": "Computes the right characters but returns a copy without modifying the input.",
+      "failed_cases": [
+        "lc-186-1",
+        "lc-186-2",
+        "lc-186-6",
+        "lc-186-7",
+        "lc-186-8",
+        "lc-186-9",
+        "lc-186-10",
+        "lc-186-12",
+        "lc-186-13",
+        "lc-186-14",
+        "lc-186-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4233,
+  "oracle_implementation": "code_practice/import_batch_034.py:words_oracle",
+  "validator_implementation_sha256": "4695aafcd95a5830a4a1c5246f25502efa8180ef6b115a2391c6fac923d228fd",
+  "batch_implementation_sha256": "7b1c2545554d48e7e8dd80bd9d5e4d24f275b564540ef227f30328d71341624d",
+  "judge_contract_sha256": "fc0b9206a08f55026d26b2fb601f8582f1e123ec812a560f7f98e796c7a87cef",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
