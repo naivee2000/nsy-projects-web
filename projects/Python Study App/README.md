@@ -2,7 +2,7 @@
 
 A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 345 runnable problems (101 original exercises plus 244 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The frozen **326-problem handoff checkpoint** remains available at `python-study-326-checkpoint`; `main` now includes nineteen additional verified problems. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md). Continuing development on this laptop does not change the website until you push, pull, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update.
+The transfer-ready **345-problem handoff checkpoint** is tagged `python-study-345-checkpoint`; the earlier 326-problem tag remains unchanged. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md) for exact-version update commands. Expansion is paused at this handoff until the owner requests resumption. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update.
 
 ## Start the app
 
