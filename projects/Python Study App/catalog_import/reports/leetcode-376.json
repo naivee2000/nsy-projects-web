@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-376",
+  "content_sha256": "1bf97a974f4cd33b3f5b427399aa8ef9e77f60bd9e0bfac51e615f63ca71771e",
+  "source_hash": "88c37c15160747a1cbdd267eef4be9edce2a89df0e954620f39f06cb07611c69",
+  "visible_tests": 2,
+  "hidden_tests": 17,
+  "reference_passed": 19,
+  "wrong_solutions": [
+    {
+      "reason": "Counts every nonzero difference, even successive differences with the same sign.",
+      "failed_cases": [
+        "lc-376-2",
+        "lc-376-9",
+        "lc-376-12",
+        "lc-376-stress-2"
+      ]
+    },
+    {
+      "reason": "Only returns sequences ending in a positive difference.",
+      "failed_cases": [
+        "lc-376-6",
+        "lc-376-8",
+        "lc-376-9",
+        "lc-376-10",
+        "lc-376-14",
+        "lc-376-15",
+        "lc-376-17"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4423,
+  "oracle_implementation": "code_practice/import_batch_033.py:wiggle_oracle",
+  "validator_implementation_sha256": "26ff12115648ccbca4151b954898faeb5009c58ed70138fe1cbaf530a825d030",
+  "batch_implementation_sha256": "d75f3824d80750558f207e8a63c33b3d69966044a0b5d1918685c5f20860a046",
+  "judge_contract_sha256": "fc0b9206a08f55026d26b2fb601f8582f1e123ec812a560f7f98e796c7a87cef",
+  "elapsed_seconds": 0.12,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

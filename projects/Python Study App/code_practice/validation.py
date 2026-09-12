@@ -138,6 +138,12 @@ def compare(actual: Any, expected: Any, comparator: str) -> bool:
             return False
         normalize = lambda rows: sorted(tuple(sorted(row)) for row in rows)
         return normalize(actual) == normalize(expected)
+    if comparator == "unordered_rows":
+        return (isinstance(actual, list) and isinstance(expected, list)
+                and len(actual) == len(expected)
+                and all(isinstance(row, list) and all(type(value) is int for value in row)
+                        for row in actual + expected)
+                and all(Counter(left) == Counter(right) for left, right in zip(actual, expected)))
     if comparator in {"wiggle", "strict_wiggle"}:
         strict = comparator == "strict_wiggle"
         return (isinstance(actual, list) and isinstance(expected, list)

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-371",
+  "content_sha256": "2e64417ce69322fba5928120928ae7259816af370f27212d74c4d29f66c718e7",
+  "source_hash": "e0116ae12b4c5104b1eb4736ea08da5ff18a92f9d193abbb4ef6e6d583b7d941",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Uses XOR without propagating carry bits.",
+      "failed_cases": [
+        "lc-371-2",
+        "lc-371-6",
+        "lc-371-7",
+        "lc-371-8",
+        "lc-371-9",
+        "lc-371-10",
+        "lc-371-11",
+        "lc-371-12",
+        "lc-371-13",
+        "lc-371-14",
+        "lc-371-15",
+        "lc-371-16"
+      ]
+    },
+    {
+      "reason": "Leaves negative sums encoded as positive unsigned values.",
+      "failed_cases": [
+        "lc-371-10",
+        "lc-371-12",
+        "lc-371-14",
+        "lc-371-15",
+        "lc-371-17"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4418,
+  "oracle_implementation": "code_practice/import_batch_033.py:addition_oracle",
+  "validator_implementation_sha256": "26ff12115648ccbca4151b954898faeb5009c58ed70138fe1cbaf530a825d030",
+  "batch_implementation_sha256": "d75f3824d80750558f207e8a63c33b3d69966044a0b5d1918685c5f20860a046",
+  "judge_contract_sha256": "fc0b9206a08f55026d26b2fb601f8582f1e123ec812a560f7f98e796c7a87cef",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

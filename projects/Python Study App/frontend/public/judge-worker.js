@@ -227,6 +227,12 @@ def matches(actual, expected, comparator):
         return isinstance(actual, list) and sorted(actual) == sorted(expected)
     if comparator == "unordered_nested":
         return isinstance(actual, list) and normalize_nested(actual) == normalize_nested(expected)
+    if comparator == "unordered_rows":
+        return (isinstance(actual, list) and isinstance(expected, list)
+                and len(actual) == len(expected)
+                and all(isinstance(row, list) and all(type(value) is int for value in row)
+                        for row in actual + expected)
+                and all(Counter(left) == Counter(right) for left, right in zip(actual, expected)))
     if comparator in {"wiggle", "strict_wiggle"}:
         strict = comparator == "strict_wiggle"
         return (isinstance(actual, list) and isinstance(expected, list)

@@ -80,6 +80,40 @@ test.each(["wiggle", "strict_wiggle"])("explains %s inequalities and alternative
   expect(await screen.findByText(/One valid output:/)).toBeInTheDocument();
 });
 
+test("explains ordered groups and labels failure evidence as one valid output", async () => {
+  const problem = {
+    id: "pair-sum-indices", version: 1, title: "Leaf rounds", summary: "Collect leaves.",
+    statement: "Return removal rounds.", constraints: ["Keep rounds ordered."], topics: ["trees"], prerequisites: [],
+    difficulty: 5, estimated_minutes: 35, target_time_complexity: "O(n)", target_space_complexity: "O(n)",
+    signature: { name: "leaf_removal_rounds", parameters: [{ name: "root", annotation: "TreeNode | None", adapter: "treenode" }],
+      returns: "list[list[int]]", return_adapter: "raw", result_mode: "return" },
+    starter_code: "def leaf_removal_rounds(root): pass", savedDraft: "def leaf_removal_rounds(root): pass",
+    tests: [{ id: "leaf-example", arguments: [[1,2,3]], expected: [[2,3],[1]], comparator: "unordered_rows", visible: true, explanation: "Remove both leaves before the root." }],
+    revealedHintLevel: 0, revealedHints: [], solved: false,
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : libraryPage()),
+  })));
+  class LeafWorker {
+    onmessage: ((event: MessageEvent) => void) | null = null;
+    postMessage(payload: { type?: string }) {
+      queueMicrotask(() => this.onmessage?.({ data: payload.type === "warmup" ? { type: "ready" }
+        : { status: "wrong_answer", message: "Wrong groups.", runtimeMs: 2,
+          cases: [{ id: "leaf-example", passed: false, actual: [[1],[2,3]], expected: [[2,3],[1]], arguments: [[1,2,3]], visible: true }] } } as MessageEvent));
+    }
+    terminate() {}
+  }
+  vi.stubGlobal("Worker", LeafWorker);
+  render(<App />);
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  expect(await screen.findByRole("note")).toHaveTextContent("keep the groups in their required order");
+  expect(screen.getByRole("note")).toHaveTextContent("every repeated value must be preserved");
+  fireEvent.click(screen.getByRole("button", { name: "Run examples" }));
+  const evidence = await screen.findByText(/Your code yielded/);
+  expect(evidence).toHaveTextContent("One valid output [[2,3],[1]]");
+  expect(evidence).toHaveTextContent("Your code yielded [[1],[2,3]]");
+});
+
 test("explains alternative valid tree shapes and preserves actual output with a contract error", async () => {
   const problem = {
     id: "pair-sum-indices", version: 1, title: "Build a balanced tree", summary: "Build a tree.",

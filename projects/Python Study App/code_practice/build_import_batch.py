@@ -48,6 +48,7 @@ from .import_batch_029 import BATCH as BATCH_029
 from .import_batch_030 import BATCH as BATCH_030
 from .import_batch_031 import BATCH as BATCH_031
 from .import_batch_032 import BATCH as BATCH_032
+from .import_batch_033 import BATCH as BATCH_033
 from .catalog_evidence import judge_contract_hash
 from .catalog_artifacts import write_json_atomic
 from .schemas import ProblemDefinition, TestCase
@@ -55,7 +56,7 @@ from .starter_code import with_support_classes
 from .validation import compare_result, run_source
 
 ROOT = Path(__file__).resolve().parent.parent
-BATCH = {**BATCH_001, **BATCH_002, **BATCH_003, **BATCH_004, **BATCH_005, **BATCH_006, **BATCH_007, **BATCH_008, **BATCH_009, **BATCH_010, **BATCH_011, **BATCH_012, **BATCH_013, **BATCH_014, **BATCH_015, **BATCH_016, **BATCH_017, **BATCH_018, **BATCH_019, **BATCH_020, **BATCH_021, **BATCH_022, **BATCH_023, **BATCH_024, **BATCH_025, **BATCH_026, **BATCH_027, **BATCH_028, **BATCH_029, **BATCH_030, **BATCH_031, **BATCH_032}
+BATCH = {**BATCH_001, **BATCH_002, **BATCH_003, **BATCH_004, **BATCH_005, **BATCH_006, **BATCH_007, **BATCH_008, **BATCH_009, **BATCH_010, **BATCH_011, **BATCH_012, **BATCH_013, **BATCH_014, **BATCH_015, **BATCH_016, **BATCH_017, **BATCH_018, **BATCH_019, **BATCH_020, **BATCH_021, **BATCH_022, **BATCH_023, **BATCH_024, **BATCH_025, **BATCH_026, **BATCH_027, **BATCH_028, **BATCH_029, **BATCH_030, **BATCH_031, **BATCH_032, **BATCH_033}
 
 
 def digest(payload):

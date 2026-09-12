@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-363",
+  "content_sha256": "7cae7dac7b4ec822fc60aeb50f9bef581898be34bc3378f50396b5d183975f16",
+  "source_hash": "f118759d89ff9915f9b0413ebd0b3b8db1d97b67d72452714d199cbfd4132903",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Permits an empty zero-sum result even when every feasible rectangle has negative sum.",
+      "failed_cases": [
+        "lc-363-4",
+        "lc-363-7",
+        "lc-363-12",
+        "lc-363-14",
+        "lc-363-15",
+        "lc-363-16",
+        "lc-363-stress-2"
+      ]
+    },
+    {
+      "reason": "Only considers rectangles one row tall.",
+      "failed_cases": [
+        "lc-363-10",
+        "lc-363-stress-1",
+        "lc-363-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4410,
+  "oracle_implementation": "code_practice/import_batch_033.py:rectangle_oracle",
+  "validator_implementation_sha256": "26ff12115648ccbca4151b954898faeb5009c58ed70138fe1cbaf530a825d030",
+  "batch_implementation_sha256": "d75f3824d80750558f207e8a63c33b3d69966044a0b5d1918685c5f20860a046",
+  "judge_contract_sha256": "fc0b9206a08f55026d26b2fb601f8582f1e123ec812a560f7f98e796c7a87cef",
+  "elapsed_seconds": 1.196,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

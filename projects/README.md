@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 336 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is in progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [326-problem handoff checklist](Python%20Study%20App/docs/RELEASE_CHECKPOINT.md) covers the frozen checkpoint and updating the other computer without replacing its progress; `main` now includes ten additional verified problems.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 345 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is in progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [326-problem handoff checklist](Python%20Study%20App/docs/RELEASE_CHECKPOINT.md) covers the frozen checkpoint and updating the other computer without replacing its progress; `main` now includes nineteen additional verified problems.
 
 ## Python Study App
 
@@ -41,7 +41,7 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
 The workbook expansion currently accounts for 3,629 rows: 72 existing equivalents,
-235 verified new problems, 155 documented design/interactive exclusions, and 3,167
+244 verified new problems, 155 documented design/interactive exclusions, and 3,158
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -190,6 +190,13 @@ ranges, exact vertical reflection of coordinate sets, combined jug volumes,
 actual linked-node results, and inclusive range updates. Regressions include
 all 19,683 three-by-three bomb grids and source-scale envelopes, grids, lists,
 and updates. The frozen 326-problem tag and every previous problem ID are unchanged.
+Batch thirty-three adds bounded rectangle sums, chronological tree-leaf rounds,
+perfect-square detection, signed bitwise addition, large modular powers, minimax
+guessing budgets, wiggle subsequences, ordered reusable sums, and sorted-matrix
+rank selection. A new ordered-group comparator accepts leaf permutations within
+each removal round while rejecting changed round order or duplicate counts.
+All 244 imported references were revalidated against the updated judge; existing
+problem content, progress IDs, and the 326-problem handoff tag remain unchanged.
 The overlap total includes 69 original exercises plus three approved imports that
 also cover other workbook contracts. Rotated minimum 153 maps to 154 after
 500 seeded correctness/logarithmic-read checks, without a duplicate progress ID.

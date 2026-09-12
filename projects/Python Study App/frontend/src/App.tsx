@@ -487,7 +487,8 @@ export default function App() {
   const flexibleTreeOutput = Boolean(problem?.tests.some((test) => test.comparator === "balanced_bst"));
   const flexibleWiggleOutput = Boolean(problem?.tests.some((test) => test.comparator === "wiggle"));
   const strictWiggleOutput = Boolean(problem?.tests.some((test) => test.comparator === "strict_wiggle"));
-  const flexibleOutput = flexibleTreeOutput || flexibleWiggleOutput;
+  const orderedGroupsOutput = Boolean(problem?.tests.some((test) => test.comparator === "unordered_rows"));
+  const flexibleOutput = flexibleTreeOutput || flexibleWiggleOutput || strictWiggleOutput || orderedGroupsOutput;
 
   return (
     <div className="app-shell">
@@ -603,11 +604,12 @@ export default function App() {
                 {flexibleTreeOutput && <p className="statement" role="note">Flexible tree judging: any height-balanced BST with the complete input as its inorder traversal is accepted. Preserve duplicate values when present. The displayed tree is only one valid output; its exact shape is not required.</p>}
                 {flexibleWiggleOutput && <p className="statement" role="note">Flexible wiggle judging: modify the original list into any permutation that alternates ≤, ≥, ≤, ≥. The displayed arrangement is only one valid output.</p>}
                 {strictWiggleOutput && <p className="statement" role="note">Strict wiggle judging: modify the original list into any permutation that alternates &lt;, &gt;, &lt;, &gt;. Adjacent values must not be equal. The displayed arrangement is only one valid output.</p>}
+                {orderedGroupsOutput && <p className="statement" role="note">Ordered-group judging: keep the groups in their required order. Values within each group may be rearranged, but every repeated value must be preserved. The displayed grouping is only one valid output.</p>}
                 <h2>Examples</h2>
                 {teachingExamples(problem.tests).map((test, index) => (
                   <div className="example" key={test.id}>
                     <span>EXAMPLE {index + 1}</span>
-                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}{["balanced_bst", "wiggle", "strict_wiggle"].includes(test.comparator) ? "One valid output" : "Output"}: {JSON.stringify(test.expected)}</code>
+                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}{["balanced_bst", "wiggle", "strict_wiggle", "unordered_rows"].includes(test.comparator) ? "One valid output" : "Output"}: {JSON.stringify(test.expected)}</code>
                     {test.explanation && <p>{test.explanation}</p>}
                   </div>
                 ))}

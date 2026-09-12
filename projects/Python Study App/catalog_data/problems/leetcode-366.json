@@ -1,0 +1,986 @@
+{
+  "id": "leetcode-366",
+  "version": 1,
+  "status": "approved",
+  "title": "Find Leaves of Binary Tree",
+  "summary": "Starting with the root of a binary tree, gather all leaf nodes.",
+  "statement": "Starting with the root of a binary tree, gather all leaf nodes. Remove these leaf nodes. Continue this process until the tree is completely empty.",
+  "constraints": [
+    "The tree has 1 to 100 nodes; -100 <= each node value <= 100.",
+    "Return one list of values per simultaneous leaf-removal round, earliest round first. Values within a round may be in any order, but repeated values from different nodes must be preserved.",
+    "You need not physically modify the tree; report the rounds as if all current leaves were removed together."
+  ],
+  "topics": [
+    "trees",
+    "recursion",
+    "depth-first-search",
+    "dynamic-programming"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "leaf_removal_rounds",
+    "parameters": [
+      {
+        "name": "root",
+        "annotation": "TreeNode | None",
+        "adapter": "treenode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[list[int]]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef leaf_removal_rounds(root: TreeNode | None) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def leaf_removal_rounds(root):\n    rounds = []\n    def height(node):\n        if node is None:\n            return -1\n        level = 1+max(height(node.left),height(node.right))\n        if level == len(rounds):\n            rounds.append([])\n        rounds[level].append(node.val)\n        return level\n    height(root)\n    return rounds\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def leaf_removal_rounds(root):\n    rounds = []\n    def height(node):\n        if node is None:\n            return -1\n        level = 1+min(height(node.left),height(node.right))\n        if level == len(rounds):\n            rounds.append([])\n        rounds[level].append(node.val)\n        return level\n    height(root)\n    return rounds\n",
+    "def leaf_removal_rounds(root):\n    rounds = []\n    def height(node):\n        if node is None:\n            return -1\n        level = 1+max(height(node.left),height(node.right))\n        if level == len(rounds):\n            rounds.append([])\n        rounds[level].append(node.val)\n        return level\n    height(root)\n    return rounds[::-1]\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(n) output and O(height) recursion",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A node becomes a leaf only after both of its child subtrees have disappeared.",
+    "Its removal round is one plus the maximum child removal round; missing children have round -1.",
+    "Recursively compute child heights, append node.val to rounds[1+max(left,right)], and return that height.",
+    "Postorder groups each node by its height above the deepest descendant leaf. Equal values remain separate occurrences."
+  ],
+  "editorial": "The first round contains leaves, whose height is zero. An internal node disappears one round after its last child, giving 1+max(child heights). One postorder traversal assigns each node to exactly one chronological group. The comparator ignores order only inside each group, never across rounds, and preserves duplicate counts. The independent oracle repeatedly removes actual leaf paths from a JSON-level tree map.",
+  "tests": [
+    {
+      "id": "lc-366-1",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": true,
+      "explanation": "First remove leaves 4,5,3 in any order, then 2, then 1. [[3,5,4],[2],[1]] is equally valid, but swapping the rounds is not.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-2",
+      "arguments": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": true,
+      "explanation": "The root is already a leaf, so its single value is collected in the first and only round: [[1]].",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-3",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-4",
+      "arguments": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-5",
+      "arguments": [
+        [
+          2,
+          null,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-6",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          2,
+          3
+        ],
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-7",
+      "arguments": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-8",
+      "arguments": [
+        [
+          0,
+          -1,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          -1,
+          1
+        ],
+        [
+          0
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-9",
+      "arguments": [
+        [
+          1,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-10",
+      "arguments": [
+        [
+          1,
+          null,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-11",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4,
+          null,
+          null,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-12",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "expected": [
+        [
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-13",
+      "arguments": [
+        [
+          5,
+          5,
+          5,
+          5,
+          null,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-14",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          null,
+          4
+        ]
+      ],
+      "expected": [
+        [
+          3,
+          4
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-15",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4,
+          null,
+          null,
+          5,
+          6
+        ]
+      ],
+      "expected": [
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-16",
+      "arguments": [
+        [
+          -100,
+          100,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          100,
+          0
+        ],
+        [
+          -100
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-366-stress-1",
+      "arguments": [
+        [
+          0,
+          null,
+          1,
+          null,
+          2,
+          null,
+          3,
+          null,
+          4,
+          null,
+          5,
+          null,
+          6,
+          null,
+          7,
+          null,
+          8,
+          null,
+          9,
+          null,
+          10,
+          null,
+          11,
+          null,
+          12,
+          null,
+          13,
+          null,
+          14,
+          null,
+          15,
+          null,
+          16,
+          null,
+          17,
+          null,
+          18,
+          null,
+          19,
+          null,
+          20,
+          null,
+          21,
+          null,
+          22,
+          null,
+          23,
+          null,
+          24,
+          null,
+          25,
+          null,
+          26,
+          null,
+          27,
+          null,
+          28,
+          null,
+          29,
+          null,
+          30,
+          null,
+          31,
+          null,
+          32,
+          null,
+          33,
+          null,
+          34,
+          null,
+          35,
+          null,
+          36,
+          null,
+          37,
+          null,
+          38,
+          null,
+          39,
+          null,
+          40,
+          null,
+          41,
+          null,
+          42,
+          null,
+          43,
+          null,
+          44,
+          null,
+          45,
+          null,
+          46,
+          null,
+          47,
+          null,
+          48,
+          null,
+          49,
+          null,
+          50,
+          null,
+          51,
+          null,
+          52,
+          null,
+          53,
+          null,
+          54,
+          null,
+          55,
+          null,
+          56,
+          null,
+          57,
+          null,
+          58,
+          null,
+          59,
+          null,
+          60,
+          null,
+          61,
+          null,
+          62,
+          null,
+          63,
+          null,
+          64,
+          null,
+          65,
+          null,
+          66,
+          null,
+          67,
+          null,
+          68,
+          null,
+          69,
+          null,
+          70,
+          null,
+          71,
+          null,
+          72,
+          null,
+          73,
+          null,
+          74,
+          null,
+          75,
+          null,
+          76,
+          null,
+          77,
+          null,
+          78,
+          null,
+          79,
+          null,
+          80,
+          null,
+          81,
+          null,
+          82,
+          null,
+          83,
+          null,
+          84,
+          null,
+          85,
+          null,
+          86,
+          null,
+          87,
+          null,
+          88,
+          null,
+          89,
+          null,
+          90,
+          null,
+          91,
+          null,
+          92,
+          null,
+          93,
+          null,
+          94,
+          null,
+          95,
+          null,
+          96,
+          null,
+          97,
+          null,
+          98,
+          null,
+          99
+        ]
+      ],
+      "expected": [
+        [
+          99
+        ],
+        [
+          98
+        ],
+        [
+          97
+        ],
+        [
+          96
+        ],
+        [
+          95
+        ],
+        [
+          94
+        ],
+        [
+          93
+        ],
+        [
+          92
+        ],
+        [
+          91
+        ],
+        [
+          90
+        ],
+        [
+          89
+        ],
+        [
+          88
+        ],
+        [
+          87
+        ],
+        [
+          86
+        ],
+        [
+          85
+        ],
+        [
+          84
+        ],
+        [
+          83
+        ],
+        [
+          82
+        ],
+        [
+          81
+        ],
+        [
+          80
+        ],
+        [
+          79
+        ],
+        [
+          78
+        ],
+        [
+          77
+        ],
+        [
+          76
+        ],
+        [
+          75
+        ],
+        [
+          74
+        ],
+        [
+          73
+        ],
+        [
+          72
+        ],
+        [
+          71
+        ],
+        [
+          70
+        ],
+        [
+          69
+        ],
+        [
+          68
+        ],
+        [
+          67
+        ],
+        [
+          66
+        ],
+        [
+          65
+        ],
+        [
+          64
+        ],
+        [
+          63
+        ],
+        [
+          62
+        ],
+        [
+          61
+        ],
+        [
+          60
+        ],
+        [
+          59
+        ],
+        [
+          58
+        ],
+        [
+          57
+        ],
+        [
+          56
+        ],
+        [
+          55
+        ],
+        [
+          54
+        ],
+        [
+          53
+        ],
+        [
+          52
+        ],
+        [
+          51
+        ],
+        [
+          50
+        ],
+        [
+          49
+        ],
+        [
+          48
+        ],
+        [
+          47
+        ],
+        [
+          46
+        ],
+        [
+          45
+        ],
+        [
+          44
+        ],
+        [
+          43
+        ],
+        [
+          42
+        ],
+        [
+          41
+        ],
+        [
+          40
+        ],
+        [
+          39
+        ],
+        [
+          38
+        ],
+        [
+          37
+        ],
+        [
+          36
+        ],
+        [
+          35
+        ],
+        [
+          34
+        ],
+        [
+          33
+        ],
+        [
+          32
+        ],
+        [
+          31
+        ],
+        [
+          30
+        ],
+        [
+          29
+        ],
+        [
+          28
+        ],
+        [
+          27
+        ],
+        [
+          26
+        ],
+        [
+          25
+        ],
+        [
+          24
+        ],
+        [
+          23
+        ],
+        [
+          22
+        ],
+        [
+          21
+        ],
+        [
+          20
+        ],
+        [
+          19
+        ],
+        [
+          18
+        ],
+        [
+          17
+        ],
+        [
+          16
+        ],
+        [
+          15
+        ],
+        [
+          14
+        ],
+        [
+          13
+        ],
+        [
+          12
+        ],
+        [
+          11
+        ],
+        [
+          10
+        ],
+        [
+          9
+        ],
+        [
+          8
+        ],
+        [
+          7
+        ],
+        [
+          6
+        ],
+        [
+          5
+        ],
+        [
+          4
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          0
+        ]
+      ],
+      "comparator": "unordered_rows",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

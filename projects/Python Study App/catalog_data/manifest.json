@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 336,
+  "count": 345,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -5956,6 +5956,29 @@
       "source_id": 361
     },
     {
+      "id": "leetcode-363",
+      "version": 1,
+      "status": "approved",
+      "title": "Max Sum of Rectangle No Larger Than K",
+      "summary": "Given an m x n matrix and an integer k, find the maximum sum of any rectangle within the matrix whose sum does not exceed k.",
+      "topics": [
+        "matrices",
+        "binary-search",
+        "prefix-sums",
+        "fenwick-tree"
+      ],
+      "prerequisites": [
+        "matrices",
+        "binary-search",
+        "prefix-sums"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-363.json",
+      "content_sha256": "7cae7dac7b4ec822fc60aeb50f9bef581898be34bc3378f50396b5d183975f16",
+      "source_id": 363
+    },
+    {
       "id": "leetcode-365",
       "version": 1,
       "status": "approved",
@@ -5972,6 +5995,42 @@
       "path": "problems/leetcode-365.json",
       "content_sha256": "6bca749ea29d6ec36d32a54bc721d758e62c827591419f8bdb71f3e6726174d8",
       "source_id": 365
+    },
+    {
+      "id": "leetcode-366",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Leaves of Binary Tree",
+      "summary": "Starting with the root of a binary tree, gather all leaf nodes.",
+      "topics": [
+        "trees",
+        "recursion",
+        "depth-first-search",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-366.json",
+      "content_sha256": "11eb6464714458b4d3469866bd627cd8e9475f6432d9ac3ac1bef8dca0991afd",
+      "source_id": 366
+    },
+    {
+      "id": "leetcode-367",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Perfect Square",
+      "summary": "Determine if a given positive integer is a perfect square by not using any built-in library function to calculate the square root.",
+      "topics": [
+        "binary-search",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-367.json",
+      "content_sha256": "3f4b467ce89c9e75d7fd0e0f327a17e949d48d712a8f83ab5f3ba8ddfab5795b",
+      "source_id": 367
     },
     {
       "id": "leetcode-369",
@@ -6006,6 +6065,111 @@
       "path": "problems/leetcode-370.json",
       "content_sha256": "c0079f4078eac6479104ba331d080ee8f9f480eee6fe26b32fb89e04cf8c84ec",
       "source_id": 370
+    },
+    {
+      "id": "leetcode-371",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Two Integers",
+      "summary": "Provide the total of two integers by avoiding the use of addition and subtraction operators.",
+      "topics": [
+        "bit-manipulation",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-371.json",
+      "content_sha256": "2e64417ce69322fba5928120928ae7259816af370f27212d74c4d29f66c718e7",
+      "source_id": 371
+    },
+    {
+      "id": "leetcode-372",
+      "version": 1,
+      "status": "approved",
+      "title": "Super Pow",
+      "summary": "Compute a raised to the power of b modulo 1337, where a is a positive integer and b is a large positive integer represented as an array.",
+      "topics": [
+        "math",
+        "modular-arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-372.json",
+      "content_sha256": "0a70efc7f3dc56ac7830097af549deb644875faa76b14d37337f212584c66f7a",
+      "source_id": 372
+    },
+    {
+      "id": "leetcode-375",
+      "version": 1,
+      "status": "approved",
+      "title": "Guess Number Higher or Lower II",
+      "summary": "In the Guessing Game, you must guess a number between 1 and n.",
+      "topics": [
+        "dynamic-programming",
+        "recursion",
+        "game-theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-375.json",
+      "content_sha256": "0f5931bc443fc5f0a0e85fd11cede2e1417cbee263774785be72422626d48746",
+      "source_id": 375
+    },
+    {
+      "id": "leetcode-376",
+      "version": 1,
+      "status": "approved",
+      "title": "Wiggle Subsequence",
+      "summary": "Determine the length of the longest subsequence within an integer array where the differences between successive numbers strictly alternate between positive and negative.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-376.json",
+      "content_sha256": "1bf97a974f4cd33b3f5b427399aa8ef9e77f60bd9e0bfac51e615f63ca71771e",
+      "source_id": 376
+    },
+    {
+      "id": "leetcode-377",
+      "version": 1,
+      "status": "approved",
+      "title": "Combination Sum IV",
+      "summary": "Given distinct positive integers nums and a positive target, count all ordered sequences of values from nums whose sum is target.",
+      "topics": [
+        "arrays",
+        "dynamic-programming",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-377.json",
+      "content_sha256": "638686e3ba56c303bf7c7bb5af02efd47eaa31d882f06d4331a98445e305e694",
+      "source_id": 377
+    },
+    {
+      "id": "leetcode-378",
+      "version": 1,
+      "status": "approved",
+      "title": "Kth Smallest Element in a Sorted Matrix",
+      "summary": "Find the k^th smallest element in an n x n matrix with sorted rows and columns, using less than O(n^2) memory.",
+      "topics": [
+        "matrices",
+        "binary-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-378.json",
+      "content_sha256": "018d0131006aead7505c0cdf420fc7d407226df3df79e46f38c2da3320232ff4",
+      "source_id": 378
     },
     {
       "id": "leetcode-404",

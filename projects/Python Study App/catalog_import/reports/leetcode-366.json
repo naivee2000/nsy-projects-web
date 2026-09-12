@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-366",
+  "content_sha256": "11eb6464714458b4d3469866bd627cd8e9475f6432d9ac3ac1bef8dca0991afd",
+  "source_hash": "8aa2928f4b8d7ba39587828f1585058e6f7b1cd747110407127fa11fce554437",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Assigns removal by the nearer child instead of waiting for the last remaining child.",
+      "failed_cases": [
+        "lc-366-1",
+        "lc-366-4",
+        "lc-366-5",
+        "lc-366-9",
+        "lc-366-10",
+        "lc-366-11",
+        "lc-366-13",
+        "lc-366-14",
+        "lc-366-15",
+        "lc-366-stress-1"
+      ]
+    },
+    {
+      "reason": "Reverses chronological removal rounds.",
+      "failed_cases": [
+        "lc-366-1",
+        "lc-366-4",
+        "lc-366-5",
+        "lc-366-6",
+        "lc-366-7",
+        "lc-366-8",
+        "lc-366-9",
+        "lc-366-10",
+        "lc-366-11",
+        "lc-366-12",
+        "lc-366-13",
+        "lc-366-14",
+        "lc-366-15",
+        "lc-366-16",
+        "lc-366-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4413,
+  "oracle_implementation": "code_practice/import_batch_033.py:leaves_oracle",
+  "validator_implementation_sha256": "26ff12115648ccbca4151b954898faeb5009c58ed70138fe1cbaf530a825d030",
+  "batch_implementation_sha256": "d75f3824d80750558f207e8a63c33b3d69966044a0b5d1918685c5f20860a046",
+  "judge_contract_sha256": "fc0b9206a08f55026d26b2fb601f8582f1e123ec812a560f7f98e796c7a87cef",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

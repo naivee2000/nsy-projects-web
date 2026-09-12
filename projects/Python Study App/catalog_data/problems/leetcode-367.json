@@ -1,0 +1,250 @@
+{
+  "id": "leetcode-367",
+  "version": 1,
+  "status": "approved",
+  "title": "Valid Perfect Square",
+  "summary": "Determine if a given positive integer is a perfect square by not using any built-in library function to calculate the square root.",
+  "statement": "Determine if a given positive integer is a perfect square by not using any built-in library function to calculate the square root.",
+  "constraints": [
+    "1 <= num <= 2147483647.",
+    "Determine whether num equals an integer multiplied by itself. Do not use a built-in square-root function."
+  ],
+  "topics": [
+    "binary-search",
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "is_perfect_square",
+    "parameters": [
+      {
+        "name": "num",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def is_perfect_square(num: int) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def is_perfect_square(num):\n    left,right = 1,num\n    while left <= right:\n        middle = (left+right)//2\n        value = middle*middle\n        if value == num:\n            return True\n        if value < num:\n            left = middle+1\n        else:\n            right = middle-1\n    return False\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def is_perfect_square(num):\n    left,right = 1,num//2\n    while left <= right:\n        middle = (left+right)//2\n        value = middle*middle\n        if value == num:\n            return True\n        if value < num:\n            left = middle+1\n        else:\n            right = middle-1\n    return False\n",
+    "def is_perfect_square(num):\n    return num % 4 in (0,1)"
+  ],
+  "target_time_complexity": "O(log num)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Squaring positive integers is strictly increasing.",
+    "Binary-search possible integer roots and compare squared candidates directly.",
+    "If mid*mid < num move left upward; if greater move right downward; equality succeeds.",
+    "The search discards only roots whose squares lie entirely on the wrong side; exhaustion means no integer root exists."
+  ],
+  "editorial": "Search integers from 1 through num, comparing middle*middle to num. This avoids rounding and forbidden square-root functions. Unlike floor-square-root output, this contract returns a Boolean indicating exact equality. The trusted offline oracle uses integer square root, independently of the reference binary search.",
+  "tests": [
+    {
+      "id": "lc-367-1",
+      "arguments": [
+        16
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "4*4 is exactly 16, so the answer is true.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-2",
+      "arguments": [
+        14
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "3*3=9 and 4*4=16 bracket 14; neither equals it, so the answer is false.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-3",
+      "arguments": [
+        1
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-4",
+      "arguments": [
+        2
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-5",
+      "arguments": [
+        3
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-6",
+      "arguments": [
+        4
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-7",
+      "arguments": [
+        5
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-8",
+      "arguments": [
+        8
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-9",
+      "arguments": [
+        9
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-10",
+      "arguments": [
+        10
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-11",
+      "arguments": [
+        15
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-12",
+      "arguments": [
+        17
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-13",
+      "arguments": [
+        25
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-14",
+      "arguments": [
+        26
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-15",
+      "arguments": [
+        2147395600
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-16",
+      "arguments": [
+        2147395599
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-367-17",
+      "arguments": [
+        2147483647
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

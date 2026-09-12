@@ -7,7 +7,7 @@ from typing import Annotated, Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
-Comparator = Literal["exact", "float", "unordered", "unordered_nested", "balanced_bst", "wiggle", "strict_wiggle"]
+Comparator = Literal["exact", "float", "unordered", "unordered_nested", "unordered_rows", "balanced_bst", "wiggle", "strict_wiggle"]
 ParameterAdapter = Literal["raw", "listnode", "listnode_ref", "treenode", "treenode_ref"]
 ReturnAdapter = Literal["raw", "listnode", "treenode", "treenode_value"]
 AttemptResult = Literal["accepted", "wrong_answer", "syntax_error", "runtime_error", "timeout"]
@@ -213,6 +213,15 @@ class ProblemDefinition(BaseModel):
                         and (not isinstance(test.expected, list)
                              or len(test.expected) != len(value["values"]) - 1)):
                     raise ValueError("Referenced-node deletion must expect the full list with one node removed")
+        if any(t.comparator == "unordered_rows" for t in self.tests):
+            if (self.signature.result_mode != "return" or self.signature.return_adapter != "raw"
+                    or self.signature.returns != "list[list[int]]"
+                    or any(t.comparator != "unordered_rows" for t in self.tests)):
+                raise ValueError("Unordered-row judging requires consistently compared returned integer groups")
+            if any(not isinstance(t.expected, list)
+                   or any(not isinstance(row, list) or any(type(value) is not int for value in row)
+                          for row in t.expected) for t in self.tests):
+                raise ValueError("Unordered-row expectations must contain ordered groups of integers")
         if any(t.comparator == "balanced_bst" for t in self.tests):
             if (self.signature.result_mode != "return" or self.signature.return_adapter != "treenode"
                     or len(self.signature.parameters) != 1

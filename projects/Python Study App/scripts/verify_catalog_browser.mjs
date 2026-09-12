@@ -174,6 +174,14 @@ try {
   assert((await strictWiggleNote.textContent()).includes('Adjacent values must not be equal'));
   assert((await page.locator('.example code').first().textContent()).includes('One valid output'));
   report.checks.push('strict wiggle examples explain inequality and multiple valid arrangements');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Find Leaves of Binary Tree');
+  await page.getByRole('button', { name: /Find Leaves of Binary Tree.*Medium/ }).click();
+  const groupsNote = page.getByRole('note').filter({ hasText: 'Ordered-group judging' });
+  await groupsNote.waitFor();
+  assert((await groupsNote.textContent()).includes('keep the groups in their required order'));
+  assert((await page.locator('.example code').first().textContent()).includes('One valid output'));
+  report.checks.push('leaf examples distinguish within-round permutations from chronological group order');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -324,6 +332,17 @@ try {
   assert.equal((await judge(page, strictCase,
     'def wiggle_sort_strict(nums):\n    return [1, 2, 1, 3, 2, 3]')).status, 'wrong_answer');
   report.checks.push('strict wiggle accepts alternative integer permutations and rejects equality, changed multisets, noninteger values, and returned copies');
+  const leaves = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-366.json'), 'utf8'));
+  const leafCase = { ...leaves, tests: [{ id: 'leaf-rounds', arguments: [[1,2,3,4,5]],
+    expected: [[4,5,3],[2],[1]], comparator: 'unordered_rows', visible: true }] };
+  assert.equal((await judge(page, leafCase,
+    'def leaf_removal_rounds(root):\n    return [[3,5,4],[2],[1]]')).status, 'accepted');
+  for (const output of ['[[1],[2],[3,4,5]]', '[[3,4],[2],[1]]', '[[3,4,5,5],[2],[1]]',
+    '[[3,4,5],[1]]', '[[3,4,5],[2],[True]]', '[[3,4,5],[2],[1.0]]', '[[[3],4,5],[2],[1]]']) {
+    assert.equal((await judge(page, leafCase,
+      `def leaf_removal_rounds(root):\n    return ${output}`)).status, 'wrong_answer');
+  }
+  report.checks.push('ordered integer groups accept within-round permutations and reject reversed rounds, lost/extra occurrences, missing groups, and malformed values');
   const successor = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-285.json'), 'utf8'));
   const noSuccessor = { ...successor, tests: [{ id: 'no-successor', arguments: [[2, 1, 3], 3], expected: null }] };
   assert.equal((await judge(page, noSuccessor, successor.reference_solution)).status, 'accepted');

@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 336 runnable problems (101 original exercises plus 235 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 345 runnable problems (101 original exercises plus 244 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The frozen **326-problem handoff checkpoint** remains available at `python-study-326-checkpoint`; `main` now includes ten additional verified problems. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md). Continuing development on this laptop does not change the website until you push, pull, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update.
+The frozen **326-problem handoff checkpoint** remains available at `python-study-326-checkpoint`; `main` now includes nineteen additional verified problems. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md). Continuing development on this laptop does not change the website until you push, pull, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 72 existing equivalents, 235 verified imports, 155 documented
-design/interactive exclusions, and 3,167 pending records. Ordinary tree and
+Current status: 72 existing equivalents, 244 verified imports, 155 documented
+design/interactive exclusions, and 3,158 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Thirty-two reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Thirty-three reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -289,6 +289,20 @@ boundaries. Stress fixtures include 100,000 envelopes, 500-by-500 bomb grids,
 100-digit linked numbers, and 10,000 updates over 100,000 array positions.
 The linked-list, recursion, and binary-search tags retain weak-topic priority.
 All 326 handoff-catalog entries keep their content, versions, and progress IDs.
+Batch thirty-three adds Max Sum of Rectangle No Larger Than K, Find Leaves of
+Binary Tree, Valid Perfect Square, Sum of Two Integers, Super Pow, Guess Number
+Higher or Lower II, Wiggle Subsequence, Combination Sum IV, and Kth Smallest
+Element in a Sorted Matrix. Leaf removal uses actual TreeNode inputs and an
+ordered-group comparator: values within a round may be rearranged, but rounds
+must remain chronological and duplicate node values are preserved. The UI
+explains this beside the examples and labels failure evidence as one valid
+output. Combination Sum IV explicitly counts ordered sequences, unlike coin
+combinations; Guess Number II is ordinary minimax computation, not an interactive
+judge. Exhaustive tests cover small rectangles, tree shapes, signed sums, wiggle
+subsequences, ordered sequences, and matrix ranks. Stress fixtures cover 100-by-100
+rectangles, 100-node chains, 2,000-digit exponents, n=200 guessing games, and
+300-by-300 sorted matrices. All 244 imports were revalidated after the new
+comparison mode. All previously published 336 entries retain their IDs and content.
 Of the 72 overlaps, 69 map to original exercises and three map to approved
 imports. Unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
@@ -326,7 +340,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 336 problems; future
+been checked against every reviewed batch. The current package contains 345 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the
