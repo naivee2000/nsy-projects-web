@@ -1,0 +1,217 @@
+{
+  "id": "leetcode-38",
+  "version": 1,
+  "status": "approved",
+  "title": "Count and Say",
+  "summary": "The count-and-say sequence is defined recursively.",
+  "statement": "The count-and-say sequence is defined recursively. The first term is '1'. Each subsequent term is the run-length encoding of the previous term. Run-length encoding means expressing consecutive duplicates of characters as a count followed by the character. For example, the sequence's second term is '11' (one '1'), third term is '21' (two '1's), fourth term is '1211' (one '2', and one '1'), and so on. Given a positive integer n, provide the n-th term of this sequence.",
+  "constraints": [
+    "1 <= n <= 30.",
+    "Term 1 is the string '1'. Each later term describes maximal consecutive equal-digit runs in the previous term as count followed by digit.",
+    "Return a string. Encode consecutive runs separately, not the total frequency of each digit."
+  ],
+  "topics": [
+    "strings",
+    "recursion"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "count_and_say",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "str",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def count_and_say(n: int) -> str:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def count_and_say(n):\n    if n == 1:\n        return \"1\"\n    previous = count_and_say(n - 1)\n    parts, start = [], 0\n    while start < len(previous):\n        end = start + 1\n        while end < len(previous) and previous[end] == previous[start]:\n            end += 1\n        parts.append(str(end - start) + previous[start])\n        start = end\n    return \"\".join(parts)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def count_and_say(n):\n    if n == 1:\n        return \"1\"\n    previous = count_and_say(n - 1)\n    parts, start = [], 0\n    while start < len(previous):\n        end = start + 1\n        while end < len(previous) and previous[end] == previous[start]:\n            end += 1\n        parts.append(previous[start] + str(end - start))\n        start = end\n    return \"\".join(parts)\n",
+    "def count_and_say(n):\n    if n <= 2:\n        return \"1\"\n    previous = count_and_say(n - 1)\n    parts, start = [], 0\n    while start < len(previous):\n        end = start + 1\n        while end < len(previous) and previous[end] == previous[start]:\n            end += 1\n        parts.append(str(end - start) + previous[start])\n        start = end\n    return \"\".join(parts)\n"
+  ],
+  "target_time_complexity": "O(sum of lengths of terms 1 through n)",
+  "target_space_complexity": "O(maximum term length + n)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A recursive solution needs only the previous term and an encoder for consecutive runs.",
+    "Use n=1 as the base case. Recursively obtain term n-1, then scan it with start/end pointers.",
+    "Extend end while the digit equals the run's first digit; append the run length and digit, then begin at end.",
+    "Do not merge equal digits separated by another digit. The same recurrence can also be implemented iteratively."
+  ],
+  "editorial": "The base term is '1'. Recursively calculate the previous term, then scan each maximal equal-digit run once, appending its length and digit. Join the pieces to obtain the requested term. This directly follows the recursive definition, with depth at most 30. If L_i is the length of term i, total work is proportional to the sum of generated term lengths; working storage is O(max L_i + n), including intermediate strings and call frames. An iterative itertools.groupby implementation provides the independent oracle.",
+  "tests": [
+    {
+      "id": "lc-38-1",
+      "arguments": [
+        4
+      ],
+      "expected": "1211",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The terms are 1 → 11 → 21 → 1211: the fourth describes one 2 followed by one 1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-2",
+      "arguments": [
+        1
+      ],
+      "expected": "1",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The base term is defined as '1'; no encoding step is performed.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-3",
+      "arguments": [
+        2
+      ],
+      "expected": "11",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-4",
+      "arguments": [
+        3
+      ],
+      "expected": "21",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-5",
+      "arguments": [
+        5
+      ],
+      "expected": "111221",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-6",
+      "arguments": [
+        6
+      ],
+      "expected": "312211",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-7",
+      "arguments": [
+        7
+      ],
+      "expected": "13112221",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-8",
+      "arguments": [
+        8
+      ],
+      "expected": "1113213211",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-9",
+      "arguments": [
+        9
+      ],
+      "expected": "31131211131221",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-10",
+      "arguments": [
+        10
+      ],
+      "expected": "13211311123113112211",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-11",
+      "arguments": [
+        12
+      ],
+      "expected": "3113112221232112111312211312113211",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-12",
+      "arguments": [
+        15
+      ],
+      "expected": "311311222113111231131112132112311321322112111312211312111322212311322113212221",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-13",
+      "arguments": [
+        20
+      ],
+      "expected": "11131221131211132221232112111312111213111213211231132132211211131221131211221321123113213221123113112221131112311332211211131221131211132211121312211231131112311211232221121321132132211331121321231231121113112221121321133112132112312321123113112221121113122113121113123112112322111213211322211312113211",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-38-14",
+      "arguments": [
+        30
+      ],
+      "expected": "3113112221131112311332111213122112311311123112111331121113122112132113121113222112311311221112131221123113112221121113311211131122211211131221131211132221121321132132212321121113121112133221123113112221131112212211131221121321131211132221123113112221131112311332211211133112111311222112111312211311123113322112111312211312111322212321121113121112133221121321132132211331121321132213211231132132211211131221232112111312212221121123222112311311222113111231133211121321321122111312211312111322211213211321322123211211131211121332211231131122211311123113321112131221123113111231121123222112111331121113112221121113122113111231133221121113122113121113221112131221123113111231121123222112111312211312111322212321121113121112131112132112311321322112111312212321121113122122211211232221121321132132211331121321231231121113112221121321132132211322132113213221123113112221133112132123222112111312211312112213211231132132211211131221131211322113321132211221121332211231131122211311123113321112131221123113111231121113311211131221121321131211132221123113112211121312211231131122211211133112111311222112111312211312111322211213211321223112111311222112132113213221133122211311221122111312211312111322212321121113121112131112132112311321322112111312212321121113122122211211232221121321132132211331121321231231121113112221121321132132211322132113213221123113112221133112132123222112111312211312112213211231132132211211131221131211322113321132211221121332211213211321322113311213212312311211131122211213211331121321123123211231131122211211131221131112311332211213211321223112111311222112132113213221123123211231132132211231131122211311123113322112111312211312111322111213122112311311123112112322211213211321322113312211223113112221121113122113111231133221121321132132211331222113321112131122211332113221122112133221123113112221131112311332111213122112311311123112111331121113122112132113121113222112311311221112131221123113112221121113311211131122211211131221131211132221121321132132212321121113121112133221123113112221131112311332111213122112311311123112112322211322311311222113111231133211121312211231131112311211232221121113122113121113222123211211131221132211131221121321131211132221123113112211121312211231131122113221122112133221121321132132211331121321231231121113121113122122311311222113111231133221121113122113121113221112131221123113111231121123222112132113213221133112132123123112111312211322311211133112111312211213211311123113223112111321322123122113222122211211232221121113122113121113222123211211131211121311121321123113213221121113122123211211131221121311121312211213211321322112311311222113311213212322211211131221131211221321123113213221121113122113121113222112131112131221121321131211132221121321132132211331121321232221123113112221131112311322311211131122211213211331121321122112133221121113122113121113222123112221221321132132211231131122211331121321232221121113122113121113222123211211131211121332211213111213122112132113121113222112132113213221232112111312111213322112132113213221133112132123123112111311222112132113311213211221121332211231131122211311123113321112131221123113112221132231131122211211131221131112311332211213211321223112111311222112132113212221132221222112112322211211131221131211132221232112111312111213111213211231131112311311221122132113213221133112132123222112311311222113111231132231121113112221121321133112132112211213322112111312211312111322212321121113121112131112132112311321322112111312212321121113122122211211232221121311121312211213211312111322211213211321322123211211131211121332211213211321322113311213211322132112311321322112111312212321121113122122211211232221121321132132211331121321231231121113112221121321133112132112312321123113112221121113122113111231133221121321132122311211131122211213211321222113222122211211232221123113112221131112311332111213122112311311123112111331121113122112132113121113222112311311221112131221123113112221121113311211131122211211131221131211132221121321132132212321121113121112133221123113112221131112311332111213213211221113122113121113222112132113213221232112111312111213322112132113213221133112132123123112111312211322311211133112111312212221121123222112132113213221133112132123222113223113112221131112311332111213122112311311123112112322211211131221131211132221232112111312111213111213211231132132211211131221131211221321123113213221123113112221131112211322212322211231131122211322111312211312111322211213211321322113311213211331121113122122211211132213211231131122212322211331222113112211",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

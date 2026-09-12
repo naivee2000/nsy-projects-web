@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-256",
+  "content_sha256": "7909496e7b19c9c009aacfe04bf167b8c294c4dd0f4ed1bcb4e8840be072d0bc",
+  "source_hash": "826058c46f24e0b683f2b9f332f74c5d155dff23e9f5336a71fc317f505b20cb",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Greedily chooses each row's cheapest color and can choose the same color for adjacent houses.",
+      "failed_cases": [
+        "lc-256-4",
+        "lc-256-5",
+        "lc-256-7",
+        "lc-256-10",
+        "lc-256-11",
+        "lc-256-stress-1"
+      ]
+    },
+    {
+      "reason": "Forces every house to use one fixed color instead of switching colors between adjacent houses.",
+      "failed_cases": [
+        "lc-256-1",
+        "lc-256-4",
+        "lc-256-5",
+        "lc-256-6",
+        "lc-256-7",
+        "lc-256-8",
+        "lc-256-9",
+        "lc-256-10",
+        "lc-256-11",
+        "lc-256-12",
+        "lc-256-13",
+        "lc-256-14",
+        "lc-256-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4303,
+  "oracle_implementation": "code_practice/import_batch_023.py:paint_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "85a252842fd001bdafb1239e0d3a9815a3ade559792417447a2ddde084eeb1ff",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.192,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,239 @@
+{
+  "id": "leetcode-246",
+  "version": 1,
+  "status": "approved",
+  "title": "Strobogrammatic Number",
+  "summary": "Determine if a given string num, representing an integer, is strobogrammatic by checking if it appears the same when rotated 180 degrees.",
+  "statement": "Determine if a given string num, representing an integer, is strobogrammatic by checking if it appears the same when rotated 180 degrees.",
+  "constraints": [
+    "num contains 1–50 decimal digits and has no leading zero unless it is exactly '0'.",
+    "After a 180-degree rotation, 0,1,8 map to themselves and 6/9 exchange. Digits 2,3,4,5,7 are invalid."
+  ],
+  "topics": [
+    "strings",
+    "two-pointers",
+    "hash-maps"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "is_strobogrammatic",
+    "parameters": [
+      {
+        "name": "num",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def is_strobogrammatic(num: str) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def is_strobogrammatic(num):\n    rotated = {\"0\": \"0\", \"1\": \"1\", \"6\": \"9\", \"8\": \"8\", \"9\": \"6\"}\n    left, right = 0, len(num) - 1\n    while left <= right:\n        if num[left] not in rotated or rotated[num[left]] != num[right]:\n            return False\n        left += 1\n        right -= 1\n    return True\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def is_strobogrammatic(num):\n    rotated = {\"0\": \"0\", \"1\": \"1\", \"6\": \"6\", \"8\": \"8\", \"9\": \"9\"}\n    left, right = 0, len(num) - 1\n    while left <= right:\n        if num[left] not in rotated or rotated[num[left]] != num[right]:\n            return False\n        left += 1\n        right -= 1\n    return True\n",
+    "def is_strobogrammatic(num):\n    return num == num[::-1]\n"
+  ],
+  "target_time_complexity": "O(len(num))",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Rotation reverses position order as well as changing certain digits.",
+    "Compare symmetric characters with a map 0→0,1→1,6→9,8→8,9→6.",
+    "Move two pointers inward; reject an unmapped left digit or a mapped value unequal to the right digit.",
+    "The middle digit of an odd-length number must be 0, 1, or 8."
+  ],
+  "editorial": "A 180-degree rotation sends the leftmost digit to the rightmost position. Each symmetric pair must therefore match the five-entry rotation map. Two pointers verify all pairs in linear time. The independent oracle constructs the same condition position-by-position from an independently declared mapping.",
+  "tests": [
+    {
+      "id": "lc-246-1",
+      "arguments": [
+        "69"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Rotating and reversing swaps 6 with 9 and 9 with 6, producing the same string.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-2",
+      "arguments": [
+        "962"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Digit 2 has no valid 180-degree rotation, so the number is not strobogrammatic.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-3",
+      "arguments": [
+        "0"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-4",
+      "arguments": [
+        "1"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-5",
+      "arguments": [
+        "8"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-6",
+      "arguments": [
+        "6"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-7",
+      "arguments": [
+        "9"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-8",
+      "arguments": [
+        "11"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-9",
+      "arguments": [
+        "88"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-10",
+      "arguments": [
+        "96"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-11",
+      "arguments": [
+        "101"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-12",
+      "arguments": [
+        "609"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-13",
+      "arguments": [
+        "818"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-14",
+      "arguments": [
+        "619"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-15",
+      "arguments": [
+        "123"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-246-16",
+      "arguments": [
+        "1001"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

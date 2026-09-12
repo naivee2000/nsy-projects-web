@@ -1,0 +1,344 @@
+{
+  "id": "days-until-warmer",
+  "version": 1,
+  "status": "approved",
+  "title": "Next Warmer Day",
+  "summary": "Measure the wait for a warmer reading.",
+  "statement": "For every temperature, return how many later days pass before a strictly warmer temperature. Use 0 when none exists.",
+  "constraints": [
+    "0 <= len(temperatures) <= 100,000",
+    "Temperatures are integers."
+  ],
+  "topics": [
+    "stacks",
+    "arrays"
+  ],
+  "prerequisites": [
+    "stacks"
+  ],
+  "signature": {
+    "name": "days_until_warmer",
+    "parameters": [
+      {
+        "name": "temperatures",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[int]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def days_until_warmer(temperatures: list[int]) -> list[int]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def days_until_warmer(temperatures):\n    answer = [0] * len(temperatures)\n    stack = []\n    for index, temperature in enumerate(temperatures):\n        while stack and temperatures[stack[-1]] < temperature:\n            earlier = stack.pop()\n            answer[earlier] = index - earlier\n        stack.append(index)\n    return answer\n",
+  "brute_force_solution": "def days_until_warmer(temperatures):\n    answer = []\n    for index, temperature in enumerate(temperatures):\n        wait = 0\n        for future in range(index + 1, len(temperatures)):\n            if temperatures[future] > temperature:\n                wait = future - index\n                break\n        answer.append(wait)\n    return answer\n",
+  "known_wrong_solutions": [
+    "def days_until_warmer(temperatures):\n    return None\n",
+    "def days_until_warmer(temperatures):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 25,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Unresolved days can wait in a stack.",
+    "A warmer current day resolves earlier colder stack entries.",
+    "Store indices in decreasing temperature order.",
+    "Each index enters and leaves the monotonic stack at most once."
+  ],
+  "editorial": "Maintain indices whose next warmer day is unknown. A warmer value pops and resolves every smaller temperature on top.",
+  "tests": [
+    {
+      "id": "days-until-warmer-case-1",
+      "arguments": [
+        [
+          73,
+          74,
+          75,
+          71,
+          69,
+          72,
+          76,
+          73
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        4,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Each position reports how many days ahead its next warmer temperature occurs.",
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-2",
+      "arguments": [
+        [
+          30,
+          40,
+          50,
+          60
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "In a rising sequence, each day waits one day except the final day.",
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-4",
+      "arguments": [
+        [
+          50
+        ]
+      ],
+      "expected": [
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-5",
+      "arguments": [
+        [
+          60,
+          50,
+          40
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-6",
+      "arguments": [
+        [
+          40,
+          40,
+          40
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-7",
+      "arguments": [
+        [
+          40,
+          41
+        ]
+      ],
+      "expected": [
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-8",
+      "arguments": [
+        [
+          41,
+          40,
+          42
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-9",
+      "arguments": [
+        [
+          70,
+          71,
+          70,
+          72
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-10",
+      "arguments": [
+        [
+          1,
+          3,
+          2,
+          4
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-11",
+      "arguments": [
+        [
+          90,
+          80,
+          70,
+          60,
+          100
+        ]
+      ],
+      "expected": [
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-12",
+      "arguments": [
+        [
+          10,
+          20,
+          10,
+          20
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-13",
+      "arguments": [
+        [
+          0,
+          -1,
+          1
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "days-until-warmer-case-14",
+      "arguments": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1,
+          6
+        ]
+      ],
+      "expected": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

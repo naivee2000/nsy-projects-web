@@ -1,0 +1,394 @@
+{
+  "id": "leetcode-163",
+  "version": 1,
+  "status": "approved",
+  "title": "Missing Ranges",
+  "summary": "Given an inclusive range [lower, upper] and a sorted unique integer array nums, where all elements are within this range, identify and return the shortest sorted list of ranges that cover all numbers missing from nums.",
+  "statement": "Given an inclusive range [lower, upper] and a sorted unique integer array nums, where all elements are within this range, identify and return the shortest sorted list of ranges that cover all numbers missing from nums. Each missing number must be covered by exactly one range, and no element of nums should be included in any range.",
+  "constraints": [
+    "-10^9 ≤ lower ≤ upper ≤ 10^9. nums contains 0–100 sorted unique values inside that inclusive interval.",
+    "Return sorted inclusive [start,end] pairs covering all and only missing integers. Merge adjacent missing integers into the fewest ranges; singleton gaps use [x,x]."
+  ],
+  "topics": [
+    "arrays",
+    "intervals"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "missing_ranges",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "lower",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "upper",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[list[int]]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def missing_ranges(nums: list[int], lower: int, upper: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def missing_ranges(nums, lower, upper):\n    result = []\n    following = lower\n    for value in nums:\n        if following < value:\n            result.append([following, value - 1])\n        following = value + 1\n    if following <= upper:\n        result.append([following, upper])\n    return result\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def missing_ranges(nums, lower, upper):\n    result = []\n    following = lower\n    for value in nums:\n        if following < value:\n            result.append([following, value])\n        following = value + 1\n    if following <= upper:\n        result.append([following, upper])\n    return result\n",
+    "def missing_ranges(nums, lower, upper):\n    result = []\n    following = lower\n    for value in nums:\n        if following < value:\n            result.append([following, value - 1])\n        following = value + 1\n    if False:\n        result.append([following, upper])\n    return result\n"
+  ],
+  "target_time_complexity": "O(len(nums))",
+  "target_space_complexity": "O(1) auxiliary, plus output",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Present numbers split the inclusive interval into possible missing gaps.",
+    "Track the next integer that has not yet been covered, beginning at lower.",
+    "Before each present value x, emit [next,x-1] if nonempty, then set next=x+1. Finish with [next,upper] if needed.",
+    "Do not enumerate a billion missing values; emit one range for a long gap."
+  ],
+  "editorial": "Because the present values are sorted and unique, each gap can be emitted in one step. Track the next unaccounted value, skip every present number, and include the final trailing gap. This uses linear time in the number of present values, independent of the numeric interval width. The oracle explicitly enumerates missing values only on bounded small intervals, then groups adjacent values. A full [-10^9,10^9] stress interval has the directly known single-range answer.",
+  "tests": [
+    {
+      "id": "lc-163-1",
+      "arguments": [
+        [
+          0,
+          1,
+          3,
+          50,
+          75
+        ],
+        0,
+        99
+      ],
+      "expected": [
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          49
+        ],
+        [
+          51,
+          74
+        ],
+        [
+          76,
+          99
+        ]
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Missing integers form [2,2], [4,49], [51,74], and [76,99]; each present value separates neighboring gaps.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-2",
+      "arguments": [
+        [
+          -1
+        ],
+        -1,
+        -1
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The only integer in the allowed interval is present, so there are no missing ranges.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-3",
+      "arguments": [
+        [],
+        0,
+        0
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-4",
+      "arguments": [
+        [],
+        1,
+        5
+      ],
+      "expected": [
+        [
+          1,
+          5
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-5",
+      "arguments": [
+        [
+          0
+        ],
+        0,
+        0
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-6",
+      "arguments": [
+        [
+          1
+        ],
+        0,
+        2
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-7",
+      "arguments": [
+        [
+          0,
+          2
+        ],
+        0,
+        2
+      ],
+      "expected": [
+        [
+          1,
+          1
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-8",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        3
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-9",
+      "arguments": [
+        [
+          2
+        ],
+        0,
+        4
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-10",
+      "arguments": [
+        [
+          -2,
+          0,
+          2
+        ],
+        -3,
+        3
+      ],
+      "expected": [
+        [
+          -3,
+          -3
+        ],
+        [
+          -1,
+          -1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-11",
+      "arguments": [
+        [
+          0
+        ],
+        -1,
+        0
+      ],
+      "expected": [
+        [
+          -1,
+          -1
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-12",
+      "arguments": [
+        [
+          0
+        ],
+        0,
+        1
+      ],
+      "expected": [
+        [
+          1,
+          1
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-13",
+      "arguments": [
+        [
+          -1000000000
+        ],
+        -1000000000,
+        -999999996
+      ],
+      "expected": [
+        [
+          -999999999,
+          -999999996
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-14",
+      "arguments": [
+        [
+          1000000000
+        ],
+        999999996,
+        1000000000
+      ],
+      "expected": [
+        [
+          999999996,
+          999999999
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-163-stress-1",
+      "arguments": [
+        [],
+        -1000000000,
+        1000000000
+      ],
+      "expected": [
+        [
+          -1000000000,
+          1000000000
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

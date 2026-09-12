@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-129",
+  "content_sha256": "fca9bae6442f03f1f539ac2e5f49c3a1e66af18837b48e9433bfdf16d693c7d8",
+  "source_hash": "b993d86bee465209b225d2677372917ede8096ac12947de55f900695ed485630",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds digits instead of concatenating their decimal positions.",
+      "failed_cases": [
+        "lc-129-1",
+        "lc-129-2",
+        "lc-129-6",
+        "lc-129-7",
+        "lc-129-9",
+        "lc-129-10",
+        "lc-129-11",
+        "lc-129-12",
+        "lc-129-14"
+      ]
+    },
+    {
+      "reason": "Includes unfinished root-to-internal-node paths in the total.",
+      "failed_cases": [
+        "lc-129-1",
+        "lc-129-2",
+        "lc-129-6",
+        "lc-129-7",
+        "lc-129-9",
+        "lc-129-10",
+        "lc-129-11",
+        "lc-129-12",
+        "lc-129-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4176,
+  "oracle_implementation": "code_practice/import_batch_004.py:number_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ea17eb3e4c59be73d7e57144a1d25441c354dc710eaada84a8e14fb5b01a3d1f",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

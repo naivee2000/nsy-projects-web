@@ -25,7 +25,7 @@ def test_valid_variant_requires_validation_and_explicit_approval():
     save_variant(variant.model_dump(mode="json"), variant.seed_problem_id or "")
     refresh_catalog()
     with TestClient(app) as client:
-        assert variant.id not in {item["id"] for item in client.get("/api/problems").json()}
+        assert variant.id not in {item["id"] for item in client.get("/api/problems?search=Warehouse").json()["items"]}
 
     report = validate_variant(variant.id)
     assert report["valid"]
@@ -35,7 +35,7 @@ def test_valid_variant_requires_validation_and_explicit_approval():
     assert update_variant_status(variant.id, "approved", report)
     refresh_catalog()
     with TestClient(app) as client:
-        assert variant.id in {item["id"] for item in client.get("/api/problems").json()}
+        assert variant.id in {item["id"] for item in client.get("/api/problems?search=Warehouse").json()["items"]}
 
 
 def test_infinite_reference_is_rejected_by_validation_timeout():

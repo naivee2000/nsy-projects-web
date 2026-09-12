@@ -1,0 +1,282 @@
+{
+  "id": "leetcode-404",
+  "version": 1,
+  "status": "approved",
+  "title": "Sum of Left Leaves",
+  "summary": "Calculate the total sum of all nodes that are left children and have no children in a given binary tree.",
+  "statement": "Calculate the total sum of all nodes that are left children and have no children in a given binary tree.",
+  "constraints": [
+    "1–1000 nodes; node values are in [-1000, 1000].",
+    "A left leaf has no children and is its parent's left child. The root itself is never a left leaf."
+  ],
+  "topics": [
+    "trees",
+    "recursion"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "sum_left_leaves",
+    "parameters": [
+      {
+        "name": "root",
+        "annotation": "TreeNode | None",
+        "adapter": "treenode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef sum_left_leaves(root: TreeNode | None) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def sum_left_leaves(root):\n    total = 0\n    stack = [(root, False)]\n    while stack:\n        node, is_left = stack.pop()\n        if node is None:\n            continue\n        if is_left and node.left is None and node.right is None:\n            total += node.val\n        stack.append((node.left, True))\n        stack.append((node.right, False))\n    return total\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def sum_left_leaves(root):\n    total = 0\n    stack = [(root, False)]\n    while stack:\n        node, is_left = stack.pop()\n        if node is None:\n            continue\n        if is_left:\n            total += node.val\n        stack.append((node.left, True))\n        stack.append((node.right, False))\n    return total\n",
+    "def sum_left_leaves(root):\n    total = 0\n    stack = [(root, False)]\n    while stack:\n        node, is_left = stack.pop()\n        if node is None:\n            continue\n        if node.left is None and node.right is None:\n            total += node.val\n        stack.append((node.left, True))\n        stack.append((node.right, False))\n    return total\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(h)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Being a left child and being a leaf are separate requirements.",
+    "Carry a flag indicating whether each visited node came from a left edge.",
+    "Add a value only when the flag is true and both children are absent; push children with their corresponding flags.",
+    "Start the root with a false flag. The same state can be passed through recursion."
+  ],
+  "editorial": "Traverse the tree with pairs of a node and a left-child flag. A node contributes precisely when its flag is true and it has no children. Each left child gets a true flag; each right child gets false. The root starts false. The explicit stack avoids recursion limits on a 1000-node chain, while expressing the same state that a recursive solution would pass.",
+  "tests": [
+    {
+      "id": "lc-404-1",
+      "arguments": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": 24,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "9 and 15 are left children with no children of their own. Their sum is 24; right leaf 7 is not counted.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-2",
+      "arguments": [
+        [
+          1
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The root has no parent, so it contributes zero despite being a leaf.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-3",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-4",
+      "arguments": [
+        [
+          -1
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-5",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-6",
+      "arguments": [
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-7",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-8",
+      "arguments": [
+        [
+          1,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-9",
+      "arguments": [
+        [
+          1,
+          null,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-10",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-11",
+      "arguments": [
+        [
+          1,
+          -2,
+          3
+        ]
+      ],
+      "expected": -2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-12",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-13",
+      "arguments": [
+        [
+          1,
+          2,
+          null,
+          3,
+          4,
+          5,
+          null,
+          null,
+          6
+        ]
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-404-14",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          null,
+          4,
+          5
+        ]
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

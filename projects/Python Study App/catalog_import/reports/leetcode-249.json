@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-249",
+  "content_sha256": "c355259057702348989b17a23eb0fbbb601d1815c008a79ab0fbd800e414f073",
+  "source_hash": "c54762749beedb8c2e648df135a2a235b936c383afc0cc0ffd6faf1e748b4d23",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses raw adjacent differences and fails to recognize wraparound-equivalent strings such as az and ba.",
+      "failed_cases": [
+        "lc-249-1",
+        "lc-249-4",
+        "lc-249-10"
+      ]
+    },
+    {
+      "reason": "Groups solely by length even when strings require different position-wise shifts.",
+      "failed_cases": [
+        "lc-249-6",
+        "lc-249-8",
+        "lc-249-11",
+        "lc-249-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4296,
+  "oracle_implementation": "code_practice/import_batch_023.py:shifted_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "85a252842fd001bdafb1239e0d3a9815a3ade559792417447a2ddde084eeb1ff",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -9,6 +9,10 @@ export default defineConfig({
                     src: "node_modules/pyodide/{pyodide.js,pyodide.asm.js,pyodide.asm.wasm,pyodide-lock.json,python_stdlib.zip}",
                     dest: "pyodide",
                     rename: { stripBase: true },
+                }, {
+                    src: "node_modules/monaco-editor/min/vs",
+                    dest: "monaco",
+                    rename: { stripBase: 3 },
                 }],
         }),
     ],

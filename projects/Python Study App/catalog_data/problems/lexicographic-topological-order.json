@@ -1,0 +1,456 @@
+{
+  "id": "lexicographic-topological-order",
+  "version": 1,
+  "status": "approved",
+  "title": "Lexicographic Topological Order",
+  "summary": "Return the smallest valid topological ordering, or an empty list for a cycle.",
+  "statement": "Return the smallest valid topological ordering, or an empty list for a cycle. Implement `lexicographic_topological_order` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "graphs",
+    "topological-sort",
+    "heaps"
+  ],
+  "prerequisites": [
+    "graphs"
+  ],
+  "signature": {
+    "name": "lexicographic_topological_order",
+    "parameters": [
+      {
+        "name": "node_count",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "edges",
+        "annotation": "list[list[int]]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[int]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def lexicographic_topological_order(node_count: int, edges: list[list[int]]) -> list[int]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def lexicographic_topological_order(node_count, edges):\n    import heapq\n    graph = [[] for _ in range(node_count)]; degree = [0] * node_count\n    for start, end in edges: graph[start].append(end); degree[end] += 1\n    heap = [node for node in range(node_count) if degree[node] == 0]; heapq.heapify(heap); order = []\n    while heap:\n        node = heapq.heappop(heap); order.append(node)\n        for neighbor in graph[node]:\n            degree[neighbor] -= 1\n            if degree[neighbor] == 0: heapq.heappush(heap, neighbor)\n    return order if len(order) == node_count else []\n",
+  "brute_force_solution": "def lexicographic_topological_order(node_count, edges):\n    import heapq\n    graph = [[] for _ in range(node_count)]; degree = [0] * node_count\n    for start, end in edges: graph[start].append(end); degree[end] += 1\n    heap = [node for node in range(node_count) if degree[node] == 0]; heapq.heapify(heap); order = []\n    while heap:\n        node = heapq.heappop(heap); order.append(node)\n        for neighbor in graph[node]:\n            degree[neighbor] -= 1\n            if degree[neighbor] == 0: heapq.heappush(heap, neighbor)\n    return order if len(order) == node_count else []\n",
+  "known_wrong_solutions": [
+    "def lexicographic_topological_order(node_count, edges):\n    return None\n",
+    "def lexicographic_topological_order(node_count, edges):\n    return 0\n"
+  ],
+  "target_time_complexity": "O((V+E) log V)",
+  "target_space_complexity": "O(V+E)",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Zero-indegree nodes are the currently legal next choices.",
+    "Use Kahn's algorithm with a min-heap to make the valid order deterministic.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the lexicographic_topological_order invariant is complete.",
+    "Editorial: Use Kahn's algorithm with a min-heap to make the valid order deterministic. The intended bounds are O((V+E) log V) time and O(V+E) space."
+  ],
+  "editorial": "Zero-indegree nodes are the currently legal next choices. Use Kahn's algorithm with a min-heap to make the valid order deterministic. This yields O((V+E) log V) time and O(V+E) auxiliary space.",
+  "tests": [
+    {
+      "id": "lexicographic-topological-order-case-1",
+      "arguments": [
+        4,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "When both 1 and 2 are available, choosing 1 first produces the lexicographically smallest valid order.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-2",
+      "arguments": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "A directed cycle prevents any topological ordering, so return an empty list.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-3",
+      "arguments": [
+        1,
+        []
+      ],
+      "expected": [
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-4",
+      "arguments": [
+        2,
+        []
+      ],
+      "expected": [
+        0,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-5",
+      "arguments": [
+        2,
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-6",
+      "arguments": [
+        5,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-7",
+      "arguments": [
+        4,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-8",
+      "arguments": [
+        4,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-9",
+      "arguments": [
+        5,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-10",
+      "arguments": [
+        3,
+        [
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-11",
+      "arguments": [
+        6,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-12",
+      "arguments": [
+        4,
+        [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-13",
+      "arguments": [
+        5,
+        [
+          [
+            4,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lexicographic-topological-order-case-14",
+      "arguments": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

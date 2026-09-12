@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-27",
+  "content_sha256": "b15879b489022223084354a774bfcd2ad1c650880b9148058244681aa9849245",
+  "source_hash": "8533c8cdad11fa2c46c80ee9e012c520a2647baa1757963fd6e39c8e1d4d65eb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the removed value instead of retaining other values.",
+      "failed_cases": [
+        "lc-27-1",
+        "lc-27-2",
+        "lc-27-4",
+        "lc-27-5",
+        "lc-27-6",
+        "lc-27-7",
+        "lc-27-8",
+        "lc-27-9",
+        "lc-27-10",
+        "lc-27-11",
+        "lc-27-12",
+        "lc-27-13",
+        "lc-27-14"
+      ]
+    },
+    {
+      "reason": "Computes k without moving the surviving values into the required prefix.",
+      "failed_cases": [
+        "lc-27-1",
+        "lc-27-2",
+        "lc-27-7",
+        "lc-27-9",
+        "lc-27-10",
+        "lc-27-12",
+        "lc-27-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4074,
+  "oracle_implementation": "code_practice/import_batch_011.py:remove_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "4e2e8efeead5101462f62113c0180ce2770b7f06f1920347a675087e85dd6764",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-145",
+  "content_sha256": "49d3cb95042ad5b1bdc3018ed40895b404fdd54f45f9a8b43377960d7f5936b8",
+  "source_hash": "607cf3c66d0c12897927d91055c30f2639d16f8000b3d7965a8622ef4c39d93c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Places the root at the wrong point relative to its child subtrees.",
+      "failed_cases": [
+        "lc-145-1",
+        "lc-145-2",
+        "lc-145-6",
+        "lc-145-7",
+        "lc-145-8",
+        "lc-145-9",
+        "lc-145-10",
+        "lc-145-11",
+        "lc-145-12",
+        "lc-145-14"
+      ]
+    },
+    {
+      "reason": "Visits the right subtree before the left subtree.",
+      "failed_cases": [
+        "lc-145-2",
+        "lc-145-8",
+        "lc-145-11",
+        "lc-145-12",
+        "lc-145-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4192,
+  "oracle_implementation": "code_practice/import_batch_009.py:postorder_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "568566665679bfc6841c0cd460aa087b23e895223505310935a455d03afc7c5c",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

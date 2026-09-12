@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-201",
+  "content_sha256": "657528e45fc68c4fc9b44f2756829bd29ee6984c93075deccd85d3cd2820045c",
+  "source_hash": "152027041f3f3a41e2b8da8da33aa9da0279e3049a14d4cf8444f822b77771f3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores intermediate integers that clear bits shared by the endpoints.",
+      "failed_cases": [
+        "lc-201-1",
+        "lc-201-11",
+        "lc-201-stress-1"
+      ]
+    },
+    {
+      "reason": "Stops before resolving adjacent endpoints, leaving a varying low bit set.",
+      "failed_cases": [
+        "lc-201-1",
+        "lc-201-2",
+        "lc-201-5",
+        "lc-201-8",
+        "lc-201-9",
+        "lc-201-10",
+        "lc-201-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4248,
+  "oracle_implementation": "code_practice/import_batch_020.py:range_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "c514f0f536ddec594527bec51024127811de11eb86d63244c92f6fd74613e461",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.012,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

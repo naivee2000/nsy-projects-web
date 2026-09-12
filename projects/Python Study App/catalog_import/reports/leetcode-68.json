@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-68",
+  "content_sha256": "c098746d2da4321ba7b3a4b65abf63959c55fe4ae2f4e7bdefc7bbb7fcf1ddf6",
+  "source_hash": "aab14617d61b172520f62d8ac38bb6a1f2925e1961cc2f16688787ace5f614d5",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Fully justifies the final multiword line instead of left-justifying it.",
+      "failed_cases": [
+        "lc-68-2",
+        "lc-68-11",
+        "lc-68-13"
+      ]
+    },
+    {
+      "reason": "Places leftover spaces in the rightmost gaps rather than the leftmost gaps.",
+      "failed_cases": [
+        "lc-68-1",
+        "lc-68-7",
+        "lc-68-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4115,
+  "oracle_implementation": "code_practice/import_batch_015.py:justification_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "02d317646b251c178a0b99eb11493858c074825494e6c814c0b3382d7a780b72",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.078,
+  "failures": [],
+  "workbook_sample": "original input preserved; erroneous workbook output explicitly corrected",
+  "sample_correction": {
+    "original_expected": [
+      "This is an",
+      "example of text",
+      "justification. "
+    ],
+    "corrected_expected": [
+      "This    is    an",
+      "example  of text",
+      "justification.  "
+    ],
+    "reason": "The workbook collapses repeated spaces. The retained upstream Example 1 and maxWidth=16 contract require lines of length 16, left-biased extra gaps, and two trailing spaces on the last line. Input words and order are unchanged.",
+    "original_sample": "Input words = [\"This\", \"is\", \"an\", \"example\", \"of\", \"text\", \"justification.\"], maxWidth = 16 → Output [ \"This is an\", \"example of text\", \"justification. \" ].",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/0000-0099/0068.Text%20Justification/README_EN.md"
+  }
+}

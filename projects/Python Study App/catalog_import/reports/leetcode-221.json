@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-221",
+  "content_sha256": "cb87e1b5a25635de7a7a9f86e9308341fcaff7d1c891cca0913ae5d9d71bb6d6",
+  "source_hash": "d370ea8da294aa0106ba29d1079eb92f5520287b0981885f3fd26c9272c7a8ef",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns side length instead of the required area.",
+      "failed_cases": [
+        "lc-221-1",
+        "lc-221-7",
+        "lc-221-11",
+        "lc-221-13",
+        "lc-221-stress-1"
+      ]
+    },
+    {
+      "reason": "Ignores the upper-left diagonal and allows a zero inside a supposedly all-one square.",
+      "failed_cases": [
+        "lc-221-8",
+        "lc-221-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4268,
+  "oracle_implementation": "code_practice/import_batch_021.py:square_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "0dae844fd51ad689b3922de3d7db1644ac132889280578b8764f771cc7b530e9",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.108,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

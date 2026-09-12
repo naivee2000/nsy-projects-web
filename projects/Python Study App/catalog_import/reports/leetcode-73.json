@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-73",
+  "content_sha256": "81cde389478c61bf02eedd42ca3cb8c0d826afc4aff602f467e7678d599ab77b",
+  "source_hash": "5a2bcb5bf4bd8b9c5adc7ca9e8c30e814521ebba424e4dae83aad54b33a14a35",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets to clear the first row when it originally contained a zero.",
+      "failed_cases": [
+        "lc-73-2",
+        "lc-73-7",
+        "lc-73-8"
+      ]
+    },
+    {
+      "reason": "Clears only intersections of marked rows and columns instead of their union.",
+      "failed_cases": [
+        "lc-73-1",
+        "lc-73-2",
+        "lc-73-8",
+        "lc-73-9",
+        "lc-73-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4120,
+  "oracle_implementation": "code_practice/import_batch_011.py:zero_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "4e2e8efeead5101462f62113c0180ce2770b7f06f1920347a675087e85dd6764",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.089,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

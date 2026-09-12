@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-227",
+  "content_sha256": "934d09cfd2f0977b76be2e8c84e780333dfd780c7d5e626cb21c4628efb50e03",
+  "source_hash": "d3cee7371281bc5ef808c5b3c8b1daaa1c391d2a00bfda4b6e446e12c9a4a4c9",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Evaluates every operator left to right and ignores multiplication/division precedence.",
+      "failed_cases": [
+        "lc-227-1",
+        "lc-227-2",
+        "lc-227-6",
+        "lc-227-7",
+        "lc-227-9",
+        "lc-227-12",
+        "lc-227-14"
+      ]
+    },
+    {
+      "reason": "Uses floor division for a negative running term instead of truncating toward zero.",
+      "failed_cases": [
+        "lc-227-6",
+        "lc-227-7",
+        "lc-227-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4274,
+  "oracle_implementation": "code_practice/import_batch_022.py:calculator_two_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "8c22a18941f65edad8e94dc9db23a196deab0dbfd3b74ae736b86f14cece6c28",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.094,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,253 @@
+{
+  "id": "leetcode-248",
+  "version": 1,
+  "status": "approved",
+  "title": "Strobogrammatic Number III",
+  "summary": "Given two string representations of integers, low and high, where low is less than or equal to high, count the strobogrammatic numbers within the inclusive range from low to high.",
+  "statement": "Given two string representations of integers, low and high, where low is less than or equal to high, count the strobogrammatic numbers within the inclusive range from low to high. A strobogrammatic number remains the same when viewed upside down.",
+  "constraints": [
+    "low and high are canonical decimal strings of length 1–15 with 0 ≤ low ≤ high and no leading zero except '0'.",
+    "Count strobogrammatic integers in the inclusive interval [low,high]. Compare long bounds without converting them to fixed-width machine integers."
+  ],
+  "topics": [
+    "recursion",
+    "backtracking",
+    "strings"
+  ],
+  "prerequisites": [
+    "recursion",
+    "backtracking",
+    "strings"
+  ],
+  "signature": {
+    "name": "count_strobogrammatic_range",
+    "parameters": [
+      {
+        "name": "low",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "high",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def count_strobogrammatic_range(low: str, high: str) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def count_strobogrammatic_range(low, high):\n    pairs = ((\"0\", \"0\"), (\"1\", \"1\"), (\"6\", \"9\"), (\"8\", \"8\"), (\"9\", \"6\"))\n    def build(length, total):\n        if length == 0:\n            return [\"\"]\n        if length == 1:\n            return [\"0\", \"1\", \"8\"]\n        answers = []\n        for middle in build(length - 2, total):\n            for left, right in pairs:\n                if length == total and left == \"0\":\n                    continue\n                answers.append(left + middle + right)\n        return answers\n    answer = 0\n    for length in range(len(low), len(high) + 1):\n        for value in build(length, length):\n            if (length > len(low) or value >= low) and (length < len(high) or value <= high):\n                answer += 1\n    return answer\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def count_strobogrammatic_range(low, high):\n    pairs = ((\"0\", \"0\"), (\"1\", \"1\"), (\"6\", \"9\"), (\"8\", \"8\"), (\"9\", \"6\"))\n    def build(length, total):\n        if length == 0:\n            return [\"\"]\n        if length == 1:\n            return [\"0\", \"1\", \"8\"]\n        answers = []\n        for middle in build(length - 2, total):\n            for left, right in pairs:\n                if length == total and left == \"0\":\n                    continue\n                answers.append(left + middle + right)\n        return answers\n    answer = 0\n    for length in range(len(low), len(high) + 1):\n        for value in build(length, length):\n            if (length > len(low) or value > low) and (length < len(high) or value <= high):\n                answer += 1\n    return answer\n",
+    "def count_strobogrammatic_range(low, high):\n    pairs = ((\"0\", \"0\"), (\"1\", \"1\"), (\"6\", \"9\"), (\"8\", \"8\"), (\"9\", \"6\"))\n    def build(length, total):\n        if length == 0:\n            return [\"\"]\n        if length == 1:\n            return [\"0\", \"1\", \"8\"]\n        answers = []\n        for middle in build(length - 2, total):\n            for left, right in pairs:\n                if length == total and left == \"0\":\n                    continue\n                answers.append(left + middle + right)\n        return answers\n    answer = 0\n    for length in range(len(low), len(high) + 1):\n        for value in build(length, length):\n            if (length > len(low) or value >= low) and (length < len(high) or value <= high):\n                answer += 1\n    return answer - (1 if low == \"0\" else 0)\n"
+  ],
+  "target_time_complexity": "O(total generated candidates through 15 digits)",
+  "target_space_complexity": "O(total generated candidates through 15 digits)",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Generate only candidates whose lengths lie between the bound lengths.",
+    "Use the same center-out construction as the generation problem, excluding leading zeroes.",
+    "For boundary-length strings compare lexicographically with low/high; equal-length decimal strings share numeric order.",
+    "Both endpoints are inclusive, and zero is a valid one-character candidate."
+  ],
+  "editorial": "Generate each strobogrammatic candidate once for every relevant length. Length alone accepts candidates strictly inside the bound lengths; equal-length candidates use lexicographic comparisons, avoiding machine-width concerns. The independent oracle enumerates each ordinary integer only for bounded seeded ranges and directly applies the rotation predicate. A closed-form full-domain fixture checks all lengths through 15.",
+  "tests": [
+    {
+      "id": "lc-248-1",
+      "arguments": [
+        "50",
+        "100"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The included strobogrammatic values are 69,88,96, so the count is 3.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-2",
+      "arguments": [
+        "0",
+        "0"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Zero rotates to itself and both inclusive bounds equal zero, so the count is 1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-3",
+      "arguments": [
+        "0",
+        "1"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-4",
+      "arguments": [
+        "1",
+        "1"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-5",
+      "arguments": [
+        "2",
+        "8"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-6",
+      "arguments": [
+        "6",
+        "9"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-7",
+      "arguments": [
+        "10",
+        "11"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-8",
+      "arguments": [
+        "11",
+        "11"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-9",
+      "arguments": [
+        "12",
+        "68"
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-10",
+      "arguments": [
+        "69",
+        "96"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-11",
+      "arguments": [
+        "100",
+        "1000"
+      ],
+      "expected": 12,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-12",
+      "arguments": [
+        "101",
+        "101"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-13",
+      "arguments": [
+        "808",
+        "818"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-14",
+      "arguments": [
+        "1000",
+        "10000"
+      ],
+      "expected": 20,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-248-stress-1",
+      "arguments": [
+        "0",
+        "999999999999999"
+      ],
+      "expected": 312499,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

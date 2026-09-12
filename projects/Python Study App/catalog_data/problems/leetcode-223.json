@@ -1,0 +1,374 @@
+{
+  "id": "leetcode-223",
+  "version": 1,
+  "status": "approved",
+  "title": "Rectangle Area",
+  "summary": "Given the coordinates of the bottom-left and top-right corners of two rectilinear rectangles in a 2D plane, calculate the total area covered by both rectangles.",
+  "statement": "Given the coordinates of the bottom-left and top-right corners of two rectilinear rectangles in a 2D plane, calculate the total area covered by both rectangles.",
+  "constraints": [
+    "All coordinates are integers from -10000 to 10000; ax1≤ax2, ay1≤ay2, bx1≤bx2, by1≤by2. Zero-width/height rectangles are allowed.",
+    "Rectangles are axis-aligned, given by bottom-left and top-right corners. Return their union area, counting overlap once; touching only along an edge or corner adds no overlap area."
+  ],
+  "topics": [
+    "geometry",
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "rectangle_union_area",
+    "parameters": [
+      {
+        "name": "ax1",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "ay1",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "ax2",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "ay2",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "bx1",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "by1",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "bx2",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "by2",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def rectangle_union_area(ax1: int, ay1: int, ax2: int, ay2: int, bx1: int, by1: int, bx2: int, by2: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def rectangle_union_area(ax1, ay1, ax2, ay2, bx1, by1, bx2, by2):\n    first = (ax2 - ax1) * (ay2 - ay1)\n    second = (bx2 - bx1) * (by2 - by1)\n    width = max(0, min(ax2, bx2) - max(ax1, bx1))\n    height = max(0, min(ay2, by2) - max(ay1, by1))\n    return first + second - width * height\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def rectangle_union_area(ax1, ay1, ax2, ay2, bx1, by1, bx2, by2):\n    first = (ax2 - ax1) * (ay2 - ay1)\n    second = (bx2 - bx1) * (by2 - by1)\n    width = max(0, min(ax2, bx2) - max(ax1, bx1))\n    height = max(0, min(ay2, by2) - max(ay1, by1))\n    return first + second\n",
+    "def rectangle_union_area(ax1, ay1, ax2, ay2, bx1, by1, bx2, by2):\n    first = (ax2 - ax1) * (ay2 - ay1)\n    second = (bx2 - bx1) * (by2 - by1)\n    width = min(ax2, bx2) - max(ax1, bx1)\n    height = min(ay2, by2) - max(ay1, by1)\n    return first + second - width * height\n"
+  ],
+  "target_time_complexity": "O(1)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Adding the individual areas counts the shared region twice.",
+    "Intersect the x intervals and the y intervals separately to find overlap dimensions.",
+    "Clamp both overlap dimensions at zero, multiply them, and subtract that overlap from the two individual areas.",
+    "Negative coordinates do not change the formula; degenerate rectangles and touching edges have zero overlap area."
+  ],
+  "editorial": "Inclusion-exclusion counts each point once: area(A)+area(B)−area(A∩B). The intersection of axis-aligned rectangles is an axis-aligned rectangle only when both overlap dimensions are positive, so clamp each dimension independently before multiplying. The independent oracle partitions the plane using all input x/y boundaries and sums coordinate cells covered by either rectangle; it does not reuse the overlap formula. All arithmetic remains integral, including the full-domain 400000000 area.",
+  "tests": [
+    {
+      "id": "lc-223-1",
+      "arguments": [
+        -3,
+        0,
+        3,
+        4,
+        0,
+        -1,
+        9,
+        2
+      ],
+      "expected": 45,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The individual areas are 24 and 27. Their shared 3×2 region has area 6, so the union is 24+27−6=45.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-2",
+      "arguments": [
+        -2,
+        -2,
+        2,
+        2,
+        -2,
+        -2,
+        2,
+        2
+      ],
+      "expected": 16,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The rectangles coincide completely; count the shared 4×4 region only once, giving 16.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-3",
+      "arguments": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-4",
+      "arguments": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        3,
+        3
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-5",
+      "arguments": [
+        0,
+        0,
+        4,
+        4,
+        1,
+        1,
+        2,
+        2
+      ],
+      "expected": 16,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-6",
+      "arguments": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        3,
+        1
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-7",
+      "arguments": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        3
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-8",
+      "arguments": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-9",
+      "arguments": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-10",
+      "arguments": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-11",
+      "arguments": [
+        0,
+        0,
+        0,
+        2,
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-12",
+      "arguments": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-13",
+      "arguments": [
+        -5,
+        -5,
+        -2,
+        -2,
+        -4,
+        -4,
+        -1,
+        -1
+      ],
+      "expected": 14,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-14",
+      "arguments": [
+        0,
+        0,
+        0,
+        5,
+        1,
+        1,
+        4,
+        1
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-223-stress-1",
+      "arguments": [
+        -10000,
+        -10000,
+        0,
+        10000,
+        0,
+        -10000,
+        10000,
+        10000
+      ],
+      "expected": 400000000,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

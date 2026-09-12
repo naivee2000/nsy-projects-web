@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-209",
+  "content_sha256": "53e5e6de6ccc77da032087076bc77966815fa629dae7d08ba891932b6484f73e",
+  "source_hash": "1c58fec7c68a594f6cfe5e6cd2113b7555aa95f3d64f59cdf7469379e9b57258",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts only exact sums, missing shorter windows that exceed the target.",
+      "failed_cases": [
+        "lc-209-1",
+        "lc-209-2",
+        "lc-209-5",
+        "lc-209-6",
+        "lc-209-14",
+        "lc-209-stress-2"
+      ]
+    },
+    {
+      "reason": "Shrinks the left boundary only once and misses shorter still-valid windows.",
+      "failed_cases": [
+        "lc-209-1",
+        "lc-209-2",
+        "lc-209-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4256,
+  "oracle_implementation": "code_practice/import_batch_020.py:window_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "c514f0f536ddec594527bec51024127811de11eb86d63244c92f6fd74613e461",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.101,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

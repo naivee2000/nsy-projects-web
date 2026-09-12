@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-63",
+  "content_sha256": "991e170fb36432655edd20d2f7bab53b8d0caffe5fbbe2f105efa7100b37dbbe",
+  "source_hash": "0ec0f7f56befcfeb07175baa7963cac9e23fa131e0fe2e639c29c008c0fc1941",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores obstacles and counts routes through blocked cells.",
+      "failed_cases": [
+        "lc-63-1",
+        "lc-63-2",
+        "lc-63-4",
+        "lc-63-6",
+        "lc-63-7",
+        "lc-63-9",
+        "lc-63-10",
+        "lc-63-12",
+        "lc-63-13",
+        "lc-63-14",
+        "lc-63-stress-1",
+        "lc-63-stress-3"
+      ]
+    },
+    {
+      "reason": "Forgets that reaching an open destination completes one valid route.",
+      "failed_cases": [
+        "lc-63-1",
+        "lc-63-2",
+        "lc-63-3",
+        "lc-63-5",
+        "lc-63-8",
+        "lc-63-11",
+        "lc-63-14",
+        "lc-63-stress-2",
+        "lc-63-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4110,
+  "oracle_implementation": "code_practice/import_batch_005.py:obstacles_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e60e88e572987315504195a15d16b4addb74d8fa193d1aff9dad1c212c0dab78",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

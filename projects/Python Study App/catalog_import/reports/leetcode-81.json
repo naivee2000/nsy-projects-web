@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-81",
+  "content_sha256": "3072d8842d2d8e512450b748163cec7a957fefcece136008463d9606b8757650",
+  "source_hash": "5b30412f61e2bea435cd129f1cf366395bbba169a1e478b0550ca0f83ed8767c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes distinct values, discarding the target hidden behind equal boundaries.",
+      "failed_cases": [
+        "lc-81-7"
+      ]
+    },
+    {
+      "reason": "Never checks the final remaining position.",
+      "failed_cases": [
+        "lc-81-3",
+        "lc-81-7",
+        "lc-81-8",
+        "lc-81-9",
+        "lc-81-10",
+        "lc-81-11",
+        "lc-81-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4128,
+  "oracle_implementation": "code_practice/import_batch_010.py:search_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e46a1138793a580d0aedc6770704b6b92bd9dcdfb5699095d86cfe8328adcb46",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

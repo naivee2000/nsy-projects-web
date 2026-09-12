@@ -1,0 +1,274 @@
+{
+  "id": "maximum-circular-subarray",
+  "version": 1,
+  "status": "approved",
+  "title": "Maximum Circular Subarray",
+  "summary": "Return the greatest nonempty subarray sum when the ends are adjacent, or 0 for empty input.",
+  "statement": "Return the greatest nonempty subarray sum when the ends are adjacent, or 0 for empty input. Implement `maximum_circular_subarray` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "dynamic-programming",
+    "arrays"
+  ],
+  "prerequisites": [
+    "dynamic-programming"
+  ],
+  "signature": {
+    "name": "maximum_circular_subarray",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def maximum_circular_subarray(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def maximum_circular_subarray(nums):\n    if not nums: return 0\n    total = sum(nums); max_end = min_end = max_best = min_best = nums[0]\n    for value in nums[1:]:\n        max_end = max(value, max_end+value); max_best = max(max_best,max_end)\n        min_end = min(value, min_end+value); min_best = min(min_best,min_end)\n    return max_best if max_best < 0 else max(max_best, total-min_best)\n",
+  "brute_force_solution": "def maximum_circular_subarray(nums):\n    if not nums: return 0\n    total = sum(nums); max_end = min_end = max_best = min_best = nums[0]\n    for value in nums[1:]:\n        max_end = max(value, max_end+value); max_best = max(max_best,max_end)\n        min_end = min(value, min_end+value); min_best = min(min_best,min_end)\n    return max_best if max_best < 0 else max(max_best, total-min_best)\n",
+  "known_wrong_solutions": [
+    "def maximum_circular_subarray(nums):\n    return None\n",
+    "def maximum_circular_subarray(nums):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 40,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "A wrapping maximum equals total sum minus a minimum middle segment.",
+    "Compare the ordinary maximum with total minus the minimum, guarding the all-negative case.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the maximum_circular_subarray invariant is complete.",
+    "Editorial: Compare the ordinary maximum with total minus the minimum, guarding the all-negative case. The intended bounds are O(n) time and O(1) space."
+  ],
+  "editorial": "A wrapping maximum equals total sum minus a minimum middle segment. Compare the ordinary maximum with total minus the minimum, guarding the all-negative case. This yields O(n) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "maximum-circular-subarray-case-1",
+      "arguments": [
+        [
+          5,
+          -3,
+          5
+        ]
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Wrapping across the ends joins both 5s for a maximum circular sum of 10.",
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-2",
+      "arguments": [
+        [
+          -3,
+          -2,
+          -5
+        ]
+      ],
+      "expected": -2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "For all-negative input, the best nonempty choice is the single value -2.",
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-4",
+      "arguments": [
+        [
+          7
+        ]
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-5",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-6",
+      "arguments": [
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-7",
+      "arguments": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-8",
+      "arguments": [
+        [
+          -3,
+          -1,
+          -2
+        ]
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-9",
+      "arguments": [
+        [
+          1,
+          3,
+          3,
+          2
+        ]
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-10",
+      "arguments": [
+        [
+          5,
+          1,
+          5,
+          1
+        ]
+      ],
+      "expected": 12,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-11",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-12",
+      "arguments": [
+        [
+          10,
+          -10,
+          10
+        ]
+      ],
+      "expected": 20,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-13",
+      "arguments": [
+        [
+          1,
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-circular-subarray-case-14",
+      "arguments": [
+        [
+          9,
+          7,
+          5,
+          3,
+          1
+        ]
+      ],
+      "expected": 25,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

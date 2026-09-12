@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-112",
+  "content_sha256": "904a29fe8b21edcbf9b9d7f95935a1558968cdaa50a6c21ffd1e04b63768dc53",
+  "source_hash": "cd5f211d11bf9bf5e4c0a8ff8dfb77cf53829f07d977683cd39e31ab284d0542",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a matching prefix that does not end at a leaf.",
+      "failed_cases": [
+        "lc-112-6"
+      ]
+    },
+    {
+      "reason": "Skips every right-child path.",
+      "failed_cases": [
+        "lc-112-1",
+        "lc-112-8",
+        "lc-112-9",
+        "lc-112-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4159,
+  "oracle_implementation": "code_practice/import_batch_002.py:path_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "82407c90c77e143e86e918fb1cf5273ab5afdb0d0b40c5dd7649a50a7ca5d4d8",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

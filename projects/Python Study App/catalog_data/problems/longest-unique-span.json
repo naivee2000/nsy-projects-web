@@ -1,0 +1,219 @@
+{
+  "id": "longest-unique-span",
+  "version": 1,
+  "status": "approved",
+  "title": "Longest Unique Span",
+  "summary": "Find the longest substring without repeated characters.",
+  "statement": "Return the length of the longest contiguous span of `text` containing no repeated character.",
+  "constraints": [
+    "0 <= len(text) <= 100,000",
+    "Characters are case-sensitive."
+  ],
+  "topics": [
+    "sliding-window",
+    "strings",
+    "hash-maps"
+  ],
+  "prerequisites": [
+    "strings"
+  ],
+  "signature": {
+    "name": "longest_unique_span",
+    "parameters": [
+      {
+        "name": "text",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def longest_unique_span(text: str) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def longest_unique_span(text):\n    last_seen = {}\n    left = best = 0\n    for right, character in enumerate(text):\n        if character in last_seen and last_seen[character] >= left:\n            left = last_seen[character] + 1\n        last_seen[character] = right\n        best = max(best, right - left + 1)\n    return best\n",
+  "brute_force_solution": "def longest_unique_span(text):\n    best = 0\n    for left in range(len(text) + 1):\n        seen = set()\n        for right in range(left, len(text)):\n            if text[right] in seen:\n                break\n            seen.add(text[right])\n            best = max(best, right - left + 1)\n    return best\n",
+  "known_wrong_solutions": [
+    "def longest_unique_span(text):\n    return None\n",
+    "def longest_unique_span(text):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(k)",
+  "estimated_minutes": 25,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Maintain a window that is always duplicate-free.",
+    "When a repeat appears, move the left edge beyond its previous occurrence.",
+    "Map each character to its latest index and never move left backward.",
+    "A sliding window visits each position a constant number of times."
+  ],
+  "editorial": "Track the latest position of every character. A duplicate inside the current window advances the left boundary.",
+  "tests": [
+    {
+      "id": "longest-unique-span-case-1",
+      "arguments": [
+        "abcabcbb"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The longest substring without a repeated character is 'abc', with length 3.",
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-2",
+      "arguments": [
+        "bbbbb"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "With one repeated character, every unique substring has length 1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-3",
+      "arguments": [
+        ""
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-4",
+      "arguments": [
+        "pwwkew"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-5",
+      "arguments": [
+        "dvdf"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-6",
+      "arguments": [
+        "abba"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-7",
+      "arguments": [
+        " "
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-8",
+      "arguments": [
+        "au"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-9",
+      "arguments": [
+        "tmmzuxt"
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-10",
+      "arguments": [
+        "abcdef"
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-11",
+      "arguments": [
+        "aab"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-12",
+      "arguments": [
+        "anviaj"
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-13",
+      "arguments": [
+        "AaBb"
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-unique-span-case-14",
+      "arguments": [
+        "abcadeaf"
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

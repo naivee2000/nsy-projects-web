@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-86",
+  "content_sha256": "f6ca9194f48e2f8d7057de83cb3bd0a21997d5ff335491d6eb49c3b53b4418b9",
+  "source_hash": "fa52aa9835ea1021570da370b8861c3766d720b2dd27d65a658530c44d34d0e5",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Groups values equal to x with the lower partition, changing their relative placement.",
+      "failed_cases": [
+        "lc-86-1",
+        "lc-86-2",
+        "lc-86-7",
+        "lc-86-10",
+        "lc-86-11"
+      ]
+    },
+    {
+      "reason": "Concatenates the greater-or-equal group before the less-than group.",
+      "failed_cases": [
+        "lc-86-1",
+        "lc-86-2",
+        "lc-86-7",
+        "lc-86-10",
+        "lc-86-11",
+        "lc-86-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4133,
+  "oracle_implementation": "code_practice/import_batch_012.py:partition_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "908cb58d25383d52ae6743dc04dd504b9186d136883acea4c389a5a669f3bc97",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

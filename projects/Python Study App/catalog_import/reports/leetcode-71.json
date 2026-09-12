@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-71",
+  "content_sha256": "3b5278e67fdbfb5d9b3ee033ab51b861201f3de9339fff0ac93dcb0fbadce4e6",
+  "source_hash": "5af4ed31764059ba13c81a2d897cbc30f14c7dd2c6a153fa29d2750d84e1d5c8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores parent-directory components without removing the preceding directory.",
+      "failed_cases": [
+        "lc-71-2",
+        "lc-71-9",
+        "lc-71-10",
+        "lc-71-13"
+      ]
+    },
+    {
+      "reason": "Treats all dot-prefixed names as navigation rather than literal names.",
+      "failed_cases": [
+        "lc-71-2",
+        "lc-71-11",
+        "lc-71-12",
+        "lc-71-13",
+        "lc-71-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4118,
+  "oracle_implementation": "code_practice/import_batch_010.py:path_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e46a1138793a580d0aedc6770704b6b92bd9dcdfb5699095d86cfe8328adcb46",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

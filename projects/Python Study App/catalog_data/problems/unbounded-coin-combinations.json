@@ -1,0 +1,279 @@
+{
+  "id": "unbounded-coin-combinations",
+  "version": 1,
+  "status": "approved",
+  "title": "Unbounded Coin Combinations",
+  "summary": "Return the number of order-independent ways reusable coin values can form amount.",
+  "statement": "Return the number of order-independent ways reusable coin values can form amount. Implement `unbounded_coin_combinations` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "dynamic-programming"
+  ],
+  "prerequisites": [
+    "dynamic-programming"
+  ],
+  "signature": {
+    "name": "unbounded_coin_combinations",
+    "parameters": [
+      {
+        "name": "coins",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "amount",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def unbounded_coin_combinations(coins: list[int], amount: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def unbounded_coin_combinations(coins, amount):\n    ways = [0] * (amount + 1); ways[0] = 1\n    for coin in sorted(set(coins)):\n        for value in range(coin, amount + 1): ways[value] += ways[value-coin]\n    return ways[amount]\n",
+  "brute_force_solution": "def unbounded_coin_combinations(coins, amount):\n    ways = [0] * (amount + 1); ways[0] = 1\n    for coin in sorted(set(coins)):\n        for value in range(coin, amount + 1): ways[value] += ways[value-coin]\n    return ways[amount]\n",
+  "known_wrong_solutions": [
+    "def unbounded_coin_combinations(coins, amount):\n    return None\n",
+    "def unbounded_coin_combinations(coins, amount):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(amount·coins)",
+  "target_space_complexity": "O(amount)",
+  "estimated_minutes": 40,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Processing coin types outside the amount loop avoids counting different orders separately.",
+    "For each distinct coin, add ways from amount-coin into larger amounts.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the unbounded_coin_combinations invariant is complete.",
+    "Editorial: For each distinct coin, add ways from amount-coin into larger amounts. The intended bounds are O(amount·coins) time and O(amount) space."
+  ],
+  "editorial": "Processing coin types outside the amount loop avoids counting different orders separately. For each distinct coin, add ways from amount-coin into larger amounts. This yields O(amount·coins) time and O(amount) auxiliary space.",
+  "tests": [
+    {
+      "id": "unbounded-coin-combinations-case-1",
+      "arguments": [
+        [
+          1,
+          2,
+          5
+        ],
+        5
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "There are four order-independent combinations: five 1s, 2+1+1+1, 2+2+1, and 5.",
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-2",
+      "arguments": [
+        [
+          2
+        ],
+        3
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "No number of reusable 2-value coins forms 3, so there are zero combinations.",
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-3",
+      "arguments": [
+        [
+          1
+        ],
+        0
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-4",
+      "arguments": [
+        [],
+        7
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-5",
+      "arguments": [
+        [
+          1
+        ],
+        2
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-6",
+      "arguments": [
+        [
+          2,
+          3
+        ],
+        7
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-7",
+      "arguments": [
+        [
+          1,
+          3,
+          4
+        ],
+        6
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-8",
+      "arguments": [
+        [
+          2,
+          5,
+          10
+        ],
+        10
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-9",
+      "arguments": [
+        [
+          5,
+          7
+        ],
+        1
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-10",
+      "arguments": [
+        [
+          1,
+          2
+        ],
+        4
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-11",
+      "arguments": [
+        [
+          3,
+          4,
+          5
+        ],
+        8
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-12",
+      "arguments": [
+        [
+          2,
+          2,
+          3
+        ],
+        4
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-13",
+      "arguments": [
+        [
+          1,
+          5,
+          10,
+          25
+        ],
+        30
+      ],
+      "expected": 18,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unbounded-coin-combinations-case-14",
+      "arguments": [
+        [
+          7
+        ],
+        14
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

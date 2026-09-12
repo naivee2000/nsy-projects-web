@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-57",
+  "content_sha256": "b1ac732a0f6e355135de955a2a79ba84f68f8786803b4bfd5371862ea1bc0bab",
+  "source_hash": "040a20e1ca7405a48534903e593cfd61d7524e12aa8da4d5d3072970624bb461",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to merge intervals touching at a closed endpoint.",
+      "failed_cases": [
+        "lc-57-2",
+        "lc-57-8",
+        "lc-57-11"
+      ]
+    },
+    {
+      "reason": "Shrinks the merged right endpoint when an existing interval lies inside the inserted interval.",
+      "failed_cases": [
+        "lc-57-1",
+        "lc-57-2",
+        "lc-57-7",
+        "lc-57-10",
+        "lc-57-11",
+        "lc-57-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4104,
+  "oracle_implementation": "code_practice/import_batch_007.py:interval_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "19d2cca0abe6676578dafd1c1051e42d4b72b5721c2b413e5b7a861c6f2a1bd0",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

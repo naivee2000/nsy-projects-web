@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-24",
+  "content_sha256": "dd41da5cdee1e43db655a7b8b37f975fa3a5a71faaca904c7ec2d7d05ed1b257",
+  "source_hash": "bcb84ea8802ea2f44eb5a45164307e681c638143a3447ed8984567ff7be24db8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Swaps only the first pair, leaving the rest untouched.",
+      "failed_cases": [
+        "lc-24-1",
+        "lc-24-11",
+        "lc-24-12",
+        "lc-24-13",
+        "lc-24-14"
+      ]
+    },
+    {
+      "reason": "Swaps stored values rather than reconnecting nodes.",
+      "failed_cases": [
+        "lc-24-1",
+        "lc-24-2",
+        "lc-24-6",
+        "lc-24-7",
+        "lc-24-9",
+        "lc-24-11",
+        "lc-24-12",
+        "lc-24-13",
+        "lc-24-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4071,
+  "oracle_implementation": "code_practice/import_batch_004.py:swap_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ea17eb3e4c59be73d7e57144a1d25441c354dc710eaada84a8e14fb5b01a3d1f",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

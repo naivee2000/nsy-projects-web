@@ -1,0 +1,520 @@
+{
+  "id": "leetcode-24",
+  "version": 1,
+  "status": "approved",
+  "title": "Swap Nodes in Pairs",
+  "summary": "Given a linked list, exchange the positions of every two consecutive nodes and return the modified head.",
+  "statement": "Given a linked list, exchange the positions of every two consecutive nodes and return the modified head. Ensure no node values are altered, only the nodes themselves can be changed.",
+  "constraints": [
+    "0–100 nodes; each value is between 0 and 100.",
+    "Reconnect the original nodes; do not alter node values. Leave an unpaired final node unchanged."
+  ],
+  "topics": [
+    "linked-lists",
+    "recursion"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "swap_pairs",
+    "parameters": [
+      {
+        "name": "head",
+        "annotation": "ListNode | None",
+        "adapter": "listnode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "ListNode | None",
+    "return_adapter": "listnode",
+    "node_policy": "reuse_input_nodes",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef swap_pairs(head: ListNode | None) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def swap_pairs(head):\n    if head is None or head.next is None:\n        return head\n    second = head.next\n    rest = swap_pairs(second.next)\n    second.next = head\n    head.next = rest\n    return second\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def swap_pairs(head):\n    if head is None or head.next is None:\n        return head\n    second = head.next\n    rest = second.next\n    second.next = head\n    head.next = rest\n    return second\n",
+    "def swap_pairs(head):\n    node = head\n    while node and node.next:\n        node.val, node.next.val = node.next.val, node.val\n        node = node.next.next\n    return head\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(n) recursive stack",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "The first two nodes and the remaining list form a smaller copy of the same task.",
+    "Recursively swap the remainder, then place the second node before the first.",
+    "Base case: fewer than two nodes. Otherwise swap the tail after the pair, attach first to that tail, and second to first.",
+    "Save the second node and tail before rewiring to avoid losing them or creating a cycle."
+  ],
+  "editorial": "With fewer than two nodes there is nothing to exchange. Otherwise retain the second node and recursively transform the list after it. Connect the first node to that transformed tail, then connect the second node to the first. The second node becomes the head of this segment. Recursion has at most 50 levels under the constraints; an iterative sentinel-based solution can reduce auxiliary space to constant.",
+  "tests": [
+    {
+      "id": "lc-24-1",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        4,
+        3
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Swap 1 with 2 and 3 with 4, yielding 2→1→4→3.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-2",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        3
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The first pair swaps; the final 3 has no partner and stays last.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-3",
+      "arguments": [
+        []
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-4",
+      "arguments": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-5",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-6",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-7",
+      "arguments": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-8",
+      "arguments": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-9",
+      "arguments": [
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-10",
+      "arguments": [
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-11",
+      "arguments": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        4,
+        5,
+        2,
+        3,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-12",
+      "arguments": [
+        [
+          0,
+          100,
+          0,
+          100
+        ]
+      ],
+      "expected": [
+        100,
+        0,
+        100,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-13",
+      "arguments": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        3,
+        2,
+        5,
+        4,
+        7,
+        6
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-24-14",
+      "arguments": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        3,
+        2,
+        5,
+        4,
+        7,
+        6,
+        9,
+        8,
+        11,
+        10,
+        13,
+        12,
+        15,
+        14,
+        17,
+        16,
+        19,
+        18,
+        21,
+        20,
+        23,
+        22,
+        25,
+        24,
+        27,
+        26,
+        29,
+        28,
+        31,
+        30,
+        33,
+        32,
+        35,
+        34,
+        37,
+        36,
+        39,
+        38,
+        41,
+        40,
+        43,
+        42,
+        45,
+        44,
+        47,
+        46,
+        49,
+        48,
+        51,
+        50,
+        53,
+        52,
+        55,
+        54,
+        57,
+        56,
+        59,
+        58,
+        61,
+        60,
+        63,
+        62,
+        65,
+        64,
+        67,
+        66,
+        69,
+        68,
+        71,
+        70,
+        73,
+        72,
+        75,
+        74,
+        77,
+        76,
+        79,
+        78,
+        81,
+        80,
+        83,
+        82,
+        85,
+        84,
+        87,
+        86,
+        89,
+        88,
+        91,
+        90,
+        93,
+        92,
+        95,
+        94,
+        97,
+        96,
+        99,
+        98
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

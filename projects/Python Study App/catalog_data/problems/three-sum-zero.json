@@ -1,0 +1,377 @@
+{
+  "id": "three-sum-zero",
+  "version": 1,
+  "status": "approved",
+  "title": "Three Values to Zero",
+  "summary": "Find unique triples whose sum is zero.",
+  "statement": "Return every unique sorted triple of values from distinct indices that sums to zero. Result order does not matter.",
+  "constraints": [
+    "0 <= len(nums) <= 3,000",
+    "Duplicate input values are allowed."
+  ],
+  "topics": [
+    "two-pointers",
+    "arrays"
+  ],
+  "prerequisites": [
+    "two-pointers"
+  ],
+  "signature": {
+    "name": "three_sum_zero",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[list[int]]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def three_sum_zero(nums: list[int]) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def three_sum_zero(nums):\n    nums = sorted(nums)\n    answers = []\n    for index in range(len(nums) - 2):\n        if index and nums[index] == nums[index - 1]:\n            continue\n        left, right = index + 1, len(nums) - 1\n        while left < right:\n            total = nums[index] + nums[left] + nums[right]\n            if total < 0:\n                left += 1\n            elif total > 0:\n                right -= 1\n            else:\n                answers.append([nums[index], nums[left], nums[right]])\n                left += 1\n                right -= 1\n                while left < right and nums[left] == nums[left - 1]:\n                    left += 1\n                while left < right and nums[right] == nums[right + 1]:\n                    right -= 1\n    return answers\n",
+  "brute_force_solution": "def three_sum_zero(nums):\n    nums = sorted(nums)\n    answers = []\n    for index in range(len(nums) - 2):\n        if index and nums[index] == nums[index - 1]:\n            continue\n        left, right = index + 1, len(nums) - 1\n        while left < right:\n            total = nums[index] + nums[left] + nums[right]\n            if total < 0:\n                left += 1\n            elif total > 0:\n                right -= 1\n            else:\n                answers.append([nums[index], nums[left], nums[right]])\n                left += 1\n                right -= 1\n                while left < right and nums[left] == nums[left - 1]:\n                    left += 1\n                while left < right and nums[right] == nums[right + 1]:\n                    right -= 1\n    return answers\n",
+  "known_wrong_solutions": [
+    "def three_sum_zero(nums):\n    return None\n",
+    "def three_sum_zero(nums):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n²)",
+  "target_space_complexity": "O(n) for sorting/output",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Sorting exposes useful order and makes duplicates adjacent.",
+    "Fix one number, then search the suffix with two pointers.",
+    "Move left for a small sum and right for a large sum; skip repeated values.",
+    "Sorting plus an outer loop and inner two-pointer scan gives O(n²)."
+  ],
+  "editorial": "Sort the values, fix each distinct first value, and use two pointers to find complementary pairs while skipping duplicates.",
+  "tests": [
+    {
+      "id": "three-sum-zero-case-1",
+      "arguments": [
+        [
+          -1,
+          0,
+          1,
+          2,
+          -1,
+          -4
+        ]
+      ],
+      "expected": [
+        [
+          -1,
+          -1,
+          2
+        ],
+        [
+          -1,
+          0,
+          1
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": true,
+      "explanation": "Two distinct value triplets sum to zero; duplicate triplets are omitted.",
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-2",
+      "arguments": [
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": true,
+      "explanation": "No three values sum to zero, so the result is empty.",
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-4",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-5",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-6",
+      "arguments": [
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-7",
+      "arguments": [
+        [
+          -2,
+          0,
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          -2,
+          0,
+          2
+        ],
+        [
+          -2,
+          1,
+          1
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-8",
+      "arguments": [
+        [
+          -1,
+          -1,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          -1,
+          -1,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-9",
+      "arguments": [
+        [
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          -3,
+          0,
+          3
+        ],
+        [
+          -3,
+          1,
+          2
+        ],
+        [
+          -2,
+          -1,
+          3
+        ],
+        [
+          -2,
+          0,
+          2
+        ],
+        [
+          -1,
+          0,
+          1
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-10",
+      "arguments": [
+        [
+          1,
+          2,
+          -3
+        ]
+      ],
+      "expected": [
+        [
+          -3,
+          1,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-11",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-12",
+      "arguments": [
+        [
+          -4,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          -4,
+          2,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-13",
+      "arguments": [
+        [
+          -5,
+          0,
+          5,
+          10,
+          -10
+        ]
+      ],
+      "expected": [
+        [
+          -10,
+          0,
+          10
+        ],
+        [
+          -5,
+          0,
+          5
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-sum-zero-case-14",
+      "arguments": [
+        [
+          -2,
+          -2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          -2,
+          0,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

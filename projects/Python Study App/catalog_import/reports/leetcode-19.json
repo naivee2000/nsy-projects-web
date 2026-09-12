@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-19",
+  "content_sha256": "bd2770f3c985fed22a815e9a3686bd7aedbbe901aff05f2d7ec5ff8d26e7a780",
+  "source_hash": "3cc95cf80152aac974742b5ce91ced413480bf8ad09df3dbbb0adbc8f9254970",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the old head even when the head was removed.",
+      "failed_cases": [
+        "lc-19-2",
+        "lc-19-4",
+        "lc-19-7",
+        "lc-19-8",
+        "lc-19-9",
+        "lc-19-11"
+      ]
+    },
+    {
+      "reason": "Counts from the front rather than from the end.",
+      "failed_cases": [
+        "lc-19-1",
+        "lc-19-3",
+        "lc-19-4",
+        "lc-19-5",
+        "lc-19-7",
+        "lc-19-11",
+        "lc-19-13",
+        "lc-19-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4066,
+  "oracle_implementation": "code_practice/import_batch_004.py:remove_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ea17eb3e4c59be73d7e57144a1d25441c354dc710eaada84a8e14fb5b01a3d1f",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

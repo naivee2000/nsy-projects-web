@@ -1,0 +1,921 @@
+{
+  "id": "leetcode-77",
+  "version": 1,
+  "status": "approved",
+  "title": "Combinations",
+  "summary": "Given the integers n and k, return all possible combinations of k numbers chosen from the range [1, n].",
+  "statement": "Given the integers n and k, return all possible combinations of k numbers chosen from the range [1, n]. The order of the output does not matter.",
+  "constraints": [
+    "1 <= k <= n <= 20.",
+    "Choose k different values from 1 through n. Return each combination once; ordering is ignored."
+  ],
+  "topics": [
+    "recursion",
+    "backtracking"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "choose_numbers",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "k",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[list[int]]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def choose_numbers(n: int, k: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def choose_numbers(n, k):\n    answer, path = [], []\n    def visit(start):\n        if len(path) == k:\n            answer.append(path.copy())\n            return\n        needed = k - len(path)\n        for value in range(start, n - needed + 2):\n            path.append(value)\n            visit(value + 1)\n            path.pop()\n    visit(1)\n    return answer\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def choose_numbers(n, k):\n    answer, path = [], []\n    def visit(start):\n        if len(path) == k:\n            answer.append(path)\n            return\n        needed = k - len(path)\n        for value in range(start, n - needed + 2):\n            path.append(value)\n            visit(value + 1)\n            path.pop()\n    visit(1)\n    return answer\n",
+    "def choose_numbers(n, k):\n    answer, path = [], []\n    def visit(start):\n        if len(path) == k:\n            answer.append(path.copy())\n            return\n        needed = k - len(path)\n        for value in range(start, n - needed + 1):\n            path.append(value)\n            visit(value + 1)\n            path.pop()\n    visit(1)\n    return answer\n"
+  ],
+  "target_time_complexity": "O(k × C(n,k))",
+  "target_space_complexity": "O(k) excluding output",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "An increasing path represents a combination without redundant permutations.",
+    "After picking a value, only consider larger values in the next recursive call.",
+    "Save at length k. Otherwise iterate choices only while enough larger values remain to finish the path.",
+    "Undo the appended value after each recursive branch."
+  ],
+  "editorial": "Build strictly increasing paths. Starting the next call at chosen+1 prevents both repetition and reordering duplicates. If needed entries remain, the current choice can be at most n-needed+1; later choices cannot leave enough values to finish. Copy completed paths into the result. There are C(n,k) outputs of length k, with O(k) auxiliary recursion space.",
+  "tests": [
+    {
+      "id": "lc-77-1",
+      "arguments": [
+        4,
+        2
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": true,
+      "explanation": "Choose any two of 1,2,3,4: the six combinations are 12,13,14,23,24,34.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-2",
+      "arguments": [
+        1,
+        1
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": true,
+      "explanation": "The only possible selection is [1].",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-3",
+      "arguments": [
+        2,
+        1
+      ],
+      "expected": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-4",
+      "arguments": [
+        2,
+        2
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-5",
+      "arguments": [
+        3,
+        1
+      ],
+      "expected": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-6",
+      "arguments": [
+        3,
+        2
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-7",
+      "arguments": [
+        3,
+        3
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-8",
+      "arguments": [
+        4,
+        1
+      ],
+      "expected": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-9",
+      "arguments": [
+        4,
+        3
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-10",
+      "arguments": [
+        4,
+        4
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-11",
+      "arguments": [
+        5,
+        2
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-12",
+      "arguments": [
+        5,
+        3
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          4,
+          5
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-13",
+      "arguments": [
+        20,
+        1
+      ],
+      "expected": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-77-14",
+      "arguments": [
+        20,
+        19
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

@@ -1,0 +1,33 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-124",
+  "content_sha256": "8a62c725eac65fa8d2a4f59b096512232bdd9e08a1603b0321ff848fd52df1bb",
+  "source_hash": "d9e822262cce299d869fb829067dba6a897bf322158b1ca694e4cdfc330a2644",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows an empty zero-sum path, giving the wrong answer for all-negative trees.",
+      "failed_cases": [
+        "lc-124-4",
+        "lc-124-6"
+      ]
+    },
+    {
+      "reason": "Propagates both child branches to a parent, producing a branching subgraph rather than a simple path.",
+      "failed_cases": [
+        "lc-124-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4171,
+  "oracle_implementation": "code_practice/import_batch_009.py:maximum_path_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "568566665679bfc6841c0cd460aa087b23e895223505310935a455d03afc7c5c",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.217,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

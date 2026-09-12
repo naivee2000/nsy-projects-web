@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-258",
+  "content_sha256": "fc01401b900e9e35106e65c4a33b56bd679d89ccc12a28f0973430db0e79ae7d",
+  "source_hash": "2c9f6fc2f134fd0730cb7b13b17f3211b43652d72bf41d57aa14e4cd854cf00f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns zero for positive multiples of nine, whose repeated digit sum is nine.",
+      "failed_cases": [
+        "lc-258-5",
+        "lc-258-8",
+        "lc-258-10",
+        "lc-258-13"
+      ]
+    },
+    {
+      "reason": "Performs only one digit-summing round and can leave a multi-digit result.",
+      "failed_cases": [
+        "lc-258-1",
+        "lc-258-9",
+        "lc-258-10",
+        "lc-258-13",
+        "lc-258-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4305,
+  "oracle_implementation": "code_practice/import_batch_023.py:digital_root_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "85a252842fd001bdafb1239e0d3a9815a3ade559792417447a2ddde084eeb1ff",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.011,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-224",
+  "content_sha256": "7d75b6f8136564b6d9cf25b75f8805e08df68c18681936d73dee1b290c959f9b",
+  "source_hash": "df85a7cdf8ed2744d5f04f6728a22ae1e8de044f9704afe0bdd8877cdef9278e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores grouping and evaluates the expression as a flat sequence.",
+      "failed_cases": [
+        "lc-224-6",
+        "lc-224-7",
+        "lc-224-8",
+        "lc-224-10",
+        "lc-224-14"
+      ]
+    },
+    {
+      "reason": "Drops the sign that applies to a parenthesized group, so unary or binary subtraction before '(' is wrong.",
+      "failed_cases": [
+        "lc-224-6",
+        "lc-224-7",
+        "lc-224-8",
+        "lc-224-10",
+        "lc-224-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4271,
+  "oracle_implementation": "code_practice/import_batch_022.py:calculator_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "8c22a18941f65edad8e94dc9db23a196deab0dbfd3b74ae736b86f14cece6c28",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.108,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

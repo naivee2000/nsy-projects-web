@@ -1,0 +1,271 @@
+{
+  "id": "leetcode-268",
+  "version": 1,
+  "status": "approved",
+  "title": "Missing Number",
+  "summary": "Provide an array of n distinct integers within the range [0, n], and return the single integer that is not present in the array.",
+  "statement": "Provide an array of n distinct integers within the range [0, n], and return the single integer that is not present in the array.",
+  "constraints": [
+    "1 <= len(nums) <= 10,000.",
+    "There are n distinct values from 0 through n, with exactly one of the n+1 possibilities missing."
+  ],
+  "topics": [
+    "arrays",
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "missing_number",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def missing_number(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def missing_number(nums):\n    n = len(nums)\n    return n * (n + 1) // 2 - sum(nums)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def missing_number(nums):\n    n = len(nums)\n    return n * (n - 1) // 2 - sum(nums)\n",
+    "def missing_number(nums):\n    n = len(nums)\n    return n * (n + 1) // 2 - sum(nums[:-1])\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "The complete range has a known sum.",
+    "Subtract the actual array sum from the sum of 0 through n.",
+    "Compute n*(n+1)//2 - sum(nums).",
+    "The absent value can be zero or n, so both endpoints belong to the range."
+  ],
+  "editorial": "Because all input values are distinct and exactly one is absent, subtracting their sum from n(n+1)/2 cancels every present value and leaves the missing one. The sum formula must include n, not stop at n-1. The independent oracle constructs the full range as a set and takes the set difference.",
+  "tests": [
+    {
+      "id": "lc-268-1",
+      "arguments": [
+        [
+          3,
+          0,
+          1
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Among 0,1,2,3, only 2 is absent.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-2",
+      "arguments": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "For length two the full range is 0,1,2, so the missing value is 2.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-3",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-4",
+      "arguments": [
+        [
+          1
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-5",
+      "arguments": [
+        [
+          0,
+          2
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-6",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-7",
+      "arguments": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-8",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-9",
+      "arguments": [
+        [
+          0,
+          2,
+          3
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-10",
+      "arguments": [
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-11",
+      "arguments": [
+        [
+          4,
+          0,
+          2,
+          1
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-12",
+      "arguments": [
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-13",
+      "arguments": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-268-14",
+      "arguments": [
+        [
+          5,
+          0,
+          1,
+          3,
+          4
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

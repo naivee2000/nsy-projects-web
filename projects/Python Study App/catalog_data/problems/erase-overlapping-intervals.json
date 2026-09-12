@@ -1,0 +1,371 @@
+{
+  "id": "erase-overlapping-intervals",
+  "version": 1,
+  "status": "approved",
+  "title": "Erase Overlapping Intervals",
+  "summary": "Return the fewest intervals to remove so the rest do not overlap.",
+  "statement": "Return the fewest intervals to remove so the rest do not overlap. Implement `erase_overlapping_intervals` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "intervals",
+    "greedy"
+  ],
+  "prerequisites": [
+    "intervals"
+  ],
+  "signature": {
+    "name": "erase_overlapping_intervals",
+    "parameters": [
+      {
+        "name": "intervals",
+        "annotation": "list[list[int]]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def erase_overlapping_intervals(intervals: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def erase_overlapping_intervals(intervals):\n    removed, end = 0, float('-inf')\n    for start, finish in sorted(intervals, key=lambda item: item[1]):\n        if start < end: removed += 1\n        else: end = finish\n    return removed\n",
+  "brute_force_solution": "def erase_overlapping_intervals(intervals):\n    removed, end = 0, float('-inf')\n    for start, finish in sorted(intervals, key=lambda item: item[1]):\n        if start < end: removed += 1\n        else: end = finish\n    return removed\n",
+  "known_wrong_solutions": [
+    "def erase_overlapping_intervals(intervals):\n    return None\n",
+    "def erase_overlapping_intervals(intervals):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n log n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Keeping the interval that ends earliest leaves the most future room.",
+    "Sort by end and greedily keep every compatible interval.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the erase_overlapping_intervals invariant is complete.",
+    "Editorial: Sort by end and greedily keep every compatible interval. The intended bounds are O(n log n) time and O(1) space."
+  ],
+  "editorial": "Keeping the interval that ends earliest leaves the most future room. Sort by end and greedily keep every compatible interval. This yields O(n log n) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "erase-overlapping-intervals-case-1",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Removing [1, 3] leaves three non-overlapping intervals, so one removal is enough.",
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-2",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Already separated intervals require no removals.",
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-4",
+      "arguments": [
+        [
+          [
+            1,
+            4
+          ]
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-5",
+      "arguments": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            8,
+            10
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-6",
+      "arguments": [
+        [
+          [
+            5,
+            7
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-7",
+      "arguments": [
+        [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-8",
+      "arguments": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-9",
+      "arguments": [
+        [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2,
+            2
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-10",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-11",
+      "arguments": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            5
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-12",
+      "arguments": [
+        [
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-13",
+      "arguments": [
+        [
+          [
+            10,
+            20
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            4,
+            12
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "erase-overlapping-intervals-case-14",
+      "arguments": [
+        [
+          [
+            1,
+            100
+          ],
+          [
+            50,
+            60
+          ],
+          [
+            101,
+            102
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

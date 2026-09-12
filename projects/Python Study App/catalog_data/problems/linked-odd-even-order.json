@@ -1,0 +1,334 @@
+{
+  "id": "linked-odd-even-order",
+  "version": 1,
+  "status": "approved",
+  "title": "Linked Odd-Even Order",
+  "summary": "Reorder nodes by odd positions followed by even positions and return the head.",
+  "statement": "Reorder nodes by odd positions followed by even positions and return the head. Implement `linked_odd_even_order` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "linked-lists",
+    "pointer-manipulation"
+  ],
+  "prerequisites": [
+    "linked-lists"
+  ],
+  "signature": {
+    "name": "linked_odd_even_order",
+    "parameters": [
+      {
+        "name": "head",
+        "annotation": "ListNode | None",
+        "adapter": "listnode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "ListNode | None",
+    "return_adapter": "listnode",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef linked_odd_even_order(head: ListNode | None) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def linked_odd_even_order(head):\n    if head is None or head.next is None: return head\n    odd, even, even_head = head, head.next, head.next\n    while even and even.next:\n        odd.next = even.next; odd = odd.next\n        even.next = odd.next; even = even.next\n    odd.next = even_head\n    return head\n",
+  "brute_force_solution": "def linked_odd_even_order(head):\n    if head is None or head.next is None: return head\n    odd, even, even_head = head, head.next, head.next\n    while even and even.next:\n        odd.next = even.next; odd = odd.next\n        even.next = odd.next; even = even.next\n    odd.next = even_head\n    return head\n",
+  "known_wrong_solutions": [
+    "def linked_odd_even_order(head):\n    return None\n",
+    "def linked_odd_even_order(head):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Maintain two linked chains without changing relative order inside either chain.",
+    "Advance odd and even tails by rewiring alternating next pointers, then join the chains.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the linked_odd_even_order invariant is complete.",
+    "Editorial: Advance odd and even tails by rewiring alternating next pointers, then join the chains. The intended bounds are O(n) time and O(1) space."
+  ],
+  "editorial": "Maintain two linked chains without changing relative order inside either chain. Advance odd and even tails by rewiring alternating next pointers, then join the chains. This yields O(n) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "linked-odd-even-order-case-1",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        5,
+        2,
+        4
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Positions 1, 3, and 5 come before positions 2 and 4, preserving order within each group.",
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-2",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "With two nodes, the odd-positioned first node already precedes the even-positioned second node.",
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-4",
+      "arguments": [
+        [
+          7
+        ]
+      ],
+      "expected": [
+        7
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-5",
+      "arguments": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-6",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-7",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-8",
+      "arguments": [
+        [
+          0,
+          -1,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        -1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-9",
+      "arguments": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "expected": [
+        5,
+        5,
+        5
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-10",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        1,
+        2,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-11",
+      "arguments": [
+        [
+          9,
+          8,
+          7,
+          6,
+          5
+        ]
+      ],
+      "expected": [
+        9,
+        7,
+        5,
+        8,
+        6
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-12",
+      "arguments": [
+        [
+          1,
+          -1,
+          2,
+          -2
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        -1,
+        -2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-13",
+      "arguments": [
+        [
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        3,
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-odd-even-order-case-14",
+      "arguments": [
+        [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ]
+      ],
+      "expected": [
+        10,
+        30,
+        50,
+        20,
+        40,
+        60
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

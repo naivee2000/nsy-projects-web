@@ -1,0 +1,299 @@
+{
+  "id": "kth-largest-value",
+  "version": 1,
+  "status": "approved",
+  "title": "Kth Largest Value",
+  "summary": "Return the kth largest value, counting duplicate positions separately.",
+  "statement": "Return the kth largest value, counting duplicate positions separately. Implement `kth_largest_value` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "heaps",
+    "selection"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "kth_largest_value",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "k",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def kth_largest_value(nums: list[int], k: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def kth_largest_value(nums, k):\n    return sorted(nums, reverse=True)[k - 1]\n",
+  "brute_force_solution": "def kth_largest_value(nums, k):\n    return sorted(nums, reverse=True)[k - 1]\n",
+  "known_wrong_solutions": [
+    "def kth_largest_value(nums, k):\n    return None\n",
+    "def kth_largest_value(nums, k):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n log n)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 30,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Kth refers to sorted position, not kth distinct value.",
+    "Order values descending and select index k-1.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the kth_largest_value invariant is complete.",
+    "Editorial: Order values descending and select index k-1. The intended bounds are O(n log n) time and O(n) space."
+  ],
+  "editorial": "Kth refers to sorted position, not kth distinct value. Order values descending and select index k-1. This yields O(n log n) time and O(n) auxiliary space.",
+  "tests": [
+    {
+      "id": "kth-largest-value-case-1",
+      "arguments": [
+        [
+          3,
+          2,
+          1,
+          5,
+          6,
+          4
+        ],
+        2
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "In descending order, 5 occupies the second position.",
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-2",
+      "arguments": [
+        [
+          2,
+          2,
+          1
+        ],
+        2
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Duplicate positions count separately, so the second-largest value is also 2.",
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-3",
+      "arguments": [
+        [
+          7
+        ],
+        1
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-4",
+      "arguments": [
+        [
+          0,
+          0,
+          1
+        ],
+        2
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-5",
+      "arguments": [
+        [
+          -2,
+          -1,
+          -3
+        ],
+        2
+      ],
+      "expected": -2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-6",
+      "arguments": [
+        [
+          5,
+          5,
+          5
+        ],
+        1
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-7",
+      "arguments": [
+        [
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-8",
+      "arguments": [
+        [
+          9,
+          1,
+          8,
+          2,
+          7
+        ],
+        4
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-9",
+      "arguments": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        3
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-10",
+      "arguments": [
+        [
+          1,
+          1,
+          2,
+          2
+        ],
+        2
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-11",
+      "arguments": [
+        [
+          10,
+          -10,
+          10
+        ],
+        1
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-12",
+      "arguments": [
+        [
+          6,
+          2,
+          6,
+          2
+        ],
+        3
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-13",
+      "arguments": [
+        [
+          8,
+          0,
+          4
+        ],
+        2
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "kth-largest-value-case-14",
+      "arguments": [
+        [
+          2,
+          9,
+          1,
+          9,
+          3
+        ],
+        5
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

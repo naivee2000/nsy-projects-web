@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-543",
+  "content_sha256": "cfca6ee6e52e827dba60e31effca8c5eeddfd4ca8510b7aba0390df7f985e08c",
+  "source_hash": "b057289e07f4f42e8d5394e2bc6222e0e29e11e70b11d58b6e6a02773dd81fea",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts nodes instead of edges in the candidate path.",
+      "failed_cases": [
+        "lc-543-1",
+        "lc-543-2",
+        "lc-543-3",
+        "lc-543-4",
+        "lc-543-5",
+        "lc-543-6",
+        "lc-543-7",
+        "lc-543-8",
+        "lc-543-9",
+        "lc-543-10",
+        "lc-543-11",
+        "lc-543-12",
+        "lc-543-13",
+        "lc-543-14",
+        "lc-543-stress-1"
+      ]
+    },
+    {
+      "reason": "Overwrites the best subtree path and keeps only the path through the root.",
+      "failed_cases": [
+        "lc-543-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4590,
+  "oracle_implementation": "code_practice/import_batch_004.py:diameter_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ea17eb3e4c59be73d7e57144a1d25441c354dc710eaada84a8e14fb5b01a3d1f",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.087,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

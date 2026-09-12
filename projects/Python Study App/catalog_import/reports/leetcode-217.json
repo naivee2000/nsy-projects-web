@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-217",
+  "content_sha256": "493a52c1f0e4b777ea8d5382df1ccf070abc5f81da522ea41b3b975f15f54131",
+  "source_hash": "bda9e51088118ebb84f08c20ed09c462c0ce9cb6acc1ff8eda3b905348918dab",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only adjacent elements without sorting, missing separated duplicates.",
+      "failed_cases": [
+        "lc-217-1",
+        "lc-217-9",
+        "lc-217-10",
+        "lc-217-14"
+      ]
+    },
+    {
+      "reason": "Does not check whether the final value repeats.",
+      "failed_cases": [
+        "lc-217-1",
+        "lc-217-5",
+        "lc-217-8",
+        "lc-217-9",
+        "lc-217-10",
+        "lc-217-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4264,
+  "oracle_implementation": "code_practice/import_batch_003.py:duplicate_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ad051bc94cc3f7d6b7a6daff70731f36adeec791e79781b8958b15dd0003b04b",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-165",
+  "content_sha256": "94f1f37976587fc7e7307452941f95668a85a6e22bec110e6696371a9a3f650c",
+  "source_hash": "f58a608d06a21981e3aec9f8692bf4a07ceba7bcf18f9dbf506ae0932d369bc1",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses lexicographic string order instead of numeric revision order.",
+      "failed_cases": [
+        "lc-165-1",
+        "lc-165-2",
+        "lc-165-3",
+        "lc-165-4",
+        "lc-165-7",
+        "lc-165-8",
+        "lc-165-9",
+        "lc-165-10",
+        "lc-165-11",
+        "lc-165-stress-1"
+      ]
+    },
+    {
+      "reason": "Treats a shorter revision tuple as smaller even when every extra revision is zero.",
+      "failed_cases": [
+        "lc-165-3",
+        "lc-165-4",
+        "lc-165-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4212,
+  "oracle_implementation": "code_practice/import_batch_017.py:versions_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "94e31083621afcda52a9fc0b50ef1a39024794ddb02218c0779145ed20be70fb",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

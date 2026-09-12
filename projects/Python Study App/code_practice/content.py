@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import inspect
+from collections import deque
 from dataclasses import dataclass
 from typing import Any, Callable
 
@@ -40,6 +41,7 @@ class SeedSpec:
     example_inputs: list[list[Any]]
     additional_inputs: list[list[Any]]
     comparator: str = "exact"
+    version: int = 1
 
 
 def _listnode(values: list[int] | None) -> ListNode | None:
@@ -55,10 +57,10 @@ def _treenode(values: list[int | None] | None) -> TreeNode | None:
     if not values or values[0] is None:
         return None
     root = TreeNode(values[0])
-    queue = [root]
+    queue = deque([root])
     index = 1
     while queue and index < len(values):
-        node = queue.pop(0)
+        node = queue.popleft()
         if index < len(values) and values[index] is not None:
             node.left = TreeNode(values[index])
             queue.append(node.left)
@@ -114,6 +116,10 @@ def _starter(spec: SeedSpec) -> str:
 
 
 def _wrong_solutions(spec: SeedSpec) -> list[str]:
+    if spec.id == "tree-max-depth":
+        source = inspect.getsource(SOLUTIONS[spec.function_name])
+        return [source.replace("(root, 1)", "(root, 0)"),
+                source.replace("if node.right is not None:", "if False:")]
     params = ", ".join(name for name, _annotation, _adapter in spec.parameters)
     return [
         f"def {spec.function_name}({params}):\n    return None\n",
@@ -137,6 +143,7 @@ def build_problem(spec: SeedSpec) -> ProblemDefinition:
     ]
     return ProblemDefinition(
         id=spec.id,
+        version=spec.version,
         title=spec.title,
         summary=spec.summary,
         statement=spec.statement,
@@ -267,10 +274,13 @@ SEEDS = [
         "Return the number of nodes on the longest path from the root to a leaf. An empty tree has depth 0.",
         ["trees", "recursion"], [], "tree_max_depth", [("root", "TreeNode | None", "treenode")], "int", "raw", EASY_3, 20, "O(n)", "O(h)",
         ["0 <= node count <= 20,000", "Trees are encoded in level order with null gaps."],
-        ["A node's depth depends on the deeper child.", "The empty subtree contributes zero.", "Return 1 + max(depth(left), depth(right)).", "Depth-first recursion visits every node once."],
-        "The longest path through a node is one plus the greater depth of its left and right subtrees.",
+        ["Depth counts nodes, not edges; the empty subtree contributes zero.", "The recursive rule is 1 + max(depth(left), depth(right)). For a deep chain, represent the pending work explicitly instead of nesting Python calls.", "Put (root,1) on a stack. Pop a node and its depth, update the largest depth, and push existing children with depth+1.", "An explicit depth-first stack preserves the recursive traversal while supporting the full 20,000-node limit without changing Python's recursion limit."],
+        "The recursive relationship is depth(node)=1+max(depth(left),depth(right)), with zero for an empty tree. Direct Python recursion can overflow on a valid long chain, so the reference records (node,depth) frames in an explicit stack and takes the largest depth visited. Every node is processed once, and at most O(h) pending frames are needed for height h. An independent breadth-first oracle counts successive levels instead. Version 2 keeps the original signature, node-count convention, ID, and saved progress while adding deep-chain and wide-tree checks.",
         [[[3, 9, 20, None, None, 15, 7]], [[]]],
-        [[[1]], [[1, 2]], [[1, None, 2]], [[1, 2, 3]], [[1, 2, None, 3, None, 4]], [[1, None, 2, None, 3]], [[5, 3, 8, 2, 4, 7, 9]], [[0, -1, 1]], [[1, 2, 3, 4]], [[1, None, 2, 3]], [[9, 8, None, 7]], [[2, 1, 3, None, None, None, 4]]],
+        [[[1]], [[1, 2]], [[1, None, 2]], [[1, 2, 3]], [[1, 2, None, 3, None, 4]], [[1, None, 2, None, 3]], [[5, 3, 8, 2, 4, 7, 9]], [[0, -1, 1]], [[1, 2, 3, 4]], [[1, None, 2, 3]], [[9, 8, None, 7]], [[2, 1, 3, None, None, None, 4]],
+         [[1, None] * 9999 + [1]], [[1, None] * 19999 + [1]],
+         [[1] + [1, None] * 19998 + [1]], [[0] * 20000]],
+        version=2,
     ),
     SeedSpec(
         "longest-unique-span", "Longest Unique Span", "Find the longest substring without repeated characters.",

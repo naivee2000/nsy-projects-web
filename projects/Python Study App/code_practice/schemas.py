@@ -1,27 +1,114 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Literal
+from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
-Comparator = Literal["exact", "float", "unordered", "unordered_nested"]
-Adapter = Literal["raw", "listnode", "treenode"]
+Comparator = Literal["exact", "float", "unordered", "unordered_nested", "balanced_bst"]
+ParameterAdapter = Literal["raw", "listnode", "treenode", "treenode_ref"]
+ReturnAdapter = Literal["raw", "listnode", "treenode", "treenode_value"]
 AttemptResult = Literal["accepted", "wrong_answer", "syntax_error", "runtime_error", "timeout"]
+
+
+def analyze_integer_tree(values: Any) -> tuple[list[int], bool] | None:
+    """Read compact level-order JSON without recursion; reject malformed trees.
+
+    Return the inorder values and whether EVERY subtree is height-balanced.
+    This deliberately does not choose a canonical root or output shape.
+    """
+    if not isinstance(values, list) or len(values) > 200_001:
+        return None
+    if not values:
+        return [], True
+    if type(values[0]) is not int:
+        return None
+    nodes = [[values[0], -1, -1]]
+    parent, index = 0, 1
+    while parent < len(nodes) and index < len(values):
+        for side in (1, 2):
+            if index >= len(values):
+                break
+            value = values[index]
+            index += 1
+            if value is not None:
+                if type(value) is not int or len(nodes) >= 100_000:
+                    return None
+                nodes[parent][side] = len(nodes)
+                nodes.append([value, -1, -1])
+        parent += 1
+    if index != len(values):
+        return None  # Disconnected values after the last reachable child slot.
+    heights = [0] * len(nodes)
+    balanced = True
+    for index in range(len(nodes) - 1, -1, -1):
+        _, left, right = nodes[index]
+        a, b = heights[left] if left >= 0 else 0, heights[right] if right >= 0 else 0
+        balanced = balanced and abs(a - b) <= 1
+        heights[index] = 1 + max(a, b)
+    ordered, stack, current = [], [], 0
+    while stack or current >= 0:
+        while current >= 0:
+            stack.append(current)
+            current = nodes[current][1]
+        current = stack.pop()
+        ordered.append(nodes[current][0])
+        current = nodes[current][2]
+    return ordered, balanced
 
 
 class ParameterDefinition(BaseModel):
     name: str
     annotation: str
-    adapter: Adapter = "raw"
+    adapter: ParameterAdapter = "raw"
+    # A treenode_ref is selected by its unique value from this earlier
+    # treenode parameter. Other parameter adapters never use this field.
+    source_parameter: int | None = Field(default=None, ge=0)
 
 
 class FunctionSignature(BaseModel):
     name: str
     parameters: list[ParameterDefinition]
     returns: str
-    return_adapter: Adapter = "raw"
+    return_adapter: ReturnAdapter = "raw"
+    node_policy: Literal["values", "reuse_input_nodes", "return_input_node"] = "values"
+    result_mode: Literal["return", "mutated_argument", "returned_prefix"] = "return"
+    mutated_parameter: int | None = Field(default=None, ge=0)
+
+    @model_validator(mode="after")
+    def validate_node_policy(self) -> "FunctionSignature":
+        for index, parameter in enumerate(self.parameters):
+            if parameter.adapter == "treenode_ref":
+                if (parameter.source_parameter is None or parameter.source_parameter >= index
+                        or self.parameters[parameter.source_parameter].adapter != "treenode"):
+                    raise ValueError("Tree-node references require an earlier TreeNode source parameter")
+            elif parameter.source_parameter is not None:
+                raise ValueError("Only tree-node references may select a source parameter")
+        if self.result_mode == "return":
+            if self.mutated_parameter is not None:
+                raise ValueError("Return-value mode cannot select a mutated parameter")
+        elif self.mutated_parameter is None or self.mutated_parameter >= len(self.parameters):
+            raise ValueError("Mutation mode requires a valid parameter index")
+        elif self.result_mode == "returned_prefix" and (
+            self.parameters[self.mutated_parameter].adapter != "raw"
+            or not self.parameters[self.mutated_parameter].annotation.startswith("list[")
+            or self.returns != "int"
+        ):
+            raise ValueError("Returned-prefix mode requires an integer count and a raw list parameter")
+        if self.node_policy == "reuse_input_nodes":
+            adapter = (self.return_adapter if self.result_mode == "return"
+                       else self.parameters[self.mutated_parameter].adapter)
+            if (self.result_mode == "returned_prefix" or adapter not in ("listnode", "treenode")
+                    or not any(p.adapter == adapter for p in self.parameters)):
+                raise ValueError("Node reuse requires matching linked-list or tree inputs and observed output")
+        elif self.node_policy == "return_input_node":
+            if (self.result_mode != "return" or self.return_adapter != "treenode_value"
+                    or not any(parameter.adapter == "treenode" for parameter in self.parameters)):
+                raise ValueError("Returned-node identity requires a TreeNode input and TreeNode value output")
+        elif self.return_adapter == "treenode_value":
+            raise ValueError("TreeNode value output requires returned-node identity checking")
+        return self
 
 
 class TestCase(BaseModel):
@@ -31,6 +118,16 @@ class TestCase(BaseModel):
     comparator: Comparator = "exact"
     visible: bool = False
     explanation: str | None = None
+    # Indices into original nodes: parameter order, then list/preorder traversal.
+    # Mutation contracts index only the selected argument. None leaves equal-
+    # valued nodes interchangeable when the source contract permits that.
+    expected_node_order: list[Annotated[int, Field(strict=True, ge=0)]] | None = None
+
+    @model_validator(mode="after")
+    def validate_node_order(self) -> "TestCase":
+        if self.expected_node_order is not None and len(set(self.expected_node_order)) != len(self.expected_node_order):
+            raise ValueError("Expected node order cannot repeat a node index")
+        return self
 
 
 class DifficultyRubric(BaseModel):
@@ -79,6 +176,30 @@ class ProblemDefinition(BaseModel):
 
     @model_validator(mode="after")
     def validate_learning_content(self) -> "ProblemDefinition":
+        if any(t.comparator == "balanced_bst" for t in self.tests):
+            if (self.signature.result_mode != "return" or self.signature.return_adapter != "treenode"
+                    or len(self.signature.parameters) != 1
+                    or self.signature.parameters[0].adapter not in ("raw", "listnode")
+                    or any(t.comparator != "balanced_bst" for t in self.tests)):
+                raise ValueError("Balanced-BST judging requires one sorted sequence input, a returned tree, and consistent comparators")
+            for test in self.tests:
+                if (len(test.arguments) != 1 or not isinstance(test.arguments[0], list)
+                        or any(type(value) is not int for value in test.arguments[0])):
+                    raise ValueError("Balanced-BST input must be a sorted integer sequence")
+                values = test.arguments[0]
+                expected = analyze_integer_tree(test.expected)
+                if (any(a > b for a, b in zip(values, values[1:]))
+                        or expected is None or not expected[1] or expected[0] != values):
+                    raise ValueError("Balanced-BST expectation must be balanced and preserve the entire sorted input inorder")
+        if self.signature.node_policy != "reuse_input_nodes" and any(t.expected_node_order is not None for t in self.tests):
+            raise ValueError("Expected node order requires the node-reuse policy")
+        if self.signature.result_mode == "returned_prefix":
+            for test in self.tests:
+                expected = test.expected
+                if (not isinstance(expected, dict) or set(expected) != {"return", "prefix"}
+                        or type(expected["return"]) is not int or not isinstance(expected["prefix"], list)
+                        or expected["return"] != len(expected["prefix"])):
+                    raise ValueError("Prefix expectations need an integer return equal to the prefix length")
         visible = sum(test.visible for test in self.tests)
         hidden = len(self.tests) - visible
         if visible < 2:

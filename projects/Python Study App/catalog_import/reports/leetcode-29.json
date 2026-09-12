@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-29",
+  "content_sha256": "d2034a61c13f01d58ac8f3b0afd67ae7d304dd9c4fa0e53186f8849e64d9cbaf",
+  "source_hash": "7725b28b31a5eedc83e961b277322b8a8ec91664c41f03fd3ba24917dc725fd8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always returns a nonnegative quotient.",
+      "failed_cases": [
+        "lc-29-2",
+        "lc-29-5",
+        "lc-29-6",
+        "lc-29-8",
+        "lc-29-13"
+      ]
+    },
+    {
+      "reason": "Fails to clamp the one positive overflow case, minimum-int divided by -1.",
+      "failed_cases": [
+        "lc-29-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4076,
+  "oracle_implementation": "code_practice/import_batch_007.py:division_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "19d2cca0abe6676578dafd1c1051e42d4b72b5721c2b413e5b7a861c6f2a1bd0",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

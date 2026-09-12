@@ -1,0 +1,215 @@
+{
+  "id": "leetcode-7",
+  "version": 1,
+  "status": "approved",
+  "title": "Reverse Integer",
+  "summary": "Given a signed 32-bit integer x, reverse its digits.",
+  "statement": "Given a signed 32-bit integer x, reverse its digits. If the reversed value exceeds the 32-bit signed integer range [-2^31, 2^31 - 1], return 0. Ensure the environment does not support 64-bit integer storage.",
+  "constraints": [
+    "-2^31 <= x <= 2^31 - 1.",
+    "Return zero on reversed-value overflow. Keep intermediate arithmetic within signed 32-bit bounds."
+  ],
+  "topics": [
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "reverse_integer",
+    "parameters": [
+      {
+        "name": "x",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def reverse_integer(x: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def reverse_integer(x):\n    negative = x < 0\n    remaining = x if negative else -x\n    limit_digit = -8 if negative else -7\n    result = 0\n    while remaining:\n        quotient = remaining // 10\n        if remaining % 10:\n            quotient += 1\n        digit = remaining - quotient * 10\n        if result < -214748364 or (result == -214748364 and digit < limit_digit):\n            return 0\n        result = result * 10 + digit\n        remaining = quotient\n    return result if negative else -result\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def reverse_integer(x):\n    negative = x < 0\n    remaining = x if negative else -x\n    limit_digit = -8 if negative else -7\n    result = 0\n    while remaining:\n        quotient = remaining // 10\n        if remaining % 10:\n            quotient += 1\n        digit = remaining - quotient * 10\n        if result < -214748364 or (result == -214748364 and digit < limit_digit):\n            return 0\n        result = result * 10 + digit\n        remaining = quotient\n    return result\n",
+    "def reverse_integer(x):\n    negative = x < 0\n    remaining = x if negative else -x\n    limit_digit = -8 if negative else -7\n    result = 0\n    while remaining:\n        quotient = remaining // 10\n        if remaining % 10:\n            quotient += 1\n        digit = remaining - quotient * 10\n        if False:\n            return 0\n        result = result * 10 + digit\n        remaining = quotient\n    return result if negative else -result\n"
+  ],
+  "target_time_complexity": "O(log |x|)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Appending one reversed digit multiplies the accumulated answer by ten.",
+    "Check whether the next multiplication/addition would overflow before performing it.",
+    "Extract the last digit, check the boundary, append it to the reversed accumulator, and remove it from the input.",
+    "A negative accumulator can represent the full signed range, including -2^31."
+  ],
+  "editorial": "Keep both the unprocessed input and accumulated result nonpositive so the asymmetric minimum signed integer is representable. Extract a negative digit with division truncated toward zero. Before multiplying the result by ten, compare against -214748364 and the final permitted digit (-8 or -7). Return zero if that step would overflow. Negate only the final result of an originally positive input.",
+  "tests": [
+    {
+      "id": "lc-7-1",
+      "arguments": [
+        123
+      ],
+      "expected": 321,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Reading the digits of 123 backward gives 321.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-2",
+      "arguments": [
+        -123
+      ],
+      "expected": -321,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Reverse the magnitude and preserve the minus sign, giving -321.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-3",
+      "arguments": [
+        0
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-4",
+      "arguments": [
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-5",
+      "arguments": [
+        -1
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-6",
+      "arguments": [
+        10
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-7",
+      "arguments": [
+        -10
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-8",
+      "arguments": [
+        100
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-9",
+      "arguments": [
+        -100
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-10",
+      "arguments": [
+        1200
+      ],
+      "expected": 21,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-11",
+      "arguments": [
+        1534236469
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-12",
+      "arguments": [
+        -2147483648
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-13",
+      "arguments": [
+        1463847412
+      ],
+      "expected": 2147483641,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-7-14",
+      "arguments": [
+        1563847412
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

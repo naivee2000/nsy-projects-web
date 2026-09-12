@@ -1,0 +1,216 @@
+{
+  "id": "leetcode-190",
+  "version": 1,
+  "status": "approved",
+  "title": "Reverse Bits",
+  "summary": "Reverse the binary representation of a 32-bit signed integer.",
+  "statement": "Reverse the binary representation of a 32-bit signed integer.",
+  "constraints": [
+    "The retained source contract specifies an EVEN integer n with 0 ≤ n ≤ 2^31 - 2.",
+    "Reverse all 32 bit positions, including leading zeroes, and return the resulting integer. Do not reverse only the nonzero-width binary representation."
+  ],
+  "topics": [
+    "bit-manipulation",
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "reverse_bits",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def reverse_bits(n: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def reverse_bits(n):\n    result = 0\n    for _ in range(32):\n        result = (result << 1) | (n & 1)\n        n >>= 1\n    return result\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def reverse_bits(n):\n    return int(bin(n)[2:][::-1], 2)\n",
+    "def reverse_bits(n):\n    result = 0\n    for _ in range(31):\n        result = (result << 1) | (n & 1)\n        n >>= 1\n    return result\n"
+  ],
+  "target_time_complexity": "O(32), constant for the fixed width",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "The width is fixed even when the input number needs only a few nonzero bit positions.",
+    "Read the input from its least-significant bit while shifting the output left.",
+    "Repeat exactly 32 times: append n&1 to the output, then shift n right by one.",
+    "For n=2, the single set bit at position 1 moves to position 30, giving 1073741824."
+  ],
+  "editorial": "Each iteration removes one low input bit and appends it to the high-to-low construction of the answer. Exactly 32 iterations preserve leading zero positions. The independent oracle formats a 32-character binary string and reverses that string. Tests follow the retained upstream even, nonnegative signed-range constraint rather than importing historical unsigned examples outside this source snapshot. Under that constraint the returned number also fits a nonnegative signed-32-bit value.",
+  "tests": [
+    {
+      "id": "lc-190-1",
+      "arguments": [
+        43261596
+      ],
+      "expected": 964176192,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The 32-bit pattern 00000010100101000001111010011100 reverses to 00111001011110000010100101000000, representing 964176192.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-2",
+      "arguments": [
+        2147483644
+      ],
+      "expected": 1073741822,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The two low zero bits become two high zero bits. Reversing the full 32-bit pattern gives 1073741822.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-3",
+      "arguments": [
+        0
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-4",
+      "arguments": [
+        2
+      ],
+      "expected": 1073741824,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-5",
+      "arguments": [
+        4
+      ],
+      "expected": 536870912,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-6",
+      "arguments": [
+        8
+      ],
+      "expected": 268435456,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-7",
+      "arguments": [
+        16
+      ],
+      "expected": 134217728,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-8",
+      "arguments": [
+        32
+      ],
+      "expected": 67108864,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-9",
+      "arguments": [
+        64
+      ],
+      "expected": 33554432,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-10",
+      "arguments": [
+        128
+      ],
+      "expected": 16777216,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-11",
+      "arguments": [
+        256
+      ],
+      "expected": 8388608,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-12",
+      "arguments": [
+        1024
+      ],
+      "expected": 2097152,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-13",
+      "arguments": [
+        2147483646
+      ],
+      "expected": 2147483646,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-190-14",
+      "arguments": [
+        1073741824
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

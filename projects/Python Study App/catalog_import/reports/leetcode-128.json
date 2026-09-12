@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-128",
+  "content_sha256": "bebbcf86a435374263feed6ae331e2984293a2692998e2432966d53f6ec5db5e",
+  "source_hash": "c21d8b0a84e3740d1a74577b1e567a7e38402c2d40420da7c556aa91edc8ae61",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Measures consecutive positions in the original array instead of consecutive values anywhere.",
+      "failed_cases": [
+        "lc-128-1",
+        "lc-128-2",
+        "lc-128-6",
+        "lc-128-9",
+        "lc-128-10",
+        "lc-128-stress-1"
+      ]
+    },
+    {
+      "reason": "Counts duplicate values as extra positions in a consecutive run.",
+      "failed_cases": [
+        "lc-128-2",
+        "lc-128-5",
+        "lc-128-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4175,
+  "oracle_implementation": "code_practice/import_batch_013.py:consecutive_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ac230eb0ea6b273f668abd7eb941afdc772f6cbc47f247bfa48e4819cf09f099",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.07,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

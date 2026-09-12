@@ -1,0 +1,328 @@
+{
+  "id": "leetcode-94",
+  "version": 1,
+  "status": "approved",
+  "title": "Binary Tree Inorder Traversal",
+  "summary": "Return the values of a binary tree's nodes in an inorder traversal sequence starting from the root.",
+  "statement": "Return the values of a binary tree's nodes in an inorder traversal sequence starting from the root.",
+  "constraints": [
+    "The tree has 0–100 nodes; -100 <= node.val <= 100. It is not necessarily a binary search tree.",
+    "Visit each node in left subtree → root → right subtree order. Return a flat list of values, retaining duplicates. An empty tree returns []."
+  ],
+  "topics": [
+    "trees",
+    "recursion"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "inorder_traversal",
+    "parameters": [
+      {
+        "name": "root",
+        "annotation": "TreeNode | None",
+        "adapter": "treenode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[int]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef inorder_traversal(root: TreeNode | None) -> list[int]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def inorder_traversal(root):\n    answer = []\n    def visit(node):\n        if node is None:\n            return\n        visit(node.left)\n        answer.append(node.val)\n        visit(node.right)\n    visit(root)\n    return answer\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def inorder_traversal(root):\n    answer = []\n    def visit(node):\n        if node is None:\n            return\n        answer.append(node.val)\n        visit(node.left)\n        visit(node.right)\n    visit(root)\n    return answer\n",
+    "def inorder_traversal(root):\n    answer = []\n    def visit(node):\n        if node is None:\n            return\n        visit(node.right)\n        answer.append(node.val)\n        visit(node.left)\n    visit(root)\n    return answer\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(h) auxiliary; O(n) output",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Treat a subtree as a smaller copy of the same traversal problem.",
+    "A missing node does nothing. For a present node, perform left subtree → root → right subtree in that order.",
+    "Use one shared result list and a helper for a node; append its value at the required position among the two recursive calls.",
+    "Values are not necessarily sorted. Structure and the visit order, not numerical magnitude, determine the result."
+  ],
+  "editorial": "Apply left subtree → root → right subtree recursively at every node, doing nothing at a missing child. A shared output list avoids repeatedly copying subtree lists. Each node is appended once; recursion requires O(h) stack space, where h is height. At most 100 nodes keeps this reference within ordinary Python recursion limits. An explicit-stack implementation is also valid. The independent oracle never calls this traversal: it maps JSON nodes to binary position paths and sorts symbolic ordering keys.",
+  "tests": [
+    {
+      "id": "lc-94-1",
+      "arguments": [
+        [
+          1,
+          null,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The root 1 has no left child. Its right child 2 has left child 3, so visit 1, then 3, then 2.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-2",
+      "arguments": [
+        [
+          4,
+          2,
+          6,
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Read the left subtree as 1,2,3, then root 4, then the right subtree as 5,6,7.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-3",
+      "arguments": [
+        []
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-4",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-5",
+      "arguments": [
+        [
+          -1
+        ]
+      ],
+      "expected": [
+        -1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-6",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-7",
+      "arguments": [
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-8",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-9",
+      "arguments": [
+        [
+          1,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        2,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-10",
+      "arguments": [
+        [
+          1,
+          null,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-11",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        4,
+        2,
+        1,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-12",
+      "arguments": [
+        [
+          1,
+          -2,
+          3
+        ]
+      ],
+      "expected": [
+        -2,
+        1,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-13",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-94-14",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          null,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        2,
+        4,
+        1,
+        5,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

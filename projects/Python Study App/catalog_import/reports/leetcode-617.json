@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-617",
+  "content_sha256": "d0cf8c73782cf39d2a3506620acde702fde116ea25daa3df0b710a6b2dcb1ffc",
+  "source_hash": "a7f5f8749bedcdbc1ab91721277f31f0913268eb96402d5da5d5423be3eba95c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the first value instead of summing overlapping nodes.",
+      "failed_cases": [
+        "lc-617-1",
+        "lc-617-2",
+        "lc-617-6",
+        "lc-617-7",
+        "lc-617-8",
+        "lc-617-9",
+        "lc-617-11",
+        "lc-617-12",
+        "lc-617-13",
+        "lc-617-14"
+      ]
+    },
+    {
+      "reason": "Drops unmatched subtrees.",
+      "failed_cases": [
+        "lc-617-1",
+        "lc-617-2",
+        "lc-617-8",
+        "lc-617-9",
+        "lc-617-10",
+        "lc-617-12",
+        "lc-617-13",
+        "lc-617-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4664,
+  "oracle_implementation": "code_practice/import_batch_002.py:merge_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "82407c90c77e143e86e918fb1cf5273ab5afdb0d0b40c5dd7649a50a7ca5d4d8",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

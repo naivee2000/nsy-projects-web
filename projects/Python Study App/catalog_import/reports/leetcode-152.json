@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-152",
+  "content_sha256": "ae9d44e8ada6fe33cd55d6d8bdc3d7438aea8ecd0664dd3541a6fa6c8f76ee1d",
+  "source_hash": "daf97e94a90a3ac039c4349193ac7c710c1d3671bb2be95982a74bdeec1c37a2",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks only the maximum ending product, discarding the negative minimum that can later become positive.",
+      "failed_cases": [
+        "lc-152-8",
+        "lc-152-10",
+        "lc-152-11",
+        "lc-152-13"
+      ]
+    },
+    {
+      "reason": "Removes zeros and joins pieces that are not a contiguous subarray.",
+      "failed_cases": [
+        "lc-152-2",
+        "lc-152-14",
+        "lc-152-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4199,
+  "oracle_implementation": "code_practice/import_batch_017.py:product_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "94e31083621afcda52a9fc0b50ef1a39024794ddb02218c0779145ed20be70fb",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

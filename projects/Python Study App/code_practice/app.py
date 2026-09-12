@@ -3,7 +3,7 @@ from __future__ import annotations
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
@@ -20,6 +20,8 @@ from .database import (
     highest_hint,
     initialize_database,
     list_attempts,
+    learning_attempts,
+    solved_problem_ids,
     list_review_states,
     record_hint,
     save_attempt,
@@ -94,7 +96,7 @@ def health() -> dict[str, Any]:
 
 
 def _solved_ids() -> set[str]:
-    return {attempt.problem_id for attempt in list_attempts() if attempt.result == "accepted"}
+    return solved_problem_ids()
 
 
 @app.get("/api/problems")
@@ -103,20 +105,14 @@ def problems(
     difficulty_min: int = Query(default=1, ge=1, le=10),
     difficulty_max: int = Query(default=10, ge=1, le=10),
     search: str | None = None,
-) -> list[dict[str, Any]]:
+    completion: Literal["all", "passed", "unsolved"] = "all",
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=30, ge=1, le=100),
+) -> dict[str, Any]:
     catalog = get_catalog()
-    solved = _solved_ids()
-    query = (search or "").strip().lower()
-    selected = []
-    for problem in catalog.values():
-        if problem.status != "approved" or not difficulty_min <= problem.difficulty <= difficulty_max:
-            continue
-        if topic and topic not in problem.topics:
-            continue
-        if query and query not in f"{problem.title} {problem.summary} {' '.join(problem.topics)}".lower():
-            continue
-        selected.append(problem_summary(problem, solved))
-    return sorted(selected, key=lambda item: (item["difficulty"], item["title"]))
+    return catalog.search(solved=_solved_ids(), search=search or "", topic=topic,
+                          difficulty_min=difficulty_min, difficulty_max=difficulty_max,
+                          completion=completion, page=page, page_size=page_size)
 
 
 @app.get("/api/problems/{problem_id}")
@@ -234,13 +230,13 @@ def reveal_hint(problem_id: str, level: int) -> dict[str, Any]:
 
 
 def _progress_payload() -> dict[str, Any]:
-    attempts = list_attempts()
-    catalog = get_catalog()
+    attempts = learning_attempts()
+    catalog = get_catalog().metadata
     mastery = topic_mastery(attempts, catalog)
     reviews = list_review_states()
     solved = {attempt.problem_id for attempt in attempts if attempt.result == "accepted"}
     return {
-        "attempts": [attempt.model_dump(mode="json") for attempt in attempts[:50]],
+        "attempts": [attempt.model_dump(mode="json") for attempt in list_attempts(limit=50)],
         "reviewStates": [review.model_dump(mode="json") for review in reviews],
         "mastery": mastery,
         "solvedCount": len(solved),
@@ -255,8 +251,8 @@ def progress() -> dict[str, Any]:
 
 @app.get("/api/dashboard")
 def dashboard() -> dict[str, Any]:
-    catalog = get_catalog()
-    attempts = list_attempts()
+    catalog = get_catalog().metadata
+    attempts = learning_attempts()
     mastery = topic_mastery(attempts, catalog)
     reviews = list_review_states()
     solved = {attempt.problem_id for attempt in attempts if attempt.result == "accepted"}
@@ -270,11 +266,13 @@ def dashboard() -> dict[str, Any]:
             if review.due_at <= now and review.problem_id in catalog and review.problem_id not in solved
         ]
         prioritized: list[ProblemDefinition] = []
+        prioritized_ids: set[str] = set()
 
         def add_candidate(problem: ProblemDefinition) -> bool:
-            if problem.id in solved or problem in prioritized or not prerequisites_met(problem, mastery):
+            if problem.id in solved or problem.id in prioritized_ids or not prerequisites_met(problem, mastery):
                 return False
             prioritized.append(problem)
+            prioritized_ids.add(problem.id)
             return True
 
         for problem_id in due_ids:
@@ -285,7 +283,7 @@ def dashboard() -> dict[str, Any]:
             candidate = next(
                 (
                     problem for problem in catalog.values()
-                    if topic in problem.topics and problem.id not in solved and problem not in prioritized
+                    if topic in problem.topics and problem.id not in solved and problem.id not in prioritized_ids
                 ),
                 None,
             )
@@ -344,6 +342,8 @@ if FRONTEND_DIST.exists():
     app.mount("/assets", StaticFiles(directory=FRONTEND_DIST / "assets"), name="assets")
     if (FRONTEND_DIST / "pyodide").exists():
         app.mount("/pyodide", StaticFiles(directory=FRONTEND_DIST / "pyodide"), name="pyodide")
+    if (FRONTEND_DIST / "monaco").exists():
+        app.mount("/monaco", StaticFiles(directory=FRONTEND_DIST / "monaco"), name="monaco")
 
     @app.get("/{full_path:path}")
     def frontend(full_path: str) -> FileResponse:

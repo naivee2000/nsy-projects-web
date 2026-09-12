@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-188",
+  "content_sha256": "2d5ac2f1ad9357a0a51db8b9c4246387c062f93236ff275b29c83c530230ae69",
+  "source_hash": "0a245e1ddb284539f7af1dd80b1a89c3d717793275b945b2580b84745ba8f2f6",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Takes every profitable rise even when that needs more than k transactions.",
+      "failed_cases": [
+        "lc-188-7",
+        "lc-188-10",
+        "lc-188-14",
+        "lc-188-stress-1"
+      ]
+    },
+    {
+      "reason": "Hard-codes at most two transactions and loses profit when the input permits three or more.",
+      "failed_cases": [
+        "lc-188-9",
+        "lc-188-14",
+        "lc-188-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4235,
+  "oracle_implementation": "code_practice/import_batch_018.py:stock_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "59b78d6324ac6ec7bdeafd95b2b3fc41a1f0326f56bcad17a6a7ad075b51c660",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.07,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

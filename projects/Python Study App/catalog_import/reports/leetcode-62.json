@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-62",
+  "content_sha256": "c005581fa52542bb8e1a882e56f6f03416709323268b0da9e2b6eb1d0c4312e3",
+  "source_hash": "867c0e9bb485a8a915100c7739e7e498fcb9911c98697bafce1d10c8e57e5f73",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the first-row boundary routes.",
+      "failed_cases": [
+        "lc-62-1",
+        "lc-62-2",
+        "lc-62-3",
+        "lc-62-4",
+        "lc-62-5",
+        "lc-62-6",
+        "lc-62-7",
+        "lc-62-8",
+        "lc-62-9",
+        "lc-62-10",
+        "lc-62-11",
+        "lc-62-12",
+        "lc-62-13",
+        "lc-62-14"
+      ]
+    },
+    {
+      "reason": "Stops one row before the destination.",
+      "failed_cases": [
+        "lc-62-1",
+        "lc-62-2",
+        "lc-62-6",
+        "lc-62-7",
+        "lc-62-8",
+        "lc-62-9",
+        "lc-62-10",
+        "lc-62-11",
+        "lc-62-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4109,
+  "oracle_implementation": "code_practice/import_batch_005.py:paths_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e60e88e572987315504195a15d16b4addb74d8fa193d1aff9dad1c212c0dab78",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

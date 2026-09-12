@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-42",
+  "content_sha256": "43ac6586afcf5defa67a7a864e49cc40fec63f0a1c023512c8b4de1e06b8a498",
+  "source_hash": "56d9126ca1685fd9802724bc84607de4c45724650698ef9498cb6b0bb814da4e",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Finalizes depths using the larger boundary before the smaller side is known.",
+      "failed_cases": [
+        "lc-42-1",
+        "lc-42-6",
+        "lc-42-8",
+        "lc-42-12"
+      ]
+    },
+    {
+      "reason": "Looks only at immediate neighbors, missing wider basins.",
+      "failed_cases": [
+        "lc-42-1",
+        "lc-42-2",
+        "lc-42-13",
+        "lc-42-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4089,
+  "oracle_implementation": "code_practice/import_batch_002.py:rain_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "82407c90c77e143e86e918fb1cf5273ab5afdb0d0b40c5dd7649a50a7ca5d4d8",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

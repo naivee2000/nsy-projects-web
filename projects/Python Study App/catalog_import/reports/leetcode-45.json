@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-45",
+  "content_sha256": "e48d6e054e513f74a5e43224fa67e66db51f6076510c12cb6db022e7087c2898",
+  "source_hash": "0c27d998415d8df756d68f66860e2020d9bee3ff6497aa5cc92b920cc03205e7",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts another jump when scanning the destination itself.",
+      "failed_cases": [
+        "lc-45-1",
+        "lc-45-2",
+        "lc-45-3",
+        "lc-45-4",
+        "lc-45-5",
+        "lc-45-6",
+        "lc-45-7",
+        "lc-45-8",
+        "lc-45-9",
+        "lc-45-10",
+        "lc-45-11",
+        "lc-45-12",
+        "lc-45-13",
+        "lc-45-14",
+        "lc-45-stress-1"
+      ]
+    },
+    {
+      "reason": "Forgets the farthest reach from other positions in the same jump layer.",
+      "failed_cases": [
+        "lc-45-1",
+        "lc-45-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4092,
+  "oracle_implementation": "code_practice/import_batch_006.py:minimum_jumps_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "73144a3f21fef5c0cca0a56f5bc38302d7a76b18dc1dde66101dacb6bd4765a1",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

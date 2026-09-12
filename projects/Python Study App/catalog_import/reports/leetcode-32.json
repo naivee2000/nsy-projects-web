@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-32",
+  "content_sha256": "416ca9bd4ebaf87609bdd880327a0ee5836b115d3a487935fbc606e646a9b0ae",
+  "source_hash": "c12babde44319c291a585a6d4469b1ccbd451c4c041295ca36c03b9010c709f1",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses zero instead of the virtual boundary -1, shortening matches that start at index zero.",
+      "failed_cases": [
+        "lc-32-6",
+        "lc-32-10",
+        "lc-32-11",
+        "lc-32-13",
+        "lc-32-14",
+        "lc-32-stress-1"
+      ]
+    },
+    {
+      "reason": "Counts pairs globally, ignoring ordering and contiguity.",
+      "failed_cases": [
+        "lc-32-7",
+        "lc-32-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4079,
+  "oracle_implementation": "code_practice/import_batch_006.py:parentheses_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "73144a3f21fef5c0cca0a56f5bc38302d7a76b18dc1dde66101dacb6bd4765a1",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

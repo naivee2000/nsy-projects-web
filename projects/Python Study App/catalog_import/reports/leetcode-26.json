@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-26",
+  "content_sha256": "110985a3f16c0e31fea8375421e918a5d3cc9c35f8d20c425ea64ec1d5582a16",
+  "source_hash": "27548eed456463096b91fe8643a9120b820f87b7cb0313d37a0bc163428d2a94",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the correct count but does not compact the caller's list.",
+      "failed_cases": [
+        "lc-26-1",
+        "lc-26-2",
+        "lc-26-9",
+        "lc-26-11",
+        "lc-26-12",
+        "lc-26-13"
+      ]
+    },
+    {
+      "reason": "Returns the last written index instead of the prefix length.",
+      "failed_cases": [
+        "lc-26-1",
+        "lc-26-2",
+        "lc-26-3",
+        "lc-26-4",
+        "lc-26-5",
+        "lc-26-6",
+        "lc-26-7",
+        "lc-26-8",
+        "lc-26-9",
+        "lc-26-10",
+        "lc-26-11",
+        "lc-26-12",
+        "lc-26-13",
+        "lc-26-14",
+        "lc-26-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4073,
+  "oracle_implementation": "code_practice/import_batch_011.py:unique_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "4e2e8efeead5101462f62113c0180ce2770b7f06f1920347a675087e85dd6764",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

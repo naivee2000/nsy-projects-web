@@ -1,0 +1,250 @@
+{
+  "id": "leetcode-43",
+  "version": 1,
+  "status": "approved",
+  "title": "Multiply Strings",
+  "summary": "Given two non-negative integers as strings, return their product as a string without using any built-in BigInteger library or converting the inputs to integers directly.",
+  "statement": "Given two non-negative integers as strings, return their product as a string without using any built-in BigInteger library or converting the inputs to integers directly.",
+  "constraints": [
+    "1–200 decimal digits per input. Inputs have no leading zeros except the single string '0'.",
+    "Return the product as a decimal string without leading zeros, or '0' for a zero product.",
+    "Do not convert whole input strings to integers or use a BigInteger library. Work with individual digits and carries."
+  ],
+  "topics": [
+    "strings",
+    "math",
+    "simulation"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "multiply_strings",
+    "parameters": [
+      {
+        "name": "num1",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "num2",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "str",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def multiply_strings(num1: str, num2: str) -> str:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def multiply_strings(num1, num2):\n    if num1 == \"0\" or num2 == \"0\":\n        return \"0\"\n    digits = [0] * (len(num1) + len(num2))\n    for i in range(len(num1) - 1, -1, -1):\n        for j in range(len(num2) - 1, -1, -1):\n            total = digits[i + j + 1] + (ord(num1[i]) - ord(\"0\")) * (ord(num2[j]) - ord(\"0\"))\n            digits[i + j + 1] = total % 10\n            digits[i + j] += total // 10\n    start = 0\n    while start < len(digits) - 1 and digits[start] == 0:\n        start += 1\n    return \"\".join(str(digit) for digit in digits[start:])\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def multiply_strings(num1, num2):\n    if num1 == \"0\" or num2 == \"0\":\n        return \"0\"\n    digits = [0] * (len(num1) + len(num2))\n    for i in range(len(num1) - 1, -1, -1):\n        for j in range(len(num2) - 1, -1, -1):\n            total = digits[i + j + 1] + (ord(num1[i]) - ord(\"0\")) * (ord(num2[j]) - ord(\"0\"))\n            digits[i + j + 1] = total % 10\n            digits[i + j] += 0\n    start = 0\n    while start < len(digits) - 1 and digits[start] == 0:\n        start += 1\n    return \"\".join(str(digit) for digit in digits[start:])\n",
+    "def multiply_strings(num1, num2):\n    if num1 == \"0\" or num2 == \"0\":\n        return \"0\"\n    digits = [0] * (len(num1) + len(num2))\n    for i in range(len(num1) - 1, -1, -1):\n        for j in range(len(num2) - 1, -1, -1):\n            total = digits[i + j + 1] + (ord(num1[i]) - ord(\"0\")) * (ord(num2[j]) - ord(\"0\"))\n            digits[i + j + 1] = total % 10\n            digits[i + j] += total // 10\n    start = 0\n    while start < len(digits) - 1 and digits[start] == 0:\n        start += 1\n    return \"\".join(str(digit) for digit in digits[start:] if digit != 0)\n"
+  ],
+  "target_time_complexity": "O(len(num1) × len(num2))",
+  "target_space_complexity": "O(len(num1) + len(num2))",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Use the same column multiplication used on paper; the result needs at most m+n digits.",
+    "A product of input positions i and j contributes at output positions i+j and i+j+1.",
+    "Process both inputs from right to left, add the existing lower-column value, write total%10, and carry total//10 left.",
+    "Remove only leading zero positions. Keep interior and trailing zeros, and handle a zero input explicitly."
+  ],
+  "editorial": "Allocate m+n digit slots. Multiply individual digit values from right to left. For each pair, include the stored lower-column value, retain its units digit, and carry the tens contribution to the preceding slot. This ordering normalizes each lower position before it is finalized. Convert the digit list to a string after removing only leading zero slots. No whole-input numeric conversion is used. The independent offline oracle deliberately uses Python's exact whole-number multiplication instead.",
+  "tests": [
+    {
+      "id": "lc-43-1",
+      "arguments": [
+        "2",
+        "3"
+      ],
+      "expected": "6",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Two multiplied by three is six, returned as the string '6'.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-2",
+      "arguments": [
+        "123",
+        "456"
+      ],
+      "expected": "56088",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The partial products are 738, 6150, and 49200; adding them gives the string '56088'.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-3",
+      "arguments": [
+        "0",
+        "0"
+      ],
+      "expected": "0",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-4",
+      "arguments": [
+        "0",
+        "12345"
+      ],
+      "expected": "0",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-5",
+      "arguments": [
+        "987",
+        "0"
+      ],
+      "expected": "0",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-6",
+      "arguments": [
+        "1",
+        "7"
+      ],
+      "expected": "7",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-7",
+      "arguments": [
+        "9",
+        "9"
+      ],
+      "expected": "81",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-8",
+      "arguments": [
+        "99",
+        "99"
+      ],
+      "expected": "9801",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-9",
+      "arguments": [
+        "10",
+        "10"
+      ],
+      "expected": "100",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-10",
+      "arguments": [
+        "101",
+        "101"
+      ],
+      "expected": "10201",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-11",
+      "arguments": [
+        "1000",
+        "1000"
+      ],
+      "expected": "1000000",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-12",
+      "arguments": [
+        "999",
+        "9"
+      ],
+      "expected": "8991",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-13",
+      "arguments": [
+        "1234",
+        "5678"
+      ],
+      "expected": "7006652",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-14",
+      "arguments": [
+        "11111",
+        "11111"
+      ],
+      "expected": "123454321",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-43-stress-1",
+      "arguments": [
+        "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+      ],
+      "expected": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

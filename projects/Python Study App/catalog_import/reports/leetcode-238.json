@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-238",
+  "content_sha256": "ca0e360957b2c37bd8e45a76cba82119fe0fdd2d0b3fb3cf90674d4b16835676",
+  "source_hash": "9c6f09a6a7dff5080ba6e0664bbfd3c15891f30408610135442b95477e603f2a",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Divides the total product and fails whenever exactly one input value is zero, in addition to violating the no-division rule.",
+      "failed_cases": [
+        "lc-238-2",
+        "lc-238-5",
+        "lc-238-7",
+        "lc-238-10",
+        "lc-238-11"
+      ]
+    },
+    {
+      "reason": "Overwrites the prefix product with the suffix product instead of multiplying the two sides.",
+      "failed_cases": [
+        "lc-238-1",
+        "lc-238-2",
+        "lc-238-4",
+        "lc-238-5",
+        "lc-238-6",
+        "lc-238-7",
+        "lc-238-8",
+        "lc-238-9",
+        "lc-238-10",
+        "lc-238-11",
+        "lc-238-12",
+        "lc-238-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4285,
+  "oracle_implementation": "code_practice/import_batch_022.py:product_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "8c22a18941f65edad8e94dc9db23a196deab0dbfd3b74ae736b86f14cece6c28",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

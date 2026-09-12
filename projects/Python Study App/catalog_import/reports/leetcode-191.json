@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-191",
+  "content_sha256": "847b12ce3a8dcb18460e2a4aee6daa7907695a991848a33ef2134224c5cedaac",
+  "source_hash": "b28af020e3339185f254760a3a566e45e4eca62633b1d2f5d35658ed22d3e12f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts bit positions rather than set bits.",
+      "failed_cases": [
+        "lc-191-1",
+        "lc-191-2",
+        "lc-191-4",
+        "lc-191-6",
+        "lc-191-8",
+        "lc-191-10",
+        "lc-191-12"
+      ]
+    },
+    {
+      "reason": "Starts counting at one and overcounts every input.",
+      "failed_cases": [
+        "lc-191-1",
+        "lc-191-2",
+        "lc-191-3",
+        "lc-191-4",
+        "lc-191-5",
+        "lc-191-6",
+        "lc-191-7",
+        "lc-191-8",
+        "lc-191-9",
+        "lc-191-10",
+        "lc-191-11",
+        "lc-191-12",
+        "lc-191-13",
+        "lc-191-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4238,
+  "oracle_implementation": "code_practice/import_batch_003.py:ones_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ad051bc94cc3f7d6b7a6daff70731f36adeec791e79781b8958b15dd0003b04b",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.012,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-213",
+  "content_sha256": "83f12ff590d6792fc7262d7b724e21a216476dbc48bbba6fbed83782a8075b80",
+  "source_hash": "1a959534ad4ccfdf6aeec990d137a75bfdc1edbb7f6ad4698ef43058574c22b0",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the linear-street recurrence and illegally takes both circular endpoints.",
+      "failed_cases": [
+        "lc-213-1",
+        "lc-213-8",
+        "lc-213-9",
+        "lc-213-10",
+        "lc-213-13"
+      ]
+    },
+    {
+      "reason": "Always excludes the final house, missing better solutions that instead exclude the first.",
+      "failed_cases": [
+        "lc-213-5",
+        "lc-213-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4260,
+  "oracle_implementation": "code_practice/import_batch_020.py:circle_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "c514f0f536ddec594527bec51024127811de11eb86d63244c92f6fd74613e461",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.126,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

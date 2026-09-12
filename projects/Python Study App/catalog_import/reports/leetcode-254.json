@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-254",
+  "content_sha256": "85c069b40fe8bdd9db7d2cca576c4beb4551d1d26dd24141d96179d73c62fca7",
+  "source_hash": "3c8df7bc842b06f68e762851bb5d7a1de9de0ead93e1f185016f772041d7fa62",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Stops after the first divisor at each level and misses other valid factorizations.",
+      "failed_cases": [
+        "lc-254-2",
+        "lc-254-6",
+        "lc-254-7",
+        "lc-254-8",
+        "lc-254-9",
+        "lc-254-10",
+        "lc-254-12",
+        "lc-254-13",
+        "lc-254-14"
+      ]
+    },
+    {
+      "reason": "Restarts factor choices at 2, emitting permutations of the same factor combination.",
+      "failed_cases": [
+        "lc-254-2",
+        "lc-254-7",
+        "lc-254-8",
+        "lc-254-9",
+        "lc-254-10",
+        "lc-254-12",
+        "lc-254-13",
+        "lc-254-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4301,
+  "oracle_implementation": "code_practice/import_batch_023.py:factors_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "85a252842fd001bdafb1239e0d3a9815a3ade559792417447a2ddde084eeb1ff",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.083,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

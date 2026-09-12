@@ -1,0 +1,319 @@
+{
+  "id": "letter-case-variations",
+  "version": 1,
+  "status": "approved",
+  "title": "Letter Case Variations",
+  "summary": "Return every string formed by independently toggling each letter's case.",
+  "statement": "Return every string formed by independently toggling each letter's case. Implement `letter_case_variations` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "backtracking",
+    "recursion",
+    "strings"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "letter_case_variations",
+    "parameters": [
+      {
+        "name": "text",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[str]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def letter_case_variations(text: str) -> list[str]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def letter_case_variations(text):\n    answer = []\n    def build(index, path):\n        if index == len(text): answer.append(path); return\n        char = text[index]\n        if char.isalpha(): build(index+1, path+char.lower()); build(index+1, path+char.upper())\n        else: build(index+1, path+char)\n    build(0, \"\"); return answer\n",
+  "brute_force_solution": "def letter_case_variations(text):\n    answer = []\n    def build(index, path):\n        if index == len(text): answer.append(path); return\n        char = text[index]\n        if char.isalpha(): build(index+1, path+char.lower()); build(index+1, path+char.upper())\n        else: build(index+1, path+char)\n    build(0, \"\"); return answer\n",
+  "known_wrong_solutions": [
+    "def letter_case_variations(text):\n    return None\n",
+    "def letter_case_variations(text):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(2ˡ)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 30,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Letters branch into lower and upper choices while nonletters have one branch.",
+    "Advance one position per recursive call and append at the text-length base case.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the letter_case_variations invariant is complete.",
+    "Editorial: Advance one position per recursive call and append at the text-length base case. The intended bounds are O(2ˡ) time and O(n) space."
+  ],
+  "editorial": "Letters branch into lower and upper choices while nonletters have one branch. Advance one position per recursive call and append at the text-length base case. This yields O(2ˡ) time and O(n) auxiliary space.",
+  "tests": [
+    {
+      "id": "letter-case-variations-case-1",
+      "arguments": [
+        "a1b2"
+      ],
+      "expected": [
+        "a1b2",
+        "a1B2",
+        "A1b2",
+        "A1B2"
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Each of the two letters independently branches to lower or upper case; digits stay fixed.",
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-2",
+      "arguments": [
+        "3z4"
+      ],
+      "expected": [
+        "3z4",
+        "3Z4"
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Only 'z' changes case, producing two results.",
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-3",
+      "arguments": [
+        ""
+      ],
+      "expected": [
+        ""
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-4",
+      "arguments": [
+        "a"
+      ],
+      "expected": [
+        "a",
+        "A"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-5",
+      "arguments": [
+        "ab"
+      ],
+      "expected": [
+        "ab",
+        "aB",
+        "Ab",
+        "AB"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-6",
+      "arguments": [
+        "aba"
+      ],
+      "expected": [
+        "aba",
+        "abA",
+        "aBa",
+        "aBA",
+        "Aba",
+        "AbA",
+        "ABa",
+        "ABA"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-7",
+      "arguments": [
+        "aa"
+      ],
+      "expected": [
+        "aa",
+        "aA",
+        "Aa",
+        "AA"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-8",
+      "arguments": [
+        "ABC"
+      ],
+      "expected": [
+        "abc",
+        "abC",
+        "aBc",
+        "aBC",
+        "Abc",
+        "AbC",
+        "ABc",
+        "ABC"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-9",
+      "arguments": [
+        "12"
+      ],
+      "expected": [
+        "12"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-10",
+      "arguments": [
+        "xy"
+      ],
+      "expected": [
+        "xy",
+        "xY",
+        "Xy",
+        "XY"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-11",
+      "arguments": [
+        "abba"
+      ],
+      "expected": [
+        "abba",
+        "abbA",
+        "abBa",
+        "abBA",
+        "aBba",
+        "aBbA",
+        "aBBa",
+        "aBBA",
+        "Abba",
+        "AbbA",
+        "AbBa",
+        "AbBA",
+        "ABba",
+        "ABbA",
+        "ABBa",
+        "ABBA"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-12",
+      "arguments": [
+        "abcd"
+      ],
+      "expected": [
+        "abcd",
+        "abcD",
+        "abCd",
+        "abCD",
+        "aBcd",
+        "aBcD",
+        "aBCd",
+        "aBCD",
+        "Abcd",
+        "AbcD",
+        "AbCd",
+        "AbCD",
+        "ABcd",
+        "ABcD",
+        "ABCd",
+        "ABCD"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-13",
+      "arguments": [
+        "a1"
+      ],
+      "expected": [
+        "a1",
+        "A1"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "letter-case-variations-case-14",
+      "arguments": [
+        "race"
+      ],
+      "expected": [
+        "race",
+        "racE",
+        "raCe",
+        "raCE",
+        "rAce",
+        "rAcE",
+        "rACe",
+        "rACE",
+        "Race",
+        "RacE",
+        "RaCe",
+        "RaCE",
+        "RAce",
+        "RAcE",
+        "RACe",
+        "RACE"
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

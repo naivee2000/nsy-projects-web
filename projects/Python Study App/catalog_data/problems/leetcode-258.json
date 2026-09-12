@@ -1,0 +1,216 @@
+{
+  "id": "leetcode-258",
+  "version": 1,
+  "status": "approved",
+  "title": "Add Digits",
+  "summary": "Starting with an integer, continuously sum its digits until a single-digit number is obtained, then provide that number.",
+  "statement": "Starting with an integer, continuously sum its digits until a single-digit number is obtained, then provide that number.",
+  "constraints": [
+    "0 ≤ num ≤ 2^31-1.",
+    "Repeatedly sum the decimal digits until one digit remains. Implement the O(1) arithmetic follow-up without a loop or recursion."
+  ],
+  "topics": [
+    "math",
+    "number-theory"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "add_digits",
+    "parameters": [
+      {
+        "name": "num",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def add_digits(num: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def add_digits(num):\n    return 0 if num == 0 else 1 + (num - 1) % 9\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def add_digits(num):\n    return num % 9\n",
+    "def add_digits(num):\n    return sum(map(int, str(num)))\n"
+  ],
+  "target_time_complexity": "O(1)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Repeated digit sums preserve the number modulo 9.",
+    "Positive multiples of 9 have digital root 9, while zero must remain 0.",
+    "Return 0 for num==0; otherwise return 1+(num-1)%9.",
+    "Subtracting one before the remainder maps each positive congruence class to the required range 1 through 9."
+  ],
+  "editorial": "Decimal place values are all congruent to one modulo nine, so replacing a number by its digit sum preserves its residue. Repetition ends at the unique representative from 1 through 9, except that input zero stays zero. The independent oracle performs the literal digit-summing process.",
+  "tests": [
+    {
+      "id": "lc-258-1",
+      "arguments": [
+        38
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "38 becomes 3+8=11, then 1+1=2.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-2",
+      "arguments": [
+        0
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Zero is already one digit and remains zero.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-3",
+      "arguments": [
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-4",
+      "arguments": [
+        5
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-5",
+      "arguments": [
+        9
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-6",
+      "arguments": [
+        10
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-7",
+      "arguments": [
+        11
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-8",
+      "arguments": [
+        18
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-9",
+      "arguments": [
+        19
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-10",
+      "arguments": [
+        99
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-11",
+      "arguments": [
+        100
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-12",
+      "arguments": [
+        101
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-13",
+      "arguments": [
+        999999999
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-258-14",
+      "arguments": [
+        2147483647
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

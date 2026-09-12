@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-31",
+  "content_sha256": "d578c8977ee84ad7104ddd9f1ae7ddcaf3620cf4d98da39a308f1791525bdf36",
+  "source_hash": "625ca7b39acd1af35110f5599a017d387d46f550c3248b9eabf5d9ce5e826108",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Swaps a pivot but leaves the suffix descending instead of minimizing it.",
+      "failed_cases": [
+        "lc-31-2",
+        "lc-31-6",
+        "lc-31-9",
+        "lc-31-10",
+        "lc-31-12",
+        "lc-31-13",
+        "lc-31-stress-1"
+      ]
+    },
+    {
+      "reason": "Always returns to ascending order rather than finding the immediate successor.",
+      "failed_cases": [
+        "lc-31-1",
+        "lc-31-5",
+        "lc-31-7",
+        "lc-31-8",
+        "lc-31-10",
+        "lc-31-11",
+        "lc-31-12",
+        "lc-31-13",
+        "lc-31-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4078,
+  "oracle_implementation": "code_practice/import_batch_011.py:next_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "4e2e8efeead5101462f62113c0180ce2770b7f06f1920347a675087e85dd6764",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.083,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

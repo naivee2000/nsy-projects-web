@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-151",
+  "content_sha256": "9703c485d1b1c74ef662e46b2c74461f1484a0fd43f6550d88b3590d774228ed",
+  "source_hash": "51fa54a7c8a942a28ab3d2f0c68806946abafba153f315b551ac6ddf58f133fb",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses individual characters along with word order.",
+      "failed_cases": [
+        "lc-151-1",
+        "lc-151-2",
+        "lc-151-4",
+        "lc-151-9",
+        "lc-151-10",
+        "lc-151-11",
+        "lc-151-12",
+        "lc-151-14"
+      ]
+    },
+    {
+      "reason": "Treats empty pieces between spaces as words and retains extra spaces.",
+      "failed_cases": [
+        "lc-151-2",
+        "lc-151-5",
+        "lc-151-6",
+        "lc-151-7",
+        "lc-151-9",
+        "lc-151-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4198,
+  "oracle_implementation": "code_practice/import_batch_017.py:words_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "94e31083621afcda52a9fc0b50ef1a39024794ddb02218c0779145ed20be70fb",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

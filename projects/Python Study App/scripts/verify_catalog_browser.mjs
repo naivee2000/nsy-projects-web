@@ -1,0 +1,307 @@
+// Isolated Chrome/Pyodide smoke test and real-HTTP benchmark. Never touches live progress.
+// Install Playwright for this optional development check, or set PLAYWRIGHT_MODULE.
+import assert from 'node:assert/strict';
+import { spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import fs from 'node:fs/promises';
+import net from 'node:net';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ? pathToFileURL(process.env.PLAYWRIGHT_MODULE).href : 'playwright');
+const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'code-practice-catalog-check-'));
+const socket = net.createServer();
+await new Promise(resolve => socket.listen(0, '127.0.0.1', resolve));
+const port = socket.address().port;
+await new Promise(resolve => socket.close(resolve));
+const base = `http://127.0.0.1:${port}`;
+const python = process.env.CODE_PRACTICE_PYTHON || path.join(root, '.venv/bin/python');
+let server, browser, startupMs, memoryReportPath, runNumber = 0;
+const serverMemoryRuns = [];
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const manifestPath = path.join(root, 'catalog_data/manifest.json');
+const ledgerPath = path.join(root, 'catalog_import/ledger.json');
+const manifestText = await fs.readFile(manifestPath, 'utf8');
+const ledgerText = await fs.readFile(ledgerPath, 'utf8');
+const manifest = JSON.parse(manifestText);
+const ledger = JSON.parse(ledgerText);
+const report = { scope: 'Current published catalog; not the final full-catalog acceptance benchmark',
+  catalogCount: manifest.count, workbookCounts: ledger.counts, generatedAt: new Date().toISOString(),
+  catalogManifestSha256: createHash('sha256').update(manifestText).digest('hex'),
+  ledgerSha256: createHash('sha256').update(ledgerText).digest('hex'),
+  hardware: { platform: os.platform(), architecture: os.arch(), cpu: os.cpus()[0].model, memoryGiB: os.totalmem() / 2**30 },
+  worker: [], endpoints: {}, checks: [] };
+
+async function start() {
+  const started = performance.now();
+  memoryReportPath = path.join(temp, `server-memory-${++runNumber}.json`);
+  server = spawn(python, [path.join(root, 'scripts/benchmark_server.py'), '--port', String(port), '--memory-report', memoryReportPath], {
+    cwd: root, env: { ...process.env, CODE_PRACTICE_DATA_DIR: temp,
+      CODE_PRACTICE_DB: path.join(temp, 'progress.db'), CODE_PRACTICE_SEED_DB: '',
+      CODE_PRACTICE_AUTH_USERNAME: '', CODE_PRACTICE_SESSION_SECRET: '',
+      CODE_PRACTICE_CATALOG_DIR: path.join(root, 'catalog_data') }, stdio: ['ignore', 'ignore', 'pipe'],
+  });
+  let stderr = '';
+  server.stderr.on('data', data => { stderr += data; });
+  for (let i = 0; i < 100; i++) {
+    if (server.exitCode !== null) throw new Error(stderr);
+    try {
+      const response = await fetch(`${base}/api/health`);
+      if (response.ok) { startupMs = performance.now() - started; return; }
+    } catch {}
+    await sleep(100);
+  }
+  throw new Error(`Server did not become healthy: ${stderr}`);
+}
+
+async function stop() {
+  if (server && server.exitCode === null) {
+    const exited = new Promise(resolve => server.once('exit', resolve));
+    server.kill('SIGTERM');
+    await exited;
+    const memory = JSON.parse(await fs.readFile(memoryReportPath, 'utf8'));
+    assert(memory.peakRssBytes > 0, 'OS peak RSS must be available');
+    serverMemoryRuns.push(memory);
+    server = null;
+  }
+}
+
+async function request(route, body, method = 'POST') {
+  const response = await fetch(base + route, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  assert(response.ok, `${route}: ${await response.clone().text()}`);
+  return response.json();
+}
+
+async function judge(page, problem, source) {
+  return page.evaluate(async ({ problem, source }) => {
+    const worker = new Worker('/judge-worker.js');
+    try {
+      await new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(new Error('Pyodide warmup timed out')), 20000);
+        worker.onerror = event => { clearTimeout(timer); reject(new Error(event.message)); };
+        worker.onmessage = event => {
+          clearTimeout(timer);
+          if (event.data.type === 'ready') resolve();
+          else reject(new Error(event.data.message));
+        };
+        worker.postMessage({ type: 'warmup' });
+      });
+      const started = performance.now();
+      return await new Promise(resolve => {
+        const timer = setTimeout(() => { worker.terminate(); resolve({ status: 'timeout', runtimeMs: performance.now() - started }); }, 3000);
+        worker.onmessage = event => { clearTimeout(timer); resolve(event.data); };
+        worker.postMessage({ signature: problem.signature, tests: problem.tests, source, stopOnFailure: false });
+      });
+    } finally { worker.terminate(); }
+  }, { problem, source });
+}
+
+try {
+  await start();
+  report.startupMs = Math.round(startupMs);
+  browser = await chromium.launch({ channel: 'chrome', headless: true });
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  const errors = [];
+  const externalRequests = [];
+  await page.route('**/*', route => {
+    const url = new URL(route.request().url());
+    if ((url.protocol === 'http:' || url.protocol === 'https:') && url.origin !== base) {
+      externalRequests.push(url.href);
+      return route.abort('blockedbyclient');
+    }
+    return route.continue();
+  });
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto(base);
+  await page.getByRole('button', { name: 'Library', exact: true }).click();
+  await page.getByRole('button', { name: 'Next', exact: true }).waitFor();
+  await page.waitForFunction(() => document.querySelectorAll('.library-list .problem-card').length === 30);
+  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await page.waitForFunction(() => document.querySelector('.library-pagination')?.textContent.includes('Page 2 of'));
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Word Search');
+  await page.getByRole('button', { name: /Word Search.*Medium/ }).click();
+  await page.getByRole('heading', { name: 'Word Search', exact: true }).waitFor();
+  await page.locator('.monaco-editor textarea').waitFor({ state: 'attached' });
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  assert.equal(await page.getByPlaceholder('Search title, topic, or pattern').inputValue(), 'Word Search');
+  report.checks.push('pagination, server search, problem open, back with search retained');
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Remove Duplicates from Sorted Array');
+  await page.getByRole('button', { name: /Remove Duplicates from Sorted Array.*Easy/ }).click();
+  await page.getByRole('note').waitFor();
+  assert((await page.getByRole('note').textContent()).includes('return the integer count k'));
+  assert((await page.locator('.example code').first().textContent()).includes('"prefix"'));
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Rotate Image');
+  await page.getByRole('button', { name: /Rotate Image.*Medium/ }).click();
+  await page.getByRole('note').waitFor();
+  assert((await page.getByRole('note').textContent()).includes('a returned copy is not used'));
+  report.checks.push('in-place and returned-prefix judging explanations render with the published examples');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Convert Sorted Array to Binary Search Tree');
+  await page.getByRole('button', { name: /Convert Sorted Array to Binary Search Tree.*Easy/ }).click();
+  await page.getByRole('note').waitFor();
+  assert((await page.getByRole('note').textContent()).includes('exact shape is not required'));
+  assert((await page.locator('.example code').first().textContent()).includes('One valid output'));
+  report.checks.push('balanced tree examples explain that multiple output shapes are valid');
+
+  for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
+    const result = await judge(page, problem, problem.reference_solution);
+    assert.equal(result.status, 'accepted', `${entry.id}: ${JSON.stringify(result)}`);
+    assert.equal(result.cases.length, problem.tests.length);
+    report.worker.push({ id: entry.id, status: result.status, cases: result.cases.length, runtimeMs: result.runtimeMs });
+  }
+  const tree = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-226.json'), 'utf8'));
+  const compact = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-26.json'), 'utf8'));
+  for (const source of ['def remove_duplicates(nums):\n    return len(set(nums))', 'def remove_duplicates(nums):\n    return True']) {
+    const result = await judge(page, compact, source);
+    assert.equal(result.status, 'wrong_answer');
+    assert.deepEqual(result.cases[0].arguments, compact.tests[0].arguments);
+    assert('return' in result.cases[0].actual && 'prefix' in result.cases[0].actual);
+  }
+  const removing = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-27.json'), 'utf8'));
+  const reordered = await judge(page, removing, 'def remove_element(nums, val):\n    nums[:] = [v for v in nums if v != val][::-1]\n    return len(nums)');
+  assert.equal(reordered.status, 'accepted');
+  const rotation = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-48.json'), 'utf8'));
+  const returnedCopy = await judge(page, rotation, 'def rotate_image(matrix):\n    return [list(row) for row in zip(*matrix[::-1])]');
+  assert.equal(returnedCopy.status, 'wrong_answer');
+  assert.deepEqual(returnedCopy.cases[0].actual, rotation.tests[0].arguments[0]);
+  report.checks.push('in-place grading rejects count-only and returned-copy solutions; strict prefix counts, reordered survivors, and original input evidence verified');
+  const cyclic = await judge(page, tree, 'def invert_tree(root):\n    if root:\n        root.left = root\n    return root');
+  assert.equal(cyclic.status, 'runtime_error');
+  assert(cyclic.cases.some(c => c.error?.includes('cycle')));
+  const linked = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-25.json'), 'utf8'));
+  const rewritesValues = await judge(page, linked, `def reverse_k_group(head, k):
+    nodes = []
+    current = head
+    while current:
+        nodes.append(current)
+        current = current.next
+    for start in range(0, len(nodes)-k+1, k):
+        values = [node.val for node in nodes[start:start+k]][::-1]
+        for node, value in zip(nodes[start:start+k], values):
+            node.val = value
+    return head
+`);
+  assert.equal(rewritesValues.status, 'wrong_answer');
+  assert(rewritesValues.cases.some(c => c.error?.includes('original node')));
+  report.checks.push('tree output cycles rejected; linked-list value rewriting rejected despite matching output values');
+  const flattening = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-114.json'), 'utf8'));
+  const reordering = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-143.json'), 'utf8'));
+  const equalList = { ...reordering, tests: [{ id: 'equal-valued-order', arguments: [[1, 1, 1, 1]],
+    expected: [1, 1, 1, 1], expected_node_order: [0, 3, 1, 2] }] };
+  const noReorder = await judge(page, equalList, 'def reorder_list(head):\n    pass');
+  assert.equal(noReorder.status, 'wrong_answer');
+  assert.deepEqual(noReorder.cases[0].actual, noReorder.cases[0].expected);
+  assert(noReorder.cases[0].error.includes('required order'));
+  assert.equal((await judge(page, equalList, reordering.reference_solution)).status, 'accepted');
+  const equalTree = { ...flattening, tests: [{ id: 'equal-tree-order', arguments: [[1, 1, 1]],
+    expected: [1, null, 1, null, 1], expected_node_order: [0, 1, 2] }] };
+  const wrongTreeOrder = await judge(page, equalTree, `def flatten_tree(root):
+    left, right = root.left, root.right
+    root.left = None
+    root.right = right
+    right.right = left
+`);
+  assert.equal(wrongTreeOrder.status, 'wrong_answer');
+  assert.deepEqual(wrongTreeOrder.cases[0].actual, wrongTreeOrder.cases[0].expected);
+  assert(wrongTreeOrder.cases[0].error.includes('required order'));
+  const copiedTree = await judge(page, equalTree, `def flatten_tree(root):
+    root.left = None
+    root.right = TreeNode(1)
+    root.right.right = TreeNode(1)
+`);
+  assert.equal(copiedTree.status, 'wrong_answer');
+  assert(copiedTree.cases[0].error.includes('original nodes'));
+  assert.equal((await judge(page, equalTree, flattening.reference_solution)).status, 'accepted');
+  report.checks.push('in-place tree/list identity checked: copied nodes and wrong equal-value node order rejected, correct rewiring accepted');
+  const arrayBst = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-108.json'), 'utf8'));
+  const listBst = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-109.json'), 'utf8'));
+  const treeCase = (problem, values, expected) => ({ ...problem, tests: [{
+    id: 'flexible-tree-contract', arguments: [values], expected, comparator: 'balanced_bst', visible: true,
+  }] });
+  const alternate = await judge(page, treeCase(arrayBst, [1, 3], [3, 1]),
+    'def sorted_array_bst(nums):\n    return TreeNode(1, None, TreeNode(3))');
+  assert.equal(alternate.status, 'accepted');
+  assert.notDeepEqual(alternate.cases[0].actual, alternate.cases[0].expected);
+  const wrongOrder = await judge(page, treeCase(arrayBst, [1, 3], [3, 1]),
+    'def sorted_array_bst(nums):\n    return TreeNode(1, TreeNode(3))');
+  assert.equal(wrongOrder.status, 'wrong_answer');
+  assert.deepEqual(wrongOrder.cases[0].actual, [1, 3]);
+  assert(wrongOrder.cases[0].error.includes('only one valid output'));
+  const deepImbalance = await judge(page, treeCase(arrayBst, [1, 2, 3, 4, 5, 6, 7], [4, 2, 6, 1, 3, 5, 7]),
+    'def sorted_array_bst(nums):\n    return TreeNode(4, TreeNode(3, TreeNode(2, TreeNode(1))), TreeNode(5, None, TreeNode(6, None, TreeNode(7))))');
+  assert.equal(deepImbalance.status, 'wrong_answer');
+  const duplicateJob = treeCase(listBst, [1, 1, 1], [1, 1, 1]);
+  assert.equal((await judge(page, duplicateJob,
+    'def sorted_list_bst(head):\n    return TreeNode(1)')).status, 'wrong_answer');
+  assert.equal((await judge(page, duplicateJob, listBst.reference_solution)).status, 'accepted');
+  const emptyJob = treeCase(listBst, [], []);
+  assert.equal((await judge(page, emptyJob, 'def sorted_list_bst(head):\n    return None')).status, 'accepted');
+  for (const value of ['None', 'True', '1.0']) {
+    const invalidValue = await judge(page, emptyJob, `def sorted_list_bst(head):\n    return TreeNode(${value})`);
+    assert.equal(invalidValue.status, 'runtime_error');
+    assert(invalidValue.message.includes('integer values'));
+  }
+  report.checks.push('balanced BST properties accept alternative shapes; reject wrong inorder, lost duplicates, internal imbalance, and noninteger nodes; empty ListNode input returns an empty tree');
+  const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-11.json'), 'utf8'));
+  const mutates = await judge(page, problem, 'def max_water_area(height):\n    height.clear()\n    return -1');
+  assert.deepEqual(mutates.cases[0].arguments, problem.tests[0].arguments);
+  report.checks.push('failed test evidence preserves original input even when the submission mutates it');
+  for (const [expected, source] of [
+    ['wrong_answer', 'def max_water_area(height):\n    return -1'],
+    ['syntax_error', 'def max_water_area(:'],
+    ['runtime_error', 'def max_water_area(height):\n    raise ValueError("test")'],
+    ['timeout', 'def max_water_area(height):\n    while True: pass'],
+    ['accepted', problem.reference_solution],
+  ]) {
+    const result = await judge(page, problem, source);
+    assert.equal(result.status, expected);
+    if (expected === 'timeout') assert(result.runtimeMs < 4000);
+    report.worker.push({ id: 'judge-recovery', status: result.status, runtimeMs: result.runtimeMs });
+  }
+  await request('/api/problems/leetcode-11/draft', { source_code: problem.reference_solution }, 'PUT');
+  await request('/api/attempts', { problem_id: problem.id, problem_version: problem.version,
+    source_code: problem.reference_solution, result: 'accepted', runtime_ms: 1,
+    tests_passed: 12, tests_total: 12, elapsed_study_seconds: 60, hint_level: 0 });
+  await stop();
+  await start();
+  const restored = await (await fetch(`${base}/api/problems/leetcode-11`)).json();
+  assert.equal(restored.savedDraft, problem.reference_solution);
+  assert.equal(restored.solved, true);
+  report.checks.push('draft and accepted progress survive a real backend restart');
+  for (const route of ['/api/problems?page_size=30', '/api/problems?search=tree&topic=recursion', '/api/problems/leetcode-79', '/api/dashboard']) {
+    const times = [];
+    await (await fetch(base + route)).arrayBuffer();
+    for (let i = 0; i < 100; i++) {
+      const started = performance.now();
+      const response = await fetch(base + route);
+      assert(response.ok);
+      await response.arrayBuffer();
+      times.push(performance.now() - started);
+    }
+    times.sort((a, b) => a - b);
+    report.endpoints[route] = { requests: 100, p50Ms: times[49], p95Ms: times[94], maxMs: times[99] };
+    assert(times[94] <= (route === '/api/dashboard' || route === '/api/problems/leetcode-79' ? 500 : 300));
+  }
+  await stop();
+  report.serverPeakRssMiB = Math.max(...serverMemoryRuns.map(run => run.peakRssBytes)) / 2**20;
+  report.serverMemoryRuns = serverMemoryRuns;
+  report.memoryMethod = 'OS-reported backend process high-water RSS across the initial run and restart; excludes browser and benchmark driver';
+  assert.deepEqual(errors, []);
+  assert.deepEqual(externalRequests, [], 'Studying must not request external editor/runtime assets');
+  report.checks.push('Monaco editor and Pyodide work with all external HTTP requests blocked');
+  report.checks.push('no browser page errors');
+  assert.equal(await fs.readFile(manifestPath, 'utf8'), manifestText, 'Catalog changed during verification; rerun on a stable snapshot');
+  assert.equal(await fs.readFile(ledgerPath, 'utf8'), ledgerText, 'Ledger changed during verification; rerun on a stable snapshot');
+  await fs.mkdir(path.join(root, 'catalog_import/benchmarks'), { recursive: true });
+  await fs.writeFile(path.join(root, 'catalog_import/benchmarks/current.json'), JSON.stringify(report, null, 2) + '\n');
+  console.log(JSON.stringify(report, null, 2));
+} finally {
+  if (browser) await browser.close();
+  await stop();
+  // Only the exact isolated test directory created above is removed.
+  await fs.rm(temp, { recursive: true, force: true });
+}

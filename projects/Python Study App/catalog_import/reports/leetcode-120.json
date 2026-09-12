@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-120",
+  "content_sha256": "43686fd5d344f689672f69ff3de23923eecb6bbdf4c52fd4b77e25b3c3680527",
+  "source_hash": "5b080567b01d9c490161c6a88746a18f22d7f306c23958b134927cb01c4f52e0",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Maximizes the remaining path instead of minimizing it.",
+      "failed_cases": [
+        "lc-120-1",
+        "lc-120-5",
+        "lc-120-6",
+        "lc-120-7",
+        "lc-120-8",
+        "lc-120-10",
+        "lc-120-11",
+        "lc-120-12",
+        "lc-120-13"
+      ]
+    },
+    {
+      "reason": "Chooses the smallest value in each row independently, ignoring adjacency.",
+      "failed_cases": [
+        "lc-120-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4167,
+  "oracle_implementation": "code_practice/import_batch_009.py:triangle_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "568566665679bfc6841c0cd460aa087b23e895223505310935a455d03afc7c5c",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

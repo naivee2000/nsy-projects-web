@@ -115,9 +115,17 @@ def merge_sorted_values(left, right):
 
 
 def tree_max_depth(root):
-    if not root:
+    if root is None:
         return 0
-    return 1 + max(tree_max_depth(root.left), tree_max_depth(root.right))
+    stack, best = [(root, 1)], 0
+    while stack:
+        node, depth = stack.pop()
+        best = max(best, depth)
+        if node.left is not None:
+            stack.append((node.left, depth + 1))
+        if node.right is not None:
+            stack.append((node.right, depth + 1))
+    return best
 
 
 def longest_unique_span(text):

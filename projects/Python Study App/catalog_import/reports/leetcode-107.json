@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-107",
+  "content_sha256": "78b2b4c991bcdc4861f3bdbe803fe7413990fc87d1b8f808eb7d73a2d720533b",
+  "source_hash": "d59786a26ad3e395271a93f573e9e2d6cff1867ae473047264b46bef8f95be32",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns top-down levels without reversing their order.",
+      "failed_cases": [
+        "lc-107-1",
+        "lc-107-2",
+        "lc-107-6",
+        "lc-107-7",
+        "lc-107-8",
+        "lc-107-9",
+        "lc-107-10",
+        "lc-107-11",
+        "lc-107-12",
+        "lc-107-13",
+        "lc-107-14"
+      ]
+    },
+    {
+      "reason": "Reverses values inside each level as well as reversing the levels.",
+      "failed_cases": [
+        "lc-107-1",
+        "lc-107-2",
+        "lc-107-8",
+        "lc-107-11",
+        "lc-107-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4154,
+  "oracle_implementation": "code_practice/import_batch_009.py:bottom_up_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "568566665679bfc6841c0cd460aa087b23e895223505310935a455d03afc7c5c",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

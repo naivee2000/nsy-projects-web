@@ -1,0 +1,619 @@
+{
+  "id": "leetcode-82",
+  "version": 1,
+  "status": "approved",
+  "title": "Remove Duplicates from Sorted List II",
+  "summary": "Given a sorted linked list, remove all nodes with duplicate values, retaining only unique values.",
+  "statement": "Given a sorted linked list, remove all nodes with duplicate values, retaining only unique values. Return the sorted linked list.",
+  "constraints": [
+    "0–300 nodes sorted in nondecreasing order, with values from -100 to 100.",
+    "Delete every node whose value occurs more than once, not just the extra copies. Return the remaining head, or None for an empty result."
+  ],
+  "topics": [
+    "linked-lists",
+    "two-pointers"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "delete_duplicate_nodes",
+    "parameters": [
+      {
+        "name": "head",
+        "annotation": "ListNode | None",
+        "adapter": "listnode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "ListNode | None",
+    "return_adapter": "listnode",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef delete_duplicate_nodes(head: ListNode | None) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def delete_duplicate_nodes(head):\n    dummy = ListNode(0, head)\n    before = dummy\n    while head:\n        if head.next and head.val == head.next.val:\n            value = head.val\n            while head and head.val == value:\n                head = head.next\n            before.next = head\n        else:\n            before = head\n            head = head.next\n    return dummy.next\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def delete_duplicate_nodes(head):\n    current = head\n    while current and current.next:\n        if current.val == current.next.val:\n            current.next = current.next.next\n        else:\n            current = current.next\n    return head\n",
+    "def delete_duplicate_nodes(head):\n    dummy = ListNode(0, head)\n    before = dummy\n    while head:\n        if head.next and head.val == head.next.val:\n            value = head.val\n            while head and head.val == value:\n                head = head.next\n            before.next = head\n        else:\n            before = head\n            head = head.next\n    return head\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Sorted input groups every occurrence of a value into one contiguous run.",
+    "Keep a sentinel and a pointer immediately before the current run. Skip the entire run when it contains duplicates.",
+    "If current equals its next node, scan past all equal values and reconnect before.next to the first different node; otherwise advance before.",
+    "Do not advance the retained predecessor when removing a run, and return sentinel.next so head removals work."
+  ],
+  "editorial": "A sentinel handles deletion at the beginning without a special return case. The before pointer is the last retained node. A repeated value causes the scan to bypass its entire run while before stays put; a singleton becomes the new before. Reconnect only at those run boundaries. Every node is scanned once and no replacement result nodes are allocated. The independent oracle counts occurrences on the JSON values and retains only values with count one, distinguishing this from the original keep-one linked-list exercise.",
+  "tests": [
+    {
+      "id": "lc-82-1",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        5
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Both 3 nodes and both 4 nodes are removed, leaving 1→2→5.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-2",
+      "arguments": [
+        [
+          1,
+          1,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The duplicated run at the original head is entirely removed; return the node holding 2, followed by 3.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-3",
+      "arguments": [
+        []
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-4",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-5",
+      "arguments": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-6",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-7",
+      "arguments": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-8",
+      "arguments": [
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-9",
+      "arguments": [
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-10",
+      "arguments": [
+        [
+          -2,
+          -2,
+          -1,
+          0,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        -1,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-11",
+      "arguments": [
+        [
+          -100,
+          0,
+          100
+        ]
+      ],
+      "expected": [
+        -100,
+        0,
+        100
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-12",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-13",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-14",
+      "arguments": [
+        [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-82-stress-1",
+      "arguments": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

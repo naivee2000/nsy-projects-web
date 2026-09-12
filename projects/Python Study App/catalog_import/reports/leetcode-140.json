@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-140",
+  "content_sha256": "0555197bf6180ae527e365cd8b8c3c4dbb98538b13977ccb101e552373d2ad7f",
+  "source_hash": "2cbfcd832613d9146eee00df3ab46dd4b33987c733acda345b25c0674ef8f1eb",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Stops after one valid segmentation rather than returning every sentence.",
+      "failed_cases": [
+        "lc-140-1",
+        "lc-140-2",
+        "lc-140-7",
+        "lc-140-8",
+        "lc-140-11"
+      ]
+    },
+    {
+      "reason": "Forbids reuse of a dictionary word within the same sentence.",
+      "failed_cases": [
+        "lc-140-2",
+        "lc-140-5",
+        "lc-140-7",
+        "lc-140-8",
+        "lc-140-13",
+        "lc-140-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4187,
+  "oracle_implementation": "code_practice/import_batch_012.py:sentences_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "908cb58d25383d52ae6743dc04dd504b9186d136883acea4c389a5a669f3bc97",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

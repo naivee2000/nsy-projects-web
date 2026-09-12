@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-114",
+  "content_sha256": "93fb261749ce47e807f36d60ed6456c50481624f9b3e5a53ffc1bc4ea35fddc1",
+  "source_hash": "c87ca273b0459d0846608eef1f0604466785320a146f831eb8af30dd1a796423",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Moves the left subtree but drops the original right subtree instead of preserving its continuation.",
+      "failed_cases": [
+        "lc-114-1",
+        "lc-114-9",
+        "lc-114-10",
+        "lc-114-11",
+        "lc-114-12",
+        "lc-114-13",
+        "lc-114-14"
+      ]
+    },
+    {
+      "reason": "Visits the right subtree before the left subtree, producing root-right-left rather than preorder.",
+      "failed_cases": [
+        "lc-114-1",
+        "lc-114-9",
+        "lc-114-10",
+        "lc-114-11",
+        "lc-114-12",
+        "lc-114-13",
+        "lc-114-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4161,
+  "oracle_implementation": "code_practice/import_batch_016.py:flatten_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "f6b8a81d8b919fdab94ec250668c294a2241c4ab960c31303f5d5d5f3c1aceea",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

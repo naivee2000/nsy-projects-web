@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-134",
+  "content_sha256": "65c6e7e8b623c12e58e7158f6bea81907844c2564e6bc19f5aae2b6cd8437a5b",
+  "source_hash": "a53261639af995f41b874175d736857dc5942be7ff5d57778ca2aab9d0aedc52",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the global feasibility check and returns an index even when total fuel is insufficient.",
+      "failed_cases": [
+        "lc-134-2",
+        "lc-134-4",
+        "lc-134-13"
+      ]
+    },
+    {
+      "reason": "Chooses the largest local surplus, which can fail before completing the route.",
+      "failed_cases": [
+        "lc-134-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4181,
+  "oracle_implementation": "code_practice/import_batch_010.py:gas_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e46a1138793a580d0aedc6770704b6b92bd9dcdfb5699095d86cfe8328adcb46",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.071,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

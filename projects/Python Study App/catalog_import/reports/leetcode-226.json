@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-226",
+  "content_sha256": "f84f38424177cad16d0710cdf1f7d6601acb6b77f7a98f0e6ff1a93c04205486",
+  "source_hash": "3ed3a7453a341e1722bc8beecf9c5a81f98d33afe70e29f0509e0b736b212b79",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Leaves the tree unchanged.",
+      "failed_cases": [
+        "lc-226-1",
+        "lc-226-2",
+        "lc-226-5",
+        "lc-226-6",
+        "lc-226-7",
+        "lc-226-9",
+        "lc-226-10",
+        "lc-226-11",
+        "lc-226-12",
+        "lc-226-13",
+        "lc-226-14"
+      ]
+    },
+    {
+      "reason": "Swaps only the root's children, leaving deeper subtrees uninverted.",
+      "failed_cases": [
+        "lc-226-1",
+        "lc-226-10",
+        "lc-226-11",
+        "lc-226-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4273,
+  "oracle_implementation": "code_practice/import_batch_002.py:invert_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "82407c90c77e143e86e918fb1cf5273ab5afdb0d0b40c5dd7649a50a7ca5d4d8",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

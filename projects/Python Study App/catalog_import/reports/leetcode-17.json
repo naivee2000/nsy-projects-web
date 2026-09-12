@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-17",
+  "content_sha256": "0e1a38b3749501d018e91d51002434d7f54a306ded27a69f353ffa8f899f1a8c",
+  "source_hash": "cf0aff5e484f523c6150d13cb8818722b413d27533bd89974d49511000cbfea5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes every key has three letters, losing s and z.",
+      "failed_cases": [
+        "lc-17-2",
+        "lc-17-4",
+        "lc-17-6",
+        "lc-17-7",
+        "lc-17-10",
+        "lc-17-11"
+      ]
+    },
+    {
+      "reason": "Explores only the first letter at each position.",
+      "failed_cases": [
+        "lc-17-1",
+        "lc-17-2",
+        "lc-17-3",
+        "lc-17-4",
+        "lc-17-5",
+        "lc-17-6",
+        "lc-17-7",
+        "lc-17-8",
+        "lc-17-9",
+        "lc-17-10",
+        "lc-17-11",
+        "lc-17-12",
+        "lc-17-13",
+        "lc-17-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4064,
+  "oracle_implementation": "code_practice/import_batch_005.py:phone_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e60e88e572987315504195a15d16b4addb74d8fa193d1aff9dad1c212c0dab78",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

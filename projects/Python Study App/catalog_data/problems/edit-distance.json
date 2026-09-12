@@ -1,0 +1,238 @@
+{
+  "id": "edit-distance",
+  "version": 1,
+  "status": "approved",
+  "title": "Edit Distance",
+  "summary": "Return the minimum insertions, deletions, and replacements needed to transform one string into another.",
+  "statement": "Return the minimum insertions, deletions, and replacements needed to transform one string into another. Implement `edit_distance` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "dynamic-programming",
+    "strings"
+  ],
+  "prerequisites": [
+    "dynamic-programming"
+  ],
+  "signature": {
+    "name": "edit_distance",
+    "parameters": [
+      {
+        "name": "left",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "right",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def edit_distance(left: str, right: str) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def edit_distance(left, right):\n    previous = list(range(len(right) + 1))\n    for i, a in enumerate(left, 1):\n        current = [i]\n        for j, b in enumerate(right, 1):\n            current.append(previous[j - 1] if a == b else 1 + min(previous[j], current[-1], previous[j - 1]))\n        previous = current\n    return previous[-1]\n",
+  "brute_force_solution": "def edit_distance(left, right):\n    previous = list(range(len(right) + 1))\n    for i, a in enumerate(left, 1):\n        current = [i]\n        for j, b in enumerate(right, 1):\n            current.append(previous[j - 1] if a == b else 1 + min(previous[j], current[-1], previous[j - 1]))\n        previous = current\n    return previous[-1]\n",
+  "known_wrong_solutions": [
+    "def edit_distance(left, right):\n    return None\n",
+    "def edit_distance(left, right):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(nm)",
+  "target_space_complexity": "O(m)",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Each prefix pair depends on delete, insert, and replace choices.",
+    "Build one dynamic-programming row at a time for prefixes of both strings.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the edit_distance invariant is complete.",
+    "Editorial: Build one dynamic-programming row at a time for prefixes of both strings. The intended bounds are O(nm) time and O(m) space."
+  ],
+  "editorial": "Each prefix pair depends on delete, insert, and replace choices. Build one dynamic-programming row at a time for prefixes of both strings. This yields O(nm) time and O(m) auxiliary space.",
+  "tests": [
+    {
+      "id": "edit-distance-case-1",
+      "arguments": [
+        "kitten",
+        "sitting"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "One replacement, another replacement, and one insertion transform the first word in three edits.",
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-2",
+      "arguments": [
+        "code",
+        "code"
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Identical strings need zero edits.",
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-3",
+      "arguments": [
+        "",
+        ""
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-4",
+      "arguments": [
+        "a",
+        ""
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-5",
+      "arguments": [
+        "abc",
+        "abc"
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-6",
+      "arguments": [
+        "abc",
+        "ac"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-7",
+      "arguments": [
+        "kitten",
+        "sitting"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-8",
+      "arguments": [
+        "aaaa",
+        "aa"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-9",
+      "arguments": [
+        "abc",
+        "def"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-10",
+      "arguments": [
+        "subsequence",
+        "sue"
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-11",
+      "arguments": [
+        "binary",
+        "brainy"
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-12",
+      "arguments": [
+        "stone",
+        "tones"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-13",
+      "arguments": [
+        "abcd",
+        "badc"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "edit-distance-case-14",
+      "arguments": [
+        "dynamic",
+        "programming"
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

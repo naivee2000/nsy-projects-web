@@ -1,0 +1,376 @@
+{
+  "id": "leetcode-179",
+  "version": 1,
+  "status": "approved",
+  "title": "Largest Number",
+  "summary": "Given a list of non-negative integers, arrange them to form the largest number possible and return the number as a string.",
+  "statement": "Given a list of non-negative integers, arrange them to form the largest number possible and return the number as a string.",
+  "constraints": [
+    "1–100 nonnegative integers, each at most 10^9. Use every integer exactly once, keeping its digits together.",
+    "Return the largest concatenation as a string. If all values are zero, return exactly '0', not repeated zeroes."
+  ],
+  "topics": [
+    "arrays",
+    "strings",
+    "sorting",
+    "greedy"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "largest_number",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "str",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def largest_number(nums: list[int]) -> str:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def largest_number(nums):\n    from functools import cmp_to_key\n    def compare(a, b):\n        ab, ba = a + b, b + a\n        return (ba > ab) - (ba < ab)\n    words = sorted(map(str, nums), key=cmp_to_key(compare))\n    if words[0] == \"0\":\n        return \"0\"\n    return \"\".join(words)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def largest_number(nums):\n    return \"\".join(map(str, sorted(nums, reverse=True))).lstrip(\"0\") or \"0\"\n",
+    "def largest_number(nums):\n    return \"\".join(sorted(map(str, nums), reverse=True)).lstrip(\"0\") or \"0\"\n"
+  ],
+  "target_time_complexity": "O(n log n × d), d is the maximum digit count",
+  "target_space_complexity": "O(n × d), including output and sorting storage",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Choosing the largest number or the longest number first is not sufficient.",
+    "For two strings a and b, compare a+b with b+a to decide their relative order.",
+    "Sort using that pairwise concatenation comparator, join all strings, and normalize an all-zero result to '0'.",
+    "Equal concatenations can use either relative order; compare the whole concatenation, not just first digits."
+  ],
+  "editorial": "Swapping an adjacent pair changes only a+b versus b+a, so placing the larger concatenation first cannot worsen the result. This comparison defines a consistent order (equivalently, compare each integer divided by 10^its_digit_count-1), allowing comparator-based sorting. The independent oracle enumerates every permutation of up to six values and selects the largest equal-length string; it does not reuse the sorting comparator. Output remains a string, including the 1000-digit stress case, so no large-number JSON precision is lost.",
+  "tests": [
+    {
+      "id": "lc-179-1",
+      "arguments": [
+        [
+          10,
+          2
+        ]
+      ],
+      "expected": "210",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Putting 2 before 10 produces '210', which is larger than '102' even though 10 is numerically larger than 2.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-2",
+      "arguments": [
+        [
+          3,
+          30,
+          34,
+          5,
+          9
+        ]
+      ],
+      "expected": "9534330",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The best order is 9,5,34,3,30, giving '9534330'; 3 must precede 30 because '330' exceeds '303'.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-3",
+      "arguments": [
+        [
+          121,
+          12
+        ]
+      ],
+      "expected": "12121",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-4",
+      "arguments": [
+        [
+          8308,
+          830
+        ]
+      ],
+      "expected": "8308830",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-5",
+      "arguments": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": "0",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-6",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": "0",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-7",
+      "arguments": [
+        [
+          9,
+          91
+        ]
+      ],
+      "expected": "991",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-8",
+      "arguments": [
+        [
+          432,
+          43243
+        ]
+      ],
+      "expected": "43243432",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-9",
+      "arguments": [
+        [
+          999999999,
+          1000000000
+        ]
+      ],
+      "expected": "9999999991000000000",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-10",
+      "arguments": [
+        [
+          12,
+          1212
+        ]
+      ],
+      "expected": "121212",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-11",
+      "arguments": [
+        [
+          1,
+          10,
+          100
+        ]
+      ],
+      "expected": "110100",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-12",
+      "arguments": [
+        [
+          3,
+          30
+        ]
+      ],
+      "expected": "330",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-13",
+      "arguments": [
+        [
+          34323,
+          3432
+        ]
+      ],
+      "expected": "343234323",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-14",
+      "arguments": [
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "expected": "100",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-179-stress-1",
+      "arguments": [
+        [
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000
+        ]
+      ],
+      "expected": "1000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000100000000010000000001000000000",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

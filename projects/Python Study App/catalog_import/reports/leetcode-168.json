@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-168",
+  "content_sha256": "9bfe48150341f6f3b1979d46b8a71804b19af150348aa33b7e3f90959f0f45b0",
+  "source_hash": "195e4a765c48a739a576e7f0f3dab474ab31c5088df660a4cf8d7534a38d84ab",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses ordinary zero-based remainders and shifts column labels at alphabet boundaries.",
+      "failed_cases": [
+        "lc-168-1",
+        "lc-168-2",
+        "lc-168-3",
+        "lc-168-4",
+        "lc-168-5",
+        "lc-168-6",
+        "lc-168-7",
+        "lc-168-8",
+        "lc-168-9",
+        "lc-168-10",
+        "lc-168-11",
+        "lc-168-12",
+        "lc-168-13",
+        "lc-168-14",
+        "lc-168-stress-1"
+      ]
+    },
+    {
+      "reason": "Returns least-significant letters first, reversing multi-letter labels.",
+      "failed_cases": [
+        "lc-168-2",
+        "lc-168-7",
+        "lc-168-8",
+        "lc-168-9",
+        "lc-168-10",
+        "lc-168-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4215,
+  "oracle_implementation": "code_practice/import_batch_018.py:title_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "59b78d6324ac6ec7bdeafd95b2b3fc41a1f0326f56bcad17a6a7ad075b51c660",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-179",
+  "content_sha256": "2bc209fd730b6ac05790ef917e6d0fde20688dc814a063021618b836bdaf29c5",
+  "source_hash": "cc8f8fa5366ab1ebb3e3a4cdf1c707330e8d11c23334c6df09df3d0f8faca0bb",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts by numeric value rather than which of two concatenation orders is larger.",
+      "failed_cases": [
+        "lc-179-1",
+        "lc-179-2",
+        "lc-179-3",
+        "lc-179-7",
+        "lc-179-9",
+        "lc-179-11",
+        "lc-179-12",
+        "lc-179-13"
+      ]
+    },
+    {
+      "reason": "Sorts individual strings lexicographically and mishandles prefix pairs such as 12 and 121.",
+      "failed_cases": [
+        "lc-179-2",
+        "lc-179-3",
+        "lc-179-7",
+        "lc-179-11",
+        "lc-179-12",
+        "lc-179-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4226,
+  "oracle_implementation": "code_practice/import_batch_018.py:largest_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "59b78d6324ac6ec7bdeafd95b2b3fc41a1f0326f56bcad17a6a7ad075b51c660",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.059,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

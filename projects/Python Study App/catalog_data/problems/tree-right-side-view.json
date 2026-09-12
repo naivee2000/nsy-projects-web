@@ -1,0 +1,338 @@
+{
+  "id": "tree-right-side-view",
+  "version": 1,
+  "status": "approved",
+  "title": "Tree Right-Side View",
+  "summary": "Return the value visible from the right at every tree depth.",
+  "statement": "Return the value visible from the right at every tree depth. Implement `tree_right_side_view` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "trees",
+    "recursion",
+    "depth-first-search"
+  ],
+  "prerequisites": [
+    "trees"
+  ],
+  "signature": {
+    "name": "tree_right_side_view",
+    "parameters": [
+      {
+        "name": "root",
+        "annotation": "TreeNode | None",
+        "adapter": "treenode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[int]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef tree_right_side_view(root: TreeNode | None) -> list[int]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def tree_right_side_view(root):\n    answer = []\n    def visit(node, depth):\n        if node is None: return\n        if depth == len(answer): answer.append(node.val)\n        visit(node.right, depth+1); visit(node.left, depth+1)\n    visit(root, 0); return answer\n",
+  "brute_force_solution": "def tree_right_side_view(root):\n    answer = []\n    def visit(node, depth):\n        if node is None: return\n        if depth == len(answer): answer.append(node.val)\n        visit(node.right, depth+1); visit(node.left, depth+1)\n    visit(root, 0); return answer\n",
+  "known_wrong_solutions": [
+    "def tree_right_side_view(root):\n    return None\n",
+    "def tree_right_side_view(root):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(h)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A right-first traversal sees each depth's visible node first.",
+    "Append only on the first visit to a new depth, exploring right before left.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the tree_right_side_view invariant is complete.",
+    "Editorial: Append only on the first visit to a new depth, exploring right before left. The intended bounds are O(n) time and O(h) space."
+  ],
+  "editorial": "A right-first traversal sees each depth's visible node first. Append only on the first visit to a new depth, exploring right before left. This yields O(n) time and O(h) auxiliary space.",
+  "tests": [
+    {
+      "id": "tree-right-side-view-case-1",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          null,
+          5,
+          null,
+          4
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        4
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "From the right, the visible values by depth are 1, 3, and 4.",
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-2",
+      "arguments": [
+        [
+          1,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "With no right children, the left chain remains visible at every depth.",
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-4",
+      "arguments": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-5",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-6",
+      "arguments": [
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-7",
+      "arguments": [
+        [
+          5,
+          3,
+          8,
+          2,
+          4,
+          7,
+          9
+        ]
+      ],
+      "expected": [
+        5,
+        8,
+        9
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-8",
+      "arguments": [
+        [
+          0,
+          -1,
+          1
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-9",
+      "arguments": [
+        [
+          1,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-10",
+      "arguments": [
+        [
+          1,
+          null,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-11",
+      "arguments": [
+        [
+          10,
+          5,
+          15,
+          2,
+          7,
+          12,
+          20
+        ]
+      ],
+      "expected": [
+        10,
+        15,
+        20
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-12",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        5
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-13",
+      "arguments": [
+        [
+          9,
+          8,
+          null,
+          7
+        ]
+      ],
+      "expected": [
+        9,
+        8,
+        7
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "tree-right-side-view-case-14",
+      "arguments": [
+        [
+          2,
+          1,
+          3,
+          null,
+          null,
+          null,
+          4
+        ]
+      ],
+      "expected": [
+        2,
+        3,
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

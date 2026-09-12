@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-404",
+  "content_sha256": "b2ac0d557bededdae6baae45a4a4035280a22f312006f0e317379a296f710425",
+  "source_hash": "3b73c7712bfa1a4aaf3e48d1678df4ee3102b4df07d37f959a07fa03ac8bb11e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts left children that are internal nodes.",
+      "failed_cases": [
+        "lc-404-8",
+        "lc-404-10",
+        "lc-404-13",
+        "lc-404-14"
+      ]
+    },
+    {
+      "reason": "Counts right leaves and the root leaf as well.",
+      "failed_cases": [
+        "lc-404-1",
+        "lc-404-2",
+        "lc-404-4",
+        "lc-404-6",
+        "lc-404-7",
+        "lc-404-9",
+        "lc-404-10",
+        "lc-404-11",
+        "lc-404-13",
+        "lc-404-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4451,
+  "oracle_implementation": "code_practice/import_batch_004.py:left_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ea17eb3e4c59be73d7e57144a1d25441c354dc710eaada84a8e14fb5b01a3d1f",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

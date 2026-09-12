@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-92",
+  "content_sha256": "72d0539aa66fb4395246e6a56d5f2f9f3a1ad3cff41f4c99642d15835b53a6b4",
+  "source_hash": "0ede191e161be20f1ab34e992ca3ecaa0f6f12981b45c28d8cf9f51d67e87046",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses one fewer node by treating the right boundary as exclusive.",
+      "failed_cases": [
+        "lc-92-1",
+        "lc-92-5",
+        "lc-92-6",
+        "lc-92-7",
+        "lc-92-8",
+        "lc-92-9",
+        "lc-92-10",
+        "lc-92-12",
+        "lc-92-13",
+        "lc-92-14"
+      ]
+    },
+    {
+      "reason": "Reverses from the head instead of from the requested left boundary.",
+      "failed_cases": [
+        "lc-92-1",
+        "lc-92-8",
+        "lc-92-9",
+        "lc-92-12",
+        "lc-92-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4139,
+  "oracle_implementation": "code_practice/import_batch_004.py:segment_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ea17eb3e4c59be73d7e57144a1d25441c354dc710eaada84a8e14fb5b01a3d1f",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

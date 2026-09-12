@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-130",
+  "content_sha256": "7438f263a3777cfcd94fb82ac43cd89f2c7db10e62feaec4161d6bcc979d056a",
+  "source_hash": "de551d8bc539dbe8381cf3de61d68819a94559150970ad4e1f5186b347c344d0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Captures every interior O even when its region connects to an edge.",
+      "failed_cases": [
+        "lc-130-2",
+        "lc-130-13",
+        "lc-130-14",
+        "lc-130-stress-1"
+      ]
+    },
+    {
+      "reason": "Treats diagonal O cells as connected and incorrectly preserves surrounded regions.",
+      "failed_cases": [
+        "lc-130-1",
+        "lc-130-10",
+        "lc-130-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4177,
+  "oracle_implementation": "code_practice/import_batch_014.py:regions_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "afafdbe1a6bdc3e0923f3778ef3a923ba693eec6d95be5d20244baff87ead6f0",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.135,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

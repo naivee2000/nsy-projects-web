@@ -1,0 +1,452 @@
+{
+  "id": "matrix-spiral-order",
+  "version": 2,
+  "status": "approved",
+  "title": "Matrix Spiral Order",
+  "summary": "Return rectangular-matrix values in clockwise spiral order.",
+  "statement": "Return all values of a rectangular matrix in clockwise spiral order, starting at the top-left cell and initially moving right. Visit each cell exactly once. The number of rows need not equal the number of columns, but all rows must have the same length. An empty matrix returns an empty list. Implement `matrix_spiral_order` without changing the signature.",
+  "constraints": [
+    "Nonempty matrices have 1–10 rows and 1–10 columns; all rows have equal length.",
+    "Entries are integers in [-100,100]. Empty matrices remain supported for compatibility."
+  ],
+  "topics": [
+    "matrices",
+    "simulation"
+  ],
+  "prerequisites": [
+    "matrices"
+  ],
+  "signature": {
+    "name": "matrix_spiral_order",
+    "parameters": [
+      {
+        "name": "matrix",
+        "annotation": "list[list[int]]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[int]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def matrix_spiral_order(matrix: list[list[int]]) -> list[int]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def matrix_spiral_order(matrix):\n    if not matrix or not matrix[0]: return []\n    top, bottom, left, right, answer = 0, len(matrix)-1, 0, len(matrix[0])-1, []\n    while top <= bottom and left <= right:\n        answer.extend(matrix[top][left:right+1]); top += 1\n        for row in range(top, bottom+1): answer.append(matrix[row][right])\n        right -= 1\n        if top <= bottom: answer.extend(reversed(matrix[bottom][left:right+1])); bottom -= 1\n        if left <= right:\n            for row in range(bottom, top-1, -1): answer.append(matrix[row][left])\n            left += 1\n    return answer\n",
+  "brute_force_solution": "def matrix_spiral_order(matrix):\n    if not matrix or not matrix[0]: return []\n    top, bottom, left, right, answer = 0, len(matrix)-1, 0, len(matrix[0])-1, []\n    while top <= bottom and left <= right:\n        answer.extend(matrix[top][left:right+1]); top += 1\n        for row in range(top, bottom+1): answer.append(matrix[row][right])\n        right -= 1\n        if top <= bottom: answer.extend(reversed(matrix[bottom][left:right+1])); bottom -= 1\n        if left <= right:\n            for row in range(bottom, top-1, -1): answer.append(matrix[row][left])\n            left += 1\n    return answer\n",
+  "known_wrong_solutions": [
+    "def matrix_spiral_order(matrix):\n    return None\n",
+    "def matrix_spiral_order(matrix):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(rows × columns)",
+  "target_space_complexity": "O(1) excluding output",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Four shrinking boundaries define the unvisited rectangle.",
+    "Read top, right, bottom, and left edges while checking boundary crossings.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the matrix_spiral_order invariant is complete.",
+    "Editorial: Read top, right, bottom, and left edges while checking boundary crossings. The intended bounds are O(rows × columns) time and O(1) excluding output space."
+  ],
+  "editorial": "Four shrinking boundaries define the unvisited rectangle. Read top, right, bottom, and left edges while checking boundary crossings. This yields O(rows × columns) time and O(1) excluding output auxiliary space.",
+  "tests": [
+    {
+      "id": "matrix-spiral-order-case-1",
+      "arguments": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        8,
+        7,
+        4,
+        5
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Read the outside clockwise, then finish with the center value 5.",
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-2",
+      "arguments": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        6,
+        5,
+        4
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "This matrix has two rows and three columns. Read 1,2,3 across the top, 6 down the right, then 5,4 back along the bottom.",
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-4",
+      "arguments": [
+        [
+          []
+        ]
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-5",
+      "arguments": [
+        [
+          [
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        5
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-6",
+      "arguments": [
+        [
+          [
+            1,
+            2,
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-7",
+      "arguments": [
+        [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-8",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        4,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-9",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        4,
+        6,
+        5,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-10",
+      "arguments": [
+        [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7,
+            8
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        7,
+        6,
+        5
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-11",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            8
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        7,
+        5,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-12",
+      "arguments": [
+        [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            -2,
+            3,
+            -2
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        -1,
+        0,
+        -2,
+        3,
+        -2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-13",
+      "arguments": [
+        [
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "matrix-spiral-order-case-14",
+      "arguments": [
+        [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7,
+            8
+          ],
+          [
+            9,
+            10,
+            11,
+            12
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        12,
+        11,
+        10,
+        9,
+        5,
+        6,
+        7
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-106",
+  "content_sha256": "37718133782b9ca99c1ed5494a3c1462613145acd6a22eb89252c1e47f192889",
+  "source_hash": "1881f3831fecfb78c750df9c0a6b8cc0d68137649531b742fce278eb2e38254f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Attaches the reconstructed subtrees to the opposite child sides.",
+      "failed_cases": [
+        "lc-106-1",
+        "lc-106-6",
+        "lc-106-7",
+        "lc-106-8",
+        "lc-106-9",
+        "lc-106-10",
+        "lc-106-11",
+        "lc-106-12",
+        "lc-106-13",
+        "lc-106-14",
+        "lc-106-stress-1",
+        "lc-106-stress-2"
+      ]
+    },
+    {
+      "reason": "Builds a balanced tree from inorder alone, ignoring the root order in the other traversal.",
+      "failed_cases": [
+        "lc-106-1",
+        "lc-106-7",
+        "lc-106-9",
+        "lc-106-10",
+        "lc-106-11",
+        "lc-106-12",
+        "lc-106-14",
+        "lc-106-stress-1",
+        "lc-106-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4153,
+  "oracle_implementation": "code_practice/import_batch_014.py:postorder_build_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "afafdbe1a6bdc3e0923f3778ef3a923ba693eec6d95be5d20244baff87ead6f0",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.07,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

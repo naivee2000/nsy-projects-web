@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-247",
+  "content_sha256": "35924af53cb179b13790daeccf65063690d797286cd47d0d4d3fe4220f8239c4",
+  "source_hash": "66f3ef3794c3c588f1182385b249092f9d8528d81bfd0eac79193fd8e434b26a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a zero outer pair and returns strings with forbidden leading zeroes.",
+      "failed_cases": [
+        "lc-247-1",
+        "lc-247-3",
+        "lc-247-4",
+        "lc-247-5",
+        "lc-247-6",
+        "lc-247-7",
+        "lc-247-8",
+        "lc-247-9",
+        "lc-247-10",
+        "lc-247-11",
+        "lc-247-12",
+        "lc-247-13",
+        "lc-247-14"
+      ]
+    },
+    {
+      "reason": "Omits the 6/9 rotation pair and therefore misses valid numbers such as 69 and 96.",
+      "failed_cases": [
+        "lc-247-1",
+        "lc-247-3",
+        "lc-247-4",
+        "lc-247-5",
+        "lc-247-6",
+        "lc-247-7",
+        "lc-247-8",
+        "lc-247-9",
+        "lc-247-10",
+        "lc-247-11",
+        "lc-247-12",
+        "lc-247-13",
+        "lc-247-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4294,
+  "oracle_implementation": "code_practice/import_batch_023.py:strobogrammatic_list_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "85a252842fd001bdafb1239e0d3a9815a3ade559792417447a2ddde084eeb1ff",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.145,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

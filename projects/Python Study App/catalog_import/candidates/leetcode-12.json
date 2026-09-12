@@ -1,0 +1,217 @@
+{
+  "id": "leetcode-12",
+  "version": 1,
+  "status": "approved",
+  "title": "Integer to Roman",
+  "summary": "Seven symbols represent Roman numerals: I for 1, V for 5, X for 10, L for 50, C for 100, D for 500, and M for 1000.",
+  "statement": "Seven symbols represent Roman numerals: I for 1, V for 5, X for 10, L for 50, C for 100, D for 500, and M for 1000. To convert a decimal number to a Roman numeral, select the largest symbol that can be subtracted from the number, append that symbol, subtract its value, and repeat the process for the remainder. Use subtractive forms for 4 (IV), 9 (IX), 40 (XL), 90 (XC), 400 (CD), and 900 (CM). Append powers of 10 (I, X, C, M) up to three times in a row, but avoid using V, L, or D more than once. For numbers that start with 4 or 9, use the subtractive forms. Given an integer, convert it to a Roman numeral.",
+  "constraints": [
+    "1 <= num <= 3999.",
+    "Use I,V,X,L,C,D,M and canonical subtractive pairs IV,IX,XL,XC,CD,CM. Do not produce additive alternatives such as IIII."
+  ],
+  "topics": [
+    "math",
+    "greedy",
+    "strings"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "integer_to_roman",
+    "parameters": [
+      {
+        "name": "num",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "str",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def integer_to_roman(num: int) -> str:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def integer_to_roman(num):\n    tokens = [(1000,\"M\"),(900,\"CM\"),(500,\"D\"),(400,\"CD\"),(100,\"C\"),(90,\"XC\"),(50,\"L\"),(40,\"XL\"),(10,\"X\"),(9,\"IX\"),(5,\"V\"),(4,\"IV\"),(1,\"I\")]\n    parts = []\n    for value, token in tokens:\n        while num >= value:\n            parts.append(token)\n            num -= value\n    return \"\".join(parts)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def integer_to_roman(num):\n    tokens = [(1000,\"M\"),(500,\"D\"),(100,\"C\"),(50,\"L\"),(10,\"X\"),(5,\"V\"),(1,\"I\")]\n    parts = []\n    for value, token in tokens:\n        while num >= value:\n            parts.append(token)\n            num -= value\n    return \"\".join(parts)\n",
+    "def integer_to_roman(num):\n    tokens = [(1000,\"M\"),(900,\"CM\"),(500,\"D\"),(400,\"CD\"),(100,\"C\"),(90,\"XC\"),(50,\"L\"),(40,\"XL\"),(10,\"X\"),(9,\"IX\"),(5,\"V\"),(4,\"IV\"),(1,\"I\")]\n    parts = []\n    for value, token in tokens:\n        if num >= value:\n            parts.append(token)\n            num -= value\n    return \"\".join(parts)\n"
+  ],
+  "target_time_complexity": "O(output length); bounded by the input range",
+  "target_space_complexity": "O(output length)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Treat each subtractive pair as a denomination alongside the single symbols.",
+    "Consume denominations in descending order, repeatedly while they fit.",
+    "Append the chosen token, subtract its value, and continue; the table includes 900,400,90,40,9,4.",
+    "The input bound guarantees a canonical representation without symbols above M."
+  ],
+  "editorial": "Process a descending table of canonical tokens, including every subtractive pair. Repeatedly take a token while its value fits the remaining number. The table encodes canonical hundreds, tens, and ones while M handles thousands. The independent oracle concatenates four place-value lookup strings rather than subtracting denominations. Under the fixed 1…3999 domain, both running time and output size have constant bounds.",
+  "tests": [
+    {
+      "id": "lc-12-1",
+      "arguments": [
+        3749
+      ],
+      "expected": "MMMDCCXLIX",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "3000→MMM, 700→DCC, 40→XL, 9→IX; concatenate to MMMDCCXLIX.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-2",
+      "arguments": [
+        1994
+      ],
+      "expected": "MCMXCIV",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "1000→M, 900→CM, 90→XC, 4→IV, giving MCMXCIV.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-3",
+      "arguments": [
+        1
+      ],
+      "expected": "I",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-4",
+      "arguments": [
+        3
+      ],
+      "expected": "III",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-5",
+      "arguments": [
+        4
+      ],
+      "expected": "IV",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-6",
+      "arguments": [
+        5
+      ],
+      "expected": "V",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-7",
+      "arguments": [
+        9
+      ],
+      "expected": "IX",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-8",
+      "arguments": [
+        10
+      ],
+      "expected": "X",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-9",
+      "arguments": [
+        40
+      ],
+      "expected": "XL",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-10",
+      "arguments": [
+        90
+      ],
+      "expected": "XC",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-11",
+      "arguments": [
+        400
+      ],
+      "expected": "CD",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-12",
+      "arguments": [
+        900
+      ],
+      "expected": "CM",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-13",
+      "arguments": [
+        3888
+      ],
+      "expected": "MMMDCCCLXXXVIII",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-12-14",
+      "arguments": [
+        3999
+      ],
+      "expected": "MMMCMXCIX",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

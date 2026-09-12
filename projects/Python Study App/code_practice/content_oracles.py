@@ -35,6 +35,15 @@ def merge_sorted_values(left, right):
     return sorted(left + right)
 
 
+def tree_max_depth(root):
+    level = [] if root is None else [root]
+    depth = 0
+    while level:
+        depth += 1
+        level = [child for node in level for child in (node.left, node.right) if child is not None]
+    return depth
+
+
 def merge_sorted_linked_lists(list1, list2):
     values = []
     while list1:
@@ -99,6 +108,7 @@ ORACLES: dict[str, Callable[..., Any]] = {
         max_single_trade_profit,
         normalized_palindrome,
         merge_sorted_values,
+        tree_max_depth,
         merge_sorted_linked_lists,
         longest_unique_span,
         days_until_warmer,

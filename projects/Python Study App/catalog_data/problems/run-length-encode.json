@@ -1,0 +1,215 @@
+{
+  "id": "run-length-encode",
+  "version": 1,
+  "status": "approved",
+  "title": "Run-Length Encode",
+  "summary": "Compress consecutive equal characters as character followed by its count.",
+  "statement": "Compress consecutive equal characters as character followed by its count. Implement `run_length_encode` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "strings"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "run_length_encode",
+    "parameters": [
+      {
+        "name": "text",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "str",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def run_length_encode(text: str) -> str:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def run_length_encode(text):\n    if not text: return \"\"\n    parts, start = [], 0\n    for i in range(1, len(text) + 1):\n        if i == len(text) or text[i] != text[start]:\n            parts.append(text[start] + str(i - start)); start = i\n    return \"\".join(parts)\n",
+  "brute_force_solution": "def run_length_encode(text):\n    if not text: return \"\"\n    parts, start = [], 0\n    for i in range(1, len(text) + 1):\n        if i == len(text) or text[i] != text[start]:\n            parts.append(text[start] + str(i - start)); start = i\n    return \"\".join(parts)\n",
+  "known_wrong_solutions": [
+    "def run_length_encode(text):\n    return None\n",
+    "def run_length_encode(text):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 25,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A run ends at the first different character or the end of the string.",
+    "Track the run start, emit its character and length, then begin the next run.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the run_length_encode invariant is complete.",
+    "Editorial: Track the run start, emit its character and length, then begin the next run. The intended bounds are O(n) time and O(n) space."
+  ],
+  "editorial": "A run ends at the first different character or the end of the string. Track the run start, emit its character and length, then begin the next run. This yields O(n) time and O(n) auxiliary space.",
+  "tests": [
+    {
+      "id": "run-length-encode-case-1",
+      "arguments": [
+        "aaabbccccd"
+      ],
+      "expected": "a3b2c4d1",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The four consecutive runs have lengths 3, 2, 4, and 1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-2",
+      "arguments": [
+        "abcd"
+      ],
+      "expected": "a1b1c1d1",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Each character forms its own run of length 1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-3",
+      "arguments": [
+        ""
+      ],
+      "expected": "",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-4",
+      "arguments": [
+        "a"
+      ],
+      "expected": "a1",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-5",
+      "arguments": [
+        "hello world"
+      ],
+      "expected": "h1e1l2o1 1w1o1r1l1d1",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-6",
+      "arguments": [
+        "  one   two  "
+      ],
+      "expected": " 2o1n1e1 3t1w1o1 2",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-7",
+      "arguments": [
+        "racecar"
+      ],
+      "expected": "r1a1c1e1c1a1r1",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-8",
+      "arguments": [
+        "banana"
+      ],
+      "expected": "b1a1n1a1n1a1",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-9",
+      "arguments": [
+        "A a"
+      ],
+      "expected": "A1 1a1",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-10",
+      "arguments": [
+        "mississippi"
+      ],
+      "expected": "m1i1s2i1s2i1p2i1",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-11",
+      "arguments": [
+        "code practice lab"
+      ],
+      "expected": "c1o1d1e1 1p1r1a1c1t1i1c1e1 1l1a1b1",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-12",
+      "arguments": [
+        "112233"
+      ],
+      "expected": "122232",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-13",
+      "arguments": [
+        "xyzz"
+      ],
+      "expected": "x1y1z2",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "run-length-encode-case-14",
+      "arguments": [
+        "the quick brown fox"
+      ],
+      "expected": "t1h1e1 1q1u1i1c1k1 1b1r1o1w1n1 1f1o1x1",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

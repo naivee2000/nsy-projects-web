@@ -1,0 +1,33 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-205",
+  "content_sha256": "1325902235a378ddbd3ce9c26a0e15b12cb787b8b672eb2e0b8aeeadc3ae89ae",
+  "source_hash": "cee2420d1c3ed5a82dbf8bafdde7f0dd60ea2c9a3725dc9b1f0bbb42dc0c66ad",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Enforces consistency in only one direction and permits different source characters to merge.",
+      "failed_cases": [
+        "lc-205-5"
+      ]
+    },
+    {
+      "reason": "Compares frequency counts but ignores where the repeated characters occur.",
+      "failed_cases": [
+        "lc-205-8",
+        "lc-205-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4252,
+  "oracle_implementation": "code_practice/import_batch_020.py:isomorphic_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "c514f0f536ddec594527bec51024127811de11eb86d63244c92f6fd74613e461",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

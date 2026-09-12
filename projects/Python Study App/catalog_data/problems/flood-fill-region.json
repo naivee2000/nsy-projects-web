@@ -1,0 +1,571 @@
+{
+  "id": "flood-fill-region",
+  "version": 1,
+  "status": "approved",
+  "title": "Flood Fill Region",
+  "summary": "Recolor the four-directionally connected region containing a starting cell and return the image.",
+  "statement": "Starting at the given row and column, recolor that cell and every cell connected to it through up, down, left, or right moves that has the starting cell's original color. Diagonal contact does not connect regions.",
+  "constraints": [
+    "The image is nonempty and rectangular.",
+    "The starting row and column are valid image coordinates."
+  ],
+  "topics": [
+    "graphs",
+    "recursion",
+    "matrices"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "flood_fill_region",
+    "parameters": [
+      {
+        "name": "image",
+        "annotation": "list[list[int]]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "start_row",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "start_col",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "new_color",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[list[int]]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def flood_fill_region(image: list[list[int]], start_row: int, start_col: int, new_color: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def flood_fill_region(image, start_row, start_col, new_color):\n    original = image[start_row][start_col]\n    if original == new_color: return image\n    def fill(row, col):\n        if not (0 <= row < len(image) and 0 <= col < len(image[0])) or image[row][col] != original: return\n        image[row][col] = new_color\n        fill(row + 1, col); fill(row - 1, col); fill(row, col + 1); fill(row, col - 1)\n    fill(start_row, start_col)\n    return image\n",
+  "brute_force_solution": "def flood_fill_region(image, start_row, start_col, new_color):\n    original = image[start_row][start_col]\n    if original == new_color: return image\n    def fill(row, col):\n        if not (0 <= row < len(image) and 0 <= col < len(image[0])) or image[row][col] != original: return\n        image[row][col] = new_color\n        fill(row + 1, col); fill(row - 1, col); fill(row, col + 1); fill(row, col - 1)\n    fill(start_row, start_col)\n    return image\n",
+  "known_wrong_solutions": [
+    "def flood_fill_region(image, start_row, start_col, new_color):\n    return None\n",
+    "def flood_fill_region(image, start_row, start_col, new_color):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(rc)",
+  "target_space_complexity": "O(rc)",
+  "estimated_minutes": 25,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Only cells connected through the original color belong to the starting region.",
+    "Save the original color, guard the no-change case, then recursively recolor matching four-directional neighbors.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the flood_fill_region invariant is complete.",
+    "Editorial: Save the original color, guard the no-change case, then recursively recolor matching four-directional neighbors. The intended bounds are O(rc) time and O(rc) space."
+  ],
+  "editorial": "Only cells connected through the original color belong to the starting region. Save the original color, guard the no-change case, then recursively recolor matching four-directional neighbors. This yields O(rc) time and O(rc) auxiliary space.",
+  "tests": [
+    {
+      "id": "flood-fill-region-case-1",
+      "arguments": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        1,
+        1,
+        2
+      ],
+      "expected": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Only the 1-cells connected to the center through shared sides are recolored to 2; the isolated corner stays 1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-2",
+      "arguments": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "When the requested color already matches the starting region, the image remains unchanged.",
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-3",
+      "arguments": [
+        [
+          [
+            1
+          ]
+        ],
+        0,
+        0,
+        3
+      ],
+      "expected": [
+        [
+          3
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-4",
+      "arguments": [
+        [
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        1,
+        1,
+        5
+      ],
+      "expected": [
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-5",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        0,
+        0,
+        9
+      ],
+      "expected": [
+        [
+          9,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-6",
+      "arguments": [
+        [
+          [
+            1,
+            1,
+            2
+          ],
+          [
+            2,
+            1,
+            2
+          ]
+        ],
+        0,
+        1,
+        3
+      ],
+      "expected": [
+        [
+          3,
+          3,
+          2
+        ],
+        [
+          2,
+          3,
+          2
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-7",
+      "arguments": [
+        [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        1,
+        1,
+        2
+      ],
+      "expected": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          0
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-8",
+      "arguments": [
+        [
+          [
+            4,
+            4,
+            4
+          ],
+          [
+            4,
+            5,
+            4
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        1,
+        1,
+        7
+      ],
+      "expected": [
+        [
+          4,
+          4,
+          4
+        ],
+        [
+          4,
+          7,
+          4
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-9",
+      "arguments": [
+        [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ]
+        ],
+        0,
+        0,
+        8
+      ],
+      "expected": [
+        [
+          8,
+          8,
+          0
+        ],
+        [
+          0,
+          8,
+          0
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-10",
+      "arguments": [
+        [
+          [
+            1,
+            2,
+            2,
+            2
+          ]
+        ],
+        0,
+        2,
+        6
+      ],
+      "expected": [
+        [
+          1,
+          6,
+          6,
+          6
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-11",
+      "arguments": [
+        [
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        1,
+        0,
+        4
+      ],
+      "expected": [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          2
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-12",
+      "arguments": [
+        [
+          [
+            7,
+            8
+          ],
+          [
+            8,
+            8
+          ]
+        ],
+        1,
+        1,
+        7
+      ],
+      "expected": [
+        [
+          7,
+          7
+        ],
+        [
+          7,
+          7
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-13",
+      "arguments": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        1,
+        1,
+        2
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "flood-fill-region-case-14",
+      "arguments": [
+        [
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        0,
+        1,
+        5
+      ],
+      "expected": [
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

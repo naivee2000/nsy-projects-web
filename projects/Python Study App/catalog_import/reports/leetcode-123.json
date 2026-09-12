@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-123",
+  "content_sha256": "2d3986e6e685d7fcf3341486e3da96b2633c480f2a9e3e979789b8be64a6df35",
+  "source_hash": "5e3d3a75b7d813b5b03da274b117d9b04b705e226496c3982486dc0d743e1468",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns only the first completed-trade state.",
+      "failed_cases": [
+        "lc-123-1",
+        "lc-123-8",
+        "lc-123-9",
+        "lc-123-11",
+        "lc-123-12",
+        "lc-123-13",
+        "lc-123-14",
+        "lc-123-stress-1"
+      ]
+    },
+    {
+      "reason": "Collects unlimited rises and can exceed the two-transaction allowance.",
+      "failed_cases": [
+        "lc-123-1",
+        "lc-123-9",
+        "lc-123-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4170,
+  "oracle_implementation": "code_practice/import_batch_010.py:two_trades_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e46a1138793a580d0aedc6770704b6b92bd9dcdfb5699095d86cfe8328adcb46",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.074,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

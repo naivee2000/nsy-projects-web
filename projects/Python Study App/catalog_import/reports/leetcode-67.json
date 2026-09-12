@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-67",
+  "content_sha256": "01c7a99b6fd427cf776c14ea56cc8aa2ef1b8f26afe492626f4a759e9395edd0",
+  "source_hash": "27823f7f216a9f827e520b1289c32205ecfc7eb83cf95f2c31e84f280849660a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Discards a final carry after both input strings end.",
+      "failed_cases": [
+        "lc-67-1",
+        "lc-67-2",
+        "lc-67-6",
+        "lc-67-9",
+        "lc-67-10",
+        "lc-67-13",
+        "lc-67-14"
+      ]
+    },
+    {
+      "reason": "Does not carry from one binary position into the next.",
+      "failed_cases": [
+        "lc-67-1",
+        "lc-67-2",
+        "lc-67-6",
+        "lc-67-9",
+        "lc-67-10",
+        "lc-67-13",
+        "lc-67-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4114,
+  "oracle_implementation": "code_practice/import_batch_003.py:binary_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ad051bc94cc3f7d6b7a6daff70731f36adeec791e79781b8958b15dd0003b04b",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

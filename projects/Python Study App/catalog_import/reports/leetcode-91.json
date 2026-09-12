@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-91",
+  "content_sha256": "deaf28014a11680e37819f18a592c841e2f5d9951c805c2298a8a6e5c9348a02",
+  "source_hash": "a9264dabb144c4e57eed6afbc500b83642f835d72b19d403595ec065a863c753",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats a standalone zero as a valid code.",
+      "failed_cases": [
+        "lc-91-2",
+        "lc-91-6",
+        "lc-91-7",
+        "lc-91-8",
+        "lc-91-12",
+        "lc-91-13",
+        "lc-91-stress-1"
+      ]
+    },
+    {
+      "reason": "Allows two-digit codes with a leading zero, such as 06.",
+      "failed_cases": [
+        "lc-91-2",
+        "lc-91-9",
+        "lc-91-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4138,
+  "oracle_implementation": "code_practice/import_batch_005.py:decode_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e60e88e572987315504195a15d16b4addb74d8fa193d1aff9dad1c212c0dab78",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.079,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

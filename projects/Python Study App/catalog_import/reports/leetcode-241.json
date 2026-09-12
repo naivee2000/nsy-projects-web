@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-241",
+  "content_sha256": "fbc96de76939ed27c9b2ad75f36e02b53238d0f4afd0513a98e98f6a232f50d0",
+  "source_hash": "5716ba266eee87ec29ee3c9bbdf5a4c9e5d05a62a568fcfd954d598d69f9b1b2",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Evaluates only one precedence order instead of enumerating all complete groupings.",
+      "failed_cases": [
+        "lc-241-1",
+        "lc-241-2",
+        "lc-241-8",
+        "lc-241-9",
+        "lc-241-10",
+        "lc-241-11",
+        "lc-241-12",
+        "lc-241-13",
+        "lc-241-14",
+        "lc-241-stress-1"
+      ]
+    },
+    {
+      "reason": "Deduplicates numeric values and loses the required multiplicity of different groupings.",
+      "failed_cases": [
+        "lc-241-2",
+        "lc-241-8",
+        "lc-241-10",
+        "lc-241-13",
+        "lc-241-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4288,
+  "oracle_implementation": "code_practice/import_batch_022.py:parentheses_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "8c22a18941f65edad8e94dc9db23a196deab0dbfd3b74ae736b86f14cece6c28",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

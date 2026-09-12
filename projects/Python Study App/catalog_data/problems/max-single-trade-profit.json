@@ -1,0 +1,272 @@
+{
+  "id": "max-single-trade-profit",
+  "version": 1,
+  "status": "approved",
+  "title": "Best Single Trade",
+  "summary": "Choose one buy and one later sell.",
+  "statement": "Given daily prices, return the greatest profit from buying once and selling on a later day. Return 0 if no profitable trade exists.",
+  "constraints": [
+    "0 <= len(prices) <= 100,000",
+    "Prices are non-negative integers."
+  ],
+  "topics": [
+    "arrays",
+    "greedy"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "max_single_trade_profit",
+    "parameters": [
+      {
+        "name": "prices",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def max_single_trade_profit(prices: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def max_single_trade_profit(prices):\n    lowest = float(\"inf\")\n    best = 0\n    for price in prices:\n        lowest = min(lowest, price)\n        best = max(best, price - lowest)\n    return best\n",
+  "brute_force_solution": "def max_single_trade_profit(prices):\n    return max(0, max((prices[right] - prices[left] for left in range(len(prices)) for right in range(left + 1, len(prices))), default=0))\n",
+  "known_wrong_solutions": [
+    "def max_single_trade_profit(prices):\n    return None\n",
+    "def max_single_trade_profit(prices):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A sale is best relative to the cheapest earlier price.",
+    "Track the minimum price seen so far.",
+    "At each day, update best with price - minimum_so_far.",
+    "One pass maintains both the cheapest buy and best profit."
+  ],
+  "editorial": "For each possible sale day, the best buy is the minimum price before it. Track that minimum and the largest difference.",
+  "tests": [
+    {
+      "id": "max-single-trade-profit-case-1",
+      "arguments": [
+        [
+          7,
+          1,
+          5,
+          3,
+          6,
+          4
+        ]
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Buying at 1 and later selling at 6 gives the best profit of 5.",
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-2",
+      "arguments": [
+        [
+          7,
+          6,
+          4,
+          3,
+          1
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Prices only fall, so making no trade gives a profit of 0.",
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-4",
+      "arguments": [
+        [
+          5
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-5",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-6",
+      "arguments": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-7",
+      "arguments": [
+        [
+          2,
+          4,
+          1
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-8",
+      "arguments": [
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-9",
+      "arguments": [
+        [
+          9,
+          1,
+          10
+        ]
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-10",
+      "arguments": [
+        [
+          1,
+          10,
+          2,
+          20
+        ]
+      ],
+      "expected": 19,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-11",
+      "arguments": [
+        [
+          10,
+          9,
+          8,
+          20
+        ]
+      ],
+      "expected": 12,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-12",
+      "arguments": [
+        [
+          0,
+          5
+        ]
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-13",
+      "arguments": [
+        [
+          5,
+          0,
+          5
+        ]
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "max-single-trade-profit-case-14",
+      "arguments": [
+        [
+          8,
+          2,
+          4,
+          1,
+          7
+        ]
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

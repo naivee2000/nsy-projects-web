@@ -1,0 +1,271 @@
+{
+  "id": "leetcode-129",
+  "version": 1,
+  "status": "approved",
+  "title": "Sum Root to Leaf Numbers",
+  "summary": "Given a binary tree with digit nodes, calculate the sum of all numbers formed by root-to-leaf paths.",
+  "statement": "Given a binary tree with digit nodes, calculate the sum of all numbers formed by root-to-leaf paths. Each path represents a number, and the sum of these numbers is returned. A leaf node has no children.",
+  "constraints": [
+    "1–1000 nodes, each holding a digit 0–9. Tree depth is at most 10.",
+    "The total answer fits a signed 32-bit integer. Count only complete root-to-leaf paths."
+  ],
+  "topics": [
+    "trees",
+    "recursion"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "sum_root_numbers",
+    "parameters": [
+      {
+        "name": "root",
+        "annotation": "TreeNode | None",
+        "adapter": "treenode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef sum_root_numbers(root: TreeNode | None) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def sum_root_numbers(root):\n    def visit(node, prefix):\n        if node is None:\n            return 0\n        value = prefix * 10 + node.val\n        if node.left is None and node.right is None:\n            return value\n        return visit(node.left, value) + visit(node.right, value)\n    return visit(root, 0)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def sum_root_numbers(root):\n    def visit(node, prefix):\n        if node is None:\n            return 0\n        value = prefix + node.val\n        if node.left is None and node.right is None:\n            return value\n        return visit(node.left, value) + visit(node.right, value)\n    return visit(root, 0)\n",
+    "def sum_root_numbers(root):\n    def visit(node, prefix):\n        if node is None:\n            return 0\n        value = prefix * 10 + node.val\n        if node.left is None and node.right is None:\n            return value\n        return value + visit(node.left, value) + visit(node.right, value)\n    return visit(root, 0)\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(h)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A path's numeric prefix can be carried from parent to child.",
+    "Append a digit with prefix*10+digit, and contribute only when both children are absent.",
+    "Return the current number at a leaf; otherwise sum the recursive results for both children.",
+    "A missing child contributes zero, not an additional copy of the prefix."
+  ],
+  "editorial": "A recursive call carries the number represented by the path before the current node. Multiply by ten and add the current digit to extend it. At a leaf, return that complete number; at an internal node, add the totals from the existing branches. The depth limit keeps the call stack small. The oracle independently constructs decimal strings from root-to-leaf path keys.",
+  "tests": [
+    {
+      "id": "lc-129-1",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 25,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The two paths represent 12 and 13; their sum is 25.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-2",
+      "arguments": [
+        [
+          4,
+          9,
+          0,
+          5,
+          1
+        ]
+      ],
+      "expected": 1026,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The complete paths represent 495, 491, and 40; their sum is 1026.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-3",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-4",
+      "arguments": [
+        [
+          1
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-5",
+      "arguments": [
+        [
+          9
+        ]
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-6",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 12,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-7",
+      "arguments": [
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": 12,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-8",
+      "arguments": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-9",
+      "arguments": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected": 20,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-10",
+      "arguments": [
+        [
+          1,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": 123,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-11",
+      "arguments": [
+        [
+          1,
+          null,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": 123,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-12",
+      "arguments": [
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 259,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-13",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-129-14",
+      "arguments": [
+        [
+          9,
+          9,
+          9
+        ]
+      ],
+      "expected": 198,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

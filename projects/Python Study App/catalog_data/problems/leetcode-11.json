@@ -1,0 +1,285 @@
+{
+  "id": "leetcode-11",
+  "version": 1,
+  "status": "approved",
+  "title": "Container With Most Water",
+  "summary": "Given an array of integers representing the height of vertical lines, find the two lines that form a container with the most water.",
+  "statement": "Given an array of integers representing the height of vertical lines, find the two lines that form a container with the most water. Return the maximum volume of water the container can hold, ensuring the container is flat.",
+  "constraints": [
+    "2 <= len(height) <= 100,000.",
+    "0 <= height[i] <= 10,000.",
+    "Lines stand at their zero-based indices. Select exactly two lines; containers cannot be tilted."
+  ],
+  "topics": [
+    "arrays",
+    "two-pointers",
+    "greedy"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "max_water_area",
+    "parameters": [
+      {
+        "name": "height",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def max_water_area(height: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def max_water_area(height):\n    left, right, best = 0, len(height) - 1, 0\n    while left < right:\n        best = max(best, (right - left) * min(height[left], height[right]))\n        if height[left] <= height[right]:\n            left += 1\n        else:\n            right -= 1\n    return best\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def max_water_area(height):\n    left, right, best = 0, len(height) - 1, 0\n    while left < right:\n        best = max(best, (right - left) * max(height[left], height[right]))\n        if height[left] <= height[right]:\n            left += 1\n        else:\n            right -= 1\n    return best\n",
+    "def max_water_area(height):\n    left, right, best = 0, len(height) - 1, 0\n    while left < right:\n        best = max(best, (right - left) * min(height[left], height[right]))\n        if height[left] >= height[right]:\n            left += 1\n        else:\n            right -= 1\n    return best\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Area depends on both distance and the shorter of the two lines.",
+    "Begin at both ends. Moving the taller line inward cannot help while the shorter line is fixed.",
+    "Record width times the shorter height; move the pointer at the shorter height; repeat until the pointers meet.",
+    "Discarding the shorter boundary is safe because no narrower pair using that boundary can improve the current area."
+  ],
+  "editorial": "Evaluate the two outermost remaining lines. The shorter height limits the water, and the index difference is the width. Any other pair retaining the shorter line has less width and cannot exceed that limiting height. Therefore it is safe to discard the shorter line and continue inward. Each pointer moves at most n times, using constant auxiliary space.",
+  "tests": [
+    {
+      "id": "lc-11-1",
+      "arguments": [
+        [
+          1,
+          8,
+          6,
+          2,
+          5,
+          4,
+          8,
+          3,
+          7
+        ]
+      ],
+      "expected": 49,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Indices 1 and 8 give width 7 and limiting height 7, holding area 49.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-2",
+      "arguments": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The only pair has width 1 and height 1, so the maximum area is 1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-3",
+      "arguments": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-4",
+      "arguments": [
+        [
+          0,
+          5
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-5",
+      "arguments": [
+        [
+          5,
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-6",
+      "arguments": [
+        [
+          2,
+          9
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-7",
+      "arguments": [
+        [
+          9,
+          2
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-8",
+      "arguments": [
+        [
+          5,
+          1,
+          5
+        ]
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-9",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-10",
+      "arguments": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-11",
+      "arguments": [
+        [
+          8,
+          8,
+          8,
+          8
+        ]
+      ],
+      "expected": 24,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-12",
+      "arguments": [
+        [
+          0,
+          9,
+          0,
+          9,
+          0
+        ]
+      ],
+      "expected": 18,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-13",
+      "arguments": [
+        [
+          9,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 36,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-11-14",
+      "arguments": [
+        [
+          10000,
+          0,
+          10000
+        ]
+      ],
+      "expected": 20000,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

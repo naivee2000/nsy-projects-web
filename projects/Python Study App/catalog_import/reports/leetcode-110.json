@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-110",
+  "content_sha256": "dee101c20fd0396696c9dac9fff03aa049dfb9a45caca99e05c42496c5a1d7fe",
+  "source_hash": "22b9a64485c9b3f44548bc6b1c5039909424fb4d5e49b8e17cf89d4922370fb4",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires exactly equal heights instead of allowing a difference of one.",
+      "failed_cases": [
+        "lc-110-1",
+        "lc-110-5",
+        "lc-110-6",
+        "lc-110-12",
+        "lc-110-13",
+        "lc-110-14",
+        "lc-110-stress-1"
+      ]
+    },
+    {
+      "reason": "Incorrectly permits height differences of two.",
+      "failed_cases": [
+        "lc-110-2",
+        "lc-110-10",
+        "lc-110-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4157,
+  "oracle_implementation": "code_practice/import_batch_002.py:balanced_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "82407c90c77e143e86e918fb1cf5273ab5afdb0d0b40c5dd7649a50a7ca5d4d8",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

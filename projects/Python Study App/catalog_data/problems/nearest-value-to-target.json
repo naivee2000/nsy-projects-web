@@ -1,0 +1,285 @@
+{
+  "id": "nearest-value-to-target",
+  "version": 1,
+  "status": "approved",
+  "title": "Nearest Value to Target",
+  "summary": "Return the list value closest to target, choosing the smaller value on ties, or None when empty.",
+  "statement": "Return the list value closest to target, choosing the smaller value on ties, or None when empty. Implement `nearest_value_to_target` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "arrays"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "nearest_value_to_target",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "target",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int | None",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def nearest_value_to_target(nums: list[int], target: int) -> int | None:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def nearest_value_to_target(nums, target):\n    return min(nums, key=lambda value: (abs(value-target), value)) if nums else None\n",
+  "brute_force_solution": "def nearest_value_to_target(nums, target):\n    return min(nums, key=lambda value: (abs(value-target), value)) if nums else None\n",
+  "known_wrong_solutions": [
+    "def nearest_value_to_target(nums, target):\n    return None\n",
+    "def nearest_value_to_target(nums, target):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 0,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A tuple key can encode distance first and tie-breaking value second.",
+    "Scan for the minimum (absolute difference, value) pair.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the nearest_value_to_target invariant is complete.",
+    "Editorial: Scan for the minimum (absolute difference, value) pair. The intended bounds are O(n) time and O(1) space."
+  ],
+  "editorial": "A tuple key can encode distance first and tie-breaking value second. Scan for the minimum (absolute difference, value) pair. This yields O(n) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "nearest-value-to-target-case-1",
+      "arguments": [
+        [
+          2,
+          5,
+          9
+        ],
+        7
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Values 5 and 9 are equally distant from 7, so the smaller tie value 5 wins.",
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-2",
+      "arguments": [
+        [],
+        3
+      ],
+      "expected": null,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "An empty list has no nearest value, so return None.",
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-3",
+      "arguments": [
+        [],
+        0
+      ],
+      "expected": null,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-4",
+      "arguments": [
+        [
+          5
+        ],
+        5
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-5",
+      "arguments": [
+        [
+          5
+        ],
+        2
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-6",
+      "arguments": [
+        [
+          -1,
+          1,
+          0
+        ],
+        0
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-7",
+      "arguments": [
+        [
+          3,
+          3,
+          3
+        ],
+        6
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-8",
+      "arguments": [
+        [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        0
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-9",
+      "arguments": [
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        10
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-10",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-11",
+      "arguments": [
+        [
+          -3,
+          -2,
+          -1
+        ],
+        -3
+      ],
+      "expected": -3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-12",
+      "arguments": [
+        [
+          10,
+          1,
+          2,
+          7
+        ],
+        9
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-13",
+      "arguments": [
+        [
+          5,
+          -2,
+          3,
+          1
+        ],
+        4
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "nearest-value-to-target-case-14",
+      "arguments": [
+        [
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        3
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

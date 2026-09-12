@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-338",
+  "content_sha256": "42c388e50473f4c2da4e0d8177db78a713c5b6fdaa767c5661cc2790a9b521df",
+  "source_hash": "b8de7b389555747d6629c2a085410ed64919d89b55a119e350934d05f7177e35",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Leaves the requested final integer's count uncomputed.",
+      "failed_cases": [
+        "lc-338-1",
+        "lc-338-2",
+        "lc-338-4",
+        "lc-338-5",
+        "lc-338-6",
+        "lc-338-7",
+        "lc-338-8",
+        "lc-338-9",
+        "lc-338-10",
+        "lc-338-11",
+        "lc-338-12",
+        "lc-338-13",
+        "lc-338-14"
+      ]
+    },
+    {
+      "reason": "Adds one for every last bit, including zero bits.",
+      "failed_cases": [
+        "lc-338-1",
+        "lc-338-2",
+        "lc-338-5",
+        "lc-338-6",
+        "lc-338-7",
+        "lc-338-8",
+        "lc-338-9",
+        "lc-338-10",
+        "lc-338-11",
+        "lc-338-12",
+        "lc-338-13",
+        "lc-338-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4385,
+  "oracle_implementation": "code_practice/import_batch_003.py:bits_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ad051bc94cc3f7d6b7a6daff70731f36adeec791e79781b8958b15dd0003b04b",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

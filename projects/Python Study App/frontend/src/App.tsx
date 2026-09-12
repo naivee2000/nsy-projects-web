@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
 import {
   ArrowLeft,
@@ -25,7 +25,7 @@ import {
   Target,
   TerminalSquare,
 } from "lucide-react";
-import type { CoachReply, Dashboard, JudgeResult, Problem, ProblemSummary, Signature, TestCase } from "./types";
+import type { CoachReply, Dashboard, JudgeResult, Problem, ProblemPage, ProblemSummary, Signature, TestCase } from "./types";
 
 
 type View = "dashboard" | "library" | "problem";
@@ -52,6 +52,12 @@ function difficultyLabel(score: number) {
 function teachingExamples(tests: TestCase[]) {
   const explained = tests.filter((test) => Boolean(test.explanation));
   return explained.length ? explained : tests.slice(0, 2);
+}
+
+function testEvidence(item: JudgeResult["cases"][number], flexibleTreeOutput: boolean) {
+  return `Test case ${JSON.stringify(item.arguments)}\n${flexibleTreeOutput ? "One valid output" : "Expected"} ${JSON.stringify(item.expected)}`
+    + (item.actual !== undefined ? `\nYour code yielded ${JSON.stringify(item.actual)}` : "")
+    + (item.error ? `\nError ${item.error}` : "");
 }
 
 function clampEditorSplit(requested: number, paneHeight: number) {
@@ -156,6 +162,13 @@ export default function App() {
   const [problemOrigin, setProblemOrigin] = useState<ProblemOrigin>("dashboard");
   const [dashboard, setDashboard] = useState<Dashboard | null>(null);
   const [problems, setProblems] = useState<ProblemSummary[]>([]);
+  const [topics, setTopics] = useState<string[]>([]);
+  const [libraryTotal, setLibraryTotal] = useState(0);
+  const [libraryPage, setLibraryPage] = useState(1);
+  const [libraryLoading, setLibraryLoading] = useState(false);
+  const [libraryRevision, setLibraryRevision] = useState(0);
+  const [difficulty, setDifficulty] = useState("all");
+  const pageSize = 30;
   const [problem, setProblem] = useState<Problem | null>(null);
   const [source, setSource] = useState("");
   const [query, setQuery] = useState("");
@@ -194,12 +207,9 @@ export default function App() {
 
   const loadOverview = async () => {
     try {
-      const [nextDashboard, nextProblems] = await Promise.all([
-        api<Dashboard>("/api/dashboard"),
-        api<ProblemSummary[]>("/api/problems"),
-      ]);
+      const nextDashboard = await api<Dashboard>("/api/dashboard");
       setDashboard(nextDashboard);
-      setProblems(nextProblems);
+      setLibraryRevision((revision) => revision + 1);
       setError("");
     } catch (loadError) {
       setError(loadError instanceof Error ? loadError.message : String(loadError));
@@ -207,6 +217,39 @@ export default function App() {
   };
 
   useEffect(() => { void loadOverview(); }, []);
+
+  useEffect(() => {
+    if (view !== "library") return;
+    const controller = new AbortController();
+    let active = true;
+    setLibraryLoading(true);
+    const timer = window.setTimeout(() => {
+      const params = new URLSearchParams({ page: String(libraryPage), page_size: String(pageSize), completion });
+      if (query.trim()) params.set("search", query.trim());
+      if (topic !== "all") params.set("topic", topic);
+      if (difficulty !== "all") {
+        const [min, max] = difficulty.split("-");
+        params.set("difficulty_min", min);
+        params.set("difficulty_max", max);
+      }
+      void api<ProblemPage>(`/api/problems?${params}`, { signal: controller.signal })
+        .then((response) => {
+          if (!active) return;
+          setProblems(response.items);
+          setLibraryTotal(response.total);
+          setTopics(response.topics);
+          setError("");
+        })
+        .catch((loadError) => {
+          if (active) {
+            setProblems([]);
+            setError(loadError instanceof Error ? loadError.message : String(loadError));
+          }
+        })
+        .finally(() => { if (active) setLibraryLoading(false); });
+    }, 180);
+    return () => { active = false; controller.abort(); window.clearTimeout(timer); };
+  }, [view, libraryPage, completion, query, topic, difficulty, libraryRevision]);
 
   useEffect(() => {
     if (!problem || source === problem.savedDraft) return;
@@ -433,14 +476,6 @@ export default function App() {
     }
   };
 
-  const topics = useMemo(() => Array.from(new Set(problems.flatMap((item) => item.topics))).sort(), [problems]);
-  const filteredProblems = useMemo(() => problems.filter((item) => {
-    const matchesTopic = topic === "all" || item.topics.includes(topic);
-    const matchesCompletion = completion === "all" || (completion === "passed" ? item.solved : !item.solved);
-    const text = `${item.title} ${item.summary} ${item.topics.join(" ")}`.toLowerCase();
-    return matchesTopic && matchesCompletion && text.includes(query.toLowerCase());
-  }), [completion, problems, query, topic]);
-
   const navigate = (next: View) => {
     setView(next);
     setProblem(null);
@@ -448,6 +483,8 @@ export default function App() {
     setResultMode(null);
     setCoach(null);
   };
+
+  const flexibleTreeOutput = Boolean(problem?.tests.some((test) => test.comparator === "balanced_bst"));
 
   return (
     <div className="app-shell">
@@ -492,7 +529,7 @@ export default function App() {
             </section>
 
             <section className="section-block review-section">
-              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>Up to five passed problems, emphasizing linked lists, recursion, binary search, and recursive grid work.</p></div><button className="text-button" onClick={() => { setCompletion("passed"); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
+              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>Up to five passed problems: as many as three from your focus areas, plus broader-topic practice.</p></div><button className="text-button" onClick={() => { setCompletion("passed"); setLibraryPage(1); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.reviewRecommendations.length
                   ? dashboard.reviewRecommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={index} />)
@@ -510,23 +547,32 @@ export default function App() {
 
         {view === "library" && (
           <div className="page library-page">
-            <header className="compact-header"><span className="eyebrow">PROBLEM CATALOG</span><h1>Practice library</h1><p>101 distinct coding problems, from fundamentals and recursion basics to advanced interview techniques.</p></header>
+            <header className="compact-header"><span className="eyebrow">PROBLEM CATALOG</span><h1>Practice library</h1><p>{dashboard?.totalProblems ?? "…"} coding problems, from fundamentals and recursion basics to advanced interview techniques.</p></header>
             <div className="library-tools">
-              <label className="search-box"><Search size={18} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search title, topic, or pattern" /></label>
-              <select value={topic} onChange={(event) => setTopic(event.target.value)} aria-label="Filter by topic">
+              <label className="search-box"><Search size={18} /><input value={query} onChange={(event) => { setQuery(event.target.value); setLibraryPage(1); }} placeholder="Search title, topic, or pattern" /></label>
+              <select value={topic} onChange={(event) => { setTopic(event.target.value); setLibraryPage(1); }} aria-label="Filter by topic">
                 <option value="all">All topics</option>
                 {topics.map((item) => <option key={item} value={item}>{item}</option>)}
               </select>
-              <select value={completion} onChange={(event) => setCompletion(event.target.value as "all" | "unsolved" | "passed")} aria-label="Filter by completion">
+              <select value={difficulty} onChange={(event) => { setDifficulty(event.target.value); setLibraryPage(1); }} aria-label="Filter by difficulty">
+                <option value="all">All levels</option><option value="1-3">Easy</option><option value="4-7">Medium</option><option value="8-10">Hard</option>
+              </select>
+              <select value={completion} onChange={(event) => { setCompletion(event.target.value as "all" | "unsolved" | "passed"); setLibraryPage(1); }} aria-label="Filter by completion">
                 <option value="all">All problems</option>
                 <option value="unsolved">Unsolved</option>
                 <option value="passed">Passed</option>
               </select>
-              <span className="result-count">{filteredProblems.length} problems</span>
+              <span className="result-count" aria-live="polite">{libraryLoading ? "Loading…" : `${libraryTotal} problems`}</span>
             </div>
             <div className="problem-stack library-list">
-              {filteredProblems.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={index} />)}
+              {!libraryLoading && problems.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={(libraryPage - 1) * pageSize + index} />)}
+              {!libraryLoading && !problems.length && <EmptyState>No problems match these filters.</EmptyState>}
             </div>
+            <nav className="library-pagination" aria-label="Library pages">
+              <button disabled={libraryLoading || libraryPage <= 1} onClick={() => setLibraryPage((page) => page - 1)}>Previous</button>
+              <span>Page {libraryPage} of {Math.max(1, Math.ceil(libraryTotal / pageSize))}</span>
+              <button disabled={libraryLoading || libraryPage * pageSize >= libraryTotal} onClick={() => setLibraryPage((page) => page + 1)}>Next</button>
+            </nav>
           </div>
         )}
 
@@ -546,11 +592,14 @@ export default function App() {
                 <p className="problem-lead">{problem.summary}</p>
                 <p className="statement">{problem.statement}</p>
                 <div className="complexity-row"><span>Target time <strong>{problem.target_time_complexity}</strong></span><span>Target space <strong>{problem.target_space_complexity}</strong></span></div>
+                {problem.signature.result_mode === "mutated_argument" && <p className="statement" role="note">In-place judging: modify {problem.signature.parameters[problem.signature.mutated_parameter ?? 0].name} directly. Output shows that argument after your function runs; a returned copy is not used.</p>}
+                {problem.signature.result_mode === "returned_prefix" && <p className="statement" role="note">In-place judging: return the integer count k and update the first k entries of {problem.signature.parameters[problem.signature.mutated_parameter ?? 0].name}. Output shows both “return” and “prefix”; the remaining entries are ignored.</p>}
+                {flexibleTreeOutput && <p className="statement" role="note">Flexible tree judging: any height-balanced BST with the complete input as its inorder traversal is accepted. Preserve duplicate values when present. The displayed tree is only one valid output; its exact shape is not required.</p>}
                 <h2>Examples</h2>
                 {teachingExamples(problem.tests).map((test, index) => (
                   <div className="example" key={test.id}>
                     <span>EXAMPLE {index + 1}</span>
-                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}Output: {JSON.stringify(test.expected)}</code>
+                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}{test.comparator === "balanced_bst" ? "One valid output" : "Output"}: {JSON.stringify(test.expected)}</code>
                     {test.explanation && <p>{test.explanation}</p>}
                   </div>
                 ))}
@@ -642,12 +691,12 @@ export default function App() {
                     {result.cases.map((item, index) => resultMode === "submit" && !item.passed ? (
                       <details className="case-row failed-case" key={item.id}>
                         <summary><CircleAlert size={14} /> Hidden test {index + 1} · needs work <span>Click to inspect</span></summary>
-                        <code>Test case {JSON.stringify(item.arguments)}{"\n"}Expected {JSON.stringify(item.expected)}{"\n"}{item.error ? `Error ${item.error}` : `Your code yielded ${JSON.stringify(item.actual)}`}</code>
+                        <code>{testEvidence(item, flexibleTreeOutput)}</code>
                       </details>
                     ) : (
                       <div className="case-row" key={item.id}>
                         <span>{item.passed ? <Check size={14} /> : <CircleAlert size={14} />}{resultMode === "submit" ? "Hidden test" : "Example"} {index + 1} · {item.passed ? "passed" : "needs work"}</span>
-                        {resultMode === "run" && <code>Test case {JSON.stringify(item.arguments)}{"\n"}Expected {JSON.stringify(item.expected)}{"\n"}{item.error ? `Error ${item.error}` : `Your code yielded ${JSON.stringify(item.actual)}`}</code>}
+                        {resultMode === "run" && <code>{testEvidence(item, flexibleTreeOutput)}</code>}
                       </div>
                     ))}
                     {result.status !== "accepted" && (coach || coaching) && <aside className="coach-card" aria-live="polite">

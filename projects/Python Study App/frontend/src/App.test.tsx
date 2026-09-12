@@ -20,17 +20,77 @@ const dashboard = {
   attemptCount: 0,
 };
 
+const libraryPage = (items = dashboard.recommendations, total = items.length) => ({
+  items, total, catalogTotal: 105, page: 1, pageSize: 30, topics: ["arrays", "stacks"],
+});
+
 beforeEach(() => {
   window.localStorage.clear();
   vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({
     ok: true,
-    json: () => Promise.resolve(url.includes("dashboard") ? dashboard : dashboard.recommendations),
+    json: () => Promise.resolve(url.includes("dashboard") ? dashboard : libraryPage()),
   })));
 });
 
 afterEach(() => {
   cleanup();
   vi.unstubAllGlobals();
+});
+
+test.each(["returned_prefix", "mutated_argument"])("explains %s grading beside the examples", async (mode) => {
+  const problem = {
+    id: "pair-sum-indices", version: 1, title: "Mutation exercise", summary: "Modify the input.",
+    statement: "Work in place.", constraints: ["Mutable list."], topics: ["arrays"], prerequisites: [],
+    difficulty: 2, estimated_minutes: 15, target_time_complexity: "O(n)", target_space_complexity: "O(1)",
+    signature: { name: "compact", parameters: [{ name: "nums", annotation: "list[int]", adapter: "raw" }],
+      returns: mode === "returned_prefix" ? "int" : "None", return_adapter: "raw", result_mode: mode, mutated_parameter: 0 },
+    starter_code: "def compact(nums): pass", savedDraft: "def compact(nums): pass", tests: [],
+    revealedHintLevel: 0, revealedHints: [], solved: false,
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : libraryPage()),
+  })));
+  render(<App />);
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  const note = await screen.findByRole("note");
+  expect(note).toHaveTextContent("In-place judging");
+  expect(note).toHaveTextContent(mode === "returned_prefix" ? "return the integer count k" : "a returned copy is not used");
+  expect(note).toHaveTextContent("nums");
+});
+
+test("explains alternative valid tree shapes and preserves actual output with a contract error", async () => {
+  const problem = {
+    id: "pair-sum-indices", version: 1, title: "Build a balanced tree", summary: "Build a tree.",
+    statement: "Return a balanced BST.", constraints: ["Sorted input."], topics: ["trees"], prerequisites: [],
+    difficulty: 3, estimated_minutes: 20, target_time_complexity: "O(n)", target_space_complexity: "O(log n)",
+    signature: { name: "build", parameters: [{ name: "nums", annotation: "list[int]", adapter: "raw" }],
+      returns: "TreeNode | None", return_adapter: "treenode" },
+    starter_code: "def build(nums): pass", savedDraft: "def build(nums): pass",
+    tests: [{ id: "tree-example", arguments: [[1, 3]], expected: [3, 1], comparator: "balanced_bst", visible: true, explanation: "Two shapes are valid." }],
+    revealedHintLevel: 0, revealedHints: [], solved: false,
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : libraryPage()),
+  })));
+  class TreeWorker {
+    onmessage: ((event: MessageEvent) => void) | null = null;
+    postMessage(payload: { type?: string }) {
+      queueMicrotask(() => this.onmessage?.({ data: payload.type === "warmup" ? { type: "ready" }
+        : { status: "wrong_answer", message: "Tree contract failed.", runtimeMs: 3,
+          cases: [{ id: "tree-example", passed: false, actual: [1, 3], expected: [3, 1],
+            arguments: [[1, 3]], visible: true, error: "The inorder traversal does not preserve the input." }] } } as MessageEvent));
+    }
+    terminate() {}
+  }
+  vi.stubGlobal("Worker", TreeWorker);
+  render(<App />);
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  expect(await screen.findByRole("note")).toHaveTextContent("exact shape is not required");
+  expect(screen.getByText(/One valid output: \[3,1\]/)).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: "Run examples" }));
+  const evidence = await screen.findByText(/Your code yielded \[1,3\]/);
+  expect(evidence).toHaveTextContent("One valid output [3,1]");
+  expect(evidence).toHaveTextContent("Error The inorder traversal does not preserve the input.");
 });
 
 test("shows the daily recommendation and local-only boundary", async () => {
@@ -65,7 +125,7 @@ test("returns from a problem to the page that opened it", async () => {
   };
   vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({
     ok: true,
-    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : dashboard.recommendations),
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : libraryPage()),
   })));
 
   render(<App />);
@@ -77,7 +137,7 @@ test("returns from a problem to the page that opened it", async () => {
 
   fireEvent.click(screen.getByRole("button", { name: "Library" }));
   expect(await screen.findByText("Practice library")).toBeInTheDocument();
-  fireEvent.click(screen.getByRole("button", { name: /Pair Sum Indices/ }));
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
   fireEvent.click(await screen.findByRole("button", { name: "Back" }));
   expect(await screen.findByText("Practice library")).toBeInTheDocument();
 });
@@ -182,7 +242,7 @@ test("resizes the instructions and code panels with the keyboard and remembers t
   };
   vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({
     ok: true,
-    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : dashboard.recommendations),
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : libraryPage()),
   })));
 
   render(<App />);
@@ -234,7 +294,7 @@ test("marks a problem Passed after a successful full submission", async () => {
         ], timeoutMs: 3000 }
       : url.endsWith("/pair-sum-indices") ? problem
       : url.includes("dashboard") ? dashboard
-      : url.endsWith("/api/problems") ? dashboard.recommendations
+      : url.includes("/api/problems?") ? libraryPage()
       : {};
     return Promise.resolve({ ok: true, json: () => Promise.resolve(payload) });
   }));
@@ -305,7 +365,7 @@ test("reveals a failed hidden test only after its dropdown is opened", async () 
       : url.endsWith("/coach") ? coach
       : url.endsWith("/pair-sum-indices") ? problem
       : url.includes("dashboard") ? dashboard
-      : url.endsWith("/api/problems") ? dashboard.recommendations
+      : url.includes("/api/problems?") ? libraryPage()
       : {};
     return Promise.resolve({ ok: true, json: () => Promise.resolve(payload) });
   }));
@@ -352,7 +412,11 @@ test("filters the library to passed or unsolved problems", async () => {
   ];
   vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({
     ok: true,
-    json: () => Promise.resolve(url.includes("dashboard") ? dashboard : libraryProblems),
+    json: () => {
+      const completion = new URL(url, "http://localhost").searchParams.get("completion");
+      const items = libraryProblems.filter((p) => completion === "passed" ? p.solved : completion === "unsolved" ? !p.solved : true);
+      return Promise.resolve(url.includes("dashboard") ? dashboard : libraryPage(items));
+    },
   })));
 
   render(<App />);
@@ -361,11 +425,11 @@ test("filters the library to passed or unsolved problems", async () => {
 
   const completionFilter = screen.getByRole("combobox", { name: "Filter by completion" });
   fireEvent.change(completionFilter, { target: { value: "passed" } });
-  expect(screen.getByText("Passed Problem")).toBeInTheDocument();
+  expect(await screen.findByText("Passed Problem")).toBeInTheDocument();
   expect(screen.queryByText("Unsolved Problem")).not.toBeInTheDocument();
 
   fireEvent.change(completionFilter, { target: { value: "unsolved" } });
-  expect(screen.getByText("Unsolved Problem")).toBeInTheDocument();
+  expect(await screen.findByText("Unsolved Problem")).toBeInTheDocument();
   expect(screen.queryByText("Passed Problem")).not.toBeInTheDocument();
 });
 

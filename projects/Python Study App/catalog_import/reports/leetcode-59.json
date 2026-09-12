@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-59",
+  "content_sha256": "f6c02c114796ca61f6f1905127f02612783ab6114c21e20e0ecf3b643dcb2074",
+  "source_hash": "376422bfbc70e1ce4af908ed6aa0e521019e11a12f21f83a3681626f2f167c9a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts numbering at zero instead of one.",
+      "failed_cases": [
+        "lc-59-1",
+        "lc-59-2",
+        "lc-59-3",
+        "lc-59-4",
+        "lc-59-5",
+        "lc-59-6",
+        "lc-59-7",
+        "lc-59-8",
+        "lc-59-9",
+        "lc-59-10",
+        "lc-59-11",
+        "lc-59-12",
+        "lc-59-13",
+        "lc-59-14"
+      ]
+    },
+    {
+      "reason": "Transposes row and column positions, producing the wrong traversal orientation.",
+      "failed_cases": [
+        "lc-59-1",
+        "lc-59-3",
+        "lc-59-4",
+        "lc-59-5",
+        "lc-59-6",
+        "lc-59-7",
+        "lc-59-8",
+        "lc-59-9",
+        "lc-59-10",
+        "lc-59-11",
+        "lc-59-12",
+        "lc-59-13",
+        "lc-59-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4106,
+  "oracle_implementation": "code_practice/import_batch_007.py:spiral_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "19d2cca0abe6676578dafd1c1051e42d4b72b5721c2b413e5b7a861c6f2a1bd0",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

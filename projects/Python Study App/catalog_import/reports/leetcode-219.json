@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-219",
+  "content_sha256": "bea6288054784637034ce9eed89643d9dd05c4a37093218a6a0d7873b1c64be6",
+  "source_hash": "5933b7c4b9da91f33365aab0f786f4ab4a275ab41d97f28fb3ce7aee77b90804",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the inclusive distance limit as strict and misses pairs exactly k positions apart.",
+      "failed_cases": [
+        "lc-219-1",
+        "lc-219-5",
+        "lc-219-7",
+        "lc-219-8",
+        "lc-219-10",
+        "lc-219-11",
+        "lc-219-13",
+        "lc-219-14",
+        "lc-219-stress-1"
+      ]
+    },
+    {
+      "reason": "Detects duplicates anywhere in the array even when all equal values are farther apart than k.",
+      "failed_cases": [
+        "lc-219-2",
+        "lc-219-4",
+        "lc-219-6",
+        "lc-219-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4266,
+  "oracle_implementation": "code_practice/import_batch_022.py:nearby_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "8c22a18941f65edad8e94dc9db23a196deab0dbfd3b74ae736b86f14cece6c28",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.086,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

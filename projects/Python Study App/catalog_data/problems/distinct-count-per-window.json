@@ -1,0 +1,346 @@
+{
+  "id": "distinct-count-per-window",
+  "version": 1,
+  "status": "approved",
+  "title": "Distinct Count Per Window",
+  "summary": "Return the number of distinct values in every contiguous window of size k.",
+  "statement": "Return the number of distinct values in every contiguous window of size k. Implement `distinct_count_per_window` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "sliding-window",
+    "hash-maps"
+  ],
+  "prerequisites": [
+    "sliding-window"
+  ],
+  "signature": {
+    "name": "distinct_count_per_window",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "k",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[int]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def distinct_count_per_window(nums: list[int], k: int) -> list[int]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def distinct_count_per_window(nums, k):\n    from collections import Counter\n    counts = Counter(nums[:k]); answer = [len(counts)]\n    for i in range(k, len(nums)):\n        leaving = nums[i - k]; counts[leaving] -= 1\n        if counts[leaving] == 0: del counts[leaving]\n        counts[nums[i]] += 1; answer.append(len(counts))\n    return answer\n",
+  "brute_force_solution": "def distinct_count_per_window(nums, k):\n    from collections import Counter\n    counts = Counter(nums[:k]); answer = [len(counts)]\n    for i in range(k, len(nums)):\n        leaving = nums[i - k]; counts[leaving] -= 1\n        if counts[leaving] == 0: del counts[leaving]\n        counts[nums[i]] += 1; answer.append(len(counts))\n    return answer\n",
+  "known_wrong_solutions": [
+    "def distinct_count_per_window(nums, k):\n    return None\n",
+    "def distinct_count_per_window(nums, k):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(k)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A frequency map tells when a value enters or leaves the distinct set.",
+    "Update counts for one outgoing and one incoming value per window.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the distinct_count_per_window invariant is complete.",
+    "Editorial: Update counts for one outgoing and one incoming value per window. The intended bounds are O(n) time and O(k) space."
+  ],
+  "editorial": "A frequency map tells when a value enters or leaves the distinct set. Update counts for one outgoing and one incoming value per window. This yields O(n) time and O(k) auxiliary space.",
+  "tests": [
+    {
+      "id": "distinct-count-per-window-case-1",
+      "arguments": [
+        [
+          1,
+          2,
+          1,
+          3,
+          4,
+          2,
+          3
+        ],
+        4
+      ],
+      "expected": [
+        3,
+        4,
+        4,
+        3
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Count unique values separately inside each sliding window of four positions.",
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-2",
+      "arguments": [
+        [
+          1,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        1
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Repeated equal values give one distinct value in each window.",
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-3",
+      "arguments": [
+        [
+          7
+        ],
+        1
+      ],
+      "expected": [
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-4",
+      "arguments": [
+        [
+          0,
+          0,
+          1
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-5",
+      "arguments": [
+        [
+          -2,
+          -1,
+          -3
+        ],
+        2
+      ],
+      "expected": [
+        2,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-6",
+      "arguments": [
+        [
+          5,
+          5,
+          5
+        ],
+        1
+      ],
+      "expected": [
+        1,
+        1,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-7",
+      "arguments": [
+        [
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": [
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-8",
+      "arguments": [
+        [
+          9,
+          1,
+          8,
+          2,
+          7
+        ],
+        4
+      ],
+      "expected": [
+        4,
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-9",
+      "arguments": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        3
+      ],
+      "expected": [
+        3,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-10",
+      "arguments": [
+        [
+          1,
+          1,
+          2,
+          2
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-11",
+      "arguments": [
+        [
+          10,
+          -10,
+          10
+        ],
+        1
+      ],
+      "expected": [
+        1,
+        1,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-12",
+      "arguments": [
+        [
+          6,
+          2,
+          6,
+          2
+        ],
+        3
+      ],
+      "expected": [
+        2,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-13",
+      "arguments": [
+        [
+          8,
+          0,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        2,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "distinct-count-per-window-case-14",
+      "arguments": [
+        [
+          2,
+          9,
+          1,
+          9,
+          3
+        ],
+        5
+      ],
+      "expected": [
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

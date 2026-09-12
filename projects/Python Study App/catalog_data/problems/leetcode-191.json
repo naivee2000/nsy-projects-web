@@ -1,0 +1,214 @@
+{
+  "id": "leetcode-191",
+  "version": 1,
+  "status": "approved",
+  "title": "Number of 1 Bits",
+  "summary": "Create a function that accepts a positive integer and outputs the count of bits set to one in its binary form.",
+  "statement": "Create a function that accepts a positive integer and outputs the count of bits set to one in its binary form.",
+  "constraints": [
+    "1 <= n <= 2^31 - 1."
+  ],
+  "topics": [
+    "bit-manipulation"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "number_of_one_bits",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def number_of_one_bits(n: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def number_of_one_bits(n):\n    count = 0\n    while n:\n        n &= n - 1\n        count += 1\n    return count\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def number_of_one_bits(n):\n    count = 0\n    while n:\n        n >>= 1\n        count += 1\n    return count\n",
+    "def number_of_one_bits(n):\n    count = 1\n    while n:\n        n &= n - 1\n        count += 1\n    return count\n"
+  ],
+  "target_time_complexity": "O(number of set bits)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Subtracting one changes the lowest set bit and the zeros below it.",
+    "AND n with n-1 to clear exactly its lowest set bit.",
+    "Repeat that clearing operation until n is zero, counting each iteration.",
+    "The number of iterations equals the number of set bits."
+  ],
+  "editorial": "The operation n & (n-1) clears one set bit without affecting the higher set bits. Count how many times it can be applied before the value becomes zero. This visits only set bits; the independent oracle counts ones in the binary string representation.",
+  "tests": [
+    {
+      "id": "lc-191-1",
+      "arguments": [
+        11
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "11 is binary 1011, with three set bits.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-2",
+      "arguments": [
+        128
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "128 is binary 10000000, with one set bit.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-3",
+      "arguments": [
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-4",
+      "arguments": [
+        2
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-5",
+      "arguments": [
+        3
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-6",
+      "arguments": [
+        4
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-7",
+      "arguments": [
+        7
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-8",
+      "arguments": [
+        8
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-9",
+      "arguments": [
+        15
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-10",
+      "arguments": [
+        16
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-11",
+      "arguments": [
+        31
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-12",
+      "arguments": [
+        32
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-13",
+      "arguments": [
+        1023
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-191-14",
+      "arguments": [
+        2147483647
+      ],
+      "expected": 31,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

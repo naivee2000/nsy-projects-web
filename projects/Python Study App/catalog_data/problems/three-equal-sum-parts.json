@@ -1,0 +1,283 @@
+{
+  "id": "three-equal-sum-parts",
+  "version": 1,
+  "status": "approved",
+  "title": "Three Equal-Sum Parts",
+  "summary": "Return whether the list can be split into three nonempty contiguous parts with equal sums.",
+  "statement": "Return whether the list can be split into three nonempty contiguous parts with equal sums. Implement `three_equal_sum_parts` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "greedy",
+    "prefix-sums"
+  ],
+  "prerequisites": [
+    "greedy"
+  ],
+  "signature": {
+    "name": "three_equal_sum_parts",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def three_equal_sum_parts(nums: list[int]) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def three_equal_sum_parts(nums):\n    total = sum(nums)\n    if len(nums) < 3 or total % 3: return False\n    target = total // 3; running = parts = 0\n    for i, value in enumerate(nums[:-1]):\n        running += value\n        if running == target: parts += 1; running = 0\n        if parts == 2 and i < len(nums)-1: return True\n    return False\n",
+  "brute_force_solution": "def three_equal_sum_parts(nums):\n    total = sum(nums)\n    if len(nums) < 3 or total % 3: return False\n    target = total // 3; running = parts = 0\n    for i, value in enumerate(nums[:-1]):\n        running += value\n        if running == target: parts += 1; running = 0\n        if parts == 2 and i < len(nums)-1: return True\n    return False\n",
+  "known_wrong_solutions": [
+    "def three_equal_sum_parts(nums):\n    return None\n",
+    "def three_equal_sum_parts(nums):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "After finding two target-sum prefixes, the remaining suffix must have the third target sum.",
+    "Scan only through the penultimate value and reset the running sum after each completed part.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the three_equal_sum_parts invariant is complete.",
+    "Editorial: Scan only through the penultimate value and reset the running sum after each completed part. The intended bounds are O(n) time and O(1) space."
+  ],
+  "editorial": "After finding two target-sum prefixes, the remaining suffix must have the third target sum. Scan only through the penultimate value and reset the running sum after each completed part. This yields O(n) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "three-equal-sum-parts-case-1",
+      "arguments": [
+        [
+          0,
+          2,
+          1,
+          -6,
+          6,
+          -7,
+          9,
+          1,
+          2,
+          0,
+          1
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The list can be cut into three nonempty contiguous parts that each sum to 3.",
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-2",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The total is not divisible into three equal integer sums, so no valid split exists.",
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-4",
+      "arguments": [
+        [
+          7
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-5",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-6",
+      "arguments": [
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-7",
+      "arguments": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-8",
+      "arguments": [
+        [
+          -3,
+          -1,
+          -2
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-9",
+      "arguments": [
+        [
+          1,
+          3,
+          3,
+          2
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-10",
+      "arguments": [
+        [
+          5,
+          1,
+          5,
+          1
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-11",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-12",
+      "arguments": [
+        [
+          10,
+          -10,
+          10
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-13",
+      "arguments": [
+        [
+          1,
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "three-equal-sum-parts-case-14",
+      "arguments": [
+        [
+          9,
+          7,
+          5,
+          3,
+          1
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

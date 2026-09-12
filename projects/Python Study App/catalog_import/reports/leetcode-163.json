@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-163",
+  "content_sha256": "7e096f9b6a91384c8834ec1df2a4539ac2fac08b7d0ba39ace2ac820d8509e03",
+  "source_hash": "f066f8e79fcca1a1ca6524053bed9b164cebd9f337cda9a8f90474aed3efb89c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Includes the next present value as the endpoint of a missing range.",
+      "failed_cases": [
+        "lc-163-1",
+        "lc-163-6",
+        "lc-163-7",
+        "lc-163-9",
+        "lc-163-10",
+        "lc-163-11",
+        "lc-163-14"
+      ]
+    },
+    {
+      "reason": "Forgets the final gap after the last present value, including an entirely empty input.",
+      "failed_cases": [
+        "lc-163-1",
+        "lc-163-3",
+        "lc-163-4",
+        "lc-163-6",
+        "lc-163-9",
+        "lc-163-10",
+        "lc-163-12",
+        "lc-163-13",
+        "lc-163-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4210,
+  "oracle_implementation": "code_practice/import_batch_017.py:ranges_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "94e31083621afcda52a9fc0b50ef1a39024794ddb02218c0779145ed20be70fb",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-80",
+  "content_sha256": "793a99d94a2a155bcb75985f6aaddd3024b0c807dd514eda38d06aeb9258ddc9",
+  "source_hash": "414737435aea2f756919eb4505cfd9f18f4b28a610768bfc4c5b8873caf530a1",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps only one copy of each distinct value.",
+      "failed_cases": [
+        "lc-80-1",
+        "lc-80-2",
+        "lc-80-6",
+        "lc-80-8",
+        "lc-80-9",
+        "lc-80-11",
+        "lc-80-12",
+        "lc-80-13",
+        "lc-80-14",
+        "lc-80-stress-1"
+      ]
+    },
+    {
+      "reason": "Returns the original list length rather than the compacted length.",
+      "failed_cases": [
+        "lc-80-1",
+        "lc-80-2",
+        "lc-80-8",
+        "lc-80-11",
+        "lc-80-14",
+        "lc-80-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4127,
+  "oracle_implementation": "code_practice/import_batch_011.py:twice_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "4e2e8efeead5101462f62113c0180ce2770b7f06f1920347a675087e85dd6764",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

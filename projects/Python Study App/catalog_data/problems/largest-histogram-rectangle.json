@@ -1,0 +1,285 @@
+{
+  "id": "largest-histogram-rectangle",
+  "version": 1,
+  "status": "approved",
+  "title": "Largest Histogram Rectangle",
+  "summary": "Return the maximum rectangular area under adjacent histogram bars.",
+  "statement": "Return the maximum rectangular area under adjacent histogram bars. Implement `largest_histogram_rectangle` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "stacks",
+    "arrays"
+  ],
+  "prerequisites": [
+    "stacks"
+  ],
+  "signature": {
+    "name": "largest_histogram_rectangle",
+    "parameters": [
+      {
+        "name": "heights",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def largest_histogram_rectangle(heights: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def largest_histogram_rectangle(heights):\n    stack = []; best = 0\n    for i, height in enumerate(heights + [0]):\n        start = i\n        while stack and stack[-1][1] > height:\n            index, old = stack.pop(); best = max(best, old * (i-index)); start = index\n        stack.append((start, height))\n    return best\n",
+  "brute_force_solution": "def largest_histogram_rectangle(heights):\n    stack = []; best = 0\n    for i, height in enumerate(heights + [0]):\n        start = i\n        while stack and stack[-1][1] > height:\n            index, old = stack.pop(); best = max(best, old * (i-index)); start = index\n        stack.append((start, height))\n    return best\n",
+  "known_wrong_solutions": [
+    "def largest_histogram_rectangle(heights):\n    return None\n",
+    "def largest_histogram_rectangle(heights):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "A lower bar closes every taller rectangle that cannot extend farther.",
+    "Store each height with its earliest valid start and finalize it when a smaller height appears.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the largest_histogram_rectangle invariant is complete.",
+    "Editorial: Store each height with its earliest valid start and finalize it when a smaller height appears. The intended bounds are O(n) time and O(n) space."
+  ],
+  "editorial": "A lower bar closes every taller rectangle that cannot extend farther. Store each height with its earliest valid start and finalize it when a smaller height appears. This yields O(n) time and O(n) auxiliary space.",
+  "tests": [
+    {
+      "id": "largest-histogram-rectangle-case-1",
+      "arguments": [
+        [
+          2,
+          1,
+          5,
+          6,
+          2,
+          3
+        ]
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The adjacent bars of heights 5 and 6 form the maximum area of 10.",
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-2",
+      "arguments": [
+        [
+          2,
+          4
+        ]
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Using both bars at height 2 gives area 4, tied with the single height-4 bar.",
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-4",
+      "arguments": [
+        [
+          5
+        ]
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-5",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-6",
+      "arguments": [
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-7",
+      "arguments": [
+        [
+          2,
+          1,
+          5,
+          6,
+          2,
+          3
+        ]
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-8",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-9",
+      "arguments": [
+        [
+          4,
+          2,
+          0,
+          3,
+          2,
+          5
+        ]
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-10",
+      "arguments": [
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-11",
+      "arguments": [
+        [
+          6,
+          2,
+          5,
+          4,
+          5,
+          1,
+          6
+        ]
+      ],
+      "expected": 12,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-12",
+      "arguments": [
+        [
+          10,
+          1,
+          10
+        ]
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-13",
+      "arguments": [
+        [
+          1,
+          3,
+          2,
+          4
+        ]
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "largest-histogram-rectangle-case-14",
+      "arguments": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1,
+          6
+        ]
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

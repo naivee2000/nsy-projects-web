@@ -1,0 +1,364 @@
+{
+  "id": "leetcode-617",
+  "version": 1,
+  "status": "approved",
+  "title": "Merge Two Binary Trees",
+  "summary": "Given two binary trees, root1 and root2, merge them into a new binary tree according to the following rules: if two nodes overlap, their values should be summed to form the new node value.",
+  "statement": "Given two binary trees, root1 and root2, merge them into a new binary tree according to the following rules: if two nodes overlap, their values should be summed to form the new node value. If there is no overlap (i.e., one node is null), use the non-null node as part of the new tree. Begin the merging process from the root nodes of both trees.",
+  "constraints": [
+    "Each input tree has 0–2000 nodes.",
+    "-10,000 <= node.val <= 10,000.",
+    "Sum nodes at the same structural position; retain any position present in only one input."
+  ],
+  "topics": [
+    "trees",
+    "recursion"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "merge_trees",
+    "parameters": [
+      {
+        "name": "root1",
+        "annotation": "TreeNode | None",
+        "adapter": "treenode",
+        "source_parameter": null
+      },
+      {
+        "name": "root2",
+        "annotation": "TreeNode | None",
+        "adapter": "treenode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "TreeNode | None",
+    "return_adapter": "treenode",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef merge_trees(root1: TreeNode | None, root2: TreeNode | None) -> TreeNode | None:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def merge_trees(root1, root2):\n    if root1 is None:\n        return root2\n    if root2 is None:\n        return root1\n    merged = TreeNode()\n    stack = [(root1, root2, merged)]\n    while stack:\n        left, right, output = stack.pop()\n        output.val = left.val + right.val\n        for side in (\"left\", \"right\"):\n            a, b = getattr(left, side), getattr(right, side)\n            if a is None or b is None:\n                setattr(output, side, a if a is not None else b)\n            else:\n                child = TreeNode()\n                setattr(output, side, child)\n                stack.append((a, b, child))\n    return merged\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def merge_trees(root1, root2):\n    if root1 is None:\n        return root2\n    if root2 is None:\n        return root1\n    merged = TreeNode()\n    stack = [(root1, root2, merged)]\n    while stack:\n        left, right, output = stack.pop()\n        output.val = left.val\n        for side in (\"left\", \"right\"):\n            a, b = getattr(left, side), getattr(right, side)\n            if a is None or b is None:\n                setattr(output, side, a if a is not None else b)\n            else:\n                child = TreeNode()\n                setattr(output, side, child)\n                stack.append((a, b, child))\n    return merged\n",
+    "def merge_trees(root1, root2):\n    if root1 is None:\n        return root2\n    if root2 is None:\n        return root1\n    merged = TreeNode()\n    stack = [(root1, root2, merged)]\n    while stack:\n        left, right, output = stack.pop()\n        output.val = left.val + right.val\n        for side in (\"left\", \"right\"):\n            a, b = getattr(left, side), getattr(right, side)\n            if a is None or b is None:\n                setattr(output, side, None)\n            else:\n                child = TreeNode()\n                setattr(output, side, child)\n                stack.append((a, b, child))\n    return merged\n"
+  ],
+  "target_time_complexity": "O(n + m)",
+  "target_space_complexity": "O(n + m) including output",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Tree positions, rather than array indices in the display, decide which values overlap.",
+    "For a pair of nodes, reuse the present subtree when only one exists; otherwise combine values and continue with both child pairs.",
+    "If either root is absent, return the other. Otherwise create a node with their sum and merge the left pair and right pair into its children.",
+    "A stack of input pairs and output nodes implements the recursive rule without a deep call stack."
+  ],
+  "editorial": "Merge corresponding structural positions. A position occupied by both inputs gets the sum of the two values. A position occupied by one input retains that entire subtree. Do not simply add the displayed arrays by index: null placeholders and omitted trailing children make that incorrect. The iterative reference creates nodes for overlapping pairs and retains unmatched branches.",
+  "tests": [
+    {
+      "id": "lc-617-1",
+      "arguments": [
+        [
+          1,
+          3,
+          2,
+          5
+        ],
+        [
+          2,
+          1,
+          3,
+          null,
+          4,
+          null,
+          7
+        ]
+      ],
+      "expected": [
+        3,
+        4,
+        5,
+        5,
+        4,
+        null,
+        7
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Overlapping roots/children sum to 3,4,5. The unmatched nodes 5,4,7 retain their positions, yielding [3,4,5,5,4,null,7].",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-2",
+      "arguments": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2,
+        2
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The roots sum to 2, and the second tree's unmatched left child 2 is retained.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-3",
+      "arguments": [
+        [],
+        []
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-4",
+      "arguments": [
+        [
+          1
+        ],
+        []
+      ],
+      "expected": [
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-5",
+      "arguments": [
+        [],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-6",
+      "arguments": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": [
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-7",
+      "arguments": [
+        [
+          -1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-8",
+      "arguments": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          null,
+          4
+        ]
+      ],
+      "expected": [
+        4,
+        2,
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-9",
+      "arguments": [
+        [
+          1,
+          null,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        4,
+        4,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-10",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-11",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": [
+        5,
+        7,
+        9
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-12",
+      "arguments": [
+        [
+          1,
+          2,
+          null,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "expected": [
+        5,
+        2,
+        null,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-13",
+      "arguments": [
+        [
+          1
+        ],
+        [
+          4,
+          null,
+          5,
+          null,
+          6
+        ]
+      ],
+      "expected": [
+        5,
+        null,
+        5,
+        null,
+        6
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-617-14",
+      "arguments": [
+        [
+          10000
+        ],
+        [
+          -10000,
+          -10000
+        ]
+      ],
+      "expected": [
+        0,
+        -10000
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

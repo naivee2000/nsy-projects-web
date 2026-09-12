@@ -1,0 +1,321 @@
+{
+  "id": "leetcode-101",
+  "version": 1,
+  "status": "approved",
+  "title": "Symmetric Tree",
+  "summary": "Determine if a binary tree is symmetric by comparing its left and right subtrees for mirror image properties.",
+  "statement": "Determine if a binary tree is symmetric by comparing its left and right subtrees for mirror image properties.",
+  "constraints": [
+    "The tree contains 1–1000 nodes.",
+    "-100 <= node.val <= 100.",
+    "Symmetry requires matching values and mirrored missing-child positions."
+  ],
+  "topics": [
+    "trees",
+    "recursion",
+    "depth-first-search"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "symmetric_tree",
+    "parameters": [
+      {
+        "name": "root",
+        "annotation": "TreeNode",
+        "adapter": "treenode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef symmetric_tree(root: TreeNode) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def symmetric_tree(root):\n    if root is None:\n        return True\n    pairs = [(root.left, root.right)]\n    while pairs:\n        left, right = pairs.pop()\n        if left is None or right is None:\n            if left is not right:\n                return False\n            continue\n        if left.val != right.val:\n            return False\n        pairs.append((left.left, right.right))\n        pairs.append((left.right, right.left))\n    return True\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def symmetric_tree(root):\n    if root is None:\n        return True\n    pairs = [(root.left, root.right)]\n    while pairs:\n        left, right = pairs.pop()\n        if left is None or right is None:\n            if left is not right:\n                return False\n            continue\n        if False:\n            return False\n        pairs.append((left.left, right.right))\n        pairs.append((left.right, right.left))\n    return True\n",
+    "def symmetric_tree(root):\n    if root is None:\n        return True\n    pairs = [(root.left, root.right)]\n    while pairs:\n        left, right = pairs.pop()\n        if left is None or right is None:\n            if left is not right:\n                return False\n            continue\n        if left.val != right.val:\n            return False\n        pairs.append((left.left, right.left))\n        pairs.append((left.right, right.right))\n    return True\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(h)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A mirror compares opposite directions, not simply equal traversal values.",
+    "Compare pairs of nodes: outer children together, then inner children together.",
+    "For a pair, reject exactly one missing node or unequal values. Then compare left.left with right.right and left.right with right.left.",
+    "A recursive mirror check or a stack of mirrored pairs preserves missing-child positions."
+  ],
+  "editorial": "Begin with the root's left and right children. Two absent nodes match; exactly one absent node fails. Present nodes must have equal values. Continue with their outer pair and inner pair. The reference uses an explicit stack to avoid Python recursion-depth limits while performing the same comparisons as the recursive definition.",
+  "tests": [
+    {
+      "id": "lc-101-1",
+      "arguments": [
+        [
+          1,
+          2,
+          2,
+          3,
+          4,
+          4,
+          3
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The two 2 nodes match, their outer children are both 3, and their inner children are both 4.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-2",
+      "arguments": [
+        [
+          1,
+          2,
+          2,
+          null,
+          3,
+          null,
+          3
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The two 3 nodes both point right from their parents. Mirror symmetry requires opposite directions.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-3",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-4",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-5",
+      "arguments": [
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-6",
+      "arguments": [
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-7",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-8",
+      "arguments": [
+        [
+          1,
+          2,
+          2,
+          3,
+          null,
+          null,
+          3
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-9",
+      "arguments": [
+        [
+          1,
+          2,
+          2,
+          null,
+          3,
+          3
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-10",
+      "arguments": [
+        [
+          1,
+          2,
+          2,
+          3,
+          null,
+          3
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-11",
+      "arguments": [
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-12",
+      "arguments": [
+        [
+          1,
+          -1,
+          1
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-13",
+      "arguments": [
+        [
+          1,
+          2,
+          2,
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-101-14",
+      "arguments": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

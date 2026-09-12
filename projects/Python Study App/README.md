@@ -1,6 +1,6 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It includes 101 distinct coding problems, a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 260 runnable problems (101 original exercises plus 159 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
 ## Start the app
 
@@ -17,8 +17,8 @@ If frontend source changes, run `npm --prefix frontend run build` before startin
 ## Study workflow
 
 - **Today** assigns one workload-capped daily set: five Easy problems; normally two Medium plus one Easy (or at most three Medium when no Easy remains); or one Hard plus at most one Medium. Finished items disappear without being replaced, and a completion message remains until the next local calendar day.
-- **Daily review** separately assigns up to five previously passed problems and removes each one after a successful review submission that day. Its score prioritizes difficulty and due dates, then raises problems that took longer or failed again after their first successful solve. Personal focus boosts make linked lists, recursion, and binary search recur more often; recursive matrix/grid traversal receives the strongest boost. Hint usage does not affect this review ordering.
-- **Library** filters all approved problems by title and topic.
+- **Daily review** separately assigns up to five previously passed problems and removes each one after a successful review submission that day. Its score prioritizes difficulty and due dates, then raises problems that took longer or failed again after their first successful solve. A full set uses at most three focus slots for linked lists, recursion, binary search, and recursive matrix/grid traversal; when available, the other two slots review completed problems outside those focus tags. Hint usage does not affect this review ordering.
+- **Library** searches and filters on the server by title/pattern, topic, difficulty, and completion. It fetches 30 summaries per page; full instructions and tests load only when opening a problem. Back navigation retains the page and filters.
 - **Back navigation** returns a problem to the page that opened it—Today or Library—without clearing the Library filters.
 - **Run examples** executes the two hand-curated teaching examples: a representative case, a contrasting or boundary case, and a short explanation of why each shown output is correct.
 - **Submit** executes all twelve hidden tests and records the outcome. Passed hidden tests remain summarized; each failed hidden test can be clicked to reveal only its input, expected value, and the value or error produced by the current code.
@@ -29,7 +29,7 @@ If frontend source changes, run `npm --prefix frontend run build` before startin
 
 ## Easy-problem quality bar
 
-The catalog uses original wording and implementations; it does not copy LeetCode statements. LeetCode's official Easy catalog and study-plan patterns are used only as a difficulty benchmark: an Easy problem should still require at least one reusable invariant, data-structure choice, recurrence, or edge-case decision.
+The original 101-problem catalog uses original wording and implementations. LeetCode's official Easy catalog and study-plan patterns informed its difficulty benchmark: an Easy problem should still require at least one reusable invariant, data-structure choice, recurrence, or edge-case decision. Workbook imports retain source summaries and provenance, with reviewed implementations, tests, and explanations; see the source attribution below.
 
 A catalog audit replaced seven syntax-level exercises with stronger interview patterns. A two-chain, node-splicing linked-list merge was then added as a separate exercise, bringing the catalog to 101 problems (34 easy, 56 medium, and 11 advanced):
 
@@ -55,6 +55,212 @@ The submitted Python runs in a fresh browser Web Worker. FastAPI stores results 
 ```
 
 Backups are written under `backups/`, which is intentionally excluded from Git.
+
+## Workbook expansion and portable catalog
+
+`catalog_data/manifest.json` and `catalog_data/problems/*.json` are shipped with
+the app. The server loads searchable metadata and at most 32 cached problem
+details, without running reference solutions. SQLite progress remains separate
+under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submissions
+remain Passed even after more than 500 newer attempts.
+
+The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
+Current status: 70 existing equivalents, 159 verified imports, 130 documented
+design/interactive exclusions, and 3,270 pending records. Ordinary tree and
+linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
+The ledger is an audit of source records, not a claim that pending problems are
+available in the runnable library.
+
+Twenty-three reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
+binary search, string/number exercises, and ordinary Hard problems such as
+Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
+examples, at least twelve distinct hidden tests, two rejected plausible incorrect
+implementations, and 500 seeded comparisons against an independent oracle.
+Recent batches add phone-keypad combinations, reusable Combination Sum,
+grid route counting with/without obstacles, minimum path cost, matrix binary
+search, combinations/subsets, Decode Ways, and Restore IP Addresses. Recursive
+grid problems retain the owner's weak-topic review priority. Any-order comparisons
+accept valid reorderings but still reject duplicated or missing results.
+The Hard-focused batch adds regular-expression and wildcard matching (with their
+different star rules), longest valid parentheses, first missing positive, and
+both Jump Game variants. Advanced imports retain explicit prerequisite topics.
+The latest batches add linked-list rotation, interval insertion, Roman numerals,
+32-bit division, permutation ranking, 3Sum Closest, prefix matching, recursive
+Count and Say, and digit-by-digit string multiplication. The 3Sum Closest wording
+clarifies distinct **indices**, not distinct values. Spiral Matrix is an existing
+equivalent, not a duplicate import: its rectangular examples and constraints are
+expanded under version 2 of `matrix-spiral-order`, preserving its ID and progress.
+The ninth batch adds inorder/preorder/postorder traversal, zigzag and bottom-up
+levels, Path Sum II, Triangle, and Binary Tree Maximum Path Sum. Matching paths
+preserve duplicate value sequences from different leaves. Explicit traversal
+frames support the 5,000-node path problem and 30,000-node maximum-path problem
+without raising Python's recursion limit; beginner traversals still teach recursion.
+The tenth batch adds lexical path simplification, duplicate-aware rotated binary
+search, Interleaving String, Distinct Subsequences, unlimited/two-transaction
+stock problems, Gas Station, and Candy. Duplicate-aware binary search retains
+the existing weak-topic review priority. Source guarantees such as a unique gas
+station start and 32-bit final subsequence count have explicit regression checks.
+The eleventh batch preserves actual in-place contracts for Remove Duplicates,
+Remove Element, Next Permutation, Rotate Image, Set Matrix Zeroes, Sort Colors,
+Remove Duplicates II, and Merge Sorted Array. The judge reads the original
+argument after execution. Prefix-removal tasks display `{return, prefix}` and
+check both the integer count and the meaningful prefix, ignoring the tail.
+Remove Element permits prefix reordering but still checks duplicate counts.
+Returning a copy or computing only k without the required mutation does not pass.
+The instructions explain these grading modes beside the examples. Space/time
+targets remain learning goals; the judge checks observable correctness and its
+execution deadline, not a formal proof of asymptotic complexity.
+The twelfth batch adds Remove Duplicates from Sorted List II, stable Partition
+List, Word Break, and recursive Word Break II. Removing all duplicated values
+is distinct from the original keep-one linked-list exercise. Segmentation permits
+word reuse; the Hard version returns every complete sentence with no duplicates.
+Linked-list and recursive-word exercises retain the existing weak-topic priorities.
+Batch thirteen adds Longest Consecutive Sequence, minimum palindrome cuts,
+Single Number II, and postfix-expression evaluation. Tests distinguish values
+from positions, cuts from pieces, signed 32-bit values from unsigned bit patterns,
+and division toward zero from Python floor division.
+Batch fourteen adds tree reconstruction from preorder/inorder and
+inorder/postorder, plus in-place Surrounded Regions. These return actual TreeNode
+objects or mutate the original grid, respectively. Reconstruction includes
+3,000-node skewed trees; grid traversal includes 200×200 regions and a regression
+over all 512 three-by-three boards. Recursion explanations and the stronger
+recursive-grid review priority remain available; explicit stacks prevent deep
+inputs from overflowing Python's call stack.
+Batch fifteen adds Valid Sudoku, Valid Number, Text Justification, and Maximal
+Rectangle. Tests cover valid-but-unsolvable partial Sudoku boards, 4,680 short
+numeric strings, exact line spacing, and all 512 binary three-by-three matrices.
+Text Justification's workbook sample lost repeated spaces; the report retains
+the original and an explicit correction verified against the source contract.
+No mismatching sample is silently accepted or removed.
+Batch sixteen adds Flatten Binary Tree to Linked List and Reorder List. Both
+modify original nodes in place, with 2,000-node tree and 50,000-node list fixtures.
+The judge checks the selected input's node identities and unchanged values;
+these two problems additionally require the precise original-node order even
+when values repeat. Flattening keeps TreeNode objects and follows right links;
+it does not construct a separate ListNode list. All 108 imported references were
+revalidated after this shared-judge extension.
+Batch seventeen adds Reverse Words, Maximum Product Subarray, duplicate-aware
+rotated minimum, at-most-two-character windows, One Edit Distance, Missing
+Ranges, Compare Version Numbers, and Dungeon Game. Regressions distinguish
+zero edits from one, negative products from sums, numeric from lexical revisions,
+and surviving every dungeon prefix from merely ending with positive health.
+Duplicate-aware binary search and recursive-grid DP retain weak-topic priority.
+Batch eighteen adds both Excel-column conversions, Factorial Trailing Zeroes,
+Largest Number, Repeated DNA Sequences, and the Hard Stock IV problem with an
+input transaction budget. Tests cover all 10,001 factorial inputs, all 702
+one-/two-letter column labels, prefix-sensitive concatenation ordering,
+overlapping DNA windows, and stock budgets that allow more than two trades.
+Stress fixtures include a 100,000-character DNA sequence, 1,000 daily prices,
+and a 1,000-digit string result without large-number JSON conversion.
+Batch nineteen adds sorted-array/list conversion to balanced BSTs, Count Complete
+Tree Nodes, and Count Univalue Subtrees. Conversions return actual TreeNode
+objects; the linked-list starter includes both node classes. The new balanced-BST
+comparator accepts any shape whose inorder traversal preserves every input
+value and whose every subtree is height-balanced. It rejects missing duplicates,
+unbalanced chains, and invalid node values. Examples are labelled “One valid
+output,” and failures retain both the actual output and the contract explanation.
+The property checker is tested against all 626 binary-tree shapes through seven
+nodes. Stress fixtures cover 20,000-node list conversions, 50,000-node complete
+trees, and 1,000-node skewed trees. All 126 imports were revalidated after this
+judge extension; original IDs, progress, and weak-topic review boosts are retained.
+The original Tree Height exercise is now version 2 under the same `tree-max-depth`
+ID. Its recursive reference previously overflowed on a valid 10,000-node chain.
+An explicit depth-first stack now supports the existing 20,000-node limit;
+independent breadth-first and 500 seeded path-shape checks verify the repair.
+Tests preserve version-1 accepted attempts and drafts across repackaging/reopen.
+This strengthens the existing LeetCode 104 equivalent, not the problem count.
+Batch twenty adds Reverse Bits, Range Bitwise AND, Happy Number, Count Primes,
+Isomorphic Strings, Minimum Size Subarray Sum, House Robber II, Shortest
+Palindrome, and recursive Combination Sum III. Tests preserve the source's even
+32-bit reversal domain, ASCII control characters, positive-only sliding-window
+assumption, circular adjacency, and front-only palindrome additions. Independent
+regressions verify all 480 digit-combination inputs and the five-million prime
+boundary. The Hard palindrome exercise requires mastery of existing strings and
+string-matching topics, rather than a new prerequisite with no preparatory exercise.
+Batch twenty-one adds Word Search II, The Skyline Problem, Maximal Square, and
+Rectangle Area. Recursive grid search retains the stronger review priority;
+tests check cell reuse, diagonals, repeated paths, and restoring the input board.
+Independent checks cover simultaneous skyline events, square area versus side
+length, and degenerate/touching rectangles. Maximum-size fixtures include 30,000
+dictionary words, 10,000 buildings, and 300×300 matrices. The initial missing
+cell-reuse counterexample blocked Word Search II approval until repaired; no
+quarantined version was published.
+Batch twenty-two adds Contains Duplicate II/III, Basic Calculator I/II, Summary
+Ranges, Majority Element II, Number of Digit One, Product of Array Except Self,
+Search a 2D Matrix II, and Different Ways to Add Parentheses. Exhaustive and
+source-scale checks cover exact window boundaries, negative value buckets,
+100,000-deep grouping, integer truncation toward zero, strict one-third voting,
+the 10^9 digit-count boundary, zero products, sorted matrices, and duplicate
+results produced by different expression groupings.
+Batch twenty-three adds Shortest Word Distance I/III, Strobogrammatic Number
+I/II/III, Group Shifted Strings, Meeting Rooms, Factor Combinations, Paint House,
+and Add Digits. Tests distinguish same-word occurrences, exhaust all generation
+lengths through 14, count the full 15-digit strobogrammatic domain, preserve
+cyclic shifts and duplicate strings, allow touching meetings, and compare factor
+and painting results against direct enumeration.
+Of the 70 overlaps, 69 map to original exercises and one maps to an approved
+import: unique-only rotated minimum (153) uses the existing duplicate-aware
+entry (154), whose reference still takes logarithmic element reads for unique
+values. Its separate overlap report verifies 500 seeded cases, the workbook
+sample, and 5,000-element boundaries. No second progress ID is introduced.
+After changing an overlap target or its judge contract, revalidate the target,
+run `.venv/bin/python -m code_practice.reconcile_overlaps`, then repackage.
+Missing or stale overlap evidence blocks packaging; studying uses only the
+already packaged catalog and never runs these offline checks at startup.
+Maximum-size deterministic cases also run in real Chrome/Pyodide during verification.
+Node-swapping/reversal contracts also reject value rewriting in place of node
+rewiring. Tree outputs preserve sparse structure and reject cycles. Reproduce:
+
+```bash
+.venv/bin/python -m code_practice.build_import_batch
+.venv/bin/python -m code_practice.reconcile_overlaps
+.venv/bin/python -m code_practice.package_catalog
+```
+
+For a bounded resume, pass source IDs, for example
+`.venv/bin/python -m code_practice.build_import_batch --ids 24 92 129`.
+Each problem validates in its own process with a 30-second default limit.
+Ledger, report, and candidate files are replaced atomically after writing, so
+an interrupted save leaves the previous complete file available.
+Timeouts, inconsistent workbook samples, schema errors, oracle disagreements,
+and undetected incorrect solutions quarantine the candidate instead of
+publishing it. Reports are tied to the exact content and judge-contract hashes.
+Judge changes require revalidation of existing imports before repackaging;
+the current in-place and selected-TreeNode extensions have been checked against
+every reviewed batch. The release package remains at 260 problems; future
+partially reviewed batches are not exposed.
+
+Only records with successful, content-hash-matched validation reports enter the
+package. Quarantined and pending candidates are excluded. Packaging never opens
+or replaces the progress database. The workbook and external source checkout
+are needed only to repeat extraction, not to study or run the published app.
+
+On another computer, transfer/update the project including `catalog_data/`,
+install dependencies, and run `./run_local.sh`. Keep the destination's live
+database in its existing persistent location. Restart the backend after a catalog
+update. Do not copy this laptop's `data/` over an existing destination database.
+Both Monaco and Pyodide assets are bundled during the frontend build; normal
+studying does not require a CDN or internet connection after dependencies install.
+Use `./backup_data.sh` before an upgrade. To restore, stop the backend and copy
+the selected backup to the configured `CODE_PRACTICE_DB` path, then restart.
+
+Development validation includes `.venv/bin/python -m pytest` and
+`node scripts/verify_catalog_browser.mjs` (requires Playwright and Chrome).
+The browser check uses a temporary database, exercises real Pyodide workers,
+checks the editor with external HTTP requests blocked, restarts the backend,
+and performs 100 real HTTP requests per benchmark route. On macOS/Linux it records
+the OS-reported backend peak RSS over each complete server run, excluding the
+browser and benchmark driver. Install dependencies and build the frontend first.
+Its report is `catalog_import/benchmarks/current.json`; until all imports finish,
+this is an interim measurement, not the final full-catalog performance gate.
+
+Source provenance: workbook filename/hash and row numbers are retained in the
+ledger. `catalog_import/sources.jsonl` records LeetCode URLs and the exact
+[doocs/leetcode](https://github.com/doocs/leetcode) source revision, descriptions,
+and candidate implementations used for review. That source snapshot retains its
+CC BY-SA 4.0 attribution/license in `catalog_import/SOURCE_LICENSE.txt` and
+`catalog_import/ATTRIBUTION.md`. Source candidates are not executed by the app.
 
 ## Private website and one-time progress transfer
 

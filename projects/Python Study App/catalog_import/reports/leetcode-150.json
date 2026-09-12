@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-150",
+  "content_sha256": "18e035b50fae8ab796bfd2ce007ffd14b3d2f1e2f892547ebfe34937a9f7c535",
+  "source_hash": "cecf204def0f4d060ad25b789e72d0914a20d94f364f6dcc419f6e9af28d5abb",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses floor division, which gives the wrong result for negative nonintegral quotients.",
+      "failed_cases": [
+        "lc-150-6",
+        "lc-150-7"
+      ]
+    },
+    {
+      "reason": "Reverses the left and right operands for subtraction and division.",
+      "failed_cases": [
+        "lc-150-2",
+        "lc-150-6",
+        "lc-150-7",
+        "lc-150-8",
+        "lc-150-9",
+        "lc-150-10",
+        "lc-150-13",
+        "lc-150-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4197,
+  "oracle_implementation": "code_practice/import_batch_013.py:rpn_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ac230eb0ea6b273f668abd7eb941afdc772f6cbc47f247bfa48e4819cf09f099",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.084,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

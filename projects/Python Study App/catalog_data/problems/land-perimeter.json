@@ -1,0 +1,385 @@
+{
+  "id": "land-perimeter",
+  "version": 1,
+  "status": "approved",
+  "title": "Land Perimeter",
+  "summary": "Return the total exposed edge count of all 1-cells.",
+  "statement": "Return the total exposed edge count of all 1-cells. Implement `land_perimeter` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "matrices",
+    "geometry"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "land_perimeter",
+    "parameters": [
+      {
+        "name": "grid",
+        "annotation": "list[list[int]]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def land_perimeter(grid: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def land_perimeter(grid):\n    if not grid or not grid[0]: return 0\n    perimeter = 0\n    for r, row in enumerate(grid):\n        for c, value in enumerate(row):\n            if value:\n                perimeter += 4\n                if r and grid[r-1][c]: perimeter -= 2\n                if c and grid[r][c-1]: perimeter -= 2\n    return perimeter\n",
+  "brute_force_solution": "def land_perimeter(grid):\n    if not grid or not grid[0]: return 0\n    perimeter = 0\n    for r, row in enumerate(grid):\n        for c, value in enumerate(row):\n            if value:\n                perimeter += 4\n                if r and grid[r-1][c]: perimeter -= 2\n                if c and grid[r][c-1]: perimeter -= 2\n    return perimeter\n",
+  "known_wrong_solutions": [
+    "def land_perimeter(grid):\n    return None\n",
+    "def land_perimeter(grid):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(rc)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 30,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Every shared side removes two exposed edges.",
+    "Add four per land cell and subtract shared top and left edges once.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the land_perimeter invariant is complete.",
+    "Editorial: Add four per land cell and subtract shared top and left edges once. The intended bounds are O(rc) time and O(1) space."
+  ],
+  "editorial": "Every shared side removes two exposed edges. Add four per land cell and subtract shared top and left edges once. This yields O(rc) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "land-perimeter-case-1",
+      "arguments": [
+        [
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 16,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Shared land edges are internal; only the 16 exposed edges contribute.",
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-2",
+      "arguments": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "One isolated land cell exposes all four edges.",
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-3",
+      "arguments": [
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-4",
+      "arguments": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-5",
+      "arguments": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-6",
+      "arguments": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-7",
+      "arguments": [
+        [
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-8",
+      "arguments": [
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-9",
+      "arguments": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 16,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-10",
+      "arguments": [
+        [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": 12,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-11",
+      "arguments": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 12,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-12",
+      "arguments": [
+        [
+          [
+            1,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 14,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-13",
+      "arguments": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "land-perimeter-case-14",
+      "arguments": [
+        [
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 16,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

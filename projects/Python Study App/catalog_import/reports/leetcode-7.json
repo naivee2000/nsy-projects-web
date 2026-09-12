@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-7",
+  "content_sha256": "340092ecbade040771d2220d7e52b4c045dce2c30016945fc4168a0eb0070849",
+  "source_hash": "6c89b33e0269497eb798a0ac0e7fc5d8e794bc1fd24fd691e2566be1208918df",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns a negative result for positive inputs.",
+      "failed_cases": [
+        "lc-7-1",
+        "lc-7-4",
+        "lc-7-6",
+        "lc-7-8",
+        "lc-7-10",
+        "lc-7-13"
+      ]
+    },
+    {
+      "reason": "Omits the overflow check before appending a digit.",
+      "failed_cases": [
+        "lc-7-11",
+        "lc-7-12",
+        "lc-7-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4054,
+  "oracle_implementation": "code_practice/import_batch_003.py:reverse_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ad051bc94cc3f7d6b7a6daff70731f36adeec791e79781b8958b15dd0003b04b",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

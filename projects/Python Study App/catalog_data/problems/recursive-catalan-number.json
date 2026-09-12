@@ -1,0 +1,219 @@
+{
+  "id": "recursive-catalan-number",
+  "version": 1,
+  "status": "approved",
+  "title": "Recursive Catalan Number",
+  "summary": "Return the nth Catalan number using memoized recursive splits.",
+  "statement": "Return the nth Catalan number using memoized recursive splits. Implement `recursive_catalan_number` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "recursion",
+    "dynamic-programming",
+    "combinatorics"
+  ],
+  "prerequisites": [
+    "recursion"
+  ],
+  "signature": {
+    "name": "recursive_catalan_number",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def recursive_catalan_number(n: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def recursive_catalan_number(n):\n    memo = {0:1}\n    def solve(value):\n        if value not in memo: memo[value] = sum(solve(left) * solve(value-1-left) for left in range(value))\n        return memo[value]\n    return solve(n)\n",
+  "brute_force_solution": "def recursive_catalan_number(n):\n    memo = {0:1}\n    def solve(value):\n        if value not in memo: memo[value] = sum(solve(left) * solve(value-1-left) for left in range(value))\n        return memo[value]\n    return solve(n)\n",
+  "known_wrong_solutions": [
+    "def recursive_catalan_number(n):\n    return None\n",
+    "def recursive_catalan_number(n):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n²)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Every root choice splits the structure into independent left and right Catalan subproblems.",
+    "Memoize the recurrence that sums products across every split.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the recursive_catalan_number invariant is complete.",
+    "Editorial: Memoize the recurrence that sums products across every split. The intended bounds are O(n²) time and O(n) space."
+  ],
+  "editorial": "Every root choice splits the structure into independent left and right Catalan subproblems. Memoize the recurrence that sums products across every split. This yields O(n²) time and O(n) auxiliary space.",
+  "tests": [
+    {
+      "id": "recursive-catalan-number-case-1",
+      "arguments": [
+        3
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Summing the recursive left/right structure splits gives the third Catalan number, 5.",
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-2",
+      "arguments": [
+        0
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "There is one empty structure, so the zeroth Catalan number is 1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-3",
+      "arguments": [
+        0
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-4",
+      "arguments": [
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-5",
+      "arguments": [
+        2
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-6",
+      "arguments": [
+        3
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-7",
+      "arguments": [
+        4
+      ],
+      "expected": 14,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-8",
+      "arguments": [
+        6
+      ],
+      "expected": 132,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-9",
+      "arguments": [
+        8
+      ],
+      "expected": 1430,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-10",
+      "arguments": [
+        10
+      ],
+      "expected": 16796,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-11",
+      "arguments": [
+        12
+      ],
+      "expected": 208012,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-12",
+      "arguments": [
+        15
+      ],
+      "expected": 9694845,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-13",
+      "arguments": [
+        20
+      ],
+      "expected": 6564120420,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "recursive-catalan-number-case-14",
+      "arguments": [
+        25
+      ],
+      "expected": 4861946401452,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

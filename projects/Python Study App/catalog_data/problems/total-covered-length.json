@@ -1,0 +1,361 @@
+{
+  "id": "total-covered-length",
+  "version": 1,
+  "status": "approved",
+  "title": "Total Covered Length",
+  "summary": "Return the total length covered by the union of half-open intervals.",
+  "statement": "Return the total length covered by the union of half-open intervals. Implement `total_covered_length` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "intervals",
+    "sorting"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "total_covered_length",
+    "parameters": [
+      {
+        "name": "intervals",
+        "annotation": "list[list[int]]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def total_covered_length(intervals: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def total_covered_length(intervals):\n    total = 0; start = end = None\n    for left, right in sorted(intervals):\n        if start is None: start, end = left, right\n        elif left > end: total += end - start; start, end = left, right\n        else: end = max(end, right)\n    return total + (0 if start is None else end - start)\n",
+  "brute_force_solution": "def total_covered_length(intervals):\n    total = 0; start = end = None\n    for left, right in sorted(intervals):\n        if start is None: start, end = left, right\n        elif left > end: total += end - start; start, end = left, right\n        else: end = max(end, right)\n    return total + (0 if start is None else end - start)\n",
+  "known_wrong_solutions": [
+    "def total_covered_length(intervals):\n    return None\n",
+    "def total_covered_length(intervals):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n log n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 30,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Overlapping intervals contribute only their combined outer span.",
+    "Sort, extend the current union segment, and add it when a gap begins.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the total_covered_length invariant is complete.",
+    "Editorial: Sort, extend the current union segment, and add it when a gap begins. The intended bounds are O(n log n) time and O(1) space."
+  ],
+  "editorial": "Overlapping intervals contribute only their combined outer span. Sort, extend the current union segment, and add it when a gap begins. This yields O(n log n) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "total-covered-length-case-1",
+      "arguments": [
+        [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            8,
+            10
+          ]
+        ]
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The first two intervals merge to length 5 and the last adds 2, for a total of 7.",
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-2",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Touching half-open intervals cover continuously from 1 to 5, a length of 4.",
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-4",
+      "arguments": [
+        [
+          [
+            1,
+            4
+          ]
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-5",
+      "arguments": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            8,
+            10
+          ]
+        ]
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-6",
+      "arguments": [
+        [
+          [
+            5,
+            7
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-7",
+      "arguments": [
+        [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-8",
+      "arguments": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-9",
+      "arguments": [
+        [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2,
+            2
+          ]
+        ]
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-10",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-11",
+      "arguments": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            5
+          ]
+        ]
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-12",
+      "arguments": [
+        [
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-13",
+      "arguments": [
+        [
+          [
+            10,
+            20
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            4,
+            12
+          ]
+        ]
+      ],
+      "expected": 20,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "total-covered-length-case-14",
+      "arguments": [
+        [
+          [
+            1,
+            100
+          ],
+          [
+            50,
+            60
+          ],
+          [
+            101,
+            102
+          ]
+        ]
+      ],
+      "expected": 100,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

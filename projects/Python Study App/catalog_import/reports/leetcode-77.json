@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-77",
+  "content_sha256": "f78ac81c5e49bbb13b436c2d534cd5339c4bb2c44217034a3a778e8afd3d83ac",
+  "source_hash": "0634a5528c3b0b55ae79331fb6d3686b447917ad1746a77ffe41c4157bee6644",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Saves the mutable path itself, so backtracking empties all recorded combinations.",
+      "failed_cases": [
+        "lc-77-1",
+        "lc-77-2",
+        "lc-77-3",
+        "lc-77-4",
+        "lc-77-5",
+        "lc-77-6",
+        "lc-77-7",
+        "lc-77-8",
+        "lc-77-9",
+        "lc-77-10",
+        "lc-77-11",
+        "lc-77-12",
+        "lc-77-13",
+        "lc-77-14"
+      ]
+    },
+    {
+      "reason": "Prunes the last feasible choice due to an exclusive-range off-by-one.",
+      "failed_cases": [
+        "lc-77-1",
+        "lc-77-2",
+        "lc-77-3",
+        "lc-77-4",
+        "lc-77-5",
+        "lc-77-6",
+        "lc-77-7",
+        "lc-77-8",
+        "lc-77-9",
+        "lc-77-10",
+        "lc-77-11",
+        "lc-77-12",
+        "lc-77-13",
+        "lc-77-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4124,
+  "oracle_implementation": "code_practice/import_batch_005.py:combinations_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e60e88e572987315504195a15d16b4addb74d8fa193d1aff9dad1c212c0dab78",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

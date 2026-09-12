@@ -1,0 +1,379 @@
+{
+  "id": "undirected-component-count",
+  "version": 1,
+  "status": "approved",
+  "title": "Undirected Component Count",
+  "summary": "Return the number of connected components in an undirected graph.",
+  "statement": "Return the number of connected components in an undirected graph. Implement `undirected_component_count` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "graphs",
+    "depth-first-search"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "undirected_component_count",
+    "parameters": [
+      {
+        "name": "node_count",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "edges",
+        "annotation": "list[list[int]]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def undirected_component_count(node_count: int, edges: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def undirected_component_count(node_count, edges):\n    graph = [[] for _ in range(node_count)]\n    for a,b in edges: graph[a].append(b); graph[b].append(a)\n    seen = set(); components = 0\n    for start in range(node_count):\n        if start in seen: continue\n        components += 1; stack = [start]; seen.add(start)\n        while stack:\n            for neighbor in graph[stack.pop()]:\n                if neighbor not in seen: seen.add(neighbor); stack.append(neighbor)\n    return components\n",
+  "brute_force_solution": "def undirected_component_count(node_count, edges):\n    graph = [[] for _ in range(node_count)]\n    for a,b in edges: graph[a].append(b); graph[b].append(a)\n    seen = set(); components = 0\n    for start in range(node_count):\n        if start in seen: continue\n        components += 1; stack = [start]; seen.add(start)\n        while stack:\n            for neighbor in graph[stack.pop()]:\n                if neighbor not in seen: seen.add(neighbor); stack.append(neighbor)\n    return components\n",
+  "known_wrong_solutions": [
+    "def undirected_component_count(node_count, edges):\n    return None\n",
+    "def undirected_component_count(node_count, edges):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(V+E)",
+  "target_space_complexity": "O(V)",
+  "estimated_minutes": 30,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Every traversal started from an unseen node discovers exactly one component.",
+    "Scan nodes and launch DFS only from nodes not already visited.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the undirected_component_count invariant is complete.",
+    "Editorial: Scan nodes and launch DFS only from nodes not already visited. The intended bounds are O(V+E) time and O(V) space."
+  ],
+  "editorial": "Every traversal started from an unseen node discovers exactly one component. Scan nodes and launch DFS only from nodes not already visited. This yields O(V+E) time and O(V) auxiliary space.",
+  "tests": [
+    {
+      "id": "undirected-component-count-case-1",
+      "arguments": [
+        5,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The graph separates into components {0,1,2} and {3,4}.",
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-2",
+      "arguments": [
+        3,
+        []
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Without edges, each of the three nodes is its own component.",
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-3",
+      "arguments": [
+        1,
+        []
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-4",
+      "arguments": [
+        2,
+        []
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-5",
+      "arguments": [
+        2,
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-6",
+      "arguments": [
+        6,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-7",
+      "arguments": [
+        5,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-8",
+      "arguments": [
+        4,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-9",
+      "arguments": [
+        5,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-10",
+      "arguments": [
+        3,
+        [
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-11",
+      "arguments": [
+        6,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-12",
+      "arguments": [
+        4,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-13",
+      "arguments": [
+        7,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "undirected-component-count-case-14",
+      "arguments": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

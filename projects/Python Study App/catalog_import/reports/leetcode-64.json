@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-64",
+  "content_sha256": "711e30d567abf7b7527139be0aa5150180a2d6acea50604ff0bec04c51e1bbeb",
+  "source_hash": "ce247b2d976c0b92d0f00e2500b8af04311771a00ad072be23b3ab4040d32d69",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Computes the most expensive path rather than the cheapest one.",
+      "failed_cases": [
+        "lc-64-1",
+        "lc-64-2",
+        "lc-64-8",
+        "lc-64-12",
+        "lc-64-14"
+      ]
+    },
+    {
+      "reason": "Leaves the starting cell out of the path sum.",
+      "failed_cases": [
+        "lc-64-1",
+        "lc-64-2",
+        "lc-64-4",
+        "lc-64-5",
+        "lc-64-6",
+        "lc-64-8",
+        "lc-64-9",
+        "lc-64-10",
+        "lc-64-11",
+        "lc-64-13",
+        "lc-64-14",
+        "lc-64-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4111,
+  "oracle_implementation": "code_practice/import_batch_005.py:cost_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e60e88e572987315504195a15d16b4addb74d8fa193d1aff9dad1c212c0dab78",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

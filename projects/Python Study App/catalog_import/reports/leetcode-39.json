@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-39",
+  "content_sha256": "f852eeae0a6f75f3569538d38efa9c38373d595db9297c5c56d773aa7c78fa29",
+  "source_hash": "90dee52033567cf68c39f8d4d935df25ef31897f326dac2ad62f09423dbb40e6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats each candidate as single-use, dropping combinations that repeat a value.",
+      "failed_cases": [
+        "lc-39-1",
+        "lc-39-2",
+        "lc-39-6",
+        "lc-39-7",
+        "lc-39-8",
+        "lc-39-9",
+        "lc-39-12",
+        "lc-39-13"
+      ]
+    },
+    {
+      "reason": "Restarts from the first value and emits different orderings of the same combination.",
+      "failed_cases": [
+        "lc-39-1",
+        "lc-39-2",
+        "lc-39-8",
+        "lc-39-9",
+        "lc-39-13",
+        "lc-39-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4086,
+  "oracle_implementation": "code_practice/import_batch_005.py:sum_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e60e88e572987315504195a15d16b4addb74d8fa193d1aff9dad1c212c0dab78",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

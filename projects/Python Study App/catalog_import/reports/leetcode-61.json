@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-61",
+  "content_sha256": "4b53b51e88e935aa2e6a13c9746f14a98c5118541de251881cf0b169e14bcca4",
+  "source_hash": "817d4fe5952d27fa5164022f7cb16af43f368cf730882829fb7c222a3318607e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not reduce k modulo the list length.",
+      "failed_cases": [
+        "lc-61-2",
+        "lc-61-9",
+        "lc-61-12"
+      ]
+    },
+    {
+      "reason": "Returns the new tail instead of the head of the rotated chain.",
+      "failed_cases": [
+        "lc-61-1",
+        "lc-61-2",
+        "lc-61-8",
+        "lc-61-10",
+        "lc-61-11",
+        "lc-61-13",
+        "lc-61-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4108,
+  "oracle_implementation": "code_practice/import_batch_007.py:rotation_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "19d2cca0abe6676578dafd1c1051e42d4b72b5721c2b413e5b7a861c6f2a1bd0",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-154",
+  "content_sha256": "56e6ed0aec790ac632d3fc472cddbc7f9dd51aaab4e6042491a6c1a2482bc3db",
+  "source_hash": "430b10cf0b2368c77c590feb2e3a6742bfe20b7b88f14e789c56e2878a821a8a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Discards half the interval on equality even though the unseen minimum may be there.",
+      "failed_cases": [
+        "lc-154-6",
+        "lc-154-stress-2"
+      ]
+    },
+    {
+      "reason": "Checks only endpoint values and misses an interior pivot.",
+      "failed_cases": [
+        "lc-154-2",
+        "lc-154-5",
+        "lc-154-6",
+        "lc-154-7",
+        "lc-154-8",
+        "lc-154-10",
+        "lc-154-12",
+        "lc-154-13",
+        "lc-154-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4201,
+  "oracle_implementation": "code_practice/import_batch_017.py:minimum_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "94e31083621afcda52a9fc0b50ef1a39024794ddb02218c0779145ed20be70fb",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

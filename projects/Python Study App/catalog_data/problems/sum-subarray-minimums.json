@@ -1,0 +1,282 @@
+{
+  "id": "sum-subarray-minimums",
+  "version": 1,
+  "status": "approved",
+  "title": "Sum of Subarray Minimums",
+  "summary": "Return the sum of every contiguous subarray minimum.",
+  "statement": "Return the sum of every contiguous subarray minimum. Implement `sum_subarray_minimums` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "stacks",
+    "dynamic-programming"
+  ],
+  "prerequisites": [
+    "stacks"
+  ],
+  "signature": {
+    "name": "sum_subarray_minimums",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def sum_subarray_minimums(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def sum_subarray_minimums(nums):\n    stack = []; total = ending = 0\n    for value in nums:\n        count = 1\n        while stack and stack[-1][0] >= value:\n            old, old_count = stack.pop(); count += old_count; ending -= old * old_count\n        stack.append((value,count)); ending += value * count; total += ending\n    return total\n",
+  "brute_force_solution": "def sum_subarray_minimums(nums):\n    stack = []; total = ending = 0\n    for value in nums:\n        count = 1\n        while stack and stack[-1][0] >= value:\n            old, old_count = stack.pop(); count += old_count; ending -= old * old_count\n        stack.append((value,count)); ending += value * count; total += ending\n    return total\n",
+  "known_wrong_solutions": [
+    "def sum_subarray_minimums(nums):\n    return None\n",
+    "def sum_subarray_minimums(nums):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Count how many subarrays ending here choose each stack value as their minimum.",
+    "Merge dominated minima and maintain the sum for all subarrays ending at the current position.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the sum_subarray_minimums invariant is complete.",
+    "Editorial: Merge dominated minima and maintain the sum for all subarrays ending at the current position. The intended bounds are O(n) time and O(n) space."
+  ],
+  "editorial": "Count how many subarrays ending here choose each stack value as their minimum. Merge dominated minima and maintain the sum for all subarrays ending at the current position. This yields O(n) time and O(n) auxiliary space.",
+  "tests": [
+    {
+      "id": "sum-subarray-minimums-case-1",
+      "arguments": [
+        [
+          3,
+          1,
+          2,
+          4
+        ]
+      ],
+      "expected": 17,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Adding the minimum value from each of the ten contiguous subarrays gives 17.",
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-2",
+      "arguments": [
+        [
+          11
+        ]
+      ],
+      "expected": 11,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "A one-value list has one subarray whose minimum is 11.",
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-4",
+      "arguments": [
+        [
+          5
+        ]
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-5",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-6",
+      "arguments": [
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-7",
+      "arguments": [
+        [
+          2,
+          1,
+          5,
+          6,
+          2,
+          3
+        ]
+      ],
+      "expected": 43,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-8",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-9",
+      "arguments": [
+        [
+          4,
+          2,
+          0,
+          3,
+          2,
+          5
+        ]
+      ],
+      "expected": 24,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-10",
+      "arguments": [
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 13,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-11",
+      "arguments": [
+        [
+          6,
+          2,
+          5,
+          4,
+          5,
+          1,
+          6
+        ]
+      ],
+      "expected": 66,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-12",
+      "arguments": [
+        [
+          10,
+          1,
+          10
+        ]
+      ],
+      "expected": 24,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-13",
+      "arguments": [
+        [
+          1,
+          3,
+          2,
+          4
+        ]
+      ],
+      "expected": 19,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "sum-subarray-minimums-case-14",
+      "arguments": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1,
+          6
+        ]
+      ],
+      "expected": 46,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

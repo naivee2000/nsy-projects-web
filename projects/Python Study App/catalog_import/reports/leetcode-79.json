@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-79",
+  "content_sha256": "8a393b63af78b6c7bef0311593ddbbc3731bc6c282de6d96bf609977d548f5a2",
+  "source_hash": "343fd71232c03da54f142532962c5a1ea35d35fd52b3d517565109d6a486bc64",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reuses a cell already on the current path.",
+      "failed_cases": [
+        "lc-79-2",
+        "lc-79-10"
+      ]
+    },
+    {
+      "reason": "Searches only down/right and misses paths that turn up/left.",
+      "failed_cases": [
+        "lc-79-1",
+        "lc-79-6",
+        "lc-79-8",
+        "lc-79-9",
+        "lc-79-12",
+        "lc-79-13",
+        "lc-79-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4126,
+  "oracle_implementation": "code_practice/import_batch_001.py:word_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "9ebcbf6d44908574cb49dbc88d3e8dba38cfc62e28117fd6f5da30bcc5ab1344",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.079,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

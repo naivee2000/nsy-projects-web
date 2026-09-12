@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-69",
+  "content_sha256": "f4f0c620e6b8ceb9676973aef9bdab093f406c1aae398cce95e29af5c58a541e",
+  "source_hash": "a1161333b22d2564443f697e130210ac6f76dd2c7e004fd5ee28fe1849ec9b36",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the first infeasible integer instead of the largest feasible one.",
+      "failed_cases": [
+        "lc-69-1",
+        "lc-69-2",
+        "lc-69-3",
+        "lc-69-4",
+        "lc-69-5",
+        "lc-69-6",
+        "lc-69-7",
+        "lc-69-8",
+        "lc-69-9",
+        "lc-69-10",
+        "lc-69-11",
+        "lc-69-12",
+        "lc-69-13",
+        "lc-69-14"
+      ]
+    },
+    {
+      "reason": "Treats exact perfect squares as too large.",
+      "failed_cases": [
+        "lc-69-1",
+        "lc-69-4",
+        "lc-69-7",
+        "lc-69-8",
+        "lc-69-10",
+        "lc-69-11",
+        "lc-69-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4116,
+  "oracle_implementation": "code_practice/import_batch_003.py:sqrt_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ad051bc94cc3f7d6b7a6daff70731f36adeec791e79781b8958b15dd0003b04b",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

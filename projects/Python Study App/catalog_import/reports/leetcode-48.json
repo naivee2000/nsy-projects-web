@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-48",
+  "content_sha256": "36019209099a9b714ee34e8a3fb4b25bb2c98547bb133e7ae107f2bc1c20f5ea",
+  "source_hash": "dac378a473783f356fa1c30e413caf632f42c7ebf2b8879e095fa3ed67eb6215",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Transposes but omits the horizontal reflection needed for clockwise rotation.",
+      "failed_cases": [
+        "lc-48-1",
+        "lc-48-2",
+        "lc-48-6",
+        "lc-48-7",
+        "lc-48-8",
+        "lc-48-9",
+        "lc-48-10",
+        "lc-48-13",
+        "lc-48-14"
+      ]
+    },
+    {
+      "reason": "Returns a rotated copy while leaving the input image unchanged.",
+      "failed_cases": [
+        "lc-48-1",
+        "lc-48-2",
+        "lc-48-6",
+        "lc-48-7",
+        "lc-48-8",
+        "lc-48-9",
+        "lc-48-10",
+        "lc-48-13",
+        "lc-48-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4095,
+  "oracle_implementation": "code_practice/import_batch_011.py:rotate_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "4e2e8efeead5101462f62113c0180ce2770b7f06f1920347a675087e85dd6764",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

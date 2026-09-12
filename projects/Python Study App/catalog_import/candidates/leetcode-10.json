@@ -1,0 +1,241 @@
+{
+  "id": "leetcode-10",
+  "version": 1,
+  "status": "approved",
+  "title": "Regular Expression Matching",
+  "summary": "Given an input string and a pattern, implement matching for regular expressions that include '.' and '*', where '.' matches any single character and '*' matches zero or more of the preceding character.",
+  "statement": "Given an input string and a pattern, implement matching for regular expressions that include '.' and '*', where '.' matches any single character and '*' matches zero or more of the preceding character. Return true if the pattern matches the entire string.",
+  "constraints": [
+    "s and p each have length 1–20. s contains lowercase English letters.",
+    "p contains lowercase letters, '.' (one arbitrary character), and '*' (zero or more of the preceding atom).",
+    "Every star follows a valid non-star atom. Match the entire string, not a substring."
+  ],
+  "topics": [
+    "strings",
+    "dynamic-programming",
+    "recursion"
+  ],
+  "prerequisites": [
+    "strings",
+    "dynamic-programming"
+  ],
+  "signature": {
+    "name": "regex_match",
+    "parameters": [
+      {
+        "name": "s",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "p",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def regex_match(s: str, p: str) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def regex_match(s, p):\n    previous = [False] * (len(p) + 1)\n    previous[0] = True\n    for j in range(2, len(p) + 1):\n        if p[j - 1] == \"*\":\n            previous[j] = previous[j - 2]\n    for char in s:\n        current = [False] * (len(p) + 1)\n        for j in range(1, len(p) + 1):\n            if p[j - 1] == \"*\":\n                matches = p[j - 2] == \".\" or p[j - 2] == char\n                current[j] = current[j - 2] or (matches and previous[j])\n            else:\n                matches = p[j - 1] == \".\" or p[j - 1] == char\n                current[j] = matches and previous[j - 1]\n        previous = current\n    return previous[-1]\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def regex_match(s, p):\n    previous = [False] * (len(p) + 1)\n    previous[0] = True\n    for j in range(2, len(p) + 1):\n        if p[j - 1] == \"*\":\n            previous[j] = previous[j - 2]\n    for char in s:\n        current = [False] * (len(p) + 1)\n        for j in range(1, len(p) + 1):\n            if p[j - 1] == \"*\":\n                matches = p[j - 2] == \".\" or p[j - 2] == char\n                current[j] = matches and previous[j]\n            else:\n                matches = p[j - 1] == \".\" or p[j - 1] == char\n                current[j] = matches and previous[j - 1]\n        previous = current\n    return previous[-1]\n",
+    "def regex_match(s, p):\n    previous = [False] * (len(p) + 1)\n    previous[0] = True\n    for j in range(2, len(p) + 1):\n        if p[j - 1] == \"*\":\n            previous[j] = previous[j - 2]\n    for char in s:\n        current = [False] * (len(p) + 1)\n        for j in range(1, len(p) + 1):\n            if p[j - 1] == \"*\":\n                matches = p[j - 2] == char\n                current[j] = current[j - 2] or (matches and previous[j])\n            else:\n                matches = p[j - 1] == char\n                current[j] = matches and previous[j - 1]\n        previous = current\n    return previous[-1]\n"
+  ],
+  "target_time_complexity": "O(|s| × |p|)",
+  "target_space_complexity": "O(|p|)",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "A star belongs to the atom before it; this differs from an independent wildcard star.",
+    "Define whether each text prefix matches each pattern prefix.",
+    "For x*, either skip both pattern characters or consume a matching text character while retaining x*. An ordinary atom consumes one from both sides.",
+    "Initialize empty-text matches through chains of starred atoms, then return the full-prefix state."
+  ],
+  "editorial": "Use prefix DP. An ordinary letter or dot needs the preceding text/pattern prefixes to match and then consumes one character. A starred atom has two choices: zero repetitions drops that atom and its star, while another matching repetition consumes a text character without advancing the pattern. Only the previous text row and the current row are needed. This avoids exponential recursive re-exploration; memoized recursion is an equivalent formulation. The independent oracle uses Python's full-match regex engine on exactly this restricted grammar.",
+  "tests": [
+    {
+      "id": "lc-10-1",
+      "arguments": [
+        "aa",
+        "a"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The pattern consumes only one a, so it does not cover the entire two-character input.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-2",
+      "arguments": [
+        "aab",
+        "c*a*b"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Use zero copies of c, two copies of a, then b; the full string matches.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-3",
+      "arguments": [
+        "a",
+        "a"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-4",
+      "arguments": [
+        "a",
+        "b"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-5",
+      "arguments": [
+        "a",
+        "."
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-6",
+      "arguments": [
+        "aa",
+        "a*"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-7",
+      "arguments": [
+        "ab",
+        ".*"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-8",
+      "arguments": [
+        "ab",
+        ".*c"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-9",
+      "arguments": [
+        "ab",
+        "ac*b"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-10",
+      "arguments": [
+        "aaa",
+        "a*a"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-11",
+      "arguments": [
+        "mississippi",
+        "mis*is*p*."
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-12",
+      "arguments": [
+        "b",
+        "a*b"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-13",
+      "arguments": [
+        "a",
+        "ab*"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-10-14",
+      "arguments": [
+        "abc",
+        "a.c"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

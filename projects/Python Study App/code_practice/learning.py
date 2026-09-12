@@ -155,27 +155,32 @@ def prioritized_review_problems(
     now: datetime | None = None,
     limit: int = 5,
 ) -> list[ProblemDefinition]:
-    """Return a stable daily review order with difficult/struggling work first."""
+    """Return a stable review order that balances focus and broader practice."""
     now = now or datetime.now(timezone.utc)
-    attempt_list = list(attempts)
+    histories: dict[str, list[Attempt]] = defaultdict(list)
+    for attempt in attempts:
+        histories[attempt.problem_id].append(attempt)
     states = {review.problem_id: review for review in reviews}
     candidates = [catalog[problem_id] for problem_id in solved_ids if problem_id in catalog]
     ranked = sorted(
         candidates,
         key=lambda problem: (
-            -review_priority_score(problem, attempt_list, states.get(problem.id), now),
+            -review_priority_score(problem, histories[problem.id], states.get(problem.id), now),
             -problem.difficulty,
             problem.id,
         ),
     )
-    # Reserve most of a full review set for medium/advanced work when enough has
-    # been completed. Within those slots, lead with recursive matrix/field work,
-    # then the owner's other weak topics. The final slot can reinforce an Easy
-    # focus problem without making the whole review set too easy.
-    challenging = [problem for problem in ranked if problem.difficulty >= 4]
-    challenging_focus = [problem for problem in challenging if review_focus_boost(problem) > 0]
+    # A full five-problem review set uses at most three focus slots. The other
+    # two slots come from completed problems outside the owner's weak-topic tags
+    # whenever those problems are available. This keeps recursion/grid, linked-
+    # list, and binary-search practice prominent without crowding out everything
+    # else. Smaller limits retain up to three focus slots before general review.
+    focus = [problem for problem in ranked if review_focus_boost(problem) > 0]
+    general = [problem for problem in ranked if review_focus_boost(problem) == 0]
+    challenging_focus = [problem for problem in focus if problem.difficulty >= 4]
+    challenging_general = [problem for problem in general if problem.difficulty >= 4]
     grid_focus = [problem for problem in challenging_focus if is_grid_recursion_problem(problem)]
-    all_focus = [problem for problem in ranked if review_focus_boost(problem) > 0]
+    focus_limit = min(3, limit)
 
     selected: list[ProblemDefinition] = []
     selected_ids: set[str] = set()
@@ -188,15 +193,19 @@ def prioritized_review_problems(
     if grid_focus:
         add(grid_focus[0])
     for problem in challenging_focus:
-        if len(selected) >= min(3, limit):
+        if len(selected) >= focus_limit:
             break
         add(problem)
-    for problem in challenging:
-        if len(selected) >= min(4, limit):
+    for problem in focus:
+        if len(selected) >= focus_limit:
             break
         add(problem)
-    for problem in all_focus:
+    for problem in challenging_general:
         add(problem)
+    for problem in general:
+        add(problem)
+    # If either pool is too small, fill unused slots with the best remaining
+    # review candidates instead of returning a short assignment.
     for problem in ranked:
         add(problem)
     return selected[:limit]

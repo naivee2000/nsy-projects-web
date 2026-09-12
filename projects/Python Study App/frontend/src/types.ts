@@ -10,17 +10,27 @@ export type ProblemSummary = {
   solved: boolean;
 };
 
+export type ProblemPage = {
+  items: ProblemSummary[];
+  total: number;
+  catalogTotal: number;
+  page: number;
+  pageSize: number;
+  topics: string[];
+};
+
 export type TestCase = {
   id: string;
   arguments: unknown[];
   expected: unknown;
-  comparator: "exact" | "float" | "unordered" | "unordered_nested";
+  comparator: "exact" | "float" | "unordered" | "unordered_nested" | "balanced_bst";
   visible: boolean;
   explanation?: string;
+  expected_node_order?: number[] | null;
 };
 
-export type Parameter = { name: string; annotation: string; adapter: "raw" | "listnode" | "treenode" };
-export type Signature = { name: string; parameters: Parameter[]; returns: string; return_adapter: string };
+export type Parameter = { name: string; annotation: string; adapter: "raw" | "listnode" | "treenode" | "treenode_ref"; source_parameter?: number | null };
+export type Signature = { name: string; parameters: Parameter[]; returns: string; return_adapter: string; node_policy?: "values" | "reuse_input_nodes" | "return_input_node"; result_mode?: "return" | "mutated_argument" | "returned_prefix"; mutated_parameter?: number | null };
 
 export type Problem = {
   id: string;

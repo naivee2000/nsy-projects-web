@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-161",
+  "content_sha256": "c1cbd480427195b750fefe1b11b537b47a57d4dfacc7b8a5d72bf885cc3e8957",
+  "source_hash": "e85ec57d81a8639a9498fd038290b27dc9cecd2f555c7816437af91fc8c877d6",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts identical strings as at most one edit instead of requiring exactly one.",
+      "failed_cases": [
+        "lc-161-2",
+        "lc-161-5",
+        "lc-161-7",
+        "lc-161-stress-2"
+      ]
+    },
+    {
+      "reason": "Compares aligned positions without shifting after an insertion or deletion.",
+      "failed_cases": [
+        "lc-161-1",
+        "lc-161-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4208,
+  "oracle_implementation": "code_practice/import_batch_017.py:one_edit_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "94e31083621afcda52a9fc0b50ef1a39024794ddb02218c0779145ed20be70fb",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

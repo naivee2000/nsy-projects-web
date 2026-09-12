@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-101",
+  "content_sha256": "bf17251b21397c9eee1042afed84282e80b0289e045e32155adf2cfbca34f868",
+  "source_hash": "d8b58ee06e1bcc2067d16392cbe8c48b66f026c8152a8c1f790cc9362859a145",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks mirrored shape but ignores values.",
+      "failed_cases": [
+        "lc-101-7",
+        "lc-101-12",
+        "lc-101-13"
+      ]
+    },
+    {
+      "reason": "Compares the same child directions rather than mirror directions.",
+      "failed_cases": [
+        "lc-101-1",
+        "lc-101-2",
+        "lc-101-8",
+        "lc-101-9",
+        "lc-101-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4148,
+  "oracle_implementation": "code_practice/import_batch_002.py:symmetric_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "82407c90c77e143e86e918fb1cf5273ab5afdb0d0b40c5dd7649a50a7ca5d4d8",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

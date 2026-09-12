@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-10",
+  "content_sha256": "078ad1a3809dfaac53e77dab0fc47805d376484b8557b0d72d06e7294a626770",
+  "source_hash": "0c0d0bd98cc74d5e3ac830865866d9191ac561c2d260df895dcf97618f696561",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires a starred atom to consume something, missing zero-repetition matches.",
+      "failed_cases": [
+        "lc-10-9",
+        "lc-10-13"
+      ]
+    },
+    {
+      "reason": "Treats dot as a literal rather than as a one-character wildcard.",
+      "failed_cases": [
+        "lc-10-5",
+        "lc-10-7",
+        "lc-10-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4057,
+  "oracle_implementation": "code_practice/import_batch_006.py:regex_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "73144a3f21fef5c0cca0a56f5bc38302d7a76b18dc1dde66101dacb6bd4765a1",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

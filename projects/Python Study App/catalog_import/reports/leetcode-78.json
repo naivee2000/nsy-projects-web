@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-78",
+  "content_sha256": "7dc292cf6dd3f89a195dfe674f19710af413675fe45b9cb18850e4dfdf68dd1f",
+  "source_hash": "283277482dc3cfc6e976e458890a287ef1d83e1cb55d4480e83cae0704ce643e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops the empty subset.",
+      "failed_cases": [
+        "lc-78-1",
+        "lc-78-2",
+        "lc-78-3",
+        "lc-78-4",
+        "lc-78-5",
+        "lc-78-6",
+        "lc-78-7",
+        "lc-78-8",
+        "lc-78-9",
+        "lc-78-10",
+        "lc-78-11",
+        "lc-78-12",
+        "lc-78-13",
+        "lc-78-14"
+      ]
+    },
+    {
+      "reason": "Stores a shared mutable path that is later emptied during backtracking.",
+      "failed_cases": [
+        "lc-78-1",
+        "lc-78-2",
+        "lc-78-3",
+        "lc-78-4",
+        "lc-78-5",
+        "lc-78-6",
+        "lc-78-7",
+        "lc-78-8",
+        "lc-78-9",
+        "lc-78-10",
+        "lc-78-11",
+        "lc-78-12",
+        "lc-78-13",
+        "lc-78-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4125,
+  "oracle_implementation": "code_practice/import_batch_005.py:subsets_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e60e88e572987315504195a15d16b4addb74d8fa193d1aff9dad1c212c0dab78",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.165,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

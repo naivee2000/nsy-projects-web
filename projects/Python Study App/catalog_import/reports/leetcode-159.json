@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-159",
+  "content_sha256": "0099b9b4bbc87558463b09baa37c6e7e968d90748751b73b2417ea950d58ec37",
+  "source_hash": "d73c710f4c284283b533f91585e52b5b215ccf3bda7a58bb695515e5eb3ba13e",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Permits three distinct characters instead of two.",
+      "failed_cases": [
+        "lc-159-1",
+        "lc-159-2",
+        "lc-159-6",
+        "lc-159-8",
+        "lc-159-9",
+        "lc-159-10",
+        "lc-159-12",
+        "lc-159-13",
+        "lc-159-14"
+      ]
+    },
+    {
+      "reason": "Solves the no-repeated-characters problem and incorrectly rejects repeated letters in a valid two-character window.",
+      "failed_cases": [
+        "lc-159-1",
+        "lc-159-2",
+        "lc-159-4",
+        "lc-159-6",
+        "lc-159-7",
+        "lc-159-9",
+        "lc-159-10",
+        "lc-159-11",
+        "lc-159-12",
+        "lc-159-13",
+        "lc-159-14",
+        "lc-159-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4206,
+  "oracle_implementation": "code_practice/import_batch_017.py:two_char_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "94e31083621afcda52a9fc0b50ef1a39024794ddb02218c0779145ed20be70fb",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.071,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

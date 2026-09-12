@@ -1,0 +1,279 @@
+{
+  "id": "increasing-triplet-exists",
+  "version": 1,
+  "status": "approved",
+  "title": "Increasing Triplet Exists",
+  "summary": "Return whether three indices form a strictly increasing subsequence.",
+  "statement": "Return whether three indices form a strictly increasing subsequence. Implement `increasing_triplet_exists` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "greedy",
+    "arrays"
+  ],
+  "prerequisites": [
+    "greedy"
+  ],
+  "signature": {
+    "name": "increasing_triplet_exists",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def increasing_triplet_exists(nums: list[int]) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def increasing_triplet_exists(nums):\n    first = second = float('inf')\n    for value in nums:\n        if value <= first: first = value\n        elif value <= second: second = value\n        else: return True\n    return False\n",
+  "brute_force_solution": "def increasing_triplet_exists(nums):\n    first = second = float('inf')\n    for value in nums:\n        if value <= first: first = value\n        elif value <= second: second = value\n        else: return True\n    return False\n",
+  "known_wrong_solutions": [
+    "def increasing_triplet_exists(nums):\n    return None\n",
+    "def increasing_triplet_exists(nums):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "The smallest first and second values maximize the chance of a later third.",
+    "Greedily lower the first two thresholds and succeed when a value exceeds both.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the increasing_triplet_exists invariant is complete.",
+    "Editorial: Greedily lower the first two thresholds and succeed when a value exceeds both. The intended bounds are O(n) time and O(1) space."
+  ],
+  "editorial": "The smallest first and second values maximize the chance of a later third. Greedily lower the first two thresholds and succeed when a value exceeds both. This yields O(n) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "increasing-triplet-exists-case-1",
+      "arguments": [
+        [
+          2,
+          1,
+          5,
+          0,
+          4,
+          6
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The values 0, 4, and 6 occur in increasing index and value order.",
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-2",
+      "arguments": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "No later value exceeds an earlier pair, so no increasing triplet exists.",
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-4",
+      "arguments": [
+        [
+          7
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-5",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-6",
+      "arguments": [
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-7",
+      "arguments": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-8",
+      "arguments": [
+        [
+          -3,
+          -1,
+          -2
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-9",
+      "arguments": [
+        [
+          1,
+          3,
+          3,
+          2
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-10",
+      "arguments": [
+        [
+          5,
+          1,
+          5,
+          1
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-11",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-12",
+      "arguments": [
+        [
+          10,
+          -10,
+          10
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-13",
+      "arguments": [
+        [
+          1,
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "increasing-triplet-exists-case-14",
+      "arguments": [
+        [
+          9,
+          7,
+          5,
+          3,
+          1
+        ]
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

@@ -1,0 +1,227 @@
+{
+  "id": "leetcode-171",
+  "version": 1,
+  "status": "approved",
+  "title": "Excel Sheet Column Number",
+  "summary": "Given a string columnTitle representing an Excel sheet column title, return the corresponding column number.",
+  "statement": "Given a string columnTitle representing an Excel sheet column title, return the corresponding column number. For example, A=1, B=2, ..., Z=26, AA=27, AB=28.",
+  "constraints": [
+    "The label contains 1–7 uppercase English letters and represents a column from 1 through 2^31 - 1 (A through FXSHRXW in column order).",
+    "A=1, …, Z=26. Each additional letter shifts previous positions by a factor of 26; this is not a sum of letter values."
+  ],
+  "topics": [
+    "math",
+    "strings"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "column_number",
+    "parameters": [
+      {
+        "name": "column_title",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def column_number(column_title: str) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def column_number(column_title):\n    result = 0\n    for char in column_title:\n        result = result * 26 + ord(char) - 64\n    return result\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def column_number(column_title):\n    result = 0\n    for char in column_title:\n        result = result * 26 + ord(char) - 65\n    return result\n",
+    "def column_number(column_title):\n    result = 0\n    for char in column_title:\n        result = result + ord(char) - 64\n    return result\n"
+  ],
+  "target_time_complexity": "O(len(column_title))",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A letter's contribution depends on its position in the label.",
+    "Read from left to right; each new letter multiplies the previous value by 26.",
+    "Start at zero and update value = value×26 + (letter-'A'+1) for every letter.",
+    "AZ is 1×26+26=52, whereas ZA is 26×26+1=677."
+  ],
+  "editorial": "The running value represents the entire prefix already read. Appending a letter shifts that prefix one position and adds the new one-based digit. The oracle independently sums explicit powers of 26 from right to left. Boundary cases distinguish one- and multi-letter labels, and the maximum label maps exactly to 2147483647, safely representable by the browser's JSON number format.",
+  "tests": [
+    {
+      "id": "lc-171-1",
+      "arguments": [
+        "A"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "A is the first column, so its number is 1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-2",
+      "arguments": [
+        "AB"
+      ],
+      "expected": 28,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "A occupies the 26s position: 1×26 + 2 = 28.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-3",
+      "arguments": [
+        "B"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-4",
+      "arguments": [
+        "Y"
+      ],
+      "expected": 25,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-5",
+      "arguments": [
+        "Z"
+      ],
+      "expected": 26,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-6",
+      "arguments": [
+        "AA"
+      ],
+      "expected": 27,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-7",
+      "arguments": [
+        "AZ"
+      ],
+      "expected": 52,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-8",
+      "arguments": [
+        "BA"
+      ],
+      "expected": 53,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-9",
+      "arguments": [
+        "YZ"
+      ],
+      "expected": 676,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-10",
+      "arguments": [
+        "ZY"
+      ],
+      "expected": 701,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-11",
+      "arguments": [
+        "ZZ"
+      ],
+      "expected": 702,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-12",
+      "arguments": [
+        "AAA"
+      ],
+      "expected": 703,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-13",
+      "arguments": [
+        "ZZZ"
+      ],
+      "expected": 18278,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-14",
+      "arguments": [
+        "AAAA"
+      ],
+      "expected": 18279,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-171-stress-1",
+      "arguments": [
+        "FXSHRXW"
+      ],
+      "expected": 2147483647,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

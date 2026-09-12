@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-137",
+  "content_sha256": "933b37e83aa2ca3ceeaa4760bf707ea6a94589e1ff38670a735224ae2596a0a7",
+  "source_hash": "1c81e4812a641c801ef0a8333ac4b6dc64ced518d6537f6fd9174fe048a916b5",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses pair-canceling XOR even though repeated values occur three times.",
+      "failed_cases": [
+        "lc-137-1",
+        "lc-137-2",
+        "lc-137-7",
+        "lc-137-8",
+        "lc-137-10",
+        "lc-137-11",
+        "lc-137-12",
+        "lc-137-13",
+        "lc-137-14",
+        "lc-137-stress-1"
+      ]
+    },
+    {
+      "reason": "Returns an unsigned bit pattern for a negative singleton.",
+      "failed_cases": [
+        "lc-137-4",
+        "lc-137-6",
+        "lc-137-7",
+        "lc-137-9",
+        "lc-137-11",
+        "lc-137-13",
+        "lc-137-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4184,
+  "oracle_implementation": "code_practice/import_batch_013.py:single_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ac230eb0ea6b273f668abd7eb941afdc772f6cbc47f247bfa48e4819cf09f099",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

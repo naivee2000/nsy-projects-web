@@ -1,0 +1,276 @@
+{
+  "id": "linked-middle-value",
+  "version": 1,
+  "status": "approved",
+  "title": "Linked Middle Value",
+  "summary": "Return the second middle value for even length, or None for an empty list.",
+  "statement": "Return the second middle value for even length, or None for an empty list. Implement `linked_middle_value` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "linked-lists",
+    "two-pointers"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "linked_middle_value",
+    "parameters": [
+      {
+        "name": "head",
+        "annotation": "ListNode | None",
+        "adapter": "listnode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int | None",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef linked_middle_value(head: ListNode | None) -> int | None:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def linked_middle_value(head):\n    slow = fast = head\n    while fast and fast.next: slow = slow.next; fast = fast.next.next\n    return None if slow is None else slow.val\n",
+  "brute_force_solution": "def linked_middle_value(head):\n    slow = fast = head\n    while fast and fast.next: slow = slow.next; fast = fast.next.next\n    return None if slow is None else slow.val\n",
+  "known_wrong_solutions": [
+    "def linked_middle_value(head):\n    return None\n",
+    "def linked_middle_value(head):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 25,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A pointer moving twice as fast makes the slow pointer stop in the middle.",
+    "Advance slow once and fast twice until fast reaches the end.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the linked_middle_value invariant is complete.",
+    "Editorial: Advance slow once and fast twice until fast reaches the end. The intended bounds are O(n) time and O(1) space."
+  ],
+  "editorial": "A pointer moving twice as fast makes the slow pointer stop in the middle. Advance slow once and fast twice until fast reaches the end. This yields O(n) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "linked-middle-value-case-1",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "For even length, return the second middle value, 3.",
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-2",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "For odd length, the single middle value is 3.",
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": null,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-4",
+      "arguments": [
+        [
+          7
+        ]
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-5",
+      "arguments": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-6",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-7",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-8",
+      "arguments": [
+        [
+          0,
+          -1,
+          0
+        ]
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-9",
+      "arguments": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-10",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-11",
+      "arguments": [
+        [
+          9,
+          8,
+          7,
+          6,
+          5
+        ]
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-12",
+      "arguments": [
+        [
+          1,
+          -1,
+          2,
+          -2
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-13",
+      "arguments": [
+        [
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "linked-middle-value-case-14",
+      "arguments": [
+        [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ]
+      ],
+      "expected": 40,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

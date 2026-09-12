@@ -1,0 +1,23 @@
+{
+  "valid": true,
+  "source_id": 153,
+  "source_hash": "303783978ed5c7971d71a670f071a9b27942bd786348537483f278c58073874a",
+  "target_problem_id": "leetcode-154",
+  "target_source_hash": "430b10cf0b2368c77c590feb2e3a6742bfe20b7b88f14e789c56e2878a821a8a",
+  "target_content_sha256": "56e6ed0aec790ac632d3fc472cddbc7f9dd51aaab4e6042491a6c1a2482bc3db",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "implementation_sha256": "bd08a090df4bda193135dc23dd7b2e60387f6b925e7c2165b2b62446e4149d6c",
+  "decision": {
+    "target_source_id": 154,
+    "source_hash": "303783978ed5c7971d71a670f071a9b27942bd786348537483f278c58073874a",
+    "reason": "Same rotated-array minimum value and input signature. The approved duplicate-aware contract also accepts every unique rotated array; its reference uses logarithmic element reads when values are unique. No duplicate exercise or progress ID is created."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 4200,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 3,
+  "largest_input": 5000,
+  "largest_element_reads": 53,
+  "read_bound": "4*ceil(log2(n))+1 indexed/iterated element reads; no slices",
+  "complexity_scope": "Read bound is executable evidence; inspected reference halves the interval on every unique-value iteration."
+}

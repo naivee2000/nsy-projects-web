@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-11",
+  "content_sha256": "9a729c2b541edb3f643402e7033ccc3fa84f71bcd72b7a198c97ad2b9221e20f",
+  "source_hash": "2992bb402a3ab1cb9a7ef3f4fb7f6b8bd530756ec3f17e87b9f9a9fdcfd84c53",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the taller line instead of the limiting shorter line.",
+      "failed_cases": [
+        "lc-11-1",
+        "lc-11-4",
+        "lc-11-5",
+        "lc-11-6",
+        "lc-11-7",
+        "lc-11-9",
+        "lc-11-10",
+        "lc-11-12",
+        "lc-11-13"
+      ]
+    },
+    {
+      "reason": "Moves the taller boundary and discards potentially optimal pairs.",
+      "failed_cases": [
+        "lc-11-1",
+        "lc-11-9",
+        "lc-11-10",
+        "lc-11-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4058,
+  "oracle_implementation": "code_practice/import_batch_001.py:water_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "9ebcbf6d44908574cb49dbc88d3e8dba38cfc62e28117fd6f5da30bcc5ab1344",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

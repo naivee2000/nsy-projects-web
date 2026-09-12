@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-245",
+  "content_sha256": "bcc134dce47696f6cf68ef1d0c42d806b87d072a6f89747030710885c7ee06d5",
+  "source_hash": "569b8c1ef4cd22177b1a5bb5a5ceb905c97ab69b6e758d97bf226f6a216ed251",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the distinct-target algorithm, which pairs an occurrence with itself when both target strings are equal.",
+      "failed_cases": [
+        "lc-245-2",
+        "lc-245-3",
+        "lc-245-4",
+        "lc-245-5",
+        "lc-245-10",
+        "lc-245-11",
+        "lc-245-13",
+        "lc-245-stress-1"
+      ]
+    },
+    {
+      "reason": "For equal targets, discards each previous occurrence and never measures the gap between consecutive occurrences.",
+      "failed_cases": [
+        "lc-245-2",
+        "lc-245-3",
+        "lc-245-4",
+        "lc-245-5",
+        "lc-245-10",
+        "lc-245-11",
+        "lc-245-13",
+        "lc-245-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4292,
+  "oracle_implementation": "code_practice/import_batch_023.py:word_distance_three_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "85a252842fd001bdafb1239e0d3a9815a3ade559792417447a2ddde084eeb1ff",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.096,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

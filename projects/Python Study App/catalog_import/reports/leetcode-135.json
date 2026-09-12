@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-135",
+  "content_sha256": "d2d9c835cb06d33597d6c864f70b897728f3d5dd7837581c8128c364dc886c8f",
+  "source_hash": "5da55436f0a4a44826a20e5ec70daacf46b2364c573fd0eebb1df328010b188d",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Enforces only the left-neighbor requirement and misses descending runs.",
+      "failed_cases": [
+        "lc-135-1",
+        "lc-135-7",
+        "lc-135-9",
+        "lc-135-10",
+        "lc-135-12",
+        "lc-135-13"
+      ]
+    },
+    {
+      "reason": "Requires extra candies for equal ratings, overestimating the minimum.",
+      "failed_cases": [
+        "lc-135-2",
+        "lc-135-5",
+        "lc-135-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4182,
+  "oracle_implementation": "code_practice/import_batch_010.py:candy_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e46a1138793a580d0aedc6770704b6b92bd9dcdfb5699095d86cfe8328adcb46",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

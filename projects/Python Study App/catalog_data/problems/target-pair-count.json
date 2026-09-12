@@ -1,0 +1,292 @@
+{
+  "id": "target-pair-count",
+  "version": 1,
+  "status": "approved",
+  "title": "Target Pair Count",
+  "summary": "Count index pairs i < j whose values sum to target.",
+  "statement": "Count index pairs i < j whose values sum to target. Implement `target_pair_count` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "hash-maps",
+    "arrays"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "target_pair_count",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "target",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def target_pair_count(nums: list[int], target: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def target_pair_count(nums, target):\n    from collections import defaultdict\n    counts = defaultdict(int); answer = 0\n    for value in nums: answer += counts[target-value]; counts[value] += 1\n    return answer\n",
+  "brute_force_solution": "def target_pair_count(nums, target):\n    from collections import defaultdict\n    counts = defaultdict(int); answer = 0\n    for value in nums: answer += counts[target-value]; counts[value] += 1\n    return answer\n",
+  "known_wrong_solutions": [
+    "def target_pair_count(nums, target):\n    return None\n",
+    "def target_pair_count(nums, target):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 30,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Every previous complement forms one pair with the current value.",
+    "Add the stored complement frequency before storing the current value.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the target_pair_count invariant is complete.",
+    "Editorial: Add the stored complement frequency before storing the current value. The intended bounds are O(n) time and O(n) space."
+  ],
+  "editorial": "Every previous complement forms one pair with the current value. Add the stored complement frequency before storing the current value. This yields O(n) time and O(n) auxiliary space.",
+  "tests": [
+    {
+      "id": "target-pair-count-case-1",
+      "arguments": [
+        [
+          1,
+          5,
+          7,
+          -1,
+          5
+        ],
+        6
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Two 1+5 index pairs and one 7+(-1) pair make three pairs.",
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-2",
+      "arguments": [
+        [
+          1,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Three equal values create three distinct index pairs, even though the value pair is the same.",
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-3",
+      "arguments": [
+        [],
+        0
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-4",
+      "arguments": [
+        [
+          5
+        ],
+        5
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-5",
+      "arguments": [
+        [
+          5
+        ],
+        2
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-6",
+      "arguments": [
+        [
+          -1,
+          1,
+          0
+        ],
+        0
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-7",
+      "arguments": [
+        [
+          3,
+          3,
+          3
+        ],
+        6
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-8",
+      "arguments": [
+        [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        0
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-9",
+      "arguments": [
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        10
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-10",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-11",
+      "arguments": [
+        [
+          -3,
+          -2,
+          -1
+        ],
+        -3
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-12",
+      "arguments": [
+        [
+          10,
+          1,
+          2,
+          7
+        ],
+        9
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-13",
+      "arguments": [
+        [
+          5,
+          -2,
+          3,
+          1
+        ],
+        4
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "target-pair-count-case-14",
+      "arguments": [
+        [
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        3
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-113",
+  "content_sha256": "d3806b4f5031bd2e24225527d021809eadb40e0aa329576bc387f707c3d886fa",
+  "source_hash": "5375b1199bf02dcfb5660b4868dfd2475be301d1516123b96eeefaa35c30d2d5",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts matching prefixes ending at an internal node.",
+      "failed_cases": [
+        "lc-113-7",
+        "lc-113-9",
+        "lc-113-stress-1"
+      ]
+    },
+    {
+      "reason": "Stores the mutable working path without copying it, so later backtracking erases saved answers.",
+      "failed_cases": [
+        "lc-113-1",
+        "lc-113-4",
+        "lc-113-6",
+        "lc-113-8",
+        "lc-113-9",
+        "lc-113-10",
+        "lc-113-11",
+        "lc-113-12",
+        "lc-113-13",
+        "lc-113-14",
+        "lc-113-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4160,
+  "oracle_implementation": "code_practice/import_batch_009.py:paths_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "568566665679bfc6841c0cd460aa087b23e895223505310935a455d03afc7c5c",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.114,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

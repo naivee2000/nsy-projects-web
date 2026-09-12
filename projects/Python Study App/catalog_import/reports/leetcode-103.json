@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-103",
+  "content_sha256": "181478bc8da5abf1b995289c7b5f17edd2abd5bc2a5f2be9f910ee60c0f53742",
+  "source_hash": "ec772747a35618ef71ee43b548660ff5517ebbc67da1f193a1cc08002689f2b2",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Always uses left-to-right level order.",
+      "failed_cases": [
+        "lc-103-1",
+        "lc-103-2",
+        "lc-103-8",
+        "lc-103-11",
+        "lc-103-12",
+        "lc-103-14"
+      ]
+    },
+    {
+      "reason": "Reverses the wrong parity of levels.",
+      "failed_cases": [
+        "lc-103-1",
+        "lc-103-2",
+        "lc-103-8",
+        "lc-103-11",
+        "lc-103-12",
+        "lc-103-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4150,
+  "oracle_implementation": "code_practice/import_batch_009.py:zigzag_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "568566665679bfc6841c0cd460aa087b23e895223505310935a455d03afc7c5c",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,387 @@
+{
+  "id": "combination-sum-once",
+  "version": 1,
+  "status": "approved",
+  "title": "One-Use Combination Sum",
+  "summary": "Choose unique combinations that reach a target.",
+  "statement": "Each candidate occurrence may be used at most once. Return all unique nondecreasing combinations summing to target; result order does not matter.",
+  "constraints": [
+    "1 <= candidate <= 50",
+    "0 <= len(candidates) <= 20",
+    "1 <= target <= 100"
+  ],
+  "topics": [
+    "backtracking",
+    "sorting"
+  ],
+  "prerequisites": [
+    "recursion"
+  ],
+  "signature": {
+    "name": "combination_sum_once",
+    "parameters": [
+      {
+        "name": "candidates",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "target",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[list[int]]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def combination_sum_once(candidates: list[int], target: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def combination_sum_once(candidates, target):\n    candidates.sort()\n    result = []\n\n    def search(start, remaining, path):\n        if remaining == 0:\n            result.append(path[:])\n            return\n        for index in range(start, len(candidates)):\n            if index > start and candidates[index] == candidates[index - 1]:\n                continue\n            value = candidates[index]\n            if value > remaining:\n                break\n            path.append(value)\n            search(index + 1, remaining - value, path)\n            path.pop()\n\n    search(0, target, [])\n    return result\n",
+  "brute_force_solution": "def combination_sum_once(candidates, target):\n    candidates.sort()\n    result = []\n\n    def search(start, remaining, path):\n        if remaining == 0:\n            result.append(path[:])\n            return\n        for index in range(start, len(candidates)):\n            if index > start and candidates[index] == candidates[index - 1]:\n                continue\n            value = candidates[index]\n            if value > remaining:\n                break\n            path.append(value)\n            search(index + 1, remaining - value, path)\n            path.pop()\n\n    search(0, target, [])\n    return result\n",
+  "known_wrong_solutions": [
+    "def combination_sum_once(candidates, target):\n    return None\n",
+    "def combination_sum_once(candidates, target):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(2ⁿ)",
+  "target_space_complexity": "O(n) excluding output",
+  "estimated_minutes": 40,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Sort first so duplicates become adjacent and large values can stop a branch.",
+    "At one recursion depth, skip a candidate equal to the previous candidate.",
+    "Recurse with index + 1 because each occurrence is single-use.",
+    "Backtracking explores choices while duplicate skipping keeps outputs unique."
+  ],
+  "editorial": "Sort candidates, explore include choices from a moving start index, and skip equal siblings at each recursive depth.",
+  "tests": [
+    {
+      "id": "combination-sum-once-case-1",
+      "arguments": [
+        [
+          10,
+          1,
+          2,
+          7,
+          6,
+          1,
+          5
+        ],
+        8
+      ],
+      "expected": [
+        [
+          1,
+          1,
+          6
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": true,
+      "explanation": "All unique combinations summing to 8 are returned, and each input occurrence is used at most once.",
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-2",
+      "arguments": [
+        [
+          2,
+          5,
+          2,
+          1,
+          2
+        ],
+        5
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          5
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": true,
+      "explanation": "Repeated input values may be used when separate occurrences exist, but duplicate combinations are omitted.",
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-3",
+      "arguments": [
+        [],
+        3
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-4",
+      "arguments": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-5",
+      "arguments": [
+        [
+          1
+        ],
+        2
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-6",
+      "arguments": [
+        [
+          1,
+          1
+        ],
+        1
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-7",
+      "arguments": [
+        [
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": [
+        [
+          1,
+          1
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-8",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-9",
+      "arguments": [
+        [
+          2,
+          3,
+          6,
+          7
+        ],
+        7
+      ],
+      "expected": [
+        [
+          7
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-10",
+      "arguments": [
+        [
+          2,
+          2,
+          2
+        ],
+        4
+      ],
+      "expected": [
+        [
+          2,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-11",
+      "arguments": [
+        [
+          3,
+          1,
+          3,
+          5,
+          1,
+          1
+        ],
+        8
+      ],
+      "expected": [
+        [
+          1,
+          1,
+          1,
+          5
+        ],
+        [
+          1,
+          1,
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-12",
+      "arguments": [
+        [
+          4,
+          4,
+          2,
+          2
+        ],
+        6
+      ],
+      "expected": [
+        [
+          2,
+          4
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-13",
+      "arguments": [
+        [
+          5,
+          6,
+          7
+        ],
+        4
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "combination-sum-once-case-14",
+      "arguments": [
+        [
+          1,
+          2,
+          2,
+          2,
+          5
+        ],
+        5
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          5
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

@@ -1,0 +1,316 @@
+{
+  "id": "unique-text-permutations",
+  "version": 1,
+  "status": "approved",
+  "title": "Unique Text Permutations",
+  "summary": "Return all distinct permutations of the input text.",
+  "statement": "Return all distinct permutations of the input text. Implement `unique_text_permutations` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "backtracking",
+    "recursion",
+    "strings"
+  ],
+  "prerequisites": [
+    "backtracking"
+  ],
+  "signature": {
+    "name": "unique_text_permutations",
+    "parameters": [
+      {
+        "name": "text",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[str]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def unique_text_permutations(text: str) -> list[str]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def unique_text_permutations(text):\n    answer = []\n    def build(prefix, remaining):\n        if not remaining: answer.append(prefix); return\n        for i, char in enumerate(remaining):\n            if i and char == remaining[i-1]: continue\n            build(prefix+char, remaining[:i]+remaining[i+1:])\n    build(\"\", \"\".join(sorted(text))); return answer\n",
+  "brute_force_solution": "def unique_text_permutations(text):\n    answer = []\n    def build(prefix, remaining):\n        if not remaining: answer.append(prefix); return\n        for i, char in enumerate(remaining):\n            if i and char == remaining[i-1]: continue\n            build(prefix+char, remaining[:i]+remaining[i+1:])\n    build(\"\", \"\".join(sorted(text))); return answer\n",
+  "known_wrong_solutions": [
+    "def unique_text_permutations(text):\n    return None\n",
+    "def unique_text_permutations(text):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n·n!)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 40,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Sorting makes equal choices adjacent so one recursion level can skip duplicates.",
+    "Choose each distinct remaining character, recurse, and restore via immutable slices.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the unique_text_permutations invariant is complete.",
+    "Editorial: Choose each distinct remaining character, recurse, and restore via immutable slices. The intended bounds are O(n·n!) time and O(n) space."
+  ],
+  "editorial": "Sorting makes equal choices adjacent so one recursion level can skip duplicates. Choose each distinct remaining character, recurse, and restore via immutable slices. This yields O(n·n!) time and O(n) auxiliary space.",
+  "tests": [
+    {
+      "id": "unique-text-permutations-case-1",
+      "arguments": [
+        "abc"
+      ],
+      "expected": [
+        "abc",
+        "acb",
+        "bac",
+        "bca",
+        "cab",
+        "cba"
+      ],
+      "comparator": "unordered",
+      "visible": true,
+      "explanation": "Three distinct letters produce all 3! = 6 arrangements.",
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-2",
+      "arguments": [
+        "aab"
+      ],
+      "expected": [
+        "aab",
+        "aba",
+        "baa"
+      ],
+      "comparator": "unordered",
+      "visible": true,
+      "explanation": "Duplicate 'a' choices are deduplicated, leaving three distinct permutations.",
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-3",
+      "arguments": [
+        ""
+      ],
+      "expected": [
+        ""
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-4",
+      "arguments": [
+        "a"
+      ],
+      "expected": [
+        "a"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-5",
+      "arguments": [
+        "ab"
+      ],
+      "expected": [
+        "ab",
+        "ba"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-6",
+      "arguments": [
+        "aba"
+      ],
+      "expected": [
+        "aab",
+        "aba",
+        "baa"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-7",
+      "arguments": [
+        "aa"
+      ],
+      "expected": [
+        "aa"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-8",
+      "arguments": [
+        "ABC"
+      ],
+      "expected": [
+        "ABC",
+        "ACB",
+        "BAC",
+        "BCA",
+        "CAB",
+        "CBA"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-9",
+      "arguments": [
+        "12"
+      ],
+      "expected": [
+        "12",
+        "21"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-10",
+      "arguments": [
+        "xy"
+      ],
+      "expected": [
+        "xy",
+        "yx"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-11",
+      "arguments": [
+        "abba"
+      ],
+      "expected": [
+        "aabb",
+        "abab",
+        "abba",
+        "baab",
+        "baba",
+        "bbaa"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-12",
+      "arguments": [
+        "abcd"
+      ],
+      "expected": [
+        "abcd",
+        "abdc",
+        "acbd",
+        "acdb",
+        "adbc",
+        "adcb",
+        "bacd",
+        "badc",
+        "bcad",
+        "bcda",
+        "bdac",
+        "bdca",
+        "cabd",
+        "cadb",
+        "cbad",
+        "cbda",
+        "cdab",
+        "cdba",
+        "dabc",
+        "dacb",
+        "dbac",
+        "dbca",
+        "dcab",
+        "dcba"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-13",
+      "arguments": [
+        "a1"
+      ],
+      "expected": [
+        "1a",
+        "a1"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "unique-text-permutations-case-14",
+      "arguments": [
+        "race"
+      ],
+      "expected": [
+        "acer",
+        "acre",
+        "aecr",
+        "aerc",
+        "arce",
+        "arec",
+        "caer",
+        "care",
+        "cear",
+        "cera",
+        "crae",
+        "crea",
+        "eacr",
+        "earc",
+        "ecar",
+        "ecra",
+        "erac",
+        "erca",
+        "race",
+        "raec",
+        "rcae",
+        "rcea",
+        "reac",
+        "reca"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

@@ -190,11 +190,29 @@ def _attempt_from_row(row: sqlite3.Row) -> Attempt:
     return Attempt(**dict(row))
 
 
-def list_attempts(limit: int = 500) -> list[Attempt]:
+def list_attempts(limit: int | None = 500) -> list[Attempt]:
     with db_session() as connection:
         rows = connection.execute(
-            "SELECT * FROM attempts ORDER BY created_at DESC LIMIT ?", (limit,)
+            "SELECT * FROM attempts ORDER BY created_at DESC, id DESC LIMIT ?", (-1 if limit is None else limit,)
         ).fetchall()
+    return [_attempt_from_row(row) for row in rows]
+
+
+def solved_problem_ids() -> set[str]:
+    """Completion persists even after an accepted submission leaves recent history."""
+    with db_session() as connection:
+        return {row[0] for row in connection.execute("SELECT DISTINCT problem_id FROM attempts WHERE result = 'accepted'")}
+
+
+def learning_attempts() -> list[Attempt]:
+    """Scoring needs full history, but never needs to read thousands of saved sources."""
+    with db_session() as connection:
+        rows = connection.execute("""
+            SELECT id, problem_id, problem_version, '' AS source_code, result,
+                   runtime_ms, tests_passed, tests_total, elapsed_study_seconds,
+                   hint_level, created_at
+            FROM attempts ORDER BY created_at DESC, id DESC
+        """).fetchall()
     return [_attempt_from_row(row) for row in rows]
 
 

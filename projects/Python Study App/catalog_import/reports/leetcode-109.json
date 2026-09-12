@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-109",
+  "content_sha256": "f8ee1846c41146052deecbaa82d09532af3a9f9f7205e07b8f33f111b5d16c49",
+  "source_hash": "69d46c145556f4c7fe10199b3c76c3c4fa31343590e1233736ee2ec58a406c75",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Copies the sorted linked list into an unbalanced right-only tree.",
+      "failed_cases": [
+        "lc-109-1",
+        "lc-109-6",
+        "lc-109-7",
+        "lc-109-8",
+        "lc-109-9",
+        "lc-109-10",
+        "lc-109-11",
+        "lc-109-14",
+        "lc-109-stress-1"
+      ]
+    },
+    {
+      "reason": "Removes duplicate values before construction, changing the required inorder multiset.",
+      "failed_cases": [
+        "lc-109-4",
+        "lc-109-7",
+        "lc-109-8",
+        "lc-109-9",
+        "lc-109-14",
+        "lc-109-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4156,
+  "oracle_implementation": "code_practice/import_batch_019.py:complete_bst_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "1db67d255d92478d25907096c13052237cf8524f6167363d5ea66e5b65223861",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.141,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

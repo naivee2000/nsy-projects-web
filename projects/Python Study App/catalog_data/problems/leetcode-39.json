@@ -1,0 +1,370 @@
+{
+  "id": "leetcode-39",
+  "version": 1,
+  "status": "approved",
+  "title": "Combination Sum",
+  "summary": "Given an array of distinct integers candidates and a target integer target, find all unique combinations of candidates where the chosen numbers sum to target.",
+  "statement": "Given an array of distinct integers candidates and a target integer target, find all unique combinations of candidates where the chosen numbers sum to target. Each number in candidates may be used an unlimited number of times. The order of the combinations does not matter, and no two combinations should be identical, differing by at least one number's frequency. The number of unique combinations that sum up to the target will not exceed 150.",
+  "constraints": [
+    "1–30 distinct candidates, each from 2 through 40; target is 1–40.",
+    "Reuse any candidate any number of times. At most 150 unique result combinations exist.",
+    "Order within and between combinations is ignored, but duplicate combinations are not allowed."
+  ],
+  "topics": [
+    "arrays",
+    "recursion",
+    "backtracking"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "combination_sum",
+    "parameters": [
+      {
+        "name": "candidates",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "target",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[list[int]]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def combination_sum(candidates: list[int], target: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def combination_sum(candidates, target):\n    values = sorted(candidates)\n    answer, path = [], []\n    def visit(start, remaining):\n        if remaining == 0:\n            answer.append(path.copy())\n            return\n        for i in range(start, len(values)):\n            if values[i] > remaining:\n                break\n            path.append(values[i])\n            visit(i, remaining - values[i])\n            path.pop()\n    visit(0, target)\n    return answer\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def combination_sum(candidates, target):\n    values = sorted(candidates)\n    answer, path = [], []\n    def visit(start, remaining):\n        if remaining == 0:\n            answer.append(path.copy())\n            return\n        for i in range(start, len(values)):\n            if values[i] > remaining:\n                break\n            path.append(values[i])\n            visit(i + 1, remaining - values[i])\n            path.pop()\n    visit(0, target)\n    return answer\n",
+    "def combination_sum(candidates, target):\n    values = sorted(candidates)\n    answer, path = [], []\n    def visit(start, remaining):\n        if remaining == 0:\n            answer.append(path.copy())\n            return\n        for i in range(0, len(values)):\n            if values[i] > remaining:\n                break\n            path.append(values[i])\n            visit(i, remaining - values[i])\n            path.pop()\n    visit(0, target)\n    return answer\n"
+  ],
+  "target_time_complexity": "O(c^d × d), d = target/min(candidate)",
+  "target_space_complexity": "O(c + d) excluding output",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "A combination is determined by multiplicities, not the order of picks.",
+    "Sort candidates and never move backward in candidate index within a path.",
+    "For each candidate at or after start, recurse with that same index and reduced remainder. Save a copy when the remainder is zero.",
+    "Reusing the current index permits repetition; using index+1 would solve the different single-use problem."
+  ],
+  "editorial": "Keep candidate indices nondecreasing to generate each multiset once. At each choice, subtract its value and recurse starting at the same index so it remains reusable. Stop trying larger candidates when a value exceeds the remainder. Reaching remainder zero records a complete combination. The search is output-sensitive and exponential in the worst case; with depth d=target/min(candidate), O(c^d·d) is a conservative upper bound including result copies.",
+  "tests": [
+    {
+      "id": "lc-39-1",
+      "arguments": [
+        [
+          2,
+          3,
+          6,
+          7
+        ],
+        7
+      ],
+      "expected": [
+        [
+          7
+        ],
+        [
+          2,
+          2,
+          3
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": true,
+      "explanation": "2+2+3 and 7 are the two combinations; reusing 2 is permitted.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-2",
+      "arguments": [
+        [
+          2,
+          3,
+          5
+        ],
+        8
+      ],
+      "expected": [
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": true,
+      "explanation": "The combinations are four 2s, 2+3+3, and 3+5. Different orderings of these same values are not additional results.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-3",
+      "arguments": [
+        [
+          2
+        ],
+        1
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-4",
+      "arguments": [
+        [
+          2
+        ],
+        2
+      ],
+      "expected": [
+        [
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-5",
+      "arguments": [
+        [
+          2
+        ],
+        3
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-6",
+      "arguments": [
+        [
+          2
+        ],
+        4
+      ],
+      "expected": [
+        [
+          2,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-7",
+      "arguments": [
+        [
+          3
+        ],
+        9
+      ],
+      "expected": [
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-8",
+      "arguments": [
+        [
+          3,
+          2
+        ],
+        7
+      ],
+      "expected": [
+        [
+          2,
+          2,
+          3
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-9",
+      "arguments": [
+        [
+          2,
+          4
+        ],
+        8
+      ],
+      "expected": [
+        [
+          4,
+          4
+        ],
+        [
+          2,
+          2,
+          4
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-10",
+      "arguments": [
+        [
+          5,
+          7
+        ],
+        1
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-11",
+      "arguments": [
+        [
+          40
+        ],
+        40
+      ],
+      "expected": [
+        [
+          40
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-12",
+      "arguments": [
+        [
+          2,
+          3
+        ],
+        6
+      ],
+      "expected": [
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-13",
+      "arguments": [
+        [
+          3,
+          4,
+          5
+        ],
+        10
+      ],
+      "expected": [
+        [
+          5,
+          5
+        ],
+        [
+          3,
+          3,
+          4
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-39-14",
+      "arguments": [
+        [
+          6,
+          7,
+          8
+        ],
+        15
+      ],
+      "expected": [
+        [
+          7,
+          8
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

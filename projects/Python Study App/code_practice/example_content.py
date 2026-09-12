@@ -206,7 +206,7 @@ EXAMPLE_CONTENT: dict[str, list[tuple[list[Any], str]]] = {
     ],
     "matrix-spiral-order": [
         ([[[1, 2, 3], [4, 5, 6], [7, 8, 9]]], "Read the outside clockwise, then finish with the center value 5."),
-        ([[[5]]], "A one-cell matrix has a one-value spiral."),
+        ([[[1, 2, 3], [4, 5, 6]]], "This matrix has two rows and three columns. Read 1,2,3 across the top, 6 down the right, then 5,4 back along the bottom."),
     ],
     "transpose-square-matrix": [
         ([[[1, 2], [3, 4]]], "Rows become columns across the main diagonal."),

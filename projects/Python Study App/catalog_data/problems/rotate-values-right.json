@@ -1,0 +1,360 @@
+{
+  "id": "rotate-values-right",
+  "version": 1,
+  "status": "approved",
+  "title": "Rotate Values Right",
+  "summary": "Return the list rotated right by k positions.",
+  "statement": "Return the list rotated right by k positions. Implement `rotate_values_right` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "arrays",
+    "modular-arithmetic"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "rotate_values_right",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "k",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[int]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def rotate_values_right(nums: list[int], k: int) -> list[int]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def rotate_values_right(nums, k):\n    if not nums: return []\n    k %= len(nums)\n    return nums[-k:] + nums[:-k] if k else nums[:]\n",
+  "brute_force_solution": "def rotate_values_right(nums, k):\n    if not nums: return []\n    k %= len(nums)\n    return nums[-k:] + nums[:-k] if k else nums[:]\n",
+  "known_wrong_solutions": [
+    "def rotate_values_right(nums, k):\n    return None\n",
+    "def rotate_values_right(nums, k):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 25,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Rotation counts wrap modulo the list length.",
+    "Normalize k, then join the suffix and prefix at the cut.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the rotate_values_right invariant is complete.",
+    "Editorial: Normalize k, then join the suffix and prefix at the cut. The intended bounds are O(n) time and O(n) space."
+  ],
+  "editorial": "Rotation counts wrap modulo the list length. Normalize k, then join the suffix and prefix at the cut. This yields O(n) time and O(n) auxiliary space.",
+  "tests": [
+    {
+      "id": "rotate-values-right-case-1",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        2
+      ],
+      "expected": [
+        4,
+        5,
+        1,
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The final two values wrap around to the front.",
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-2",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Rotating by the list length returns the original order.",
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-3",
+      "arguments": [
+        [
+          7
+        ],
+        1
+      ],
+      "expected": [
+        7
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-4",
+      "arguments": [
+        [
+          0,
+          0,
+          1
+        ],
+        2
+      ],
+      "expected": [
+        0,
+        1,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-5",
+      "arguments": [
+        [
+          -2,
+          -1,
+          -3
+        ],
+        2
+      ],
+      "expected": [
+        -1,
+        -3,
+        -2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-6",
+      "arguments": [
+        [
+          5,
+          5,
+          5
+        ],
+        1
+      ],
+      "expected": [
+        5,
+        5,
+        5
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-7",
+      "arguments": [
+        [
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-8",
+      "arguments": [
+        [
+          9,
+          1,
+          8,
+          2,
+          7
+        ],
+        4
+      ],
+      "expected": [
+        1,
+        8,
+        2,
+        7,
+        9
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-9",
+      "arguments": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        3
+      ],
+      "expected": [
+        3,
+        2,
+        1,
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-10",
+      "arguments": [
+        [
+          1,
+          1,
+          2,
+          2
+        ],
+        2
+      ],
+      "expected": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-11",
+      "arguments": [
+        [
+          10,
+          -10,
+          10
+        ],
+        1
+      ],
+      "expected": [
+        10,
+        10,
+        -10
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-12",
+      "arguments": [
+        [
+          6,
+          2,
+          6,
+          2
+        ],
+        3
+      ],
+      "expected": [
+        2,
+        6,
+        2,
+        6
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-13",
+      "arguments": [
+        [
+          8,
+          0,
+          4
+        ],
+        2
+      ],
+      "expected": [
+        0,
+        4,
+        8
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "rotate-values-right-case-14",
+      "arguments": [
+        [
+          2,
+          9,
+          1,
+          9,
+          3
+        ],
+        5
+      ],
+      "expected": [
+        2,
+        9,
+        1,
+        9,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-66",
+  "content_sha256": "ae5dec9adb7f2621a7da341fd2eab4d3c6b036e630fbbacd9450e4bfb6f63f93",
+  "source_hash": "937549b2a29514690adb576c05fbb98484375581eb576c3f04b0c699e2d1e276",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops the new leading digit after every original digit carries.",
+      "failed_cases": [
+        "lc-66-2",
+        "lc-66-6",
+        "lc-66-13",
+        "lc-66-14"
+      ]
+    },
+    {
+      "reason": "Leaves a carried-from nine unchanged.",
+      "failed_cases": [
+        "lc-66-2",
+        "lc-66-6",
+        "lc-66-8",
+        "lc-66-11",
+        "lc-66-12",
+        "lc-66-13",
+        "lc-66-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4113,
+  "oracle_implementation": "code_practice/import_batch_003.py:plus_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ad051bc94cc3f7d6b7a6daff70731f36adeec791e79781b8958b15dd0003b04b",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

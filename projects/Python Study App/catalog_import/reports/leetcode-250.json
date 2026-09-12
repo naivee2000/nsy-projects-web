@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-250",
+  "content_sha256": "cbf4ea77c8763c54d267e720be6594b8b148dea61cafae3895431b985b9442a8",
+  "source_hash": "5e62be98f7f105dfc98c7bc14a19c595a16ebd86741ff3189f3d628d26cd6b52",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only leaves, missing larger uniform subtrees.",
+      "failed_cases": [
+        "lc-250-1",
+        "lc-250-4",
+        "lc-250-6",
+        "lc-250-8",
+        "lc-250-11",
+        "lc-250-13",
+        "lc-250-stress-1"
+      ]
+    },
+    {
+      "reason": "Checks immediate child values but ignores a mismatching deeper descendant.",
+      "failed_cases": [
+        "lc-250-7",
+        "lc-250-12",
+        "lc-250-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4297,
+  "oracle_implementation": "code_practice/import_batch_019.py:unival_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "1db67d255d92478d25907096c13052237cf8524f6167363d5ea66e5b65223861",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -122,6 +122,7 @@ def build_problem(spec: DistinctSpec) -> ProblemDefinition:
     call_names = ", ".join(name for name, _annotation, _adapter in spec.parameters)
     return ProblemDefinition(
         id=spec.id,
+        version=REPLACEMENT_VERSIONS.get(spec.id, 1),
         title=spec.title,
         summary=spec.summary,
         statement=REPLACEMENT_STATEMENTS.get(
@@ -212,6 +213,13 @@ MATRIX_CASES = [
     [[[-1, -2], [-3, -4]]], [[[2, 2], [2, 2]]], [[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]],
     [[[1, -1, 1], [-1, 1, -1], [1, -1, 1]]], [[[7, 8, 9], [4, 5, 6], [1, 2, 3]]],
     [[[0, 0], [0, 0]]], [[[100, -100], [-100, 100]]], [[[1, 2, 1], [2, 1, 2], [1, 2, 1]]],
+]
+SPIRAL_CASES = [
+    [[[1,2,3],[4,5,6],[7,8,9]]], [[[1,2,3],[4,5,6]]],
+    [[]], [[[]]], [[[5]]], [[[1,2,3,4]]], [[[1],[2],[3],[4]]],
+    [[[1,2],[3,4]]], [[[1,2],[3,4],[5,6]]], [[[1,2,3,4],[5,6,7,8]]],
+    [[[1,2],[3,4],[5,6],[7,8]]], [[[0,-1,0],[-2,3,-2]]],
+    [[[2,2],[2,2],[2,2]]], [[[1,2,3,4],[5,6,7,8],[9,10,11,12]]],
 ]
 BINARY_GRID_CASES = [
     [[[1, 1, 0], [1, 0, 0], [0, 1, 1]]], [[[1]]], [[[0]]], [[[1, 1], [1, 1]]],
@@ -316,7 +324,10 @@ SORTED_LINKED_CASES = [
 ]
 CLIMB_CASES = [[n] for n in [5, 4, 0, 1, 2, 3, 6, 7, 8, 10, 12, 15, 20, 25]]
 
+REPLACEMENT_VERSIONS = {"matrix-spiral-order": 2}
+
 REPLACEMENT_STATEMENTS = {
+    "matrix-spiral-order": "Return all values of a rectangular matrix in clockwise spiral order, starting at the top-left cell and initially moving right. Visit each cell exactly once. The number of rows need not equal the number of columns, but all rows must have the same length. An empty matrix returns an empty list. Implement `matrix_spiral_order` without changing the signature.",
     "balanced-pivot-index": "For an index to be balanced, neither side includes the value at that index. Return the first balanced index from left to right. Return -1 when no index works, including for an empty list.",
     "word-pattern-bijection": "Split the text on whitespace. The number of words must equal the number of pattern characters, and the correspondence must work in both directions: one character cannot represent two words and two characters cannot represent the same word.",
     "formable-word-total": "Evaluate every candidate word independently against the same letter inventory. A letter may be used only as many times as it occurs in the inventory while forming one word; inventory use resets before checking the next word. Add the lengths of all formable words.",
@@ -327,6 +338,7 @@ REPLACEMENT_STATEMENTS = {
 }
 
 REPLACEMENT_CONSTRAINTS = {
+    "matrix-spiral-order": ["Nonempty matrices have 1–10 rows and 1–10 columns; all rows have equal length.", "Entries are integers in [-100,100]. Empty matrices remain supported for compatibility."],
     "balanced-pivot-index": ["0 ≤ len(nums) ≤ 10,000.", "Values may be negative, zero, or positive."],
     "word-pattern-bijection": ["The text contains whitespace-separated nonempty words.", "Pattern and text may be empty; their token counts must still match."],
     "formable-word-total": ["Words and letters contain lowercase English letters.", "Each candidate is checked independently against the full inventory."],
@@ -528,7 +540,7 @@ add(
 
 # Matrix traversal and transformation.
 add(
-    S("matrix-spiral-order", "Matrix Spiral Order", "Return square-matrix values in clockwise spiral order.", ["matrices", "simulation"], "matrix_spiral_order", [("matrix", "list[list[int]]", "raw")], "list[int]", """
+    S("matrix-spiral-order", "Matrix Spiral Order", "Return rectangular-matrix values in clockwise spiral order.", ["matrices", "simulation"], "matrix_spiral_order", [("matrix", "list[list[int]]", "raw")], "list[int]", """
         if not matrix or not matrix[0]: return []
         top, bottom, left, right, answer = 0, len(matrix)-1, 0, len(matrix[0])-1, []
         while top <= bottom and left <= right:
@@ -540,7 +552,7 @@ add(
                 for row in range(bottom, top-1, -1): answer.append(matrix[row][left])
                 left += 1
         return answer
-    """, MATRIX_CASES, 5, "O(n²)", "O(1) excluding output", "Four shrinking boundaries define the unvisited rectangle.", "Read top, right, bottom, and left edges while checking boundary crossings."),
+    """, SPIRAL_CASES, 5, "O(rows × columns)", "O(1) excluding output", "Four shrinking boundaries define the unvisited rectangle.", "Read top, right, bottom, and left edges while checking boundary crossings."),
     S("transpose-square-matrix", "Transpose Square Matrix", "Return the matrix reflected across its main diagonal.", ["matrices"], "transpose_square_matrix", [("matrix", "list[list[int]]", "raw")], "list[list[int]]", """
         if not matrix or not matrix[0]: return []
         return [list(row) for row in zip(*matrix)]

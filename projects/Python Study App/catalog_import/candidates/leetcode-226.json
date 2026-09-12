@@ -1,0 +1,342 @@
+{
+  "id": "leetcode-226",
+  "version": 1,
+  "status": "approved",
+  "title": "Invert Binary Tree",
+  "summary": "Given the root node of a binary tree, reverse the left and right child nodes for every node in the tree, then return the new root node.",
+  "statement": "Given the root node of a binary tree, reverse the left and right child nodes for every node in the tree, then return the new root node.",
+  "constraints": [
+    "The tree has 0–100 nodes.",
+    "-100 <= node.val <= 100.",
+    "Input and output are displayed in level order; null denotes a missing child."
+  ],
+  "topics": [
+    "trees",
+    "recursion"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "invert_tree",
+    "parameters": [
+      {
+        "name": "root",
+        "annotation": "TreeNode | None",
+        "adapter": "treenode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "TreeNode | None",
+    "return_adapter": "treenode",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef invert_tree(root: TreeNode | None) -> TreeNode | None:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def invert_tree(root):\n    if root is None:\n        return None\n    root.left, root.right = invert_tree(root.right), invert_tree(root.left)\n    return root\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def invert_tree(root):\n    return root\n",
+    "def invert_tree(root):\n    if root is not None:\n        root.left, root.right = root.right, root.left\n    return root\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(h) recursive stack",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "The same operation is needed at every node, including descendants.",
+    "Invert each subtree and assign it to the opposite child position.",
+    "An empty node returns empty. Otherwise recursively invert right into left and left into right, then return the node.",
+    "The base case ends at missing children; every real node is visited exactly once."
+  ],
+  "editorial": "Inverting a tree means exchanging the left and right subtree at each node. Recursively invert both children, then attach the inverted former right subtree on the left and vice versa. The root's value does not change. A missing child in one tree position becomes a missing child at the mirrored position. Time is linear and recursion uses a path of height h.",
+  "tests": [
+    {
+      "id": "lc-226-1",
+      "arguments": [
+        [
+          4,
+          2,
+          7,
+          1,
+          3,
+          6,
+          9
+        ]
+      ],
+      "expected": [
+        4,
+        7,
+        2,
+        9,
+        6,
+        3,
+        1
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Swap children at every node: 7 moves left of 4, 2 moves right, and their own children are swapped as well.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-2",
+      "arguments": [
+        [
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        3,
+        1
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The root remains 2; its left and right child values become 3 and 1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-3",
+      "arguments": [
+        []
+      ],
+      "expected": [],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-4",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-5",
+      "arguments": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        null,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-6",
+      "arguments": [
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-7",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-8",
+      "arguments": [
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-9",
+      "arguments": [
+        [
+          0,
+          -1,
+          1
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        -1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-10",
+      "arguments": [
+        [
+          1,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        null,
+        2,
+        null,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-11",
+      "arguments": [
+        [
+          1,
+          null,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        null,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-12",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4,
+          null,
+          null,
+          5
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2,
+        5,
+        null,
+        null,
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-13",
+      "arguments": [
+        [
+          -100,
+          100
+        ]
+      ],
+      "expected": [
+        -100,
+        null,
+        100
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-226-14",
+      "arguments": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

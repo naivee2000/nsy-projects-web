@@ -1,0 +1,299 @@
+{
+  "id": "maximum-fixed-window-sum",
+  "version": 1,
+  "status": "approved",
+  "title": "Maximum Fixed Window Sum",
+  "summary": "Return the largest sum among contiguous windows of exactly k values.",
+  "statement": "Return the largest sum among contiguous windows of exactly k values. Implement `maximum_fixed_window_sum` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "sliding-window",
+    "arrays"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "maximum_fixed_window_sum",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "k",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def maximum_fixed_window_sum(nums: list[int], k: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def maximum_fixed_window_sum(nums, k):\n    window = sum(nums[:k]); best = window\n    for i in range(k, len(nums)):\n        window += nums[i] - nums[i - k]; best = max(best, window)\n    return best\n",
+  "brute_force_solution": "def maximum_fixed_window_sum(nums, k):\n    window = sum(nums[:k]); best = window\n    for i in range(k, len(nums)):\n        window += nums[i] - nums[i - k]; best = max(best, window)\n    return best\n",
+  "known_wrong_solutions": [
+    "def maximum_fixed_window_sum(nums, k):\n    return None\n",
+    "def maximum_fixed_window_sum(nums, k):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 30,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Adjacent fixed windows differ by one entering and one leaving value.",
+    "Update the sum in constant time as the right edge advances.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the maximum_fixed_window_sum invariant is complete.",
+    "Editorial: Update the sum in constant time as the right edge advances. The intended bounds are O(n) time and O(1) space."
+  ],
+  "editorial": "Adjacent fixed windows differ by one entering and one leaving value. Update the sum in constant time as the right edge advances. This yields O(n) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "maximum-fixed-window-sum-case-1",
+      "arguments": [
+        [
+          2,
+          1,
+          5,
+          1,
+          3,
+          2
+        ],
+        3
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The size-three window [5, 1, 3] has the largest sum, 9.",
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-2",
+      "arguments": [
+        [
+          -4,
+          -2,
+          -5
+        ],
+        2
+      ],
+      "expected": -6,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "For negative values, the best size-two window is [-4, -2] with sum -6.",
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-3",
+      "arguments": [
+        [
+          7
+        ],
+        1
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-4",
+      "arguments": [
+        [
+          0,
+          0,
+          1
+        ],
+        2
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-5",
+      "arguments": [
+        [
+          -2,
+          -1,
+          -3
+        ],
+        2
+      ],
+      "expected": -3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-6",
+      "arguments": [
+        [
+          5,
+          5,
+          5
+        ],
+        1
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-7",
+      "arguments": [
+        [
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-8",
+      "arguments": [
+        [
+          9,
+          1,
+          8,
+          2,
+          7
+        ],
+        4
+      ],
+      "expected": 20,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-9",
+      "arguments": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        3
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-10",
+      "arguments": [
+        [
+          1,
+          1,
+          2,
+          2
+        ],
+        2
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-11",
+      "arguments": [
+        [
+          10,
+          -10,
+          10
+        ],
+        1
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-12",
+      "arguments": [
+        [
+          6,
+          2,
+          6,
+          2
+        ],
+        3
+      ],
+      "expected": 14,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-13",
+      "arguments": [
+        [
+          8,
+          0,
+          4
+        ],
+        2
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "maximum-fixed-window-sum-case-14",
+      "arguments": [
+        [
+          2,
+          9,
+          1,
+          9,
+          3
+        ],
+        5
+      ],
+      "expected": 24,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

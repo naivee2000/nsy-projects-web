@@ -1,0 +1,216 @@
+{
+  "id": "leetcode-69",
+  "version": 1,
+  "status": "approved",
+  "title": "Sqrt(x)",
+  "summary": "For a non-negative integer x, provide the square root of x, rounded down to the nearest integer, ensuring the result is also non-negative.",
+  "statement": "For a non-negative integer x, provide the square root of x, rounded down to the nearest integer, ensuring the result is also non-negative. Avoid using built-in exponent functions or operators.",
+  "constraints": [
+    "0 <= x <= 2^31 - 1.",
+    "Return the nonnegative floor of the square root without exponent or square-root functions in your solution."
+  ],
+  "topics": [
+    "binary-search",
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "integer_sqrt",
+    "parameters": [
+      {
+        "name": "x",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def integer_sqrt(x: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def integer_sqrt(x):\n    left, right, answer = 0, x, 0\n    while left <= right:\n        middle = (left + right) // 2\n        if middle == 0 or middle <= x // middle:\n            answer = middle\n            left = middle + 1\n        else:\n            right = middle - 1\n    return answer\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def integer_sqrt(x):\n    left, right, answer = 0, x, 0\n    while left <= right:\n        middle = (left + right) // 2\n        if middle == 0 or middle <= x // middle:\n            answer = middle\n            left = middle + 1\n        else:\n            right = middle - 1\n    return left\n",
+    "def integer_sqrt(x):\n    left, right, answer = 0, x, 0\n    while left <= right:\n        middle = (left + right) // 2\n        if middle == 0 or middle < x // middle:\n            answer = middle\n            left = middle + 1\n        else:\n            right = middle - 1\n    return answer\n"
+  ],
+  "target_time_complexity": "O(log(x + 1))",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "The predicate candidate squared <= x changes from true to false once.",
+    "Binary-search for the largest feasible candidate, saving it before moving right.",
+    "If middle is feasible, record it and raise the lower bound; otherwise lower the upper bound.",
+    "Comparing middle <= x // middle avoids multiplication overflow; handle middle zero separately."
+  ],
+  "editorial": "Search a nonnegative interval for the last value whose square does not exceed x. When a midpoint is feasible, remember it and search higher values. Otherwise search below it. At termination the saved candidate is the floor square root. Integer division provides the comparison without floating-point rounding or exponent operations.",
+  "tests": [
+    {
+      "id": "lc-69-1",
+      "arguments": [
+        4
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "2 squared equals 4, so the integer square root is exactly 2.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-2",
+      "arguments": [
+        8
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "2 squared is at most 8 but 3 squared exceeds it, so round down to 2.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-3",
+      "arguments": [
+        0
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-4",
+      "arguments": [
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-5",
+      "arguments": [
+        2
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-6",
+      "arguments": [
+        3
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-7",
+      "arguments": [
+        9
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-8",
+      "arguments": [
+        10
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-9",
+      "arguments": [
+        15
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-10",
+      "arguments": [
+        16
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-11",
+      "arguments": [
+        17
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-12",
+      "arguments": [
+        2147395599
+      ],
+      "expected": 46339,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-13",
+      "arguments": [
+        2147395600
+      ],
+      "expected": 46340,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-69-14",
+      "arguments": [
+        2147483647
+      ],
+      "expected": 46340,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

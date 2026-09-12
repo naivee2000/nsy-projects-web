@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2",
+  "content_sha256": "84acda1db4a9d79c275daef90da660915b6611d590f010404d41e7b4fc4ef5ff",
+  "source_hash": "b34b2030c98521386df1e7d39cd91343083ee23eb19e5992e311fc7221ba1745",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops a final carry after both lists end.",
+      "failed_cases": [
+        "lc-2-2",
+        "lc-2-5",
+        "lc-2-6",
+        "lc-2-9",
+        "lc-2-11",
+        "lc-2-12"
+      ]
+    },
+    {
+      "reason": "Fails to propagate carry between digits.",
+      "failed_cases": [
+        "lc-2-1",
+        "lc-2-2",
+        "lc-2-5",
+        "lc-2-6",
+        "lc-2-9",
+        "lc-2-10",
+        "lc-2-11",
+        "lc-2-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4049,
+  "oracle_implementation": "code_practice/import_batch_001.py:add_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "9ebcbf6d44908574cb49dbc88d3e8dba38cfc62e28117fd6f5da30bcc5ab1344",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

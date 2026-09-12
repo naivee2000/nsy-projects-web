@@ -14,10 +14,11 @@ def test_health_problem_detail_separates_examples_from_hidden_tests():
         health = client.get("/api/health")
         assert health.status_code == 200
         assert health.json()["mode"] == "local-only"
-        assert health.json()["problemCount"] == 101
+        assert health.json()["problemCount"] == len(get_catalog())
 
         listing = client.get("/api/problems").json()
-        assert len(listing) == 101
+        assert listing["total"] == len(get_catalog())
+        assert len(listing["items"]) == 30
         detail = client.get("/api/problems/pair-sum-indices").json()
         assert len(detail["tests"]) == 2
         assert all(test["visible"] and test["arguments"] is not None for test in detail["tests"])
@@ -104,7 +105,7 @@ def test_draft_attempt_hint_and_progress_persist():
         assert len(list_attempts()) == 1
         detail = client.get("/api/problems/pair-sum-indices").json()
         assert detail["solved"] is True
-        listing = client.get("/api/problems").json()
+        listing = client.get("/api/problems?search=Pair%20Sum%20Indices").json()["items"]
         assert next(item for item in listing if item["id"] == "pair-sum-indices")["solved"] is True
         progress = client.get("/api/progress").json()
         assert progress["solvedCount"] == 1
@@ -122,7 +123,7 @@ def test_rejected_variant_never_appears_in_library():
     save_variant(variant.model_dump(mode="json"), PROBLEMS[0].id, status="rejected", validation={"valid": False})
     refresh_catalog()
     with TestClient(app) as client:
-        ids = {item["id"] for item in client.get("/api/problems").json()}
+        ids = {item["id"] for item in client.get("/api/problems?search=Rejected").json()["items"]}
         assert variant.id not in ids
         assert client.get(f"/api/problems/{variant.id}").status_code == 404
 

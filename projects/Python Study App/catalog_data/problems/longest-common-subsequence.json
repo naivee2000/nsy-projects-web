@@ -1,0 +1,238 @@
+{
+  "id": "longest-common-subsequence",
+  "version": 1,
+  "status": "approved",
+  "title": "Longest Common Subsequence",
+  "summary": "Return the length of the longest ordered subsequence shared by two strings.",
+  "statement": "Return the length of the longest ordered subsequence shared by two strings. Implement `longest_common_subsequence` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "dynamic-programming",
+    "strings"
+  ],
+  "prerequisites": [
+    "dynamic-programming"
+  ],
+  "signature": {
+    "name": "longest_common_subsequence",
+    "parameters": [
+      {
+        "name": "left",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "right",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def longest_common_subsequence(left: str, right: str) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def longest_common_subsequence(left, right):\n    row = [0] * (len(right) + 1)\n    for a in left:\n        previous, next_row = row, [0]\n        for j, b in enumerate(right, 1):\n            next_row.append(previous[j - 1] + 1 if a == b else max(previous[j], next_row[-1]))\n        row = next_row\n    return row[-1]\n",
+  "brute_force_solution": "def longest_common_subsequence(left, right):\n    row = [0] * (len(right) + 1)\n    for a in left:\n        previous, next_row = row, [0]\n        for j, b in enumerate(right, 1):\n            next_row.append(previous[j - 1] + 1 if a == b else max(previous[j], next_row[-1]))\n        row = next_row\n    return row[-1]\n",
+  "known_wrong_solutions": [
+    "def longest_common_subsequence(left, right):\n    return None\n",
+    "def longest_common_subsequence(left, right):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(nm)",
+  "target_space_complexity": "O(m)",
+  "estimated_minutes": 40,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Matching final characters extend a smaller solution; mismatches discard one side.",
+    "Use prefix DP and retain only the prior row.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the longest_common_subsequence invariant is complete.",
+    "Editorial: Use prefix DP and retain only the prior row. The intended bounds are O(nm) time and O(m) space."
+  ],
+  "editorial": "Matching final characters extend a smaller solution; mismatches discard one side. Use prefix DP and retain only the prior row. This yields O(nm) time and O(m) auxiliary space.",
+  "tests": [
+    {
+      "id": "longest-common-subsequence-case-1",
+      "arguments": [
+        "abcde",
+        "ace"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The ordered characters a, c, and e form a common subsequence of length 3.",
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-2",
+      "arguments": [
+        "abc",
+        "xyz"
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The strings share no character, so the longest common subsequence has length 0.",
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-3",
+      "arguments": [
+        "",
+        ""
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-4",
+      "arguments": [
+        "a",
+        ""
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-5",
+      "arguments": [
+        "abc",
+        "abc"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-6",
+      "arguments": [
+        "abc",
+        "ac"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-7",
+      "arguments": [
+        "kitten",
+        "sitting"
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-8",
+      "arguments": [
+        "aaaa",
+        "aa"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-9",
+      "arguments": [
+        "abc",
+        "def"
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-10",
+      "arguments": [
+        "subsequence",
+        "sue"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-11",
+      "arguments": [
+        "binary",
+        "brainy"
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-12",
+      "arguments": [
+        "stone",
+        "tones"
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-13",
+      "arguments": [
+        "abcd",
+        "badc"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "longest-common-subsequence-case-14",
+      "arguments": [
+        "dynamic",
+        "programming"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

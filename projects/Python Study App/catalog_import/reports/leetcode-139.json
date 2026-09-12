@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-139",
+  "content_sha256": "e9d8bf77f7d30a5fff279f47f95e306230897670c16e3352c9487405ae870baa",
+  "source_hash": "51b131ad1d593fa3c8d4ac5f49a8f999d72684227f9acfed4ef94837455b7af8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Always chooses the longest matching word, which can leave an impossible suffix.",
+      "failed_cases": [
+        "lc-139-9"
+      ]
+    },
+    {
+      "reason": "Accepts a segmentable prefix even when the entire string cannot be covered.",
+      "failed_cases": [
+        "lc-139-10",
+        "lc-139-14",
+        "lc-139-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4186,
+  "oracle_implementation": "code_practice/import_batch_012.py:break_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "908cb58d25383d52ae6743dc04dd504b9186d136883acea4c389a5a669f3bc97",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-13",
+  "content_sha256": "fcc1fffb3715ddb5eb54777c5afe86433b4edf613aad3a96b5296d51f5353e72",
+  "source_hash": "1dde351e0833c67f70c3aa2d6c0e4435d39479a099f2863af62cc8428002f2c3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds every symbol even when it precedes a larger one.",
+      "failed_cases": [
+        "lc-13-2",
+        "lc-13-5",
+        "lc-13-7",
+        "lc-13-9",
+        "lc-13-10",
+        "lc-13-11",
+        "lc-13-12",
+        "lc-13-14"
+      ]
+    },
+    {
+      "reason": "Recognizes subtractive I pairs but not X or C pairs.",
+      "failed_cases": [
+        "lc-13-2",
+        "lc-13-9",
+        "lc-13-10",
+        "lc-13-11",
+        "lc-13-12",
+        "lc-13-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4060,
+  "oracle_implementation": "code_practice/import_batch_007.py:numeral_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "19d2cca0abe6676578dafd1c1051e42d4b72b5721c2b413e5b7a861c6f2a1bd0",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

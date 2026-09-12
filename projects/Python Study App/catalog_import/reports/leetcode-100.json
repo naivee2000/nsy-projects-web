@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-100",
+  "content_sha256": "3cf1f2d5918209caa2eccc2535be8d948bcf756421aa697c7545620395c022ab",
+  "source_hash": "5da8b6b3da42d32534a1e3c1f2f75942d37b2ca390d6cff6537450d01a389a24",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Compares structure but ignores node values.",
+      "failed_cases": [
+        "lc-100-7",
+        "lc-100-8",
+        "lc-100-13"
+      ]
+    },
+    {
+      "reason": "Never checks the right subtrees.",
+      "failed_cases": [
+        "lc-100-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4147,
+  "oracle_implementation": "code_practice/import_batch_001.py:tree_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "9ebcbf6d44908574cb49dbc88d3e8dba38cfc62e28117fd6f5da30bcc5ab1344",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

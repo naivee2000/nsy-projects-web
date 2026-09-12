@@ -1,0 +1,236 @@
+{
+  "id": "anagram-check",
+  "version": 1,
+  "status": "approved",
+  "title": "Anagram Check",
+  "summary": "Return whether two strings contain identical character multisets.",
+  "statement": "Return whether two strings contain identical character multisets. Implement `anagram_check` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "strings",
+    "hash-maps"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "anagram_check",
+    "parameters": [
+      {
+        "name": "left",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "right",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def anagram_check(left: str, right: str) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def anagram_check(left, right):\n    from collections import Counter\n    return Counter(left) == Counter(right)\n",
+  "brute_force_solution": "def anagram_check(left, right):\n    from collections import Counter\n    return Counter(left) == Counter(right)\n",
+  "known_wrong_solutions": [
+    "def anagram_check(left, right):\n    return None\n",
+    "def anagram_check(left, right):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n + m)",
+  "target_space_complexity": "O(k)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 0,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Anagrams have the same frequency for every character.",
+    "Compare two frequency maps rather than character positions.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the anagram_check invariant is complete.",
+    "Editorial: Compare two frequency maps rather than character positions. The intended bounds are O(n + m) time and O(k) space."
+  ],
+  "editorial": "Anagrams have the same frequency for every character. Compare two frequency maps rather than character positions. This yields O(n + m) time and O(k) auxiliary space.",
+  "tests": [
+    {
+      "id": "anagram-check-case-1",
+      "arguments": [
+        "listen",
+        "silent"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Both strings contain the same letters with the same frequencies.",
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-2",
+      "arguments": [
+        "hello",
+        "world"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The character counts differ, so the strings are not anagrams.",
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-3",
+      "arguments": [
+        "",
+        ""
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-4",
+      "arguments": [
+        "a",
+        ""
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-5",
+      "arguments": [
+        "abc",
+        "abc"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-6",
+      "arguments": [
+        "abc",
+        "ac"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-7",
+      "arguments": [
+        "kitten",
+        "sitting"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-8",
+      "arguments": [
+        "aaaa",
+        "aa"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-9",
+      "arguments": [
+        "abc",
+        "def"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-10",
+      "arguments": [
+        "subsequence",
+        "sue"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-11",
+      "arguments": [
+        "binary",
+        "brainy"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-12",
+      "arguments": [
+        "stone",
+        "tones"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-13",
+      "arguments": [
+        "abcd",
+        "badc"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "anagram-check-case-14",
+      "arguments": [
+        "dynamic",
+        "programming"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

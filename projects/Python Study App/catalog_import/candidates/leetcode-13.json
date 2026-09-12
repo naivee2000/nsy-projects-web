@@ -1,0 +1,216 @@
+{
+  "id": "leetcode-13",
+  "version": 1,
+  "status": "approved",
+  "title": "Roman to Integer",
+  "summary": "Roman numerals are denoted by seven symbols: I, V, X, L, C, D, and M.",
+  "statement": "Roman numerals are denoted by seven symbols: I, V, X, L, C, D, and M. Each symbol corresponds to a specific value: I=1, V=5, X=10, L=50, C=100, D=500, M=1000. Numbers are typically represented by adding symbols from left to right. However, there are exceptions for numbers like four (IV) and nine (IX), where a smaller symbol precedes a larger one to indicate subtraction. Similar rules apply for forty (XL), ninety (XC), four hundred (CD), and nine hundred (CM). Given a Roman numeral, convert it to an integer.",
+  "constraints": [
+    "s is a valid canonical Roman numeral representing 1–3999, with length 1–15.",
+    "Symbols are I,V,X,L,C,D,M. A smaller symbol immediately before a larger symbol contributes negatively."
+  ],
+  "topics": [
+    "strings",
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "roman_to_integer",
+    "parameters": [
+      {
+        "name": "s",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def roman_to_integer(s: str) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def roman_to_integer(s):\n    values = {\"I\":1,\"V\":5,\"X\":10,\"L\":50,\"C\":100,\"D\":500,\"M\":1000}\n    total = 0\n    for i, char in enumerate(s):\n        if i + 1 < len(s) and values[char] < values[s[i + 1]]:\n            total -= values[char]\n        else:\n            total += values[char]\n    return total\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def roman_to_integer(s):\n    values = {\"I\":1,\"V\":5,\"X\":10,\"L\":50,\"C\":100,\"D\":500,\"M\":1000}\n    total = 0\n    for i, char in enumerate(s):\n        if i + 1 < len(s) and values[char] < values[s[i + 1]]:\n            total += values[char]\n        else:\n            total += values[char]\n    return total\n",
+    "def roman_to_integer(s):\n    values = {\"I\":1,\"V\":5,\"X\":10,\"L\":50,\"C\":100,\"D\":500,\"M\":1000}\n    total = 0\n    for i, char in enumerate(s):\n        if char == \"I\" and i + 1 < len(s) and values[char] < values[s[i + 1]]:\n            total -= values[char]\n        else:\n            total += values[char]\n    return total\n"
+  ],
+  "target_time_complexity": "O(len(s))",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Compare a symbol with the next symbol before choosing addition or subtraction.",
+    "Subtract it when the next value is larger; otherwise add it.",
+    "Scan all positions, treating the final symbol as additive because it has no successor.",
+    "Validity is guaranteed, so no separate Roman grammar validator is required."
+  ],
+  "editorial": "Map symbols to values and inspect adjacent values. For each valid subtractive pair, subtracting its first symbol and later adding the second produces the pair's value. All other symbols add normally. The input guarantee rules out malformed combinations. The independent oracle looks up the entire numeral in a table generated from canonical decimal-place encodings for 1…3999.",
+  "tests": [
+    {
+      "id": "lc-13-1",
+      "arguments": [
+        "III"
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Three I symbols add to 3.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-2",
+      "arguments": [
+        "MCMXCIV"
+      ],
+      "expected": 1994,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "M contributes 1000, CM 900, XC 90, and IV 4, totaling 1994.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-3",
+      "arguments": [
+        "I"
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-4",
+      "arguments": [
+        "II"
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-5",
+      "arguments": [
+        "IV"
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-6",
+      "arguments": [
+        "V"
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-7",
+      "arguments": [
+        "IX"
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-8",
+      "arguments": [
+        "X"
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-9",
+      "arguments": [
+        "XL"
+      ],
+      "expected": 40,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-10",
+      "arguments": [
+        "XC"
+      ],
+      "expected": 90,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-11",
+      "arguments": [
+        "CD"
+      ],
+      "expected": 400,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-12",
+      "arguments": [
+        "CM"
+      ],
+      "expected": 900,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-13",
+      "arguments": [
+        "MMMDCCCLXXXVIII"
+      ],
+      "expected": 3888,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-13-14",
+      "arguments": [
+        "MMMCMXCIX"
+      ],
+      "expected": 3999,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

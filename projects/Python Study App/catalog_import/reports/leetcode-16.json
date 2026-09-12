@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-16",
+  "content_sha256": "98811526f2a80d6e300540dcc44eb85248d3f99916b1fd4cfa9dc3523614b7b4",
+  "source_hash": "283950c636b44b5436b8dce5a7d47c7aef2723d9e29f376a0417634c786d31ab",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the first index to be selected again as the left index.",
+      "failed_cases": [
+        "lc-16-1",
+        "lc-16-3",
+        "lc-16-5",
+        "lc-16-8",
+        "lc-16-10",
+        "lc-16-11",
+        "lc-16-12"
+      ]
+    },
+    {
+      "reason": "Minimizes distance to zero rather than to the given target.",
+      "failed_cases": [
+        "lc-16-1",
+        "lc-16-12",
+        "lc-16-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4063,
+  "oracle_implementation": "code_practice/import_batch_008.py:closest_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ec2fb69906cfee7ad8315ff760fcf170a1ae2a728fb6b8a16af7c509a40d0a4a",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.07,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

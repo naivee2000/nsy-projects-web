@@ -11,7 +11,7 @@ from heapq import heapify, heappop, heappush
 from typing import Any
 
 from .content_solutions import ListNode, TreeNode
-from .schemas import ProblemDefinition, TestCase
+from .schemas import ProblemDefinition, TestCase, analyze_integer_tree
 
 
 SAFE_GLOBALS = {
@@ -63,19 +63,52 @@ def _treenode(values: list[int | None] | None, node_type: type = TreeNode) -> An
     return root
 
 
-def _serialize(value: Any, adapter: str) -> Any:
+def _serialize(value: Any, adapter: str, strict_tree_values: bool = False) -> Any:
+    if adapter == "treenode_value":
+        if value is None:
+            return None
+        if not hasattr(value, "val"):
+            raise ValueError("Returned value must be a TreeNode")
+        return value.val
     if adapter == "listnode":
         result = []
-        seen = 0
-        while value and seen < 100_000:
+        seen = set()
+        while value is not None:
+            if id(value) in seen:
+                raise ValueError("Returned linked list contains a cycle")
+            if len(seen) >= 100_000:
+                raise ValueError("Returned linked list exceeds the supported node limit")
+            seen.add(id(value))
             result.append(value.val)
             value = value.next
-            seen += 1
+        return result
+    if adapter == "treenode":
+        result, queue, seen = [], deque([value]), set()
+        while queue:
+            node = queue.popleft()
+            if node is None:
+                result.append(None)
+                continue
+            if id(node) in seen:
+                raise ValueError("Returned tree contains a cycle or shared child")
+            if len(seen) >= 100_000:
+                raise ValueError("Returned tree exceeds the supported node limit")
+            if strict_tree_values and type(node.val) is not int:
+                raise ValueError("Returned tree nodes must contain integer values")
+            seen.add(id(node))
+            result.append(node.val)
+            queue.extend((node.left, node.right))
+        while result and result[-1] is None:
+            result.pop()
         return result
     return value
 
 
 def compare(actual: Any, expected: Any, comparator: str) -> bool:
+    if comparator == "balanced_bst":
+        tree, goal = analyze_integer_tree(actual), analyze_integer_tree(expected)
+        return (tree is not None and goal is not None and tree[1] and goal[1]
+                and tree[0] == goal[0] and all(a <= b for a, b in zip(goal[0], goal[0][1:])))
     if comparator == "float":
         return isinstance(actual, (int, float)) and math.isclose(float(actual), float(expected), rel_tol=1e-7, abs_tol=1e-7)
     if comparator == "unordered":
@@ -86,6 +119,61 @@ def compare(actual: Any, expected: Any, comparator: str) -> bool:
         normalize = lambda rows: sorted(tuple(sorted(row)) for row in rows)
         return normalize(actual) == normalize(expected)
     return actual == expected
+
+
+def _node_snapshot(value: Any, adapter: str) -> dict:
+    """Retain nodes and values in list/preorder order, with bounded traversal."""
+    nodes, stack = {}, [value]
+    while stack:
+        node = stack.pop()
+        if node is None:
+            continue
+        if id(node) in nodes:
+            raise ValueError("Node structure contains a cycle or shared child")
+        if len(nodes) >= 100_000:
+            raise ValueError("Node structure exceeds the supported node limit")
+        nodes[id(node)] = (node, node.val)
+        if adapter == "listnode":
+            stack.append(node.next)
+        else:
+            stack.extend((node.right, node.left))
+    return nodes
+
+
+def _tree_identity_snapshot(root: Any) -> dict:
+    """Capture every node's value and exact child links without recursion."""
+    result, stack = {}, [root]
+    while stack:
+        node = stack.pop()
+        if node is None:
+            continue
+        if id(node) in result:
+            raise ValueError("Node structure contains a cycle or shared child")
+        if len(result) >= 100_000:
+            raise ValueError("Node structure exceeds the supported node limit")
+        result[id(node)] = (node, node.val, id(node.left) if node.left else None,
+                            id(node.right) if node.right else None)
+        stack.extend((node.right, node.left))
+    return result
+
+
+def _tree_node_by_value(root: Any, value: Any) -> Any:
+    matches, stack, seen = [], [root], set()
+    while stack:
+        node = stack.pop()
+        if node is None:
+            continue
+        if id(node) in seen:
+            raise ValueError("Node structure contains a cycle or shared child")
+        if len(seen) >= 100_000:
+            raise ValueError("Node structure exceeds the supported node limit")
+        seen.add(id(node))
+        if node.val == value:
+            matches.append(node)
+        stack.extend((node.right, node.left))
+    if len(matches) != 1:
+        raise ValueError("Tree-node reference value must identify exactly one source node")
+    return matches[0]
 
 
 def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple[bool, str | None]:
@@ -99,11 +187,64 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
                 value = _listnode(value, namespace.get("ListNode", ListNode))
             elif parameter.adapter == "treenode":
                 value = _treenode(value, namespace.get("TreeNode", TreeNode))
+            elif parameter.adapter == "treenode_ref":
+                value = _tree_node_by_value(arguments[parameter.source_parameter], value)
             arguments.append(value)
-        actual = _serialize(function(*arguments), problem.signature.return_adapter)
-        return compare(actual, test.expected, test.comparator), None
+        original_nodes = {}
+        original_tree_nodes = {}
+        mode = problem.signature.result_mode
+        observed_adapter = (problem.signature.return_adapter if mode == "return"
+                            else problem.signature.parameters[problem.signature.mutated_parameter].adapter)
+        if problem.signature.node_policy == "reuse_input_nodes":
+            for index, (argument, parameter) in enumerate(zip(arguments, problem.signature.parameters)):
+                if parameter.adapter == observed_adapter and (mode == "return" or index == problem.signature.mutated_parameter):
+                    original_nodes.update(_node_snapshot(argument, parameter.adapter))
+        elif problem.signature.node_policy == "return_input_node":
+            for argument, parameter in zip(arguments, problem.signature.parameters):
+                if parameter.adapter == "treenode":
+                    original_tree_nodes.update(_tree_identity_snapshot(argument))
+        output = function(*arguments)
+        if mode == "return":
+            actual = _serialize(output, problem.signature.return_adapter, test.comparator == "balanced_bst")
+        else:
+            index = problem.signature.mutated_parameter
+            changed = _serialize(arguments[index], problem.signature.parameters[index].adapter)
+            if mode == "mutated_argument":
+                actual = changed
+            else:
+                valid_count = type(output) is int and isinstance(changed, list) and 0 <= output <= len(changed)
+                actual = {"return": output, "prefix": changed[:output] if valid_count else None}
+        if problem.signature.node_policy == "reuse_input_nodes":
+            observed = output if mode == "return" else arguments[problem.signature.mutated_parameter]
+            returned_nodes = _node_snapshot(observed, observed_adapter)
+            if set(returned_nodes) != set(original_nodes) or any(node.val != value for node, value in original_nodes.values()):
+                return False, None
+            if test.expected_node_order is not None:
+                original_ids = list(original_nodes)
+                if (len(test.expected_node_order) != len(original_ids)
+                        or any(index >= len(original_ids) for index in test.expected_node_order)
+                        or list(returned_nodes) != [original_ids[index] for index in test.expected_node_order]):
+                    return False, None
+        elif problem.signature.node_policy == "return_input_node":
+            if output is None or id(output) not in original_tree_nodes:
+                return False, None
+            if any(node.val != value
+                   or (id(node.left) if node.left else None) != left
+                   or (id(node.right) if node.right else None) != right
+                   for node, value, left, right in original_tree_nodes.values()):
+                return False, None
+        return compare_result(actual, test.expected, test.comparator, mode), None
     except Exception as exc:  # validation reports the exception without hiding it
         return False, f"{type(exc).__name__}: {exc}"
+
+
+def compare_result(actual: Any, expected: Any, comparator: str, mode: str = "return") -> bool:
+    if mode == "returned_prefix":
+        return (isinstance(actual, dict) and isinstance(expected, dict)
+                and type(actual.get("return")) is int and isinstance(actual.get("prefix"), list)
+                and actual["return"] == expected["return"] == len(actual["prefix"])
+                and compare(actual["prefix"], expected["prefix"], comparator))
+    return compare(actual, expected, comparator)
 
 
 def _isolated_worker(queue, source: str, problem_payload: dict[str, Any], test_payload: dict[str, Any]) -> None:

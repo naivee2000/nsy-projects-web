@@ -157,7 +157,7 @@ def test_review_priority_ignores_hint_usage_but_boosts_personal_weak_topics():
     )
 
 
-def test_review_set_reserves_weak_topic_and_grid_recursion_slots():
+def test_review_set_balances_three_focus_slots_with_two_general_slots():
     now = datetime(2026, 9, 8, 12, tzinfo=timezone.utc)
     catalog = {problem.id: problem for problem in PROBLEMS}
     chosen = [
@@ -191,4 +191,35 @@ def test_review_set_reserves_weak_topic_and_grid_recursion_slots():
         "linked-odd-even-order",
         "rotated-array-search",
     }
+    assert all(review_focus_boost(problem) > 0 for problem in ranked[:3])
+    assert all(review_focus_boost(problem) == 0 for problem in ranked[3:5])
     assert all(problem.difficulty >= 4 for problem in ranked[:4])
+
+
+def test_review_set_falls_back_when_general_pool_is_too_small():
+    now = datetime(2026, 9, 8, 12, tzinfo=timezone.utc)
+    catalog = {problem.id: problem for problem in PROBLEMS}
+    chosen = [
+        catalog["largest-land-region"],
+        catalog["linked-odd-even-order"],
+        catalog["rotated-array-search"],
+        catalog["recursive-digit-sum"],
+        catalog["binary-search-index"],
+        catalog["merge-intervals"],
+    ]
+    attempts = [make_attempt(problem.id, attempt_id=200 + index) for index, problem in enumerate(chosen)]
+    reviews = [
+        ReviewState(problem_id=problem.id, interval_index=0, due_at=now, latest_result="accepted")
+        for problem in chosen
+    ]
+
+    ranked = prioritized_review_problems(
+        catalog,
+        attempts,
+        reviews,
+        {problem.id for problem in chosen},
+        now,
+    )
+
+    assert len(ranked) == 5
+    assert sum(review_focus_boost(problem) == 0 for problem in ranked) == 1

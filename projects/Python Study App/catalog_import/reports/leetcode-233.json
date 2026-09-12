@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-233",
+  "content_sha256": "1bce40b1a8e7a290d824db64d94e22e365fc64404fe9f4f4c2ad99b577dfe8de",
+  "source_hash": "88908fa75265445559e06eb2107ad3450a95eacbf1ab496d53c3ac3cb68cafda",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only values below n and omits any ones in n itself.",
+      "failed_cases": [
+        "lc-233-1",
+        "lc-233-3",
+        "lc-233-6",
+        "lc-233-7",
+        "lc-233-8",
+        "lc-233-9",
+        "lc-233-11",
+        "lc-233-13",
+        "lc-233-14",
+        "lc-233-stress-1"
+      ]
+    },
+    {
+      "reason": "Counts only complete place-value cycles and misses the partial cycle determined by the current digit and lower digits.",
+      "failed_cases": [
+        "lc-233-1",
+        "lc-233-3",
+        "lc-233-4",
+        "lc-233-5",
+        "lc-233-6",
+        "lc-233-7",
+        "lc-233-8",
+        "lc-233-9",
+        "lc-233-10",
+        "lc-233-11",
+        "lc-233-12",
+        "lc-233-13",
+        "lc-233-14",
+        "lc-233-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4280,
+  "oracle_implementation": "code_practice/import_batch_022.py:digit_one_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "8c22a18941f65edad8e94dc9db23a196deab0dbfd3b74ae736b86f14cece6c28",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.167,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

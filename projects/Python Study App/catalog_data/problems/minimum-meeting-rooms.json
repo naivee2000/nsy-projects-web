@@ -1,0 +1,363 @@
+{
+  "id": "minimum-meeting-rooms",
+  "version": 1,
+  "status": "approved",
+  "title": "Minimum Meeting Rooms",
+  "summary": "Return the minimum number of rooms needed for half-open meeting intervals.",
+  "statement": "Return the minimum number of rooms needed for half-open meeting intervals. Implement `minimum_meeting_rooms` and return the required result without changing the callable signature.",
+  "constraints": [
+    "Inputs follow the declared Python and JSON-compatible types.",
+    "Return a deterministic result for every valid input."
+  ],
+  "topics": [
+    "intervals",
+    "heaps"
+  ],
+  "prerequisites": [
+    "intervals"
+  ],
+  "signature": {
+    "name": "minimum_meeting_rooms",
+    "parameters": [
+      {
+        "name": "intervals",
+        "annotation": "list[list[int]]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def minimum_meeting_rooms(intervals: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def minimum_meeting_rooms(intervals):\n    import heapq\n    heap = []\n    for start, end in sorted(intervals):\n        if heap and heap[0] <= start: heapq.heapreplace(heap, end)\n        else: heapq.heappush(heap, end)\n    return len(heap)\n",
+  "brute_force_solution": "def minimum_meeting_rooms(intervals):\n    import heapq\n    heap = []\n    for start, end in sorted(intervals):\n        if heap and heap[0] <= start: heapq.heapreplace(heap, end)\n        else: heapq.heappush(heap, end)\n    return len(heap)\n",
+  "known_wrong_solutions": [
+    "def minimum_meeting_rooms(intervals):\n    return None\n",
+    "def minimum_meeting_rooms(intervals):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n log n)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Only the earliest finishing active meeting determines room reuse.",
+    "Sort by start and maintain a min-heap of current end times.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the minimum_meeting_rooms invariant is complete.",
+    "Editorial: Sort by start and maintain a min-heap of current end times. The intended bounds are O(n log n) time and O(n) space."
+  ],
+  "editorial": "Only the earliest finishing active meeting determines room reuse. Sort by start and maintain a min-heap of current end times. This yields O(n log n) time and O(n) auxiliary space.",
+  "tests": [
+    {
+      "id": "minimum-meeting-rooms-case-1",
+      "arguments": [
+        [
+          [
+            0,
+            30
+          ],
+          [
+            5,
+            10
+          ],
+          [
+            15,
+            20
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The long meeting overlaps each shorter meeting, so two rooms are necessary.",
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-2",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Half-open intervals that only touch at time 2 can reuse one room.",
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-3",
+      "arguments": [
+        []
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-4",
+      "arguments": [
+        [
+          [
+            1,
+            4
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-5",
+      "arguments": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            8,
+            10
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-6",
+      "arguments": [
+        [
+          [
+            5,
+            7
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-7",
+      "arguments": [
+        [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-8",
+      "arguments": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-9",
+      "arguments": [
+        [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2,
+            2
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-10",
+      "arguments": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-11",
+      "arguments": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            5
+          ]
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-12",
+      "arguments": [
+        [
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-13",
+      "arguments": [
+        [
+          [
+            10,
+            20
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            4,
+            12
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "minimum-meeting-rooms-case-14",
+      "arguments": [
+        [
+          [
+            1,
+            100
+          ],
+          [
+            50,
+            60
+          ],
+          [
+            101,
+            102
+          ]
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

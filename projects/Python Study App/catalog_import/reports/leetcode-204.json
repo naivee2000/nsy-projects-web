@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-204",
+  "content_sha256": "2cbcdd317eac253b9e478ec77decb9607aa30ca9c4d45bbc8f7fc98894f09853",
+  "source_hash": "b613af2e68616912f78795311c90da40e04c3bb0d28decc6e91b64f63b5cf67a",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts primes through n inclusively, violating the strict upper bound.",
+      "failed_cases": [
+        "lc-204-2",
+        "lc-204-5",
+        "lc-204-7",
+        "lc-204-9",
+        "lc-204-12"
+      ]
+    },
+    {
+      "reason": "Starts crossing off after p² and leaves prime squares incorrectly marked prime.",
+      "failed_cases": [
+        "lc-204-1",
+        "lc-204-7",
+        "lc-204-8",
+        "lc-204-9",
+        "lc-204-10",
+        "lc-204-11",
+        "lc-204-12",
+        "lc-204-13",
+        "lc-204-14",
+        "lc-204-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4251,
+  "oracle_implementation": "code_practice/import_batch_020.py:prime_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "c514f0f536ddec594527bec51024127811de11eb86d63244c92f6fd74613e461",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.151,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-268",
+  "content_sha256": "344f43b5807b7ce568467de6a66dbcbd40eab22ebcd1f988e25810c7d29e2970",
+  "source_hash": "c80a35014b4c76823351f287ae4b5fbbb7c7d4e32bea0e5a1650a04732c261f3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the sum through n-1 instead of including n.",
+      "failed_cases": [
+        "lc-268-1",
+        "lc-268-2",
+        "lc-268-3",
+        "lc-268-4",
+        "lc-268-5",
+        "lc-268-6",
+        "lc-268-7",
+        "lc-268-8",
+        "lc-268-9",
+        "lc-268-10",
+        "lc-268-11",
+        "lc-268-12",
+        "lc-268-13",
+        "lc-268-14"
+      ]
+    },
+    {
+      "reason": "Fails to subtract the final input value.",
+      "failed_cases": [
+        "lc-268-1",
+        "lc-268-2",
+        "lc-268-4",
+        "lc-268-5",
+        "lc-268-6",
+        "lc-268-7",
+        "lc-268-8",
+        "lc-268-9",
+        "lc-268-11",
+        "lc-268-12",
+        "lc-268-13",
+        "lc-268-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4315,
+  "oracle_implementation": "code_practice/import_batch_003.py:missing_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "ad051bc94cc3f7d6b7a6daff70731f36adeec791e79781b8958b15dd0003b04b",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

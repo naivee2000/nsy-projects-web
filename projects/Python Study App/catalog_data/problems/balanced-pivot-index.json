@@ -1,0 +1,276 @@
+{
+  "id": "balanced-pivot-index",
+  "version": 1,
+  "status": "approved",
+  "title": "Balanced Pivot Index",
+  "summary": "Return the leftmost index whose left-side sum equals its right-side sum, or -1.",
+  "statement": "For an index to be balanced, neither side includes the value at that index. Return the first balanced index from left to right. Return -1 when no index works, including for an empty list.",
+  "constraints": [
+    "0 ≤ len(nums) ≤ 10,000.",
+    "Values may be negative, zero, or positive."
+  ],
+  "topics": [
+    "arrays",
+    "prefix-sums"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "balanced_pivot_index",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def balanced_pivot_index(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def balanced_pivot_index(nums):\n    total = sum(nums); left = 0\n    for index, value in enumerate(nums):\n        if left == total - left - value: return index\n        left += value\n    return -1\n",
+  "brute_force_solution": "def balanced_pivot_index(nums):\n    total = sum(nums); left = 0\n    for index, value in enumerate(nums):\n        if left == total - left - value: return index\n        left += value\n    return -1\n",
+  "known_wrong_solutions": [
+    "def balanced_pivot_index(nums):\n    return None\n",
+    "def balanced_pivot_index(nums):\n    return 0\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 25,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "The right-side sum can be derived from the total, the left sum, and the current value.",
+    "Maintain the sum strictly left of each index and return the first index where it matches the derived right sum.",
+    "Pseudocode checkpoint: identify the state, update it once per step, and return only after the balanced_pivot_index invariant is complete.",
+    "Editorial: Maintain the sum strictly left of each index and return the first index where it matches the derived right sum. The intended bounds are O(n) time and O(1) space."
+  ],
+  "editorial": "The right-side sum can be derived from the total, the left sum, and the current value. Maintain the sum strictly left of each index and return the first index where it matches the derived right sum. This yields O(n) time and O(1) auxiliary space.",
+  "tests": [
+    {
+      "id": "balanced-pivot-index-case-1",
+      "arguments": [
+        [
+          1,
+          7,
+          3,
+          6,
+          5,
+          6
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "At index 3, the values to the left and right both sum to 11.",
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-2",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "No index balances the sums on its two sides, so return -1.",
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-3",
+      "arguments": [
+        [
+          2,
+          1,
+          -1
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-4",
+      "arguments": [
+        [
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-5",
+      "arguments": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-6",
+      "arguments": [
+        [
+          1,
+          -1,
+          0
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-7",
+      "arguments": [
+        [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          0
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-8",
+      "arguments": [
+        [
+          3,
+          -1,
+          -2,
+          0
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-9",
+      "arguments": [
+        [
+          -2,
+          5,
+          -3,
+          0
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-10",
+      "arguments": [
+        [
+          10,
+          -10,
+          0
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-11",
+      "arguments": [
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-12",
+      "arguments": [
+        [
+          5,
+          0,
+          0,
+          5
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-13",
+      "arguments": [
+        [
+          -4,
+          2,
+          2,
+          0
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "balanced-pivot-index-case-14",
+      "arguments": [
+        []
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

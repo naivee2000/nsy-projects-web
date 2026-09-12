@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-8",
+  "content_sha256": "931905a23e10a8920aa3c30bbe7123c871183d90fc39786d5b9b3137e79d466c",
+  "source_hash": "a341b097793b88a397244b7c7436491865f61b077ac33d19fa02214599b82681",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the negative sign.",
+      "failed_cases": [
+        "lc-8-2",
+        "lc-8-13"
+      ]
+    },
+    {
+      "reason": "Returns out-of-range values instead of clamping to signed 32-bit bounds.",
+      "failed_cases": [
+        "lc-8-12",
+        "lc-8-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4055,
+  "oracle_implementation": "code_practice/import_batch_007.py:atoi_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "19d2cca0abe6676578dafd1c1051e42d4b72b5721c2b413e5b7a861c6f2a1bd0",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

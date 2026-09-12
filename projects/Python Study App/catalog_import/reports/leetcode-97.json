@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-97",
+  "content_sha256": "e78d4175f713d79ffbe4353464858c1aa0ba3faed53c725b6b1e1951df81209c",
+  "source_hash": "e20a5fb9f2b541651666fe29a7d32dc53178486d424cbf37279a4b6ba56d3fff",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Always consumes from the first source when both next characters match, losing valid alternate choices.",
+      "failed_cases": [
+        "lc-97-1",
+        "lc-97-12"
+      ]
+    },
+    {
+      "reason": "Checks only character multiplicities and ignores ordering.",
+      "failed_cases": [
+        "lc-97-2",
+        "lc-97-11",
+        "lc-97-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4144,
+  "oracle_implementation": "code_practice/import_batch_010.py:interleave_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "e46a1138793a580d0aedc6770704b6b92bd9dcdfb5699095d86cfe8328adcb46",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

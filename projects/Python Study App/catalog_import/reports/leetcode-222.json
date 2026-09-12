@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-222",
+  "content_sha256": "2f9b170c78b561d422f7c953f3f6cfd6744e72a388e06f16e01697a65fc8d6d1",
+  "source_hash": "4584854eb869326d65da7714c1df6d54fd380c70bd10818fdbc75a965fbdcd71",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes the final level is full and counts a perfect tree of the same height.",
+      "failed_cases": [
+        "lc-222-1",
+        "lc-222-4",
+        "lc-222-6",
+        "lc-222-7",
+        "lc-222-8",
+        "lc-222-10",
+        "lc-222-11",
+        "lc-222-13",
+        "lc-222-stress-1"
+      ]
+    },
+    {
+      "reason": "Counts each skipped perfect subtree but forgets its parent root.",
+      "failed_cases": [
+        "lc-222-1",
+        "lc-222-3",
+        "lc-222-4",
+        "lc-222-5",
+        "lc-222-6",
+        "lc-222-7",
+        "lc-222-8",
+        "lc-222-9",
+        "lc-222-10",
+        "lc-222-11",
+        "lc-222-12",
+        "lc-222-13",
+        "lc-222-14",
+        "lc-222-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4269,
+  "oracle_implementation": "code_practice/import_batch_019.py:count_oracle",
+  "validator_implementation_sha256": "0e7734e956b5d86297d6e2fea7fbc149acab50c0d496efae45f05ce644403045",
+  "batch_implementation_sha256": "1db67d255d92478d25907096c13052237cf8524f6167363d5ea66e5b65223861",
+  "judge_contract_sha256": "070347b97d088af88f0ff9bed2e85a343d8062ffdf37f699be772d32c85cff54",
+  "elapsed_seconds": 0.091,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
