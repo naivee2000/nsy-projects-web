@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-47",
+  "content_sha256": "0608ab39e1ddc55003c90334262ac301328a7d8f2969d93b0a678789a1a73861",
+  "source_hash": "ebf182a732a3f7381e67c7f8fbf83a0c4c1ba862ce3bf97768389d307bde75f7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats equal-valued positions as different choices and emits duplicate rows.",
+      "failed_cases": [
+        "lc-47-1",
+        "lc-47-6",
+        "lc-47-10",
+        "lc-47-11",
+        "lc-47-12",
+        "lc-47-13",
+        "lc-47-stress-2"
+      ]
+    },
+    {
+      "reason": "Forgets to restore a used count, losing sibling branches.",
+      "failed_cases": [
+        "lc-47-1",
+        "lc-47-2",
+        "lc-47-7",
+        "lc-47-8",
+        "lc-47-9",
+        "lc-47-11",
+        "lc-47-12",
+        "lc-47-13",
+        "lc-47-14",
+        "lc-47-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4094,
+  "oracle_implementation": "code_practice/import_batch_037.py:permutation_oracle",
+  "validator_implementation_sha256": "3665465b8b962df68e0e6332ee2e61cbd87e0e3377b3c6c3a767b22f544350f2",
+  "batch_implementation_sha256": "b940d3461d511da533245279694c1e549056b9e6e4218ae740ca899bcf1c02f4",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.212,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

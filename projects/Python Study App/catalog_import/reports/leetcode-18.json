@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-18",
+  "content_sha256": "bcaf1edaac9518fc22570de937a671502cf5a729ba362924107b7be27f60499f",
+  "source_hash": "9db9f4b0c58f10f6432f766b58df2f9d439f878b5cee85bf80675348aca0c9f5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Discards repeated input values that may be needed at separate indices.",
+      "failed_cases": [
+        "lc-18-1",
+        "lc-18-2",
+        "lc-18-5",
+        "lc-18-12",
+        "lc-18-13",
+        "lc-18-14",
+        "lc-18-stress-1"
+      ]
+    },
+    {
+      "reason": "Reuses the second fixed index as a moving index.",
+      "failed_cases": [
+        "lc-18-7",
+        "lc-18-10",
+        "lc-18-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4065,
+  "oracle_implementation": "code_practice/import_batch_037.py:four_oracle",
+  "validator_implementation_sha256": "3665465b8b962df68e0e6332ee2e61cbd87e0e3377b3c6c3a767b22f544350f2",
+  "batch_implementation_sha256": "b940d3461d511da533245279694c1e549056b9e6e4218ae740ca899bcf1c02f4",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.259,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

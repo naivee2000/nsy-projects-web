@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-407",
+  "content_sha256": "814db7121732a1493b695b7dfb82b3750c9d650e8f9e91be96d6fdaea29886dd",
+  "source_hash": "73a5145367c5bd3fa51b30532afaaea29f43e10fe8b1f38ada50061ed19989bf",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Propagates raw height instead of effective water level, allowing a basin to drain through itself.",
+      "failed_cases": [
+        "lc-407-1",
+        "lc-407-9",
+        "lc-407-10",
+        "lc-407-12",
+        "lc-407-14",
+        "lc-407-stress-1"
+      ]
+    },
+    {
+      "reason": "Seeds only top and bottom edges, missing left/right outlets.",
+      "failed_cases": [
+        "lc-407-2",
+        "lc-407-6",
+        "lc-407-11",
+        "lc-407-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4454,
+  "oracle_implementation": "code_practice/import_batch_037.py:water_oracle",
+  "validator_implementation_sha256": "3665465b8b962df68e0e6332ee2e61cbd87e0e3377b3c6c3a767b22f544350f2",
+  "batch_implementation_sha256": "b940d3461d511da533245279694c1e549056b9e6e4218ae740ca899bcf1c02f4",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.411,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

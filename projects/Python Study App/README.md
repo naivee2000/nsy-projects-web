@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 363 runnable problems (101 original exercises plus 262 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 371 runnable problems (101 original exercises plus 270 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **363-problem handoff checkpoint** is tagged `python-study-363-checkpoint`; the earlier 345- and 326-problem tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_363_CHECKPOINT.md) for exact-version update commands. Expansion is held at this checkpoint while the owner updates the other computer, then can resume from the saved ledger. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **363-problem handoff checkpoint** is tagged `python-study-363-checkpoint`; the earlier 345- and 326-problem tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_363_CHECKPOINT.md) for exact-version update commands. Goal work has resumed locally, adding eight verified problems on `main` without changing that tag. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 72 existing equivalents, 262 verified imports, 155 documented
-design/interactive exclusions, and 3,140 pending records. Ordinary tree and
+Current status: 73 existing equivalents, 270 verified imports, 155 documented
+design/interactive exclusions, and 3,131 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Thirty-six reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Thirty-seven reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -331,8 +331,22 @@ Unicode scalar-value restrictions. Exhaustive small-domain regressions and
 source-sized fixtures cover up to 100,000 decoded characters/digits and 2,000
 stones. Abbreviation validity is a separate boolean query from the existing
 all-abbreviations generator. The judge and all previous problem IDs are unchanged.
-Of the 72 overlaps, 69 map to original exercises and three map to approved
-imports. Unique-only rotated minimum (153) uses the existing duplicate-aware
+Batch thirty-seven adds 4Sum, word-concatenation windows, numeric Permutations II,
+Scramble String, Trapping Rain Water II, Split Array Largest Sum, Arithmetic
+Slices, and Third Maximum Number. Four are Hard problems. The permutation judge
+allows reordering answers but preserves order inside each row and rejects
+duplicate rows. Independent checks enumerate permutations, split-tree outputs,
+contiguous cuts, and water layers. Exhaustive short-domain regressions and
+source-scale fixtures include 40,320 permutations, 200-by-200 basins, 5,000
+repeated words, and 1,000-element partition searches. Recursive permutation/
+scramble and binary-search exercises retain weak-topic priorities. Existing
+problem IDs, content, progress, and the 363-problem handoff tag remain unchanged.
+Of the 73 overlaps, 69 map to original exercises and four map to approved
+imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
+its full unique-input domain is covered, with 500 independent permutation checks,
+the original sample, and all 720 outputs on six-element boundaries. This is
+distinct from the original string-returning permutation exercise.
+Unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
 values. Its separate overlap report verifies 500 seeded cases, the workbook
 sample, and 5,000-element boundaries. No second progress ID is introduced.
@@ -368,7 +382,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 363 problems; future
+been checked against every reviewed batch. The current package contains 371 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

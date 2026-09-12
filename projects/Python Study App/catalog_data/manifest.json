@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 363,
+  "count": 371,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -2042,6 +2042,24 @@
       "source_id": 17
     },
     {
+      "id": "leetcode-18",
+      "version": 1,
+      "status": "approved",
+      "title": "4Sum",
+      "summary": "Given an array of integers nums, return all unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that: - 0 <= a, b, c, d < n (where n is the length of the array) - a, b, c, and d are distinct indices - The sum of the elements at these indices equals the target value Ensure the quadruplets are returned in any order.",
+      "topics": [
+        "arrays",
+        "two-pointers",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-18.json",
+      "content_sha256": "bcaf1edaac9518fc22570de937a671502cf5a729ba362924107b7be27f60499f",
+      "source_id": 18
+    },
+    {
       "id": "leetcode-19",
       "version": 1,
       "status": "approved",
@@ -2161,6 +2179,27 @@
       "path": "problems/leetcode-29.json",
       "content_sha256": "7d2eab1e7c16a5dd2226056adacdf8b47af5b324a07d3f5b06ab8f3a5e12a4b5",
       "source_id": 29
+    },
+    {
+      "id": "leetcode-30",
+      "version": 1,
+      "status": "approved",
+      "title": "Substring with Concatenation of All Words",
+      "summary": "Given a string s and an array of strings words of equal length, find all starting indices in s where a substring exactly matches any permutation of words.",
+      "topics": [
+        "strings",
+        "hash-maps",
+        "sliding-window"
+      ],
+      "prerequisites": [
+        "hash-maps",
+        "sliding-window"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-30.json",
+      "content_sha256": "8a297caeb45f618c991c12b72894154535262595dd49f6c41cd90ab9ee643e99",
+      "source_id": 30
     },
     {
       "id": "leetcode-31",
@@ -2344,6 +2383,24 @@
       "path": "problems/leetcode-45.json",
       "content_sha256": "801456347651c59e2e7e315c8f715c0ffd947aa813d51528039a08eaaa38c14a",
       "source_id": 45
+    },
+    {
+      "id": "leetcode-47",
+      "version": 1,
+      "status": "approved",
+      "title": "Permutations II",
+      "summary": "Given a collection of numbers, nums, which may include duplicates, return all possible unique permutations of these numbers in any order.",
+      "topics": [
+        "arrays",
+        "backtracking",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-47.json",
+      "content_sha256": "0608ab39e1ddc55003c90334262ac301328a7d8f2969d93b0a678789a1a73861",
+      "source_id": 47
     },
     {
       "id": "leetcode-48",
@@ -2818,6 +2875,27 @@
       "path": "problems/leetcode-86.json",
       "content_sha256": "77218647d32cc18a8a98b7d497e4769d864aa0fd5b3e8c87b56a26f8006a6fcd",
       "source_id": 86
+    },
+    {
+      "id": "leetcode-87",
+      "version": 1,
+      "status": "approved",
+      "title": "Scramble String",
+      "summary": "Given two strings s1 and s2 of the same length, determine if s2 can be obtained from s1 by recursively splitting each string into two non-empty substrings at a random index and then randomly deciding to either swap the order of these substrings or keep them in the original order.",
+      "topics": [
+        "strings",
+        "recursion",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "recursion",
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-87.json",
+      "content_sha256": "5c73198c96872e0525657380c0d080a5bdf05db35434f4463a10d9556b5f6745",
+      "source_id": 87
     },
     {
       "id": "leetcode-88",
@@ -6502,6 +6580,28 @@
       "source_id": 404
     },
     {
+      "id": "leetcode-407",
+      "version": 1,
+      "status": "approved",
+      "title": "Trapping Rain Water II",
+      "summary": "Given a matrix heightMap of dimensions m x n, representing the elevation of each cell, calculate the total volume of water that can be trapped after a rainfall.",
+      "topics": [
+        "matrices",
+        "graphs",
+        "heaps",
+        "flood-fill"
+      ],
+      "prerequisites": [
+        "graphs",
+        "heaps"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-407.json",
+      "content_sha256": "814db7121732a1493b695b7dfb82b3750c9d650e8f9e91be96d6fdaea29886dd",
+      "source_id": 407
+    },
+    {
       "id": "leetcode-408",
       "version": 1,
       "status": "approved",
@@ -6518,6 +6618,61 @@
       "path": "problems/leetcode-408.json",
       "content_sha256": "7ca2c42a2451f84eb080157b175d8a27fe892dd2a24a39a83cf9d32e4e0ed8cc",
       "source_id": 408
+    },
+    {
+      "id": "leetcode-410",
+      "version": 1,
+      "status": "approved",
+      "title": "Split Array Largest Sum",
+      "summary": "Given an integer array nums and an integer k, divide nums into k non-empty contiguous subarrays to minimize the maximum sum of any subarray.",
+      "topics": [
+        "arrays",
+        "binary-search",
+        "greedy"
+      ],
+      "prerequisites": [
+        "binary-search",
+        "greedy"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-410.json",
+      "content_sha256": "c581e089656a0cf304e2978cb56a30a0b87c356b2b6018cac061b6556a2cdda8",
+      "source_id": 410
+    },
+    {
+      "id": "leetcode-413",
+      "version": 1,
+      "status": "approved",
+      "title": "Arithmetic Slices",
+      "summary": "An array is deemed arithmetic if it contains at least three elements with a constant difference between consecutive elements.",
+      "topics": [
+        "arrays",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-413.json",
+      "content_sha256": "454ca34bfa4a68e4e12afbb5e3d2ff92828489a2fdb0f32b93009fa9b9b3ed27",
+      "source_id": 413
+    },
+    {
+      "id": "leetcode-414",
+      "version": 1,
+      "status": "approved",
+      "title": "Third Maximum Number",
+      "summary": "Given an integer array, return the third distinct highest number.",
+      "topics": [
+        "arrays",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-414.json",
+      "content_sha256": "10d7f9ecb06c599cc0906c9f98216c795b56103145d2df95054c75525ba9a191",
+      "source_id": 414
     },
     {
       "id": "leetcode-543",

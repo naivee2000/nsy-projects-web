@@ -1,0 +1,838 @@
+{
+  "id": "leetcode-18",
+  "version": 1,
+  "status": "approved",
+  "title": "4Sum",
+  "summary": "Given an array of integers nums, return all unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that: - 0 <= a, b, c, d < n (where n is the length of the array) - a, b, c, and d are distinct indices - The sum of the elements at these indices equals the target value Ensure the quadruplets are returned in any order.",
+  "statement": "Given an array of integers nums, return all unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that: - 0 <= a, b, c, d < n (where n is the length of the array) - a, b, c, and d are distinct indices - The sum of the elements at these indices equals the target value Ensure the quadruplets are returned in any order.",
+  "constraints": [
+    "1 <= nums.length <= 200; -10^9 <= nums[i], target <= 10^9.",
+    "Use four distinct indices. Equal values at different indices may be used.",
+    "Return each value quadruplet once; quadruplets and their values may appear in any order."
+  ],
+  "topics": [
+    "arrays",
+    "two-pointers",
+    "sorting"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "four_sum",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "target",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[list[int]]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def four_sum(nums: list[int], target: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def four_sum(nums, target):\n    values = sorted(nums)\n    result = []\n    for first in range(len(values)-3):\n        if first and values[first] == values[first-1]:\n            continue\n        for second in range(first+1,len(values)-2):\n            if second > first+1 and values[second] == values[second-1]:\n                continue\n            left, right = second+1, len(values)-1\n            while left < right:\n                total = values[first]+values[second]+values[left]+values[right]\n                if total < target:\n                    left += 1\n                elif total > target:\n                    right -= 1\n                else:\n                    result.append([values[first],values[second],values[left],values[right]])\n                    left, right = left+1, right-1\n                    while left < right and values[left] == values[left-1]:\n                        left += 1\n                    while left < right and values[right] == values[right+1]:\n                        right -= 1\n    return result\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def four_sum(nums, target):\n    values = sorted(set(nums))\n    result = []\n    for first in range(len(values)-3):\n        if first and values[first] == values[first-1]:\n            continue\n        for second in range(first+1,len(values)-2):\n            if second > first+1 and values[second] == values[second-1]:\n                continue\n            left, right = second+1, len(values)-1\n            while left < right:\n                total = values[first]+values[second]+values[left]+values[right]\n                if total < target:\n                    left += 1\n                elif total > target:\n                    right -= 1\n                else:\n                    result.append([values[first],values[second],values[left],values[right]])\n                    left, right = left+1, right-1\n                    while left < right and values[left] == values[left-1]:\n                        left += 1\n                    while left < right and values[right] == values[right+1]:\n                        right -= 1\n    return result\n",
+    "def four_sum(nums, target):\n    values = sorted(nums)\n    result = []\n    for first in range(len(values)-3):\n        if first and values[first] == values[first-1]:\n            continue\n        for second in range(first+1,len(values)-2):\n            if second > first+1 and values[second] == values[second-1]:\n                continue\n            left, right = second, len(values)-1\n            while left < right:\n                total = values[first]+values[second]+values[left]+values[right]\n                if total < target:\n                    left += 1\n                elif total > target:\n                    right -= 1\n                else:\n                    result.append([values[first],values[second],values[left],values[right]])\n                    left, right = left+1, right-1\n                    while left < right and values[left] == values[left-1]:\n                        left += 1\n                    while left < right and values[right] == values[right+1]:\n                        right -= 1\n    return result\n"
+  ],
+  "target_time_complexity": "O(n^3)",
+  "target_space_complexity": "O(n), excluding output",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Distinct indices do not require distinct values.",
+    "Sort, fix two indices, then search the remaining suffix from both ends.",
+    "Move left or right according to the four-value sum; skip equal fixed choices and equal endpoints after a match.",
+    "Two fixed loops plus a linear two-pointer scan cost O(n^3). Preserve multiplicities and emit each value quadruplet once."
+  ],
+  "editorial": "Sorting makes the remaining pair sum monotone. Keep first < second < left < right. A small sum needs a larger left value; a large sum needs a smaller right value. On equality record the values and skip repeated choices. Sorting a set would destroy needed occurrences. Python integers safely handle intermediate sums beyond signed 32-bit limits.",
+  "tests": [
+    {
+      "id": "lc-18-1",
+      "arguments": [
+        [
+          1,
+          0,
+          -1,
+          0,
+          -2,
+          2
+        ],
+        0
+      ],
+      "expected": [
+        [
+          -2,
+          -1,
+          1,
+          2
+        ],
+        [
+          -2,
+          0,
+          0,
+          2
+        ],
+        [
+          -1,
+          0,
+          0,
+          1
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": true,
+      "explanation": "Three distinct value quadruplets sum to 0. The two zeros are separate input elements.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-2",
+      "arguments": [
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        8
+      ],
+      "expected": [
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": true,
+      "explanation": "Any four of the five indices give [2,2,2,2], so return that value quadruplet only once.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-3",
+      "arguments": [
+        [
+          1
+        ],
+        4
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-4",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ],
+        6
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-5",
+      "arguments": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-6",
+      "arguments": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        1
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-7",
+      "arguments": [
+        [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        0
+      ],
+      "expected": [
+        [
+          -2,
+          -1,
+          1,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-8",
+      "arguments": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        10
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-9",
+      "arguments": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        10
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-10",
+      "arguments": [
+        [
+          -5,
+          -4,
+          -3,
+          -2,
+          -1
+        ],
+        -14
+      ],
+      "expected": [
+        [
+          -5,
+          -4,
+          -3,
+          -2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-11",
+      "arguments": [
+        [
+          -3,
+          -1,
+          0,
+          2,
+          4,
+          5
+        ],
+        2
+      ],
+      "expected": [
+        [
+          -3,
+          -1,
+          2,
+          4
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-12",
+      "arguments": [
+        [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        6
+      ],
+      "expected": [
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-13",
+      "arguments": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-14",
+      "arguments": [
+        [
+          -1000000000,
+          -1000000000,
+          1000000000,
+          1000000000
+        ],
+        0
+      ],
+      "expected": [
+        [
+          -1000000000,
+          -1000000000,
+          1000000000,
+          1000000000
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-stress-1",
+      "arguments": [
+        [
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000,
+          -1000000000
+        ],
+        0
+      ],
+      "expected": [
+        [
+          -1000000000,
+          -1000000000,
+          1000000000,
+          1000000000
+        ]
+      ],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-18-stress-2",
+      "arguments": [
+        [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          240,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255,
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299
+        ],
+        -1
+      ],
+      "expected": [],
+      "comparator": "unordered_nested",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

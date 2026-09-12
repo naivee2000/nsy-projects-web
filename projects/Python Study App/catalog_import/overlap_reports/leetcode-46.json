@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "source_id": 46,
+  "source_hash": "c63f4d5d058004744b30b60d058486cf74a7db6a9f753906b344cfb4dc1a8b7f",
+  "target_problem_id": "leetcode-47",
+  "target_source_hash": "ebf182a732a3f7381e67c7f8fbf83a0c4c1ba862ce3bf97768389d307bde75f7",
+  "target_content_sha256": "0608ab39e1ddc55003c90334262ac301328a7d8f2969d93b0a678789a1a73861",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "implementation_sha256": "8dd3b416651a08209204af30bda41488fd65bb694d889485fb6222d640bb5d18",
+  "decision": {
+    "target_source_id": 47,
+    "source_hash": "c63f4d5d058004744b30b60d058486cf74a7db6a9f753906b344cfb4dc1a8b7f",
+    "reason": "Both return every distinct ordered permutation of an integer list in any outer order. The duplicate-aware numeric contract covers every unique input from source 46 (length 1–6, values -10..10) and also repeated values up to length 8. The count-based reference produces n! rows on unique inputs; independent position permutations verify 500 inputs, the workbook sample, and the six-element boundary. Keep one numeric-permutation progress ID, distinct from the original text-returning string exercise."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 4093,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 6,
+  "largest_input": 6,
+  "largest_output": 720,
+  "domain": "1–6 distinct signed integers in -10..10; preserve order inside rows and reject duplicate/missing rows"
+}

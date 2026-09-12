@@ -1,0 +1,266 @@
+{
+  "id": "leetcode-87",
+  "version": 1,
+  "status": "approved",
+  "title": "Scramble String",
+  "summary": "Given two strings s1 and s2 of the same length, determine if s2 can be obtained from s1 by recursively splitting each string into two non-empty substrings at a random index and then randomly deciding to either swap the order of these substrings or keep them in the original order.",
+  "statement": "Given two strings s1 and s2 of the same length, determine if s2 can be obtained from s1 by recursively splitting each string into two non-empty substrings at a random index and then randomly deciding to either swap the order of these substrings or keep them in the original order. Continue this process recursively on each substring until the length of the string is 1. Return true if s2 matches s1 after all recursive steps, otherwise return false.",
+  "constraints": [
+    "1 <= s1.length == s2.length <= 30; lowercase English letters only.",
+    "Recursively split into two nonempty parts, optionally swap them, and transform each part.",
+    "Return whether some sequence works. An arbitrary anagram need not be a scramble."
+  ],
+  "topics": [
+    "strings",
+    "recursion",
+    "dynamic-programming"
+  ],
+  "prerequisites": [
+    "recursion",
+    "dynamic-programming"
+  ],
+  "signature": {
+    "name": "is_scramble",
+    "parameters": [
+      {
+        "name": "s1",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "s2",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def is_scramble(s1: str, s2: str) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def is_scramble(s1, s2):\n    from collections import Counter\n    from functools import cache\n    @cache\n    def matches(first, second, width):\n        left, right = s1[first:first+width], s2[second:second+width]\n        if left == right:\n            return True\n        if Counter(left) != Counter(right):\n            return False\n        for split in range(1,width):\n            if matches(first,second,split) and matches(first+split,second+split,width-split):\n                return True\n            if matches(first,second+width-split,split) and matches(first+split,second,width-split):\n                return True\n        return False\n    return matches(0,0,len(s1))\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def is_scramble(s1,s2):\n    return sorted(s1)==sorted(s2)\n",
+    "def is_scramble(s1, s2):\n    from collections import Counter\n    from functools import cache\n    @cache\n    def matches(first, second, width):\n        left, right = s1[first:first+width], s2[second:second+width]\n        if left == right:\n            return True\n        if Counter(left) != Counter(right):\n            return False\n        for split in [width//2]:\n            if matches(first,second,split) and matches(first+split,second+split,width-split):\n                return True\n            if matches(first,second+width-split,split) and matches(first+split,second,width-split):\n                return True\n        return False\n    return matches(0,0,len(s1))\n"
+  ],
+  "target_time_complexity": "O(n^4)",
+  "target_space_complexity": "O(n^3)",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Character counts are necessary but insufficient.",
+    "Match two equal-length intervals; try every split with child intervals kept or swapped.",
+    "Memoize (start1,start2,length). Accept equal text, reject unequal counts, otherwise test both pairings at every split.",
+    "There are O(n^3) interval-pair states and O(n) split choices each: O(n^4) time, O(n^3) memo space."
+  ],
+  "editorial": "The root of any scramble splits the first interval somewhere. Its children match either the corresponding second intervals or their exchanged positions. Testing all splits and both pairings is complete. Every recursive call shortens the interval; caching avoids repeated work. Text equality and multiset checks prune states but cannot replace structural checks.",
+  "tests": [
+    {
+      "id": "lc-87-1",
+      "arguments": [
+        "great",
+        "rgeat"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Split gr | eat, swap g | r inside the first part, and leave eat unchanged.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-2",
+      "arguments": [
+        "abcde",
+        "caebd"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The letters match, but no recursive split-and-optional-swap tree produces this arrangement.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-3",
+      "arguments": [
+        "a",
+        "a"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-4",
+      "arguments": [
+        "a",
+        "b"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-5",
+      "arguments": [
+        "ab",
+        "ba"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-6",
+      "arguments": [
+        "ab",
+        "ab"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-7",
+      "arguments": [
+        "abc",
+        "bca"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-8",
+      "arguments": [
+        "abc",
+        "cab"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-9",
+      "arguments": [
+        "aab",
+        "aba"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-10",
+      "arguments": [
+        "aabb",
+        "baba"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-11",
+      "arguments": [
+        "abcd",
+        "bdac"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-12",
+      "arguments": [
+        "abcd",
+        "badc"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-13",
+      "arguments": [
+        "abcde",
+        "edcba"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-14",
+      "arguments": [
+        "aaaa",
+        "aaab"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-stress-1",
+      "arguments": [
+        "abcdefghijklmnopqrstuvwxyzabcd",
+        "dcbazyxwvutsrqponmlkjihgfedcba"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-87-stress-2",
+      "arguments": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaabb"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

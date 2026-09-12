@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-410",
+  "content_sha256": "c581e089656a0cf304e2978cb56a30a0b87c356b2b6018cac061b6556a2cdda8",
+  "source_hash": "b75c138453b6c88b8f39df50bcbd7fc00a89552e1db52f0933fae0e7b81f7205",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes maximum-item and average-load lower bounds are always achievable by contiguous cuts.",
+      "failed_cases": [
+        "lc-410-1",
+        "lc-410-2",
+        "lc-410-12",
+        "lc-410-14"
+      ]
+    },
+    {
+      "reason": "Rejects capacities needing fewer than k groups even though extra splits remain possible.",
+      "failed_cases": [
+        "lc-410-6",
+        "lc-410-8",
+        "lc-410-11",
+        "lc-410-12",
+        "lc-410-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4457,
+  "oracle_implementation": "code_practice/import_batch_037.py:split_oracle",
+  "validator_implementation_sha256": "3665465b8b962df68e0e6332ee2e61cbd87e0e3377b3c6c3a767b22f544350f2",
+  "batch_implementation_sha256": "b940d3461d511da533245279694c1e549056b9e6e4218ae740ca899bcf1c02f4",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

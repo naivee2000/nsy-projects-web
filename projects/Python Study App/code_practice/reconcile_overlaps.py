@@ -15,6 +15,11 @@ from .catalog_evidence import content_digest, judge_contract_hash, load_verified
 
 ROOT = Path(__file__).resolve().parent.parent
 DECISIONS = {
+    46: {
+        "target_source_id": 47,
+        "source_hash": "c63f4d5d058004744b30b60d058486cf74a7db6a9f753906b344cfb4dc1a8b7f",
+        "reason": "Both return every distinct ordered permutation of an integer list in any outer order. The duplicate-aware numeric contract covers every unique input from source 46 (length 1–6, values -10..10) and also repeated values up to length 8. The count-based reference produces n! rows on unique inputs; independent position permutations verify 500 inputs, the workbook sample, and the six-element boundary. Keep one numeric-permutation progress ID, distinct from the original text-returning string exercise.",
+    },
     153: {
         "target_source_id": 154,
         "source_hash": "303783978ed5c7971d71a670f071a9b27942bd786348537483f278c58073874a",
@@ -55,6 +60,31 @@ class CountedSequence(list):
     def __iter__(self):
         for index in range(len(self)):
             yield self[index]
+
+
+def check_unique_permutations(payload, source):
+    from itertools import permutations
+    from .build_import_batch import workbook_sample
+    namespace = {}
+    exec(compile(payload['reference_solution'], '<reviewed-unique-permutations>', 'exec'), namespace)
+    function = namespace[payload['signature']['name']]
+    sample = workbook_sample(source['sample'], payload['signature']['parameters'])
+    if sample is None or sorted(function(*sample[0])) != sorted(sample[1]):
+        raise ValueError('Permutation workbook sample disagrees')
+    rng = random.Random(4047+46)
+    cases = [rng.sample(range(-10,11),rng.randint(1,6)) for _ in range(500)]
+    boundaries = [[-10],[10],[-10,0,10],[5,4,3,2,1,0],[-10,-9,-1,0,9,10]]
+    for values in cases+boundaries:
+        if not (1 <= len(values) <= 6 and len(set(values)) == len(values)
+                and all(type(value) is int and -10 <= value <= 10 for value in values)):
+            raise ValueError('Invalid unique-permutation source input')
+        expected = sorted([list(row) for row in permutations(values)])
+        actual = function(values)
+        if not isinstance(actual,list) or sorted(actual) != expected:
+            raise ValueError('Overlap reference disagrees with ordered permutation oracle')
+    return {'oracle_inputs':500,'oracle_seed':4093,'workbook_sample_checked':True,
+            'deterministic_inputs':len(boundaries)+1,'largest_input':6,'largest_output':720,
+            'domain':'1–6 distinct signed integers in -10..10; preserve order inside rows and reject duplicate/missing rows'}
 
 
 def check_unique_rotations(payload, source):
@@ -211,7 +241,7 @@ def reconcile(root=ROOT):
                 raise ValueError("Source changed since the behavioral review")
             target = records[decision["target_source_id"]]
             payload = load_verified_import(target, root)
-            checker = {153: check_unique_rotations, 1081: check_distinct_subsequence,
+            checker = {46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
                        319: check_bulb_square_root}[source_id]
             evidence = checker(payload, sources[source_id])
             report = {"valid": True, "source_id": source_id, "source_hash": record["source_hash"],

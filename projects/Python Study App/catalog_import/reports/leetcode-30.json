@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-30",
+  "content_sha256": "8a297caeb45f618c991c12b72894154535262595dd49f6c41cd90ab9ee643e99",
+  "source_hash": "3cdad55ac8c4022ee3489ba366ad82a15c8db77875243673fcee0b055f35d6bf",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only offsets aligned with index zero.",
+      "failed_cases": [
+        "lc-30-6",
+        "lc-30-8"
+      ]
+    },
+    {
+      "reason": "Limits words to one copy even when repeated copies are required.",
+      "failed_cases": [
+        "lc-30-5",
+        "lc-30-9",
+        "lc-30-12",
+        "lc-30-14",
+        "lc-30-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4077,
+  "oracle_implementation": "code_practice/import_batch_037.py:concat_oracle",
+  "validator_implementation_sha256": "3665465b8b962df68e0e6332ee2e61cbd87e0e3377b3c6c3a767b22f544350f2",
+  "batch_implementation_sha256": "b940d3461d511da533245279694c1e549056b9e6e4218ae740ca899bcf1c02f4",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.073,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

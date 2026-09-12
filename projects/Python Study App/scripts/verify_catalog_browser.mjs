@@ -213,6 +213,11 @@ try {
   await page.getByRole('button', { name: /UTF-8 Validation.*Medium/ }).click();
   assert((await page.locator('.problem-pane .statement').first().textContent()).includes('structural patterns only'));
   report.checks.push('UTF-8 instructions distinguish byte-prefix structure from additional Unicode validity restrictions');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Permutations II');
+  await page.getByRole('button', { name: /Permutations II.*Medium/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('order inside a permutation matters'));
+  report.checks.push('numeric permutations explain outer-order flexibility without discarding row order');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -235,6 +240,21 @@ try {
     }
   }
   report.checks.push('batch 36 wrong algorithms rejected, including incomplete byte groups, nested counts, noncontiguous windows, greedy frog choices, and zero-prefixed abbreviations');
+  for (const id of [18, 30, 47, 87, 407, 410, 413, 414]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `leetcode-${id} wrong fixture`);
+    }
+  }
+  const permutation = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-47.json'), 'utf8'));
+  const permutationCase = { ...permutation, tests: [permutation.tests[0]] };
+  assert.equal((await judge(page, permutationCase,
+    'def unique_number_permutations(nums):\n    return [[2,1,1],[1,2,1],[1,1,2]]')).status, 'accepted');
+  for (const output of ['[[1,1,2]]*3', '[[1,1,2],[1,2,1]]', '[[1,1,2],[1,2,1],[2,1,1],[2,1,1]]']) {
+    assert.equal((await judge(page, permutationCase,
+      `def unique_number_permutations(nums):\n    return ${output}`)).status, 'wrong_answer');
+  }
+  report.checks.push('batch 37 wrong algorithms rejected; numeric permutations accept reversed outer order but reject duplicate, missing, and row-order-collapsed results');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
     expected: [1,1,1], expected_node_order: [1,2,0] }] };

@@ -4,9 +4,9 @@
   "workbook_sha256": "d4d791913078d0275fb404f4e61ff914b039f74f44ff4a2774070685e82e8e46",
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
-    "overlap": 72,
-    "imported": 262,
-    "pending": 3140,
+    "overlap": 73,
+    "imported": 270,
+    "pending": 3131,
     "excluded": 155
   },
   "record_count": 3629,
@@ -217,10 +217,11 @@
       "title": "4Sum",
       "difficulty": "Medium",
       "source_hash": "9db9f4b0c58f10f6432f766b58df2f9d439f878b5cee85bf80675348aca0c9f5",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-18.json",
+      "problem_id": "leetcode-18"
     },
     {
       "source_id": 19,
@@ -356,10 +357,11 @@
       "title": "Substring with Concatenation of All Words",
       "difficulty": "Hard",
       "source_hash": "3cdad55ac8c4022ee3489ba366ad82a15c8db77875243673fcee0b055f35d6bf",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-30.json",
+      "problem_id": "leetcode-30"
     },
     {
       "source_id": 31,
@@ -542,10 +544,11 @@
       "title": "Permutations",
       "difficulty": "Medium",
       "source_hash": "c63f4d5d058004744b30b60d058486cf74a7db6a9f753906b344cfb4dc1a8b7f",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "leetcode-47",
+      "reason": "Both return every distinct ordered permutation of an integer list in any outer order. The duplicate-aware numeric contract covers every unique input from source 46 (length 1–6, values -10..10) and also repeated values up to length 8. The count-based reference produces n! rows on unique inputs; independent position permutations verify 500 inputs, the workbook sample, and the six-element boundary. Keep one numeric-permutation progress ID, distinct from the original text-returning string exercise.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-46.json"
     },
     {
       "source_id": 47,
@@ -553,10 +556,11 @@
       "title": "Permutations II",
       "difficulty": "Medium",
       "source_hash": "ebf182a732a3f7381e67c7f8fbf83a0c4c1ba862ce3bf97768389d307bde75f7",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-47.json",
+      "problem_id": "leetcode-47"
     },
     {
       "source_id": 48,
@@ -1020,10 +1024,11 @@
       "title": "Scramble String",
       "difficulty": "Hard",
       "source_hash": "907de3ec55b823533eafd6f412b7926670a67dc15f8f502fe9283903d3c3d80f",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-87.json",
+      "problem_id": "leetcode-87"
     },
     {
       "source_id": 88,
@@ -4592,10 +4597,11 @@
       "title": "Trapping Rain Water II",
       "difficulty": "Hard",
       "source_hash": "73a5145367c5bd3fa51b30532afaaea29f43e10fe8b1f38ada50061ed19989bf",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-407.json",
+      "problem_id": "leetcode-407"
     },
     {
       "source_id": 408,
@@ -4626,10 +4632,11 @@
       "title": "Split Array Largest Sum",
       "difficulty": "Hard",
       "source_hash": "b75c138453b6c88b8f39df50bcbd7fc00a89552e1db52f0933fae0e7b81f7205",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-410.json",
+      "problem_id": "leetcode-410"
     },
     {
       "source_id": 411,
@@ -4659,10 +4666,11 @@
       "title": "Arithmetic Slices",
       "difficulty": "Medium",
       "source_hash": "09d2fc71668cf4b9504d4543c0628f3b7f24f76b7e480e4ad4932bf3838d5a83",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-413.json",
+      "problem_id": "leetcode-413"
     },
     {
       "source_id": 414,
@@ -4670,10 +4678,11 @@
       "title": "Third Maximum Number",
       "difficulty": "Easy",
       "source_hash": "1320f3e7e7fb409f081322e86ee4b672784e93a19f6a6b781215c47d26bd8759",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-414.json",
+      "problem_id": "leetcode-414"
     },
     {
       "source_id": 415,
