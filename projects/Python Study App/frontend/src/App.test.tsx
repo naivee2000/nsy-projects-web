@@ -97,6 +97,7 @@ test("shows the daily recommendation and local-only boundary", async () => {
   render(<App />);
   await waitFor(() => expect(screen.getByText("Pair Sum Indices")).toBeInTheDocument());
   expect(screen.getByText("Local mode")).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Back to Projects" })).toHaveAttribute("href", "https://nsyprojects.com/projects");
   expect(screen.getByText("Your next problems")).toBeInTheDocument();
   expect(screen.getByText("Review completed problems")).toBeInTheDocument();
   expect(screen.getByText("Bracket Balance")).toBeInTheDocument();

@@ -496,6 +496,7 @@ export default function App() {
         <nav aria-label="Main navigation">
           <button className={view === "dashboard" ? "active" : ""} onClick={() => navigate("dashboard")}><Target size={18} /> Today</button>
           <button className={view === "library" ? "active" : ""} onClick={() => navigate("library")}><Library size={18} /> Library</button>
+          <a href="https://nsyprojects.com/projects"><ArrowLeft size={18} /> Back to Projects</a>
         </nav>
         <div className="sidebar-status">
           <span className="status-dot" />

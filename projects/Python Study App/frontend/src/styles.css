@@ -28,8 +28,8 @@ button { color: inherit; }
 .brand strong { font-size: 17px; line-height: 1.1; }
 .brand small { font-family: "SFMono-Regular", Consolas, monospace; font-size: 12px; letter-spacing: .16em; color: #91aaa5; margin-top: 5px; }
 .sidebar nav { display: grid; gap: 6px; }
-.sidebar nav button { border: 0; background: transparent; color: #a7b8b4; display: flex; align-items: center; gap: 11px; padding: 11px 13px; border-radius: 7px; cursor: pointer; font-weight: 600; font-size: 17px; text-align: left; }
-.sidebar nav button:hover { background: #213b39; color: white; }
+.sidebar nav button, .sidebar nav a { border: 0; background: transparent; color: #a7b8b4; display: flex; align-items: center; gap: 11px; padding: 11px 13px; border-radius: 7px; cursor: pointer; font-weight: 600; font-size: 17px; text-align: left; text-decoration: none; }
+.sidebar nav button:hover, .sidebar nav a:hover { background: #213b39; color: white; }
 .sidebar nav button.active { background: #f3f0e6; color: var(--ink); }
 .sidebar-status { margin-top: auto; padding: 14px 10px 4px; display: flex; gap: 10px; align-items: flex-start; border-top: 1px solid #314845; }
 .sidebar-status strong, .sidebar-status small { display: block; }
@@ -189,8 +189,8 @@ h1, h2, h3, p { margin-top: 0; }
   .app-shell { grid-template-columns: 72px minmax(0,1fr); }
   .sidebar { padding-inline: 10px; }
   .brand { padding-inline: 7px; justify-content: center; }
-  .brand > span:last-child, .sidebar nav button { font-size: 0; }
-  .sidebar nav button { justify-content: center; padding: 12px; }
+  .brand > span:last-child, .sidebar nav button, .sidebar nav a { font-size: 0; }
+  .sidebar nav button, .sidebar nav a { justify-content: center; padding: 12px; }
   .sidebar-status > span:last-child { display: none; }
   .sidebar-status { justify-content: center; }
   .workspace-grid { grid-template-columns: 1fr; overflow-y: auto; }

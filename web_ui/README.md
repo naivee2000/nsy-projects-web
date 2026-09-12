@@ -17,7 +17,8 @@ DEM claim processing, real login/session code, uploads, OCR, and Excel generatio
 ## Current UX/Auth Notes
 
 - Public navigation uses explicit destinations, not browser-history Back controls. Home has no Back button; project detail pages use fixed links such as Back to Projects.
-- The top-right Sign in link sends users to `https://dem.nsyprojects.com/login` with a return URL for the current page.
+- The top-right Sign in link sends users to `https://dem.nsyprojects.com/login` with `https://nsyprojects.com/projects` as the return URL, including when JavaScript is unavailable. The legacy `/login` and `/login.html` redirects use the same destination.
+- On Home and About, the signed-in account link opens `/projects`. On Projects, the signed-in account action remains Sign out. Individual project cards continue to open their own apps.
 - After successful sign-in, the backend sets `nsy_signed_in=1` for `.nsyprojects.com`; static pages use it only for display state.
 - Static pages must not rely on that cookie for security. The DEM app itself enforces the real backend session before showing uploads or APIs.
 - The old fake `login.html` page has been removed and `/login` plus `/login.html` redirect to the backend login.

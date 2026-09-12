@@ -125,7 +125,7 @@
       <div class="account">
         <a href="index.html">Home</a>
         <span id="accountStatus">Project directory</span>
-        <a id="authAction" href="https://dem.nsyprojects.com/login">Sign in</a>
+        <a id="authAction" href="https://dem.nsyprojects.com/login?next=https%3A%2F%2Fnsyprojects.com%2Fprojects">Sign in</a>
       </div>
     </header>
     <section class="project-list" aria-label="Projects">
@@ -165,7 +165,6 @@
     const demStatus = document.getElementById("demStatus");
     const carCompareStatus = document.getElementById("carCompareStatus");
     const pythonStudyStatus = document.getElementById("pythonStudyStatus");
-    authAction.href = `https://dem.nsyprojects.com/login?next=${encodeURIComponent(window.location.href)}`;
     if (document.cookie.split("; ").includes("nsy_signed_in=1")) {
       accountStatus.textContent = "Signed in";
       authAction.textContent = "Sign out";

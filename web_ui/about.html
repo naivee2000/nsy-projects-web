@@ -397,7 +397,7 @@
       <a href="about.html" aria-current="page">About Me</a>
       <a href="projects.html">Projects</a>
     </nav>
-    <a id="authAction" class="header-action" href="https://dem.nsyprojects.com/login">Sign in</a>
+    <a id="authAction" class="header-action" href="https://dem.nsyprojects.com/login?next=https%3A%2F%2Fnsyprojects.com%2Fprojects">Sign in</a>
   </header>
 
   <main id="mainContent">
@@ -463,11 +463,10 @@
     const currentYear = document.getElementById("currentYear");
 
     currentYear.textContent = new Date().getFullYear();
-    authAction.href = `https://dem.nsyprojects.com/login?next=${encodeURIComponent(window.location.href)}`;
 
     if (document.cookie.split("; ").includes("nsy_signed_in=1")) {
       authAction.textContent = "Signed in";
-      authAction.href = "https://dem.nsyprojects.com/";
+      authAction.href = "/projects";
       authAction.classList.add("signed-in");
     }
   </script>
