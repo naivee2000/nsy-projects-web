@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-301",
+  "content_sha256": "0e03c7f523f53f563f78f11585013ade39ec27dca50f9eb1867c84624bcd721d",
+  "source_hash": "c51c73f304092853ddfe8399f25cf2075a3f9f70841e92d6abab4a8bbb794091",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Returns only one greedy repair, missing other distinct strings with the same minimum number of removals.",
+      "failed_cases": [
+        "lc-301-1",
+        "lc-301-2",
+        "lc-301-15",
+        "lc-301-17"
+      ]
+    },
+    {
+      "reason": "Tries deleting only one parenthesis, so it returns no answer when validity requires two or more removals.",
+      "failed_cases": [
+        "lc-301-7",
+        "lc-301-12",
+        "lc-301-15",
+        "lc-301-16",
+        "lc-301-17",
+        "lc-301-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4348,
+  "oracle_implementation": "code_practice/import_batch_027.py:invalid_parentheses_oracle",
+  "validator_implementation_sha256": "15e14c8f65fbb39e8e64208569ee3a03f4dd6cd3f60b2fe5e05d49accadf937d",
+  "batch_implementation_sha256": "854d15e6c6ad2487ab38ec5e158ae7d948fcfca3526f06245c71954e0fa68db1",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

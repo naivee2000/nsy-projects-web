@@ -42,10 +42,21 @@ correctness. Generated tests must meet each problem's actual constraints.
 
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 70 existing equivalents (69 original exercises and
-  one approved import). Static evidence identifies 130 approved-scope
-  design/interactive exclusions; 3,239 rows remain pending.
-- 190 new imports in twenty-six reviewed batches pass deterministic tests and 500
-  independent oracle inputs each. The published catalog contains 291 problems.
+  one approved import). Static evidence identifies 155 approved-scope
+  design/interactive exclusions; 3,204 rows remain pending.
+- 200 new imports in twenty-seven reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 301 problems.
+- Batch twenty-seven covers LeetCode 296, 298–299, 301–302, 305–306, and 309–311:
+  geometric medians, recursive consecutive tree paths, Bulls and Cows,
+  minimum-removal parenthesis backtracking, binary-search image bounds, online
+  island union-find, additive-number parsing, cooldown stock DP, leaf-trimmed
+  tree centers, and sparse matrix multiplication. Regressions exhaust small
+  meeting grids, short parenthesis strings, connected three-by-three black-pixel
+  shapes, short island-update sequences, stock sequences, and all labeled trees
+  through six nodes. Stress fixtures include 10,000-node trees and island-update
+  streams, a 20,000-node path, and 100-by-100 sparse matrices. The exclusion
+  classifier now recognizes persistent constructor-plus-query classes while
+  preserving ordinary `TreeNode` and `ListNode` callable problems.
 - Batch twenty-six covers LeetCode 280, 282–283, 285–287, 289, and 291–294:
   flexible in-place wiggle ordering, expression backtracking, stable zero
   movement, selected-node BST successor, multi-source room distances, duplicate
@@ -284,19 +295,20 @@ correctness. Generated tests must meet each problem's actual constraints.
   identity. Both batch-twenty-four LCA exercises use the contract, and copied
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
-  afterward. All 190 published imports were revalidated before the 291-problem
+  afterward. All 200 published imports were revalidated before the 301-problem
   package was rebuilt.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 291-problem Chrome/M3 Pro run: library/search p95 1.24/1.09 ms,
-  detail p95 1.21 ms for Word Search and 1.22 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.53 ms (100 requests per route). Startup is
-  230 ms and backend peak RSS is 87.3 MiB after loading the largest linked-list
-  detail. All 190 imported references and
+- Current 301-problem Chrome/M3 Pro run: library/search p95 1.42/1.46 ms,
+  detail p95 1.57 ms for Word Search and 1.52 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.81 ms (100 requests per route). Startup is
+  339 ms and backend peak RSS is 87.47 MiB after loading the largest linked-list
+  detail. All 200 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The eleven newest suites complete within 126 ms after runtime load. Expression
-  Add Operators is the slowest at 126 ms; Walls and Gates takes 117 ms, and the
-  remaining new suites stay below 70 ms.
+  The ten batch-twenty-seven suites complete within 68 ms after runtime load.
+  Number of Islands II takes 67.9 ms, Minimum Height Trees takes 62.3 ms, and
+  Sparse Matrix Multiplication takes 57.4 ms; the remaining seven stay below
+  49 ms.
   Tree Height's suite with 20,000-node chains takes 97.4 ms. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,

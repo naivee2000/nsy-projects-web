@@ -98,7 +98,8 @@ def inspect_source(readme: str, source: str) -> dict:
     elif "Design" in tags and info["interfaces"]:
         # A Solution class used for one named function is never excluded just for being a class.
         designed = [i for i in info["interfaces"] if i["class"] not in {"Solution", "TreeNode", "ListNode", "Node"}
-                    and len([m for m in i["methods"] if not m.startswith("_")]) >= 2]
+                    and len(i["methods"]) >= 2
+                    and any(not method.startswith("_") for method in i["methods"])]
         if designed:
             info["exclusion"] = {"category": "multi-method-design", "reason": "Design exercise requires persistent operations: " +
                 "; ".join(i["class"] + ".{" + ", ".join(i["methods"]) + "}" for i in designed)}

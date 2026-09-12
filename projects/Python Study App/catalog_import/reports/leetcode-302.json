@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-302",
+  "content_sha256": "b99fc4e2fb3503818487392fc7ea5a9cf680916474a01d0fc6f0726aa457340b",
+  "source_hash": "a2dc0228fc9831463d266504ef0f8b73084086358bfec12786e88f123a82223d",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the number of black pixels, which differs from the bounding rectangle area when the connected region has holes or bends.",
+      "failed_cases": [
+        "lc-302-1",
+        "lc-302-2",
+        "lc-302-8",
+        "lc-302-9",
+        "lc-302-10",
+        "lc-302-11",
+        "lc-302-12",
+        "lc-302-13",
+        "lc-302-14",
+        "lc-302-16",
+        "lc-302-stress-1"
+      ]
+    },
+    {
+      "reason": "Examines only the selected pixel's row and column, missing black pixels reached after the connected region turns.",
+      "failed_cases": [
+        "lc-302-1",
+        "lc-302-2",
+        "lc-302-8",
+        "lc-302-9",
+        "lc-302-10",
+        "lc-302-11",
+        "lc-302-12",
+        "lc-302-13",
+        "lc-302-14",
+        "lc-302-16",
+        "lc-302-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4349,
+  "oracle_implementation": "code_practice/import_batch_027.py:rectangle_oracle",
+  "validator_implementation_sha256": "15e14c8f65fbb39e8e64208569ee3a03f4dd6cd3f60b2fe5e05d49accadf937d",
+  "batch_implementation_sha256": "854d15e6c6ad2487ab38ec5e158ae7d948fcfca3526f06245c71954e0fa68db1",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.091,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 291,
+  "count": 301,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -5135,6 +5135,196 @@
       "path": "problems/leetcode-294.json",
       "content_sha256": "cc95f935dcb057eebd2f0bc9afb12e32cf91bf7bc2060ad741d8df8e63f563b4",
       "source_id": 294
+    },
+    {
+      "id": "leetcode-296",
+      "version": 1,
+      "status": "approved",
+      "title": "Best Meeting Point",
+      "summary": "For an m x n grid with each 1 indicating a friend's home, find the meeting point that minimizes the total Manhattan distance to all homes.",
+      "topics": [
+        "matrices",
+        "math",
+        "sorting",
+        "medians"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-296.json",
+      "content_sha256": "c37827f030108dfa8e17b444d8e2182962595a1ffe695a009562803d5107a433",
+      "source_id": 296
+    },
+    {
+      "id": "leetcode-298",
+      "version": 1,
+      "status": "approved",
+      "title": "Binary Tree Longest Consecutive Sequence",
+      "summary": "Given a binary tree's root, find the length of the longest path where node values increase by one.",
+      "topics": [
+        "trees",
+        "depth-first-search",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-298.json",
+      "content_sha256": "4e9987b4224ee4e89d1b404cdd78f0080fb586d2ada1af81dc0bd6e592a10ab0",
+      "source_id": 298
+    },
+    {
+      "id": "leetcode-299",
+      "version": 1,
+      "status": "approved",
+      "title": "Bulls and Cows",
+      "summary": "In the Bulls and Cows game, you provide a hint to your friend's guess by indicating the number of bulls (correct digits in the correct positions) and cows (correct digits in the wrong positions).",
+      "topics": [
+        "strings",
+        "hash-maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-299.json",
+      "content_sha256": "66c5eb7f8193590d6e4bc4b625ff2a4e4eb093b7384330510b2a5b28b8ca58c6",
+      "source_id": 299
+    },
+    {
+      "id": "leetcode-301",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Invalid Parentheses",
+      "summary": "Given a string containing parentheses and letters, eliminate the least number of invalid parentheses to ensure the string is valid.",
+      "topics": [
+        "strings",
+        "backtracking",
+        "recursion",
+        "breadth-first-search"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-301.json",
+      "content_sha256": "0e03c7f523f53f563f78f11585013ade39ec27dca50f9eb1867c84624bcd721d",
+      "source_id": 301
+    },
+    {
+      "id": "leetcode-302",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Rectangle Enclosing Black Pixels",
+      "summary": "Given an m x n binary matrix representing an image with 0s as white pixels and 1s as black pixels, where black pixels form a single connected region, and given coordinates (x, y) of a black pixel, find the area of the smallest rectangle aligned with the axes that encloses all black pixels.",
+      "topics": [
+        "matrices",
+        "binary-search",
+        "geometry"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-302.json",
+      "content_sha256": "b99fc4e2fb3503818487392fc7ea5a9cf680916474a01d0fc6f0726aa457340b",
+      "source_id": 302
+    },
+    {
+      "id": "leetcode-305",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Islands II",
+      "summary": "Given an m x n grid where all cells are initially water (represented by 0's), perform operations to turn specific water cells into land (represented by 1's) at given positions.",
+      "topics": [
+        "graphs",
+        "matrices",
+        "union-find"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-305.json",
+      "content_sha256": "793c0dd39a2bb7994f9a219ff849e895f7ce99d23c39b80d9566ce6121e51713",
+      "source_id": 305
+    },
+    {
+      "id": "leetcode-306",
+      "version": 1,
+      "status": "approved",
+      "title": "Additive Number",
+      "summary": "An additive number is a string of digits that can form an additive sequence with at least three numbers.",
+      "topics": [
+        "strings",
+        "backtracking",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-306.json",
+      "content_sha256": "a4ae44a0d38c30c5239ed295f7fcbc4a59131edf7964de33ebd144ee2588c45b",
+      "source_id": 306
+    },
+    {
+      "id": "leetcode-309",
+      "version": 1,
+      "status": "approved",
+      "title": "Best Time to Buy and Sell Stock with Cooldown",
+      "summary": "Given an array of stock prices, determine the maximum profit by buying and selling, adhering to a one-day cooldown after selling.",
+      "topics": [
+        "arrays",
+        "dynamic-programming",
+        "state-machines"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-309.json",
+      "content_sha256": "eb022d1037b34aead7798d79c3af8dae884849ae29985980aee44477b944618c",
+      "source_id": 309
+    },
+    {
+      "id": "leetcode-310",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Height Trees",
+      "summary": "Given a tree with n nodes labeled from 0 to n-1 and n-1 edges, where each edge is represented as an unordered pair of nodes, find all nodes that can serve as the root to produce a tree with the minimum possible height.",
+      "topics": [
+        "graphs",
+        "breadth-first-search",
+        "topological-trimming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-310.json",
+      "content_sha256": "2e1d457cd20ec308dec6f6d1411976a91d2db79526608e36fe8b0f9dbd1e1506",
+      "source_id": 310
+    },
+    {
+      "id": "leetcode-311",
+      "version": 1,
+      "status": "approved",
+      "title": "Sparse Matrix Multiplication",
+      "summary": "Given two sparse matrices mat1 with dimensions m x k and mat2 with dimensions k x n, compute and return their product mat1 x mat2.",
+      "topics": [
+        "matrices",
+        "hash-maps",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-311.json",
+      "content_sha256": "c37f804417a2684408655b2be99e702913331cb4b469dce9f9f11a8fec53c0b2",
+      "source_id": 311
     },
     {
       "id": "leetcode-338",

@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-311",
+  "content_sha256": "c37f804417a2684408655b2be99e702913331cb4b469dce9f9f11a8fec53c0b2",
+  "source_hash": "4fa96a88bd153dfcdb941613cc4dc4f404b83111eac7a1919c614299bfad27ad",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Multiplies same-coordinate entries elementwise instead of taking row-by-column dot products.",
+      "failed_cases": [
+        "lc-311-1",
+        "lc-311-6",
+        "lc-311-8",
+        "lc-311-9",
+        "lc-311-10",
+        "lc-311-11",
+        "lc-311-13",
+        "lc-311-14",
+        "lc-311-15"
+      ]
+    },
+    {
+      "reason": "Adds paired entries inside each dot product rather than multiplying them before summing.",
+      "failed_cases": [
+        "lc-311-1",
+        "lc-311-2",
+        "lc-311-3",
+        "lc-311-4",
+        "lc-311-5",
+        "lc-311-6",
+        "lc-311-7",
+        "lc-311-8",
+        "lc-311-9",
+        "lc-311-10",
+        "lc-311-11",
+        "lc-311-12",
+        "lc-311-13",
+        "lc-311-14",
+        "lc-311-15",
+        "lc-311-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4358,
+  "oracle_implementation": "code_practice/import_batch_027.py:matrix_product_oracle",
+  "validator_implementation_sha256": "15e14c8f65fbb39e8e64208569ee3a03f4dd6cd3f60b2fe5e05d49accadf937d",
+  "batch_implementation_sha256": "854d15e6c6ad2487ab38ec5e158ae7d948fcfca3526f06245c71954e0fa68db1",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.076,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

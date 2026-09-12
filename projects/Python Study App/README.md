@@ -1,6 +1,6 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 291 runnable problems (101 original exercises plus 190 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 301 runnable problems (101 original exercises plus 200 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
 ## Start the app
 
@@ -65,13 +65,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 70 existing equivalents, 190 verified imports, 130 documented
-design/interactive exclusions, and 3,239 pending records. Ordinary tree and
+Current status: 70 existing equivalents, 200 verified imports, 155 documented
+design/interactive exclusions, and 3,204 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Twenty-six reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Twenty-seven reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -228,6 +228,18 @@ Flip Game states; source-scale fixtures cover 10,000-element arrays and trees,
 a 250×250 room grid, and a 100,001-element duplicate cycle. Recursion,
 backtracking, binary-search trees, and recursive game-state practice retain the
 owner's weak-topic coverage.
+Batch twenty-seven adds Best Meeting Point, Binary Tree Longest Consecutive
+Sequence, Bulls and Cows, Remove Invalid Parentheses, Smallest Rectangle
+Enclosing Black Pixels, Number of Islands II, Additive Number, Stock With
+Cooldown, Minimum Height Trees, and Sparse Matrix Multiplication. It adds median,
+recursive-tree, backtracking, binary-search, union-find, dynamic-programming, and
+sparse-matrix practice. Exhaustive regressions cover small meeting grids,
+parenthesis strings, connected black-pixel shapes, online island additions,
+stock sequences, and every labeled tree through six nodes. Source-scale cases
+include a 10,000-node tree, 10,000 island updates, a 20,000-node graph, and
+100-by-100 sparse matrices. A stricter interface audit also classifies
+constructor-plus-query classes as design exercises; ordinary `TreeNode` and
+`ListNode` function problems remain eligible.
 Of the 70 overlaps, 69 map to original exercises and one maps to an approved
 import: unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
@@ -257,7 +269,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The release package contains 291 problems; future
+been checked against every reviewed batch. The release package contains 301 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

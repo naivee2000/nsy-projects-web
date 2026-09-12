@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-306",
+  "content_sha256": "a4ae44a0d38c30c5239ed295f7fcbc4a59131edf7964de33ebd144ee2588c45b",
+  "source_hash": "8c2e1a42d078b7ebd76fcc3779709e4cd435cc40af9a9b64a77375c5b92a0c50",
+  "visible_tests": 2,
+  "hidden_tests": 17,
+  "reference_passed": 19,
+  "wrong_solutions": [
+    {
+      "reason": "Parses multi-digit values with leading zeroes, accepting sequences that the contract forbids.",
+      "failed_cases": [
+        "lc-306-2",
+        "lc-306-12"
+      ]
+    },
+    {
+      "reason": "Fixes the first two terms to one digit each, missing valid sequences whose first or second term has multiple digits.",
+      "failed_cases": [
+        "lc-306-10",
+        "lc-306-14",
+        "lc-306-17",
+        "lc-306-18"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4353,
+  "oracle_implementation": "code_practice/import_batch_027.py:additive_oracle",
+  "validator_implementation_sha256": "15e14c8f65fbb39e8e64208569ee3a03f4dd6cd3f60b2fe5e05d49accadf937d",
+  "batch_implementation_sha256": "854d15e6c6ad2487ab38ec5e158ae7d948fcfca3526f06245c71954e0fa68db1",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

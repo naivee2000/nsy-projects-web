@@ -1,0 +1,305 @@
+{
+  "id": "leetcode-301",
+  "version": 1,
+  "status": "approved",
+  "title": "Remove Invalid Parentheses",
+  "summary": "Given a string containing parentheses and letters, eliminate the least number of invalid parentheses to ensure the string is valid.",
+  "statement": "Given a string containing parentheses and letters, eliminate the least number of invalid parentheses to ensure the string is valid. Return a list of unique valid strings with the minimum removals, in any order.",
+  "constraints": [
+    "s contains 1–25 lowercase English letters and parentheses.",
+    "Remove the fewest parentheses needed to make s valid. Return every distinct result that uses that minimum number of removals, in any order. Letters cannot be removed."
+  ],
+  "topics": [
+    "strings",
+    "backtracking",
+    "recursion",
+    "breadth-first-search"
+  ],
+  "prerequisites": [
+    "strings"
+  ],
+  "signature": {
+    "name": "remove_invalid_parentheses",
+    "parameters": [
+      {
+        "name": "s",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[str]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def remove_invalid_parentheses(s: str) -> list[str]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def remove_invalid_parentheses(s):\n    answers = []\n\n    def remove(text, scan_start, removal_start, opening, closing):\n        balance = 0\n        for index in range(scan_start, len(text)):\n            if text[index] == opening:\n                balance += 1\n            elif text[index] == closing:\n                balance -= 1\n            if balance >= 0:\n                continue\n            for remove_at in range(removal_start, index + 1):\n                if (text[remove_at] == closing\n                        and (remove_at == removal_start or text[remove_at - 1] != closing)):\n                    remove(text[:remove_at] + text[remove_at + 1:], index, remove_at, opening, closing)\n            return\n        reversed_text = text[::-1]\n        if opening == \"(\":\n            remove(reversed_text, 0, 0, \")\", \"(\")\n        else:\n            answers.append(reversed_text)\n\n    remove(s, 0, 0, \"(\", \")\")\n    return answers\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def remove_invalid_parentheses(s):\n    kept = []\n    balance = 0\n    for character in s:\n        if character == \"(\" :\n            balance += 1\n            kept.append(character)\n        elif character == \")\":\n            if balance:\n                balance -= 1\n                kept.append(character)\n        else:\n            kept.append(character)\n    while balance:\n        kept.pop(len(kept) - 1 - kept[::-1].index(\"(\"))\n        balance -= 1\n    return [\"\".join(kept)]\n",
+    "def remove_invalid_parentheses(s):\n    if valid(s):\n        return [s]\n    answers = set()\n    for index, character in enumerate(s):\n        if character in \"()\":\n            candidate = s[:index] + s[index + 1:]\n            if valid(candidate):\n                answers.add(candidate)\n    return list(answers)\n\ndef valid(text):\n    balance = 0\n    for character in text:\n        balance += character == \"(\" \n        balance -= character == \")\"\n        if balance < 0:\n            return False\n    return balance == 0\n"
+  ],
+  "target_time_complexity": "O(2^p · n) worst case",
+  "target_space_complexity": "O(n) recursion excluding output",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "When a left-to-right balance first becomes negative, some closing parenthesis at or before that index must be removed.",
+    "Try each distinct closing parenthesis in that prefix, recurse, and stop the current scan; skipping equal adjacent removals avoids duplicate answers.",
+    "After the forward scan has no surplus closing parenthesis, reverse the text and repeat with the parenthesis roles swapped to remove surplus opening parentheses.",
+    "Only removals forced by the first imbalance are explored, so every final result uses the minimum count while letters remain untouched."
+  ],
+  "editorial": "The two-pass recursive removal algorithm waits until the first invalid prefix. Every valid minimum repair must delete one closing parenthesis from that prefix, so branching only there is complete and never removes an unnecessary character. Duplicate equal deletions are skipped. Reversing the surviving text and swapping the roles applies the same proof to excess opening parentheses. The independent oracle enumerates all parenthesis subsets on short generated strings, retains valid strings of maximum length, and compares the complete set.",
+  "tests": [
+    {
+      "id": "lc-301-1",
+      "arguments": [
+        "()())()"
+      ],
+      "expected": [
+        "(())()",
+        "()()()"
+      ],
+      "comparator": "unordered",
+      "visible": true,
+      "explanation": "Removing either of the duplicate middle closing parentheses produces the two distinct minimum results (())() and ()()().",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-2",
+      "arguments": [
+        "(a)())()"
+      ],
+      "expected": [
+        "(a())()",
+        "(a)()()"
+      ],
+      "comparator": "unordered",
+      "visible": true,
+      "explanation": "Letters remain fixed; the two minimum valid results are (a())() and (a)()().",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-3",
+      "arguments": [
+        "("
+      ],
+      "expected": [
+        ""
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-4",
+      "arguments": [
+        ")"
+      ],
+      "expected": [
+        ""
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-5",
+      "arguments": [
+        "()"
+      ],
+      "expected": [
+        "()"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-6",
+      "arguments": [
+        "(a)"
+      ],
+      "expected": [
+        "(a)"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-7",
+      "arguments": [
+        ")("
+      ],
+      "expected": [
+        ""
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-8",
+      "arguments": [
+        "(()"
+      ],
+      "expected": [
+        "()"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-9",
+      "arguments": [
+        "())"
+      ],
+      "expected": [
+        "()"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-10",
+      "arguments": [
+        "()()"
+      ],
+      "expected": [
+        "()()"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-11",
+      "arguments": [
+        "((a))"
+      ],
+      "expected": [
+        "((a))"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-12",
+      "arguments": [
+        "(a))("
+      ],
+      "expected": [
+        "(a)"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-13",
+      "arguments": [
+        "n"
+      ],
+      "expected": [
+        "n"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-14",
+      "arguments": [
+        "a)b(c)d"
+      ],
+      "expected": [
+        "ab(c)d"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-15",
+      "arguments": [
+        "(((k()"
+      ],
+      "expected": [
+        "(k)",
+        "k()"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-16",
+      "arguments": [
+        "(()))("
+      ],
+      "expected": [
+        "(())"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-17",
+      "arguments": [
+        "a((b)c))d("
+      ],
+      "expected": [
+        "a((b)c)d",
+        "a((bc))d"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-301-stress-1",
+      "arguments": [
+        "))))))))))))a(((((((((((("
+      ],
+      "expected": [
+        "a"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

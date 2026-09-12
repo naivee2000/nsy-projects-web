@@ -5,9 +5,9 @@
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
     "overlap": 70,
-    "imported": 190,
-    "pending": 3239,
-    "excluded": 130
+    "imported": 200,
+    "pending": 3204,
+    "excluded": 155
   },
   "record_count": 3629,
   "missing_workbook_samples": 138,
@@ -2670,11 +2670,12 @@
       "workbook_row": 234,
       "title": "Shortest Word Distance II",
       "difficulty": "Medium",
-      "source_hash": "b470054cdde62056bcaff2ea1e2bb9eb2feffc5a6da7a8a9e0efc457586b5651",
-      "status": "pending",
+      "source_hash": "887ac7c0d264002a125895469f0187d18730ae53bf54b8c91e220cd3916e1c09",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: WordDistance.{__init__, shortest}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 245,
@@ -3279,10 +3280,11 @@
       "title": "Best Meeting Point",
       "difficulty": "Hard",
       "source_hash": "66eb2bbf43e3bcf6c8bfc9853f068cefd7d4177a0149ceed4e99b2790967e248",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-296.json",
+      "problem_id": "leetcode-296"
     },
     {
       "source_id": 297,
@@ -3302,10 +3304,11 @@
       "title": "Binary Tree Longest Consecutive Sequence",
       "difficulty": "Medium",
       "source_hash": "63bd547d2e1d07c4dca83fc8a11a5b58edea92c20d8e8797e903c3220706ba83",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-298.json",
+      "problem_id": "leetcode-298"
     },
     {
       "source_id": 299,
@@ -3313,10 +3316,11 @@
       "title": "Bulls and Cows",
       "difficulty": "Medium",
       "source_hash": "530989938d8837fadd087421dcdad92551636f966e3da043f79d4aeef78b0eef",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-299.json",
+      "problem_id": "leetcode-299"
     },
     {
       "source_id": 300,
@@ -3335,10 +3339,11 @@
       "title": "Remove Invalid Parentheses",
       "difficulty": "Hard",
       "source_hash": "c51c73f304092853ddfe8399f25cf2075a3f9f70841e92d6abab4a8bbb794091",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-301.json",
+      "problem_id": "leetcode-301"
     },
     {
       "source_id": 302,
@@ -3346,32 +3351,35 @@
       "title": "Smallest Rectangle Enclosing Black Pixels",
       "difficulty": "Hard",
       "source_hash": "a2dc0228fc9831463d266504ef0f8b73084086358bfec12786e88f123a82223d",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-302.json",
+      "problem_id": "leetcode-302"
     },
     {
       "source_id": 303,
       "workbook_row": 292,
       "title": "Range Sum Query - Immutable",
       "difficulty": "Easy",
-      "source_hash": "19c204a4170ad6b2c67095d770541d6a6eacafd3abc9cc1cb0d83bac760cd681",
-      "status": "pending",
+      "source_hash": "70589b7ba4a4c74d1cc1edb6807cbdccfb941faa255ea7614546420ed6f0c945",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: NumArray.{__init__, sumRange}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 304,
       "workbook_row": 293,
       "title": "Range Sum Query 2D - Immutable",
       "difficulty": "Medium",
-      "source_hash": "570bd14524fa7c2d1af4b58b38d19712f86dbee64837dab8de884dac50d44ce6",
-      "status": "pending",
+      "source_hash": "873a79e356d2f554475768b42cf58f58a6cdc5339625d9b00a50b9445f7513b8",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: NumMatrix.{__init__, sumRegion}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 305,
@@ -3379,10 +3387,11 @@
       "title": "Number of Islands II",
       "difficulty": "Hard",
       "source_hash": "101a7a27925f85c0d273ee1e436df9e2a87a8f64e346d2c6927fc2d1ed15b087",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-305.json",
+      "problem_id": "leetcode-305"
     },
     {
       "source_id": 306,
@@ -3390,10 +3399,11 @@
       "title": "Additive Number",
       "difficulty": "Medium",
       "source_hash": "8c2e1a42d078b7ebd76fcc3779709e4cd435cc40af9a9b64a77375c5b92a0c50",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-306.json",
+      "problem_id": "leetcode-306"
     },
     {
       "source_id": 307,
@@ -3425,10 +3435,11 @@
       "title": "Best Time to Buy and Sell Stock with Cooldown",
       "difficulty": "Medium",
       "source_hash": "eb717fa9503822f4ada148cd6034df6db047e7f492b66ba5ab3f513b82848ea4",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-309.json",
+      "problem_id": "leetcode-309"
     },
     {
       "source_id": 310,
@@ -3436,10 +3447,11 @@
       "title": "Minimum Height Trees",
       "difficulty": "Medium",
       "source_hash": "dc42701bab7e5728916cf4d2cef78f6cdf0f619ee6fa8261f69dbc1b8d24b0b7",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-310.json",
+      "problem_id": "leetcode-310"
     },
     {
       "source_id": 311,
@@ -3447,10 +3459,11 @@
       "title": "Sparse Matrix Multiplication",
       "difficulty": "Medium",
       "source_hash": "4fa96a88bd153dfcdb941613cc4dc4f404b83111eac7a1919c614299bfad27ad",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-311.json",
+      "problem_id": "leetcode-311"
     },
     {
       "source_id": 312,
@@ -3833,11 +3846,12 @@
       "workbook_row": 335,
       "title": "Moving Average from Data Stream",
       "difficulty": "Easy",
-      "source_hash": "d61d9b4aa3253bdb5ea4260ae405ffe74f8eb5c08a4dd41ae25ca3b8d0a0efa2",
-      "status": "pending",
+      "source_hash": "94439b300123a0ecdf115d05df7fa3da0dac4f65226731c0ba661149a7baf9fa",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: MovingAverage.{__init__, next}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 347,
@@ -3855,11 +3869,12 @@
       "workbook_row": 337,
       "title": "Design Tic-Tac-Toe",
       "difficulty": "Medium",
-      "source_hash": "a319fdd39eda102874329d1ec851f0c935e6032b6dae78596af73567f2365c0e",
-      "status": "pending",
+      "source_hash": "6265641cb4fd1186d6f6930835661cfa1ccb241d40dc92c43ee7139ef05a1da8",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: TicTacToe.{__init__, move}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 349,
@@ -3911,11 +3926,12 @@
       "workbook_row": 342,
       "title": "Design Snake Game",
       "difficulty": "Medium",
-      "source_hash": "c1fa4261e1eccbde3fa2aaed884b9160730bd1213db06136b9e7098a81710771",
-      "status": "pending",
+      "source_hash": "ce0478fe7b26742286a3e2f003235e2342f2af0663899c9f98fa0c3fab2897e7",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: SnakeGame.{__init__, move}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 354,
@@ -3978,11 +3994,12 @@
       "workbook_row": 348,
       "title": "Logger Rate Limiter",
       "difficulty": "Easy",
-      "source_hash": "d4735f7e0b2d2fb1fe1cf96bb33736a3604f7b113b1f47ff2f7ccd10a02cbe59",
-      "status": "pending",
+      "source_hash": "373eda1114b24f06951268b8f83064a820ed78ce3e095a015d44fbc68b6573eb",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: Logger.{__init__, shouldPrintMessage}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 360,
@@ -6748,10 +6765,10 @@
       "workbook_row": 598,
       "title": "Design Search Autocomplete System",
       "difficulty": "Hard",
-      "source_hash": "4789a223bef68f03ce85a8ce0617a0e42ffb7671124e6d67d75168e4c20fdaaa",
+      "source_hash": "085d209ca0d952e81c8cbd29ad8737f491e123d1cb86620309cb5de285630ea4",
       "status": "excluded",
       "existing_id": null,
-      "reason": "Design exercise requires persistent operations: Trie.{__init__, insert, search}",
+      "reason": "Design exercise requires persistent operations: Trie.{__init__, insert, search}; AutocompleteSystem.{__init__, input}",
       "validation_report": null,
       "exclusion_category": "multi-method-design"
     },
@@ -7424,11 +7441,12 @@
       "workbook_row": 659,
       "title": "Kth Largest Element in a Stream",
       "difficulty": "Easy",
-      "source_hash": "73c026b5c4f8ef14648e134fea0ba08c6fe7ea8f5dfda7660df0e91db6fbd1a2",
-      "status": "pending",
+      "source_hash": "6c8c14036397bf03c6b9e3061dc54db8c470f2412284764f656a53413dc995bb",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: KthLargest.{__init__, add}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 704,
@@ -7715,11 +7733,12 @@
       "workbook_row": 685,
       "title": "My Calendar I",
       "difficulty": "Medium",
-      "source_hash": "7a0eb6aa7cc5758cdad2848235acab74f22acdcf8e97ca3c3c0cdba08b92920c",
-      "status": "pending",
+      "source_hash": "283be4cb284d3b6047515225b38ec821fbd09d0d8c7f35240d8dc0db4f624ba1",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: MyCalendar.{__init__, book}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 730,
@@ -7737,21 +7756,22 @@
       "workbook_row": 687,
       "title": "My Calendar II",
       "difficulty": "Medium",
-      "source_hash": "e0f3f0da25834c25e1909cd68e74c705e097ce0314d02dc8524e14eade58d7f1",
-      "status": "pending",
+      "source_hash": "525dc770e3fbd8986e8d8e8d6a73178dd575b7fa1c6cfddce33a656e54136e67",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: MyCalendarTwo.{__init__, book}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 732,
       "workbook_row": 688,
       "title": "My Calendar III",
       "difficulty": "Hard",
-      "source_hash": "f112c8f18e855970ca8e252292894e3e266cbf6b0f86e88f1ec6f360f03d3a95",
+      "source_hash": "a5423bdb747d9cda37832a33be09d7c97a1aea355b42c014c300b9182a634384",
       "status": "excluded",
       "existing_id": null,
-      "reason": "Design exercise requires persistent operations: SegmentTree.{__init__, modify, query, pushup, pushdown}",
+      "reason": "Design exercise requires persistent operations: SegmentTree.{__init__, modify, query, pushup, pushdown}; MyCalendarThree.{__init__, book}",
       "validation_report": null,
       "exclusion_category": "multi-method-design"
     },
@@ -7892,11 +7912,12 @@
       "workbook_row": 701,
       "title": "Prefix and Suffix Search",
       "difficulty": "Hard",
-      "source_hash": "b989891db176f8a5c87dd7ec04c3d5d944cf8577db7a05b8628cf8eacc909e7d",
-      "status": "pending",
+      "source_hash": "28cc08d3710104f4d88d76c218a6caf105cf132a5c30720f8fb7fcb58c564806",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: WordFilter.{__init__, f}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 746,
@@ -9600,22 +9621,24 @@
       "workbook_row": 856,
       "title": "RLE Iterator",
       "difficulty": "Medium",
-      "source_hash": "92418f6b8e497a89691b039f89cdab2331b91f423327e0c0b2304a7d1752fa5b",
-      "status": "pending",
+      "source_hash": "0f7bde2e6ffcade67ef7f78ed24c3b125fde13a57ae505a06dbb55aefc81a53a",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: RLEIterator.{__init__, next}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 901,
       "workbook_row": 857,
       "title": "Online Stock Span",
       "difficulty": "Medium",
-      "source_hash": "c7a090a9e299fc35dc12fb3edbcf615836036c877e79a0fed54ce3bca37dd00a",
-      "status": "pending",
+      "source_hash": "8326c8e396d3b4aa51dcf39a9126feab80051a9306dba6aac7edb2c96441c3dd",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: StockSpanner.{__init__, next}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 902,
@@ -9721,11 +9744,12 @@
       "workbook_row": 867,
       "title": "Online Election",
       "difficulty": "Medium",
-      "source_hash": "4bbb1d4092b9258030744ddd14994a328d408a2e49ce5ba2e7f409320079fafc",
-      "status": "pending",
+      "source_hash": "95c5e6e9266fdf43249410f09d4c49a60b237281d1592133b0e661d40e417398",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: TopVotedCandidate.{__init__, q}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 912,
@@ -9964,11 +9988,12 @@
       "workbook_row": 889,
       "title": "Number of Recent Calls",
       "difficulty": "Easy",
-      "source_hash": "f83e8f6f299f72b1a3743d58dd36e682257e9a9dc3915f89a110804ac7e4c575",
-      "status": "pending",
+      "source_hash": "4721ef5eed5a7b3a8118201de5d3816a5956d4f1410b8ac7286cfb857452037d",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: RecentCounter.{__init__, ping}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 934,
@@ -11054,10 +11079,10 @@
       "workbook_row": 988,
       "title": "Stream of Characters",
       "difficulty": "Hard",
-      "source_hash": "7c108a52ce75c6e879c5bfc15a6ac20e30a79b1708c429dc5802b97e8b369cb0",
+      "source_hash": "d5fe01387420517af039d039754ace632681e58f4b5fc3d12ce606462150bc42",
       "status": "excluded",
       "existing_id": null,
-      "reason": "Design exercise requires persistent operations: Trie.{__init__, insert, search}",
+      "reason": "Design exercise requires persistent operations: Trie.{__init__, insert, search}; StreamChecker.{__init__, query}",
       "validation_report": null,
       "exclusion_category": "multi-method-design"
     },
@@ -12135,10 +12160,10 @@
       "workbook_row": 1086,
       "title": "Online Majority Element In Subarray",
       "difficulty": "Hard",
-      "source_hash": "9bd998665913499e6696a0099e84183a8fcbc31394ad87e78a6009a0bef29de5",
+      "source_hash": "a1329f18745f6f8d1f1552c3ddf4ab2dcd7fd67f2e5e73dbbd1d2099aeffbb79",
       "status": "excluded",
       "existing_id": null,
-      "reason": "Design exercise requires persistent operations: SegmentTree.{__init__, build, query, pushup}",
+      "reason": "Design exercise requires persistent operations: SegmentTree.{__init__, build, query, pushup}; MajorityChecker.{__init__, query}",
       "validation_report": null,
       "exclusion_category": "multi-method-design"
     },
@@ -13077,11 +13102,12 @@
       "workbook_row": 1171,
       "title": "Find Elements in a Contaminated Binary Tree",
       "difficulty": "Medium",
-      "source_hash": "15c34195f83329f498fd7eacc6e74d564122f57b4948cd5a74bf9b0ff82945c6",
-      "status": "pending",
+      "source_hash": "e9429c41b0af2ca430cd0149ae87edc84386ec5fbe76eb491a08d2eb808b6163",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: FindElements.{__init__, find}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 1262,
@@ -13972,11 +13998,12 @@
       "workbook_row": 1252,
       "title": "Apply Discount Every n Orders",
       "difficulty": "Medium",
-      "source_hash": "95248992b0062293a2930fa518ba5a95785bbf93d32671d1edd630cf1fe041ef",
-      "status": "pending",
+      "source_hash": "a1be29b7f12df4e2ca698686ce73eafa446179a32da2c7331a3fb49caac3ee52",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: Cashier.{__init__, getBill}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 1358,
@@ -15188,11 +15215,12 @@
       "workbook_row": 1362,
       "title": "Kth Ancestor of a Tree Node",
       "difficulty": "Hard",
-      "source_hash": "aab9ca8855c64c37178305768cca5852ba3ebb6225e78c6a7f25ae08f1b4e8c6",
-      "status": "pending",
+      "source_hash": "ac787f94c4a342ae18edff55dda9660e666ec2f8ac7602346aca520318f877db",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: TreeAncestor.{__init__, getKthAncestor}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 1485,
@@ -16027,11 +16055,12 @@
       "workbook_row": 1438,
       "title": "Dot Product of Two Sparse Vectors",
       "difficulty": "Medium",
-      "source_hash": "1f32892af6e45b615197075de04e1cd4dc4d71237408fd3c23db8b18139def87",
-      "status": "pending",
+      "source_hash": "97532749703b10185e67055545e147ee3e7786cfad19ef99fb2828232cb00707",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: SparseVector.{__init__, dotProduct}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 1572,
@@ -16348,11 +16377,12 @@
       "workbook_row": 1467,
       "title": "Design Parking System",
       "difficulty": "Easy",
-      "source_hash": "cd4b06b874eda10cfd890cc99cf7aaeaede6964d85fddb4032f7668220e509b0",
-      "status": "pending",
+      "source_hash": "595143565ccd76b24a0c49397a6c432d650bb53bbf54c734c17548664f1bdc2e",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: ParkingSystem.{__init__, addCar}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 1604,
@@ -16592,11 +16622,12 @@
       "workbook_row": 1489,
       "title": "Design an Expression Tree With Evaluate Function",
       "difficulty": "Medium",
-      "source_hash": "3c67017f475fbedeb06b9837fe24d19ec306e3b98629ac705c55ae7d33be5a1e",
-      "status": "pending",
+      "source_hash": "2fc630338c8491d87ac3d547fd292cac51cdaad4596c99fbc917594b009ffb37",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: MyNode.{__init__, evaluate}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 1629,
@@ -16856,11 +16887,12 @@
       "workbook_row": 1513,
       "title": "Design an Ordered Stream",
       "difficulty": "Easy",
-      "source_hash": "26f61361a19d6621a1f9e56c4fdb7ab11f48f0d7ec1b932728b3b0df1c7437ac",
-      "status": "pending",
+      "source_hash": "57a752b058d5ef5a85804c2cd766a1b51ec9294470e5460be103a69e1bd45a4a",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: OrderedStream.{__init__, insert}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 1657,
@@ -17517,10 +17549,10 @@
       "workbook_row": 1573,
       "title": "Checking Existence of Edge Length Limited Paths II",
       "difficulty": "Hard",
-      "source_hash": "7b7cd9e385bb376c0d52f2efe67c877cf9d1816cd3d142a09ec218d63ba7ecd5",
+      "source_hash": "6ff872d5bf52764218b3cec444c73652017af6d23e477b3f02f75439eb98e614",
       "status": "excluded",
       "existing_id": null,
-      "reason": "Design exercise requires persistent operations: PersistentUnionFind.{__init__, find, union}",
+      "reason": "Design exercise requires persistent operations: PersistentUnionFind.{__init__, find, union}; DistanceLimitedPathsExist.{__init__, query}",
       "validation_report": null,
       "exclusion_category": "multi-method-design"
     },
@@ -17826,11 +17858,12 @@
       "workbook_row": 1601,
       "title": "Design Most Recently Used Queue",
       "difficulty": "Medium",
-      "source_hash": "e462e975671f69ea2a5c71c160ab4bc0414aa068f662d29c78b47d69ae126f06",
-      "status": "pending",
+      "source_hash": "8028d1dbf12f24c753a102823cd738daa591e460bd8d492f9ddc8205cedf4954",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: MRUQueue.{__init__, fetch}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 1758,
@@ -20985,11 +21018,12 @@
       "workbook_row": 1887,
       "title": "Range Frequency Queries",
       "difficulty": "Medium",
-      "source_hash": "d8cda077b9836041ad075bc1f4da336255262fb4df2527dd6f5ac020845bd0b8",
-      "status": "pending",
+      "source_hash": "e65326f762d3c903a0ce3a4722832fdae28156d8e868ea2ce9e20e0617a95a65",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: RangeFreqQuery.{__init__, query}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 2081,
@@ -25530,11 +25564,12 @@
       "workbook_row": 2299,
       "title": "Find Consecutive Integers from a Data Stream",
       "difficulty": "Medium",
-      "source_hash": "187a82e2b5a10a5f1e21d8f6a26d1f8e55c8b83bcc001067d3e9e6f895921a26",
-      "status": "pending",
+      "source_hash": "6fa1a7f3bef1730f2a63a86c4758648295dc64e7e62793d940c4e90f743a8e9a",
+      "status": "excluded",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Design exercise requires persistent operations: DataStream.{__init__, consec}",
+      "validation_report": null,
+      "exclusion_category": "multi-method-design"
     },
     {
       "source_id": 2527,

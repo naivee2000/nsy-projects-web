@@ -23,6 +23,11 @@ def test_interface_exclusions_preserve_ordinary_trees_and_linked_lists():
         assert inspect_source("---\ntags:\n    - Recursion\n---", source)["exclusion"] is None
     design = inspect_source("---\ntags:\n    - Design\n---", "class LRUCache:\n    def get(self,k): pass\n    def put(self,k,v): pass\n")
     assert design["exclusion"]["category"] == "multi-method-design"
+    immutable_query = inspect_source(
+        "---\ntags:\n    - Design\n---",
+        "class NumArray:\n    def __init__(self, nums): pass\n    def sumRange(self, left, right): pass\n",
+    )
+    assert immutable_query["exclusion"]["category"] == "multi-method-design"
     interactive = inspect_source("---\ntags:\n    - Interactive\n---", "class Solution:\n    def solve(self, master): pass\n")
     assert interactive["exclusion"]["category"] == "interactive"
 

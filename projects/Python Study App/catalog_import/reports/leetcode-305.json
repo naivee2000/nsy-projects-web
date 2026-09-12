@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-305",
+  "content_sha256": "793c0dd39a2bb7994f9a219ff849e895f7ce99d23c39b80d9566ce6121e51713",
+  "source_hash": "101a7a27925f85c0d273ee1e436df9e2a87a8f64e346d2c6927fc2d1ed15b087",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats a repeated position as new land and increments the count even though the grid state did not change.",
+      "failed_cases": [
+        "lc-305-2",
+        "lc-305-4",
+        "lc-305-13"
+      ]
+    },
+    {
+      "reason": "Checks only one neighboring direction, so it misses merges through the other three sides.",
+      "failed_cases": [
+        "lc-305-1",
+        "lc-305-2",
+        "lc-305-5",
+        "lc-305-6",
+        "lc-305-8",
+        "lc-305-9",
+        "lc-305-10",
+        "lc-305-11",
+        "lc-305-12",
+        "lc-305-13",
+        "lc-305-15",
+        "lc-305-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4352,
+  "oracle_implementation": "code_practice/import_batch_027.py:islands_oracle",
+  "validator_implementation_sha256": "15e14c8f65fbb39e8e64208569ee3a03f4dd6cd3f60b2fe5e05d49accadf937d",
+  "batch_implementation_sha256": "854d15e6c6ad2487ab38ec5e158ae7d948fcfca3526f06245c71954e0fa68db1",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.135,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

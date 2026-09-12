@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-310",
+  "content_sha256": "2e1d457cd20ec308dec6f6d1411976a91d2db79526608e36fe8b0f9dbd1e1506",
+  "source_hash": "dc42701bab7e5728916cf4d2cef78f6cdf0f619ee6fa8261f69dbc1b8d24b0b7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the original leaves, which maximize rather than minimize height on paths and most branching trees.",
+      "failed_cases": [
+        "lc-310-1",
+        "lc-310-2",
+        "lc-310-5",
+        "lc-310-6",
+        "lc-310-7",
+        "lc-310-8",
+        "lc-310-9",
+        "lc-310-10",
+        "lc-310-11",
+        "lc-310-12",
+        "lc-310-13",
+        "lc-310-14",
+        "lc-310-15",
+        "lc-310-stress-1"
+      ]
+    },
+    {
+      "reason": "Chooses minimum-degree nodes, even though tree centers depend on global distances rather than local degree.",
+      "failed_cases": [
+        "lc-310-1",
+        "lc-310-2",
+        "lc-310-5",
+        "lc-310-6",
+        "lc-310-7",
+        "lc-310-8",
+        "lc-310-9",
+        "lc-310-10",
+        "lc-310-11",
+        "lc-310-12",
+        "lc-310-13",
+        "lc-310-14",
+        "lc-310-15",
+        "lc-310-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4357,
+  "oracle_implementation": "code_practice/import_batch_027.py:height_tree_oracle",
+  "validator_implementation_sha256": "15e14c8f65fbb39e8e64208569ee3a03f4dd6cd3f60b2fe5e05d49accadf937d",
+  "batch_implementation_sha256": "854d15e6c6ad2487ab38ec5e158ae7d948fcfca3526f06245c71954e0fa68db1",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.086,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
