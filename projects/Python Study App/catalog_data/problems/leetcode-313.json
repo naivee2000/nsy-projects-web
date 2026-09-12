@@ -1,0 +1,441 @@
+{
+  "id": "leetcode-313",
+  "version": 1,
+  "status": "approved",
+  "title": "Super Ugly Number",
+  "summary": "Identify the n-th super ugly number, defined as a positive integer with prime factors from the given array primes.",
+  "statement": "Identify the n-th super ugly number, defined as a positive integer with prime factors from the given array primes. Provide the result as a 32-bit signed integer.",
+  "constraints": [
+    "1 <= n <= 100000. primes contains 1–100 distinct ascending primes from 2 through 1000.",
+    "The nth result fits a signed 32-bit integer. The sequence starts with 1; each distinct integer is counted once."
+  ],
+  "topics": [
+    "dynamic-programming",
+    "heaps",
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "nth_super_ugly_number",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "primes",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def nth_super_ugly_number(n: int, primes: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def nth_super_ugly_number(n, primes):\n    values = [1]\n    indices = [0] * len(primes)\n    candidates = list(primes)\n    for _ in range(1, n):\n        smallest = min(candidates)\n        values.append(smallest)\n        for i, prime in enumerate(primes):\n            if candidates[i] == smallest:\n                indices[i] += 1\n                candidates[i] = prime * values[indices[i]]\n    return values[-1]\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def nth_super_ugly_number(n, primes):\n    values = [1]\n    indices = [0] * len(primes)\n    candidates = list(primes)\n    for _ in range(1, n):\n        smallest = min(candidates)\n        values.append(smallest)\n        for i, prime in enumerate(primes):\n            if candidates[i] == smallest:\n                indices[i] += 1\n                candidates[i] = prime * values[indices[i]]\n                break\n    return values[-1]\n",
+    "def nth_super_ugly_number(n, primes):\n    values = [1]\n    indices = [0] * len(primes)\n    candidates = list(primes)\n    for _ in range(n):\n        smallest = min(candidates)\n        values.append(smallest)\n        for i, prime in enumerate(primes):\n            if candidates[i] == smallest:\n                indices[i] += 1\n                candidates[i] = prime * values[indices[i]]\n    return values[-1]\n"
+  ],
+  "target_time_complexity": "O(nk)",
+  "target_space_complexity": "O(n+k)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Every value after 1 is a listed prime multiplied by an earlier valid value.",
+    "Merge one increasing product stream per prime and suppress equal candidates.",
+    "Start values=[1]. Append the minimum p[i]*values[index[i]], then advance EVERY matching index.",
+    "Keep k stream positions and k candidate values. After n-1 appends, return the last value."
+  ],
+  "editorial": "For each prime p, maintain its smallest product with a generated value that has not been emitted. The minimum across these streams is the next valid integer: dividing any candidate by one allowed prime reaches a smaller generated value. Advance all streams tied at the minimum so values remain distinct. This generalizes the fixed 2/3/5 problem to an input prime set. The independent oracle explores products with a heap and a global visited set.",
+  "tests": [
+    {
+      "id": "lc-313-1",
+      "arguments": [
+        12,
+        [
+          2,
+          7,
+          13,
+          19
+        ]
+      ],
+      "expected": 32,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The sequence begins 1,2,4,7,8,13,14,16,19,26,28,32; the twelfth value is 32.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-2",
+      "arguments": [
+        1,
+        [
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "1 has no prime factors and is the first valid number for every allowed prime list.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-3",
+      "arguments": [
+        2,
+        [
+          2
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-4",
+      "arguments": [
+        3,
+        [
+          3
+        ]
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-5",
+      "arguments": [
+        4,
+        [
+          5
+        ]
+      ],
+      "expected": 125,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-6",
+      "arguments": [
+        2,
+        [
+          997
+        ]
+      ],
+      "expected": 997,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-7",
+      "arguments": [
+        5,
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-8",
+      "arguments": [
+        10,
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": 18,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-9",
+      "arguments": [
+        15,
+        [
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": 24,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-10",
+      "arguments": [
+        8,
+        [
+          3,
+          5
+        ]
+      ],
+      "expected": 45,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-11",
+      "arguments": [
+        7,
+        [
+          2,
+          7
+        ]
+      ],
+      "expected": 16,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-12",
+      "arguments": [
+        10,
+        [
+          7,
+          11
+        ]
+      ],
+      "expected": 1331,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-13",
+      "arguments": [
+        20,
+        [
+          2,
+          3,
+          7
+        ]
+      ],
+      "expected": 48,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-14",
+      "arguments": [
+        6,
+        [
+          13,
+          17,
+          19
+        ]
+      ],
+      "expected": 221,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-15",
+      "arguments": [
+        3,
+        [
+          2,
+          3,
+          5,
+          7,
+          11
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-16",
+      "arguments": [
+        1,
+        [
+          997
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-stress-1",
+      "arguments": [
+        31,
+        [
+          2
+        ]
+      ],
+      "expected": 1073741824,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-313-stress-2",
+      "arguments": [
+        100000,
+        [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          127,
+          131,
+          137,
+          139,
+          149,
+          151,
+          157,
+          163,
+          167,
+          173,
+          179,
+          181,
+          191,
+          193,
+          197,
+          199,
+          211,
+          223,
+          227,
+          229,
+          233,
+          239,
+          241,
+          251,
+          257,
+          263,
+          269,
+          271,
+          277,
+          281,
+          283,
+          293,
+          307,
+          311,
+          313,
+          317,
+          331,
+          337,
+          347,
+          349,
+          353,
+          359,
+          367,
+          373,
+          379,
+          383,
+          389,
+          397,
+          401,
+          409,
+          419,
+          421,
+          431,
+          433,
+          439,
+          443,
+          449,
+          457,
+          461,
+          463,
+          467,
+          479,
+          487,
+          491,
+          499,
+          503,
+          509,
+          521,
+          523,
+          541
+        ]
+      ],
+      "expected": 284445,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

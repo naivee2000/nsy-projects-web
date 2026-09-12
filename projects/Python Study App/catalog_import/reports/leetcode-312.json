@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-312",
+  "content_sha256": "4dcc0a051e921dbc4e5f6b47eb0c2f87c286d794614530340edbfc1740e59795",
+  "source_hash": "aefa8f45ca673d2472dbb930254049c0d617ef2a4c156d73435c164baa31a071",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Maximizing the immediate reward can destroy better future neighbors.",
+      "failed_cases": [
+        "lc-312-1",
+        "lc-312-8",
+        "lc-312-10",
+        "lc-312-14",
+        "lc-312-16"
+      ]
+    },
+    {
+      "reason": "Uses original neighbors for every burst, ignoring that removed balloons disappear.",
+      "failed_cases": [
+        "lc-312-1",
+        "lc-312-7",
+        "lc-312-8",
+        "lc-312-9",
+        "lc-312-10",
+        "lc-312-12",
+        "lc-312-13",
+        "lc-312-14",
+        "lc-312-15",
+        "lc-312-16",
+        "lc-312-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4359,
+  "oracle_implementation": "code_practice/import_batch_028.py:balloons_oracle",
+  "validator_implementation_sha256": "7227858f35333cd87458e74dfcfe006bb7eed0117d7b910862d202cf7a155e8c",
+  "batch_implementation_sha256": "862902fc1fb66db8613cbb4a192f8c56e60bd1d9fd316b3759fc7d38cd9ee528",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.32,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

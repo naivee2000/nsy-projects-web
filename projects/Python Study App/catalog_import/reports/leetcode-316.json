@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-316",
+  "content_sha256": "2fb8215e7d85764ae3b886d48f1acf896929df0e6fc58cc39fa517e437ba6a2d",
+  "source_hash": "e6156ae6fd00450034e5ff89e844e79b57a23f88e3bbbc6c8cfbe1ad9ae96787",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts the distinct alphabet even when that ordering is not a subsequence.",
+      "failed_cases": [
+        "lc-316-2",
+        "lc-316-6",
+        "lc-316-8",
+        "lc-316-9",
+        "lc-316-11",
+        "lc-316-12",
+        "lc-316-13",
+        "lc-316-15"
+      ]
+    },
+    {
+      "reason": "Keeps first occurrences, missing smaller choices made possible by later repeated letters.",
+      "failed_cases": [
+        "lc-316-1",
+        "lc-316-2",
+        "lc-316-9",
+        "lc-316-11",
+        "lc-316-12",
+        "lc-316-16",
+        "lc-316-stress-1",
+        "lc-316-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4363,
+  "oracle_implementation": "code_practice/import_batch_028.py:letters_oracle",
+  "validator_implementation_sha256": "7227858f35333cd87458e74dfcfe006bb7eed0117d7b910862d202cf7a155e8c",
+  "batch_implementation_sha256": "862902fc1fb66db8613cbb4a192f8c56e60bd1d9fd316b3759fc7d38cd9ee528",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

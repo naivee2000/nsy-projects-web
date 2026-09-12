@@ -1,6 +1,6 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 301 runnable problems (101 original exercises plus 200 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 307 runnable problems (101 original exercises plus 206 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
 ## Start the app
 
@@ -65,13 +65,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 70 existing equivalents, 200 verified imports, 155 documented
-design/interactive exclusions, and 3,204 pending records. Ordinary tree and
+Current status: 71 existing equivalents, 206 verified imports, 155 documented
+design/interactive exclusions, and 3,197 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Twenty-seven reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Twenty-eight reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -240,11 +240,23 @@ include a 10,000-node tree, 10,000 island updates, a 20,000-node graph, and
 100-by-100 sparse matrices. A stricter interface audit also classifies
 constructor-plus-query classes as design exercises; ordinary `TreeNode` and
 `ListNode` function problems remain eligible.
-Of the 70 overlaps, 69 map to original exercises and one maps to an approved
-import: unique-only rotated minimum (153) uses the existing duplicate-aware
+Batch twenty-eight adds Burst Balloons, Super Ugly Number, Binary Tree Vertical
+Order Traversal, Count of Smaller Numbers After Self, Remove Duplicate Letters,
+and Shortest Distance from All Buildings. It exercises interval DP, prime-product
+stream merging, tree row/column order, suffix frequencies, greedy subsequence
+selection, and obstacle-aware grid distances. Stress tests include 300 balloons,
+the 100,000th super ugly number with 100 primes, 100,000 suffix-count elements,
+10,000-character strings, and 50-by-50 grids. Exhaustive small-domain tests and
+an independent factorization check support the reference results.
+Of the 71 overlaps, 69 map to original exercises and two map to approved
+imports. Unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
 values. Its separate overlap report verifies 500 seeded cases, the workbook
 sample, and 5,000-element boundaries. No second progress ID is introduced.
+Smallest Subsequence of Distinct Characters (1081) maps to Remove Duplicate
+Letters (316): both retain each distinct letter once in the smallest possible
+order-preserving subsequence. Its report checks the workbook sample, 500
+independent subsequence oracles, and the source's 1,000-character boundary.
 After changing an overlap target or its judge contract, revalidate the target,
 run `.venv/bin/python -m code_practice.reconcile_overlaps`, then repackage.
 Missing or stale overlap evidence blocks packaging; studying uses only the
@@ -269,7 +281,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The release package contains 301 problems; future
+been checked against every reviewed batch. The release package contains 307 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

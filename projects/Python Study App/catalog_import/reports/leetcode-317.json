@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-317",
+  "content_sha256": "b79f0fc9c98aecbdcc8b260e65c5bde25f1b88081875f6a0a22bfbf8f8f96dda",
+  "source_hash": "a0dac5efc82d29867f99d382c00f7ef31eaa7b3a653e860adbd89c4941ae6277",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Allows paths through other buildings, incorrectly connecting otherwise isolated destinations.",
+      "failed_cases": [
+        "lc-317-2",
+        "lc-317-7"
+      ]
+    },
+    {
+      "reason": "Uses Manhattan distances even when obstacles require detours or make destinations unreachable.",
+      "failed_cases": [
+        "lc-317-2",
+        "lc-317-5",
+        "lc-317-7",
+        "lc-317-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4364,
+  "oracle_implementation": "code_practice/import_batch_028.py:buildings_oracle",
+  "validator_implementation_sha256": "7227858f35333cd87458e74dfcfe006bb7eed0117d7b910862d202cf7a155e8c",
+  "batch_implementation_sha256": "862902fc1fb66db8613cbb4a192f8c56e60bd1d9fd316b3759fc7d38cd9ee528",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 3.334,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

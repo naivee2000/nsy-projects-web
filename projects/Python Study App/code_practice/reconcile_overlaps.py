@@ -20,6 +20,11 @@ DECISIONS = {
         "source_hash": "303783978ed5c7971d71a670f071a9b27942bd786348537483f278c58073874a",
         "reason": "Same rotated-array minimum value and input signature. The approved duplicate-aware contract also accepts every unique rotated array; its reference uses logarithmic element reads when values are unique. No duplicate exercise or progress ID is created.",
     },
+    1081: {
+        "target_source_id": 316,
+        "source_hash": "21833734d4fc27642ee4a1466650a165e1dfcb72dcf09167572f4298a6901938",
+        "reason": "Both contracts return the lexicographically smallest subsequence containing every distinct lowercase letter exactly once. The approved Remove Duplicate Letters entry accepts the entire 1–1000-character source domain (and up to 10000 characters). Source descriptions explicitly identify the equivalence; exhaustive-subsequence oracle comparisons verify behavior. One existing progress ID is retained.",
+    },
 }
 
 
@@ -103,6 +108,35 @@ def validate_import_overlap(record, records, root=ROOT):
         raise ValueError(f"{record.get('source_id')}: missing, stale, or failing overlap evidence") from error
 
 
+def check_distinct_subsequence(payload, source):
+    from itertools import combinations
+    from .build_import_batch import workbook_sample
+    namespace = {}
+    exec(compile(payload["reference_solution"], "<reviewed-distinct-subsequence>", "exec"), namespace)
+    function = namespace[payload["signature"]["name"]]
+    sample = workbook_sample(source["sample"], payload["signature"]["parameters"])
+    if sample is None or function(*sample[0]) != sample[1]:
+        raise ValueError("Distinct-subsequence workbook sample disagrees")
+    rng = random.Random(4047 + 1081)
+    for _ in range(500):
+        text = "".join(rng.choice("abcde") for _ in range(rng.randint(1, 11)))
+        alphabet = set(text)
+        expected = min(candidate for indices in combinations(range(len(text)), len(alphabet))
+                       if set(candidate := "".join(text[i] for i in indices)) == alphabet)
+        if function(text) != expected:
+            raise ValueError("Overlap reference disagrees with the distinct-subsequence oracle")
+    boundaries = [("z" * 974 + "abcdefghijklmnopqrstuvwxyz", "abcdefghijklmnopqrstuvwxyz"),
+                  ("zyxwvutsrqponmlkjihgfedcba", "zyxwvutsrqponmlkjihgfedcba"),
+                  ("a" * 1000, "a"), ("cbacdcbc", "acdb")]
+    for text, expected in boundaries:
+        if function(text) != expected:
+            raise ValueError("Distinct-subsequence source boundary disagrees")
+    return {"oracle_inputs": 500, "oracle_seed": 5128,
+            "workbook_sample_checked": True, "deterministic_inputs": 5,
+            "largest_input": 1000,
+            "domain": "1–1000 lowercase letters; order-preserving subsequence with each distinct letter exactly once"}
+
+
 def restore_import_overlaps(records, previous, root=ROOT):
     """Preserve proved mappings on unchanged re-extraction, never stale ones."""
     by_id = {record["source_id"]: record for record in records}
@@ -136,7 +170,8 @@ def reconcile(root=ROOT):
                 raise ValueError("Source changed since the behavioral review")
             target = records[decision["target_source_id"]]
             payload = load_verified_import(target, root)
-            evidence = check_unique_rotations(payload, sources[source_id])
+            checker = {153: check_unique_rotations, 1081: check_distinct_subsequence}[source_id]
+            evidence = checker(payload, sources[source_id])
             report = {"valid": True, "source_id": source_id, "source_hash": record["source_hash"],
                       "target_problem_id": target["problem_id"], "target_source_hash": target["source_hash"],
                       "target_content_sha256": content_digest(payload), "judge_contract_sha256": judge_contract_hash(),

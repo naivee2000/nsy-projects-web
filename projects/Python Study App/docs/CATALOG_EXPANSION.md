@@ -41,11 +41,22 @@ correctness. Generated tests must meet each problem's actual constraints.
 ## Current checkpoint
 
 - All 3,629 workbook rows have portable source snapshots and ledger records.
-- Current behavioral mapping: 70 existing equivalents (69 original exercises and
-  one approved import). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,204 rows remain pending.
-- 200 new imports in twenty-seven reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 301 problems.
+- Current behavioral mapping: 71 existing equivalents (69 original exercises and
+  two approved imports). Static evidence identifies 155 approved-scope
+  design/interactive exclusions; 3,197 rows remain pending.
+- 206 new imports in twenty-eight reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 307 problems.
+- Batch twenty-eight covers LeetCode 312–317: interval balloon DP, generalized
+  prime-product streams, binary-tree vertical traversal, strictly smaller suffix
+  frequencies, minimal distinct-letter subsequences, and shortest travel sums
+  to buildings through empty grid cells. Exhaustive tests check small balloon
+  arrays, signed suffix arrays, three-letter strings, and all two-by-three grids
+  with a building. A separate factorization scan proves the 100,000th number
+  using the first 100 primes is 284445. Stress inputs cover 300 balloons,
+  100-node trees, 100,000-element arrays, 10,000 letters, and 50-by-50 grids.
+  Workbook 1081 is a proved overlap of 316, with 500 independent subsequence
+  comparisons, its original sample, and the 1,000-character boundary. Stale
+  overlap evidence or a quarantined target blocks publication.
 - Batch twenty-seven covers LeetCode 296, 298–299, 301–302, 305–306, and 309–311:
   geometric medians, recursive consecutive tree paths, Bulls and Cows,
   minimum-removal parenthesis backtracking, binary-search image bounds, online
@@ -295,21 +306,21 @@ correctness. Generated tests must meet each problem's actual constraints.
   identity. Both batch-twenty-four LCA exercises use the contract, and copied
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
-  afterward. All 200 published imports were revalidated before the 301-problem
-  package was rebuilt.
+  afterward. All 206 published imports have matching passing reports in the
+  307-problem package.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 301-problem Chrome/M3 Pro run: library/search p95 1.42/1.46 ms,
-  detail p95 1.57 ms for Word Search and 1.52 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.81 ms (100 requests per route). Startup is
-  339 ms and backend peak RSS is 87.47 MiB after loading the largest linked-list
-  detail. All 200 imported references and
+- Current 307-problem Chrome/M3 Pro run: library/search p95 1.51/1.33 ms,
+  detail p95 1.42 ms for Word Search and 1.48 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.74 ms (100 requests per route). Startup is
+  343 ms and backend peak RSS is 87.36 MiB after loading the largest linked-list
+  detail. All 206 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The ten batch-twenty-seven suites complete within 68 ms after runtime load.
-  Number of Islands II takes 67.9 ms, Minimum Height Trees takes 62.3 ms, and
-  Sparse Matrix Multiplication takes 57.4 ms; the remaining seven stay below
-  49 ms.
-  Tree Height's suite with 20,000-node chains takes 97.4 ms. Existing
+  The six batch-twenty-eight suites complete within 994 ms after runtime load.
+  Burst Balloons takes 993.9 ms including its 300-balloon cubic DP case; Super
+  Ugly Number takes 520.5 ms including n=100000 with 100 primes; suffix counts
+  take 174.8 ms including 100,000 entries. The other three stay below 49 ms.
+  Tree Height's suite with 20,000-node chains takes 108.3 ms. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
   returned-copy/count-only rejection, strict prefix counts, and reordered survivors.
@@ -321,7 +332,7 @@ correctness. Generated tests must meet each problem's actual constraints.
   wrong deleted value and replacement nodes whose displayed values look correct.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
-- Current automated suite: 214 backend tests and 12 frontend tests pass. The
+- Current automated suite: 242 backend tests and 12 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

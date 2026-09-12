@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-313",
+  "content_sha256": "15d7e3f43a35d445367731e091dd8cbd0c7381f95e0fb84462a10804e17581b9",
+  "source_hash": "6342711053b1d60071fddeadedab88946340f267812162bf1462b9c16d508218",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Advances only one prime when several generate the same number, counting duplicates.",
+      "failed_cases": [
+        "lc-313-1",
+        "lc-313-8",
+        "lc-313-9",
+        "lc-313-10",
+        "lc-313-11",
+        "lc-313-12",
+        "lc-313-13",
+        "lc-313-stress-2"
+      ]
+    },
+    {
+      "reason": "Advances the sequence n times after the initial 1, returning the next number.",
+      "failed_cases": [
+        "lc-313-1",
+        "lc-313-2",
+        "lc-313-3",
+        "lc-313-4",
+        "lc-313-5",
+        "lc-313-6",
+        "lc-313-7",
+        "lc-313-8",
+        "lc-313-9",
+        "lc-313-10",
+        "lc-313-11",
+        "lc-313-12",
+        "lc-313-13",
+        "lc-313-14",
+        "lc-313-15",
+        "lc-313-16",
+        "lc-313-stress-1",
+        "lc-313-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4360,
+  "oracle_implementation": "code_practice/import_batch_028.py:super_ugly_oracle",
+  "validator_implementation_sha256": "7227858f35333cd87458e74dfcfe006bb7eed0117d7b910862d202cf7a155e8c",
+  "batch_implementation_sha256": "862902fc1fb66db8613cbb4a192f8c56e60bd1d9fd316b3759fc7d38cd9ee528",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.643,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

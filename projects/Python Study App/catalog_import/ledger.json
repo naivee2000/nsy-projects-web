@@ -4,9 +4,9 @@
   "workbook_sha256": "d4d791913078d0275fb404f4e61ff914b039f74f44ff4a2774070685e82e8e46",
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
-    "overlap": 70,
-    "imported": 200,
-    "pending": 3204,
+    "overlap": 71,
+    "imported": 206,
+    "pending": 3197,
     "excluded": 155
   },
   "record_count": 3629,
@@ -3471,10 +3471,11 @@
       "title": "Burst Balloons",
       "difficulty": "Hard",
       "source_hash": "aefa8f45ca673d2472dbb930254049c0d617ef2a4c156d73435c164baa31a071",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-312.json",
+      "problem_id": "leetcode-312"
     },
     {
       "source_id": 313,
@@ -3482,10 +3483,11 @@
       "title": "Super Ugly Number",
       "difficulty": "Medium",
       "source_hash": "6342711053b1d60071fddeadedab88946340f267812162bf1462b9c16d508218",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-313.json",
+      "problem_id": "leetcode-313"
     },
     {
       "source_id": 314,
@@ -3493,10 +3495,11 @@
       "title": "Binary Tree Vertical Order Traversal",
       "difficulty": "Medium",
       "source_hash": "8feafdcbf307eac0a076a1b43b9dfaad42e08e8887af6b3f82d54a7fe4bbc0f1",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-314.json",
+      "problem_id": "leetcode-314"
     },
     {
       "source_id": 315,
@@ -3504,10 +3507,11 @@
       "title": "Count of Smaller Numbers After Self",
       "difficulty": "Hard",
       "source_hash": "9a6b2c193978d9046f2bafe8d7fb5a9d68adfe50ee3ecf5f9cf408d47eb8c003",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-315.json",
+      "problem_id": "leetcode-315"
     },
     {
       "source_id": 316,
@@ -3515,10 +3519,11 @@
       "title": "Remove Duplicate Letters",
       "difficulty": "Medium",
       "source_hash": "e6156ae6fd00450034e5ff89e844e79b57a23f88e3bbbc6c8cfbe1ad9ae96787",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-316.json",
+      "problem_id": "leetcode-316"
     },
     {
       "source_id": 317,
@@ -3526,10 +3531,11 @@
       "title": "Shortest Distance from All Buildings",
       "difficulty": "Hard",
       "source_hash": "a0dac5efc82d29867f99d382c00f7ef31eaa7b3a653e860adbd89c4941ae6277",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-317.json",
+      "problem_id": "leetcode-317"
     },
     {
       "source_id": 318,
@@ -11532,10 +11538,11 @@
       "title": "Smallest Subsequence of Distinct Characters",
       "difficulty": "Medium",
       "source_hash": "21833734d4fc27642ee4a1466650a165e1dfcb72dcf09167572f4298a6901938",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "leetcode-316",
+      "reason": "Both contracts return the lexicographically smallest subsequence containing every distinct lowercase letter exactly once. The approved Remove Duplicate Letters entry accepts the entire 1–1000-character source domain (and up to 10000 characters). Source descriptions explicitly identify the equivalence; exhaustive-subsequence oracle comparisons verify behavior. One existing progress ID is retained.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-1081.json"
     },
     {
       "source_id": 1085,

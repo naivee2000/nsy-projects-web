@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 301,
+  "count": 307,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -5325,6 +5325,125 @@
       "path": "problems/leetcode-311.json",
       "content_sha256": "c37f804417a2684408655b2be99e702913331cb4b469dce9f9f11a8fec53c0b2",
       "source_id": 311
+    },
+    {
+      "id": "leetcode-312",
+      "version": 1,
+      "status": "approved",
+      "title": "Burst Balloons",
+      "summary": "Given n balloons indexed from 0 to n-1, each with a number on it.",
+      "topics": [
+        "dynamic-programming",
+        "intervals",
+        "recursion"
+      ],
+      "prerequisites": [
+        "dynamic-programming",
+        "recursion"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-312.json",
+      "content_sha256": "4dcc0a051e921dbc4e5f6b47eb0c2f87c286d794614530340edbfc1740e59795",
+      "source_id": 312
+    },
+    {
+      "id": "leetcode-313",
+      "version": 1,
+      "status": "approved",
+      "title": "Super Ugly Number",
+      "summary": "Identify the n-th super ugly number, defined as a positive integer with prime factors from the given array primes.",
+      "topics": [
+        "dynamic-programming",
+        "heaps",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-313.json",
+      "content_sha256": "15d7e3f43a35d445367731e091dd8cbd0c7381f95e0fb84462a10804e17581b9",
+      "source_id": 313
+    },
+    {
+      "id": "leetcode-314",
+      "version": 1,
+      "status": "approved",
+      "title": "Binary Tree Vertical Order Traversal",
+      "summary": "For a given binary tree, output the nodes' values in a vertical order traversal, from top to bottom within each column.",
+      "topics": [
+        "trees",
+        "breadth-first-search",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-314.json",
+      "content_sha256": "2e20049f3d6cf2618090502501be10587553b52e0c544629a6cb0b5a5f6e9092",
+      "source_id": 314
+    },
+    {
+      "id": "leetcode-315",
+      "version": 1,
+      "status": "approved",
+      "title": "Count of Smaller Numbers After Self",
+      "summary": "For an array of integers nums, generate an array counts where each counts[i] indicates the quantity of elements in nums that are less than nums[i] and appear to the right of it.",
+      "topics": [
+        "binary-search",
+        "sorting",
+        "binary-indexed-tree",
+        "divide-and-conquer"
+      ],
+      "prerequisites": [
+        "binary-search",
+        "sorting"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-315.json",
+      "content_sha256": "6ce9fe926faaa81757017616551f82fe6c9ddb2996a63331d1dc97e5df40a3a2",
+      "source_id": 315
+    },
+    {
+      "id": "leetcode-316",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Duplicate Letters",
+      "summary": "Given a string s, eliminate repeated characters to ensure each character appears exactly once, with the result being the lexicographically smallest among all feasible outcomes.",
+      "topics": [
+        "strings",
+        "stacks",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-316.json",
+      "content_sha256": "2fb8215e7d85764ae3b886d48f1acf896929df0e6fc58cc39fa517e437ba6a2d",
+      "source_id": 316
+    },
+    {
+      "id": "leetcode-317",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Distance from All Buildings",
+      "summary": "Given an m x n grid with values 0, 1, or 2, where 0 represents passable land, 1 represents a building, and 2 represents an obstacle, find the shortest total travel distance to all buildings from an empty land.",
+      "topics": [
+        "matrices",
+        "graphs",
+        "breadth-first-search",
+        "grid-traversal"
+      ],
+      "prerequisites": [
+        "matrices",
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-317.json",
+      "content_sha256": "b79f0fc9c98aecbdcc8b260e65c5bde25f1b88081875f6a0a22bfbf8f8f96dda",
+      "source_id": 317
     },
     {
       "id": "leetcode-338",

@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-315",
+  "content_sha256": "6ce9fe926faaa81757017616551f82fe6c9ddb2996a63331d1dc97e5df40a3a2",
+  "source_hash": "9a6b2c193978d9046f2bafe8d7fb5a9d68adfe50ee3ecf5f9cf408d47eb8c003",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Queries through the current rank and incorrectly includes equal suffix values.",
+      "failed_cases": [
+        "lc-315-2",
+        "lc-315-5",
+        "lc-315-10",
+        "lc-315-12",
+        "lc-315-14",
+        "lc-315-16",
+        "lc-315-stress-1"
+      ]
+    },
+    {
+      "reason": "Scans left to right and counts smaller values before each index rather than after it.",
+      "failed_cases": [
+        "lc-315-1",
+        "lc-315-2",
+        "lc-315-6",
+        "lc-315-7",
+        "lc-315-8",
+        "lc-315-9",
+        "lc-315-10",
+        "lc-315-11",
+        "lc-315-12",
+        "lc-315-13",
+        "lc-315-15",
+        "lc-315-16",
+        "lc-315-stress-1",
+        "lc-315-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4362,
+  "oracle_implementation": "code_practice/import_batch_028.py:smaller_oracle",
+  "validator_implementation_sha256": "7227858f35333cd87458e74dfcfe006bb7eed0117d7b910862d202cf7a155e8c",
+  "batch_implementation_sha256": "862902fc1fb66db8613cbb4a192f8c56e60bd1d9fd316b3759fc7d38cd9ee528",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.154,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

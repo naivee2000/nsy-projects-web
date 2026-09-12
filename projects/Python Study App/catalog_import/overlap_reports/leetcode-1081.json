@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "source_id": 1081,
+  "source_hash": "21833734d4fc27642ee4a1466650a165e1dfcb72dcf09167572f4298a6901938",
+  "target_problem_id": "leetcode-316",
+  "target_source_hash": "e6156ae6fd00450034e5ff89e844e79b57a23f88e3bbbc6c8cfbe1ad9ae96787",
+  "target_content_sha256": "2fb8215e7d85764ae3b886d48f1acf896929df0e6fc58cc39fa517e437ba6a2d",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "implementation_sha256": "6356a852133e77caa9ac1cee1feb32aa661b36e8b9e9074dc31d3dc5f94befec",
+  "decision": {
+    "target_source_id": 316,
+    "source_hash": "21833734d4fc27642ee4a1466650a165e1dfcb72dcf09167572f4298a6901938",
+    "reason": "Both contracts return the lexicographically smallest subsequence containing every distinct lowercase letter exactly once. The approved Remove Duplicate Letters entry accepts the entire 1–1000-character source domain (and up to 10000 characters). Source descriptions explicitly identify the equivalence; exhaustive-subsequence oracle comparisons verify behavior. One existing progress ID is retained."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 5128,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 5,
+  "largest_input": 1000,
+  "domain": "1–1000 lowercase letters; order-preserving subsequence with each distinct letter exactly once"
+}
