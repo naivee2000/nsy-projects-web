@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-349",
+  "content_sha256": "881a00ea2c87fb000eaa191f528a1453833d50431482cc17de345edb400e15b8",
+  "source_hash": "31cf1942b0272bf6dfaf5c0e72ad7b38a9dc8bf114a0d4fd7bf1980cf92ad0f1",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Computes union instead of intersection.",
+      "failed_cases": [
+        "lc-349-1",
+        "lc-349-2",
+        "lc-349-4",
+        "lc-349-9",
+        "lc-349-10",
+        "lc-349-11",
+        "lc-349-13",
+        "lc-349-14"
+      ]
+    },
+    {
+      "reason": "Preserves repeated left-side values instead of emitting unique values.",
+      "failed_cases": [
+        "lc-349-1",
+        "lc-349-6",
+        "lc-349-7",
+        "lc-349-12",
+        "lc-349-13",
+        "lc-349-15",
+        "lc-349-16",
+        "lc-349-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4396,
+  "oracle_implementation": "code_practice/import_batch_032.py:intersection_oracle",
+  "validator_implementation_sha256": "33295cd8e75b572b193c88d2135d00c968c628db4af66ec5f46627811b7a1487",
+  "batch_implementation_sha256": "16db904f2216ebe0ec87ea704104fbfa453407df491875acf183cec97ad67dae",
+  "judge_contract_sha256": "c43a320dde400e344accb06ef5478884513f5e88bf33554d7d18cc84a57fc620",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

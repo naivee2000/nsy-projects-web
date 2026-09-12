@@ -3,6 +3,8 @@
 This is a usable partial-catalog release, not completion of the workbook goal.
 Its local Git tag is `python-study-326-checkpoint`. No push, deployment, live
 progress replacement, or seed refresh is part of preparing this checkpoint.
+All counts and measurements on this page describe that tag, not later `main`
+commits. The README and expansion ledger describe the current development catalog.
 
 ## What ships
 
@@ -15,7 +17,7 @@ progress replacement, or seed refresh is part of preparing this checkpoint.
 - Code, judge assets, packaged questions, provenance, and resumable development
   records travel through Git. Runtime progress does not.
 
-The browser verification report in `catalog_import/benchmarks/current.json`
+The browser verification report in `catalog_import/benchmarks/current.json` at this tag
 identifies the exact tested manifest and ledger hashes. It covers real Chrome/
 Pyodide execution, offline assets, pagination, errors, timeout recovery, and
 progress persistence through a backend restart. This is an interim performance

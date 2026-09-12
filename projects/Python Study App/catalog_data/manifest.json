@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 326,
+  "count": 336,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -5826,6 +5826,186 @@
       "path": "problems/leetcode-345.json",
       "content_sha256": "e6dd4b3b2b8f6062830159507a3119b320017fa876698f8dca64b7cd9d651a9e",
       "source_id": 345
+    },
+    {
+      "id": "leetcode-349",
+      "version": 1,
+      "status": "approved",
+      "title": "Intersection of Two Arrays",
+      "summary": "Given two integer arrays, nums1 and nums2, return an array containing the unique elements that are present in both arrays.",
+      "topics": [
+        "arrays",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-349.json",
+      "content_sha256": "881a00ea2c87fb000eaa191f528a1453833d50431482cc17de345edb400e15b8",
+      "source_id": 349
+    },
+    {
+      "id": "leetcode-350",
+      "version": 1,
+      "status": "approved",
+      "title": "Intersection of Two Arrays II",
+      "summary": "Given two integer arrays, nums1 and nums2, return an array containing their intersection.",
+      "topics": [
+        "arrays",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-350.json",
+      "content_sha256": "5b2ab240e4268b185fcec8e37df7c347c6bbc38cf76b7759fc65267f0ff4e8aa",
+      "source_id": 350
+    },
+    {
+      "id": "leetcode-351",
+      "version": 1,
+      "status": "approved",
+      "title": "Android Unlock Patterns",
+      "summary": "Android devices feature a 3x3 grid of dots for setting an unlock pattern.",
+      "topics": [
+        "recursion",
+        "backtracking",
+        "dynamic-programming",
+        "bitmask"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-351.json",
+      "content_sha256": "96601ee05cef9f8fbb07713d1bfa7d002442e6da54c3db3c4a2d6c4040eb44c4",
+      "source_id": 351
+    },
+    {
+      "id": "leetcode-354",
+      "version": 1,
+      "status": "approved",
+      "title": "Russian Doll Envelopes",
+      "summary": "Given a 2D array of integers representing envelopes, where each envelope is defined by its width and height.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "binary-search",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "binary-search",
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-354.json",
+      "content_sha256": "83cd98a0e442b108366af6b141501e31d2d8c24a6630770a339e0176c8641d6b",
+      "source_id": 354
+    },
+    {
+      "id": "leetcode-356",
+      "version": 1,
+      "status": "approved",
+      "title": "Line Reflection",
+      "summary": "Determine if a line parallel to the y-axis exists such that reflecting all given n points on a 2D plane results in a set of points identical to the original set.",
+      "topics": [
+        "arrays",
+        "hash-maps",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-356.json",
+      "content_sha256": "c59412c9c0144721ebd077d0a5c8520d809344d469d2254b56c571be84fab881",
+      "source_id": 356
+    },
+    {
+      "id": "leetcode-360",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort Transformed Array",
+      "summary": "Given a sorted integer array nums and integers a, b, c, transform each element nums[i] using the quadratic function f(x) = ax^2 + bx + c, then return the transformed array in sorted order.",
+      "topics": [
+        "arrays",
+        "two-pointers",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-360.json",
+      "content_sha256": "0c935832d69e81863c83a8170fe0dcadbd698eaab3a956901cf93b5808cb8ae5",
+      "source_id": 360
+    },
+    {
+      "id": "leetcode-361",
+      "version": 1,
+      "status": "approved",
+      "title": "Bomb Enemy",
+      "summary": "Given an m x n matrix grid with cells as walls 'W', enemies 'E', or empty '0', determine the maximum number of enemies that can be killed by placing one bomb in an empty cell.",
+      "topics": [
+        "matrices",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-361.json",
+      "content_sha256": "67c2c317d86329a499a376e970d74e87c61b69d15583e9acbf5aec0b94ad4cf2",
+      "source_id": 361
+    },
+    {
+      "id": "leetcode-365",
+      "version": 1,
+      "status": "approved",
+      "title": "Water and Jug Problem",
+      "summary": "Given two jugs with capacities x and y liters, determine if reaching a target amount of water in both jugs is possible using the operations: filling either jug, emptying either jug, or pouring water from one jug to the other until the receiving jug is full or the transferring jug is empty.",
+      "topics": [
+        "math",
+        "graphs",
+        "breadth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-365.json",
+      "content_sha256": "6bca749ea29d6ec36d32a54bc721d758e62c827591419f8bdb71f3e6726174d8",
+      "source_id": 365
+    },
+    {
+      "id": "leetcode-369",
+      "version": 1,
+      "status": "approved",
+      "title": "Plus One Linked List",
+      "summary": "Given a non-negative integer represented by a linked list of digits, increment the integer by one.",
+      "topics": [
+        "linked-lists",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-369.json",
+      "content_sha256": "606110fbab228dd431307bff76a81ba5309960fda7b2f381ce135a31b3a608f1",
+      "source_id": 369
+    },
+    {
+      "id": "leetcode-370",
+      "version": 1,
+      "status": "approved",
+      "title": "Range Addition",
+      "summary": "Given an integer length and an array updates where updates[i] = [startIdxi, endIdxi, inci], initialize an array arr of length length with all zeros.",
+      "topics": [
+        "arrays",
+        "prefix-sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-370.json",
+      "content_sha256": "c0079f4078eac6479104ba331d080ee8f9f480eee6fe26b32fb89e04cf8c84ec",
+      "source_id": 370
     },
     {
       "id": "leetcode-404",

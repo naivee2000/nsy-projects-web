@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 326 runnable problems (101 original exercises plus 225 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 336 runnable problems (101 original exercises plus 235 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The **326-problem handoff checkpoint** is ready for a deliberate update on the other computer. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md). Continuing development on this laptop does not change the website until you push, pull, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update.
+The frozen **326-problem handoff checkpoint** remains available at `python-study-326-checkpoint`; `main` now includes ten additional verified problems. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md). Continuing development on this laptop does not change the website until you push, pull, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 72 existing equivalents, 225 verified imports, 155 documented
-design/interactive exclusions, and 3,177 pending records. Ordinary tree and
+Current status: 72 existing equivalents, 235 verified imports, 155 documented
+design/interactive exclusions, and 3,167 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Thirty-one reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Thirty-two reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -277,6 +277,18 @@ Schema tests also reject malformed expectations and mixed comparison modes.
 Independent small-domain checks and source-scale cases cover 50,000-value wiggles,
 50,000-character windows, 100,000-character mutations, and 300,000-character
 vowel scans. All 225 imports were revalidated against the updated judge contract.
+Batch thirty-two adds Intersection of Two Arrays I/II, Android Unlock Patterns,
+Russian Doll Envelopes, Line Reflection, Sort Transformed Array, Bomb Enemy,
+Water and Jug Problem, Plus One Linked List, and Range Addition. The two
+intersections preserve their different duplicate-count contracts. The unlock
+oracle exhausts all dot permutations and all 81 length-bound pairs are tested.
+Other regressions cover all 19,683 three-by-three bomb grids, equal envelope
+dimensions, coordinate-set reflection, convex/concave/linear transformations,
+actual jug-state reachability, linked-node carry overflow, and inclusive range
+boundaries. Stress fixtures include 100,000 envelopes, 500-by-500 bomb grids,
+100-digit linked numbers, and 10,000 updates over 100,000 array positions.
+The linked-list, recursion, and binary-search tags retain weak-topic priority.
+All 326 handoff-catalog entries keep their content, versions, and progress IDs.
 Of the 72 overlaps, 69 map to original exercises and three map to approved
 imports. Unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
@@ -314,7 +326,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The release package contains 326 problems; future
+been checked against every reviewed batch. The current package contains 336 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

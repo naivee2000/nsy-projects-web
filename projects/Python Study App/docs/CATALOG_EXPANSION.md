@@ -1,9 +1,10 @@
 # Workbook catalog expansion
 
 Status: in progress. Pending and quarantined records are not runnable imports.
-The owner requested a stable handoff before resuming expansion. The current
-326-problem checkpoint is documented in [RELEASE_CHECKPOINT.md](RELEASE_CHECKPOINT.md);
-preparing it does not complete the goal or authorize deployment.
+The owner requested a stable handoff before resuming expansion. The frozen
+326-problem checkpoint is documented in [RELEASE_CHECKPOINT.md](RELEASE_CHECKPOINT.md).
+Expansion has resumed locally; `main` contains 336 verified problems. The tag is
+unchanged, and neither checkpoint preparation nor resumed work authorizes deployment.
 
 The source workbook has 3,629 unique problem names in rows 7–3635. The
 scope includes ordinary functions, binary trees, linked lists, and Hard problems.
@@ -46,9 +47,21 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 72 existing equivalents (69 original exercises and
   three approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,177 rows remain pending.
-- 225 new imports in thirty-one reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 326 problems.
+  design/interactive exclusions; 3,167 rows remain pending.
+- 235 new imports in thirty-two reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 336 problems.
+- Batch thirty-two covers LeetCode 349–351, 354, 356, 360–361, 365, and 369–370:
+  distinct versus repeated intersections, recursive unlock patterns, strict
+  envelope nesting, vertical set reflection, quadratic endpoint merging,
+  wall-delimited bomb segments, jug reachability, linked-list carry, and range
+  addition. Every unlock-length pair is deterministic-tested against exhaustive
+  geometric permutation counts; all 19,683 three-by-three bomb grids are checked
+  against direct ray casting. Exhaustive short arrays, envelopes, coordinates,
+  quadratics, jug states, numbers, and interval updates add independent evidence.
+  Stress fixtures include 100,000 envelopes, 10,000 points, 500-by-500 grids,
+  100-digit lists, and 10,000 full-length updates on a 100,000-position array.
+  No judge change was needed, and all 326 checkpoint entries retain identical
+  content, versions, and IDs. The checkpoint tag still points to `c79079d`.
 - Batch thirty-one covers LeetCode 324, 340, and 342–345: strict wiggle mutation,
   variable-budget distinct-character windows, powers of four, integer-product
   splitting, in-place character reversal, and vowel-only reversal. The schema
@@ -339,23 +352,25 @@ correctness. Generated tests must meet each problem's actual constraints.
   identity. Both batch-twenty-four LCA exercises use the contract, and copied
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
-  afterward. All 225 published imports have matching passing reports in the
-  326-problem package after revalidation against the strict-wiggle judge update.
+  afterward. All 235 published imports have matching passing reports in the
+  336-problem package. The first 225 were revalidated against the strict-wiggle
+  judge update; the next ten use that unchanged contract.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 326-problem Chrome/M3 Pro run: library/search p95 1.15/1.06 ms,
-  detail p95 1.13 ms for Word Search and 1.09 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.39 ms (100 requests per route). Startup is
-  335 ms and backend peak RSS is 84.13 MiB after loading the largest linked-list
-  detail. All 225 imported references and
+- Current 336-problem Chrome/M3 Pro run: library/search p95 1.19/1.05 ms,
+  detail p95 1.13 ms for Word Search and 1.11 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.33 ms (100 requests per route). Startup is
+  236 ms and backend peak RSS is 82.14 MiB after loading the largest linked-list
+  detail. All 235 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The six batch-thirty-one suites complete within 108 ms after runtime load;
-  strict wiggle takes 107.7 ms, the K-distinct window 82.9 ms, character reversal
-  66.5 ms, and vowel reversal 96.4 ms including their source-scale cases.
-  Palindrome Pairs takes 795 ms including 1.5 million input characters and
-  the separate 5000-pair output case. Create Maximum Number takes 115.4 ms,
-  Self Crossing takes 114 ms, and Reconstruct Itinerary takes 32.1 ms.
-  Tree Height's suite with 20,000-node chains takes 101.4 ms. Existing
+  The ten batch-thirty-two suites complete within 258 ms after runtime load:
+  all 81 unlock cases take 170.6 ms, envelope nesting takes 257.3 ms including
+  two 100,000-envelope cases, bomb placement takes 216.7 ms including two
+  500-by-500 grids, and range addition takes 98.8 ms including 10,000 updates
+  over 100,000 positions. Palindrome Pairs takes 768.5 ms including 1.5 million
+  input characters and the separate 5000-pair output case. Create Maximum Number
+  takes 117 ms, Self Crossing 114.9 ms, and Reconstruct Itinerary 31.9 ms.
+  Tree Height's suite with 20,000-node chains takes 104.4 ms. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
   returned-copy/count-only rejection, strict prefix counts, and reordered survivors.
@@ -367,7 +382,7 @@ correctness. Generated tests must meet each problem's actual constraints.
   wrong deleted value and replacement nodes whose displayed values look correct.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
-- Current automated suite: 281 backend tests and 14 frontend tests pass. The
+- Current automated suite: 292 backend tests and 14 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.
