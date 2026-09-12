@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-332",
+  "content_sha256": "c256e3527dd9b8715f7a9116b573dfc1b62321cd30ad45784d2c8983a5ee0e8c",
+  "source_hash": "331dc96791a7f48e886dd08c41b4cfb5e1e2706c648ba15bfa3be3d7a2f60308",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Commits the first lexicographically small flight even if it strands unused tickets.",
+      "failed_cases": [
+        "lc-332-2"
+      ]
+    },
+    {
+      "reason": "Collapses repeated ticket occurrences into one edge and cannot use all flights.",
+      "failed_cases": [
+        "lc-332-6",
+        "lc-332-12",
+        "lc-332-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4379,
+  "oracle_implementation": "code_practice/import_batch_030.py:itinerary_oracle",
+  "validator_implementation_sha256": "41de5da521aa5e02477674e02c6f95afca2e69884311014d11ced76c4f155442",
+  "batch_implementation_sha256": "d04c7ab5981588cf74f7335811b949a018bd712ec4ea038cd234c7f701cd60a3",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

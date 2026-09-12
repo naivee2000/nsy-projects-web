@@ -1,6 +1,6 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 316 runnable problems (101 original exercises plus 215 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 320 runnable problems (101 original exercises plus 219 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
 ## Start the app
 
@@ -21,7 +21,7 @@ If frontend source changes, run `npm --prefix frontend run build` before startin
 - **Library** searches and filters on the server by title/pattern, topic, difficulty, and completion. It fetches 30 summaries per page; full instructions and tests load only when opening a problem. Back navigation retains the page and filters.
 - **Back navigation** returns a problem to the page that opened it—Today or Library—without clearing the Library filters.
 - **Run examples** executes the two hand-curated teaching examples: a representative case, a contrasting or boundary case, and a short explanation of why each shown output is correct.
-- **Submit** executes all twelve hidden tests and records the outcome. Passed hidden tests remain summarized; each failed hidden test can be clicked to reveal only its input, expected value, and the value or error produced by the current code.
+- **Submit** executes all hidden tests (at least twelve per problem) and records the outcome. Passed hidden tests remain summarized; each failed hidden test can be clicked to reveal only its input, expected value, and the value or error produced by the current code.
 - **Local Coach** explains one likely mistake at a time after an unresolved run. Its three-step ladder moves from concrete evidence to a debugging question without revealing the full solution.
 - **Ask Codex coach** is optional and runs only after an explicit click. It sends the problem, visible failure evidence, and current draft to the locally authenticated Codex CLI for deeper Socratic feedback. It requires Codex login and may require internet access.
 - Hints unlock in concept, strategy, pseudocode, and editorial order.
@@ -65,13 +65,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 72 existing equivalents, 215 verified imports, 155 documented
-design/interactive exclusions, and 3,187 pending records. Ordinary tree and
+Current status: 72 existing equivalents, 219 verified imports, 155 documented
+design/interactive exclusions, and 3,183 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Twenty-nine reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Thirty reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -256,6 +256,15 @@ sums, a 40,000-cell increasing matrix path, and 10,000-node tree DP fixtures.
 Exhaustive small-domain tests compare against independent path enumeration,
 subtree checks, independent-set enumeration, and subset-sum search. Iterative
 references handle deep inputs while the hints explain the recursive recurrences.
+Batch thirty adds four Hard problems: Create Maximum Number, Reconstruct
+Itinerary, Self Crossing, and Palindrome Pairs. It verifies complete suffix
+comparison, use of duplicate ticket occurrences, inclusive segment contact,
+empty words, and both directions of ordered palindrome pairs. Palindrome
+prefix/suffix flags use KMP and a reversed-word trie to meet the linear input
+processing target. Stress tests cover 500-digit arrays, 300 tickets, 100,000
+segments, 5,000 unique 300-character words, and 5,000 emitted palindrome pairs.
+Exhaustive small-domain checks use independent index selection, ticket search,
+segment intersections, and direct concatenation oracles.
 Of the 72 overlaps, 69 map to original exercises and three map to approved
 imports. Unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
@@ -293,7 +302,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The release package contains 316 problems; future
+been checked against every reviewed batch. The release package contains 320 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

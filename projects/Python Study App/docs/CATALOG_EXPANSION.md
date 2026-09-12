@@ -43,9 +43,19 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 72 existing equivalents (69 original exercises and
   three approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,187 rows remain pending.
-- 215 new imports in twenty-nine reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 316 problems.
+  design/interactive exclusions; 3,183 rows remain pending.
+- 219 new imports in thirty reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 320 problems.
+- Batch thirty covers LeetCode 321, 332, 335, and 336: maximal digit merging,
+  lexicographically smallest Euler itineraries, constant-space self-crossing
+  detection, and palindrome pairs using KMP boundary flags and a reversed trie.
+  All four are ordinary Hard problems. Independent exhaustive checks cover
+  short digit arrays at every output length, all short valid three-airport walks,
+  short four-direction segment sequences, and every pair of short binary words.
+  Source-scale tests include 500-digit arrays with long equal suffixes, 300
+  tickets with duplicates, 100000 segments, 5000 unique 300-character words,
+  and a separate 5000-pair output case. Repeated tickets, empty strings, ordered
+  pair direction, and nonadjacent endpoint touches retain their exact semantics.
 - Batch twenty-nine covers LeetCode 318, 320, 326–327, 329–331, 333, and 337:
   letter-mask products, recursive abbreviations, powers of three, inclusive
   range-sum counting, increasing matrix paths, minimal array patches, preorder
@@ -317,21 +327,21 @@ correctness. Generated tests must meet each problem's actual constraints.
   identity. Both batch-twenty-four LCA exercises use the contract, and copied
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
-  afterward. All 215 published imports have matching passing reports in the
-  316-problem package.
+  afterward. All 219 published imports have matching passing reports in the
+  320-problem package.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 316-problem Chrome/M3 Pro run: library/search p95 1.18/1.09 ms,
-  detail p95 1.15 ms for Word Search and 1.15 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.36 ms (100 requests per route). Startup is
-  340 ms and backend peak RSS is 86.81 MiB after loading the largest linked-list
-  detail. All 215 imported references and
+- Current 320-problem Chrome/M3 Pro run: library/search p95 1.13/1.05 ms,
+  detail p95 1.11 ms for Word Search and 1.15 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.39 ms (100 requests per route). Startup is
+  339 ms and backend peak RSS is 85.19 MiB after loading the largest linked-list
+  detail. All 219 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The nine batch-twenty-nine suites complete within 505 ms after runtime load.
-  Count of Range Sum takes 505 ms including its 100,000-element case; the
-  increasing matrix path takes 147.7 ms including a 40,000-cell snake; all
-  32,768 length-15 abbreviations take 64.8 ms. The other six stay below 52 ms.
-  Tree Height's suite with 20,000-node chains takes 99.4 ms. Existing
+  The four batch-thirty suites complete within 781 ms after runtime load.
+  Palindrome Pairs takes 780.3 ms including 1.5 million input characters and
+  the separate 5000-pair output case. Create Maximum Number takes 116.4 ms,
+  Self Crossing takes 113.8 ms, and Reconstruct Itinerary takes 31.7 ms.
+  Tree Height's suite with 20,000-node chains takes 100 ms. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
   returned-copy/count-only rejection, strict prefix counts, and reordered survivors.
@@ -343,7 +353,7 @@ correctness. Generated tests must meet each problem's actual constraints.
   wrong deleted value and replacement nodes whose displayed values look correct.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
-- Current automated suite: 253 backend tests and 12 frontend tests pass. The
+- Current automated suite: 260 backend tests and 12 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

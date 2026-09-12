@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 316 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is in progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 320 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is in progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel.
 
 ## Python Study App
 
@@ -32,7 +32,7 @@ Inside a problem, drag the vertical divider between the instructions and Python 
 
 The problem workspace has a true **Back** button. A problem opened from Today returns to Today, while a problem opened from the Library returns to the Library with its filters preserved.
 
-Passing the two explained examples is labeled **Examples passed** and states that the code is correct for those shown cases. Submit then runs the twelve hidden cases. Passed hidden cases stay summarized, while a failed hidden case has a clickable dropdown containing the test input, expected output, and the current code's output or error. A successful full submission persistently marks the problem **Passed** in the workspace header and problem library, and updates dashboard progress.
+Passing the two explained examples is labeled **Examples passed** and states that the code is correct for those shown cases. Submit then runs all hidden cases, with at least twelve per problem. Passed hidden cases stay summarized, while a failed hidden case has a clickable dropdown containing the test input, expected output, and the current code's output or error. A successful full submission persistently marks the problem **Passed** in the workspace header and problem library, and updates dashboard progress.
 
 All 101 problems use two hand-curated visible examples instead of shared placeholder inputs. Each pair demonstrates the problem's defining rule plus a contrasting or boundary case, and the interface explains in plain language why each output follows from its input. Catalog tests require these explanations and verify representative regression cases such as balanced prefix sums, valid versus invalid mappings, invalid bracket nesting, linked-list splicing, and missing/repeated matrix values.
 
@@ -41,7 +41,7 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
 The workbook expansion currently accounts for 3,629 rows: 72 existing equivalents,
-215 verified new problems, 155 documented design/interactive exclusions, and 3,187
+219 verified new problems, 155 documented design/interactive exclusions, and 3,183
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -170,6 +170,12 @@ Array, Verify Preorder Serialization, Largest BST Subtree, and House Robber III.
 It covers recursive generation, signed prefix sums, greedy subset coverage, and
 tree/grid dynamic programming, including a 40,000-cell path and 10,000-node
 trees. Each has independent oracle checks and source-scale fixtures.
+Batch thirty adds Create Maximum Number, Reconstruct Itinerary, Self Crossing,
+and Palindrome Pairs. The tests cover suffix tie-breaking, repeated tickets,
+segment touches and overlaps, empty-string pairs, and both index orders.
+The palindrome reference combines linear prefix/suffix preprocessing with a
+reversed-word trie. Maximum-size fixtures include 500-digit arrays, 300 tickets,
+100,000 segments, and 5,000 unique 300-character words.
 The overlap total includes 69 original exercises plus three approved imports that
 also cover other workbook contracts. Rotated minimum 153 maps to 154 after
 500 seeded correctness/logarithmic-read checks, without a duplicate progress ID.

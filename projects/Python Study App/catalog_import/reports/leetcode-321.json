@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-321",
+  "content_sha256": "1702de8b710030ccd7a22972c3de268cbd1483cef44487c7a187463790d09e9e",
+  "source_hash": "e9404e183b76fce09b923b063103d6a8962445e4b0cc55eab7f46662fb7a90c1",
+  "visible_tests": 2,
+  "hidden_tests": 17,
+  "reference_passed": 19,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts the chosen digits globally, violating their original within-array order.",
+      "failed_cases": [
+        "lc-321-1",
+        "lc-321-2",
+        "lc-321-7",
+        "lc-321-8",
+        "lc-321-9",
+        "lc-321-10",
+        "lc-321-11",
+        "lc-321-15",
+        "lc-321-16"
+      ]
+    },
+    {
+      "reason": "Breaks equal-leading-digit ties without comparing the remaining suffixes.",
+      "failed_cases": [
+        "lc-321-2",
+        "lc-321-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4368,
+  "oracle_implementation": "code_practice/import_batch_030.py:maximum_number_oracle",
+  "validator_implementation_sha256": "41de5da521aa5e02477674e02c6f95afca2e69884311014d11ced76c4f155442",
+  "batch_implementation_sha256": "d04c7ab5981588cf74f7335811b949a018bd712ec4ea038cd234c7f701cd60a3",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.158,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

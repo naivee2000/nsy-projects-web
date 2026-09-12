@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-336",
+  "content_sha256": "eb4f45175109a5ad946d765c7ab5fb4e0512af45ffde0604bee93d420bebaa80",
+  "source_hash": "37d6e24dc8493e4be0b1911371e7890332de578bde703e5d20401222b4903256",
+  "visible_tests": 2,
+  "hidden_tests": 17,
+  "reference_passed": 19,
+  "wrong_solutions": [
+    {
+      "reason": "Finds only exact reversed words, missing pairs with a palindromic unmatched prefix or suffix.",
+      "failed_cases": [
+        "lc-336-1",
+        "lc-336-2",
+        "lc-336-8",
+        "lc-336-9",
+        "lc-336-10",
+        "lc-336-11",
+        "lc-336-13",
+        "lc-336-14",
+        "lc-336-stress-3"
+      ]
+    },
+    {
+      "reason": "Keeps only i<j even though ordered pairs in both directions may be valid.",
+      "failed_cases": [
+        "lc-336-1",
+        "lc-336-2",
+        "lc-336-5",
+        "lc-336-6",
+        "lc-336-8",
+        "lc-336-9",
+        "lc-336-10",
+        "lc-336-11",
+        "lc-336-12",
+        "lc-336-13",
+        "lc-336-14",
+        "lc-336-stress-2",
+        "lc-336-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4383,
+  "oracle_implementation": "code_practice/import_batch_030.py:palindrome_pairs_oracle",
+  "validator_implementation_sha256": "41de5da521aa5e02477674e02c6f95afca2e69884311014d11ced76c4f155442",
+  "batch_implementation_sha256": "d04c7ab5981588cf74f7335811b949a018bd712ec4ea038cd234c7f701cd60a3",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.669,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
