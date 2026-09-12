@@ -26,7 +26,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def number_of_one_bits(n: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def number_of_one_bits(n):\n    count = 0\n    while n:\n        n &= n - 1\n        count += 1\n    return count\n",

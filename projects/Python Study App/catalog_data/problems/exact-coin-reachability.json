@@ -33,7 +33,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def exact_coin_reachability(coins: list[int], amount: int) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def exact_coin_reachability(coins, amount):\n    reachable = [True] + [False] * amount\n    for value in range(1, amount + 1): reachable[value] = any(coin <= value and reachable[value-coin] for coin in coins)\n    return reachable[amount]\n",

@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def can_jump(nums: list[int]) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def can_jump(nums):\n    farthest = 0\n    for index, reach in enumerate(nums):\n        if index > farthest:\n            return False\n        farthest = max(farthest, index + reach)\n        if farthest >= len(nums) - 1:\n            return True\n    return True\n",

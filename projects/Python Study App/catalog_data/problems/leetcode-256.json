@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_paint_cost(costs: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_paint_cost(costs):\n    previous = costs[0][:]\n    for red, blue, green in costs[1:]:\n        previous = [red + min(previous[1], previous[2]),\n                    blue + min(previous[0], previous[2]),\n                    green + min(previous[0], previous[1])]\n    return min(previous)\n",

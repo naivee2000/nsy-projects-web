@@ -33,7 +33,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def upper_bound_index(nums: list[int], target: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def upper_bound_index(nums, target):\n    left, right = 0, len(nums)\n    while left < right:\n        middle = (left + right) // 2\n        if nums[middle] <= target: left = middle + 1\n        else: right = middle\n    return left\n",

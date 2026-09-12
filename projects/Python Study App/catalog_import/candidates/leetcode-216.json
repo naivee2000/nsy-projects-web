@@ -35,7 +35,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def fixed_digit_combinations(k: int, n: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def fixed_digit_combinations(k, n):\n    result, path = [], []\n    def search(start, slots, remaining):\n        if slots == 0:\n            if remaining == 0:\n                result.append(path[:])\n            return\n        if remaining < slots * (2 * start + slots - 1) // 2 or remaining > slots * (19 - slots) // 2:\n            return\n        for value in range(start, 11 - slots):\n            path.append(value)\n            search(value + 1, slots - 1, remaining - value)\n            path.pop()\n    search(1, k, n)\n    return result\n",

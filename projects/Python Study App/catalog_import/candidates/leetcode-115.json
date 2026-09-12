@@ -38,7 +38,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def count_subsequences(s: str, t: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def count_subsequences(s, t):\n    ways = [1] + [0] * len(t)\n    for char in s:\n        for length in range(len(t), 0, -1):\n            if char == t[length - 1]:\n                ways[length] += ways[length - 1]\n    return ways[-1]\n",

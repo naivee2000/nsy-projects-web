@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def insert_interval(intervals: list[list[int]], new_interval: list[int]) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def insert_interval(intervals, new_interval):\n    answer, index = [], 0\n    start, end = new_interval\n    while index < len(intervals) and intervals[index][1] < start:\n        answer.append(intervals[index].copy())\n        index += 1\n    while index < len(intervals) and intervals[index][0] <= end:\n        start = min(start, intervals[index][0])\n        end = max(end, intervals[index][1])\n        index += 1\n    answer.append([start, end])\n    answer.extend(row.copy() for row in intervals[index:])\n    return answer\n",

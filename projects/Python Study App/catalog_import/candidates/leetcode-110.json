@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef balanced_tree(root: TreeNode | None) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def balanced_tree(root):\n    heights = {None: 0}\n    stack = [(root, False)] if root is not None else []\n    while stack:\n        node, visited = stack.pop()\n        if visited:\n            left, right = heights[node.left], heights[node.right]\n            if abs(left - right) > 1:\n                return False\n            heights[node] = 1 + max(left, right)\n        else:\n            stack.append((node, True))\n            if node.right is not None:\n                stack.append((node.right, False))\n            if node.left is not None:\n                stack.append((node.left, False))\n    return True\n",

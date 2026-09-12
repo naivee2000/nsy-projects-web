@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def maximum_interval_overlap(intervals: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def maximum_interval_overlap(intervals):\n    events = []\n    for start, end in intervals: events.extend([(start, 1), (end, -1)])\n    active = best = 0\n    for _, delta in sorted(events, key=lambda event: (event[0], event[1])):\n        active += delta; best = max(best, active)\n    return best\n",

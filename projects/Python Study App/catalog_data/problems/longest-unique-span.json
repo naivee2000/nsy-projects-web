@@ -31,7 +31,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def longest_unique_span(text: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def longest_unique_span(text):\n    last_seen = {}\n    left = best = 0\n    for right, character in enumerate(text):\n        if character in last_seen and last_seen[character] >= left:\n            left = last_seen[character] + 1\n        last_seen[character] = right\n        best = max(best, right - left + 1)\n    return best\n",

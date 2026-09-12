@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef count_univalue_subtrees(root: TreeNode | None) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def count_univalue_subtrees(root):\n    uniform, result = {}, 0\n    stack = [(root, False)]\n    while stack:\n        node, visited = stack.pop()\n        if node is None:\n            continue\n        if not visited:\n            stack.extend(((node, True), (node.right, False), (node.left, False)))\n            continue\n        same = all(child is None or (uniform[id(child)] and child.val == node.val)\n                   for child in (node.left, node.right))\n        uniform[id(node)] = same\n        result += same\n    return result\n",

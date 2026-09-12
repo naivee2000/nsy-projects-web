@@ -43,9 +43,19 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 70 existing equivalents (69 original exercises and
   one approved import). Static evidence identifies 130 approved-scope
-  design/interactive exclusions; 3,250 rows remain pending.
-- 179 new imports in twenty-five reviewed batches pass deterministic tests and 500
-  independent oracle inputs each. The published catalog contains 280 problems.
+  design/interactive exclusions; 3,239 rows remain pending.
+- 190 new imports in twenty-six reviewed batches pass deterministic tests and 500
+  independent oracle inputs each. The published catalog contains 291 problems.
+- Batch twenty-six covers LeetCode 280, 282–283, 285–287, 289, and 291–294:
+  flexible in-place wiggle ordering, expression backtracking, stable zero
+  movement, selected-node BST successor, multi-source room distances, duplicate
+  cycle detection, simultaneous Game of Life updates, bijective substring
+  patterns, Nim, and both Flip Game contracts. The shared judge now accepts any
+  valid wiggle permutation, supports `None` for a valid absent selected-node
+  result, and snapshots declared read-only inputs. Regressions exhaust all short
+  ternary wiggle arrays, all 512 three-by-three life boards, and short recursive
+  flip states. Stress inputs include 10,000-element arrays and trees, a 250×250
+  grid, and a 100,001-element duplicate cycle.
 - Batch twenty-five covers LeetCode 237, 266–267, 270, 272–276, and 279:
   selected-node list deletion, palindrome feasibility/generation, one/k closest
   BST values, integer-to-English conversion, unsorted/sorted H-Index, fence
@@ -267,24 +277,26 @@ correctness. Generated tests must meet each problem's actual constraints.
 - Monaco assets now ship locally along with Pyodide. Browser checks block
   external requests and verify editor loading, reference execution, timeout
   recovery, and progress persistence across a real backend restart.
-- The shared judge now has a validated contract for selecting real TreeNode
+- The shared judge now has validated contracts for flexible wiggle outputs,
+  declared read-only parameters, and optional existing-node results. It also has
+  a validated contract for selecting real TreeNode
   arguments from an input tree and requiring the returned node to retain its
   identity. Both batch-twenty-four LCA exercises use the contract, and copied
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
-  afterward. All 179 published imports were revalidated before the 280-problem
+  afterward. All 190 published imports were revalidated before the 291-problem
   package was rebuilt.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 280-problem Chrome/M3 Pro run: library/search p95 1.16/1.08 ms,
-  detail p95 1.20 ms for Word Search and 1.16 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.48 ms (100 requests per route). Startup is
-  326 ms and backend peak RSS is 84 MiB after loading the largest linked-list
-  detail. All 179 imported references and
+- Current 291-problem Chrome/M3 Pro run: library/search p95 1.24/1.09 ms,
+  detail p95 1.21 ms for Word Search and 1.22 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.53 ms (100 requests per route). Startup is
+  230 ms and backend peak RSS is 87.3 MiB after loading the largest linked-list
+  detail. All 190 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The ten newest suites complete within 294 ms after runtime load. Perfect
-  Squares is the slowest at 294 ms; selected-node deletion with 100,000 nodes
-  takes 236 ms, and the remaining new suites stay below 48 ms.
+  The eleven newest suites complete within 126 ms after runtime load. Expression
+  Add Operators is the slowest at 126 ms; Walls and Gates takes 117 ms, and the
+  remaining new suites stay below 70 ms.
   Tree Height's suite with 20,000-node chains takes 97.4 ms. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,

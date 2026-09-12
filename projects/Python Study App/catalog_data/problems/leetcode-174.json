@@ -32,7 +32,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_initial_health(dungeon: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_initial_health(dungeon):\n    columns = len(dungeon[0])\n    needed = [float(\"inf\")] * (columns + 1)\n    needed[columns - 1] = 1\n    for row in reversed(dungeon):\n        for column in range(columns - 1, -1, -1):\n            needed[column] = max(1, min(needed[column], needed[column + 1]) - row[column])\n    return needed[0]\n",

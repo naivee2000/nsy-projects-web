@@ -28,7 +28,8 @@
     "return_adapter": "listnode",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef delete_duplicate_nodes(head: ListNode | None) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def delete_duplicate_nodes(head):\n    dummy = ListNode(0, head)\n    before = dummy\n    while head:\n        if head.next and head.val == head.next.val:\n            value = head.val\n            while head and head.val == value:\n                head = head.next\n            before.next = head\n        else:\n            before = head\n            head = head.next\n    return dummy.next\n",

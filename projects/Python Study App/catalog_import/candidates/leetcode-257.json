@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef binary_tree_paths(root: TreeNode | None) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def binary_tree_paths(root):\n    answers = []\n    def visit(node, path):\n        path.append(str(node.val))\n        if node.left is None and node.right is None:\n            answers.append(\"->\".join(path))\n        else:\n            if node.left:\n                visit(node.left, path)\n            if node.right:\n                visit(node.right, path)\n        path.pop()\n    visit(root, [])\n    return answers\n",

@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def basic_calculator(s: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def basic_calculator(s):\n    total = number = 0\n    sign = 1\n    stack = []\n    for char in s:\n        if char.isdigit():\n            number = number * 10 + int(char)\n        elif char in \"+-\":\n            total += sign * number\n            number = 0\n            sign = 1 if char == \"+\" else -1\n        elif char == \"(\":\n            stack.extend((total, sign))\n            total, sign = 0, 1\n        elif char == \")\":\n            total += sign * number\n            number = 0\n            total = stack.pop() * total + stack.pop()\n    return total + sign * number\n",

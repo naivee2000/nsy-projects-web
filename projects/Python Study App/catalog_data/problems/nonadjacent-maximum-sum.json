@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def nonadjacent_maximum_sum(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def nonadjacent_maximum_sum(nums):\n    skip = take = 0\n    for value in nums: skip, take = max(skip,take), skip + value\n    return max(skip,take)\n",

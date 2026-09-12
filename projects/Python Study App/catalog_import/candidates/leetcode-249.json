@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def group_shifted_strings(strings: list[str]) -> list[list[str]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def group_shifted_strings(strings):\n    groups = {}\n    for text in strings:\n        key = tuple((ord(text[index]) - ord(text[index - 1])) % 26\n                    for index in range(1, len(text)))\n        groups.setdefault(key, []).append(text)\n    return list(groups.values())\n",

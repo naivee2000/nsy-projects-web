@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def convert(s: str, num_rows: int) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def convert(s, num_rows):\n    if num_rows == 1 or num_rows >= len(s):\n        return s\n    rows = [[] for _ in range(num_rows)]\n    row, direction = 0, 1\n    for char in s:\n        rows[row].append(char)\n        if row == 0:\n            direction = 1\n        elif row == num_rows - 1:\n            direction = -1\n        row += direction\n    return \"\".join(\"\".join(values) for values in rows)\n",

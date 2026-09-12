@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def generate_palindromes(s: str) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def generate_palindromes(s):\n    counts = Counter(s)\n    odd = [character for character, count in counts.items() if count % 2]\n    if len(odd) > 1:\n        return []\n    center = odd[0] if odd else \"\"\n    characters = sorted(counts)\n    half_length = len(s) // 2\n    answer = []\n    path = []\n    def build():\n        if len(path) == half_length:\n            left = \"\".join(path)\n            answer.append(left + center + left[::-1])\n            return\n        for character in characters:\n            if counts[character] >= 2:\n                counts[character] -= 2\n                path.append(character)\n                build()\n                path.pop()\n                counts[character] += 2\n    build()\n    return answer\n",

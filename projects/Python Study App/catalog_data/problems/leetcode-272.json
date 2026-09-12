@@ -45,7 +45,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef closest_bst_values(root: TreeNode, target: float, k: int) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def closest_bst_values(root, target, k):\n    predecessors = []\n    successors = []\n    current = root\n    while current:\n        if current.val <= target:\n            predecessors.append(current)\n            current = current.right\n        else:\n            successors.append(current)\n            current = current.left\n\n    def take_predecessor():\n        node = predecessors.pop()\n        value = node.val\n        node = node.left\n        while node:\n            predecessors.append(node)\n            node = node.right\n        return value\n\n    def take_successor():\n        node = successors.pop()\n        value = node.val\n        node = node.right\n        while node:\n            successors.append(node)\n            node = node.left\n        return value\n\n    answer = []\n    for _ in range(k):\n        if not successors or (predecessors and target - predecessors[-1].val <= successors[-1].val - target):\n            answer.append(take_predecessor())\n        else:\n            answer.append(take_successor())\n    return answer\n",

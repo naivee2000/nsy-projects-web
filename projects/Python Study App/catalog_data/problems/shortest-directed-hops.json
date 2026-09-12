@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def shortest_directed_hops(node_count: int, edges: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def shortest_directed_hops(node_count, edges):\n    from collections import deque\n    graph = [[] for _ in range(node_count)]\n    for start, end in edges: graph[start].append(end)\n    queue = deque([(0,0)]); seen = {0}\n    while queue:\n        node, distance = queue.popleft()\n        if node == node_count - 1: return distance\n        for neighbor in graph[node]:\n            if neighbor not in seen: seen.add(neighbor); queue.append((neighbor,distance+1))\n    return -1\n",

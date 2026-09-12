@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def subsets(nums: list[int]) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def subsets(nums):\n    answer, path = [], []\n    def visit(index):\n        if index == len(nums):\n            answer.append(path.copy())\n            return\n        visit(index + 1)\n        path.append(nums[index])\n        visit(index + 1)\n        path.pop()\n    visit(0)\n    return answer\n",

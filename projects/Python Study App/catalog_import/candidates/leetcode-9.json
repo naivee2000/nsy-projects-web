@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def palindrome_number(x: int) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def palindrome_number(x):\n    if x < 0 or (x != 0 and x % 10 == 0):\n        return False\n    reversed_half = 0\n    while x > reversed_half:\n        reversed_half = reversed_half * 10 + x % 10\n        x //= 10\n    return x == reversed_half or x == reversed_half // 10\n",

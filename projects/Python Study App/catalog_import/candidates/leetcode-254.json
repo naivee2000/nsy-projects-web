@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def factor_combinations(n: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def factor_combinations(n):\n    answers, path = [], []\n    def search(start, remaining):\n        divisor = start\n        while divisor * divisor <= remaining:\n            if remaining % divisor == 0:\n                path.append(divisor)\n                answers.append(path + [remaining // divisor])\n                search(divisor, remaining // divisor)\n                path.pop()\n            divisor += 1\n    search(2, n)\n    return answers\n",

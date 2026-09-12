@@ -46,7 +46,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def contains_nearby_almost_duplicate(nums: list[int], index_diff: int, value_diff: int) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def contains_nearby_almost_duplicate(nums, index_diff, value_diff):\n    width = value_diff + 1\n    buckets = {}\n    for index, value in enumerate(nums):\n        bucket = value // width\n        if bucket in buckets:\n            return True\n        if bucket - 1 in buckets and value - buckets[bucket - 1] <= value_diff:\n            return True\n        if bucket + 1 in buckets and buckets[bucket + 1] - value <= value_diff:\n            return True\n        buckets[bucket] = value\n        if index >= index_diff:\n            old = nums[index - index_diff]\n            del buckets[old // width]\n    return False\n",

@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def largest_number(nums: list[int]) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def largest_number(nums):\n    from functools import cmp_to_key\n    def compare(a, b):\n        ab, ba = a + b, b + a\n        return (ba > ab) - (ba < ab)\n    words = sorted(map(str, nums), key=cmp_to_key(compare))\n    if words[0] == \"0\":\n        return \"0\"\n    return \"\".join(words)\n",

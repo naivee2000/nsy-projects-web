@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def contains_duplicate(nums: list[int]) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def contains_duplicate(nums):\n    seen = set()\n    for value in nums:\n        if value in seen:\n            return True\n        seen.add(value)\n    return False\n",

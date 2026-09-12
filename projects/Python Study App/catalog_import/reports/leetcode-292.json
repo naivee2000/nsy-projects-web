@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-292",
+  "content_sha256": "81e8f5a965b0968020b6cf9fc4a7d2b3625db18e83758e9a280082ccee17b6ca",
+  "source_hash": "13f3d68b31d683b0e84ab7b7255ccd6203492ff78e84bc56b113125a74fd2158",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Uses parity, even though six and ten are winning while odd counts can also be characterized only through modulo four.",
+      "failed_cases": [
+        "lc-292-4",
+        "lc-292-7",
+        "lc-292-10"
+      ]
+    },
+    {
+      "reason": "Treats every count above four as winning and misses later losing multiples of four.",
+      "failed_cases": [
+        "lc-292-3",
+        "lc-292-4",
+        "lc-292-5",
+        "lc-292-8",
+        "lc-292-12",
+        "lc-292-14",
+        "lc-292-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4339,
+  "oracle_implementation": "code_practice/import_batch_026.py:nim_oracle",
+  "validator_implementation_sha256": "64dc1d6c3b76cd2c7e2baabb6b1ad4c64b11cc887bc612eac74c26b6a4e8f09f",
+  "batch_implementation_sha256": "9d269e66d32f64f6ce12edfb34e0c02c49a9a78279c0c42b2a30b0d1bf26270c",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

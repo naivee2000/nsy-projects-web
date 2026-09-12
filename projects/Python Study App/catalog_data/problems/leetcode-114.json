@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "reuse_input_nodes",
     "result_mode": "mutated_argument",
-    "mutated_parameter": 0
+    "mutated_parameter": 0,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef flatten_tree(root: TreeNode | None) -> None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def flatten_tree(root):\n    current = root\n    while current:\n        if current.left:\n            predecessor = current.left\n            while predecessor.right:\n                predecessor = predecessor.right\n            predecessor.right = current.right\n            current.right = current.left\n            current.left = None\n        current = current.right\n",

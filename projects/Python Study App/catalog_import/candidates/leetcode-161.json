@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def one_edit_apart(s: str, t: str) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def one_edit_apart(s, t):\n    if abs(len(s) - len(t)) > 1:\n        return False\n    i = j = edits = 0\n    while i < len(s) and j < len(t):\n        if s[i] == t[j]:\n            i += 1\n            j += 1\n            continue\n        edits += 1\n        if edits > 1:\n            return False\n        if len(s) >= len(t):\n            i += 1\n        if len(t) >= len(s):\n            j += 1\n    return edits + (i < len(s)) + (j < len(t)) == 1\n",

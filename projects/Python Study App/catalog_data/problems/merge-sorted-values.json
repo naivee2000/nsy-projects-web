@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def merge_sorted_values(left: list[int], right: list[int]) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def merge_sorted_values(left, right):\n    merged = []\n    first = second = 0\n    while first < len(left) and second < len(right):\n        if left[first] <= right[second]:\n            merged.append(left[first])\n            first += 1\n        else:\n            merged.append(right[second])\n            second += 1\n    return merged + left[first:] + right[second:]\n",

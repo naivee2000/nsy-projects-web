@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def three_sum_closest(nums: list[int], target: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def three_sum_closest(nums, target):\n    values = sorted(nums)\n    best = sum(values[:3])\n    for first in range(len(values) - 2):\n        left, right = first + 1, len(values) - 1\n        while left < right:\n            total = values[first] + values[left] + values[right]\n            if abs(total - target) < abs(best - target):\n                best = total\n            if total == target:\n                return total\n            if total < target:\n                left += 1\n            else:\n                right -= 1\n    return best\n",

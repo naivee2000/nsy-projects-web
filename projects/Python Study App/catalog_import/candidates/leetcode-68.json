@@ -38,7 +38,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def justify_text(words: list[str], maxWidth: int) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def justify_text(words, maxWidth):\n    output = []\n    start = 0\n    while start < len(words):\n        end = start\n        letters = 0\n        while end < len(words) and letters + len(words[end]) + end - start <= maxWidth:\n            letters += len(words[end])\n            end += 1\n        count = end - start\n        if end == len(words) or count == 1:\n            line = \" \".join(words[start:end]).ljust(maxWidth)\n        else:\n            spaces, extra = divmod(maxWidth - letters, count - 1)\n            parts = []\n            for offset in range(count - 1):\n                parts.append(words[start + offset] + \" \" * (spaces + (offset < extra)))\n            line = \"\".join(parts) + words[end - 1]\n        output.append(line)\n        start = end\n    return output\n",

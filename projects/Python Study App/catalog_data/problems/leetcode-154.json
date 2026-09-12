@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def rotated_minimum(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def rotated_minimum(nums):\n    left, right = 0, len(nums) - 1\n    while left < right:\n        middle = (left + right) // 2\n        if nums[middle] > nums[right]:\n            left = middle + 1\n        elif nums[middle] < nums[right]:\n            right = middle\n        else:\n            right -= 1\n    return nums[left]\n",

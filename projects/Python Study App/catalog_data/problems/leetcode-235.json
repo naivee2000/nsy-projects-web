@@ -41,7 +41,8 @@
     "return_adapter": "treenode_value",
     "node_policy": "return_input_node",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef lowest_common_ancestor_bst(root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def lowest_common_ancestor_bst(root, p, q):\n    low, high = sorted((p.val, q.val))\n    current = root\n    while current:\n        if current.val < low:\n            current = current.right\n        elif current.val > high:\n            current = current.left\n        else:\n            return current\n",

@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_stair_cost(costs: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_stair_cost(costs):\n    previous_two = previous_one = 0\n    for cost in costs: previous_two, previous_one = previous_one, cost + min(previous_one, previous_two)\n    return min(previous_one, previous_two)\n",

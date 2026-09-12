@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_increments_unique(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_increments_unique(nums):\n    moves = 0; next_allowed = float('-inf')\n    for value in sorted(nums):\n        placed = max(value, next_allowed); moves += placed-value; next_allowed = placed+1\n    return moves\n",

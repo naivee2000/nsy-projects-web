@@ -138,6 +138,9 @@ def test_tree_references_are_real_source_nodes_and_returned_identity_preserves_t
     duplicate = root_case.model_copy(update={"arguments": [[1, 1, 2], 1, 2], "expected": 1})
     passed, error = run_source(source, problem, duplicate)
     assert not passed and "exactly one" in error
+    no_successor = root_case.model_copy(update={"arguments": [[2, 1, 3], 3, 1], "expected": None})
+    assert run_source("def lca(root, p, q):\n    return None", problem, no_successor) == (True, None)
+    assert run_source("def lca(root, p, q):\n    root.left = None\n    return None", problem, no_successor) == (False, None)
 
 
 def test_equal_valued_nodes_still_require_correct_original_order():

@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def shortest_clear_path(grid: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def shortest_clear_path(grid):\n    if not grid or grid[0][0] or grid[-1][-1]:\n        return -1\n    rows, columns = len(grid), len(grid[0])\n    queue = deque([(0, 0, 1)])\n    visited = {(0, 0)}\n    while queue:\n        row, column, distance = queue.popleft()\n        if (row, column) == (rows - 1, columns - 1):\n            return distance\n        for dr in (-1, 0, 1):\n            for dc in (-1, 0, 1):\n                if dr == dc == 0:\n                    continue\n                nr, nc = row + dr, column + dc\n                if 0 <= nr < rows and 0 <= nc < columns and not grid[nr][nc] and (nr, nc) not in visited:\n                    visited.add((nr, nc))\n                    queue.append((nr, nc, distance + 1))\n    return -1\n",

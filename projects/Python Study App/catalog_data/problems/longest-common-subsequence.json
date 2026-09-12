@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def longest_common_subsequence(left: str, right: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def longest_common_subsequence(left, right):\n    row = [0] * (len(right) + 1)\n    for a in left:\n        previous, next_row = row, [0]\n        for j, b in enumerate(right, 1):\n            next_row.append(previous[j - 1] + 1 if a == b else max(previous[j], next_row[-1]))\n        row = next_row\n    return row[-1]\n",

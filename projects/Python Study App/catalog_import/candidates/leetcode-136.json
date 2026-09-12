@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def single_number(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def single_number(nums):\n    result = 0\n    for value in nums:\n        result ^= value\n    return result\n",

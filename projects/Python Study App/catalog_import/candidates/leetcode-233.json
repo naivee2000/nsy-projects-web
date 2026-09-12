@@ -32,7 +32,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def count_digit_one(n: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def count_digit_one(n):\n    total, place = 0, 1\n    while place <= n:\n        lower = n % place\n        digit = (n // place) % 10\n        higher = n // (place * 10)\n        if digit == 0:\n            total += higher * place\n        elif digit == 1:\n            total += higher * place + lower + 1\n        else:\n            total += (higher + 1) * place\n        place *= 10\n    return total\n",

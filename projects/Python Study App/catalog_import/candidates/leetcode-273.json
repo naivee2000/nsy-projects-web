@@ -32,7 +32,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def integer_to_english_words(num: int) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def integer_to_english_words(num):\n    if num == 0:\n        return \"Zero\"\n    below_twenty = [\"\", \"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\",\n                      \"Ten\", \"Eleven\", \"Twelve\", \"Thirteen\", \"Fourteen\", \"Fifteen\", \"Sixteen\",\n                      \"Seventeen\", \"Eighteen\", \"Nineteen\"]\n    tens = [\"\", \"\", \"Twenty\", \"Thirty\", \"Forty\", \"Fifty\", \"Sixty\", \"Seventy\", \"Eighty\", \"Ninety\"]\n    def chunk(value):\n        words = []\n        if value >= 100:\n            words.extend((below_twenty[value // 100], \"Hundred\"))\n            value %= 100\n        if value >= 20:\n            words.append(tens[value // 10])\n            value %= 10\n        if value:\n            words.append(below_twenty[value])\n        return words\n    words = []\n    for size, name in ((1_000_000_000, \"Billion\"), (1_000_000, \"Million\"), (1_000, \"Thousand\"), (1, \"\")):\n        value, num = divmod(num, size)\n        if value:\n            words.extend(chunk(value))\n            if name:\n                words.append(name)\n    return \" \".join(words)\n",

@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def is_ugly_number(n: int) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def is_ugly_number(n):\n    if n <= 0:\n        return False\n    for factor in (2, 3, 5):\n        while n % factor == 0:\n            n //= factor\n    return n == 1\n",

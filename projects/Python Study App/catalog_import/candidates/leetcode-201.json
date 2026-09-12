@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def range_bitwise_and(left: int, right: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def range_bitwise_and(left, right):\n    while left < right:\n        right &= right - 1\n    return right\n",

@@ -35,7 +35,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def contains_nearby_duplicate(nums: list[int], k: int) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def contains_nearby_duplicate(nums, k):\n    latest = {}\n    for index, value in enumerate(nums):\n        if value in latest and index - latest[value] <= k:\n            return True\n        latest[value] = index\n    return False\n",

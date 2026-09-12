@@ -30,7 +30,8 @@
     "return_adapter": "treenode",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef sorted_list_bst(head: ListNode | None) -> TreeNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def sorted_list_bst(head):\n    length, current = 0, head\n    while current is not None:\n        length += 1\n        current = current.next\n    current = head\n    def build(count):\n        nonlocal current\n        if count == 0:\n            return None\n        left_count = count // 2\n        left = build(left_count)\n        root = TreeNode(current.val)\n        current = current.next\n        root.left = left\n        root.right = build(count - left_count - 1)\n        return root\n    return build(length)\n",

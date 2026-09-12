@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def sum_subarray_minimums(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def sum_subarray_minimums(nums):\n    stack = []; total = ending = 0\n    for value in nums:\n        count = 1\n        while stack and stack[-1][0] >= value:\n            old, old_count = stack.pop(); count += old_count; ending -= old * old_count\n        stack.append((value,count)); ending += value * count; total += ending\n    return total\n",

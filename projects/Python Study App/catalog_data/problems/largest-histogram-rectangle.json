@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def largest_histogram_rectangle(heights: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def largest_histogram_rectangle(heights):\n    stack = []; best = 0\n    for i, height in enumerate(heights + [0]):\n        start = i\n        while stack and stack[-1][1] > height:\n            index, old = stack.pop(); best = max(best, old * (i-index)); start = index\n        stack.append((start, height))\n    return best\n",

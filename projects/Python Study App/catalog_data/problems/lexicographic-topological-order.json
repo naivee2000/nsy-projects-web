@@ -37,7 +37,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def lexicographic_topological_order(node_count: int, edges: list[list[int]]) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def lexicographic_topological_order(node_count, edges):\n    import heapq\n    graph = [[] for _ in range(node_count)]; degree = [0] * node_count\n    for start, end in edges: graph[start].append(end); degree[end] += 1\n    heap = [node for node in range(node_count) if degree[node] == 0]; heapq.heapify(heap); order = []\n    while heap:\n        node = heapq.heappop(heap); order.append(node)\n        for neighbor in graph[node]:\n            degree[neighbor] -= 1\n            if degree[neighbor] == 0: heapq.heappush(heap, neighbor)\n    return order if len(order) == node_count else []\n",

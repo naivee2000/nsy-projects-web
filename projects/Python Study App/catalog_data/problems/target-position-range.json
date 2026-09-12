@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def target_position_range(nums: list[int], target: int) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def target_position_range(nums, target):\n    from bisect import bisect_left, bisect_right\n    left = bisect_left(nums, target)\n    if left == len(nums) or nums[left] != target: return [-1, -1]\n    return [left, bisect_right(nums, target) - 1]\n",

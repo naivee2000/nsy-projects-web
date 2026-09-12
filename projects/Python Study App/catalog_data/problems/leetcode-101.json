@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef symmetric_tree(root: TreeNode) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def symmetric_tree(root):\n    if root is None:\n        return True\n    pairs = [(root.left, root.right)]\n    while pairs:\n        left, right = pairs.pop()\n        if left is None or right is None:\n            if left is not right:\n                return False\n            continue\n        if left.val != right.val:\n            return False\n        pairs.append((left.left, right.right))\n        pairs.append((left.right, right.left))\n    return True\n",

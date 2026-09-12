@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "mutated_argument",
-    "mutated_parameter": 0
+    "mutated_parameter": 0,
+    "immutable_parameters": []
   },
   "starter_code": "def next_permutation(nums: list[int]) -> None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def next_permutation(nums):\n    pivot = len(nums) - 2\n    while pivot >= 0 and nums[pivot] >= nums[pivot + 1]:\n        pivot -= 1\n    if pivot >= 0:\n        successor = len(nums) - 1\n        while nums[successor] <= nums[pivot]:\n            successor -= 1\n        nums[pivot], nums[successor] = nums[successor], nums[pivot]\n    left, right = pivot + 1, len(nums) - 1\n    while left < right:\n        nums[left], nums[right] = nums[right], nums[left]\n        left += 1\n        right -= 1\n",

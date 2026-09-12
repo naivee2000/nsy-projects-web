@@ -27,7 +27,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef linked_palindrome_check(head: ListNode | None) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def linked_palindrome_check(head):\n    values = []\n    while head: values.append(head.val); head = head.next\n    return values == values[::-1]\n",

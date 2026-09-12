@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def count_and_say(n: int) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def count_and_say(n):\n    if n == 1:\n        return \"1\"\n    previous = count_and_say(n - 1)\n    parts, start = [], 0\n    while start < len(previous):\n        end = start + 1\n        while end < len(previous) and previous[end] == previous[start]:\n            end += 1\n        parts.append(str(end - start) + previous[start])\n        start = end\n    return \"\".join(parts)\n",

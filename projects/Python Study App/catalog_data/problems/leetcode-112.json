@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef has_path_sum(root: TreeNode | None, target_sum: int) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def has_path_sum(root, target_sum):\n    stack = [(root, root.val)] if root is not None else []\n    while stack:\n        node, total = stack.pop()\n        if node.left is None and node.right is None and total == target_sum:\n            return True\n        if node.right is not None:\n            stack.append((node.right, total + node.right.val))\n        if node.left is not None:\n            stack.append((node.left, total + node.left.val))\n    return False\n",

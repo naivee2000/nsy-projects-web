@@ -138,6 +138,12 @@ def compare(actual: Any, expected: Any, comparator: str) -> bool:
             return False
         normalize = lambda rows: sorted(tuple(sorted(row)) for row in rows)
         return normalize(actual) == normalize(expected)
+    if comparator == "wiggle":
+        return (isinstance(actual, list) and isinstance(expected, list)
+                and Counter(actual) == Counter(expected)
+                and all((actual[index - 1] <= actual[index]) if index % 2
+                        else (actual[index - 1] >= actual[index])
+                        for index in range(1, len(actual))))
     return actual == expected
 
 
@@ -217,6 +223,10 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
             arguments.append(value)
         original_nodes = {}
         original_tree_nodes = {}
+        immutable_arguments = {
+            index: json.loads(json.dumps(_serialize(arguments[index], problem.signature.parameters[index].adapter)))
+            for index in problem.signature.immutable_parameters
+        }
         mode = problem.signature.result_mode
         observed_adapter = (problem.signature.return_adapter if mode == "return"
                             else problem.signature.parameters[problem.signature.mutated_parameter].adapter)
@@ -254,7 +264,7 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
                         or list(returned_nodes) != [original_ids[index] for index in test.expected_node_order]):
                     return False, None
         elif problem.signature.node_policy == "return_input_node":
-            if output is None or id(output) not in original_tree_nodes:
+            if output is not None and id(output) not in original_tree_nodes:
                 return False, None
             if any(node.val != value
                    or (id(node.left) if node.left else None) != left
@@ -274,6 +284,9 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
                 expected_value = context["values"][selected + 1] if index == selected else context["values"][index]
                 if node.val != expected_value:
                     return False, None
+        if any(_serialize(arguments[index], problem.signature.parameters[index].adapter) != expected
+               for index, expected in immutable_arguments.items()):
+            return False, None
         return compare_result(actual, test.expected, test.comparator, mode), None
     except Exception as exc:  # validation reports the exception without hiding it
         return False, f"{type(exc).__name__}: {exc}"

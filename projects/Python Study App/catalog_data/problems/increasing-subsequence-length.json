@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def increasing_subsequence_length(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def increasing_subsequence_length(nums):\n    from bisect import bisect_left\n    tails = []\n    for value in nums:\n        index = bisect_left(tails, value)\n        if index == len(tails): tails.append(value)\n        else: tails[index] = value\n    return len(tails)\n",

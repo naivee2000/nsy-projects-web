@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef inorder_traversal(root: TreeNode | None) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def inorder_traversal(root):\n    answer = []\n    def visit(node):\n        if node is None:\n            return\n        visit(node.left)\n        answer.append(node.val)\n        visit(node.right)\n    visit(root)\n    return answer\n",

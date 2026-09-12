@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def paint_fence_ways(n: int, k: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def paint_fence_ways(n, k):\n    if n == 1:\n        return k\n    two_back, one_back = k, k * k\n    for _ in range(3, n + 1):\n        two_back, one_back = one_back, (one_back + two_back) * (k - 1)\n    return one_back\n",

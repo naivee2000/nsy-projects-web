@@ -35,7 +35,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def three_sum_smaller(nums: list[int], target: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def three_sum_smaller(nums, target):\n    ordered = sorted(nums)\n    count = 0\n    for left in range(len(ordered) - 2):\n        middle, right = left + 1, len(ordered) - 1\n        while middle < right:\n            if ordered[left] + ordered[middle] + ordered[right] < target:\n                count += right - middle\n                middle += 1\n            else:\n                right -= 1\n    return count\n",

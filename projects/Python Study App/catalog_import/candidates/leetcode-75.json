@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "mutated_argument",
-    "mutated_parameter": 0
+    "mutated_parameter": 0,
+    "immutable_parameters": []
   },
   "starter_code": "def sort_colors(nums: list[int]) -> None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def sort_colors(nums):\n    low = current = 0\n    high = len(nums) - 1\n    while current <= high:\n        if nums[current] == 0:\n            nums[low], nums[current] = nums[current], nums[low]\n            low += 1\n            current += 1\n        elif nums[current] == 2:\n            nums[current], nums[high] = nums[high], nums[current]\n            high -= 1\n        else:\n            current += 1\n",

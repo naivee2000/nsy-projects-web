@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef path_sum_paths(root: TreeNode | None, target_sum: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def path_sum_paths(root, target_sum):\n    answer, path, subtotal = [], [], 0\n    stack = [(root, False)]\n    while stack:\n        node, leaving = stack.pop()\n        if node is None:\n            continue\n        if leaving:\n            subtotal -= path.pop()\n            continue\n        path.append(node.val)\n        subtotal += node.val\n        if node.left is None and node.right is None and subtotal == target_sum:\n            answer.append(path.copy())\n        stack.extend([(node, True), (node.right, False), (node.left, False)])\n    return answer\n",

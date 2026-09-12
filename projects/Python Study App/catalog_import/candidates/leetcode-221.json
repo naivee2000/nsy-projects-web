@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def maximal_square_area(matrix: list[list[str]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def maximal_square_area(matrix):\n    dp = [0] * (len(matrix[0]) + 1)\n    best = 0\n    for row in matrix:\n        diagonal = 0\n        for column, char in enumerate(row, 1):\n            above = dp[column]\n            if char == \"1\":\n                dp[column] = 1 + min(above, dp[column - 1], diagonal)\n                best = max(best, dp[column])\n            else:\n                dp[column] = 0\n            diagonal = above\n    return best * best\n",

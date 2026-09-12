@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def valid_sudoku(board: list[list[str]]) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def valid_sudoku(board):\n    rows = [set() for _ in range(9)]\n    columns = [set() for _ in range(9)]\n    boxes = [set() for _ in range(9)]\n    for row in range(9):\n        for column in range(9):\n            digit = board[row][column]\n            if digit == \".\":\n                continue\n            box = row // 3 * 3 + column // 3\n            if digit in rows[row] or digit in columns[column] or digit in boxes[box]:\n                return False\n            rows[row].add(digit)\n            columns[column].add(digit)\n            boxes[box].add(digit)\n    return True\n",

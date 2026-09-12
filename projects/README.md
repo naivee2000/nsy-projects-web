@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 280 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is in progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 291 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion is in progress. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel.
 
 ## Python Study App
 
@@ -41,7 +41,7 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
 The workbook expansion currently accounts for 3,629 rows: 70 existing equivalents,
-179 verified new problems, 130 documented design/interactive exclusions, and 3,250
+190 verified new problems, 130 documented design/interactive exclusions, and 3,239
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -143,6 +143,13 @@ keeps its one-parameter callable: the judge supplies the actual selected non-tai
 ListNode, observes the original head, and rejects replacement nodes or changes to
 unrelated nodes. Recursive palindrome/number wording and logarithmic sorted
 H-Index practice preserve the owner's study priorities.
+Batch twenty-six adds Wiggle Sort, Expression Add Operators, Move Zeroes,
+Inorder Successor in BST, Walls and Gates, Find the Duplicate Number, Game of
+Life, Word Pattern II, Nim Game, and both Flip Game problems. Flexible wiggle
+outputs, optional successor results, and read-only array contracts are now
+enforced consistently in Python and the browser worker. Exhaustive short-domain
+checks cover wiggle arrangements, 3×3 life boards, and recursive game states;
+large fixtures cover arrays, trees, grids, and duplicate cycles.
 The overlap total includes 69 original exercises plus one approved import that
 also covers a narrower workbook contract. Rotated minimum 153 maps to 154 after
 500 seeded correctness/logarithmic-read checks, without a duplicate progress ID.

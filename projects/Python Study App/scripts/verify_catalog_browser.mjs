@@ -152,6 +152,20 @@ try {
   assert((await page.getByRole('note').textContent()).includes('exact shape is not required'));
   assert((await page.locator('.example code').first().textContent()).includes('One valid output'));
   report.checks.push('balanced tree examples explain that multiple output shapes are valid');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Wiggle Sort');
+  await page.getByRole('button', { name: /Wiggle Sort.*Easy/ }).click();
+  const wiggleNote = page.getByRole('note').filter({ hasText: 'Flexible wiggle judging' });
+  await wiggleNote.waitFor();
+  assert((await wiggleNote.textContent()).includes('any permutation'));
+  assert((await page.locator('.example code').first().textContent()).includes('One valid output'));
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Find the Duplicate Number');
+  await page.getByRole('button', { name: /Find the Duplicate Number.*Medium/ }).click();
+  const readOnlyNote = page.getByRole('note').filter({ hasText: 'Read-only input judging' });
+  await readOnlyNote.waitFor();
+  assert((await readOnlyNote.textContent()).includes('remain unchanged'));
+  report.checks.push('flexible wiggle outputs and read-only parameters are explained in the problem UI');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -280,6 +294,27 @@ try {
     assert(invalidValue.message.includes('integer values'));
   }
   report.checks.push('balanced BST properties accept alternative shapes; reject wrong inorder, lost duplicates, internal imbalance, and noninteger nodes; empty ListNode input returns an empty tree');
+  const wiggle = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-280.json'), 'utf8'));
+  const wiggleCase = { ...wiggle, tests: [{ id: 'flexible-wiggle', arguments: [[1, 2, 3, 4, 5, 6]],
+    expected: [1, 3, 2, 5, 4, 6], comparator: 'wiggle', visible: true }] };
+  assert.equal((await judge(page, wiggleCase,
+    'def wiggle_sort(nums):\n    nums[:] = [1, 4, 2, 5, 3, 6]')).status, 'accepted');
+  assert.equal((await judge(page, wiggleCase,
+    'def wiggle_sort(nums):\n    nums.sort()')).status, 'wrong_answer');
+  assert.equal((await judge(page, wiggleCase,
+    'def wiggle_sort(nums):\n    nums[:] = [1, 4, 2, 5, 3, 3]')).status, 'wrong_answer');
+  const successor = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-285.json'), 'utf8'));
+  const noSuccessor = { ...successor, tests: [{ id: 'no-successor', arguments: [[2, 1, 3], 3], expected: null }] };
+  assert.equal((await judge(page, noSuccessor, successor.reference_solution)).status, 'accepted');
+  const copiedSuccessor = { ...successor, tests: [{ id: 'copied-successor', arguments: [[2, 1, 3], 1], expected: 2 }] };
+  assert.equal((await judge(page, copiedSuccessor,
+    'def inorder_successor(root, p):\n    return TreeNode(2)')).status, 'wrong_answer');
+  const duplicate = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-287.json'), 'utf8'));
+  const mutatingDuplicate = await judge(page, { ...duplicate, tests: [duplicate.tests[0]] },
+    'def find_duplicate(nums):\n    nums.sort()\n    return 2');
+  assert.equal(mutatingDuplicate.status, 'wrong_answer');
+  assert(mutatingDuplicate.cases[0].error.includes('Do not modify'));
+  report.checks.push('worker accepts alternative wiggle permutations and None node results, while rejecting invalid multisets, copied nodes, and read-only input mutation');
   const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-11.json'), 'utf8'));
   const mutates = await judge(page, problem, 'def max_water_area(height):\n    height.clear()\n    return -1');
   assert.deepEqual(mutates.cases[0].arguments, problem.tests[0].arguments);

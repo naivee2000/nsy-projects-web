@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def summary_ranges(nums: list[int]) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def summary_ranges(nums):\n    result = []\n    start = 0\n    while start < len(nums):\n        stop = start\n        while stop + 1 < len(nums) and nums[stop + 1] == nums[stop] + 1:\n            stop += 1\n        if start == stop:\n            result.append(str(nums[start]))\n        else:\n            result.append(str(nums[start]) + \"->\" + str(nums[stop]))\n        start = stop + 1\n    return result\n",

@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_meeting_rooms(intervals: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_meeting_rooms(intervals):\n    import heapq\n    heap = []\n    for start, end in sorted(intervals):\n        if heap and heap[0] <= start: heapq.heapreplace(heap, end)\n        else: heapq.heappush(heap, end)\n    return len(heap)\n",

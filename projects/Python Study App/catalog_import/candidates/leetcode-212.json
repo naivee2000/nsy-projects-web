@@ -40,7 +40,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def find_board_words(board: list[list[str]], words: list[str]) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def find_board_words(board, words):\n    from collections import Counter\n    available = Counter(char for row in board for char in row)\n    trie = {}\n    for word in words:\n        if any(count > available[char] for char, count in Counter(word).items()):\n            continue\n        node = trie\n        for char in word:\n            node = node.setdefault(char, {})\n        node[\"$\"] = word\n    result = []\n    rows, columns = len(board), len(board[0])\n    def search(r, c, parent):\n        char = board[r][c]\n        node = parent[char]\n        word = node.pop(\"$\", None)\n        if word is not None:\n            result.append(word)\n        board[r][c] = \"#\"\n        for nr, nc in ((r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)):\n            if 0 <= nr < rows and 0 <= nc < columns and board[nr][nc] in node:\n                search(nr, nc, node)\n        board[r][c] = char\n        if not node:\n            del parent[char]\n    for r in range(rows):\n        for c in range(columns):\n            if board[r][c] in trie:\n                search(r, c, trie)\n    return result\n",

@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def verify_bst_preorder(preorder: list[int]) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def verify_bst_preorder(preorder):\n    lower = float(\"-inf\")\n    stack = []\n    for value in preorder:\n        if value < lower:\n            return False\n        while stack and value > stack[-1]:\n            lower = stack.pop()\n        stack.append(value)\n    return True\n",

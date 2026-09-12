@@ -31,7 +31,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def unique_text_subsequences(text: str) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def unique_text_subsequences(text):\n    values = set()\n    def build(index, path):\n        if index == len(text): values.add(path); return\n        build(index+1, path); build(index+1, path+text[index])\n    build(0, \"\"); return sorted(values)\n",

@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_paint_cost_many_colors(costs: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_paint_cost_many_colors(costs):\n    previous = costs[0][:]\n    for row in costs[1:]:\n        least = second = float(\"inf\")\n        least_color = -1\n        for color, value in enumerate(previous):\n            if value < least:\n                second = least\n                least = value\n                least_color = color\n            elif value < second:\n                second = value\n        previous = [cost + (second if color == least_color else least)\n                    for color, cost in enumerate(row)]\n    return min(previous)\n",

@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def max_single_trade_profit(prices: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def max_single_trade_profit(prices):\n    lowest = float(\"inf\")\n    best = 0\n    for price in prices:\n        lowest = min(lowest, price)\n        best = max(best, price - lowest)\n    return best\n",

@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def total_covered_length(intervals: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def total_covered_length(intervals):\n    total = 0; start = end = None\n    for left, right in sorted(intervals):\n        if start is None: start, end = left, right\n        elif left > end: total += end - start; start, end = left, right\n        else: end = max(end, right)\n    return total + (0 if start is None else end - start)\n",

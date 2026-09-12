@@ -6,7 +6,7 @@ from typing import Annotated, Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
-Comparator = Literal["exact", "float", "unordered", "unordered_nested", "balanced_bst"]
+Comparator = Literal["exact", "float", "unordered", "unordered_nested", "balanced_bst", "wiggle"]
 ParameterAdapter = Literal["raw", "listnode", "listnode_ref", "treenode", "treenode_ref"]
 ReturnAdapter = Literal["raw", "listnode", "treenode", "treenode_value"]
 AttemptResult = Literal["accepted", "wrong_answer", "syntax_error", "runtime_error", "timeout"]
@@ -78,9 +78,13 @@ class FunctionSignature(BaseModel):
     ] = "values"
     result_mode: Literal["return", "mutated_argument", "returned_prefix"] = "return"
     mutated_parameter: int | None = Field(default=None, ge=0)
+    immutable_parameters: list[Annotated[int, Field(strict=True, ge=0)]] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def validate_node_policy(self) -> "FunctionSignature":
+        if (len(set(self.immutable_parameters)) != len(self.immutable_parameters)
+                or any(index >= len(self.parameters) for index in self.immutable_parameters)):
+            raise ValueError("Immutable parameter indices must be unique and in range")
         for index, parameter in enumerate(self.parameters):
             if parameter.adapter == "treenode_ref":
                 if (parameter.source_parameter is None or parameter.source_parameter >= index
@@ -96,6 +100,8 @@ class FunctionSignature(BaseModel):
                 raise ValueError("Return-value mode cannot select a mutated parameter")
         elif self.mutated_parameter is None or self.mutated_parameter >= len(self.parameters):
             raise ValueError("Mutation mode requires a valid parameter index")
+        elif self.mutated_parameter in self.immutable_parameters:
+            raise ValueError("A selected mutation parameter cannot also be immutable")
         elif self.result_mode == "returned_prefix" and (
             self.parameters[self.mutated_parameter].adapter != "raw"
             or not self.parameters[self.mutated_parameter].annotation.startswith("list[")
@@ -119,6 +125,9 @@ class FunctionSignature(BaseModel):
                 raise ValueError("Referenced-node deletion requires a mutated ListNode reference and no return value")
         elif self.return_adapter == "treenode_value":
             raise ValueError("TreeNode value output requires returned-node identity checking")
+        if any(self.parameters[index].adapter in ("listnode_ref", "treenode_ref")
+               for index in self.immutable_parameters):
+            raise ValueError("Reference parameters cannot be selected for standalone immutability checks")
         return self
 
 
@@ -218,6 +227,15 @@ class ProblemDefinition(BaseModel):
                 if (any(a > b for a, b in zip(values, values[1:]))
                         or expected is None or not expected[1] or expected[0] != values):
                     raise ValueError("Balanced-BST expectation must be balanced and preserve the entire sorted input inorder")
+        if any(t.comparator == "wiggle" for t in self.tests):
+            mutated = self.signature.mutated_parameter
+            if (self.signature.result_mode != "mutated_argument" or mutated is None
+                    or self.signature.parameters[mutated].adapter != "raw"
+                    or not self.signature.parameters[mutated].annotation.startswith("list[")
+                    or any(t.comparator != "wiggle" for t in self.tests)):
+                raise ValueError("Wiggle judging requires one consistently compared mutated raw list")
+            if any(not isinstance(test.expected, list) for test in self.tests):
+                raise ValueError("Wiggle expectations must be valid list arrangements")
         if self.signature.node_policy != "reuse_input_nodes" and any(t.expected_node_order is not None for t in self.tests):
             raise ValueError("Expected node order requires the node-reuse policy")
         if self.signature.result_mode == "returned_prefix":

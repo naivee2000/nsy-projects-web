@@ -40,7 +40,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def word_break_sentences(s: str, word_dict: list[str]) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def word_break_sentences(s, word_dict):\n    from functools import cache\n    words = set(word_dict)\n    longest = max(map(len, word_dict))\n    @cache\n    def build(start):\n        if start == len(s):\n            return [\"\"]\n        result = []\n        for end in range(start + 1, min(len(s), start + longest) + 1):\n            word = s[start:end]\n            if word in words:\n                for suffix in build(end):\n                    result.append(word + (\" \" + suffix if suffix else \"\"))\n        return result\n    return build(0)\n",

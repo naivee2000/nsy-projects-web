@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "returned_prefix",
-    "mutated_parameter": 0
+    "mutated_parameter": 0,
+    "immutable_parameters": []
   },
   "starter_code": "def remove_duplicates_twice(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def remove_duplicates_twice(nums):\n    write = 0\n    for value in nums:\n        if write < 2 or value != nums[write - 2]:\n            nums[write] = value\n            write += 1\n    return write\n",

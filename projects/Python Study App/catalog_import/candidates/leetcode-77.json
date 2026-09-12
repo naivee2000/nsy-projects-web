@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def choose_numbers(n: int, k: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def choose_numbers(n, k):\n    answer, path = [], []\n    def visit(start):\n        if len(path) == k:\n            answer.append(path.copy())\n            return\n        needed = k - len(path)\n        for value in range(start, n - needed + 2):\n            path.append(value)\n            visit(value + 1)\n            path.pop()\n    visit(1)\n    return answer\n",

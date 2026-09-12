@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def triangle_minimum_total(triangle: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def triangle_minimum_total(triangle):\n    costs = triangle[-1].copy()\n    for row in range(len(triangle) - 2, -1, -1):\n        for column in range(row + 1):\n            costs[column] = triangle[row][column] + min(costs[column], costs[column + 1])\n    return costs[0]\n",

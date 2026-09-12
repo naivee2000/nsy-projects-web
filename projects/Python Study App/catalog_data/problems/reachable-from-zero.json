@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def reachable_from_zero(node_count: int, edges: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def reachable_from_zero(node_count, edges):\n    from collections import deque\n    graph = [[] for _ in range(node_count)]\n    for start, end in edges: graph[start].append(end)\n    seen = {0}; queue = deque([0])\n    while queue:\n        for neighbor in graph[queue.popleft()]:\n            if neighbor not in seen: seen.add(neighbor); queue.append(neighbor)\n    return len(seen)\n",

@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def add_binary(a: str, b: str) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def add_binary(a, b):\n    i, j, carry = len(a) - 1, len(b) - 1, 0\n    out = []\n    while i >= 0 or j >= 0 or carry:\n        total = carry\n        if i >= 0:\n            total += int(a[i])\n        if j >= 0:\n            total += int(b[j])\n        carry, bit = divmod(total, 2)\n        out.append(str(bit))\n        i -= 1\n        j -= 1\n    return \"\".join(reversed(out))\n",

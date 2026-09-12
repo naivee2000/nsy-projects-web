@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def rotate_values_right(nums: list[int], k: int) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def rotate_values_right(nums, k):\n    if not nums: return []\n    k %= len(nums)\n    return nums[-k:] + nums[:-k] if k else nums[:]\n",

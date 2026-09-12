@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def longest_two_distinct(s: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def longest_two_distinct(s):\n    counts = {}\n    left = best = 0\n    for right, char in enumerate(s):\n        counts[char] = counts.get(char, 0) + 1\n        while len(counts) > 2:\n            departing = s[left]\n            counts[departing] -= 1\n            if counts[departing] == 0:\n                del counts[departing]\n            left += 1\n        best = max(best, right - left + 1)\n    return best\n",

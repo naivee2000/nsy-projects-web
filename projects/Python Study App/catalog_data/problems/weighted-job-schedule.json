@@ -44,7 +44,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def max_weighted_schedule(starts: list[int], ends: list[int], profits: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def max_weighted_schedule(starts, ends, profits):\n    jobs = sorted(zip(starts, ends, profits), key=lambda job: job[1])\n    finish_times = [job[1] for job in jobs]\n    best = [0] * (len(jobs) + 1)\n    for index, (start, _end, profit) in enumerate(jobs, start=1):\n        compatible = bisect_left(finish_times, start + 1, 0, index - 1)\n        best[index] = max(best[index - 1], profit + best[compatible])\n    return best[-1]\n",

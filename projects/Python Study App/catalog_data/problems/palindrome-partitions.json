@@ -31,7 +31,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def palindrome_partitions(text: str) -> list[list[str]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def palindrome_partitions(text):\n    answer = []\n    def build(start, path):\n        if start == len(text): answer.append(path[:]); return\n        for end in range(start+1, len(text)+1):\n            piece = text[start:end]\n            if piece == piece[::-1]: path.append(piece); build(end,path); path.pop()\n    build(0, []); return answer\n",

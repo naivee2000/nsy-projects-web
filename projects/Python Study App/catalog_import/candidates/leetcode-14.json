@@ -27,7 +27,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def longest_common_prefix(strs: list[str]) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def longest_common_prefix(strs):\n    first = strs[0]\n    for index, char in enumerate(first):\n        if any(index >= len(word) or word[index] != char for word in strs[1:]):\n            return first[:index]\n    return first\n",

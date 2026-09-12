@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def circular_house_profit(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def circular_house_profit(nums):\n    if len(nums) == 1:\n        return nums[0]\n    def rob(start, stop):\n        previous, current = 0, 0\n        for i in range(start, stop):\n            previous, current = current, max(current, previous + nums[i])\n        return current\n    return max(rob(0, len(nums) - 1), rob(1, len(nums)))\n",

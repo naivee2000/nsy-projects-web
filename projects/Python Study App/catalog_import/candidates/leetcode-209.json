@@ -35,7 +35,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_subarray_length(target: int, nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_subarray_length(target, nums):\n    left, total, best = 0, 0, len(nums) + 1\n    for right, value in enumerate(nums):\n        total += value\n        while total >= target:\n            best = min(best, right - left + 1)\n            total -= nums[left]\n            left += 1\n    return 0 if best > len(nums) else best\n",

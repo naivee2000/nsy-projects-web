@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def stock_profit_two(prices: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def stock_profit_two(prices):\n    buy1 = buy2 = -prices[0]\n    sell1 = sell2 = 0\n    for price in prices:\n        buy1 = max(buy1, -price)\n        sell1 = max(sell1, buy1 + price)\n        buy2 = max(buy2, sell1 - price)\n        sell2 = max(sell2, buy2 + price)\n    return sell2\n",

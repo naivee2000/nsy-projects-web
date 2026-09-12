@@ -35,7 +35,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def search_matrix(matrix: list[list[int]], target: int) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def search_matrix(matrix, target):\n    rows, cols = len(matrix), len(matrix[0])\n    left, right = 0, rows * cols - 1\n    while left <= right:\n        middle = (left + right) // 2\n        value = matrix[middle // cols][middle % cols]\n        if value == target:\n            return True\n        if value < target:\n            left = middle + 1\n        else:\n            right = middle - 1\n    return False\n",

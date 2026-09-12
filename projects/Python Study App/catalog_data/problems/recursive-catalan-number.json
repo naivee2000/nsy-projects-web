@@ -31,7 +31,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def recursive_catalan_number(n: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def recursive_catalan_number(n):\n    memo = {0:1}\n    def solve(value):\n        if value not in memo: memo[value] = sum(solve(left) * solve(value-1-left) for left in range(value))\n        return memo[value]\n    return solve(n)\n",

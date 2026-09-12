@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_single_use_coins(coins: list[int], amount: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_single_use_coins(coins, amount):\n    best = [amount + 1] * (amount + 1); best[0] = 0\n    for coin in coins:\n        for value in range(amount, coin-1, -1): best[value] = min(best[value], 1 + best[value-coin])\n    return -1 if best[amount] > len(coins) else best[amount]\n",

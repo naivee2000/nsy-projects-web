@@ -37,7 +37,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def top_k_frequent(nums: list[int], k: int) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def top_k_frequent(nums, k):\n    buckets = [[] for _ in range(len(nums) + 1)]\n    for value, frequency in Counter(nums).items():\n        buckets[frequency].append(value)\n    result = []\n    for frequency in range(len(buckets) - 1, 0, -1):\n        result.extend(buckets[frequency])\n        if len(result) >= k:\n            return result[:k]\n    return result\n",

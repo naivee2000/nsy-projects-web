@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def integer_sqrt(x: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def integer_sqrt(x):\n    left, right, answer = 0, x, 0\n    while left <= right:\n        middle = (left + right) // 2\n        if middle == 0 or middle <= x // middle:\n            answer = middle\n            left = middle + 1\n        else:\n            right = middle - 1\n    return answer\n",

@@ -40,7 +40,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def missing_ranges(nums: list[int], lower: int, upper: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def missing_ranges(nums, lower, upper):\n    result = []\n    following = lower\n    for value in nums:\n        if following < value:\n            result.append([following, value - 1])\n        following = value + 1\n    if following <= upper:\n        result.append([following, upper])\n    return result\n",

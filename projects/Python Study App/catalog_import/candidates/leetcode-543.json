@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef tree_diameter(root: TreeNode | None) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def tree_diameter(root):\n    stack, heights, best = [(root, False)], {}, 0\n    while stack:\n        node, visited = stack.pop()\n        if node is None:\n            continue\n        if not visited:\n            stack.extend([(node, True), (node.right, False), (node.left, False)])\n        else:\n            left = heights.pop(node.left, 0)\n            right = heights.pop(node.right, 0)\n            best = max(best, left + right)\n            heights[node] = 1 + max(left, right)\n    return best\n",

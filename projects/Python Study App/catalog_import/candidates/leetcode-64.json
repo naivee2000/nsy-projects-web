@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_path_sum(grid: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_path_sum(grid):\n    costs = [float(\"inf\")] * len(grid[0])\n    costs[0] = 0\n    for row in grid:\n        for col, value in enumerate(row):\n            costs[col] = value + min(costs[col], costs[col - 1] if col else float(\"inf\"))\n    return costs[-1]\n",

@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def balanced_pivot_index(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def balanced_pivot_index(nums):\n    total = sum(nums); left = 0\n    for index, value in enumerate(nums):\n        if left == total - left - value: return index\n        left += value\n    return -1\n",

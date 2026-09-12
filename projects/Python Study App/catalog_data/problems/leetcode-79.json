@@ -38,7 +38,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def word_search(board: list[list[str]], word: str) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def word_search(board, word):\n    rows, cols = len(board), len(board[0])\n    def visit(row, col, index):\n        if not (0 <= row < rows and 0 <= col < cols) or board[row][col] != word[index]:\n            return False\n        if index == len(word) - 1:\n            return True\n        letter = board[row][col]\n        board[row][col] = None\n        found = any(visit(row + dr, col + dc, index + 1) for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1)))\n        board[row][col] = letter\n        return found\n    return any(visit(row, col, 0) for row in range(rows) for col in range(cols))\n",

@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "mutated_argument",
-    "mutated_parameter": 0
+    "mutated_parameter": 0,
+    "immutable_parameters": []
   },
   "starter_code": "def rotate_image(matrix: list[list[int]]) -> None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def rotate_image(matrix):\n    for row in range(len(matrix)):\n        for column in range(row + 1, len(matrix)):\n            matrix[row][column], matrix[column][row] = matrix[column][row], matrix[row][column]\n    for row in matrix:\n        row.reverse()\n",

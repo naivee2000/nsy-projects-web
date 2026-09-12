@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def letter_case_variations(text: str) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def letter_case_variations(text):\n    answer = []\n    def build(index, path):\n        if index == len(text): answer.append(path); return\n        char = text[index]\n        if char.isalpha(): build(index+1, path+char.lower()); build(index+1, path+char.upper())\n        else: build(index+1, path+char)\n    build(0, \"\"); return answer\n",

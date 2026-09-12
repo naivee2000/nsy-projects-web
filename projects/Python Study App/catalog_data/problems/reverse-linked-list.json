@@ -27,7 +27,8 @@
     "return_adapter": "listnode",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef reverse_linked_list(head: ListNode | None) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def reverse_linked_list(head):\n    previous = None\n    current = head\n    while current:\n        following = current.next\n        current.next = previous\n        previous = current\n        current = following\n    return previous\n",

@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def is_happy(n: int) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def is_happy(n):\n    def step(value):\n        total = 0\n        while value:\n            value, digit = divmod(value, 10)\n            total += digit * digit\n        return total\n    slow, fast = step(n), step(step(n))\n    while fast != 1 and slow != fast:\n        slow = step(slow)\n        fast = step(step(fast))\n    return fast == 1\n",

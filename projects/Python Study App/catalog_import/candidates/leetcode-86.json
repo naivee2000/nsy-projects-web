@@ -34,7 +34,8 @@
     "return_adapter": "listnode",
     "node_policy": "reuse_input_nodes",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef partition_list(head: ListNode | None, x: int) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def partition_list(head, x):\n    small, large = ListNode(), ListNode()\n    low, high = small, large\n    while head:\n        following = head.next\n        head.next = None\n        if head.val < x:\n            low.next = head\n            low = head\n        else:\n            high.next = head\n            high = head\n        head = following\n    low.next = large.next\n    return small.next\n",

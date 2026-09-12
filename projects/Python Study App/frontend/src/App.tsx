@@ -54,8 +54,8 @@ function teachingExamples(tests: TestCase[]) {
   return explained.length ? explained : tests.slice(0, 2);
 }
 
-function testEvidence(item: JudgeResult["cases"][number], flexibleTreeOutput: boolean) {
-  return `Test case ${JSON.stringify(item.arguments)}\n${flexibleTreeOutput ? "One valid output" : "Expected"} ${JSON.stringify(item.expected)}`
+function testEvidence(item: JudgeResult["cases"][number], flexibleOutput: boolean) {
+  return `Test case ${JSON.stringify(item.arguments)}\n${flexibleOutput ? "One valid output" : "Expected"} ${JSON.stringify(item.expected)}`
     + (item.actual !== undefined ? `\nYour code yielded ${JSON.stringify(item.actual)}` : "")
     + (item.error ? `\nError ${item.error}` : "");
 }
@@ -485,6 +485,8 @@ export default function App() {
   };
 
   const flexibleTreeOutput = Boolean(problem?.tests.some((test) => test.comparator === "balanced_bst"));
+  const flexibleWiggleOutput = Boolean(problem?.tests.some((test) => test.comparator === "wiggle"));
+  const flexibleOutput = flexibleTreeOutput || flexibleWiggleOutput;
 
   return (
     <div className="app-shell">
@@ -595,13 +597,15 @@ export default function App() {
                 <div className="complexity-row"><span>Target time <strong>{problem.target_time_complexity}</strong></span><span>Target space <strong>{problem.target_space_complexity}</strong></span></div>
                 {problem.signature.result_mode === "mutated_argument" && problem.signature.node_policy !== "delete_referenced_list_node" && <p className="statement" role="note">In-place judging: modify {problem.signature.parameters[problem.signature.mutated_parameter ?? 0].name} directly. Output shows that argument after your function runs; a returned copy is not used.</p>}
                 {problem.signature.node_policy === "delete_referenced_list_node" && <p className="statement" role="note">Selected-node judging: the input shows the full linked list and the selected node index. Your function receives that actual non-tail node. Output shows the full list after mutation, and the judge checks the original node identities.</p>}
+                {Boolean(problem.signature.immutable_parameters?.length) && <p className="statement" role="note">Read-only input judging: the result is checked together with the requirement that {problem.signature.immutable_parameters!.map((index) => problem.signature.parameters[index].name).join(", ")} remain unchanged.</p>}
                 {problem.signature.result_mode === "returned_prefix" && <p className="statement" role="note">In-place judging: return the integer count k and update the first k entries of {problem.signature.parameters[problem.signature.mutated_parameter ?? 0].name}. Output shows both “return” and “prefix”; the remaining entries are ignored.</p>}
                 {flexibleTreeOutput && <p className="statement" role="note">Flexible tree judging: any height-balanced BST with the complete input as its inorder traversal is accepted. Preserve duplicate values when present. The displayed tree is only one valid output; its exact shape is not required.</p>}
+                {flexibleWiggleOutput && <p className="statement" role="note">Flexible wiggle judging: modify the original list into any permutation that alternates ≤, ≥, ≤, ≥. The displayed arrangement is only one valid output.</p>}
                 <h2>Examples</h2>
                 {teachingExamples(problem.tests).map((test, index) => (
                   <div className="example" key={test.id}>
                     <span>EXAMPLE {index + 1}</span>
-                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}{test.comparator === "balanced_bst" ? "One valid output" : "Output"}: {JSON.stringify(test.expected)}</code>
+                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}{test.comparator === "balanced_bst" || test.comparator === "wiggle" ? "One valid output" : "Output"}: {JSON.stringify(test.expected)}</code>
                     {test.explanation && <p>{test.explanation}</p>}
                   </div>
                 ))}
@@ -693,12 +697,12 @@ export default function App() {
                     {result.cases.map((item, index) => resultMode === "submit" && !item.passed ? (
                       <details className="case-row failed-case" key={item.id}>
                         <summary><CircleAlert size={14} /> Hidden test {index + 1} · needs work <span>Click to inspect</span></summary>
-                        <code>{testEvidence(item, flexibleTreeOutput)}</code>
+                        <code>{testEvidence(item, flexibleOutput)}</code>
                       </details>
                     ) : (
                       <div className="case-row" key={item.id}>
                         <span>{item.passed ? <Check size={14} /> : <CircleAlert size={14} />}{resultMode === "submit" ? "Hidden test" : "Example"} {index + 1} · {item.passed ? "passed" : "needs work"}</span>
-                        {resultMode === "run" && <code>{testEvidence(item, flexibleTreeOutput)}</code>}
+                        {resultMode === "run" && <code>{testEvidence(item, flexibleOutput)}</code>}
                       </div>
                     ))}
                     {result.status !== "accepted" && (coach || coaching) && <aside className="coach-card" aria-live="polite">

@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef recursive_tree_sum(root: TreeNode | None) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def recursive_tree_sum(root):\n    if root is None: return 0\n    return root.val + recursive_tree_sum(root.left) + recursive_tree_sum(root.right)\n",

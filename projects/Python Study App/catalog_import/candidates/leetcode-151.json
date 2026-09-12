@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def reverse_words(s: str) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def reverse_words(s):\n    words = []\n    end = len(s) - 1\n    while end >= 0:\n        while end >= 0 and s[end] == \" \":\n            end -= 1\n        if end < 0:\n            break\n        start = end\n        while start >= 0 and s[start] != \" \":\n            start -= 1\n        words.append(s[start + 1:end + 1])\n        end = start - 1\n    return \" \".join(words)\n",

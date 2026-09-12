@@ -41,6 +41,7 @@ from .import_batch_022 import BATCH as BATCH_022
 from .import_batch_023 import BATCH as BATCH_023
 from .import_batch_024 import BATCH as BATCH_024
 from .import_batch_025 import BATCH as BATCH_025
+from .import_batch_026 import BATCH as BATCH_026
 from .catalog_evidence import judge_contract_hash
 from .catalog_artifacts import write_json_atomic
 from .schemas import ProblemDefinition, TestCase
@@ -48,7 +49,7 @@ from .starter_code import with_support_classes
 from .validation import compare_result, run_source
 
 ROOT = Path(__file__).resolve().parent.parent
-BATCH = {**BATCH_001, **BATCH_002, **BATCH_003, **BATCH_004, **BATCH_005, **BATCH_006, **BATCH_007, **BATCH_008, **BATCH_009, **BATCH_010, **BATCH_011, **BATCH_012, **BATCH_013, **BATCH_014, **BATCH_015, **BATCH_016, **BATCH_017, **BATCH_018, **BATCH_019, **BATCH_020, **BATCH_021, **BATCH_022, **BATCH_023, **BATCH_024, **BATCH_025}
+BATCH = {**BATCH_001, **BATCH_002, **BATCH_003, **BATCH_004, **BATCH_005, **BATCH_006, **BATCH_007, **BATCH_008, **BATCH_009, **BATCH_010, **BATCH_011, **BATCH_012, **BATCH_013, **BATCH_014, **BATCH_015, **BATCH_016, **BATCH_017, **BATCH_018, **BATCH_019, **BATCH_020, **BATCH_021, **BATCH_022, **BATCH_023, **BATCH_024, **BATCH_025, **BATCH_026}
 
 
 def digest(payload):
@@ -172,7 +173,8 @@ def build(pid, spec, source):
         prerequisites=spec.get("prerequisites", spec["topics"][:1] if spec["difficulty"] >= 8 else []),
         signature=dict(name=spec["name"], parameters=parameters, returns=spec["returns"], return_adapter=spec["adapter"],
                        node_policy=spec.get("node_policy", "values"), result_mode=mode,
-                       mutated_parameter=spec.get("mutated_parameter")),
+                       mutated_parameter=spec.get("mutated_parameter"),
+                       immutable_parameters=spec.get("immutable_parameters", [])),
         starter_code=with_support_classes(starter, [p["adapter"] for p in parameters] + [spec["adapter"]]),
         reference_solution=spec["reference"], brute_force_solution=None, known_wrong_solutions=spec["wrong"],
         target_time_complexity=spec["time"], target_space_complexity=spec["space"],

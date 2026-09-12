@@ -47,7 +47,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def flood_fill_region(image: list[list[int]], start_row: int, start_col: int, new_color: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def flood_fill_region(image, start_row, start_col, new_color):\n    original = image[start_row][start_col]\n    if original == new_color: return image\n    def fill(row, col):\n        if not (0 <= row < len(image) and 0 <= col < len(image[0])) or image[row][col] != original: return\n        image[row][col] = new_color\n        fill(row + 1, col); fill(row - 1, col); fill(row, col + 1); fill(row, col - 1)\n    fill(start_row, start_col)\n    return image\n",

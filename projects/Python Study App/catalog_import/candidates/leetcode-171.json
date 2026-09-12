@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def column_number(column_title: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def column_number(column_title):\n    result = 0\n    for char in column_title:\n        result = result * 26 + ord(char) - 64\n    return result\n",

@@ -227,6 +227,12 @@ def matches(actual, expected, comparator):
         return isinstance(actual, list) and sorted(actual) == sorted(expected)
     if comparator == "unordered_nested":
         return isinstance(actual, list) and normalize_nested(actual) == normalize_nested(expected)
+    if comparator == "wiggle":
+        return (isinstance(actual, list) and isinstance(expected, list)
+                and Counter(actual) == Counter(expected)
+                and all((actual[index - 1] <= actual[index]) if index % 2
+                        else (actual[index - 1] >= actual[index])
+                        for index in range(1, len(actual))))
     return actual == expected
 
 def matches_result(actual, expected, comparator, mode):
@@ -271,6 +277,10 @@ else:
                 arguments.append(value)
             original_nodes = {}
             original_tree_nodes = {}
+            immutable_arguments = {
+                index: json.loads(json.dumps(serialize(arguments[index], job["signature"]["parameters"][index].get("adapter", "raw"))))
+                for index in job["signature"].get("immutable_parameters", [])
+            }
             mode = job["signature"].get("result_mode", "return")
             observed_adapter = (job["signature"].get("return_adapter", "raw") if mode == "return"
                                 else job["signature"]["parameters"][job["signature"]["mutated_parameter"]].get("adapter", "raw"))
@@ -317,15 +327,15 @@ else:
                         passed = False
                         contract_error = "Reconnect the original nodes in the required order, including nodes with equal values."
             elif job["signature"].get("node_policy") == "return_input_node":
-                if output is None or id(output) not in original_tree_nodes:
+                if output is not None and id(output) not in original_tree_nodes:
                     passed = False
-                    contract_error = "Return the required existing node from the input tree without changing the tree."
+                    contract_error = "Return the required existing node from the input tree, or None when allowed, without changing the tree."
                 elif any(node.val != value
                          or (id(node.left) if node.left else None) != left
                          or (id(node.right) if node.right else None) != right
                          for node, value, left, right in original_tree_nodes.values()):
                     passed = False
-                    contract_error = "Return the required existing node from the input tree without changing the tree."
+                    contract_error = "Return the required existing node from the input tree, or None when allowed, without changing the tree."
             elif job["signature"].get("node_policy") == "delete_referenced_list_node":
                 context = listnode_references[job["signature"]["mutated_parameter"]]
                 returned_nodes = node_snapshot(context["head"], "listnode")
@@ -343,6 +353,13 @@ else:
                             passed = False
                             contract_error = "Delete the selected value by reusing the selected node, unlinking its original successor, and preserving every other original node."
                             break
+            for index, expected_argument in immutable_arguments.items():
+                current_argument = serialize(arguments[index], job["signature"]["parameters"][index].get("adapter", "raw"))
+                if current_argument != expected_argument:
+                    passed = False
+                    name = job["signature"]["parameters"][index]["name"]
+                    contract_error = f"Do not modify the input parameter {name}."
+                    break
             cases.append({"id": test["id"], "passed": passed, "actual": actual, "expected": test["expected"], "visible": test.get("visible", False), "arguments": test["arguments"] if test.get("visible", False) or not passed else None})
             if contract_error:
                 cases[-1]["error"] = contract_error

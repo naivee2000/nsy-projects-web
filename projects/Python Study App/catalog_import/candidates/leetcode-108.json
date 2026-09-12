@@ -30,7 +30,8 @@
     "return_adapter": "treenode",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef sorted_array_bst(nums: list[int]) -> TreeNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def sorted_array_bst(nums):\n    def build(left, right):\n        if left > right:\n            return None\n        middle = (left + right) // 2\n        root = TreeNode(nums[middle])\n        root.left = build(left, middle - 1)\n        root.right = build(middle + 1, right)\n        return root\n    return build(0, len(nums) - 1)\n",

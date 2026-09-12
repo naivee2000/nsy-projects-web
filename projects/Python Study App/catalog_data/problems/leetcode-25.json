@@ -37,7 +37,8 @@
     "return_adapter": "listnode",
     "node_policy": "reuse_input_nodes",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef reverse_k_group(head: ListNode, k: int) -> ListNode:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def reverse_k_group(head, k):\n    dummy = ListNode(0, head)\n    previous_group = dummy\n    while True:\n        kth = previous_group\n        for _ in range(k):\n            kth = kth.next\n            if kth is None:\n                return dummy.next\n        following = kth.next\n        previous, current = following, previous_group.next\n        while current is not following:\n            next_node = current.next\n            current.next = previous\n            previous, current = current, next_node\n        old_head = previous_group.next\n        previous_group.next = kth\n        previous_group = old_head\n",

@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def word_pattern_bijection(pattern: str, text: str) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def word_pattern_bijection(pattern, text):\n    words = text.split()\n    if len(pattern) != len(words): return False\n    char_to_word, word_to_char = {}, {}\n    for char, word in zip(pattern, words):\n        if char in char_to_word and char_to_word[char] != word: return False\n        if word in word_to_char and word_to_char[word] != char: return False\n        char_to_word[char] = word; word_to_char[word] = char\n    return True\n",

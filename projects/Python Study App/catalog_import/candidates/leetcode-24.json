@@ -28,7 +28,8 @@
     "return_adapter": "listnode",
     "node_policy": "reuse_input_nodes",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef swap_pairs(head: ListNode | None) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def swap_pairs(head):\n    if head is None or head.next is None:\n        return head\n    second = head.next\n    rest = swap_pairs(second.next)\n    second.next = head\n    head.next = rest\n    return second\n",

@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef tree_max_depth(root: TreeNode | None) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def tree_max_depth(root):\n    if root is None:\n        return 0\n    stack, best = [(root, 1)], 0\n    while stack:\n        node, depth = stack.pop()\n        best = max(best, depth)\n        if node.left is not None:\n            stack.append((node.left, depth + 1))\n        if node.right is not None:\n            stack.append((node.right, depth + 1))\n    return best\n",

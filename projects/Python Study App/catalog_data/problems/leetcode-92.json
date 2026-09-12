@@ -40,7 +40,8 @@
     "return_adapter": "listnode",
     "node_policy": "reuse_input_nodes",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef reverse_between(head: ListNode | None, left: int, right: int) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def reverse_between(head, left, right):\n    dummy = ListNode(0, head)\n    before = dummy\n    for _ in range(left - 1):\n        before = before.next\n    tail = before.next\n    for _ in range(right - left):\n        moving = tail.next\n        tail.next = moving.next\n        moving.next = before.next\n        before.next = moving\n    return dummy.next\n",

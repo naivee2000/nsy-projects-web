@@ -35,7 +35,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef closest_bst_value(root: TreeNode, target: float) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def closest_bst_value(root, target):\n    closest = root.val\n    current = root\n    while current:\n        if (abs(current.val - target), current.val) < (abs(closest - target), closest):\n            closest = current.val\n        current = current.left if target < current.val else current.right\n    return closest\n",

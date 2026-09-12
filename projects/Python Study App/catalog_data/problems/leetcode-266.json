@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def can_permute_palindrome(s: str) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def can_permute_palindrome(s):\n    odd = set()\n    for character in s:\n        if character in odd:\n            odd.remove(character)\n        else:\n            odd.add(character)\n    return len(odd) <= 1\n",

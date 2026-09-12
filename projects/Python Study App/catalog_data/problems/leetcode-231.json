@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def power_of_two(n: int) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def power_of_two(n):\n    return n > 0 and (n & (n - 1)) == 0\n",

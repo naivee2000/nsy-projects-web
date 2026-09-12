@@ -28,7 +28,8 @@
     "return_adapter": "listnode",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef deduplicate_sorted_linked_list(head: ListNode | None) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def deduplicate_sorted_linked_list(head):\n    current = head\n    while current and current.next:\n        if current.val == current.next.val: current.next = current.next.next\n        else: current = current.next\n    return head\n",

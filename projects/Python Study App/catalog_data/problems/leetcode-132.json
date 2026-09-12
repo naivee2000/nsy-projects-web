@@ -31,7 +31,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_palindrome_cuts(s: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_palindrome_cuts(s):\n    cuts = list(range(-1, len(s)))\n    for center in range(len(s)):\n        for left, right in ((center, center), (center, center + 1)):\n            while left >= 0 and right < len(s) and s[left] == s[right]:\n                cuts[right + 1] = min(cuts[right + 1], cuts[left] + 1)\n                left -= 1\n                right += 1\n    return cuts[-1]\n",

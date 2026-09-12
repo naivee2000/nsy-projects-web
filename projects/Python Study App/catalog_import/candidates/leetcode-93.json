@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def restore_ip_addresses(s: str) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def restore_ip_addresses(s):\n    answer, parts = [], []\n    def visit(start):\n        slots = 4 - len(parts)\n        remaining = len(s) - start\n        if remaining < slots or remaining > slots * 3:\n            return\n        if slots == 0:\n            answer.append(\".\".join(parts))\n            return\n        for length in range(1, 4):\n            part = s[start:start + length]\n            if len(part) != length or (length > 1 and part[0] == \"0\") or int(part) > 255:\n                continue\n            parts.append(part)\n            visit(start + length)\n            parts.pop()\n    visit(0)\n    return answer\n",

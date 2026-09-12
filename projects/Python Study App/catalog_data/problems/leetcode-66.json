@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def plus_one(digits: list[int]) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def plus_one(digits):\n    answer = digits.copy()\n    for i in range(len(answer) - 1, -1, -1):\n        if answer[i] < 9:\n            answer[i] += 1\n            return answer\n        answer[i] = 0\n    return [1] + answer\n",

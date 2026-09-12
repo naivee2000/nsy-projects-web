@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def longest_consecutive(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def longest_consecutive(nums):\n    values = set(nums)\n    best = 0\n    for value in values:\n        if value - 1 not in values:\n            end = value\n            while end in values:\n                end += 1\n            best = max(best, end - value)\n    return best\n",

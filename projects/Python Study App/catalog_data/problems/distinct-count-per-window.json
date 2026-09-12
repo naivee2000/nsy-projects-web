@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def distinct_count_per_window(nums: list[int], k: int) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def distinct_count_per_window(nums, k):\n    from collections import Counter\n    counts = Counter(nums[:k]); answer = [len(counts)]\n    for i in range(k, len(nums)):\n        leaving = nums[i - k]; counts[leaving] -= 1\n        if counts[leaving] == 0: del counts[leaving]\n        counts[nums[i]] += 1; answer.append(len(counts))\n    return answer\n",

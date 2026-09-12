@@ -27,7 +27,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def transpose_square_matrix(matrix: list[list[int]]) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def transpose_square_matrix(matrix):\n    if not matrix or not matrix[0]: return []\n    return [list(row) for row in zip(*matrix)]\n",

@@ -30,7 +30,8 @@
     "return_adapter": "listnode",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef linked_odd_even_order(head: ListNode | None) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def linked_odd_even_order(head):\n    if head is None or head.next is None: return head\n    odd, even, even_head = head, head.next, head.next\n    while even and even.next:\n        odd.next = even.next; odd = odd.next\n        even.next = odd.next; even = even.next\n    odd.next = even_head\n    return head\n",

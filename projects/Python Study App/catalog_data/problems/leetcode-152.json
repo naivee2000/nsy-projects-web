@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def maximum_product(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def maximum_product(nums):\n    highest = lowest = best = nums[0]\n    for index in range(1, len(nums)):\n        value = nums[index]\n        a, b = value * highest, value * lowest\n        highest = max(value, a, b)\n        lowest = min(value, a, b)\n        best = max(best, highest)\n    return best\n",

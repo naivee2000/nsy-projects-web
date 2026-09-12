@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def edit_distance(left: str, right: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def edit_distance(left, right):\n    previous = list(range(len(right) + 1))\n    for i, a in enumerate(left, 1):\n        current = [i]\n        for j, b in enumerate(right, 1):\n            current.append(previous[j - 1] if a == b else 1 + min(previous[j], current[-1], previous[j - 1]))\n        previous = current\n    return previous[-1]\n",

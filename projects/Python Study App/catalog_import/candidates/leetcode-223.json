@@ -70,7 +70,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def rectangle_union_area(ax1: int, ay1: int, ax2: int, ay2: int, bx1: int, by1: int, bx2: int, by2: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def rectangle_union_area(ax1, ay1, ax2, ay2, bx1, by1, bx2, by2):\n    first = (ax2 - ax1) * (ay2 - ay1)\n    second = (bx2 - bx1) * (by2 - by1)\n    width = max(0, min(ax2, bx2) - max(ax1, bx1))\n    height = max(0, min(ay2, by2) - max(ay1, by1))\n    return first + second - width * height\n",

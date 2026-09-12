@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def strobogrammatic_numbers(n: int) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def strobogrammatic_numbers(n):\n    pairs = ((\"0\", \"0\"), (\"1\", \"1\"), (\"6\", \"9\"), (\"8\", \"8\"), (\"9\", \"6\"))\n    def build(length, outer):\n        if length == 0:\n            return [\"\"]\n        if length == 1:\n            return [\"0\", \"1\", \"8\"]\n        answers = []\n        for middle in build(length - 2, False):\n            for left, right in pairs:\n                if outer and left == \"0\":\n                    continue\n                answers.append(left + middle + right)\n        return answers\n    return build(n, True)\n",

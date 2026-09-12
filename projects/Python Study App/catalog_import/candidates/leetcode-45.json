@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_jumps(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_jumps(nums):\n    jumps, end, farthest = 0, 0, 0\n    for index in range(len(nums) - 1):\n        farthest = max(farthest, index + nums[index])\n        if index == end:\n            jumps += 1\n            end = farthest\n    return jumps\n",

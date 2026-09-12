@@ -1,0 +1,314 @@
+{
+  "id": "leetcode-282",
+  "version": 1,
+  "status": "approved",
+  "title": "Expression Add Operators",
+  "summary": "Given a string num containing only digits and an integer target, find all ways to insert '+', '-', and '*' between the digits of num to achieve the target value.",
+  "statement": "Given a string num containing only digits and an integer target, find all ways to insert '+', '-', and '*' between the digits of num to achieve the target value. Ensure no operand has leading zeros and numbers can be multi-digit.",
+  "constraints": [
+    "num contains 1–10 decimal digits and target is a signed 32-bit integer.",
+    "Insert '+', '-', or '*' between some digits so each returned expression evaluates to target. Do not reorder or drop digits, do not use unary operators, and do not form a multi-digit operand with a leading zero. Return all valid expressions in any order."
+  ],
+  "topics": [
+    "strings",
+    "backtracking",
+    "recursion"
+  ],
+  "prerequisites": [
+    "strings"
+  ],
+  "signature": {
+    "name": "add_operators",
+    "parameters": [
+      {
+        "name": "num",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "target",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[str]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def add_operators(num: str, target: int) -> list[str]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def add_operators(num, target):\n    answer = []\n    def build(index, expression, total, last):\n        if index == len(num):\n            if total == target:\n                answer.append(expression)\n            return\n        for end in range(index + 1, len(num) + 1):\n            if end > index + 1 and num[index] == \"0\":\n                break\n            token = num[index:end]\n            value = int(token)\n            if index == 0:\n                build(end, token, value, value)\n            else:\n                build(end, expression + \"+\" + token, total + value, value)\n                build(end, expression + \"-\" + token, total - value, -value)\n                build(end, expression + \"*\" + token, total - last + last * value, last * value)\n    build(0, \"\", 0, 0)\n    return answer\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def add_operators(num, target):\n    answer = []\n    def build(index, expression, total, last):\n        if index == len(num):\n            if total == target:\n                answer.append(expression)\n            return\n        for end in range(index + 1, len(num) + 1):\n            if end > index + 1 and num[index] == \"0\":\n                break\n            token = num[index:end]\n            value = int(token)\n            if index == 0:\n                build(end, token, value, value)\n            else:\n                build(end, expression + \"+\" + token, total + value, value)\n                build(end, expression + \"-\" + token, total - value, -value)\n                build(end, expression + \"*\" + token, total * value, last * value)\n    build(0, \"\", 0, 0)\n    return answer\n",
+    "def add_operators(num, target):\n    answer = []\n    def build(index, expression, total, last):\n        if index == len(num):\n            if total == target:\n                answer.append(expression)\n            return\n        for end in range(index + 1, len(num) + 1):\n            if False:\n                break\n            token = num[index:end]\n            value = int(token)\n            if index == 0:\n                build(end, token, value, value)\n            else:\n                build(end, expression + \"+\" + token, total + value, value)\n                build(end, expression + \"-\" + token, total - value, -value)\n                build(end, expression + \"*\" + token, total - last + last * value, last * value)\n    build(0, \"\", 0, 0)\n    return answer\n"
+  ],
+  "target_time_complexity": "O(4^n·n)",
+  "target_space_complexity": "O(n) recursion excluding output",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Each recursion level chooses the next operand boundary and, except first, the operator before it.",
+    "Track the total plus the most recent signed term so multiplication can replace that term without reevaluating the expression.",
+    "For multiplication use total-last+last*value; for plus/minus start a new signed last term. Stop extending an operand after a leading zero.",
+    "Only append at the end of num when total equals target. Backtracking strings avoids eval and preserves digit order."
+  ],
+  "editorial": "Depth-first search enumerates every legal operand split and operator choice. Addition and subtraction update both the total and the latest signed term. Multiplication has precedence, so it removes that latest term and substitutes its product. A leading zero may stand alone but cannot begin a longer operand. The independent oracle first enumerates all digit partitions, then operator products, and evaluates precedence with a separate term accumulator.",
+  "tests": [
+    {
+      "id": "lc-282-1",
+      "arguments": [
+        "123",
+        6
+      ],
+      "expected": [
+        "1+2+3",
+        "1*2*3"
+      ],
+      "comparator": "unordered",
+      "visible": true,
+      "explanation": "Both 1+2+3 and 1*2*3 use every digit in order and evaluate to 6.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-2",
+      "arguments": [
+        "105",
+        5
+      ],
+      "expected": [
+        "10-5",
+        "1*0+5"
+      ],
+      "comparator": "unordered",
+      "visible": true,
+      "explanation": "The valid expressions are 1*0+5 and 10-5; 1*05 is forbidden because 05 has a leading zero.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-3",
+      "arguments": [
+        "1",
+        1
+      ],
+      "expected": [
+        "1"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-4",
+      "arguments": [
+        "1",
+        2
+      ],
+      "expected": [],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-5",
+      "arguments": [
+        "00",
+        0
+      ],
+      "expected": [
+        "0+0",
+        "0-0",
+        "0*0"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-6",
+      "arguments": [
+        "00",
+        1
+      ],
+      "expected": [],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-7",
+      "arguments": [
+        "232",
+        8
+      ],
+      "expected": [
+        "2+3*2",
+        "2*3+2"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-8",
+      "arguments": [
+        "123",
+        7
+      ],
+      "expected": [
+        "1+2*3"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-9",
+      "arguments": [
+        "345",
+        15
+      ],
+      "expected": [],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-10",
+      "arguments": [
+        "111",
+        3
+      ],
+      "expected": [
+        "1+1+1"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-11",
+      "arguments": [
+        "101",
+        2
+      ],
+      "expected": [
+        "1+0+1",
+        "1-0+1"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-12",
+      "arguments": [
+        "000",
+        0
+      ],
+      "expected": [
+        "0+0+0",
+        "0+0-0",
+        "0+0*0",
+        "0-0+0",
+        "0-0-0",
+        "0-0*0",
+        "0*0+0",
+        "0*0-0",
+        "0*0*0"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-13",
+      "arguments": [
+        "12",
+        12
+      ],
+      "expected": [
+        "12"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-14",
+      "arguments": [
+        "12",
+        -1
+      ],
+      "expected": [
+        "1-2"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-15",
+      "arguments": [
+        "999",
+        81
+      ],
+      "expected": [],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-16",
+      "arguments": [
+        "214",
+        8
+      ],
+      "expected": [
+        "2*1*4"
+      ],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-282-stress-1",
+      "arguments": [
+        "3456237490",
+        9191
+      ],
+      "expected": [],
+      "comparator": "unordered",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

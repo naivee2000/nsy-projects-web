@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def recursive_digit_sum(n: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def recursive_digit_sum(n):\n    if n < 10: return n\n    return n % 10 + recursive_digit_sum(n // 10)\n",

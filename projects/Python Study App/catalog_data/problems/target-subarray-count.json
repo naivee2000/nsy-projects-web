@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def target_subarray_count(nums: list[int], target: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def target_subarray_count(nums, target):\n    from collections import defaultdict\n    counts = defaultdict(int, {0:1}); prefix = answer = 0\n    for value in nums: prefix += value; answer += counts[prefix-target]; counts[prefix] += 1\n    return answer\n",

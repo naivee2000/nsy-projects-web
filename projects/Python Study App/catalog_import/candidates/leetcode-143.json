@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "reuse_input_nodes",
     "result_mode": "mutated_argument",
-    "mutated_parameter": 0
+    "mutated_parameter": 0,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef reorder_list(head: ListNode | None) -> None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def reorder_list(head):\n    slow = fast = head\n    while fast.next and fast.next.next:\n        slow = slow.next\n        fast = fast.next.next\n    second = slow.next\n    slow.next = None\n    previous = None\n    while second:\n        following = second.next\n        second.next = previous\n        previous = second\n        second = following\n    first, second = head, previous\n    while second:\n        following_first, following_second = first.next, second.next\n        first.next = second\n        second.next = following_first\n        first, second = following_first, following_second\n",

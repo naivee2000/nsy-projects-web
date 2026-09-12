@@ -35,7 +35,8 @@
     "return_adapter": "treenode",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef merge_trees(root1: TreeNode | None, root2: TreeNode | None) -> TreeNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def merge_trees(root1, root2):\n    if root1 is None:\n        return root2\n    if root2 is None:\n        return root1\n    merged = TreeNode()\n    stack = [(root1, root2, merged)]\n    while stack:\n        left, right, output = stack.pop()\n        output.val = left.val + right.val\n        for side in (\"left\", \"right\"):\n            a, b = getattr(left, side), getattr(right, side)\n            if a is None or b is None:\n                setattr(output, side, a if a is not None else b)\n            else:\n                child = TreeNode()\n                setattr(output, side, child)\n                stack.append((a, b, child))\n    return merged\n",

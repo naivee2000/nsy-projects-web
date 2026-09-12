@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def undirected_terminal_path(node_count: int, edges: list[list[int]]) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def undirected_terminal_path(node_count, edges):\n    graph = [[] for _ in range(node_count)]\n    for a,b in edges: graph[a].append(b); graph[b].append(a)\n    stack = [0]; seen = {0}\n    while stack:\n        node = stack.pop()\n        if node == node_count - 1: return True\n        for neighbor in graph[node]:\n            if neighbor not in seen: seen.add(neighbor); stack.append(neighbor)\n    return False\n",

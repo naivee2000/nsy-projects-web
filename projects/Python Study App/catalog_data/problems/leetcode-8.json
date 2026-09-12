@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def my_atoi(s: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def my_atoi(s):\n    index, sign, value = 0, 1, 0\n    while index < len(s) and s[index] == \" \":\n        index += 1\n    if index < len(s) and s[index] in \"+-\":\n        sign = -1 if s[index] == \"-\" else 1\n        index += 1\n    while index < len(s) and \"0\" <= s[index] <= \"9\":\n        value = value * 10 + ord(s[index]) - ord(\"0\")\n        index += 1\n    value *= sign\n    return max(-2147483648, min(2147483647, value))\n",

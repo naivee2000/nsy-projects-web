@@ -27,7 +27,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def reverse_integer(x: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def reverse_integer(x):\n    negative = x < 0\n    remaining = x if negative else -x\n    limit_digit = -8 if negative else -7\n    result = 0\n    while remaining:\n        quotient = remaining // 10\n        if remaining % 10:\n            quotient += 1\n        digit = remaining - quotient * 10\n        if result < -214748364 or (result == -214748364 and digit < limit_digit):\n            return 0\n        result = result * 10 + digit\n        remaining = quotient\n    return result if negative else -result\n",

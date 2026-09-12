@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def evaluate_rpn(tokens: list[str]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def evaluate_rpn(tokens):\n    stack = []\n    for token in tokens:\n        if token not in (\"+\", \"-\", \"*\", \"/\"):\n            stack.append(int(token))\n            continue\n        right, left = stack.pop(), stack.pop()\n        if token == \"+\":\n            value = left + right\n        elif token == \"-\":\n            value = left - right\n        elif token == \"*\":\n            value = left * right\n        else:\n            quotient = abs(left) // abs(right)\n            value = -quotient if (left < 0) != (right < 0) else quotient\n        stack.append(value)\n    return stack[0]\n",

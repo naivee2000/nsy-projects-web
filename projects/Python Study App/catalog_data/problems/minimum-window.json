@@ -38,7 +38,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def minimum_window(text: str, required: str) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def minimum_window(text, required):\n    if not required:\n        return \"\"\n    need = Counter(required)\n    have = defaultdict(int)\n    formed = 0\n    left = 0\n    best = (float(\"inf\"), 0, 0)\n    for right, character in enumerate(text):\n        have[character] += 1\n        if character in need and have[character] == need[character]:\n            formed += 1\n        while formed == len(need):\n            if right - left + 1 < best[0]:\n                best = (right - left + 1, left, right + 1)\n            removed = text[left]\n            have[removed] -= 1\n            if removed in need and have[removed] < need[removed]:\n                formed -= 1\n            left += 1\n    return \"\" if best[0] == float(\"inf\") else text[best[1]:best[2]]\n",

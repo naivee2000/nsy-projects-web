@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def combination_sum(candidates: list[int], target: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def combination_sum(candidates, target):\n    values = sorted(candidates)\n    answer, path = [], []\n    def visit(start, remaining):\n        if remaining == 0:\n            answer.append(path.copy())\n            return\n        for i in range(start, len(values)):\n            if values[i] > remaining:\n                break\n            path.append(values[i])\n            visit(i, remaining - values[i])\n            path.pop()\n    visit(0, target)\n    return answer\n",

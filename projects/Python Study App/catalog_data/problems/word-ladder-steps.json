@@ -44,7 +44,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def word_ladder_steps(begin: str, end: str, words: list[str]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def word_ladder_steps(begin, end, words):\n    remaining = set(words)\n    if end not in remaining:\n        return 0\n    queue = deque([(begin, 1)])\n    while queue:\n        word, steps = queue.popleft()\n        if word == end:\n            return steps\n        for index in range(len(word)):\n            for character in \"abcdefghijklmnopqrstuvwxyz\":\n                candidate = word[:index] + character + word[index + 1:]\n                if candidate in remaining:\n                    remaining.remove(candidate)\n                    queue.append((candidate, steps + 1))\n    return 0\n",

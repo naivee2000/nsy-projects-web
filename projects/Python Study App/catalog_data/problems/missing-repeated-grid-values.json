@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def missing_repeated_grid_values(grid: list[list[int]]) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def missing_repeated_grid_values(grid):\n    from collections import Counter\n    counts = Counter(value for row in grid for value in row)\n    limit = len(grid) ** 2\n    repeated = next(value for value, count in counts.items() if count == 2)\n    missing = next(value for value in range(1, limit + 1) if counts[value] == 0)\n    return [repeated, missing]\n",

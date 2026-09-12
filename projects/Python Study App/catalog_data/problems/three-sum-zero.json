@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def three_sum_zero(nums: list[int]) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def three_sum_zero(nums):\n    nums = sorted(nums)\n    answers = []\n    for index in range(len(nums) - 2):\n        if index and nums[index] == nums[index - 1]:\n            continue\n        left, right = index + 1, len(nums) - 1\n        while left < right:\n            total = nums[index] + nums[left] + nums[right]\n            if total < 0:\n                left += 1\n            elif total > 0:\n                right -= 1\n            else:\n                answers.append([nums[index], nums[left], nums[right]])\n                left += 1\n                right -= 1\n                while left < right and nums[left] == nums[left - 1]:\n                    left += 1\n                while left < right and nums[right] == nums[right + 1]:\n                    right -= 1\n    return answers\n",

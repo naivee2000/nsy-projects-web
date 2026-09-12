@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef recursive_minimum_tree_depth(root: TreeNode | None) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def recursive_minimum_tree_depth(root):\n    if root is None: return 0\n    if root.left is None: return 1 + recursive_minimum_tree_depth(root.right)\n    if root.right is None: return 1 + recursive_minimum_tree_depth(root.left)\n    return 1 + min(recursive_minimum_tree_depth(root.left), recursive_minimum_tree_depth(root.right))\n",

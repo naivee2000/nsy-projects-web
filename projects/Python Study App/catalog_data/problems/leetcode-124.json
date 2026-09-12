@@ -32,7 +32,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef maximum_tree_path_sum(root: TreeNode) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def maximum_tree_path_sum(root):\n    stack, gains, best = [(root, False)], {}, root.val\n    while stack:\n        node, visited = stack.pop()\n        if node is None:\n            continue\n        if not visited:\n            stack.extend([(node, True), (node.right, False), (node.left, False)])\n        else:\n            left = max(0, gains.pop(node.left, 0))\n            right = max(0, gains.pop(node.right, 0))\n            best = max(best, node.val + left + right)\n            gains[node] = node.val + max(left, right)\n    return best\n",

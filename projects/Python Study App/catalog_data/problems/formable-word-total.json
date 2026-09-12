@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def formable_word_total(words: list[str], letters: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def formable_word_total(words, letters):\n    from collections import Counter\n    available = Counter(letters); total = 0\n    for word in words:\n        needed = Counter(word)\n        if all(needed[char] <= available[char] for char in needed): total += len(word)\n    return total\n",

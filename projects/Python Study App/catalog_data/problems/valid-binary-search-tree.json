@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef is_valid_bst(root: TreeNode | None) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def is_valid_bst(root):\n    def valid(node, lower, upper):\n        if not node:\n            return True\n        if not lower < node.val < upper:\n            return False\n        return valid(node.left, lower, node.val) and valid(node.right, node.val, upper)\n\n    return valid(root, float(\"-inf\"), float(\"inf\"))\n",

@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def divide_integers(dividend: int, divisor: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def divide_integers(dividend, divisor):\n    minimum = -2147483648\n    negative = (dividend < 0) != (divisor < 0)\n    remaining = dividend if dividend < 0 else -dividend\n    base = divisor if divisor < 0 else -divisor\n    quotient = 0\n    for shift in range(31, -1, -1):\n        if base >= (minimum >> shift):\n            multiple = base << shift\n            if remaining <= multiple:\n                remaining -= multiple\n                quotient += (-1 << shift)\n    if not negative and quotient == minimum:\n        return 2147483647\n    return quotient if negative else -quotient\n",

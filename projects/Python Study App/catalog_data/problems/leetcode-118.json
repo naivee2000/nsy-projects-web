@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def pascal_triangle(num_rows: int) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def pascal_triangle(num_rows):\n    answer = []\n    for row in range(num_rows):\n        current = [1] * (row + 1)\n        for col in range(1, row):\n            current[col] = answer[-1][col-1] + answer[-1][col]\n        answer.append(current)\n    return answer\n",

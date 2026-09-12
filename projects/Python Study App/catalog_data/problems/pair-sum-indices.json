@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def pair_sum_indices(nums: list[int], target: int) -> list[int]:\n    result = []\n    # Write your solution here. You can run this at any point.\n    return result\n\n# Working sample: Run examples to see this result while you build.\nsample_nums = [2, 7, 11, 15]\nsample_target = 9\nprint(\"Current result:\", pair_sum_indices(sample_nums, sample_target))\n",
   "reference_solution": "def pair_sum_indices(nums, target):\n    seen = {}\n    for index, value in enumerate(nums):\n        partner = target - value\n        if partner in seen:\n            return [seen[partner], index]\n        seen[value] = index\n    return []\n",

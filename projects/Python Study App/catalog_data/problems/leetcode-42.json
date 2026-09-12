@@ -32,7 +32,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def trapped_water(height: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def trapped_water(height):\n    left, right = 0, len(height) - 1\n    left_max = right_max = water = 0\n    while left <= right:\n        if left_max <= right_max:\n            left_max = max(left_max, height[left])\n            water += left_max - height[left]\n            left += 1\n        else:\n            right_max = max(right_max, height[right])\n            water += right_max - height[right]\n            right -= 1\n    return water\n",

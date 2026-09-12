@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef zigzag_level_order(root: TreeNode | None) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def zigzag_level_order(root):\n    from collections import deque\n    if root is None:\n        return []\n    queue, answer = deque([root]), []\n    while queue:\n        row = []\n        for _ in range(len(queue)):\n            node = queue.popleft()\n            row.append(node.val)\n            if node.left:\n                queue.append(node.left)\n            if node.right:\n                queue.append(node.right)\n        answer.append(row[::-1] if len(answer) % 2 else row)\n    return answer\n",

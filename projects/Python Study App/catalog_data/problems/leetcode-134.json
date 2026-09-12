@@ -35,7 +35,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def gas_station_start(gas: list[int], cost: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def gas_station_start(gas, cost):\n    total = tank = start = 0\n    for index, (fuel, expense) in enumerate(zip(gas, cost)):\n        delta = fuel - expense\n        total += delta\n        tank += delta\n        if tank < 0:\n            start = index + 1\n            tank = 0\n    return start if total >= 0 else -1\n",

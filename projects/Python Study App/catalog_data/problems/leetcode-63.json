@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def obstacle_paths(obstacle_grid: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def obstacle_paths(obstacle_grid):\n    rows, cols = len(obstacle_grid), len(obstacle_grid[0])\n    memo = {}\n    def visit(row, col):\n        if row >= rows or col >= cols or obstacle_grid[row][col] == 1:\n            return 0\n        if row == rows - 1 and col == cols - 1:\n            return 1\n        if (row, col) not in memo:\n            memo[row, col] = visit(row + 1, col) + visit(row, col + 1)\n        return memo[row, col]\n    return visit(0, 0)\n",

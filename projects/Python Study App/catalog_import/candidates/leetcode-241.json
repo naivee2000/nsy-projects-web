@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def all_parenthesized_results(expression: str) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def all_parenthesized_results(expression):\n    from functools import cache\n    @cache\n    def solve(text):\n        results = []\n        for index, operator in enumerate(text):\n            if operator not in \"+-*\":\n                continue\n            for left in solve(text[:index]):\n                for right in solve(text[index + 1:]):\n                    results.append(left + right if operator == \"+\" else\n                                   left - right if operator == \"-\" else left * right)\n        return results or [int(text)]\n    return solve(expression)\n",

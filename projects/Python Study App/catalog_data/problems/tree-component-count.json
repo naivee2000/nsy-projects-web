@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def tree_component_count(node_count: int, edges: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def tree_component_count(node_count, edges):\n    graph = [[] for _ in range(node_count)]\n    for a,b in edges: graph[a].append(b); graph[b].append(a)\n    seen = set(); answer = 0\n    for start in range(node_count):\n        if start in seen: continue\n        stack = [start]; seen.add(start); vertices = edge_ends = 0\n        while stack:\n            node = stack.pop(); vertices += 1; edge_ends += len(graph[node])\n            for neighbor in graph[node]:\n                if neighbor not in seen: seen.add(neighbor); stack.append(neighbor)\n        answer += edge_ends // 2 == vertices - 1\n    return answer\n",

@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def three_equal_sum_parts(nums: list[int]) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def three_equal_sum_parts(nums):\n    total = sum(nums)\n    if len(nums) < 3 or total % 3: return False\n    target = total // 3; running = parts = 0\n    for i, value in enumerate(nums[:-1]):\n        running += value\n        if running == target: parts += 1; running = 0\n        if parts == 2 and i < len(nums)-1: return True\n    return False\n",

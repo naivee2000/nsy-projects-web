@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def longest_valid_parentheses(s: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def longest_valid_parentheses(s):\n    stack, longest = [-1], 0\n    for index, char in enumerate(s):\n        if char == \"(\":\n            stack.append(index)\n        else:\n            stack.pop()\n            if not stack:\n                stack.append(index)\n            else:\n                longest = max(longest, index - stack[-1])\n    return longest\n",

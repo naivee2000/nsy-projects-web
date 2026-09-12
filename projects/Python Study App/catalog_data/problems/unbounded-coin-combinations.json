@@ -35,7 +35,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def unbounded_coin_combinations(coins: list[int], amount: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def unbounded_coin_combinations(coins, amount):\n    ways = [0] * (amount + 1); ways[0] = 1\n    for coin in sorted(set(coins)):\n        for value in range(coin, amount + 1): ways[value] += ways[value-coin]\n    return ways[amount]\n",

@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def sorted_target_count(nums: list[int], target: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def sorted_target_count(nums, target):\n    from bisect import bisect_left, bisect_right\n    return bisect_right(nums, target) - bisect_left(nums, target)\n",

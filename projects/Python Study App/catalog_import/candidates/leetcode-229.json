@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def majority_over_third(nums: list[int]) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def majority_over_third(nums):\n    first = second = None\n    first_count = second_count = 0\n    for value in nums:\n        if value == first:\n            first_count += 1\n        elif value == second:\n            second_count += 1\n        elif first_count == 0:\n            first, first_count = value, 1\n        elif second_count == 0:\n            second, second_count = value, 1\n        else:\n            first_count -= 1\n            second_count -= 1\n    return [candidate for candidate in (first, second)\n            if candidate is not None and nums.count(candidate) > len(nums) // 3]\n",

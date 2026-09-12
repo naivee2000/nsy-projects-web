@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def subsequence_check(text: str, candidate: str) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def subsequence_check(text, candidate):\n    index = 0\n    for char in text:\n        if index < len(candidate) and char == candidate[index]: index += 1\n    return index == len(candidate)\n",

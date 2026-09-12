@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def h_index_sorted(citations: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def h_index_sorted(citations):\n    size = len(citations)\n    left, right = 0, size\n    while left < right:\n        middle = (left + right) // 2\n        if citations[middle] >= size - middle:\n            right = middle\n        else:\n            left = middle + 1\n    return size - left\n",

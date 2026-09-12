@@ -35,7 +35,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def search_sorted_matrix(matrix: list[list[int]], target: int) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def search_sorted_matrix(matrix, target):\n    row, column = 0, len(matrix[0]) - 1\n    while row < len(matrix) and column >= 0:\n        value = matrix[row][column]\n        if value == target:\n            return True\n        if value > target:\n            column -= 1\n        else:\n            row += 1\n    return False\n",

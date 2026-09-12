@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def multiply_strings(num1: str, num2: str) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def multiply_strings(num1, num2):\n    if num1 == \"0\" or num2 == \"0\":\n        return \"0\"\n    digits = [0] * (len(num1) + len(num2))\n    for i in range(len(num1) - 1, -1, -1):\n        for j in range(len(num2) - 1, -1, -1):\n            total = digits[i + j + 1] + (ord(num1[i]) - ord(\"0\")) * (ord(num2[j]) - ord(\"0\"))\n            digits[i + j + 1] = total % 10\n            digits[i + j] += total // 10\n    start = 0\n    while start < len(digits) - 1 and digits[start] == 0:\n        start += 1\n    return \"\".join(str(digit) for digit in digits[start:])\n",

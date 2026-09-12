@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def compare_versions(version1: str, version2: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def compare_versions(version1, version2):\n    def revision(text, index):\n        value = 0\n        while index < len(text) and text[index] != \".\":\n            value = value * 10 + ord(text[index]) - ord(\"0\")\n            index += 1\n        return value, index + 1\n    i = j = 0\n    while i < len(version1) or j < len(version2):\n        first, i = revision(version1, i)\n        second, j = revision(version2, j)\n        if first != second:\n            return 1 if first > second else -1\n    return 0\n",

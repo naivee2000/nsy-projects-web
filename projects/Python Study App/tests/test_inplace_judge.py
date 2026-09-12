@@ -6,7 +6,7 @@ import pytest
 from code_practice.catalog import get_catalog
 from code_practice.build_import_batch import workbook_sample
 from code_practice.schemas import FunctionSignature, TestCase as Case
-from code_practice.validation import run_source
+from code_practice.validation import compare, run_source
 
 
 @pytest.mark.parametrize("body,accepted", [
@@ -74,6 +74,31 @@ def test_invalid_mutation_signatures_are_rejected(updates):
     payload = {"name": "solve", "parameters": [{"name": "nums", "annotation": "list[int]"}], "returns": "int"}
     with pytest.raises(ValueError):
         FunctionSignature.model_validate({**payload, **updates})
+
+
+def test_immutable_parameter_contract_rejects_input_changes_after_a_correct_return():
+    original = get_catalog()["leetcode-136"]
+    signature = original.signature.model_copy(update={"immutable_parameters": [0]})
+    problem = original.model_copy(update={"signature": signature})
+    case = Case(id="read-only", arguments=[[2, 1, 2]], expected=1)
+    assert run_source("def single_number(nums):\n    return 1", problem, case) == (True, None)
+    assert run_source("def single_number(nums):\n    nums.sort()\n    return 1", problem, case) == (False, None)
+    base = {"name": "solve", "parameters": [{"name": "nums", "annotation": "list[int]"}], "returns": "int"}
+    for indices in ([0, 0], [1], [-1]):
+        with pytest.raises(ValueError):
+            FunctionSignature.model_validate({**base, "immutable_parameters": indices})
+    with pytest.raises(ValueError):
+        FunctionSignature.model_validate({**base, "returns": "None", "result_mode": "mutated_argument",
+                                          "mutated_parameter": 0, "immutable_parameters": [0]})
+
+
+def test_wiggle_comparator_accepts_any_valid_permutation_only():
+    expected = [3, 5, 1, 6, 2, 4]
+    assert compare([1, 3, 2, 5, 4, 6], expected, "wiggle")
+    assert compare(expected, expected, "wiggle")
+    assert not compare([1, 2, 3, 4, 5, 6], expected, "wiggle")
+    assert not compare([3, 5, 1, 6, 2, 2], expected, "wiggle")
+    assert not compare("1,3,2", expected, "wiggle")
 
 
 def test_prefix_sample_parser_preserves_count_and_ignores_only_unspecified_tail():

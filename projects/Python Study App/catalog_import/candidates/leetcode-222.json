@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef count_complete_nodes(root: TreeNode | None) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def count_complete_nodes(root):\n    def left_height(node):\n        height = 0\n        while node is not None:\n            height += 1\n            node = node.left\n        return height\n    total = 0\n    while root is not None:\n        left, right = left_height(root.left), left_height(root.right)\n        if left == right:\n            total += 1 << left\n            root = root.right\n        else:\n            total += 1 << right\n            root = root.left\n    return total\n",

@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def repeated_dna(s: str) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def repeated_dna(s):\n    codes = {\"A\": 0, \"C\": 1, \"G\": 2, \"T\": 3}\n    mask = (1 << 20) - 1\n    window = 0\n    seen, reported = set(), set()\n    result = []\n    for index, char in enumerate(s):\n        window = ((window << 2) | codes[char]) & mask\n        if index < 9:\n            continue\n        if window in seen and window not in reported:\n            result.append(s[index - 9:index + 1])\n            reported.add(window)\n        seen.add(window)\n    return result\n",

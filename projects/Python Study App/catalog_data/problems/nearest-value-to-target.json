@@ -33,7 +33,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def nearest_value_to_target(nums: list[int], target: int) -> int | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def nearest_value_to_target(nums, target):\n    return min(nums, key=lambda value: (abs(value-target), value)) if nums else None\n",

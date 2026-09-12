@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def isomorphic_strings(s: str, t: str) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def isomorphic_strings(s, t):\n    forward, backward = {}, {}\n    for a, b in zip(s, t):\n        if forward.get(a, b) != b or backward.get(b, a) != a:\n            return False\n        forward[a], backward[b] = b, a\n    return True\n",

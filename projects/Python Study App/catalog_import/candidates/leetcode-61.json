@@ -34,7 +34,8 @@
     "return_adapter": "listnode",
     "node_policy": "reuse_input_nodes",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef rotate_list(head: ListNode | None, k: int) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def rotate_list(head, k):\n    if head is None or head.next is None:\n        return head\n    size, tail = 1, head\n    while tail.next:\n        size += 1\n        tail = tail.next\n    k %= size\n    if k == 0:\n        return head\n    tail.next = head\n    new_tail = head\n    for _ in range(size - k - 1):\n        new_tail = new_tail.next\n    new_head = new_tail.next\n    new_tail.next = None\n    return new_head\n",

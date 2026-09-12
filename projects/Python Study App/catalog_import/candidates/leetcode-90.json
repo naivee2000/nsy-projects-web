@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def subsets_with_duplicates(nums: list[int]) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def subsets_with_duplicates(nums):\n    values = sorted(nums)\n    answer, path = [], []\n    def visit(start):\n        answer.append(path.copy())\n        for i in range(start, len(values)):\n            if i > start and values[i] == values[i - 1]:\n                continue\n            path.append(values[i])\n            visit(i + 1)\n            path.pop()\n    visit(0)\n    return answer\n",

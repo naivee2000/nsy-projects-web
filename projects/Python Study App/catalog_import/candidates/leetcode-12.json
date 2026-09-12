@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def integer_to_roman(num: int) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def integer_to_roman(num):\n    tokens = [(1000,\"M\"),(900,\"CM\"),(500,\"D\"),(400,\"CD\"),(100,\"C\"),(90,\"XC\"),(50,\"L\"),(40,\"XL\"),(10,\"X\"),(9,\"IX\"),(5,\"V\"),(4,\"IV\"),(1,\"I\")]\n    parts = []\n    for value, token in tokens:\n        while num >= value:\n            parts.append(token)\n            num -= value\n    return \"\".join(parts)\n",

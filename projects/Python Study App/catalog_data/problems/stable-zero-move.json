@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def stable_zero_move(nums: list[int]) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def stable_zero_move(nums):\n    kept = [value for value in nums if value != 0]\n    return kept + [0] * (len(nums) - len(kept))\n",

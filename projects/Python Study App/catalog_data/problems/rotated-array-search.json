@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def rotated_array_search(nums: list[int], target: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def rotated_array_search(nums, target):\n    left, right = 0, len(nums) - 1\n    while left <= right:\n        middle = (left + right) // 2\n        if nums[middle] == target:\n            return middle\n        if nums[left] <= nums[middle]:\n            if nums[left] <= target < nums[middle]:\n                right = middle - 1\n            else:\n                left = middle + 1\n        elif nums[middle] < target <= nums[right]:\n            left = middle + 1\n        else:\n            right = middle - 1\n    return -1\n",

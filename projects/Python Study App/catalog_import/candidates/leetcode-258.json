@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def add_digits(num: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def add_digits(num):\n    return 0 if num == 0 else 1 + (num - 1) % 9\n",

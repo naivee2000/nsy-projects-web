@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def undirected_component_count(node_count: int, edges: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def undirected_component_count(node_count, edges):\n    graph = [[] for _ in range(node_count)]\n    for a,b in edges: graph[a].append(b); graph[b].append(a)\n    seen = set(); components = 0\n    for start in range(node_count):\n        if start in seen: continue\n        components += 1; stack = [start]; seen.add(start)\n        while stack:\n            for neighbor in graph[stack.pop()]:\n                if neighbor not in seen: seen.add(neighbor); stack.append(neighbor)\n    return components\n",

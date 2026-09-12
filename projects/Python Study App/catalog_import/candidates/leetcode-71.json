@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def simplify_path(path: str) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def simplify_path(path):\n    names = []\n    for part in path.split(\"/\"):\n        if part == \"..\":\n            if names:\n                names.pop()\n        elif part not in (\"\", \".\"):\n            names.append(part)\n    return \"/\" + \"/\".join(names)\n",

@@ -34,7 +34,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def anagram_check(left: str, right: str) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def anagram_check(left, right):\n    from collections import Counter\n    return Counter(left) == Counter(right)\n",

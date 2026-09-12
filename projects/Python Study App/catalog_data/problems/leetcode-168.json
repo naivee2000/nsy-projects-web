@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def column_title(column_number: int) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def column_title(column_number):\n    letters = []\n    while column_number:\n        column_number, digit = divmod(column_number - 1, 26)\n        letters.append(chr(65 + digit))\n    return \"\".join(reversed(letters))\n",

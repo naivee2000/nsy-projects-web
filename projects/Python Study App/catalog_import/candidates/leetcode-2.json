@@ -35,7 +35,8 @@
     "return_adapter": "listnode",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef add_two_numbers(l1: ListNode | None, l2: ListNode | None) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def add_two_numbers(l1, l2):\n    dummy = ListNode()\n    tail = dummy\n    carry = 0\n    while l1 is not None or l2 is not None or carry:\n        total = carry\n        if l1 is not None:\n            total += l1.val\n            l1 = l1.next\n        if l2 is not None:\n            total += l2.val\n            l2 = l2.next\n        carry, digit = divmod(total, 10)\n        tail.next = ListNode(digit)\n        tail = tail.next\n    return dummy.next\n",

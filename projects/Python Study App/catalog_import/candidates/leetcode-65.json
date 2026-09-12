@@ -31,7 +31,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def valid_number(s: str) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def valid_number(s):\n    digit_seen = dot_seen = exponent_seen = False\n    for index, char in enumerate(s):\n        if \"0\" <= char <= \"9\":\n            digit_seen = True\n        elif char in \"+-\":\n            if index != 0 and s[index - 1] not in \"eE\":\n                return False\n        elif char == \".\":\n            if dot_seen or exponent_seen:\n                return False\n            dot_seen = True\n        elif char in \"eE\":\n            if exponent_seen or not digit_seen:\n                return False\n            exponent_seen = True\n            digit_seen = False\n        else:\n            return False\n    return digit_seen\n",

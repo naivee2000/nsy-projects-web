@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def h_index(citations: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def h_index(citations):\n    size = len(citations)\n    buckets = [0] * (size + 1)\n    for citation in citations:\n        buckets[min(citation, size)] += 1\n    papers = 0\n    for candidate in range(size, -1, -1):\n        papers += buckets[candidate]\n        if papers >= candidate:\n            return candidate\n",

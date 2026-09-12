@@ -32,7 +32,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def building_skyline(buildings: list[list[int]]) -> list[list[int]]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def building_skyline(buildings):\n    from heapq import heappush, heappop\n    coordinates = sorted({x for left, right, height in buildings for x in (left, right)})\n    active, result, index = [], [], 0\n    for x in coordinates:\n        while index < len(buildings) and buildings[index][0] <= x:\n            left, right, height = buildings[index]\n            heappush(active, (-height, right))\n            index += 1\n        while active and active[0][1] <= x:\n            heappop(active)\n        height = -active[0][0] if active else 0\n        if not result or result[-1][1] != height:\n            result.append([x, height])\n    return result\n",

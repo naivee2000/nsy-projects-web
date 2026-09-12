@@ -39,7 +39,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def sliding_window_maximum(nums: list[int], k: int) -> list[int]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def sliding_window_maximum(nums, k):\n    from collections import deque\n    candidates = deque()\n    answer = []\n    for index, value in enumerate(nums):\n        while candidates and candidates[0] <= index - k:\n            candidates.popleft()\n        while candidates and nums[candidates[-1]] <= value:\n            candidates.pop()\n        candidates.append(index)\n        if index >= k - 1:\n            answer.append(nums[candidates[0]])\n    return answer\n",

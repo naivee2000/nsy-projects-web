@@ -31,7 +31,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def unique_text_permutations(text: str) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def unique_text_permutations(text):\n    answer = []\n    def build(prefix, remaining):\n        if not remaining: answer.append(prefix); return\n        for i, char in enumerate(remaining):\n            if i and char == remaining[i-1]: continue\n            build(prefix+char, remaining[:i]+remaining[i+1:])\n    build(\"\", \"\".join(sorted(text))); return answer\n",

@@ -39,7 +39,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def count_strobogrammatic_range(low: str, high: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def count_strobogrammatic_range(low, high):\n    pairs = ((\"0\", \"0\"), (\"1\", \"1\"), (\"6\", \"9\"), (\"8\", \"8\"), (\"9\", \"6\"))\n    def build(length, total):\n        if length == 0:\n            return [\"\"]\n        if length == 1:\n            return [\"0\", \"1\", \"8\"]\n        answers = []\n        for middle in build(length - 2, total):\n            for left, right in pairs:\n                if length == total and left == \"0\":\n                    continue\n                answers.append(left + middle + right)\n        return answers\n    answer = 0\n    for length in range(len(low), len(high) + 1):\n        for value in build(length, length):\n            if (length > len(low) or value >= low) and (length < len(high) or value <= high):\n                answer += 1\n    return answer\n",

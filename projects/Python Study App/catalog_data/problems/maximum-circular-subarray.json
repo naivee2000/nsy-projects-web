@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def maximum_circular_subarray(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def maximum_circular_subarray(nums):\n    if not nums: return 0\n    total = sum(nums); max_end = min_end = max_best = min_best = nums[0]\n    for value in nums[1:]:\n        max_end = max(value, max_end+value); max_best = max(max_best,max_end)\n        min_end = min(value, min_end+value); min_best = min(min_best,min_end)\n    return max_best if max_best < 0 else max(max_best, total-min_best)\n",

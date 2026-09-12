@@ -28,7 +28,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def land_perimeter(grid: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def land_perimeter(grid):\n    if not grid or not grid[0]: return 0\n    perimeter = 0\n    for r, row in enumerate(grid):\n        for c, value in enumerate(row):\n            if value:\n                perimeter += 4\n                if r and grid[r-1][c]: perimeter -= 2\n                if c and grid[r][c-1]: perimeter -= 2\n    return perimeter\n",

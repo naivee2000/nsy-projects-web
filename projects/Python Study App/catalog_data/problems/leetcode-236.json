@@ -41,7 +41,8 @@
     "return_adapter": "treenode_value",
     "node_policy": "return_input_node",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "# Data structure supplied to this problem.\nclass TreeNode:\n    def __init__(\n        self,\n        val: int = 0,\n        left: \"TreeNode | None\" = None,\n        right: \"TreeNode | None\" = None,\n    ):\n        self.val = val\n        self.left = left\n        self.right = right\n\n\ndef lowest_common_ancestor(root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def lowest_common_ancestor(root, p, q):\n    parent = {root: None}\n    stack = [root]\n    while p not in parent or q not in parent:\n        node = stack.pop()\n        if node.left:\n            parent[node.left] = node\n            stack.append(node.left)\n        if node.right:\n            parent[node.right] = node\n            stack.append(node.right)\n    ancestors = set()\n    current = p\n    while current is not None:\n        ancestors.add(current)\n        current = parent[current]\n    current = q\n    while current not in ancestors:\n        current = parent[current]\n    return current\n",

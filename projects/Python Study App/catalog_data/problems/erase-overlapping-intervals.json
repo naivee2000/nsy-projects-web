@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def erase_overlapping_intervals(intervals: list[list[int]]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def erase_overlapping_intervals(intervals):\n    removed, end = 0, float('-inf')\n    for start, finish in sorted(intervals, key=lambda item: item[1]):\n        if start < end: removed += 1\n        else: end = finish\n    return removed\n",

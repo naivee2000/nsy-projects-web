@@ -38,7 +38,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def median_sorted_arrays(left: list[int], right: list[int]) -> float:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def median_sorted_arrays(left, right):\n    if len(left) > len(right):\n        left, right = right, left\n    total = len(left) + len(right)\n    half = (total + 1) // 2\n    low, high = 0, len(left)\n    while low <= high:\n        cut_left = (low + high) // 2\n        cut_right = half - cut_left\n        left_before = float(\"-inf\") if cut_left == 0 else left[cut_left - 1]\n        left_after = float(\"inf\") if cut_left == len(left) else left[cut_left]\n        right_before = float(\"-inf\") if cut_right == 0 else right[cut_right - 1]\n        right_after = float(\"inf\") if cut_right == len(right) else right[cut_right]\n        if left_before <= right_after and right_before <= left_after:\n            if total % 2:\n                return float(max(left_before, right_before))\n            return (max(left_before, right_before) + min(left_after, right_after)) / 2\n        if left_before > right_after:\n            high = cut_left - 1\n        else:\n            low = cut_left + 1\n    raise ValueError(\"inputs must be sorted and at least one must be non-empty\")\n",

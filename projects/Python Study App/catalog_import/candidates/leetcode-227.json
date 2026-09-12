@@ -29,7 +29,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def basic_calculator_two(s: str) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def basic_calculator_two(s):\n    total = current = number = 0\n    operator = \"+\"\n    for index, char in enumerate(s):\n        if char.isdigit():\n            number = number * 10 + int(char)\n        if char in \"+-*/\" or index == len(s) - 1:\n            if operator == \"+\":\n                total += current\n                current = number\n            elif operator == \"-\":\n                total += current\n                current = -number\n            elif operator == \"*\":\n                current *= number\n            else:\n                current = abs(current) // number * (-1 if current < 0 else 1)\n            operator, number = char, 0\n    return total + current\n",

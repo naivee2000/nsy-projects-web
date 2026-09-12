@@ -30,7 +30,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def phone_combinations(digits: str) -> list[str]:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def phone_combinations(digits):\n    mapping = {\"2\":\"abc\", \"3\":\"def\", \"4\":\"ghi\", \"5\":\"jkl\", \"6\":\"mno\", \"7\":\"pqrs\", \"8\":\"tuv\", \"9\":\"wxyz\"}\n    answer, path = [], []\n    def visit(index):\n        if index == len(digits):\n            answer.append(\"\".join(path))\n            return\n        for letter in mapping[digits[index]]:\n            path.append(letter)\n            visit(index + 1)\n            path.pop()\n    visit(0)\n    return answer\n",

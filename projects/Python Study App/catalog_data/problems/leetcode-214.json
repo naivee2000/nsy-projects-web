@@ -32,7 +32,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def shortest_front_palindrome(s: str) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def shortest_front_palindrome(s):\n    joined = s + \"#\" + s[::-1]\n    prefix = [0] * len(joined)\n    for i in range(1, len(joined)):\n        match = prefix[i - 1]\n        while match and joined[i] != joined[match]:\n            match = prefix[match - 1]\n        if joined[i] == joined[match]:\n            match += 1\n        prefix[i] = match\n    return s[prefix[-1]:][::-1] + s\n",

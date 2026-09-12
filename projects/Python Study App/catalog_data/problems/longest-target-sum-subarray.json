@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def longest_target_sum_subarray(nums: list[int], target: int) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def longest_target_sum_subarray(nums, target):\n    earliest = {0:-1}; prefix = best = 0\n    for i, value in enumerate(nums):\n        prefix += value\n        if prefix-target in earliest: best = max(best, i-earliest[prefix-target])\n        earliest.setdefault(prefix, i)\n    return best\n",

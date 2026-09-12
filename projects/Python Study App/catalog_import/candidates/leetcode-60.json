@@ -36,7 +36,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def permutation_sequence(n: int, k: int) -> str:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def permutation_sequence(n, k):\n    from math import factorial\n    available = [str(value) for value in range(1, n + 1)]\n    rank, answer = k - 1, []\n    for remaining in range(n, 0, -1):\n        index, rank = divmod(rank, factorial(remaining - 1))\n        answer.append(available.pop(index))\n    return \"\".join(answer)\n",

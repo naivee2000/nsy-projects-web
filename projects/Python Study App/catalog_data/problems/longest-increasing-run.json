@@ -27,7 +27,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def longest_increasing_run(nums: list[int]) -> int:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def longest_increasing_run(nums):\n    best = current = 0\n    for i, value in enumerate(nums):\n        current = current + 1 if i and value > nums[i - 1] else 1\n        best = max(best, current)\n    return best\n",

@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-282",
+  "content_sha256": "bac827f01c7aae8c17df4f68b23923416dc08fe131af7e6119751322a5e7184d",
+  "source_hash": "4b28888e3d2d65461c67311bd025f158fab2b5ac42ea5aa042a09c3e91b79742",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Handles multiplication as a left-to-right operation instead of giving it precedence over the previous term.",
+      "failed_cases": [
+        "lc-282-2",
+        "lc-282-7",
+        "lc-282-8",
+        "lc-282-stress-1"
+      ]
+    },
+    {
+      "reason": "Allows operands such as 05, producing expressions forbidden by the contract.",
+      "failed_cases": [
+        "lc-282-2",
+        "lc-282-5",
+        "lc-282-11",
+        "lc-282-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4329,
+  "oracle_implementation": "code_practice/import_batch_026.py:expression_oracle",
+  "validator_implementation_sha256": "64dc1d6c3b76cd2c7e2baabb6b1ad4c64b11cc887bc612eac74c26b6a4e8f09f",
+  "batch_implementation_sha256": "9d269e66d32f64f6ce12edfb34e0c02c49a9a78279c0c42b2a30b0d1bf26270c",
+  "judge_contract_sha256": "cee548b5eaf07383e7b41c1a9eac16109001ace0cbb053d748fef490ecebb46f",
+  "elapsed_seconds": 0.387,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

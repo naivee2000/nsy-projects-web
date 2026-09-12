@@ -39,7 +39,8 @@
     "return_adapter": "raw",
     "node_policy": "values",
     "result_mode": "return",
-    "mutated_parameter": null
+    "mutated_parameter": null,
+    "immutable_parameters": []
   },
   "starter_code": "def regex_match(s: str, p: str) -> bool:\n    # Write your solution here.\n    pass\n",
   "reference_solution": "def regex_match(s, p):\n    previous = [False] * (len(p) + 1)\n    previous[0] = True\n    for j in range(2, len(p) + 1):\n        if p[j - 1] == \"*\":\n            previous[j] = previous[j - 2]\n    for char in s:\n        current = [False] * (len(p) + 1)\n        for j in range(1, len(p) + 1):\n            if p[j - 1] == \"*\":\n                matches = p[j - 2] == \".\" or p[j - 2] == char\n                current[j] = current[j - 2] or (matches and previous[j])\n            else:\n                matches = p[j - 1] == \".\" or p[j - 1] == char\n                current[j] = matches and previous[j - 1]\n        previous = current\n    return previous[-1]\n",
