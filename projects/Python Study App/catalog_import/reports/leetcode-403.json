@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-403",
+  "content_sha256": "ce6ff8cc22be1555d1221c1dd340635a9d86e4afabd211f5764ed1ec4a7563a2",
+  "source_hash": "b1e09cc38bed3353d2cba44b96881d42fd1e40e9f66cad27283321ddb4a51472",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Forbids repeating the previous jump distance, although equal consecutive jumps are legal.",
+      "failed_cases": [
+        "lc-403-1",
+        "lc-403-5",
+        "lc-403-8",
+        "lc-403-12"
+      ]
+    },
+    {
+      "reason": "Greedily chooses the largest next jump and discards alternative routes.",
+      "failed_cases": [
+        "lc-403-1",
+        "lc-403-12",
+        "lc-403-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4450,
+  "oracle_implementation": "code_practice/import_batch_036.py:frog_oracle",
+  "validator_implementation_sha256": "eb9a786650ca24c98c129fa2c892e8e247020313fa94ad6ed2753767c08101d7",
+  "batch_implementation_sha256": "1180f4f13ad1d098654b5738f6428ca225b11d6bb84572014cce551500cdd8de",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.12,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

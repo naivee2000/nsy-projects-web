@@ -208,6 +208,11 @@ try {
   await structureNote.waitFor();
   assert((await structureNote.textContent()).includes('Temporary traversal links must be restored'));
   report.checks.push('BST recovery explains value changes, preserved original nodes, and restored temporary links');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('UTF-8 Validation');
+  await page.getByRole('button', { name: /UTF-8 Validation.*Medium/ }).click();
+  assert((await page.locator('.problem-pane .statement').first().textContent()).includes('structural patterns only'));
+  report.checks.push('UTF-8 instructions distinguish byte-prefix structure from additional Unicode validity restrictions');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -223,6 +228,13 @@ try {
       assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `leetcode-${id} wrong fixture`);
     }
   }
+  for (const id of [386, 388, 390, 393, 394, 395, 397, 402, 403, 408]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `leetcode-${id} wrong fixture`);
+    }
+  }
+  report.checks.push('batch 36 wrong algorithms rejected, including incomplete byte groups, nested counts, noncontiguous windows, greedy frog choices, and zero-prefixed abbreviations');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
     expected: [1,1,1], expected_node_order: [1,2,0] }] };

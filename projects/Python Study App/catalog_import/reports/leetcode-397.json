@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-397",
+  "content_sha256": "cbac8c1cff3c7d8d0b467c7c1e6893d97508017a2e4202d067859dbfb0b9850f",
+  "source_hash": "117d138720b05def6b16c7418a9a48493df1162005aac1d5810663dc7d4a7d19",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Always decreases odd values, missing faster routes through a power of two.",
+      "failed_cases": [
+        "lc-397-2",
+        "lc-397-stress-1",
+        "lc-397-stress-3"
+      ]
+    },
+    {
+      "reason": "Omits the n=3 exception and takes three operations instead of two.",
+      "failed_cases": [
+        "lc-397-5",
+        "lc-397-8",
+        "lc-397-12",
+        "lc-397-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4444,
+  "oracle_implementation": "code_practice/import_batch_036.py:replacement_oracle",
+  "validator_implementation_sha256": "eb9a786650ca24c98c129fa2c892e8e247020313fa94ad6ed2753767c08101d7",
+  "batch_implementation_sha256": "1180f4f13ad1d098654b5738f6428ca225b11d6bb84572014cce551500cdd8de",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

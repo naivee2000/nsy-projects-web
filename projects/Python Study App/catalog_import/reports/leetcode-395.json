@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-395",
+  "content_sha256": "d8eb75bdb0f87d234b094304b90f45a2fbf08fe13c4ccdfdee2cc234081b1951",
+  "source_hash": "97be8bb2f61cd7a303827fa7857af6f31c35f2c68e5a28e8db1a4e6b687b5357",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Counts globally frequent characters across invalid separators instead of one contiguous substring.",
+      "failed_cases": [
+        "lc-395-9",
+        "lc-395-10",
+        "lc-395-11",
+        "lc-395-12",
+        "lc-395-14",
+        "lc-395-stress-3"
+      ]
+    },
+    {
+      "reason": "Finds only uniform runs, missing valid substrings containing several repeating characters.",
+      "failed_cases": [
+        "lc-395-2",
+        "lc-395-5",
+        "lc-395-8",
+        "lc-395-9",
+        "lc-395-10",
+        "lc-395-13",
+        "lc-395-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4442,
+  "oracle_implementation": "code_practice/import_batch_036.py:repeating_oracle",
+  "validator_implementation_sha256": "eb9a786650ca24c98c129fa2c892e8e247020313fa94ad6ed2753767c08101d7",
+  "batch_implementation_sha256": "1180f4f13ad1d098654b5738f6428ca225b11d6bb84572014cce551500cdd8de",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

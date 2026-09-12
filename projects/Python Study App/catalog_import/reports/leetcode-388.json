@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-388",
+  "content_sha256": "55def7cd9c74b8b2836d72b038afa59e4cebdcac241bd29b40a630b9c131a361",
+  "source_hash": "a386a7cd462bc8b8932614ca586ce16ff09fc494001ccef06f926b5937a08643",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts directory-only paths as files.",
+      "failed_cases": [
+        "lc-388-1",
+        "lc-388-2",
+        "lc-388-3",
+        "lc-388-4",
+        "lc-388-5",
+        "lc-388-6",
+        "lc-388-7",
+        "lc-388-8",
+        "lc-388-9",
+        "lc-388-10",
+        "lc-388-11",
+        "lc-388-12",
+        "lc-388-13",
+        "lc-388-14",
+        "lc-388-stress-1",
+        "lc-388-stress-2"
+      ]
+    },
+    {
+      "reason": "Omits slash separators between path components.",
+      "failed_cases": [
+        "lc-388-1",
+        "lc-388-5",
+        "lc-388-6",
+        "lc-388-7",
+        "lc-388-8",
+        "lc-388-10",
+        "lc-388-11",
+        "lc-388-13",
+        "lc-388-14",
+        "lc-388-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4435,
+  "oracle_implementation": "code_practice/import_batch_036.py:file_oracle",
+  "validator_implementation_sha256": "eb9a786650ca24c98c129fa2c892e8e247020313fa94ad6ed2753767c08101d7",
+  "batch_implementation_sha256": "1180f4f13ad1d098654b5738f6428ca225b11d6bb84572014cce551500cdd8de",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

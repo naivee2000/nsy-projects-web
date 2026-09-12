@@ -2,7 +2,7 @@
 
 This deployment keeps the FastAPI service and SQLite progress on the always-on website Mac. GitHub carries one initial progress snapshot; after first start, the deployment Mac's persistent database becomes the only live copy.
 
-For the verified 345-problem release and the existing-install update sequence, see [RELEASE_CHECKPOINT.md](RELEASE_CHECKPOINT.md). The remaining workbook imports are development work, not a prerequisite for using this checkpoint. Preparing it did not deploy, push, or refresh the progress seed.
+For the verified 363-problem release and the existing-install update sequence, see [RELEASE_363_CHECKPOINT.md](RELEASE_363_CHECKPOINT.md). The remaining workbook imports are development work, not a prerequisite for using this checkpoint. Preparing it did not deploy, push, or refresh the progress seed. The earlier 345-problem checklist remains historical documentation for its unchanged tag.
 
 ## Production shape
 

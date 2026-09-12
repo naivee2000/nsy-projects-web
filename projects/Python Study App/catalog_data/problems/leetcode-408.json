@@ -1,0 +1,275 @@
+{
+  "id": "leetcode-408",
+  "version": 1,
+  "status": "approved",
+  "title": "Valid Word Abbreviation",
+  "summary": "Determine if a string matches a given abbreviation by verifying that the abbreviation accurately represents the string through the replacement of non-adjacent, non-empty substrings with their lengths, and ensuring that the lengths do not have leading zeros.",
+  "statement": "Determine if a string matches a given abbreviation by verifying that the abbreviation accurately represents the string through the replacement of non-adjacent, non-empty substrings with their lengths, and ensuring that the lengths do not have leading zeros. Also, confirm that no adjacent substrings are replaced and no empty substrings are replaced.",
+  "constraints": [
+    "1 <= word.length <= 20; word contains lowercase English letters.",
+    "1 <= abbr.length <= 10; abbr contains lowercase letters and digits; every integer token fits signed 32-bit.",
+    "A numeric token skips that many letters. It must be positive and have no leading zero. The entire word must be consumed."
+  ],
+  "topics": [
+    "strings",
+    "two-pointers",
+    "parsing"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "valid_word_abbreviation",
+    "parameters": [
+      {
+        "name": "word",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "abbr",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def valid_word_abbreviation(word: str, abbr: str) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def valid_word_abbreviation(word, abbr):\n    i = j = 0\n    while j<len(abbr):\n        if abbr[j].isdigit():\n            if abbr[j]=='0':\n                return False\n            count = 0\n            while j<len(abbr) and abbr[j].isdigit():\n                count = count*10+int(abbr[j])\n                j += 1\n            i += count\n            if i>len(word):\n                return False\n        else:\n            if i>=len(word) or word[i]!=abbr[j]:\n                return False\n            i += 1\n            j += 1\n    return i==len(word)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def valid_word_abbreviation(word, abbr):\n    i = j = 0\n    while j<len(abbr):\n        if abbr[j].isdigit():\n            count = 0\n            while j<len(abbr) and abbr[j].isdigit():\n                count = count*10+int(abbr[j])\n                j += 1\n            i += count\n            if i>len(word):\n                return False\n        else:\n            if i>=len(word) or word[i]!=abbr[j]:\n                return False\n            i += 1\n            j += 1\n    return i==len(word)\n",
+    "def valid_word_abbreviation(word, abbr):\n    i = j = 0\n    while j<len(abbr):\n        if abbr[j].isdigit():\n            if abbr[j]=='0':\n                return False\n            count = 0\n            while j<len(abbr) and abbr[j].isdigit():\n                count = count*10+int(abbr[j])\n                j += 1\n            i += count\n            if i>len(word):\n                return False\n        else:\n            if i>=len(word) or word[i]!=abbr[j]:\n                return False\n            i += 1\n            j += 1\n    return i<=len(word)\n"
+  ],
+  "target_time_complexity": "O(len(abbr))",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Keep separate positions in the word and the abbreviation.",
+    "A maximal run of digits is one skip count; a letter must match the current word position.",
+    "Reject a numeric token starting with 0. Parse its full value, advance the word pointer, and reject overshoot. Require exact exhaustion at the end.",
+    "Consecutive digits represent one number, not separate adjacent replacements. This is a validity query, unlike generating all possible abbreviations."
+  ],
+  "editorial": "Scan each abbreviation token once. Literal letters advance both pointers only on a match; numeric tokens advance only the word pointer. Reject zero-prefixed counts and any overshoot. Finally require the word pointer to equal the word length. The independent oracle translates tokens to a full-match pattern; exhaustive small-mask tests additionally check the semantics against enumerated valid abbreviations.",
+  "tests": [
+    {
+      "id": "lc-408-1",
+      "arguments": [
+        "internationalization",
+        "i12iz4n"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Keep i, skip 12 letters, keep iz, skip 4 letters, then keep n. This consumes exactly the 20-letter word.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-2",
+      "arguments": [
+        "apple",
+        "a2e"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "After a and two skipped letters, the next letter is l, not e. The valid abbreviation a3e would skip three letters instead.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-3",
+      "arguments": [
+        "a",
+        "a"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-4",
+      "arguments": [
+        "a",
+        "1"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-5",
+      "arguments": [
+        "a",
+        "0"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-6",
+      "arguments": [
+        "a",
+        "01"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-7",
+      "arguments": [
+        "apple",
+        "a3e"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-8",
+      "arguments": [
+        "apple",
+        "5"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-9",
+      "arguments": [
+        "apple",
+        "4"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-10",
+      "arguments": [
+        "apple",
+        "6"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-11",
+      "arguments": [
+        "apple",
+        "a0pple"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-12",
+      "arguments": [
+        "abcdefghij",
+        "10"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-13",
+      "arguments": [
+        "abcdefghij",
+        "1b8"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-14",
+      "arguments": [
+        "word",
+        "2147483647"
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-stress-1",
+      "arguments": [
+        "aaaaaaaaaaaaaaaaaaaa",
+        "20"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-stress-2",
+      "arguments": [
+        "aaaaaaaaaaaaaaaaaaaa",
+        "19a"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-408-stress-3",
+      "arguments": [
+        "aaaaaaaaaaaaaaaaaaaa",
+        "a18a"
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

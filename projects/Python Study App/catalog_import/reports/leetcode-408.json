@@ -1,0 +1,33 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-408",
+  "content_sha256": "7ca2c42a2451f84eb080157b175d8a27fe892dd2a24a39a83cf9d32e4e0ed8cc",
+  "source_hash": "e8f01fd623f06ea9f745c99343f076a0296fa7c898978cb84f5d3e60217e9808",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts zero or leading-zero skip tokens.",
+      "failed_cases": [
+        "lc-408-6",
+        "lc-408-11"
+      ]
+    },
+    {
+      "reason": "Accepts abbreviations that consume only a prefix of the word.",
+      "failed_cases": [
+        "lc-408-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4455,
+  "oracle_implementation": "code_practice/import_batch_036.py:abbreviation_oracle",
+  "validator_implementation_sha256": "eb9a786650ca24c98c129fa2c892e8e247020313fa94ad6ed2753767c08101d7",
+  "batch_implementation_sha256": "1180f4f13ad1d098654b5738f6428ca225b11d6bb84572014cce551500cdd8de",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

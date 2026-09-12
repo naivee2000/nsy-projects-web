@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-393",
+  "content_sha256": "3fcfd75796f7d4b5bfc53f915b7e2c8930463a54fddca427c93b4476db067c05",
+  "source_hash": "5a70afc55c06995c60147a07dd0896623a1624057376415dcff0dbfb1de6f28a",
+  "visible_tests": 2,
+  "hidden_tests": 17,
+  "reference_passed": 19,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts an unfinished multibyte group at the end.",
+      "failed_cases": [
+        "lc-393-6",
+        "lc-393-11",
+        "lc-393-stress-3"
+      ]
+    },
+    {
+      "reason": "Checks only a high bit of 1 rather than the required two-bit prefix 10.",
+      "failed_cases": [
+        "lc-393-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4440,
+  "oracle_implementation": "code_practice/import_batch_036.py:utf_oracle",
+  "validator_implementation_sha256": "eb9a786650ca24c98c129fa2c892e8e247020313fa94ad6ed2753767c08101d7",
+  "batch_implementation_sha256": "1180f4f13ad1d098654b5738f6428ca225b11d6bb84572014cce551500cdd8de",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

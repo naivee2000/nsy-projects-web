@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 353,
+  "count": 363,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -6319,6 +6319,172 @@
       "source_id": 378
     },
     {
+      "id": "leetcode-386",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographical Numbers",
+      "summary": "Provide all integers from 1 to n in lexicographical order, ensuring the algorithm executes in O(n) time and uses O(1) additional space.",
+      "topics": [
+        "math",
+        "trees",
+        "depth-first-search",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-386.json",
+      "content_sha256": "db2db46a85b7b88b3e671363bb0b129066fd90e2e7da4402f4e4cb55a0c5136a",
+      "source_id": 386
+    },
+    {
+      "id": "leetcode-388",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Absolute File Path",
+      "summary": "A string describes an abstract filesystem: actual newline characters (\\n) separate entries, and each leading tab (\\t) increases the directory depth by one.",
+      "topics": [
+        "strings",
+        "stacks",
+        "trees"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-388.json",
+      "content_sha256": "55def7cd9c74b8b2836d72b038afa59e4cebdcac241bd29b40a630b9c131a361",
+      "source_id": 388
+    },
+    {
+      "id": "leetcode-390",
+      "version": 1,
+      "status": "approved",
+      "title": "Elimination Game",
+      "summary": "Given a list arr containing all integers from 1 to n in strictly increasing order, repeatedly apply the following steps: start from the left and remove the first element and every other element to the right; then start from the right and remove the last element and every other element to the left.",
+      "topics": [
+        "math",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-390.json",
+      "content_sha256": "2147b7f04ddd54e905120bbb76534c71e37484a2caee400017c082d435bd2602",
+      "source_id": 390
+    },
+    {
+      "id": "leetcode-393",
+      "version": 1,
+      "status": "approved",
+      "title": "UTF-8 Validation",
+      "summary": "Check whether data can be partitioned into groups with these binary byte-prefix patterns: 0xxxxxxx; 110xxxxx 10xxxxxx; 1110xxxx 10xxxxxx 10xxxxxx; or 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx.",
+      "topics": [
+        "bit-manipulation",
+        "arrays",
+        "state-machines"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-393.json",
+      "content_sha256": "3fcfd75796f7d4b5bfc53f915b7e2c8930463a54fddca427c93b4476db067c05",
+      "source_id": 393
+    },
+    {
+      "id": "leetcode-394",
+      "version": 1,
+      "status": "approved",
+      "title": "Decode String",
+      "summary": "Given an encoded string, return its decoded string by repeating the substring inside the square brackets exactly k times, where k is a positive integer.",
+      "topics": [
+        "strings",
+        "recursion",
+        "parsing",
+        "stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-394.json",
+      "content_sha256": "6ef6b6f9963d45fc5a696c48c72ea50e8af98d0fe0142bd792d9917191b2b782",
+      "source_id": 394
+    },
+    {
+      "id": "leetcode-395",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Substring with At Least K Repeating Characters",
+      "summary": "Given a string s and an integer k, find the length of the longest substring where each character appears at least k times.",
+      "topics": [
+        "strings",
+        "divide-and-conquer",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-395.json",
+      "content_sha256": "d8eb75bdb0f87d234b094304b90f45a2fbf08fe13c4ccdfdee2cc234081b1951",
+      "source_id": 395
+    },
+    {
+      "id": "leetcode-397",
+      "version": 1,
+      "status": "approved",
+      "title": "Integer Replacement",
+      "summary": "Starting with a positive integer n, repeatedly apply the following operations: if n is even, divide it by two; if n is odd, either add one or subtract one.",
+      "topics": [
+        "bit-manipulation",
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-397.json",
+      "content_sha256": "cbac8c1cff3c7d8d0b467c7c1e6893d97508017a2e4202d067859dbfb0b9850f",
+      "source_id": 397
+    },
+    {
+      "id": "leetcode-402",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove K Digits",
+      "summary": "Given a string representing a non-negative integer and an integer k, remove exactly k digits to form the smallest possible integer.",
+      "topics": [
+        "strings",
+        "stacks",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-402.json",
+      "content_sha256": "e12d6ea28feec98420c724f583b45f96e549c913d7858cbff586c2b1c9970e32",
+      "source_id": 402
+    },
+    {
+      "id": "leetcode-403",
+      "version": 1,
+      "status": "approved",
+      "title": "Frog Jump",
+      "summary": "A frog starts on the first stone of a river divided into units, some containing stones.",
+      "topics": [
+        "dynamic-programming",
+        "graphs",
+        "recursion"
+      ],
+      "prerequisites": [
+        "recursion",
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-403.json",
+      "content_sha256": "ce6ff8cc22be1555d1221c1dd340635a9d86e4afabd211f5764ed1ec4a7563a2",
+      "source_id": 403
+    },
+    {
       "id": "leetcode-404",
       "version": 1,
       "status": "approved",
@@ -6334,6 +6500,24 @@
       "path": "problems/leetcode-404.json",
       "content_sha256": "b22d5dfe6c7cb1799f87596e215aa074ff41da52ca8bdee7f4a4ab8ce22c56cd",
       "source_id": 404
+    },
+    {
+      "id": "leetcode-408",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Word Abbreviation",
+      "summary": "Determine if a string matches a given abbreviation by verifying that the abbreviation accurately represents the string through the replacement of non-adjacent, non-empty substrings with their lengths, and ensuring that the lengths do not have leading zeros.",
+      "topics": [
+        "strings",
+        "two-pointers",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-408.json",
+      "content_sha256": "7ca2c42a2451f84eb080157b175d8a27fe892dd2a24a39a83cf9d32e4e0ed8cc",
+      "source_id": 408
     },
     {
       "id": "leetcode-543",

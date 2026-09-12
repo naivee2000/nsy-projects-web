@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 353 runnable problems (101 original exercises plus 252 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 363 runnable problems (101 original exercises plus 262 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **345-problem handoff checkpoint** is tagged `python-study-345-checkpoint`; both it and the earlier 326-problem tag remain unchanged. See [the checkpoint and transfer checklist](docs/RELEASE_CHECKPOINT.md) for exact-version update commands. Goal work has resumed locally, adding eight verified problems on `main`. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **363-problem handoff checkpoint** is tagged `python-study-363-checkpoint`; the earlier 345- and 326-problem tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_363_CHECKPOINT.md) for exact-version update commands. Expansion is held at this checkpoint while the owner updates the other computer, then can resume from the saved ledger. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 72 existing equivalents, 252 verified imports, 155 documented
-design/interactive exclusions, and 3,150 pending records. Ordinary tree and
+Current status: 72 existing equivalents, 262 verified imports, 155 documented
+design/interactive exclusions, and 3,140 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Thirty-five reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Thirty-six reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -320,6 +320,17 @@ node positions fail even if the displayed tree is correct. Restored temporary
 Morris threads are allowed. The constant-space reference handles 1,000-node
 chains, and exhaustive tests cover every swapped pair on every tree shape through
 seven nodes. All imports are revalidated when this shared judge contract changes.
+Batch thirty-six adds Lexicographical Numbers, Longest Absolute File Path,
+Elimination Game, UTF-8 Validation, Decode String, Longest Substring with At Least
+K Repeating Characters, Integer Replacement, Remove K Digits, Frog Jump, and
+Valid Word Abbreviation. Nested decoding and recursive frequency splitting retain
+weak-topic review coverage; the Hard frog exercise tracks both position and last
+jump. The filesystem exercise processes newline/tab-encoded text only. UTF-8
+grading explicitly follows the source's byte-prefix patterns rather than adding
+Unicode scalar-value restrictions. Exhaustive small-domain regressions and
+source-sized fixtures cover up to 100,000 decoded characters/digits and 2,000
+stones. Abbreviation validity is a separate boolean query from the existing
+all-abbreviations generator. The judge and all previous problem IDs are unchanged.
 Of the 72 overlaps, 69 map to original exercises and three map to approved
 imports. Unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
@@ -357,7 +368,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 353 problems; future
+been checked against every reviewed batch. The current package contains 363 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

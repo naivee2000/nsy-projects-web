@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-402",
+  "content_sha256": "e12d6ea28feec98420c724f583b45f96e549c913d7858cbff586c2b1c9970e32",
+  "source_hash": "c2fd90e4346edbf5ea14cf9ac8dd57d9d99e7ea86738b3ad4e531db9c0bdb015",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Deletes equal digits too early, consuming the budget before a later larger digit can be removed.",
+      "failed_cases": [
+        "lc-402-7"
+      ]
+    },
+    {
+      "reason": "Forgets to remove leftover digits from an increasing suffix.",
+      "failed_cases": [
+        "lc-402-4",
+        "lc-402-7",
+        "lc-402-8",
+        "lc-402-10",
+        "lc-402-stress-2",
+        "lc-402-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4449,
+  "oracle_implementation": "code_practice/import_batch_036.py:digits_oracle",
+  "validator_implementation_sha256": "eb9a786650ca24c98c129fa2c892e8e247020313fa94ad6ed2753767c08101d7",
+  "batch_implementation_sha256": "1180f4f13ad1d098654b5738f6428ca225b11d6bb84572014cce551500cdd8de",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.075,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
