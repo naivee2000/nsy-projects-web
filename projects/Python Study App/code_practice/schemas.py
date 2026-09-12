@@ -7,7 +7,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 Comparator = Literal["exact", "float", "unordered", "unordered_nested", "balanced_bst"]
-ParameterAdapter = Literal["raw", "listnode", "treenode", "treenode_ref"]
+ParameterAdapter = Literal["raw", "listnode", "listnode_ref", "treenode", "treenode_ref"]
 ReturnAdapter = Literal["raw", "listnode", "treenode", "treenode_value"]
 AttemptResult = Literal["accepted", "wrong_answer", "syntax_error", "runtime_error", "timeout"]
 
@@ -63,7 +63,8 @@ class ParameterDefinition(BaseModel):
     annotation: str
     adapter: ParameterAdapter = "raw"
     # A treenode_ref is selected by its unique value from this earlier
-    # treenode parameter. Other parameter adapters never use this field.
+    # treenode parameter. A listnode_ref carries its source list and selected
+    # index inside the argument payload, so it does not use this field.
     source_parameter: int | None = Field(default=None, ge=0)
 
 
@@ -72,7 +73,9 @@ class FunctionSignature(BaseModel):
     parameters: list[ParameterDefinition]
     returns: str
     return_adapter: ReturnAdapter = "raw"
-    node_policy: Literal["values", "reuse_input_nodes", "return_input_node"] = "values"
+    node_policy: Literal[
+        "values", "reuse_input_nodes", "return_input_node", "delete_referenced_list_node"
+    ] = "values"
     result_mode: Literal["return", "mutated_argument", "returned_prefix"] = "return"
     mutated_parameter: int | None = Field(default=None, ge=0)
 
@@ -83,6 +86,9 @@ class FunctionSignature(BaseModel):
                 if (parameter.source_parameter is None or parameter.source_parameter >= index
                         or self.parameters[parameter.source_parameter].adapter != "treenode"):
                     raise ValueError("Tree-node references require an earlier TreeNode source parameter")
+            elif parameter.adapter == "listnode_ref":
+                if parameter.source_parameter is not None:
+                    raise ValueError("List-node reference payloads cannot select a separate source parameter")
             elif parameter.source_parameter is not None:
                 raise ValueError("Only tree-node references may select a source parameter")
         if self.result_mode == "return":
@@ -106,6 +112,11 @@ class FunctionSignature(BaseModel):
             if (self.result_mode != "return" or self.return_adapter != "treenode_value"
                     or not any(parameter.adapter == "treenode" for parameter in self.parameters)):
                 raise ValueError("Returned-node identity requires a TreeNode input and TreeNode value output")
+        elif self.node_policy == "delete_referenced_list_node":
+            if (self.result_mode != "mutated_argument" or self.mutated_parameter is None
+                    or self.parameters[self.mutated_parameter].adapter != "listnode_ref"
+                    or self.returns != "None" or self.return_adapter != "raw"):
+                raise ValueError("Referenced-node deletion requires a mutated ListNode reference and no return value")
         elif self.return_adapter == "treenode_value":
             raise ValueError("TreeNode value output requires returned-node identity checking")
         return self
@@ -176,6 +187,22 @@ class ProblemDefinition(BaseModel):
 
     @model_validator(mode="after")
     def validate_learning_content(self) -> "ProblemDefinition":
+        for test in self.tests:
+            for index, parameter in enumerate(self.signature.parameters):
+                if parameter.adapter != "listnode_ref":
+                    continue
+                value = test.arguments[index] if index < len(test.arguments) else None
+                if (not isinstance(value, dict) or set(value) != {"values", "index"}
+                        or not isinstance(value["values"], list)
+                        or not 2 <= len(value["values"]) <= 100_000
+                        or any(type(item) is not int for item in value["values"])
+                        or type(value["index"]) is not int
+                        or not 0 <= value["index"] < len(value["values"]) - 1):
+                    raise ValueError("List-node references require values plus a non-tail selected index")
+                if (self.signature.node_policy == "delete_referenced_list_node"
+                        and (not isinstance(test.expected, list)
+                             or len(test.expected) != len(value["values"]) - 1)):
+                    raise ValueError("Referenced-node deletion must expect the full list with one node removed")
         if any(t.comparator == "balanced_bst" for t in self.tests):
             if (self.signature.result_mode != "return" or self.signature.return_adapter != "treenode"
                     or len(self.signature.parameters) != 1

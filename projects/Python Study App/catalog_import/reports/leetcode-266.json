@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-266",
+  "content_sha256": "338cd882e4c13211aa78433e9c2e3fb5eb7a55c15ca1015d010cb95d59197e3e",
+  "source_hash": "428a3b22efcf13e73209a7b9834ec3149f7c945387236bd3a1a6f7ef2cd6da4f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects every odd count, even though one odd character may occupy the center.",
+      "failed_cases": [
+        "lc-266-2",
+        "lc-266-3",
+        "lc-266-8",
+        "lc-266-9",
+        "lc-266-11"
+      ]
+    },
+    {
+      "reason": "Checks only the current order and misses strings whose characters can be rearranged into a palindrome.",
+      "failed_cases": [
+        "lc-266-2",
+        "lc-266-7",
+        "lc-266-8",
+        "lc-266-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4313,
+  "oracle_implementation": "code_practice/import_batch_025.py:palindrome_possible_oracle",
+  "validator_implementation_sha256": "dcc00163257802b4eb693044ea86b41490de7f850d963f2089dd0bb07a3bf6d9",
+  "batch_implementation_sha256": "d002a0e102499060f525556fdbb34e41d785fccd235a0c47c6e5fe38cd56a6b2",
+  "judge_contract_sha256": "cfdca898e69e62a3916bfbf442d2974cdd430e92f207712e80544183f841b449",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

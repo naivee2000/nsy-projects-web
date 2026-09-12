@@ -44,6 +44,26 @@ def _listnode(values: list[int] | None, node_type: type = ListNode) -> Any:
     return dummy.next
 
 
+def _listnode_reference(payload: Any, node_type: type = ListNode) -> tuple[Any, dict[str, Any]]:
+    """Build a source list and return one selected non-tail node plus judge context."""
+    if (not isinstance(payload, dict) or set(payload) != {"values", "index"}
+            or not isinstance(payload["values"], list)
+            or not 2 <= len(payload["values"]) <= 100_000
+            or any(type(value) is not int for value in payload["values"])
+            or type(payload["index"]) is not int
+            or not 0 <= payload["index"] < len(payload["values"]) - 1):
+        raise ValueError("List-node reference requires values plus a non-tail selected index")
+    nodes = [node_type(value) for value in payload["values"]]
+    for left, right in zip(nodes, nodes[1:]):
+        left.next = right
+    return nodes[payload["index"]], {
+        "head": nodes[0],
+        "nodes": nodes,
+        "values": list(payload["values"]),
+        "index": payload["index"],
+    }
+
+
 def _treenode(values: list[int | None] | None, node_type: type = TreeNode) -> Any:
     if not values or values[0] is None:
         return None
@@ -70,7 +90,7 @@ def _serialize(value: Any, adapter: str, strict_tree_values: bool = False) -> An
         if not hasattr(value, "val"):
             raise ValueError("Returned value must be a TreeNode")
         return value.val
-    if adapter == "listnode":
+    if adapter in ("listnode", "listnode_ref"):
         result = []
         seen = set()
         while value is not None:
@@ -182,9 +202,14 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
         exec(compile(source, f"<{problem.id}>", "exec"), namespace)
         function = namespace[problem.signature.name]
         arguments = []
-        for value, parameter in zip(json.loads(json.dumps(test.arguments)), problem.signature.parameters):
+        listnode_references = {}
+        for index, (value, parameter) in enumerate(zip(json.loads(json.dumps(test.arguments)), problem.signature.parameters)):
             if parameter.adapter == "listnode":
                 value = _listnode(value, namespace.get("ListNode", ListNode))
+            elif parameter.adapter == "listnode_ref":
+                value, listnode_references[index] = _listnode_reference(
+                    value, namespace.get("ListNode", ListNode)
+                )
             elif parameter.adapter == "treenode":
                 value = _treenode(value, namespace.get("TreeNode", TreeNode))
             elif parameter.adapter == "treenode_ref":
@@ -208,7 +233,10 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
             actual = _serialize(output, problem.signature.return_adapter, test.comparator == "balanced_bst")
         else:
             index = problem.signature.mutated_parameter
-            changed = _serialize(arguments[index], problem.signature.parameters[index].adapter)
+            parameter_adapter = problem.signature.parameters[index].adapter
+            changed_root = (listnode_references[index]["head"]
+                            if parameter_adapter == "listnode_ref" else arguments[index])
+            changed = _serialize(changed_root, parameter_adapter)
             if mode == "mutated_argument":
                 actual = changed
             else:
@@ -233,6 +261,19 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
                    or (id(node.right) if node.right else None) != right
                    for node, value, left, right in original_tree_nodes.values()):
                 return False, None
+        elif problem.signature.node_policy == "delete_referenced_list_node":
+            context = listnode_references[problem.signature.mutated_parameter]
+            returned_nodes = _node_snapshot(context["head"], "listnode")
+            nodes, selected = context["nodes"], context["index"]
+            expected_nodes = nodes[:selected + 1] + nodes[selected + 2:]
+            if list(returned_nodes) != [id(node) for node in expected_nodes]:
+                return False, None
+            for index, node in enumerate(nodes):
+                if index == selected + 1:
+                    continue
+                expected_value = context["values"][selected + 1] if index == selected else context["values"][index]
+                if node.val != expected_value:
+                    return False, None
         return compare_result(actual, test.expected, test.comparator, mode), None
     except Exception as exc:  # validation reports the exception without hiding it
         return False, f"{type(exc).__name__}: {exc}"

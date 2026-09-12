@@ -47,6 +47,24 @@ def make_listnode(values, node_type=ListNode):
         tail = tail.next
     return dummy.next
 
+def make_listnode_reference(payload, node_type=ListNode):
+    if (not isinstance(payload, dict) or set(payload) != {"values", "index"}
+            or not isinstance(payload["values"], list)
+            or not 2 <= len(payload["values"]) <= 100000
+            or any(type(value) is not int for value in payload["values"])
+            or type(payload["index"]) is not int
+            or not 0 <= payload["index"] < len(payload["values"]) - 1):
+        raise ValueError("List-node reference requires values plus a non-tail selected index")
+    nodes = [node_type(value) for value in payload["values"]]
+    for left, right in zip(nodes, nodes[1:]):
+        left.next = right
+    return nodes[payload["index"]], {
+        "head": nodes[0],
+        "nodes": nodes,
+        "values": list(payload["values"]),
+        "index": payload["index"],
+    }
+
 def make_treenode(values, node_type=TreeNode):
     if not values or values[0] is None:
         return None
@@ -72,7 +90,7 @@ def serialize(value, adapter, strict_tree_values=False):
         if not hasattr(value, "val"):
             raise ValueError("Returned value must be a TreeNode")
         return value.val
-    if adapter == "listnode":
+    if adapter in ("listnode", "listnode_ref"):
         result = []
         seen = set()
         while value is not None:
@@ -240,9 +258,12 @@ else:
     for test in job["tests"]:
         try:
             arguments = []
-            for value, parameter in zip(json.loads(json.dumps(test["arguments"])), job["signature"]["parameters"]):
+            listnode_references = {}
+            for index, (value, parameter) in enumerate(zip(json.loads(json.dumps(test["arguments"])), job["signature"]["parameters"])):
                 if parameter.get("adapter") == "listnode":
                     value = make_listnode(value, namespace.get("ListNode", ListNode))
+                elif parameter.get("adapter") == "listnode_ref":
+                    value, listnode_references[index] = make_listnode_reference(value, namespace.get("ListNode", ListNode))
                 elif parameter.get("adapter") == "treenode":
                     value = make_treenode(value, namespace.get("TreeNode", TreeNode))
                 elif parameter.get("adapter") == "treenode_ref":
@@ -268,7 +289,9 @@ else:
                     actual = serialize(output, job["signature"].get("return_adapter", "raw"), test.get("comparator") == "balanced_bst")
                 else:
                     index = job["signature"]["mutated_parameter"]
-                    changed = serialize(arguments[index], job["signature"]["parameters"][index].get("adapter", "raw"))
+                    parameter_adapter = job["signature"]["parameters"][index].get("adapter", "raw")
+                    changed_root = listnode_references[index]["head"] if parameter_adapter == "listnode_ref" else arguments[index]
+                    changed = serialize(changed_root, parameter_adapter)
                     if mode == "mutated_argument":
                         actual = changed
                     else:
@@ -303,6 +326,23 @@ else:
                          for node, value, left, right in original_tree_nodes.values()):
                     passed = False
                     contract_error = "Return the required existing node from the input tree without changing the tree."
+            elif job["signature"].get("node_policy") == "delete_referenced_list_node":
+                context = listnode_references[job["signature"]["mutated_parameter"]]
+                returned_nodes = node_snapshot(context["head"], "listnode")
+                nodes, selected = context["nodes"], context["index"]
+                expected_nodes = nodes[:selected + 1] + nodes[selected + 2:]
+                if list(returned_nodes) != [id(node) for node in expected_nodes]:
+                    passed = False
+                    contract_error = "Delete the selected value by reusing the selected node, unlinking its original successor, and preserving every other original node."
+                else:
+                    for index, node in enumerate(nodes):
+                        if index == selected + 1:
+                            continue
+                        expected_value = context["values"][selected + 1] if index == selected else context["values"][index]
+                        if node.val != expected_value:
+                            passed = False
+                            contract_error = "Delete the selected value by reusing the selected node, unlinking its original successor, and preserving every other original node."
+                            break
             cases.append({"id": test["id"], "passed": passed, "actual": actual, "expected": test["expected"], "visible": test.get("visible", False), "arguments": test["arguments"] if test.get("visible", False) or not passed else None})
             if contract_error:
                 cases[-1]["error"] = contract_error

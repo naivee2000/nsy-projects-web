@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 270,
+  "count": 280,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -4315,6 +4315,23 @@
       "source_id": 236
     },
     {
+      "id": "leetcode-237",
+      "version": 1,
+      "status": "approved",
+      "title": "Delete Node in a Linked List",
+      "summary": "Given a singly-linked list and a specific node to be deleted, remove the value of the given node from the list, reduce the total number of nodes by one, and ensure that the order of the remaining nodes is preserved both before and after the given node.",
+      "topics": [
+        "linked-lists",
+        "in-place"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-237.json",
+      "content_sha256": "41767c3c8905bba1faf7db310943f85989bfcb2fa1c6a438514a6e16ec902dcc",
+      "source_id": 237
+    },
+    {
       "id": "leetcode-238",
       "version": 1,
       "status": "approved",
@@ -4734,6 +4751,42 @@
       "source_id": 265
     },
     {
+      "id": "leetcode-266",
+      "version": 1,
+      "status": "approved",
+      "title": "Palindrome Permutation",
+      "summary": "Determine if any permutation of the given string can form a palindrome, returning true if possible, otherwise false.",
+      "topics": [
+        "strings",
+        "hash-maps",
+        "parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-266.json",
+      "content_sha256": "338cd882e4c13211aa78433e9c2e3fb5eb7a55c15ca1015d010cb95d59197e3e",
+      "source_id": 266
+    },
+    {
+      "id": "leetcode-267",
+      "version": 1,
+      "status": "approved",
+      "title": "Palindrome Permutation II",
+      "summary": "Given a string s , return all unique palindromic permutations of s (if any).",
+      "topics": [
+        "strings",
+        "backtracking",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-267.json",
+      "content_sha256": "9fcf06c53c872651d6420d6aa42864227a07238dd056d5c6b2dbcf83f6487f7e",
+      "source_id": 267
+    },
+    {
       "id": "leetcode-268",
       "version": 1,
       "status": "approved",
@@ -4749,6 +4802,136 @@
       "path": "problems/leetcode-268.json",
       "content_sha256": "344f43b5807b7ce568467de6a66dbcbd40eab22ebcd1f988e25810c7d29e2970",
       "source_id": 268
+    },
+    {
+      "id": "leetcode-270",
+      "version": 1,
+      "status": "approved",
+      "title": "Closest Binary Search Tree Value",
+      "summary": "Find the value in a binary search tree closest to a given target.",
+      "topics": [
+        "trees",
+        "binary-search",
+        "binary-search-trees"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-270.json",
+      "content_sha256": "08d5342fef3d02e561fb62dadeacf59ace0ec62120ae97cd7dcecd024ac21de6",
+      "source_id": 270
+    },
+    {
+      "id": "leetcode-272",
+      "version": 1,
+      "status": "approved",
+      "title": "Closest Binary Search Tree Value II",
+      "summary": "Given a binary search tree, a target value, and an integer k, identify and return k values within the tree that are nearest to the target value.",
+      "topics": [
+        "trees",
+        "binary-search",
+        "stacks",
+        "binary-search-trees"
+      ],
+      "prerequisites": [
+        "binary-search",
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-272.json",
+      "content_sha256": "b30002ac714228024eecf3fc8772dc8ef52199355f442b5844d9da0cedb1a488",
+      "source_id": 272
+    },
+    {
+      "id": "leetcode-273",
+      "version": 1,
+      "status": "approved",
+      "title": "Integer to English Words",
+      "summary": "Transform a non-negative integer into its corresponding English word form.",
+      "topics": [
+        "strings",
+        "recursion",
+        "math"
+      ],
+      "prerequisites": [
+        "strings",
+        "recursion"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-273.json",
+      "content_sha256": "ffc3c2fd84ef17eb4adb00a917374f3c9c4fc2d3328ded001528296a28b75706",
+      "source_id": 273
+    },
+    {
+      "id": "leetcode-274",
+      "version": 1,
+      "status": "approved",
+      "title": "H-Index",
+      "summary": "Given an array of integers representing the number of citations for each of a researcher's papers, determine the h-index, which is the maximum number of papers that have at least as many citations as their rank.",
+      "topics": [
+        "arrays",
+        "counting-sort",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-274.json",
+      "content_sha256": "74ed58107ce5f01a4fe30f48edb949f46cec93f59637f81955cbbbe7166bd8b4",
+      "source_id": 274
+    },
+    {
+      "id": "leetcode-275",
+      "version": 1,
+      "status": "approved",
+      "title": "H-Index II",
+      "summary": "Given an array of integers citations sorted in non-descending order, find the maximum value of h such that the researcher has at least h papers each cited at least h times.",
+      "topics": [
+        "arrays",
+        "binary-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-275.json",
+      "content_sha256": "5cd3763dfc41704deaf4ac8f32a9ee8f658ce7c83bc727cd7cf4b7788d6090b9",
+      "source_id": 275
+    },
+    {
+      "id": "leetcode-276",
+      "version": 1,
+      "status": "approved",
+      "title": "Paint Fence",
+      "summary": "Given n posts and k colors, calculate the number of ways to paint the fence such that no three consecutive posts have the same color, with each post painted exactly once.",
+      "topics": [
+        "dynamic-programming",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-276.json",
+      "content_sha256": "b3e65ef07e4a22cd7f64d6bc7594af7bb8c033cbed0497e0a2a62cc0817ff76d",
+      "source_id": 276
+    },
+    {
+      "id": "leetcode-279",
+      "version": 1,
+      "status": "approved",
+      "title": "Perfect Squares",
+      "summary": "Given an integer n, find the minimum count of perfect square numbers that sum up to n.",
+      "topics": [
+        "dynamic-programming",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-279.json",
+      "content_sha256": "489feac87fd00380699d8f426b8d7df2712e9aecba449560f63031b0ced1be31",
+      "source_id": 279
     },
     {
       "id": "leetcode-338",

@@ -40,6 +40,7 @@ from .import_batch_021 import BATCH as BATCH_021
 from .import_batch_022 import BATCH as BATCH_022
 from .import_batch_023 import BATCH as BATCH_023
 from .import_batch_024 import BATCH as BATCH_024
+from .import_batch_025 import BATCH as BATCH_025
 from .catalog_evidence import judge_contract_hash
 from .catalog_artifacts import write_json_atomic
 from .schemas import ProblemDefinition, TestCase
@@ -47,7 +48,7 @@ from .starter_code import with_support_classes
 from .validation import compare_result, run_source
 
 ROOT = Path(__file__).resolve().parent.parent
-BATCH = {**BATCH_001, **BATCH_002, **BATCH_003, **BATCH_004, **BATCH_005, **BATCH_006, **BATCH_007, **BATCH_008, **BATCH_009, **BATCH_010, **BATCH_011, **BATCH_012, **BATCH_013, **BATCH_014, **BATCH_015, **BATCH_016, **BATCH_017, **BATCH_018, **BATCH_019, **BATCH_020, **BATCH_021, **BATCH_022, **BATCH_023, **BATCH_024}
+BATCH = {**BATCH_001, **BATCH_002, **BATCH_003, **BATCH_004, **BATCH_005, **BATCH_006, **BATCH_007, **BATCH_008, **BATCH_009, **BATCH_010, **BATCH_011, **BATCH_012, **BATCH_013, **BATCH_014, **BATCH_015, **BATCH_016, **BATCH_017, **BATCH_018, **BATCH_019, **BATCH_020, **BATCH_021, **BATCH_022, **BATCH_023, **BATCH_024, **BATCH_025}
 
 
 def digest(payload):
@@ -121,7 +122,16 @@ def build(pid, spec, source):
                        source_parameter=parameter_sources.get(index))
                   for index, (n, a, d) in enumerate(spec["params"])]
     mode = spec.get("result_mode", "return")
-    sample = workbook_sample(source["sample"], parameters, mode, spec.get("mutated_parameter"))
+    sample_adapter = spec.get("sample_contract_adapter")
+    if sample_adapter:
+        if (set(sample_adapter) != {"source_sample", "arguments", "expected", "reason"}
+                or sample_adapter["source_sample"] != source["sample"]
+                or not isinstance(sample_adapter["reason"], str)
+                or not sample_adapter["reason"].strip()):
+            raise ValueError(f"{pid}: invalid or stale workbook sample contract adapter")
+        sample = (sample_adapter["arguments"], sample_adapter["expected"])
+    else:
+        sample = workbook_sample(source["sample"], parameters, mode, spec.get("mutated_parameter"))
     correction = spec.get("sample_correction")
     if correction and sample is None:
         raise ValueError(f"{pid}: cannot correct a missing workbook sample")
@@ -217,6 +227,12 @@ def _review_child(pid, spec, source, source_hash, connection):
         problem = build(pid, spec, source)
         report = verify(problem, spec, source_hash)
         report["workbook_sample"] = "preserved and independently verified" if source["sample"] else "missing in workbook; reviewed examples authored"
+        if spec.get("sample_contract_adapter"):
+            report["workbook_sample"] = "source sample preserved through an explicit callable-context adapter"
+            report["sample_contract_adapter"] = {
+                **spec["sample_contract_adapter"],
+                "source_reference": source["reference_url"],
+            }
         if spec.get("sample_correction"):
             report["workbook_sample"] = "original input preserved; erroneous workbook output explicitly corrected"
             report["sample_correction"] = {**spec["sample_correction"], "original_sample": source["sample"],

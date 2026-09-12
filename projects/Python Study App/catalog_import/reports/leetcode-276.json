@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-276",
+  "content_sha256": "b3e65ef07e4a22cd7f64d6bc7594af7bb8c033cbed0497e0a2a62cc0817ff76d",
+  "source_hash": "92ae6219828bb356819f8df7ffc8cd2d824099ee98a7f49ae4fc5b30ba623776",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forbids equal adjacent colors, even though runs of exactly two are allowed.",
+      "failed_cases": [
+        "lc-276-1",
+        "lc-276-4",
+        "lc-276-7",
+        "lc-276-8",
+        "lc-276-9",
+        "lc-276-10",
+        "lc-276-11",
+        "lc-276-12",
+        "lc-276-13",
+        "lc-276-14",
+        "lc-276-15"
+      ]
+    },
+    {
+      "reason": "Counts assignments containing runs of three or more equal colors.",
+      "failed_cases": [
+        "lc-276-1",
+        "lc-276-5",
+        "lc-276-6",
+        "lc-276-8",
+        "lc-276-9",
+        "lc-276-11",
+        "lc-276-12",
+        "lc-276-13",
+        "lc-276-14",
+        "lc-276-15",
+        "lc-276-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4323,
+  "oracle_implementation": "code_practice/import_batch_025.py:paint_fence_oracle",
+  "validator_implementation_sha256": "dcc00163257802b4eb693044ea86b41490de7f850d963f2089dd0bb07a3bf6d9",
+  "batch_implementation_sha256": "d002a0e102499060f525556fdbb34e41d785fccd235a0c47c6e5fe38cd56a6b2",
+  "judge_contract_sha256": "cfdca898e69e62a3916bfbf442d2974cdd430e92f207712e80544183f841b449",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

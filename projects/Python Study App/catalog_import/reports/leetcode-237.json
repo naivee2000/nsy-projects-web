@@ -1,0 +1,79 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-237",
+  "content_sha256": "41767c3c8905bba1faf7db310943f85989bfcb2fa1c6a438514a6e16ec902dcc",
+  "source_hash": "ef541b6962c4677cc0a770eaad90167ec6a83b1f32c289ca6d2750136b755551",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Bypasses the successor without copying its value, deleting the wrong list value.",
+      "failed_cases": [
+        "lc-237-1",
+        "lc-237-2",
+        "lc-237-3",
+        "lc-237-4",
+        "lc-237-5",
+        "lc-237-8",
+        "lc-237-9",
+        "lc-237-10",
+        "lc-237-11",
+        "lc-237-12",
+        "lc-237-13",
+        "lc-237-14",
+        "lc-237-stress-1"
+      ]
+    },
+    {
+      "reason": "Copies the successor value but leaves the successor linked, so the list length does not decrease.",
+      "failed_cases": [
+        "lc-237-1",
+        "lc-237-2",
+        "lc-237-3",
+        "lc-237-4",
+        "lc-237-5",
+        "lc-237-6",
+        "lc-237-7",
+        "lc-237-8",
+        "lc-237-9",
+        "lc-237-10",
+        "lc-237-11",
+        "lc-237-12",
+        "lc-237-13",
+        "lc-237-14",
+        "lc-237-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4284,
+  "oracle_implementation": "code_practice/import_batch_025.py:delete_node_oracle",
+  "validator_implementation_sha256": "dcc00163257802b4eb693044ea86b41490de7f850d963f2089dd0bb07a3bf6d9",
+  "batch_implementation_sha256": "d002a0e102499060f525556fdbb34e41d785fccd235a0c47c6e5fe38cd56a6b2",
+  "judge_contract_sha256": "cfdca898e69e62a3916bfbf442d2974cdd430e92f207712e80544183f841b449",
+  "elapsed_seconds": 0.249,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input head = [4,5,1,9], node = 5 → Output [4,1,9].",
+    "arguments": [
+      {
+        "values": [
+          4,
+          5,
+          1,
+          9
+        ],
+        "index": 1
+      }
+    ],
+    "expected": [
+      4,
+      1,
+      9
+    ],
+    "reason": "The callable receives only node; the source head is retained as judge context and node=5 is selected at index 1.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md"
+  }
+}

@@ -53,6 +53,63 @@ def test_tree_reference_schema_requires_an_earlier_tree_and_identity_checked_out
         FunctionSignature(name="bad", parameters=[dict(name="x", annotation="int", source_parameter=0)], returns="int")
 
 
+def test_list_reference_schema_requires_the_selected_deletion_contract():
+    parameter = dict(name="node", annotation="ListNode", adapter="listnode_ref")
+    signature = FunctionSignature(
+        name="delete_node", parameters=[parameter], returns="None", return_adapter="raw",
+        result_mode="mutated_argument", mutated_parameter=0,
+        node_policy="delete_referenced_list_node",
+    )
+    assert signature.parameters[0].adapter == "listnode_ref"
+    assert "class ListNode" in with_support_classes(
+        "def delete_node(node):\n    pass\n", ["listnode_ref"]
+    )
+    with pytest.raises(ValueError):
+        FunctionSignature(
+            name="bad", parameters=[parameter], returns="None", return_adapter="raw",
+            node_policy="delete_referenced_list_node",
+        )
+    with pytest.raises(ValueError):
+        FunctionSignature(
+            name="bad", parameters=[{**parameter, "source_parameter": 0}], returns="None",
+            result_mode="mutated_argument", mutated_parameter=0,
+            node_policy="delete_referenced_list_node",
+        )
+
+
+def test_selected_list_node_deletion_preserves_required_original_identities():
+    original = get_catalog()["leetcode-143"]
+    signature = FunctionSignature(
+        name="delete_node",
+        parameters=[dict(name="node", annotation="ListNode", adapter="listnode_ref")],
+        returns="None", return_adapter="raw", result_mode="mutated_argument",
+        mutated_parameter=0, node_policy="delete_referenced_list_node",
+    )
+    problem = original.model_copy(update={"signature": signature})
+    case = Case(
+        id="selected-delete",
+        arguments=[{"values": [4, 5, 1, 9], "index": 1}],
+        expected=[4, 1, 9],
+    )
+    correct = "def delete_node(node):\n    node.val = node.next.val\n    node.next = node.next.next"
+    assert run_source(correct, problem, case) == (True, None)
+    assert run_source("def delete_node(node):\n    node.next = node.next.next", problem, case) == (False, None)
+    copied = '''def delete_node(node):
+    value = node.next.val
+    rest = node.next.next
+    node.val = value
+    node.next = ListNode(rest.val) if rest else None
+'''
+    assert run_source(copied, problem, case) == (False, None)
+    rewrite = '''def delete_node(node):
+    node.val = node.next.val
+    node.next = node.next.next
+    if node.next:
+        node.next.val += 1
+'''
+    assert run_source(rewrite, problem, case) == (False, None)
+
+
 def test_tree_references_are_real_source_nodes_and_returned_identity_preserves_tree():
     original = get_catalog()["leetcode-230"]
     signature = FunctionSignature(name="lca", parameters=[

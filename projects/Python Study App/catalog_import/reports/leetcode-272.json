@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-272",
+  "content_sha256": "b30002ac714228024eecf3fc8772dc8ef52199355f442b5844d9da0cedb1a488",
+  "source_hash": "93df63f45a37e112942eff882e9cf3c3a21fea450ba83a663f19ec14ff9f7605",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the k numerically smallest values rather than the values nearest target.",
+      "failed_cases": [
+        "lc-272-1",
+        "lc-272-2",
+        "lc-272-5",
+        "lc-272-6",
+        "lc-272-8",
+        "lc-272-10",
+        "lc-272-11",
+        "lc-272-12",
+        "lc-272-14",
+        "lc-272-stress-1"
+      ]
+    },
+    {
+      "reason": "Chooses the farther stack at each step because the distance comparison is reversed.",
+      "failed_cases": [
+        "lc-272-1",
+        "lc-272-5",
+        "lc-272-6",
+        "lc-272-10",
+        "lc-272-11",
+        "lc-272-12",
+        "lc-272-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4319,
+  "oracle_implementation": "code_practice/import_batch_025.py:closest_values_oracle",
+  "validator_implementation_sha256": "dcc00163257802b4eb693044ea86b41490de7f850d963f2089dd0bb07a3bf6d9",
+  "batch_implementation_sha256": "d002a0e102499060f525556fdbb34e41d785fccd235a0c47c6e5fe38cd56a6b2",
+  "judge_contract_sha256": "cfdca898e69e62a3916bfbf442d2974cdd430e92f207712e80544183f841b449",
+  "elapsed_seconds": 0.084,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

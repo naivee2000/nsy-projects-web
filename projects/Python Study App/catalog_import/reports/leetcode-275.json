@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-275",
+  "content_sha256": "5cd3763dfc41704deaf4ac8f32a9ee8f658ce7c83bc727cd7cf4b7788d6090b9",
+  "source_hash": "3f1c1f747944a75307440d19bd85209386e72b24bba34480e17945fa59c6e323",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Uses strict greater-than and misses the defining equality boundary.",
+      "failed_cases": [
+        "lc-275-1",
+        "lc-275-4",
+        "lc-275-7",
+        "lc-275-8",
+        "lc-275-10",
+        "lc-275-14",
+        "lc-275-15",
+        "lc-275-stress-1"
+      ]
+    },
+    {
+      "reason": "Returns the boundary index instead of the number of papers in its suffix.",
+      "failed_cases": [
+        "lc-275-1",
+        "lc-275-2",
+        "lc-275-3",
+        "lc-275-4",
+        "lc-275-5",
+        "lc-275-6",
+        "lc-275-8",
+        "lc-275-9",
+        "lc-275-10",
+        "lc-275-12",
+        "lc-275-13",
+        "lc-275-14",
+        "lc-275-15",
+        "lc-275-16",
+        "lc-275-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4322,
+  "oracle_implementation": "code_practice/import_batch_025.py:h_index_oracle",
+  "validator_implementation_sha256": "dcc00163257802b4eb693044ea86b41490de7f850d963f2089dd0bb07a3bf6d9",
+  "batch_implementation_sha256": "d002a0e102499060f525556fdbb34e41d785fccd235a0c47c6e5fe38cd56a6b2",
+  "judge_contract_sha256": "cfdca898e69e62a3916bfbf442d2974cdd430e92f207712e80544183f841b449",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

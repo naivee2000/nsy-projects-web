@@ -28,7 +28,7 @@ def with_support_classes(source: str, adapters: Iterable[str]) -> str:
     """Prepend the concrete node classes used by an adapted callable."""
     adapter_set = set(adapters)
     definitions: list[str] = []
-    if "listnode" in adapter_set and not re.search(r"^class\s+ListNode\b", source, re.MULTILINE):
+    if adapter_set.intersection({"listnode", "listnode_ref"}) and not re.search(r"^class\s+ListNode\b", source, re.MULTILINE):
         definitions.append(LIST_NODE_DEFINITION)
     if adapter_set.intersection({"treenode", "treenode_ref", "treenode_value"}) and not re.search(r"^class\s+TreeNode\b", source, re.MULTILINE):
         definitions.append(TREE_NODE_DEFINITION)

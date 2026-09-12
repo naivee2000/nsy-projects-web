@@ -139,6 +139,13 @@ try {
   assert((await page.getByRole('note').textContent()).includes('a returned copy is not used'));
   report.checks.push('in-place and returned-prefix judging explanations render with the published examples');
   await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Delete Node in a Linked List');
+  await page.getByRole('button', { name: /Delete Node in a Linked List.*Easy/ }).click();
+  await page.getByRole('note').waitFor();
+  assert((await page.getByRole('note').textContent()).includes('actual non-tail node'));
+  assert((await page.locator('.example code').first().textContent()).includes('"index":1'));
+  report.checks.push('selected linked-node input and full-list mutation judging are explained beside examples');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
   await page.getByPlaceholder('Search title, topic, or pattern').fill('Convert Sorted Array to Binary Search Tree');
   await page.getByRole('button', { name: /Convert Sorted Array to Binary Search Tree.*Easy/ }).click();
   await page.getByRole('note').waitFor();
@@ -230,6 +237,20 @@ try {
   assert.equal(mutatedAncestor.status, 'wrong_answer');
   assert(mutatedAncestor.cases[0].error.includes('existing node'));
   report.checks.push('selected TreeNode arguments are real input references; copied return nodes and input-tree mutations are rejected');
+  const selectedListNode = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-237.json'), 'utf8'));
+  const selectedCase = { ...selectedListNode, tests: [selectedListNode.tests[0]] };
+  assert.equal((await judge(page, selectedCase, selectedListNode.reference_solution)).status, 'accepted');
+  const skipsSelectedValue = await judge(page, selectedCase,
+    'def delete_node(node):\n    node.next = node.next.next');
+  assert.equal(skipsSelectedValue.status, 'wrong_answer');
+  const copiesRemainingNode = await judge(page, selectedCase, `def delete_node(node):
+    successor = node.next
+    node.val = successor.val
+    node.next = ListNode(successor.next.val) if successor.next else None
+`);
+  assert.equal(copiesRemainingNode.status, 'wrong_answer');
+  assert(copiesRemainingNode.cases[0].error.includes('selected node'));
+  report.checks.push('selected ListNode deletion accepts the in-place splice and rejects wrong-value or replacement-node mutations');
   const arrayBst = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-108.json'), 'utf8'));
   const listBst = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-109.json'), 'utf8'));
   const treeCase = (problem, values, expected) => ({ ...problem, tests: [{
@@ -285,7 +306,7 @@ try {
   assert.equal(restored.savedDraft, problem.reference_solution);
   assert.equal(restored.solved, true);
   report.checks.push('draft and accepted progress survive a real backend restart');
-  for (const route of ['/api/problems?page_size=30', '/api/problems?search=tree&topic=recursion', '/api/problems/leetcode-79', '/api/dashboard']) {
+  for (const route of ['/api/problems?page_size=30', '/api/problems?search=tree&topic=recursion', '/api/problems/leetcode-79', '/api/problems/leetcode-237', '/api/dashboard']) {
     const times = [];
     await (await fetch(base + route)).arrayBuffer();
     for (let i = 0; i < 100; i++) {
@@ -297,7 +318,8 @@ try {
     }
     times.sort((a, b) => a - b);
     report.endpoints[route] = { requests: 100, p50Ms: times[49], p95Ms: times[94], maxMs: times[99] };
-    assert(times[94] <= (route === '/api/dashboard' || route === '/api/problems/leetcode-79' ? 500 : 300));
+    const detailOrDashboard = route === '/api/dashboard' || (route.startsWith('/api/problems/') && !route.includes('?'));
+    assert(times[94] <= (detailOrDashboard ? 500 : 300));
   }
   await stop();
   report.serverPeakRssMiB = Math.max(...serverMemoryRuns.map(run => run.peakRssBytes)) / 2**20;

@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-267",
+  "content_sha256": "9fcf06c53c872651d6420d6aa42864227a07238dd056d5c6b2dbcf83f6487f7e",
+  "source_hash": "445b0c07195f71ae2da433580113fda421afa3970c7720e9a35a245e8618b410",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns only each chosen half instead of mirroring it into a full palindrome.",
+      "failed_cases": [
+        "lc-267-1",
+        "lc-267-3",
+        "lc-267-4",
+        "lc-267-6",
+        "lc-267-7",
+        "lc-267-8",
+        "lc-267-9",
+        "lc-267-10",
+        "lc-267-11",
+        "lc-267-12",
+        "lc-267-13",
+        "lc-267-14",
+        "lc-267-stress-1"
+      ]
+    },
+    {
+      "reason": "Drops the required center character for every odd-length palindrome.",
+      "failed_cases": [
+        "lc-267-3",
+        "lc-267-6",
+        "lc-267-7",
+        "lc-267-8",
+        "lc-267-9",
+        "lc-267-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4314,
+  "oracle_implementation": "code_practice/import_batch_025.py:palindrome_permutations_oracle",
+  "validator_implementation_sha256": "dcc00163257802b4eb693044ea86b41490de7f850d963f2089dd0bb07a3bf6d9",
+  "batch_implementation_sha256": "d002a0e102499060f525556fdbb34e41d785fccd235a0c47c6e5fe38cd56a6b2",
+  "judge_contract_sha256": "cfdca898e69e62a3916bfbf442d2974cdd430e92f207712e80544183f841b449",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

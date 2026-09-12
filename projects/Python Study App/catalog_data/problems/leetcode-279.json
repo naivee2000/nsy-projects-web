@@ -1,0 +1,271 @@
+{
+  "id": "leetcode-279",
+  "version": 1,
+  "status": "approved",
+  "title": "Perfect Squares",
+  "summary": "Given an integer n, find the minimum count of perfect square numbers that sum up to n.",
+  "statement": "Given an integer n, find the minimum count of perfect square numbers that sum up to n. A perfect square is an integer equal to the product of an integer with itself, such as 1, 4, 9, and 16.",
+  "constraints": [
+    "n is an integer from 1 through 10000.",
+    "Return the minimum number of positive perfect squares whose sum is n. A square value may be reused."
+  ],
+  "topics": [
+    "dynamic-programming",
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "minimum_perfect_squares",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def minimum_perfect_squares(n: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def minimum_perfect_squares(n):\n    best = list(range(n + 1))\n    for value in range(1, n + 1):\n        root = 1\n        while root * root <= value:\n            best[value] = min(best[value], best[value - root * root] + 1)\n            root += 1\n    return best[n]\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def minimum_perfect_squares(n):\n    from math import isqrt\n    count = 0\n    while n:\n        square = isqrt(n) ** 2\n        n -= square\n        count += 1\n    return count\n",
+    "def minimum_perfect_squares(n):\n    from math import isqrt\n    return isqrt(n)\n"
+  ],
+  "target_time_complexity": "O(n√n)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Treat every smaller total as a reusable subproblem.",
+    "For each value, try every square no larger than it and extend the best result for the remainder.",
+    "Initialize best[x]=x using x copies of 1. Replace it with min(best[x-square]+1) over square roots.",
+    "The table grows from 0 upward, so every remainder has already been solved when it is needed."
+  ],
+  "editorial": "Dynamic programming defines best[x] as the fewest squares summing to x. Every optimal representation ends with some square q², leaving an optimal representation of x-q². Trying every possible final square yields the minimum. The independent oracle uses the four-square theorem and a two-square search instead of the DP recurrence.",
+  "tests": [
+    {
+      "id": "lc-279-1",
+      "arguments": [
+        12
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Twelve is 4+4+4, so three squares suffice; it cannot be expressed as one or two squares.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-2",
+      "arguments": [
+        13
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Thirteen is 9+4, so the minimum is two squares.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-3",
+      "arguments": [
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-4",
+      "arguments": [
+        2
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-5",
+      "arguments": [
+        3
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-6",
+      "arguments": [
+        4
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-7",
+      "arguments": [
+        5
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-8",
+      "arguments": [
+        7
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-9",
+      "arguments": [
+        8
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-10",
+      "arguments": [
+        9
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-11",
+      "arguments": [
+        10
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-12",
+      "arguments": [
+        16
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-13",
+      "arguments": [
+        18
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-14",
+      "arguments": [
+        23
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-15",
+      "arguments": [
+        43
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-16",
+      "arguments": [
+        99
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-17",
+      "arguments": [
+        100
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-18",
+      "arguments": [
+        9999
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-279-19",
+      "arguments": [
+        10000
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

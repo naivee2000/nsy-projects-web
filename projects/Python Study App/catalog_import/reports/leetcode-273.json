@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-273",
+  "content_sha256": "ffc3c2fd84ef17eb4adb00a917374f3c9c4fc2d3328ded001528296a28b75706",
+  "source_hash": "44e61b7cfb0db0835772f3bc1d589650c423cad0126ee87321dbd80b69c0e286",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Returns an empty string instead of the required word Zero.",
+      "failed_cases": [
+        "lc-273-3"
+      ]
+    },
+    {
+      "reason": "Joins every token with 'and', violating the specified output grammar and spacing.",
+      "failed_cases": [
+        "lc-273-1",
+        "lc-273-2",
+        "lc-273-8",
+        "lc-273-9",
+        "lc-273-10",
+        "lc-273-11",
+        "lc-273-12",
+        "lc-273-13",
+        "lc-273-14",
+        "lc-273-15",
+        "lc-273-16",
+        "lc-273-17",
+        "lc-273-18",
+        "lc-273-19",
+        "lc-273-20",
+        "lc-273-21"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4320,
+  "oracle_implementation": "code_practice/import_batch_025.py:number_words_oracle",
+  "validator_implementation_sha256": "dcc00163257802b4eb693044ea86b41490de7f850d963f2089dd0bb07a3bf6d9",
+  "batch_implementation_sha256": "d002a0e102499060f525556fdbb34e41d785fccd235a0c47c6e5fe38cd56a6b2",
+  "judge_contract_sha256": "cfdca898e69e62a3916bfbf442d2974cdd430e92f207712e80544183f841b449",
+  "elapsed_seconds": 0.067,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -43,9 +43,21 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 70 existing equivalents (69 original exercises and
   one approved import). Static evidence identifies 130 approved-scope
-  design/interactive exclusions; 3,260 rows remain pending.
-- 169 new imports in twenty-four reviewed batches pass deterministic tests and 500
-  independent oracle inputs each. The published catalog contains 270 problems.
+  design/interactive exclusions; 3,250 rows remain pending.
+- 179 new imports in twenty-five reviewed batches pass deterministic tests and 500
+  independent oracle inputs each. The published catalog contains 280 problems.
+- Batch twenty-five covers LeetCode 237, 266–267, 270, 272–276, and 279:
+  selected-node list deletion, palindrome feasibility/generation, one/k closest
+  BST values, integer-to-English conversion, unsorted/sorted H-Index, fence
+  painting, and minimum perfect squares. Source 237 retains its one-parameter
+  callable. A structured test payload builds the full list and selects the actual
+  non-tail node; the judge observes the original head and requires the selected
+  node to remain while its original successor is unlinked. The workbook's head
+  and node context is preserved explicitly in its validation report. Regressions
+  exhaust small palindrome strings, citation arrays, fence paintings, and square
+  totals. Stress fixtures include 100,000 list nodes, 10,000-node BST chains,
+  100,000 sorted citations, the complete 32-bit number-word range, and n=10,000
+  square DP. Recursive and binary-search review priorities remain active.
 - Batch twenty-four covers LeetCode 235–236, 255, 257, 259–261, and 263–265:
   lowest common ancestors in BSTs and arbitrary binary trees, BST preorder
   validation, root-to-leaf path formatting, smaller 3Sum counting, two signed
@@ -258,18 +270,21 @@ correctness. Generated tests must meet each problem's actual constraints.
 - The shared judge now has a validated contract for selecting real TreeNode
   arguments from an input tree and requiring the returned node to retain its
   identity. Both batch-twenty-four LCA exercises use the contract, and copied
-  nodes or tree mutations are rejected. All 169 published imports were
-  revalidated before the 270-problem package was rebuilt.
+  nodes or tree mutations are rejected. It also supports an embedded full-list
+  context that supplies one real non-tail ListNode and checks the complete list
+  afterward. All 179 published imports were revalidated before the 280-problem
+  package was rebuilt.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 270-problem Chrome/M3 Pro run: library/search p95 1.84/1.67 ms,
-  detail p95 5.22 ms, dashboard p95 2.49 ms (100 requests per route),
-  startup 324 ms, backend peak RSS 66.13 MiB. All 169 imported references and
+- Current 280-problem Chrome/M3 Pro run: library/search p95 1.16/1.08 ms,
+  detail p95 1.20 ms for Word Search and 1.16 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.48 ms (100 requests per route). Startup is
+  326 ms and backend peak RSS is 84 MiB after loading the largest linked-list
+  detail. All 179 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The ten newest suites complete within 569 ms after runtime load; this includes
-  both 100,000-node LCA chains, exhaustive tree/graph boundary cases, and the
-  source-scale array and painting fixtures. The slower new 3Sum Smaller suite
-  takes about 569 ms, and both LCA suites stay below 258 ms.
+  The ten newest suites complete within 294 ms after runtime load. Perfect
+  Squares is the slowest at 294 ms; selected-node deletion with 100,000 nodes
+  takes 236 ms, and the remaining new suites stay below 48 ms.
   Tree Height's suite with 20,000-node chains takes 97.4 ms. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
@@ -278,9 +293,11 @@ correctness. Generated tests must meet each problem's actual constraints.
   despite matching displayed values; correct in-place rewiring is accepted.
   Balanced-BST checks accept a different valid shape and reject wrong inorder,
   missing duplicates, internal imbalance, and invalid node values in Chrome.
+  Selected ListNode checks accept the constant-space splice and reject both a
+  wrong deleted value and replacement nodes whose displayed values look correct.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
-- Current automated suite: 205 backend tests and 12 frontend tests pass. The
+- Current automated suite: 214 backend tests and 12 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

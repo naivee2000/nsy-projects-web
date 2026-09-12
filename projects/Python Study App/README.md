@@ -1,6 +1,6 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 270 runnable problems (101 original exercises plus 169 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 280 runnable problems (101 original exercises plus 179 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
 ## Start the app
 
@@ -65,13 +65,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 70 existing equivalents, 169 verified imports, 130 documented
-design/interactive exclusions, and 3,260 pending records. Ordinary tree and
+Current status: 70 existing equivalents, 179 verified imports, 130 documented
+design/interactive exclusions, and 3,250 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Twenty-four reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Twenty-five reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -208,6 +208,16 @@ must return an existing node without mutating the tree. Regressions cover
 duplicate tree paths, signed singleton pairs, the 1,690th ugly number, and
 independent small painting assignments. Recursive-tree and binary-search study
 priorities remain intact.
+Batch twenty-five adds Delete Node in a Linked List, both Palindrome Permutation
+problems, both closest-BST-value problems, Integer to English Words, both H-Index
+problems, Paint Fence, and Perfect Squares. Delete Node receives the actual
+selected non-tail ListNode while the judge retains the original head; it accepts
+the constant-space value-copy/splice operation and rejects replacement nodes or
+changes to other nodes. The workbook's contextual `head` and `node` sample is
+preserved through an explicit adapter without adding a head parameter to the
+learner's function. Recursive palindrome and number-word exercises retain weak-
+topic review coverage, and the sorted H-Index exercise keeps its logarithmic
+binary-search target.
 Of the 70 overlaps, 69 map to original exercises and one maps to an approved
 import: unique-only rotated minimum (153) uses the existing duplicate-aware
 entry (154), whose reference still takes logarithmic element reads for unique
@@ -236,8 +246,8 @@ Timeouts, inconsistent workbook samples, schema errors, oracle disagreements,
 and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
-the current in-place and selected-TreeNode extensions have been checked against
-every reviewed batch. The release package contains 270 problems; future
+the current in-place, selected-TreeNode, and selected-ListNode extensions have
+been checked against every reviewed batch. The release package contains 280 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

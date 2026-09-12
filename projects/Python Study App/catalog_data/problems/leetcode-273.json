@@ -1,0 +1,297 @@
+{
+  "id": "leetcode-273",
+  "version": 1,
+  "status": "approved",
+  "title": "Integer to English Words",
+  "summary": "Transform a non-negative integer into its corresponding English word form.",
+  "statement": "Transform a non-negative integer into its corresponding English word form.",
+  "constraints": [
+    "num is an integer from 0 through 2^31-1.",
+    "Return its US English words with single spaces and title-case number words. Do not use 'and' or hyphens; zero is exactly 'Zero'."
+  ],
+  "topics": [
+    "strings",
+    "recursion",
+    "math"
+  ],
+  "prerequisites": [
+    "strings",
+    "recursion"
+  ],
+  "signature": {
+    "name": "integer_to_english_words",
+    "parameters": [
+      {
+        "name": "num",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "str",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null
+  },
+  "starter_code": "def integer_to_english_words(num: int) -> str:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def integer_to_english_words(num):\n    if num == 0:\n        return \"Zero\"\n    below_twenty = [\"\", \"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\",\n                      \"Ten\", \"Eleven\", \"Twelve\", \"Thirteen\", \"Fourteen\", \"Fifteen\", \"Sixteen\",\n                      \"Seventeen\", \"Eighteen\", \"Nineteen\"]\n    tens = [\"\", \"\", \"Twenty\", \"Thirty\", \"Forty\", \"Fifty\", \"Sixty\", \"Seventy\", \"Eighty\", \"Ninety\"]\n    def chunk(value):\n        words = []\n        if value >= 100:\n            words.extend((below_twenty[value // 100], \"Hundred\"))\n            value %= 100\n        if value >= 20:\n            words.append(tens[value // 10])\n            value %= 10\n        if value:\n            words.append(below_twenty[value])\n        return words\n    words = []\n    for size, name in ((1_000_000_000, \"Billion\"), (1_000_000, \"Million\"), (1_000, \"Thousand\"), (1, \"\")):\n        value, num = divmod(num, size)\n        if value:\n            words.extend(chunk(value))\n            if name:\n                words.append(name)\n    return \" \".join(words)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def integer_to_english_words(num):\n    if num == 0:\n        return \"\"\n    below_twenty = [\"\", \"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\",\n                      \"Ten\", \"Eleven\", \"Twelve\", \"Thirteen\", \"Fourteen\", \"Fifteen\", \"Sixteen\",\n                      \"Seventeen\", \"Eighteen\", \"Nineteen\"]\n    tens = [\"\", \"\", \"Twenty\", \"Thirty\", \"Forty\", \"Fifty\", \"Sixty\", \"Seventy\", \"Eighty\", \"Ninety\"]\n    def chunk(value):\n        words = []\n        if value >= 100:\n            words.extend((below_twenty[value // 100], \"Hundred\"))\n            value %= 100\n        if value >= 20:\n            words.append(tens[value // 10])\n            value %= 10\n        if value:\n            words.append(below_twenty[value])\n        return words\n    words = []\n    for size, name in ((1_000_000_000, \"Billion\"), (1_000_000, \"Million\"), (1_000, \"Thousand\"), (1, \"\")):\n        value, num = divmod(num, size)\n        if value:\n            words.extend(chunk(value))\n            if name:\n                words.append(name)\n    return \" \".join(words)\n",
+    "def integer_to_english_words(num):\n    if num == 0:\n        return \"Zero\"\n    below_twenty = [\"\", \"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\",\n                      \"Ten\", \"Eleven\", \"Twelve\", \"Thirteen\", \"Fourteen\", \"Fifteen\", \"Sixteen\",\n                      \"Seventeen\", \"Eighteen\", \"Nineteen\"]\n    tens = [\"\", \"\", \"Twenty\", \"Thirty\", \"Forty\", \"Fifty\", \"Sixty\", \"Seventy\", \"Eighty\", \"Ninety\"]\n    def chunk(value):\n        words = []\n        if value >= 100:\n            words.extend((below_twenty[value // 100], \"Hundred\"))\n            value %= 100\n        if value >= 20:\n            words.append(tens[value // 10])\n            value %= 10\n        if value:\n            words.append(below_twenty[value])\n        return words\n    words = []\n    for size, name in ((1_000_000_000, \"Billion\"), (1_000_000, \"Million\"), (1_000, \"Thousand\"), (1, \"\")):\n        value, num = divmod(num, size)\n        if value:\n            words.extend(chunk(value))\n            if name:\n                words.append(name)\n    return \" and \".join(words)\n"
+  ],
+  "target_time_complexity": "O(log num)",
+  "target_space_complexity": "O(1) beyond output",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Process the number in three-digit groups because scale words change at thousand, million, and billion.",
+    "Write a helper for one group: optional hundreds, then either a value below 20 or a tens word plus ones.",
+    "From billion down through units, divide out each group; spell nonzero groups and append their scale name.",
+    "Skip zero groups completely so no extra scale word or space appears. Handle zero before the loop."
+  ],
+  "editorial": "English number names repeat the same grammar within each three-digit group. A helper spells hundreds, teens, tens, and ones. The outer loop extracts billion, million, thousand, and unit groups from left to right, omitting empty groups and joining tokens once. The independent oracle recursively selects the largest applicable scale and spells the quotient and remainder, rather than iterating fixed chunks.",
+  "tests": [
+    {
+      "id": "lc-273-1",
+      "arguments": [
+        123
+      ],
+      "expected": "One Hundred Twenty Three",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Split 123 into one hundred and the remainder twenty-three, yielding 'One Hundred Twenty Three' without the conjunction 'and'.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-2",
+      "arguments": [
+        12345
+      ],
+      "expected": "Twelve Thousand Three Hundred Forty Five",
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The thousand group is twelve and the final group is 345, yielding 'Twelve Thousand Three Hundred Forty Five'.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-3",
+      "arguments": [
+        0
+      ],
+      "expected": "Zero",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-4",
+      "arguments": [
+        1
+      ],
+      "expected": "One",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-5",
+      "arguments": [
+        10
+      ],
+      "expected": "Ten",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-6",
+      "arguments": [
+        19
+      ],
+      "expected": "Nineteen",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-7",
+      "arguments": [
+        20
+      ],
+      "expected": "Twenty",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-8",
+      "arguments": [
+        21
+      ],
+      "expected": "Twenty One",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-9",
+      "arguments": [
+        99
+      ],
+      "expected": "Ninety Nine",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-10",
+      "arguments": [
+        100
+      ],
+      "expected": "One Hundred",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-11",
+      "arguments": [
+        101
+      ],
+      "expected": "One Hundred One",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-12",
+      "arguments": [
+        110
+      ],
+      "expected": "One Hundred Ten",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-13",
+      "arguments": [
+        1000
+      ],
+      "expected": "One Thousand",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-14",
+      "arguments": [
+        1001
+      ],
+      "expected": "One Thousand One",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-15",
+      "arguments": [
+        1010
+      ],
+      "expected": "One Thousand Ten",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-16",
+      "arguments": [
+        1100
+      ],
+      "expected": "One Thousand One Hundred",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-17",
+      "arguments": [
+        1000000
+      ],
+      "expected": "One Million",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-18",
+      "arguments": [
+        1000001
+      ],
+      "expected": "One Million One",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-19",
+      "arguments": [
+        1010010
+      ],
+      "expected": "One Million Ten Thousand Ten",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-20",
+      "arguments": [
+        1000000000
+      ],
+      "expected": "One Billion",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-273-21",
+      "arguments": [
+        2147483647
+      ],
+      "expected": "Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven",
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

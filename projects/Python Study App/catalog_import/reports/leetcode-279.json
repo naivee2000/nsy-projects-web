@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-279",
+  "content_sha256": "489feac87fd00380699d8f426b8d7df2712e9aecba449560f63031b0ced1be31",
+  "source_hash": "c53eecce54147f99f6b8ab69bacdee41f2f17f468f39a0d3b4dd9cde88cf4181",
+  "visible_tests": 2,
+  "hidden_tests": 17,
+  "reference_passed": 19,
+  "wrong_solutions": [
+    {
+      "reason": "Greedily subtracts the largest square; for 12 it uses 9+1+1+1 instead of 4+4+4.",
+      "failed_cases": [
+        "lc-279-1",
+        "lc-279-13",
+        "lc-279-14",
+        "lc-279-15",
+        "lc-279-16"
+      ]
+    },
+    {
+      "reason": "Returns the square-root magnitude rather than the minimum number of square summands.",
+      "failed_cases": [
+        "lc-279-2",
+        "lc-279-4",
+        "lc-279-5",
+        "lc-279-6",
+        "lc-279-8",
+        "lc-279-10",
+        "lc-279-11",
+        "lc-279-12",
+        "lc-279-13",
+        "lc-279-15",
+        "lc-279-16",
+        "lc-279-17",
+        "lc-279-18",
+        "lc-279-19"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4326,
+  "oracle_implementation": "code_practice/import_batch_025.py:perfect_squares_oracle",
+  "validator_implementation_sha256": "dcc00163257802b4eb693044ea86b41490de7f850d963f2089dd0bb07a3bf6d9",
+  "batch_implementation_sha256": "d002a0e102499060f525556fdbb34e41d785fccd235a0c47c6e5fe38cd56a6b2",
+  "judge_contract_sha256": "cfdca898e69e62a3916bfbf442d2974cdd430e92f207712e80544183f841b449",
+  "elapsed_seconds": 0.177,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
