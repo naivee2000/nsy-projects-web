@@ -2,10 +2,14 @@
 
 Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
-363-problem checkpoint is documented in [RELEASE_363_CHECKPOINT.md](RELEASE_363_CHECKPOINT.md).
-Expansion has resumed locally; `main` contains 380 verified problems. The 363-,
-345-, and 326-problem tags are unchanged. New development does not change the
-other computer or authorize a push/deployment.
+380-problem checkpoint is documented in [RELEASE_380_CHECKPOINT.md](RELEASE_380_CHECKPOINT.md).
+The release contains 380 verified problems. Eleven more batch-39 candidates are
+preserved in unfinished local working changes, not included in the release tag;
+their remaining regression/browser/packaging checks must finish before shipping.
+The counts below describe the frozen release ledger, not that working ledger.
+Expansion waits for the owner to complete the handoff. The earlier 363-, 345-,
+and 326-problem tags are unchanged. New development does not change the other
+computer or authorize a push/deployment.
 
 The source workbook has 3,629 unique problem names in rows 7–3635. The
 scope includes ordinary functions, binary trees, linked lists, and Hard problems.
