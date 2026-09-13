@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-687",
+  "content_sha256": "93799d9540306da7da14ef9ee2ce416105e1ad5cf83837c41b2d75f15da29018",
+  "source_hash": "a12b643ed02f800a01abe2f9d9742c4b6ac721554579cdab877cc243dea0d9b4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts nodes instead of edges.",
+      "failed_cases": [
+        "lc-687-1",
+        "lc-687-2",
+        "lc-687-4",
+        "lc-687-5",
+        "lc-687-6",
+        "lc-687-7",
+        "lc-687-8",
+        "lc-687-9",
+        "lc-687-10",
+        "lc-687-11",
+        "lc-687-12",
+        "lc-687-13",
+        "lc-687-14"
+      ]
+    },
+    {
+      "reason": "Keeps only one downward branch and misses paths joining both children.",
+      "failed_cases": [
+        "lc-687-2",
+        "lc-687-7",
+        "lc-687-8",
+        "lc-687-10",
+        "lc-687-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4734,
+  "oracle_implementation": "code_practice/import_batch_068.py:univalue_oracle",
+  "validator_implementation_sha256": "b01e439a2d7fe5fdbe7b59c20f6fa7d7858edb12d6aae71178bd2f5bd976e82d",
+  "batch_implementation_sha256": "e8124879f83fd0f03d346dd20e08944226cef3d0c2fc51b4de769461ef9f1f22",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2907915c266c75504b5d482f39f469ea2b798eabf56fae6840a2e85baa7c49af",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

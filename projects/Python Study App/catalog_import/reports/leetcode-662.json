@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-662",
+  "content_sha256": "be84f558fa0ab4875763e2d0a591e099ec4420a7f3111b4f45f20d10ac9450bf",
+  "source_hash": "26c7eece56fc1a4119c8abfdd3db22d098ac3686fc9978d5a55649f3eb99468a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only present nodes and ignores internal null slots.",
+      "failed_cases": [
+        "lc-662-1",
+        "lc-662-7",
+        "lc-662-11",
+        "lc-662-13"
+      ]
+    },
+    {
+      "reason": "Assigns compact level positions instead of complete-tree positions.",
+      "failed_cases": [
+        "lc-662-1",
+        "lc-662-2",
+        "lc-662-6",
+        "lc-662-7",
+        "lc-662-10",
+        "lc-662-11",
+        "lc-662-12",
+        "lc-662-13",
+        "lc-662-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4709,
+  "oracle_implementation": "code_practice/import_batch_068.py:width_oracle",
+  "validator_implementation_sha256": "b01e439a2d7fe5fdbe7b59c20f6fa7d7858edb12d6aae71178bd2f5bd976e82d",
+  "batch_implementation_sha256": "e8124879f83fd0f03d346dd20e08944226cef3d0c2fc51b4de769461ef9f1f22",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9ae1f21d0e14118d894d73cb6ba6b7d51889a85fec08f17f0c802d09520314b8",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
