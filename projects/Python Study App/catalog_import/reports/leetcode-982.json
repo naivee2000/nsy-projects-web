@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-982",
+  "content_sha256": "45e79a542d52fb1c2d93c3c50765f9c0c5219580a205e5e60212111569718cf4",
+  "source_hash": "c8bd8d6068a120b90ce455ff16ebc80fa9fd6860848f9534601426b51cca3e40",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses OR instead of AND for the final compatibility test.",
+      "failed_cases": [
+        "lc-982-1",
+        "lc-982-6",
+        "lc-982-7",
+        "lc-982-8",
+        "lc-982-9",
+        "lc-982-10",
+        "lc-982-11",
+        "lc-982-12",
+        "lc-982-14"
+      ]
+    },
+    {
+      "reason": "Counts only same-position pairs rather than all ordered pairs.",
+      "failed_cases": [
+        "lc-982-1",
+        "lc-982-2",
+        "lc-982-6",
+        "lc-982-7",
+        "lc-982-8",
+        "lc-982-9",
+        "lc-982-10",
+        "lc-982-11",
+        "lc-982-12",
+        "lc-982-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5029,
+  "oracle_implementation": "code_practice/import_batch_078.py:triples_oracle",
+  "validator_implementation_sha256": "7cee6a8e33d10b521e72bc36e309487daaf42a33d53338746e70e4d535fc9a62",
+  "batch_implementation_sha256": "3bde4c7fd8b555b6e5e3dbd46c0174677000e7dddcc46c70e2c27094f7c6b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ec7e737f249b7cb5c06fd005f1fae5db0fa3d0dc4f652ccc8f3c4c853f9fe3e",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

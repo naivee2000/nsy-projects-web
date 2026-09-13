@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-985",
+  "content_sha256": "0923bb33872b591a8852ad164c6e8613aed379861c2dc53a8de1c345905eabfc",
+  "source_hash": "fb3e3869d555022e4e6b96bfcf978e998cd365219d0be6c23cfbc65925ac7ccf",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Leaves the old even value in the running total.",
+      "failed_cases": [
+        "lc-985-1",
+        "lc-985-4",
+        "lc-985-7",
+        "lc-985-9",
+        "lc-985-12",
+        "lc-985-14",
+        "lc-985-15",
+        "lc-985-16"
+      ]
+    },
+    {
+      "reason": "Subtracts newly even values instead of adding them.",
+      "failed_cases": [
+        "lc-985-1",
+        "lc-985-3",
+        "lc-985-6",
+        "lc-985-7",
+        "lc-985-8",
+        "lc-985-9",
+        "lc-985-10",
+        "lc-985-11",
+        "lc-985-12",
+        "lc-985-13",
+        "lc-985-15",
+        "lc-985-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5032,
+  "oracle_implementation": "code_practice/import_batch_078.py:even_queries_oracle",
+  "validator_implementation_sha256": "7cee6a8e33d10b521e72bc36e309487daaf42a33d53338746e70e4d535fc9a62",
+  "batch_implementation_sha256": "3bde4c7fd8b555b6e5e3dbd46c0174677000e7dddcc46c70e2c27094f7c6b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0a4a73169b77930585e15475a555305b7a2279acd0d98dacbe235b976e6e0a66",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

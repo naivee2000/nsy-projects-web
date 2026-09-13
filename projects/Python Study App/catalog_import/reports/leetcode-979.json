@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-979",
+  "content_sha256": "006ca295986ad66d72763eaa57375d3074219ec6ebf7ec9d6973a74c2aa5a92c",
+  "source_hash": "fc664f4afce4c60bd9e6896921dafb980b62ccbf8f3b60792ac78ce0af366f38",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds signed balances instead of required edge transfers.",
+      "failed_cases": [
+        "lc-979-1",
+        "lc-979-2",
+        "lc-979-4",
+        "lc-979-7",
+        "lc-979-9",
+        "lc-979-10",
+        "lc-979-11",
+        "lc-979-12",
+        "lc-979-13",
+        "lc-979-14"
+      ]
+    },
+    {
+      "reason": "Does not propagate child surplus or deficit upward.",
+      "failed_cases": [
+        "lc-979-7",
+        "lc-979-12",
+        "lc-979-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5026,
+  "oracle_implementation": "code_practice/import_batch_078.py:coins_oracle",
+  "validator_implementation_sha256": "7cee6a8e33d10b521e72bc36e309487daaf42a33d53338746e70e4d535fc9a62",
+  "batch_implementation_sha256": "3bde4c7fd8b555b6e5e3dbd46c0174677000e7dddcc46c70e2c27094f7c6b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "27054a88d8ee9decca61b4e0d73c70d816c3cf41dc9263b6f14ee3c01ab27499",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

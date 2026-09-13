@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-995",
+  "content_sha256": "0b5e3399d6122dd026ac3000e09d0f4a0b422a5bfc09cfdda87379ec1f895969",
+  "source_hash": "dc1abadf261eb6d460861648493d4aada26be7be05eb085f2e709f5056beec2d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts flips when the effective bit is already one.",
+      "failed_cases": [
+        "lc-995-1",
+        "lc-995-2",
+        "lc-995-3",
+        "lc-995-4",
+        "lc-995-5",
+        "lc-995-6",
+        "lc-995-8",
+        "lc-995-9",
+        "lc-995-11",
+        "lc-995-12",
+        "lc-995-14"
+      ]
+    },
+    {
+      "reason": "Replaces rather than removes an expiring flip parity.",
+      "failed_cases": [
+        "lc-995-5",
+        "lc-995-10",
+        "lc-995-12",
+        "lc-995-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5042,
+  "oracle_implementation": "code_practice/import_batch_078.py:flips_oracle",
+  "validator_implementation_sha256": "7cee6a8e33d10b521e72bc36e309487daaf42a33d53338746e70e4d535fc9a62",
+  "batch_implementation_sha256": "3bde4c7fd8b555b6e5e3dbd46c0174677000e7dddcc46c70e2c27094f7c6b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e2d8def0bdf5a50981b2561953c2f56e81262e0719e4dd37f769f6fd0fe593ec",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

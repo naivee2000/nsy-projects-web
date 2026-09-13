@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 699,
+  "count": 719,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -12484,6 +12484,357 @@
       "path": "problems/leetcode-978.json",
       "content_sha256": "ee6268bca5859207e42a4267189b7a69ec9ee31ffdbfce645b266f7efbbae210",
       "source_id": 978
+    },
+    {
+      "id": "leetcode-979",
+      "version": 1,
+      "status": "approved",
+      "title": "Distribute Coins in Binary Tree",
+      "summary": "Given a binary tree with n nodes, each having a certain number of coins, distribute the coins such that each node has exactly one coin.",
+      "topics": [
+        "trees",
+        "recursion",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-979.json",
+      "content_sha256": "006ca295986ad66d72763eaa57375d3074219ec6ebf7ec9d6973a74c2aa5a92c",
+      "source_id": 979
+    },
+    {
+      "id": "leetcode-980",
+      "version": 1,
+      "status": "approved",
+      "title": "Unique Paths III",
+      "summary": "Given an m x n grid with a unique start and end, and some obstacles, calculate the number of paths from start to end that traverse every non-obstacle square exactly once, moving only up, down, left, or right.",
+      "topics": [
+        "backtracking",
+        "matrices",
+        "recursion"
+      ],
+      "prerequisites": [
+        "backtracking"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-980.json",
+      "content_sha256": "44c9f9ed3c7f81a4733310f216c20ca55f5b855ce5d1645233d698b82e38abc4",
+      "source_id": 980
+    },
+    {
+      "id": "leetcode-982",
+      "version": 1,
+      "status": "approved",
+      "title": "Triples with Bitwise AND Equal To Zero",
+      "summary": "For an integer array nums, count the number of triples (i, j, k) where 0 <= i, j, k < nums.length and the bitwise-AND of nums[i], nums[j], and nums[k] equals zero.",
+      "topics": [
+        "bit-manipulation",
+        "counting"
+      ],
+      "prerequisites": [
+        "bit-manipulation"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-982.json",
+      "content_sha256": "45e79a542d52fb1c2d93c3c50765f9c0c5219580a205e5e60212111569718cf4",
+      "source_id": 982
+    },
+    {
+      "id": "leetcode-983",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost For Tickets",
+      "summary": "Given an integer array of travel days and the costs for three types of train tickets with specified durations, calculate the minimum total cost required to cover travel on all the given days.",
+      "topics": [
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-983.json",
+      "content_sha256": "e548ac2dcb5d0296ae285294c5e0715cef4d1fd5652e6517f15265defb306106",
+      "source_id": 983
+    },
+    {
+      "id": "leetcode-985",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Even Numbers After Queries",
+      "summary": "Given an integer array nums and queries, for each query update nums[indexi] by adding vali, then calculate and print the sum of all even numbers in nums.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-985.json",
+      "content_sha256": "0923bb33872b591a8852ad164c6e8613aed379861c2dc53a8de1c345905eabfc",
+      "source_id": 985
+    },
+    {
+      "id": "leetcode-986",
+      "version": 1,
+      "status": "approved",
+      "title": "Interval List Intersections",
+      "summary": "Given two lists of closed intervals, where each interval is represented as [start, end] and both lists are sorted and pairwise disjoint, find the intersection of these intervals by identifying the overlapping segments between corresponding intervals from both lists.",
+      "topics": [
+        "intervals",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-986.json",
+      "content_sha256": "95d013dddabffcc5fa50620adfbf8266c16ac148c88b162a2cfb728b999ac154",
+      "source_id": 986
+    },
+    {
+      "id": "leetcode-988",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest String Starting From Leaf",
+      "summary": "Given a binary tree with nodes containing values from 0 to 25 representing letters 'a' to 'z', find the lexicographically smallest path from any leaf to the root.",
+      "topics": [
+        "trees",
+        "recursion",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-988.json",
+      "content_sha256": "cbec3daadc8f9c2f225f70b0e939f40f6a4ab2d5b3e1de778ad6b07432568f6e",
+      "source_id": 988
+    },
+    {
+      "id": "leetcode-989",
+      "version": 1,
+      "status": "approved",
+      "title": "Add to Array-Form of Integer",
+      "summary": "Given an integer's array form representing its digits from left to right and an integer k, return the array form of the sum of the integer and k.",
+      "topics": [
+        "arrays",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-989.json",
+      "content_sha256": "6a6d4bb97f96c0d4a6e053093dbe1ab1c972142ea9ed6162c28d9b3c0e6f1365",
+      "source_id": 989
+    },
+    {
+      "id": "leetcode-990",
+      "version": 1,
+      "status": "approved",
+      "title": "Satisfiability of Equality Equations",
+      "summary": "Given an array of strings representing variable equations as 'xi==yi' or 'xi!=yi', determine if a consistent integer assignment to variables is possible to satisfy all equations, returning true or false accordingly.",
+      "topics": [
+        "union-find",
+        "graphs"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-990.json",
+      "content_sha256": "98a7c24142c784e279f31e39fb3d9d68830f15a451f17a9865e5bd031ea41882",
+      "source_id": 990
+    },
+    {
+      "id": "leetcode-991",
+      "version": 1,
+      "status": "approved",
+      "title": "Broken Calculator",
+      "summary": "Given a starting integer and a target, determine the least number of operations required to reach the target using only multiplication by two or subtraction by one.",
+      "topics": [
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-991.json",
+      "content_sha256": "a053627c574269219ef07903a742f1df8c717d714a3426127a3dbca67c80b6b0",
+      "source_id": 991
+    },
+    {
+      "id": "leetcode-992",
+      "version": 1,
+      "status": "approved",
+      "title": "Subarrays with K Different Integers",
+      "summary": "Given an integer array nums and an integer k, return the number of subarrays where the number of distinct integers is exactly k.",
+      "topics": [
+        "sliding-window",
+        "hash-maps"
+      ],
+      "prerequisites": [
+        "sliding-window"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-992.json",
+      "content_sha256": "d36e3f4f1d82bfd483f8100c65c2668d8b08f728fc2c01abb9fda91349c5af78",
+      "source_id": 992
+    },
+    {
+      "id": "leetcode-993",
+      "version": 1,
+      "status": "approved",
+      "title": "Cousins in Binary Tree",
+      "summary": "Given a binary tree with unique node values, determine if two specified nodes, x and y, are cousins.",
+      "topics": [
+        "trees",
+        "breadth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-993.json",
+      "content_sha256": "f039db5cea331868cfc2c26346c795eca72b2ecbc1d19989162cf9a66d5362cc",
+      "source_id": 993
+    },
+    {
+      "id": "leetcode-994",
+      "version": 1,
+      "status": "approved",
+      "title": "Rotting Oranges",
+      "summary": "Given an m x n grid where each cell contains either 0 (representing an empty cell), 1 (representing a fresh orange), or 2 (representing a rotten orange), every minute any fresh orange that is 4-directionally adjacent to a rotten orange will become rotten.",
+      "topics": [
+        "breadth-first-search",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-994.json",
+      "content_sha256": "a7998a2c72afb46b8c8f0a106d0a2b8485bd50398681506ae7b9aba856acfd71",
+      "source_id": 994
+    },
+    {
+      "id": "leetcode-995",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of K Consecutive Bit Flips",
+      "summary": "Given a binary array nums and an integer k, find the minimum number of k-bit flips required to make all elements in the array equal to 1.",
+      "topics": [
+        "greedy",
+        "sliding-window"
+      ],
+      "prerequisites": [
+        "greedy"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-995.json",
+      "content_sha256": "0b5e3399d6122dd026ac3000e09d0f4a0b422a5bfc09cfdda87379ec1f895969",
+      "source_id": 995
+    },
+    {
+      "id": "leetcode-996",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Squareful Arrays",
+      "summary": "An array is considered squareful if the sum of any two adjacent elements is a perfect square.",
+      "topics": [
+        "backtracking",
+        "counting"
+      ],
+      "prerequisites": [
+        "backtracking"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-996.json",
+      "content_sha256": "33ed158c8ad186ebcac51b874ced81c83a1deff5b90e0726eb4dc51218e30919",
+      "source_id": 996
+    },
+    {
+      "id": "leetcode-997",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Town Judge",
+      "summary": "In a town with n people labeled from 1 to n, determine if there is a town judge.",
+      "topics": [
+        "graphs",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-997.json",
+      "content_sha256": "76c9f7d6ed22bc2f6f869b4b0250752ed8bf2c6d63416d99891b8d3b1eb56044",
+      "source_id": 997
+    },
+    {
+      "id": "leetcode-1002",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Common Characters",
+      "summary": "Given an array of strings, identify all characters present in every string, including duplicates, and list them in any order.",
+      "topics": [
+        "counting",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1002.json",
+      "content_sha256": "da2efee7928bd53140838f6343858c63e755adec88664ebe5533078ae9180ca4",
+      "source_id": 1002
+    },
+    {
+      "id": "leetcode-1003",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If Word Is Valid After Substitutions",
+      "summary": "Determine if the string s can be generated by starting with an empty string t and repeatedly inserting the substring \"abc\" into t at any position.",
+      "topics": [
+        "stacks",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1003.json",
+      "content_sha256": "961a29e24baf2c89b0b9dbddc6991f4292bf5dae2b53e72edcb20fdc873f0f48",
+      "source_id": 1003
+    },
+    {
+      "id": "leetcode-1004",
+      "version": 1,
+      "status": "approved",
+      "title": "Max Consecutive Ones III",
+      "summary": "Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array that can be achieved by flipping at most k zeros.",
+      "topics": [
+        "sliding-window"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1004.json",
+      "content_sha256": "805a0d2bc1534088ff91b0124388d927528486e937261f2c83f13d288d1b1315",
+      "source_id": 1004
+    },
+    {
+      "id": "leetcode-1005",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Sum Of Array After K Negations",
+      "summary": "Given an integer array nums and an integer k, perform exactly k negations by changing the sign of any element at an index.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1005.json",
+      "content_sha256": "7a7fc6569f2af0277da5d980e7a6ad4158b0da68db2a66afe69079be01c6f271",
+      "source_id": 1005
     }
   ]
 }

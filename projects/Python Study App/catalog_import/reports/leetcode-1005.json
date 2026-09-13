@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1005",
+  "content_sha256": "7a7fc6569f2af0277da5d980e7a6ad4158b0da68db2a66afe69079be01c6f271",
+  "source_hash": "81071bf29b574aee9cd1b15a03609445c0bb08ffe87e7bba2bec758447267831",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Flips positive values before negative ones.",
+      "failed_cases": [
+        "lc-1005-2",
+        "lc-1005-9",
+        "lc-1005-11",
+        "lc-1005-12",
+        "lc-1005-13",
+        "lc-1005-14"
+      ]
+    },
+    {
+      "reason": "Uses the largest magnitude for an unavoidable odd leftover flip.",
+      "failed_cases": [
+        "lc-1005-1",
+        "lc-1005-8",
+        "lc-1005-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5052,
+  "oracle_implementation": "code_practice/import_batch_078.py:negations_oracle",
+  "validator_implementation_sha256": "7cee6a8e33d10b521e72bc36e309487daaf42a33d53338746e70e4d535fc9a62",
+  "batch_implementation_sha256": "3bde4c7fd8b555b6e5e3dbd46c0174677000e7dddcc46c70e2c27094f7c6b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e378b0c2f7121935a43d484f7c7ab1df79a9133b6853bccd81c143f0557df288",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

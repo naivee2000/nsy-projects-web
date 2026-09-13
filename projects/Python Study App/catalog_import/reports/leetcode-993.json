@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-993",
+  "content_sha256": "f039db5cea331868cfc2c26346c795eca72b2ecbc1d19989162cf9a66d5362cc",
+  "source_hash": "0cff9a05ad75ea0d18072bd48ffe019ab7ef8010a115091c228335ee574d1078",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires the same parent, identifying siblings instead.",
+      "failed_cases": [
+        "lc-993-2",
+        "lc-993-3",
+        "lc-993-5",
+        "lc-993-6",
+        "lc-993-7",
+        "lc-993-8",
+        "lc-993-9",
+        "lc-993-10",
+        "lc-993-11",
+        "lc-993-14",
+        "lc-993-15"
+      ]
+    },
+    {
+      "reason": "Accepts when just one target appears at a level.",
+      "failed_cases": [
+        "lc-993-1",
+        "lc-993-3",
+        "lc-993-4",
+        "lc-993-5",
+        "lc-993-8",
+        "lc-993-10",
+        "lc-993-12",
+        "lc-993-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5040,
+  "oracle_implementation": "code_practice/import_batch_078.py:cousins_oracle",
+  "validator_implementation_sha256": "7cee6a8e33d10b521e72bc36e309487daaf42a33d53338746e70e4d535fc9a62",
+  "batch_implementation_sha256": "3bde4c7fd8b555b6e5e3dbd46c0174677000e7dddcc46c70e2c27094f7c6b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "64b3b8172e5e73dc4e56f608ed144343698ce3d3acef7e5b2f687f59b7f2db31",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

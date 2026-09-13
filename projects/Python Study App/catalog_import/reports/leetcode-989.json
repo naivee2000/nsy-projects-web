@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-989",
+  "content_sha256": "6a6d4bb97f96c0d4a6e053093dbe1ab1c972142ea9ed6162c28d9b3c0e6f1365",
+  "source_hash": "f8690215a76c8c281424d0805f29989465a9bb4c27fd8ed9045e7e8d4289c214",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites rather than adds the incoming carry.",
+      "failed_cases": [
+        "lc-989-1",
+        "lc-989-2",
+        "lc-989-4",
+        "lc-989-5",
+        "lc-989-6",
+        "lc-989-7",
+        "lc-989-8",
+        "lc-989-10",
+        "lc-989-11",
+        "lc-989-12",
+        "lc-989-13",
+        "lc-989-14"
+      ]
+    },
+    {
+      "reason": "Returns computed digits in reverse order.",
+      "failed_cases": [
+        "lc-989-1",
+        "lc-989-2",
+        "lc-989-5",
+        "lc-989-6",
+        "lc-989-7",
+        "lc-989-8",
+        "lc-989-9",
+        "lc-989-10",
+        "lc-989-11",
+        "lc-989-12",
+        "lc-989-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5036,
+  "oracle_implementation": "code_practice/import_batch_078.py:array_add_oracle",
+  "validator_implementation_sha256": "7cee6a8e33d10b521e72bc36e309487daaf42a33d53338746e70e4d535fc9a62",
+  "batch_implementation_sha256": "3bde4c7fd8b555b6e5e3dbd46c0174677000e7dddcc46c70e2c27094f7c6b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "56eccebe87a6c6a1e0afb3ba521cecaee7058a0f5ca818b0f58f5f42099a332e",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

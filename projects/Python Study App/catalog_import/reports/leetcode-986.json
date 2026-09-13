@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-986",
+  "content_sha256": "95d013dddabffcc5fa50620adfbf8266c16ac148c88b162a2cfb728b999ac154",
+  "source_hash": "3689c21fee2be9781344fd8d630e803fc933dd65dcb9b2cd13aa91d60b4f3901",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Drops valid one-point intersections.",
+      "failed_cases": [
+        "lc-986-1",
+        "lc-986-8",
+        "lc-986-11",
+        "lc-986-12",
+        "lc-986-16"
+      ]
+    },
+    {
+      "reason": "Advances the wrong pointer when the second interval ends first.",
+      "failed_cases": [
+        "lc-986-1",
+        "lc-986-14",
+        "lc-986-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5033,
+  "oracle_implementation": "code_practice/import_batch_078.py:interval_oracle",
+  "validator_implementation_sha256": "7cee6a8e33d10b521e72bc36e309487daaf42a33d53338746e70e4d535fc9a62",
+  "batch_implementation_sha256": "3bde4c7fd8b555b6e5e3dbd46c0174677000e7dddcc46c70e2c27094f7c6b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "07b00de679e701fd979f89c18db152cbae0c5502403d5d534c16ce4a2efd2927",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
