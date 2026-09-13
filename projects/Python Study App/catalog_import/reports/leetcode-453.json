@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-453",
+  "content_sha256": "eab99318cdce16c07dd70b3d1706c92c785ef09fe0250cc41bf5b8b97282f748",
+  "source_hash": "b2e5bc3737abcbca42f7ad8e7e48e42e6f8206e6cdd2736141be12055d4292f3",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only the range, ignoring how many entries need relative changes.",
+      "failed_cases": [
+        "lc-453-1",
+        "lc-453-2",
+        "lc-453-10",
+        "lc-453-13",
+        "lc-453-stress-2"
+      ]
+    },
+    {
+      "reason": "Applies the median formula for a different move operation.",
+      "failed_cases": [
+        "lc-453-1",
+        "lc-453-2",
+        "lc-453-10",
+        "lc-453-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4500,
+  "oracle_implementation": "code_practice/import_batch_041.py:moves_oracle",
+  "validator_implementation_sha256": "2980f1b9a8a7f071ac5cc2cdc9440aae3937f9fe02f064e8a07a98a1e9b6f79e",
+  "batch_implementation_sha256": "e0d7f4b67c15050215b7204999633c800e63e5132717e9f03f24d0a776567532",
+  "judge_contract_sha256": "f5ab974d852dcf397740c4dff5f260de8bf93081a27c6bf6b538f745903b28c7",
+  "elapsed_seconds": 0.07,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

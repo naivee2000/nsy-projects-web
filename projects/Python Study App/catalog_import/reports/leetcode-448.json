@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-448",
+  "content_sha256": "9abc81bf074f6874345815cf50ac4cc8fa9d94cbaa936620e85fbbe78ea279d2",
+  "source_hash": "d723223141c5cc5e1c6db0419812720ce1ba1e8979c5736b3e6c4efbcf142af8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Toggles signs so repeated values can erase a presence mark.",
+      "failed_cases": [
+        "lc-448-1",
+        "lc-448-2",
+        "lc-448-4",
+        "lc-448-5",
+        "lc-448-9",
+        "lc-448-11",
+        "lc-448-12",
+        "lc-448-13",
+        "lc-448-stress-1"
+      ]
+    },
+    {
+      "reason": "Returns zero-based positions instead of missing values.",
+      "failed_cases": [
+        "lc-448-1",
+        "lc-448-2",
+        "lc-448-4",
+        "lc-448-5",
+        "lc-448-8",
+        "lc-448-9",
+        "lc-448-10",
+        "lc-448-11",
+        "lc-448-12",
+        "lc-448-13",
+        "lc-448-14",
+        "lc-448-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4495,
+  "oracle_implementation": "code_practice/import_batch_041.py:missing_oracle",
+  "validator_implementation_sha256": "2980f1b9a8a7f071ac5cc2cdc9440aae3937f9fe02f064e8a07a98a1e9b6f79e",
+  "batch_implementation_sha256": "e0d7f4b67c15050215b7204999633c800e63e5132717e9f03f24d0a776567532",
+  "judge_contract_sha256": "f5ab974d852dcf397740c4dff5f260de8bf93081a27c6bf6b538f745903b28c7",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

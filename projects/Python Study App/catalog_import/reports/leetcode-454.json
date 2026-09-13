@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-454",
+  "content_sha256": "a42c7ff9b4300426dd68e54fa5dd14ca5f3f411480d5cc4831d531a933a3690b",
+  "source_hash": "1bb9eb6d11002b18f7fc594001942480604b5966a54831c329c7e23c1206b38e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Stores pair sums as a set, losing index multiplicities.",
+      "failed_cases": [
+        "lc-454-2",
+        "lc-454-8",
+        "lc-454-9",
+        "lc-454-10",
+        "lc-454-11",
+        "lc-454-14",
+        "lc-454-stress-1"
+      ]
+    },
+    {
+      "reason": "Looks up the same pair sum rather than its additive inverse.",
+      "failed_cases": [
+        "lc-454-4",
+        "lc-454-6",
+        "lc-454-7",
+        "lc-454-9",
+        "lc-454-10",
+        "lc-454-14",
+        "lc-454-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4501,
+  "oracle_implementation": "code_practice/import_batch_041.py:four_oracle",
+  "validator_implementation_sha256": "2980f1b9a8a7f071ac5cc2cdc9440aae3937f9fe02f064e8a07a98a1e9b6f79e",
+  "batch_implementation_sha256": "e0d7f4b67c15050215b7204999633c800e63e5132717e9f03f24d0a776567532",
+  "judge_contract_sha256": "f5ab974d852dcf397740c4dff5f260de8bf93081a27c6bf6b538f745903b28c7",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

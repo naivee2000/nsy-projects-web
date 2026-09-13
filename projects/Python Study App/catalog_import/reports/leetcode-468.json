@@ -1,0 +1,33 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-468",
+  "content_sha256": "d1788d13a80e325bc6001d68872748fe476dbedd0c458539086503cf7d12459a",
+  "source_hash": "860bd9483103b8ce0a43a5f902b4fbf1365fce5dd4cbcd871cada409f7e80910",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts zero-padded decimal IPv4 groups.",
+      "failed_cases": [
+        "lc-468-7"
+      ]
+    },
+    {
+      "reason": "Uses general IP-address parsing that permits compressed or embedded IPv6 forms forbidden by this exercise.",
+      "failed_cases": [
+        "lc-468-13",
+        "lc-468-19"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4515,
+  "oracle_implementation": "code_practice/import_batch_041.py:ip_oracle",
+  "validator_implementation_sha256": "2980f1b9a8a7f071ac5cc2cdc9440aae3937f9fe02f064e8a07a98a1e9b6f79e",
+  "batch_implementation_sha256": "e0d7f4b67c15050215b7204999633c800e63e5132717e9f03f24d0a776567532",
+  "judge_contract_sha256": "f5ab974d852dcf397740c4dff5f260de8bf93081a27c6bf6b538f745903b28c7",
+  "elapsed_seconds": 0.091,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

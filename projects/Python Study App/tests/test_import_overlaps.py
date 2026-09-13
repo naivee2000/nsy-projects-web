@@ -9,7 +9,7 @@ from code_practice import package_catalog
 from code_practice.catalog import get_catalog
 from code_practice.catalog_artifacts import write_json_atomic
 from code_practice.reconcile_overlaps import (
-    DECISIONS, check_unique_rotations, check_distinct_subsequence, check_bulb_square_root,
+    DECISIONS, check_unique_rotations, check_distinct_subsequence, check_bulb_square_root, check_bit_flips,
     reconcile, restore_import_overlaps, validate_import_overlap,
 )
 
@@ -65,8 +65,25 @@ def test_reconciliation_is_repeatable_and_does_not_create_duplicate_problem(tmp_
     assert not (tmp_path / "published/problems/leetcode-153.json").exists()
     assert not (tmp_path / "published/problems/leetcode-1081.json").exists()
     assert not (tmp_path / "published/problems/leetcode-319.json").exists()
+    assert not (tmp_path / "published/problems/leetcode-2220.json").exists()
     assert "leetcode-1081" not in get_catalog() and "leetcode-316" in get_catalog()
     assert "leetcode-153" not in get_catalog() and "leetcode-154" in get_catalog()
+    assert "leetcode-2220" not in get_catalog() and "leetcode-461" in get_catalog()
+
+
+def test_bit_flip_overlap_covers_source_boundaries_and_rejects_lost_positions(tmp_path):
+    _, records, sources = snapshot(tmp_path)
+    payload = json.loads((tmp_path/'catalog_import/candidates/leetcode-461.json').read_text())
+    proof = check_bit_flips(payload,sources[2220])
+    assert proof['oracle_inputs']==500 and proof['largest_input']==10**9
+    assert proof['deterministic_inputs']==64
+    assert validate_import_overlap(records[2220],records,tmp_path)['valid']
+    for body in ('return abs(x-y)', 'return (x|y).bit_count()', 'return abs(x.bit_count()-y.bit_count())'):
+        with pytest.raises(ValueError):
+            check_bit_flips({**payload,'reference_solution':f'def hamming_distance(x,y):\n    {body}'},sources[2220])
+    records[461]['status']='quarantined'
+    with pytest.raises(ValueError,match='stale'):
+        validate_import_overlap(records[2220],records,tmp_path)
 
 
 @pytest.mark.parametrize("change", ["source", "target_source", "target_content", "proof", "target_status"])

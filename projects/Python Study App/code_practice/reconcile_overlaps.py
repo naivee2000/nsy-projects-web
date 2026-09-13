@@ -15,6 +15,11 @@ from .catalog_evidence import content_digest, judge_contract_hash, load_verified
 
 ROOT = Path(__file__).resolve().parent.parent
 DECISIONS = {
+    2220: {
+        "target_source_id": 461,
+        "source_hash": "29c828993d44681ce0a71f2c38517254af50bbc61c083e7c7ac4d799f9c224f7",
+        "reason": "Every differing bit must be flipped at least once, and flipping each differing bit once suffices. Thus minimum flips is exactly Hamming distance for the same two integers. The target's nonnegative 31-bit domain includes every source start/goal in 0..10^9. Independent per-position comparisons verify 500 full-domain inputs, the workbook sample, and bit-boundary/carry cases. Keep one existing Hamming Distance progress ID.",
+    },
     46: {
         "target_source_id": 47,
         "source_hash": "c63f4d5d058004744b30b60d058486cf74a7db6a9f753906b344cfb4dc1a8b7f",
@@ -40,6 +45,31 @@ DECISIONS = {
 
 def implementation_hash():
     return hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+
+
+def check_bit_flips(payload, source):
+    from .build_import_batch import workbook_sample
+    namespace = {}
+    exec(compile(payload['reference_solution'], '<reviewed-bit-flips>', 'exec'), namespace)
+    function = namespace[payload['signature']['name']]
+    sample = workbook_sample(source['sample'], [{'name':'start'},{'name':'goal'}])
+    if sample is None or function(*sample[0]) != sample[1]:
+        raise ValueError('Bit-flip workbook sample disagrees')
+    rng = random.Random(4047+2220)
+    cases = [[rng.randint(0,10**9),rng.randint(0,10**9)] for _ in range(500)]
+    boundaries = [[0,0],[0,10**9],[10**9,0],[10**9,10**9]]
+    boundaries += [[0,1<<bit] for bit in range(30)]
+    boundaries += [[(1<<bit)-1,1<<bit] for bit in range(1,30)]
+    for start,goal in cases+boundaries:
+        if not all(type(value) is int and 0<=value<=10**9 for value in (start,goal)):
+            raise ValueError('Invalid bit-flip source input')
+        expected = sum((start//(2**bit))%2 != (goal//(2**bit))%2 for bit in range(30))
+        actual = function(start,goal)
+        if type(actual) is not int or actual != expected:
+            raise ValueError('Overlap reference disagrees with per-position bit-flip oracle')
+    return {'oracle_inputs':500,'oracle_seed':6267,'workbook_sample_checked':True,
+            'deterministic_inputs':len(boundaries)+1,'largest_input':10**9,
+            'domain':'Two integers in 0..10^9; each differing binary position needs exactly one flip'}
 
 
 class CountedSequence(list):
@@ -241,7 +271,7 @@ def reconcile(root=ROOT):
                 raise ValueError("Source changed since the behavioral review")
             target = records[decision["target_source_id"]]
             payload = load_verified_import(target, root)
-            checker = {46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
+            checker = {2220: check_bit_flips, 46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
                        319: check_bulb_square_root}[source_id]
             evidence = checker(payload, sources[source_id])
             report = {"valid": True, "source_id": source_id, "source_hash": record["source_hash"],

@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-452",
+  "content_sha256": "7ac9daaeb811a69339bc6b002c63ca17eb904d1547c200eaacd76064e70dadc4",
+  "source_hash": "eac13ef567811a3b6dd893cda3d7beb3cc1db2bfb39736271b4db62f0f49cf2a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats touching closed intervals as requiring separate arrows.",
+      "failed_cases": [
+        "lc-452-2",
+        "lc-452-4",
+        "lc-452-9",
+        "lc-452-13",
+        "lc-452-14",
+        "lc-452-stress-2"
+      ]
+    },
+    {
+      "reason": "Chooses the first-starting interval endpoint instead of the earliest-ending endpoint.",
+      "failed_cases": [
+        "lc-452-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4499,
+  "oracle_implementation": "code_practice/import_batch_041.py:arrows_oracle",
+  "validator_implementation_sha256": "2980f1b9a8a7f071ac5cc2cdc9440aae3937f9fe02f064e8a07a98a1e9b6f79e",
+  "batch_implementation_sha256": "e0d7f4b67c15050215b7204999633c800e63e5132717e9f03f24d0a776567532",
+  "judge_contract_sha256": "f5ab974d852dcf397740c4dff5f260de8bf93081a27c6bf6b538f745903b28c7",
+  "elapsed_seconds": 0.249,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

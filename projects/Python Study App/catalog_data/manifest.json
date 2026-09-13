@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 395,
+  "count": 407,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -7039,6 +7039,41 @@
       "source_id": 446
     },
     {
+      "id": "leetcode-447",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Boomerangs",
+      "summary": "Given n unique points in a plane, count the number of distinct boomerang tuples (i, j, k) where the distance between i and j is equal to the distance between i and k, considering the order of points in the tuple.",
+      "topics": [
+        "arrays",
+        "hash-maps",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-447.json",
+      "content_sha256": "7f12db9375011cf7e3d3f52817f5be5a54dbeb67d69fa07672531bb6446bb134",
+      "source_id": 447
+    },
+    {
+      "id": "leetcode-448",
+      "version": 1,
+      "status": "approved",
+      "title": "Find All Numbers Disappeared in an Array",
+      "summary": "Provide an array containing all integers from 1 to n that are not present in the given array nums, where each element in nums is within the range of 1 to n.",
+      "topics": [
+        "arrays",
+        "index-marking"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-448.json",
+      "content_sha256": "9abc81bf074f6874345815cf50ac4cc8fa9d94cbaa936620e85fbbe78ea279d2",
+      "source_id": 448
+    },
+    {
       "id": "leetcode-450",
       "version": 1,
       "status": "approved",
@@ -7057,6 +7092,95 @@
       "source_id": 450
     },
     {
+      "id": "leetcode-452",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Arrows to Burst Balloons",
+      "summary": "Given a 2D integer array points where each element points[i] = [xstart, xend] represents the start and end coordinates of a balloon on the x-axis, determine the minimum number of arrows required to burst all the balloons by shooting them vertically from any point on the x-axis.",
+      "topics": [
+        "intervals",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-452.json",
+      "content_sha256": "7ac9daaeb811a69339bc6b002c63ca17eb904d1547c200eaacd76064e70dadc4",
+      "source_id": 452
+    },
+    {
+      "id": "leetcode-453",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Moves to Equal Array Elements",
+      "summary": "For an integer array nums of size n, determine the least number of moves needed to make all elements equal.",
+      "topics": [
+        "arrays",
+        "math",
+        "invariants"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-453.json",
+      "content_sha256": "eab99318cdce16c07dd70b3d1706c92c785ef09fe0250cc41bf5b8b97282f748",
+      "source_id": 453
+    },
+    {
+      "id": "leetcode-454",
+      "version": 1,
+      "status": "approved",
+      "title": "4Sum II",
+      "summary": "For four integer arrays of equal length n, count the quadruplets (i, j, k, l) where 0 <= i, j, k, l < n and the sum of the elements at these indices from each array equals zero.",
+      "topics": [
+        "arrays",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-454.json",
+      "content_sha256": "a42c7ff9b4300426dd68e54fa5dd14ca5f3f411480d5cc4831d531a933a3690b",
+      "source_id": 454
+    },
+    {
+      "id": "leetcode-455",
+      "version": 1,
+      "status": "approved",
+      "title": "Assign Cookies",
+      "summary": "You are an awesome parent aiming to maximize the number of content children by assigning them cookies.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-455.json",
+      "content_sha256": "69595dbb32dc93469e9428f3c2e44648d8e2ef5eb85ffe97be88fd317701091e",
+      "source_id": 455
+    },
+    {
+      "id": "leetcode-456",
+      "version": 1,
+      "status": "approved",
+      "title": "132 Pattern",
+      "summary": "Given an array of n integers, determine if a subsequence of three integers exists where the first is less than the third, and the third is less than the second, with indices in ascending order.",
+      "topics": [
+        "arrays",
+        "stacks",
+        "monotonic-stack"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-456.json",
+      "content_sha256": "b4fef09544df41763f661c8bd281ebc2fa788627f5565b45028abb30462a0532",
+      "source_id": 456
+    },
+    {
       "id": "leetcode-457",
       "version": 1,
       "status": "approved",
@@ -7073,6 +7197,58 @@
       "path": "problems/leetcode-457.json",
       "content_sha256": "932658c393b35edb1000501b10f6738e8d8dc36f87cd342847a59bf2d2a11b4a",
       "source_id": 457
+    },
+    {
+      "id": "leetcode-459",
+      "version": 1,
+      "status": "approved",
+      "title": "Repeated Substring Pattern",
+      "summary": "Determine if a string can be formed by repeating a substring.",
+      "topics": [
+        "strings",
+        "string-matching"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-459.json",
+      "content_sha256": "f6051cad0033046281f8049acee5a590ff505bbff680d54978784b7a00deace0",
+      "source_id": 459
+    },
+    {
+      "id": "leetcode-461",
+      "version": 1,
+      "status": "approved",
+      "title": "Hamming Distance",
+      "summary": "The Hamming distance between two integers is quantified by counting the bit positions where the corresponding bits differ.",
+      "topics": [
+        "math",
+        "bit-manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-461.json",
+      "content_sha256": "698032064d626dcef5ddf2fddf1ace4460a328b71c0e4592af1f08e0b8eb6280",
+      "source_id": 461
+    },
+    {
+      "id": "leetcode-462",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Moves to Equal Array Elements II",
+      "summary": "For an integer array of size n, determine the least number of moves needed to make all elements identical.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-462.json",
+      "content_sha256": "4bc06def1554cd83f444ac921516bd19df0a2ab405303bf5853a09b5a8658128",
+      "source_id": 462
     },
     {
       "id": "leetcode-464",
@@ -7112,6 +7288,40 @@
       "path": "problems/leetcode-466.json",
       "content_sha256": "555ae0f4a46997bda40e7830ae259066eecb1ed80e2a9cb3ee6274f6c80e346e",
       "source_id": 466
+    },
+    {
+      "id": "leetcode-467",
+      "version": 1,
+      "status": "approved",
+      "title": "Unique Substrings in Wraparound String",
+      "summary": "Define the infinite wraparound string base as '...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....'.",
+      "topics": [
+        "strings",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-467.json",
+      "content_sha256": "4b1a6c43522df625d3cb9ecded207f3986094edb4edd0a951018d576b4a23922",
+      "source_id": 467
+    },
+    {
+      "id": "leetcode-468",
+      "version": 1,
+      "status": "approved",
+      "title": "Validate IP Address",
+      "summary": "Given a string queryIP, determine if it is a valid IPv4 or IPv6 address.",
+      "topics": [
+        "strings",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-468.json",
+      "content_sha256": "d1788d13a80e325bc6001d68872748fe476dbedd0c458539086503cf7d12459a",
+      "source_id": 468
     },
     {
       "id": "leetcode-543",

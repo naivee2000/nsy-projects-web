@@ -4,12 +4,11 @@ Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
 395-problem checkpoint is documented in [RELEASE_395_CHECKPOINT.md](RELEASE_395_CHECKPOINT.md).
 The release contains 395 verified problems, including the fifteen batch-39/40
-additions since the earlier 380-problem release. The counts below describe this
-release. Twelve batch-41 candidates remain in unfinished laptop working changes;
-their final regression/browser checks must pass before the next release. Preserve
-those files and resume after the owner confirms the other computer's update.
-All four earlier handoff tags remain unchanged. New development does not change
-the other computer or authorize a push/deployment.
+additions since the earlier 380-problem release. Resumed local goal work adds
+twelve verified batch-41 problems outside that frozen release. The counts below
+describe the current 407-problem development package, not the release ledger.
+All five handoff tags remain unchanged. New development does not change the
+other computer or authorize a push/deployment.
 
 The source workbook has 3,629 unique problem names in rows 7–3635. The
 scope includes ordinary functions, binary trees, linked lists, and Hard problems.
@@ -50,11 +49,28 @@ correctness. Generated tests must meet each problem's actual constraints.
 ## Current checkpoint
 
 - All 3,629 workbook rows have portable source snapshots and ledger records.
-- Current behavioral mapping: 73 existing equivalents (69 original exercises and
-  four approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,107 rows remain pending.
-- 294 new imports in forty reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 395 problems.
+- Current behavioral mapping: 74 existing equivalents (69 original exercises and
+  five approved imports). Static evidence identifies 155 approved-scope
+  design/interactive exclusions; 3,094 rows remain pending.
+- 306 new imports in forty-one reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 407 problems.
+- Batch forty-one covers LeetCode 447–448, 452–456, 459, 461–462, and 467–468:
+  ordered Euclidean triples, missing-value marking, closed-interval arrows,
+  distinct array-move operations, four-array index counts, cookie matching,
+  nonadjacent strict 132 patterns, whole-string periods, bit disagreements,
+  distinct cyclic substrings, and full-form IP grammar. Independent exhaustive
+  regressions check nine-point grids, duplicate arrays, endpoint coverage sets,
+  literal n-1-increment states, Cartesian index choices, bipartite matchings,
+  short strings, byte pairs, and decimal/hex group boundaries. Source-scale
+  cases include 100,000-element arrays/strings, 200,000-element monotone stacks,
+  500-point geometry, and a 1.6-billion tuple count. Move fixtures preserve the
+  source's signed-32-bit answer guarantee even at large input boundaries.
+  Minimum Bit Flips (2220) is proven equivalent to Hamming Distance with 500
+  seeded full-domain inputs and 64 sample/boundary cases, so no duplicate ID is
+  published. All five overlap proofs are refreshed. Players/Trainers (2410)
+  remains pending until the existing cookie-matching contract is explicitly
+  expanded from 30,000 to its 100,000-item bound and independently verified.
+  All 395 checkpoint entries retain identical content, versions, and progress IDs.
 - Batch forty covers LeetCode 450, 457, 464, and 466: noncanonical BST deletion,
   same-direction circular cycles, finite-pool minimax, and repeated-subsequence
   cycle skipping. A dedicated `bst_delete` comparator binds the expected values
@@ -511,17 +527,17 @@ correctness. Generated tests must meet each problem's actual constraints.
   afterward. Ordered integer groups now also accept within-group permutations
   while preserving outer order and duplicate counts. BST deletion now additionally
   permits any valid strict BST with exactly the input values minus the requested
-  key, without a balancing requirement. All 294 published imports have matching
-  passing reports in the 395-problem package under this updated judge contract.
+  key, without a balancing requirement. All 306 published imports have matching
+  passing reports in the 407-problem package under this updated judge contract.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 395-problem Chrome/M3 Pro run: library/search p95 1.16/1.12 ms,
-  detail p95 1.13 ms for Word Search and 1.12 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.35 ms (100 requests per route). Startup is
-  234 ms and backend peak RSS is 144.33 MiB across browsing large array and
-  linked-list details and restarting. All 294 imported references and
+- Current 407-problem Chrome/M3 Pro run: library/search p95 1.21/1.08 ms,
+  detail p95 1.13 ms for Word Search and 1.11 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.33 ms (100 requests per route). Startup is
+  338 ms and backend peak RSS is 128.38 MiB across browsing large array and
+  linked-list details and restarting. All 306 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The Recover Binary Search Tree suite finishes in 38.3 ms after runtime load,
+  The Recover Binary Search Tree suite finishes in 37.1 ms after runtime load,
   including both 1,000-node chains and all sixteen deterministic cases. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
@@ -544,31 +560,36 @@ correctness. Generated tests must meet each problem's actual constraints.
   All sixteen batch-thirty-seven wrong algorithms are also rejected. Numeric
   permutations accept reversed outer order but reject duplicate/missing rows
   and collapsing all rows to the same internal order. Its 40,320-output boundary
-  passes within a 238.6 ms suite; both 200-by-200 basin cases pass within a
-  195.3 ms suite after Pyodide load. The row-order explanation renders in the UI.
+  passes within a 238.1 ms suite; both 200-by-200 basin cases pass within a
+  193.0 ms suite after Pyodide load. The row-order explanation renders in the UI.
   All eighteen batch-thirty-eight wrong algorithms are rejected. Ocean coordinates
   accept reordered cells but reject row/column swaps, omissions, and duplicates;
   the plateau and coordinate rules render in the UI. Source-scale XOR, subset DP,
-  and ocean suites finish in 502.3, 358.8, and 220.0 ms respectively after load.
+  and ocean suites finish in 497.6, 338.1, and 224.5 ms respectively after load.
   All twenty-two batch-thirty-nine wrong algorithms are rejected. Character
   prefixes enforce actual input mutation and strict integer counts while ignoring
   the tail; word-square answers permit outer reordering but reject changed row
   order and duplicated/missing squares. Multi-digit compression examples render
-  the compound count/prefix output correctly. Batch-39 suites finish in 31.9–123.2 ms
+  the compound count/prefix output correctly. Batch-39 suites finish in 31.9–122.6 ms
   after load, including the thousand-item arithmetic-subsequence DP and deep
   tree/conditional inputs.
   All eight batch-forty wrong algorithms are rejected. BST deletion accepts
   predecessor/successor roots and unbalanced shapes while rejecting invalid
   ordering, missing/extra/noninteger values, cycles, shared children, and array
-  returns. Its 10,000-node cases pass within a 100.2 ms suite; the circular-loop
-  suite takes 44.1 ms and million-block repetition suite 31.5 ms. The 21-case
-  minimax suite, including the heavier (20,150) hidden case, finishes in 1,695.6 ms
+  returns. Its 10,000-node cases pass within a 98.7 ms suite; the circular-loop
+  suite takes 43.5 ms and million-block repetition suite 31.1 ms. The 21-case
+  minimax suite, including the heavier (20,150) hidden case, finishes in 1,683.3 ms
   after runtime load, within the three-second execution deadline.
+  All 24 batch-forty-one wrong algorithms are rejected. Missing-value lists allow
+  reordered answers but reject duplicate or omitted values. The IP problem's
+  full-notation restriction renders in the UI and is enforced by the worker.
+  New reference suites finish in 30.6–230.1 ms after load, including all
+  100,000-/200,000-element and 500-point stress fixtures.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
   Reports also bind the judge contract, built worker, frontend index, and browser
   verifier hashes; the verifier refuses a stale built worker until it is rebuilt.
-- Current automated suite: 421 backend tests and 17 frontend tests pass. The
+- Current automated suite: 469 backend tests and 17 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.
@@ -584,9 +605,18 @@ batches, extend ordinary tree/list adapters where required, and run the final
 benchmark only when all eligible imports are complete. Current browser metrics
 must be labeled interim; a partial-catalog measurement cannot prove the final gate.
 
+Upcoming contract review: source 471 (shortest string encoding) permits multiple
+equally short encodings, requiring a decoding-and-optimal-length comparator rather
+than literal reference-string equality. Source 480 remains an ordinary function
+despite its candidate implementation's helper class; its sliding medians require
+floating-point tolerance. Sources 470 and 478 require separate protocol review
+for injected randomness or constructor/call sequences; they remain pending,
+not silently converted to deterministic lookup exercises. Source 479 joins the
+finite-domain decision below.
+
 ## Pending owner decision: finite input domains
 
-LeetCode 22 accepts only n=1…8; LeetCode 51 and 52 accept only n=1…9. These
+LeetCode 22 and 479 accept only n=1…8; LeetCode 51 and 52 accept only n=1…9. These
 contracts cannot supply two visible inputs plus twelve different hidden inputs
 without fabricating out-of-range cases. They remain pending, not excluded or
 counted as completed. Owner confirmation has been requested for an exception

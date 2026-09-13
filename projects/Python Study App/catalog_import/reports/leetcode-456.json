@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-456",
+  "content_sha256": "b4fef09544df41763f661c8bd281ebc2fa788627f5565b45028abb30462a0532",
+  "source_hash": "cb70e7807f3a1faf1912fc63edfc20f6ef41a1eb8beed8ee8986760987c17741",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the low and middle values to be equal.",
+      "failed_cases": [
+        "lc-456-7"
+      ]
+    },
+    {
+      "reason": "Checks only adjacent triples, missing patterns with gaps.",
+      "failed_cases": [
+        "lc-456-2",
+        "lc-456-13",
+        "lc-456-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4503,
+  "oracle_implementation": "code_practice/import_batch_041.py:pattern_oracle",
+  "validator_implementation_sha256": "2980f1b9a8a7f071ac5cc2cdc9440aae3937f9fe02f064e8a07a98a1e9b6f79e",
+  "batch_implementation_sha256": "e0d7f4b67c15050215b7204999633c800e63e5132717e9f03f24d0a776567532",
+  "judge_contract_sha256": "f5ab974d852dcf397740c4dff5f260de8bf93081a27c6bf6b538f745903b28c7",
+  "elapsed_seconds": 0.226,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

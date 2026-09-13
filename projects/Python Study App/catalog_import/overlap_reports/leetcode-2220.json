@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "source_id": 2220,
+  "source_hash": "29c828993d44681ce0a71f2c38517254af50bbc61c083e7c7ac4d799f9c224f7",
+  "target_problem_id": "leetcode-461",
+  "target_source_hash": "8d781373b2a600480970a6e1768cf40228699822dd88b539dd63cdb6cc2918f6",
+  "target_content_sha256": "698032064d626dcef5ddf2fddf1ace4460a328b71c0e4592af1f08e0b8eb6280",
+  "judge_contract_sha256": "f5ab974d852dcf397740c4dff5f260de8bf93081a27c6bf6b538f745903b28c7",
+  "implementation_sha256": "633c753ad54f95edeb93d8c49e6f9fe8da75a681cb1adcca8bb1964f62cf2b52",
+  "decision": {
+    "target_source_id": 461,
+    "source_hash": "29c828993d44681ce0a71f2c38517254af50bbc61c083e7c7ac4d799f9c224f7",
+    "reason": "Every differing bit must be flipped at least once, and flipping each differing bit once suffices. Thus minimum flips is exactly Hamming distance for the same two integers. The target's nonnegative 31-bit domain includes every source start/goal in 0..10^9. Independent per-position comparisons verify 500 full-domain inputs, the workbook sample, and bit-boundary/carry cases. Keep one existing Hamming Distance progress ID."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 6267,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 64,
+  "largest_input": 1000000000,
+  "domain": "Two integers in 0..10^9; each differing binary position needs exactly one flip"
+}

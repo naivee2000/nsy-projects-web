@@ -240,6 +240,12 @@ try {
   assert((await deletionNote.textContent()).includes('Balancing is not required'));
   assert((await page.locator('.example code').first().textContent()).includes('One valid output'));
   report.checks.push('BST deletion explains surviving-value checks and alternative unbalanced output shapes');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Validate IP Address');
+  await page.getByRole('button', { name: /Validate IP Address.*Medium/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('compressed :: notation'));
+  assert((await page.locator('.problem-pane').textContent()).includes('NOT accepted'));
+  report.checks.push('IP examples and constraints explain full eight-group IPv6 and forbid compressed notation');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -350,6 +356,19 @@ try {
   assert.equal((await judge(page,lastDeletion,'def delete_bst_node(root,key):\n    return None')).status,'accepted');
   assert.notEqual((await judge(page,lastDeletion,'def delete_bst_node(root,key):\n    return TreeNode(None)')).status,'accepted');
   report.checks.push('batch 40 wrong algorithms rejected; BST deletion accepts predecessor/successor roots and unbalanced shapes while rejecting missing/extra/noninteger values, cycles, shared children and array returns');
+  for (const id of [447,448,452,453,454,455,456,459,461,462,467,468]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `leetcode-${id} wrong fixture`);
+    }
+  }
+  const missing = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-448.json'), 'utf8'));
+  const missingCase = { ...missing, tests: [missing.tests[0]] };
+  assert.equal((await judge(page, missingCase, 'def disappeared_numbers(nums):\n    return [6,5]')).status, 'accepted');
+  for (const output of ['[5]', '[5,5,6]', '[4,6]']) {
+    assert.equal((await judge(page, missingCase, `def disappeared_numbers(nums):\n    return ${output}`)).status, 'wrong_answer');
+  }
+  report.checks.push('batch 41 wrong algorithms rejected: ordered geometry, interval endpoints, distinct move rules, index multiplicities, strict patterns and IP grammar; missing values allow reorder but reject duplicates and omissions');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
     expected: [1,1,1], expected_node_order: [1,2,0] }] };
