@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1078",
+  "content_sha256": "8b71f6988b858e78e562f1d7dfd3e18fbe9e68e91e9e8975f6b0582e13ea7b5b",
+  "source_hash": "4d34470e44d26d9c6fcc421add4404d9e721fd329a4ac24c804b66f256f8ffe8",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the second bigram word instead of the following word.",
+      "failed_cases": [
+        "lc-1078-1",
+        "lc-1078-2",
+        "lc-1078-3",
+        "lc-1078-6",
+        "lc-1078-7",
+        "lc-1078-8",
+        "lc-1078-9",
+        "lc-1078-11",
+        "lc-1078-12",
+        "lc-1078-13",
+        "lc-1078-14",
+        "lc-1078-15"
+      ]
+    },
+    {
+      "reason": "Searches for first,anything,second rather than adjacent first,second.",
+      "failed_cases": [
+        "lc-1078-1",
+        "lc-1078-2",
+        "lc-1078-3",
+        "lc-1078-6",
+        "lc-1078-7",
+        "lc-1078-8",
+        "lc-1078-9",
+        "lc-1078-11",
+        "lc-1078-12",
+        "lc-1078-13",
+        "lc-1078-14",
+        "lc-1078-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5125,
+  "oracle_implementation": "code_practice/import_batch_081.py:bigram_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8192419cb39d47b156d668e72e390297e043ecbe324f49bb7b6e6776322719e4",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

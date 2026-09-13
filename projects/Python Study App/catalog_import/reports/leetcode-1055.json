@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1055",
+  "content_sha256": "2b62014a2180fe2437f63c8ceb1056c5f9da05333600784662356f0b07cc7e3d",
+  "source_hash": "abdee9e963bd197a128fd43651c98fe25d2d0c9223d6587608d58e0951451737",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Reuses the same source position for repeated characters.",
+      "failed_cases": [
+        "lc-1055-4",
+        "lc-1055-8",
+        "lc-1055-14",
+        "lc-1055-15"
+      ]
+    },
+    {
+      "reason": "Decrements rather than increments when a new subsequence is required.",
+      "failed_cases": [
+        "lc-1055-1",
+        "lc-1055-4",
+        "lc-1055-6",
+        "lc-1055-7",
+        "lc-1055-8",
+        "lc-1055-9",
+        "lc-1055-12",
+        "lc-1055-13",
+        "lc-1055-14",
+        "lc-1055-15",
+        "lc-1055-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5102,
+  "oracle_implementation": "code_practice/import_batch_081.py:shortest_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bac11da759733bc75d0ddb6bd12b5f26a6a2460bf4990e8267c1f19db89b183f",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1074",
+  "content_sha256": "850755dddf9671cfaccda09028d0d1c21dd5b7703f66fc59a3fa5301490bada5",
+  "source_hash": "6fdb95be0191ccc819540d852d001b9fe8fda40a9989d72dc540e4c94b82b853",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Looks for prefixes differing by negative target.",
+      "failed_cases": [
+        "lc-1074-5",
+        "lc-1074-8",
+        "lc-1074-11",
+        "lc-1074-12",
+        "lc-1074-14",
+        "lc-1074-16"
+      ]
+    },
+    {
+      "reason": "Omits the empty prefix and misses rectangles starting at the first column.",
+      "failed_cases": [
+        "lc-1074-1",
+        "lc-1074-2",
+        "lc-1074-3",
+        "lc-1074-5",
+        "lc-1074-6",
+        "lc-1074-7",
+        "lc-1074-8",
+        "lc-1074-9",
+        "lc-1074-10",
+        "lc-1074-11",
+        "lc-1074-12",
+        "lc-1074-13",
+        "lc-1074-14",
+        "lc-1074-15",
+        "lc-1074-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5121,
+  "oracle_implementation": "code_practice/import_batch_081.py:submatrix_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "de5f6b8cb1153d481532798b058b2711712029c69a459805cb8e6bfc08474f40",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

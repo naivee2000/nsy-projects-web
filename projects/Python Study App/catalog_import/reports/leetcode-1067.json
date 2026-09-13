@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1067",
+  "content_sha256": "9cbea61f1232d4afd4bc3e24d8340fa15d61eb370b4c04cbac40f175ad24fe51",
+  "source_hash": "9c3534d3ef9cdd0bbef3a412f89aa0c1fad53bead1c952caad63a67ee0fa94f7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts leading zeros in each digit position.",
+      "failed_cases": [
+        "lc-1067-2",
+        "lc-1067-5",
+        "lc-1067-9",
+        "lc-1067-14"
+      ]
+    },
+    {
+      "reason": "Subtracts through low rather than through low-1.",
+      "failed_cases": [
+        "lc-1067-1",
+        "lc-1067-3",
+        "lc-1067-6",
+        "lc-1067-8",
+        "lc-1067-9",
+        "lc-1067-10",
+        "lc-1067-12",
+        "lc-1067-15",
+        "lc-1067-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5114,
+  "oracle_implementation": "code_practice/import_batch_081.py:digit_range_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ce402b8e9c11d0a3c1b1b1dae59913a876cfd52878b666896eb6e0b84142f96",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

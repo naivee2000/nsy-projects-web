@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1062",
+  "content_sha256": "29253bee7d4398186cbbef572642cea09a28c2abf5366152c1a86cf348b997fb",
+  "source_hash": "35a4a8ab78a0d66abacb510496675c7da13c066ae8c1aa9b702f202b145b1b2f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Clears observed substrings each iteration and cannot detect repeats.",
+      "failed_cases": [
+        "lc-1062-2",
+        "lc-1062-4",
+        "lc-1062-5",
+        "lc-1062-6",
+        "lc-1062-7",
+        "lc-1062-8",
+        "lc-1062-9",
+        "lc-1062-10",
+        "lc-1062-11",
+        "lc-1062-12",
+        "lc-1062-13",
+        "lc-1062-14",
+        "lc-1062-15",
+        "lc-1062-16"
+      ]
+    },
+    {
+      "reason": "Shrinks rather than grows after finding a feasible length.",
+      "failed_cases": [
+        "lc-1062-2",
+        "lc-1062-4",
+        "lc-1062-5",
+        "lc-1062-6",
+        "lc-1062-7",
+        "lc-1062-8",
+        "lc-1062-9",
+        "lc-1062-10",
+        "lc-1062-11",
+        "lc-1062-12",
+        "lc-1062-13",
+        "lc-1062-14",
+        "lc-1062-15",
+        "lc-1062-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5109,
+  "oracle_implementation": "code_practice/import_batch_081.py:repeat_length_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4059533c9266dd9dbd79873bddbf04f5eaba967a0861ab18cbddcc3e4e76c848",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

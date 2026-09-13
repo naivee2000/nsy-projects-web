@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1060",
+  "content_sha256": "248528f5b2f9f5477d018f904410b67e246251bf7a6fbfc7d44c9d6c93cf3757",
+  "source_hash": "8a5d8b453e08a4b97e9122c5d65b80686bfaeafd46c83b942ce5bb062eca020e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the index instead of discounting present values.",
+      "failed_cases": [
+        "lc-1060-2",
+        "lc-1060-5",
+        "lc-1060-7",
+        "lc-1060-9",
+        "lc-1060-10",
+        "lc-1060-12",
+        "lc-1060-13",
+        "lc-1060-15"
+      ]
+    },
+    {
+      "reason": "Returns one beyond the kth missing value.",
+      "failed_cases": [
+        "lc-1060-1",
+        "lc-1060-2",
+        "lc-1060-3",
+        "lc-1060-4",
+        "lc-1060-5",
+        "lc-1060-6",
+        "lc-1060-7",
+        "lc-1060-8",
+        "lc-1060-9",
+        "lc-1060-10",
+        "lc-1060-11",
+        "lc-1060-12",
+        "lc-1060-13",
+        "lc-1060-14",
+        "lc-1060-15",
+        "lc-1060-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5107,
+  "oracle_implementation": "code_practice/import_batch_081.py:missing_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0197c50e354c085134d4f6e9ece8d086d0fb0e36861afab4548ddea676f45bc3",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

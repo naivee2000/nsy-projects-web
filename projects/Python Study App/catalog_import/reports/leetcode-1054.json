@@ -1,0 +1,63 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1054",
+  "content_sha256": "1e9fe01df7a93c39545d7104f099decb647edf89f0ce72031a0e4234f1e0d7ef",
+  "source_hash": "07af3d6490e52d2232e405c4ebc676c434860802521d26fda614f24cb6579154",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Starts filling odd slots and produces an incomplete or adjacent arrangement.",
+      "failed_cases": [
+        "lc-1054-1",
+        "lc-1054-2",
+        "lc-1054-3",
+        "lc-1054-4",
+        "lc-1054-5",
+        "lc-1054-6",
+        "lc-1054-7",
+        "lc-1054-8",
+        "lc-1054-9",
+        "lc-1054-10",
+        "lc-1054-11",
+        "lc-1054-12",
+        "lc-1054-13",
+        "lc-1054-14",
+        "lc-1054-15",
+        "lc-1054-16"
+      ]
+    },
+    {
+      "reason": "Orders least frequent groups first.",
+      "failed_cases": [
+        "lc-1054-1",
+        "lc-1054-2",
+        "lc-1054-4",
+        "lc-1054-5",
+        "lc-1054-6",
+        "lc-1054-7",
+        "lc-1054-8",
+        "lc-1054-9",
+        "lc-1054-10",
+        "lc-1054-11",
+        "lc-1054-12",
+        "lc-1054-13",
+        "lc-1054-14",
+        "lc-1054-15",
+        "lc-1054-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5101,
+  "oracle_implementation": "code_practice/import_batch_081.py:barcode_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "66573df97ba140ae81650bcae62c42fe4dfb25c0c3176705193bd06287d45bcc",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

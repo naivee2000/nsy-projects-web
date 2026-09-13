@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1064",
+  "content_sha256": "5e6ccad6890a30dac38f6724eccfcf0b4897633a4d208e838a50d9649b06bfb6",
+  "source_hash": "ea74f9f8604e8b615101583f58c2f336afbc407958dc45aa54fe6ee5a69e0164",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Searches right after finding or passing a possible smaller fixed point.",
+      "failed_cases": [
+        "lc-1064-2",
+        "lc-1064-8",
+        "lc-1064-9"
+      ]
+    },
+    {
+      "reason": "Returns immediately and can miss a smaller fixed point.",
+      "failed_cases": [
+        "lc-1064-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5111,
+  "oracle_implementation": "code_practice/import_batch_081.py:fixed_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "76d79867a4f5d89fd2a16fc560cacd7d5bfb7aaea98448baa86a7ed2b46dbec5",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

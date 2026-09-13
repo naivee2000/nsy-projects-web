@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1073",
+  "content_sha256": "1e8643712fa345b6c10826a5cf192bfa96626d7742657cc3c2086e5b71e7fdb0",
+  "source_hash": "3db135d85394b11b990e316dbb243e27c30d9eca2b9101a55bfe80340974d641",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses positive-base carry propagation.",
+      "failed_cases": [
+        "lc-1073-1",
+        "lc-1073-4",
+        "lc-1073-6",
+        "lc-1073-8",
+        "lc-1073-9",
+        "lc-1073-10",
+        "lc-1073-12",
+        "lc-1073-13",
+        "lc-1073-14",
+        "lc-1073-15"
+      ]
+    },
+    {
+      "reason": "Emits ternary remainders rather than binary digits.",
+      "failed_cases": [
+        "lc-1073-1",
+        "lc-1073-4",
+        "lc-1073-6",
+        "lc-1073-8",
+        "lc-1073-9",
+        "lc-1073-10",
+        "lc-1073-12",
+        "lc-1073-13",
+        "lc-1073-14",
+        "lc-1073-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5120,
+  "oracle_implementation": "code_practice/import_batch_081.py:neg_add_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aa8fc5c347a9384d0fbfbbd33a7e4fef6920d1303521198ef0c1d31e690656f1",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

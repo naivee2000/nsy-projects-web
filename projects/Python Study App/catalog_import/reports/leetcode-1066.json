@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1066",
+  "content_sha256": "ee3d4d84a6ac1c6ac5d689dbf35d96906faf1800aae21586b9e24b492b927027",
+  "source_hash": "ec2f6728eedfbcad8959d082a40f5e47b572768151e7482c28435569642b1b52",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Assigns bike zero to every worker instead of enforcing distinct bikes.",
+      "failed_cases": [
+        "lc-1066-1",
+        "lc-1066-2",
+        "lc-1066-6",
+        "lc-1066-8",
+        "lc-1066-9",
+        "lc-1066-10",
+        "lc-1066-12",
+        "lc-1066-13",
+        "lc-1066-14",
+        "lc-1066-15",
+        "lc-1066-16"
+      ]
+    },
+    {
+      "reason": "Never marks the selected bike used, allowing reuse.",
+      "failed_cases": [
+        "lc-1066-1",
+        "lc-1066-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5113,
+  "oracle_implementation": "code_practice/import_batch_081.py:bikes_two_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9cb025cc7eeec85262f2e63d590e08e7c99d09658a9cc3c81ffaa5ef37f3f489",
+  "elapsed_seconds": 0.143,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

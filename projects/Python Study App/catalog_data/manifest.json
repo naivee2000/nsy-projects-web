@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 759,
+  "count": 779,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -13534,6 +13534,353 @@
       "path": "problems/leetcode-1052.json",
       "content_sha256": "24346b92b8a05946ff731e83858df169ace44f9bffd8ef00c4a192f888adf8c4",
       "source_id": 1052
+    },
+    {
+      "id": "leetcode-1053",
+      "version": 1,
+      "status": "approved",
+      "title": "Previous Permutation With One Swap",
+      "summary": "Given an array of positive integers, return the lexicographically largest permutation that is smaller than the original array by performing exactly one swap.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1053.json",
+      "content_sha256": "126b72b458a54c0e42915b637a73ebce87d9d95578bb135883439f7e5eb4f5c8",
+      "source_id": 1053
+    },
+    {
+      "id": "leetcode-1054",
+      "version": 1,
+      "status": "approved",
+      "title": "Distant Barcodes",
+      "summary": "In a warehouse, a row of barcodes is arranged where the i-th barcode is barcodes[i].",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1054.json",
+      "content_sha256": "1e9fe01df7a93c39545d7104f099decb647edf89f0ce72031a0e4234f1e0d7ef",
+      "source_id": 1054
+    },
+    {
+      "id": "leetcode-1055",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Way to Form String",
+      "summary": "Determine the least number of subsequences from the source string needed to form the target string exactly, maintaining the order of characters.",
+      "topics": [
+        "greedy",
+        "binary-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1055.json",
+      "content_sha256": "2b62014a2180fe2437f63c8ceb1056c5f9da05333600784662356f0b07cc7e3d",
+      "source_id": 1055
+    },
+    {
+      "id": "leetcode-1056",
+      "version": 1,
+      "status": "approved",
+      "title": "Confusing Number",
+      "summary": "A confusing number is one that transforms into a distinct number upon a 180-degree rotation, with valid digits remaining intact.",
+      "topics": [
+        "math",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1056.json",
+      "content_sha256": "90b3cab10735e7f66a4b347c1d0ddcca49c973604874ce0225c12d28c93dce37",
+      "source_id": 1056
+    },
+    {
+      "id": "leetcode-1057",
+      "version": 1,
+      "status": "approved",
+      "title": "Campus Bikes",
+      "summary": "Given a campus represented on the X-Y plane with n workers and m bikes (n <= m), assign a bike to each worker by choosing the pair with the shortest Manhattan distance.",
+      "topics": [
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1057.json",
+      "content_sha256": "704bd8499164a02a0b6d7a0e247f4cba484803900d8944315e94dbf4d6803d12",
+      "source_id": 1057
+    },
+    {
+      "id": "leetcode-1058",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize Rounding Error to Meet Target",
+      "summary": "Given an array of prices and a target, round each price to either floor or ceiling so that the rounded array sums to the target.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1058.json",
+      "content_sha256": "8a4ed45e830b6cad7dc009193542ea11f0a16a99f814facd663e7206c749e6d2",
+      "source_id": 1058
+    },
+    {
+      "id": "leetcode-1059",
+      "version": 1,
+      "status": "approved",
+      "title": "All Paths from Source Lead to Destination",
+      "summary": "Given a directed graph with edges defined by [ai, bi], and nodes source and destination, determine if every path starting from source ends at destination.",
+      "topics": [
+        "graphs",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1059.json",
+      "content_sha256": "cc8b11fab978c5add018ae71213358a7016b7ac6d6b80ee7e39d25573e16ca37",
+      "source_id": 1059
+    },
+    {
+      "id": "leetcode-1060",
+      "version": 1,
+      "status": "approved",
+      "title": "Missing Element in Sorted Array",
+      "summary": "Provide the kth missing number in a sorted array of unique integers, starting from the first element.",
+      "topics": [
+        "binary-search",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1060.json",
+      "content_sha256": "248528f5b2f9f5477d018f904410b67e246251bf7a6fbfc7d44c9d6c93cf3757",
+      "source_id": 1060
+    },
+    {
+      "id": "leetcode-1061",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographically Smallest Equivalent String",
+      "summary": "Given two strings, s1 and s2, of the same length, and another string baseStr, you are to determine the lexicographically smallest string that is equivalent to baseStr.",
+      "topics": [
+        "union-find",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1061.json",
+      "content_sha256": "ee5445c55e55725e16c5c132ef1a52d2cb1f5c1ceb8a970eff239f9665c7edc3",
+      "source_id": 1061
+    },
+    {
+      "id": "leetcode-1062",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Repeating Substring",
+      "summary": "For a given string, determine the length of the longest substring that repeats.",
+      "topics": [
+        "strings",
+        "binary-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1062.json",
+      "content_sha256": "29253bee7d4398186cbbef572642cea09a28c2abf5366152c1a86cf348b997fb",
+      "source_id": 1062
+    },
+    {
+      "id": "leetcode-1063",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Valid Subarrays",
+      "summary": "For an integer array, count the non-empty subarrays where the first element is not greater than any other element within the subarray.",
+      "topics": [
+        "monotonic-stack",
+        "arrays"
+      ],
+      "prerequisites": [
+        "monotonic-stack"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1063.json",
+      "content_sha256": "8d594ec8ffabcee7ccca9506643aba482e08c949e3a619ce920d4759a334d4be",
+      "source_id": 1063
+    },
+    {
+      "id": "leetcode-1064",
+      "version": 1,
+      "status": "approved",
+      "title": "Fixed Point",
+      "summary": "For an array of unique integers sorted in ascending order, identify the least index where the value equals the index.",
+      "topics": [
+        "binary-search",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1064.json",
+      "content_sha256": "5e6ccad6890a30dac38f6724eccfcf0b4897633a4d208e838a50d9649b06bfb6",
+      "source_id": 1064
+    },
+    {
+      "id": "leetcode-1065",
+      "version": 1,
+      "status": "approved",
+      "title": "Index Pairs of a String",
+      "summary": "For a given string text and an array of strings words, identify and return all index pairs [i, j] where the substring text[i...j] matches any entry in words.",
+      "topics": [
+        "strings",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1065.json",
+      "content_sha256": "2279f1d6632398c2d95784c11461c90535286fb7181a29b59bd52b50f8f7c691",
+      "source_id": 1065
+    },
+    {
+      "id": "leetcode-1066",
+      "version": 1,
+      "status": "approved",
+      "title": "Campus Bikes II",
+      "summary": "Given a campus as a 2D grid with n workers and m bikes (n <= m), assign each worker a unique bike to minimize the total Manhattan distance between workers and their assigned bikes.",
+      "topics": [
+        "bitmask-dp",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1066.json",
+      "content_sha256": "ee3d4d84a6ac1c6ac5d689dbf35d96906faf1800aae21586b9e24b492b927027",
+      "source_id": 1066
+    },
+    {
+      "id": "leetcode-1067",
+      "version": 1,
+      "status": "approved",
+      "title": "Digit Count in Range",
+      "summary": "Determine the frequency of a single-digit integer d appearing as a digit within the range from low to high, inclusive.",
+      "topics": [
+        "math",
+        "digit-dp"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1067.json",
+      "content_sha256": "9cbea61f1232d4afd4bc3e24d8340fa15d61eb370b4c04cbac40f175ad24fe51",
+      "source_id": 1067
+    },
+    {
+      "id": "leetcode-1071",
+      "version": 1,
+      "status": "approved",
+      "title": "Greatest Common Divisor of Strings",
+      "summary": "Determine the longest string x that can be repeatedly concatenated to form both str1 and str2, indicating that x divides both strings.",
+      "topics": [
+        "strings",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1071.json",
+      "content_sha256": "586b4a320e023c21af34d00683d1617ed21b803fa556ae5c65a58398ae8313b9",
+      "source_id": 1071
+    },
+    {
+      "id": "leetcode-1073",
+      "version": 1,
+      "status": "approved",
+      "title": "Adding Two Negabinary Numbers",
+      "summary": "Given two negabinary numbers represented as arrays of 0s and 1s, add them and return the result as an array of 0s and 1s, ensuring no leading zeros.",
+      "topics": [
+        "math",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1073.json",
+      "content_sha256": "1e8643712fa345b6c10826a5cf192bfa96626d7742657cc3c2086e5b71e7fdb0",
+      "source_id": 1073
+    },
+    {
+      "id": "leetcode-1074",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Submatrices That Sum to Target",
+      "summary": "Given a matrix and a target, count the number of non-empty submatrices whose sum equals the target.",
+      "topics": [
+        "prefix-sums",
+        "matrices",
+        "hash-maps"
+      ],
+      "prerequisites": [
+        "prefix-sums"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1074.json",
+      "content_sha256": "850755dddf9671cfaccda09028d0d1c21dd5b7703f66fc59a3fa5301490bada5",
+      "source_id": 1074
+    },
+    {
+      "id": "leetcode-1078",
+      "version": 1,
+      "status": "approved",
+      "title": "Occurrences After Bigram",
+      "summary": "Given two strings 'first' and 'second', identify all instances where 'second' follows 'first' immediately, and 'third' follows 'second'.",
+      "topics": [
+        "strings",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1078.json",
+      "content_sha256": "8b71f6988b858e78e562f1d7dfd3e18fbe9e68e91e9e8975f6b0582e13ea7b5b",
+      "source_id": 1078
+    },
+    {
+      "id": "leetcode-1079",
+      "version": 1,
+      "status": "approved",
+      "title": "Letter Tile Possibilities",
+      "summary": "Given n tiles with individual letters, calculate the total count of distinct non-empty sequences that can be formed using these letters.",
+      "topics": [
+        "backtracking",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1079.json",
+      "content_sha256": "7d04cdf2a949d2dd79339df9d163357eeada4ff0c390420eab98a24315d1089e",
+      "source_id": 1079
     }
   ]
 }

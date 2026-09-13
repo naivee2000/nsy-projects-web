@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1063",
+  "content_sha256": "8d594ec8ffabcee7ccca9506643aba482e08c949e3a619ce920d4759a334d4be",
+  "source_hash": "8b1f755dee7223996d1b436988bb34e856504d52a9a90da54f637805121741fe",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pops equal minima even though equality is valid.",
+      "failed_cases": [
+        "lc-1063-6",
+        "lc-1063-9",
+        "lc-1063-11",
+        "lc-1063-13"
+      ]
+    },
+    {
+      "reason": "Counts only singleton subarrays.",
+      "failed_cases": [
+        "lc-1063-1",
+        "lc-1063-4",
+        "lc-1063-6",
+        "lc-1063-7",
+        "lc-1063-8",
+        "lc-1063-9",
+        "lc-1063-10",
+        "lc-1063-11",
+        "lc-1063-12",
+        "lc-1063-13",
+        "lc-1063-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5110,
+  "oracle_implementation": "code_practice/import_batch_081.py:valid_subarray_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9bcbc784b00101e053b7e80ac6f3b32fa7a30674f743f0c5aea7ee10ea883e2e",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

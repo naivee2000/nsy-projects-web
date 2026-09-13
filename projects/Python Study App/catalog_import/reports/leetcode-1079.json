@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1079",
+  "content_sha256": "7d04cdf2a949d2dd79339df9d163357eeada4ff0c390420eab98a24315d1089e",
+  "source_hash": "e76e70ded239f119d2c4d2450af7ee5491c38e2678542c4d7e1036c58efa07eb",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts rather than counts each newly formed sequence.",
+      "failed_cases": [
+        "lc-1079-1",
+        "lc-1079-2",
+        "lc-1079-3",
+        "lc-1079-4",
+        "lc-1079-5",
+        "lc-1079-6",
+        "lc-1079-7",
+        "lc-1079-8",
+        "lc-1079-9",
+        "lc-1079-10",
+        "lc-1079-11",
+        "lc-1079-12",
+        "lc-1079-13",
+        "lc-1079-14",
+        "lc-1079-15",
+        "lc-1079-16"
+      ]
+    },
+    {
+      "reason": "Fails to restore a tile after recursion, losing valid sibling choices.",
+      "failed_cases": [
+        "lc-1079-1",
+        "lc-1079-4",
+        "lc-1079-5",
+        "lc-1079-7",
+        "lc-1079-8",
+        "lc-1079-9",
+        "lc-1079-10",
+        "lc-1079-11",
+        "lc-1079-13",
+        "lc-1079-14",
+        "lc-1079-15",
+        "lc-1079-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5126,
+  "oracle_implementation": "code_practice/import_batch_081b.py:tiles_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "914494b72e23f454f4d66c7466eddca76574629c21da586776ce8f5914c767c2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "06311b4f6a357fa229da0278f7e64874c158297f06b2ee33323246be6c5319ab",
+  "elapsed_seconds": 0.111,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

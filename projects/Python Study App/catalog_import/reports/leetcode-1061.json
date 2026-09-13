@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1061",
+  "content_sha256": "ee5445c55e55725e16c5c132ef1a52d2cb1f5c1ceb8a970eff239f9665c7edc3",
+  "source_hash": "5aea2d0188fcc3ea4afcaaf42f2038d6e4149799ccff4a205227b2dfb925c6c4",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the largest rather than smallest component representative.",
+      "failed_cases": [
+        "lc-1061-1",
+        "lc-1061-2",
+        "lc-1061-3",
+        "lc-1061-4",
+        "lc-1061-6",
+        "lc-1061-7",
+        "lc-1061-8",
+        "lc-1061-9",
+        "lc-1061-10",
+        "lc-1061-11",
+        "lc-1061-12",
+        "lc-1061-13",
+        "lc-1061-14",
+        "lc-1061-15"
+      ]
+    },
+    {
+      "reason": "Builds equivalence classes but returns the unchanged base string.",
+      "failed_cases": [
+        "lc-1061-1",
+        "lc-1061-2",
+        "lc-1061-3",
+        "lc-1061-4",
+        "lc-1061-6",
+        "lc-1061-7",
+        "lc-1061-8",
+        "lc-1061-9",
+        "lc-1061-10",
+        "lc-1061-11",
+        "lc-1061-12",
+        "lc-1061-13",
+        "lc-1061-14",
+        "lc-1061-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5108,
+  "oracle_implementation": "code_practice/import_batch_081.py:equivalent_oracle",
+  "validator_implementation_sha256": "93681bc403f936f84ed3544d8ce0eb23d272e09b252555d4bb8a679d425f080d",
+  "batch_implementation_sha256": "913ccedd705a66d9e63049d501312ea59b803b6590c4a68235d856920d5ada4b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "97f2d6a566f681cd7f0e558fa58fe40e7979bbbb8a700940ca494c4cfaa99e09",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
