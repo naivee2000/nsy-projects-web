@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-623",
+  "content_sha256": "9e14c7cfac7196119028ca68d5030a8ebe462c4b2b8460e598d441cd89ac3f9b",
+  "source_hash": "c393ee64129c96a128b509eda5ac0b578ee97b22edf5e875e5e0449e1643ff1d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Inserts the row one level too deep.",
+      "failed_cases": [
+        "lc-623-1",
+        "lc-623-3",
+        "lc-623-4",
+        "lc-623-5",
+        "lc-623-6",
+        "lc-623-7",
+        "lc-623-8",
+        "lc-623-10",
+        "lc-623-11",
+        "lc-623-12",
+        "lc-623-13",
+        "lc-623-14"
+      ]
+    },
+    {
+      "reason": "Swaps the original left and right subtrees when reconnecting them.",
+      "failed_cases": [
+        "lc-623-1",
+        "lc-623-4",
+        "lc-623-5",
+        "lc-623-7",
+        "lc-623-10",
+        "lc-623-11",
+        "lc-623-13",
+        "lc-623-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4670,
+  "oracle_implementation": "code_practice/import_batch_064.py:add_row_oracle",
+  "validator_implementation_sha256": "c925860eba7874cca90b3eecdc991a8528411d75c8be96b3c818e32ac4a86a87",
+  "batch_implementation_sha256": "17e8e4f049479a25d9e2f913c096cc1dbb3850470e894f56d23e7b2d7effbdce",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5e8d452db88b9e1e17557a9f81dcbe39329fc8722d2029d4601ebed4a8b7f2ce",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

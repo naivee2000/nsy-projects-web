@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-654",
+  "content_sha256": "47649f5fba0d7f54cad13eef9d54087a10130a6cbbb2bb9588c568cb353b18fe",
+  "source_hash": "bc8b0cbe8e57392afd7613c256c84ef6abba6b8a4e11a5762793a006e1b8ec15",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Builds a minimum tree by reversing the monotonic comparison.",
+      "failed_cases": [
+        "lc-654-1",
+        "lc-654-2",
+        "lc-654-4",
+        "lc-654-5",
+        "lc-654-6",
+        "lc-654-7",
+        "lc-654-8",
+        "lc-654-9",
+        "lc-654-10",
+        "lc-654-11",
+        "lc-654-12",
+        "lc-654-13",
+        "lc-654-14"
+      ]
+    },
+    {
+      "reason": "Sorts the remaining values and loses their required input-side structure.",
+      "failed_cases": [
+        "lc-654-1",
+        "lc-654-2",
+        "lc-654-5",
+        "lc-654-6",
+        "lc-654-7",
+        "lc-654-8",
+        "lc-654-9",
+        "lc-654-10",
+        "lc-654-11",
+        "lc-654-12",
+        "lc-654-13",
+        "lc-654-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4701,
+  "oracle_implementation": "code_practice/import_batch_064.py:maximum_tree_oracle",
+  "validator_implementation_sha256": "c925860eba7874cca90b3eecdc991a8528411d75c8be96b3c818e32ac4a86a87",
+  "batch_implementation_sha256": "17e8e4f049479a25d9e2f913c096cc1dbb3850470e894f56d23e7b2d7effbdce",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d95ba80bc1b0003e3a9546868fa0e296cc2fa8b5738f79694ab3655038bfb6e9",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

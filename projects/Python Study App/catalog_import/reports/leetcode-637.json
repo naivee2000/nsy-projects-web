@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-637",
+  "content_sha256": "b0ee832df7e05aed3042f0c4006963727dbae3f102d11aadb2f8ebc8ce9885db",
+  "source_hash": "0e27527e0080b5618450fbabd70b5ee633f478061216cd0aacafeab6836a83e3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses integer division and truncates fractional averages.",
+      "failed_cases": [
+        "lc-637-1",
+        "lc-637-6",
+        "lc-637-11",
+        "lc-637-12",
+        "lc-637-14"
+      ]
+    },
+    {
+      "reason": "Uses the largest value at each level instead of its sum.",
+      "failed_cases": [
+        "lc-637-1",
+        "lc-637-5",
+        "lc-637-6",
+        "lc-637-9",
+        "lc-637-10",
+        "lc-637-11",
+        "lc-637-12",
+        "lc-637-13",
+        "lc-637-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4684,
+  "oracle_implementation": "code_practice/import_batch_064.py:averages_oracle",
+  "validator_implementation_sha256": "c925860eba7874cca90b3eecdc991a8528411d75c8be96b3c818e32ac4a86a87",
+  "batch_implementation_sha256": "17e8e4f049479a25d9e2f913c096cc1dbb3850470e894f56d23e7b2d7effbdce",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f2f525064532224e77529e54926db358fbed89834e24c1764c997f1ec46c46fe",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
