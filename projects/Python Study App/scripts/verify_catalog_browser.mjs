@@ -262,7 +262,9 @@ try {
   report.checks.push('shortest encoding explains tied optimal strings and literal-only output when compression saves no space');
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await page.getByPlaceholder('Search title, topic, or pattern').fill('The Maze');
-  await page.getByRole('button', { name: /The Maze.*Medium/ }).click();
+  await page.locator('button.problem-card').filter({
+    has: page.locator('.problem-card-title', {hasText: /^The Maze$/}),
+  }).click();
   assert((await page.locator('.problem-pane').textContent()).includes('STOP at the destination'));
   assert((await page.locator('.problem-pane').textContent()).includes('Merely passing through'));
   assert((await page.locator('.example code').nth(1).textContent()).includes('false'));
@@ -322,6 +324,20 @@ try {
   assert((await page.locator('.problem-pane').textContent()).includes('four white balls'));
   assert((await page.locator('.example code').nth(1).textContent()).includes('WWRRBBWW'));
   report.checks.push('Zuma examples explain full chain reactions, removing groups of more than three, and legal preparatory insertions');
+
+  for (const [title,label,explanation] of [
+    ['The Maze III',/The Maze III.*Advanced/,'BEFORE reaching the right wall'],
+    ['The Maze II',/The Maze II.*Medium/,'cannot stop there'],
+    ['IPO',/IPO.*Advanced/,'the threshold of 1 is not deducted'],
+    ['Next Greater Element II',/Next Greater Element II.*Medium/,'equal is not greater'],
+    ['Freedom Trail',/Freedom Trail.*Advanced/,'the ring does not reset'],
+  ]) {
+    await page.getByRole('button', {name:'Back',exact:true}).click();
+    await page.getByPlaceholder('Search title, topic, or pattern').fill(title);
+    await page.getByRole('button', {name:label}).click();
+    assert((await page.locator('.problem-pane').textContent()).includes(explanation));
+  }
+  report.checks.push('batch 49 examples distinguish hole interruption, stopping destinations, capital thresholds, circular strict successors, and persistent ring rotations');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -586,6 +602,13 @@ def sliding_window_medians(nums, k):
     assert.equal((await judge(page,zuma,wrong)).status,'wrong_answer','Zuma wrong insertion/cascade algorithm');
   }
   report.checks.push('Zuma rejects immediate-removal-only moves and independently completed original runs; full-size references retain hand inventory and all legal preparatory moves, with an independently checked interval lower bound for adversarial five-color hands');
+  for (const id of [499,502,503,505,514]) {
+    const problem=JSON.parse(await fs.readFile(path.join(root,`catalog_data/problems/leetcode-${id}.json`),'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page,problem,wrong)).status,'wrong_answer',`batch 49 wrong algorithm ${id}`);
+    }
+  }
+  report.checks.push('batch 49 rejects ignored holes, shortest-roll counts, premature destination stops, reused/ineligible projects, missed wraparound, non-strict successors, one-way rotations, and free ring presses; source-scale reference fixtures pass');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],

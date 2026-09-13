@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-514",
+  "content_sha256": "2989d5ce59955d50f895cd81efbf0a7922b06d8da29435dbbbfb9ad96d82d1d5",
+  "source_hash": "a24de6f49d511b03e0aa84e637a6dee4af8f79ec37c55292b3baad6e686cbb07",
+  "visible_tests": 2,
+  "hidden_tests": 20,
+  "reference_passed": 22,
+  "wrong_solutions": [
+    {
+      "reason": "Never uses circular wraparound to shorten a rotation.",
+      "failed_cases": [
+        "lc-514-2",
+        "lc-514-8",
+        "lc-514-9",
+        "lc-514-14",
+        "lc-514-15",
+        "lc-514-16",
+        "lc-514-17",
+        "lc-514-stress-2",
+        "lc-514-stress-4"
+      ]
+    },
+    {
+      "reason": "Forgets that every button press costs one step.",
+      "failed_cases": [
+        "lc-514-1",
+        "lc-514-2",
+        "lc-514-3",
+        "lc-514-4",
+        "lc-514-5",
+        "lc-514-6",
+        "lc-514-7",
+        "lc-514-8",
+        "lc-514-9",
+        "lc-514-10",
+        "lc-514-11",
+        "lc-514-12",
+        "lc-514-13",
+        "lc-514-14",
+        "lc-514-15",
+        "lc-514-16",
+        "lc-514-17",
+        "lc-514-18",
+        "lc-514-stress-1",
+        "lc-514-stress-2",
+        "lc-514-stress-3",
+        "lc-514-stress-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4561,
+  "oracle_implementation": "code_practice/import_batch_049.py:ring_oracle",
+  "validator_implementation_sha256": "389f41acc9265fa5226eeca755fa2a1125870828c252bb332afee361dbefe3aa",
+  "batch_implementation_sha256": "c0c0fc9c59e233fab172928dcbb74929f462a4d81e365b80ab890343a1072bf8",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.532,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

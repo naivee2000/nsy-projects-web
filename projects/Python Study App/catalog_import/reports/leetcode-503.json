@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-503",
+  "content_sha256": "7f750641d40a49265b4dd52d98591ee4ffba90fe5d0f1593085d9975ccc4f6f1",
+  "source_hash": "d246a80593ba2a7478f06e1c8df9631539d4ae1aeac91b828e44db1da4d4e2bc",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the wraparound pass.",
+      "failed_cases": [
+        "lc-503-1",
+        "lc-503-2",
+        "lc-503-8",
+        "lc-503-9",
+        "lc-503-14",
+        "lc-503-15",
+        "lc-503-16",
+        "lc-503-17",
+        "lc-503-stress-2"
+      ]
+    },
+    {
+      "reason": "Accepts equality as a greater value.",
+      "failed_cases": [
+        "lc-503-1",
+        "lc-503-2",
+        "lc-503-3",
+        "lc-503-4",
+        "lc-503-6",
+        "lc-503-7",
+        "lc-503-8",
+        "lc-503-9",
+        "lc-503-10",
+        "lc-503-13",
+        "lc-503-14",
+        "lc-503-15",
+        "lc-503-16",
+        "lc-503-17",
+        "lc-503-stress-1",
+        "lc-503-stress-2",
+        "lc-503-stress-3",
+        "lc-503-stress-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4550,
+  "oracle_implementation": "code_practice/import_batch_049.py:circular_oracle",
+  "validator_implementation_sha256": "389f41acc9265fa5226eeca755fa2a1125870828c252bb332afee361dbefe3aa",
+  "batch_implementation_sha256": "c0c0fc9c59e233fab172928dcbb74929f462a4d81e365b80ab890343a1072bf8",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-499",
+  "content_sha256": "498a8ec7cdc6884464e7978b3f14ac61f1322d2aa804b4bc8f5764b3f1c05ea1",
+  "source_hash": "5837526b0b4112c730cf9429a6a8434741568c510ad6f942004f3b11dc2d5edc",
+  "visible_tests": 2,
+  "hidden_tests": 18,
+  "reference_passed": 20,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores a hole encountered before the wall.",
+      "failed_cases": [
+        "lc-499-1",
+        "lc-499-2",
+        "lc-499-4",
+        "lc-499-6",
+        "lc-499-14",
+        "lc-499-stress-3"
+      ]
+    },
+    {
+      "reason": "Minimizes number of rolls instead of traveled cells.",
+      "failed_cases": [
+        "lc-499-1",
+        "lc-499-stress-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4546,
+  "oracle_implementation": "code_practice/import_batch_049.py:hole_oracle",
+  "validator_implementation_sha256": "389f41acc9265fa5226eeca755fa2a1125870828c252bb332afee361dbefe3aa",
+  "batch_implementation_sha256": "c0c0fc9c59e233fab172928dcbb74929f462a4d81e365b80ab890343a1072bf8",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.114,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

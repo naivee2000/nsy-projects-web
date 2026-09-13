@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-502",
+  "content_sha256": "534a9123e9b02126b356700053d3f08588d3f65b2feccd98947c37e64ac0b32a",
+  "source_hash": "ecf58f0389284069a6eb429afa690c1f8433d0ae9fb923703689311c16fa44ab",
+  "visible_tests": 2,
+  "hidden_tests": 18,
+  "reference_passed": 20,
+  "wrong_solutions": [
+    {
+      "reason": "Reuses the most profitable project rather than removing its index.",
+      "failed_cases": [
+        "lc-502-2",
+        "lc-502-13",
+        "lc-502-14"
+      ]
+    },
+    {
+      "reason": "Rejects projects whose required capital exactly equals current capital.",
+      "failed_cases": [
+        "lc-502-1",
+        "lc-502-2",
+        "lc-502-5",
+        "lc-502-6",
+        "lc-502-7",
+        "lc-502-9",
+        "lc-502-12",
+        "lc-502-13",
+        "lc-502-15",
+        "lc-502-stress-1",
+        "lc-502-stress-2",
+        "lc-502-stress-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4549,
+  "oracle_implementation": "code_practice/import_batch_049.py:ipo_oracle",
+  "validator_implementation_sha256": "389f41acc9265fa5226eeca755fa2a1125870828c252bb332afee361dbefe3aa",
+  "batch_implementation_sha256": "c0c0fc9c59e233fab172928dcbb74929f462a4d81e365b80ab890343a1072bf8",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.354,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-505",
+  "content_sha256": "1878839df5da85c4284b39356c206a400da9fa69bbb8f6fe1444aad3f7b68b01",
+  "source_hash": "3abcbd0d83d5f0e96fb0aa57783d98aa8a79958a875a6895e3adcb2ba8575a36",
+  "visible_tests": 2,
+  "hidden_tests": 18,
+  "reference_passed": 20,
+  "wrong_solutions": [
+    {
+      "reason": "Counts rolls instead of cells traveled.",
+      "failed_cases": [
+        "lc-505-1",
+        "lc-505-5",
+        "lc-505-11",
+        "lc-505-12",
+        "lc-505-13",
+        "lc-505-15",
+        "lc-505-stress-1",
+        "lc-505-stress-4",
+        "lc-505-stress-5"
+      ]
+    },
+    {
+      "reason": "Treats the destination as a hole that stops a roll early.",
+      "failed_cases": [
+        "lc-505-2",
+        "lc-505-4",
+        "lc-505-6",
+        "lc-505-14",
+        "lc-505-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4552,
+  "oracle_implementation": "code_practice/import_batch_049.py:maze_oracle",
+  "validator_implementation_sha256": "389f41acc9265fa5226eeca755fa2a1125870828c252bb332afee361dbefe3aa",
+  "batch_implementation_sha256": "c0c0fc9c59e233fab172928dcbb74929f462a4d81e365b80ab890343a1072bf8",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.093,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

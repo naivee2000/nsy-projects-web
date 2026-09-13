@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 430 runnable problems (101 original exercises plus 329 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 435 runnable problems (101 original exercises plus 334 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **430-problem handoff checkpoint** is tagged `python-study-430-checkpoint`; all seven earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_430_CHECKPOINT.md) for exact-version update commands. It includes all eleven verified batch-46/47/48 additions since the 419-problem release. The remaining workbook expansion is unfinished. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **430-problem handoff checkpoint** is tagged `python-study-430-checkpoint`; all seven earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_430_CHECKPOINT.md) for exact-version update commands. It includes all eleven verified batch-46/47/48 additions since the 419-problem release. Resumed development adds five batch-49 problems outside the frozen release. The remaining workbook expansion is unfinished. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 78 existing equivalents, 329 verified imports, 155 documented
-design/interactive exclusions, and 3,067 pending records. Ordinary tree and
+Current status: 78 existing equivalents, 334 verified imports, 155 documented
+design/interactive exclusions, and 3,062 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Forty-eight reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Forty-nine reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -477,6 +477,16 @@ and six full-size fixtures. A separate partial-run deletion search checks the
 lower bound and certifies the two adversarial impossible cases. All 429 previous
 definitions and progress IDs are unchanged; recursion, backtracking, and dynamic
 programming are prerequisites, and the recursion review boost remains active.
+Batch forty-nine adds The Maze II and III, IPO, Next Greater Element II, and
+Freedom Trail. The maze problems distinguish weighted travel from roll count,
+wall stops from hole interruption, and distance ties from instruction length.
+Project capital is an affordability threshold, not a fee; circular successors
+must be strictly greater; ring rotations persist and every press costs a step.
+All five have 500 independent oracle checks and source-scale fixtures, with
+exhaustive small mazes, project choices, circular arrays, and ring states.
+Freedom Trail retains recursive practice and its review priority. All 430
+preceding definitions and progress IDs are unchanged. These five additions
+remain outside the immutable 430-problem transfer tag until a later release.
 Of the 78 overlaps, 71 map to original exercises and seven map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
@@ -533,7 +543,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 430 problems; future
+been checked against every reviewed batch. The current package contains 435 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the
