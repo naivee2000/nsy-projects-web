@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-581",
+  "content_sha256": "073924cd51a6f5d29db98e5b741e73c209505c2003f121d80eda95433838f82c",
+  "source_hash": "1e72b3f3e137d79a2251f248967a90b272500d7d84e966af1ba8509531508611",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Compares the array to itself rather than a sorted baseline.",
+      "failed_cases": [
+        "lc-581-1",
+        "lc-581-4",
+        "lc-581-7",
+        "lc-581-8",
+        "lc-581-9",
+        "lc-581-11",
+        "lc-581-12",
+        "lc-581-13",
+        "lc-581-14",
+        "lc-581-15"
+      ]
+    },
+    {
+      "reason": "Has an off-by-one window length.",
+      "failed_cases": [
+        "lc-581-1",
+        "lc-581-4",
+        "lc-581-7",
+        "lc-581-8",
+        "lc-581-9",
+        "lc-581-11",
+        "lc-581-12",
+        "lc-581-13",
+        "lc-581-14",
+        "lc-581-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4628,
+  "oracle_implementation": "code_practice/import_batch_055.py:unsorted_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "d5831e89b3c5e078241fe282f23068166b6f3b7b1fe0d9e31d850d2d4c239093",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b3fc3091129e480d439233bdb872bbca239a8ed4ee62b15b3177ef150e505384",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-544",
+  "content_sha256": "3d57f4316f6c900a7102b0ba4bad104d16c3fe8247995bee16f3871ef35d6562",
+  "source_hash": "0d7304b5be7858f599389e50afb89182fe7d28d7af759550bc91f12e0dae7371",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pairs neighbors rather than strongest with weakest.",
+      "failed_cases": [
+        "lc-544-1",
+        "lc-544-2",
+        "lc-544-3",
+        "lc-544-4",
+        "lc-544-5",
+        "lc-544-6",
+        "lc-544-7",
+        "lc-544-8",
+        "lc-544-9",
+        "lc-544-10",
+        "lc-544-11",
+        "lc-544-12",
+        "lc-544-14"
+      ]
+    },
+    {
+      "reason": "Stops after only the first round.",
+      "failed_cases": [
+        "lc-544-1",
+        "lc-544-2",
+        "lc-544-4",
+        "lc-544-5",
+        "lc-544-6",
+        "lc-544-7",
+        "lc-544-8",
+        "lc-544-9",
+        "lc-544-10",
+        "lc-544-11",
+        "lc-544-12",
+        "lc-544-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4591,
+  "oracle_implementation": "code_practice/import_batch_055b.py:contest_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "e5fd173500fdd5711f6b34b38624c88f7f65a3ec7df1ef709c6f74a986bdb0ff",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "54be1f85e69c4ab295e8d48f9012cabd743b9e22f2a26b8fcdd400073e48b957",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

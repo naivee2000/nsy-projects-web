@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-551",
+  "content_sha256": "cd47c20e6766d1a475c505f980fbd3ac00c46b02051d8d74a6de8c888ecfdef5",
+  "source_hash": "66ad2619c462f7b85895c5acf0ab834f7bc7df1602d2f3bf7e82e59ef140b890",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows two absences.",
+      "failed_cases": [
+        "lc-551-6",
+        "lc-551-11"
+      ]
+    },
+    {
+      "reason": "Allows exactly three consecutive late days.",
+      "failed_cases": [
+        "lc-551-2",
+        "lc-551-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4598,
+  "oracle_implementation": "code_practice/import_batch_055.py:attendance_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "d5831e89b3c5e078241fe282f23068166b6f3b7b1fe0d9e31d850d2d4c239093",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d1332846b01f6f8836e1a5360b6ec25d44a6f0b2dff80900c5464d49c57d10f8",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

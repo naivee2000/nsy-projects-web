@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-554",
+  "content_sha256": "099863b61de51042ae18076c8fb97f8b9ca6c256a3a3981a8ab19fa156a9d75a",
+  "source_hash": "f3cb7b6bae7941b67516fded0a74bc610e8d963b548a5f5cca45953186e4d236",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the outer right edge as a safe cut.",
+      "failed_cases": [
+        "lc-554-1",
+        "lc-554-2",
+        "lc-554-3",
+        "lc-554-4",
+        "lc-554-5",
+        "lc-554-6",
+        "lc-554-7",
+        "lc-554-8",
+        "lc-554-9",
+        "lc-554-10",
+        "lc-554-11",
+        "lc-554-14"
+      ]
+    },
+    {
+      "reason": "Returns shared edges instead of crossed bricks.",
+      "failed_cases": [
+        "lc-554-1",
+        "lc-554-2",
+        "lc-554-3",
+        "lc-554-4",
+        "lc-554-9",
+        "lc-554-10",
+        "lc-554-11",
+        "lc-554-12",
+        "lc-554-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4601,
+  "oracle_implementation": "code_practice/import_batch_055.py:brick_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "d5831e89b3c5e078241fe282f23068166b6f3b7b1fe0d9e31d850d2d4c239093",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dc88cf926d07f50bb73dceb55b092eecb1de547b35eba6d029293324d308b82a",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

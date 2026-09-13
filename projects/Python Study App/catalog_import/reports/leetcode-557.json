@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-557",
+  "content_sha256": "092c7bf44e9daff87638929356cb43da3430e49d92b419fcc027e0259021ac8e",
+  "source_hash": "126f66828a3a9e8a1501814a0cbdd5f030ab799431796cc4a6b77794a375fa3e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Leaves every word unchanged.",
+      "failed_cases": [
+        "lc-557-1",
+        "lc-557-2",
+        "lc-557-4",
+        "lc-557-6",
+        "lc-557-7",
+        "lc-557-8",
+        "lc-557-9",
+        "lc-557-11",
+        "lc-557-12",
+        "lc-557-13",
+        "lc-557-14"
+      ]
+    },
+    {
+      "reason": "Reverses the order of words instead of their characters.",
+      "failed_cases": [
+        "lc-557-1",
+        "lc-557-2",
+        "lc-557-4",
+        "lc-557-5",
+        "lc-557-6",
+        "lc-557-7",
+        "lc-557-8",
+        "lc-557-9",
+        "lc-557-10",
+        "lc-557-11",
+        "lc-557-12",
+        "lc-557-13",
+        "lc-557-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4604,
+  "oracle_implementation": "code_practice/import_batch_055.py:reverse_words_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "d5831e89b3c5e078241fe282f23068166b6f3b7b1fe0d9e31d850d2d4c239093",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "16bfc15415ac4f2a9011212403afef22795ac2e3655354bec1bed9ae25d32379",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

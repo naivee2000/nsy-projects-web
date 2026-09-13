@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-556",
+  "content_sha256": "cdf0f74c4aa32cf92292a17e57059cec084b205b070872b3e4baa78a9e0dfb98",
+  "source_hash": "c18e7a37d3087eb413c26f395a583469fd1562c5d264b462d4bff7ec9b3a8655",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Leaves the suffix descending after the swap.",
+      "failed_cases": [
+        "lc-556-9",
+        "lc-556-11",
+        "lc-556-12",
+        "lc-556-13",
+        "lc-556-14",
+        "lc-556-16"
+      ]
+    },
+    {
+      "reason": "Returns a valid digit permutation that exceeds 32-bit signed range.",
+      "failed_cases": [
+        "lc-556-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4603,
+  "oracle_implementation": "code_practice/import_batch_055.py:greater_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "d5831e89b3c5e078241fe282f23068166b6f3b7b1fe0d9e31d850d2d4c239093",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c3bbe4ebd424fffa8a0a78e41ce013c3ff973637929d3a1077ee81fb0a3a3ef0",
+  "elapsed_seconds": 0.352,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

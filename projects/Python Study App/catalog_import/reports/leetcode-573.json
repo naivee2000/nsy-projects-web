@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-573",
+  "content_sha256": "772961928a7035f88467583ed5a5124e18e1ad4d05cda5ef0857ebcde91c9c7f",
+  "source_hash": "8639221127bcae910b503907e92e9f86cdf163816c6b23cf3d990e282908971e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always makes the squirrel return to its initial position.",
+      "failed_cases": [
+        "lc-573-2",
+        "lc-573-4",
+        "lc-573-5",
+        "lc-573-8",
+        "lc-573-9",
+        "lc-573-11",
+        "lc-573-12"
+      ]
+    },
+    {
+      "reason": "Counts every nut trip only once.",
+      "failed_cases": [
+        "lc-573-1",
+        "lc-573-2",
+        "lc-573-3",
+        "lc-573-4",
+        "lc-573-5",
+        "lc-573-6",
+        "lc-573-7",
+        "lc-573-8",
+        "lc-573-10",
+        "lc-573-11",
+        "lc-573-12",
+        "lc-573-13",
+        "lc-573-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4620,
+  "oracle_implementation": "code_practice/import_batch_055b.py:squirrel_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "e5fd173500fdd5711f6b34b38624c88f7f65a3ec7df1ef709c6f74a986bdb0ff",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aabbb71d697b8d8ac80351f99f24405527a43e1cf5316eb002c0b1c3e606d9d3",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

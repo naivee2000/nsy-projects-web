@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-555",
+  "content_sha256": "ab949cbb24cabbdef2ae39ccc48a5f4a6a61cfddff69509c92a1d2c86d33c4a7",
+  "source_hash": "f8e0a4a69c99c5440b69b3a6d7754217c249edef90278d8b0c67a78729216ccf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never reverses individual strings.",
+      "failed_cases": [
+        "lc-555-1",
+        "lc-555-6",
+        "lc-555-10",
+        "lc-555-11",
+        "lc-555-13",
+        "lc-555-14"
+      ]
+    },
+    {
+      "reason": "Only cuts at the beginning of a selected string.",
+      "failed_cases": [
+        "lc-555-9",
+        "lc-555-10",
+        "lc-555-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4602,
+  "oracle_implementation": "code_practice/import_batch_055b.py:split_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "e5fd173500fdd5711f6b34b38624c88f7f65a3ec7df1ef709c6f74a986bdb0ff",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ac8aa9632913a37bf783e4f35bbb8742c044811c5ad08a7e951fb45cc67956e9",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

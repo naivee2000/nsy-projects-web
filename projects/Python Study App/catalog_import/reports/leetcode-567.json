@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-567",
+  "content_sha256": "96af0222ced8a0ad51e450054336de38b1a1d459c504181d126d92ba17a4f736",
+  "source_hash": "73b6a34b6c7ebf97a9849a85820428049eb6d5f3f01f3afeec59c7641415a84d",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats a longer pattern as automatically present.",
+      "failed_cases": [
+        "lc-567-9"
+      ]
+    },
+    {
+      "reason": "Compares only character sets and ignores repeated counts.",
+      "failed_cases": [
+        "lc-567-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4614,
+  "oracle_implementation": "code_practice/import_batch_055.py:inclusion_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "d5831e89b3c5e078241fe282f23068166b6f3b7b1fe0d9e31d850d2d4c239093",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "53b54eed95f70aa3fddf402bd184d9b27842a3f0a0e2c72d158200f771c114de",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

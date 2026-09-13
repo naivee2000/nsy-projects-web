@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-566",
+  "content_sha256": "2db2f9cd62301818cc66f28b7d004d8693bf67d45b0a1c4d8fecf48c9944d450",
+  "source_hash": "1fd87bfe40a5be9b75ad0dad9194a1804cc9f8db0db609463ec1eea436a2f4c0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns an empty matrix instead of the required original on an impossible reshape.",
+      "failed_cases": [
+        "lc-566-2",
+        "lc-566-4",
+        "lc-566-11"
+      ]
+    },
+    {
+      "reason": "Drops the final cell of each output row.",
+      "failed_cases": [
+        "lc-566-1",
+        "lc-566-3",
+        "lc-566-5",
+        "lc-566-6",
+        "lc-566-7",
+        "lc-566-8",
+        "lc-566-9",
+        "lc-566-10",
+        "lc-566-12",
+        "lc-566-13",
+        "lc-566-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4613,
+  "oracle_implementation": "code_practice/import_batch_055.py:reshape_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "d5831e89b3c5e078241fe282f23068166b6f3b7b1fe0d9e31d850d2d4c239093",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bd9916c8e38334367378a746394815307b1616118cb72a2e2fafcd68093b161c",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

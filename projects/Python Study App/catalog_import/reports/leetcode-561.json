@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-561",
+  "content_sha256": "40f9e405027fa8f89e0200c6b4196d8199288d546600bf8f1733184cd2876903",
+  "source_hash": "3408d9303e60999138c578ae014da40f89887012ee105fd1d8093679bba0a053",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the larger member of every sorted pair.",
+      "failed_cases": [
+        "lc-561-1",
+        "lc-561-2",
+        "lc-561-4",
+        "lc-561-5",
+        "lc-561-6",
+        "lc-561-8",
+        "lc-561-9",
+        "lc-561-10",
+        "lc-561-11",
+        "lc-561-12",
+        "lc-561-13"
+      ]
+    },
+    {
+      "reason": "Pairs input neighbors without sorting.",
+      "failed_cases": [
+        "lc-561-2",
+        "lc-561-6",
+        "lc-561-10",
+        "lc-561-11",
+        "lc-561-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4608,
+  "oracle_implementation": "code_practice/import_batch_055.py:pairing_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "d5831e89b3c5e078241fe282f23068166b6f3b7b1fe0d9e31d850d2d4c239093",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1dc94df8d94a3174cd41d71a298f36b09e7030a5a07c548de4d4301d0901adc9",
+  "elapsed_seconds": 0.133,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

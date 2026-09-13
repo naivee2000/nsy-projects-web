@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-562",
+  "content_sha256": "0f5af28279f5c720edef91d6e439818be71be2b5acd66b42e3dbd6afab30ad02",
+  "source_hash": "8b67b7df74703aea1792f3306667ce21acc2916ca968b2efc13cb98fb00c6cc1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips the last column.",
+      "failed_cases": [
+        "lc-562-2",
+        "lc-562-4",
+        "lc-562-6",
+        "lc-562-7"
+      ]
+    },
+    {
+      "reason": "Never counts anti-diagonal runs.",
+      "failed_cases": [
+        "lc-562-1",
+        "lc-562-2",
+        "lc-562-4",
+        "lc-562-6",
+        "lc-562-7",
+        "lc-562-8",
+        "lc-562-9",
+        "lc-562-10",
+        "lc-562-11",
+        "lc-562-12",
+        "lc-562-13",
+        "lc-562-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4609,
+  "oracle_implementation": "code_practice/import_batch_055b.py:line_oracle",
+  "validator_implementation_sha256": "b67e4d2c40108c4aef9b868a8ca894ba2379ee74c96b4f2775a0166e8a2d32b0",
+  "batch_implementation_sha256": "e5fd173500fdd5711f6b34b38624c88f7f65a3ec7df1ef709c6f74a986bdb0ff",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5bc016b9edba5aa0f8adfd6db00baa46f5020272f8296fb25e93835826d12d62",
+  "elapsed_seconds": 0.071,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
