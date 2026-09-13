@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1351",
+  "content_sha256": "e7d007b2197c16f4fdb36d4a512171868ec0ed5a2ae21b11afc527a4cf8e9311",
+  "source_hash": "bd7bab376bc6c27ede47a24c89ae67c58b096c9e6793bc07f5dc181520b0232d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts zeros as negative.",
+      "failed_cases": [
+        "lc-1351-2",
+        "lc-1351-3",
+        "lc-1351-8",
+        "lc-1351-9",
+        "lc-1351-10",
+        "lc-1351-11",
+        "lc-1351-13",
+        "lc-1351-15",
+        "lc-1351-16"
+      ]
+    },
+    {
+      "reason": "Moves right after finding a negative suffix and counts it repeatedly.",
+      "failed_cases": [
+        "lc-1351-1",
+        "lc-1351-9",
+        "lc-1351-13",
+        "lc-1351-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5398,
+  "oracle_implementation": "code_practice/import_batch_091b.py:negatives_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "c63a49843d7e7c99f30d2feaa7f76966fe0faedb1bc7c93a21635729dc780dc6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0250d5cbd706250c9aca4abac110cfd3cefbda1782ce58cbd036a0fbbb17beaf",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

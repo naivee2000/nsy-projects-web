@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1338",
+  "content_sha256": "338ef8d80d49ae623c741249574409436c0543a98ac5df1d17ae5037a14c31c8",
+  "source_hash": "f23dfffb0ddd91a8b6e0cccba143c3a6c22862870fbb70d3c54a32782a17fd2f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Removes rare values before frequent ones.",
+      "failed_cases": [
+        "lc-1338-1",
+        "lc-1338-6",
+        "lc-1338-8",
+        "lc-1338-9",
+        "lc-1338-11",
+        "lc-1338-14",
+        "lc-1338-15",
+        "lc-1338-16"
+      ]
+    },
+    {
+      "reason": "Requires strictly more than half instead of at least half.",
+      "failed_cases": [
+        "lc-1338-3",
+        "lc-1338-5",
+        "lc-1338-6",
+        "lc-1338-7",
+        "lc-1338-9",
+        "lc-1338-12",
+        "lc-1338-13",
+        "lc-1338-14",
+        "lc-1338-15",
+        "lc-1338-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5385,
+  "oracle_implementation": "code_practice/import_batch_091.py:reduce_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "bbe188967b1d9b659389239cc9e46102a59192ab99a4e8a2289b44ace263a324",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "45d3d6f1461381b9ab8e27ea6fffa333acace4bf12572b65dbc96782c7e4f710",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

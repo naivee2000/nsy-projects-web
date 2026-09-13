@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1332",
+  "content_sha256": "e494ee7c054618a1b833848489b1b61df16ae3d7dde341fc662746f60ea57881",
+  "source_hash": "4cb99fd51ca4c3c95cd0e9e704d59f2be7d080c81130db2399ef6948ce2a685b",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Claims every string can be removed in one step.",
+      "failed_cases": [
+        "lc-1332-2",
+        "lc-1332-5",
+        "lc-1332-6",
+        "lc-1332-10",
+        "lc-1332-11",
+        "lc-1332-14",
+        "lc-1332-15"
+      ]
+    },
+    {
+      "reason": "Reverses the palindrome test.",
+      "failed_cases": [
+        "lc-1332-1",
+        "lc-1332-2",
+        "lc-1332-3",
+        "lc-1332-4",
+        "lc-1332-5",
+        "lc-1332-6",
+        "lc-1332-7",
+        "lc-1332-8",
+        "lc-1332-9",
+        "lc-1332-10",
+        "lc-1332-11",
+        "lc-1332-12",
+        "lc-1332-13",
+        "lc-1332-14",
+        "lc-1332-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5379,
+  "oracle_implementation": "code_practice/import_batch_091.py:remove_pal_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "bbe188967b1d9b659389239cc9e46102a59192ab99a4e8a2289b44ace263a324",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4dde8431b489f931f87d1b72bcf4d7cc2b3fba0b85b81a7ed1558a7802b0d80d",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

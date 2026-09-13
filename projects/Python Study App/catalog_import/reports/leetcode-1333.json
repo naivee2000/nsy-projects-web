@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1333",
+  "content_sha256": "ee1b5e07c4cf27749875f13a2c3840a7d230927f0f84ab13f40e5a81ed73af5e",
+  "source_hash": "ee4339faeccc75b679f859b00686d595f2d87a4dda35895dfca767d9039a48da",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks rating ties by smaller ID first.",
+      "failed_cases": [
+        "lc-1333-2",
+        "lc-1333-8",
+        "lc-1333-13"
+      ]
+    },
+    {
+      "reason": "Always requires vegan-friendly restaurants even when the flag is zero.",
+      "failed_cases": [
+        "lc-1333-2",
+        "lc-1333-5",
+        "lc-1333-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5380,
+  "oracle_implementation": "code_practice/import_batch_091.py:restaurants_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "bbe188967b1d9b659389239cc9e46102a59192ab99a4e8a2289b44ace263a324",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f7e06060f8f4e0193e29691a1071194b8fd973c2e11e9361a73a648c68e3858d",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

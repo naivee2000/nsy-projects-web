@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 919,
+  "count": 939,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -16301,6 +16301,348 @@
       "path": "problems/leetcode-1323.json",
       "content_sha256": "7ead2a8fa829f76e83cdf94afefbc6211bf97c8a5459b2e3f688105fc475e334",
       "source_id": 1323
+    },
+    {
+      "id": "leetcode-1324",
+      "version": 1,
+      "status": "approved",
+      "title": "Print Words Vertically",
+      "summary": "Given a string s, output all words vertically in their original order, ensuring no trailing spaces.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1324.json",
+      "content_sha256": "67f114b5e140b874f337270c6a1b0a443ddb067e95ed8a5746aa4b0c5eb0940b",
+      "source_id": 1324
+    },
+    {
+      "id": "leetcode-1328",
+      "version": 1,
+      "status": "approved",
+      "title": "Break a Palindrome",
+      "summary": "Given a palindromic string of lowercase English letters, you are to replace exactly one character with any lowercase English letter so that the resulting string is no longer a palindrome.",
+      "topics": [
+        "greedy",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1328.json",
+      "content_sha256": "5d9187b6dcd55151528a0841bc3108d930dd995b71b5ea86d90e1377aa055e51",
+      "source_id": 1328
+    },
+    {
+      "id": "leetcode-1329",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort the Matrix Diagonally",
+      "summary": "Define a matrix diagonal as a line of cells starting from any cell in the top row or left column and extending diagonally to the bottom-right.",
+      "topics": [
+        "matrices",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1329.json",
+      "content_sha256": "f8f514c0740a193dc59f9752703d23071c115a5c26b9983e3c7a91c60bf2fbb2",
+      "source_id": 1329
+    },
+    {
+      "id": "leetcode-1331",
+      "version": 1,
+      "status": "approved",
+      "title": "Rank Transform of an Array",
+      "summary": "Given an array of integers, substitute each element with its rank, where rank is the position of the element when the array is sorted in non-decreasing order, with ties receiving the same rank.",
+      "topics": [
+        "sorting",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1331.json",
+      "content_sha256": "14718115d368e15e8067a0fdfc8fe6fb524ecc0dcae8d7bfe7c837ec24c18eb3",
+      "source_id": 1331
+    },
+    {
+      "id": "leetcode-1332",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Palindromic Subsequences",
+      "summary": "Given a string s made only of 'a' and 'b', determine the least number of steps needed to empty it by removing palindromic subsequences.",
+      "topics": [
+        "strings",
+        "palindromes"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1332.json",
+      "content_sha256": "e494ee7c054618a1b833848489b1b61df16ae3d7dde341fc662746f60ea57881",
+      "source_id": 1332
+    },
+    {
+      "id": "leetcode-1333",
+      "version": 1,
+      "status": "approved",
+      "title": "Filter Restaurants by Vegan-Friendly, Price and Distance",
+      "summary": "Given an array of restaurants with their IDs, ratings, vegan-friendliness, prices, and distances, filter the list based on vegan-friendliness, maximum price, and maximum distance.",
+      "topics": [
+        "sorting",
+        "filtering"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1333.json",
+      "content_sha256": "ee1b5e07c4cf27749875f13a2c3840a7d230927f0f84ab13f40e5a81ed73af5e",
+      "source_id": 1333
+    },
+    {
+      "id": "leetcode-1334",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the City With the Smallest Number of Neighbors at a Threshold Distance",
+      "summary": "Given n cities numbered from 0 to n-1, along with their bidirectional and weighted edges, find the city that has the smallest number of cities reachable within a given distance threshold.",
+      "topics": [
+        "graphs",
+        "shortest-path"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1334.json",
+      "content_sha256": "0b9a75bc97dcf276f8204c3499ecaa6594455e6b529cce0729135158f4629ea1",
+      "source_id": 1334
+    },
+    {
+      "id": "leetcode-1337",
+      "version": 1,
+      "status": "approved",
+      "title": "The K Weakest Rows in a Matrix",
+      "summary": "Given an m x n binary matrix where soldiers are to the left of civilians, identify the indices of the k weakest rows based on the number of soldiers, with rows having fewer soldiers or the same number but a lower index considered weaker.",
+      "topics": [
+        "sorting",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1337.json",
+      "content_sha256": "5280d2062c55d7601858121c2b5128972f1e80f372dcf7afe67ded8bc00c95de",
+      "source_id": 1337
+    },
+    {
+      "id": "leetcode-1338",
+      "version": 1,
+      "status": "approved",
+      "title": "Reduce Array Size to The Half",
+      "summary": "Given an integer array, select a set of integers to remove all their occurrences.",
+      "topics": [
+        "greedy",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1338.json",
+      "content_sha256": "338ef8d80d49ae623c741249574409436c0543a98ac5df1d17ae5037a14c31c8",
+      "source_id": 1338
+    },
+    {
+      "id": "leetcode-1342",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Steps to Reduce a Number to Zero",
+      "summary": "Return the count of operations needed to reduce a given integer to zero.",
+      "topics": [
+        "bit-manipulation",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1342.json",
+      "content_sha256": "e34ff1952f32cf74f0d37ae0677fb1c06fcda2680d08f709aa37b395e67507eb",
+      "source_id": 1342
+    },
+    {
+      "id": "leetcode-1343",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold",
+      "summary": "Given an array of integers, and two integers k and threshold, return the count of sub-arrays of size k whose average is at least threshold.",
+      "topics": [
+        "sliding-window",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1343.json",
+      "content_sha256": "0bb25d5eb5abe5e8dc039dfcc822c813b3ae62296cab7d9891fba69a0766b77e",
+      "source_id": 1343
+    },
+    {
+      "id": "leetcode-1344",
+      "version": 1,
+      "status": "approved",
+      "title": "Angle Between Hands of a Clock",
+      "summary": "Given the hour and minute values, calculate the smaller angle (in degrees) between the clock's hour and minute hands.",
+      "topics": [
+        "math",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1344.json",
+      "content_sha256": "f291f5d035e626415f3cc04c92bd3809d40c1ce6045f6a5dc2b515ff1b947dc4",
+      "source_id": 1344
+    },
+    {
+      "id": "leetcode-1346",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If N and Its Double Exist",
+      "summary": "Examine an array to determine if any element is exactly double another element, ensuring their indices are distinct.",
+      "topics": [
+        "hash-maps",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1346.json",
+      "content_sha256": "baf29a4f0a353bb0010293e05e77b10ca099176e7d99063c24f74b192e4f3eda",
+      "source_id": 1346
+    },
+    {
+      "id": "leetcode-1347",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Steps to Make Two Strings Anagram",
+      "summary": "Given two strings of equal length, s and t, determine the least number of character replacements needed in t to transform it into an anagram of s.",
+      "topics": [
+        "hash-maps",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1347.json",
+      "content_sha256": "1ea26b78128d1a93be2109bb2f5b2530074b1ed280fc64259b657829c354a872",
+      "source_id": 1347
+    },
+    {
+      "id": "leetcode-1351",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Negative Numbers in a Sorted Matrix",
+      "summary": "In a m x n matrix grid arranged in non-increasing order both row-wise and column-wise, count and return the total number of negative elements.",
+      "topics": [
+        "matrices",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1351.json",
+      "content_sha256": "e7d007b2197c16f4fdb36d4a512171868ec0ed5a2ae21b11afc527a4cf8e9311",
+      "source_id": 1351
+    },
+    {
+      "id": "leetcode-1358",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Substrings Containing All Three Characters",
+      "summary": "For a string s made up of characters a, b, and c, count the substrings that include at least one of each character.",
+      "topics": [
+        "sliding-window",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1358.json",
+      "content_sha256": "39521ec992cbfe844b7e4d8c62a11be8231d7d7fb0c3ef42518c136dd6c1f6c7",
+      "source_id": 1358
+    },
+    {
+      "id": "leetcode-1359",
+      "version": 1,
+      "status": "approved",
+      "title": "Count All Valid Pickup and Delivery Options",
+      "summary": "Determine the total number of valid sequences for n orders, where each order includes a pickup and a delivery, ensuring each delivery follows its corresponding pickup.",
+      "topics": [
+        "combinatorics",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "combinatorics"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1359.json",
+      "content_sha256": "8b8f709b0b99838351cfa5cf2fe94216d7ba119edb50ddfd89f157cd83aea66f",
+      "source_id": 1359
+    },
+    {
+      "id": "leetcode-1360",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Days Between Two Dates",
+      "summary": "Develop a program to calculate the number of days between two dates provided as YYYY-MM-DD strings.",
+      "topics": [
+        "math",
+        "dates"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1360.json",
+      "content_sha256": "aeaa751580ab13e779945876cdb101b6a018834abce30410ef3d7d1810b0c672",
+      "source_id": 1360
+    },
+    {
+      "id": "leetcode-1361",
+      "version": 1,
+      "status": "approved",
+      "title": "Validate Binary Tree Nodes",
+      "summary": "Determine if the nodes numbered from 0 to n-1 can form exactly one valid binary tree, given their left and right children.",
+      "topics": [
+        "graphs",
+        "trees"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1361.json",
+      "content_sha256": "d91479279d8dbc4caf115660952dff64cdb7873f20c431970cc50d1226176cd8",
+      "source_id": 1361
+    },
+    {
+      "id": "leetcode-1370",
+      "version": 1,
+      "status": "approved",
+      "title": "Increasing Decreasing String",
+      "summary": "Given a string s, reorder it by first removing and appending the smallest character greater than the last appended character, then removing and appending the largest character smaller than the last appended character, until all characters are removed.",
+      "topics": [
+        "sorting",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1370.json",
+      "content_sha256": "92010a675f4055b6f821942fada9d0f4ef64d79ab6f0a59e18e6ddf005666bf8",
+      "source_id": 1370
     }
   ]
 }

@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1347",
+  "content_sha256": "1ea26b78128d1a93be2109bb2f5b2530074b1ed280fc64259b657829c354a872",
+  "source_hash": "158eb809c23ee23387a608bfe8c8f922c8a096094a1890dbe39864a7337fc7a8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Double-counts symmetric frequency differences instead of counting only deficits in t.",
+      "failed_cases": [
+        "lc-1347-1",
+        "lc-1347-2",
+        "lc-1347-8",
+        "lc-1347-9"
+      ]
+    },
+    {
+      "reason": "Compares only distinct letter presence and ignores multiplicity.",
+      "failed_cases": [
+        "lc-1347-1",
+        "lc-1347-2",
+        "lc-1347-6",
+        "lc-1347-8",
+        "lc-1347-12",
+        "lc-1347-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5394,
+  "oracle_implementation": "code_practice/import_batch_091b.py:anagram_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "c63a49843d7e7c99f30d2feaa7f76966fe0faedb1bc7c93a21635729dc780dc6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5dd48023015226069dfb35ded05e45b80263a6ddd59d51aa4b07d4849b965bea",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

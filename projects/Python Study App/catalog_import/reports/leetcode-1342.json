@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1342",
+  "content_sha256": "e34ff1952f32cf74f0d37ae0677fb1c06fcda2680d08f709aa37b395e67507eb",
+  "source_hash": "b59762e7210f2ea2c2a3d3f6252d41b630260bd62bdfb2804befb5e05ffc5ae0",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Halves odd numbers directly instead of spending a subtraction step first.",
+      "failed_cases": [
+        "lc-1342-1",
+        "lc-1342-6",
+        "lc-1342-8",
+        "lc-1342-9",
+        "lc-1342-10",
+        "lc-1342-11",
+        "lc-1342-13",
+        "lc-1342-14",
+        "lc-1342-15"
+      ]
+    },
+    {
+      "reason": "Counts every operation twice.",
+      "failed_cases": [
+        "lc-1342-1",
+        "lc-1342-2",
+        "lc-1342-4",
+        "lc-1342-5",
+        "lc-1342-6",
+        "lc-1342-7",
+        "lc-1342-8",
+        "lc-1342-9",
+        "lc-1342-10",
+        "lc-1342-11",
+        "lc-1342-12",
+        "lc-1342-13",
+        "lc-1342-14",
+        "lc-1342-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5389,
+  "oracle_implementation": "code_practice/import_batch_091.py:steps_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "bbe188967b1d9b659389239cc9e46102a59192ab99a4e8a2289b44ace263a324",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a5b9cf627f77b9b9d6d11814b0e9be5c190a2b990fcefd9d6cc3c49374d3ace0",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

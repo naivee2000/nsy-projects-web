@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1344",
+  "content_sha256": "f291f5d035e626415f3cc04c92bd3809d40c1ce6045f6a5dc2b515ff1b947dc4",
+  "source_hash": "ce4bd6bd2a9558d0df659c433ad1a5989c937609d5d815d6baa2feee94845c5a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the reflex angle when the direct difference exceeds 180°.",
+      "failed_cases": [
+        "lc-1344-6",
+        "lc-1344-8",
+        "lc-1344-16"
+      ]
+    },
+    {
+      "reason": "Treats the hour hand as fixed at the hour mark between hours.",
+      "failed_cases": [
+        "lc-1344-1",
+        "lc-1344-2",
+        "lc-1344-7",
+        "lc-1344-8",
+        "lc-1344-9",
+        "lc-1344-10",
+        "lc-1344-11",
+        "lc-1344-12",
+        "lc-1344-13",
+        "lc-1344-14",
+        "lc-1344-15",
+        "lc-1344-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5391,
+  "oracle_implementation": "code_practice/import_batch_091b.py:angle_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "c63a49843d7e7c99f30d2feaa7f76966fe0faedb1bc7c93a21635729dc780dc6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "301e2a68c68082bedd5a072ba1f3c32acd5c9c6cffb5cbf8f351c4aabadd7e7c",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

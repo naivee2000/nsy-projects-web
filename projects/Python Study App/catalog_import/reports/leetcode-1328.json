@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1328",
+  "content_sha256": "5d9187b6dcd55151528a0841bc3108d930dd995b71b5ea86d90e1377aa055e51",
+  "source_hash": "869e8eb3ef0f86179a7282e62b87feb7708e9f80e0fafbeb50deca5688f41b7c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Changes the first non-a to b rather than the smallest character a.",
+      "failed_cases": [
+        "lc-1328-1",
+        "lc-1328-6",
+        "lc-1328-8",
+        "lc-1328-9",
+        "lc-1328-10",
+        "lc-1328-11",
+        "lc-1328-13",
+        "lc-1328-14",
+        "lc-1328-16"
+      ]
+    },
+    {
+      "reason": "Changes the first character when all first-half characters are a, producing a larger answer than changing the last.",
+      "failed_cases": [
+        "lc-1328-3",
+        "lc-1328-4",
+        "lc-1328-5",
+        "lc-1328-7",
+        "lc-1328-12",
+        "lc-1328-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5375,
+  "oracle_implementation": "code_practice/import_batch_091.py:break_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "bbe188967b1d9b659389239cc9e46102a59192ab99a4e8a2289b44ace263a324",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2a3c86bd684b557ea51c8b85dbfbfd9847f18dae775e72f8abe81fb9d4b0b4c8",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

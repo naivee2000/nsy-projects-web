@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1360",
+  "content_sha256": "aeaa751580ab13e779945876cdb101b6a018834abce30410ef3d7d1810b0c672",
+  "source_hash": "b2e5e473e9f3a72a37441b73f3cb88ca7f2166045d7a2329d5e2db21c8e65b6d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats every February as 28 days and fails leap-year crossings.",
+      "failed_cases": [
+        "lc-1360-7",
+        "lc-1360-8",
+        "lc-1360-12",
+        "lc-1360-14"
+      ]
+    },
+    {
+      "reason": "Returns a negative value when date1 precedes date2.",
+      "failed_cases": [
+        "lc-1360-1",
+        "lc-1360-4",
+        "lc-1360-5",
+        "lc-1360-6",
+        "lc-1360-7",
+        "lc-1360-8",
+        "lc-1360-9",
+        "lc-1360-10",
+        "lc-1360-12",
+        "lc-1360-13",
+        "lc-1360-14",
+        "lc-1360-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5407,
+  "oracle_implementation": "code_practice/import_batch_091b.py:dates_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "c63a49843d7e7c99f30d2feaa7f76966fe0faedb1bc7c93a21635729dc780dc6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c0bb34a5917a29fb966889f0339d1d162e78a8124383aa7a678ed498d003fe02",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

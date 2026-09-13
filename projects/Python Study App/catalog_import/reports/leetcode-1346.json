@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1346",
+  "content_sha256": "baf29a4f0a353bb0010293e05e77b10ca099176e7d99063c24f74b192e4f3eda",
+  "source_hash": "dde000972c232e044b4af194cb3819e09627d8939d4e82494776818abd96c1ce",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses one zero occurrence as both indices.",
+      "failed_cases": [
+        "lc-1346-4"
+      ]
+    },
+    {
+      "reason": "Uses truncated halves for odd values.",
+      "failed_cases": [
+        "lc-1346-2",
+        "lc-1346-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5393,
+  "oracle_implementation": "code_practice/import_batch_091b.py:double_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "c63a49843d7e7c99f30d2feaa7f76966fe0faedb1bc7c93a21635729dc780dc6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1d1b8231323ffc07ea13b9bce1b79153b1e20b804be207808a550d9f57fc7dbb",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

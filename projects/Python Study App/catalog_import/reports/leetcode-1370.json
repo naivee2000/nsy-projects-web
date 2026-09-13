@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1370",
+  "content_sha256": "92010a675f4055b6f821942fada9d0f4ef64d79ab6f0a59e18e6ddf005666bf8",
+  "source_hash": "0c47cd079d9e6c6dbbbdbc88824c44a422e02b1dbec4c0ee76377c3a9c0322cd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Runs both passes ascending rather than reversing direction.",
+      "failed_cases": [
+        "lc-1370-1",
+        "lc-1370-9",
+        "lc-1370-10",
+        "lc-1370-14",
+        "lc-1370-16"
+      ]
+    },
+    {
+      "reason": "Consumes every copy during the first visit instead of one per pass.",
+      "failed_cases": [
+        "lc-1370-1",
+        "lc-1370-9",
+        "lc-1370-10",
+        "lc-1370-11",
+        "lc-1370-14",
+        "lc-1370-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5417,
+  "oracle_implementation": "code_practice/import_batch_091c.py:sorting_oracle",
+  "validator_implementation_sha256": "2230cc3ef5b6d3a9e412b1b5c9d04045b23cce461963807515162de9bd8179b0",
+  "batch_implementation_sha256": "2f7a12f1a0797b40bbf13c1494940e80b08b1c7fe03b2fe6822cb04d9294e87b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cfc326096a3081690ba7b6d0959540133dc9ed21be730812eef479c24d53fabb",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

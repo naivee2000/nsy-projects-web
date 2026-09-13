@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1334",
+  "content_sha256": "0b9a75bc97dcf276f8204c3499ecaa6594455e6b529cce0729135158f4629ea1",
+  "source_hash": "afe959aca8fa8b29630ed0edf016b35a267029d28f2e74d2b0c7e9e4e3ee86a7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks ties toward the smallest city index.",
+      "failed_cases": [
+        "lc-1334-1",
+        "lc-1334-3",
+        "lc-1334-4",
+        "lc-1334-5",
+        "lc-1334-6",
+        "lc-1334-7",
+        "lc-1334-8",
+        "lc-1334-9",
+        "lc-1334-10",
+        "lc-1334-11",
+        "lc-1334-12",
+        "lc-1334-13",
+        "lc-1334-14",
+        "lc-1334-15",
+        "lc-1334-16"
+      ]
+    },
+    {
+      "reason": "Counts only direct edges and ignores cities reachable through shorter multi-edge paths.",
+      "failed_cases": [
+        "lc-1334-1",
+        "lc-1334-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5381,
+  "oracle_implementation": "code_practice/import_batch_091.py:city_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "bbe188967b1d9b659389239cc9e46102a59192ab99a4e8a2289b44ace263a324",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "be1b575f0033c5893ed2ec8717b0b673e268c8305ab003704e0100e354720899",
+  "elapsed_seconds": 0.074,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

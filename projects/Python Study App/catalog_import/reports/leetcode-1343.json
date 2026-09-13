@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1343",
+  "content_sha256": "0bb25d5eb5abe5e8dc039dfcc822c813b3ae62296cab7d9891fba69a0766b77e",
+  "source_hash": "c3bdd480a983958d5a18c83c9ed21f141a10ea4e9e63f0d4be8a7443090a0357",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects windows whose average equals the threshold.",
+      "failed_cases": [
+        "lc-1343-1",
+        "lc-1343-2",
+        "lc-1343-7",
+        "lc-1343-8",
+        "lc-1343-10",
+        "lc-1343-11",
+        "lc-1343-13",
+        "lc-1343-14",
+        "lc-1343-16"
+      ]
+    },
+    {
+      "reason": "Removes the wrong departing element when sliding.",
+      "failed_cases": [
+        "lc-1343-10",
+        "lc-1343-11",
+        "lc-1343-14",
+        "lc-1343-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5390,
+  "oracle_implementation": "code_practice/import_batch_091b.py:averages_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "c63a49843d7e7c99f30d2feaa7f76966fe0faedb1bc7c93a21635729dc780dc6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f234543ac2c12c336fa9e7e19a382a80ee38817d40a1debdf5230f909bdf6058",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

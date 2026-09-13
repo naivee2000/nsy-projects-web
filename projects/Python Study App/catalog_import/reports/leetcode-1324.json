@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1324",
+  "content_sha256": "67f114b5e140b874f337270c6a1b0a443ddb067e95ed8a5746aa4b0c5eb0940b",
+  "source_hash": "cc2f5c37b8e57154c7ef17a95baa1f1d8354ba1ed289921582e9ef32e3aa9a6b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps forbidden trailing spaces.",
+      "failed_cases": [
+        "lc-1324-2",
+        "lc-1324-4",
+        "lc-1324-6",
+        "lc-1324-13"
+      ]
+    },
+    {
+      "reason": "Reads each word from the end instead of top to bottom.",
+      "failed_cases": [
+        "lc-1324-1",
+        "lc-1324-2",
+        "lc-1324-4",
+        "lc-1324-5",
+        "lc-1324-6",
+        "lc-1324-8",
+        "lc-1324-9",
+        "lc-1324-11",
+        "lc-1324-12",
+        "lc-1324-13",
+        "lc-1324-15",
+        "lc-1324-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5371,
+  "oracle_implementation": "code_practice/import_batch_091.py:vertical_o",
+  "validator_implementation_sha256": "988a589142aba72a353249331c63c12d6a5f89bb7a51a5156d143d0b2d476186",
+  "batch_implementation_sha256": "bbe188967b1d9b659389239cc9e46102a59192ab99a4e8a2289b44ace263a324",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5160cc18e9b82db79d08961149a93ae95203d1a98a1e871d4f6ea1a535b11789",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
