@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1153",
+  "content_sha256": "8543e21d32c80bc4775dfe6eaa27c643a08a0a988f37c706c7730216ed76f741",
+  "source_hash": "ab3f5193e4dc338e405fb8373e96cf970554497803c8e4ced11a23d70a6ec6fe",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects already-equal strings.",
+      "failed_cases": [
+        "lc-1153-3",
+        "lc-1153-8",
+        "lc-1153-13"
+      ]
+    },
+    {
+      "reason": "Ignores the lack of a spare character needed to break a full-alphabet cycle.",
+      "failed_cases": [
+        "lc-1153-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5200,
+  "oracle_implementation": "code_practice/import_batch_084.py:transform_oracle",
+  "validator_implementation_sha256": "752b151f7188413d5b7b23d17efa7661d706247b98246f346cc8cd0ce789edb3",
+  "batch_implementation_sha256": "c24942ba4f91d5710aeeb1e0fd4c7883a2f5a81ce8b02119e46bb0aee5ce3b3a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2fb090cf81143d02f9d1b65b6c7df4d60af7f30ae59732f2dfd552c74f629102",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

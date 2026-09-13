@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1150",
+  "content_sha256": "e4bfdf5ecc878fe793027948bf44faa0882f6ff8e50d046cbfed39cc75c543f5",
+  "source_hash": "c8ee13ea0587cac639e9c0104a609c844950bf2cae8f44d2db99d3084226260d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts exactly half as a majority.",
+      "failed_cases": [
+        "lc-1150-2",
+        "lc-1150-4",
+        "lc-1150-6",
+        "lc-1150-8",
+        "lc-1150-14",
+        "lc-1150-16"
+      ]
+    },
+    {
+      "reason": "Uses the left boundary for both ends, always counting zero.",
+      "failed_cases": [
+        "lc-1150-1",
+        "lc-1150-3",
+        "lc-1150-5",
+        "lc-1150-7",
+        "lc-1150-9",
+        "lc-1150-11",
+        "lc-1150-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5197,
+  "oracle_implementation": "code_practice/import_batch_084.py:majority_oracle",
+  "validator_implementation_sha256": "752b151f7188413d5b7b23d17efa7661d706247b98246f346cc8cd0ce789edb3",
+  "batch_implementation_sha256": "c24942ba4f91d5710aeeb1e0fd4c7883a2f5a81ce8b02119e46bb0aee5ce3b3a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f60676113d4fa09d1c374289f7b3b6f6ef0cf4110f52f2f2079c162a51aa137d",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

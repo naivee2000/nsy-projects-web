@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1144",
+  "content_sha256": "8aa2f04fd7e508ad4c600d24c3d19df77cb597ec7a37598b54d67bc51113c97f",
+  "source_hash": "fd608dbc839575f19fbb9c06a8e66be873bb966696044cfe40d36c8dc7e840b5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only the even-valley orientation.",
+      "failed_cases": [
+        "lc-1144-5",
+        "lc-1144-6",
+        "lc-1144-7",
+        "lc-1144-9",
+        "lc-1144-12",
+        "lc-1144-13"
+      ]
+    },
+    {
+      "reason": "Allows equality with a neighbor instead of strict inequality.",
+      "failed_cases": [
+        "lc-1144-1",
+        "lc-1144-2",
+        "lc-1144-6",
+        "lc-1144-10",
+        "lc-1144-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5191,
+  "oracle_implementation": "code_practice/import_batch_084.py:zigzag_oracle",
+  "validator_implementation_sha256": "752b151f7188413d5b7b23d17efa7661d706247b98246f346cc8cd0ce789edb3",
+  "batch_implementation_sha256": "c24942ba4f91d5710aeeb1e0fd4c7883a2f5a81ce8b02119e46bb0aee5ce3b3a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1aa43a80745a5d6198c6805a5e6f69677ae82e9e12cc2b66cf639de71b7ec024",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

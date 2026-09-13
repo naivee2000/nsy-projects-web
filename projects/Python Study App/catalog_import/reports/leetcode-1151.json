@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1151",
+  "content_sha256": "87d6621d47a152ea413c3d995bda47d668e4f7ab7d93c36bc6a2485194db4d15",
+  "source_hash": "6e8fc0c97bacfcfa2de91e61318376fa78da8e66c2f4dde20e61f3fa95109dad",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks the sparsest rather than densest window.",
+      "failed_cases": [
+        "lc-1151-1",
+        "lc-1151-9",
+        "lc-1151-10",
+        "lc-1151-12",
+        "lc-1151-13",
+        "lc-1151-14",
+        "lc-1151-15",
+        "lc-1151-16"
+      ]
+    },
+    {
+      "reason": "Returns ones already inside instead of zeros needing swaps.",
+      "failed_cases": [
+        "lc-1151-1",
+        "lc-1151-5",
+        "lc-1151-9",
+        "lc-1151-10",
+        "lc-1151-12",
+        "lc-1151-13",
+        "lc-1151-14",
+        "lc-1151-15",
+        "lc-1151-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5198,
+  "oracle_implementation": "code_practice/import_batch_084.py:swaps_oracle",
+  "validator_implementation_sha256": "752b151f7188413d5b7b23d17efa7661d706247b98246f346cc8cd0ce789edb3",
+  "batch_implementation_sha256": "c24942ba4f91d5710aeeb1e0fd4c7883a2f5a81ce8b02119e46bb0aee5ce3b3a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "29a59d766730d307cb0f8b8763b0ee17a45aa1276557bdb12076d7e730a2a282",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

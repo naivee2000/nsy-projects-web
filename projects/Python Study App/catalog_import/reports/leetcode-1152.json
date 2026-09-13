@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1152",
+  "content_sha256": "0c7ff3eb8ffcb28b8553ea8fe1018d4323436d5a574a49b8bc28b806cec77bac",
+  "source_hash": "cd4a4d8752ac0385a9349ec36e78ad75026473da166b596ec2deac3f1dab4d96",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses input order instead of chronological visit order.",
+      "failed_cases": [
+        "lc-1152-2",
+        "lc-1152-7",
+        "lc-1152-10"
+      ]
+    },
+    {
+      "reason": "Breaks score ties using reversed lexical order.",
+      "failed_cases": [
+        "lc-1152-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5199,
+  "oracle_implementation": "code_practice/import_batch_084.py:pattern_oracle",
+  "validator_implementation_sha256": "752b151f7188413d5b7b23d17efa7661d706247b98246f346cc8cd0ce789edb3",
+  "batch_implementation_sha256": "c24942ba4f91d5710aeeb1e0fd4c7883a2f5a81ce8b02119e46bb0aee5ce3b3a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9693a0b49165af6c86ca1c8847bb87b2377810b9fd235f10cb1638eda91aff5c",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

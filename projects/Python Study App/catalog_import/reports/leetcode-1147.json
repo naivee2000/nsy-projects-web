@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1147",
+  "content_sha256": "f8e507e8de907c2844ac118b6be5b0303d71537e833a866f374c9916277f9bc2",
+  "source_hash": "9058faba8511c15048c2b842751d30b9643e454a235df587aa0c223db47e916d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts each matching outer pair as only one chunk.",
+      "failed_cases": [
+        "lc-1147-1",
+        "lc-1147-4",
+        "lc-1147-5",
+        "lc-1147-6",
+        "lc-1147-8",
+        "lc-1147-9",
+        "lc-1147-10",
+        "lc-1147-11",
+        "lc-1147-12",
+        "lc-1147-13"
+      ]
+    },
+    {
+      "reason": "Checks only single-character outer matches and misses longer equal chunks.",
+      "failed_cases": [
+        "lc-1147-1",
+        "lc-1147-3",
+        "lc-1147-5",
+        "lc-1147-8",
+        "lc-1147-9",
+        "lc-1147-10",
+        "lc-1147-11",
+        "lc-1147-12",
+        "lc-1147-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5194,
+  "oracle_implementation": "code_practice/import_batch_084.py:chunks_oracle",
+  "validator_implementation_sha256": "752b151f7188413d5b7b23d17efa7661d706247b98246f346cc8cd0ce789edb3",
+  "batch_implementation_sha256": "c24942ba4f91d5710aeeb1e0fd4c7883a2f5a81ce8b02119e46bb0aee5ce3b3a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3d4deb3429f415ceca65a5749186e9766687072f96546003425fa5d390372596",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
