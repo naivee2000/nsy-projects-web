@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 435 runnable problems (101 original exercises plus 334 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 439 runnable problems (101 original exercises plus 338 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **430-problem handoff checkpoint** is tagged `python-study-430-checkpoint`; all seven earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_430_CHECKPOINT.md) for exact-version update commands. It includes all eleven verified batch-46/47/48 additions since the 419-problem release. Resumed development adds five batch-49 problems outside the frozen release. The remaining workbook expansion is unfinished. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **430-problem handoff checkpoint** is tagged `python-study-430-checkpoint`; all seven earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_430_CHECKPOINT.md) for exact-version update commands. It includes all eleven verified batch-46/47/48 additions since the 419-problem release. Resumed development adds nine batch-49/50 problems outside the frozen release. The remaining workbook expansion is unfinished. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 78 existing equivalents, 334 verified imports, 155 documented
-design/interactive exclusions, and 3,062 pending records. Ordinary tree and
+Current status: 79 existing equivalents, 338 verified imports, 155 documented
+design/interactive exclusions, and 3,057 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Forty-nine reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Fifty reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -487,7 +487,18 @@ exhaustive small mazes, project choices, circular arrays, and ring states.
 Freedom Trail retains recursive practice and its review priority. All 430
 preceding definitions and progress IDs are unchanged. These five additions
 remain outside the immutable 430-problem transfer tag until a later release.
-Of the 78 overlaps, 71 map to original exercises and seven map to approved
+Batch fifty adds Find Mode in Binary Search Tree, Most Frequent Subtree Sum,
+Find Bottom Left Tree Value, and Find Largest Value in Each Tree Row. All four
+include 10,000-node fixtures and explicit traversal frames, with examples that
+distinguish tied modes, whole-subtree sums, spatial leftmost values, and negative
+row maxima. Each passes 500 independent oracle comparisons and two wrong
+algorithms; small-domain tests also exhaust tree shapes and signed values.
+Fibonacci Number is a proved index/base-case adaptation of the existing recursive
+step-count problem, not a duplicate library entry. Its entire 31-input domain
+and 500 seeded cases pass an independent binomial oracle. Regenerating original
+overlap proofs now checks all three mappings (495, 496, 509). The four new tree
+problems preserve every existing ID and remain outside the 430 transfer tag.
+Of the 79 overlaps, 72 map to original exercises and seven map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
 the original sample, and all 720 outputs on six-element boundaries. This is
@@ -543,7 +554,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 435 problems; future
+been checked against every reviewed batch. The current package contains 439 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-515",
+  "content_sha256": "37053b192a66ef454c3c8033ca03516c600c5963971594a481482d295cadabc0",
+  "source_hash": "115583cf64489c7698d45c6439f6e8c5c83acf767e0f6840d8dbba25e064dc43",
+  "visible_tests": 2,
+  "hidden_tests": 23,
+  "reference_passed": 25,
+  "wrong_solutions": [
+    {
+      "reason": "Initializes each row maximum with zero, corrupting all-negative rows.",
+      "failed_cases": [
+        "lc-515-2",
+        "lc-515-5",
+        "lc-515-11",
+        "lc-515-12",
+        "lc-515-20",
+        "lc-515-stress-3"
+      ]
+    },
+    {
+      "reason": "Returns the final visited value per row rather than the largest.",
+      "failed_cases": [
+        "lc-515-1",
+        "lc-515-17",
+        "lc-515-18"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4562,
+  "oracle_implementation": "code_practice/import_batch_050.py:rows_oracle",
+  "validator_implementation_sha256": "030bc2dadcbddd5aaf078b378842b0b249d4d8c16e7a2f4f48ef981317be861b",
+  "batch_implementation_sha256": "467841a0841e23be7479c19be5035542226df3a8d27da6d6e6a452569fe5d1eb",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.087,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

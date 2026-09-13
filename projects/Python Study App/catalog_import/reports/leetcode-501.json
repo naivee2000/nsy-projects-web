@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-501",
+  "content_sha256": "d74b3e2c540865a8698062a70358a064582aa3f7dd4d4e3adbf665ade9243e89",
+  "source_hash": "36e4700c668e2ca27d9d1854c3e96cf95236dd596f35b70a438606010d178f0d",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps only one value when the maximum frequency is tied.",
+      "failed_cases": [
+        "lc-501-2",
+        "lc-501-8",
+        "lc-501-11",
+        "lc-501-13",
+        "lc-501-stress-1",
+        "lc-501-stress-3"
+      ]
+    },
+    {
+      "reason": "Treats every visit as a new run, ignoring repeated-value frequency.",
+      "failed_cases": [
+        "lc-501-1",
+        "lc-501-2",
+        "lc-501-6",
+        "lc-501-7",
+        "lc-501-9",
+        "lc-501-10",
+        "lc-501-11",
+        "lc-501-12",
+        "lc-501-14",
+        "lc-501-15",
+        "lc-501-16",
+        "lc-501-17",
+        "lc-501-stress-2",
+        "lc-501-stress-3",
+        "lc-501-stress-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4548,
+  "oracle_implementation": "code_practice/import_batch_050.py:mode_oracle",
+  "validator_implementation_sha256": "030bc2dadcbddd5aaf078b378842b0b249d4d8c16e7a2f4f48ef981317be861b",
+  "batch_implementation_sha256": "467841a0841e23be7479c19be5035542226df3a8d27da6d6e6a452569fe5d1eb",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.081,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

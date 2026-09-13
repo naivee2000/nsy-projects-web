@@ -4,9 +4,9 @@
   "workbook_sha256": "d4d791913078d0275fb404f4e61ff914b039f74f44ff4a2774070685e82e8e46",
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
-    "overlap": 78,
-    "imported": 334,
-    "pending": 3062,
+    "overlap": 79,
+    "imported": 338,
+    "pending": 3057,
     "excluded": 155
   },
   "record_count": 3629,
@@ -5703,10 +5703,11 @@
       "title": "Find Mode in Binary Search Tree",
       "difficulty": "Easy",
       "source_hash": "36e4700c668e2ca27d9d1854c3e96cf95236dd596f35b70a438606010d178f0d",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-501.json",
+      "problem_id": "leetcode-501"
     },
     {
       "source_id": 502,
@@ -5783,10 +5784,11 @@
       "title": "Most Frequent Subtree Sum",
       "difficulty": "Medium",
       "source_hash": "681ad6de1dd0d4c75069a3ac8a2ce21a8838696284e986f1fddc693d8cb35e97",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-508.json",
+      "problem_id": "leetcode-508"
     },
     {
       "source_id": 509,
@@ -5794,10 +5796,11 @@
       "title": "Fibonacci Number",
       "difficulty": "Easy",
       "source_hash": "861f81c7998ae17a090daa99c078e921ad360c1b4dadc8b330a01361c8c3d7bb",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "recursive-step-combinations",
+      "reason": "Fibonacci F(n) equals the existing ordered 1/2-step count for n-1 when n>=1; F(0)=0 is explicit. All 31 valid source inputs (0..30) are covered without changing the original 0..30 domain or its ID. An independent binomial placement count verifies the complete source domain and 500 seeded inputs. This is an index/base-case adaptation of the same recurrence, not a new library problem.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-509.json"
     },
     {
       "source_id": 510,
@@ -5816,10 +5819,11 @@
       "title": "Find Bottom Left Tree Value",
       "difficulty": "Medium",
       "source_hash": "64a320acdb128815a3626f6835f6046a659772712323aa836ddefb21259268b9",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-513.json",
+      "problem_id": "leetcode-513"
     },
     {
       "source_id": 514,
@@ -5839,10 +5843,11 @@
       "title": "Find Largest Value in Each Tree Row",
       "difficulty": "Medium",
       "source_hash": "115583cf64489c7698d45c6439f6e8c5c83acf767e0f6840d8dbba25e064dc43",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-515.json",
+      "problem_id": "leetcode-515"
     },
     {
       "source_id": 516,

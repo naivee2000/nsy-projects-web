@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import random
+from math import comb
 
 from .catalog_artifacts import write_json_atomic
 from .catalog_evidence import content_digest, judge_contract_hash
@@ -16,7 +17,20 @@ DECISIONS={
         reason='Each attack at t with duration d is the half-open interval [t,t+d); its integer length equals the count of inclusive poisoned seconds t..t+d-1. Total poison time is exactly the existing interval-union length, including overlap, repeated times, gaps, and d=0. The existing sort-and-merge reference handles 10,000 intervals and the full time domain; no new progress ID is needed.'),
     496:dict(target_id='next-greater-values',source_hash='c0c9568dad4ade1d8e3f6d61654d9d7d5431ddb3e70c04ba89136ef02ead7e52',
         reason='The original exercise computes the first strictly greater value to the right for every input position. Source 496 adds only selecting those results for a unique-value subset in query order: zip nums2 to its complete next-greater output, then look up nums1. Its unique 0..10000 inputs are covered by the original arbitrary-integer contract. The mapping takes O(n+m) total time with the original stack; preserve its existing progress ID.'),
+    509:dict(target_id='recursive-step-combinations',source_hash='861f81c7998ae17a090daa99c078e921ad360c1b4dadc8b330a01361c8c3d7bb',
+        reason='Fibonacci F(n) equals the existing ordered 1/2-step count for n-1 when n>=1; F(0)=0 is explicit. All 31 valid source inputs (0..30) are covered without changing the original 0..30 domain or its ID. An independent binomial placement count verifies the complete source domain and 500 seeded inputs. This is an index/base-case adaptation of the same recurrence, not a new library problem.'),
 }
+
+
+def fibonacci_oracle(args):
+    n=args[0]
+    return 0 if n==0 else sum(comb(n-1-k,k) for k in range((n-1)//2+1))
+
+
+SPECS={**OVERLAP_SPECS,509:dict(params=[('n','int','raw')],
+    examples=[([2],'F(2)=1'),([0],'F(0)=0')],
+    boundaries=[[n] for n in range(1,30) if n!=2],
+    stress=[([30],832040)],oracle=fibonacci_oracle,generator=lambda rng:[rng.randrange(31)])}
 
 
 def implementation_hash():
@@ -37,6 +51,8 @@ def adapted_function(source_id,payload):
     function=namespace[payload['signature']['name']]
     if source_id==495:
         return lambda times,duration:function([[t,t+duration] for t in times])
+    if source_id==509:
+        return lambda n:0 if n==0 else function(n-1)
     def query(queries,nums):
         following=dict(zip(nums,function(nums)))
         return [following[value] for value in queries]
@@ -45,7 +61,7 @@ def adapted_function(source_id,payload):
 
 def check_original(source_id,payload,source):
     from .build_import_batch import workbook_sample
-    spec=OVERLAP_SPECS[source_id]
+    spec=SPECS[source_id]
     solve=adapted_function(source_id,payload)
     sample=workbook_sample(source['sample'],[{'name':p[0]} for p in spec['params']])
     if sample is None or solve(*sample[0])!=sample[1]:
@@ -62,8 +78,11 @@ def check_original(source_id,payload,source):
             raise ValueError('Original adaptation disagrees with full-size fixture')
     return dict(oracle_inputs=500,oracle_seed=4047+source_id,workbook_sample_checked=True,
                 deterministic_inputs=len(small)+len(spec['stress']),
-                largest_input=10000 if source_id==495 else 1000,
-                adaptation='[t,t+duration) interval union' if source_id==495 else 'value-to-result map followed by query-order projection')
+                largest_input={495:10000,496:1000,509:30}[source_id],
+                exhaustive_domain_inputs=31 if source_id==509 else None,
+                adaptation={495:'[t,t+duration) interval union',
+                    496:'value-to-result map followed by query-order projection',
+                    509:'F(0)=0; F(n)=ordered 1/2-step count(n-1) for n>=1'}[source_id])
 
 
 def validate_original_overlap(record,root=ROOT):
@@ -77,7 +96,9 @@ def validate_original_overlap(record,root=ROOT):
             or report['target_content_sha256']!=content_digest(target_payload(source_id))
             or report['implementation_sha256']!=implementation_hash()
             or report['judge_contract_sha256']!=judge_contract_hash()
-            or report['oracle_inputs']<500 or not report['workbook_sample_checked']):
+            or report['oracle_inputs']<500 or not report['workbook_sample_checked']
+            or (source_id==509 and (report.get('exhaustive_domain_inputs')!=31
+                                   or report.get('deterministic_inputs')!=31))):
             raise ValueError('Original overlap evidence does not match')
         return report
     except (KeyError,ValueError,TypeError,OSError) as error:

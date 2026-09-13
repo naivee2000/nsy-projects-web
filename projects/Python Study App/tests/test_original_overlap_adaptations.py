@@ -37,6 +37,8 @@ def test_original_adaptations_preserve_sample_oracle_and_full_domain(source_id):
         ['def total_covered_length(intervals):\n    return sum(b-a for a,b in intervals)',
          'def total_covered_length(intervals):\n    return sum(max(0,b-a-1) for a,b in intervals)']
         if source_id==495 else
+        ['def recursive_step_combinations(n):\n    return 1',
+         'def recursive_step_combinations(n):\n    return n'] if source_id==509 else
         ['def next_greater_values(nums):\n    return [-1]*len(nums)',
          'def next_greater_values(nums):\n    return [min((v for v in nums[i+1:] if v>x),default=-1) for i,x in enumerate(nums)]']
     )
@@ -92,4 +94,27 @@ def test_packaged_original_mappings_do_not_duplicate_library_ids(tmp_path,monkey
     manifest=json.loads((tmp_path/'published/manifest.json').read_text())
     ids={p['id'] for p in manifest['entries']}
     assert {'total-covered-length','next-greater-values'}<=ids
-    assert not {'leetcode-495','leetcode-496'}&ids
+    assert not {'leetcode-495','leetcode-496','leetcode-509'}&ids
+
+
+def test_fibonacci_adaptation_exhausts_domain_without_changing_original():
+    payload=originals.target_payload(509)
+    solve=originals.adapted_function(509,payload)
+    a,b=0,1
+    for n in range(31):
+        assert solve(n)==a==originals.fibonacci_oracle([n])
+        a,b=b,a+b
+    assert payload['id']=='recursive-step-combinations' and payload['version']==1
+    assert solve(0)==0 and solve(30)==832040
+    sources={s['source_id']:s for s in map(json.loads,(ROOT/'catalog_import/sources.jsonl').read_text().splitlines())}
+    report=originals.check_original(509,payload,sources[509])
+    assert report['deterministic_inputs']==report['exhaustive_domain_inputs']==31
+
+
+def test_fibonacci_incomplete_domain_proof_is_rejected(tmp_path):
+    record=next(r for r in snapshot(tmp_path) if r['source_id']==509)
+    path=tmp_path/record['overlap_report']
+    report=json.loads(path.read_text());report['exhaustive_domain_inputs']=30
+    write_json_atomic(path,report)
+    with pytest.raises(ValueError,match='original overlap evidence'):
+        originals.validate_original_overlap(record,tmp_path)

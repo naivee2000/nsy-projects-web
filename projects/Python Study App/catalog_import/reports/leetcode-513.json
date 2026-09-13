@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-513",
+  "content_sha256": "63a9b033d6d6451b799696d46683b0b55540713e0e3c6993f502e90fd10c6d9e",
+  "source_hash": "64a320acdb128815a3626f6835f6046a659772712323aa836ddefb21259268b9",
+  "visible_tests": 2,
+  "hidden_tests": 22,
+  "reference_passed": 24,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites with the rightmost value on an already-seen deepest level.",
+      "failed_cases": [
+        "lc-513-1",
+        "lc-513-2",
+        "lc-513-7",
+        "lc-513-9",
+        "lc-513-10",
+        "lc-513-12",
+        "lc-513-13",
+        "lc-513-16",
+        "lc-513-17",
+        "lc-513-stress-3"
+      ]
+    },
+    {
+      "reason": "Follows only left children and misses a deeper node elsewhere.",
+      "failed_cases": [
+        "lc-513-6",
+        "lc-513-13",
+        "lc-513-14",
+        "lc-513-15",
+        "lc-513-18",
+        "lc-513-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4560,
+  "oracle_implementation": "code_practice/import_batch_050.py:bottom_oracle",
+  "validator_implementation_sha256": "030bc2dadcbddd5aaf078b378842b0b249d4d8c16e7a2f4f48ef981317be861b",
+  "batch_implementation_sha256": "467841a0841e23be7479c19be5035542226df3a8d27da6d6e6a452569fe5d1eb",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.075,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-508",
+  "content_sha256": "c9eeae7ed26fe7bb4805ac0712fa9d0ea63c1f8021269880abc256e2d2fd814d",
+  "source_hash": "681ad6de1dd0d4c75069a3ac8a2ce21a8838696284e986f1fddc693d8cb35e97",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Counts node values instead of complete subtree sums.",
+      "failed_cases": [
+        "lc-508-1",
+        "lc-508-2",
+        "lc-508-5",
+        "lc-508-6",
+        "lc-508-7",
+        "lc-508-9",
+        "lc-508-10",
+        "lc-508-12",
+        "lc-508-13",
+        "lc-508-14",
+        "lc-508-15",
+        "lc-508-16",
+        "lc-508-stress-2",
+        "lc-508-stress-3",
+        "lc-508-stress-5"
+      ]
+    },
+    {
+      "reason": "Drops other sums tied for the highest frequency.",
+      "failed_cases": [
+        "lc-508-1",
+        "lc-508-5",
+        "lc-508-6",
+        "lc-508-7",
+        "lc-508-9",
+        "lc-508-10",
+        "lc-508-12",
+        "lc-508-13",
+        "lc-508-14",
+        "lc-508-15",
+        "lc-508-stress-2",
+        "lc-508-stress-3",
+        "lc-508-stress-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4555,
+  "oracle_implementation": "code_practice/import_batch_050.py:sums_oracle",
+  "validator_implementation_sha256": "030bc2dadcbddd5aaf078b378842b0b249d4d8c16e7a2f4f48ef981317be861b",
+  "batch_implementation_sha256": "467841a0841e23be7479c19be5035542226df3a8d27da6d6e6a452569fe5d1eb",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.143,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

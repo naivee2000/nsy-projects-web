@@ -338,8 +338,20 @@ try {
     assert((await page.locator('.problem-pane').textContent()).includes(explanation));
   }
   report.checks.push('batch 49 examples distinguish hole interruption, stopping destinations, capital thresholds, circular strict successors, and persistent ring rotations');
+  for (const [title,explanation] of [
+    ['Find Mode in Binary Search Tree','frequency list [2,2]'],
+    ['Most Frequent Subtree Sum','ALL descendants'],
+    ['Find Bottom Left Tree Value','not numeric size'],
+    ['Find Largest Value in Each Tree Row','only negative values'],
+  ]) {
+    await page.getByRole('button',{name:'Back',exact:true}).click();
+    await page.getByPlaceholder('Search title, topic, or pattern').fill(title);
+    await page.locator('button.problem-card').filter({has:page.getByText(title,{exact:true})}).click();
+    assert((await page.locator('.problem-pane').textContent()).includes(explanation));
+  }
+  report.checks.push('batch 50 examples distinguish all tied modes, descendant sums, leftmost position, and negative row maxima');
 
-  for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values'].includes(e.id))) {
+  for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values', 'recursive-step-combinations'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
     const result = await judge(page, problem, problem.reference_solution);
     assert.equal(result.status, 'accepted', `${entry.id}: ${JSON.stringify(result)}`);
@@ -609,6 +621,32 @@ def sliding_window_medians(nums, k):
     }
   }
   report.checks.push('batch 49 rejects ignored holes, shortest-roll counts, premature destination stops, reused/ineligible projects, missed wraparound, non-strict successors, one-way rotations, and free ring presses; source-scale reference fixtures pass');
+  for (const id of [501,508,513,515]) {
+    const problem=JSON.parse(await fs.readFile(path.join(root,`catalog_data/problems/leetcode-${id}.json`),'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page,problem,wrong)).status,'wrong_answer',`batch 50 wrong algorithm ${id}`);
+    }
+    if ([501,508].includes(id)) {
+      const example=problem.tests.find(t=>t.visible && t.expected.length>1);
+      const fixture={...problem,tests:[example]};
+      const answer=example.expected;
+      assert.equal((await judge(page,fixture,`def ${problem.signature.name}(root):\n    return ${JSON.stringify([...answer].reverse())}`)).status,'accepted');
+      for (const bad of [answer.slice(1),[...answer,answer[0]]]) {
+        assert.equal((await judge(page,fixture,`def ${problem.signature.name}(root):\n    return ${JSON.stringify(bad)}`)).status,'wrong_answer');
+      }
+    }
+  }
+  const stepProblem=JSON.parse(await fs.readFile(path.join(root,'catalog_data/problems/recursive-step-combinations.json'),'utf8'));
+  let fibA=0,fibB=1;
+  const fibTests=Array.from({length:31},(_,n)=>{
+    const expected=fibA;[fibA,fibB]=[fibB,fibA+fibB];
+    return {id:`fib-domain-${n}`,arguments:[n],expected,comparator:'exact',visible:true};
+  });
+  const fibJob={...stepProblem,signature:{...stepProblem.signature,name:'fibonacci'},tests:fibTests};
+  assert.equal((await judge(page,fibJob,stepProblem.reference_solution+'\ndef fibonacci(n):\n    return 0 if n == 0 else recursive_step_combinations(n-1)')).status,'accepted');
+  assert(!manifest.entries.some(p=>p.id==='leetcode-509'));
+  assert.equal((await fetch(`${base}/api/problems/leetcode-509`)).status,404);
+  report.checks.push('batch 50 rejects eight wrong tree algorithms, accepts reordered tied values but rejects duplicates/omissions, and proves all 31 Fibonacci inputs using the unchanged original step-count function without a duplicate API/library ID');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],

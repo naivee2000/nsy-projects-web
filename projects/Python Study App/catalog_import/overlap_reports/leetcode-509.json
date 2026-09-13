@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "source_id": 509,
+  "source_hash": "861f81c7998ae17a090daa99c078e921ad360c1b4dadc8b330a01361c8c3d7bb",
+  "target_problem_id": "recursive-step-combinations",
+  "target_content_sha256": "23b0c9bfe5d3a1cd8e577aa2ab990a059161132b90603f8fbb9c0c1a6d0e3754",
+  "implementation_sha256": "84ffd4a191788f7eb9ec2b239c072367d7ba3ee456d0bf5a8615ac47fb6751a5",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "decision": {
+    "target_id": "recursive-step-combinations",
+    "source_hash": "861f81c7998ae17a090daa99c078e921ad360c1b4dadc8b330a01361c8c3d7bb",
+    "reason": "Fibonacci F(n) equals the existing ordered 1/2-step count for n-1 when n>=1; F(0)=0 is explicit. All 31 valid source inputs (0..30) are covered without changing the original 0..30 domain or its ID. An independent binomial placement count verifies the complete source domain and 500 seeded inputs. This is an index/base-case adaptation of the same recurrence, not a new library problem."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 4556,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 31,
+  "largest_input": 30,
+  "exhaustive_domain_inputs": 31,
+  "adaptation": "F(0)=0; F(n)=ordered 1/2-step count(n-1) for n>=1"
+}
