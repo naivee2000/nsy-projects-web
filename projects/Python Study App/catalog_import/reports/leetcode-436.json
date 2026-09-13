@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-436",
+  "content_sha256": "7867d114b63221d2bd185c70d61fa29511a6af441181a3ac676b0d421c75f5bd",
+  "source_hash": "7356df1bdec5c50360789f9bff3b6c0ab6c4080cefd1651e4e2eb9920d0b18b2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Skips an equal start, wrongly requiring a strict gap.",
+      "failed_cases": [
+        "lc-436-2",
+        "lc-436-3",
+        "lc-436-4",
+        "lc-436-5",
+        "lc-436-6",
+        "lc-436-7",
+        "lc-436-9",
+        "lc-436-12",
+        "lc-436-13",
+        "lc-436-stress-1",
+        "lc-436-stress-2"
+      ]
+    },
+    {
+      "reason": "Returns the sorted position instead of the original interval index.",
+      "failed_cases": [
+        "lc-436-2",
+        "lc-436-6",
+        "lc-436-8",
+        "lc-436-9",
+        "lc-436-12",
+        "lc-436-13",
+        "lc-436-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4483,
+  "oracle_implementation": "code_practice/import_batch_039.py:interval_oracle",
+  "validator_implementation_sha256": "914db5a621ae503a278705d8a46923c7b14ed8c37453bbabb58ac922f2bfb929",
+  "batch_implementation_sha256": "d0dfd2726f0a61473df6878a50589488a7d346b416143d25fcbc9afc8bcc9623",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.146,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

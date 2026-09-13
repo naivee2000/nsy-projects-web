@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 380 runnable problems (101 original exercises plus 279 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 391 runnable problems (101 original exercises plus 290 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **380-problem handoff checkpoint** is tagged `python-study-380-checkpoint`; the earlier 363-, 345-, and 326-problem tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_380_CHECKPOINT.md) for exact-version update commands. Eleven additional batch-39 candidates remain in unfinished local working changes and are excluded from this release. Expansion waits for the owner to finish the handoff. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **380-problem handoff checkpoint** is tagged `python-study-380-checkpoint`; the earlier 363-, 345-, and 326-problem tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_380_CHECKPOINT.md) for exact-version update commands. Goal work has resumed locally with eleven additional verified problems on `main`, outside that frozen release. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 73 existing equivalents, 279 verified imports, 155 documented
-design/interactive exclusions, and 3,122 pending records. Ordinary tree and
+Current status: 73 existing equivalents, 290 verified imports, 155 documented
+design/interactive exclusions, and 3,111 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Thirty-eight reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Thirty-nine reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -352,6 +352,21 @@ copy of the same formula. Source-scale tests cover 10,000-digit addition,
 20,000-by-20,000 screen counts, 200,000 XOR inputs, and 100,000-character windows.
 Coordinate lists may be reordered, but swapping row/column or duplicating cells
 fails. Existing content, progress IDs, and all handoff tags remain unchanged.
+Batch thirty-nine adds Valid Word Square, recursive Word Squares, Minimum Genetic
+Mutation, Find Right Interval, Path Sum III, Find All Anagrams in a String,
+Ternary Expression Parser, K-th Smallest in Lexicographical Order, in-place
+String Compression, forward-digit Add Two Numbers II, and Arithmetic Slices II.
+Tests preserve ragged mirrored rows, dictionary-word reuse, same-chain tree
+prefixes, right-associated conditionals, and index-distinct gapped subsequences.
+String Compression grades the actual modified character prefix and integer count,
+including multi-digit runs; the unused tail is ignored. It is distinct from the
+original string-returning run encoder. Forward-digit linked addition is also
+distinct from reverse-digit addition. Independent checks include all small gene
+banks, decimal digit-DP ranks up to a billion, 1,000-node chains, 2,499 nested
+conditions, every single-run length through 2,000, and 100-digit linked inputs.
+Linked-list, binary-search, and recursion review priorities remain active.
+No shared judge change was needed, and all 380 handoff problems retain their
+content, versions, and progress IDs.
 Of the 73 overlaps, 69 map to original exercises and four map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
@@ -393,7 +408,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 380 problems; future
+been checked against every reviewed batch. The current package contains 391 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

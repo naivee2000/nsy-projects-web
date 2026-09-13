@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-438",
+  "content_sha256": "3b605023515cd77a7da4807835ee049e954dc258a88cedf6e5ebc07f078866c3",
+  "source_hash": "90f93d4bfb8f04db3240d806cfb5038d72ca3469bc1e49253f5aba7f2da5f3d0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks pattern membership instead of multiplicity.",
+      "failed_cases": [
+        "lc-438-6",
+        "lc-438-8",
+        "lc-438-9",
+        "lc-438-12",
+        "lc-438-13",
+        "lc-438-stress-1"
+      ]
+    },
+    {
+      "reason": "Never processes the last character, dropping the final window.",
+      "failed_cases": [
+        "lc-438-2",
+        "lc-438-3",
+        "lc-438-6",
+        "lc-438-8",
+        "lc-438-10",
+        "lc-438-11",
+        "lc-438-12",
+        "lc-438-13",
+        "lc-438-14",
+        "lc-438-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4485,
+  "oracle_implementation": "code_practice/import_batch_039.py:anagrams_oracle",
+  "validator_implementation_sha256": "914db5a621ae503a278705d8a46923c7b14ed8c37453bbabb58ac922f2bfb929",
+  "batch_implementation_sha256": "d0dfd2726f0a61473df6878a50589488a7d346b416143d25fcbc9afc8bcc9623",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

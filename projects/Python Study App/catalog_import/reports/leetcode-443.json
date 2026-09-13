@@ -1,0 +1,76 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-443",
+  "content_sha256": "e0583378fcfdb772f97b8653a94041dd4878a4119e07df1587c48ecb64b52336",
+  "source_hash": "2822d895e501d425d409b5c57bd45492cd517195b8f7a97cf3d43c7e47880aa5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Calculates the compressed length but never updates the original array.",
+      "failed_cases": [
+        "lc-443-1",
+        "lc-443-2",
+        "lc-443-4",
+        "lc-443-6",
+        "lc-443-7",
+        "lc-443-8",
+        "lc-443-9",
+        "lc-443-10",
+        "lc-443-11",
+        "lc-443-12",
+        "lc-443-13",
+        "lc-443-stress-1",
+        "lc-443-stress-2"
+      ]
+    },
+    {
+      "reason": "Keeps only the ones digit of a multi-digit run length.",
+      "failed_cases": [
+        "lc-443-2",
+        "lc-443-6",
+        "lc-443-7",
+        "lc-443-13",
+        "lc-443-stress-1",
+        "lc-443-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4490,
+  "oracle_implementation": "code_practice/import_batch_039.py:compression_oracle",
+  "validator_implementation_sha256": "914db5a621ae503a278705d8a46923c7b14ed8c37453bbabb58ac922f2bfb929",
+  "batch_implementation_sha256": "d0dfd2726f0a61473df6878a50589488a7d346b416143d25fcbc9afc8bcc9623",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input chars = [\"a\",\"a\",\"b\",\"b\",\"c\",\"c\",\"c\"] → Output 6.",
+    "arguments": [
+      [
+        "a",
+        "a",
+        "b",
+        "b",
+        "c",
+        "c",
+        "c"
+      ]
+    ],
+    "expected": {
+      "return": 6,
+      "prefix": [
+        "a",
+        "2",
+        "b",
+        "2",
+        "c",
+        "3"
+      ]
+    },
+    "reason": "The workbook sample prints only the returned count. The source description also explicitly gives the required mutated prefix [a,2,b,2,c,3]; the adapter preserves both parts of that contract.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/0400-0499/0443.String%20Compression/README_EN.md"
+  }
+}

@@ -3,13 +3,11 @@
 Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
 380-problem checkpoint is documented in [RELEASE_380_CHECKPOINT.md](RELEASE_380_CHECKPOINT.md).
-The release contains 380 verified problems. Eleven more batch-39 candidates are
-preserved in unfinished local working changes, not included in the release tag;
-their remaining regression/browser/packaging checks must finish before shipping.
-The counts below describe the frozen release ledger, not that working ledger.
-Expansion waits for the owner to complete the handoff. The earlier 363-, 345-,
-and 326-problem tags are unchanged. New development does not change the other
-computer or authorize a push/deployment.
+The release contains 380 verified problems. Goal work has resumed locally;
+`main` has 391 problems, including eleven verified batch-39 additions outside
+that frozen release. The counts below describe current development, not the
+release ledger. All four handoff tags remain unchanged. New development does
+not change the other computer or authorize a push/deployment.
 
 The source workbook has 3,629 unique problem names in rows 7–3635. The
 scope includes ordinary functions, binary trees, linked lists, and Hard problems.
@@ -52,9 +50,31 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 73 existing equivalents (69 original exercises and
   four approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,122 rows remain pending.
-- 279 new imports in thirty-eight reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 380 problems.
+  design/interactive exclusions; 3,111 rows remain pending.
+- 290 new imports in thirty-nine reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 391 problems.
+- Batch thirty-nine covers LeetCode 422, 425, 433, 436–440, and 443/445/446:
+  ragged word-square validity, recursive square generation, shortest gene-bank
+  paths, lower-bound intervals, same-chain tree sums, anagram windows, nested
+  ternaries, decimal prefix ranking, in-place character compression, forward
+  linked digits, and arithmetic subsequences. Oracles independently transpose
+  rows, enumerate row products, use all-pairs graph distances, scan interval
+  starts, enumerate ancestor paths and windows, parse recursive grammar, sort
+  integers by text, group character runs, add exact small integers, and enumerate
+  index subsets. Every problem has 500 seeded comparisons and two logically
+  rejected wrong algorithms, without relying on their crashing.
+  Additional checks exhaust short ragged rows, binary word dictionaries and gene
+  banks, small interval/window/ternary domains, all two-digit linked additions,
+  and short arithmetic subsequences. An independent digit-DP inverse-rank check
+  verifies 500 queries through n=10^9. Source-scale fixtures include 500-by-500
+  ragged/full squares, 1,024 generated squares, 20,000 intervals, 1,000-node
+  chains, 30,000-character windows, 2,499 nested conditionals, and 100-digit lists.
+  Every single-run compression length through 2,000 is checked. The workbook's
+  count-only compression sample has an explicit source-bound adapter preserving
+  its required mutated prefix; returning a string/copy or only a count fails.
+  Arithmetic tests preserve the signed-32-bit answer guarantee, rather than
+  generating an invalid thousand-equal-value case. Existing IDs/content,
+  weak-topic priorities, judge contracts, progress, and handoff tags are unchanged.
 - Batch thirty-eight covers LeetCode 415–421 and 423–424: digitwise addition,
   one-use subset-sum DP, reverse ocean traversal, cyclic row transitions,
   straight-ship starts, minimum password edits, XOR prefixes, digit inventories,
@@ -466,18 +486,18 @@ correctness. Generated tests must meet each problem's actual constraints.
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
   afterward. Ordered integer groups now also accept within-group permutations
-  while preserving outer order and duplicate counts. All 279 published imports
-  have matching passing reports in the 380-problem package. The judge is unchanged
+  while preserving outer order and duplicate counts. All 290 published imports
+  have matching passing reports in the 391-problem package. The judge is unchanged
   since revalidation for value-only tree mutation and explicit-None identity snapshots.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 380-problem Chrome/M3 Pro run: library/search p95 1.48/1.72 ms,
-  detail p95 1.63 ms for Word Search and 1.55 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.81 ms (100 requests per route). Startup is
-  346 ms and backend peak RSS is 131.45 MiB across browsing large array and
-  linked-list details and restarting. All 279 imported references and
+- Current 391-problem Chrome/M3 Pro run: library/search p95 1.13/2.13 ms,
+  detail p95 1.11 ms for Word Search and 1.13 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.46 ms (100 requests per route). Startup is
+  340 ms and backend peak RSS is 125.63 MiB across browsing large array and
+  linked-list details and restarting. All 290 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The Recover Binary Search Tree suite finishes in 43.7 ms after runtime load,
+  The Recover Binary Search Tree suite finishes in 38.0 ms after runtime load,
   including both 1,000-node chains and all sixteen deterministic cases. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
@@ -500,17 +520,24 @@ correctness. Generated tests must meet each problem's actual constraints.
   All sixteen batch-thirty-seven wrong algorithms are also rejected. Numeric
   permutations accept reversed outer order but reject duplicate/missing rows
   and collapsing all rows to the same internal order. Its 40,320-output boundary
-  passes within a 256.1 ms suite; both 200-by-200 basin cases pass within a
-  233.6 ms suite after Pyodide load. The row-order explanation renders in the UI.
+  passes within a 239.9 ms suite; both 200-by-200 basin cases pass within a
+  199.8 ms suite after Pyodide load. The row-order explanation renders in the UI.
   All eighteen batch-thirty-eight wrong algorithms are rejected. Ocean coordinates
   accept reordered cells but reject row/column swaps, omissions, and duplicates;
   the plateau and coordinate rules render in the UI. Source-scale XOR, subset DP,
-  and ocean suites finish in 571.1, 355.3, and 275.2 ms respectively after load.
+  and ocean suites finish in 501.0, 323.1, and 227.5 ms respectively after load.
+  All twenty-two batch-thirty-nine wrong algorithms are rejected. Character
+  prefixes enforce actual input mutation and strict integer counts while ignoring
+  the tail; word-square answers permit outer reordering but reject changed row
+  order and duplicated/missing squares. Multi-digit compression examples render
+  the compound count/prefix output correctly. New suites finish in 32.7–129.2 ms
+  after load, including the thousand-item arithmetic-subsequence DP and deep
+  tree/conditional inputs.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
   Reports also bind the judge contract, built worker, frontend index, and browser
   verifier hashes; the verifier refuses a stale built worker until it is rebuilt.
-- Current automated suite: 379 backend tests and 16 frontend tests pass. The
+- Current automated suite: 394 backend tests and 16 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

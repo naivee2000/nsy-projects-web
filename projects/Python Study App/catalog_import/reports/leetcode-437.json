@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-437",
+  "content_sha256": "f9227548563b5fc50e1da2a74e400efe0f7d630a48308e14f9e429c2c1f67e7e",
+  "source_hash": "7e4d4858d319bca54dd1d464b25629ca9f7b7f4eca01f1da8d3b9bae0af4e0d3",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Retains prefix counts from completed branches, counting paths across unrelated nodes.",
+      "failed_cases": [
+        "lc-437-2",
+        "lc-437-8",
+        "lc-437-14"
+      ]
+    },
+    {
+      "reason": "Counts only paths beginning at the root.",
+      "failed_cases": [
+        "lc-437-1",
+        "lc-437-2",
+        "lc-437-7",
+        "lc-437-9",
+        "lc-437-10",
+        "lc-437-11",
+        "lc-437-12",
+        "lc-437-13",
+        "lc-437-14",
+        "lc-437-stress-1",
+        "lc-437-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4484,
+  "oracle_implementation": "code_practice/import_batch_039.py:paths_oracle",
+  "validator_implementation_sha256": "914db5a621ae503a278705d8a46923c7b14ed8c37453bbabb58ac922f2bfb929",
+  "batch_implementation_sha256": "d0dfd2726f0a61473df6878a50589488a7d346b416143d25fcbc9afc8bcc9623",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

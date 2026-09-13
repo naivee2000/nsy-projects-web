@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-440",
+  "content_sha256": "3af31bd1766d0bab5bc7f425ad8ea6bc13fbbfe9b82054c14eae66483c1327d2",
+  "source_hash": "6acb7de20e94fc87cf998829ee36adafb0247e79b8772dd1e7c3b7f24de836e5",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Uses numeric order instead of decimal lexicographic order.",
+      "failed_cases": [
+        "lc-440-1",
+        "lc-440-2",
+        "lc-440-6",
+        "lc-440-7",
+        "lc-440-8",
+        "lc-440-9",
+        "lc-440-10",
+        "lc-440-11",
+        "lc-440-12",
+        "lc-440-13",
+        "lc-440-14",
+        "lc-440-stress-1",
+        "lc-440-stress-2",
+        "lc-440-stress-3",
+        "lc-440-stress-4"
+      ]
+    },
+    {
+      "reason": "Shifts a one-based rank twice and selects the previous lexicographic item.",
+      "failed_cases": [
+        "lc-440-1",
+        "lc-440-2",
+        "lc-440-4",
+        "lc-440-5",
+        "lc-440-6",
+        "lc-440-7",
+        "lc-440-8",
+        "lc-440-9",
+        "lc-440-10",
+        "lc-440-11",
+        "lc-440-12",
+        "lc-440-13",
+        "lc-440-14",
+        "lc-440-stress-1",
+        "lc-440-stress-2",
+        "lc-440-stress-3",
+        "lc-440-stress-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4487,
+  "oracle_implementation": "code_practice/import_batch_039.py:lexical_oracle",
+  "validator_implementation_sha256": "914db5a621ae503a278705d8a46923c7b14ed8c37453bbabb58ac922f2bfb929",
+  "batch_implementation_sha256": "d0dfd2726f0a61473df6878a50589488a7d346b416143d25fcbc9afc8bcc9623",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.064,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

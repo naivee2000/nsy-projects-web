@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-422",
+  "content_sha256": "0e9006489a70978d78e16b4fe7e5121e774aa4b21d1f13cf312886af8668f74f",
+  "source_hash": "5afd34915b97eced384ee4d919f0d649a2447fa04f75a4401c63c7e9e9b9535b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly requires a full rectangular n-by-n matrix.",
+      "failed_cases": [
+        "lc-422-2",
+        "lc-422-10",
+        "lc-422-11",
+        "lc-422-14",
+        "lc-422-stress-2"
+      ]
+    },
+    {
+      "reason": "Truncates checks at the shortest row and overlooks missing mirrored positions.",
+      "failed_cases": [
+        "lc-422-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4469,
+  "oracle_implementation": "code_practice/import_batch_039.py:square_oracle",
+  "validator_implementation_sha256": "914db5a621ae503a278705d8a46923c7b14ed8c37453bbabb58ac922f2bfb929",
+  "batch_implementation_sha256": "d0dfd2726f0a61473df6878a50589488a7d346b416143d25fcbc9afc8bcc9623",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

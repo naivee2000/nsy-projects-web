@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 380,
+  "count": 391,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -6800,6 +6800,23 @@
       "source_id": 421
     },
     {
+      "id": "leetcode-422",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Word Square",
+      "summary": "Determine if an array of strings forms a valid word square by checking if the kth row and column match for all k.",
+      "topics": [
+        "strings",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-422.json",
+      "content_sha256": "0e9006489a70978d78e16b4fe7e5121e774aa4b21d1f13cf312886af8668f74f",
+      "source_id": 422
+    },
+    {
       "id": "leetcode-423",
       "version": 1,
       "status": "approved",
@@ -6833,6 +6850,193 @@
       "path": "problems/leetcode-424.json",
       "content_sha256": "3dae6c3ade8017fdb6e80e99c6bf2c9072b391a5b0fb67254b13dfa78f472675",
       "source_id": 424
+    },
+    {
+      "id": "leetcode-425",
+      "version": 1,
+      "status": "approved",
+      "title": "Word Squares",
+      "summary": "Given an array of distinct strings, generate all possible word squares using these strings.",
+      "topics": [
+        "strings",
+        "backtracking",
+        "recursion"
+      ],
+      "prerequisites": [
+        "recursion",
+        "backtracking"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-425.json",
+      "content_sha256": "3503f735035778ae21d7b105494253656b3ec551a4e14d16061ab901a0dfb57e",
+      "source_id": 425
+    },
+    {
+      "id": "leetcode-433",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Genetic Mutation",
+      "summary": "Given a start gene string and an end gene string, both 8 characters long with characters 'A', 'C', 'G', and 'T', find the minimum number of single-character mutations needed to transform the start gene into the end gene.",
+      "topics": [
+        "graphs",
+        "breadth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-433.json",
+      "content_sha256": "a7ef624a1aa16da0dbb329818c8f063da09ffb40719f901b978db2fd63eea61e",
+      "source_id": 433
+    },
+    {
+      "id": "leetcode-436",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Right Interval",
+      "summary": "Given an array of unique start intervals, find the index of the interval with the smallest start that is greater than or equal to the end of each interval.",
+      "topics": [
+        "arrays",
+        "binary-search",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-436.json",
+      "content_sha256": "7867d114b63221d2bd185c70d61fa29511a6af441181a3ac676b0d421c75f5bd",
+      "source_id": 436
+    },
+    {
+      "id": "leetcode-437",
+      "version": 1,
+      "status": "approved",
+      "title": "Path Sum III",
+      "summary": "Determine the count of paths in a binary tree where the sum of node values along the path equals a specified target sum.",
+      "topics": [
+        "trees",
+        "recursion",
+        "depth-first-search",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-437.json",
+      "content_sha256": "f9227548563b5fc50e1da2a74e400efe0f7d630a48308e14f9e429c2c1f67e7e",
+      "source_id": 437
+    },
+    {
+      "id": "leetcode-438",
+      "version": 1,
+      "status": "approved",
+      "title": "Find All Anagrams in a String",
+      "summary": "Given strings s and p, identify and return all starting positions where p's anagram appears in s, in any order.",
+      "topics": [
+        "strings",
+        "hash-maps",
+        "sliding-window"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-438.json",
+      "content_sha256": "3b605023515cd77a7da4807835ee049e954dc258a88cedf6e5ebc07f078866c3",
+      "source_id": 438
+    },
+    {
+      "id": "leetcode-439",
+      "version": 1,
+      "status": "approved",
+      "title": "Ternary Expression Parser",
+      "summary": "Given a string expression with nested ternary conditions, evaluate the expression and return the result.",
+      "topics": [
+        "strings",
+        "stacks",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-439.json",
+      "content_sha256": "9eb5855934266e99b8976e2c67fbd3e2678c36aec0f1fe0799b01f6d6cd94f04",
+      "source_id": 439
+    },
+    {
+      "id": "leetcode-440",
+      "version": 1,
+      "status": "approved",
+      "title": "K-th Smallest in Lexicographical Order",
+      "summary": "Given two integers n and k , return the k-th lexicographically smallest integer within the range from 1 to n .",
+      "topics": [
+        "math",
+        "trees",
+        "prefix-counting"
+      ],
+      "prerequisites": [
+        "math",
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-440.json",
+      "content_sha256": "3af31bd1766d0bab5bc7f425ad8ea6bc13fbbfe9b82054c14eae66483c1327d2",
+      "source_id": 440
+    },
+    {
+      "id": "leetcode-443",
+      "version": 1,
+      "status": "approved",
+      "title": "String Compression",
+      "summary": "Given an array of characters, compress it by appending each character or character followed by its count for consecutive groups.",
+      "topics": [
+        "strings",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-443.json",
+      "content_sha256": "e0583378fcfdb772f97b8653a94041dd4878a4119e07df1587c48ecb64b52336",
+      "source_id": 443
+    },
+    {
+      "id": "leetcode-445",
+      "version": 1,
+      "status": "approved",
+      "title": "Add Two Numbers II",
+      "summary": "Given two non-empty linked lists representing non-negative integers, add the numbers and return the sum as a linked list.",
+      "topics": [
+        "linked-lists",
+        "stacks",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-445.json",
+      "content_sha256": "ec6547b7da5ee35c82243c659c1102fe8a416fb4aaae2d8afa8dda51718e35cc",
+      "source_id": 445
+    },
+    {
+      "id": "leetcode-446",
+      "version": 1,
+      "status": "approved",
+      "title": "Arithmetic Slices II - Subsequence",
+      "summary": "Given an integer array nums, return the total count of arithmetic subsequences within it.",
+      "topics": [
+        "arrays",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "arrays",
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-446.json",
+      "content_sha256": "13f4ed7fc0f192fd6eb32bc4180eaa3c95740b62d3e1d956bb96c8a6a384fa70",
+      "source_id": 446
     },
     {
       "id": "leetcode-543",

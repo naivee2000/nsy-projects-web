@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-446",
+  "content_sha256": "13f4ed7fc0f192fd6eb32bc4180eaa3c95740b62d3e1d956bb96c8a6a384fa70",
+  "source_hash": "69af598d9c67b80da0d3716657a7002514e0adec39bf95ea6a34ddb22204b623",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts new length-two pairs as complete arithmetic subsequences.",
+      "failed_cases": [
+        "lc-446-1",
+        "lc-446-2",
+        "lc-446-4",
+        "lc-446-5",
+        "lc-446-6",
+        "lc-446-7",
+        "lc-446-8",
+        "lc-446-9",
+        "lc-446-10",
+        "lc-446-11",
+        "lc-446-12",
+        "lc-446-13",
+        "lc-446-14",
+        "lc-446-stress-1",
+        "lc-446-stress-2"
+      ]
+    },
+    {
+      "reason": "Counts only contiguous slices, omitting valid subsequences with gaps.",
+      "failed_cases": [
+        "lc-446-1",
+        "lc-446-2",
+        "lc-446-9",
+        "lc-446-10",
+        "lc-446-stress-1",
+        "lc-446-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4493,
+  "oracle_implementation": "code_practice/import_batch_039.py:arithmetic_oracle",
+  "validator_implementation_sha256": "914db5a621ae503a278705d8a46923c7b14ed8c37453bbabb58ac922f2bfb929",
+  "batch_implementation_sha256": "d0dfd2726f0a61473df6878a50589488a7d346b416143d25fcbc9afc8bcc9623",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.152,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

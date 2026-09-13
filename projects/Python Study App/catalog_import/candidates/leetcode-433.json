@@ -1,0 +1,314 @@
+{
+  "id": "leetcode-433",
+  "version": 1,
+  "status": "approved",
+  "title": "Minimum Genetic Mutation",
+  "summary": "Given a start gene string and an end gene string, both 8 characters long with characters 'A', 'C', 'G', and 'T', find the minimum number of single-character mutations needed to transform the start gene into the end gene.",
+  "statement": "Given a start gene string and an end gene string, both 8 characters long with characters 'A', 'C', 'G', and 'T', find the minimum number of single-character mutations needed to transform the start gene into the end gene. A gene must be listed in a provided gene bank to be valid. If no valid mutation path exists, return -1.",
+  "constraints": [
+    "Genes have exactly eight characters from A,C,G,T; 0 <= bank.length <= 10.",
+    "One mutation changes one character. Every reached gene after a change must belong to the bank.",
+    "The starting gene is valid even outside the bank. Equal start/end needs zero mutations; return -1 when unreachable."
+  ],
+  "topics": [
+    "graphs",
+    "breadth-first-search"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "minimum_gene_mutations",
+    "parameters": [
+      {
+        "name": "start_gene",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "end_gene",
+        "annotation": "str",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "bank",
+        "annotation": "list[str]",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def minimum_gene_mutations(start_gene: str, end_gene: str, bank: list[str]) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def minimum_gene_mutations(start_gene, end_gene, bank):\n    from collections import deque\n    if start_gene==end_gene:\n        return 0\n    allowed = set(bank)\n    if end_gene not in allowed:\n        return -1\n    queue = deque([(start_gene,0)])\n    seen = {start_gene}\n    while queue:\n        gene,steps = queue.popleft()\n        if gene==end_gene:\n            return steps\n        for index in range(8):\n            for letter in 'ACGT':\n                following = gene[:index]+letter+gene[index+1:]\n                if following in allowed and following not in seen:\n                    seen.add(following)\n                    queue.append((following,steps+1))\n    return -1\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def minimum_gene_mutations(start_gene, end_gene, bank):\n    from collections import deque\n    if False:\n        return 0\n    allowed = set(bank)\n    if end_gene not in allowed:\n        return -1\n    queue = deque([(start_gene,0)])\n    seen = {start_gene}\n    while queue:\n        gene,steps = queue.popleft()\n        if gene==end_gene:\n            return steps\n        for index in range(8):\n            for letter in 'ACGT':\n                following = gene[:index]+letter+gene[index+1:]\n                if following in allowed and following not in seen:\n                    seen.add(following)\n                    queue.append((following,steps+1))\n    return -1\n",
+    "def minimum_gene_mutations(start_gene,end_gene,bank):\n    if start_gene==end_gene: return 0\n    return sum(a!=b for a,b in zip(start_gene,end_gene)) if end_gene in bank else -1\n"
+  ],
+  "target_time_complexity": "O(b) for fixed 8-character genes",
+  "target_space_complexity": "O(b)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Treat valid genes as vertices joined by one-character changes.",
+    "Breadth-first search finds the fewest edges; only enqueue bank genes not already visited.",
+    "Start at distance 0. For each of eight positions try A,C,G,T, enqueue valid unseen strings, and stop at the destination.",
+    "The starting state needs no bank entry. With fixed length and alphabet, each bank gene generates a constant number of candidates."
+  ],
+  "editorial": "Every edge costs one mutation, so BFS layers are increasing shortest distances. Generating single-character neighbors enforces edge validity, and a bank set enforces allowed intermediate states. Mark states when enqueuing to avoid repeated cycles. Endpoint differences alone do not prove a route exists or that no detour is needed. An identical start/end has distance zero.",
+  "tests": [
+    {
+      "id": "lc-433-1",
+      "arguments": [
+        "AACCGGTT",
+        "AACCGGTA",
+        [
+          "AACCGGTA"
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Changing the final T to A reaches the bank gene in one mutation.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-2",
+      "arguments": [
+        "AAAAAAAA",
+        "CCAAAAAA",
+        [
+          "GAAAAAAA",
+          "GCAAAAAA",
+          "CCAAAAAA"
+        ]
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The only route is AA… → GA… → GC… → CC…, taking 3 changes although the endpoints differ in only 2 positions.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-3",
+      "arguments": [
+        "AAAAAAAA",
+        "AAAAAAAA",
+        []
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-4",
+      "arguments": [
+        "AAAAAAAA",
+        "AAAAAAAA",
+        [
+          "AAAAAAAA"
+        ]
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-5",
+      "arguments": [
+        "AAAAAAAA",
+        "CAAAAAAA",
+        []
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-6",
+      "arguments": [
+        "AAAAAAAA",
+        "CAAAAAAA",
+        [
+          "CAAAAAAA"
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-7",
+      "arguments": [
+        "AAAAAAAA",
+        "CCAAAAAA",
+        [
+          "CCAAAAAA"
+        ]
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-8",
+      "arguments": [
+        "AAAAAAAA",
+        "CCAAAAAA",
+        [
+          "CAAAAAAA",
+          "CCAAAAAA"
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-9",
+      "arguments": [
+        "AACCGGTT",
+        "AAACGGTA",
+        [
+          "AACCGGTA",
+          "AACCGCTA",
+          "AAACGGTA"
+        ]
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-10",
+      "arguments": [
+        "TTTTTTTT",
+        "TTTTTTTA",
+        [
+          "TTTTTTTA",
+          "TTTTTTTA"
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-11",
+      "arguments": [
+        "AAAAAAAA",
+        "CCCCCCCC",
+        [
+          "CCCCCCCC"
+        ]
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-12",
+      "arguments": [
+        "AAAAAAAA",
+        "GAAAAAAA",
+        [
+          "CAAAAAAA",
+          "GAAAAAAA"
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-13",
+      "arguments": [
+        "AAAAAAAA",
+        "GCAAAAAA",
+        [
+          "CAAAAAAA",
+          "GCAAAAAA"
+        ]
+      ],
+      "expected": -1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-14",
+      "arguments": [
+        "ACGTACGT",
+        "ACGTTCGT",
+        [
+          "ACGTTCGT"
+        ]
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-433-stress-1",
+      "arguments": [
+        "AAAAAAAA",
+        "CCCCCCCC",
+        [
+          "CAAAAAAA",
+          "CCAAAAAA",
+          "CCCAAAAA",
+          "CCCCAAAA",
+          "CCCCCAAA",
+          "CCCCCCAA",
+          "CCCCCCCA",
+          "CCCCCCCC",
+          "GAAAAAAA",
+          "TAAAAAAA"
+        ]
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

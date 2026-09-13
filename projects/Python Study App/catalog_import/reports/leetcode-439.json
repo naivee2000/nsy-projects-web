@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-439",
+  "content_sha256": "9eb5855934266e99b8976e2c67fbd3e2678c36aec0f1fe0799b01f6d6cd94f04",
+  "source_hash": "819a3cab0e1dbdb58851af220e7655fc1ce6a3ed3444b8c2f0acaa3d8863f8be",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes both branches are single tokens, ignoring nested structure.",
+      "failed_cases": [
+        "lc-439-2",
+        "lc-439-3",
+        "lc-439-10",
+        "lc-439-11",
+        "lc-439-stress-2"
+      ]
+    },
+    {
+      "reason": "Treats nonempty F as a true Python string.",
+      "failed_cases": [
+        "lc-439-3",
+        "lc-439-4",
+        "lc-439-6",
+        "lc-439-9",
+        "lc-439-10",
+        "lc-439-11",
+        "lc-439-13",
+        "lc-439-14",
+        "lc-439-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4486,
+  "oracle_implementation": "code_practice/import_batch_039.py:ternary_oracle",
+  "validator_implementation_sha256": "914db5a621ae503a278705d8a46923c7b14ed8c37453bbabb58ac922f2bfb929",
+  "batch_implementation_sha256": "d0dfd2726f0a61473df6878a50589488a7d346b416143d25fcbc9afc8bcc9623",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -224,6 +224,14 @@ try {
   assert((await page.locator('.problem-pane').textContent()).includes('equal or lower heights'));
   assert((await page.locator('.problem-pane').textContent()).includes('zero-based [row,column]'));
   report.checks.push('ocean-flow instructions explain downhill plateaus and ordered row/column coordinates');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('String Compression');
+  await page.getByRole('button', { name: /String Compression.*Medium/ }).click();
+  const characterNote = page.getByRole('note').filter({ hasText: 'In-place judging' });
+  await characterNote.waitFor();
+  assert((await characterNote.textContent()).includes('first k entries of chars'));
+  assert((await page.locator('.example code').nth(1).textContent()).includes('"prefix":["a","b","1","2"]'));
+  report.checks.push('character compression examples display the returned count and multi-digit mutated character prefix');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -278,6 +286,30 @@ try {
       `def pacific_atlantic_cells(heights):\n    return ${JSON.stringify(output)}`)).status, 'wrong_answer');
   }
   report.checks.push('batch 38 wrong algorithms rejected; ocean coordinates allow outer reorder but reject transposition, missing cells, and duplicates');
+  for (const id of [422, 425, 433, 436, 437, 438, 439, 440, 443, 445, 446]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `leetcode-${id} wrong fixture`);
+    }
+  }
+  const characterCompression = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-443.json'), 'utf8'));
+  const characterCase = { ...characterCompression, tests: [characterCompression.tests[0]] };
+  assert.equal((await judge(page, characterCase,
+    "def compress_characters(chars):\n    chars[:] = list('a2b2c3Z')\n    return 6")).status, 'accepted');
+  for (const body of ["return 6", "return 'a2b2c3'", "chars=list('a2b2c3'); return 6",
+    "chars[:6]=list('a2b2c4'); return 6", "chars[:6]=list('a2b2c3'); return True"]) {
+    assert.equal((await judge(page, characterCase, `def compress_characters(chars):\n    ${body}`)).status, 'wrong_answer');
+  }
+  const wordSquares = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-425.json'), 'utf8'));
+  const wordSquareCase = { ...wordSquares, tests: [wordSquares.tests[0]] };
+  const squareRows = wordSquareCase.tests[0].expected;
+  assert.equal((await judge(page, wordSquareCase,
+    `def word_squares(words):\n    return ${JSON.stringify([...squareRows].reverse())}`)).status, 'accepted');
+  for (const output of [squareRows.map(row => [...row].reverse()), squareRows.slice(1), [...squareRows,squareRows[0]]]) {
+    assert.equal((await judge(page, wordSquareCase,
+      `def word_squares(words):\n    return ${JSON.stringify(output)}`)).status, 'wrong_answer');
+  }
+  report.checks.push('batch 39 wrong algorithms rejected; character prefixes enforce original mutation and integer count while ignoring tails; word squares preserve row order and multiplicities');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
     expected: [1,1,1], expected_node_order: [1,2,0] }] };

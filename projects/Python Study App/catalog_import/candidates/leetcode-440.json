@@ -1,0 +1,289 @@
+{
+  "id": "leetcode-440",
+  "version": 1,
+  "status": "approved",
+  "title": "K-th Smallest in Lexicographical Order",
+  "summary": "Given two integers n and k , return the k-th lexicographically smallest integer within the range from 1 to n .",
+  "statement": "Given two integers n and k , return the k-th lexicographically smallest integer within the range from 1 to n .",
+  "constraints": [
+    "1 <= k <= n <= 10^9. Rank the integers 1 through n by their decimal text, without leading zeros.",
+    "k is one-based. Return the selected integer, not its position or the whole sorted list."
+  ],
+  "topics": [
+    "math",
+    "trees",
+    "prefix-counting"
+  ],
+  "prerequisites": [
+    "math",
+    "trees"
+  ],
+  "signature": {
+    "name": "kth_lexical_number",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "k",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def kth_lexical_number(n: int, k: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def kth_lexical_number(n, k):\n    prefix,remaining = 1,k-1\n    while remaining:\n        low,high,count = prefix,prefix+1,0\n        while low<=n:\n            count += min(n+1,high)-low\n            low,high = low*10,high*10\n        if count<=remaining:\n            prefix += 1\n            remaining -= count\n        else:\n            prefix *= 10\n            remaining -= 1\n    return prefix\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def kth_lexical_number(n,k):\n    return k\n",
+    "def kth_lexical_number(n, k):\n    prefix,remaining = 1,max(0,k-2)\n    while remaining:\n        low,high,count = prefix,prefix+1,0\n        while low<=n:\n            count += min(n+1,high)-low\n            low,high = low*10,high*10\n        if count<=remaining:\n            prefix += 1\n            remaining -= count\n        else:\n            prefix *= 10\n            remaining -= 1\n    return prefix\n"
+  ],
+  "target_time_complexity": "O(log^2 n)",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 50,
+  "rubric": {
+    "algorithmic_insight": 3,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Decimal prefixes form a tree whose preorder is lexicographic order.",
+    "Count integers under the current prefix to choose between skipping that subtree and descending into it.",
+    "At each digit length intersect [prefix*10^d,(prefix+1)*10^d) with [1,n+1); sum widths and compare with remaining rank.",
+    "Skip a subtree when its count fits before the target; otherwise consume its root and descend. Counting levels avoids enumerating up to a billion values."
+  ],
+  "editorial": "A prefix subtree contains consecutive numeric intervals at successive decimal lengths. Clip each interval at n+1 to count it exactly. Starting at prefix 1 and rank offset k-1, skip whole subtrees or descend to the first child. At most a fixed number of sibling moves occur at each digit level, each requiring a logarithmic-depth count. This yields O(log^2 n) time and O(1) space.",
+  "tests": [
+    {
+      "id": "lc-440-1",
+      "arguments": [
+        13,
+        2
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The order starts 1,10,11,12,13,2,…, so rank 2 contains 10.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-2",
+      "arguments": [
+        13,
+        6
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "After all five numbers beginning with 1, rank 6 contains 2. A whole prefix subtree can be skipped.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-3",
+      "arguments": [
+        1,
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-4",
+      "arguments": [
+        2,
+        2
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-5",
+      "arguments": [
+        9,
+        9
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-6",
+      "arguments": [
+        10,
+        2
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-7",
+      "arguments": [
+        10,
+        10
+      ],
+      "expected": 9,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-8",
+      "arguments": [
+        11,
+        3
+      ],
+      "expected": 11,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-9",
+      "arguments": [
+        19,
+        11
+      ],
+      "expected": 19,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-10",
+      "arguments": [
+        20,
+        12
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-11",
+      "arguments": [
+        99,
+        50
+      ],
+      "expected": 54,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-12",
+      "arguments": [
+        100,
+        3
+      ],
+      "expected": 100,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-13",
+      "arguments": [
+        101,
+        4
+      ],
+      "expected": 101,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-14",
+      "arguments": [
+        1000,
+        1000
+      ],
+      "expected": 999,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-stress-1",
+      "arguments": [
+        1000000000,
+        10
+      ],
+      "expected": 1000000000,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-stress-2",
+      "arguments": [
+        1000000000,
+        111111112
+      ],
+      "expected": 199999999,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-stress-3",
+      "arguments": [
+        1000000000,
+        111111113
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-440-stress-4",
+      "arguments": [
+        1000000000,
+        1000000000
+      ],
+      "expected": 999999999,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

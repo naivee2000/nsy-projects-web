@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-433",
+  "content_sha256": "a7ef624a1aa16da0dbb329818c8f063da09ffb40719f901b978db2fd63eea61e",
+  "source_hash": "a13fa406428070402a40c762316f1c0e6c76bb6a509704fda340a0acfd6191c5",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires the destination in the bank even for an already-equal starting gene.",
+      "failed_cases": [
+        "lc-433-3"
+      ]
+    },
+    {
+      "reason": "Uses endpoint Hamming distance without checking valid intermediate genes.",
+      "failed_cases": [
+        "lc-433-2",
+        "lc-433-7",
+        "lc-433-11",
+        "lc-433-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4480,
+  "oracle_implementation": "code_practice/import_batch_039.py:gene_oracle",
+  "validator_implementation_sha256": "914db5a621ae503a278705d8a46923c7b14ed8c37453bbabb58ac922f2bfb929",
+  "batch_implementation_sha256": "d0dfd2726f0a61473df6878a50589488a7d346b416143d25fcbc9afc8bcc9623",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

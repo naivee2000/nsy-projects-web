@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-445",
+  "content_sha256": "ec6547b7da5ee35c82243c659c1102fe8a416fb4aaae2d8afa8dda51718e35cc",
+  "source_hash": "bb801f2b9a7ed0727a6556977733c485cea780738aa6aa8b5225623b94f0b522",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns least-significant digit first, confusing the reverse-order addition contract.",
+      "failed_cases": [
+        "lc-445-1",
+        "lc-445-2",
+        "lc-445-7",
+        "lc-445-8",
+        "lc-445-9",
+        "lc-445-10",
+        "lc-445-12",
+        "lc-445-13",
+        "lc-445-14",
+        "lc-445-stress-1"
+      ]
+    },
+    {
+      "reason": "Drops a final carry after both stacks are exhausted.",
+      "failed_cases": [
+        "lc-445-2",
+        "lc-445-7",
+        "lc-445-12",
+        "lc-445-14",
+        "lc-445-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4492,
+  "oracle_implementation": "code_practice/import_batch_039.py:linked_sum_oracle",
+  "validator_implementation_sha256": "914db5a621ae503a278705d8a46923c7b14ed8c37453bbabb58ac922f2bfb929",
+  "batch_implementation_sha256": "d0dfd2726f0a61473df6878a50589488a7d346b416143d25fcbc9afc8bcc9623",
+  "judge_contract_sha256": "3d7f305fb18c9d7134a49a6cb232ac3baac7015e6f0f24bd2bd1a7896c281bde",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

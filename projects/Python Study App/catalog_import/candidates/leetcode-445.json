@@ -1,0 +1,897 @@
+{
+  "id": "leetcode-445",
+  "version": 1,
+  "status": "approved",
+  "title": "Add Two Numbers II",
+  "summary": "Given two non-empty linked lists representing non-negative integers, add the numbers and return the sum as a linked list.",
+  "statement": "Given two non-empty linked lists representing non-negative integers, add the numbers and return the sum as a linked list. Each node contains a single digit, with the most significant digit first. Ensure no leading zeros except for the number zero.",
+  "constraints": [
+    "Each nonempty list has 1–100 digit nodes (0–9), most-significant digit first.",
+    "No leading zero except the single-node number 0. Return the sum as a ListNode chain in the same forward-digit order.",
+    "Follow-up: avoid reversing the input lists. The reference uses stacks and leaves both inputs unchanged."
+  ],
+  "topics": [
+    "linked-lists",
+    "stacks",
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "add_forward_lists",
+    "parameters": [
+      {
+        "name": "l1",
+        "annotation": "ListNode | None",
+        "adapter": "listnode",
+        "source_parameter": null
+      },
+      {
+        "name": "l2",
+        "annotation": "ListNode | None",
+        "adapter": "listnode",
+        "source_parameter": null
+      }
+    ],
+    "returns": "ListNode | None",
+    "return_adapter": "listnode",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "# Data structure supplied to this problem.\nclass ListNode:\n    def __init__(self, val: int = 0, next: \"ListNode | None\" = None):\n        self.val = val\n        self.next = next\n\n\ndef add_forward_lists(l1: ListNode | None, l2: ListNode | None) -> ListNode | None:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def add_forward_lists(l1, l2):\n    left,right = [],[]\n    while l1 is not None:\n        left.append(l1.val)\n        l1 = l1.next\n    while l2 is not None:\n        right.append(l2.val)\n        l2 = l2.next\n    head,carry = None,0\n    while left or right or carry:\n        total = (left.pop() if left else 0)+(right.pop() if right else 0)+carry\n        carry = total//10\n        head = ListNode(total%10,head)\n    return head\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def add_forward_lists(l1, l2):\n    left,right = [],[]\n    while l1 is not None:\n        left.append(l1.val)\n        l1 = l1.next\n    while l2 is not None:\n        right.append(l2.val)\n        l2 = l2.next\n    head,carry = None,0\n    while left or right or carry:\n        total = (left.pop() if left else 0)+(right.pop() if right else 0)+carry\n        carry = total//10\n        head = ListNode(total%10,head)\n    previous = None\n    while head is not None:\n        following = head.next\n        head.next = previous\n        previous,head = head,following\n    return previous\n",
+    "def add_forward_lists(l1, l2):\n    left,right = [],[]\n    while l1 is not None:\n        left.append(l1.val)\n        l1 = l1.next\n    while l2 is not None:\n        right.append(l2.val)\n        l2 = l2.next\n    head,carry = None,0\n    while left or right:\n        total = (left.pop() if left else 0)+(right.pop() if right else 0)+carry\n        carry = total//10\n        head = ListNode(total%10,head)\n    return head\n"
+  ],
+  "target_time_complexity": "O(m+n)",
+  "target_space_complexity": "O(m+n), excluding output",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Addition starts at the least-significant digits, but these lists expose the most-significant ones first.",
+    "Push input digits onto two stacks; pop from their ends to add with carry.",
+    "While either stack or carry remains, compute one digit and prepend its new node to the answer.",
+    "Prepending restores forward order without reversing input links. Both inputs and output remain real linked lists, not returned Python arrays."
+  ],
+  "editorial": "Two stacks expose digits in addition order without changing either input. Pop available digits or use zero when a stack is empty, propagate carry, and prepend each result node. A remaining carry creates a new leading node. Unlike the earlier reverse-digit addition exercise, the returned chain is most-significant first. The small oracle converts at most 100 digits to an exact integer; the reference performs node/digit arithmetic only.",
+  "tests": [
+    {
+      "id": "lc-445-1",
+      "arguments": [
+        [
+          7,
+          2,
+          4,
+          3
+        ],
+        [
+          5,
+          6,
+          4
+        ]
+      ],
+      "expected": [
+        7,
+        8,
+        0,
+        7
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The chains represent 7243 and 564. Their sum is the chain 7→8→0→7.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-2",
+      "arguments": [
+        [
+          9,
+          9
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        0
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Carry passes through both 9s and creates a new leading node: 1→0→0.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-3",
+      "arguments": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-4",
+      "arguments": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-5",
+      "arguments": [
+        [
+          1
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": [
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-6",
+      "arguments": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": [
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-7",
+      "arguments": [
+        [
+          9
+        ],
+        [
+          9
+        ]
+      ],
+      "expected": [
+        1,
+        8
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-8",
+      "arguments": [
+        [
+          1,
+          0
+        ],
+        [
+          9
+        ]
+      ],
+      "expected": [
+        1,
+        9
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-9",
+      "arguments": [
+        [
+          9
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        1,
+        9
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-10",
+      "arguments": [
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          5,
+          6,
+          4
+        ]
+      ],
+      "expected": [
+        8,
+        0,
+        7
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-11",
+      "arguments": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-12",
+      "arguments": [
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-13",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": [
+        5,
+        7,
+        9
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-14",
+      "arguments": [
+        [
+          9,
+          0,
+          9
+        ],
+        [
+          9,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-stress-1",
+      "arguments": [
+        [
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-445-stress-2",
+      "arguments": [
+        [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      ],
+      "expected": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}
