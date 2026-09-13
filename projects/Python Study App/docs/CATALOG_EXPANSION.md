@@ -2,13 +2,14 @@
 
 Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
-412-problem checkpoint is documented in [RELEASE_412_CHECKPOINT.md](RELEASE_412_CHECKPOINT.md).
-The release includes all seventeen verified batch-41/42/43 additions since the
-395-problem release. Resumed local goal work adds seven verified batch-44/45 problems
-outside that frozen release. The counts below describe the current 419-problem
-development package, not the release ledger. All six handoff tags remain
-unchanged. New development does not change the other computer or authorize a
-push/deployment.
+419-problem checkpoint is documented in [RELEASE_419_CHECKPOINT.md](RELEASE_419_CHECKPOINT.md).
+It includes all seven verified batch-44/45 additions since the 412-problem release.
+The counts below describe the frozen 419-problem package and release ledger.
+Six batch-46 candidates (483, 484, 486, 487, 491, 492) and their local ledger/report
+changes remain unfinished working files outside the checkpoint. Preserve those
+files when resuming; initial candidate validation is not complete release testing.
+All six earlier handoff tags remain unchanged. New development does not change
+the other computer or authorize a push/deployment.
 
 The source workbook has 3,629 unique problem names in rows 7–3635. The
 scope includes ordinary functions, binary trees, linked lists, and Hard problems.
