@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1007",
+  "content_sha256": "4300767af6b78ae341c4ea8abff04494727982456dde39d5dd5fd481cb340f5b",
+  "source_hash": "d87e07315bc1472fef07f3ab10c6d87dbb44ade934b9e81911debe870349a1a1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes the rows are already aligned and never counts required rotations or impossibility.",
+      "failed_cases": [
+        "lc-1007-1",
+        "lc-1007-2",
+        "lc-1007-6",
+        "lc-1007-7",
+        "lc-1007-8",
+        "lc-1007-9",
+        "lc-1007-11",
+        "lc-1007-12",
+        "lc-1007-14",
+        "lc-1007-15",
+        "lc-1007-16"
+      ]
+    },
+    {
+      "reason": "Tests only the top value of the first domino and misses solutions using its bottom value.",
+      "failed_cases": [
+        "lc-1007-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5054,
+  "oracle_implementation": "code_practice/import_batch_079.py:domino_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c3f91723242f160de12a23128bc7617d9007e1dfacf16ad60418ccb161ce6fd8",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

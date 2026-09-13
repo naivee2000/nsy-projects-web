@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1012",
+  "content_sha256": "f6b21f8e031a1981e14a9c939f89898c0a10f467acea8be19324745796fddd87",
+  "source_hash": "bc565f983a04918b4880d08d0d707719a2e9011ebde3a9f23cd19627e1314fb1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts unique-digit values below n instead of at most n.",
+      "failed_cases": [
+        "lc-1012-1",
+        "lc-1012-3",
+        "lc-1012-4",
+        "lc-1012-5",
+        "lc-1012-7",
+        "lc-1012-8",
+        "lc-1012-10",
+        "lc-1012-16"
+      ]
+    },
+    {
+      "reason": "Returns the complement: numbers with all distinct digits.",
+      "failed_cases": [
+        "lc-1012-1",
+        "lc-1012-2",
+        "lc-1012-3",
+        "lc-1012-4",
+        "lc-1012-5",
+        "lc-1012-6",
+        "lc-1012-7",
+        "lc-1012-8",
+        "lc-1012-9",
+        "lc-1012-10",
+        "lc-1012-11",
+        "lc-1012-12",
+        "lc-1012-13",
+        "lc-1012-14",
+        "lc-1012-15",
+        "lc-1012-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5059,
+  "oracle_implementation": "code_practice/import_batch_079.py:repeated_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "91124ec75a7c5ab6475ec476149aeed49f5cee3211aa11d5c3cf95851be82eef",
+  "elapsed_seconds": 0.288,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

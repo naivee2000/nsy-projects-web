@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 719,
+  "count": 739,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -12835,6 +12835,356 @@
       "path": "problems/leetcode-1005.json",
       "content_sha256": "7a7fc6569f2af0277da5d980e7a6ad4158b0da68db2a66afe69079be01c6f271",
       "source_id": 1005
+    },
+    {
+      "id": "leetcode-1006",
+      "version": 1,
+      "status": "approved",
+      "title": "Clumsy Factorial",
+      "summary": "The clumsy factorial of a positive integer n is computed by applying a sequence of operations ('*', '/', '+', '-') in a fixed rotation to the integers from n down to 1.",
+      "topics": [
+        "math",
+        "stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1006.json",
+      "content_sha256": "78dbe08711e982e9348a2ea9369096979056a5bbc93871bf26deab6d1897c907",
+      "source_id": 1006
+    },
+    {
+      "id": "leetcode-1007",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Domino Rotations For Equal Row",
+      "summary": "Given a row of dominoes with tops[i] and bottoms[i] representing each domino's halves, determine the minimum rotations needed to make all tops or all bottoms the same.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1007.json",
+      "content_sha256": "4300767af6b78ae341c4ea8abff04494727982456dde39d5dd5fd481cb340f5b",
+      "source_id": 1007
+    },
+    {
+      "id": "leetcode-1008",
+      "version": 1,
+      "status": "approved",
+      "title": "Construct Binary Search Tree from Preorder Traversal",
+      "summary": "Given an array representing the preorder traversal of a binary search tree, construct the tree and return its root.",
+      "topics": [
+        "trees",
+        "binary-search-trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1008.json",
+      "content_sha256": "a861707bea72f4be0be748c30994e9ad65e6ccec070419ec9278963bcb35cbfd",
+      "source_id": 1008
+    },
+    {
+      "id": "leetcode-1010",
+      "version": 1,
+      "status": "approved",
+      "title": "Pairs of Songs With Total Durations Divisible by 60",
+      "summary": "Given a list of song durations in seconds, count the pairs of songs whose combined duration is divisible by 60.",
+      "topics": [
+        "hash-maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1010.json",
+      "content_sha256": "6fceae2da326cbad3575b69a04dc3db3b9a99c3ef9c853b02fd41febdb1d0d7e",
+      "source_id": 1010
+    },
+    {
+      "id": "leetcode-1011",
+      "version": 1,
+      "status": "approved",
+      "title": "Capacity To Ship Packages Within D Days",
+      "summary": "Determine the minimum weight capacity of a ship needed to transport packages from a conveyor belt to a destination within a specified number of days, ensuring no day exceeds the ship's capacity.",
+      "topics": [
+        "binary-search",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1011.json",
+      "content_sha256": "2d6599c8954aaed249de6413537eabe7b56f18814e446e219059c92acf09535d",
+      "source_id": 1011
+    },
+    {
+      "id": "leetcode-1012",
+      "version": 1,
+      "status": "approved",
+      "title": "Numbers With Repeated Digits",
+      "summary": "For a given integer n, count how many positive integers within the range from 1 to n have at least one digit that repeats.",
+      "topics": [
+        "digit-dp",
+        "combinatorics"
+      ],
+      "prerequisites": [
+        "digit-dp"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1012.json",
+      "content_sha256": "f6b21f8e031a1981e14a9c939f89898c0a10f467acea8be19324745796fddd87",
+      "source_id": 1012
+    },
+    {
+      "id": "leetcode-1014",
+      "version": 1,
+      "status": "approved",
+      "title": "Best Sightseeing Pair",
+      "summary": "Given an array of integers representing the values of sightseeing spots, find the maximum score of a pair (i < j) where the score is calculated as the sum of the values of the spots minus their distance.",
+      "topics": [
+        "arrays",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1014.json",
+      "content_sha256": "1ed958726f075a6494b98c19a634e2bcb8b9625020cd27abfed3defa6986c2ba",
+      "source_id": 1014
+    },
+    {
+      "id": "leetcode-1015",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Integer Divisible by K",
+      "summary": "For a given positive integer k, determine the shortest length of a positive integer n consisting solely of the digit 1 that is divisible by k.",
+      "topics": [
+        "math",
+        "modular-arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1015.json",
+      "content_sha256": "b8aaf6cdb44fc36c3053c196b94e4e4ad88530f22b883834bd5cda270e1f31c5",
+      "source_id": 1015
+    },
+    {
+      "id": "leetcode-1016",
+      "version": 1,
+      "status": "approved",
+      "title": "Binary String With Substrings Representing 1 To N",
+      "summary": "Determine if the binary representation of every integer from 1 to n is a substring within the given binary string s.",
+      "topics": [
+        "strings",
+        "bit-manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1016.json",
+      "content_sha256": "4e1595d8bd209ed1c216b5c80ab8c7d320ffd5a223c0873310d8452f02c3bad5",
+      "source_id": 1016
+    },
+    {
+      "id": "leetcode-1017",
+      "version": 1,
+      "status": "approved",
+      "title": "Convert to Base -2",
+      "summary": "Given an integer n, convert it to its base -2 representation as a binary string, ensuring no leading zeros except for the string \"0\".",
+      "topics": [
+        "math",
+        "number-representation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1017.json",
+      "content_sha256": "2b10838ac6477aa034facd38ee6f6cd8cf89e9091f5f3ffaef08924cbddb3685",
+      "source_id": 1017
+    },
+    {
+      "id": "leetcode-1018",
+      "version": 1,
+      "status": "approved",
+      "title": "Binary Prefix Divisible By 5",
+      "summary": "Given a binary array, determine if the subarray values, interpreted as binary numbers, are divisible by 5 for each index.",
+      "topics": [
+        "arrays",
+        "modular-arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1018.json",
+      "content_sha256": "3d6988365ba443a34122ad33d292fe386a0739f578d132952f811f87edd9e14c",
+      "source_id": 1018
+    },
+    {
+      "id": "leetcode-1019",
+      "version": 1,
+      "status": "approved",
+      "title": "Next Greater Node In Linked List",
+      "summary": "Given a linked list with n nodes, for each node, determine the value of the first subsequent node that has a strictly larger value.",
+      "topics": [
+        "linked-lists",
+        "monotonic-stack"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1019.json",
+      "content_sha256": "94ad8490bb35f39ddb4b303c1c77fcbc5cbc89d8701d79a03624eef239ee91d3",
+      "source_id": 1019
+    },
+    {
+      "id": "leetcode-1021",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Outermost Parentheses",
+      "summary": "A valid parentheses string is either empty, starts and ends with a pair of parentheses with content in between, or a concatenation of two valid parentheses strings.",
+      "topics": [
+        "strings",
+        "stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1021.json",
+      "content_sha256": "f65c7840e3087d2841276814ce8448c32f346f138c30d73b40866188b7658372",
+      "source_id": 1021
+    },
+    {
+      "id": "leetcode-1022",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Root To Leaf Binary Numbers",
+      "summary": "Given a binary tree with nodes having values 0 or 1, calculate the sum of binary numbers represented by each root-to-leaf path.",
+      "topics": [
+        "trees",
+        "recursion",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1022.json",
+      "content_sha256": "f674e8dbb8c5a268001bbb9f8fa5d3b51f010ecd4bc92b6dab58420d05a6d60c",
+      "source_id": 1022
+    },
+    {
+      "id": "leetcode-1023",
+      "version": 1,
+      "status": "approved",
+      "title": "Camelcase Matching",
+      "summary": "For an array of strings queries and a string pattern, generate a boolean array answer indicating whether each query matches the pattern by inserting lowercase English letters into the pattern.",
+      "topics": [
+        "strings",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1023.json",
+      "content_sha256": "566051d1d00bef77a62cdbeeaf53db63f08fefcf0ff154c94e5375a26576a08c",
+      "source_id": 1023
+    },
+    {
+      "id": "leetcode-1024",
+      "version": 1,
+      "status": "approved",
+      "title": "Video Stitching",
+      "summary": "Given video clips of a sporting event lasting time seconds, each described by start and end times, determine the minimum number of clips needed to cover the entire event by cutting them into segments.",
+      "topics": [
+        "greedy",
+        "intervals"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1024.json",
+      "content_sha256": "498abc1ed772abf9b91e6a4fe0b96f7017052e6a9da09895ddc6a8b0413af13d",
+      "source_id": 1024
+    },
+    {
+      "id": "leetcode-1025",
+      "version": 1,
+      "status": "approved",
+      "title": "Divisor Game",
+      "summary": "Alice and Bob play a game starting with a number n.",
+      "topics": [
+        "dynamic-programming",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1025.json",
+      "content_sha256": "35bef53f9610a4f11b37a53cc1a9b43db1000d952341d34818fd14a1c6cb06e1",
+      "source_id": 1025
+    },
+    {
+      "id": "leetcode-1026",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Difference Between Node and Ancestor",
+      "summary": "Determine the greatest difference v between the values of any node a and its descendant b in a binary tree, where a is an ancestor of b.",
+      "topics": [
+        "trees",
+        "recursion",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1026.json",
+      "content_sha256": "ac30e5b73270e4bc4dadb1e19421a6267355e728ea9a1cfd46b0642614826f89",
+      "source_id": 1026
+    },
+    {
+      "id": "leetcode-1027",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Arithmetic Subsequence",
+      "summary": "Given an array of integers, find the length of the longest subsequence where the difference between consecutive elements is the same.",
+      "topics": [
+        "dynamic-programming",
+        "hash-maps"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1027.json",
+      "content_sha256": "6998cdead7f920fe6cde2ff740454cf4364aaf166496f99472e4f8ef1cecac12",
+      "source_id": 1027
+    },
+    {
+      "id": "leetcode-1028",
+      "version": 1,
+      "status": "approved",
+      "title": "Recover a Tree From Preorder Traversal",
+      "summary": "Given a string representing the preorder traversal of a binary tree, where each node's depth is indicated by dashes followed by the node's value, reconstruct the tree and return its root.",
+      "topics": [
+        "trees",
+        "stacks",
+        "parsing"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1028.json",
+      "content_sha256": "5ba84e074d2669371418f7d97498d2144021fd3c33545c97e2cb502a211ccabb",
+      "source_id": 1028
     }
   ]
 }

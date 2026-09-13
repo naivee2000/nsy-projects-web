@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1011",
+  "content_sha256": "2d6599c8954aaed249de6413537eabe7b56f18814e446e219059c92acf09535d",
+  "source_hash": "1242dd1e28e6ff84d1183d447651d4c3ac124917089949db9cc041bafcb9dae8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires strictly fewer than the allowed days.",
+      "failed_cases": [
+        "lc-1011-1",
+        "lc-1011-2",
+        "lc-1011-5",
+        "lc-1011-6",
+        "lc-1011-7",
+        "lc-1011-9",
+        "lc-1011-11",
+        "lc-1011-13",
+        "lc-1011-14",
+        "lc-1011-16"
+      ]
+    },
+    {
+      "reason": "Uses a lower bound that may not fit the heaviest package.",
+      "failed_cases": [
+        "lc-1011-5",
+        "lc-1011-8",
+        "lc-1011-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5058,
+  "oracle_implementation": "code_practice/import_batch_079.py:ship_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b4a12c5b4cf015b3ddc4904835a7210ad79514d38b0c47debf8015ac41fa221b",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

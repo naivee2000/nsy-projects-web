@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1028",
+  "content_sha256": "5ba84e074d2669371418f7d97498d2144021fd3c33545c97e2cb502a211ccabb",
+  "source_hash": "20662882d154bb13b690df1fc535d2cfb037b5e08d274ea1f97c7f4af36f79eb",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats every non-root node as depth one regardless of its dash count.",
+      "failed_cases": [
+        "lc-1028-1",
+        "lc-1028-2",
+        "lc-1028-5",
+        "lc-1028-8",
+        "lc-1028-9",
+        "lc-1028-10",
+        "lc-1028-11",
+        "lc-1028-12",
+        "lc-1028-13",
+        "lc-1028-14",
+        "lc-1028-15",
+        "lc-1028-16"
+      ]
+    },
+    {
+      "reason": "Tests the right slot first and attaches initial children incorrectly.",
+      "failed_cases": [
+        "lc-1028-1",
+        "lc-1028-2",
+        "lc-1028-6",
+        "lc-1028-7",
+        "lc-1028-8",
+        "lc-1028-9",
+        "lc-1028-11",
+        "lc-1028-12",
+        "lc-1028-14",
+        "lc-1028-15",
+        "lc-1028-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5075,
+  "oracle_implementation": "code_practice/import_batch_079.py:recover_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eae7dffe769704faf8c1083a017a2bab3cb7515a197383338d7ab03629705d89",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1022",
+  "content_sha256": "f674e8dbb8c5a268001bbb9f8fa5d3b51f010ecd4bc92b6dab58420d05a6d60c",
+  "source_hash": "3ac0202ab8e4099357502dfb2382eda3eed6642e123b6e35439832bd064e236e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds bits without binary place-value shifting.",
+      "failed_cases": [
+        "lc-1022-1",
+        "lc-1022-4",
+        "lc-1022-5",
+        "lc-1022-6",
+        "lc-1022-8",
+        "lc-1022-9",
+        "lc-1022-11",
+        "lc-1022-12",
+        "lc-1022-13",
+        "lc-1022-14",
+        "lc-1022-15"
+      ]
+    },
+    {
+      "reason": "Returns only the largest path instead of summing all leaves.",
+      "failed_cases": [
+        "lc-1022-1",
+        "lc-1022-6",
+        "lc-1022-7",
+        "lc-1022-8",
+        "lc-1022-9",
+        "lc-1022-10",
+        "lc-1022-11",
+        "lc-1022-15",
+        "lc-1022-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5069,
+  "oracle_implementation": "code_practice/import_batch_079.py:binary_tree_sum_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "723ad2df6fc10972ef6297e7300726b5cc7c4a1e175c552457b42da80cb50188",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

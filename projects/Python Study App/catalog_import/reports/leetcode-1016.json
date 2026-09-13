@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1016",
+  "content_sha256": "4e1595d8bd209ed1c216b5c80ab8c7d320ffd5a223c0873310d8452f02c3bad5",
+  "source_hash": "5574eb7d9fd9b5c837d1d5a71d75278609b487fea272c75c665d90f0548a480e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Skips the smallest value in the sufficient upper-half range.",
+      "failed_cases": [
+        "lc-1016-4",
+        "lc-1016-6",
+        "lc-1016-8",
+        "lc-1016-16"
+      ]
+    },
+    {
+      "reason": "Requires every representation to be absent.",
+      "failed_cases": [
+        "lc-1016-1",
+        "lc-1016-3",
+        "lc-1016-4",
+        "lc-1016-5",
+        "lc-1016-6",
+        "lc-1016-9",
+        "lc-1016-10",
+        "lc-1016-12",
+        "lc-1016-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5063,
+  "oracle_implementation": "code_practice/import_batch_079.py:binary_query_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5c06006ad4e4ed100014d1786188a69257c7990cab0540fea593adc95cf5340f",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

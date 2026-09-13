@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1019",
+  "content_sha256": "94ad8490bb35f39ddb4b303c1c77fcbc5cbc89d8701d79a03624eef239ee91d3",
+  "source_hash": "b59d8985544c6ba067965e7fb748295fb0cb13ef2bb7bbf4945fae5c4847cc51",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats equal values as strictly greater.",
+      "failed_cases": [
+        "lc-1019-6",
+        "lc-1019-11",
+        "lc-1019-12",
+        "lc-1019-14"
+      ]
+    },
+    {
+      "reason": "Stores the preceding value instead of the discovered greater value.",
+      "failed_cases": [
+        "lc-1019-1",
+        "lc-1019-2",
+        "lc-1019-4",
+        "lc-1019-7",
+        "lc-1019-8",
+        "lc-1019-10",
+        "lc-1019-11",
+        "lc-1019-12",
+        "lc-1019-13",
+        "lc-1019-14",
+        "lc-1019-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5066,
+  "oracle_implementation": "code_practice/import_batch_079.py:next_node_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cdeaef6567ef62cd418aa6fb797b522c3a78fa5c6dc4869041b88e7b33879eb1",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

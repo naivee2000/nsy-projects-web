@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1023",
+  "content_sha256": "566051d1d00bef77a62cdbeeaf53db63f08fefcf0ff154c94e5375a26576a08c",
+  "source_hash": "0af726c31cc82ee30934f32e04bba5cf8a19b61acec06ccbdbdff2fafcd2fe81",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects unmatched lowercase insertions instead of uppercase letters.",
+      "failed_cases": [
+        "lc-1023-1",
+        "lc-1023-2",
+        "lc-1023-6",
+        "lc-1023-7",
+        "lc-1023-8",
+        "lc-1023-9",
+        "lc-1023-10",
+        "lc-1023-12",
+        "lc-1023-13",
+        "lc-1023-14",
+        "lc-1023-15",
+        "lc-1023-16"
+      ]
+    },
+    {
+      "reason": "Accepts queries that consume only a prefix of the pattern.",
+      "failed_cases": [
+        "lc-1023-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5070,
+  "oracle_implementation": "code_practice/import_batch_079.py:camel_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cde71c0ccb4d7c8922cfaea87d935198cabcbcc31e3406c4eba431d7cb2fc75e",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

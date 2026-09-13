@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1024",
+  "content_sha256": "498abc1ed772abf9b91e6a4fe0b96f7017052e6a9da09895ddc6a8b0413af13d",
+  "source_hash": "aca9577c5993a09d7df8311c590f74323386332a183648912655ddeffeccca01",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects clips beginning exactly where current coverage ends.",
+      "failed_cases": [
+        "lc-1024-1",
+        "lc-1024-3",
+        "lc-1024-5",
+        "lc-1024-6",
+        "lc-1024-8",
+        "lc-1024-9",
+        "lc-1024-10",
+        "lc-1024-11",
+        "lc-1024-12",
+        "lc-1024-13",
+        "lc-1024-14",
+        "lc-1024-15",
+        "lc-1024-16"
+      ]
+    },
+    {
+      "reason": "Commits to the first extending clip instead of the farthest-reaching available clip.",
+      "failed_cases": [
+        "lc-1024-1",
+        "lc-1024-12",
+        "lc-1024-13",
+        "lc-1024-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5071,
+  "oracle_implementation": "code_practice/import_batch_079.py:clips_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b6faaf8355acd19dd91ebc6db03157c3ab5eccc78de30c8682d63746bb5cf78f",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

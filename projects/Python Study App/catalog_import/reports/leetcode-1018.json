@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1018",
+  "content_sha256": "3d6988365ba443a34122ad33d292fe386a0739f578d132952f811f87edd9e14c",
+  "source_hash": "af8d22a84f8515b2ad5886c854502640d1104a82bfd672eeb09b7eb20d1dd480",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Tests divisibility by three.",
+      "failed_cases": [
+        "lc-1018-1",
+        "lc-1018-2",
+        "lc-1018-7",
+        "lc-1018-8",
+        "lc-1018-9",
+        "lc-1018-10",
+        "lc-1018-11",
+        "lc-1018-13",
+        "lc-1018-14",
+        "lc-1018-15"
+      ]
+    },
+    {
+      "reason": "Fails to shift the prior binary prefix left.",
+      "failed_cases": [
+        "lc-1018-2",
+        "lc-1018-9",
+        "lc-1018-13",
+        "lc-1018-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5065,
+  "oracle_implementation": "code_practice/import_batch_079.py:prefix_five_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7910b9869a12ee934426980884eaecf5d5f676775919e289c94e2e67dd21c697",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

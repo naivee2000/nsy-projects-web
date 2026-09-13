@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1027",
+  "content_sha256": "6998cdead7f920fe6cde2ff740454cf4364aaf166496f99472e4f8ef1cecac12",
+  "source_hash": "05ff17a1ed00ade3d7c015d54d1e758805531356c597baf3f81f2810ff1da062",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Groups pairs by integer ratio instead of their additive difference.",
+      "failed_cases": [
+        "lc-1027-1",
+        "lc-1027-6",
+        "lc-1027-8",
+        "lc-1027-9",
+        "lc-1027-11",
+        "lc-1027-13",
+        "lc-1027-14",
+        "lc-1027-16"
+      ]
+    },
+    {
+      "reason": "Starts a new pair at length one instead of two.",
+      "failed_cases": [
+        "lc-1027-1",
+        "lc-1027-2",
+        "lc-1027-6",
+        "lc-1027-7",
+        "lc-1027-8",
+        "lc-1027-10",
+        "lc-1027-11",
+        "lc-1027-12",
+        "lc-1027-13",
+        "lc-1027-14",
+        "lc-1027-15",
+        "lc-1027-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5074,
+  "oracle_implementation": "code_practice/import_batch_079.py:arithmetic_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3e95d954fddbdf7c80c1afaba010f9b0a7eb5178eb40a7f897da9f6ce49fe004",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

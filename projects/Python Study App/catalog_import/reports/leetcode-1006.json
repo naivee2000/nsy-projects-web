@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1006",
+  "content_sha256": "78dbe08711e982e9348a2ea9369096979056a5bbc93871bf26deab6d1897c907",
+  "source_hash": "442802cf8ccf47d002ec4bac3210627ffe9b079dbee1e8a8a519950d56805247",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds terms that should be subtracted.",
+      "failed_cases": [
+        "lc-1006-2",
+        "lc-1006-6",
+        "lc-1006-7",
+        "lc-1006-8",
+        "lc-1006-9",
+        "lc-1006-10",
+        "lc-1006-11",
+        "lc-1006-12",
+        "lc-1006-13",
+        "lc-1006-14",
+        "lc-1006-15",
+        "lc-1006-16"
+      ]
+    },
+    {
+      "reason": "Returns only the final precedence group.",
+      "failed_cases": [
+        "lc-1006-1",
+        "lc-1006-2",
+        "lc-1006-6",
+        "lc-1006-7",
+        "lc-1006-8",
+        "lc-1006-9",
+        "lc-1006-10",
+        "lc-1006-11",
+        "lc-1006-12",
+        "lc-1006-13",
+        "lc-1006-14",
+        "lc-1006-15",
+        "lc-1006-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5053,
+  "oracle_implementation": "code_practice/import_batch_079.py:clumsy_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1e937cee1852098dd7ac288a535f7943b647c5296812eea180a769f935e21c52",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

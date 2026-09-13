@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1008",
+  "content_sha256": "a861707bea72f4be0be748c30994e9ad65e6ccec070419ec9278963bcb35cbfd",
+  "source_hash": "890efb7a97ad18e763d3c966422fd154c0d80721088c3662cb215727639f86d0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the inherited bound for the left subtree and admits values that belong on the right.",
+      "failed_cases": [
+        "lc-1008-1",
+        "lc-1008-2",
+        "lc-1008-5",
+        "lc-1008-6",
+        "lc-1008-7",
+        "lc-1008-8",
+        "lc-1008-10",
+        "lc-1008-11",
+        "lc-1008-12",
+        "lc-1008-13",
+        "lc-1008-14",
+        "lc-1008-16"
+      ]
+    },
+    {
+      "reason": "Applies the node value as an upper bound to the right subtree.",
+      "failed_cases": [
+        "lc-1008-1",
+        "lc-1008-2",
+        "lc-1008-5",
+        "lc-1008-6",
+        "lc-1008-7",
+        "lc-1008-8",
+        "lc-1008-10",
+        "lc-1008-11",
+        "lc-1008-12",
+        "lc-1008-13",
+        "lc-1008-14",
+        "lc-1008-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5055,
+  "oracle_implementation": "code_practice/import_batch_079.py:bst_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4e00d0783b28afd924567106d66931d14d2b376f75419532b51852effe809567",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1017",
+  "content_sha256": "2b10838ac6477aa034facd38ee6f6cd8cf89e9091f5f3ffaef08924cbddb3685",
+  "source_hash": "60f13578daa56e70e2bb38b0b6de6046d15c66dfe0f1905d19bd240201661d01",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses positive base two division.",
+      "failed_cases": [
+        "lc-1017-1",
+        "lc-1017-2",
+        "lc-1017-7",
+        "lc-1017-8",
+        "lc-1017-9",
+        "lc-1017-10",
+        "lc-1017-11",
+        "lc-1017-12",
+        "lc-1017-14",
+        "lc-1017-15",
+        "lc-1017-16"
+      ]
+    },
+    {
+      "reason": "Returns least-significant digits first.",
+      "failed_cases": [
+        "lc-1017-1",
+        "lc-1017-5",
+        "lc-1017-7",
+        "lc-1017-9",
+        "lc-1017-10",
+        "lc-1017-11",
+        "lc-1017-12",
+        "lc-1017-13",
+        "lc-1017-15",
+        "lc-1017-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5064,
+  "oracle_implementation": "code_practice/import_batch_079.py:negabinary_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1a61dc5de4d34eb51648b58f89c145e77d067b72d7f6da51feb831910fab815e",
+  "elapsed_seconds": 0.081,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input n = 2 → Output \"110\" Explantion: (-2)^2 + (-2)^1 = 2.",
+    "arguments": [
+      2
+    ],
+    "expected": "110",
+    "reason": "The workbook appended a misspelled explanation to the output literal; the intended output is unambiguous.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/1000-1099/1017.Convert%20to%20Base%20-2/README_EN.md"
+  }
+}

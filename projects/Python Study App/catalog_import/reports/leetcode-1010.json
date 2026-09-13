@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1010",
+  "content_sha256": "6fceae2da326cbad3575b69a04dc3db3b9a99c3ef9c853b02fd41febdb1d0d7e",
+  "source_hash": "6b81908a650ad85d4c1dc707a4da087129230733661d68a9832e34111312f6f0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Pairs equal remainders rather than complementary remainders.",
+      "failed_cases": [
+        "lc-1010-1",
+        "lc-1010-6",
+        "lc-1010-8",
+        "lc-1010-10",
+        "lc-1010-11",
+        "lc-1010-13",
+        "lc-1010-14",
+        "lc-1010-15",
+        "lc-1010-16"
+      ]
+    },
+    {
+      "reason": "Decrements counts so later pair totals become negative.",
+      "failed_cases": [
+        "lc-1010-1",
+        "lc-1010-2",
+        "lc-1010-5",
+        "lc-1010-6",
+        "lc-1010-8",
+        "lc-1010-9",
+        "lc-1010-10",
+        "lc-1010-11",
+        "lc-1010-12",
+        "lc-1010-13",
+        "lc-1010-14",
+        "lc-1010-15",
+        "lc-1010-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5057,
+  "oracle_implementation": "code_practice/import_batch_079.py:song_oracle",
+  "validator_implementation_sha256": "4af3b7666768064bf9bdfeedd086d8fb56b88f21b337e7a8d5e957abf6fe0ca5",
+  "batch_implementation_sha256": "36154710956174879e6cfc386931d475ac569aff29b67bc7bebe094e6487e9ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8bd168ce47eb9fe9dfccebeec32f781174c57da18e4c09803bd33e733ee1fb9b",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
