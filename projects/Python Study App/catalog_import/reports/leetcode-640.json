@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-640",
+  "content_sha256": "25f1913756b430cc455a04f222a5d73ccd05fa5d4e7b2809bbdd6b4160268993",
+  "source_hash": "d1c813edd5c9616a259ea7f53e5b04db0be2056b9919c19dce6cf6008a312f04",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds variable coefficients from both sides instead of moving the right side.",
+      "failed_cases": [
+        "lc-640-1",
+        "lc-640-2",
+        "lc-640-6",
+        "lc-640-11",
+        "lc-640-12",
+        "lc-640-13"
+      ]
+    },
+    {
+      "reason": "Swaps the no-solution and infinite-solution cases.",
+      "failed_cases": [
+        "lc-640-2",
+        "lc-640-6",
+        "lc-640-7",
+        "lc-640-8",
+        "lc-640-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4687,
+  "oracle_implementation": "code_practice/import_batch_062.py:equation_oracle",
+  "validator_implementation_sha256": "dfe861b01f069aca70b0c45fcb5f05d3ef940a19decfd6e03a43ae2e3e51b5c2",
+  "batch_implementation_sha256": "9bb25fda829098b9fc7ec8256b49d0b309b1ba664ac2b8b3e1dcbf3f75ec4aa3",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c58f8f5b6e4785aa1fbd6ab1af4681170ef613f9f976609b2db80ad88c073c68",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-646",
+  "content_sha256": "66e2da1081fae95ec56304aa1aa9843bcade0edeb2844e025859897a2261f7b1",
+  "source_hash": "012b86068cc14cd05dcb6a7c5472da48aadb7c1955ef02a842f9def425016639",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts by starting value, allowing a long early pair to block a better chain.",
+      "failed_cases": [
+        "lc-646-5",
+        "lc-646-6",
+        "lc-646-10"
+      ]
+    },
+    {
+      "reason": "Allows touching endpoints even though the inequality must be strict.",
+      "failed_cases": [
+        "lc-646-1",
+        "lc-646-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4693,
+  "oracle_implementation": "code_practice/import_batch_062.py:chain_oracle",
+  "validator_implementation_sha256": "dfe861b01f069aca70b0c45fcb5f05d3ef940a19decfd6e03a43ae2e3e51b5c2",
+  "batch_implementation_sha256": "9bb25fda829098b9fc7ec8256b49d0b309b1ba664ac2b8b3e1dcbf3f75ec4aa3",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "40c19f9b30c226d286cb28054bab20fe5eca4a9f436ad54b6cd5a0dfa10c6da0",
+  "elapsed_seconds": 0.28,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

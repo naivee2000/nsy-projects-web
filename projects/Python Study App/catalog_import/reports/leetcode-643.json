@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-643",
+  "content_sha256": "61d5419061a3073b6ff9b03df5020fbbb157b99ce26b6e8b7aac63f5281f9bc7",
+  "source_hash": "e3ab5823667945e8760b6474ff570ae216f4f114912910ad4866a2d624e92119",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Initializes the best sum to zero, failing all-negative arrays.",
+      "failed_cases": [
+        "lc-643-2",
+        "lc-643-4",
+        "lc-643-5",
+        "lc-643-11"
+      ]
+    },
+    {
+      "reason": "Removes the wrong element when the window slides.",
+      "failed_cases": [
+        "lc-643-1",
+        "lc-643-3",
+        "lc-643-7",
+        "lc-643-8",
+        "lc-643-9",
+        "lc-643-10",
+        "lc-643-13",
+        "lc-643-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4690,
+  "oracle_implementation": "code_practice/import_batch_062.py:average_oracle",
+  "validator_implementation_sha256": "dfe861b01f069aca70b0c45fcb5f05d3ef940a19decfd6e03a43ae2e3e51b5c2",
+  "batch_implementation_sha256": "9bb25fda829098b9fc7ec8256b49d0b309b1ba664ac2b8b3e1dcbf3f75ec4aa3",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "297d48425a80410c25268a270ccbf49f90eed1679bffa349bdae5bc000e44cc6",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

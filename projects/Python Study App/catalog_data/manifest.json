@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 498,
+  "count": 506,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -9015,6 +9015,146 @@
       "path": "problems/leetcode-634.json",
       "content_sha256": "27b547a255ab6ac5ab14ada9dd872344e67109e779b11720f175e194fe598383",
       "source_id": 634
+    },
+    {
+      "id": "leetcode-636",
+      "version": 1,
+      "status": "approved",
+      "title": "Exclusive Time of Functions",
+      "summary": "Given a list of logs where each log entry specifies a function ID, whether the function started or ended, and the timestamp, calculate the total exclusive execution time for each function ID.",
+      "topics": [
+        "stacks",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-636.json",
+      "content_sha256": "a134d0921d4e7123b25e7beab8d362c1e925262a1b768b10c9744c5f6a944021",
+      "source_id": 636
+    },
+    {
+      "id": "leetcode-638",
+      "version": 1,
+      "status": "approved",
+      "title": "Shopping Offers",
+      "summary": "Given an integer array of item prices, an integer array indicating the desired quantities of each item, and an array of special offers where each offer is represented by a list indicating the number of each item included in the offer and the price of the offer, determine the minimum cost to purchase the exact desired quantities of items by optimally using the special offers without exceeding the desired quantities.",
+      "topics": [
+        "dynamic-programming",
+        "backtracking"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-638.json",
+      "content_sha256": "c68ac47d1d7ceef26ed21111505460f9def264a9aa725b3b98bf8cf55b082aec",
+      "source_id": 638
+    },
+    {
+      "id": "leetcode-639",
+      "version": 1,
+      "status": "approved",
+      "title": "Decode Ways II",
+      "summary": "Given a string s consisting of digits and '*', return the number of ways to decode it, modulo 10^9 + 7 .",
+      "topics": [
+        "dynamic-programming",
+        "strings"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-639.json",
+      "content_sha256": "4b6ecd3a216c8c42d8f764e503105652793ba57689a9e9bf8b8ca8556e3d0359",
+      "source_id": 639
+    },
+    {
+      "id": "leetcode-640",
+      "version": 1,
+      "status": "approved",
+      "title": "Solve the Equation",
+      "summary": "Solve a given equation that includes only '+', '-' operations, the variable 'x', and its coefficient.",
+      "topics": [
+        "strings",
+        "math",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-640.json",
+      "content_sha256": "25f1913756b430cc455a04f222a5d73ccd05fa5d4e7b2809bbdd6b4160268993",
+      "source_id": 640
+    },
+    {
+      "id": "leetcode-643",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Average Subarray I",
+      "summary": "Given an integer array nums with n elements and an integer k, identify a contiguous subarray of length k with the highest average value.",
+      "topics": [
+        "arrays",
+        "sliding-windows"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-643.json",
+      "content_sha256": "61d5419061a3073b6ff9b03df5020fbbb157b99ce26b6e8b7aac63f5281f9bc7",
+      "source_id": 643
+    },
+    {
+      "id": "leetcode-645",
+      "version": 1,
+      "status": "approved",
+      "title": "Set Mismatch",
+      "summary": "Given an integer array nums representing a set of integers from 1 to n with one number duplicated and one number missing, identify the duplicated and missing numbers and return them as an array.",
+      "topics": [
+        "arrays",
+        "hash-maps",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-645.json",
+      "content_sha256": "2202dae81c8054e803e675f046ed8b01db12f5c89aea6e2fbadcd359468ec873",
+      "source_id": 645
+    },
+    {
+      "id": "leetcode-646",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Length of Pair Chain",
+      "summary": "Given an array of n pairs where each pair consists of two integers and the first integer is less than the second, find the longest chain of pairs where each subsequent pair's first integer is greater than the previous pair's second integer.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-646.json",
+      "content_sha256": "66e2da1081fae95ec56304aa1aa9843bcade0edeb2844e025859897a2261f7b1",
+      "source_id": 646
+    },
+    {
+      "id": "leetcode-647",
+      "version": 1,
+      "status": "approved",
+      "title": "Palindromic Substrings",
+      "summary": "Count the number of palindromic substrings within a given string.",
+      "topics": [
+        "strings",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-647.json",
+      "content_sha256": "dcae6496aca8a5fb48a95c3da729d66ef90b318a03a8a8eb67ca7c41852ed1df",
+      "source_id": 647
     },
     {
       "id": "leetcode-700",

@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-636",
+  "content_sha256": "a134d0921d4e7123b25e7beab8d362c1e925262a1b768b10c9744c5f6a944021",
+  "source_hash": "8cd782837057a313480f0a6381133c6d79de747911ccf0a7e84e6f96e48c6484",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats inclusive end timestamps as exclusive.",
+      "failed_cases": [
+        "lc-636-1",
+        "lc-636-2",
+        "lc-636-3",
+        "lc-636-4",
+        "lc-636-5",
+        "lc-636-6",
+        "lc-636-7",
+        "lc-636-8",
+        "lc-636-9",
+        "lc-636-10",
+        "lc-636-11",
+        "lc-636-12",
+        "lc-636-13",
+        "lc-636-14"
+      ]
+    },
+    {
+      "reason": "Resumes the caller on the ending unit instead of the following unit.",
+      "failed_cases": [
+        "lc-636-1",
+        "lc-636-2",
+        "lc-636-5",
+        "lc-636-6",
+        "lc-636-7",
+        "lc-636-8",
+        "lc-636-10",
+        "lc-636-12",
+        "lc-636-13",
+        "lc-636-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4683,
+  "oracle_implementation": "code_practice/import_batch_062.py:exclusive_oracle",
+  "validator_implementation_sha256": "dfe861b01f069aca70b0c45fcb5f05d3ef940a19decfd6e03a43ae2e3e51b5c2",
+  "batch_implementation_sha256": "9bb25fda829098b9fc7ec8256b49d0b309b1ba664ac2b8b3e1dcbf3f75ec4aa3",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "84d8929ec847c98639cabfd7709cdcf8804a624f4f194468bcc958dc5ec41986",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
