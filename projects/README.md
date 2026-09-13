@@ -390,13 +390,16 @@ logarithmic-time algorithm is verified by a strict element-read budget, which
 rejects the linear XOR reference. This validates the reference's complexity;
 the learner's ordinary judge still checks output and its execution deadline,
 not an automatic proof of arbitrary submission complexity.
-The 658-import checkpoint preserves all preceding definitions and progress IDs.
-All 658 import reports and current overlap evidence match the 759-problem package.
-The post-430 additions remain local development; 2,727 workbook records are
-still pending. At this checkpoint, 791 backend tests and 19 frontend tests pass;
-Chrome/Pyodide validates 664 reference suites across 1,050 isolated judge runs.
-Measured backend startup is 327 ms, peak RSS is 268.375 MiB, and warm p95 API
-latency ranges from 1.159 ms to 1.390 ms over at least 100 requests per route.
+The 758-import checkpoint preserves all preceding definitions and progress IDs.
+All 758 import reports and current overlap evidence match the 859-problem package.
+The post-430 additions remain local development; the workbook ledger records 83
+overlaps, 758 verified imports, 155 justified exclusions, 8 quarantined records,
+and 2,625 pending records. At this checkpoint, 791 backend tests and 19 frontend
+tests pass; Chrome/Pyodide validates 764 reference suites across 1,150 isolated
+judge runs, including restart persistence and offline assets. Measured backend
+startup is 326 ms, peak RSS is 268.016 MiB, and warm p95 API latency ranges from
+1.123 ms to 1.450 ms over 100 requests per route. This is an interim checkpoint;
+the full 3,629-record workbook goal remains unfinished.
 
 Linked-list and tree problems show the full `ListNode` or `TreeNode` class definition above the function in the editable code pane. The app also prepends the required class when reopening an older saved draft that predates this feature.
 

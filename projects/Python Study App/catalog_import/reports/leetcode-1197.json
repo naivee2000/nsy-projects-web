@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1197",
+  "content_sha256": "675271b061db52a1c10db85084e32619a3442a630e555e756411766c2f022438",
+  "source_hash": "88ba3a3b202ddc20b44d3857a251226c502662db36274193164916e7c72d91d7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to use board symmetry for negative targets and applies one-sided bounds.",
+      "failed_cases": [
+        "lc-1197-11"
+      ]
+    },
+    {
+      "reason": "Forbids the small negative detours required near the origin.",
+      "failed_cases": [
+        "lc-1197-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5244,
+  "oracle_implementation": "code_practice/import_batch_087.py:knight_oracle",
+  "validator_implementation_sha256": "9fc984337a1d6cd801042c7524e17d637902e137b1c7bdd3992515863845f488",
+  "batch_implementation_sha256": "3439a4d954773fe01cb87dcfb4ab1c5f60ba3a1c9e2b6dc12486a9ab8d6c33ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c6fbed3ef679f6da0ab50b23a1eb1ba792d824b6c5367470b72d3fd11d64787a",
+  "elapsed_seconds": 0.195,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

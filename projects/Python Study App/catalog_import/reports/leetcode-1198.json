@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1198",
+  "content_sha256": "4fbb0d663daf8f928ecb382b9322d0a045d6fe90c6938a1c0dad1c7a2dd84d7f",
+  "source_hash": "78b36a6e3fdf364d8f65182443458d4f8ff182fd4bf4fd76bd501615ae2d45c2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Unions rows instead of intersecting them.",
+      "failed_cases": [
+        "lc-1198-1",
+        "lc-1198-2",
+        "lc-1198-5",
+        "lc-1198-6",
+        "lc-1198-7",
+        "lc-1198-9",
+        "lc-1198-10",
+        "lc-1198-11",
+        "lc-1198-12",
+        "lc-1198-14",
+        "lc-1198-15",
+        "lc-1198-16"
+      ]
+    },
+    {
+      "reason": "Returns the largest shared value rather than smallest.",
+      "failed_cases": [
+        "lc-1198-8",
+        "lc-1198-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5245,
+  "oracle_implementation": "code_practice/import_batch_087.py:common_oracle",
+  "validator_implementation_sha256": "9fc984337a1d6cd801042c7524e17d637902e137b1c7bdd3992515863845f488",
+  "batch_implementation_sha256": "3439a4d954773fe01cb87dcfb4ab1c5f60ba3a1c9e2b6dc12486a9ab8d6c33ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "819ea6b93905025715c1a5f58db01d53d430dc32c5e3d7361475a9d2fe0d91ce",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

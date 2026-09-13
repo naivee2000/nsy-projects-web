@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1186",
+  "content_sha256": "087a721664ddf6e9c7aa3e8b9e94098fb3b60b02b6693e1a84b478cfe2d7904d",
+  "source_hash": "37f28a3b344bd30db201326941fa623bb2d21b8f35f367e459b75b6ea63a1c1a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never starts a deleted-state subarray at the previous kept sum.",
+      "failed_cases": [
+        "lc-1186-1",
+        "lc-1186-7",
+        "lc-1186-8",
+        "lc-1186-10",
+        "lc-1186-11",
+        "lc-1186-12",
+        "lc-1186-13"
+      ]
+    },
+    {
+      "reason": "Ignores every result that uses a deletion.",
+      "failed_cases": [
+        "lc-1186-1",
+        "lc-1186-7",
+        "lc-1186-8",
+        "lc-1186-10",
+        "lc-1186-11",
+        "lc-1186-12",
+        "lc-1186-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5233,
+  "oracle_implementation": "code_practice/import_batch_087.py:deletion_oracle",
+  "validator_implementation_sha256": "9fc984337a1d6cd801042c7524e17d637902e137b1c7bdd3992515863845f488",
+  "batch_implementation_sha256": "3439a4d954773fe01cb87dcfb4ab1c5f60ba3a1c9e2b6dc12486a9ab8d6c33ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "48792a87bb658d40075d5ce59bb869329f5e9eb15fcb146128e260f638be229b",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

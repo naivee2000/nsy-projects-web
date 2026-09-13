@@ -644,12 +644,12 @@ browser and benchmark driver. Install dependencies and build the frontend first.
 Its report is `catalog_import/benchmarks/current.json`; until all imports finish,
 this is an interim measurement, not the final full-catalog performance gate.
 
-At the 658-import checkpoint, 791 backend tests and 19 frontend tests passed.
-Chrome/Pyodide validated all 664 packaged reference suites across 1,050 isolated
+At the 758-import checkpoint, 791 backend tests and 19 frontend tests passed.
+Chrome/Pyodide validated all 764 packaged reference suites across 1,150 isolated
 judge runs, including restart persistence and offline assets. On the recorded
-Apple M3 Pro/18 GiB development machine, backend startup took 327 ms and peak RSS
-was 268.375 MiB. Warm p95 latency over at least 100 requests per route ranged
-from 1.159 ms to 1.390 ms for library search/filtering, problem details, and the
+Apple M3 Pro/18 GiB development machine, backend startup took 326 ms and peak RSS
+was 268.016 MiB. Warm p95 latency over 100 requests per route ranged from
+1.123 ms to 1.450 ms for library search/filtering, problem details, and the
 dashboard, below the interim 300/500 ms targets. Exact route measurements and
 hardware metadata are retained in `catalog_import/benchmarks/current.json`.
 

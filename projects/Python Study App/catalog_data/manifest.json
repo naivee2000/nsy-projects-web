@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 851,
+  "count": 859,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -15113,6 +15113,42 @@
       "source_id": 1185
     },
     {
+      "id": "leetcode-1186",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Subarray Sum with One Deletion",
+      "summary": "Given an array of integers, find the maximum sum of a contiguous subarray by optionally deleting one element, ensuring that at least one element remains in the subarray.",
+      "topics": [
+        "dynamic-programming",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1186.json",
+      "content_sha256": "087a721664ddf6e9c7aa3e8b9e94098fb3b60b02b6693e1a84b478cfe2d7904d",
+      "source_id": 1186
+    },
+    {
+      "id": "leetcode-1187",
+      "version": 1,
+      "status": "approved",
+      "title": "Make Array Strictly Increasing",
+      "summary": "Given two integer arrays arr1 and arr2, determine the least number of operations required to make arr1 strictly increasing.",
+      "topics": [
+        "dynamic-programming",
+        "binary-search"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1187.json",
+      "content_sha256": "8a51699dccb4f999c5a58b7fff4936ad4fe6ec83184c901884586a12f028e60a",
+      "source_id": 1187
+    },
+    {
       "id": "leetcode-1189",
       "version": 1,
       "status": "approved",
@@ -15128,6 +15164,110 @@
       "path": "problems/leetcode-1189.json",
       "content_sha256": "f8e93ec459b30b0335ee1ba5f0abcdf177b08c699126bd0e1e0f73f558bbb3ba",
       "source_id": 1189
+    },
+    {
+      "id": "leetcode-1190",
+      "version": 1,
+      "status": "approved",
+      "title": "Reverse Substrings Between Each Pair of Parentheses",
+      "summary": "Given a string consisting of lowercase letters and parentheses, reverse the substrings within each pair of matching parentheses, beginning with the innermost pair.",
+      "topics": [
+        "stacks",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1190.json",
+      "content_sha256": "615c668322a921472c283c33e61a94867a2c28ba7b7f23b8ce0825cc908807a3",
+      "source_id": 1190
+    },
+    {
+      "id": "leetcode-1191",
+      "version": 1,
+      "status": "approved",
+      "title": "K-Concatenation Maximum Sum",
+      "summary": "Given an integer array and an integer k, create a new array by repeating the original array k times.",
+      "topics": [
+        "dynamic-programming",
+        "prefix-sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1191.json",
+      "content_sha256": "0bab7e66e5ee77dccc61f078883ddeb7cbfa3f7074b6a5cf1cfee79b7f06e0af",
+      "source_id": 1191
+    },
+    {
+      "id": "leetcode-1192",
+      "version": 1,
+      "status": "approved",
+      "title": "Critical Connections in a Network",
+      "summary": "Given n servers numbered from 0 to n-1 connected by undirected server-to-server connections, where each connection is represented by a pair [ai, bi], identify all connections that, if removed, would cause some servers to become unreachable from others.",
+      "topics": [
+        "graphs",
+        "depth-first-search"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1192.json",
+      "content_sha256": "bf215876b954813fd0abb45b947cff478ad099e723814090100a579af5b30183",
+      "source_id": 1192
+    },
+    {
+      "id": "leetcode-1196",
+      "version": 1,
+      "status": "approved",
+      "title": "How Many Apples Can You Put into the Basket",
+      "summary": "Given an array of apple weights, determine the greatest number of apples that can be placed in a basket with a 5000-unit weight capacity.",
+      "topics": [
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1196.json",
+      "content_sha256": "24160046bf0d1f8a71e63e601a4cf32dab0f86c7e6d52b35586cce971190e719",
+      "source_id": 1196
+    },
+    {
+      "id": "leetcode-1197",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Knight Moves",
+      "summary": "On an infinite chessboard, starting at [0, 0], a knight must reach [x, y] using the least number of moves.",
+      "topics": [
+        "breadth-first-search",
+        "graphs"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1197.json",
+      "content_sha256": "675271b061db52a1c10db85084e32619a3442a630e555e756411766c2f022438",
+      "source_id": 1197
+    },
+    {
+      "id": "leetcode-1198",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Smallest Common Element in All Rows",
+      "summary": "In an m x n matrix where each row is sorted in ascending order, identify the smallest element present in every row.",
+      "topics": [
+        "matrix",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1198.json",
+      "content_sha256": "4fbb0d663daf8f928ecb382b9322d0a045d6fe90c6938a1c0dad1c7a2dd84d7f",
+      "source_id": 1198
     }
   ]
 }

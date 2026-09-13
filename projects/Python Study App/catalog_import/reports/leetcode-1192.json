@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1192",
+  "content_sha256": "bf215876b954813fd0abb45b947cff478ad099e723814090100a579af5b30183",
+  "source_hash": "52af0f5cf29c2dc8f2820bd7ab746051a0ca21dcddaa8491cc283dfabff64df1",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Marks cycle edges whose low-link merely equals the parent discovery time.",
+      "failed_cases": [
+        "lc-1192-1",
+        "lc-1192-4",
+        "lc-1192-6",
+        "lc-1192-8",
+        "lc-1192-9",
+        "lc-1192-12",
+        "lc-1192-13",
+        "lc-1192-14",
+        "lc-1192-15"
+      ]
+    },
+    {
+      "reason": "Overwrites rather than minimizes low-link values on back edges.",
+      "failed_cases": [
+        "lc-1192-1",
+        "lc-1192-4",
+        "lc-1192-6",
+        "lc-1192-8",
+        "lc-1192-9",
+        "lc-1192-12",
+        "lc-1192-13",
+        "lc-1192-14",
+        "lc-1192-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5239,
+  "oracle_implementation": "code_practice/import_batch_087.py:bridges_oracle",
+  "validator_implementation_sha256": "9fc984337a1d6cd801042c7524e17d637902e137b1c7bdd3992515863845f488",
+  "batch_implementation_sha256": "3439a4d954773fe01cb87dcfb4ab1c5f60ba3a1c9e2b6dc12486a9ab8d6c33ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f54c8dbe7434e457da3507404fe2c8255d147136ac24aab6e48016cf98ae7bb3",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

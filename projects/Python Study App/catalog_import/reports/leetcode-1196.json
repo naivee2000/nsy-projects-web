@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1196",
+  "content_sha256": "24160046bf0d1f8a71e63e601a4cf32dab0f86c7e6d52b35586cce971190e719",
+  "source_hash": "52e1a4edfb95483b4270049233745402e804041b22527f99b07fb362aa9ead78",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses heaviest apples first.",
+      "failed_cases": [
+        "lc-1196-13"
+      ]
+    },
+    {
+      "reason": "Rejects a selection whose total is exactly the capacity.",
+      "failed_cases": [
+        "lc-1196-4",
+        "lc-1196-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5243,
+  "oracle_implementation": "code_practice/import_batch_087.py:apples_oracle",
+  "validator_implementation_sha256": "9fc984337a1d6cd801042c7524e17d637902e137b1c7bdd3992515863845f488",
+  "batch_implementation_sha256": "3439a4d954773fe01cb87dcfb4ab1c5f60ba3a1c9e2b6dc12486a9ab8d6c33ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f940f5c9cc356f978560bb1da5ac9d7f6a6468a5dd8ccdb945147901974d3c5c",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

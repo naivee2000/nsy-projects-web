@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1190",
+  "content_sha256": "615c668322a921472c283c33e61a94867a2c28ba7b7f23b8ce0825cc908807a3",
+  "source_hash": "304b042a16ace8386b464c7848a68310bae4627d7ca5976794d91a79c7448235",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Removes parentheses without reversing their contents.",
+      "failed_cases": [
+        "lc-1190-1",
+        "lc-1190-2",
+        "lc-1190-6",
+        "lc-1190-7",
+        "lc-1190-8",
+        "lc-1190-10",
+        "lc-1190-11",
+        "lc-1190-13",
+        "lc-1190-14",
+        "lc-1190-16"
+      ]
+    },
+    {
+      "reason": "Overwrites preceding outer content when closing a group.",
+      "failed_cases": [
+        "lc-1190-2",
+        "lc-1190-7",
+        "lc-1190-8",
+        "lc-1190-10",
+        "lc-1190-11",
+        "lc-1190-13",
+        "lc-1190-14",
+        "lc-1190-15",
+        "lc-1190-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5237,
+  "oracle_implementation": "code_practice/import_batch_087.py:reverse_oracle",
+  "validator_implementation_sha256": "9fc984337a1d6cd801042c7524e17d637902e137b1c7bdd3992515863845f488",
+  "batch_implementation_sha256": "3439a4d954773fe01cb87dcfb4ab1c5f60ba3a1c9e2b6dc12486a9ab8d6c33ed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "55987e410df19afb304c4c277de30a85ea89b200bc0dfe538cd3a7394f259045",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -306,7 +306,7 @@ try {
   report.checks.push('batch 46 examples distinguish lexicographic minimality, allowed equal subsequence values, and significant inner sequence order');
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await page.getByPlaceholder('Search title, topic, or pattern').fill('Target Sum');
-  await page.getByRole('button', { name: /Target Sum.*Medium/ }).click();
+  await page.locator('button.problem-card').filter({ has: page.getByText('Target Sum', { exact: true }) }).click();
   assert((await page.locator('.problem-pane').textContent()).includes('+0 and -0 are different expressions'));
   assert((await page.locator('.example code').nth(1).textContent()).includes('[0,1]'));
   await page.getByRole('button', { name: 'Back', exact: true }).click();
