@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-718",
+  "content_sha256": "99e03e55719190380c66f7f63be3afcb72c5fefdf8ae397f2a9f4fe8ba453180",
+  "source_hash": "87bf63ea7a9587df9841b704191b037b54b7e538e2469ca65a65095a58479c3a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Extends from the wrong previous DP cell.",
+      "failed_cases": [
+        "lc-718-1",
+        "lc-718-6",
+        "lc-718-7",
+        "lc-718-8",
+        "lc-718-11",
+        "lc-718-12",
+        "lc-718-13",
+        "lc-718-14"
+      ]
+    },
+    {
+      "reason": "Counts shared values instead of contiguous order.",
+      "failed_cases": [
+        "lc-718-2",
+        "lc-718-5",
+        "lc-718-7",
+        "lc-718-13",
+        "lc-718-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4765,
+  "oracle_implementation": "code_practice/import_batch_071.py:repeated_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "a04ae7b671607fbe0cebc4cde82f6cee879958a62119043f15c3364e57e2576c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f3e18263b2b5a2df9022e5e5adcb2b7fc7c9f8e115f108c17d9b122b91814183",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

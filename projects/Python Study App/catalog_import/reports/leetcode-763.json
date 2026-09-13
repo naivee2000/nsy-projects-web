@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-763",
+  "content_sha256": "6d94c2f53978941ebed329adeb7502a46444cf8e3dad5990cf97b42f55d116c6",
+  "source_hash": "c89bc9af6ffc01d59f8875367a6b986ac25060e4d25e0b73dce1c5720d257e48",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses current indices rather than each letter’s final occurrence.",
+      "failed_cases": [
+        "lc-763-1",
+        "lc-763-2",
+        "lc-763-5",
+        "lc-763-6",
+        "lc-763-7",
+        "lc-763-8",
+        "lc-763-9",
+        "lc-763-10",
+        "lc-763-11",
+        "lc-763-12",
+        "lc-763-14"
+      ]
+    },
+    {
+      "reason": "Returns end positions instead of partition lengths.",
+      "failed_cases": [
+        "lc-763-1",
+        "lc-763-4",
+        "lc-763-8",
+        "lc-763-9",
+        "lc-763-10",
+        "lc-763-11",
+        "lc-763-12",
+        "lc-763-13",
+        "lc-763-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4810,
+  "oracle_implementation": "code_practice/import_batch_071.py:labels_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "c9c9e3e5e6b362510ee119f8aecaa4e7a15540326d8997ea361fa7e764f71c8a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f0a68d3e02bdab29bf9df4a127d8198b41dee7a5c6a873380b23d4a6ed979131",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

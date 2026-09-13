@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-766",
+  "content_sha256": "57563126aec6a2419b1a99a0e16ee37f42ec1eb90d5ebe7522c53086a4c958fb",
+  "source_hash": "a30ad24822eb9c7554f83d3a953d8c1d64bb2bb562c4b96ad959c4e5b3ec95de",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Compares vertical neighbors rather than diagonal neighbors.",
+      "failed_cases": [
+        "lc-766-1",
+        "lc-766-2",
+        "lc-766-6",
+        "lc-766-7",
+        "lc-766-8",
+        "lc-766-11",
+        "lc-766-12",
+        "lc-766-13",
+        "lc-766-14"
+      ]
+    },
+    {
+      "reason": "Skips the final column and misses violations there.",
+      "failed_cases": [
+        "lc-766-2",
+        "lc-766-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4813,
+  "oracle_implementation": "code_practice/import_batch_071.py:toeplitz_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "a04ae7b671607fbe0cebc4cde82f6cee879958a62119043f15c3364e57e2576c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "025a8052287ee49193dd0a367ff4aa2cf7a2796a2b9383faba558f2703cfc47b",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

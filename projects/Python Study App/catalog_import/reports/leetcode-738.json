@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-738",
+  "content_sha256": "740070eda7878fd1dcba1e413c0ab502a468a0f1905ce47ab1729a166a96d6b7",
+  "source_hash": "1df6c6d66275a395df94211d88a56404f1207601e3b3e996c8204b07705aca10",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fills the repaired suffix with zero instead of the largest digit.",
+      "failed_cases": [
+        "lc-738-1",
+        "lc-738-2",
+        "lc-738-7",
+        "lc-738-9",
+        "lc-738-10",
+        "lc-738-12",
+        "lc-738-13",
+        "lc-738-14"
+      ]
+    },
+    {
+      "reason": "Scans forward and fails when decrementing creates an earlier violation.",
+      "failed_cases": [
+        "lc-738-2",
+        "lc-738-12",
+        "lc-738-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4785,
+  "oracle_implementation": "code_practice/import_batch_071.py:monotone_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "a04ae7b671607fbe0cebc4cde82f6cee879958a62119043f15c3364e57e2576c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "78d3b850906edd1b1765fcf1534ed67120b1b85411d74d9e8bc1170effdb6341",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

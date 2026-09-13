@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 559,
+  "count": 579,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -10099,6 +10099,344 @@
       "path": "problems/leetcode-717.json",
       "content_sha256": "caaca8ba6da5f840203aa3df50ce8e4e342152409e1c32d22f8a133932feeb6e",
       "source_id": 717
+    },
+    {
+      "id": "leetcode-718",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Length of Repeated Subarray",
+      "summary": "Given two integer arrays, nums1 and nums2, determine the longest subarray that is present in both arrays.",
+      "topics": [
+        "dynamic-programming",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-718.json",
+      "content_sha256": "99e03e55719190380c66f7f63be3afcb72c5fefdf8ae397f2a9f4fe8ba453180",
+      "source_id": 718
+    },
+    {
+      "id": "leetcode-720",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Word in Dictionary",
+      "summary": "Given an array of strings representing an English dictionary, identify the longest word that can be formed by sequentially adding characters to existing words in the array.",
+      "topics": [
+        "strings",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-720.json",
+      "content_sha256": "1992e364b951f1b9ff1411b24fd690643c827d7468c89a36d728308999642445",
+      "source_id": 720
+    },
+    {
+      "id": "leetcode-722",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Comments",
+      "summary": "Given a C++ program represented as an array of strings, where each string is a line of code, remove all comments.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-722.json",
+      "content_sha256": "3edd25a244ea3a25d5a8cb59db7c0591353a595b24e990a1bae1316c261276aa",
+      "source_id": 722
+    },
+    {
+      "id": "leetcode-728",
+      "version": 1,
+      "status": "approved",
+      "title": "Self Dividing Numbers",
+      "summary": "Identify all self-dividing numbers within the range [left, right], where a self-dividing number is defined as a number that is divisible by each of its digits, and none of its digits are zero.",
+      "topics": [
+        "math",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-728.json",
+      "content_sha256": "8d7b4d99bd89b47a23f67c4884a187f4fc6f9aed6ef6796e382bd39657e52bb9",
+      "source_id": 728
+    },
+    {
+      "id": "leetcode-734",
+      "version": 1,
+      "status": "approved",
+      "title": "Sentence Similarity",
+      "summary": "Represent sentences as arrays of words.",
+      "topics": [
+        "hash-maps",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-734.json",
+      "content_sha256": "9b69044a2aeeeaf52958ca2f791c5bb77854b202652eb12d4f98d457f419278b",
+      "source_id": 734
+    },
+    {
+      "id": "leetcode-735",
+      "version": 1,
+      "status": "approved",
+      "title": "Asteroid Collision",
+      "summary": "Given an array of integers representing asteroids, determine the state after all collisions.",
+      "topics": [
+        "stacks",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-735.json",
+      "content_sha256": "f509b188f65deed7dfa6adf0f7a8e815a7a1918acb4d7e0b85e556e59ff22ea0",
+      "source_id": 735
+    },
+    {
+      "id": "leetcode-738",
+      "version": 1,
+      "status": "approved",
+      "title": "Monotone Increasing Digits",
+      "summary": "Determine the greatest integer not exceeding n that possesses digits in non-decreasing order, where each adjacent pair of digits x and y fulfills x <= y.",
+      "topics": [
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-738.json",
+      "content_sha256": "740070eda7878fd1dcba1e413c0ab502a468a0f1905ce47ab1729a166a96d6b7",
+      "source_id": 738
+    },
+    {
+      "id": "leetcode-740",
+      "version": 1,
+      "status": "approved",
+      "title": "Delete and Earn",
+      "summary": "Given an integer array nums, select any element to delete and earn its value in points.",
+      "topics": [
+        "dynamic-programming",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-740.json",
+      "content_sha256": "ec5d8f34b6f93c71a4f0599ac64263584958ba17c68f0d4b67fa99551e018f1f",
+      "source_id": 740
+    },
+    {
+      "id": "leetcode-743",
+      "version": 1,
+      "status": "approved",
+      "title": "Network Delay Time",
+      "summary": "Given a network with n nodes labeled 1 to n and travel times for directed edges, determine the minimum time for a signal to reach all nodes starting from node k.",
+      "topics": [
+        "graphs",
+        "heaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-743.json",
+      "content_sha256": "cc02b355b6832e7e7209ef454cca2302683801cf48c54323aa777e310fb03abf",
+      "source_id": 743
+    },
+    {
+      "id": "leetcode-744",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Smallest Letter Greater Than Target",
+      "summary": "Given an array of characters that is sorted in non-decreasing order and a target character, find the smallest character in the array that is lexicographically greater than the target.",
+      "topics": [
+        "binary-search",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-744.json",
+      "content_sha256": "54881ad0557cd0528393cd6fd67b6f489fb0288c054f8441ec2ed0a2fda84d67",
+      "source_id": 744
+    },
+    {
+      "id": "leetcode-747",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Number At Least Twice of Others",
+      "summary": "Given an integer array where the largest number is unique, check if this largest number is at least twice any other number.",
+      "topics": [
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-747.json",
+      "content_sha256": "cd4a30638bf7a3333fc79cbe67ad3280f9ad83494eb34435e63c2278fa15ef2b",
+      "source_id": 747
+    },
+    {
+      "id": "leetcode-748",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Completing Word",
+      "summary": "Given a string licensePlate and an array of strings words, find the shortest word in words that contains all the letters from licensePlate.",
+      "topics": [
+        "hash-maps",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-748.json",
+      "content_sha256": "83945b3917bfeca2e8729f30f889ea82efd5a98019254c08594992926a7c9f0e",
+      "source_id": 748
+    },
+    {
+      "id": "leetcode-750",
+      "version": 1,
+      "status": "approved",
+      "title": "Number Of Corner Rectangles",
+      "summary": "Given an m x n matrix of binary values, count the number of rectangles formed by four distinct 1's at the corners.",
+      "topics": [
+        "matrices",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-750.json",
+      "content_sha256": "d7c551c4c7922e633802fe4a4271704f8a7d8b71bc34f08aaabffe6d2c4d0fc7",
+      "source_id": 750
+    },
+    {
+      "id": "leetcode-752",
+      "version": 1,
+      "status": "approved",
+      "title": "Open the Lock",
+      "summary": "You face a lock with four circular wheels, each wheel having 10 positions numbered from '0' to '9'.",
+      "topics": [
+        "breadth-first-search",
+        "graphs"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-752.json",
+      "content_sha256": "c0cf65442789a5fe334c70e88bfaa625d4df9ff20ed6b53d9e0d9e494263d2a2",
+      "source_id": 752
+    },
+    {
+      "id": "leetcode-754",
+      "version": 1,
+      "status": "approved",
+      "title": "Reach a Number",
+      "summary": "Starting at position 0 on an infinite number line, you aim to reach a destination at position target.",
+      "topics": [
+        "math",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-754.json",
+      "content_sha256": "c3c659702c7b4c98bb1077c35e9185d66adf78a3c22c6f454ac256c89821c819",
+      "source_id": 754
+    },
+    {
+      "id": "leetcode-760",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Anagram Mappings",
+      "summary": "Given two integer arrays where one is an anagram of the other, return an index mapping from the first array to the second.",
+      "topics": [
+        "hash-maps",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-760.json",
+      "content_sha256": "43dcda46eb4c7a0bb13c2604a6c38788a4950d998a15d97740d01abdc186f9ac",
+      "source_id": 760
+    },
+    {
+      "id": "leetcode-762",
+      "version": 1,
+      "status": "approved",
+      "title": "Prime Number of Set Bits in Binary Representation",
+      "summary": "Given integers left and right, count how many numbers in the range [left, right] have a prime number of set bits in their binary representation.",
+      "topics": [
+        "bit-manipulation",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-762.json",
+      "content_sha256": "8952cf5ff09520b1f1e5aa07ab5cf1280d3ea860df57880d1a855e86a0312cce",
+      "source_id": 762
+    },
+    {
+      "id": "leetcode-763",
+      "version": 1,
+      "status": "approved",
+      "title": "Partition Labels",
+      "summary": "Given a string, partition it into the maximum number of parts such that each letter appears in at most one part.",
+      "topics": [
+        "greedy",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-763.json",
+      "content_sha256": "6d94c2f53978941ebed329adeb7502a46444cf8e3dad5990cf97b42f55d116c6",
+      "source_id": 763
+    },
+    {
+      "id": "leetcode-766",
+      "version": 1,
+      "status": "approved",
+      "title": "Toeplitz Matrix",
+      "summary": "Determine if an m x n matrix is Toeplitz by checking if each diagonal from the top-left to the bottom-right contains identical elements.",
+      "topics": [
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-766.json",
+      "content_sha256": "57563126aec6a2419b1a99a0e16ee37f42ec1eb90d5ebe7522c53086a4c958fb",
+      "source_id": 766
+    },
+    {
+      "id": "leetcode-771",
+      "version": 1,
+      "status": "approved",
+      "title": "Jewels and Stones",
+      "summary": "Determine the count of stones that are also jewels by comparing the characters in the stones string against the jewels string, considering case sensitivity.",
+      "topics": [
+        "hash-maps",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-771.json",
+      "content_sha256": "0ec732c90569dbb2fcb3af5e657cb1082e8cc2c957eb9851032f5e798e84e757",
+      "source_id": 771
     }
   ]
 }

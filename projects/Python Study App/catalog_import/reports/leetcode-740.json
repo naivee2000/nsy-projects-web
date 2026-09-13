@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-740",
+  "content_sha256": "ec5d8f34b6f93c71a4f0599ac64263584958ba17c68f0d4b67fa99551e018f1f",
+  "source_hash": "1e156b3f77085e4eda092dfe204f488e87d3e14bf5f760f4a75213ee18abbc94",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets that every duplicate of a chosen value contributes points.",
+      "failed_cases": [
+        "lc-740-2",
+        "lc-740-4",
+        "lc-740-7",
+        "lc-740-8",
+        "lc-740-10",
+        "lc-740-11",
+        "lc-740-12",
+        "lc-740-14"
+      ]
+    },
+    {
+      "reason": "Treats repeated or nonadjacent values as conflicting.",
+      "failed_cases": [
+        "lc-740-9",
+        "lc-740-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4787,
+  "oracle_implementation": "code_practice/import_batch_071.py:earn_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "c9c9e3e5e6b362510ee119f8aecaa4e7a15540326d8997ea361fa7e764f71c8a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3ef7643f66f97d42bda181ae86be39f8c419a8d9a74a15d1d2916371de1e1d50",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

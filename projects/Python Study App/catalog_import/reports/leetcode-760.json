@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-760",
+  "content_sha256": "43dcda46eb4c7a0bb13c2604a6c38788a4950d998a15d97740d01abdc186f9ac",
+  "source_hash": "a8bf60c6e36dac07aaeb6fc2475552a827f9ab00e6b68c4039e2356465981cd2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Builds positions from the wrong array.",
+      "failed_cases": [
+        "lc-760-1",
+        "lc-760-4",
+        "lc-760-5",
+        "lc-760-6",
+        "lc-760-7",
+        "lc-760-8",
+        "lc-760-9",
+        "lc-760-10",
+        "lc-760-11",
+        "lc-760-12",
+        "lc-760-13",
+        "lc-760-14"
+      ]
+    },
+    {
+      "reason": "Sorts the first array and loses the required output order.",
+      "failed_cases": [
+        "lc-760-1",
+        "lc-760-2",
+        "lc-760-6",
+        "lc-760-7",
+        "lc-760-10",
+        "lc-760-11",
+        "lc-760-12",
+        "lc-760-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4807,
+  "oracle_implementation": "code_practice/import_batch_071.py:mapping_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "c9c9e3e5e6b362510ee119f8aecaa4e7a15540326d8997ea361fa7e764f71c8a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "02eac9199fb936be15c6931a2a4ff97715d3858e13d70222ab2451eb670c1212",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

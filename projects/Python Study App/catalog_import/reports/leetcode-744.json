@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-744",
+  "content_sha256": "54881ad0557cd0528393cd6fd67b6f489fb0288c054f8441ec2ed0a2fda84d67",
+  "source_hash": "f7c462bef03f344a0458dfa65fb0631d233fd6dc971c854d8963f66be0e31d86",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Finds greater-or-equal rather than strictly greater.",
+      "failed_cases": [
+        "lc-744-2",
+        "lc-744-3",
+        "lc-744-4",
+        "lc-744-5",
+        "lc-744-7",
+        "lc-744-9",
+        "lc-744-14"
+      ]
+    },
+    {
+      "reason": "Fails to wrap when target reaches the end.",
+      "failed_cases": [
+        "lc-744-2",
+        "lc-744-4",
+        "lc-744-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4791,
+  "oracle_implementation": "code_practice/import_batch_071.py:letter_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "a04ae7b671607fbe0cebc4cde82f6cee879958a62119043f15c3364e57e2576c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "513281e3b7efdc8f1f9b5a5617efe4e535cfc0cf6d1ef81cf862732e7b1a8420",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

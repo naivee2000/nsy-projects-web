@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-750",
+  "content_sha256": "d7c551c4c7922e633802fe4a4271704f8a7d8b71bc34f08aaabffe6d2c4d0fc7",
+  "source_hash": "56ad4494c0d9f81e05c4795f403c638f0517a448269edc58400b10c851b11a27",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds one for every repeated column pair instead of the number of prior matching rows.",
+      "failed_cases": [
+        "lc-750-1",
+        "lc-750-5",
+        "lc-750-7",
+        "lc-750-9",
+        "lc-750-11",
+        "lc-750-12",
+        "lc-750-14"
+      ]
+    },
+    {
+      "reason": "Forgets how many earlier rows shared the pair.",
+      "failed_cases": [
+        "lc-750-2",
+        "lc-750-10",
+        "lc-750-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4797,
+  "oracle_implementation": "code_practice/import_batch_071.py:rectangles_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "a04ae7b671607fbe0cebc4cde82f6cee879958a62119043f15c3364e57e2576c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b26d8e6e6f6d50dd79d7f9f3dc2e3d22a2ee9aa1c24a3d8b0adb29ef4baba325",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

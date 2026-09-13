@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-771",
+  "content_sha256": "0ec732c90569dbb2fcb3af5e657cb1082e8cc2c957eb9851032f5e798e84e757",
+  "source_hash": "024c7b99ab5a1439e0c5a443cf41105ff4de66dae2da0a0e1d7537ab17925592",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Makes matching case-insensitive.",
+      "failed_cases": [
+        "lc-771-2",
+        "lc-771-7"
+      ]
+    },
+    {
+      "reason": "Counts distinct jewel types instead of every jewel stone.",
+      "failed_cases": [
+        "lc-771-1",
+        "lc-771-5",
+        "lc-771-6",
+        "lc-771-9",
+        "lc-771-10",
+        "lc-771-11",
+        "lc-771-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4818,
+  "oracle_implementation": "code_practice/import_batch_071.py:jewels_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "a04ae7b671607fbe0cebc4cde82f6cee879958a62119043f15c3364e57e2576c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bca0e2895e5147068d44c0f45db37780db1482d4f08965c2425ce989c6256f5a",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-762",
+  "content_sha256": "8952cf5ff09520b1f1e5aa07ab5cf1280d3ea860df57880d1a855e86a0312cce",
+  "source_hash": "c538b5b078e3cf9d1316334d90f6189b7e1af9389f3ed4af7c424c9d31f6aceb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly treats one as prime.",
+      "failed_cases": [
+        "lc-762-1",
+        "lc-762-3",
+        "lc-762-4",
+        "lc-762-5",
+        "lc-762-6",
+        "lc-762-9",
+        "lc-762-10",
+        "lc-762-11",
+        "lc-762-13"
+      ]
+    },
+    {
+      "reason": "Tests whether the number itself is prime instead of its popcount.",
+      "failed_cases": [
+        "lc-762-1",
+        "lc-762-2",
+        "lc-762-4",
+        "lc-762-5",
+        "lc-762-7",
+        "lc-762-9",
+        "lc-762-11",
+        "lc-762-12",
+        "lc-762-13",
+        "lc-762-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4809,
+  "oracle_implementation": "code_practice/import_batch_071.py:prime_bits_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "a04ae7b671607fbe0cebc4cde82f6cee879958a62119043f15c3364e57e2576c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e92f45c4b0b2b702bb00455b6e30926a4f25ab523257dacc688689bac3fc6fff",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

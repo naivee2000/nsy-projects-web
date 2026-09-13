@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-728",
+  "content_sha256": "8d7b4d99bd89b47a23f67c4884a187f4fc6f9aed6ef6796e382bd39657e52bb9",
+  "source_hash": "b854d46fa44303abdfdf7677fdbe4ccfd36bfbca5051be4bc251fe627b3c1287",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to reject a zero digit.",
+      "failed_cases": [
+        "lc-728-1",
+        "lc-728-4",
+        "lc-728-6",
+        "lc-728-7",
+        "lc-728-9",
+        "lc-728-11",
+        "lc-728-12",
+        "lc-728-13"
+      ]
+    },
+    {
+      "reason": "Reverses the divisibility condition.",
+      "failed_cases": [
+        "lc-728-1",
+        "lc-728-2",
+        "lc-728-3",
+        "lc-728-4",
+        "lc-728-5",
+        "lc-728-6",
+        "lc-728-7",
+        "lc-728-8",
+        "lc-728-9",
+        "lc-728-10",
+        "lc-728-11",
+        "lc-728-13",
+        "lc-728-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4775,
+  "oracle_implementation": "code_practice/import_batch_071.py:self_dividing_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "c9c9e3e5e6b362510ee119f8aecaa4e7a15540326d8997ea361fa7e764f71c8a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "577123a1a35165752ea0f4ae44db7d9a9c6845c7427aba3f20667721092ef9ba",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

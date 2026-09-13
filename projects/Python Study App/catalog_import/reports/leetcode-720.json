@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-720",
+  "content_sha256": "1992e364b951f1b9ff1411b24fd690643c827d7468c89a36d728308999642445",
+  "source_hash": "5b82f517c2e85a8ae802e76e01a375fc7a8020578c3a4263deb3de3cb4bfcdb1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks suffixes instead of prefixes.",
+      "failed_cases": [
+        "lc-720-1",
+        "lc-720-2",
+        "lc-720-4",
+        "lc-720-5",
+        "lc-720-8",
+        "lc-720-9",
+        "lc-720-10",
+        "lc-720-11",
+        "lc-720-12",
+        "lc-720-13",
+        "lc-720-14"
+      ]
+    },
+    {
+      "reason": "Overwrites equal-length answers and violates lexical tie-breaking.",
+      "failed_cases": [
+        "lc-720-2",
+        "lc-720-10",
+        "lc-720-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4767,
+  "oracle_implementation": "code_practice/import_batch_071.py:longest_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "c9c9e3e5e6b362510ee119f8aecaa4e7a15540326d8997ea361fa7e764f71c8a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "02398a02ce5febbfd7fad7be6069ee5c6aa686e85ec8ccf076e8cc6f424868e0",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

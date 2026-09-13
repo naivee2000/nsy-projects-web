@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-754",
+  "content_sha256": "c3c659702c7b4c98bb1077c35e9185d66adf78a3c22c6f454ac256c89821c819",
+  "source_hash": "136a008fac346b53a4459ae9b526c3d5f6f9467336c4d3628f6f21fe320a3fba",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stops once the triangular sum passes target without checking parity.",
+      "failed_cases": [
+        "lc-754-2",
+        "lc-754-6",
+        "lc-754-8",
+        "lc-754-10",
+        "lc-754-13",
+        "lc-754-14"
+      ]
+    },
+    {
+      "reason": "Does not use symmetry for negative targets.",
+      "failed_cases": [
+        "lc-754-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4801,
+  "oracle_implementation": "code_practice/import_batch_071.py:reach_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "a04ae7b671607fbe0cebc4cde82f6cee879958a62119043f15c3364e57e2576c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a382303f9cddc6901170376d6d023f7a49c5e2b4acc6c56d06aa41562324205c",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-735",
+  "content_sha256": "f509b188f65deed7dfa6adf0f7a8e815a7a1918acb4d7e0b85e556e59ff22ea0",
+  "source_hash": "27cc4cf3a1c52e860d7c18eb67db4ff923b11ab4d3502bff426c50a39ee4f55b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pops equal asteroids in the loop and then incorrectly keeps the incoming one.",
+      "failed_cases": [
+        "lc-735-2",
+        "lc-735-7",
+        "lc-735-12",
+        "lc-735-13"
+      ]
+    },
+    {
+      "reason": "Destroys the stack top even when it is larger.",
+      "failed_cases": [
+        "lc-735-1",
+        "lc-735-6",
+        "lc-735-9",
+        "lc-735-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4782,
+  "oracle_implementation": "code_practice/import_batch_071.py:asteroids_oracle",
+  "validator_implementation_sha256": "856c19976c3867454a4bba93da7b8fa2cd7c6e8303a70bc59505909299feb16b",
+  "batch_implementation_sha256": "a04ae7b671607fbe0cebc4cde82f6cee879958a62119043f15c3364e57e2576c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ed23172426a3078847a1c062b749f0122d4b75c1f4b9146c4dd6ca88fc7b726",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
