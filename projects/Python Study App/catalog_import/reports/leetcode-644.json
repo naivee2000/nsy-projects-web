@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-644",
+  "content_sha256": "e3c96ed8dd4b815569beb53e00ac9fe2bf31118ec767f1eb9726a2705ab19d34",
+  "source_hash": "518c6a509c873528876759a6c79d52206afb71e2ef622eacd61bad37612f79a6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only subarrays of exactly k elements.",
+      "failed_cases": [
+        "lc-644-8"
+      ]
+    },
+    {
+      "reason": "Returns the largest element even when k requires a longer subarray.",
+      "failed_cases": [
+        "lc-644-1",
+        "lc-644-4",
+        "lc-644-6",
+        "lc-644-7",
+        "lc-644-8",
+        "lc-644-10",
+        "lc-644-12",
+        "lc-644-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4691,
+  "oracle_implementation": "code_practice/import_batch_063.py:variable_average_oracle",
+  "validator_implementation_sha256": "7acb6f065aa10b4420721b3d34aa5fb31680bd5914be4ce5d28a481480046455",
+  "batch_implementation_sha256": "ba3cd1b1f7f644f24d5f7bc8e9fbf7aa629a6ea67623722ea1595dc9857e1d36",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b34ea52fb41e6c664c17e28e5235e1f383f7f76dd3dc5b7c84df0344256c77dd",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-649",
+  "content_sha256": "4aede7ccd6a13430f45386c8cbafd07c7440a356112d1049b83316ed3d1d6f62",
+  "source_hash": "fbaf7177ffcaa97f3c00bd7a690798eb6c0b86ec5fd508ae8bb1609556c812d5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes the initial majority always wins.",
+      "failed_cases": [
+        "lc-649-5",
+        "lc-649-10",
+        "lc-649-11"
+      ]
+    },
+    {
+      "reason": "Assumes the first senator’s party always wins.",
+      "failed_cases": [
+        "lc-649-2",
+        "lc-649-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4696,
+  "oracle_implementation": "code_practice/import_batch_063.py:senate_oracle",
+  "validator_implementation_sha256": "7acb6f065aa10b4420721b3d34aa5fb31680bd5914be4ce5d28a481480046455",
+  "batch_implementation_sha256": "ba3cd1b1f7f644f24d5f7bc8e9fbf7aa629a6ea67623722ea1595dc9857e1d36",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e8c3376ed1abf8f2908eb2f37fd3872d0507f798557cd869658b35b37b6c56f2",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

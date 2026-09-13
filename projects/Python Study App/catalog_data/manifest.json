@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 506,
+  "count": 515,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -9105,6 +9105,25 @@
       "source_id": 643
     },
     {
+      "id": "leetcode-644",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Average Subarray II",
+      "summary": "Given an integer array nums with n elements and an integer k, identify a contiguous subarray of length at least k with the highest average value.",
+      "topics": [
+        "binary-search",
+        "prefix-sums"
+      ],
+      "prerequisites": [
+        "binary-search"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-644.json",
+      "content_sha256": "e3c96ed8dd4b815569beb53e00ac9fe2bf31118ec767f1eb9726a2705ab19d34",
+      "source_id": 644
+    },
+    {
       "id": "leetcode-645",
       "version": 1,
       "status": "approved",
@@ -9155,6 +9174,144 @@
       "path": "problems/leetcode-647.json",
       "content_sha256": "dcae6496aca8a5fb48a95c3da729d66ef90b318a03a8a8eb67ca7c41852ed1df",
       "source_id": 647
+    },
+    {
+      "id": "leetcode-648",
+      "version": 1,
+      "status": "approved",
+      "title": "Replace Words",
+      "summary": "Given a dictionary of roots and a sentence, replace each derivative word in the sentence with the shortest root that forms it.",
+      "topics": [
+        "strings",
+        "tries"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-648.json",
+      "content_sha256": "969ccb35116654b1d21e770ba9f1ebbfbc2a6787b489a7bbd0ef9f259aa5ba10",
+      "source_id": 648
+    },
+    {
+      "id": "leetcode-649",
+      "version": 1,
+      "status": "approved",
+      "title": "Dota2 Senate",
+      "summary": "In the Dota2 game, the Senate, made up of senators from the Radiant ('R') and Dire ('D') parties, votes on a game change through a series of rounds.",
+      "topics": [
+        "queues",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-649.json",
+      "content_sha256": "4aede7ccd6a13430f45386c8cbafd07c7440a356112d1049b83316ed3d1d6f62",
+      "source_id": 649
+    },
+    {
+      "id": "leetcode-650",
+      "version": 1,
+      "status": "approved",
+      "title": "2 Keys Keyboard",
+      "summary": "Starting with one 'A' on the screen, you can copy all characters and then paste them to increase the count.",
+      "topics": [
+        "math",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-650.json",
+      "content_sha256": "e32c9a36653ef7da5ab15c0c6f11914e39b5040dad6bfd96e606a7af76966ec8",
+      "source_id": 650
+    },
+    {
+      "id": "leetcode-651",
+      "version": 1,
+      "status": "approved",
+      "title": "4 Keys Keyboard",
+      "summary": "Consider a keyboard with the keys A, Ctrl-A, Ctrl-C, and Ctrl-V.",
+      "topics": [
+        "dynamic-programming",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-651.json",
+      "content_sha256": "5026a2dec17f1898296302417c21f50237ac90dfcf4455fba57334489406ab4d",
+      "source_id": 651
+    },
+    {
+      "id": "leetcode-657",
+      "version": 1,
+      "status": "approved",
+      "title": "Robot Return to Origin",
+      "summary": "Determine if a robot returns to the origin after executing a series of moves starting from the position (0, 0).",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-657.json",
+      "content_sha256": "0c3e99afa859d611a987996bf9776cc6dbe0bdc344bf2f1a682281ac2c06ff15",
+      "source_id": 657
+    },
+    {
+      "id": "leetcode-658",
+      "version": 1,
+      "status": "approved",
+      "title": "Find K Closest Elements",
+      "summary": "Given a sorted array of integers, find and return the k integers closest to a given value x, sorted in ascending order.",
+      "topics": [
+        "binary-search",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-658.json",
+      "content_sha256": "f15b8ba0911b1bfa2f17f413e9403220a0d71fc92d3dd49aba8529564d017b5c",
+      "source_id": 658
+    },
+    {
+      "id": "leetcode-659",
+      "version": 1,
+      "status": "approved",
+      "title": "Split Array into Consecutive Subsequences",
+      "summary": "Given a sorted integer array nums, determine if it is possible to split nums into one or more subsequences such that each subsequence is a consecutive increasing sequence with at least three elements.",
+      "topics": [
+        "greedy",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-659.json",
+      "content_sha256": "212ca510a34bb6b3801d6f0450dc8eee9191d7ecefd280fd98425eeac58cd172",
+      "source_id": 659
+    },
+    {
+      "id": "leetcode-660",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove 9",
+      "summary": "Begin with the integer 1, exclude any number containing the digit 9, like 9, 19, 29, etc.",
+      "topics": [
+        "math",
+        "number-systems"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-660.json",
+      "content_sha256": "a32e1ee3628e88ddec35bc4d4b7087a1e37ecf01b50329652cd2996c8a9f463f",
+      "source_id": 660
     },
     {
       "id": "leetcode-700",

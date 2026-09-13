@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-658",
+  "content_sha256": "f15b8ba0911b1bfa2f17f413e9403220a0d71fc92d3dd49aba8529564d017b5c",
+  "source_hash": "11f37fa847a2c8d883ae7ad9c62e83483123e06a4578e2f6c8acc8095ee7d2ba",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks distance ties toward the larger right window.",
+      "failed_cases": [
+        "lc-658-1",
+        "lc-658-6",
+        "lc-658-11",
+        "lc-658-13"
+      ]
+    },
+    {
+      "reason": "Excludes the final valid window start from binary search.",
+      "failed_cases": [
+        "lc-658-4",
+        "lc-658-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4705,
+  "oracle_implementation": "code_practice/import_batch_063.py:closest_oracle",
+  "validator_implementation_sha256": "7acb6f065aa10b4420721b3d34aa5fb31680bd5914be4ce5d28a481480046455",
+  "batch_implementation_sha256": "ba3cd1b1f7f644f24d5f7bc8e9fbf7aa629a6ea67623722ea1595dc9857e1d36",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a169a20c388db55794a71b4e2d2866c681835ede74a562e7dabc17c4ad015fa1",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

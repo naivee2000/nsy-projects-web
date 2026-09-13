@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-657",
+  "content_sha256": "0c3e99afa859d611a987996bf9776cc6dbe0bdc344bf2f1a682281ac2c06ff15",
+  "source_hash": "d7b20dfe90d98501435a77bad700021d5ef3fc0ddc99b413dcc7f738f1895b5a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts when only one coordinate returns to zero.",
+      "failed_cases": [
+        "lc-657-2",
+        "lc-657-3",
+        "lc-657-4",
+        "lc-657-5",
+        "lc-657-6",
+        "lc-657-13"
+      ]
+    },
+    {
+      "reason": "Moves left in the same direction as right.",
+      "failed_cases": [
+        "lc-657-7",
+        "lc-657-8",
+        "lc-657-10",
+        "lc-657-11",
+        "lc-657-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4704,
+  "oracle_implementation": "code_practice/import_batch_063.py:robot_oracle",
+  "validator_implementation_sha256": "7acb6f065aa10b4420721b3d34aa5fb31680bd5914be4ce5d28a481480046455",
+  "batch_implementation_sha256": "ba3cd1b1f7f644f24d5f7bc8e9fbf7aa629a6ea67623722ea1595dc9857e1d36",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b8fca406cd66145e91c3ddd82ec9cb2ea0839ce6a6c59238e2675368f986a22f",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
