@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 837,
+  "count": 847,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -14886,6 +14886,180 @@
       "path": "problems/leetcode-1170.json",
       "content_sha256": "514f62394f5dcdbf849c8609f024d5ba1ce2f3df5834fc20fd39a544a9e98f91",
       "source_id": 1170
+    },
+    {
+      "id": "leetcode-1171",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Zero Sum Consecutive Nodes from Linked List",
+      "summary": "Given a linked list, remove all consecutive sequences of nodes that sum to zero.",
+      "topics": [
+        "linked-lists",
+        "prefix-sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1171.json",
+      "content_sha256": "d0b5d503f417cad19a40756503521df440ca899c36a2338761a1af6967978bcf",
+      "source_id": 1171
+    },
+    {
+      "id": "leetcode-1175",
+      "version": 1,
+      "status": "approved",
+      "title": "Prime Arrangements",
+      "summary": "Calculate the count of permutations for numbers from 1 to n where prime numbers must occupy prime index positions, with the result given modulo 10^9 + 7.",
+      "topics": [
+        "math",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1175.json",
+      "content_sha256": "13b889eaaa23a01ad9d5d6d1efab5ead12a38092a2ed3fdee400c44c9f379479",
+      "source_id": 1175
+    },
+    {
+      "id": "leetcode-1176",
+      "version": 1,
+      "status": "approved",
+      "title": "Diet Plan Performance",
+      "summary": "A dieter records daily calorie intake.",
+      "topics": [
+        "sliding-window",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1176.json",
+      "content_sha256": "3f6fb0924609999d87cc0cf3f975b7056e1f2988a519ff03a0d2746f095809d0",
+      "source_id": 1176
+    },
+    {
+      "id": "leetcode-1177",
+      "version": 1,
+      "status": "approved",
+      "title": "Can Make Palindrome from Substring",
+      "summary": "Given a string s and an array of queries where each query is represented as [lefti, righti, ki], you are to determine if the substring s[lefti...righti] can be rearranged and up to ki characters within this range can be replaced with any lowercase English letter to form a palindrome.",
+      "topics": [
+        "prefix-sums",
+        "bitmasks"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1177.json",
+      "content_sha256": "bfe3c6541755afe243bb7c13a242a8cbb434569f954c9691365c2925e3b91735",
+      "source_id": 1177
+    },
+    {
+      "id": "leetcode-1178",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Valid Words for Each Puzzle",
+      "summary": "Given a puzzle string, a word is valid if it starts with the puzzle's first letter and contains only letters present in the puzzle.",
+      "topics": [
+        "bitmasks",
+        "hash-maps"
+      ],
+      "prerequisites": [
+        "bitmasks"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1178.json",
+      "content_sha256": "b0b8bdd9dacbabfa7f93e03cfc5cec7ab65db1516d5b1669195380f6128335ad",
+      "source_id": 1178
+    },
+    {
+      "id": "leetcode-1180",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Substrings with Only One Distinct Letter",
+      "summary": "For a given string, count all substrings consisting of a single repeated character.",
+      "topics": [
+        "strings",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1180.json",
+      "content_sha256": "9de0405d1cf8045414b9d281ed028b3f6c0d138b334d902a01af51ac313165ea",
+      "source_id": 1180
+    },
+    {
+      "id": "leetcode-1181",
+      "version": 1,
+      "status": "approved",
+      "title": "Before and After Puzzle",
+      "summary": "Given a list of phrases, generate a list of Before and After puzzles by merging each pair of phrases where the last word of the first phrase matches the first word of the second phrase.",
+      "topics": [
+        "strings",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1181.json",
+      "content_sha256": "81715d354747c9b2db06f92b003a145736b0c9b82317e7adff5e47563267d33f",
+      "source_id": 1181
+    },
+    {
+      "id": "leetcode-1182",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Distance to Target Color",
+      "summary": "Given an array of colors where each color is 1, 2, or 3, and queries of an index and a target color, find the minimum distance between the index and any occurrence of the target color.",
+      "topics": [
+        "binary-search",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1182.json",
+      "content_sha256": "3e0bc6f1d4a4f8b80cfe07c5310ff502b61dcd66300fee9fd5999714717fc89f",
+      "source_id": 1182
+    },
+    {
+      "id": "leetcode-1183",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Ones",
+      "summary": "Given a matrix M with dimensions width × height , where each cell contains either 0 or 1, and any square sub-matrix of size sideLength × sideLength contains no more than maxOnes ones, determine the maximum possible number of ones that the matrix M can have.",
+      "topics": [
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [
+        "greedy"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1183.json",
+      "content_sha256": "c2decef7c45188e80b0eefc36939e870f6657d605501bff901c32fadc4a8813a",
+      "source_id": 1183
+    },
+    {
+      "id": "leetcode-1184",
+      "version": 1,
+      "status": "approved",
+      "title": "Distance Between Bus Stops",
+      "summary": "A bus operates on a circular route with n stops numbered sequentially.",
+      "topics": [
+        "prefix-sums",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1184.json",
+      "content_sha256": "9e0ceede84b7803bcb5d69a9a92523c8a5383203290c0eecf0367ecb0ad584e9",
+      "source_id": 1184
     }
   ]
 }

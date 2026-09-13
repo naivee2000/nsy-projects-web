@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1184",
+  "content_sha256": "9e0ceede84b7803bcb5d69a9a92523c8a5383203290c0eecf0367ecb0ad584e9",
+  "source_hash": "9b2b6161f64fbc6c54044217bcb7c3ba2a23de154cf59747145e0c781e473aa5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the longer direction.",
+      "failed_cases": [
+        "lc-1184-1",
+        "lc-1184-2",
+        "lc-1184-3",
+        "lc-1184-4",
+        "lc-1184-8",
+        "lc-1184-11",
+        "lc-1184-12",
+        "lc-1184-13",
+        "lc-1184-15",
+        "lc-1184-16"
+      ]
+    },
+    {
+      "reason": "Swaps already-ordered endpoints and slices the wrong arc.",
+      "failed_cases": [
+        "lc-1184-1",
+        "lc-1184-2",
+        "lc-1184-3",
+        "lc-1184-5",
+        "lc-1184-6",
+        "lc-1184-7",
+        "lc-1184-8",
+        "lc-1184-9",
+        "lc-1184-10",
+        "lc-1184-11",
+        "lc-1184-12",
+        "lc-1184-13",
+        "lc-1184-14",
+        "lc-1184-15",
+        "lc-1184-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5231,
+  "oracle_implementation": "code_practice/import_batch_085.py:bus_oracle",
+  "validator_implementation_sha256": "443e9761267626acaef3ac5b664563799dd6964a86280223900460a56f74a699",
+  "batch_implementation_sha256": "05c2c97eb42b501503902a3655f8e866c25277f488eab333167f740938a0245b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9169608a064317c623f10fdad3cb3ef2181ea3746c403aa1b21cff4a89812220",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
