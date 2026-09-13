@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-692",
+  "content_sha256": "5368f83c464fdc573b011c152aa21383f480beda4dd4689a1afd2959c763a0b5",
+  "source_hash": "547c07d46a4da0746cf7512f77a0a0724e31cc7aba7bbeab73391a1f96dc2528",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps first-seen order for equal frequencies instead of lexical order.",
+      "failed_cases": [
+        "lc-692-4",
+        "lc-692-5",
+        "lc-692-8",
+        "lc-692-9",
+        "lc-692-12",
+        "lc-692-14"
+      ]
+    },
+    {
+      "reason": "Ignores frequency and returns alphabetically smallest words.",
+      "failed_cases": [
+        "lc-692-1",
+        "lc-692-2",
+        "lc-692-10",
+        "lc-692-11",
+        "lc-692-13",
+        "lc-692-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4739,
+  "oracle_implementation": "code_practice/import_batch_069.py:top_words_oracle",
+  "validator_implementation_sha256": "9c4632b1fc9ae58c79dfe0b3dad72bf8f67e12ddad901b57d5db3b390f5d9000",
+  "batch_implementation_sha256": "ee1292d8a041eab7517fd06d1eed2d7376fc56ba7310ff8498cd285431eb35e5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aa818981570c8d507e4b1d45acb3afd938b432d07e948b265c200e666ce669f4",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

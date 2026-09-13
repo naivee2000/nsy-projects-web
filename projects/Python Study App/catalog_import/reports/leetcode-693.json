@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-693",
+  "content_sha256": "5980ce751a215836b2fee7456817200fc954a4fa8b8f192c8afc791c37dbbe41",
+  "source_hash": "a9c50d37f26f3ed1a22d6e0d3ec99ecf39ff2e47484ceee1e6b3e36010eed7da",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only the total number of one bits, not their positions.",
+      "failed_cases": [
+        "lc-693-7"
+      ]
+    },
+    {
+      "reason": "Checks only the final adjacent bit pair.",
+      "failed_cases": [
+        "lc-693-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4740,
+  "oracle_implementation": "code_practice/import_batch_069.py:alternating_oracle",
+  "validator_implementation_sha256": "9c4632b1fc9ae58c79dfe0b3dad72bf8f67e12ddad901b57d5db3b390f5d9000",
+  "batch_implementation_sha256": "ee1292d8a041eab7517fd06d1eed2d7376fc56ba7310ff8498cd285431eb35e5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0fc1fee680ecb3aa0afca694b8fadad8765665cbf16881d097ff8d41474e9a6b",
+  "elapsed_seconds": 0.012,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

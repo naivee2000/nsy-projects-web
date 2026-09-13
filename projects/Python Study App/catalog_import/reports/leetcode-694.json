@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-694",
+  "content_sha256": "92635a9a3d8970f2f69acd26e53ebccae6ad45c9b63e59211e400a6ce8581c5f",
+  "source_hash": "39a97c5318cd1e210538312cb08e5af39d35e04695fe776ea771194daaa861fc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts land cells rather than distinct island shapes.",
+      "failed_cases": [
+        "lc-694-1",
+        "lc-694-2",
+        "lc-694-5",
+        "lc-694-6",
+        "lc-694-7",
+        "lc-694-8",
+        "lc-694-9",
+        "lc-694-10",
+        "lc-694-11",
+        "lc-694-12",
+        "lc-694-13",
+        "lc-694-14"
+      ]
+    },
+    {
+      "reason": "Compares row totals instead of connected relative coordinates.",
+      "failed_cases": [
+        "lc-694-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4741,
+  "oracle_implementation": "code_practice/import_batch_069.py:islands_oracle",
+  "validator_implementation_sha256": "9c4632b1fc9ae58c79dfe0b3dad72bf8f67e12ddad901b57d5db3b390f5d9000",
+  "batch_implementation_sha256": "ee1292d8a041eab7517fd06d1eed2d7376fc56ba7310ff8498cd285431eb35e5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e024a54e32bd9070d2e6d5984d4b088de94f61453d519b3e4ac2061a9d635e61",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

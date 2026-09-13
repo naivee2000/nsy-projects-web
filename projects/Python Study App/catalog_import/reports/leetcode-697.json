@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-697",
+  "content_sha256": "e8a83298397fe64a64afb74b5d8463d00e642fafbd4d20a07f7873fb8aa0a20e",
+  "source_hash": "bfeb1fa37e7d897527c441c97ac159dfffc32faad4e43e6a0f575f39d7f7dd28",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the degree value rather than a subarray length.",
+      "failed_cases": [
+        "lc-697-2",
+        "lc-697-6",
+        "lc-697-8",
+        "lc-697-11",
+        "lc-697-13",
+        "lc-697-14"
+      ]
+    },
+    {
+      "reason": "Uses only the first most-frequent value and misses a shorter tied span.",
+      "failed_cases": [
+        "lc-697-1",
+        "lc-697-7",
+        "lc-697-8",
+        "lc-697-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4744,
+  "oracle_implementation": "code_practice/import_batch_069.py:degree_oracle",
+  "validator_implementation_sha256": "9c4632b1fc9ae58c79dfe0b3dad72bf8f67e12ddad901b57d5db3b390f5d9000",
+  "batch_implementation_sha256": "ee1292d8a041eab7517fd06d1eed2d7376fc56ba7310ff8498cd285431eb35e5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "92d5d43303ba6869bc22113249dba1610405c15200b9272efd7907023d6e897e",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

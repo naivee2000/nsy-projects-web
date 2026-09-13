@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-698",
+  "content_sha256": "90f7133354aeb3f07896ba1e4faf210abee42ab8072aa8e35fbe0c4ac8372537",
+  "source_hash": "c04c84c9305b6abd720c5e31a92989cf538849fc9b027aeb798e2ab995b05766",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only total divisibility without constructing subsets.",
+      "failed_cases": [
+        "lc-698-12"
+      ]
+    },
+    {
+      "reason": "Uses first-fit placement without backtracking and can miss a valid assignment.",
+      "failed_cases": [
+        "lc-698-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4745,
+  "oracle_implementation": "code_practice/import_batch_069.py:partition_oracle",
+  "validator_implementation_sha256": "9c4632b1fc9ae58c79dfe0b3dad72bf8f67e12ddad901b57d5db3b390f5d9000",
+  "batch_implementation_sha256": "ee1292d8a041eab7517fd06d1eed2d7376fc56ba7310ff8498cd285431eb35e5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ef861e46686a370b64c1c8893b5f5a8c59c756333c41843b7e46480840b5832a",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

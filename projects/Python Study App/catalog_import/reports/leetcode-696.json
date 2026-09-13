@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-696",
+  "content_sha256": "1faa6c76d7ae7390d6740cc357a2fe9c979da0e4f5d54e9ed1e2928315e572d0",
+  "source_hash": "ee3389b3761f86c7d3515ad7939ca4965372332f31abc151d12d4d9d7f0e7d18",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the number of runs instead of the number of valid substrings.",
+      "failed_cases": [
+        "lc-696-1",
+        "lc-696-2",
+        "lc-696-3",
+        "lc-696-4",
+        "lc-696-5",
+        "lc-696-6",
+        "lc-696-7",
+        "lc-696-9",
+        "lc-696-11",
+        "lc-696-12",
+        "lc-696-13",
+        "lc-696-14"
+      ]
+    },
+    {
+      "reason": "Counts only length-two transitions and misses longer balanced runs.",
+      "failed_cases": [
+        "lc-696-1",
+        "lc-696-8",
+        "lc-696-9",
+        "lc-696-10",
+        "lc-696-11",
+        "lc-696-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4743,
+  "oracle_implementation": "code_practice/import_batch_069.py:binary_substrings_oracle",
+  "validator_implementation_sha256": "9c4632b1fc9ae58c79dfe0b3dad72bf8f67e12ddad901b57d5db3b390f5d9000",
+  "batch_implementation_sha256": "ee1292d8a041eab7517fd06d1eed2d7376fc56ba7310ff8498cd285431eb35e5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "afc30034221285811748c63b6f8f49ea5fca67d7ab199f7514e870aee348ea56",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
