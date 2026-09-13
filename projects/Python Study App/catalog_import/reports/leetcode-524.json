@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-524",
+  "content_sha256": "1b94bed3456e99aa328a12a0f8a8224c0809c8158a04b643b35a1db894b0e68c",
+  "source_hash": "0c9e685af1dd6b1ec130fb3e9ed6d7eb514b0c15acaef5ad096d6af4aaf9e50c",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Requires a contiguous substring instead of allowing deletion gaps.",
+      "failed_cases": [
+        "lc-524-1",
+        "lc-524-10",
+        "lc-524-stress-3"
+      ]
+    },
+    {
+      "reason": "Chooses the lexicographically largest word when lengths tie.",
+      "failed_cases": [
+        "lc-524-2",
+        "lc-524-7",
+        "lc-524-9",
+        "lc-524-10",
+        "lc-524-12",
+        "lc-524-15",
+        "lc-524-16",
+        "lc-524-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4571,
+  "oracle_implementation": "code_practice/import_batch_052.py:dictionary_oracle",
+  "validator_implementation_sha256": "6fcab31263fd0a8375f88dcdad4cee36d38fcd6c594b97c313e92c3ef1549f4d",
+  "batch_implementation_sha256": "9cdcfd4fd351f14fe0672b2028566e4067015aa39da3929a0b6e6815e5c8f2b0",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.344,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-522",
+  "content_sha256": "9ba6029c631985d110b0a4af65a4dbf87339660bc7dfd3396523148e630092f8",
+  "source_hash": "bac946cf0d180973755c4a11946c1fc7b174b4c851ad4a722513e7dbb055409c",
+  "visible_tests": 2,
+  "hidden_tests": 21,
+  "reference_passed": 23,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only duplicate equality, missing shorter words contained in longer strings.",
+      "failed_cases": [
+        "lc-522-2",
+        "lc-522-8",
+        "lc-522-9",
+        "lc-522-14"
+      ]
+    },
+    {
+      "reason": "Skips all equal strings instead of only the same input position.",
+      "failed_cases": [
+        "lc-522-2",
+        "lc-522-3",
+        "lc-522-6",
+        "lc-522-8",
+        "lc-522-9",
+        "lc-522-10",
+        "lc-522-14",
+        "lc-522-stress-1",
+        "lc-522-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4569,
+  "oracle_implementation": "code_practice/import_batch_052.py:uncommon_oracle",
+  "validator_implementation_sha256": "6fcab31263fd0a8375f88dcdad4cee36d38fcd6c594b97c313e92c3ef1549f4d",
+  "batch_implementation_sha256": "9cdcfd4fd351f14fe0672b2028566e4067015aa39da3929a0b6e6815e5c8f2b0",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.078,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

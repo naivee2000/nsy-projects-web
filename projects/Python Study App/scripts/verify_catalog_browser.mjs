@@ -364,8 +364,20 @@ try {
     assert((await page.locator('.problem-pane').textContent()).includes(explanation));
   }
   report.checks.push('batch 51 examples explain original word spelling/multiplicity, signed place values, original athlete order, proper-divisor equality, subsequence order, and simultaneous receipt versus one-dress sending');
+  for (const [title,explanation] of [
+    ['Detect Capital','matches none of the three allowed patterns'],
+    ['Longest Uncommon Subsequence II','not necessarily an uncommon subsequence'],
+    ['Longest Word in Dictionary through Deleting','not dictionary order or earliest match position'],
+    ['Beautiful Arrangement','even though both divisibility checks hold'],
+  ]) {
+    await page.getByRole('button',{name:'Back',exact:true}).click();
+    await page.getByPlaceholder('Search title, topic, or pattern').fill(title);
+    await page.locator('button.problem-card').filter({has:page.getByText(title,{exact:true})}).click();
+    assert((await page.locator('.problem-pane').textContent()).includes(explanation));
+  }
+  report.checks.push('batch 52 examples explain three capital patterns, containing input positions, alphabetical tie-breaking, and one-based divisibility without double counting');
 
-  for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values', 'recursive-step-combinations'].includes(e.id))) {
+  for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values', 'recursive-step-combinations', 'longest-target-sum-subarray'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
     const result = await judge(page, problem, problem.reference_solution);
     assert.equal(result.status, 'accepted', `${entry.id}: ${JSON.stringify(result)}`);
@@ -674,6 +686,28 @@ def sliding_window_medians(nums, k):
     assert.equal((await judge(page,keyboardCase,`def keyboard_row_words(words):\n    return ${JSON.stringify(bad)}`)).status,'wrong_answer');
   }
   report.checks.push('batch 51 rejects twelve incorrect algorithms; word selections accept reordering but reject changed spelling, lost occurrences, and extra copies; full-size reference cases include 250,000,000 washing rounds without simulation');
+  for (const id of [520,522,524,526]) {
+    const problem=JSON.parse(await fs.readFile(path.join(root,`catalog_data/problems/leetcode-${id}.json`),'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page,problem,wrong)).status,'wrong_answer',`batch 52 wrong algorithm ${id}`);
+    }
+  }
+  const uncommon=JSON.parse(await fs.readFile(path.join(root,'catalog_data/problems/leetcode-522.json'),'utf8'));
+  const uncommonPairs=[['aba','cdc'],['a'.repeat(100),'a'.repeat(100)],['a'.repeat(100),'a'.repeat(99)]];
+  const uncommonJob={...uncommon,tests:uncommonPairs.map((pair,i)=>({id:`uncommon-pair-${i}`,arguments:[pair],expected:[3,-1,100][i],comparator:'exact',visible:true}))};
+  assert.equal((await judge(page,uncommonJob,uncommon.reference_solution)).status,'accepted');
+  assert.equal((await judge(page,uncommonJob,uncommon.reference_solution.replace('best=-1','strs=[w[:10] for w in strs];best=-1'))).status,'wrong_answer');
+  const targetSum=JSON.parse(await fs.readFile(path.join(root,'catalog_data/problems/longest-target-sum-subarray.json'),'utf8'));
+  const balanceArrays=[[0,1],[0,1,1,1,1,1,0,0,0],Array(50000).fill(0).concat(Array(50000).fill(1)),[1,...Array(99998).fill(0),1]];
+  const balanceJob={...targetSum,signature:{...targetSum.signature,name:'binary_balance',parameters:targetSum.signature.parameters.slice(0,1)},
+    tests:balanceArrays.map((nums,i)=>({id:`binary-balance-${i}`,arguments:[nums],expected:[2,6,100000,2][i],comparator:'exact',visible:true}))};
+  assert.equal((await judge(page,balanceJob,targetSum.reference_solution+'\ndef binary_balance(nums):\n    return longest_target_sum_subarray([1 if x else -1 for x in nums],0)')).status,'accepted');
+  assert.equal((await judge(page,balanceJob,'def binary_balance(nums):\n    return 2*min(nums.count(0),nums.count(1))')).status,'wrong_answer');
+  for (const id of [521,525]) {
+    assert(!manifest.entries.some(p=>p.id===`leetcode-${id}`));
+    assert.equal((await fetch(`${base}/api/problems/leetcode-${id}`)).status,404);
+  }
+  report.checks.push('batch 52 rejects eight wrong algorithms; all 15 arrangement inputs pass; two-string uncommon mapping includes length 100 and rejects truncation, while binary-balance mapping passes length 100000 and rejects noncontiguous counts; no duplicate API or library IDs');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],

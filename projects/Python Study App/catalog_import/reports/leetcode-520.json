@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-520",
+  "content_sha256": "2d128305e8e9e94da5d08e037dff817983de9f038cc08b9cb52579a574857597",
+  "source_hash": "c8be739eebbe7a29beac7b41638c88cbbe5e985018a8dad0ab3a2e74902e0f72",
+  "visible_tests": 2,
+  "hidden_tests": 20,
+  "reference_passed": 22,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a single capital anywhere instead of only at the beginning.",
+      "failed_cases": [
+        "lc-520-8",
+        "lc-520-11",
+        "lc-520-16",
+        "lc-520-stress-4"
+      ]
+    },
+    {
+      "reason": "Forgets that an all-uppercase multi-letter word is valid.",
+      "failed_cases": [
+        "lc-520-1",
+        "lc-520-6",
+        "lc-520-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4567,
+  "oracle_implementation": "code_practice/import_batch_052.py:capital_oracle",
+  "validator_implementation_sha256": "6fcab31263fd0a8375f88dcdad4cee36d38fcd6c594b97c313e92c3ef1549f4d",
+  "batch_implementation_sha256": "9cdcfd4fd351f14fe0672b2028566e4067015aa39da3929a0b6e6815e5c8f2b0",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

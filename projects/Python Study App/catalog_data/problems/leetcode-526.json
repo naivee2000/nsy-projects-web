@@ -1,0 +1,231 @@
+{
+  "id": "leetcode-526",
+  "version": 1,
+  "status": "approved",
+  "title": "Beautiful Arrangement",
+  "summary": "Given an integer n, determine the count of permutations of integers from 1 to n where each element perm[i] either divides i or i divides perm[i].",
+  "statement": "Given an integer n, determine the count of permutations of integers from 1 to n where each element perm[i] either divides i or i divides perm[i].",
+  "constraints": [
+    "1 <= n <= 15. Use every integer from 1 through n exactly once.",
+    "Positions are 1-indexed. At every position i, value % i == 0 OR i % value == 0 must hold.",
+    "Return the number of valid permutations, not the permutations themselves."
+  ],
+  "topics": [
+    "recursion",
+    "backtracking",
+    "dynamic-programming",
+    "bitmask"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "count_beautiful_arrangements",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def count_beautiful_arrangements(n: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def count_beautiful_arrangements(n):\n    from functools import cache\n    allowed=[sum(1<<(value-1) for value in range(1,n+1) if value%position==0 or position%value==0)\n             for position in range(1,n+1)]\n    @cache\n    def visit(used):\n        position=used.bit_count()\n        if position==n:return 1\n        choices=allowed[position]&~used;total=0\n        while choices:\n            bit=choices&-choices;choices-=bit\n            total+=visit(used|bit)\n        return total\n    return visit(0)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def count_beautiful_arrangements(n):\n    from functools import cache\n    allowed=[sum(1<<(value-1) for value in range(1,n+1) if value%position==0 and position%value==0)\n             for position in range(1,n+1)]\n    @cache\n    def visit(used):\n        position=used.bit_count()\n        if position==n:return 1\n        choices=allowed[position]&~used;total=0\n        while choices:\n            bit=choices&-choices;choices-=bit\n            total+=visit(used|bit)\n        return total\n    return visit(0)\n",
+    "def count_beautiful_arrangements(n):\n    from math import prod\n    return prod(sum(v%i==0 or i%v==0 for v in range(1,n+1)) for i in range(1,n+1))\n"
+  ],
+  "target_time_complexity": "O(n*2^n)",
+  "target_space_complexity": "O(2^n)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Place one unused number at the next position, then recursively complete the remaining positions.",
+    "The set of used values determines the next position. Cache the number of completions for that set.",
+    "visit(mask): if every value is used return 1; otherwise sum visit(mask|bit) for each unused value satisfying either divisibility rule at popcount(mask)+1.",
+    "Use 1-based positions for divisibility even if the allowed-mask array is 0-based. Each choice consumes one distinct value; a completed permutation contributes exactly one."
+  ],
+  "editorial": "Recursive search partitions valid permutations by their next value, without overlap because every value is used once. The next position follows from the number of set bits, so the used-value mask completely identifies a subproblem. Memoization gives O(n*2^n) time and O(2^n) storage, including a recursion depth of at most 15. All 15 legal n values are tested: two visible and thirteen hidden. An independent inclusion-exclusion permanent counts bijective allowed position/value assignments, and literal permutation enumeration checks small n.",
+  "tests": [
+    {
+      "id": "lc-526-1",
+      "arguments": [
+        2
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Both [1,2] and [2,1] work. In the second arrangement, position 2 is divisible by its value 1; either direction of divisibility suffices.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-2",
+      "arguments": [
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Only [1] exists, and 1 divides 1. Count this arrangement once, even though both divisibility checks hold.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-3",
+      "arguments": [
+        3
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-4",
+      "arguments": [
+        4
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-5",
+      "arguments": [
+        5
+      ],
+      "expected": 10,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-6",
+      "arguments": [
+        6
+      ],
+      "expected": 36,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-7",
+      "arguments": [
+        7
+      ],
+      "expected": 41,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-8",
+      "arguments": [
+        8
+      ],
+      "expected": 132,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-9",
+      "arguments": [
+        9
+      ],
+      "expected": 250,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-10",
+      "arguments": [
+        10
+      ],
+      "expected": 700,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-11",
+      "arguments": [
+        11
+      ],
+      "expected": 750,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-12",
+      "arguments": [
+        12
+      ],
+      "expected": 4010,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-13",
+      "arguments": [
+        13
+      ],
+      "expected": 4237,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-14",
+      "arguments": [
+        14
+      ],
+      "expected": 10680,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-526-15",
+      "arguments": [
+        15
+      ],
+      "expected": 24679,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

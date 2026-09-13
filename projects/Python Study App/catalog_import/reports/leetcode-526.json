@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-526",
+  "content_sha256": "ff560d277dd379dbb85097d67daddb3bd75acc824b7c48e927ac8ec134e7b06e",
+  "source_hash": "db574f73e0238d4708687239852bc665de457227ff2950a384e18c265d50294e",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires both divisibility directions instead of either direction.",
+      "failed_cases": [
+        "lc-526-1",
+        "lc-526-3",
+        "lc-526-4",
+        "lc-526-5",
+        "lc-526-6",
+        "lc-526-7",
+        "lc-526-8",
+        "lc-526-9",
+        "lc-526-10",
+        "lc-526-11",
+        "lc-526-12",
+        "lc-526-13",
+        "lc-526-14",
+        "lc-526-15"
+      ]
+    },
+    {
+      "reason": "Multiplies independent choices while allowing the same value to be reused.",
+      "failed_cases": [
+        "lc-526-1",
+        "lc-526-3",
+        "lc-526-4",
+        "lc-526-5",
+        "lc-526-6",
+        "lc-526-7",
+        "lc-526-8",
+        "lc-526-9",
+        "lc-526-10",
+        "lc-526-11",
+        "lc-526-12",
+        "lc-526-13",
+        "lc-526-14",
+        "lc-526-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4573,
+  "oracle_implementation": "code_practice/import_batch_052.py:arrangement_oracle",
+  "validator_implementation_sha256": "6fcab31263fd0a8375f88dcdad4cee36d38fcd6c594b97c313e92c3ef1549f4d",
+  "batch_implementation_sha256": "9cdcfd4fd351f14fe0672b2028566e4067015aa39da3929a0b6e6815e5c8f2b0",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.312,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

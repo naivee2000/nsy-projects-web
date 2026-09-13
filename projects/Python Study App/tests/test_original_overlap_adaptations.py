@@ -39,6 +39,8 @@ def test_original_adaptations_preserve_sample_oracle_and_full_domain(source_id):
         if source_id==495 else
         ['def recursive_step_combinations(n):\n    return 1',
          'def recursive_step_combinations(n):\n    return n'] if source_id==509 else
+        ['def longest_target_sum_subarray(nums,target):\n    return len(nums) if sum(nums)==target else 0',
+         'def longest_target_sum_subarray(nums,target):\n    return 2*min(nums.count(-1),nums.count(1))'] if source_id==525 else
         ['def next_greater_values(nums):\n    return [-1]*len(nums)',
          'def next_greater_values(nums):\n    return [min((v for v in nums[i+1:] if v>x),default=-1) for i,x in enumerate(nums)]']
     )
@@ -94,7 +96,7 @@ def test_packaged_original_mappings_do_not_duplicate_library_ids(tmp_path,monkey
     manifest=json.loads((tmp_path/'published/manifest.json').read_text())
     ids={p['id'] for p in manifest['entries']}
     assert {'total-covered-length','next-greater-values'}<=ids
-    assert not {'leetcode-495','leetcode-496','leetcode-509'}&ids
+    assert not {'leetcode-495','leetcode-496','leetcode-509','leetcode-525'}&ids
 
 
 def test_fibonacci_adaptation_exhausts_domain_without_changing_original():

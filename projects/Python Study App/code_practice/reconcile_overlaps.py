@@ -15,6 +15,11 @@ from .catalog_evidence import content_digest, judge_contract_hash, load_verified
 
 ROOT = Path(__file__).resolve().parent.parent
 DECISIONS = {
+    521: {
+        "target_source_id": 522,
+        "source_hash": "4ab29ded8049b4af47742a63617aca19a1e72790ca5aa7d5fd16df82d2db7c05",
+        "reason": "Pass [a,b] to Longest Uncommon Subsequence II: exactly-one-input-position membership is identical to the two-string definition. The target explicitly extends source 522's ten-character bound to 100, covering every source 521 input without a second progress ID. Identical strings have no uncommon subsequence; otherwise a longer whole string, or either distinct equal-length whole string, is longest. Independent enumeration verifies small inputs, and an LCS certificate verifies 500 seeded inputs through length 100, including equal strings and repeated letters.",
+    },
     1009: {
         "target_source_id": 476,
         "source_hash": "b91a45bc341a5c17960e9ad83fb5bfd227876143cc037ee72c00d4141322d3f4",
@@ -54,7 +59,46 @@ DECISIONS = {
 
 
 def implementation_hash():
-    return hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    digest=hashlib.sha256()
+    for name in ('code_practice/reconcile_overlaps.py','code_practice/import_batch_052.py'):
+        digest.update(name.encode());digest.update((ROOT/name).read_bytes())
+    return digest.hexdigest()
+
+
+def check_two_uncommon(payload,source):
+    from .build_import_batch import workbook_sample
+    from .import_batch_052 import uncommon_oracle
+    if not any('1 <= len(word) <= 100' in s for s in payload['constraints']):
+        raise ValueError('Uncommon target must explicitly support the 100-character source domain')
+    namespace={};exec(compile(payload['reference_solution'],'<reviewed-uncommon>','exec'),namespace)
+    solve=namespace[payload['signature']['name']]
+    sample=workbook_sample(source['sample'],[{'name':'a'},{'name':'b'}])
+    if sample is None or solve(sample[0])!=sample[1]:raise ValueError('Uncommon source sample disagrees')
+    def certificate(a,b):
+        previous=[0]*(len(b)+1)
+        for x in a:
+            current=[0]
+            for j,y in enumerate(b):current.append(previous[j]+1 if x==y else max(previous[j+1],current[-1]))
+            previous=current
+        common=previous[-1]
+        return max([len(w) for w in (a,b) if len(w)>common],default=-1)
+    rng=random.Random(4568)
+    for _ in range(500):
+        a=''.join(rng.choice('abcdefghijklmnopqrstuvwxyz') for _ in range(rng.randint(1,100)))
+        b=a if rng.random()<.25 else ''.join(rng.choice('abcdefghijklmnopqrstuvwxyz') for _ in range(rng.randint(1,100)))
+        words=[a,b];expected=certificate(a,b)
+        if solve(words)!=expected or words!=[a,b]:raise ValueError('Uncommon full-domain LCS certificate disagrees')
+    for _ in range(500):
+        words=[''.join(rng.choice('ab') for _ in range(rng.randint(1,9))) for _ in range(2)]
+        if solve(words)!=uncommon_oracle([words]) or solve(words)!=certificate(*words):
+            raise ValueError('Uncommon exhaustive-subsequence oracle disagrees')
+    boundaries=[['a','a'],['a','b'],['aba','cdc'],['a'*100,'a'*100],['a'*100,'a'*99],
+                ['a'*99+'b','b'+'a'*99],['a'*100,'b'*100]]
+    for words in boundaries:
+        if solve(words)!=certificate(*words):raise ValueError('Uncommon boundary disagrees')
+    return dict(oracle_inputs=1000,oracle_seed=4568,workbook_sample_checked=True,
+        deterministic_inputs=len(boundaries),largest_input=100,full_domain_generated_inputs=500,
+        exhaustive_subsequence_inputs=500,domain='Two lowercase strings, each length 1..100; equal strings remain distinct input positions')
 
 
 def check_complement(payload, source):
@@ -367,7 +411,7 @@ def reconcile(root=ROOT):
                 raise ValueError("Source changed since the behavioral review")
             target = records[decision["target_source_id"]]
             payload = load_verified_import(target, root)
-            checker = {1009: check_complement, 2410: check_player_matching,
+            checker = {521: check_two_uncommon, 1009: check_complement, 2410: check_player_matching,
                        2220: check_bit_flips, 46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
                        319: check_bulb_square_root}[source_id]
             evidence = checker(payload, sources[source_id])

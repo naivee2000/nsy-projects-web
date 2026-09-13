@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "source_id": 525,
+  "source_hash": "7c86553f091438f28b95b221bbd2be0cd6df196b6329529110f888eeefa625c1",
+  "target_problem_id": "longest-target-sum-subarray",
+  "target_content_sha256": "70ca5de89d6c4f83e6f25fd3f29b2ef396ad075877c6319984cfbbcc5fd14c63",
+  "implementation_sha256": "e9e874ac7c354a8c334f86a07ba7c9294c0c430a3b0eaf031ba85d9797e4e1dd",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "decision": {
+    "target_id": "longest-target-sum-subarray",
+    "source_hash": "7c86553f091438f28b95b221bbd2be0cd6df196b6329529110f888eeefa625c1",
+    "reason": "Replacing each binary zero by -1 and each one by +1 makes a segment sum to zero exactly when it has equal zero/one counts. The unchanged original longest target-sum function with target=0 therefore returns exactly the source contiguous length. Its arbitrary-integer domain and O(n) prefix-map reference cover 100,000 binary entries; enumerate subarrays independently on 500 seeded cases and verify full-size boundaries. Preserve the existing progress ID."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 4572,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 21,
+  "largest_input": 100000,
+  "exhaustive_domain_inputs": null,
+  "adaptation": "0 -> -1, 1 -> +1; longest target-sum subarray with target=0"
+}

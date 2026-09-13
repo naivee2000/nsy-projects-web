@@ -1,0 +1,23 @@
+{
+  "valid": true,
+  "source_id": 521,
+  "source_hash": "4ab29ded8049b4af47742a63617aca19a1e72790ca5aa7d5fd16df82d2db7c05",
+  "target_problem_id": "leetcode-522",
+  "target_source_hash": "bac946cf0d180973755c4a11946c1fc7b174b4c851ad4a722513e7dbb055409c",
+  "target_content_sha256": "9ba6029c631985d110b0a4af65a4dbf87339660bc7dfd3396523148e630092f8",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "implementation_sha256": "1880e41b0ea28039d9ed10a5cfe475745590d4164df0be97fd9fbd755cf7010d",
+  "decision": {
+    "target_source_id": 522,
+    "source_hash": "4ab29ded8049b4af47742a63617aca19a1e72790ca5aa7d5fd16df82d2db7c05",
+    "reason": "Pass [a,b] to Longest Uncommon Subsequence II: exactly-one-input-position membership is identical to the two-string definition. The target explicitly extends source 522's ten-character bound to 100, covering every source 521 input without a second progress ID. Identical strings have no uncommon subsequence; otherwise a longer whole string, or either distinct equal-length whole string, is longest. Independent enumeration verifies small inputs, and an LCS certificate verifies 500 seeded inputs through length 100, including equal strings and repeated letters."
+  },
+  "oracle_inputs": 1000,
+  "oracle_seed": 4568,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 7,
+  "largest_input": 100,
+  "full_domain_generated_inputs": 500,
+  "exhaustive_subsequence_inputs": 500,
+  "domain": "Two lowercase strings, each length 1..100; equal strings remain distinct input positions"
+}

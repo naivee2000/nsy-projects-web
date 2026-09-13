@@ -4,9 +4,9 @@
   "workbook_sha256": "d4d791913078d0275fb404f4e61ff914b039f74f44ff4a2774070685e82e8e46",
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
-    "overlap": 79,
-    "imported": 344,
-    "pending": 3051,
+    "overlap": 81,
+    "imported": 348,
+    "pending": 3045,
     "excluded": 155
   },
   "record_count": 3629,
@@ -5905,10 +5905,11 @@
       "title": "Detect Capital",
       "difficulty": "Easy",
       "source_hash": "c8be739eebbe7a29beac7b41638c88cbbe5e985018a8dad0ab3a2e74902e0f72",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-520.json",
+      "problem_id": "leetcode-520"
     },
     {
       "source_id": 521,
@@ -5916,10 +5917,11 @@
       "title": "Longest Uncommon Subsequence I",
       "difficulty": "Easy",
       "source_hash": "4ab29ded8049b4af47742a63617aca19a1e72790ca5aa7d5fd16df82d2db7c05",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "leetcode-522",
+      "reason": "Pass [a,b] to Longest Uncommon Subsequence II: exactly-one-input-position membership is identical to the two-string definition. The target explicitly extends source 522's ten-character bound to 100, covering every source 521 input without a second progress ID. Identical strings have no uncommon subsequence; otherwise a longer whole string, or either distinct equal-length whole string, is longest. Independent enumeration verifies small inputs, and an LCS certificate verifies 500 seeded inputs through length 100, including equal strings and repeated letters.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-521.json"
     },
     {
       "source_id": 522,
@@ -5927,10 +5929,11 @@
       "title": "Longest Uncommon Subsequence II",
       "difficulty": "Medium",
       "source_hash": "bac946cf0d180973755c4a11946c1fc7b174b4c851ad4a722513e7dbb055409c",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-522.json",
+      "problem_id": "leetcode-522"
     },
     {
       "source_id": 523,
@@ -5949,10 +5952,11 @@
       "title": "Longest Word in Dictionary through Deleting",
       "difficulty": "Medium",
       "source_hash": "0c9e685af1dd6b1ec130fb3e9ed6d7eb514b0c15acaef5ad096d6af4aaf9e50c",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-524.json",
+      "problem_id": "leetcode-524"
     },
     {
       "source_id": 525,
@@ -5960,10 +5964,11 @@
       "title": "Contiguous Array",
       "difficulty": "Medium",
       "source_hash": "7c86553f091438f28b95b221bbd2be0cd6df196b6329529110f888eeefa625c1",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "longest-target-sum-subarray",
+      "reason": "Replacing each binary zero by -1 and each one by +1 makes a segment sum to zero exactly when it has equal zero/one counts. The unchanged original longest target-sum function with target=0 therefore returns exactly the source contiguous length. Its arbitrary-integer domain and O(n) prefix-map reference cover 100,000 binary entries; enumerate subarrays independently on 500 seeded cases and verify full-size boundaries. Preserve the existing progress ID.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-525.json"
     },
     {
       "source_id": 526,
@@ -5971,10 +5976,11 @@
       "title": "Beautiful Arrangement",
       "difficulty": "Medium",
       "source_hash": "db574f73e0238d4708687239852bc665de457227ff2950a384e18c265d50294e",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-526.json",
+      "problem_id": "leetcode-526"
     },
     {
       "source_id": 527,

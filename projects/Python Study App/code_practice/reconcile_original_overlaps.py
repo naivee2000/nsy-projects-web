@@ -19,6 +19,8 @@ DECISIONS={
         reason='The original exercise computes the first strictly greater value to the right for every input position. Source 496 adds only selecting those results for a unique-value subset in query order: zip nums2 to its complete next-greater output, then look up nums1. Its unique 0..10000 inputs are covered by the original arbitrary-integer contract. The mapping takes O(n+m) total time with the original stack; preserve its existing progress ID.'),
     509:dict(target_id='recursive-step-combinations',source_hash='861f81c7998ae17a090daa99c078e921ad360c1b4dadc8b330a01361c8c3d7bb',
         reason='Fibonacci F(n) equals the existing ordered 1/2-step count for n-1 when n>=1; F(0)=0 is explicit. All 31 valid source inputs (0..30) are covered without changing the original 0..30 domain or its ID. An independent binomial placement count verifies the complete source domain and 500 seeded inputs. This is an index/base-case adaptation of the same recurrence, not a new library problem.'),
+    525:dict(target_id='longest-target-sum-subarray',source_hash='7c86553f091438f28b95b221bbd2be0cd6df196b6329529110f888eeefa625c1',
+        reason='Replacing each binary zero by -1 and each one by +1 makes a segment sum to zero exactly when it has equal zero/one counts. The unchanged original longest target-sum function with target=0 therefore returns exactly the source contiguous length. Its arbitrary-integer domain and O(n) prefix-map reference cover 100,000 binary entries; enumerate subarrays independently on 500 seeded cases and verify full-size boundaries. Preserve the existing progress ID.'),
 }
 
 
@@ -27,10 +29,28 @@ def fibonacci_oracle(args):
     return 0 if n==0 else sum(comb(n-1-k,k) for k in range((n-1)//2+1))
 
 
+def contiguous_oracle(args):
+    nums=args[0];best=0
+    for left in range(len(nums)):
+        zeros=ones=0
+        for right in range(left,len(nums)):
+            if nums[right]==0:zeros+=1
+            else:ones+=1
+            if zeros==ones:best=max(best,right-left+1)
+    return best
+
+
 SPECS={**OVERLAP_SPECS,509:dict(params=[('n','int','raw')],
     examples=[([2],'F(2)=1'),([0],'F(0)=0')],
     boundaries=[[n] for n in range(1,30) if n!=2],
-    stress=[([30],832040)],oracle=fibonacci_oracle,generator=lambda rng:[rng.randrange(31)])}
+    stress=[([30],832040)],oracle=fibonacci_oracle,generator=lambda rng:[rng.randrange(31)]),
+    525:dict(params=[('nums','list[int]','raw')],examples=[([[0,1]],'Equal counts'),([[0,1,0]],'Either length-two window')],
+        boundaries=[[a] for a in ([0],[1],[1,0],[0,0],[1,1],[0,0,1],[1,1,0],[0,1,1,0],
+            [0,0,1,0,0,1],[0,1,1,1,1,1,0,0,0],[0,0,0,1],[1,0,1,0,1],[0,1,0,1,0,1])],
+        stress=[([[0,1]*50000],100000),([[0]*100000],0),([[1]*100000],0),
+                ([[0]*50000+[1]*50000],100000),([[0]*75000+[1]*25000],50000),
+                ([[1]+[0]*99998+[1]],2)],
+        oracle=contiguous_oracle,generator=lambda rng:[[rng.randrange(2) for _ in range(rng.randint(1,70))]])}
 
 
 def implementation_hash():
@@ -53,6 +73,8 @@ def adapted_function(source_id,payload):
         return lambda times,duration:function([[t,t+duration] for t in times])
     if source_id==509:
         return lambda n:0 if n==0 else function(n-1)
+    if source_id==525:
+        return lambda nums:function([1 if bit else -1 for bit in nums],0)
     def query(queries,nums):
         following=dict(zip(nums,function(nums)))
         return [following[value] for value in queries]
@@ -78,11 +100,12 @@ def check_original(source_id,payload,source):
             raise ValueError('Original adaptation disagrees with full-size fixture')
     return dict(oracle_inputs=500,oracle_seed=4047+source_id,workbook_sample_checked=True,
                 deterministic_inputs=len(small)+len(spec['stress']),
-                largest_input={495:10000,496:1000,509:30}[source_id],
+                largest_input={495:10000,496:1000,509:30,525:100000}[source_id],
                 exhaustive_domain_inputs=31 if source_id==509 else None,
                 adaptation={495:'[t,t+duration) interval union',
                     496:'value-to-result map followed by query-order projection',
-                    509:'F(0)=0; F(n)=ordered 1/2-step count(n-1) for n>=1'}[source_id])
+                    509:'F(0)=0; F(n)=ordered 1/2-step count(n-1) for n>=1',
+                    525:'0 -> -1, 1 -> +1; longest target-sum subarray with target=0'}[source_id])
 
 
 def validate_original_overlap(record,root=ROOT):

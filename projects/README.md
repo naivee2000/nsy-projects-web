@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 445 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [430-problem handoff checklist](Python%20Study%20App/docs/RELEASE_430_CHECKPOINT.md) covers the frozen `python-study-430-checkpoint` release and updating the other computer without replacing its progress. It includes all eleven verified batch-46/47/48 additions since the 419-problem checkpoint. All seven earlier handoff tags remain unchanged. The remaining workbook expansion is ongoing locally; fifteen batch-49/50/51 additions remain outside the frozen release and do not change the website.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 449 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [430-problem handoff checklist](Python%20Study%20App/docs/RELEASE_430_CHECKPOINT.md) covers the frozen `python-study-430-checkpoint` release and updating the other computer without replacing its progress. It includes all eleven verified batch-46/47/48 additions since the 419-problem checkpoint. All seven earlier handoff tags remain unchanged. The remaining workbook expansion is ongoing locally; nineteen batch-49/50/51/52 additions remain outside the frozen release and do not change the website.
 
 ## Python Study App
 
@@ -40,8 +40,8 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
-The workbook expansion currently accounts for 3,629 rows: 79 existing equivalents,
-344 verified new problems, 155 documented design/interactive exclusions, and 3,051
+The workbook expansion currently accounts for 3,629 rows: 81 existing equivalents,
+348 verified new problems, 155 documented design/interactive exclusions, and 3,045
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -351,6 +351,18 @@ network flow for simultaneous washing moves. The largest fixtures retain the
 source limits, including a 250,000,000-round balancing answer computed directly.
 All 439 previous definitions and progress IDs are unchanged. The six additions
 remain outside the frozen 430-problem transfer tag; nothing was pushed or deployed.
+
+Batch 52 adds Detect Capital, Longest Uncommon Subsequence II, Longest Word in
+Dictionary through Deleting, and Beautiful Arrangement. The recursive arrangement
+problem tests all 15 legal inputs, including thirteen distinct hidden cases;
+independent inclusion-exclusion and literal permutations verify its count.
+All four imports pass 500 oracle checks and reject two wrong algorithms each.
+Uncommon Subsequence II explicitly supports length-100 words to cover source 521;
+500 full-range LCS checks and 500 enumerated-subsequence checks prove the overlap.
+Contiguous Array (525) maps to the existing target-sum exercise after changing
+binary zeros to -1; full 100,000-entry fixtures and 500 independent oracle cases
+pass. All 445 preceding definitions and progress IDs remain unchanged. The four
+new problems remain outside the frozen 430 transfer tag.
 
 Linked-list and tree problems show the full `ListNode` or `TreeNode` class definition above the function in the editable code pane. The app also prepends the required class when reopening an older saved draft that predates this feature.
 

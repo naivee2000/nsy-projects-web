@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 445 runnable problems (101 original exercises plus 344 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 449 runnable problems (101 original exercises plus 348 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **430-problem handoff checkpoint** is tagged `python-study-430-checkpoint`; all seven earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_430_CHECKPOINT.md) for exact-version update commands. It includes all eleven verified batch-46/47/48 additions since the 419-problem release. Resumed development adds fifteen batch-49/50/51 problems outside the frozen release. The remaining workbook expansion is unfinished. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **430-problem handoff checkpoint** is tagged `python-study-430-checkpoint`; all seven earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_430_CHECKPOINT.md) for exact-version update commands. It includes all eleven verified batch-46/47/48 additions since the 419-problem release. Resumed development adds nineteen batch-49/50/51/52 problems outside the frozen release. The remaining workbook expansion is unfinished. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 79 existing equivalents, 344 verified imports, 155 documented
-design/interactive exclusions, and 3,051 pending records. Ordinary tree and
+Current status: 81 existing equivalents, 348 verified imports, 155 documented
+design/interactive exclusions, and 3,045 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Fifty-one reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Fifty-two reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -509,7 +509,20 @@ oracle verify the greedy minimum. Source-scale tests include 10,000-item inputs,
 Each problem has 500 independent oracle checks and two rejected wrong algorithms.
 All 439 previous definitions and progress IDs remain unchanged, and the new
 problems remain outside the frozen 430-problem transfer tag.
-Of the 79 overlaps, 72 map to original exercises and seven map to approved
+Batch fifty-two adds Detect Capital, Longest Uncommon Subsequence II, Longest
+Word in Dictionary through Deleting, and Beautiful Arrangement. Every import
+passes 500 independent oracle checks and rejects two plausible wrong algorithms.
+Beautiful Arrangement tests all 15 legal inputs: two visible and thirteen hidden;
+recursive memoized counting matches an independent inclusion-exclusion permanent
+and literal small permutations. Uncommon Subsequence II explicitly supports words
+through length 100, so source 521's two-string version maps to it without a
+duplicate exercise. That mapping has 500 full-range LCS checks plus 500 independent
+subsequence-enumeration checks. Contiguous Array (525) maps to the unchanged
+Longest Target-Sum Subarray exercise by replacing zero with -1 and using target
+zero; independent subarray enumeration and 100,000-entry fixtures verify it.
+All 445 preceding definitions and progress IDs remain unchanged. These four
+additions remain outside the frozen 430-problem transfer tag.
+Of the 81 overlaps, 73 map to original exercises and eight map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
 the original sample, and all 720 outputs on six-element boundaries. This is
@@ -565,7 +578,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 445 problems; future
+been checked against every reviewed batch. The current package contains 449 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the
