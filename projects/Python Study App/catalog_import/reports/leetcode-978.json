@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-978",
+  "content_sha256": "ee6268bca5859207e42a4267189b7a69ec9ee31ffdbfce645b266f7efbbae210",
+  "source_hash": "80f63a0c01afd660dd1a62d66d078b8c75fadb8a6a7c1fa6795ca03be547c98b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Extends an upward run from the wrong prior direction.",
+      "failed_cases": [
+        "lc-978-1",
+        "lc-978-2",
+        "lc-978-8",
+        "lc-978-10",
+        "lc-978-12",
+        "lc-978-13"
+      ]
+    },
+    {
+      "reason": "Fails to reset at equal adjacent values.",
+      "failed_cases": [
+        "lc-978-1",
+        "lc-978-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5025,
+  "oracle_implementation": "code_practice/import_batch_077.py:turbulent_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5301830b597e7b93530f308ec52e82217e7e6cd56b82822771e8e4471cce195f",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

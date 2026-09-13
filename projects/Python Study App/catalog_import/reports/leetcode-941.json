@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-941",
+  "content_sha256": "d314a69fde13e0de999206607af8fdbc3d4dc7b86ca92daa6051f9ae205fbe0d",
+  "source_hash": "11a0bb8198767adefc8f97c9f4e4ee1bb2a63226e4806a6d5efe3371a8629ee8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows flat steps on the ascent.",
+      "failed_cases": [
+        "lc-941-7"
+      ]
+    },
+    {
+      "reason": "Allows a peak at an endpoint without both slopes.",
+      "failed_cases": [
+        "lc-941-5",
+        "lc-941-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4988,
+  "oracle_implementation": "code_practice/import_batch_077.py:mountain_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3a74d8d870b52c8ecf77a7fbdb112dc8b1856aeb4931451e92230d22c51c7bc3",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

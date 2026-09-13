@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-946",
+  "content_sha256": "6319a4f2f1d1b401eef7b9a1c5e72932ba98d468534cd781bde97dde786d2a2e",
+  "source_hash": "d6fe693510c85a839481e7f003adb0ce2d98a43cde71531bd42ef932f939bdd1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Pops from the bottom like a queue.",
+      "failed_cases": [
+        "lc-946-1",
+        "lc-946-5",
+        "lc-946-6",
+        "lc-946-7",
+        "lc-946-9",
+        "lc-946-11",
+        "lc-946-12",
+        "lc-946-13",
+        "lc-946-15",
+        "lc-946-16"
+      ]
+    },
+    {
+      "reason": "Accepts every permutation.",
+      "failed_cases": [
+        "lc-946-2",
+        "lc-946-8",
+        "lc-946-10",
+        "lc-946-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4993,
+  "oracle_implementation": "code_practice/import_batch_077.py:stack_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1618c149c00d915f8e1d0ab6fb2c744c85c263e9d8a21b9d0d08710a32437b23",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

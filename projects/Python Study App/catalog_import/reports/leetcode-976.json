@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-976",
+  "content_sha256": "d87ced3a259b2f96af7c6dd7506fce63e1cd2f36786f541c4140e62bfe33de8a",
+  "source_hash": "fca5661e1b1626224339f0e57712ca9ef1c410e954eee0e8bbedecd6de9a185c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts degenerate collinear sides.",
+      "failed_cases": [
+        "lc-976-2",
+        "lc-976-4",
+        "lc-976-9"
+      ]
+    },
+    {
+      "reason": "Omits the largest side from the perimeter.",
+      "failed_cases": [
+        "lc-976-1",
+        "lc-976-3",
+        "lc-976-5",
+        "lc-976-6",
+        "lc-976-8",
+        "lc-976-10",
+        "lc-976-11",
+        "lc-976-12",
+        "lc-976-13",
+        "lc-976-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5023,
+  "oracle_implementation": "code_practice/import_batch_077.py:perimeter_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ea011b3a250c184568aedec83c9501cb1574ee750c38fe33500647202569876b",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

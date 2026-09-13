@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-954",
+  "content_sha256": "11aed0b73cf46a9d36dd61094d9f6778f71805d83c71fcb6d71a7fd880612f2b",
+  "source_hash": "432721680a45d0e3062ffa5a722409305eac407c3746c589fc29db2146923035",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Processes negative values in numeric order and consumes partners incorrectly.",
+      "failed_cases": [
+        "lc-954-2",
+        "lc-954-6",
+        "lc-954-9",
+        "lc-954-13",
+        "lc-954-16"
+      ]
+    },
+    {
+      "reason": "Consumes only one double regardless of multiplicity.",
+      "failed_cases": [
+        "lc-954-12",
+        "lc-954-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5001,
+  "oracle_implementation": "code_practice/import_batch_077.py:doubled_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7d3da7988c29166b74939488d7bce6eaf41489d912d7d086431d87a48f3720f5",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

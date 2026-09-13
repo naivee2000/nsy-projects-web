@@ -1,0 +1,52 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-947",
+  "content_sha256": "dc05fcb760d7dc6bb2205b9c4dd21804ec4364ba623f4499fa80500f2ccc3905",
+  "source_hash": "e6e20dc62c87755c9bb383efda4a26ce909251a5b9dff05342b99903fc8a7212",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Removes one too many stones from every input.",
+      "failed_cases": [
+        "lc-947-1",
+        "lc-947-2",
+        "lc-947-3",
+        "lc-947-4",
+        "lc-947-5",
+        "lc-947-6",
+        "lc-947-7",
+        "lc-947-8",
+        "lc-947-9",
+        "lc-947-10",
+        "lc-947-11",
+        "lc-947-12",
+        "lc-947-13",
+        "lc-947-14",
+        "lc-947-15",
+        "lc-947-16"
+      ]
+    },
+    {
+      "reason": "Confuses row and column namespaces.",
+      "failed_cases": []
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4994,
+  "oracle_implementation": "code_practice/import_batch_077.py:stones_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "80f285cf7e3c7e9fcda7362499bdc8eaaa6120ad5ee544566d02948e4977aa89",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4532ea63d53f95e0058a303ba088150212dec115d57cbc9fadd579df4377f674",
+  "elapsed_seconds": 0.043,
+  "failures": [
+    {
+      "phase": "known_wrong",
+      "index": 1
+    }
+  ],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-965",
+  "content_sha256": "9d584b33050e86d47a257d8bce96f09313e418018e2149d6284b8ea88c547670",
+  "source_hash": "b124abd470acb65f01d8cd6c809f31249cdae325cb06b3c229dc38abbdd5bd73",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects nodes equal to the root.",
+      "failed_cases": [
+        "lc-965-1",
+        "lc-965-3",
+        "lc-965-4",
+        "lc-965-5",
+        "lc-965-6",
+        "lc-965-8",
+        "lc-965-9",
+        "lc-965-10",
+        "lc-965-12",
+        "lc-965-13",
+        "lc-965-15"
+      ]
+    },
+    {
+      "reason": "Reports false even after all nodes match.",
+      "failed_cases": [
+        "lc-965-1",
+        "lc-965-3",
+        "lc-965-4",
+        "lc-965-5",
+        "lc-965-6",
+        "lc-965-8",
+        "lc-965-9",
+        "lc-965-10",
+        "lc-965-12",
+        "lc-965-13",
+        "lc-965-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5012,
+  "oracle_implementation": "code_practice/import_batch_077.py:unival_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "76057f657912ef54c81d5f5a8e07dafa639acf215d221149ba3ce1dee9024616",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

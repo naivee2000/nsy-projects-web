@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-961",
+  "content_sha256": "cce32b498c359739cca7bcadbf61e1b3f98fa97ed78e54c3f8f047b068834fa9",
+  "source_hash": "e176fc2966cfc6044610468217658f04dcd3fe689327c65d767aab1eb50cec58",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Always returns the first array value.",
+      "failed_cases": [
+        "lc-961-1"
+      ]
+    },
+    {
+      "reason": "Clears memory each iteration and never finds a later duplicate.",
+      "failed_cases": [
+        "lc-961-1",
+        "lc-961-2",
+        "lc-961-3",
+        "lc-961-4",
+        "lc-961-5",
+        "lc-961-6",
+        "lc-961-7",
+        "lc-961-8",
+        "lc-961-9",
+        "lc-961-10",
+        "lc-961-11",
+        "lc-961-12",
+        "lc-961-13",
+        "lc-961-14",
+        "lc-961-15",
+        "lc-961-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5008,
+  "oracle_implementation": "code_practice/import_batch_077.py:repeated_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f4715388bc9c845a27703ab3245210449b991d808cb6427db3e438ea870b62dd",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

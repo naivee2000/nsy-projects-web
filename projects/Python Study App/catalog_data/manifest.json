@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 679,
+  "count": 699,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -12139,6 +12139,351 @@
       "path": "problems/leetcode-938.json",
       "content_sha256": "e940a07670d389ddf4953978d4bc573be2cb84a10d35530fa0c09df1d000b60b",
       "source_id": 938
+    },
+    {
+      "id": "leetcode-939",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Area Rectangle",
+      "summary": "Given an array of points in the X-Y plane, find the minimum area of a rectangle with sides parallel to the axes formed by these points.",
+      "topics": [
+        "geometry",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-939.json",
+      "content_sha256": "b24192dbf4254b41f109e8d46a89d7114ffd03990edaec4ece21eac8aa5fa978",
+      "source_id": 939
+    },
+    {
+      "id": "leetcode-940",
+      "version": 1,
+      "status": "approved",
+      "title": "Distinct Subsequences II",
+      "summary": "Calculate the count of unique non-empty subsequences in a given string, modulo 10^9 + 7.",
+      "topics": [
+        "dynamic-programming",
+        "strings"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-940.json",
+      "content_sha256": "3a081e20a85fee2abe8e2500caf131c7043790aa9febce8ee86e094dc2664a66",
+      "source_id": 940
+    },
+    {
+      "id": "leetcode-941",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Mountain Array",
+      "summary": "Determine if an array is a valid mountain array by checking if it has at least three elements and contains a peak where elements strictly increase to the peak and then strictly decrease from the peak.",
+      "topics": [
+        "arrays",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-941.json",
+      "content_sha256": "d314a69fde13e0de999206607af8fdbc3d4dc7b86ca92daa6051f9ae205fbe0d",
+      "source_id": 941
+    },
+    {
+      "id": "leetcode-944",
+      "version": 1,
+      "status": "approved",
+      "title": "Delete Columns to Make Sorted",
+      "summary": "Given an array of n strings of equal length, arrange the strings in a grid format.",
+      "topics": [
+        "matrices",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-944.json",
+      "content_sha256": "a13aed7ccf82f9ba29a3af8bdd3d35a93d71802f8bde6e7987209322c44978fd",
+      "source_id": 944
+    },
+    {
+      "id": "leetcode-946",
+      "version": 1,
+      "status": "approved",
+      "title": "Validate Stack Sequences",
+      "summary": "Given two integer arrays, pushed and popped, each containing distinct values, determine whether the popped sequence can be achieved through a series of push and pop operations starting from an empty stack.",
+      "topics": [
+        "stacks",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-946.json",
+      "content_sha256": "6319a4f2f1d1b401eef7b9a1c5e72932ba98d468534cd781bde97dde786d2a2e",
+      "source_id": 946
+    },
+    {
+      "id": "leetcode-948",
+      "version": 1,
+      "status": "approved",
+      "title": "Bag of Tokens",
+      "summary": "You start with a given power and a score of zero, along with a set of tokens represented by an integer array.",
+      "topics": [
+        "greedy",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-948.json",
+      "content_sha256": "f9e3a258d26865d1a012ec3c9729fb6d334501611a95682bbc40e7cb3a6d111c",
+      "source_id": 948
+    },
+    {
+      "id": "leetcode-949",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Time for Given Digits",
+      "summary": "Given an array of four digits, determine the latest 24-hour time format 'HH:MM' that can be formed using each digit exactly once.",
+      "topics": [
+        "permutations",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-949.json",
+      "content_sha256": "3227b037f5333310793e04e4f074146edb0969c945bb19fe1e344d9e3a74f547",
+      "source_id": 949
+    },
+    {
+      "id": "leetcode-953",
+      "version": 1,
+      "status": "approved",
+      "title": "Verifying an Alien Dictionary",
+      "summary": "Determine if the given list of words is sorted in lexicographical order based on the specified order of the alien language's alphabet.",
+      "topics": [
+        "strings",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-953.json",
+      "content_sha256": "9a602543259c54310637a7ad812c375710a6bf8b071bb219dacde20319809402",
+      "source_id": 953
+    },
+    {
+      "id": "leetcode-954",
+      "version": 1,
+      "status": "approved",
+      "title": "Array of Doubled Pairs",
+      "summary": "Determine if an integer array of even length can be reordered so that each element at an odd index is exactly twice the element at the corresponding even index.",
+      "topics": [
+        "counting",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-954.json",
+      "content_sha256": "11aed0b73cf46a9d36dd61094d9f6778f71805d83c71fcb6d71a7fd880612f2b",
+      "source_id": 954
+    },
+    {
+      "id": "leetcode-955",
+      "version": 1,
+      "status": "approved",
+      "title": "Delete Columns to Make Sorted II",
+      "summary": "Given an array of n strings of equal length, determine the smallest set of column indices to delete so that the remaining strings are in lexicographic order.",
+      "topics": [
+        "greedy",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-955.json",
+      "content_sha256": "b64b25c04879dbc890ad5b6ae1adad8758cb5c12ee035273927c204d948ce908",
+      "source_id": 955
+    },
+    {
+      "id": "leetcode-956",
+      "version": 1,
+      "status": "approved",
+      "title": "Tallest Billboard",
+      "summary": "Given a collection of rods with various lengths, determine the largest possible height for two equal steel supports to install a billboard by welding the rods together.",
+      "topics": [
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-956.json",
+      "content_sha256": "c8ccbf6571e6a5a848ae763219a40bb3b081f9cbbd2f795ba030e83a3b557bd1",
+      "source_id": 956
+    },
+    {
+      "id": "leetcode-960",
+      "version": 1,
+      "status": "approved",
+      "title": "Delete Columns to Make Sorted III",
+      "summary": "Given an array of n strings of equal length, determine the smallest set of column indices to delete such that each string becomes lexicographically sorted.",
+      "topics": [
+        "dynamic-programming",
+        "strings"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-960.json",
+      "content_sha256": "b26b9c01f654338aeb14e022364c64fd43397320ea5de1662abffc9edebe69e7",
+      "source_id": 960
+    },
+    {
+      "id": "leetcode-961",
+      "version": 1,
+      "status": "approved",
+      "title": "N-Repeated Element in Size 2N Array",
+      "summary": "Given an integer array nums with a length of 2N, where there are N + 1 unique values and N of these values appear exactly once, identify the single element that appears N times.",
+      "topics": [
+        "hash-maps",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-961.json",
+      "content_sha256": "cce32b498c359739cca7bcadbf61e1b3f98fa97ed78e54c3f8f047b068834fa9",
+      "source_id": 961
+    },
+    {
+      "id": "leetcode-962",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Width Ramp",
+      "summary": "In an integer array nums, identify pairs (i, j) where i < j and nums[i] is less than or equal to nums[j].",
+      "topics": [
+        "monotonic-stack",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-962.json",
+      "content_sha256": "3ffe14328278c6795981518506ca09ba90e40db81638bb7f4412144e2dfdb8d9",
+      "source_id": 962
+    },
+    {
+      "id": "leetcode-965",
+      "version": 1,
+      "status": "approved",
+      "title": "Univalued Binary Tree",
+      "summary": "Determine if a binary tree is uni-valued by checking if all nodes contain the same value, returning true if so, otherwise false.",
+      "topics": [
+        "trees",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-965.json",
+      "content_sha256": "9d584b33050e86d47a257d8bce96f09313e418018e2149d6284b8ea88c547670",
+      "source_id": 965
+    },
+    {
+      "id": "leetcode-970",
+      "version": 1,
+      "status": "approved",
+      "title": "Powerful Integers",
+      "summary": "Given three integers x, y, and bound, return a list of all powerful integers that are less than or equal to bound.",
+      "topics": [
+        "math",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-970.json",
+      "content_sha256": "d837241bad2be7ca90b7f0171472bbead5c7f66ab4e8dfd2ce1d464cf92abfcf",
+      "source_id": 970
+    },
+    {
+      "id": "leetcode-974",
+      "version": 1,
+      "status": "approved",
+      "title": "Subarray Sums Divisible by K",
+      "summary": "Given an integer array and an integer k, count the number of non-empty contiguous subarrays whose sum is divisible by k.",
+      "topics": [
+        "prefix-sums",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-974.json",
+      "content_sha256": "91b30c67cf10dd72d17153b67d73f30e14ed24afb1a46dcb266c086ebea46180",
+      "source_id": 974
+    },
+    {
+      "id": "leetcode-976",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Perimeter Triangle",
+      "summary": "Given an integer array, find the largest perimeter of a triangle with a non-zero area formed by any three elements.",
+      "topics": [
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-976.json",
+      "content_sha256": "d87ced3a259b2f96af7c6dd7506fce63e1cd2f36786f541c4140e62bfe33de8a",
+      "source_id": 976
+    },
+    {
+      "id": "leetcode-977",
+      "version": 1,
+      "status": "approved",
+      "title": "Squares of a Sorted Array",
+      "summary": "Provide an array containing the squared values of each element from a sorted integer array, ensuring the output array is also sorted in non-decreasing order.",
+      "topics": [
+        "two-pointers",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-977.json",
+      "content_sha256": "0c861e60ff8ab05ff9a0d19b77fba5d44be854d4e1a23e8f7edd768216710652",
+      "source_id": 977
+    },
+    {
+      "id": "leetcode-978",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Turbulent Subarray",
+      "summary": "Given an integer array, identify the longest subarray where the comparison sign alternates between adjacent elements.",
+      "topics": [
+        "dynamic-programming",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-978.json",
+      "content_sha256": "ee6268bca5859207e42a4267189b7a69ec9ee31ffdbfce645b266f7efbbae210",
+      "source_id": 978
     }
   ]
 }

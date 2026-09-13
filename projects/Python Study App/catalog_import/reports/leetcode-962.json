@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-962",
+  "content_sha256": "3ffe14328278c6795981518506ca09ba90e40db81638bb7f4412144e2dfdb8d9",
+  "source_hash": "b1d552850c6e505f07ac8a38688938292277fa4b26811d28213b718abf3b8bfc",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Stores increasing candidates instead of new prefix minima.",
+      "failed_cases": [
+        "lc-962-1",
+        "lc-962-2",
+        "lc-962-11",
+        "lc-962-15"
+      ]
+    },
+    {
+      "reason": "Rejects equal-valued ramp endpoints.",
+      "failed_cases": [
+        "lc-962-2",
+        "lc-962-6",
+        "lc-962-10",
+        "lc-962-12",
+        "lc-962-13",
+        "lc-962-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5009,
+  "oracle_implementation": "code_practice/import_batch_077.py:ramp_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3625f2f5f6cfc49f80104643132156565268c1a5222372eac2495ab449c34ca3",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

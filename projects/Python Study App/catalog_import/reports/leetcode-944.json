@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-944",
+  "content_sha256": "a13aed7ccf82f9ba29a3af8bdd3d35a93d71802f8bde6e7987209322c44978fd",
+  "source_hash": "f37dff7ae17f082cce8877c78581902eb28d08e221f54217010d55b161692b87",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts increasing columns as invalid.",
+      "failed_cases": [
+        "lc-944-1",
+        "lc-944-2",
+        "lc-944-4",
+        "lc-944-5",
+        "lc-944-9",
+        "lc-944-10",
+        "lc-944-14",
+        "lc-944-16"
+      ]
+    },
+    {
+      "reason": "Deletes every column regardless of order.",
+      "failed_cases": [
+        "lc-944-1",
+        "lc-944-2",
+        "lc-944-3",
+        "lc-944-5",
+        "lc-944-6",
+        "lc-944-7",
+        "lc-944-8",
+        "lc-944-10",
+        "lc-944-11",
+        "lc-944-12",
+        "lc-944-13",
+        "lc-944-14",
+        "lc-944-15",
+        "lc-944-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4991,
+  "oracle_implementation": "code_practice/import_batch_077.py:delete_one_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1122e3709f1714b614b25b4399cf9238206057d9b3dcc67b10d07fb4199bc269",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

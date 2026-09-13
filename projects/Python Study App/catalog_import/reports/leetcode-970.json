@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-970",
+  "content_sha256": "d837241bad2be7ca90b7f0171472bbead5c7f66ab4e8dfd2ce1d464cf92abfcf",
+  "source_hash": "2c1867adf4ca6621b4aa997bac6f2a87d76816891216a50911e82cf0efd5001c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Multiplies powers instead of adding them.",
+      "failed_cases": [
+        "lc-970-1",
+        "lc-970-2",
+        "lc-970-4",
+        "lc-970-5",
+        "lc-970-6",
+        "lc-970-7",
+        "lc-970-8",
+        "lc-970-10",
+        "lc-970-11",
+        "lc-970-12",
+        "lc-970-13",
+        "lc-970-14",
+        "lc-970-15"
+      ]
+    },
+    {
+      "reason": "Stops after one x power when x equals two.",
+      "failed_cases": [
+        "lc-970-1",
+        "lc-970-6",
+        "lc-970-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5017,
+  "oracle_implementation": "code_practice/import_batch_077.py:powerful_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ca9544c43af5199e79ffbcc3330fbf8af831704661bbbba0848d7f86e7fd7f20",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

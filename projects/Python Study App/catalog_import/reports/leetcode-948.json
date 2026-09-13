@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-948",
+  "content_sha256": "f9e3a258d26865d1a012ec3c9729fb6d334501611a95682bbc40e7cb3a6d111c",
+  "source_hash": "384c5fc664b8ad22a961d2d57c88d094ca79e29e1bfad3cf3a8669ed2456341a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sells the cheapest remaining token instead of the most expensive.",
+      "failed_cases": [
+        "lc-948-2"
+      ]
+    },
+    {
+      "reason": "Always reports zero score.",
+      "failed_cases": [
+        "lc-948-2",
+        "lc-948-5",
+        "lc-948-6",
+        "lc-948-7",
+        "lc-948-8",
+        "lc-948-9",
+        "lc-948-10",
+        "lc-948-11",
+        "lc-948-12",
+        "lc-948-13",
+        "lc-948-14",
+        "lc-948-15",
+        "lc-948-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4995,
+  "oracle_implementation": "code_practice/import_batch_077.py:tokens_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2bb05d524e5616ddad07aee87cb66610064cff8059f3f2f8cd428a848ab1be80",
+  "elapsed_seconds": 0.064,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-960",
+  "content_sha256": "b26b9c01f654338aeb14e022364c64fd43397320ea5de1662abffc9edebe69e7",
+  "source_hash": "796a434a69139f16583314423070e933353ff4c456e0c2e496ffd7d782819b25",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forbids equal adjacent retained characters.",
+      "failed_cases": [
+        "lc-960-9"
+      ]
+    },
+    {
+      "reason": "Assumes exactly one column can always be retained.",
+      "failed_cases": [
+        "lc-960-1",
+        "lc-960-4",
+        "lc-960-6",
+        "lc-960-8",
+        "lc-960-9",
+        "lc-960-10",
+        "lc-960-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5007,
+  "oracle_implementation": "code_practice/import_batch_077.py:delete_three_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eb0ac366d8039ddfb6ff0b494e7785ea2b00cca5c189bbf5c34c54c72cd9909f",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

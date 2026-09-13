@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-977",
+  "content_sha256": "0c861e60ff8ab05ff9a0d19b77fba5d44be854d4e1a23e8f7edd768216710652",
+  "source_hash": "357f9b19795a820775f4cfe369d16f6e6256682f1a91a73e8e93f86da49f84cf",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the smaller absolute endpoint for the largest remaining slot.",
+      "failed_cases": [
+        "lc-977-1",
+        "lc-977-2",
+        "lc-977-6",
+        "lc-977-7",
+        "lc-977-8",
+        "lc-977-9",
+        "lc-977-10",
+        "lc-977-11",
+        "lc-977-12",
+        "lc-977-13",
+        "lc-977-14",
+        "lc-977-15"
+      ]
+    },
+    {
+      "reason": "Fills output from the front while choosing the largest square.",
+      "failed_cases": [
+        "lc-977-1",
+        "lc-977-2",
+        "lc-977-6",
+        "lc-977-7",
+        "lc-977-8",
+        "lc-977-9",
+        "lc-977-10",
+        "lc-977-11",
+        "lc-977-12",
+        "lc-977-13",
+        "lc-977-14",
+        "lc-977-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5024,
+  "oracle_implementation": "code_practice/import_batch_077.py:squares_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8cfb6c1cbd728f5403636f425cdd59fba9fdfbf8a9ff1cba321f9c03f41aa3ea",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

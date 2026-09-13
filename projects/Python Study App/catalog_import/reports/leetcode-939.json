@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-939",
+  "content_sha256": "b24192dbf4254b41f109e8d46a89d7114ffd03990edaec4ece21eac8aa5fa978",
+  "source_hash": "4fdf352a346a1ba9da9fcfe66165bdcad4ec5d0ba9721299be7154d790032963",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the largest rectangle instead of the smallest.",
+      "failed_cases": [
+        "lc-939-1",
+        "lc-939-2",
+        "lc-939-5",
+        "lc-939-6",
+        "lc-939-8",
+        "lc-939-10",
+        "lc-939-11",
+        "lc-939-12",
+        "lc-939-13",
+        "lc-939-14",
+        "lc-939-15",
+        "lc-939-16"
+      ]
+    },
+    {
+      "reason": "Accepts three corners without checking the fourth.",
+      "failed_cases": [
+        "lc-939-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4986,
+  "oracle_implementation": "code_practice/import_batch_077.py:rectangle_oracle",
+  "validator_implementation_sha256": "86d9c329c9d1dc5f4da7724a3a6669084043050a0352741ba2e44445359ad29f",
+  "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c84ec29d2e2e94ae52525d386346f665c8f6426cf2f4d2ece2a6bef70aa5d15b",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
