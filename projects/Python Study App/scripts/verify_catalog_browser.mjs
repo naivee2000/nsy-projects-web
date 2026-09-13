@@ -252,6 +252,14 @@ try {
   assert((await page.locator('.problem-pane').textContent()).includes('at least two strictly shorter'));
   assert((await page.locator('.problem-pane').textContent()).includes('three pieces'));
   report.checks.push('concatenated-word examples distinguish shorter-word reuse from accepting the unsplit candidate');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Encode String with Shortest Length');
+  await page.getByRole('button', { name: /Encode String with Shortest Length.*Advanced/ }).click();
+  const encodingNote = page.getByRole('note').filter({ hasText: 'Shortest-encoding judging' });
+  await encodingNote.waitFor();
+  assert((await encodingNote.textContent()).includes('any minimum-length encoding'));
+  assert((await page.locator('.example code').nth(1).textContent()).includes('One valid output'));
+  report.checks.push('shortest encoding explains tied optimal strings and literal-only output when compression saves no space');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -261,6 +269,7 @@ try {
     report.worker.push({ id: entry.id, status: result.status, cases: result.cases.length, runtimeMs: result.runtimeMs });
     if (report.worker.length % 25 === 0) console.log(`Verified ${report.worker.length} reference suites in Chrome`);
   }
+  console.log(`All ${report.worker.length} reference suites passed; checking wrong algorithms and output contracts`);
   for (const id of [148, 149, 156, 164, 186, 189, 203]) {
     const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
     for (const wrong of problem.known_wrong_solutions) {
@@ -391,6 +400,26 @@ try {
       `def concatenated_words(words):\n    return ${JSON.stringify(output)}`)).status, 'wrong_answer');
   }
   report.checks.push('batch 42 wrong algorithms rejected: self-only or two-piece-only words, greedy side placement, repeated item use, duplicate erasure and wrong heater distances; concatenated results permit reorder only');
+  const encoding = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-471.json'), 'utf8'));
+  for (const wrong of encoding.known_wrong_solutions) {
+    assert.equal((await judge(page, encoding, wrong)).status, 'wrong_answer', 'leetcode-471 wrong fixture');
+  }
+  const encodingCase = { ...encoding, tests: [{ id: 'encoding-ties', arguments: ['aaaaaaaaaa'],
+    expected: '10[a]', comparator: 'shortest_encoding' }] };
+  for (const output of ['10[a]', 'a9[a]', '9[a]a', '5[aa]']) {
+    assert.equal((await judge(page, encodingCase, `def shortest_encoding(s):\n    return ${JSON.stringify(output)}`)).status, 'accepted');
+  }
+  for (const output of ['10[b]', 'aaaaaaaaaa', '2[5[a]]', '9[a]', '0[aa]', '150[150[a]]', '999999999999[a]', '2[]', '__import__("os")']) {
+    const failure = await judge(page, encodingCase, `def shortest_encoding(s):\n    return ${JSON.stringify(output)}`);
+    assert.equal(failure.status, 'wrong_answer');
+    assert.equal(failure.cases[0].actual, output);
+    assert(failure.cases[0].error.includes('shortest valid encoding'));
+  }
+  const literalCase = { ...encoding, tests: [{ id: 'no-savings', arguments: ['aaaa'], expected: 'aaaa', comparator: 'shortest_encoding' }] };
+  assert.equal((await judge(page, literalCase, "def shortest_encoding(s):\n    return '4[a]'" )).status, 'wrong_answer');
+  assert.equal((await judge(page, literalCase, "def shortest_encoding(s):\n    return s" )).status, 'accepted');
+  report.checks.push('batch 43 rejects both wrong encoders; tied optimal expressions pass, wrong decoded text and malformed or oversized expansions fail, literal ties stay unencoded, and the next worker recovers');
+  console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
     expected: [1,1,1], expected_node_order: [1,2,0] }] };

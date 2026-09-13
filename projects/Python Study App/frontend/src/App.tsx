@@ -486,10 +486,11 @@ export default function App() {
 
   const flexibleTreeOutput = Boolean(problem?.tests.some((test) => test.comparator === "balanced_bst"));
   const bstDeletionOutput = Boolean(problem?.tests.some((test) => test.comparator === "bst_delete"));
+  const shortestEncodingOutput = Boolean(problem?.tests.some((test) => test.comparator === "shortest_encoding"));
   const flexibleWiggleOutput = Boolean(problem?.tests.some((test) => test.comparator === "wiggle"));
   const strictWiggleOutput = Boolean(problem?.tests.some((test) => test.comparator === "strict_wiggle"));
   const orderedGroupsOutput = Boolean(problem?.tests.some((test) => test.comparator === "unordered_rows"));
-  const flexibleOutput = flexibleTreeOutput || bstDeletionOutput || flexibleWiggleOutput || strictWiggleOutput || orderedGroupsOutput;
+  const flexibleOutput = flexibleTreeOutput || bstDeletionOutput || shortestEncodingOutput || flexibleWiggleOutput || strictWiggleOutput || orderedGroupsOutput;
 
   return (
     <div className="app-shell">
@@ -599,6 +600,7 @@ export default function App() {
                 <p className="statement">{problem.statement}</p>
                 <div className="complexity-row"><span>Target time <strong>{problem.target_time_complexity}</strong></span><span>Target space <strong>{problem.target_space_complexity}</strong></span></div>
                 {bstDeletionOutput && <p className="statement" role="note">BST-deletion judging: return any valid BST with exactly the original values except the deleted key. Balancing is not required. The example shows one valid shape, not the only accepted answer.</p>}
+                {shortestEncodingOutput && <p className="statement" role="note">Shortest-encoding judging: return any minimum-length encoding that expands to the entire input. Keep the literal input when encoding saves no space. The example shows one valid answer, not the only accepted string.</p>}
                 {problem.signature.result_mode === "mutated_argument" && problem.signature.node_policy !== "delete_referenced_list_node" && <p className="statement" role="note">In-place judging: modify {problem.signature.parameters[problem.signature.mutated_parameter ?? 0].name} directly. Output shows that argument after your function runs; a returned copy is not used.</p>}
                 {problem.signature.node_policy === "delete_referenced_list_node" && <p className="statement" role="note">Selected-node judging: the input shows the full linked list and the selected node index. Your function receives that actual non-tail node. Output shows the full list after mutation, and the judge checks the original node identities.</p>}
                 {problem.signature.node_policy === "preserve_tree_structure" && <p className="statement" role="note">Tree-structure judging: change only integer node values. Keep every original node and its left/right links; rebuilding an identical-looking tree does not count. Temporary traversal links must be restored before returning.</p>}
@@ -612,7 +614,7 @@ export default function App() {
                 {teachingExamples(problem.tests).map((test, index) => (
                   <div className="example" key={test.id}>
                     <span>EXAMPLE {index + 1}</span>
-                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}{["balanced_bst", "bst_delete", "wiggle", "strict_wiggle", "unordered_rows"].includes(test.comparator) ? "One valid output" : "Output"}: {JSON.stringify(test.expected)}</code>
+                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}{["balanced_bst", "bst_delete", "wiggle", "strict_wiggle", "unordered_rows", "shortest_encoding"].includes(test.comparator) ? "One valid output" : "Output"}: {JSON.stringify(test.expected)}</code>
                     {test.explanation && <p>{test.explanation}</p>}
                   </div>
                 ))}

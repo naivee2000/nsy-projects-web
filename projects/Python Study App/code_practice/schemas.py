@@ -7,10 +7,48 @@ from typing import Annotated, Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
-Comparator = Literal["exact", "float", "unordered", "unordered_nested", "unordered_rows", "balanced_bst", "bst_delete", "wiggle", "strict_wiggle"]
+Comparator = Literal["exact", "float", "unordered", "unordered_nested", "unordered_rows", "balanced_bst", "bst_delete", "wiggle", "strict_wiggle", "shortest_encoding"]
 ParameterAdapter = Literal["raw", "listnode", "listnode_ref", "treenode", "treenode_ref"]
 ReturnAdapter = Literal["raw", "listnode", "treenode", "treenode_value"]
 AttemptResult = Literal["accepted", "wrong_answer", "syntax_error", "runtime_error", "timeout"]
+
+
+def decode_short_encoding(encoded, limit=150):
+    """Decode lowercase literals and positive k[body] with bounded expansion.
+
+    Reject malformed or oversized values before multiplication; never evaluate
+    submitted text as code or build an exponentially expanded intermediate.
+    """
+    if not isinstance(encoded, str) or not 1 <= len(encoded) <= limit:
+        return None
+    stack, text, number, digits = [], '', 0, False
+    for char in encoded:
+        if '0' <= char <= '9':
+            number = number*10 + ord(char)-48
+            digits = True
+            if number > limit:
+                return None
+        elif char == '[':
+            if not digits or number == 0:
+                return None
+            stack.append((text, number))
+            text, number, digits = '', 0, False
+        elif char == ']':
+            if digits or not stack or not text:
+                return None
+            prefix, count = stack.pop()
+            if len(prefix) + count*len(text) > limit:
+                return None
+            text = prefix + count*text
+        elif 'a' <= char <= 'z':
+            if digits:
+                return None
+            text += char
+            if len(text) > limit:
+                return None
+        else:
+            return None
+    return text if not stack and not digits else None
 
 
 def analyze_integer_tree(values: Any) -> tuple[list[int], bool] | None:
@@ -202,6 +240,20 @@ class ProblemDefinition(BaseModel):
 
     @model_validator(mode="after")
     def validate_learning_content(self) -> "ProblemDefinition":
+        if any(t.comparator == "shortest_encoding" for t in self.tests):
+            if (self.signature.result_mode != "return" or self.signature.return_adapter != "raw"
+                    or self.signature.returns != "str" or len(self.signature.parameters) != 1
+                    or self.signature.parameters[0].annotation != "str"
+                    or self.signature.parameters[0].adapter != "raw"
+                    or any(t.comparator != "shortest_encoding" for t in self.tests)):
+                raise ValueError("Shortest-encoding judging requires one raw string and a consistently compared string return")
+            for test in self.tests:
+                original = test.arguments[0] if len(test.arguments) == 1 else None
+                if (not isinstance(original, str) or not 1 <= len(original) <= 150
+                        or any(not 'a' <= char <= 'z' for char in original)
+                        or decode_short_encoding(test.expected, len(original)) != original
+                        or (len(test.expected) == len(original) and test.expected != original)):
+                    raise ValueError("Shortest-encoding expectation must decode to the lowercase input, saving space or remaining literal")
         for test in self.tests:
             for index, parameter in enumerate(self.signature.parameters):
                 if parameter.adapter != "listnode_ref":

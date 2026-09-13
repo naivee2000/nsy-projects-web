@@ -101,6 +101,43 @@ test.each(["wiggle", "strict_wiggle"])("explains %s inequalities and alternative
   expect(await screen.findByText(/One valid output:/)).toBeInTheDocument();
 });
 
+test("explains alternative shortest encodings and preserves failed output", async () => {
+  const problem = {
+    id: "pair-sum-indices", version: 1, title: "Shortest encoding", summary: "Encode the input.",
+    statement: "Return any shortest encoding.", constraints: ["Lowercase text."], topics: ["strings"], prerequisites: [],
+    difficulty: 8, estimated_minutes: 50, target_time_complexity: "O(n^4)", target_space_complexity: "O(n^3)",
+    signature: { name: "shortest_encoding", parameters: [{ name: "s", annotation: "str", adapter: "raw" }],
+      returns: "str", return_adapter: "raw", result_mode: "return" },
+    starter_code: "def shortest_encoding(s): pass", savedDraft: "def shortest_encoding(s): pass",
+    tests: [{ id: "encoding-example", arguments: ["aaaaaaaaaa"], expected: "10[a]", comparator: "shortest_encoding", visible: true, explanation: "a9[a] is also valid." }],
+    revealedHintLevel: 0, revealedHints: [], solved: false,
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : libraryPage()),
+  })));
+  class EncodingWorker {
+    onmessage: ((event: MessageEvent) => void) | null = null;
+    postMessage(payload: { type?: string }) {
+      queueMicrotask(() => this.onmessage?.({ data: payload.type === "warmup" ? { type: "ready" }
+        : { status: "wrong_answer", message: "Wrong encoding.", runtimeMs: 2,
+          cases: [{ id: "encoding-example", passed: false, actual: "10[b]", expected: "10[a]", arguments: ["aaaaaaaaaa"], visible: true,
+            error: "Return any shortest valid encoding that decodes to the entire input." }] } } as MessageEvent));
+    }
+    terminate() {}
+  }
+  vi.stubGlobal("Worker", EncodingWorker);
+  render(<App />);
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  expect(await screen.findByRole("note")).toHaveTextContent("any minimum-length encoding");
+  expect(screen.getByRole("note")).toHaveTextContent("Keep the literal input when encoding saves no space");
+  expect(screen.getByText(/One valid output:/)).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: "Run examples" }));
+  const evidence = await screen.findByText(/Your code yielded/);
+  expect(evidence).toHaveTextContent('One valid output "10[a]"');
+  expect(evidence).toHaveTextContent('Your code yielded "10[b]"');
+  expect(evidence).toHaveTextContent("decodes to the entire input");
+});
+
 test("explains ordered groups and labels failure evidence as one valid output", async () => {
   const problem = {
     id: "pair-sum-indices", version: 1, title: "Leaf rounds", summary: "Collect leaves.",

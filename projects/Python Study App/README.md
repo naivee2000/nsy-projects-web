@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 411 runnable problems (101 original exercises plus 310 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 412 runnable problems (101 original exercises plus 311 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **395-problem handoff checkpoint** is tagged `python-study-395-checkpoint`; all earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_395_CHECKPOINT.md) for exact-version update commands. Resumed local goal work adds sixteen verified batch-41/42 problems outside that frozen release. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **395-problem handoff checkpoint** is tagged `python-study-395-checkpoint`; all earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_395_CHECKPOINT.md) for exact-version update commands. Resumed local goal work adds seventeen verified batch-41/42/43 problems outside that frozen release. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 74 existing equivalents, 310 verified imports, 155 documented
-design/interactive exclusions, and 3,090 pending records. Ordinary tree and
+Current status: 74 existing equivalents, 311 verified imports, 155 documented
+design/interactive exclusions, and 3,089 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Forty-two reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Forty-three reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -405,6 +405,19 @@ unique dictionary words/100,000 characters, 15 sticks, 600 binary strings, and
 blocked initial validation until repaired; neither quarantined version was
 published. Recursion/search review boosts and Hard prerequisite gates remain
 active. All previously published problem IDs and content remain unchanged.
+Batch forty-three adds Encode String with Shortest Length and a flexible
+`shortest_encoding` comparator. Answers must decode to the complete input and
+match the independently verified optimal length; `10[a]`, `a9[a]`, `9[a]a`, and
+`5[aa]` all pass for ten a characters. Literal text is required when encoding
+saves no space. A bounded parser rejects malformed syntax and excessive
+expansion before allocating repeated strings, without evaluating submitted text.
+Schema checks bind expected encodings to the actual input, and UI examples and
+failure details identify the displayed answer as one valid output. An exhaustive
+grammar constructor checks both native and worker decoders independently; parse-
+tree enumeration checks 500 seeded inputs and exhaustive short binary strings.
+The 150-character and nested-repeat boundaries are included. Every imported
+problem is revalidated after this shared-judge extension; published IDs, content,
+saved progress, and transfer tags remain unchanged.
 Of the 74 overlaps, 69 map to original exercises and five map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
@@ -452,7 +465,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 411 problems; future
+been checked against every reviewed batch. The current package contains 412 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

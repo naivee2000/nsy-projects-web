@@ -216,7 +216,45 @@ def analyze_integer_tree(values):
         current = nodes[current][2]
     return ordered, balanced
 
+def decode_short_encoding(encoded, limit=150):
+    if not isinstance(encoded, str) or not 1 <= len(encoded) <= limit:
+        return None
+    stack, text, number, digits = [], '', 0, False
+    for char in encoded:
+        if '0' <= char <= '9':
+            number = number*10 + ord(char)-48
+            digits = True
+            if number > limit:
+                return None
+        elif char == '[':
+            if not digits or number == 0:
+                return None
+            stack.append((text, number))
+            text, number, digits = '', 0, False
+        elif char == ']':
+            if digits or not stack or not text:
+                return None
+            prefix, count = stack.pop()
+            if len(prefix) + count*len(text) > limit:
+                return None
+            text = prefix + count*text
+        elif 'a' <= char <= 'z':
+            if digits:
+                return None
+            text += char
+            if len(text) > limit:
+                return None
+        else:
+            return None
+    return text if not stack and not digits else None
+
 def matches(actual, expected, comparator):
+    if comparator == "shortest_encoding":
+        if not isinstance(actual, str) or not isinstance(expected, str) or len(actual) != len(expected):
+            return False
+        goal = decode_short_encoding(expected)
+        return (goal is not None and decode_short_encoding(actual, len(goal)) == goal
+                and (len(expected) < len(goal) or actual == goal))
     if comparator == "bst_delete":
         tree, goal = analyze_integer_tree(actual), analyze_integer_tree(expected)
         return (tree is not None and goal is not None and tree[0] == goal[0]
@@ -323,6 +361,8 @@ else:
                         actual = {"return": output, "prefix": changed[:output] if valid_count else None}
             passed = matches_result(actual, test["expected"], test.get("comparator", "exact"), mode)
             contract_error = None
+            if test.get("comparator") == "shortest_encoding" and not passed:
+                contract_error = "Return any shortest valid encoding that decodes to the entire input. Keep the literal input when encoding saves no space. The example is only one valid output."
             if test.get("comparator") == "balanced_bst" and not passed:
                 contract_error = "Return a height-balanced BST containing every input value exactly once in inorder. The example shape is only one valid output."
             if test.get("comparator") == "bst_delete" and not passed:
