@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 828,
+  "count": 837,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -14730,6 +14730,162 @@
       "path": "problems/leetcode-1154.json",
       "content_sha256": "ff4a16d94833e2f24b0100fa882734ac88b0d95b941960d11c79355ee2523df9",
       "source_id": 1154
+    },
+    {
+      "id": "leetcode-1155",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Dice Rolls With Target Sum",
+      "summary": "Determine the number of ways to roll n dice, each with k faces, such that the sum of the faces equals the target, modulo 10^9 + 7.",
+      "topics": [
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1155.json",
+      "content_sha256": "6e04754fff0ae6ab418106c8f0ccc84f4c041f8f36f6326cf03ec1bda4d17939",
+      "source_id": 1155
+    },
+    {
+      "id": "leetcode-1156",
+      "version": 1,
+      "status": "approved",
+      "title": "Swap For Longest Repeated Character Substring",
+      "summary": "Given a string, you may swap two characters to find the longest substring with repeating characters.",
+      "topics": [
+        "sliding-window",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1156.json",
+      "content_sha256": "ea1421cd4c131649c6287448e14c761dbae3977a6155cd778270d97887074768",
+      "source_id": 1156
+    },
+    {
+      "id": "leetcode-1161",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Level Sum of a Binary Tree",
+      "summary": "For a given binary tree, determine the lowest level where the sum of node values is the greatest.",
+      "topics": [
+        "trees",
+        "breadth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1161.json",
+      "content_sha256": "414add5d3e18f522257d36628752471f57fa9b6ad067d0fe49b902f5f2bc34b2",
+      "source_id": 1161
+    },
+    {
+      "id": "leetcode-1162",
+      "version": 1,
+      "status": "approved",
+      "title": "As Far from Land as Possible",
+      "summary": "In an n x n grid with 0s for water and 1s for land, identify a water cell with the greatest distance to the nearest land cell, and report this distance.",
+      "topics": [
+        "matrix",
+        "breadth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1162.json",
+      "content_sha256": "4c8c0a2b3aa3b18a7bcb55f22eb3a6b36ffe0ed0ade300a4d89c066a4d72fe94",
+      "source_id": 1162
+    },
+    {
+      "id": "leetcode-1163",
+      "version": 1,
+      "status": "approved",
+      "title": "Last Substring in Lexicographical Order",
+      "summary": "For a given string s, identify and return the final substring that appears last in alphabetical order.",
+      "topics": [
+        "two-pointers",
+        "strings"
+      ],
+      "prerequisites": [
+        "two-pointers"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1163.json",
+      "content_sha256": "2d0872af97d6ea1b3f78e1f2aa6bccbfbd40122814d4fc8ff37b522906c43505",
+      "source_id": 1163
+    },
+    {
+      "id": "leetcode-1165",
+      "version": 1,
+      "status": "approved",
+      "title": "Single-Row Keyboard",
+      "summary": "A keyboard with keys arranged in a single row is described.",
+      "topics": [
+        "hash-maps",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1165.json",
+      "content_sha256": "469e203005f2fc5e673a826e495be26fa072588957ed6f139e2b64451c5997dd",
+      "source_id": 1165
+    },
+    {
+      "id": "leetcode-1168",
+      "version": 1,
+      "status": "approved",
+      "title": "Optimize Water Distribution in a Village",
+      "summary": "Given a village with n houses, determine the least cost to supply water by either building a well in each house or connecting houses with pipes, where the cost to build a well in house i is wells[i-1] and the cost to connect two houses is given in the pipes array.",
+      "topics": [
+        "minimum-spanning-tree",
+        "union-find"
+      ],
+      "prerequisites": [
+        "minimum-spanning-tree"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1168.json",
+      "content_sha256": "4af0616e4f2f863a9ece2c89ec4003948a3c29598f9c9320489f4d3209508f04",
+      "source_id": 1168
+    },
+    {
+      "id": "leetcode-1169",
+      "version": 1,
+      "status": "approved",
+      "title": "Invalid Transactions",
+      "summary": "Identify transactions that are possibly invalid if the transaction amount exceeds $1000, or if it happens within 60 minutes of another transaction with the same name but in a different city.",
+      "topics": [
+        "sorting",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1169.json",
+      "content_sha256": "638921135033dbffc291aa2632c14576fd472607f33da8ff1849ea415c8bc905",
+      "source_id": 1169
+    },
+    {
+      "id": "leetcode-1170",
+      "version": 1,
+      "status": "approved",
+      "title": "Compare Strings by Frequency of the Smallest Character",
+      "summary": "Define the function f(s) as the frequency of the lexicographically smallest character in a non-empty string s .",
+      "topics": [
+        "binary-search",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1170.json",
+      "content_sha256": "514f62394f5dcdbf849c8609f024d5ba1ce2f3df5834fc20fd39a544a9e98f91",
+      "source_id": 1170
     }
   ]
 }

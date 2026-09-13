@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1162",
+  "content_sha256": "4c8c0a2b3aa3b18a7bcb55f22eb3a6b36ffe0ed0ade300a4d89c066a4d72fe94",
+  "source_hash": "52dbdc8401e5098fe50a936e0b43c3d581d67569d1638568f8e660f70517a79f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats any grid containing land as an invalid all-water case.",
+      "failed_cases": [
+        "lc-1162-4",
+        "lc-1162-9"
+      ]
+    },
+    {
+      "reason": "Subtracts an extra BFS layer from the distance.",
+      "failed_cases": [
+        "lc-1162-1",
+        "lc-1162-2",
+        "lc-1162-5",
+        "lc-1162-6",
+        "lc-1162-7",
+        "lc-1162-10",
+        "lc-1162-11",
+        "lc-1162-12",
+        "lc-1162-13",
+        "lc-1162-14",
+        "lc-1162-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5209,
+  "oracle_implementation": "code_practice/import_batch_084b.py:distance_oracle",
+  "validator_implementation_sha256": "e87de890933e07fe4eda4222de84a139f0db0bc86bed366f720b28da6468874d",
+  "batch_implementation_sha256": "0bb7a2eb2da08d002943c3f8b75412136f479adb7f60d30632aae3a384712c4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "13f82548404c90c1359766125a86f7c9283c8e95df54fba31da264ff435f70a5",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

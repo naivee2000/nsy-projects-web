@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1161",
+  "content_sha256": "414add5d3e18f522257d36628752471f57fa9b6ad067d0fe49b902f5f2bc34b2",
+  "source_hash": "5e855a412ca09e496c7cb86951dd5c0e933ac67ab4a357d97b9013aba90fb867",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the later level when sums tie.",
+      "failed_cases": [
+        "lc-1161-16"
+      ]
+    },
+    {
+      "reason": "Reports levels using an off-by-one depth.",
+      "failed_cases": [
+        "lc-1161-1",
+        "lc-1161-2",
+        "lc-1161-3",
+        "lc-1161-4",
+        "lc-1161-5",
+        "lc-1161-6",
+        "lc-1161-7",
+        "lc-1161-8",
+        "lc-1161-9",
+        "lc-1161-10",
+        "lc-1161-11",
+        "lc-1161-12",
+        "lc-1161-13",
+        "lc-1161-14",
+        "lc-1161-15",
+        "lc-1161-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5208,
+  "oracle_implementation": "code_practice/import_batch_084b.py:level_oracle",
+  "validator_implementation_sha256": "e87de890933e07fe4eda4222de84a139f0db0bc86bed366f720b28da6468874d",
+  "batch_implementation_sha256": "0bb7a2eb2da08d002943c3f8b75412136f479adb7f60d30632aae3a384712c4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0686754f6856a096a2679fcc6b4e7f13ec4da3e8305b528f2545a05cc3be5f5c",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

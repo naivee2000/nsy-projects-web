@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1168",
+  "content_sha256": "4af0616e4f2f863a9ece2c89ec4003948a3c29598f9c9320489f4d3209508f04",
+  "source_hash": "03b62b2ea3c91b24decb5ad5b4e3a5ca22fc31f8a3b544369a5eccaf433da5b0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Connects wells to house one instead of the virtual source.",
+      "failed_cases": [
+        "lc-1168-1",
+        "lc-1168-2",
+        "lc-1168-3",
+        "lc-1168-4",
+        "lc-1168-5",
+        "lc-1168-6",
+        "lc-1168-7",
+        "lc-1168-8",
+        "lc-1168-9",
+        "lc-1168-10",
+        "lc-1168-11",
+        "lc-1168-12",
+        "lc-1168-13",
+        "lc-1168-14"
+      ]
+    },
+    {
+      "reason": "Adds only cycle edges rather than component-joining edges.",
+      "failed_cases": [
+        "lc-1168-1",
+        "lc-1168-2",
+        "lc-1168-3",
+        "lc-1168-4",
+        "lc-1168-5",
+        "lc-1168-6",
+        "lc-1168-7",
+        "lc-1168-8",
+        "lc-1168-9",
+        "lc-1168-10",
+        "lc-1168-11",
+        "lc-1168-12",
+        "lc-1168-13",
+        "lc-1168-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5215,
+  "oracle_implementation": "code_practice/import_batch_084b.py:water_oracle",
+  "validator_implementation_sha256": "e87de890933e07fe4eda4222de84a139f0db0bc86bed366f720b28da6468874d",
+  "batch_implementation_sha256": "0bb7a2eb2da08d002943c3f8b75412136f479adb7f60d30632aae3a384712c4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e801527d499cac9e9660d0f3bc0c933e2a14c00aab29898d1226b26d8aaf056e",
+  "elapsed_seconds": 0.095,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

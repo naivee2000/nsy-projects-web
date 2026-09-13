@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1170",
+  "content_sha256": "514f62394f5dcdbf849c8609f024d5ba1ce2f3df5834fc20fd39a544a9e98f91",
+  "source_hash": "6f1aabfa4f176b1bff1da107f2e9dc8ed0f6e2c8cd59a7378e40bf1bd8edad67",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts words with equal frequency as if strictly greater.",
+      "failed_cases": [
+        "lc-1170-2",
+        "lc-1170-3",
+        "lc-1170-7",
+        "lc-1170-9",
+        "lc-1170-11",
+        "lc-1170-12",
+        "lc-1170-14",
+        "lc-1170-15"
+      ]
+    },
+    {
+      "reason": "Adds the insertion index instead of subtracting it from the word count.",
+      "failed_cases": [
+        "lc-1170-2",
+        "lc-1170-3",
+        "lc-1170-4",
+        "lc-1170-7",
+        "lc-1170-9",
+        "lc-1170-10",
+        "lc-1170-11",
+        "lc-1170-12",
+        "lc-1170-14",
+        "lc-1170-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5217,
+  "oracle_implementation": "code_practice/import_batch_084b.py:frequency_oracle",
+  "validator_implementation_sha256": "e87de890933e07fe4eda4222de84a139f0db0bc86bed366f720b28da6468874d",
+  "batch_implementation_sha256": "0bb7a2eb2da08d002943c3f8b75412136f479adb7f60d30632aae3a384712c4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ff2be190f046e0a568bab6bc6f646f5f434a12a03ba500f84899b005d2c37fda",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

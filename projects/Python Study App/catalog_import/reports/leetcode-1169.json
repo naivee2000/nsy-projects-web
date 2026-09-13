@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1169",
+  "content_sha256": "638921135033dbffc291aa2632c14576fd472607f33da8ff1849ea415c8bc905",
+  "source_hash": "633906d81db2d1bfbf8d87a245852556deebda57d8f0405c84ad0900e752ca9c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats exactly sixty minutes apart as valid.",
+      "failed_cases": [
+        "lc-1169-6",
+        "lc-1169-12",
+        "lc-1169-14",
+        "lc-1169-16"
+      ]
+    },
+    {
+      "reason": "Flags same-city pairs instead of different-city pairs.",
+      "failed_cases": [
+        "lc-1169-1",
+        "lc-1169-6",
+        "lc-1169-9",
+        "lc-1169-10",
+        "lc-1169-12",
+        "lc-1169-14",
+        "lc-1169-15",
+        "lc-1169-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5216,
+  "oracle_implementation": "code_practice/import_batch_084b.py:invalid_oracle",
+  "validator_implementation_sha256": "e87de890933e07fe4eda4222de84a139f0db0bc86bed366f720b28da6468874d",
+  "batch_implementation_sha256": "0bb7a2eb2da08d002943c3f8b75412136f479adb7f60d30632aae3a384712c4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d382732ce39af59b2917c6d975c9ba11aa6a2baf1b63d78cb317499845cf164a",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

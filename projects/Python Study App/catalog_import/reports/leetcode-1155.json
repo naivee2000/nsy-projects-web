@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1155",
+  "content_sha256": "6e04754fff0ae6ab418106c8f0ccc84f4c041f8f36f6326cf03ec1bda4d17939",
+  "source_hash": "3539b830cc507cff2ea2c5bd17a0d74a9d911c4e8451d8d1c5dec7803bfc5a7c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Initializes one way to total one instead of zero.",
+      "failed_cases": [
+        "lc-1155-2",
+        "lc-1155-3",
+        "lc-1155-4",
+        "lc-1155-5",
+        "lc-1155-6",
+        "lc-1155-7",
+        "lc-1155-8",
+        "lc-1155-9",
+        "lc-1155-10",
+        "lc-1155-11",
+        "lc-1155-12",
+        "lc-1155-13",
+        "lc-1155-15",
+        "lc-1155-16"
+      ]
+    },
+    {
+      "reason": "Excludes the largest legal face from each transition.",
+      "failed_cases": [
+        "lc-1155-1",
+        "lc-1155-2",
+        "lc-1155-3",
+        "lc-1155-5",
+        "lc-1155-6",
+        "lc-1155-7",
+        "lc-1155-8",
+        "lc-1155-9",
+        "lc-1155-10",
+        "lc-1155-11",
+        "lc-1155-12",
+        "lc-1155-13",
+        "lc-1155-15",
+        "lc-1155-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5202,
+  "oracle_implementation": "code_practice/import_batch_084b.py:dice_oracle",
+  "validator_implementation_sha256": "e87de890933e07fe4eda4222de84a139f0db0bc86bed366f720b28da6468874d",
+  "batch_implementation_sha256": "0bb7a2eb2da08d002943c3f8b75412136f479adb7f60d30632aae3a384712c4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a6a9cc6644e66b81b11f69ba460fdb7aab1d3736969b4e0dc10817ba5c7cfdd3",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

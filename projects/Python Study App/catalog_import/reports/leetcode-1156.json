@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1156",
+  "content_sha256": "ea1421cd4c131649c6287448e14c761dbae3977a6155cd778270d97887074768",
+  "source_hash": "b2cae2505b348ddeb013ad30674ee51d7595363ba3144d0c7f689c4452c52f2f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows no interrupting character in the window.",
+      "failed_cases": [
+        "lc-1156-1",
+        "lc-1156-2",
+        "lc-1156-6",
+        "lc-1156-10",
+        "lc-1156-11",
+        "lc-1156-12",
+        "lc-1156-13",
+        "lc-1156-14"
+      ]
+    },
+    {
+      "reason": "Can report a run longer than the total available copies of the character.",
+      "failed_cases": [
+        "lc-1156-2",
+        "lc-1156-5",
+        "lc-1156-6",
+        "lc-1156-7",
+        "lc-1156-9",
+        "lc-1156-12",
+        "lc-1156-14",
+        "lc-1156-15",
+        "lc-1156-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5203,
+  "oracle_implementation": "code_practice/import_batch_084b.py:repeat_oracle",
+  "validator_implementation_sha256": "e87de890933e07fe4eda4222de84a139f0db0bc86bed366f720b28da6468874d",
+  "batch_implementation_sha256": "0bb7a2eb2da08d002943c3f8b75412136f479adb7f60d30632aae3a384712c4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "568622f51227695cd14c63d7a6095624edebc9c2b3ac5492ff68dc2630ab0398",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1163",
+  "content_sha256": "2d0872af97d6ea1b3f78e1f2aa6bccbfbd40122814d4fc8ff37b522906c43505",
+  "source_hash": "d2c3ba5765998e9a1aba321e8c07d43f0f3c911c5956add7df74d2622df5aba1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Advances the candidate with the larger mismatch character.",
+      "failed_cases": [
+        "lc-1163-1",
+        "lc-1163-2",
+        "lc-1163-5",
+        "lc-1163-6",
+        "lc-1163-7",
+        "lc-1163-8",
+        "lc-1163-9",
+        "lc-1163-10",
+        "lc-1163-11",
+        "lc-1163-12",
+        "lc-1163-13",
+        "lc-1163-14"
+      ]
+    },
+    {
+      "reason": "Returns the challenger pointer rather than the surviving best pointer.",
+      "failed_cases": [
+        "lc-1163-1",
+        "lc-1163-2",
+        "lc-1163-3",
+        "lc-1163-4",
+        "lc-1163-5",
+        "lc-1163-6",
+        "lc-1163-7",
+        "lc-1163-8",
+        "lc-1163-9",
+        "lc-1163-10",
+        "lc-1163-11",
+        "lc-1163-12",
+        "lc-1163-13",
+        "lc-1163-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5210,
+  "oracle_implementation": "code_practice/import_batch_084b.py:last_oracle",
+  "validator_implementation_sha256": "e87de890933e07fe4eda4222de84a139f0db0bc86bed366f720b28da6468874d",
+  "batch_implementation_sha256": "0bb7a2eb2da08d002943c3f8b75412136f479adb7f60d30632aae3a384712c4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5aeb5a187d4b60c977a43b98a55186e61a4715760b8343e5a25a419dcb1a95b3",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

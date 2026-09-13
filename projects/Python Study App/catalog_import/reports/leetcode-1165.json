@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1165",
+  "content_sha256": "469e203005f2fc5e673a826e495be26fa072588957ed6f139e2b64451c5997dd",
+  "source_hash": "8df70ee9b7fda90bf6e8820fa02f46f77dea8ca45fa99fb219084f18fcc46415",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Starts the finger at index one.",
+      "failed_cases": [
+        "lc-1165-3",
+        "lc-1165-5",
+        "lc-1165-9",
+        "lc-1165-13",
+        "lc-1165-14"
+      ]
+    },
+    {
+      "reason": "Uses signed movement and lets leftward travel reduce time.",
+      "failed_cases": [
+        "lc-1165-1",
+        "lc-1165-2",
+        "lc-1165-6",
+        "lc-1165-7",
+        "lc-1165-8",
+        "lc-1165-10",
+        "lc-1165-11",
+        "lc-1165-12",
+        "lc-1165-15",
+        "lc-1165-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5212,
+  "oracle_implementation": "code_practice/import_batch_084b.py:keyboard_oracle",
+  "validator_implementation_sha256": "e87de890933e07fe4eda4222de84a139f0db0bc86bed366f720b28da6468874d",
+  "batch_implementation_sha256": "0bb7a2eb2da08d002943c3f8b75412136f479adb7f60d30632aae3a384712c4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "281d744a333a55669062ceee1abcd4ff9e442031311a34c4f952535f57eeae61",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
