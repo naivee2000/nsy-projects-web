@@ -2,6 +2,7 @@ import json
 from collections import deque
 from pathlib import Path
 import random
+import shutil
 
 import pytest
 
@@ -9,7 +10,7 @@ from fastapi.testclient import TestClient
 
 from code_practice import catalog, database
 from code_practice.app import app
-from code_practice.build_import_batch import BATCH, build, verify, workbook_sample, review_isolated
+from code_practice.build_import_batch import BATCH, build, verify, workbook_sample, review_isolated, cached_validation_is_current
 from code_practice.import_workbook import inspect_source
 from code_practice.package_catalog import package
 from code_practice.validation import run_source
@@ -50,15 +51,36 @@ def test_ledger_accounts_for_every_row_and_published_imports_are_verified():
             assert f"leetcode-{r['source_id']}" not in published
 
 
-def test_reviewed_batches_independent_oracles_and_plausible_wrong_solutions():
+def test_reviewed_batches_have_current_cached_evidence_without_repeating_oracle_runs():
+    """Full 500-case validation happens at import time, not for every test run."""
     sources = {s["source_id"]: s for line in (ROOT / "catalog_import/sources.jsonl").read_text().splitlines() if (s := json.loads(line))}
+    records = {r["source_id"]: r for r in json.loads((ROOT / "catalog_import/ledger.json").read_text())["records"]}
     for pid, spec in BATCH.items():
-        problem = build(pid, spec, sources[pid])
-        report = verify(problem, spec, "test")
-        assert report["valid"], report
-        assert report["reference_passed"] == len(problem.tests)
-        assert report["oracle_inputs"] == 500
-        assert len({json.dumps(t.arguments) for t in problem.tests}) == len(problem.tests)
+        record = records[pid]
+        if record["status"] == "imported":
+            assert cached_validation_is_current(pid, spec, record["source_hash"], record)
+    # A representative validator still proves the full deterministic/oracle path.
+    pid = 11
+    problem = build(pid, BATCH[pid], sources[pid])
+    report = verify(problem, BATCH[pid], records[pid]["source_hash"])
+    assert report["valid"] and report["oracle_inputs"] == 500
+    assert len({json.dumps(t.arguments) for t in problem.tests}) == len(problem.tests)
+
+
+def test_cached_validation_rejects_changed_candidate_content(tmp_path):
+    ledger = json.loads((ROOT / "catalog_import/ledger.json").read_text())
+    record = next(row for row in ledger["records"] if row["source_id"] == 11)
+    source = next(json.loads(line) for line in (ROOT / "catalog_import/sources.jsonl").read_text().splitlines()
+                  if json.loads(line)["source_id"] == 11)
+    report_path = tmp_path / record["validation_report"]
+    candidate_path = tmp_path / "catalog_import/candidates/leetcode-11.json"
+    report_path.parent.mkdir(parents=True)
+    candidate_path.parent.mkdir(parents=True)
+    shutil.copyfile(ROOT / record["validation_report"], report_path)
+    candidate = json.loads((ROOT / "catalog_import/candidates/leetcode-11.json").read_text())
+    candidate["reference_solution"] = "def max_water_area(height):\n    return -1\n"
+    candidate_path.write_text(json.dumps(candidate))
+    assert not cached_validation_is_current(11, BATCH[11], record["source_hash"], record, tmp_path)
 
 
 def test_library_and_dashboard_never_load_full_problem_payloads(monkeypatch):

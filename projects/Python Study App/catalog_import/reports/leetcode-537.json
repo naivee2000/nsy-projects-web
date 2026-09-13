@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-537",
+  "content_sha256": "1dcc3ea6d8d9255cba73f7f777a5d6a1419273cc66279b8f4c752be7c58fae1a",
+  "source_hash": "cda38e04ff7a5648c28acc78bbbb668eea5d83523664242cda634729b985f24f",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Treats i squared as +1 instead of -1.",
+      "failed_cases": [
+        "lc-537-1",
+        "lc-537-2",
+        "lc-537-5",
+        "lc-537-6",
+        "lc-537-7",
+        "lc-537-8",
+        "lc-537-9",
+        "lc-537-12",
+        "lc-537-13",
+        "lc-537-14",
+        "lc-537-15",
+        "lc-537-17"
+      ]
+    },
+    {
+      "reason": "Subtracts one imaginary cross term instead of adding both.",
+      "failed_cases": [
+        "lc-537-1",
+        "lc-537-2",
+        "lc-537-7",
+        "lc-537-8",
+        "lc-537-9",
+        "lc-537-11",
+        "lc-537-12",
+        "lc-537-13",
+        "lc-537-14",
+        "lc-537-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4584,
+  "oracle_implementation": "code_practice/import_batch_054.py:complex_oracle",
+  "validator_implementation_sha256": "9a36283212b94de8d4b1d11f669c645db8a9de461958e699d74979152a9d1645",
+  "batch_implementation_sha256": "915ee4bb672a9d6322df32c10d6ca57a5d0ed26222a2b35bf2275dcf8cebe801",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dd512c5af029888bd481afb8c05feb191229ac77ce4bb1a62a6ad10db65f188b",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

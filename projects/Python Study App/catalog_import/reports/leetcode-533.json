@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-533",
+  "content_sha256": "0a68e654ff6578d6c526feadf8784a918d6d7da47a9f1a026d188fe355006b0b",
+  "source_hash": "ecd3fa3b5e6469410ed76278afb3d67353c5b79a464552cbfd5911f8d216dac2",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Checks row and column counts but omits the identical-row condition.",
+      "failed_cases": [
+        "lc-533-2",
+        "lc-533-13"
+      ]
+    },
+    {
+      "reason": "Counts qualifying columns instead of all pixels in their identical row copies.",
+      "failed_cases": [
+        "lc-533-1",
+        "lc-533-5",
+        "lc-533-12",
+        "lc-533-14",
+        "lc-533-16",
+        "lc-533-17",
+        "lc-533-stress-1",
+        "lc-533-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4580,
+  "oracle_implementation": "code_practice/import_batch_054.py:pixel_oracle",
+  "validator_implementation_sha256": "9a36283212b94de8d4b1d11f669c645db8a9de461958e699d74979152a9d1645",
+  "batch_implementation_sha256": "915ee4bb672a9d6322df32c10d6ca57a5d0ed26222a2b35bf2275dcf8cebe801",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e6473a04a27866112688916fe85b10d4f25956a126304f7a28a4969c43a9c67b",
+  "elapsed_seconds": 0.303,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-541",
+  "content_sha256": "e0edf31da55a397f340d04429367e33da127706813d9197ca11cb22b4e1f9aab",
+  "source_hash": "c78fac2e4d912a3575d307550c238104bd7b6e1f0f57f431d9eedb9a4a37111d",
+  "visible_tests": 2,
+  "hidden_tests": 21,
+  "reference_passed": 23,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the entire 2k block instead of only its first half.",
+      "failed_cases": [
+        "lc-541-1",
+        "lc-541-2",
+        "lc-541-5",
+        "lc-541-8",
+        "lc-541-9",
+        "lc-541-10",
+        "lc-541-11",
+        "lc-541-12",
+        "lc-541-14",
+        "lc-541-15",
+        "lc-541-16",
+        "lc-541-stress-1",
+        "lc-541-stress-2",
+        "lc-541-stress-3",
+        "lc-541-stress-4"
+      ]
+    },
+    {
+      "reason": "Reverses every k-sized block, including halves that must stay unchanged.",
+      "failed_cases": [
+        "lc-541-1",
+        "lc-541-2",
+        "lc-541-9",
+        "lc-541-10",
+        "lc-541-11",
+        "lc-541-12",
+        "lc-541-15",
+        "lc-541-16",
+        "lc-541-stress-2",
+        "lc-541-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4588,
+  "oracle_implementation": "code_practice/import_batch_054.py:reverse_oracle",
+  "validator_implementation_sha256": "9a36283212b94de8d4b1d11f669c645db8a9de461958e699d74979152a9d1645",
+  "batch_implementation_sha256": "915ee4bb672a9d6322df32c10d6ca57a5d0ed26222a2b35bf2275dcf8cebe801",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5a288224c6114f1b25f7fdc63d4918d778e4aeed0df48da3ec36120ae3826c0c",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

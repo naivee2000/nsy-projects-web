@@ -1,0 +1,24 @@
+{
+  "valid": true,
+  "source_id": 531,
+  "source_hash": "7510924e5719ad15b7aa09a1e29b84f1e50613bfcc905812da690c12610fbbf1",
+  "target_problem_id": "leetcode-533",
+  "target_source_hash": "ecd3fa3b5e6469410ed76278afb3d67353c5b79a464552cbfd5911f8d216dac2",
+  "target_content_sha256": "0a68e654ff6578d6c526feadf8784a918d6d7da47a9f1a026d188fe355006b0b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "implementation_sha256": "bc4be473e5ec9648c8add40fce8676438054dae2afb6674ac805021209fb47ba",
+  "decision": {
+    "target_source_id": 533,
+    "source_hash": "7510924e5719ad15b7aa09a1e29b84f1e50613bfcc905812da690c12610fbbf1",
+    "reason": "At target=1, a qualifying column has exactly one black pixel, so the identical-row condition is automatic. Both contracts then count black pixels alone in their row and column. The generalized target explicitly extends source 533's 200x200 board limit to 500x500, covering the full source 531 domain. Independent per-row/per-column scans verify 500 seeded inputs and maximum rectangular/square fixtures. Keep one generalized pixel exercise and progress ID."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 4578,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 10,
+  "largest_input": [
+    500,
+    500
+  ],
+  "domain": "B/W boards, independent rows and columns each 1..500; target=1"
+}

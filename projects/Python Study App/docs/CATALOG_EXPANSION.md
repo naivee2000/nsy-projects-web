@@ -3,10 +3,9 @@
 Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
 430-problem checkpoint is documented in [RELEASE_430_CHECKPOINT.md](RELEASE_430_CHECKPOINT.md).
-It includes all eleven verified batch-46/47/48 additions since the 419-problem release.
-The counts below describe the current 453-problem development package, not the
-frozen release ledger. Twenty-three verified batch-49/50/51/52/53 additions remain outside the tag.
-All eight handoff tags and historical checklists remain unchanged. The owner can
+The counts below describe the current 459-problem development package, including
+twenty-nine verified batch-49/50/51/52/53/54 additions since that release.
+All earlier handoff tags and historical checklists remain unchanged. The owner can
 transfer the frozen version while expansion continues from the current ledger.
 New development does not change the other computer or authorize a push/deployment.
 
@@ -49,11 +48,30 @@ correctness. Generated tests must meet each problem's actual constraints.
 ## Current checkpoint
 
 - All 3,629 workbook rows have portable source snapshots and ledger records.
-- Current behavioral mapping: 82 existing equivalents (73 original exercises and
-  nine approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,040 rows remain pending.
-- 352 new imports in fifty-three reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 453 problems.
+- Current behavioral mapping: 83 existing equivalents (73 original exercises and
+  ten approved imports). Static evidence identifies 155 approved-scope
+  design/interactive exclusions; 3,033 rows remain pending.
+- 358 new imports in fifty-four reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 459 problems.
+- Batch fifty-four adds K-diff Pairs in an Array, Lonely Pixel II, Complex Number
+  Multiplication, Minimum Time Difference, Single Element in a Sorted Array, and
+  Reverse String II. Each has two explained examples, at least twelve distinct
+  hidden tests, two rejected wrong algorithms, and 500 independent oracle checks.
+  Additional regressions exhaust small signed arrays, binary pixel rectangles,
+  complex sign combinations, every circular clock gap, singleton positions, and
+  short string-block boundaries. Source-scale fixtures cover 500-by-500 boards,
+  20,000 clock entries, 99,999 sorted integers, and 10,000-character strings.
+  Lonely Pixel I (531) maps to the generalized pixel problem at target=1, with an
+  explicit 500-by-500 domain extension and independently proved full-source limits.
+  The sorted singleton remains distinct from unsorted Single Number: its required
+  logarithmic-time algorithm is verified by a strict element-read budget, which
+  rejects the linear XOR reference. This validates the reference's complexity;
+  the learner's ordinary judge still checks output and its execution deadline,
+  not an automatic proof of arbitrary submission complexity.
+  All 453 prior definitions and progress IDs remain unchanged. All 358 import
+  reports and fourteen detailed overlap proofs match the current package.
+  These six additions and the preceding twenty-three post-430 additions remain
+  local development; the remaining 3,033 workbook records are still pending.
 - Batch fifty-three imports 523, 527, 529, and 530: prefix-remainder length
   checks, minimal collision-free abbreviations, recursive mine-region reveals,
   and minimum BST value gaps. Each has two explained examples, at least twelve
@@ -764,8 +782,8 @@ correctness. Generated tests must meet each problem's actual constraints.
   permits any valid strict BST with exactly the input values minus the requested
   key, without a balancing requirement. Shortest string encodings permit tied
   optimal grammar expressions with bounded decoding. Ordered decimal lists now
-  enforce finite numeric values and absolute 10^-5 tolerance. All 352 published imports
-  have matching passing reports in the 453-problem package under this judge contract.
+  enforce finite numeric values and absolute 10^-5 tolerance. All 358 published imports
+  have matching passing reports in the 459-problem package under this judge contract.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
 - Current 453-problem Chrome/M3 Pro run: library/search p95 1.28/1.23 ms,
@@ -911,7 +929,7 @@ correctness. Generated tests must meet each problem's actual constraints.
   are in `catalog_import/benchmarks/current.json`.
   Reports also bind the judge contract, built worker, frontend index, and browser
   verifier hashes; the verifier refuses a stale built worker until it is rebuilt.
-- Current automated suite: 771 backend tests and 19 frontend tests pass. The
+- Current automated suite: 790 backend tests and 19 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

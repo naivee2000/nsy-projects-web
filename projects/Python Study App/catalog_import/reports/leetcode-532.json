@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-532",
+  "content_sha256": "6e5fe4734915f105c63a4c6c99301d17be878c435233198c243b5c816aba1382",
+  "source_hash": "4ef6f7b1e8a0aa7d3241ffc315e33ea42f530a9fa2ab628725db851eef22a640",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Counts index-pair multiplicity instead of distinct value pairs.",
+      "failed_cases": [
+        "lc-532-1",
+        "lc-532-2",
+        "lc-532-11",
+        "lc-532-12",
+        "lc-532-13",
+        "lc-532-stress-1",
+        "lc-532-stress-4"
+      ]
+    },
+    {
+      "reason": "Allows each singleton value to pair with itself when k is zero.",
+      "failed_cases": [
+        "lc-532-2",
+        "lc-532-3",
+        "lc-532-6",
+        "lc-532-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4579,
+  "oracle_implementation": "code_practice/import_batch_054.py:pairs_oracle",
+  "validator_implementation_sha256": "9a36283212b94de8d4b1d11f669c645db8a9de461958e699d74979152a9d1645",
+  "batch_implementation_sha256": "915ee4bb672a9d6322df32c10d6ca57a5d0ed26222a2b35bf2275dcf8cebe801",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7a88daef4ef2bf85fbf195d6f5728636302d337329c09d77fd1b23868262785d",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

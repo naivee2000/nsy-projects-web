@@ -41,7 +41,9 @@ def package(output: Path) -> dict:
     for problem, source_id in problems:
         payload = problem.model_dump(mode="json")
         path = f"problems/{problem.id}.json"
-        (output / path).write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+        # Problem payloads can contain source-scale matrices and lists. Compact
+        # JSON retains the identical parsed content/hash without one line per cell.
+        (output / path).write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n")
         entries.append(dict(id=problem.id, version=problem.version, status=problem.status,
             title=problem.title, summary=problem.summary, topics=problem.topics,
             prerequisites=problem.prerequisites, difficulty=problem.difficulty,

@@ -23,5 +23,10 @@ def write_text_atomic(path: Path, text: str) -> None:
             temporary.unlink(missing_ok=True)
 
 
-def write_json_atomic(path: Path, payload) -> None:
-    write_text_atomic(path, json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+def write_json_atomic(path: Path, payload, *, compact: bool = False) -> None:
+    """Write human-facing ledgers readably and large generated payloads compactly."""
+    if compact:
+        text = json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n"
+    else:
+        text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    write_text_atomic(path, text)

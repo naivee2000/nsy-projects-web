@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 453 runnable problems (101 original exercises plus 352 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 459 runnable problems (101 original exercises plus 358 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **430-problem handoff checkpoint** is tagged `python-study-430-checkpoint`; all seven earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_430_CHECKPOINT.md) for exact-version update commands. It includes all eleven verified batch-46/47/48 additions since the 419-problem release. Resumed development adds twenty-three batch-49/50/51/52/53 problems outside the frozen release. The remaining workbook expansion is unfinished. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 459-problem package contains twenty-nine verified batch-49/50/51/52/53/54 additions beyond that checkpoint, but is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 82 existing equivalents, 352 verified imports, 155 documented
-design/interactive exclusions, and 3,040 pending records. Ordinary tree and
+Current status: 83 existing equivalents, 358 verified imports, 155 documented
+design/interactive exclusions, and 3,033 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Fifty-three reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Fifty-four reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -542,7 +542,26 @@ All 352 imports and thirteen detailed overlap proofs have been revalidated for
 this shared-judge change, without changing preceding problem definitions.
 All 449 previous definitions and progress IDs remain unchanged. The four new
 problems remain outside the frozen 430-problem transfer tag.
-Of the 82 overlaps, 73 map to original exercises and nine map to approved
+Batch fifty-four adds K-diff Pairs in an Array, Lonely Pixel II, Complex Number
+Multiplication, Minimum Time Difference, Single Element in a Sorted Array, and
+Reverse String II. Each has two explained examples, at least twelve distinct
+hidden tests, two rejected wrong algorithms, and 500 independent oracle checks.
+Additional regressions exhaust small signed arrays, binary pixel rectangles,
+complex sign combinations, every circular clock gap, singleton positions, and
+short string-block boundaries. Source-scale fixtures cover 500-by-500 boards,
+20,000 clock entries, 99,999 sorted integers, and 10,000-character strings.
+Lonely Pixel I (531) maps to the generalized pixel problem at target=1, with an
+explicit 500-by-500 domain extension and independently proved full-source limits.
+The sorted singleton remains distinct from unsorted Single Number: its required
+logarithmic-time algorithm is verified by a strict element-read budget, which
+rejects the linear XOR reference. This validates the reference's complexity;
+the learner's ordinary judge still checks output and its execution deadline,
+not an automatic proof of arbitrary submission complexity.
+All 453 prior definitions and progress IDs remain unchanged. All 358 import
+reports and fourteen detailed overlap proofs match the current package.
+These six additions and the preceding twenty-three post-430 additions remain
+local development; the remaining 3,033 workbook records are still pending.
+Of the 83 overlaps, 73 map to original exercises and ten map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
 the original sample, and all 720 outputs on six-element boundaries. This is
@@ -598,7 +617,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 453 problems; future
+been checked against every reviewed batch. The current package contains 459 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

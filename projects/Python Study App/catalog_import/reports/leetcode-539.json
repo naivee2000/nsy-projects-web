@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-539",
+  "content_sha256": "c8e94ac9e561a010a54098d9e441b9b5a23572f02c7a54e216549bc3bba8ccb4",
+  "source_hash": "e5d80e11107844e7b5ac4c34c0f26259ac20f222b35c0002384c80a78a8008e7",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only adjacent times within the day and misses the last-to-first gap.",
+      "failed_cases": [
+        "lc-539-1",
+        "lc-539-6",
+        "lc-539-8",
+        "lc-539-11",
+        "lc-539-17"
+      ]
+    },
+    {
+      "reason": "Discards duplicates, losing zero-minute pairs.",
+      "failed_cases": [
+        "lc-539-2",
+        "lc-539-7",
+        "lc-539-stress-1",
+        "lc-539-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4586,
+  "oracle_implementation": "code_practice/import_batch_054.py:clock_oracle",
+  "validator_implementation_sha256": "9a36283212b94de8d4b1d11f669c645db8a9de461958e699d74979152a9d1645",
+  "batch_implementation_sha256": "915ee4bb672a9d6322df32c10d6ca57a5d0ed26222a2b35bf2275dcf8cebe801",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "db99b80a714dd63a47abce1bcc4bd02c734bb0cd244190535005f0c1573ab9d6",
+  "elapsed_seconds": 0.079,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

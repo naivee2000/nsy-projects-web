@@ -391,6 +391,20 @@ try {
     assert((await page.locator('.problem-pane').textContent()).includes(explanation));
   }
   report.checks.push('batch 53 examples explain minimum subarray length, simultaneous abbreviation expansion, numbered mine boundaries, and non-edge BST pairs');
+  for (const [title,explanation] of [
+    ['K-diff Pairs in an Array','second occurrence of 1 does not create a third pair'],
+    ['Lonely Pixel II','Matching counts alone are not enough'],
+    ['Complex Number Multiplication','literal + separator'],
+    ['Minimum Time Difference','Do not discard duplicates'],
+    ['Single Element in a Sorted Array','not its index 4'],
+    ['Reverse String II','fewer than k characters'],
+  ]) {
+    await page.getByRole('button',{name:'Back',exact:true}).click();
+    await page.getByPlaceholder('Search title, topic, or pattern').fill(title);
+    await page.locator('button.problem-card').filter({has:page.getByText(title,{exact:true})}).click();
+    assert((await page.locator('.problem-pane').textContent()).includes(explanation));
+  }
+  report.checks.push('batch 54 examples explain value-pair uniqueness, identical pixel rows, signed complex formatting, duplicate clock entries, singleton values rather than indices, and short reversed tails');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values', 'recursive-step-combinations', 'longest-target-sum-subarray'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -772,6 +786,24 @@ def sliding_window_medians(nums, k):
   assert(!manifest.entries.some(p=>p.id==='leetcode-783'));
   assert.equal((await fetch(`${base}/api/problems/leetcode-783`)).status,404);
   report.checks.push('batch 53 rejects eight incorrect algorithms and mutated BST inputs; accepts copied mine results, passes 50x50 reveals, 10000-node trees, 400 words of length 400, and 100000-entry residue arrays; duplicate BST source 783 is absent');
+  for (const id of [532,533,537,539,540,541]) {
+    const problem=JSON.parse(await fs.readFile(path.join(root,`catalog_data/problems/leetcode-${id}.json`),'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page,problem,wrong)).status,'wrong_answer',`batch 54 wrong algorithm ${id}`);
+    }
+  }
+  const pixels=JSON.parse(await fs.readFile(path.join(root,'catalog_data/problems/leetcode-533.json'),'utf8'));
+  const singlePixelJob={...pixels,tests:[{id:'single-pixel-full-source-domain',
+    arguments:[Array.from({length:500},(_,r)=>Array.from({length:500},(_,c)=>r===c?'B':'W')),1],
+    expected:500,comparator:'exact',visible:true}]};
+  assert.equal((await judge(page,singlePixelJob,pixels.reference_solution)).status,'accepted');
+  const truncatedPixels=pixels.reference_solution.replace('def count_lonely_pixels(picture,target):',
+    'def count_lonely_pixels(picture,target):\n    picture=[row[:200] for row in picture[:200]]');
+  assert.notEqual(truncatedPixels,pixels.reference_solution);
+  assert.equal((await judge(page,singlePixelJob,truncatedPixels)).status,'wrong_answer');
+  assert(!manifest.entries.some(p=>p.id==='leetcode-531'));
+  assert.equal((await fetch(`${base}/api/problems/leetcode-531`)).status,404);
+  report.checks.push('batch 54 rejects twelve incorrect algorithms; source-scale suites include 500x500 pixels, 20000 times, 99999 sorted values, and 10000-character blocks; target-one pixel mapping passes the 500x500 domain and rejects 200-row truncation; duplicate source 531 is absent');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],

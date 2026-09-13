@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 453 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [430-problem handoff checklist](Python%20Study%20App/docs/RELEASE_430_CHECKPOINT.md) covers the frozen `python-study-430-checkpoint` release and updating the other computer without replacing its progress. It includes all eleven verified batch-46/47/48 additions since the 419-problem checkpoint. All seven earlier handoff tags remain unchanged. The remaining workbook expansion is ongoing locally; twenty-three batch-49/50/51/52/53 additions remain outside the frozen release and do not change the website.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 459 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [430-problem handoff checklist](Python%20Study%20App/docs/RELEASE_430_CHECKPOINT.md) covers the frozen `python-study-430-checkpoint` release and updating the other computer without replacing its progress. Twenty-nine verified batch-49/50/51/52/53/54 additions remain local development; they do not change the website without another explicit update.
 
 ## Python Study App
 
@@ -40,8 +40,8 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
-The workbook expansion currently accounts for 3,629 rows: 82 existing equivalents,
-352 verified new problems, 155 documented design/interactive exclusions, and 3,040
+The workbook expansion currently accounts for 3,629 rows: 83 existing equivalents,
+358 verified new problems, 155 documented design/interactive exclusions, and 3,033
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -374,6 +374,26 @@ the abbreviation oracle simulates collisions; the BST oracle compares every pair
 Source 783 maps to the same BST problem with a full-domain proof. All 449 previous
 definitions and progress IDs are unchanged, and these four imports remain
 outside the frozen 430 transfer tag.
+
+Batch fifty-four adds K-diff Pairs in an Array, Lonely Pixel II, Complex Number
+Multiplication, Minimum Time Difference, Single Element in a Sorted Array, and
+Reverse String II. Each has two explained examples, at least twelve distinct
+hidden tests, two rejected wrong algorithms, and 500 independent oracle checks.
+Additional regressions exhaust small signed arrays, binary pixel rectangles,
+complex sign combinations, every circular clock gap, singleton positions, and
+short string-block boundaries. Source-scale fixtures cover 500-by-500 boards,
+20,000 clock entries, 99,999 sorted integers, and 10,000-character strings.
+Lonely Pixel I (531) maps to the generalized pixel problem at target=1, with an
+explicit 500-by-500 domain extension and independently proved full-source limits.
+The sorted singleton remains distinct from unsorted Single Number: its required
+logarithmic-time algorithm is verified by a strict element-read budget, which
+rejects the linear XOR reference. This validates the reference's complexity;
+the learner's ordinary judge still checks output and its execution deadline,
+not an automatic proof of arbitrary submission complexity.
+All 453 prior definitions and progress IDs remain unchanged. All 358 import
+reports and fourteen detailed overlap proofs match the current package.
+These six additions and the preceding twenty-three post-430 additions remain
+local development; the remaining 3,033 workbook records are still pending.
 
 Linked-list and tree problems show the full `ListNode` or `TreeNode` class definition above the function in the editable code pane. The app also prepends the required class when reopening an older saved draft that predates this feature.
 

@@ -15,6 +15,11 @@ from .catalog_evidence import content_digest, judge_contract_hash, load_verified
 
 ROOT = Path(__file__).resolve().parent.parent
 DECISIONS = {
+    531: {
+        "target_source_id": 533,
+        "source_hash": "7510924e5719ad15b7aa09a1e29b84f1e50613bfcc905812da690c12610fbbf1",
+        "reason": "At target=1, a qualifying column has exactly one black pixel, so the identical-row condition is automatic. Both contracts then count black pixels alone in their row and column. The generalized target explicitly extends source 533's 200x200 board limit to 500x500, covering the full source 531 domain. Independent per-row/per-column scans verify 500 seeded inputs and maximum rectangular/square fixtures. Keep one generalized pixel exercise and progress ID.",
+    },
     783: {
         "target_source_id": 530,
         "source_hash": "05c7d43acd096dcd78350e427c82deb2197b820aae82299332f38a87e08b95dd",
@@ -145,6 +150,42 @@ def check_bst_gap(payload,source):
     return dict(oracle_inputs=500,oracle_seed=4830,workbook_sample_checked=True,
         deterministic_inputs=len(boundaries)+1,largest_input=100,
         domain='2..100 BST nodes, each value 0..100000; all pairs, not only parent-child edges; no mutation')
+
+
+def check_single_pixels(payload,source):
+    from copy import deepcopy
+    from .build_import_batch import workbook_sample
+    if not any('1 <= rows, columns <= 500' in s for s in payload['constraints']):
+        raise ValueError('Generalized pixel target must explicitly cover 500x500 boards')
+    namespace={};exec(compile(payload['reference_solution'],'<reviewed-lonely-pixel>','exec'),namespace)
+    solve=namespace[payload['signature']['name']]
+    def oracle(board):
+        result=0
+        for row in board:
+            if row.count('B')!=1:continue
+            column=row.index('B')
+            if sum(other[column]=='B' for other in board)==1:result+=1
+        return result
+    def check(board,expected=None):
+        answer=oracle(board)
+        if expected is not None and expected!=answer:raise ValueError('Pixel source sample disagrees')
+        copied=deepcopy(board)
+        if solve(copied,1)!=answer or copied!=board:raise ValueError('Pixel reference disagrees with row/column oracle or changes input')
+    sample=workbook_sample(source['sample'],[{'name':'picture'}])
+    if sample is None:raise ValueError('Pixel overlap requires its source example')
+    check(sample[0][0],sample[1]);rng=random.Random(4578)
+    for _ in range(500):
+        rows=rng.randint(1,30);cols=rng.randint(1,30)
+        density=rng.choice([.02,.1,.5,1])
+        board=[['B' if rng.random()<density else 'W' for _ in range(cols)] for _ in range(rows)]
+        check(board)
+    boundaries=[[["B"]],[["W"]],[['B']*500],[['W']*499+['B']],[['B'] for _ in range(500)],
+        [['B']*500 for _ in range(500)],[['W']*500 for _ in range(500)],
+        [['B' if r==c else 'W' for c in range(500)] for r in range(500)],
+        [['B' if r==c else 'W' for c in range(499)] for r in range(500)]]
+    for board in boundaries:check(board)
+    return dict(oracle_inputs=500,oracle_seed=4578,workbook_sample_checked=True,
+        deterministic_inputs=len(boundaries)+1,largest_input=[500,500],domain='B/W boards, independent rows and columns each 1..500; target=1')
 
 
 def check_complement(payload, source):
@@ -457,7 +498,7 @@ def reconcile(root=ROOT):
                 raise ValueError("Source changed since the behavioral review")
             target = records[decision["target_source_id"]]
             payload = load_verified_import(target, root)
-            checker = {783: check_bst_gap, 521: check_two_uncommon, 1009: check_complement, 2410: check_player_matching,
+            checker = {531: check_single_pixels, 783: check_bst_gap, 521: check_two_uncommon, 1009: check_complement, 2410: check_player_matching,
                        2220: check_bit_flips, 46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
                        319: check_bulb_square_root}[source_id]
             evidence = checker(payload, sources[source_id])

@@ -15,6 +15,7 @@ import multiprocessing
 from pathlib import Path
 import random
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from .import_batch_001 import BATCH as BATCH_001
 from .import_batch_002 import BATCH as BATCH_002
@@ -69,6 +70,7 @@ from .import_batch_050 import BATCH as BATCH_050
 from .import_batch_051 import BATCH as BATCH_051
 from .import_batch_052 import BATCH as BATCH_052
 from .import_batch_053 import BATCH as BATCH_053
+from .import_batch_054 import BATCH as BATCH_054
 from .catalog_evidence import judge_contract_hash
 from .catalog_artifacts import write_json_atomic
 from .schemas import ProblemDefinition, TestCase
@@ -76,6 +78,7 @@ from .starter_code import with_support_classes
 from .validation import compare_result, run_source
 
 ROOT = Path(__file__).resolve().parent.parent
+VALIDATION_PROTOCOL_VERSION = 2
 BATCH = {**BATCH_001, **BATCH_002, **BATCH_003, **BATCH_004, **BATCH_005, **BATCH_006, **BATCH_007, **BATCH_008, **BATCH_009, **BATCH_010, **BATCH_011, **BATCH_012, **BATCH_013, **BATCH_014, **BATCH_015, **BATCH_016, **BATCH_017, **BATCH_018, **BATCH_019, **BATCH_020, **BATCH_021, **BATCH_022, **BATCH_023, **BATCH_024, **BATCH_025, **BATCH_026, **BATCH_027, **BATCH_028, **BATCH_029, **BATCH_030, **BATCH_031, **BATCH_032, **BATCH_033, **BATCH_034, **BATCH_035, **BATCH_036}
 
 
@@ -96,10 +99,52 @@ BATCH.update(BATCH_050)
 BATCH.update(BATCH_051)
 BATCH.update(BATCH_052)
 BATCH.update(BATCH_053)
+BATCH.update(BATCH_054)
 
 
 def digest(payload):
     return hashlib.sha256(json.dumps(payload, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+
+
+def batch_implementation_hash(spec):
+    """Hash the source that supplies this problem's oracle and generator."""
+    return hashlib.sha256(Path(inspect.getsourcefile(spec["oracle"])).read_bytes()).hexdigest()
+
+
+def validation_cache_key(spec, source_hash):
+    """Stable evidence identity; bump the protocol only for semantic validator changes."""
+    payload = {
+        "protocol": VALIDATION_PROTOCOL_VERSION,
+        "source_hash": source_hash,
+        "batch_implementation_sha256": batch_implementation_hash(spec),
+        "judge_contract_sha256": judge_contract_hash(),
+    }
+    return digest(payload)
+
+
+def cached_validation_is_current(pid, spec, source_hash, record, root=ROOT):
+    """Return true only for a complete, unchanged approved validation bundle."""
+    if record.get("status") != "imported" or record.get("source_hash") != source_hash:
+        return False
+    try:
+        report = json.loads((root / record["validation_report"]).read_text())
+        candidate = json.loads((root / "catalog_import/candidates" / f"leetcode-{pid}.json").read_text())
+        if not (report.get("valid") and report.get("problem_id") == f"leetcode-{pid}"
+                and report.get("content_sha256") == digest(candidate)
+                and report.get("source_hash") == source_hash
+                and report.get("judge_contract_sha256") == judge_contract_hash()
+                and report.get("batch_implementation_sha256") == batch_implementation_hash(spec)
+                and report.get("reference_passed") == len(candidate["tests"])
+                and report.get("visible_tests", 0) >= 2 and report.get("hidden_tests", 0) >= 12
+                and report.get("oracle_inputs", 0) >= 500
+                and len(report.get("wrong_solutions", [])) >= 2
+                and all(w.get("failed_cases") for w in report["wrong_solutions"])):
+            return False
+        # Reports written before protocol v2 have equivalent evidence fields. They
+        # remain reusable until their problem, source, oracle batch, or judge changes.
+        return report.get("validation_cache_key") in {None, validation_cache_key(spec, source_hash)}
+    except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError):
+        return False
 
 
 def workbook_sample(sample, parameters, result_mode="return", mutated_parameter=None):
@@ -266,8 +311,10 @@ def verify(problem, spec, source_hash):
         "wrong_solutions": rejected, "oracle_inputs": checked, "oracle_seed": seed,
         "oracle_implementation": f"code_practice/{batch_path.name}:{spec['oracle'].__name__}",
         "validator_implementation_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-        "batch_implementation_sha256": hashlib.sha256(batch_path.read_bytes()).hexdigest(),
+        "batch_implementation_sha256": batch_implementation_hash(spec),
         "judge_contract_sha256": judge_contract_hash(),
+        "validation_protocol_version": VALIDATION_PROTOCOL_VERSION,
+        "validation_cache_key": validation_cache_key(spec, source_hash),
         "elapsed_seconds": round(time.perf_counter() - started, 3), "failures": failures}
 
 
@@ -326,11 +373,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--ids", nargs="+", type=int)
     parser.add_argument("--timeout-seconds", type=float, default=30)
+    parser.add_argument("--jobs", type=int, default=4, help="Concurrent isolated validators (1-4).")
+    parser.add_argument("--force", action="store_true", help="Revalidate selected imports even when evidence is current.")
     args = parser.parse_args()
     if args.ids and any(pid not in BATCH for pid in args.ids):
         parser.error("Each requested ID must have a reviewed batch specification")
     if args.timeout_seconds <= 0:
         parser.error("Timeout must be positive")
+    if not 1 <= args.jobs <= 4:
+        parser.error("--jobs must be between 1 and 4")
     ledger_path = ROOT / "catalog_import/ledger.json"
     ledger = json.loads(ledger_path.read_text())
     sources = {s["source_id"]: s for line in (ROOT / "catalog_import/sources.jsonl").read_text().splitlines() if (s := json.loads(line))}
@@ -339,25 +390,49 @@ def main():
     reports.mkdir(exist_ok=True)
     candidates.mkdir(exist_ok=True)
     records = {r["source_id"]: r for r in ledger["records"]}
-    for pid, spec in BATCH.items():
-        if args.ids and pid not in args.ids:
-            continue
+    selected = [pid for pid in BATCH if not args.ids or pid in args.ids]
+    work = []
+    skipped = []
+    for pid in selected:
+        spec = BATCH[pid]
         record = records[pid]
         if record["status"] in {"overlap", "excluded"}:
-            raise ValueError(f"{pid}: cannot import an overlap or excluded interface")
-        payload, report = review_isolated(pid, spec, sources[pid], record["source_hash"], args.timeout_seconds)
+            if args.ids:
+                raise ValueError(f"{pid}: cannot import an overlap or excluded interface")
+            skipped.append(pid)
+            continue
+        if not args.force and cached_validation_is_current(pid, spec, record["source_hash"], record):
+            skipped.append(pid)
+            continue
+        work.append((pid, spec, sources[pid], record["source_hash"]))
+
+    results = {}
+    started = time.perf_counter()
+    with ThreadPoolExecutor(max_workers=min(args.jobs, max(1, len(work)))) as executor:
+        futures = {executor.submit(review_isolated, pid, spec, source, source_hash, args.timeout_seconds): pid
+                   for pid, spec, source, source_hash in work}
+        for future in as_completed(futures):
+            pid = futures[future]
+            results[pid] = future.result()
+
+    # A single parent is the only writer for candidates, reports, and the ledger.
+    for pid, spec, source, source_hash in work:
+        payload, report = results[pid]
+        record = records[pid]
         problem_id = f"leetcode-{pid}"
         report_path = reports / f"{problem_id}.json"
         write_json_atomic(report_path, report)
         if payload is not None:
-            write_json_atomic(candidates / f"{problem_id}.json", payload)
+            write_json_atomic(candidates / f"{problem_id}.json", payload, compact=True)
         record.update(status="imported" if report["valid"] else "quarantined",
                       problem_id=problem_id, validation_report=str(report_path.relative_to(ROOT)),
                       reason="Reviewed contract and independent oracle; see validation report." if report["valid"] else "Failed validation; excluded from runnable catalog.")
-        ledger["counts"] = dict(Counter(r["status"] for r in ledger["records"]))
-        write_json_atomic(ledger_path, ledger)
         print(problem_id, "PASS" if report["valid"] else report["failures"], flush=True)
-    print(json.dumps(ledger["counts"]))
+    ledger["counts"] = dict(Counter(r["status"] for r in ledger["records"]))
+    if work:
+        write_json_atomic(ledger_path, ledger)
+    print(json.dumps({"validated": len(work), "reused": len(skipped), "elapsed_seconds": round(time.perf_counter() - started, 3),
+                      "counts": ledger["counts"]}), flush=True)
 
 
 if __name__ == "__main__":

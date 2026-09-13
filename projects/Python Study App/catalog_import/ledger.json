@@ -4,9 +4,9 @@
   "workbook_sha256": "d4d791913078d0275fb404f4e61ff914b039f74f44ff4a2774070685e82e8e46",
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
-    "overlap": 82,
-    "imported": 352,
-    "pending": 3040,
+    "overlap": 83,
+    "imported": 358,
+    "pending": 3033,
     "excluded": 155
   },
   "record_count": 3629,
@@ -6036,10 +6036,11 @@
       "title": "Lonely Pixel I",
       "difficulty": "Medium",
       "source_hash": "7510924e5719ad15b7aa09a1e29b84f1e50613bfcc905812da690c12610fbbf1",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "leetcode-533",
+      "reason": "At target=1, a qualifying column has exactly one black pixel, so the identical-row condition is automatic. Both contracts then count black pixels alone in their row and column. The generalized target explicitly extends source 533's 200x200 board limit to 500x500, covering the full source 531 domain. Independent per-row/per-column scans verify 500 seeded inputs and maximum rectangular/square fixtures. Keep one generalized pixel exercise and progress ID.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-531.json"
     },
     {
       "source_id": 532,
@@ -6047,10 +6048,11 @@
       "title": "K-diff Pairs in an Array",
       "difficulty": "Medium",
       "source_hash": "4ef6f7b1e8a0aa7d3241ffc315e33ea42f530a9fa2ab628725db851eef22a640",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-532.json",
+      "problem_id": "leetcode-532"
     },
     {
       "source_id": 533,
@@ -6058,10 +6060,11 @@
       "title": "Lonely Pixel II",
       "difficulty": "Medium",
       "source_hash": "ecd3fa3b5e6469410ed76278afb3d67353c5b79a464552cbfd5911f8d216dac2",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-533.json",
+      "problem_id": "leetcode-533"
     },
     {
       "source_id": 535,
@@ -6092,10 +6095,11 @@
       "title": "Complex Number Multiplication",
       "difficulty": "Medium",
       "source_hash": "cda38e04ff7a5648c28acc78bbbb668eea5d83523664242cda634729b985f24f",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-537.json",
+      "problem_id": "leetcode-537"
     },
     {
       "source_id": 538,
@@ -6114,10 +6118,11 @@
       "title": "Minimum Time Difference",
       "difficulty": "Medium",
       "source_hash": "e5d80e11107844e7b5ac4c34c0f26259ac20f222b35c0002384c80a78a8008e7",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-539.json",
+      "problem_id": "leetcode-539"
     },
     {
       "source_id": 540,
@@ -6125,10 +6130,11 @@
       "title": "Single Element in a Sorted Array",
       "difficulty": "Medium",
       "source_hash": "18ec252dfd82db64151e62ef2dd53676117cc04b6a211ee4d23074aea3835186",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-540.json",
+      "problem_id": "leetcode-540"
     },
     {
       "source_id": 541,
@@ -6136,10 +6142,11 @@
       "title": "Reverse String II",
       "difficulty": "Easy",
       "source_hash": "c78fac2e4d912a3575d307550c238104bd7b6e1f0f57f431d9eedb9a4a37111d",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-541.json",
+      "problem_id": "leetcode-541"
     },
     {
       "source_id": 542,
