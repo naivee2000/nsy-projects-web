@@ -314,6 +314,14 @@ try {
   assert((await page.locator('.problem-pane').textContent()).includes('Rectangles need not be square'));
   assert((await page.locator('.example code').nth(1).textContent()).includes('[1,2,4,5,3,6]'));
   report.checks.push('batch 47 examples explain distinct zero signs, equal-negative reverse pairs, and rectangular diagonal direction');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Zuma Game');
+  await page.getByRole('button', { name: /Zuma Game.*Advanced/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('removes nothing immediately'));
+  assert((await page.locator('.problem-pane').textContent()).includes('THREE OR MORE'));
+  assert((await page.locator('.problem-pane').textContent()).includes('four white balls'));
+  assert((await page.locator('.example code').nth(1).textContent()).includes('WWRRBBWW'));
+  report.checks.push('Zuma examples explain full chain reactions, removing groups of more than three, and legal preparatory insertions');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -573,6 +581,11 @@ def sliding_window_medians(nums, k):
     assert.equal((await fetch(`${base}/api/problems/leetcode-${id}`)).status,404);
   }
   report.checks.push('batch 47 rejects disconnected/final-only runs, inversion/non-strict pair counts, dropped zeros/equal positions, and row-major/same-direction diagonals; original interval-union and next-greater adaptations pass source samples and maximum cases without duplicate library/API entries');
+  const zuma = JSON.parse(await fs.readFile(path.join(root,'catalog_data/problems/leetcode-488.json'),'utf8'));
+  for (const wrong of zuma.known_wrong_solutions) {
+    assert.equal((await judge(page,zuma,wrong)).status,'wrong_answer','Zuma wrong insertion/cascade algorithm');
+  }
+  report.checks.push('Zuma rejects immediate-removal-only moves and independently completed original runs; full-size references retain hand inventory and all legal preparatory moves, with an independently checked interval lower bound for adversarial five-color hands');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],

@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 429 runnable problems (101 original exercises plus 328 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 430 runnable problems (101 original exercises plus 329 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **419-problem handoff checkpoint** is tagged `python-study-419-checkpoint`; all six earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_419_CHECKPOINT.md) for exact-version update commands. This release includes the seven verified batch-44/45 additions since the 412-problem checkpoint and two versioned domain extensions that preserve existing progress IDs. Resumed local work adds ten verified batch-46/47 problems outside that frozen release. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **430-problem handoff checkpoint** is tagged `python-study-430-checkpoint`; all seven earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_430_CHECKPOINT.md) for exact-version update commands. It includes all eleven verified batch-46/47/48 additions since the 419-problem release. The remaining workbook expansion is unfinished. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 78 existing equivalents, 328 verified imports, 155 documented
-design/interactive exclusions, and 3,068 pending records. Ordinary tree and
+Current status: 78 existing equivalents, 329 verified imports, 155 documented
+design/interactive exclusions, and 3,067 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Forty-seven reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Forty-eight reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -467,6 +467,16 @@ including 10,000 attacks and 1,000 queries. Neither creates a duplicate library
 entry. Changed targets or stale proofs block packaging and re-extraction resets
 stale mappings to pending. Regenerate these two proofs with
 `.venv/bin/python -m code_practice.reconcile_original_overlaps` before packaging.
+Batch forty-eight adds Zuma Game as a named-function Hard problem. Its search
+keeps non-removing preparatory insertions, the remaining hand inventory, and full
+chain reactions that can remove groups larger than three. A relaxed interval DP
+proves lower bounds without forbidding valid moves; this resolves adversarial
+16-ball boards with five-color hands within the judge deadline. The reference
+matches 500 seeded oracle inputs, 1,566 exhaustive small board/hand combinations,
+and six full-size fixtures. A separate partial-run deletion search checks the
+lower bound and certifies the two adversarial impossible cases. All 429 previous
+definitions and progress IDs are unchanged; recursion, backtracking, and dynamic
+programming are prerequisites, and the recursion review boost remains active.
 Of the 78 overlaps, 71 map to original exercises and seven map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
@@ -523,7 +533,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 429 problems; future
+been checked against every reviewed batch. The current package contains 430 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

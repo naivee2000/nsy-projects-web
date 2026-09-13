@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-488",
+  "content_sha256": "ca806c16f74ac891f295539fd70649599d4d44668c3b5ed06e34485b481cef9f",
+  "source_hash": "d5159e32d95f05a5488f00d571eed3163065ff0f59232c0b7e50c1965ed28a13",
+  "visible_tests": 2,
+  "hidden_tests": 22,
+  "reference_passed": 24,
+  "wrong_solutions": [
+    {
+      "reason": "Allows only insertions that immediately remove balls, losing required preparatory moves.",
+      "failed_cases": [
+        "lc-488-4",
+        "lc-488-7",
+        "lc-488-11",
+        "lc-488-13",
+        "lc-488-17",
+        "lc-488-18",
+        "lc-488-stress-1",
+        "lc-488-stress-2"
+      ]
+    },
+    {
+      "reason": "Pays to complete each original run separately and ignores beneficial chain reactions.",
+      "failed_cases": [
+        "lc-488-2",
+        "lc-488-11",
+        "lc-488-12",
+        "lc-488-16",
+        "lc-488-18",
+        "lc-488-stress-1",
+        "lc-488-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4535,
+  "oracle_implementation": "code_practice/import_batch_048.py:zuma_oracle",
+  "validator_implementation_sha256": "d0edf9f9676fa5d1d2882e96c1c609813b141ce1f2b2a3c8f8e51ceebb0726d3",
+  "batch_implementation_sha256": "6664e3c7e4a8e115de842abb458c7b98317d146f6ea04d9addf5a046d8dfc185",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.554,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
