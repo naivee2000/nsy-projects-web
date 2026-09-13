@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1086",
+  "content_sha256": "934d010e81d89f89f446814e1dbfa3a2b0b30561b2304390703d98e982fc2742",
+  "source_hash": "728d972f1a8905fd95a48153a0a3235d2196561e9a7bec55c03c7202fbb33899",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Averages the bottom five scores.",
+      "failed_cases": [
+        "lc-1086-1",
+        "lc-1086-6",
+        "lc-1086-8",
+        "lc-1086-10",
+        "lc-1086-13",
+        "lc-1086-15",
+        "lc-1086-16"
+      ]
+    },
+    {
+      "reason": "Divides the top-five sum by all submitted scores.",
+      "failed_cases": [
+        "lc-1086-1",
+        "lc-1086-6",
+        "lc-1086-8",
+        "lc-1086-10",
+        "lc-1086-13",
+        "lc-1086-15",
+        "lc-1086-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5133,
+  "oracle_implementation": "code_practice/import_batch_082.py:high_five_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cdff2e4dc980a9484bdb6bfa44fa758d39f67ca068ac1cac18a325b7c51ade79",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

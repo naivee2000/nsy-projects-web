@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1090",
+  "content_sha256": "64ce3fdb55d9c0debd70e517ab96e57981e6af6b1a009ffc4159a367a2cf20fc",
+  "source_hash": "c5cc50546847d7790a8462f2082f856e962748f01e67a954184b00613bfc4c33",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses lowest values first.",
+      "failed_cases": [
+        "lc-1090-1",
+        "lc-1090-2",
+        "lc-1090-4",
+        "lc-1090-5",
+        "lc-1090-6",
+        "lc-1090-7",
+        "lc-1090-9",
+        "lc-1090-10",
+        "lc-1090-11",
+        "lc-1090-12",
+        "lc-1090-14",
+        "lc-1090-16"
+      ]
+    },
+    {
+      "reason": "Allows one item beyond each label limit.",
+      "failed_cases": [
+        "lc-1090-1",
+        "lc-1090-4",
+        "lc-1090-6",
+        "lc-1090-7",
+        "lc-1090-11",
+        "lc-1090-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5137,
+  "oracle_implementation": "code_practice/import_batch_082.py:labels_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fad54a55aa4e974eed356697c16d8de777828b402383236a989a28d4cb0037b8",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

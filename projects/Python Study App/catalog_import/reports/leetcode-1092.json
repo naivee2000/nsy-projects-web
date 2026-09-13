@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1092",
+  "content_sha256": "ebf4a4aa6b79cfe2fb5a2f1421f7f077b123377e7d8adb6f44f5cd78a753258c",
+  "source_hash": "eb81eda7b10152e378782ddd7baca9bcc5308e1e77b1ea60840a1208230d2207",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the longer rather than shorter merge branch.",
+      "failed_cases": [
+        "lc-1092-1",
+        "lc-1092-10",
+        "lc-1092-12",
+        "lc-1092-13",
+        "lc-1092-14",
+        "lc-1092-15"
+      ]
+    },
+    {
+      "reason": "Merges unequal characters as though they matched.",
+      "failed_cases": [
+        "lc-1092-1",
+        "lc-1092-2",
+        "lc-1092-5",
+        "lc-1092-6",
+        "lc-1092-7",
+        "lc-1092-8",
+        "lc-1092-9",
+        "lc-1092-10",
+        "lc-1092-11",
+        "lc-1092-12",
+        "lc-1092-13",
+        "lc-1092-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5139,
+  "oracle_implementation": "code_practice/import_batch_082.py:scs_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0fa7ff685d239937460c779488b13330bbc639bc0deaa87d7380dd2587f1cd95",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

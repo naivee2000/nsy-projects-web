@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1106",
+  "content_sha256": "36de43d44651938d0d04e85d666a5fe7d5c074faeda6ae548cf4179a0ffca113",
+  "source_hash": "b04303810c0346da640af3695481fcf92da509c2f2fac0abdc2db20812a4ef85",
+  "visible_tests": 3,
+  "hidden_tests": 13,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Evaluates AND using any instead of all.",
+      "failed_cases": [
+        "lc-1106-2",
+        "lc-1106-8",
+        "lc-1106-11"
+      ]
+    },
+    {
+      "reason": "Ignores logical negation.",
+      "failed_cases": [
+        "lc-1106-1",
+        "lc-1106-2",
+        "lc-1106-6",
+        "lc-1106-11",
+        "lc-1106-12",
+        "lc-1106-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5153,
+  "oracle_implementation": "code_practice/import_batch_082.py:bool_oracle",
+  "validator_implementation_sha256": "f318aa2ae34a1f644ef1bc970bdff4a085021885244a45f58b444b4509661527",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ad8ba8881db7f2d0d785e8dd1dfff84ded0c841556e0706152d9ccc673407132",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

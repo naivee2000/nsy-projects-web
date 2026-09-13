@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1100",
+  "content_sha256": "d92e158b3b941a4108d026fa007278ff88e437edf26c7c7bf1dff3bc31e6c1f5",
+  "source_hash": "6a0eed503482c3b4c8552904cf51d851d51a18471c3d303d3a3d35100132dea3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts every full window even with repeated characters.",
+      "failed_cases": [
+        "lc-1100-1",
+        "lc-1100-6",
+        "lc-1100-11",
+        "lc-1100-13",
+        "lc-1100-14",
+        "lc-1100-16"
+      ]
+    },
+    {
+      "reason": "Evicts a character before the window actually exceeds k.",
+      "failed_cases": [
+        "lc-1100-1",
+        "lc-1100-3",
+        "lc-1100-5",
+        "lc-1100-7",
+        "lc-1100-8",
+        "lc-1100-9",
+        "lc-1100-10",
+        "lc-1100-12",
+        "lc-1100-13",
+        "lc-1100-14",
+        "lc-1100-15",
+        "lc-1100-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5147,
+  "oracle_implementation": "code_practice/import_batch_082.py:unique_k_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f01bfa8852d109fe7475a8c517fc0d38261973505f48483517061df8ecbcb338",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

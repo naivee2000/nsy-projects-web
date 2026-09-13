@@ -1,0 +1,63 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-1087",
+  "content_sha256": "55e1fb5e42ae3f7e677814ff01e13c0279175d3bedae361ac3fb64479ed0847b",
+  "source_hash": "081407adc90138828277f107b0d872a96bc0de56cb03f87e5c073dda23098699",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Preserves unsorted group order instead of lexicographic output.",
+      "failed_cases": []
+    },
+    {
+      "reason": "Uses only the first alternative from every group.",
+      "failed_cases": [
+        "lc-1087-1",
+        "lc-1087-4",
+        "lc-1087-5",
+        "lc-1087-6",
+        "lc-1087-7",
+        "lc-1087-8",
+        "lc-1087-9",
+        "lc-1087-11",
+        "lc-1087-12",
+        "lc-1087-13",
+        "lc-1087-14",
+        "lc-1087-15",
+        "lc-1087-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5134,
+  "oracle_implementation": "code_practice/import_batch_082.py:brace_one_oracle",
+  "validator_implementation_sha256": "f318aa2ae34a1f644ef1bc970bdff4a085021885244a45f58b444b4509661527",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "09710f1ad85406d54c52314f05fd219f69f54ca4d81c04932bce6e4b9baafdf7",
+  "elapsed_seconds": 0.037,
+  "failures": [
+    {
+      "phase": "known_wrong",
+      "index": 0
+    }
+  ],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input s = \"{a,b}c{d,e}f\" → Output [\"acdf\",\"acef\",\"bcdf\",\"bcef\"].",
+    "arguments": [
+      "{a,b}c{d,e}f"
+    ],
+    "expected": [
+      "acdf",
+      "acef",
+      "bcdf",
+      "bcef"
+    ],
+    "reason": "The workbook calls the single expression parameter s; this reviewed function uses the clearer name expression.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/1000-1099/1087.Brace%20Expansion/README_EN.md"
+  }
+}

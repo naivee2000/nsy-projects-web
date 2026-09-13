@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1093",
+  "content_sha256": "33796beed045972613c42d2bffae8e898a424143c3700cf39e89fd6e8f882bf5",
+  "source_hash": "a0f8a43766e7a613e917b107d24ede7884768319e5f3583bcfffabcb48277284",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the lower middle sample instead of averaging two central samples.",
+      "failed_cases": [
+        "lc-1093-4",
+        "lc-1093-6",
+        "lc-1093-8",
+        "lc-1093-10",
+        "lc-1093-12",
+        "lc-1093-15"
+      ]
+    },
+    {
+      "reason": "Returns the maximum observed value as the mode.",
+      "failed_cases": [
+        "lc-1093-4",
+        "lc-1093-5",
+        "lc-1093-6",
+        "lc-1093-8",
+        "lc-1093-9",
+        "lc-1093-10",
+        "lc-1093-13",
+        "lc-1093-14",
+        "lc-1093-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5140,
+  "oracle_implementation": "code_practice/import_batch_082.py:stats_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e188be6da27ca4dbe78337d6a160275a78635c8b17844dfc4d00b04d97938371",
+  "elapsed_seconds": 0.099,
+  "failures": [],
+  "workbook_sample": "missing in workbook; reviewed examples authored"
+}

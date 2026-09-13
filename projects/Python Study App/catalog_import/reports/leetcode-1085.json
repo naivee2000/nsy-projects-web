@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1085",
+  "content_sha256": "ae1221ba80a211e4e88c87d86ca4a796311a327649046cb14c3a3ee930755f48",
+  "source_hash": "8c263821517954000d33444883434b0eab09769c909fdc9ae026ce312a12947c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the maximum rather than minimum array value.",
+      "failed_cases": [
+        "lc-1085-1",
+        "lc-1085-8",
+        "lc-1085-11",
+        "lc-1085-12"
+      ]
+    },
+    {
+      "reason": "Returns true for odd digit sums.",
+      "failed_cases": [
+        "lc-1085-1",
+        "lc-1085-2",
+        "lc-1085-3",
+        "lc-1085-4",
+        "lc-1085-5",
+        "lc-1085-6",
+        "lc-1085-7",
+        "lc-1085-8",
+        "lc-1085-9",
+        "lc-1085-10",
+        "lc-1085-11",
+        "lc-1085-12",
+        "lc-1085-13",
+        "lc-1085-14",
+        "lc-1085-15",
+        "lc-1085-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5132,
+  "oracle_implementation": "code_practice/import_batch_082.py:minimum_digits_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cc3973773dc842c9cf5ab2c621a8d82add71d7f1f1c4dfadf051fb24fbbc5c48",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

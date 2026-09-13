@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1102",
+  "content_sha256": "98eaf13b6d37db8c310d34de29c695bde00d97bf23690be34b1f1ff3575c099d",
+  "source_hash": "49ff1de9787d2709bf25b82038cb1d7ce07b4e5e4917793cce537946c7ce7562",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks the maximum cell rather than the path minimum.",
+      "failed_cases": [
+        "lc-1102-1",
+        "lc-1102-4",
+        "lc-1102-5",
+        "lc-1102-6",
+        "lc-1102-7",
+        "lc-1102-8",
+        "lc-1102-11",
+        "lc-1102-12",
+        "lc-1102-15"
+      ]
+    },
+    {
+      "reason": "Assumes only the two endpoints determine the path bottleneck and ignores interior cells.",
+      "failed_cases": [
+        "lc-1102-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5149,
+  "oracle_implementation": "code_practice/import_batch_082.py:maxmin_oracle",
+  "validator_implementation_sha256": "f318aa2ae34a1f644ef1bc970bdff4a085021885244a45f58b444b4509661527",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "094610576e86c81d16ffa58d29502a10dc22e725fdba3ce85219f8a8bb0a25cf",
+  "elapsed_seconds": 0.088,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1080",
+  "content_sha256": "8c72400935372fa5977e11b00e59d5d54c82738f2eae9c1b8a964894fe538f02",
+  "source_hash": "3d3ac04d901f6567c39fd410aaf46ddfc0749b39c14c0538d323dcf06b3ff645",
+  "visible_tests": 3,
+  "hidden_tests": 14,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects leaf paths exactly equal to the limit.",
+      "failed_cases": [
+        "lc-1080-4",
+        "lc-1080-6",
+        "lc-1080-8",
+        "lc-1080-10",
+        "lc-1080-11",
+        "lc-1080-12",
+        "lc-1080-14",
+        "lc-1080-15",
+        "lc-1080-16",
+        "lc-1080-17"
+      ]
+    },
+    {
+      "reason": "Keeps internal nodes only when both child branches survive.",
+      "failed_cases": [
+        "lc-1080-1",
+        "lc-1080-3",
+        "lc-1080-6",
+        "lc-1080-10",
+        "lc-1080-11",
+        "lc-1080-12",
+        "lc-1080-13",
+        "lc-1080-14",
+        "lc-1080-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5127,
+  "oracle_implementation": "code_practice/import_batch_082.py:sufficient_oracle",
+  "validator_implementation_sha256": "f318aa2ae34a1f644ef1bc970bdff4a085021885244a45f58b444b4509661527",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c7f8bd1490a4ecd8f23b972777a0a2b887c225a07098e141cefb8eca99caace8",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

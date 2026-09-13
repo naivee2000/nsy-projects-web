@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1094",
+  "content_sha256": "5d20372c53129490eea16142c6efd0700af891dcd1d1e53f89a7ddb379f532cd",
+  "source_hash": "46ecf07a9924c1da3a85503cfcf08c61d1c159ff4a809ff5fb2156bc0c18b017",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds passengers again at their drop-off point.",
+      "failed_cases": [
+        "lc-1094-2",
+        "lc-1094-4",
+        "lc-1094-6",
+        "lc-1094-8",
+        "lc-1094-10",
+        "lc-1094-11",
+        "lc-1094-12",
+        "lc-1094-14",
+        "lc-1094-16"
+      ]
+    },
+    {
+      "reason": "Rejects occupancy exactly equal to capacity.",
+      "failed_cases": [
+        "lc-1094-2",
+        "lc-1094-4",
+        "lc-1094-6",
+        "lc-1094-8",
+        "lc-1094-10",
+        "lc-1094-11",
+        "lc-1094-12",
+        "lc-1094-14",
+        "lc-1094-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5141,
+  "oracle_implementation": "code_practice/import_batch_082.py:car_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "309791d04be7aacdbf5177cc299c8b02a133d6dbe6b6bbf0786b8da036fce445",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1096",
+  "content_sha256": "ce1cd34261ce94404cbef2ffac1764569cd48170eb29dbc5bd950e430f55f8fa",
+  "source_hash": "7159c9feff2b7a0e4ff4b5bb9e5ceabddf09c025dc8babcfadd1bae326bce6fb",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Intersects union branches instead of combining them.",
+      "failed_cases": [
+        "lc-1096-1",
+        "lc-1096-2",
+        "lc-1096-3",
+        "lc-1096-4",
+        "lc-1096-5",
+        "lc-1096-6",
+        "lc-1096-7",
+        "lc-1096-8",
+        "lc-1096-9",
+        "lc-1096-10",
+        "lc-1096-11",
+        "lc-1096-12",
+        "lc-1096-13",
+        "lc-1096-14",
+        "lc-1096-15"
+      ]
+    },
+    {
+      "reason": "Reverses concatenation operand order.",
+      "failed_cases": [
+        "lc-1096-1",
+        "lc-1096-2",
+        "lc-1096-5",
+        "lc-1096-6",
+        "lc-1096-11",
+        "lc-1096-13",
+        "lc-1096-14",
+        "lc-1096-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5143,
+  "oracle_implementation": "code_practice/import_batch_082.py:brace_two_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0482a86e144f3197e8c3f4d143912614b7b9f987a5232f28f21114a0bad3a23c",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

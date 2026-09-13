@@ -1,0 +1,64 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1108",
+  "content_sha256": "7f918b13511e49b723f7eaf2533ca86b998b059093e58c9f6c1276be5e0b0c39",
+  "source_hash": "13cca30e784ff11b420a1b500543025f7db818b62dcf37a898ac4f6bd1b2ce24",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Removes the dot rather than retaining it inside brackets.",
+      "failed_cases": [
+        "lc-1108-1",
+        "lc-1108-2",
+        "lc-1108-3",
+        "lc-1108-4",
+        "lc-1108-5",
+        "lc-1108-6",
+        "lc-1108-7",
+        "lc-1108-8",
+        "lc-1108-9",
+        "lc-1108-10",
+        "lc-1108-11",
+        "lc-1108-12",
+        "lc-1108-13",
+        "lc-1108-14",
+        "lc-1108-15",
+        "lc-1108-16"
+      ]
+    },
+    {
+      "reason": "Replaces digit one instead of period separators.",
+      "failed_cases": [
+        "lc-1108-1",
+        "lc-1108-2",
+        "lc-1108-3",
+        "lc-1108-4",
+        "lc-1108-5",
+        "lc-1108-6",
+        "lc-1108-7",
+        "lc-1108-8",
+        "lc-1108-9",
+        "lc-1108-10",
+        "lc-1108-11",
+        "lc-1108-12",
+        "lc-1108-13",
+        "lc-1108-14",
+        "lc-1108-15",
+        "lc-1108-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5155,
+  "oracle_implementation": "code_practice/import_batch_082.py:defang_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "600e634bfd74c9d4da051ee5ac676e66bd8c04c525c33dc8543ea5faf0963b94",
+  "elapsed_seconds": 0.01,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

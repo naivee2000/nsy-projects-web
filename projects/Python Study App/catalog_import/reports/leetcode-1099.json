@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1099",
+  "content_sha256": "9831a53e65a1a9682f3406ee7beccc81ae8a64b0238aa821b313f4443a29c2b7",
+  "source_hash": "cacdbdba5a86c0e8326c7501b4259f3f53bb92d242b4f7fe09779b9a1fe937ae",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a sum equal to k.",
+      "failed_cases": [
+        "lc-1099-5",
+        "lc-1099-7",
+        "lc-1099-11",
+        "lc-1099-14",
+        "lc-1099-15"
+      ]
+    },
+    {
+      "reason": "Keeps the minimum qualifying sum.",
+      "failed_cases": [
+        "lc-1099-1",
+        "lc-1099-4",
+        "lc-1099-6",
+        "lc-1099-8",
+        "lc-1099-9",
+        "lc-1099-10",
+        "lc-1099-11",
+        "lc-1099-12",
+        "lc-1099-13",
+        "lc-1099-14",
+        "lc-1099-15",
+        "lc-1099-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5146,
+  "oracle_implementation": "code_practice/import_batch_082.py:less_k_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2429fcc460820a00e2f00eaaf33600ab6447e373ea8f35b67783d9df04401942",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

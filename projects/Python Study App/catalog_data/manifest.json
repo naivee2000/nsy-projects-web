@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 779,
+  "count": 799,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -13881,6 +13881,354 @@
       "path": "problems/leetcode-1079.json",
       "content_sha256": "7d04cdf2a949d2dd79339df9d163357eeada4ff0c390420eab98a24315d1089e",
       "source_id": 1079
+    },
+    {
+      "id": "leetcode-1080",
+      "version": 1,
+      "status": "approved",
+      "title": "Insufficient Nodes in Root to Leaf Paths",
+      "summary": "Given a binary tree and an integer limit, remove nodes that are insufficient, where an insufficient node is defined as one where every root-to-leaf path passing through it has a sum strictly less than the limit.",
+      "topics": [
+        "trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1080.json",
+      "content_sha256": "8c72400935372fa5977e11b00e59d5d54c82738f2eae9c1b8a964894fe538f02",
+      "source_id": 1080
+    },
+    {
+      "id": "leetcode-1085",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Digits in the Minimum Number",
+      "summary": "For an integer array nums, output 0 if the sum of digits in the smallest number within the array is odd, otherwise output 1.",
+      "topics": [
+        "math",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1085.json",
+      "content_sha256": "ae1221ba80a211e4e88c87d86ca4a796311a327649046cb14c3a3ee930755f48",
+      "source_id": 1085
+    },
+    {
+      "id": "leetcode-1086",
+      "version": 1,
+      "status": "approved",
+      "title": "High Five",
+      "summary": "Given a list of student scores, calculate the top five average score for each student.",
+      "topics": [
+        "sorting",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1086.json",
+      "content_sha256": "934d010e81d89f89f446814e1dbfa3a2b0b30561b2304390703d98e982fc2742",
+      "source_id": 1086
+    },
+    {
+      "id": "leetcode-1088",
+      "version": 1,
+      "status": "approved",
+      "title": "Confusing Number II",
+      "summary": "A confusing number is one that transforms into a distinct number upon a 180-degree rotation, with valid digits including 0, 1, 6, 8, and 9 becoming 0, 1, 9, 8, and 6 respectively, while 2, 3, 4, 5, and 7 become invalid.",
+      "topics": [
+        "backtracking",
+        "math"
+      ],
+      "prerequisites": [
+        "backtracking"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1088.json",
+      "content_sha256": "7e073eb0e4649da7625fee1f37f103c82ef8964d32dcb32d7ca58349a3f1f457",
+      "source_id": 1088
+    },
+    {
+      "id": "leetcode-1089",
+      "version": 1,
+      "status": "approved",
+      "title": "Duplicate Zeros",
+      "summary": "Given an integer array arr of a fixed length, duplicate every zero in the array by shifting other elements to the right.",
+      "topics": [
+        "arrays",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1089.json",
+      "content_sha256": "6aa0052b8bb3b2303b4bb84bfa19ede854df9c59339b74b6cdca5809f59184be",
+      "source_id": 1089
+    },
+    {
+      "id": "leetcode-1090",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Values From Labels",
+      "summary": "Given the values and labels of n items as two integer arrays, along with two integers numWanted and useLimit, select a subset of items such that the total value of the selected items is maximized, with the constraints that the total number of items does not exceed numWanted and no label appears more than useLimit times in the selected subset.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1090.json",
+      "content_sha256": "64ce3fdb55d9c0debd70e517ab96e57981e6af6b1a009ffc4159a367a2cf20fc",
+      "source_id": 1090
+    },
+    {
+      "id": "leetcode-1092",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Common Supersequence ",
+      "summary": "Given two strings str1 and str2, find and return the shortest string that includes both as subsequences.",
+      "topics": [
+        "dynamic-programming",
+        "strings"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1092.json",
+      "content_sha256": "ebf4a4aa6b79cfe2fb5a2f1421f7f077b123377e7d8adb6f44f5cd78a753258c",
+      "source_id": 1092
+    },
+    {
+      "id": "leetcode-1093",
+      "version": 1,
+      "status": "approved",
+      "title": "Statistics from a Large Sample",
+      "summary": "Given an array count representing the frequency of integers in the range [0, 255] from a large sample, calculate the minimum, maximum, mean, median, and mode of the sample.",
+      "topics": [
+        "arrays",
+        "statistics"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1093.json",
+      "content_sha256": "33796beed045972613c42d2bffae8e898a424143c3700cf39e89fd6e8f882bf5",
+      "source_id": 1093
+    },
+    {
+      "id": "leetcode-1094",
+      "version": 1,
+      "status": "approved",
+      "title": "Car Pooling",
+      "summary": "Given a car with a specific capacity and a list of trips, where each trip specifies the number of passengers, the pickup location, and the drop-off location, determine if it is possible to transport all passengers eastward without exceeding the car's capacity at any point during the trips.",
+      "topics": [
+        "prefix-sums",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1094.json",
+      "content_sha256": "5d20372c53129490eea16142c6efd0700af891dcd1d1e53f89a7ddb379f532cd",
+      "source_id": 1094
+    },
+    {
+      "id": "leetcode-1096",
+      "version": 1,
+      "status": "approved",
+      "title": "Brace Expansion II",
+      "summary": "For each lowercase letter x , the set of words it represents is \\{x\\} .",
+      "topics": [
+        "recursion",
+        "parsing"
+      ],
+      "prerequisites": [
+        "recursion"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1096.json",
+      "content_sha256": "ce1cd34261ce94404cbef2ffac1764569cd48170eb29dbc5bd950e430f55f8fa",
+      "source_id": 1096
+    },
+    {
+      "id": "leetcode-1099",
+      "version": 1,
+      "status": "approved",
+      "title": "Two Sum Less Than K",
+      "summary": "Provide the highest sum from an integer array where the sum of any two distinct elements is less than k, or return -1 if no such pair exists.",
+      "topics": [
+        "sorting",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1099.json",
+      "content_sha256": "9831a53e65a1a9682f3406ee7beccc81ae8a64b0238aa821b313f4443a29c2b7",
+      "source_id": 1099
+    },
+    {
+      "id": "leetcode-1100",
+      "version": 1,
+      "status": "approved",
+      "title": "Find K-Length Substrings With No Repeated Characters",
+      "summary": "Determine the count of substrings within a specified string that are exactly k characters long and contain no repeating characters.",
+      "topics": [
+        "sliding-window",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1100.json",
+      "content_sha256": "d92e158b3b941a4108d026fa007278ff88e437edf26c7c7bf1dff3bc31e6c1f5",
+      "source_id": 1100
+    },
+    {
+      "id": "leetcode-1101",
+      "version": 1,
+      "status": "approved",
+      "title": "The Earliest Moment When Everyone Become Friends",
+      "summary": "Given n people labeled from 0 to n-1, and a series of friendship logs where each log indicates two people becoming friends at a specific timestamp, determine the earliest time when everyone is acquainted with everyone else.",
+      "topics": [
+        "union-find",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1101.json",
+      "content_sha256": "d2a4fce268b99ed3eeb8c4bad8ff9a7e144aca5f99e16d005d49d9c8929e0792",
+      "source_id": 1101
+    },
+    {
+      "id": "leetcode-1102",
+      "version": 1,
+      "status": "approved",
+      "title": "Path With Maximum Minimum Value",
+      "summary": "Given an m x n matrix of integers, find the highest minimum value along any path from the top-left to the bottom-right corner, moving only up, down, left, or right.",
+      "topics": [
+        "graphs",
+        "priority-queues"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1102.json",
+      "content_sha256": "98eaf13b6d37db8c310d34de29c695bde00d97bf23690be34b1f1ff3575c099d",
+      "source_id": 1102
+    },
+    {
+      "id": "leetcode-1103",
+      "version": 1,
+      "status": "approved",
+      "title": "Distribute Candies to People",
+      "summary": "Distribute candies to a row of num_people people by initially giving 1 candy to the first person and increasing the number of candies by 1 for each subsequent person until the end of the row is reached.",
+      "topics": [
+        "simulation",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1103.json",
+      "content_sha256": "d904beb44abe89acce46ad2e7f22b206925e0ceef3a3200ef000a0cd4e129db7",
+      "source_id": 1103
+    },
+    {
+      "id": "leetcode-1104",
+      "version": 1,
+      "status": "approved",
+      "title": "Path In Zigzag Labelled Binary Tree",
+      "summary": "Given the label of a node in an infinite binary tree where nodes are labelled in row order with a zigzag pattern (left-to-right in odd rows and right-to-left in even rows), return the sequence of labels from the root to that node.",
+      "topics": [
+        "trees",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1104.json",
+      "content_sha256": "55730b09adf8fd3b486104b2c5082456d2dea65e140f0e045e1e86222d805581",
+      "source_id": 1104
+    },
+    {
+      "id": "leetcode-1105",
+      "version": 1,
+      "status": "approved",
+      "title": "Filling Bookcase Shelves",
+      "summary": "Given an array of books with their thickness and height, and a shelf width, arrange the books in order to minimize the total height of the bookshelf.",
+      "topics": [
+        "dynamic-programming",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1105.json",
+      "content_sha256": "863965ae86a0ffce4de5f465c9b1fd5be5e97856486e8389c370f3d1b2891f78",
+      "source_id": 1105
+    },
+    {
+      "id": "leetcode-1106",
+      "version": 1,
+      "status": "approved",
+      "title": "Parsing A Boolean Expression",
+      "summary": "A boolean expression evaluates to true or false.",
+      "topics": [
+        "stacks",
+        "parsing",
+        "recursion"
+      ],
+      "prerequisites": [
+        "stacks"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1106.json",
+      "content_sha256": "36de43d44651938d0d04e85d666a5fe7d5c074faeda6ae548cf4179a0ffca113",
+      "source_id": 1106
+    },
+    {
+      "id": "leetcode-1108",
+      "version": 1,
+      "status": "approved",
+      "title": "Defanging an IP Address",
+      "summary": "For a valid IPv4 address, replace each period with '[.]' to create a defanged version.",
+      "topics": [
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1108.json",
+      "content_sha256": "7f918b13511e49b723f7eaf2533ca86b998b059093e58c9f6c1276be5e0b0c39",
+      "source_id": 1108
+    },
+    {
+      "id": "leetcode-1109",
+      "version": 1,
+      "status": "approved",
+      "title": "Corporate Flight Bookings",
+      "summary": "Given an array of flight bookings where each booking specifies a range of flights and the number of seats reserved, return an array indicating the total number of seats reserved for each flight.",
+      "topics": [
+        "prefix-sums",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1109.json",
+      "content_sha256": "12594c89387290273fd60bc67be5de00c90780dd89fdb56a3d7e8f0b477b71fd",
+      "source_id": 1109
     }
   ]
 }

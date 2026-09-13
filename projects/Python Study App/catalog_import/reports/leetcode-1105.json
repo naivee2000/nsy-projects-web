@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1105",
+  "content_sha256": "863965ae86a0ffce4de5f465c9b1fd5be5e97856486e8389c370f3d1b2891f78",
+  "source_hash": "a8488894c1a033056fb3038c1a30af4827f834ff1954bc57dd6bdce35f1d99e4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the shortest rather than tallest book as shelf height.",
+      "failed_cases": [
+        "lc-1105-1",
+        "lc-1105-2",
+        "lc-1105-3",
+        "lc-1105-4",
+        "lc-1105-5",
+        "lc-1105-6",
+        "lc-1105-7",
+        "lc-1105-8",
+        "lc-1105-9",
+        "lc-1105-10",
+        "lc-1105-11",
+        "lc-1105-12",
+        "lc-1105-13",
+        "lc-1105-14",
+        "lc-1105-15",
+        "lc-1105-16"
+      ]
+    },
+    {
+      "reason": "Charges only the first book height instead of the shelf maximum.",
+      "failed_cases": [
+        "lc-1105-1",
+        "lc-1105-2",
+        "lc-1105-5",
+        "lc-1105-7",
+        "lc-1105-9",
+        "lc-1105-13",
+        "lc-1105-14",
+        "lc-1105-15",
+        "lc-1105-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5152,
+  "oracle_implementation": "code_practice/import_batch_082.py:shelves_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3a667708ef8219ad40994aa0f1cebbcb0ea3171f351f9c1ab6e4d5f4609f5753",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

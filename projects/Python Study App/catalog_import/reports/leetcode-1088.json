@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1088",
+  "content_sha256": "7e073eb0e4649da7625fee1f37f103c82ef8964d32dcb32d7ca58349a3f1f457",
+  "source_hash": "7b91a9d46ae8e5cab01e653879615bfea580730701bcbbad1675defeb979c739",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts rotationally unchanged numbers instead.",
+      "failed_cases": [
+        "lc-1088-1",
+        "lc-1088-2",
+        "lc-1088-3",
+        "lc-1088-4",
+        "lc-1088-7",
+        "lc-1088-9",
+        "lc-1088-10",
+        "lc-1088-11",
+        "lc-1088-12",
+        "lc-1088-13",
+        "lc-1088-14",
+        "lc-1088-15"
+      ]
+    },
+    {
+      "reason": "Builds the rotated digits in the wrong positional direction.",
+      "failed_cases": [
+        "lc-1088-1",
+        "lc-1088-2",
+        "lc-1088-7",
+        "lc-1088-8",
+        "lc-1088-9",
+        "lc-1088-10",
+        "lc-1088-11",
+        "lc-1088-12",
+        "lc-1088-13",
+        "lc-1088-14",
+        "lc-1088-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5135,
+  "oracle_implementation": "code_practice/import_batch_082.py:confusing_two_oracle",
+  "validator_implementation_sha256": "c614ddeac381026a1c9e003f0e9f54bb3eba05ef9f1b3e2cf6c45b5f3587ef30",
+  "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b870fbd097919b86c6caf712f46c7fc6bcb44e67f8b1058117e4979b32c26edb",
+  "elapsed_seconds": 0.508,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
