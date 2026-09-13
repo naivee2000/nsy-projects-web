@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 407 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [395-problem handoff checklist](Python%20Study%20App/docs/RELEASE_395_CHECKPOINT.md) covers the frozen `python-study-395-checkpoint` release and updating the other computer without replacing its progress. Twelve verified batch-41 problems have been added locally outside this release; handoff tags remain unchanged.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 411 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [395-problem handoff checklist](Python%20Study%20App/docs/RELEASE_395_CHECKPOINT.md) covers the frozen `python-study-395-checkpoint` release and updating the other computer without replacing its progress. Sixteen verified batch-41/42 problems have been added locally outside this release; handoff tags remain unchanged.
 
 ## Python Study App
 
@@ -41,7 +41,7 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
 The workbook expansion currently accounts for 3,629 rows: 74 existing equivalents,
-306 verified new problems, 155 documented design/interactive exclusions, and 3,094
+310 verified new problems, 155 documented design/interactive exclusions, and 3,090
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -256,6 +256,13 @@ The 395-problem checkpoint freezes verified content for handoff; it does not dec
 Monaco editor and Pyodide runtime assets are included in the local frontend build, so studying needs no CDN after installation. Import validation runs in bounded per-problem processes and quarantines failures. The Chrome check uses a temporary progress database, blocks external requests, tests restart persistence, measures 100 requests per API route, and records OS-reported backend peak memory. No deployment or push is part of this expansion work.
 
 The Today page assigns one fixed workload-capped set per local calendar day: five Easy problems; normally two Medium plus one Easy (or at most three Medium when no Easy remains); or one Hard plus at most one Medium. Completed items disappear from that fixed set without being replaced. After the final assigned problem passes, the app shows a finished message and waits until the next day to create another set. A separate fixed daily review checklist selects up to five previously passed problems. Review priority combines spaced-review due dates with difficulty, failures after the first successful solve, time spent relative to the estimate, and whether the latest attempt failed. A full five-problem review uses at most three focus slots for linked lists, recursion, binary search, and recursive matrix/grid traversal, reserving two slots for other completed topics whenever available; hint usage does not influence review selection. A review disappears after another successful full submission that day, is not replaced, and the section shows a finished message after every assigned review is checked.
+
+Batch 42 adds Concatenated Words, Matchsticks to Square, Ones and Zeroes, and
+Heaters. Regressions distinguish multi-piece word reuse, four equal sides,
+separate zero/one budgets with duplicate indices, and worst-house coverage.
+All four pass 500 independent oracle comparisons plus source-scale tests;
+recursion and binary-search review priorities and Hard prerequisite gates remain.
+The 407 preceding catalog entries retain identical content and progress IDs.
 
 Linked-list and tree problems show the full `ListNode` or `TreeNode` class definition above the function in the editable code pane. The app also prepends the required class when reopening an older saved draft that predates this feature.
 

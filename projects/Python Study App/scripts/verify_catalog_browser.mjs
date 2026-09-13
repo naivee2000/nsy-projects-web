@@ -246,6 +246,12 @@ try {
   assert((await page.locator('.problem-pane').textContent()).includes('compressed :: notation'));
   assert((await page.locator('.problem-pane').textContent()).includes('NOT accepted'));
   report.checks.push('IP examples and constraints explain full eight-group IPv6 and forbid compressed notation');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Concatenated Words');
+  await page.getByRole('button', { name: /Concatenated Words.*Advanced/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('at least two strictly shorter'));
+  assert((await page.locator('.problem-pane').textContent()).includes('three pieces'));
+  report.checks.push('concatenated-word examples distinguish shorter-word reuse from accepting the unsplit candidate');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -369,6 +375,22 @@ try {
     assert.equal((await judge(page, missingCase, `def disappeared_numbers(nums):\n    return ${output}`)).status, 'wrong_answer');
   }
   report.checks.push('batch 41 wrong algorithms rejected: ordered geometry, interval endpoints, distinct move rules, index multiplicities, strict patterns and IP grammar; missing values allow reorder but reject duplicates and omissions');
+  for (const id of [472,473,474,475]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `leetcode-${id} wrong fixture`);
+    }
+  }
+  const concatenated = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-472.json'), 'utf8'));
+  const concatenatedCase = { ...concatenated, tests: [concatenated.tests[0]] };
+  const concatenatedExpected = concatenatedCase.tests[0].expected;
+  assert.equal((await judge(page, concatenatedCase,
+    `def concatenated_words(words):\n    return ${JSON.stringify([...concatenatedExpected].reverse())}`)).status, 'accepted');
+  for (const output of [concatenatedExpected.slice(1), [...concatenatedExpected, concatenatedExpected[0]], [...concatenatedExpected, 'cat']]) {
+    assert.equal((await judge(page, concatenatedCase,
+      `def concatenated_words(words):\n    return ${JSON.stringify(output)}`)).status, 'wrong_answer');
+  }
+  report.checks.push('batch 42 wrong algorithms rejected: self-only or two-piece-only words, greedy side placement, repeated item use, duplicate erasure and wrong heater distances; concatenated results permit reorder only');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
     expected: [1,1,1], expected_node_order: [1,2,0] }] };
