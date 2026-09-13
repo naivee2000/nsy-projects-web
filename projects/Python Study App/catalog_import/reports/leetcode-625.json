@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-625",
+  "content_sha256": "92686a8b07618e46884eb4513ebe750b32d15008ad00482288000ba9b287185d",
+  "source_hash": "cccea63f39e85f7a77a0f14c68832e3f0ed2816e3d4d44faa045bc57b1745fda",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Extracts small factors first and can create more digits than necessary.",
+      "failed_cases": [
+        "lc-625-1",
+        "lc-625-2",
+        "lc-625-7",
+        "lc-625-9",
+        "lc-625-10",
+        "lc-625-11",
+        "lc-625-12",
+        "lc-625-13",
+        "lc-625-15"
+      ]
+    },
+    {
+      "reason": "Returns a digit string even when a prime factor larger than nine remains.",
+      "failed_cases": [
+        "lc-625-8",
+        "lc-625-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4672,
+  "oracle_implementation": "code_practice/import_batch_060.py:factor_oracle",
+  "validator_implementation_sha256": "e11449e1b3992d7369be4e3066d7a8710cb58f0eafb60ee94e7be5e5607e54dd",
+  "batch_implementation_sha256": "8d5440676ca6eed69403ce5f87bf397d5d1e3ebfe0492752903f563caab45d39",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0a56618bc3ff540e8abbb185d59ff91874e1c183e5f86792aec4363a23778e60",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

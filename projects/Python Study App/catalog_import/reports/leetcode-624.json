@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-624",
+  "content_sha256": "89b164111a1a37d015f3b54143047f964c6eeb5a45c0dd562f9748aa7f5e3b71",
+  "source_hash": "c22be9d4d36faa4870e100ef96e6b047834b904aa8ee5cb068131ef6fcf5fcbc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips the second array.",
+      "failed_cases": [
+        "lc-624-1",
+        "lc-624-3",
+        "lc-624-4",
+        "lc-624-5",
+        "lc-624-8",
+        "lc-624-9",
+        "lc-624-12",
+        "lc-624-14"
+      ]
+    },
+    {
+      "reason": "Compares minima instead of the current maximum to the earlier minimum.",
+      "failed_cases": [
+        "lc-624-2",
+        "lc-624-5",
+        "lc-624-6",
+        "lc-624-10",
+        "lc-624-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4671,
+  "oracle_implementation": "code_practice/import_batch_060.py:distance_oracle",
+  "validator_implementation_sha256": "e11449e1b3992d7369be4e3066d7a8710cb58f0eafb60ee94e7be5e5607e54dd",
+  "batch_implementation_sha256": "8d5440676ca6eed69403ce5f87bf397d5d1e3ebfe0492752903f563caab45d39",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "060ca11f9dabe7975e4157d99395b85737f4d1c860fc537ca78d3ff2192432ae",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

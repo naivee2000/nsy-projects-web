@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-628",
+  "content_sha256": "186ddc8f935a56e7dde9b20c7ae3ab9deb25ab47b237db318a064147013ae91b",
+  "source_hash": "545d451d1643072855f27e8c8de789b1f7272fb5b8fab02480a69d4e5ba02666",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only the three largest values and misses two large negatives.",
+      "failed_cases": [
+        "lc-628-2",
+        "lc-628-9",
+        "lc-628-10",
+        "lc-628-13",
+        "lc-628-14"
+      ]
+    },
+    {
+      "reason": "Assumes input order is already sorted.",
+      "failed_cases": [
+        "lc-628-2",
+        "lc-628-11",
+        "lc-628-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4675,
+  "oracle_implementation": "code_practice/import_batch_060.py:product_oracle",
+  "validator_implementation_sha256": "e11449e1b3992d7369be4e3066d7a8710cb58f0eafb60ee94e7be5e5607e54dd",
+  "batch_implementation_sha256": "8d5440676ca6eed69403ce5f87bf397d5d1e3ebfe0492752903f563caab45d39",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "18bb66bda6e3359c45a26695371caaebdd09ea8f7fa16e50205ef03f6dded766",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

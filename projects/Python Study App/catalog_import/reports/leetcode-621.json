@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-621",
+  "content_sha256": "7607cbbe499a8ff8b3f45ff0faf862674318cbc604f5ed6a36cf7698cea5e1ec",
+  "source_hash": "43e0da0757048a0736e734af5f404dadda1d1376bf549ce183b1c804ee938e06",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only one task tied for maximum frequency.",
+      "failed_cases": [
+        "lc-621-1",
+        "lc-621-8"
+      ]
+    },
+    {
+      "reason": "Forgets that abundant other tasks can fill every idle slot.",
+      "failed_cases": [
+        "lc-621-2",
+        "lc-621-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4668,
+  "oracle_implementation": "code_practice/import_batch_060.py:scheduler_oracle",
+  "validator_implementation_sha256": "e11449e1b3992d7369be4e3066d7a8710cb58f0eafb60ee94e7be5e5607e54dd",
+  "batch_implementation_sha256": "8d5440676ca6eed69403ce5f87bf397d5d1e3ebfe0492752903f563caab45d39",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4350acb92671504559e86d502afcb212247acc10dd917b8221db707c48a16d84",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

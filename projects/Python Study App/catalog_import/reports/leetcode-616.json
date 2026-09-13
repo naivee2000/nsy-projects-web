@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-616",
+  "content_sha256": "50237a0a33a26f24201bdc382bfaf63f4c4e713e1c54026bff016e3ba937d025",
+  "source_hash": "294290cbf3a446d8a8ee6ac350fe9b3c93789499958ad4490c7baffce230af16",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stops each bold region after one character.",
+      "failed_cases": [
+        "lc-616-1",
+        "lc-616-2",
+        "lc-616-5",
+        "lc-616-7",
+        "lc-616-8",
+        "lc-616-9",
+        "lc-616-10",
+        "lc-616-11",
+        "lc-616-12",
+        "lc-616-13"
+      ]
+    },
+    {
+      "reason": "Omits the closing bold tag.",
+      "failed_cases": [
+        "lc-616-1",
+        "lc-616-2",
+        "lc-616-3",
+        "lc-616-5",
+        "lc-616-6",
+        "lc-616-7",
+        "lc-616-8",
+        "lc-616-9",
+        "lc-616-10",
+        "lc-616-11",
+        "lc-616-12",
+        "lc-616-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4663,
+  "oracle_implementation": "code_practice/import_batch_060.py:bold_oracle",
+  "validator_implementation_sha256": "e11449e1b3992d7369be4e3066d7a8710cb58f0eafb60ee94e7be5e5607e54dd",
+  "batch_implementation_sha256": "8d5440676ca6eed69403ce5f87bf397d5d1e3ebfe0492752903f563caab45d39",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "935faec68c9335019575f2ef68d00e5b0faa3ce8bc7b99680a08701e5175e65e",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
