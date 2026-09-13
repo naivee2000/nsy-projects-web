@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-679",
+  "content_sha256": "30a900a88911b05003de490b2086905fe5c5088d939a2d0fa56c9efef1e89fdf",
+  "source_hash": "afa09cb1b6795d13115efa243367ea554be53d2935f90196e9808c4b13a72f1c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits division, missing fractional constructions.",
+      "failed_cases": [
+        "lc-679-4",
+        "lc-679-5",
+        "lc-679-13"
+      ]
+    },
+    {
+      "reason": "Uses floor division and loses necessary fractional intermediate values.",
+      "failed_cases": [
+        "lc-679-5",
+        "lc-679-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4726,
+  "oracle_implementation": "code_practice/import_batch_067.py:game24_oracle",
+  "validator_implementation_sha256": "919cf2cdcd7aee95ddadd18d73cb32b4b78c5801f0672bff3feafa661cbbd27d",
+  "batch_implementation_sha256": "7f2b95c76f797e2874d3b1532fe03df9a92cc5f839ad13225735fb45e0859ebd",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "83fcff538dd2f36e4fcd8c206cab250815fd19466c78acace3483bde01d1ca01",
+  "elapsed_seconds": 0.491,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

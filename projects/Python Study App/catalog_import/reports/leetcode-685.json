@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-685",
+  "content_sha256": "fabb776ce2710518d6125bc3c1831cabe0bd8e27e65fb1abe24395a8989d491e",
+  "source_hash": "fb18da470a1b647e76951766a19c1776e9ffb31a3105d2f1cfbabf7926f2c7f8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the graph as an undirected cycle and mishandles two-parent cases.",
+      "failed_cases": [
+        "lc-685-5",
+        "lc-685-7",
+        "lc-685-9",
+        "lc-685-12",
+        "lc-685-14"
+      ]
+    },
+    {
+      "reason": "Always removes the later incoming edge without checking whether the earlier edge participates in a cycle.",
+      "failed_cases": [
+        "lc-685-2",
+        "lc-685-5",
+        "lc-685-7",
+        "lc-685-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4732,
+  "oracle_implementation": "code_practice/import_batch_067.py:directed_redundant_oracle",
+  "validator_implementation_sha256": "919cf2cdcd7aee95ddadd18d73cb32b4b78c5801f0672bff3feafa661cbbd27d",
+  "batch_implementation_sha256": "7f2b95c76f797e2874d3b1532fe03df9a92cc5f839ad13225735fb45e0859ebd",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "98f8830a421fffd69a83b41447007d3f80fb74385fc838bb546dfef78d0f7ac2",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

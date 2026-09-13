@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 533,
+  "count": 540,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -9579,6 +9579,25 @@
       "source_id": 678
     },
     {
+      "id": "leetcode-679",
+      "version": 1,
+      "status": "approved",
+      "title": "24 Game",
+      "summary": "Given an integer array cards of length 4, where each card contains a number in the range [1, 9], determine if you can arrange these numbers using the operators ['+', '-', '*', '/'] and parentheses '(' and ')' to achieve a value of 24.",
+      "topics": [
+        "backtracking",
+        "math"
+      ],
+      "prerequisites": [
+        "backtracking"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-679.json",
+      "content_sha256": "30a900a88911b05003de490b2086905fe5c5088d939a2d0fa56c9efef1e89fdf",
+      "source_id": 679
+    },
+    {
       "id": "leetcode-680",
       "version": 1,
       "status": "approved",
@@ -9628,6 +9647,114 @@
       "path": "problems/leetcode-682.json",
       "content_sha256": "19eaa5dade2987ec047468e0b8915c325ca6174c3c8dc1ff57c0ce803f77863b",
       "source_id": 682
+    },
+    {
+      "id": "leetcode-683",
+      "version": 1,
+      "status": "approved",
+      "title": "K Empty Slots",
+      "summary": "You have n bulbs arranged in a sequence numbered from 1 to n.",
+      "topics": [
+        "sliding-windows",
+        "arrays"
+      ],
+      "prerequisites": [
+        "sliding-windows"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-683.json",
+      "content_sha256": "65c82088960a5a6439e101274f9624518bea33f061bb191c421f5623c9c4a1b4",
+      "source_id": 683
+    },
+    {
+      "id": "leetcode-684",
+      "version": 1,
+      "status": "approved",
+      "title": "Redundant Connection",
+      "summary": "Given a graph that initially forms a tree with n nodes and an additional edge, identify and return an edge that can be removed to restore the graph as a tree with n nodes.",
+      "topics": [
+        "graphs",
+        "union-find"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-684.json",
+      "content_sha256": "74a87718b84ac0ea0909ade880e2bbad6b2cc4d2ddd5d61c8bffb35b6266709c",
+      "source_id": 684
+    },
+    {
+      "id": "leetcode-685",
+      "version": 1,
+      "status": "approved",
+      "title": "Redundant Connection II",
+      "summary": "Given a directed graph that originally formed a rooted tree with one additional directed edge, identify and return an edge that can be removed to restore the graph as a rooted tree with n nodes.",
+      "topics": [
+        "graphs",
+        "union-find"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-685.json",
+      "content_sha256": "fabb776ce2710518d6125bc3c1831cabe0bd8e27e65fb1abe24395a8989d491e",
+      "source_id": 685
+    },
+    {
+      "id": "leetcode-686",
+      "version": 1,
+      "status": "approved",
+      "title": "Repeated String Match",
+      "summary": "Determine the least number of repetitions of string a required for string b to become a substring.",
+      "topics": [
+        "strings",
+        "string-matching"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-686.json",
+      "content_sha256": "d4346a2c21ccf2307892a508200ec0b2ba057f9d92d5e070548be753ca1639f2",
+      "source_id": 686
+    },
+    {
+      "id": "leetcode-688",
+      "version": 1,
+      "status": "approved",
+      "title": "Knight Probability in Chessboard",
+      "summary": "Given an n x n chessboard, a knight starts at a specific cell (row, column) and makes exactly k moves.",
+      "topics": [
+        "dynamic-programming",
+        "probability"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-688.json",
+      "content_sha256": "0d1206d497a23a868983758ec99e94b0b5c3bad69ed7915276934a4ab906f7fb",
+      "source_id": 688
+    },
+    {
+      "id": "leetcode-689",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Sum of 3 Non-Overlapping Subarrays",
+      "summary": "Given an integer array, find three non-overlapping subarrays of a specified length with the maximum sum.",
+      "topics": [
+        "dynamic-programming",
+        "sliding-windows"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-689.json",
+      "content_sha256": "30def5fc6adb011f248f3305c1824aa716dc3a88409ae351f9420b82b2dd0b84",
+      "source_id": 689
     },
     {
       "id": "leetcode-700",

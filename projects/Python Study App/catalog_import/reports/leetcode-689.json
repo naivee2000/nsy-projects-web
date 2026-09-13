@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-689",
+  "content_sha256": "30def5fc6adb011f248f3305c1824aa716dc3a88409ae351f9420b82b2dd0b84",
+  "source_hash": "266592c4d57541dc87303db26d22987bcf499e5cfab8e6f83b9ccfdcb3be27b9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the three largest windows independently and permits overlap.",
+      "failed_cases": [
+        "lc-689-1",
+        "lc-689-2",
+        "lc-689-4",
+        "lc-689-6",
+        "lc-689-8",
+        "lc-689-9",
+        "lc-689-11",
+        "lc-689-12",
+        "lc-689-14"
+      ]
+    },
+    {
+      "reason": "Uses later indices when equal sums require lexicographically earlier ones.",
+      "failed_cases": [
+        "lc-689-2",
+        "lc-689-9",
+        "lc-689-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4736,
+  "oracle_implementation": "code_practice/import_batch_067.py:three_windows_oracle",
+  "validator_implementation_sha256": "919cf2cdcd7aee95ddadd18d73cb32b4b78c5801f0672bff3feafa661cbbd27d",
+  "batch_implementation_sha256": "7f2b95c76f797e2874d3b1532fe03df9a92cc5f839ad13225735fb45e0859ebd",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "66134087dfb08f963045bf0b300bd44195414a10006caf11caabde48a59fc91c",
+  "elapsed_seconds": 0.068,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
