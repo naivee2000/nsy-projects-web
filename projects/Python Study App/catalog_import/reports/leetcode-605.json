@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-605",
+  "content_sha256": "daff1adbedb68f937d9c5009a6b1d7051581487d26205d088d780d94f223c8bf",
+  "source_hash": "e4cf7733944b9c0a5c858dbdc1544e15dd34b077276b48ca7070f6e125cc9240",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Misses edge plots because they lack virtual empty neighbors.",
+      "failed_cases": [
+        "lc-605-4",
+        "lc-605-7",
+        "lc-605-9",
+        "lc-605-10",
+        "lc-605-11",
+        "lc-605-13"
+      ]
+    },
+    {
+      "reason": "Counts a placement without blocking its adjacent plots.",
+      "failed_cases": [
+        "lc-605-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4652,
+  "oracle_implementation": "code_practice/import_batch_056.py:flowers_oracle",
+  "validator_implementation_sha256": "954ebebb28f1f0d56a287470295cc1f283637bf5f151f258e7c4819e982271fb",
+  "batch_implementation_sha256": "15075290d16666d1647e5ccaa45c7d5a8c6bed314357645c4d8dcb0f659accdc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f32cdd7830fe406fade905c9ff53f5be9f18a34477a6d0fcd36b3fa77b14f661",
+  "elapsed_seconds": 0.549,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

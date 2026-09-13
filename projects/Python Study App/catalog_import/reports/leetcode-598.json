@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-598",
+  "content_sha256": "7ef0b3cef2e982d4e2010352ce3856dbbf3c734d285241ec2a45d5ec4abc60b9",
+  "source_hash": "21aaa00a5adb1e67e6b07f3fe3fcdf71fa3d9d218cecc8d856d6861712879288",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the union instead of the common overlap.",
+      "failed_cases": [
+        "lc-598-1",
+        "lc-598-8",
+        "lc-598-9",
+        "lc-598-10",
+        "lc-598-11",
+        "lc-598-12",
+        "lc-598-13"
+      ]
+    },
+    {
+      "reason": "Returns no cells for an empty operation list.",
+      "failed_cases": [
+        "lc-598-2",
+        "lc-598-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4645,
+  "oracle_implementation": "code_practice/import_batch_056.py:range_oracle",
+  "validator_implementation_sha256": "954ebebb28f1f0d56a287470295cc1f283637bf5f151f258e7c4819e982271fb",
+  "batch_implementation_sha256": "15075290d16666d1647e5ccaa45c7d5a8c6bed314357645c4d8dcb0f659accdc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1682fcd7e68880bb9ae69dfd02a20da3e2e7f9ffefc015d2795b74f3d0b40757",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

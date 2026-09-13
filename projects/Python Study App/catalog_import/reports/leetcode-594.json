@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-594",
+  "content_sha256": "f956631d09bc09b02a8ce8df7eb8b1f5afbf70c62bc383aba122f74bc21e4d1f",
+  "source_hash": "2489e38428eb162cecaa1077a9b0188360dfdf5c5a57de19b5c3bf888f254bcb",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses values two apart.",
+      "failed_cases": [
+        "lc-594-1",
+        "lc-594-4",
+        "lc-594-5",
+        "lc-594-6",
+        "lc-594-7",
+        "lc-594-8",
+        "lc-594-9",
+        "lc-594-10",
+        "lc-594-11",
+        "lc-594-14",
+        "lc-594-15"
+      ]
+    },
+    {
+      "reason": "Returns the most frequent value even without an adjacent value.",
+      "failed_cases": [
+        "lc-594-1",
+        "lc-594-4",
+        "lc-594-5",
+        "lc-594-7",
+        "lc-594-8",
+        "lc-594-9",
+        "lc-594-10",
+        "lc-594-11",
+        "lc-594-12",
+        "lc-594-13",
+        "lc-594-14",
+        "lc-594-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4641,
+  "oracle_implementation": "code_practice/import_batch_056.py:harmonious_oracle",
+  "validator_implementation_sha256": "954ebebb28f1f0d56a287470295cc1f283637bf5f151f258e7c4819e982271fb",
+  "batch_implementation_sha256": "15075290d16666d1647e5ccaa45c7d5a8c6bed314357645c4d8dcb0f659accdc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b59ce0ede4646b2db571a5020e87b16ecbfed8f0efdad117fe904f187be846c7",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

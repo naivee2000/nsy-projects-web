@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-599",
+  "content_sha256": "4ac67d1cc5d8661a048f03f95ed6d3380d98993c321cee33f633d2e605a2641a",
+  "source_hash": "99a7b374bf1fca0fd3d19fde1f0aa0b30256016e04edf23260aeaafee54f3a74",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops ties for the smallest index sum.",
+      "failed_cases": [
+        "lc-599-2",
+        "lc-599-5",
+        "lc-599-7",
+        "lc-599-9",
+        "lc-599-11",
+        "lc-599-12",
+        "lc-599-13",
+        "lc-599-14"
+      ]
+    },
+    {
+      "reason": "Ignores the index in the first list.",
+      "failed_cases": [
+        "lc-599-2",
+        "lc-599-5",
+        "lc-599-7",
+        "lc-599-9",
+        "lc-599-11",
+        "lc-599-12",
+        "lc-599-13",
+        "lc-599-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4646,
+  "oracle_implementation": "code_practice/import_batch_056.py:restaurant_oracle",
+  "validator_implementation_sha256": "954ebebb28f1f0d56a287470295cc1f283637bf5f151f258e7c4819e982271fb",
+  "batch_implementation_sha256": "15075290d16666d1647e5ccaa45c7d5a8c6bed314357645c4d8dcb0f659accdc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d45975f27800e3294472d5deb30a8ec85134fa45f17de7517610163e4f22a983",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
