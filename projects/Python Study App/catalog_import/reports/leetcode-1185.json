@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1185",
+  "content_sha256": "2afc787103bcae9b04dfbec3178ce52df1323860f1cd9e273ad84ee1f7ec4d4e",
+  "source_hash": "dd6a8e1af2a5bb0cca20dd55d268740d1bc8a7ddef45e69707544df9fa4d1733",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Anchors January 1, 1971 to the wrong weekday.",
+      "failed_cases": [
+        "lc-1185-3",
+        "lc-1185-5",
+        "lc-1185-13",
+        "lc-1185-15"
+      ]
+    },
+    {
+      "reason": "Counts the current date with an off-by-one day.",
+      "failed_cases": [
+        "lc-1185-1",
+        "lc-1185-2",
+        "lc-1185-3",
+        "lc-1185-4",
+        "lc-1185-5",
+        "lc-1185-6",
+        "lc-1185-7",
+        "lc-1185-8",
+        "lc-1185-9",
+        "lc-1185-10",
+        "lc-1185-11",
+        "lc-1185-12",
+        "lc-1185-13",
+        "lc-1185-14",
+        "lc-1185-15",
+        "lc-1185-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5232,
+  "oracle_implementation": "code_practice/import_batch_086.py:weekday_oracle",
+  "validator_implementation_sha256": "2ff2cb68469f708a09e2624996c37e0022880b16ddca200656b71ac9e13bf95b",
+  "batch_implementation_sha256": "94d34eb0865bad8917d081e2bbf1ac53b67c905ca0689220c52a3af49e009041",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a27bf58c0bf0071c60f5546517b01cd9dc262d08d86ff10d1734b9ac6453389d",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
