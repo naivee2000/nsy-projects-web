@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1233",
+  "content_sha256": "6e175714a7b69fc3983fea13de697f7e698d8ae0aca78bb6206b4877eca697ae",
+  "source_hash": "664aaf36cbf39b3cd9ae2cf6f582c2ed1a7e306a8ea9e4389d10721d2693fa61",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Confuses ordinary string prefixes with folder ancestry.",
+      "failed_cases": [
+        "lc-1233-2",
+        "lc-1233-6",
+        "lc-1233-11",
+        "lc-1233-14"
+      ]
+    },
+    {
+      "reason": "Relies on input order and may accept a child before its parent.",
+      "failed_cases": [
+        "lc-1233-2",
+        "lc-1233-5",
+        "lc-1233-10",
+        "lc-1233-11",
+        "lc-1233-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5280,
+  "oracle_implementation": "code_practice/import_batch_089b.py:folders_o",
+  "validator_implementation_sha256": "674585f658af74ef608ebf55f72630997ee94a879893292e216972b8d84a99d2",
+  "batch_implementation_sha256": "a0d28a5602a716da1888958f23d6d260813547354caaf28ac1bd98060188a73d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b302cd1a4ca418d3d424af23db56ecfae3347345781a6c82a9903377ea95f190",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

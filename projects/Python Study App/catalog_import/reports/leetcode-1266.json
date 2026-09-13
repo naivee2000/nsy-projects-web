@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1266",
+  "content_sha256": "9cb2a15213cccc873ef55daf3994ae4771466013375d955fd9ecb883791a1a58",
+  "source_hash": "fbf97713e0a3164fda52f0e49f59598ab18b60f78708acdf1dbbf56866b8d09e",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses Manhattan distance and ignores diagonal movement.",
+      "failed_cases": [
+        "lc-1266-1",
+        "lc-1266-4",
+        "lc-1266-5",
+        "lc-1266-7",
+        "lc-1266-8",
+        "lc-1266-9",
+        "lc-1266-10",
+        "lc-1266-11",
+        "lc-1266-12",
+        "lc-1266-14",
+        "lc-1266-15"
+      ]
+    },
+    {
+      "reason": "Returns only the slowest leg rather than total travel time.",
+      "failed_cases": [
+        "lc-1266-1",
+        "lc-1266-8",
+        "lc-1266-9",
+        "lc-1266-10",
+        "lc-1266-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5313,
+  "oracle_implementation": "code_practice/import_batch_089b.py:time_o",
+  "validator_implementation_sha256": "674585f658af74ef608ebf55f72630997ee94a879893292e216972b8d84a99d2",
+  "batch_implementation_sha256": "a0d28a5602a716da1888958f23d6d260813547354caaf28ac1bd98060188a73d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3d739b803f84801bbca944a86420433e6ba74a030eb2c223fe539c34bd404d89",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

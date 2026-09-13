@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1248",
+  "content_sha256": "16f971883b2f6e793cfdf36f3493eb8657e5142585f50f1cb9d62f77ea15aac2",
+  "source_hash": "60f431978a130f93531c2ddccb5e7b7327c7fe6f1838bc7b81f51e7084c6d07f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Looks for a future larger prefix count.",
+      "failed_cases": [
+        "lc-1248-1",
+        "lc-1248-3",
+        "lc-1248-5",
+        "lc-1248-6",
+        "lc-1248-7",
+        "lc-1248-8",
+        "lc-1248-9",
+        "lc-1248-10",
+        "lc-1248-11",
+        "lc-1248-12",
+        "lc-1248-13",
+        "lc-1248-14",
+        "lc-1248-15"
+      ]
+    },
+    {
+      "reason": "Omits the empty prefix, losing subarrays starting at index zero.",
+      "failed_cases": [
+        "lc-1248-1",
+        "lc-1248-3",
+        "lc-1248-5",
+        "lc-1248-6",
+        "lc-1248-7",
+        "lc-1248-8",
+        "lc-1248-9",
+        "lc-1248-10",
+        "lc-1248-11",
+        "lc-1248-12",
+        "lc-1248-13",
+        "lc-1248-14",
+        "lc-1248-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5295,
+  "oracle_implementation": "code_practice/import_batch_089b.py:nice_o",
+  "validator_implementation_sha256": "674585f658af74ef608ebf55f72630997ee94a879893292e216972b8d84a99d2",
+  "batch_implementation_sha256": "a0d28a5602a716da1888958f23d6d260813547354caaf28ac1bd98060188a73d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6acebd9f75e0ef116668492507a1a84663a603aa9bba7fc6fe3f4afeb68b119e",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

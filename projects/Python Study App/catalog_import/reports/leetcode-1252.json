@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1252",
+  "content_sha256": "fb6f7bc3213a4be26f7e4c7cd36e1ec21dd60f97a433ff0e29586a14eaacbccd",
+  "source_hash": "21e85042f7edf4081029670a68119d6d072b46537edaabe49e243145fcb9c1fc",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Does not cancel repeated operations on the same row.",
+      "failed_cases": [
+        "lc-1252-8",
+        "lc-1252-11"
+      ]
+    },
+    {
+      "reason": "Counts only cells whose row and column are both odd rather than their parity XOR.",
+      "failed_cases": [
+        "lc-1252-1",
+        "lc-1252-2",
+        "lc-1252-4",
+        "lc-1252-5",
+        "lc-1252-7",
+        "lc-1252-9",
+        "lc-1252-11",
+        "lc-1252-12",
+        "lc-1252-14",
+        "lc-1252-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5299,
+  "oracle_implementation": "code_practice/import_batch_089b.py:odd_o",
+  "validator_implementation_sha256": "674585f658af74ef608ebf55f72630997ee94a879893292e216972b8d84a99d2",
+  "batch_implementation_sha256": "a0d28a5602a716da1888958f23d6d260813547354caaf28ac1bd98060188a73d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "91f16ee97067c27c6e93f8dbac7d397e81e6da0bc7dbd66df3bf39e0c98731f2",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

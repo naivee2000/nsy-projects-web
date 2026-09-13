@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1267",
+  "content_sha256": "bdd5970107fd8733f88e104e480a6143d644e1362fd7c0cf72fed5baa08f6da2",
+  "source_hash": "ed4b764bb5666b9fe15863673cf0c16038704a655c005f69a3f7e89f52beaa74",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires companions in both the row and column.",
+      "failed_cases": [
+        "lc-1267-2",
+        "lc-1267-5",
+        "lc-1267-6",
+        "lc-1267-7",
+        "lc-1267-8",
+        "lc-1267-11",
+        "lc-1267-12",
+        "lc-1267-13",
+        "lc-1267-14"
+      ]
+    },
+    {
+      "reason": "Counts isolated servers because their own row count is one.",
+      "failed_cases": [
+        "lc-1267-1",
+        "lc-1267-4",
+        "lc-1267-10",
+        "lc-1267-11",
+        "lc-1267-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5314,
+  "oracle_implementation": "code_practice/import_batch_089b.py:servers_o",
+  "validator_implementation_sha256": "674585f658af74ef608ebf55f72630997ee94a879893292e216972b8d84a99d2",
+  "batch_implementation_sha256": "a0d28a5602a716da1888958f23d6d260813547354caaf28ac1bd98060188a73d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8d8153c9c8a0dc43920fce8b33f3794f61ea682157db74fbbb42222ee29831da",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

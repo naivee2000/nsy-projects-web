@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1250",
+  "content_sha256": "18bbe61aebc64d117838cfeacedddcee9adbf1f16f13e3bb78f99f3a51b6cca7",
+  "source_hash": "8ff921021da3174e112374ea916ae913159fb1853fab2344a7cdde9669946be4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the gcd criterion.",
+      "failed_cases": [
+        "lc-1250-1",
+        "lc-1250-2",
+        "lc-1250-3",
+        "lc-1250-4",
+        "lc-1250-5",
+        "lc-1250-6",
+        "lc-1250-7",
+        "lc-1250-8",
+        "lc-1250-9",
+        "lc-1250-10",
+        "lc-1250-11",
+        "lc-1250-12",
+        "lc-1250-13",
+        "lc-1250-14",
+        "lc-1250-15",
+        "lc-1250-16"
+      ]
+    },
+    {
+      "reason": "Requires a literal one and ignores combinations of coprime larger values.",
+      "failed_cases": [
+        "lc-1250-1",
+        "lc-1250-5",
+        "lc-1250-7",
+        "lc-1250-10",
+        "lc-1250-12",
+        "lc-1250-14",
+        "lc-1250-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5297,
+  "oracle_implementation": "code_practice/import_batch_089b.py:good_o",
+  "validator_implementation_sha256": "674585f658af74ef608ebf55f72630997ee94a879893292e216972b8d84a99d2",
+  "batch_implementation_sha256": "a0d28a5602a716da1888958f23d6d260813547354caaf28ac1bd98060188a73d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0cbcdfec5136b52f39a9fc96f8900c5115f8a4128dc54bd2908bb0a37ad52f92",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

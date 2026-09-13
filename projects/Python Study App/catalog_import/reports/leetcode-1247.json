@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1247",
+  "content_sha256": "bf49e3742c99a92220ee6af2d3dd708ef299e7ac2426c051c127da870aa5285c",
+  "source_hash": "f9ed6b87b1b179d3fbdb1c6e246cd81965f03a27889f1fcdcae67dc36356a530",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Charges one rather than two swaps for the remaining opposite-type pair.",
+      "failed_cases": [
+        "lc-1247-2",
+        "lc-1247-12"
+      ]
+    },
+    {
+      "reason": "Never rejects an odd number of mismatches.",
+      "failed_cases": [
+        "lc-1247-4",
+        "lc-1247-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5294,
+  "oracle_implementation": "code_practice/import_batch_089b.py:swaps_o",
+  "validator_implementation_sha256": "674585f658af74ef608ebf55f72630997ee94a879893292e216972b8d84a99d2",
+  "batch_implementation_sha256": "a0d28a5602a716da1888958f23d6d260813547354caaf28ac1bd98060188a73d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7530344ed123dca45df121d85d4c51b55da4dc85694d8a79fd014e4e444b4ebe",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

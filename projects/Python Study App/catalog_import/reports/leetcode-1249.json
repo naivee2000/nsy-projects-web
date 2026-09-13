@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1249",
+  "content_sha256": "5c257130e9c1f8527bd8f9e13c85aa02698ede9488ee38eb47c9702312bbadd1",
+  "source_hash": "9c1bdff004e28a47a8d6d42212be411bbf92be7ecdedb78cd828a3a8b7efaadb",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps unmatched closing parentheses.",
+      "failed_cases": [
+        "lc-1249-1",
+        "lc-1249-2",
+        "lc-1249-6",
+        "lc-1249-9",
+        "lc-1249-11",
+        "lc-1249-12",
+        "lc-1249-14",
+        "lc-1249-16",
+        "lc-1249-17"
+      ]
+    },
+    {
+      "reason": "Keeps unmatched opening parentheses.",
+      "failed_cases": [
+        "lc-1249-5",
+        "lc-1249-9",
+        "lc-1249-10",
+        "lc-1249-12",
+        "lc-1249-13",
+        "lc-1249-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5296,
+  "oracle_implementation": "code_practice/import_batch_089b.py:valid_o",
+  "validator_implementation_sha256": "674585f658af74ef608ebf55f72630997ee94a879893292e216972b8d84a99d2",
+  "batch_implementation_sha256": "a0d28a5602a716da1888958f23d6d260813547354caaf28ac1bd98060188a73d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aa4ebbf76961860be015505f1a2e0fc88faf725c6eefe2f29e516aba6211abb4",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

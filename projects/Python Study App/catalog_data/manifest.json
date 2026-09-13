@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 889,
+  "count": 899,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -15789,6 +15789,178 @@
       "path": "problems/leetcode-1232.json",
       "content_sha256": "5c9884f53dcb44243221222807e93ace4ac91a913886e4a0f4b9763f06a9a7cc",
       "source_id": 1232
+    },
+    {
+      "id": "leetcode-1233",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Sub-Folders from the Filesystem",
+      "summary": "Given a list of folder paths, remove all sub-folders within those paths.",
+      "topics": [
+        "sorting",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1233.json",
+      "content_sha256": "6e175714a7b69fc3983fea13de697f7e698d8ae0aca78bb6206b4877eca697ae",
+      "source_id": 1233
+    },
+    {
+      "id": "leetcode-1247",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Swaps to Make Strings Equal",
+      "summary": "Given two strings s1 and s2 of equal length containing only 'x' and 'y', determine the minimum swaps needed to make both strings identical.",
+      "topics": [
+        "greedy",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1247.json",
+      "content_sha256": "bf49e3742c99a92220ee6af2d3dd708ef299e7ac2426c051c127da870aa5285c",
+      "source_id": 1247
+    },
+    {
+      "id": "leetcode-1248",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Number of Nice Subarrays",
+      "summary": "Given an array of integers, count how many continuous subarrays contain exactly k odd numbers.",
+      "topics": [
+        "prefix-sums",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1248.json",
+      "content_sha256": "16f971883b2f6e793cfdf36f3493eb8657e5142585f50f1cb9d62f77ea15aac2",
+      "source_id": 1248
+    },
+    {
+      "id": "leetcode-1249",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Remove to Make Valid Parentheses",
+      "summary": "Given a string s containing only '(' and ')' along with lowercase English letters, remove the least number of parentheses to make the string valid.",
+      "topics": [
+        "stacks",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1249.json",
+      "content_sha256": "5c257130e9c1f8527bd8f9e13c85aa02698ede9488ee38eb47c9702312bbadd1",
+      "source_id": 1249
+    },
+    {
+      "id": "leetcode-1250",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If It Is a Good Array",
+      "summary": "Determine if an array can produce a sum of 1 through any subset and multiplication of its elements by an integer.",
+      "topics": [
+        "number-theory",
+        "math"
+      ],
+      "prerequisites": [
+        "number-theory"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1250.json",
+      "content_sha256": "18bbe61aebc64d117838cfeacedddcee9adbf1f16f13e3bb78f99f3a51b6cca7",
+      "source_id": 1250
+    },
+    {
+      "id": "leetcode-1252",
+      "version": 1,
+      "status": "approved",
+      "title": "Cells with Odd Values in a Matrix",
+      "summary": "Given an m x n matrix initialized to all 0's and a 2D array of indices, for each index in the array, increment all cells in the specified row and all cells in the specified column.",
+      "topics": [
+        "matrices",
+        "parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1252.json",
+      "content_sha256": "fb6f7bc3213a4be26f7e4c7cd36e1ec21dd60f97a433ff0e29586a14eaacbccd",
+      "source_id": 1252
+    },
+    {
+      "id": "leetcode-1260",
+      "version": 1,
+      "status": "approved",
+      "title": "Shift 2D Grid",
+      "summary": "For a grid of dimensions m x n, perform k shift operations.",
+      "topics": [
+        "matrices",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1260.json",
+      "content_sha256": "f937ef54edf60bcc03360a59e0d18eb130d18dd27b20d623ec7dccffb54ac154",
+      "source_id": 1260
+    },
+    {
+      "id": "leetcode-1266",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time Visiting All Points",
+      "summary": "Given points with integer coordinates on a 2D plane, calculate the minimum time in seconds required to visit all points in the specified order.",
+      "topics": [
+        "geometry",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1266.json",
+      "content_sha256": "9cb2a15213cccc873ef55daf3994ae4771466013375d955fd9ecb883791a1a58",
+      "source_id": 1266
+    },
+    {
+      "id": "leetcode-1267",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Servers that Communicate",
+      "summary": "Given a m * n grid where 1 indicates a server and 0 indicates no server, count the number of servers that can communicate with at least one other server by sharing the same row or column.",
+      "topics": [
+        "matrices",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1267.json",
+      "content_sha256": "bdd5970107fd8733f88e104e480a6143d644e1362fd7c0cf72fed5baa08f6da2",
+      "source_id": 1267
+    },
+    {
+      "id": "leetcode-1271",
+      "version": 1,
+      "status": "approved",
+      "title": "Hexspeak",
+      "summary": "Convert a decimal number to Hexspeak by first converting it to an uppercase hexadecimal string, then replace '0' with 'O' and '1' with 'I'.",
+      "topics": [
+        "math",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1271.json",
+      "content_sha256": "2c73c36bc943ec160af64fbf76822d1aa782c354bd2481cd780f4559c6d2c03c",
+      "source_id": 1271
     }
   ]
 }
