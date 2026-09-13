@@ -1,0 +1,314 @@
+{
+  "id": "leetcode-492",
+  "version": 1,
+  "status": "approved",
+  "title": "Construct the Rectangle",
+  "summary": "Given a rectangular web page's area, design a rectangle with length L and width W such that L * W equals the area, L is greater than or equal to W, and L - W is minimized.",
+  "statement": "Given a rectangular web page's area, design a rectangle with length L and width W such that L * W equals the area, L is greater than or equal to W, and L - W is minimized. Return [L, W].",
+  "constraints": [
+    "1 <= area <= 10,000,000. Return positive integer dimensions [L,W] with L*W == area and L >= W.",
+    "Among all such factor pairs, minimize L-W. Returning any rectangle with the correct area is not sufficient."
+  ],
+  "topics": [
+    "math"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "construct_rectangle",
+    "parameters": [
+      {
+        "name": "area",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "list[int]",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def construct_rectangle(area: int) -> list[int]:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def construct_rectangle(area):\n    from math import isqrt\n    width=isqrt(area)\n    while area%width:\n        width-=1\n    return [area//width,width]\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def construct_rectangle(area):\n    from math import isqrt\n    width=isqrt(area)\n    while area%width:\n        width-=1\n    return [width,area//width]\n",
+    "def construct_rectangle(area):\n    return [area,1]\n"
+  ],
+  "target_time_complexity": "O(sqrt(area))",
+  "target_space_complexity": "O(1)",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "The shorter factor cannot exceed the square root of the area.",
+    "The largest divisor at or below the square root gives the smallest gap.",
+    "Start width=isqrt(area), decrement until it divides area, then return [area//width,width].",
+    "Integer square root avoids rounding. Smaller candidate widths force larger lengths and therefore larger gaps."
+  ],
+  "editorial": "For factor pairs with W <= sqrt(area), increasing W decreases L=area/W and narrows the gap. The first divisor encountered below the integer square root is therefore optimal. The small-input oracle enumerates every positive candidate length and minimizes the gap among all feasible pairs.",
+  "tests": [
+    {
+      "id": "lc-492-1",
+      "arguments": [
+        4
+      ],
+      "expected": [
+        2,
+        2
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "[4,1] has the right area but gap 3. [2,2] has gap 0 and is optimal; [1,4] violates L >= W.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-2",
+      "arguments": [
+        37
+      ],
+      "expected": [
+        37,
+        1
+      ],
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "37 is prime, so the only correctly oriented factor pair is [37,1]. A near-square pair would have the wrong area.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-3",
+      "arguments": [
+        1
+      ],
+      "expected": [
+        1,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-4",
+      "arguments": [
+        2
+      ],
+      "expected": [
+        2,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-5",
+      "arguments": [
+        3
+      ],
+      "expected": [
+        3,
+        1
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-6",
+      "arguments": [
+        6
+      ],
+      "expected": [
+        3,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-7",
+      "arguments": [
+        8
+      ],
+      "expected": [
+        4,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-8",
+      "arguments": [
+        9
+      ],
+      "expected": [
+        3,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-9",
+      "arguments": [
+        10
+      ],
+      "expected": [
+        5,
+        2
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-10",
+      "arguments": [
+        12
+      ],
+      "expected": [
+        4,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-11",
+      "arguments": [
+        16
+      ],
+      "expected": [
+        4,
+        4
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-12",
+      "arguments": [
+        18
+      ],
+      "expected": [
+        6,
+        3
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-13",
+      "arguments": [
+        25
+      ],
+      "expected": [
+        5,
+        5
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-14",
+      "arguments": [
+        36
+      ],
+      "expected": [
+        6,
+        6
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-15",
+      "arguments": [
+        48
+      ],
+      "expected": [
+        8,
+        6
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-16",
+      "arguments": [
+        100
+      ],
+      "expected": [
+        10,
+        10
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-stress-1",
+      "arguments": [
+        10000000
+      ],
+      "expected": [
+        3200,
+        3125
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-492-stress-2",
+      "arguments": [
+        9998244
+      ],
+      "expected": [
+        3162,
+        3162
+      ],
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

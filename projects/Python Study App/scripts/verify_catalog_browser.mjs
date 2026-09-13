@@ -286,6 +286,18 @@ try {
   assert((await decimalNote.textContent()).includes('0.00001'));
   assert((await page.locator('.example code').nth(1).textContent()).includes('[2.5,3,2.5]'));
   report.checks.push('sliding medians explain ordered finite decimal outputs and the full source absolute tolerance');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Non-decreasing Subsequences');
+  await page.getByRole('button', { name: /Non-decreasing Subsequences.*Medium/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('equal adjacent values are allowed'));
+  assert((await page.locator('.problem-pane').textContent()).includes('order inside each sequence is significant'));
+  assert((await page.locator('.example code').nth(1).textContent()).includes('[[4,4]]'));
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Find Permutation');
+  await page.getByRole('button', { name: /Find Permutation.*Medium/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('lexicographically smallest'));
+  assert((await page.locator('.example code').nth(1).textContent()).includes('[2,1,3]'));
+  report.checks.push('batch 46 examples distinguish lexicographic minimality, allowed equal subsequence values, and significant inner sequence order');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -492,6 +504,24 @@ def sliding_window_medians(nums, k):
     return MedianHelper().solve(nums, k)
 `)).status,'accepted');
   report.checks.push('batch 45 rejects stale-window and lower-middle algorithms; decimals use ordered absolute tolerance, reject malformed/nonfinite outputs, and recover afterward');
+  for (const id of [483,484,486,487,491,492]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page,problem,wrong)).status,'wrong_answer',`leetcode-${id} wrong algorithm`);
+    }
+  }
+  const subsequences = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-491.json'), 'utf8'));
+  const subsequenceCase = {...subsequences,tests:subsequences.tests.filter(t => t.visible)};
+  const sequenceOriginal = subsequences.reference_solution.replace('def nondecreasing_subsequences(', 'def original(');
+  for (const [expression,status] of [
+    ['list(reversed(original(nums)))','accepted'],
+    ['[list(reversed(row)) for row in original(nums)]','wrong_answer'],
+    ['original(nums)+[original(nums)[0]]','wrong_answer'],
+    ['original(nums)[:-1]','wrong_answer'],
+  ]) {
+    assert.equal((await judge(page,subsequenceCase,`${sequenceOriginal}\ndef nondecreasing_subsequences(nums):\n    return ${expression}\n`)).status,status);
+  }
+  report.checks.push('batch 46 wrong algorithms rejected: nonminimal bases/permutations, greedy play and lost ties, separated one-runs, strict-only/duplicated subsequences, and nonoptimal/reversed factor pairs; subsequences accept outer reorder but reject reversed rows, duplicates, and omissions');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],

@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-492",
+  "content_sha256": "561f4109a70747a81e5cc7e7df75a5316597ea2bb843623523511461023d5ce1",
+  "source_hash": "10f6ce6ec6614d0faa3c85c33723b32b48cab2b7237bf585c20e9c30797e8ce5",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Returns width before length, reversing nonsquare answers.",
+      "failed_cases": [
+        "lc-492-2",
+        "lc-492-4",
+        "lc-492-5",
+        "lc-492-6",
+        "lc-492-7",
+        "lc-492-9",
+        "lc-492-10",
+        "lc-492-12",
+        "lc-492-15",
+        "lc-492-stress-1"
+      ]
+    },
+    {
+      "reason": "Uses the most elongated factor pair rather than minimizing the gap.",
+      "failed_cases": [
+        "lc-492-1",
+        "lc-492-6",
+        "lc-492-7",
+        "lc-492-8",
+        "lc-492-9",
+        "lc-492-10",
+        "lc-492-11",
+        "lc-492-12",
+        "lc-492-13",
+        "lc-492-14",
+        "lc-492-15",
+        "lc-492-16",
+        "lc-492-stress-1",
+        "lc-492-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4539,
+  "oracle_implementation": "code_practice/import_batch_046.py:rectangle_oracle",
+  "validator_implementation_sha256": "16e7c49f3b02aa879bb0568ca1db94dbe57662f598249e7a47ae5cafa7caa582",
+  "batch_implementation_sha256": "4e38bc63dbb928277ba6c1edfa59298b90f330334ce7f2d1ceee832c8ab4f9e7",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

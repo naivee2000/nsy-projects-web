@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 419,
+  "count": 425,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -7529,6 +7529,80 @@
       "source_id": 482
     },
     {
+      "id": "leetcode-483",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Good Base",
+      "summary": "Given an integer n as a string, find the smallest k (where k >= 2) such that n can be represented as a string of all 1s in base k.",
+      "topics": [
+        "math",
+        "binary-search"
+      ],
+      "prerequisites": [
+        "math",
+        "binary-search"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-483.json",
+      "content_sha256": "afe8e3f302e065ce6da0b11f1cc19cba18a8ecbd63e925cda92447cb812789f1",
+      "source_id": 483
+    },
+    {
+      "id": "leetcode-484",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Permutation",
+      "summary": "Given a string s consisting of 'I' and 'D', reconstruct the lexicographically smallest permutation of integers from 1 to n such that 'I' indicates perm[i] perm[i + 1] .",
+      "topics": [
+        "arrays",
+        "strings",
+        "stacks",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-484.json",
+      "content_sha256": "5de84856bca322dadceb671f7283a2b33641d61f48dde8d3f6303fbf5f3f5bdf",
+      "source_id": 484
+    },
+    {
+      "id": "leetcode-486",
+      "version": 1,
+      "status": "approved",
+      "title": "Predict the Winner",
+      "summary": "Given an integer array, two players take turns choosing a number from either end to add to their score.",
+      "topics": [
+        "arrays",
+        "dynamic-programming",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-486.json",
+      "content_sha256": "a0c3070d1f0a1dd8e62ae100af673a669f88f3dc5e7019290b03a4a15faad7c4",
+      "source_id": 486
+    },
+    {
+      "id": "leetcode-487",
+      "version": 1,
+      "status": "approved",
+      "title": "Max Consecutive Ones II",
+      "summary": "For a binary array, determine the longest sequence of consecutive 1's that can be achieved by flipping at most one 0.",
+      "topics": [
+        "arrays",
+        "sliding-window"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-487.json",
+      "content_sha256": "0d6081b18a4bdbee0d6a7bab1b1add9d1afc16122381e3f5eaacd1fa6201686c",
+      "source_id": 487
+    },
+    {
       "id": "leetcode-490",
       "version": 1,
       "status": "approved",
@@ -7546,6 +7620,40 @@
       "path": "problems/leetcode-490.json",
       "content_sha256": "4810752e5e7de3f91f119a207fb7593dd8269682a45b5620e869c910a0d4199b",
       "source_id": 490
+    },
+    {
+      "id": "leetcode-491",
+      "version": 1,
+      "status": "approved",
+      "title": "Non-decreasing Subsequences",
+      "summary": "Given an integer array nums, return all distinct non-decreasing subsequences that have at least two elements.",
+      "topics": [
+        "arrays",
+        "backtracking",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-491.json",
+      "content_sha256": "f5ec56a94ca01db5d3352d2a610f5bff41cfa467985e786d32f8c02ddf787d87",
+      "source_id": 491
+    },
+    {
+      "id": "leetcode-492",
+      "version": 1,
+      "status": "approved",
+      "title": "Construct the Rectangle",
+      "summary": "Given a rectangular web page's area, design a rectangle with length L and width W such that L * W equals the area, L is greater than or equal to W, and L - W is minimized.",
+      "topics": [
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-492.json",
+      "content_sha256": "561f4109a70747a81e5cc7e7df75a5316597ea2bb843623523511461023d5ce1",
+      "source_id": 492
     },
     {
       "id": "leetcode-543",

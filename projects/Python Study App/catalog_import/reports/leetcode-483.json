@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-483",
+  "content_sha256": "afe8e3f302e065ce6da0b11f1cc19cba18a8ecbd63e925cda92447cb812789f1",
+  "source_hash": "0a1f38107e39b242fb469906f19b8b7962eef37afcc30bb2609758ef2f6b9bc3",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the always-valid two-digit base without minimizing it.",
+      "failed_cases": [
+        "lc-483-1",
+        "lc-483-2",
+        "lc-483-7",
+        "lc-483-11",
+        "lc-483-12",
+        "lc-483-13",
+        "lc-483-14",
+        "lc-483-stress-2",
+        "lc-483-stress-3"
+      ]
+    },
+    {
+      "reason": "Checks only three-digit representations and misses longer strings of ones.",
+      "failed_cases": [
+        "lc-483-2",
+        "lc-483-3",
+        "lc-483-11",
+        "lc-483-13",
+        "lc-483-14",
+        "lc-483-stress-2",
+        "lc-483-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4530,
+  "oracle_implementation": "code_practice/import_batch_046.py:base_oracle",
+  "validator_implementation_sha256": "16e7c49f3b02aa879bb0568ca1db94dbe57662f598249e7a47ae5cafa7caa582",
+  "batch_implementation_sha256": "4e38bc63dbb928277ba6c1edfa59298b90f330334ce7f2d1ceee832c8ab4f9e7",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

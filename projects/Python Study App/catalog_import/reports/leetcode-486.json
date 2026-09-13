@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-486",
+  "content_sha256": "a0c3070d1f0a1dd8e62ae100af673a669f88f3dc5e7019290b03a4a15faad7c4",
+  "source_hash": "52b8228e498fe0f4b9ae5581fefd9c51d69d4286c8f7e5c7972bc0a3231c1509",
+  "visible_tests": 2,
+  "hidden_tests": 17,
+  "reference_passed": 19,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects ties even though they count as first-player wins.",
+      "failed_cases": [
+        "lc-486-3",
+        "lc-486-5",
+        "lc-486-6",
+        "lc-486-10",
+        "lc-486-16",
+        "lc-486-stress-1"
+      ]
+    },
+    {
+      "reason": "Both players greedily take the larger end instead of considering the opponent's next choices.",
+      "failed_cases": [
+        "lc-486-2",
+        "lc-486-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4533,
+  "oracle_implementation": "code_practice/import_batch_046.py:game_oracle",
+  "validator_implementation_sha256": "16e7c49f3b02aa879bb0568ca1db94dbe57662f598249e7a47ae5cafa7caa582",
+  "batch_implementation_sha256": "4e38bc63dbb928277ba6c1edfa59298b90f330334ce7f2d1ceee832c8ab4f9e7",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

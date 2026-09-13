@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-484",
+  "content_sha256": "5de84856bca322dadceb671f7283a2b33641d61f48dde8d3f6303fbf5f3f5bdf",
+  "source_hash": "06974ecf72cb884761176296815610e0979a12a4df98ba8c4901a2a48edf907a",
+  "visible_tests": 2,
+  "hidden_tests": 17,
+  "reference_passed": 19,
+  "wrong_solutions": [
+    {
+      "reason": "Constructs an arbitrary valid comparison pattern without lexicographic minimization.",
+      "failed_cases": [
+        "lc-484-2",
+        "lc-484-10",
+        "lc-484-11",
+        "lc-484-12",
+        "lc-484-13",
+        "lc-484-15",
+        "lc-484-16",
+        "lc-484-stress-3"
+      ]
+    },
+    {
+      "reason": "Swaps isolated neighboring pairs instead of reversing an entire decreasing run.",
+      "failed_cases": [
+        "lc-484-5",
+        "lc-484-8",
+        "lc-484-13",
+        "lc-484-14",
+        "lc-484-15",
+        "lc-484-16",
+        "lc-484-stress-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4531,
+  "oracle_implementation": "code_practice/import_batch_046.py:permutation_oracle",
+  "validator_implementation_sha256": "16e7c49f3b02aa879bb0568ca1db94dbe57662f598249e7a47ae5cafa7caa582",
+  "batch_implementation_sha256": "4e38bc63dbb928277ba6c1edfa59298b90f330334ce7f2d1ceee832c8ab4f9e7",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.12,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
