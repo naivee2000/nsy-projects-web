@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-846",
+  "content_sha256": "911aa169603642b834b1b73119701bd2c629ca2d4c6b1284cc0690b8b6b8b215",
+  "source_hash": "60d615155a9922fad2100df25dacb232c364b4fede8164c1839a6da34bab26c6",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Removes one copy rather than all groups starting at the smallest value.",
+      "failed_cases": [
+        "lc-846-10"
+      ]
+    },
+    {
+      "reason": "Processes hash insertion order instead of numeric order.",
+      "failed_cases": [
+        "lc-846-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4893,
+  "oracle_implementation": "code_practice/import_batch_074.py:straights_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "912fb565b17c04aec92887ab3509767de5353b68a8c4ea9f1a8981f7c3584416",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

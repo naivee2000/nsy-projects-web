@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-849",
+  "content_sha256": "03e7d1f972747e663ad9bbd3adcb6d0f2069033e70a363505ffbe1616e751465",
+  "source_hash": "5b2a876db860a151aed318c4e1318cff6032f55e02bd4bcee50ce11334355261",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the full interior gap rather than half.",
+      "failed_cases": [
+        "lc-849-1",
+        "lc-849-5",
+        "lc-849-6",
+        "lc-849-8",
+        "lc-849-9",
+        "lc-849-10",
+        "lc-849-12"
+      ]
+    },
+    {
+      "reason": "Halves the leading edge gap as though it had two occupied endpoints.",
+      "failed_cases": [
+        "lc-849-3",
+        "lc-849-7",
+        "lc-849-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4896,
+  "oracle_implementation": "code_practice/import_batch_074.py:seats_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "165e8dd22fa0d07b95c1156f30ef56c4f1ce925ddc88b7b9411f2dc65cc4e35c",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

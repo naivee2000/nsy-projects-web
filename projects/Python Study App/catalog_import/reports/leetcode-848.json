@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-848",
+  "content_sha256": "524a03fdd77a0539edde6166c5e2be12b9be5dba328536a56f2c3130caef6185",
+  "source_hash": "2a3601e2ed7e58bdbdbc3f3c79f566bb8732f0ed893cbe123a0ea3e25ec99a85",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pairs reversed characters with forward-order shifts.",
+      "failed_cases": [
+        "lc-848-1",
+        "lc-848-2",
+        "lc-848-10",
+        "lc-848-12",
+        "lc-848-14"
+      ]
+    },
+    {
+      "reason": "Wraps letters modulo 25 instead of 26.",
+      "failed_cases": [
+        "lc-848-5",
+        "lc-848-8",
+        "lc-848-9",
+        "lc-848-11",
+        "lc-848-13",
+        "lc-848-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4895,
+  "oracle_implementation": "code_practice/import_batch_074.py:shifts_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "138eace531ed92b6ca4326577b46092093db119a093dbe331a87979811e42190",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

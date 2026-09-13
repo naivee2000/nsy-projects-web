@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-836",
+  "content_sha256": "d73e2478a19696165b99e69fb3f44a00f9386214745f0b92147d4a7bdbd8e9ed",
+  "source_hash": "17f831ffcfce631550f9b8268aedf45fbb73a81bf79dd53fb149a8a2f5dda871",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats boundary contact as positive overlap.",
+      "failed_cases": [
+        "lc-836-2",
+        "lc-836-8",
+        "lc-836-13"
+      ]
+    },
+    {
+      "reason": "Requires overlap on only one axis.",
+      "failed_cases": [
+        "lc-836-2",
+        "lc-836-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4883,
+  "oracle_implementation": "code_practice/import_batch_074.py:rectangle_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "84ea47157c7e03129c21c0f978bbebe388277db4ced03eb8489428d63ff133dd",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-852",
+  "content_sha256": "463a0e78d80201e24e1b5d6dc9f7c5eb053a4cd8ef923ebe3eda951af370a249",
+  "source_hash": "06095df43c6ad6fefe39c490af103e1afcee46f9ea0d1c591d853c19cc56b7f8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a non-strict comparison inconsistent with the contract.",
+      "failed_cases": [
+        "lc-852-1",
+        "lc-852-2",
+        "lc-852-3",
+        "lc-852-4",
+        "lc-852-5",
+        "lc-852-6",
+        "lc-852-7",
+        "lc-852-8",
+        "lc-852-9",
+        "lc-852-10",
+        "lc-852-11",
+        "lc-852-12",
+        "lc-852-13",
+        "lc-852-14"
+      ]
+    },
+    {
+      "reason": "Can skip the peak when moving the right boundary.",
+      "failed_cases": [
+        "lc-852-1",
+        "lc-852-2",
+        "lc-852-4",
+        "lc-852-5",
+        "lc-852-7",
+        "lc-852-10",
+        "lc-852-11",
+        "lc-852-13",
+        "lc-852-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4899,
+  "oracle_implementation": "code_practice/import_batch_074.py:peak_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "74b15fa06ec7d3e8bf9deb39c326ebe07f80048547906c442718636594f8cf31",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

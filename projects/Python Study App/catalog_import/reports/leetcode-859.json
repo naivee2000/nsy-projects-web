@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-859",
+  "content_sha256": "102fa46e0bd96b470c5345987cfc4d1c7e1c19bc5c30edd7c521afa9b241657c",
+  "source_hash": "fab517def8251264575b55e902f17100be0d3a2664888323504303cd57e8ef2e",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows equal strings without a duplicate character to swap.",
+      "failed_cases": [
+        "lc-859-2",
+        "lc-859-4",
+        "lc-859-6"
+      ]
+    },
+    {
+      "reason": "Accepts a single mismatch even though one swap cannot fix it.",
+      "failed_cases": [
+        "lc-859-2",
+        "lc-859-4",
+        "lc-859-6",
+        "lc-859-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4906,
+  "oracle_implementation": "code_practice/import_batch_074.py:buddy_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f66a8e865130ebb2ae51a07ffd3404b6851e4ba17af0fe5499c49ce9e1055496",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

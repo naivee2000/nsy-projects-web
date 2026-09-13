@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-835",
+  "content_sha256": "022aee2e112a45a583accab73f9bf0c3b59f3c514ab763c4f46890d32c4359c9",
+  "source_hash": "1e2ae8ba14e8b669bdce714ad25a8af4c6ea34736aff89366005358eea5b78bb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds coordinates instead of measuring translation vectors.",
+      "failed_cases": [
+        "lc-835-1"
+      ]
+    },
+    {
+      "reason": "Compares the first image with itself.",
+      "failed_cases": [
+        "lc-835-1",
+        "lc-835-4",
+        "lc-835-8",
+        "lc-835-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4882,
+  "oracle_implementation": "code_practice/import_batch_074.py:overlap_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "120120632e8c1fd340255c0aac606fe22a63340f4d55997343cc53947717d781",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

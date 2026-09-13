@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-842",
+  "content_sha256": "2caac2865d2973e530423aeced13d17deefd42f944b607b63a3ae2586413b20e",
+  "source_hash": "c43f5595e003e82d17f0f1d185ab7bddd4728504d4910ecc1e2fc98fc182efb7",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows multi-digit values with leading zero.",
+      "failed_cases": [
+        "lc-842-2"
+      ]
+    },
+    {
+      "reason": "Incorrectly rejects the maximum valid 32-bit value.",
+      "failed_cases": [
+        "lc-842-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4889,
+  "oracle_implementation": "code_practice/import_batch_074.py:fib_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "76cf02a6d95dd2cfc827b4bfc3a646e120e2f36258c6ecc57f78db1c7f5f4560",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

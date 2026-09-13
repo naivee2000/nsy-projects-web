@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-840",
+  "content_sha256": "3287d47dd0dcdcef3c4ad42e11cb92462cb7d90f98d06a95635be4c7a2534b21",
+  "source_hash": "a4c69bfa82f4feefe88295cbcc8fb69b4c66a0959566e4108c0d3401e0d70703",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks sums but not the required digits.",
+      "failed_cases": [
+        "lc-840-2"
+      ]
+    },
+    {
+      "reason": "Ignores diagonal sums.",
+      "failed_cases": [
+        "lc-840-1",
+        "lc-840-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4887,
+  "oracle_implementation": "code_practice/import_batch_074.py:magic_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2ead335046f9c490764139b37e2d96eb16cbe86beedd513dac569dec458e938f",
+  "elapsed_seconds": 0.077,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

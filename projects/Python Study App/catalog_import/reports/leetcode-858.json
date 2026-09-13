@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-858",
+  "content_sha256": "dd06b496faa2152188e82c8e3c89122436154cdada06ddbe3cbc8be8431c8a7b",
+  "source_hash": "fca03cc9610047a3e6361394717a38cc0de1623dacaa4fc0ab84c26624c7011e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses vertical parity to choose the southeast receptor.",
+      "failed_cases": [
+        "lc-858-1",
+        "lc-858-3",
+        "lc-858-5",
+        "lc-858-7",
+        "lc-858-8",
+        "lc-858-9",
+        "lc-858-10",
+        "lc-858-12",
+        "lc-858-13",
+        "lc-858-14"
+      ]
+    },
+    {
+      "reason": "Swaps the northwest and northeast parity cases.",
+      "failed_cases": [
+        "lc-858-2",
+        "lc-858-3",
+        "lc-858-4",
+        "lc-858-5",
+        "lc-858-6",
+        "lc-858-7",
+        "lc-858-11",
+        "lc-858-12",
+        "lc-858-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4905,
+  "oracle_implementation": "code_practice/import_batch_074.py:mirror_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c84a25ecc8fcd0390337fa29715406c709662f4742b279fa0e93a9ab88930f42",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

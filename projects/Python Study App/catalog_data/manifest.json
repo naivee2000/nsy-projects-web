@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 619,
+  "count": 639,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -11121,6 +11121,345 @@
       "path": "problems/leetcode-832.json",
       "content_sha256": "1d6d1aefbdf183472c33abc9e52e96bd4b158c4abfdec8a5a82dd03f7d08d1a5",
       "source_id": 832
+    },
+    {
+      "id": "leetcode-833",
+      "version": 1,
+      "status": "approved",
+      "title": "Find And Replace in String",
+      "summary": "Given a 0-indexed string s and three parallel arrays, indices , sources , and targets , each of length k , perform k replacement operations simultaneously.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-833.json",
+      "content_sha256": "a9ff51f8123043c84671e32a586b6ad068969ed82b84c8436b1b427ac274fc8c",
+      "source_id": 833
+    },
+    {
+      "id": "leetcode-835",
+      "version": 1,
+      "status": "approved",
+      "title": "Image Overlap",
+      "summary": "Given two binary square matrices img1 and img2 of size n x n, translate one by sliding its 1s left, right, up, or down any number of units.",
+      "topics": [
+        "matrices",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-835.json",
+      "content_sha256": "022aee2e112a45a583accab73f9bf0c3b59f3c514ab763c4f46890d32c4359c9",
+      "source_id": 835
+    },
+    {
+      "id": "leetcode-836",
+      "version": 1,
+      "status": "approved",
+      "title": "Rectangle Overlap",
+      "summary": "An axis-aligned rectangle is defined by its bottom-left and top-right corners.",
+      "topics": [
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-836.json",
+      "content_sha256": "d73e2478a19696165b99e69fb3f44a00f9386214745f0b92147d4a7bdbd8e9ed",
+      "source_id": 836
+    },
+    {
+      "id": "leetcode-837",
+      "version": 1,
+      "status": "approved",
+      "title": "New 21 Game",
+      "summary": "Alice begins with zero points and continues drawing numbers until her total reaches or exceeds k.",
+      "topics": [
+        "dynamic-programming",
+        "sliding-windows"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-837.json",
+      "content_sha256": "9427da693e1fb254c39d5b75a50377d368e710458037db6ca6fc21dba160faae",
+      "source_id": 837
+    },
+    {
+      "id": "leetcode-838",
+      "version": 1,
+      "status": "approved",
+      "title": "Push Dominoes",
+      "summary": "Given a string representing the initial state of n dominoes, where each domino is either pushed to the left ('L'), pushed to the right ('R'), or standing upright ('.'), simulate the domino effect over time.",
+      "topics": [
+        "two-pointers",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-838.json",
+      "content_sha256": "9488f7a4cb2399b6a5fd266977a87b51e8d8aa9524b9d6acf0190d21fd8a030a",
+      "source_id": 838
+    },
+    {
+      "id": "leetcode-840",
+      "version": 1,
+      "status": "approved",
+      "title": "Magic Squares In Grid",
+      "summary": "Determine the number of 3 x 3 subgrids within a given row x col grid that form a magic square.",
+      "topics": [
+        "matrices",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-840.json",
+      "content_sha256": "3287d47dd0dcdcef3c4ad42e11cb92462cb7d90f98d06a95635be4c7a2534b21",
+      "source_id": 840
+    },
+    {
+      "id": "leetcode-841",
+      "version": 1,
+      "status": "approved",
+      "title": "Keys and Rooms",
+      "summary": "Given n rooms numbered from 0 to n-1, with room 0 unlocked, you must determine if all rooms can be visited.",
+      "topics": [
+        "graphs",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-841.json",
+      "content_sha256": "8b388aa2ba00d3e648f728415546d2e913b7a125325712620e33e3f8f4d9f5d3",
+      "source_id": 841
+    },
+    {
+      "id": "leetcode-842",
+      "version": 1,
+      "status": "approved",
+      "title": "Split Array into Fibonacci Sequence",
+      "summary": "Given a string of digits, determine if it can be split into a Fibonacci-like sequence.",
+      "topics": [
+        "backtracking",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-842.json",
+      "content_sha256": "2caac2865d2973e530423aeced13d17deefd42f944b607b63a3ae2586413b20e",
+      "source_id": 842
+    },
+    {
+      "id": "leetcode-844",
+      "version": 1,
+      "status": "approved",
+      "title": "Backspace String Compare",
+      "summary": "Compare two strings s and t after applying backspace operations.",
+      "topics": [
+        "stacks",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-844.json",
+      "content_sha256": "1582c1f30d2bee0a6c65a9bec4880db98419f5ef5d5026c17ffb2417ce5097cc",
+      "source_id": 844
+    },
+    {
+      "id": "leetcode-845",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Mountain in Array",
+      "summary": "Determine the length of the longest subarray in an integer array that forms a mountain.",
+      "topics": [
+        "two-pointers",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-845.json",
+      "content_sha256": "53b110a05d45372789300755b635568862daf92f9a195f5d2989a9c2b3e45e01",
+      "source_id": 845
+    },
+    {
+      "id": "leetcode-846",
+      "version": 1,
+      "status": "approved",
+      "title": "Hand of Straights",
+      "summary": "Alice possesses a set of cards numbered in an array.",
+      "topics": [
+        "greedy",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-846.json",
+      "content_sha256": "911aa169603642b834b1b73119701bd2c629ca2d4c6b1284cc0690b8b6b8b215",
+      "source_id": 846
+    },
+    {
+      "id": "leetcode-848",
+      "version": 1,
+      "status": "approved",
+      "title": "Shifting Letters",
+      "summary": "Given a string s consisting of lowercase English letters and an integer array shifts of the same length, for each shifts[i] = x, shift the first i + 1 letters of s, x times.",
+      "topics": [
+        "prefix-sums",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-848.json",
+      "content_sha256": "524a03fdd77a0539edde6166c5e2be12b9be5dba328536a56f2c3130caef6185",
+      "source_id": 848
+    },
+    {
+      "id": "leetcode-849",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Distance to Closest Person",
+      "summary": "Given an array indicating seats where 1 means a person is seated and 0 means the seat is empty, find the seat where the distance to the nearest seated person is maximized.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-849.json",
+      "content_sha256": "03e7d1f972747e663ad9bbd3adcb6d0f2069033e70a363505ffbe1616e751465",
+      "source_id": 849
+    },
+    {
+      "id": "leetcode-851",
+      "version": 1,
+      "status": "approved",
+      "title": "Loud and Rich",
+      "summary": "Given a group of n people with unique amounts of money and quietness levels, and a list indicating wealth relationships, determine the least quiet person who is at least as wealthy as each individual.",
+      "topics": [
+        "graphs",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-851.json",
+      "content_sha256": "4dc780ae52800029454e032f34dc915672e8b392321b6621b1ecfa636b0f392d",
+      "source_id": 851
+    },
+    {
+      "id": "leetcode-852",
+      "version": 1,
+      "status": "approved",
+      "title": "Peak Index in a Mountain Array",
+      "summary": "Given an integer mountain array arr of length n with values increasing to a peak and then decreasing, find the index of the peak element.",
+      "topics": [
+        "binary-search",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-852.json",
+      "content_sha256": "463a0e78d80201e24e1b5d6dc9f7c5eb053a4cd8ef923ebe3eda951af370a249",
+      "source_id": 852
+    },
+    {
+      "id": "leetcode-853",
+      "version": 1,
+      "status": "approved",
+      "title": "Car Fleet",
+      "summary": "Given positions and speeds of n cars, determine the number of car fleets that will reach the target mile.",
+      "topics": [
+        "sorting",
+        "stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-853.json",
+      "content_sha256": "d59f8dfd822a24e4d4b937c2c0f3e03fbf095239f125776a4a64a599745ad11d",
+      "source_id": 853
+    },
+    {
+      "id": "leetcode-856",
+      "version": 1,
+      "status": "approved",
+      "title": "Score of Parentheses",
+      "summary": "For a balanced parentheses string s, calculate its score according to these rules: '()' scores 1, AB scores A + B, and (A) scores 2 * A, where A and B are balanced parentheses strings.",
+      "topics": [
+        "stacks",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-856.json",
+      "content_sha256": "da9ab8f3d3d3bb404efff75fb73f2452e0df74f183fb6680bc4dc0f64c18469d",
+      "source_id": 856
+    },
+    {
+      "id": "leetcode-858",
+      "version": 1,
+      "status": "approved",
+      "title": "Mirror Reflection",
+      "summary": "In a square room with mirrors on all walls, except for the southwest corner, there are receptors at corners 0, 1, and 2.",
+      "topics": [
+        "math",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-858.json",
+      "content_sha256": "dd06b496faa2152188e82c8e3c89122436154cdada06ddbe3cbc8be8431c8a7b",
+      "source_id": 858
+    },
+    {
+      "id": "leetcode-859",
+      "version": 1,
+      "status": "approved",
+      "title": "Buddy Strings",
+      "summary": "Given strings s and goal, determine if swapping any two characters in s can make it equal to goal.",
+      "topics": [
+        "strings",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-859.json",
+      "content_sha256": "102fa46e0bd96b470c5345987cfc4d1c7e1c19bc5c30edd7c521afa9b241657c",
+      "source_id": 859
+    },
+    {
+      "id": "leetcode-860",
+      "version": 1,
+      "status": "approved",
+      "title": "Lemonade Change",
+      "summary": "At a lemonade stand, each lemonade costs $5.",
+      "topics": [
+        "greedy",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-860.json",
+      "content_sha256": "2d9d8c62b2e387dd3027f230033ff7fd2872b56074fce0e575492ae218fbe503",
+      "source_id": 860
     }
   ]
 }

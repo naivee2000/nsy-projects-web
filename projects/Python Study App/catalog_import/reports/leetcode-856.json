@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-856",
+  "content_sha256": "da9ab8f3d3d3bb404efff75fb73f2452e0df74f183fb6680bc4dc0f64c18469d",
+  "source_hash": "1a3183c23fcf9d4b3b64bb585e2df4504d4e91e956486fa5d5c5fe5c1df6389c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Doubles every primitive contribution once too many.",
+      "failed_cases": [
+        "lc-856-1",
+        "lc-856-2",
+        "lc-856-3",
+        "lc-856-4",
+        "lc-856-5",
+        "lc-856-6",
+        "lc-856-7",
+        "lc-856-8",
+        "lc-856-9",
+        "lc-856-10",
+        "lc-856-11",
+        "lc-856-12",
+        "lc-856-13",
+        "lc-856-14"
+      ]
+    },
+    {
+      "reason": "Adds a contribution at every closing parenthesis, including nonprimitive closures.",
+      "failed_cases": [
+        "lc-856-2",
+        "lc-856-3",
+        "lc-856-5",
+        "lc-856-6",
+        "lc-856-7",
+        "lc-856-8",
+        "lc-856-10",
+        "lc-856-11",
+        "lc-856-12",
+        "lc-856-13",
+        "lc-856-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4903,
+  "oracle_implementation": "code_practice/import_batch_074.py:score_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f2064de2048777cbac6f3c75697fcb14961987a5a14edb19e12c432e0655658e",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-833",
+  "content_sha256": "a9ff51f8123043c84671e32a586b6ad068969ed82b84c8436b1b427ac274fc8c",
+  "source_hash": "84be96637e0fddd78eafef68588372731bdf3558ca2389ef651e67af277bc953",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Replaces a nonmatching source.",
+      "failed_cases": [
+        "lc-833-2",
+        "lc-833-5",
+        "lc-833-11"
+      ]
+    },
+    {
+      "reason": "Advances by one and leaves source suffix characters behind.",
+      "failed_cases": [
+        "lc-833-1",
+        "lc-833-2",
+        "lc-833-7",
+        "lc-833-8",
+        "lc-833-9",
+        "lc-833-12",
+        "lc-833-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4880,
+  "oracle_implementation": "code_practice/import_batch_074.py:replace_oracle",
+  "validator_implementation_sha256": "526d4b0789802ae0258e23ff1af4ce113ed9a1b3ec5c08814cb605574d716ae8",
+  "batch_implementation_sha256": "66424f31abe694f80197f9d1342d8b359751cbc48261889ec2ba9d268c6ca189",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2ac8308fccbff059eba5d8a632ac64a299b2a99d2b5829f7180c90068accf67a",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
