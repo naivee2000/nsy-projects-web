@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-681",
+  "content_sha256": "5930b020dec3abd6973beba59b4c99b24654a1f6eda7f642ca997445f0964335",
+  "source_hash": "a195efaea84ff2abde15b82930ab831a70d4d97c4fe276708d2e74e5e71791c6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Advances two minutes at a time and can skip the correct answer.",
+      "failed_cases": [
+        "lc-681-1",
+        "lc-681-2",
+        "lc-681-5",
+        "lc-681-8",
+        "lc-681-9",
+        "lc-681-10",
+        "lc-681-11",
+        "lc-681-12",
+        "lc-681-13",
+        "lc-681-14"
+      ]
+    },
+    {
+      "reason": "Accepts the current display instead of requiring the next time.",
+      "failed_cases": [
+        "lc-681-1",
+        "lc-681-2",
+        "lc-681-5",
+        "lc-681-6",
+        "lc-681-7",
+        "lc-681-8",
+        "lc-681-9",
+        "lc-681-10",
+        "lc-681-11",
+        "lc-681-12",
+        "lc-681-13",
+        "lc-681-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4728,
+  "oracle_implementation": "code_practice/import_batch_066.py:next_time_oracle",
+  "validator_implementation_sha256": "6dc11d64f80da591d4ede6f6fa6675c1ad464a544963431b3161ac5362238070",
+  "batch_implementation_sha256": "e0fd0352989aaa0acd79b02419f6434a72490b2a86926b13a9eee94e92dda583",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c30ec53ffe68ae1eacdecfa2ad9e9d3bca1eee224a7542bb10cbf4e5e165ee76",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

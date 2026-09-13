@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-670",
+  "content_sha256": "7728aa59d661a269e44e9231d23e392bd443fcb4f01f85f78c5603411ca4fedf",
+  "source_hash": "93a8cc6c2a9762b15a930d109f66297302eed91665e21664b77fea531f90d66d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the leftmost larger digit rather than its rightmost occurrence.",
+      "failed_cases": [
+        "lc-670-8",
+        "lc-670-9",
+        "lc-670-10",
+        "lc-670-11"
+      ]
+    },
+    {
+      "reason": "Chooses the smallest improving digit instead of the largest.",
+      "failed_cases": [
+        "lc-670-1",
+        "lc-670-8",
+        "lc-670-9",
+        "lc-670-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4717,
+  "oracle_implementation": "code_practice/import_batch_066.py:swap_oracle",
+  "validator_implementation_sha256": "6dc11d64f80da591d4ede6f6fa6675c1ad464a544963431b3161ac5362238070",
+  "batch_implementation_sha256": "e0fd0352989aaa0acd79b02419f6434a72490b2a86926b13a9eee94e92dda583",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "69e891ac4f1dc5d881729c950f5c6ea3d29b00ae7c83ba4fd49a9952e271a0ad",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

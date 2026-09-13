@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-680",
+  "content_sha256": "c84b8f0a912d9bf65610d5aad6e6440182eeea0a1b0ef3bad5b35b765fd1f0f0",
+  "source_hash": "5ff53bf64e127c58635fb87b3f61bfbb7111cd1fefdeb7cfe21f6190ba47377e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not use the permitted deletion.",
+      "failed_cases": [
+        "lc-680-2",
+        "lc-680-4",
+        "lc-680-8",
+        "lc-680-9",
+        "lc-680-10",
+        "lc-680-13",
+        "lc-680-14"
+      ]
+    },
+    {
+      "reason": "Tries deleting only the left character at the first mismatch.",
+      "failed_cases": [
+        "lc-680-10",
+        "lc-680-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4727,
+  "oracle_implementation": "code_practice/import_batch_066.py:near_palindrome_oracle",
+  "validator_implementation_sha256": "6dc11d64f80da591d4ede6f6fa6675c1ad464a544963431b3161ac5362238070",
+  "batch_implementation_sha256": "e0fd0352989aaa0acd79b02419f6434a72490b2a86926b13a9eee94e92dda583",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7c7d4efb2209ba4a67bb9a1f2800ece7b0851f95b3f22c92f3e37a1b64dfcb74",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

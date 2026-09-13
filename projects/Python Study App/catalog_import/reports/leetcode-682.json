@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-682",
+  "content_sha256": "19eaa5dade2987ec047468e0b8915c325ca6174c3c8dc1ff57c0ce803f77863b",
+  "source_hash": "e21c64afc5852f1a31d7198b06e7867f5a29bff1bfd28f1b5abd09b145e81760",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Copies the previous score instead of doubling it.",
+      "failed_cases": [
+        "lc-682-1",
+        "lc-682-2",
+        "lc-682-6",
+        "lc-682-9",
+        "lc-682-13",
+        "lc-682-14"
+      ]
+    },
+    {
+      "reason": "Cancels the earliest score instead of the most recent score.",
+      "failed_cases": [
+        "lc-682-1",
+        "lc-682-2",
+        "lc-682-8",
+        "lc-682-11",
+        "lc-682-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4729,
+  "oracle_implementation": "code_practice/import_batch_066.py:baseball_oracle",
+  "validator_implementation_sha256": "6dc11d64f80da591d4ede6f6fa6675c1ad464a544963431b3161ac5362238070",
+  "batch_implementation_sha256": "e0fd0352989aaa0acd79b02419f6434a72490b2a86926b13a9eee94e92dda583",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6f4b1a192305ced57cfa186a9667b726d2d5055f03c6c3953f464f70d48cd3c5",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
