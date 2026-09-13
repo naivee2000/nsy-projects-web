@@ -17,7 +17,8 @@ if (reportFlag >= 0) arguments_.splice(reportFlag, 2);
 const requested = arguments_.map(value => value.startsWith('leetcode-') ? value : `leetcode-${Number(value)}`);
 assert(requested.length > 0 && requested.every(id => /^leetcode-\d+$/.test(id)), 'Pass one or more numeric workbook IDs.');
 assert.equal(new Set(requested).size, requested.length, 'IDs must be unique.');
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ? pathToFileURL(process.env.PLAYWRIGHT_MODULE).href : 'playwright');
+const playwright = await import(process.env.PLAYWRIGHT_MODULE ? pathToFileURL(process.env.PLAYWRIGHT_MODULE).href : 'playwright');
+const { chromium } = playwright.chromium ? playwright : playwright.default;
 const manifest = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/manifest.json'), 'utf8'));
 const selected = requested.map(id => {
   const entry = manifest.entries.find(item => item.id === id);

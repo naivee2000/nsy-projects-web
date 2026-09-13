@@ -368,7 +368,7 @@ BATCH = {
         [([[[0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 1]]], 'The best horizontal, vertical, and diagonal runs all have length three.'),
          ([[[1, 0], [0, 1]]], 'The two diagonal ones form a length-two line.')],
         [[mat] for mat in ([[0]], [[1]], [[0, 0]], [[1, 1, 1]], [[1], [1], [1]], [[1, 0], [0, 1]], [[0, 1], [1, 0]], [[1, 1], [1, 1]], [[1, 0, 0], [0, 1, 0], [0, 0, 1]], [[0, 0, 1], [0, 1, 0], [1, 0, 0]], [[1, 0, 1], [1, 1, 1], [0, 1, 0]], [[0, 1, 0], [1, 0, 1], [0, 1, 0]])], LINE,
-        [LINE.replace('range(cols)', 'range(cols - 1)'), LINE.replace('return best', 'return 0')],
+        [LINE.replace('best = max(best, *dp[row][col])', 'best = max(best, dp[row][col][0])'), LINE.replace('return best', 'return 0')],
         ['Skips the last column.', 'Never counts anti-diagonal runs.'], line_oracle, random_line,
         *hints('Each one can extend four lines ending at its cell.', 'Remember the previous length in each direction.', 'For a one, add one to left/up/up-left/up-right predecessor counts.', 'Every maximal line has a final cell, so tracking runs ending at each cell finds the global maximum.'), 'O(rows * columns)', 'O(rows * columns)', 6),
     565: reviewed_entry('largest_nesting_set', [('nums', 'list[int]')], 'int', ['arrays', 'graphs', 'cycle-detection'], ['1 <= len(nums) <= 100,000.', 'nums is a permutation of 0 through n-1.'],
