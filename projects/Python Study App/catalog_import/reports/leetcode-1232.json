@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1232",
+  "content_sha256": "5c9884f53dcb44243221222807e93ace4ac91a913886e4a0f4b9763f06a9a7cc",
+  "source_hash": "ab4a5a44e79a3f8811140ff9e86ff1d8eb4740597c1a5960713630e5c07de2bd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Compares only y increments and ignores x displacement.",
+      "failed_cases": [
+        "lc-1232-8",
+        "lc-1232-10"
+      ]
+    },
+    {
+      "reason": "Assumes every set of three points is collinear.",
+      "failed_cases": [
+        "lc-1232-2",
+        "lc-1232-7",
+        "lc-1232-12",
+        "lc-1232-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5279,
+  "oracle_implementation": "code_practice/import_batch_089.py:line_oracle",
+  "validator_implementation_sha256": "05f6a26b1924bb202d24a2bc4a7d7da0abe0c8f11e9d1ddee6dfbc580c9fe902",
+  "batch_implementation_sha256": "6881376d2efa7e7db65f5b76d20151ed7e18318e8d39627c579aa39322e0f6ce",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9bfb3bf2a5dc909917c44d275c99c6d133c6431f0c9fce6432b5e89eb89b2a30",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

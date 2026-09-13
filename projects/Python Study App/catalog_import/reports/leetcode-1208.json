@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1208",
+  "content_sha256": "89a72f6a75a97cf7c1a000655e1b5009b9106a7fe971ab77493cc2003f883316",
+  "source_hash": "f1f577cddb3036eb8f1e05bf7a89e1967e49c3ae90fe9d97a142ea189f0dbbcf",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Tests only the whole strings and misses affordable proper substrings.",
+      "failed_cases": [
+        "lc-1208-1",
+        "lc-1208-2",
+        "lc-1208-7",
+        "lc-1208-10",
+        "lc-1208-11",
+        "lc-1208-13",
+        "lc-1208-14"
+      ]
+    },
+    {
+      "reason": "Keeps the shortest rather than longest affordable window.",
+      "failed_cases": [
+        "lc-1208-1",
+        "lc-1208-2",
+        "lc-1208-3",
+        "lc-1208-5",
+        "lc-1208-6",
+        "lc-1208-7",
+        "lc-1208-8",
+        "lc-1208-9",
+        "lc-1208-10",
+        "lc-1208-11",
+        "lc-1208-12",
+        "lc-1208-13",
+        "lc-1208-14",
+        "lc-1208-15",
+        "lc-1208-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5255,
+  "oracle_implementation": "code_practice/import_batch_089.py:budget_oracle",
+  "validator_implementation_sha256": "05f6a26b1924bb202d24a2bc4a7d7da0abe0c8f11e9d1ddee6dfbc580c9fe902",
+  "batch_implementation_sha256": "6881376d2efa7e7db65f5b76d20151ed7e18318e8d39627c579aa39322e0f6ce",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b5f454f92e53530eb6861b0a83c67e0d93cc107f943f1fa4e8fbd42092be1a46",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

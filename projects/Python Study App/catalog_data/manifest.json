@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 879,
+  "count": 889,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -15619,6 +15619,176 @@
       "path": "problems/leetcode-1198.json",
       "content_sha256": "4fbb0d663daf8f928ecb382b9322d0a045d6fe90c6938a1c0dad1c7a2dd84d7f",
       "source_id": 1198
+    },
+    {
+      "id": "leetcode-1200",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Absolute Difference",
+      "summary": "Given an array of distinct integers, identify all pairs with the smallest difference between any two numbers.",
+      "topics": [
+        "sorting",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1200.json",
+      "content_sha256": "523ccc2ab7ebcaf27dbc3a8245cf24e97feeb61e5f56601033c398fa9f20cbe5",
+      "source_id": 1200
+    },
+    {
+      "id": "leetcode-1207",
+      "version": 1,
+      "status": "approved",
+      "title": "Unique Number of Occurrences",
+      "summary": "For an integer array arr, determine if the frequency of each value is distinct; return true if so, otherwise return false.",
+      "topics": [
+        "hash-maps",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1207.json",
+      "content_sha256": "40813bd3e74d5d189403e68ebc88d46363aa5de037f62f6a944029f598aaf23f",
+      "source_id": 1207
+    },
+    {
+      "id": "leetcode-1208",
+      "version": 1,
+      "status": "approved",
+      "title": "Get Equal Substrings Within Budget",
+      "summary": "Given strings s and t of equal length and an integer maxCost, find the longest substring of s that can be transformed into the corresponding substring of t with a cost not exceeding maxCost, where the cost is the absolute difference between ASCII values of corresponding characters.",
+      "topics": [
+        "sliding-window",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1208.json",
+      "content_sha256": "89a72f6a75a97cf7c1a000655e1b5009b9106a7fe971ab77493cc2003f883316",
+      "source_id": 1208
+    },
+    {
+      "id": "leetcode-1209",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove All Adjacent Duplicates in String II",
+      "summary": "Given a string s and an integer k, repeatedly remove k adjacent and identical characters until no such removals are possible, then return the modified string.",
+      "topics": [
+        "stacks",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1209.json",
+      "content_sha256": "d7d68dca217252daec8135d3e56be1f62fe071ca5eeedec6b148ffdb4cf5e032",
+      "source_id": 1209
+    },
+    {
+      "id": "leetcode-1213",
+      "version": 1,
+      "status": "approved",
+      "title": "Intersection of Three Sorted Arrays",
+      "summary": "Provide a sorted array containing only the integers that are present in all three given integer arrays, which are sorted in strictly increasing order.",
+      "topics": [
+        "two-pointers",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1213.json",
+      "content_sha256": "e652a409345da6f5951e567e30da307565415737d84af70da325a7948b583438",
+      "source_id": 1213
+    },
+    {
+      "id": "leetcode-1217",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Move Chips to The Same Position",
+      "summary": "Given n chips at various positions, determine the least cost to align all chips at a single position.",
+      "topics": [
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1217.json",
+      "content_sha256": "302bde6f073dc577093a16b56acb930a4c683a4abda39b1475fd75f7483a1040",
+      "source_id": 1217
+    },
+    {
+      "id": "leetcode-1218",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Arithmetic Subsequence of Given Difference",
+      "summary": "Given an integer array and a difference, find the length of the longest subsequence where the difference between consecutive elements matches the given difference.",
+      "topics": [
+        "dynamic-programming",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1218.json",
+      "content_sha256": "9c2172c2ad892a721c3b46d7b34344d65d9197833c0406efe43862e1f18329c1",
+      "source_id": 1218
+    },
+    {
+      "id": "leetcode-1221",
+      "version": 1,
+      "status": "approved",
+      "title": "Split a String in Balanced Strings",
+      "summary": "A balanced string consists of an equal number of 'L' and 'R' characters.",
+      "topics": [
+        "greedy",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1221.json",
+      "content_sha256": "a47d60dba222ce58c41c7e069f52c782c7857ac9e1250390a93e802869726f6a",
+      "source_id": 1221
+    },
+    {
+      "id": "leetcode-1228",
+      "version": 1,
+      "status": "approved",
+      "title": "Missing Number In Arithmetic Progression",
+      "summary": "Given an array where the difference between consecutive elements is constant, and one value is missing (not the first or last), return the missing value.",
+      "topics": [
+        "arrays",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1228.json",
+      "content_sha256": "475e5c8ff3d09d864ba304495aa720a9139154db206dae55e2c5aa1b394450ea",
+      "source_id": 1228
+    },
+    {
+      "id": "leetcode-1232",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If It Is a Straight Line",
+      "summary": "Given an integer array of coordinates, verify if the points form a straight line in the XY plane.",
+      "topics": [
+        "geometry",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1232.json",
+      "content_sha256": "5c9884f53dcb44243221222807e93ace4ac91a913886e4a0f4b9763f06a9a7cc",
+      "source_id": 1232
     }
   ]
 }

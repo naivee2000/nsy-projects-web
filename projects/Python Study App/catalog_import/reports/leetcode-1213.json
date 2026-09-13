@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1213",
+  "content_sha256": "e652a409345da6f5951e567e30da307565415737d84af70da325a7948b583438",
+  "source_hash": "db4a8655d5fe18e002e413f3472c61fc88d99646b40070d2318a5cacf4a2cb0d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Advances the arrays holding the largest values instead of the smallest.",
+      "failed_cases": [
+        "lc-1213-1",
+        "lc-1213-5",
+        "lc-1213-7",
+        "lc-1213-8",
+        "lc-1213-9",
+        "lc-1213-10",
+        "lc-1213-12",
+        "lc-1213-13",
+        "lc-1213-14",
+        "lc-1213-15",
+        "lc-1213-16"
+      ]
+    },
+    {
+      "reason": "Intersects only the first two arrays and ignores the third.",
+      "failed_cases": [
+        "lc-1213-1",
+        "lc-1213-4",
+        "lc-1213-7",
+        "lc-1213-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5260,
+  "oracle_implementation": "code_practice/import_batch_089.py:intersection_oracle",
+  "validator_implementation_sha256": "05f6a26b1924bb202d24a2bc4a7d7da0abe0c8f11e9d1ddee6dfbc580c9fe902",
+  "batch_implementation_sha256": "6881376d2efa7e7db65f5b76d20151ed7e18318e8d39627c579aa39322e0f6ce",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d0ea227b582c7e55e7eb2ed69d0ebeda396d43795c470d02e226a7a8ab35a758",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

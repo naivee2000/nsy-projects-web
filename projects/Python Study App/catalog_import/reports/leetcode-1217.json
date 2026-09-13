@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1217",
+  "content_sha256": "302bde6f073dc577093a16b56acb930a4c683a4abda39b1475fd75f7483a1040",
+  "source_hash": "a5dc74bdddbd6feaabe7ca21eb38b82db20131852afde1d3488bb231abb64fa2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Moves the larger parity group instead of the smaller one.",
+      "failed_cases": [
+        "lc-1217-1",
+        "lc-1217-2",
+        "lc-1217-3",
+        "lc-1217-4",
+        "lc-1217-5",
+        "lc-1217-7",
+        "lc-1217-8",
+        "lc-1217-9",
+        "lc-1217-10",
+        "lc-1217-12",
+        "lc-1217-13",
+        "lc-1217-15",
+        "lc-1217-16"
+      ]
+    },
+    {
+      "reason": "Treats coordinate distance as cost even though two-step moves are free.",
+      "failed_cases": [
+        "lc-1217-1",
+        "lc-1217-2",
+        "lc-1217-7",
+        "lc-1217-8",
+        "lc-1217-9",
+        "lc-1217-10",
+        "lc-1217-11",
+        "lc-1217-12",
+        "lc-1217-13",
+        "lc-1217-14",
+        "lc-1217-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5264,
+  "oracle_implementation": "code_practice/import_batch_089.py:chips_oracle",
+  "validator_implementation_sha256": "05f6a26b1924bb202d24a2bc4a7d7da0abe0c8f11e9d1ddee6dfbc580c9fe902",
+  "batch_implementation_sha256": "6881376d2efa7e7db65f5b76d20151ed7e18318e8d39627c579aa39322e0f6ce",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0ef936f0fe729d1b18fde4b717c1fa737868ac72f3247a7bc9336c04de552b74",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

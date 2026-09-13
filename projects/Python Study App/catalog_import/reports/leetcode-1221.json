@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1221",
+  "content_sha256": "a47d60dba222ce58c41c7e069f52c782c7857ac9e1250390a93e802869726f6a",
+  "source_hash": "4f86670156d1c926ebc3d75f02caa59348bdfe79d3f38ef3f3699330e2c20117",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Cuts when the balance is one rather than when it returns to zero.",
+      "failed_cases": [
+        "lc-1221-1",
+        "lc-1221-2",
+        "lc-1221-3",
+        "lc-1221-5",
+        "lc-1221-6",
+        "lc-1221-7",
+        "lc-1221-9",
+        "lc-1221-10",
+        "lc-1221-11",
+        "lc-1221-12",
+        "lc-1221-13",
+        "lc-1221-14",
+        "lc-1221-15",
+        "lc-1221-16"
+      ]
+    },
+    {
+      "reason": "Assumes every balanced input is indivisible.",
+      "failed_cases": [
+        "lc-1221-1",
+        "lc-1221-2",
+        "lc-1221-7",
+        "lc-1221-8",
+        "lc-1221-9",
+        "lc-1221-10",
+        "lc-1221-12",
+        "lc-1221-13",
+        "lc-1221-14",
+        "lc-1221-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5268,
+  "oracle_implementation": "code_practice/import_batch_089.py:balanced_oracle",
+  "validator_implementation_sha256": "05f6a26b1924bb202d24a2bc4a7d7da0abe0c8f11e9d1ddee6dfbc580c9fe902",
+  "batch_implementation_sha256": "6881376d2efa7e7db65f5b76d20151ed7e18318e8d39627c579aa39322e0f6ce",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "00d222b69f2eddd78028f06d0eb6b1397d628d1a50c6e8821532ebea4bbbc82a",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
