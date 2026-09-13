@@ -124,7 +124,7 @@ def is_convex_polygon(points):
 '''
 COMPLEMENT='''\
 def number_complement(num):
-    mask=(1<<num.bit_length())-1
+    mask=(1<<max(1,num.bit_length()))-1
     return mask^num
 '''
 DISTANCE='''\
@@ -211,20 +211,22 @@ BATCH={
     'Tests use only simple polygons, including collinear boundary points and extreme integer coordinates.',
     'O(n)','O(1)',difficulty=5,stress=[([PERIMETER],True),([NOTCHED],False)]),
 476: entry('number_complement',[('num','int')],'int',['math','bit-manipulation'],
-    ['1 <= num < 2^31. Flip only the significant bits of the positive integer, not an arbitrary fixed-width word.',
+    ['0 <= num < 2^31. Flip only the significant bits, not an arbitrary fixed-width word; zero is represented by one digit, 0, and becomes 1.',
+     'Version 2 also covers Complement of Base 10 Integer (1009): source 476 requires num >= 1, while source 1009 additionally permits zero. Both source domains are supported.',
      'Return the resulting nonnegative integer. Leading zero bits are not part of the input representation.'],
     [([5],'101 becomes 010, whose integer value is 2.'),([8],'1000 becomes 0111, giving 7; only these four positions are flipped.')],
-    [[n] for n in (1,2,3,4,6,7,9,15,16,31,2**30,2**31-1)],
+    [[n] for n in (1,2,3,4,6,7,9,15,16,31,2**30,2**31-1,0)],
     COMPLEMENT,['def number_complement(num):\n    return ~num\n',
       'def number_complement(num):\n    return num^((1<<31)-1)\n'],
     ['Uses the unbounded signed Python complement.', 'Always flips 31 bits, introducing unwanted leading ones.'],
     complement_oracle,random_complement,
-    ['Find the number of significant bits before flipping.', 'Create an all-one mask of exactly that width.',
-     'Compute mask=(1<<num.bit_length())-1 and return mask XOR num.',
-     'A power of two becomes one less than itself; an all-one representation becomes zero.'],
+    ['Find the number of significant bits before flipping; zero still has one written digit.', 'Create an all-one mask of exactly that width, with a minimum width of one.',
+     'Compute width=max(1,num.bit_length()), mask=(1<<width)-1, and return mask XOR num.',
+     'A positive power of two becomes one less than itself; an all-one representation becomes zero. Zero itself becomes one.'],
     'XOR with a same-width all-one mask flips precisely the original bit positions. Python\'s bare '
     '~ operator also changes infinitely many sign-extension bits, so it is not this contract. '
-    'The independent oracle flips literal binary characters and parses the resulting string.',
+    'The independent oracle flips literal binary characters and parses the resulting string. '
+    'Version 2 adds the zero input from source 1009 without changing any positive-input answer or progress ID.',
     'O(log num) bit complexity','O(log num) bits',difficulty=3,
     stress=[([2**31-2],1)]),
 477: entry('total_hamming_distance',[('nums','list[int]')],'int',['arrays','bit-manipulation','math'],
@@ -316,3 +318,4 @@ BATCH={
             ([[[0]*100 for _ in range(100)],[0,0],[50,50]],False),
             (DENSE_MAZE,maze_oracle(DENSE_MAZE))]),
 }
+BATCH[476]['version'] = 2

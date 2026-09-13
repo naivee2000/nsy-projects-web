@@ -408,7 +408,8 @@ BATCH = {
     'O(n^2) expected','O(n^2)',difficulty=5,
     stress=[([([0]*200) for _ in range(4)],200**4),([[2**28]*200]*4,0)]),
 455: entry('assign_cookies',[('g','list[int]'),('s','list[int]')],'int',['arrays','greedy','sorting'],
-    ['1 <= g.length <= 30,000; 0 <= s.length <= 30,000; every size and requirement is in 1..2^31-1.',
+    ['1 <= g.length <= 100,000; 0 <= s.length <= 100,000; every size and requirement is in 1..2^31-1.',
+     'Version 2 raises the original 30,000-item limit to cover Maximum Matching of Players With Trainers (2410): players are requirements g, trainers are capacities s. The same one-to-one threshold rule applies.',
      'Each child receives at most one cookie and each cookie serves at most one child. Size >= requirement satisfies a child.',
      'Return the maximum number satisfied; cookies cannot be combined to meet a larger requirement.'],
     [([[1,2,3],[1,1]],'Only the child requiring 1 can be satisfied. The two size-1 cookies cannot be combined for another child.'),
@@ -427,7 +428,11 @@ BATCH = {
     'cookie is examined once after sorting. The independent oracle finds a maximum bipartite '
     'matching through augmenting paths instead of the greedy ordering.',
     'O(g log g + s log s)','O(g+s)',difficulty=3,
-    stress=[([list(range(30000,0,-1)),list(range(1,30001))],30000),([[2]*30000,[1]*30000],0)]),
+    stress=[([list(range(30000,0,-1)),list(range(1,30001))],30000),([[2]*30000,[1]*30000],0),
+            ([list(range(100000,0,-1)),list(range(1,100001))],100000),
+            ([[10**9]*100000,[1]*100000],0),
+            ([[1]*50000+[10**9]*50000,[1]*75000+[10**9]*25000],75000),
+            ([[4,7,9],[8,2,5,8]],2)]),
 456: entry('has_132_pattern',[('nums','list[int]')],'bool',['arrays','stacks','monotonic-stack'],
     ['1 <= nums.length <= 200,000; -10^9 <= nums[i] <= 10^9.',
      'Find indices i<j<k with nums[i]<nums[k]<nums[j]. Both value inequalities are strict.',
@@ -558,3 +563,4 @@ BATCH = {
     stress=[(['1'*100000],'Neither'),(['.'*100000],'Neither')]),
 }
 BATCH[448]['comparator'] = 'unordered'
+BATCH[455]['version'] = 2

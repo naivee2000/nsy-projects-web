@@ -68,8 +68,8 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 74 existing equivalents, 317 verified imports, 155 documented
-design/interactive exclusions, and 3,083 pending records. Ordinary tree and
+Current status: 76 existing equivalents, 317 verified imports, 155 documented
+design/interactive exclusions, and 3,081 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
@@ -427,8 +427,10 @@ small-grid polygons, bit pairs, short license strings, self-describing run lengt
 and all 9,216 open endpoint pairs across every 3-by-3 maze wall pattern. Large
 tests cover 10,000-vertex polygons, 10,000 array entries, 100,000-character strings,
 and 100-by-100 mazes. Rolling-grid DFS retains the stronger weak-topic review
-priority. All 412 preceding entries retain their content, versions, and progress IDs.
-Of the 74 overlaps, 69 map to original exercises and five map to approved
+priority. At batch-44 publication, all 412 preceding entries retained their content,
+versions, and progress IDs. The following explicit domain upgrades preserve IDs
+and old progress while raising two problem versions.
+Of the 76 overlaps, 69 map to original exercises and seven map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
 the original sample, and all 720 outputs on six-element boundaries. This is
@@ -448,12 +450,17 @@ boundaries through n=1,000,000,000. The existing input domain covers this source
 Minimum Bit Flips to Convert Number (2220) maps to Hamming Distance (461): each
 differing bit needs exactly one flip. The target includes the complete 0..10^9
 source domain, verified on 500 seeded inputs and 64 sample/boundary cases.
-Maximum Matching of Players With Trainers (2410) remains pending: it shares the
-Assign Cookies behavior but permits 100,000 items rather than 30,000. A documented
-domain expansion and source-scale proof are needed before merging that record.
-Complement of Base 10 Integer (1009) remains pending rather than becoming a
-duplicate of Number Complement (476): it additionally allows zero, whose result
-is one. A documented zero-domain extension and equivalence proof are needed.
+Maximum Matching of Players With Trainers (2410) now maps to Assign Cookies
+(455), version 2. Its explicit 100,000-item domain covers both contracts, while
+keeping the original ID, difficulty, and all older inputs. A 500-input independent
+assignment-mask oracle and large threshold-deficit certificates verify the mapping.
+Complement of Base 10 Integer (1009) maps to Number Complement (476), version 2:
+zero has one written binary digit and complements to one. Literal binary-string
+flipping verifies 500 seeded inputs plus zero and bit-width boundaries.
+Both source samples are checked. Old version-1 accepted attempts and drafts remain
+available after repackaging and reopening; open editors must reload before a new
+submission if their problem version is stale. All other 416 problem definitions
+are unchanged by these upgrades. The six transfer tags remain frozen.
 After changing an overlap target or its judge contract, revalidate the target,
 run `.venv/bin/python -m code_practice.reconcile_overlaps`, then repackage.
 Missing or stale overlap evidence blocks packaging; studying uses only the

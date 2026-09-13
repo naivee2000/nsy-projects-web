@@ -4,9 +4,9 @@
   "workbook_sha256": "d4d791913078d0275fb404f4e61ff914b039f74f44ff4a2774070685e82e8e46",
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
-    "overlap": 74,
+    "overlap": 76,
     "imported": 317,
-    "pending": 3083,
+    "pending": 3081,
     "excluded": 155
   },
   "record_count": 3629,
@@ -10946,10 +10946,11 @@
       "title": "Complement of Base 10 Integer",
       "difficulty": "Easy",
       "source_hash": "b91a45bc341a5c17960e9ad83fb5bfd227876143cc037ee72c00d4141322d3f4",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Same significant-bit complement operation as source 476, but this source includes zero (whose complement is 1) while the published target requires a positive input. Requires a documented zero-domain extension and independent equivalence proof before marking overlap; do not create a duplicate exercise.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "leetcode-476",
+      "reason": "Both flip exactly the written binary digits. Version 2 of Number Complement explicitly includes zero as the one-digit representation 0, producing 1; its 0..2^31-1 domain covers the entire source 1009 domain 0<=n<10^9. Literal binary-character flipping checks 500 seeded inputs, the workbook sample, zero and bit-width boundaries. Preserve the existing Number Complement progress ID.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-1009.json"
     },
     {
       "source_id": 1010,
@@ -24452,10 +24453,11 @@
       "title": "Maximum Matching of Players With Trainers",
       "difficulty": "Medium",
       "source_hash": "80d4a9fe3acc30744fa76ad983dcca0f62f4bc8c863b080a535b8086889a3bb3",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Behavior matches the one-to-one threshold assignment of source 455, but source 2410 permits 100,000 items per side versus the published target's 30,000. Requires an explicit domain expansion and source-scale proof before marking overlap; do not create a duplicate based only on the title.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "leetcode-455",
+      "reason": "Players and children both request a minimum capacity; trainers and cookies each satisfy at most one request whose requirement is no greater than their capacity. Version 2 of Assign Cookies explicitly supports 100,000 items per side, covering source 2410 while retaining its ID and all old inputs. Independent assignment-mask DP verifies 500 small inputs over the full value domain; nested-neighborhood deficiency bounds certify 100,000-item cases. The workbook sample maps players to g and trainers to s.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-2410.json"
     },
     {
       "source_id": 2411,

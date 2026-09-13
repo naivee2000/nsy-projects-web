@@ -196,7 +196,7 @@ def build(pid, spec, source):
     starter = f"def {spec['name']}({', '.join(n + ': ' + a for n, a, _ in spec['params'])}) -> {spec['returns']}:\n    # Write your solution here.\n    pass\n"
     statement = spec.get("statement", source["statement"])
     summary = statement.split(". ", 1)[0]
-    payload = dict(id=f"leetcode-{pid}", version=1, status="approved", title=source["title"],
+    payload = dict(id=f"leetcode-{pid}", version=spec.get("version", 1), status="approved", title=source["title"],
         summary=summary + ("." if not summary.endswith(".") else ""),
         statement=statement, constraints=spec["constraints"], topics=spec["topics"],
         prerequisites=spec.get("prerequisites", spec["topics"][:1] if spec["difficulty"] >= 8 else []),

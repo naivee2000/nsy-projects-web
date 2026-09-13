@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "source_id": 1009,
+  "source_hash": "b91a45bc341a5c17960e9ad83fb5bfd227876143cc037ee72c00d4141322d3f4",
+  "target_problem_id": "leetcode-476",
+  "target_source_hash": "5d1d0a7f93b2a93d47cfa667a38f7737a0c2b3d641b317c06d19a598c219d083",
+  "target_content_sha256": "d37a0928c9e382715eee5f1aa930a892b021dbea2531014b17e7fc0e945cab0a",
+  "judge_contract_sha256": "190a8c84dbfa669918df3186750cc7283fa9f28d2809e08c6b2cb270e0607f0d",
+  "implementation_sha256": "8c72bd35adde995096a7d82c0833a8eb8bb91b45c29d940632584d5a597d636a",
+  "decision": {
+    "target_source_id": 476,
+    "source_hash": "b91a45bc341a5c17960e9ad83fb5bfd227876143cc037ee72c00d4141322d3f4",
+    "reason": "Both flip exactly the written binary digits. Version 2 of Number Complement explicitly includes zero as the one-digit representation 0, producing 1; its 0..2^31-1 domain covers the entire source 1009 domain 0<=n<10^9. Literal binary-character flipping checks 500 seeded inputs, the workbook sample, zero and bit-width boundaries. Preserve the existing Number Complement progress ID."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 5056,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 89,
+  "largest_input": 999999999,
+  "zero_checked": true,
+  "domain": "0 <= n < 10^9, including one-digit zero"
+}

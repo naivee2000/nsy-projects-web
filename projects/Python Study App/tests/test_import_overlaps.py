@@ -10,6 +10,7 @@ from code_practice.catalog import get_catalog
 from code_practice.catalog_artifacts import write_json_atomic
 from code_practice.reconcile_overlaps import (
     DECISIONS, check_unique_rotations, check_distinct_subsequence, check_bulb_square_root, check_bit_flips,
+    check_complement, check_player_matching, matching_deficiency_oracle, assignment_mask_oracle,
     reconcile, restore_import_overlaps, validate_import_overlap,
 )
 
@@ -174,3 +175,68 @@ def test_bulb_overlap_is_verified_by_actual_toggles_and_full_domain_boundaries(t
     records[69]['status'] = 'quarantined'
     with pytest.raises(ValueError, match='stale'):
         validate_import_overlap(records[319], records, tmp_path)
+
+
+def test_complement_overlap_requires_zero_and_source_boundaries(tmp_path):
+    _,records,sources = snapshot(tmp_path)
+    payload = json.loads((tmp_path/'catalog_import/candidates/leetcode-476.json').read_text())
+    proof = check_complement(payload,sources[1009])
+    assert proof['oracle_inputs'] == 500 and proof['zero_checked']
+    assert proof['largest_input'] == 10**9-1 and proof['deterministic_inputs'] >= 80
+    assert validate_import_overlap(records[1009],records,tmp_path)['valid']
+    with pytest.raises(ValueError,match='zero-domain'):
+        check_complement({**payload,'version':1},sources[1009])
+    # The previously correct positive-only implementation must fail the extension.
+    wrong = 'def number_complement(num):\n    return ((1<<num.bit_length())-1)^num'
+    with pytest.raises(ValueError,match='binary oracle'):
+        check_complement({**payload,'reference_solution':wrong},sources[1009])
+
+
+def test_player_matching_overlap_checks_new_scale_and_exact_threshold(tmp_path):
+    _,records,sources = snapshot(tmp_path)
+    payload = json.loads((tmp_path/'catalog_import/candidates/leetcode-455.json').read_text())
+    proof = check_player_matching(payload,sources[2410])
+    assert proof['oracle_inputs'] == 500 and proof['largest_input'] == 100000
+    assert proof['deterministic_inputs'] == 8
+    assert validate_import_overlap(records[2410],records,tmp_path)['valid']
+    with pytest.raises(ValueError,match='100,000-item'):
+        check_player_matching({**payload,'version':1},sources[2410])
+    for wrong in (payload['reference_solution'].replace('return child','return min(child,30000)'),
+                  payload['reference_solution'].replace('size>=needs[child]','size>needs[child]')):
+        assert wrong != payload['reference_solution']
+        with pytest.raises(ValueError):
+            check_player_matching({**payload,'reference_solution':wrong},sources[2410])
+
+
+def test_nested_neighborhood_deficiency_matches_exhaustive_assignments():
+    from itertools import combinations_with_replacement
+    lists = [list(a) for n in range(1,5) for a in combinations_with_replacement((1,2,3),n)]
+    for players in lists:
+        for trainers in lists:
+            assert matching_deficiency_oracle(players,trainers) == assignment_mask_oracle(players,trainers)
+
+
+@pytest.mark.parametrize('pid', [455,476])
+def test_domain_upgrade_preserves_version_one_passed_status_and_draft(tmp_path,monkeypatch,pid):
+    from fastapi.testclient import TestClient
+    from code_practice import catalog,database
+    from code_practice.app import app
+    problem_id = f'leetcode-{pid}'
+    with database.db_session() as connection:
+        connection.execute('INSERT INTO attempts(problem_id,problem_version,source_code,result,runtime_ms,tests_passed,tests_total,elapsed_study_seconds,hint_level,created_at) VALUES(?,?,?,?,?,?,?,?,?,?)',
+            (problem_id,1,'old accepted source','accepted',1,12,12,30,0,'2026-01-01T00:00:00+00:00'))
+    database.save_draft(problem_id,'my saved edits')
+    before = database.DB_PATH.read_bytes()
+    package_catalog.package(tmp_path/'upgraded-catalog')
+    assert database.DB_PATH.read_bytes() == before
+    monkeypatch.setattr(catalog,'CATALOG_DIR',tmp_path/'upgraded-catalog')
+    catalog.refresh_catalog()
+    for _ in range(2):
+        with TestClient(app) as client:
+            detail = client.get(f'/api/problems/{problem_id}').json()
+            assert detail['version'] == 2 and detail['savedDraft'] == 'my saved edits'
+            assert problem_id in {p['id'] for p in client.get('/api/problems?completion=passed').json()['items']}
+            assert problem_id not in {p['id'] for p in client.get('/api/dashboard').json()['recommendations']}
+            assert client.get('/api/problems/leetcode-1009').status_code == 404
+            assert client.get('/api/problems/leetcode-2410').status_code == 404
+        catalog.refresh_catalog()

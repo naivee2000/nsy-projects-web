@@ -40,8 +40,8 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
-The workbook expansion currently accounts for 3,629 rows: 74 existing equivalents,
-317 verified new problems, 155 documented design/interactive exclusions, and 3,083
+The workbook expansion currently accounts for 3,629 rows: 76 existing equivalents,
+317 verified new problems, 155 documented design/interactive exclusions, and 3,081
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -251,7 +251,7 @@ an unproved equivalence. Normal studying does not execute these offline checks.
 
 Published content is portable under `Python Study App/catalog_data/`; startup does not execute reference solutions. Transfer this folder with the app, retain the destination computer's existing progress database, and restart after updates. Rebuild packaged content with `.venv/bin/python -m code_practice.package_catalog` from the app folder; that command never opens or replaces progress. Backup and restoration instructions and the interim browser benchmark command are in the app README. Full import and full-catalog performance acceptance remain unfinished.
 
-The 412-problem checkpoint freezes verified content for handoff; it does not declare the workbook goal complete. It includes the seventeen validated batch-41/42/43 additions since the earlier 395-problem release. Batch 39 covers word-square checks/search, gene-bank paths, interval binary search, tree path sums, anagram windows, nested conditionals, decimal rank search, character-prefix mutation, forward-digit linked addition, and arithmetic subsequences. Batch 40 adds BST deletion, circular-array loops, finite-pool minimax, and repeated-subsequence cycle skipping. The new deletion judge accepts any strict BST containing exactly the surviving values, including unbalanced shapes; all 294 then-published imports were revalidated. Batch 41 adds twelve problems covering ordered geometry, missing values, interval arrows, two array-move operations, 4Sum II, resource matching, strict 132 patterns, string repetition, bit distance, cyclic substrings, and strict IP grammar. Minimum Bit Flips is a verified Hamming Distance equivalent rather than a duplicate; the five imported-target overlap proofs are refreshed. The Players/Trainers equivalent remains pending a documented expansion of Assign Cookies' input bound. All 412 preceding checkpoint entries retain identical content, versions, and progress IDs. Backups respect `CODE_PRACTICE_DB` and `CODE_PRACTICE_DATA_DIR`, with an optional external `CODE_PRACTICE_BACKUP_DIR`. Continuing catalog development on this laptop cannot affect the website until another explicit code update. Runtime progress and the existing seed snapshot were not changed. All six handoff tags remain unchanged; six verified batch-44 problems are added locally outside the frozen release.
+The 412-problem checkpoint freezes verified content for handoff; it does not declare the workbook goal complete. It includes the seventeen validated batch-41/42/43 additions since the earlier 395-problem release. Batch 39 covers word-square checks/search, gene-bank paths, interval binary search, tree path sums, anagram windows, nested conditionals, decimal rank search, character-prefix mutation, forward-digit linked addition, and arithmetic subsequences. Batch 40 adds BST deletion, circular-array loops, finite-pool minimax, and repeated-subsequence cycle skipping. The new deletion judge accepts any strict BST containing exactly the surviving values, including unbalanced shapes; all 294 then-published imports were revalidated. Batch 41 adds twelve problems covering ordered geometry, missing values, interval arrows, two array-move operations, 4Sum II, resource matching, strict 132 patterns, string repetition, bit distance, cyclic substrings, and strict IP grammar. Minimum Bit Flips is a verified Hamming Distance equivalent rather than a duplicate; the five imported-target overlap proofs are refreshed. Players/Trainers now maps to version 2 of Assign Cookies, with a documented 100,000-item bound and independent equivalence proof. Existing progress IDs remain intact; two domain upgrades raise problem versions without erasing old attempts. Backups respect `CODE_PRACTICE_DB` and `CODE_PRACTICE_DATA_DIR`, with an optional external `CODE_PRACTICE_BACKUP_DIR`. Continuing catalog development on this laptop cannot affect the website until another explicit code update. Runtime progress and the existing seed snapshot were not changed. All six handoff tags remain unchanged; six verified batch-44 problems are added locally outside the frozen release.
 
 Monaco editor and Pyodide runtime assets are included in the local frontend build, so studying needs no CDN after installation. Import validation runs in bounded per-problem processes and quarantines failures. The Chrome check uses a temporary progress database, blocks external requests, tests restart persistence, measures 100 requests per API route, and records OS-reported backend peak memory. No deployment or push is part of this expansion work.
 
@@ -279,8 +279,11 @@ runs, right-aligned groups, and all 9,216 valid endpoint pairs over every 3-by-3
 maze wall pattern. Stress fixtures reach 10,000 polygon vertices/array entries,
 100,000 characters, and 100-by-100 rolling mazes. The ball must stop at the target,
 not merely pass through it; recursive-grid review priority is retained.
-Source 1009 remains pending until a documented zero-domain expansion and proof
-permit merging it with Number Complement, avoiding a duplicate exercise.
+Source 1009 now maps to Number Complement version 2, with an explicit zero input
+that returns one. Source 2410 maps to Assign Cookies version 2, extending its
+array bound to 100,000. Both mappings pass 500 independent oracle checks and
+source-boundary tests. The catalog remains 418 distinct problems; no duplicate
+progress IDs are created. Version-1 Passed status and drafts survive the upgrades.
 
 Linked-list and tree problems show the full `ListNode` or `TreeNode` class definition above the function in the editable code pane. The app also prepends the required class when reopening an older saved draft that predates this feature.
 

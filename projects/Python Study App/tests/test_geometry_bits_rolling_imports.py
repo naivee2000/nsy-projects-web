@@ -79,7 +79,8 @@ def test_batch_44_source_domains(pid):
                 assert all(p[0] == 2500-i and p[1] == (2499 if i == 1250 and points[6250][1] == 2499 else 2500)
                            for i,p in enumerate(points[5000:7500]))
         elif pid == 476:
-            assert type(args[0]) is int and 1 <= args[0] < 2**31
+            # Version 2 additionally supports source 1009's zero input.
+            assert type(args[0]) is int and 0 <= args[0] < 2**31
         elif pid == 477:
             assert 1 <= len(args[0]) <= 10000 and all(type(x) is int and 0 <= x <= 10**9 for x in args[0])
             assert 0 <= reference(pid)(*args) < 2**31

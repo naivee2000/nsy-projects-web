@@ -1,12 +1,13 @@
 {
   "id": "leetcode-476",
-  "version": 1,
+  "version": 2,
   "status": "approved",
   "title": "Number Complement",
   "summary": "Given an integer, return the integer obtained by flipping all its binary digits: 0's become 1's and 1's become 0's.",
   "statement": "Given an integer, return the integer obtained by flipping all its binary digits: 0's become 1's and 1's become 0's.",
   "constraints": [
-    "1 <= num < 2^31. Flip only the significant bits of the positive integer, not an arbitrary fixed-width word.",
+    "0 <= num < 2^31. Flip only the significant bits, not an arbitrary fixed-width word; zero is represented by one digit, 0, and becomes 1.",
+    "Version 2 also covers Complement of Base 10 Integer (1009): source 476 requires num >= 1, while source 1009 additionally permits zero. Both source domains are supported.",
     "Return the resulting nonnegative integer. Leading zero bits are not part of the input representation."
   ],
   "topics": [
@@ -32,7 +33,7 @@
     "immutable_parameters": []
   },
   "starter_code": "def number_complement(num: int) -> int:\n    # Write your solution here.\n    pass\n",
-  "reference_solution": "def number_complement(num):\n    mask=(1<<num.bit_length())-1\n    return mask^num\n",
+  "reference_solution": "def number_complement(num):\n    mask=(1<<max(1,num.bit_length()))-1\n    return mask^num\n",
   "brute_force_solution": null,
   "known_wrong_solutions": [
     "def number_complement(num):\n    return ~num\n",
@@ -49,12 +50,12 @@
     "edge_cases": 0
   },
   "hints": [
-    "Find the number of significant bits before flipping.",
-    "Create an all-one mask of exactly that width.",
-    "Compute mask=(1<<num.bit_length())-1 and return mask XOR num.",
-    "A power of two becomes one less than itself; an all-one representation becomes zero."
+    "Find the number of significant bits before flipping; zero still has one written digit.",
+    "Create an all-one mask of exactly that width, with a minimum width of one.",
+    "Compute width=max(1,num.bit_length()), mask=(1<<width)-1, and return mask XOR num.",
+    "A positive power of two becomes one less than itself; an all-one representation becomes zero. Zero itself becomes one."
   ],
-  "editorial": "XOR with a same-width all-one mask flips precisely the original bit positions. Python's bare ~ operator also changes infinitely many sign-extension bits, so it is not this contract. The independent oracle flips literal binary characters and parses the resulting string.",
+  "editorial": "XOR with a same-width all-one mask flips precisely the original bit positions. Python's bare ~ operator also changes infinitely many sign-extension bits, so it is not this contract. The independent oracle flips literal binary characters and parses the resulting string. Version 2 adds the zero input from source 1009 without changing any positive-input answer or progress ID.",
   "tests": [
     {
       "id": "lc-476-1",
@@ -205,6 +206,17 @@
         2147483647
       ],
       "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-15",
+      "arguments": [
+        0
+      ],
+      "expected": 1,
       "comparator": "exact",
       "visible": false,
       "explanation": null,

@@ -267,6 +267,16 @@ try {
   assert((await page.locator('.problem-pane').textContent()).includes('Merely passing through'));
   assert((await page.locator('.example code').nth(1).textContent()).includes('false'));
   report.checks.push('rolling-maze instructions distinguish stopped positions from passing through an open destination');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Number Complement');
+  await page.getByRole('button', { name: /Number Complement.*Easy/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('zero is represented by one digit'));
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Assign Cookies');
+  await page.getByRole('button', { name: /Assign Cookies.*Easy/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('100,000'));
+  assert((await page.locator('.problem-pane').textContent()).includes('Players With Trainers'));
+  report.checks.push('versioned complement and matching extensions explain zero and the 100,000-item domain without duplicate exercises');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -433,6 +443,15 @@ try {
     }
   }
   report.checks.push('batch 44 wrong algorithms rejected: polygon collinearity/orientation, significant bit width, repeated index pairs, truncated runs, right-aligned uppercase groups, and stopping-only four-direction maze paths');
+  const complementV2 = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-476.json'), 'utf8'));
+  assert.equal(complementV2.version, 2);
+  assert.equal((await judge(page, complementV2, 'def number_complement(num):\n    return ((1<<num.bit_length())-1)^num')).status, 'wrong_answer');
+  const cookiesV2 = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-455.json'), 'utf8'));
+  assert.equal(cookiesV2.version, 2);
+  const cappedCookies = cookiesV2.reference_solution.replace('return child', 'return min(child,30000)');
+  assert.notEqual(cappedCookies, cookiesV2.reference_solution);
+  assert.equal((await judge(page, cookiesV2, cappedCookies)).status, 'wrong_answer');
+  report.checks.push('domain extensions reject the old zero-unsupported complement and artificial 30,000-match caps');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
@@ -665,7 +684,7 @@ def recover_bst(root):
   assert.equal(restored.savedDraft, problem.reference_solution);
   assert.equal(restored.solved, true);
   report.checks.push('draft and accepted progress survive a real backend restart');
-  for (const route of ['/api/problems?page_size=30', '/api/problems?search=tree&topic=recursion', '/api/problems/leetcode-79', '/api/problems/leetcode-237', '/api/dashboard']) {
+  for (const route of ['/api/problems?page_size=30', '/api/problems?search=tree&topic=recursion', '/api/problems/leetcode-79', '/api/problems/leetcode-237', '/api/problems/leetcode-455', '/api/dashboard']) {
     const times = [];
     await (await fetch(base + route)).arrayBuffer();
     for (let i = 0; i < 100; i++) {

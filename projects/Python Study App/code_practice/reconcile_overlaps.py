@@ -15,6 +15,16 @@ from .catalog_evidence import content_digest, judge_contract_hash, load_verified
 
 ROOT = Path(__file__).resolve().parent.parent
 DECISIONS = {
+    1009: {
+        "target_source_id": 476,
+        "source_hash": "b91a45bc341a5c17960e9ad83fb5bfd227876143cc037ee72c00d4141322d3f4",
+        "reason": "Both flip exactly the written binary digits. Version 2 of Number Complement explicitly includes zero as the one-digit representation 0, producing 1; its 0..2^31-1 domain covers the entire source 1009 domain 0<=n<10^9. Literal binary-character flipping checks 500 seeded inputs, the workbook sample, zero and bit-width boundaries. Preserve the existing Number Complement progress ID.",
+    },
+    2410: {
+        "target_source_id": 455,
+        "source_hash": "80d4a9fe3acc30744fa76ad983dcca0f62f4bc8c863b080a535b8086889a3bb3",
+        "reason": "Players and children both request a minimum capacity; trainers and cookies each satisfy at most one request whose requirement is no greater than their capacity. Version 2 of Assign Cookies explicitly supports 100,000 items per side, covering source 2410 while retaining its ID and all old inputs. Independent assignment-mask DP verifies 500 small inputs over the full value domain; nested-neighborhood deficiency bounds certify 100,000-item cases. The workbook sample maps players to g and trainers to s.",
+    },
     2220: {
         "target_source_id": 461,
         "source_hash": "29c828993d44681ce0a71f2c38517254af50bbc61c083e7c7ac4d799f9c224f7",
@@ -45,6 +55,92 @@ DECISIONS = {
 
 def implementation_hash():
     return hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+
+
+def check_complement(payload, source):
+    from .build_import_batch import workbook_sample
+    if payload['version'] < 2 or not any('0 <= num' in s for s in payload['constraints']):
+        raise ValueError('Complement target must explicitly include the zero-domain extension')
+    namespace = {}
+    exec(compile(payload['reference_solution'], '<reviewed-complement>', 'exec'), namespace)
+    solve = namespace[payload['signature']['name']]
+    sample = workbook_sample(source['sample'], [{'name':'n'}])
+    if sample is None or solve(*sample[0]) != sample[1]:
+        raise ValueError('Complement workbook sample disagrees')
+    rng = random.Random(4047+1009)
+    cases = [rng.randrange(10**9) for _ in range(500)]
+    boundaries = sorted({0,1,2,3,5,7,10,10**9-1} |
+                        {v for bit in range(30) for v in ((1<<bit)-1,1<<bit,(1<<bit)+1) if v<10**9})
+    for n in cases+boundaries:
+        expected = int(''.join('1' if bit=='0' else '0' for bit in bin(n)[2:]),2)
+        if type(solve(n)) is not int or solve(n) != expected:
+            raise ValueError('Complement reference disagrees with literal binary oracle')
+    return {'oracle_inputs':500,'oracle_seed':5056,'workbook_sample_checked':True,
+            'deterministic_inputs':len(boundaries),'largest_input':10**9-1,
+            'zero_checked':True,'domain':'0 <= n < 10^9, including one-digit zero'}
+
+
+def assignment_mask_oracle(players, trainers):
+    masks = {0}
+    for player in players:
+        following = set(masks)
+        for mask in masks:
+            for i,capacity in enumerate(trainers):
+                if not (mask>>i)&1 and player <= capacity:
+                    following.add(mask|(1<<i))
+        masks = following
+    return max(mask.bit_count() for mask in masks)
+
+
+def matching_deficiency_oracle(players, trainers):
+    # Threshold neighborhoods are nested. The largest excess of requests over
+    # adequate capacities is exactly the minimum unavoidable unmatched count.
+    needs,caps = Counter(players),Counter(trainers)
+    requested=available=deficit=0
+    for threshold in sorted(needs.keys()|caps.keys(),reverse=True):
+        requested += needs[threshold]
+        available += caps[threshold]
+        deficit = max(deficit,requested-available)
+    return len(players)-deficit
+
+
+def matching_boundaries():
+    return [([1],[1]),([10**9],[1]),([1],[10**9]),([1,1,1],[10]),
+            (list(range(100000,0,-1)),list(range(1,100001))),
+            ([10**9]*100000,[1]*100000),
+            ([1]*50000+[10**9]*50000,[1]*75000+[10**9]*25000),
+            ([10**9]*100000,[10**9]*100000)]
+
+
+def check_player_matching(payload, source):
+    from .build_import_batch import workbook_sample
+    if payload['version'] < 2 or not any('100,000' in s for s in payload['constraints']):
+        raise ValueError('Matching target must explicitly include the 100,000-item extension')
+    namespace = {}
+    exec(compile(payload['reference_solution'], '<reviewed-matching>', 'exec'), namespace)
+    solve = namespace[payload['signature']['name']]
+    sample = workbook_sample(source['sample'], [{'name':'players'},{'name':'trainers'}])
+    if sample is None or solve(*sample[0]) != sample[1]:
+        raise ValueError('Matching workbook sample disagrees')
+    rng = random.Random(4047+2410)
+    for _ in range(500):
+        pool = [1,10**9]+[rng.randint(1,10**9) for _ in range(5)]
+        players = [rng.choice(pool) for _ in range(rng.randint(1,7))]
+        trainers = [rng.choice(pool) for _ in range(rng.randint(1,7))]
+        expected = assignment_mask_oracle(players,trainers)
+        if matching_deficiency_oracle(players,trainers) != expected:
+            raise ValueError('Matching deficiency bound disagrees with enumerated assignments')
+        if solve(players[:],trainers[:]) != expected:
+            raise ValueError('Matching reference disagrees with assignment-mask oracle')
+    boundaries = matching_boundaries()
+    for players,trainers in boundaries:
+        expected = matching_deficiency_oracle(players,trainers)
+        if solve(players[:],trainers[:]) != expected:
+            raise ValueError('Matching reference disagrees with source-scale deficiency oracle')
+    return {'oracle_inputs':500,'oracle_seed':6457,'workbook_sample_checked':True,
+            'deterministic_inputs':len(boundaries),'largest_input':100000,
+            'domain':'1..100,000 players/trainers per side, values in 1..10^9',
+            'scale_oracle':'Nested threshold neighborhoods: maximum matching equals requests minus largest capacity deficit'}
 
 
 def check_bit_flips(payload, source):
@@ -271,7 +367,8 @@ def reconcile(root=ROOT):
                 raise ValueError("Source changed since the behavioral review")
             target = records[decision["target_source_id"]]
             payload = load_verified_import(target, root)
-            checker = {2220: check_bit_flips, 46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
+            checker = {1009: check_complement, 2410: check_player_matching,
+                       2220: check_bit_flips, 46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
                        319: check_bulb_square_root}[source_id]
             evidence = checker(payload, sources[source_id])
             report = {"valid": True, "source_id": source_id, "source_hash": record["source_hash"],

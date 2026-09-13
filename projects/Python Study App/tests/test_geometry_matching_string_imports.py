@@ -56,7 +56,8 @@ def test_batch_41_all_fixtures_obey_source_domains(pid):
             assert len(args) == 4 and len({len(a) for a in args}) == 1
             assert 1 <= len(args[0]) <= 200 and all(abs(v) <= 2**28 for a in args for v in a)
         elif pid == 455:
-            assert 1 <= len(args[0]) <= 30000 and len(args[1]) <= 30000
+            # Version 2 documents the union with source 2410's larger domain.
+            assert 1 <= len(args[0]) <= 100000 and len(args[1]) <= 100000
             assert all(1 <= v <= 2**31-1 for a in args for v in a)
         elif pid == 456:
             assert 1 <= len(args[0]) <= 200000 and all(abs(v) <= 10**9 for v in args[0])

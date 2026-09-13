@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "source_id": 2410,
+  "source_hash": "80d4a9fe3acc30744fa76ad983dcca0f62f4bc8c863b080a535b8086889a3bb3",
+  "target_problem_id": "leetcode-455",
+  "target_source_hash": "54cc53787f1e017db7ce1c675375a8fd8d384a4d76daed6c68356d66423e97ee",
+  "target_content_sha256": "efa38284ce006051a4ceec9702d21769e9f59636bb9bec8649830ff059feecc0",
+  "judge_contract_sha256": "190a8c84dbfa669918df3186750cc7283fa9f28d2809e08c6b2cb270e0607f0d",
+  "implementation_sha256": "8c72bd35adde995096a7d82c0833a8eb8bb91b45c29d940632584d5a597d636a",
+  "decision": {
+    "target_source_id": 455,
+    "source_hash": "80d4a9fe3acc30744fa76ad983dcca0f62f4bc8c863b080a535b8086889a3bb3",
+    "reason": "Players and children both request a minimum capacity; trainers and cookies each satisfy at most one request whose requirement is no greater than their capacity. Version 2 of Assign Cookies explicitly supports 100,000 items per side, covering source 2410 while retaining its ID and all old inputs. Independent assignment-mask DP verifies 500 small inputs over the full value domain; nested-neighborhood deficiency bounds certify 100,000-item cases. The workbook sample maps players to g and trainers to s."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 6457,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 8,
+  "largest_input": 100000,
+  "domain": "1..100,000 players/trainers per side, values in 1..10^9",
+  "scale_oracle": "Nested threshold neighborhoods: maximum matching equals requests minus largest capacity deficit"
+}

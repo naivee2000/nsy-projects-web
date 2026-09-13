@@ -1,11 +1,11 @@
 {
   "valid": true,
   "problem_id": "leetcode-476",
-  "content_sha256": "c42d6f67a1cc507634f7045c531e25c92c3793968fe50e7fea580b07bee04401",
+  "content_sha256": "d37a0928c9e382715eee5f1aa930a892b021dbea2531014b17e7fc0e945cab0a",
   "source_hash": "5d1d0a7f93b2a93d47cfa667a38f7737a0c2b3d641b317c06d19a598c219d083",
   "visible_tests": 2,
-  "hidden_tests": 13,
-  "reference_passed": 15,
+  "hidden_tests": 14,
+  "reference_passed": 16,
   "wrong_solutions": [
     {
       "reason": "Uses the unbounded signed Python complement.",
@@ -24,6 +24,7 @@
         "lc-476-12",
         "lc-476-13",
         "lc-476-14",
+        "lc-476-15",
         "lc-476-stress-1"
       ]
     },
@@ -41,17 +42,18 @@
         "lc-476-9",
         "lc-476-10",
         "lc-476-11",
-        "lc-476-12"
+        "lc-476-12",
+        "lc-476-15"
       ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 4523,
   "oracle_implementation": "code_practice/import_batch_044.py:complement_oracle",
-  "validator_implementation_sha256": "492c9befbe1356dd8a257027e0d7cd8e8669f25f474ebfd02eb8e3a3ac7b30e6",
-  "batch_implementation_sha256": "382085a66577591d24130eb21d4b181943ca4d004ca4cd57a5dbcd69b3d8dbe9",
+  "validator_implementation_sha256": "34816f0fc0e067721b1b8095c1be0e88a3181415cc404ca780c8b00607725535",
+  "batch_implementation_sha256": "beadd681f6b8d01858e1d4f205e5b2148af0b8045422df41789ae202a911fc27",
   "judge_contract_sha256": "190a8c84dbfa669918df3186750cc7283fa9f28d2809e08c6b2cb270e0607f0d",
-  "elapsed_seconds": 0.012,
+  "elapsed_seconds": 0.013,
   "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

@@ -1,11 +1,11 @@
 {
   "valid": true,
   "problem_id": "leetcode-455",
-  "content_sha256": "69595dbb32dc93469e9428f3c2e44648d8e2ef5eb85ffe97be88fd317701091e",
+  "content_sha256": "efa38284ce006051a4ceec9702d21769e9f59636bb9bec8649830ff059feecc0",
   "source_hash": "54cc53787f1e017db7ce1c675375a8fd8d384a4d76daed6c68356d66423e97ee",
   "visible_tests": 2,
-  "hidden_tests": 14,
-  "reference_passed": 16,
+  "hidden_tests": 18,
+  "reference_passed": 20,
   "wrong_solutions": [
     {
       "reason": "Rejects cookies that exactly meet a requirement.",
@@ -18,7 +18,9 @@
         "lc-455-9",
         "lc-455-10",
         "lc-455-13",
-        "lc-455-stress-1"
+        "lc-455-stress-1",
+        "lc-455-stress-3",
+        "lc-455-stress-5"
       ]
     },
     {
@@ -26,17 +28,18 @@
       "failed_cases": [
         "lc-455-2",
         "lc-455-10",
-        "lc-455-stress-1"
+        "lc-455-stress-1",
+        "lc-455-stress-3"
       ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 4502,
   "oracle_implementation": "code_practice/import_batch_041.py:cookies_oracle",
-  "validator_implementation_sha256": "5fc13551290968d68037107d352ab1cd338d979f3bf7b64350e80fa921b12e64",
-  "batch_implementation_sha256": "e0d7f4b67c15050215b7204999633c800e63e5132717e9f03f24d0a776567532",
+  "validator_implementation_sha256": "34816f0fc0e067721b1b8095c1be0e88a3181415cc404ca780c8b00607725535",
+  "batch_implementation_sha256": "3b6ad26e647d297378e7e1e458eb119e8582d210d702926af763aaf607cd8b1c",
   "judge_contract_sha256": "190a8c84dbfa669918df3186750cc7283fa9f28d2809e08c6b2cb270e0607f0d",
-  "elapsed_seconds": 0.05,
+  "elapsed_seconds": 0.213,
   "failures": [],
   "workbook_sample": "preserved and independently verified"
 }
