@@ -5,8 +5,8 @@
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
     "overlap": 74,
-    "imported": 311,
-    "pending": 3089,
+    "imported": 317,
+    "pending": 3083,
     "excluded": 155
   },
   "record_count": 3629,
@@ -5324,10 +5324,11 @@
       "title": "Convex Polygon",
       "difficulty": "Medium",
       "source_hash": "f6f3652aa9899ce41d76d5ef062bde25ecefd694f6f812ed5eb4d927662680d7",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-469.json",
+      "problem_id": "leetcode-469"
     },
     {
       "source_id": 470,
@@ -5406,10 +5407,11 @@
       "title": "Number Complement",
       "difficulty": "Easy",
       "source_hash": "5d1d0a7f93b2a93d47cfa667a38f7737a0c2b3d641b317c06d19a598c219d083",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-476.json",
+      "problem_id": "leetcode-476"
     },
     {
       "source_id": 477,
@@ -5417,10 +5419,11 @@
       "title": "Total Hamming Distance",
       "difficulty": "Medium",
       "source_hash": "c3ffc3024b872cdec52af02e704f580c3ae5653f0f29f242cb9dfa65ed6f32e5",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-477.json",
+      "problem_id": "leetcode-477"
     },
     {
       "source_id": 478,
@@ -5461,10 +5464,11 @@
       "title": "Magical String",
       "difficulty": "Medium",
       "source_hash": "d3c3b693d688cc7c991c5059e6b2e19334a426389d848568ea56996ddccd9133",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-481.json",
+      "problem_id": "leetcode-481"
     },
     {
       "source_id": 482,
@@ -5472,10 +5476,11 @@
       "title": "License Key Formatting",
       "difficulty": "Easy",
       "source_hash": "350b0828fb60cab7a86313fb44bad258e296768b08ba365a492d0c6362ab9a4c",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-482.json",
+      "problem_id": "leetcode-482"
     },
     {
       "source_id": 483,
@@ -5561,10 +5566,11 @@
       "title": "The Maze",
       "difficulty": "Medium",
       "source_hash": "1fdfc3ebce387b32d6496d9de8c8db68339756f3c546c70055be86ad16554d43",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-490.json",
+      "problem_id": "leetcode-490"
     },
     {
       "source_id": 491,
@@ -10942,7 +10948,7 @@
       "source_hash": "b91a45bc341a5c17960e9ad83fb5bfd227876143cc037ee72c00d4141322d3f4",
       "status": "pending",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
+      "reason": "Same significant-bit complement operation as source 476, but this source includes zero (whose complement is 1) while the published target requires a positive input. Requires a documented zero-domain extension and independent equivalence proof before marking overlap; do not create a duplicate exercise.",
       "validation_report": null
     },
     {

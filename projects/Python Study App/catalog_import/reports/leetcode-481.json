@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-481",
+  "content_sha256": "f233f73627532c7af0a2a66ef8f486778b7da54c4d9db4068c741b76c4ec46d4",
+  "source_hash": "d3c3b693d688cc7c991c5059e6b2e19334a426389d848568ea56996ddccd9133",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes the two digits occur equally often in every prefix.",
+      "failed_cases": [
+        "lc-481-3",
+        "lc-481-6",
+        "lc-481-7",
+        "lc-481-12",
+        "lc-481-stress-1"
+      ]
+    },
+    {
+      "reason": "Counts a completed run beyond the requested prefix length.",
+      "failed_cases": [
+        "lc-481-2",
+        "lc-481-13",
+        "lc-481-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4528,
+  "oracle_implementation": "code_practice/import_batch_044.py:magical_oracle",
+  "validator_implementation_sha256": "492c9befbe1356dd8a257027e0d7cd8e8669f25f474ebfd02eb8e3a3ac7b30e6",
+  "batch_implementation_sha256": "382085a66577591d24130eb21d4b181943ca4d004ca4cd57a5dbcd69b3d8dbe9",
+  "judge_contract_sha256": "190a8c84dbfa669918df3186750cc7283fa9f28d2809e08c6b2cb270e0607f0d",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

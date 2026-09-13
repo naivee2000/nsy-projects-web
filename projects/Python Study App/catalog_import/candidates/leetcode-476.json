@@ -1,0 +1,228 @@
+{
+  "id": "leetcode-476",
+  "version": 1,
+  "status": "approved",
+  "title": "Number Complement",
+  "summary": "Given an integer, return the integer obtained by flipping all its binary digits: 0's become 1's and 1's become 0's.",
+  "statement": "Given an integer, return the integer obtained by flipping all its binary digits: 0's become 1's and 1's become 0's.",
+  "constraints": [
+    "1 <= num < 2^31. Flip only the significant bits of the positive integer, not an arbitrary fixed-width word.",
+    "Return the resulting nonnegative integer. Leading zero bits are not part of the input representation."
+  ],
+  "topics": [
+    "math",
+    "bit-manipulation"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "number_complement",
+    "parameters": [
+      {
+        "name": "num",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def number_complement(num: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def number_complement(num):\n    mask=(1<<num.bit_length())-1\n    return mask^num\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def number_complement(num):\n    return ~num\n",
+    "def number_complement(num):\n    return num^((1<<31)-1)\n"
+  ],
+  "target_time_complexity": "O(log num) bit complexity",
+  "target_space_complexity": "O(log num) bits",
+  "estimated_minutes": 20,
+  "rubric": {
+    "algorithmic_insight": 1,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 0,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Find the number of significant bits before flipping.",
+    "Create an all-one mask of exactly that width.",
+    "Compute mask=(1<<num.bit_length())-1 and return mask XOR num.",
+    "A power of two becomes one less than itself; an all-one representation becomes zero."
+  ],
+  "editorial": "XOR with a same-width all-one mask flips precisely the original bit positions. Python's bare ~ operator also changes infinitely many sign-extension bits, so it is not this contract. The independent oracle flips literal binary characters and parses the resulting string.",
+  "tests": [
+    {
+      "id": "lc-476-1",
+      "arguments": [
+        5
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "101 becomes 010, whose integer value is 2.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-2",
+      "arguments": [
+        8
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "1000 becomes 0111, giving 7; only these four positions are flipped.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-3",
+      "arguments": [
+        1
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-4",
+      "arguments": [
+        2
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-5",
+      "arguments": [
+        3
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-6",
+      "arguments": [
+        4
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-7",
+      "arguments": [
+        6
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-8",
+      "arguments": [
+        7
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-9",
+      "arguments": [
+        9
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-10",
+      "arguments": [
+        15
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-11",
+      "arguments": [
+        16
+      ],
+      "expected": 15,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-12",
+      "arguments": [
+        31
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-13",
+      "arguments": [
+        1073741824
+      ],
+      "expected": 1073741823,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-14",
+      "arguments": [
+        2147483647
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-476-stress-1",
+      "arguments": [
+        2147483646
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

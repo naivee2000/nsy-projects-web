@@ -1,0 +1,251 @@
+{
+  "id": "leetcode-481",
+  "version": 1,
+  "status": "approved",
+  "title": "Magical String",
+  "summary": "A magical string s is composed of '1' and '2' and follows a rule where the sequence of lengths of consecutive groups of identical characters '1' and '2' forms the string s.",
+  "statement": "A magical string s is composed of '1' and '2' and follows a rule where the sequence of lengths of consecutive groups of identical characters '1' and '2' forms the string s. Given an integer n, determine the count of '1's in the first n characters of s.",
+  "constraints": [
+    "1 <= n <= 100,000. The magical sequence begins 1221121221221121122...",
+    "Its run lengths, read as digits, reproduce the sequence itself. Return the number of 1s in the first n digits only.",
+    "The final requested prefix may end partway through a run. Do not count characters appended beyond n."
+  ],
+  "topics": [
+    "strings",
+    "two-pointers"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "magical_string_ones",
+    "parameters": [
+      {
+        "name": "n",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def magical_string_ones(n: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def magical_string_ones(n):\n    sequence=[1,2,2]\n    read=2\n    while len(sequence)<n:\n        digit=3-sequence[-1]\n        sequence.extend([digit]*sequence[read])\n        read+=1\n    return sequence[:n].count(1)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def magical_string_ones(n):\n    return n//2\n",
+    "def magical_string_ones(n):\n    sequence=[1,2,2]\n    read=2\n    while len(sequence)<n:\n        digit=3-sequence[-1]\n        sequence.extend([digit]*sequence[read])\n        read+=1\n    return sequence.count(1)\n"
+  ],
+  "target_time_complexity": "O(n)",
+  "target_space_complexity": "O(n)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "Use the already generated digits as future run lengths.",
+    "Start from 122 and read run lengths beginning at its third digit.",
+    "Append the opposite digit one or two times according to the next read digit, then advance the read pointer.",
+    "Stop once the list is long enough, but count only its first n entries. The read pointer advances more slowly than generation."
+  ],
+  "editorial": "The seed fixes the first two runs. Each later read digit determines the length of the next alternating run. Appending whole runs preserves the self-description invariant, but the requested prefix may truncate the final one. The independent oracle repeatedly expands every run of an entire prefix, rather than indexing a growing sequence in place.",
+  "tests": [
+    {
+      "id": "lc-481-1",
+      "arguments": [
+        6
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The first six digits are 122112, containing three 1s.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-2",
+      "arguments": [
+        4
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "The first four digits are 1221, containing two 1s. Extending the last run to 12211 would count an unwanted fifth digit.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-3",
+      "arguments": [
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-4",
+      "arguments": [
+        2
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-5",
+      "arguments": [
+        3
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-6",
+      "arguments": [
+        5
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-7",
+      "arguments": [
+        7
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-8",
+      "arguments": [
+        8
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-9",
+      "arguments": [
+        9
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-10",
+      "arguments": [
+        10
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-11",
+      "arguments": [
+        11
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-12",
+      "arguments": [
+        12
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-13",
+      "arguments": [
+        13
+      ],
+      "expected": 6,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-14",
+      "arguments": [
+        14
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-15",
+      "arguments": [
+        15
+      ],
+      "expected": 7,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-16",
+      "arguments": [
+        16
+      ],
+      "expected": 8,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-481-stress-1",
+      "arguments": [
+        100000
+      ],
+      "expected": 49972,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

@@ -4,12 +4,11 @@ Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
 412-problem checkpoint is documented in [RELEASE_412_CHECKPOINT.md](RELEASE_412_CHECKPOINT.md).
 The release includes all seventeen verified batch-41/42/43 additions since the
-395-problem release. The counts below match the 412-problem release ledger.
-Six unfinished batch-44 candidates (469, 476, 477, 481, 482, 490) remain separate
-laptop working files; they are pending, not published or included in the tag.
-Resume those files after the owner confirms the handoff; do not reset or clean
-them away. All five earlier handoff tags remain unchanged. New development does
-not change the other computer or authorize a push/deployment.
+395-problem release. Resumed local goal work adds six verified batch-44 problems
+outside that frozen release. The counts below describe the current 418-problem
+development package, not the release ledger. All six handoff tags remain
+unchanged. New development does not change the other computer or authorize a
+push/deployment.
 
 The source workbook has 3,629 unique problem names in rows 7–3635. The
 scope includes ordinary functions, binary trees, linked lists, and Hard problems.
@@ -52,9 +51,23 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 74 existing equivalents (69 original exercises and
   five approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,089 rows remain pending.
-- 311 new imports in forty-three reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 412 problems.
+  design/interactive exclusions; 3,083 rows remain pending.
+- 317 new imports in forty-four reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 418 problems.
+- Batch forty-four covers LeetCode 469, 476–477, 481–482, and 490: simple-polygon
+  convexity, significant-bit complement, aggregate Hamming distance, self-
+  describing runs, right-aligned license formatting, and rolling-maze DFS.
+  Independent regressions cover simple polygon boundaries in both orientations,
+  65,535 positive complements, all input bit positions and duplicate index pairs,
+  literal run-length self-description, exhaustive short license strings, and all
+  9,216 open endpoint pairs over the 512 three-by-three maze wall patterns.
+  Fixtures respect source domains, including simple rather than self-crossing
+  polygons and distinct open maze endpoints. Source-scale tests include 10,000
+  polygon vertices/array values, 100,000 characters, and 100-by-100 rolling grids.
+  The grid exercise preserves the owner's recursion/matrix review priority.
+  All 412 preceding entries retain identical content, versions, and progress IDs.
+  Source 1009 remains pending: its complement operation overlaps 476 but permits
+  zero. An explicit domain expansion and equivalence proof must precede merging.
 - Batch forty-three covers LeetCode 471 with a `shortest_encoding` comparator:
   bounded grammar decoding plus equality with the verified optimum length,
   not equality with one reference string. Schema validation binds expectations
@@ -555,17 +568,17 @@ correctness. Generated tests must meet each problem's actual constraints.
   while preserving outer order and duplicate counts. BST deletion now additionally
   permits any valid strict BST with exactly the input values minus the requested
   key, without a balancing requirement. Shortest string encodings permit tied
-  optimal grammar expressions with bounded decoding. All 311 published imports
-  have matching passing reports in the 412-problem package under this judge contract.
+  optimal grammar expressions with bounded decoding. All 317 published imports
+  have matching passing reports in the 418-problem package under this judge contract.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 412-problem Chrome/M3 Pro run: library/search p95 1.55/2.53 ms,
-  detail p95 1.51 ms for Word Search and 1.52 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.75 ms (100 requests per route). Startup is
-  454 ms and backend peak RSS is 127.53 MiB across browsing large array and
-  linked-list details and restarting. All 311 imported references and
+- Current 418-problem Chrome/M3 Pro run: library/search p95 1.50/2.82 ms,
+  detail p95 1.41 ms for Word Search and 3.83 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.85 ms (100 requests per route). Startup is
+  343 ms and backend peak RSS is 132.05 MiB across browsing large array and
+  linked-list details and restarting. All 317 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The Recover Binary Search Tree suite finishes in 40.6 ms after runtime load,
+  The Recover Binary Search Tree suite finishes in 43.0 ms after runtime load,
   including both 1,000-node chains and all sixteen deterministic cases. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
@@ -588,47 +601,53 @@ correctness. Generated tests must meet each problem's actual constraints.
   All sixteen batch-thirty-seven wrong algorithms are also rejected. Numeric
   permutations accept reversed outer order but reject duplicate/missing rows
   and collapsing all rows to the same internal order. Its 40,320-output boundary
-  passes within a 273.1 ms suite; both 200-by-200 basin cases pass within a
-  195.3 ms suite after Pyodide load. The row-order explanation renders in the UI.
+  passes within a 260.1 ms suite; both 200-by-200 basin cases pass within a
+  213.0 ms suite after Pyodide load. The row-order explanation renders in the UI.
   All eighteen batch-thirty-eight wrong algorithms are rejected. Ocean coordinates
   accept reordered cells but reject row/column swaps, omissions, and duplicates;
   the plateau and coordinate rules render in the UI. Source-scale XOR, subset DP,
-  and ocean suites finish in 501.4, 344.4, and 226.7 ms respectively after load.
+  and ocean suites finish in 525.9, 383.1, and 255.7 ms respectively after load.
   All twenty-two batch-thirty-nine wrong algorithms are rejected. Character
   prefixes enforce actual input mutation and strict integer counts while ignoring
   the tail; word-square answers permit outer reordering but reject changed row
   order and duplicated/missing squares. Multi-digit compression examples render
-  the compound count/prefix output correctly. Batch-39 suites finish in 33.8–129.6 ms
+  the compound count/prefix output correctly. Batch-39 suites finish in 35.6–132.7 ms
   after load, including the thousand-item arithmetic-subsequence DP and deep
   tree/conditional inputs.
   All eight batch-forty wrong algorithms are rejected. BST deletion accepts
   predecessor/successor roots and unbalanced shapes while rejecting invalid
   ordering, missing/extra/noninteger values, cycles, shared children, and array
-  returns. Its 10,000-node cases pass within a 102.0 ms suite; the circular-loop
-  suite takes 45.4 ms and million-block repetition suite 32.9 ms. The 21-case
-  minimax suite, including the heavier (20,150) hidden case, finishes in 1,798.5 ms
+  returns. Its 10,000-node cases pass within a 110.3 ms suite; the circular-loop
+  suite takes 49.5 ms and million-block repetition suite 36.9 ms. The 21-case
+  minimax suite, including the heavier (20,150) hidden case, finishes in 2,142.4 ms
   after runtime load, within the three-second execution deadline.
   All 24 batch-forty-one wrong algorithms are rejected. Missing-value lists allow
   reordered answers but reject duplicate or omitted values. The IP problem's
   full-notation restriction renders in the UI and is enforced by the worker.
-  Batch-41 reference suites finish in 33.3–233.7 ms after load, including all
+  Batch-41 reference suites finish in 35.8–247.6 ms after load, including all
   100,000-/200,000-element and 500-point stress fixtures.
   All eight batch-forty-two wrong algorithms are rejected; concatenated-word
   outputs permit reordering but reject omitted, repeated, or unsplittable words.
   The multi-piece explanation renders in the UI. The word, matchstick, binary
-  budget, and heater suites finish in 68.7, 32.9, 352.6, and 111.2 ms respectively
+  budget, and heater suites finish in 74.4, 37.7, 367.3, and 119.7 ms respectively
   after load, including every source-scale stress fixture.
   Batch 43 accepts tied encodings (`10[a]`, `a9[a]`, `9[a]a`, `5[aa]`) but rejects
   both wrong reference mutants, wrong decoded text, nonminimal expressions,
   malformed grammar, oversized expansion, and bracketed ties that save no space.
   Failure details retain the actual output and explain the contract. Fresh-worker
   recovery passes afterward. All 20 reference cases, including four large/nested
-  fixtures, finish in 318.2 ms after runtime load.
+  fixtures, finish in 320.4 ms after runtime load.
+  All twelve batch-44 wrong algorithms are rejected, including ordinary-cell
+  traversal that incorrectly accepts a rolling destination. The STOP-versus-pass
+  distinction renders beside the visible maze examples. Polygon, complement,
+  aggregate bit distance, magical string, license formatting, and rolling-maze
+  suites finish in 57.4, 35.8, 98.3, 51.1, 54.3, and 46.3 ms after runtime load,
+  respectively, including all source-scale fixtures.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
   Reports also bind the judge contract, built worker, frontend index, and browser
   verifier hashes; the verifier refuses a stale built worker until it is rebuilt.
-- Current automated suite: 526 backend tests and 18 frontend tests pass. The
+- Current automated suite: 551 backend tests and 18 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

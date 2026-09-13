@@ -260,6 +260,13 @@ try {
   assert((await encodingNote.textContent()).includes('any minimum-length encoding'));
   assert((await page.locator('.example code').nth(1).textContent()).includes('One valid output'));
   report.checks.push('shortest encoding explains tied optimal strings and literal-only output when compression saves no space');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('The Maze');
+  await page.getByRole('button', { name: /The Maze.*Medium/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('STOP at the destination'));
+  assert((await page.locator('.problem-pane').textContent()).includes('Merely passing through'));
+  assert((await page.locator('.example code').nth(1).textContent()).includes('false'));
+  report.checks.push('rolling-maze instructions distinguish stopped positions from passing through an open destination');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -419,6 +426,13 @@ try {
   assert.equal((await judge(page, literalCase, "def shortest_encoding(s):\n    return '4[a]'" )).status, 'wrong_answer');
   assert.equal((await judge(page, literalCase, "def shortest_encoding(s):\n    return s" )).status, 'accepted');
   report.checks.push('batch 43 rejects both wrong encoders; tied optimal expressions pass, wrong decoded text and malformed or oversized expansions fail, literal ties stay unencoded, and the next worker recovers');
+  for (const id of [469,476,477,481,482,490]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `leetcode-${id} wrong fixture`);
+    }
+  }
+  report.checks.push('batch 44 wrong algorithms rejected: polygon collinearity/orientation, significant bit width, repeated index pairs, truncated runs, right-aligned uppercase groups, and stopping-only four-direction maze paths');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
