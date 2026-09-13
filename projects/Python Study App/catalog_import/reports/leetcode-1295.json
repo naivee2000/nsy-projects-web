@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1295",
+  "content_sha256": "a3252568c087c04c5b5198ef57c80edde988061cc85e13c41b0aee94486a0388",
+  "source_hash": "c9bcc3d215d20cc368af02fc951d60ee093ab87cba223c75d079e6f9969c1a7b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts odd digit lengths instead.",
+      "failed_cases": [
+        "lc-1295-1",
+        "lc-1295-2",
+        "lc-1295-3",
+        "lc-1295-4",
+        "lc-1295-5",
+        "lc-1295-6",
+        "lc-1295-7",
+        "lc-1295-8",
+        "lc-1295-11",
+        "lc-1295-12",
+        "lc-1295-15",
+        "lc-1295-16"
+      ]
+    },
+    {
+      "reason": "Counts digits after incrementing the value, failing at powers of ten minus one.",
+      "failed_cases": [
+        "lc-1295-5",
+        "lc-1295-7",
+        "lc-1295-13",
+        "lc-1295-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5342,
+  "oracle_implementation": "code_practice/import_batch_090.py:even_o",
+  "validator_implementation_sha256": "aca94f14d0a9f4692df4deab63b0cd6eee45a49cfb0c59a9e372bfa97a6a4af8",
+  "batch_implementation_sha256": "fc83ce656321c8e8280765899e6561d549c959234f526aef546ab98fc417901a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "866968b210e7b19469a9921097a522feee30160fd5156c50bf7b655034927419",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1276",
+  "content_sha256": "70ded7bb5652bd20d551b9c47c20b273e1cc688d4cd75f7c39e26c31142a3249",
+  "source_hash": "85fd893f626fee2e4bd18126f850d63faa00b3faf4d23afbe0d4c4e0acbdf2f3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Solves the tomato difference with the wrong divisor.",
+      "failed_cases": [
+        "lc-1276-1",
+        "lc-1276-5",
+        "lc-1276-7",
+        "lc-1276-8",
+        "lc-1276-9",
+        "lc-1276-10",
+        "lc-1276-13",
+        "lc-1276-16"
+      ]
+    },
+    {
+      "reason": "Rejects valid solutions containing zero of one burger type.",
+      "failed_cases": [
+        "lc-1276-3",
+        "lc-1276-4",
+        "lc-1276-5",
+        "lc-1276-6",
+        "lc-1276-13",
+        "lc-1276-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5323,
+  "oracle_implementation": "code_practice/import_batch_090.py:burgers_o",
+  "validator_implementation_sha256": "aca94f14d0a9f4692df4deab63b0cd6eee45a49cfb0c59a9e372bfa97a6a4af8",
+  "batch_implementation_sha256": "fc83ce656321c8e8280765899e6561d549c959234f526aef546ab98fc417901a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a315c1fa29e5f1045d7bf81a5286ad7e03e0aa052b8e1bd88fe277a8cfd82279",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input tomatoSlices = 16, cheeseSlices = 7 → Output [1,6] Explantion: To make one jumbo burger and 6 small burgers we need 4*1 + 2*6 = 16 tomato and 1 + 6 = 7 cheese. There will be no remaining ingredients.",
+    "arguments": [
+      16,
+      7
+    ],
+    "expected": [
+      1,
+      6
+    ],
+    "reason": "The workbook appended prose and a misspelled Explanation label to the output literal; the reviewed adapter preserves its two inputs and stated [1,6] result.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/1200-1299/1276.Number%20of%20Burgers%20with%20No%20Waste%20of%20Ingredients/README_EN.md"
+  }
+}

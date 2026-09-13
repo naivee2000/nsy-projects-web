@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1281",
+  "content_sha256": "75f20c602fd8e54e4634f7abb6e01fbc60c35bf2717b99126514e584af8bab20",
+  "source_hash": "9a2a167a1ca90b1c42988796743301897853d748e95f1918f23000a7c88623e8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Initializes the multiplicative identity incorrectly.",
+      "failed_cases": [
+        "lc-1281-1",
+        "lc-1281-3",
+        "lc-1281-4",
+        "lc-1281-6",
+        "lc-1281-7",
+        "lc-1281-8",
+        "lc-1281-10",
+        "lc-1281-12",
+        "lc-1281-15"
+      ]
+    },
+    {
+      "reason": "Subtracts the product from the sum.",
+      "failed_cases": [
+        "lc-1281-1",
+        "lc-1281-2",
+        "lc-1281-5",
+        "lc-1281-6",
+        "lc-1281-8",
+        "lc-1281-9",
+        "lc-1281-11",
+        "lc-1281-12",
+        "lc-1281-13",
+        "lc-1281-14",
+        "lc-1281-15",
+        "lc-1281-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5328,
+  "oracle_implementation": "code_practice/import_batch_090.py:digits_o",
+  "validator_implementation_sha256": "aca94f14d0a9f4692df4deab63b0cd6eee45a49cfb0c59a9e372bfa97a6a4af8",
+  "batch_implementation_sha256": "fc83ce656321c8e8280765899e6561d549c959234f526aef546ab98fc417901a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "364fbc58ff15971c5c4a8a60927ead2636b13173b50578b8f9835d4e29e83556",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

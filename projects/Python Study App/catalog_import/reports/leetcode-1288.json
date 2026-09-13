@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1288",
+  "content_sha256": "fd196d30c8a4efadc7cf901f7db24d9d2bc1a51f7932d3e96d83524ebb42f6ac",
+  "source_hash": "c93a3f3217d01e582fde313a5595ba77576141f4277e35ecf7c0dcc83a6e6aea",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts equal starts shortest-first and wrongly counts a covered short interval.",
+      "failed_cases": [
+        "lc-1288-2",
+        "lc-1288-6",
+        "lc-1288-7",
+        "lc-1288-10",
+        "lc-1288-12",
+        "lc-1288-15"
+      ]
+    },
+    {
+      "reason": "Counts equal right endpoints as new uncovered intervals.",
+      "failed_cases": [
+        "lc-1288-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5335,
+  "oracle_implementation": "code_practice/import_batch_090.py:covered_o",
+  "validator_implementation_sha256": "aca94f14d0a9f4692df4deab63b0cd6eee45a49cfb0c59a9e372bfa97a6a4af8",
+  "batch_implementation_sha256": "fc83ce656321c8e8280765899e6561d549c959234f526aef546ab98fc417901a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "db95b9f3bcb6bd221f00d2afc86479c8b5c7c7b107f9d7a86667dffd5dd7dee1",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

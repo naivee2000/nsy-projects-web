@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1323",
+  "content_sha256": "7ead2a8fa829f76e83cdf94afefbc6211bf97c8a5459b2e3f688105fc475e334",
+  "source_hash": "5c16f026d4add92791741e7efb74e6fcb58c0804ea3820f295e209a2ca32d3f3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Changes the least significant six instead of the most significant one.",
+      "failed_cases": [
+        "lc-1323-1",
+        "lc-1323-5",
+        "lc-1323-9",
+        "lc-1323-10",
+        "lc-1323-11",
+        "lc-1323-13",
+        "lc-1323-16"
+      ]
+    },
+    {
+      "reason": "Replaces a six with another six and never improves the number.",
+      "failed_cases": [
+        "lc-1323-1",
+        "lc-1323-3",
+        "lc-1323-5",
+        "lc-1323-6",
+        "lc-1323-7",
+        "lc-1323-9",
+        "lc-1323-10",
+        "lc-1323-11",
+        "lc-1323-12",
+        "lc-1323-13",
+        "lc-1323-14",
+        "lc-1323-15",
+        "lc-1323-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5370,
+  "oracle_implementation": "code_practice/import_batch_090c.py:maximum_oracle",
+  "validator_implementation_sha256": "684027c60d3ecd47d7771b5972ebfe9631fbf2198eb99bc6771b059f18af69f7",
+  "batch_implementation_sha256": "71b81e1e50350d5a89d8c2ebb983b0a967026126e82ad0e6cedd4a65857cb4a8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9b398ec79c5cbb8ec93de9cfba3f51a1929fce72bd6420d52b0a55cb544d9569",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

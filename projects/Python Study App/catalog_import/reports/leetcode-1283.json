@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1283",
+  "content_sha256": "c2a7654da471568c9baf0c9dc75e2d7689a0925592e6dcd635560ccfe9457d61",
+  "source_hash": "888d6ddadaa8a1c405052a0f89bdfd61c7690271d560d74867d006d778bb5de4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses floor rather than ceiling division.",
+      "failed_cases": [
+        "lc-1283-1",
+        "lc-1283-2",
+        "lc-1283-9",
+        "lc-1283-10",
+        "lc-1283-11",
+        "lc-1283-13",
+        "lc-1283-14",
+        "lc-1283-16"
+      ]
+    },
+    {
+      "reason": "Moves the lower bound upward when a divisor is feasible.",
+      "failed_cases": [
+        "lc-1283-1",
+        "lc-1283-4",
+        "lc-1283-6",
+        "lc-1283-8",
+        "lc-1283-10",
+        "lc-1283-12",
+        "lc-1283-13",
+        "lc-1283-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5330,
+  "oracle_implementation": "code_practice/import_batch_090.py:divisor_o",
+  "validator_implementation_sha256": "aca94f14d0a9f4692df4deab63b0cd6eee45a49cfb0c59a9e372bfa97a6a4af8",
+  "batch_implementation_sha256": "fc83ce656321c8e8280765899e6561d549c959234f526aef546ab98fc417901a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b65aac0549e00730a576dd24f0838ad2668ec1754216354fae48587b164d236b",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

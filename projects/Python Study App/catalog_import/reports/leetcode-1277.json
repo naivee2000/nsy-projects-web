@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1277",
+  "content_sha256": "2c7a69ffb49f4207a8358cd93c58f6e958e54df8974886a8ab551120537c3764",
+  "source_hash": "7be5e20d3be6317aee80ba5908aa00adc9a8447be143fb209c4e77089a0baec2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the largest neighboring square and invents unsupported cells.",
+      "failed_cases": [
+        "lc-1277-1",
+        "lc-1277-2",
+        "lc-1277-5",
+        "lc-1277-6",
+        "lc-1277-7",
+        "lc-1277-8",
+        "lc-1277-9",
+        "lc-1277-11",
+        "lc-1277-12",
+        "lc-1277-13",
+        "lc-1277-14",
+        "lc-1277-16"
+      ]
+    },
+    {
+      "reason": "Counts only 1x1 squares.",
+      "failed_cases": [
+        "lc-1277-1",
+        "lc-1277-7",
+        "lc-1277-9",
+        "lc-1277-11",
+        "lc-1277-12",
+        "lc-1277-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5324,
+  "oracle_implementation": "code_practice/import_batch_090.py:squares_o",
+  "validator_implementation_sha256": "aca94f14d0a9f4692df4deab63b0cd6eee45a49cfb0c59a9e372bfa97a6a4af8",
+  "batch_implementation_sha256": "fc83ce656321c8e8280765899e6561d549c959234f526aef546ab98fc417901a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7189aafef821ff6bef9edf36c5d2cc22873fa5624662a6274331439a901234a2",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

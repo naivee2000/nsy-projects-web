@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1272",
+  "content_sha256": "f6de00454ec90fb94bfeb3db5b2660fbd54f25ac10a8879ff82bc9ff62371846",
+  "source_hash": "1416ad96e2702c93dbb78ca235fe539c2f17a536e03511921bc18b4e95ec00c2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Drops an entire overlapping interval instead of preserving its outside fragments.",
+      "failed_cases": [
+        "lc-1272-1",
+        "lc-1272-2",
+        "lc-1272-5",
+        "lc-1272-7",
+        "lc-1272-9",
+        "lc-1272-10",
+        "lc-1272-12",
+        "lc-1272-13"
+      ]
+    },
+    {
+      "reason": "Emits a zero-length right fragment when endpoints coincide.",
+      "failed_cases": [
+        "lc-1272-4",
+        "lc-1272-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5319,
+  "oracle_implementation": "code_practice/import_batch_090.py:remove_o",
+  "validator_implementation_sha256": "aca94f14d0a9f4692df4deab63b0cd6eee45a49cfb0c59a9e372bfa97a6a4af8",
+  "batch_implementation_sha256": "fc83ce656321c8e8280765899e6561d549c959234f526aef546ab98fc417901a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "58ed8fe7e155c16cad206707f519eff0a90957ce98cec80b19e192c3efbdcf43",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

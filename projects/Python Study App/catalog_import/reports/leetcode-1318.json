@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1318",
+  "content_sha256": "8247b53a1339b7376080d50e7e330db2875bbec098b5b9a360c82bde5584d448",
+  "source_hash": "2e3fcf1b854a49ebb8e82a94d067e37ff1ec67fbbeda3e9ec2ba2486b057f1a6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Charges one flip when both input bits are one but target bit is zero.",
+      "failed_cases": [
+        "lc-1318-1",
+        "lc-1318-6",
+        "lc-1318-12",
+        "lc-1318-14"
+      ]
+    },
+    {
+      "reason": "Requires both input bits to be one when target needs only one.",
+      "failed_cases": [
+        "lc-1318-1",
+        "lc-1318-2",
+        "lc-1318-8",
+        "lc-1318-11",
+        "lc-1318-13",
+        "lc-1318-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5365,
+  "oracle_implementation": "code_practice/import_batch_090b.py:flips_o",
+  "validator_implementation_sha256": "a699dd2a7112333ec2ca0417c97337d7a739c47e1a01cf6db52dd814e6968c0b",
+  "batch_implementation_sha256": "0801a2837674adc4825bb573519fe6ed7e883a2ee2d8f932ee964cc36efadfff",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "71584bb5ffd6d89e4b3046e6015091fe6249e80ee6d96ec7607a5a9dddea45d7",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

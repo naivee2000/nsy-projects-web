@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1296",
+  "content_sha256": "47c9c3087c07f21d947e788343a44604e21d9d6a2a7c4e0b700051ad87bc09f7",
+  "source_hash": "e2899cc9619ae07a6161ece2e05f8ce15ff141dda5d2495655c6342370ff459c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Builds groups with only k-1 values.",
+      "failed_cases": [
+        "lc-1296-1",
+        "lc-1296-2",
+        "lc-1296-6",
+        "lc-1296-7",
+        "lc-1296-13",
+        "lc-1296-14",
+        "lc-1296-15",
+        "lc-1296-16"
+      ]
+    },
+    {
+      "reason": "Processes arbitrary insertion order instead of starting at the smallest remaining value.",
+      "failed_cases": [
+        "lc-1296-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5343,
+  "oracle_implementation": "code_practice/import_batch_090b.py:groups_o",
+  "validator_implementation_sha256": "a699dd2a7112333ec2ca0417c97337d7a739c47e1a01cf6db52dd814e6968c0b",
+  "batch_implementation_sha256": "0801a2837674adc4825bb573519fe6ed7e883a2ee2d8f932ee964cc36efadfff",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "332062c7fc3d1583f79f56511dd52d4e23600b383f6ae84c049185cbd7d26ffc",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

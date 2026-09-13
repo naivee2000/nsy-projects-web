@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1297",
+  "content_sha256": "3f20da0a5d696ef57ede72164c0de4f1ea080311827a6d03d980425505f69b43",
+  "source_hash": "3852c0656028213f3184d0f1a494933839f90c2d4e6cb36d74fcb92e4768310e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only maximum-size substrings, missing more frequent shorter ones.",
+      "failed_cases": [
+        "lc-1297-1",
+        "lc-1297-2",
+        "lc-1297-6",
+        "lc-1297-7",
+        "lc-1297-8",
+        "lc-1297-9",
+        "lc-1297-10",
+        "lc-1297-12",
+        "lc-1297-13",
+        "lc-1297-14",
+        "lc-1297-15",
+        "lc-1297-16"
+      ]
+    },
+    {
+      "reason": "Rejects windows using exactly max_letters distinct characters.",
+      "failed_cases": [
+        "lc-1297-1",
+        "lc-1297-2",
+        "lc-1297-3",
+        "lc-1297-4",
+        "lc-1297-6",
+        "lc-1297-7",
+        "lc-1297-8",
+        "lc-1297-9",
+        "lc-1297-10",
+        "lc-1297-11",
+        "lc-1297-12",
+        "lc-1297-13",
+        "lc-1297-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5344,
+  "oracle_implementation": "code_practice/import_batch_090b.py:freq_o",
+  "validator_implementation_sha256": "a699dd2a7112333ec2ca0417c97337d7a739c47e1a01cf6db52dd814e6968c0b",
+  "batch_implementation_sha256": "0801a2837674adc4825bb573519fe6ed7e883a2ee2d8f932ee964cc36efadfff",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8861f3a48dd7a63f606517b3a9b0e6834cebe4b4b5dcc1fe031b1e0de18d3aef",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1291",
+  "content_sha256": "ae59f49fb4beced65961e5a233c6658ff588b8f5e262bf41182bf702d04e353b",
+  "source_hash": "330e154d14e64625cf2831fc0d08034fc7d7fcc0b5984a4407aea14e80d63ccd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Generates values beginning with zero.",
+      "failed_cases": [
+        "lc-1291-1",
+        "lc-1291-2",
+        "lc-1291-3",
+        "lc-1291-4",
+        "lc-1291-5",
+        "lc-1291-6",
+        "lc-1291-8",
+        "lc-1291-9",
+        "lc-1291-10",
+        "lc-1291-11",
+        "lc-1291-12",
+        "lc-1291-13",
+        "lc-1291-14",
+        "lc-1291-15",
+        "lc-1291-16"
+      ]
+    },
+    {
+      "reason": "Omits every two-digit sequential number.",
+      "failed_cases": [
+        "lc-1291-3",
+        "lc-1291-4",
+        "lc-1291-5",
+        "lc-1291-10",
+        "lc-1291-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5338,
+  "oracle_implementation": "code_practice/import_batch_090.py:sequential_o",
+  "validator_implementation_sha256": "aca94f14d0a9f4692df4deab63b0cd6eee45a49cfb0c59a9e372bfa97a6a4af8",
+  "batch_implementation_sha256": "fc83ce656321c8e8280765899e6561d549c959234f526aef546ab98fc417901a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e6fc70a20d42597a1a851cc1994a7380a95dae10dd0ecd42bee639d007d0bead",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

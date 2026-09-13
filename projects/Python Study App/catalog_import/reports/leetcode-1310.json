@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1310",
+  "content_sha256": "68cfdc7d916ee34124e03a9062566e6e87bdd548435166c189085f8e63746816",
+  "source_hash": "94c200fa1bee9ef89df5fb38bda4d0ee40c946b36e6176e8306c8158d4f1ef59",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the right endpoint as exclusive.",
+      "failed_cases": [
+        "lc-1310-1",
+        "lc-1310-2",
+        "lc-1310-3",
+        "lc-1310-4",
+        "lc-1310-5",
+        "lc-1310-7",
+        "lc-1310-8",
+        "lc-1310-9",
+        "lc-1310-10",
+        "lc-1310-11",
+        "lc-1310-12",
+        "lc-1310-13",
+        "lc-1310-14",
+        "lc-1310-15",
+        "lc-1310-16"
+      ]
+    },
+    {
+      "reason": "Builds arithmetic prefix sums instead of XOR prefixes.",
+      "failed_cases": [
+        "lc-1310-1",
+        "lc-1310-2",
+        "lc-1310-7",
+        "lc-1310-8",
+        "lc-1310-9",
+        "lc-1310-10",
+        "lc-1310-12",
+        "lc-1310-13",
+        "lc-1310-14",
+        "lc-1310-15",
+        "lc-1310-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5357,
+  "oracle_implementation": "code_practice/import_batch_090b.py:xor_o",
+  "validator_implementation_sha256": "a699dd2a7112333ec2ca0417c97337d7a739c47e1a01cf6db52dd814e6968c0b",
+  "batch_implementation_sha256": "0801a2837674adc4825bb573519fe6ed7e883a2ee2d8f932ee964cc36efadfff",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ff0c6f4e2b794285606000ed7eb2b1870effac69a2f534fa04b1952774a6f8a4",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

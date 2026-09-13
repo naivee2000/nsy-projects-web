@@ -96,7 +96,7 @@ def test_library_and_dashboard_never_load_full_problem_payloads(monkeypatch):
         assert client.get("/api/dashboard").status_code == 200
         assert client.get("/api/problems?search=Word%20Search").json()["items"][0]["id"] == "leetcode-79"
         assert client.get("/api/problems?topic=linked-lists").json()["total"] >= 7
-        assert client.get("/api/problems?search=%25").json()["total"] == 0
+        assert client.get("/api/problems?search=%25_literal_missing_%25").json()["total"] == 0
 
 
 def test_old_passed_progress_survives_pagination_and_catalog_rebuild(tmp_path, monkeypatch):

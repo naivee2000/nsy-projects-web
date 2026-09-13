@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1287",
+  "content_sha256": "6b40d537e10171a327ed990bd4e8cc98a5572523426dbca9c0a3dd286897d15d",
+  "source_hash": "62dd0b3468a7c1266e0ecdcfc6815f38a9e522c5b34304da71f4156b315f9bfb",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Checks a span longer than one quarter and can miss the answer.",
+      "failed_cases": [
+        "lc-1287-6",
+        "lc-1287-13"
+      ]
+    },
+    {
+      "reason": "Assumes the answer always covers the first quarter position.",
+      "failed_cases": [
+        "lc-1287-1",
+        "lc-1287-7",
+        "lc-1287-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5334,
+  "oracle_implementation": "code_practice/import_batch_090.py:quarter_o",
+  "validator_implementation_sha256": "aca94f14d0a9f4692df4deab63b0cd6eee45a49cfb0c59a9e372bfa97a6a4af8",
+  "batch_implementation_sha256": "fc83ce656321c8e8280765899e6561d549c959234f526aef546ab98fc417901a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "97f194bc6c632acc1817dba39c06667c5a625a1c97af2e3baac9465d2598a67f",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1306",
+  "content_sha256": "59ad61e5800a15a50e8c6e97e76f0f56311d068c94f51139cc00419ab359fdfb",
+  "source_hash": "d7b9d94a64b48b3e3f8127c3735f7da20d5899c4686df008a499f98f0bfb9aab",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Moves one step left instead of exactly arr[index].",
+      "failed_cases": [
+        "lc-1306-2",
+        "lc-1306-11",
+        "lc-1306-15"
+      ]
+    },
+    {
+      "reason": "Explores only rightward jumps and misses reachable zeros to the left.",
+      "failed_cases": [
+        "lc-1306-1",
+        "lc-1306-7",
+        "lc-1306-9",
+        "lc-1306-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5353,
+  "oracle_implementation": "code_practice/import_batch_090b.py:jump_o",
+  "validator_implementation_sha256": "a699dd2a7112333ec2ca0417c97337d7a739c47e1a01cf6db52dd814e6968c0b",
+  "batch_implementation_sha256": "0801a2837674adc4825bb573519fe6ed7e883a2ee2d8f932ee964cc36efadfff",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3b6f36ab30ef119027b7ae0bc8515fed6915755e724454b61a9b1bd335e1e751",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
