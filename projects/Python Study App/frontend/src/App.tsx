@@ -487,6 +487,7 @@ export default function App() {
   const flexibleTreeOutput = Boolean(problem?.tests.some((test) => test.comparator === "balanced_bst"));
   const bstDeletionOutput = Boolean(problem?.tests.some((test) => test.comparator === "bst_delete"));
   const shortestEncodingOutput = Boolean(problem?.tests.some((test) => test.comparator === "shortest_encoding"));
+  const decimalListOutput = Boolean(problem?.tests.some((test) => test.comparator === "float_list"));
   const flexibleWiggleOutput = Boolean(problem?.tests.some((test) => test.comparator === "wiggle"));
   const strictWiggleOutput = Boolean(problem?.tests.some((test) => test.comparator === "strict_wiggle"));
   const orderedGroupsOutput = Boolean(problem?.tests.some((test) => test.comparator === "unordered_rows"));
@@ -611,6 +612,7 @@ export default function App() {
                 {strictWiggleOutput && <p className="statement" role="note">Strict wiggle judging: modify the original list into any permutation that alternates &lt;, &gt;, &lt;, &gt;. Adjacent values must not be equal. The displayed arrangement is only one valid output.</p>}
                 {orderedGroupsOutput && <p className="statement" role="note">Ordered-group judging: keep the groups in their required order. Values within each group may be rearranged, but every repeated value must be preserved. The displayed grouping is only one valid output.</p>}
                 <h2>Examples</h2>
+                {decimalListOutput && <p className="statement" role="note">Decimal-list judging: return one finite number per window, in window order. Each value may differ by at most 0.00001. This is an absolute tolerance, not relative error; integers and decimals are both accepted.</p>}
                 {teachingExamples(problem.tests).map((test, index) => (
                   <div className="example" key={test.id}>
                     <span>EXAMPLE {index + 1}</span>

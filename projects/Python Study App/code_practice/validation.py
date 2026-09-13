@@ -11,7 +11,7 @@ from heapq import heapify, heappop, heappush
 from typing import Any
 
 from .content_solutions import ListNode, TreeNode
-from .schemas import ProblemDefinition, TestCase, analyze_integer_tree, decode_short_encoding
+from .schemas import ProblemDefinition, TestCase, analyze_integer_tree, decode_short_encoding, finite_number
 
 
 SAFE_GLOBALS = {
@@ -125,6 +125,10 @@ def _serialize(value: Any, adapter: str, strict_tree_values: bool = False) -> An
 
 
 def compare(actual: Any, expected: Any, comparator: str) -> bool:
+    if comparator == "float_list":
+        return (isinstance(actual, list) and isinstance(expected, list) and len(actual) == len(expected)
+                and all(finite_number(a) and finite_number(b)
+                        and math.isclose(a, b, rel_tol=0.0, abs_tol=1e-5) for a, b in zip(actual, expected)))
     if comparator == "shortest_encoding":
         if not isinstance(actual, str) or not isinstance(expected, str) or len(actual) != len(expected):
             return False

@@ -138,6 +138,28 @@ test("explains alternative shortest encodings and preserves failed output", asyn
   expect(evidence).toHaveTextContent("decodes to the entire input");
 });
 
+test("explains decimal list order and absolute tolerance beside examples", async () => {
+  const problem = {
+    id: "pair-sum-indices", version: 1, title: "Sliding medians", summary: "Find medians.",
+    statement: "Return one median per window.", constraints: ["Ordered finite medians."], topics: ["arrays"], prerequisites: [],
+    difficulty: 8, estimated_minutes: 50, target_time_complexity: "O(n log n)", target_space_complexity: "O(n)",
+    signature: { name: "sliding_window_medians", parameters: [{ name: "nums", annotation: "list[int]", adapter: "raw" }, { name: "k", annotation: "int", adapter: "raw" }],
+      returns: "list[float]", return_adapter: "raw", result_mode: "return" },
+    starter_code: "def sliding_window_medians(nums,k): pass", savedDraft: "def sliding_window_medians(nums,k): pass",
+    tests: [{ id: "decimal-example", arguments: [[1,4,2,3],2], expected: [2.5,3,2.5], comparator: "float_list", visible: true, explanation: "Average each pair." }],
+    revealedHintLevel: 0, revealedHints: [], solved: false,
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : libraryPage()),
+  })));
+  render(<App />);
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  expect(await screen.findByRole("note")).toHaveTextContent("in window order");
+  expect(screen.getByRole("note")).toHaveTextContent("0.00001");
+  expect(screen.getByRole("note")).toHaveTextContent("absolute tolerance, not relative error");
+  expect(screen.getByText(/Output: \[2.5,3,2.5\]/)).toBeInTheDocument();
+});
+
 test("explains ordered groups and labels failure evidence as one valid output", async () => {
   const problem = {
     id: "pair-sum-indices", version: 1, title: "Leaf rounds", summary: "Collect leaves.",

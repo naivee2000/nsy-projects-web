@@ -248,7 +248,19 @@ def decode_short_encoding(encoded, limit=150):
             return None
     return text if not stack and not digits else None
 
+def finite_number(value):
+    if type(value) not in (int, float):
+        return False
+    try:
+        return math.isfinite(value)
+    except (OverflowError, ValueError):
+        return False
+
 def matches(actual, expected, comparator):
+    if comparator == "float_list":
+        return (isinstance(actual, list) and isinstance(expected, list) and len(actual) == len(expected)
+                and all(finite_number(a) and finite_number(b)
+                        and math.isclose(a, b, rel_tol=0.0, abs_tol=1e-5) for a, b in zip(actual, expected)))
     if comparator == "shortest_encoding":
         if not isinstance(actual, str) or not isinstance(expected, str) or len(actual) != len(expected):
             return False
@@ -361,6 +373,8 @@ else:
                         actual = {"return": output, "prefix": changed[:output] if valid_count else None}
             passed = matches_result(actual, test["expected"], test.get("comparator", "exact"), mode)
             contract_error = None
+            if test.get("comparator") == "float_list" and not passed:
+                contract_error = "Return a list of finite numbers in window order, with the correct length. Each value must differ by at most 0.00001; relative error is not used."
             if test.get("comparator") == "shortest_encoding" and not passed:
                 contract_error = "Return any shortest valid encoding that decodes to the entire input. Keep the literal input when encoding saves no space. The example is only one valid output."
             if test.get("comparator") == "balanced_bst" and not passed:

@@ -2,15 +2,25 @@ from __future__ import annotations
 
 from collections import Counter
 from datetime import datetime
+import math
 from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
-Comparator = Literal["exact", "float", "unordered", "unordered_nested", "unordered_rows", "balanced_bst", "bst_delete", "wiggle", "strict_wiggle", "shortest_encoding"]
+Comparator = Literal["exact", "float", "float_list", "unordered", "unordered_nested", "unordered_rows", "balanced_bst", "bst_delete", "wiggle", "strict_wiggle", "shortest_encoding"]
 ParameterAdapter = Literal["raw", "listnode", "listnode_ref", "treenode", "treenode_ref"]
 ReturnAdapter = Literal["raw", "listnode", "treenode", "treenode_value"]
 AttemptResult = Literal["accepted", "wrong_answer", "syntax_error", "runtime_error", "timeout"]
+
+
+def finite_number(value):
+    if type(value) not in (int, float):
+        return False
+    try:
+        return math.isfinite(value)
+    except (OverflowError, ValueError):
+        return False
 
 
 def decode_short_encoding(encoded, limit=150):
@@ -240,6 +250,13 @@ class ProblemDefinition(BaseModel):
 
     @model_validator(mode="after")
     def validate_learning_content(self) -> "ProblemDefinition":
+        if any(t.comparator == "float_list" for t in self.tests):
+            if (self.signature.result_mode != "return" or self.signature.return_adapter != "raw"
+                    or self.signature.returns != "list[float]"
+                    or any(t.comparator != "float_list" for t in self.tests)):
+                raise ValueError("Decimal-list judging requires consistently compared returned list[float] values")
+            if any(not isinstance(t.expected, list) or not all(finite_number(v) for v in t.expected) for t in self.tests):
+                raise ValueError("Decimal-list expectations must contain only finite numbers, not booleans or strings")
         if any(t.comparator == "shortest_encoding" for t in self.tests):
             if (self.signature.result_mode != "return" or self.signature.return_adapter != "raw"
                     or self.signature.returns != "str" or len(self.signature.parameters) != 1

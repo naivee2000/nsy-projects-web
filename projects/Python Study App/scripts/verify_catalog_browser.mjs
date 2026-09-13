@@ -277,6 +277,15 @@ try {
   assert((await page.locator('.problem-pane').textContent()).includes('100,000'));
   assert((await page.locator('.problem-pane').textContent()).includes('Players With Trainers'));
   report.checks.push('versioned complement and matching extensions explain zero and the 100,000-item domain without duplicate exercises');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Sliding Window Median');
+  await page.getByRole('button', { name: /Sliding Window Median.*Advanced/ }).click();
+  const decimalNote = page.getByRole('note').filter({hasText:'Decimal-list judging'});
+  await decimalNote.waitFor();
+  assert((await decimalNote.textContent()).includes('absolute tolerance, not relative error'));
+  assert((await decimalNote.textContent()).includes('0.00001'));
+  assert((await page.locator('.example code').nth(1).textContent()).includes('[2.5,3,2.5]'));
+  report.checks.push('sliding medians explain ordered finite decimal outputs and the full source absolute tolerance');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -452,6 +461,37 @@ try {
   assert.notEqual(cappedCookies, cookiesV2.reference_solution);
   assert.equal((await judge(page, cookiesV2, cappedCookies)).status, 'wrong_answer');
   report.checks.push('domain extensions reject the old zero-unsupported complement and artificial 30,000-match caps');
+  const medians = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-480.json'), 'utf8'));
+  for (const wrong of medians.known_wrong_solutions) {
+    assert.equal((await judge(page, medians, wrong)).status,'wrong_answer','leetcode-480 wrong median algorithm');
+  }
+  const decimalCase = {...medians, tests:[{id:'absolute-decimal',arguments:[[0,0,1000000000,1000000000],2],
+    expected:[0,500000000,1000000000], comparator:'float_list', visible:false}]};
+  for (const output of ['[0,500000000,1000000000]','[0.000009,500000000.000001,1000000000.000001]']) {
+    assert.equal((await judge(page,decimalCase,`def sliding_window_medians(nums,k):\n    return ${output}`)).status,'accepted');
+  }
+  for (const output of ['[0.00002,500000000,1000000000]','[0,500000000,1000000000.0001]',
+    '[0,1000000000,500000000]','[0,500000000]','[0,500000000,1000000000,1000000000]',
+    '[False,500000000,1000000000]','["0",500000000,1000000000]']) {
+    const failure=await judge(page,decimalCase,`def sliding_window_medians(nums,k):\n    return ${output}`);
+    assert.equal(failure.status,'wrong_answer');
+    assert(failure.cases[0].error.includes('relative error is not used'));
+  }
+  for (const output of ['[float("nan"),500000000,1000000000]','[float("inf"),500000000,1000000000]']) {
+    assert.notEqual((await judge(page,decimalCase,`def sliding_window_medians(nums,k):\n    return ${output}`)).status,'accepted');
+  }
+  assert.equal((await judge(page,decimalCase,'def sliding_window_medians(nums,k):\n    return [0,500000000,1000000000]')).status,'accepted');
+  assert.equal((await judge(page,decimalCase,`class MedianHelper:
+    def solve(self, nums, k):
+        result = []
+        for i in range(len(nums)-k+1):
+            window = sorted(nums[i:i+k])
+            result.append((window[(k-1)//2]+window[k//2])/2)
+        return result
+def sliding_window_medians(nums, k):
+    return MedianHelper().solve(nums, k)
+`)).status,'accepted');
+  report.checks.push('batch 45 rejects stale-window and lower-middle algorithms; decimals use ordered absolute tolerance, reject malformed/nonfinite outputs, and recover afterward');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],

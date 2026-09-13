@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 418 runnable problems (101 original exercises plus 317 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 419 runnable problems (101 original exercises plus 318 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **412-problem handoff checkpoint** is tagged `python-study-412-checkpoint`; all earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_412_CHECKPOINT.md) for exact-version update commands. This release includes all seventeen verified batch-41/42/43 additions since the 395-problem checkpoint. Resumed local goal work adds six verified batch-44 problems outside that frozen release. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **412-problem handoff checkpoint** is tagged `python-study-412-checkpoint`; all earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_412_CHECKPOINT.md) for exact-version update commands. This release includes all seventeen verified batch-41/42/43 additions since the 395-problem checkpoint. Resumed local goal work adds seven verified batch-44/45 problems outside that frozen release. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 76 existing equivalents, 317 verified imports, 155 documented
-design/interactive exclusions, and 3,081 pending records. Ordinary tree and
+Current status: 76 existing equivalents, 318 verified imports, 155 documented
+design/interactive exclusions, and 3,080 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Forty-four reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Forty-five reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -430,6 +430,17 @@ and 100-by-100 mazes. Rolling-grid DFS retains the stronger weak-topic review
 priority. At batch-44 publication, all 412 preceding entries retained their content,
 versions, and progress IDs. The following explicit domain upgrades preserve IDs
 and old progress while raising two problem versions.
+Batch forty-five adds Sliding Window Median as an ordinary function. The judge
+accepts ordered finite numeric lists within 0.00001 absolute error per position;
+relative error, reordered/missing values, booleans, and numeric strings do not
+pass. This follows the complete source's 10^-5 tolerance, correcting the workbook
+summary's looser 10^-4 wording. Even windows average the middle pair. The reference
+uses compressed frequencies and Fenwick rank selection in O(n log n); an independent
+sort-each-window oracle checks 500 seeded inputs and exhaustive short arrays.
+Five source-scale fixtures include 100,000-value arrays with duplicates, signed
+32-bit extremes, and odd/even widths. Helper classes remain allowed behind the
+function entry point. All 318 imports and seven overlap proofs are revalidated
+after this judge extension; prior problem content, IDs, and progress are unchanged.
 Of the 76 overlaps, 69 map to original exercises and seven map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
@@ -485,7 +496,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 418 problems; future
+been checked against every reviewed batch. The current package contains 419 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the
