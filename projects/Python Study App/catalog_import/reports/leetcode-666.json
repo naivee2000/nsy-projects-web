@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-666",
+  "content_sha256": "bfd820713187539d594f0698393220af6b384bb37598490b4ef47e7008262918",
+  "source_hash": "5b522634e6182241634983c90341bf9ffa23bef0567daf4c9818f2e7e02c27c7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds each node once instead of once per root-to-leaf path containing it.",
+      "failed_cases": [
+        "lc-666-1",
+        "lc-666-7",
+        "lc-666-8",
+        "lc-666-9",
+        "lc-666-11",
+        "lc-666-12",
+        "lc-666-13"
+      ]
+    },
+    {
+      "reason": "Ignores every right-child path.",
+      "failed_cases": [
+        "lc-666-1",
+        "lc-666-2",
+        "lc-666-6",
+        "lc-666-7",
+        "lc-666-8",
+        "lc-666-9",
+        "lc-666-11",
+        "lc-666-12",
+        "lc-666-13",
+        "lc-666-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4713,
+  "oracle_implementation": "code_practice/import_batch_065.py:encoded_path_oracle",
+  "validator_implementation_sha256": "b0724be8c15743e23dd8c0e969349d2b746def5faa30a59735724ae12920bc15",
+  "batch_implementation_sha256": "89ae2e06823184e853e90b26cfff5abcb0e8cd157208664de6897d55f8950a45",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6409d1d6f504179116360ee6dae1f865c84dd856dc6e26f3442775912bed3c6b",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

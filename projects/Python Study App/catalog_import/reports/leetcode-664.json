@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-664",
+  "content_sha256": "4c4a8e0d0a8c68ad42f4c3dd1b30783db24064cdbc3deeb9310abb8ea15ae3b1",
+  "source_hash": "57535fc3b5d2b6a98da3dad1cfad8ab68537db24b507943c5b300f4868cf52b7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts character runs and misses savings from overwriting between equal endpoints.",
+      "failed_cases": [
+        "lc-664-2",
+        "lc-664-7",
+        "lc-664-8",
+        "lc-664-9",
+        "lc-664-11",
+        "lc-664-12",
+        "lc-664-13"
+      ]
+    },
+    {
+      "reason": "Assumes each distinct character needs only one turn regardless of separated structure.",
+      "failed_cases": [
+        "lc-664-8",
+        "lc-664-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4711,
+  "oracle_implementation": "code_practice/import_batch_065.py:printer_oracle",
+  "validator_implementation_sha256": "b0724be8c15743e23dd8c0e969349d2b746def5faa30a59735724ae12920bc15",
+  "batch_implementation_sha256": "89ae2e06823184e853e90b26cfff5abcb0e8cd157208664de6897d55f8950a45",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "23b6b03cbd3c80f156065eb170fee6a28004f50be07a786361f05aa2a8bf748a",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
