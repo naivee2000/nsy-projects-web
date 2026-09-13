@@ -2,12 +2,14 @@
 
 Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
-380-problem checkpoint is documented in [RELEASE_380_CHECKPOINT.md](RELEASE_380_CHECKPOINT.md).
-The release contains 380 verified problems. Goal work has resumed locally;
-`main` has 395 problems, including fifteen verified batch-39/40 additions outside
-that frozen release. The counts below describe current development, not the
-release ledger. All four handoff tags remain unchanged. New development does
-not change the other computer or authorize a push/deployment.
+395-problem checkpoint is documented in [RELEASE_395_CHECKPOINT.md](RELEASE_395_CHECKPOINT.md).
+The release contains 395 verified problems, including the fifteen batch-39/40
+additions since the earlier 380-problem release. The counts below describe this
+release. Twelve batch-41 candidates remain in unfinished laptop working changes;
+their final regression/browser checks must pass before the next release. Preserve
+those files and resume after the owner confirms the other computer's update.
+All four earlier handoff tags remain unchanged. New development does not change
+the other computer or authorize a push/deployment.
 
 The source workbook has 3,629 unique problem names in rows 7–3635. The
 scope includes ordinary functions, binary trees, linked lists, and Hard problems.
