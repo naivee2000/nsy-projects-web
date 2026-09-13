@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-611",
+  "content_sha256": "b296418003f117f95be99a3e29d1bff89a98e3f732a3123e676d238586009a61",
+  "source_hash": "04df181bfc1c5bc48af7cda71dcfe11300d6493e072c53434a3abd8dbc89897c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses unsorted values with two pointers.",
+      "failed_cases": [
+        "lc-611-9"
+      ]
+    },
+    {
+      "reason": "Counts one pair instead of all valid left positions.",
+      "failed_cases": [
+        "lc-611-1",
+        "lc-611-8",
+        "lc-611-10",
+        "lc-611-11",
+        "lc-611-12",
+        "lc-611-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4658,
+  "oracle_implementation": "code_practice/import_batch_059.py:oracle",
+  "validator_implementation_sha256": "68263be1db9cf1fbd9366fb37194a5a80c779240ab7bd9a09617b571a421167b",
+  "batch_implementation_sha256": "711da534bd90d66486aae071609549a6cd1b5876c9ca681daa46e8d9cce3a146",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d0756a18eb0f0df53a70b52f9b548a3fe5b2d984955a9fddb17913a08929662e",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
