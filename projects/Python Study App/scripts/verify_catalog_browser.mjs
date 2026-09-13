@@ -232,6 +232,14 @@ try {
   assert((await characterNote.textContent()).includes('first k entries of chars'));
   assert((await page.locator('.example code').nth(1).textContent()).includes('"prefix":["a","b","1","2"]'));
   report.checks.push('character compression examples display the returned count and multi-digit mutated character prefix');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Delete Node in a BST');
+  await page.getByRole('button', { name: /Delete Node in a BST.*Medium/ }).click();
+  const deletionNote = page.getByRole('note').filter({ hasText: 'BST-deletion judging' });
+  await deletionNote.waitFor();
+  assert((await deletionNote.textContent()).includes('Balancing is not required'));
+  assert((await page.locator('.example code').first().textContent()).includes('One valid output'));
+  report.checks.push('BST deletion explains surviving-value checks and alternative unbalanced output shapes');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -310,6 +318,38 @@ try {
       `def word_squares(words):\n    return ${JSON.stringify(output)}`)).status, 'wrong_answer');
   }
   report.checks.push('batch 39 wrong algorithms rejected; character prefixes enforce original mutation and integer count while ignoring tails; word squares preserve row order and multiplicities');
+  for (const id of [450,457,464,466]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `leetcode-${id} wrong fixture`);
+    }
+  }
+  const deletion = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-450.json'), 'utf8'));
+  const deletionCase = { ...deletion, tests: [{ id: 'two-valid-roots', arguments: [[2,1,3],2],
+    expected: [3,1], comparator: 'bst_delete' }] };
+  for (const body of ['return TreeNode(3,TreeNode(1))','return TreeNode(1,None,TreeNode(3))']) {
+    assert.equal((await judge(page, deletionCase, `def delete_bst_node(root,key):\n    ${body}`)).status, 'accepted');
+  }
+  for (const body of ['return root','return TreeNode(3)','return TreeNode(1,TreeNode(3))',
+    'return TreeNode(3,TreeNode(1),TreeNode(3))']) {
+    const failure = await judge(page, deletionCase, `def delete_bst_node(root,key):\n    ${body}`);
+    assert.equal(failure.status, 'wrong_answer');
+    assert(failure.cases[0].error.includes('Balancing is not required'));
+    assert(failure.cases[0].actual !== undefined);
+  }
+  for (const body of ['return TreeNode(3,TreeNode(1.0))','return TreeNode(True)',
+    'root.right=root; return root','child=TreeNode(1); return TreeNode(3,child,child)',
+    'return [3,1]']) {
+    assert.notEqual((await judge(page, deletionCase, `def delete_bst_node(root,key):\n    ${body}`)).status, 'accepted');
+  }
+  const unbalancedDeletion = { ...deletion, tests: [{ id: 'no-balance-requirement',
+    arguments: [[3,2,4,1],99], expected: [3,2,4,1], comparator: 'bst_delete' }] };
+  assert.equal((await judge(page, unbalancedDeletion,
+    'def delete_bst_node(root,key):\n    return TreeNode(1,None,TreeNode(2,None,TreeNode(3,None,TreeNode(4))))')).status,'accepted');
+  const lastDeletion = { ...deletion, tests: [{ id: 'delete-last', arguments: [[2],2], expected: [], comparator: 'bst_delete' }] };
+  assert.equal((await judge(page,lastDeletion,'def delete_bst_node(root,key):\n    return None')).status,'accepted');
+  assert.notEqual((await judge(page,lastDeletion,'def delete_bst_node(root,key):\n    return TreeNode(None)')).status,'accepted');
+  report.checks.push('batch 40 wrong algorithms rejected; BST deletion accepts predecessor/successor roots and unbalanced shapes while rejecting missing/extra/noninteger values, cycles, shared children and array returns');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],
     expected: [1,1,1], expected_node_order: [1,2,0] }] };

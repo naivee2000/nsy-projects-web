@@ -55,6 +55,7 @@ from .import_batch_036 import BATCH as BATCH_036
 from .import_batch_037 import BATCH as BATCH_037
 from .import_batch_038 import BATCH as BATCH_038
 from .import_batch_039 import BATCH as BATCH_039
+from .import_batch_040 import BATCH as BATCH_040
 from .catalog_evidence import judge_contract_hash
 from .catalog_artifacts import write_json_atomic
 from .schemas import ProblemDefinition, TestCase
@@ -68,6 +69,7 @@ BATCH = {**BATCH_001, **BATCH_002, **BATCH_003, **BATCH_004, **BATCH_005, **BATC
 BATCH.update(BATCH_037)
 BATCH.update(BATCH_038)
 BATCH.update(BATCH_039)
+BATCH.update(BATCH_040)
 
 
 def digest(payload):
@@ -181,7 +183,8 @@ def build(pid, spec, source):
     if spec.get("node_order"):
         for test in tests:
             test["expected_node_order"] = spec["node_order"](test["arguments"])
-    rubric = {3: (1, 1, 1, 0, 0), 5: (2, 1, 1, 1, 0), 6: (2, 1, 1, 1, 1), 8: (3, 2, 1, 1, 1)}[spec["difficulty"]]
+    rubric = {3: (1, 1, 1, 0, 0), 5: (2, 1, 1, 1, 0), 6: (2, 1, 1, 1, 1),
+              7: (2, 2, 1, 1, 1), 8: (3, 2, 1, 1, 1)}[spec["difficulty"]]
     starter = f"def {spec['name']}({', '.join(n + ': ' + a for n, a, _ in spec['params'])}) -> {spec['returns']}:\n    # Write your solution here.\n    pass\n"
     statement = spec.get("statement", source["statement"])
     summary = statement.split(". ", 1)[0]

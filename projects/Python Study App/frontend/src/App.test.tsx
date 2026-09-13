@@ -135,15 +135,17 @@ test("explains ordered groups and labels failure evidence as one valid output", 
   expect(evidence).toHaveTextContent("Your code yielded [[1],[2,3]]");
 });
 
-test("explains alternative valid tree shapes and preserves actual output with a contract error", async () => {
+test.each(["balanced_bst", "bst_delete"])("explains %s tree shapes and preserves actual output with a contract error", async (comparator) => {
   const problem = {
     id: "pair-sum-indices", version: 1, title: "Build a balanced tree", summary: "Build a tree.",
     statement: "Return a balanced BST.", constraints: ["Sorted input."], topics: ["trees"], prerequisites: [],
     difficulty: 3, estimated_minutes: 20, target_time_complexity: "O(n)", target_space_complexity: "O(log n)",
-    signature: { name: "build", parameters: [{ name: "nums", annotation: "list[int]", adapter: "raw" }],
+    signature: { name: "build", parameters: comparator === "bst_delete"
+      ? [{ name: "root", annotation: "TreeNode | None", adapter: "treenode" }, { name: "key", annotation: "int", adapter: "raw" }]
+      : [{ name: "nums", annotation: "list[int]", adapter: "raw" }],
       returns: "TreeNode | None", return_adapter: "treenode" },
     starter_code: "def build(nums): pass", savedDraft: "def build(nums): pass",
-    tests: [{ id: "tree-example", arguments: [[1, 3]], expected: [3, 1], comparator: "balanced_bst", visible: true, explanation: "Two shapes are valid." }],
+    tests: [{ id: "tree-example", arguments: comparator === "bst_delete" ? [[2, 1, 3], 2] : [[1, 3]], expected: [3, 1], comparator, visible: true, explanation: "Two shapes are valid." }],
     revealedHintLevel: 0, revealedHints: [], solved: false,
   };
   vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
@@ -162,7 +164,7 @@ test("explains alternative valid tree shapes and preserves actual output with a 
   vi.stubGlobal("Worker", TreeWorker);
   render(<App />);
   fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
-  expect(await screen.findByRole("note")).toHaveTextContent("exact shape is not required");
+  expect(await screen.findByRole("note")).toHaveTextContent(comparator === "balanced_bst" ? "exact shape is not required" : "Balancing is not required");
   expect(screen.getByText(/One valid output: \[3,1\]/)).toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Run examples" }));
   const evidence = await screen.findByText(/Your code yielded \[1,3\]/);

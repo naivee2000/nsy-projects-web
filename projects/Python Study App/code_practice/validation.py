@@ -125,6 +125,10 @@ def _serialize(value: Any, adapter: str, strict_tree_values: bool = False) -> An
 
 
 def compare(actual: Any, expected: Any, comparator: str) -> bool:
+    if comparator == "bst_delete":
+        tree, goal = analyze_integer_tree(actual), analyze_integer_tree(expected)
+        return (tree is not None and goal is not None and tree[0] == goal[0]
+                and all(a < b for a, b in zip(goal[0], goal[0][1:])))
     if comparator == "balanced_bst":
         tree, goal = analyze_integer_tree(actual), analyze_integer_tree(expected)
         return (tree is not None and goal is not None and tree[1] and goal[1]
@@ -250,7 +254,7 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
             original_tree_nodes = _tree_identity_snapshot(arguments[problem.signature.mutated_parameter])
         output = function(*arguments)
         if mode == "return":
-            actual = _serialize(output, problem.signature.return_adapter, test.comparator == "balanced_bst")
+            actual = _serialize(output, problem.signature.return_adapter, test.comparator in ("balanced_bst", "bst_delete"))
         else:
             index = problem.signature.mutated_parameter
             parameter_adapter = problem.signature.parameters[index].adapter

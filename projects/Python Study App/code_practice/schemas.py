@@ -7,7 +7,7 @@ from typing import Annotated, Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
-Comparator = Literal["exact", "float", "unordered", "unordered_nested", "unordered_rows", "balanced_bst", "wiggle", "strict_wiggle"]
+Comparator = Literal["exact", "float", "unordered", "unordered_nested", "unordered_rows", "balanced_bst", "bst_delete", "wiggle", "strict_wiggle"]
 ParameterAdapter = Literal["raw", "listnode", "listnode_ref", "treenode", "treenode_ref"]
 ReturnAdapter = Literal["raw", "listnode", "treenode", "treenode_value"]
 AttemptResult = Literal["accepted", "wrong_answer", "syntax_error", "runtime_error", "timeout"]
@@ -227,6 +227,22 @@ class ProblemDefinition(BaseModel):
                    or any(not isinstance(row, list) or any(type(value) is not int for value in row)
                           for row in t.expected) for t in self.tests):
                 raise ValueError("Unordered-row expectations must contain ordered groups of integers")
+        if any(t.comparator == "bst_delete" for t in self.tests):
+            if (self.signature.result_mode != "return" or self.signature.return_adapter != "treenode"
+                    or self.signature.node_policy != "values" or len(self.signature.parameters) != 2
+                    or self.signature.parameters[0].adapter != "treenode"
+                    or self.signature.parameters[1].adapter != "raw"
+                    or self.signature.parameters[1].annotation != "int"
+                    or any(t.comparator != "bst_delete" for t in self.tests)):
+                raise ValueError("BST-deletion judging requires a tree and integer key, a returned tree, and consistent comparators")
+            for test in self.tests:
+                if len(test.arguments) != 2 or type(test.arguments[1]) is not int:
+                    raise ValueError("BST-deletion input requires a tree and integer key")
+                original, expected = analyze_integer_tree(test.arguments[0]), analyze_integer_tree(test.expected)
+                if (original is None or expected is None
+                        or any(a >= b for a, b in zip(original[0], original[0][1:]))
+                        or expected[0] != [value for value in original[0] if value != test.arguments[1]]):
+                    raise ValueError("BST-deletion expectation must be a strict BST containing exactly the surviving input values")
         if any(t.comparator == "balanced_bst" for t in self.tests):
             if (self.signature.result_mode != "return" or self.signature.return_adapter != "treenode"
                     or len(self.signature.parameters) != 1

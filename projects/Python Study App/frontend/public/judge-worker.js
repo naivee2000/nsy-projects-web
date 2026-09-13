@@ -217,6 +217,10 @@ def analyze_integer_tree(values):
     return ordered, balanced
 
 def matches(actual, expected, comparator):
+    if comparator == "bst_delete":
+        tree, goal = analyze_integer_tree(actual), analyze_integer_tree(expected)
+        return (tree is not None and goal is not None and tree[0] == goal[0]
+                and all(a < b for a, b in zip(goal[0], goal[0][1:])))
     if comparator == "balanced_bst":
         tree, goal = analyze_integer_tree(actual), analyze_integer_tree(expected)
         return (tree is not None and goal is not None and tree[1] and goal[1]
@@ -306,7 +310,7 @@ else:
                 output = function(*arguments)
                 mode = job["signature"].get("result_mode", "return")
                 if mode == "return":
-                    actual = serialize(output, job["signature"].get("return_adapter", "raw"), test.get("comparator") == "balanced_bst")
+                    actual = serialize(output, job["signature"].get("return_adapter", "raw"), test.get("comparator") in ("balanced_bst", "bst_delete"))
                 else:
                     index = job["signature"]["mutated_parameter"]
                     parameter_adapter = job["signature"]["parameters"][index].get("adapter", "raw")
@@ -321,6 +325,8 @@ else:
             contract_error = None
             if test.get("comparator") == "balanced_bst" and not passed:
                 contract_error = "Return a height-balanced BST containing every input value exactly once in inorder. The example shape is only one valid output."
+            if test.get("comparator") == "bst_delete" and not passed:
+                contract_error = "Return a valid BST containing exactly the original values except the deleted key. Balancing is not required. The example shape is only one valid output."
             if mode == "returned_prefix" and not valid_count:
                 contract_error = "Return an integer k between zero and the updated list length; nums[:k] is checked."
             if job["signature"].get("node_policy") == "reuse_input_nodes":

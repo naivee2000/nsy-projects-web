@@ -23,7 +23,7 @@ export type TestCase = {
   id: string;
   arguments: unknown[];
   expected: unknown;
-  comparator: "exact" | "float" | "unordered" | "unordered_nested" | "unordered_rows" | "balanced_bst" | "wiggle" | "strict_wiggle";
+  comparator: "exact" | "float" | "unordered" | "unordered_nested" | "unordered_rows" | "balanced_bst" | "bst_delete" | "wiggle" | "strict_wiggle";
   visible: boolean;
   explanation?: string;
   expected_node_order?: number[] | null;

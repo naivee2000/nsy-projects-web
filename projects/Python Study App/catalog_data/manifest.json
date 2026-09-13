@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 391,
+  "count": 395,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -7037,6 +7037,81 @@
       "path": "problems/leetcode-446.json",
       "content_sha256": "13f4ed7fc0f192fd6eb32bc4180eaa3c95740b62d3e1d956bb96c8a6a384fa70",
       "source_id": 446
+    },
+    {
+      "id": "leetcode-450",
+      "version": 1,
+      "status": "approved",
+      "title": "Delete Node in a BST",
+      "summary": "Given a BST's root node and a key, locate and remove the node with that key.",
+      "topics": [
+        "trees",
+        "binary-search",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-450.json",
+      "content_sha256": "2a5843c38d2acb83868fb55fe7ed868c00bc597860388f8ca4a7451c317b5749",
+      "source_id": 450
+    },
+    {
+      "id": "leetcode-457",
+      "version": 1,
+      "status": "approved",
+      "title": "Circular Array Loop",
+      "summary": "Given a circular array of non-zero integers, determine if a cycle exists by following movement rules based on the sign of each element.",
+      "topics": [
+        "arrays",
+        "two-pointers",
+        "graphs"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-457.json",
+      "content_sha256": "932658c393b35edb1000501b10f6738e8d8dc36f87cd342847a59bf2d2a11b4a",
+      "source_id": 457
+    },
+    {
+      "id": "leetcode-464",
+      "version": 1,
+      "status": "approved",
+      "title": "Can I Win",
+      "summary": "Given the maximum integer maxChoosableInteger and a target sum desiredTotal, determine if the first player can force a win by optimally selecting integers from 1 to maxChoosableInteger without repeating any integer.",
+      "topics": [
+        "dynamic-programming",
+        "recursion",
+        "game-theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-464.json",
+      "content_sha256": "190d4863a3691cec2a3a244a4f4ab3c660948eb190a19319c2243feeda04c902",
+      "source_id": 464
+    },
+    {
+      "id": "leetcode-466",
+      "version": 1,
+      "status": "approved",
+      "title": "Count The Repetitions",
+      "summary": "Given strings s1 and s2, and integers n1 and n2, where str1 is s1 repeated n1 times and str2 is s2 repeated n2 times, find the largest integer m such that str2 repeated m times can be derived from str1 by removing some characters.",
+      "topics": [
+        "strings",
+        "dynamic-programming",
+        "cycle-detection"
+      ],
+      "prerequisites": [
+        "strings",
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-466.json",
+      "content_sha256": "555ae0f4a46997bda40e7830ae259066eecb1ed80e2a9cb3ee6274f6c80e346e",
+      "source_id": 466
     },
     {
       "id": "leetcode-543",

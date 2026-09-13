@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 391 runnable problems (101 original exercises plus 290 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 395 runnable problems (101 original exercises plus 294 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **380-problem handoff checkpoint** is tagged `python-study-380-checkpoint`; the earlier 363-, 345-, and 326-problem tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_380_CHECKPOINT.md) for exact-version update commands. Goal work has resumed locally with eleven additional verified problems on `main`, outside that frozen release. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **380-problem handoff checkpoint** is tagged `python-study-380-checkpoint`; the earlier 363-, 345-, and 326-problem tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_380_CHECKPOINT.md) for exact-version update commands. Goal work has resumed locally with fifteen additional verified problems on `main`, outside that frozen release. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 73 existing equivalents, 290 verified imports, 155 documented
-design/interactive exclusions, and 3,111 pending records. Ordinary tree and
+Current status: 73 existing equivalents, 294 verified imports, 155 documented
+design/interactive exclusions, and 3,107 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Thirty-nine reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Forty reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -367,6 +367,19 @@ conditions, every single-run length through 2,000, and 100-digit linked inputs.
 Linked-list, binary-search, and recursion review priorities remain active.
 No shared judge change was needed, and all 380 handoff problems retain their
 content, versions, and progress IDs.
+Batch forty adds Delete Node in a BST, Circular Array Loop, Can I Win, and Count
+The Repetitions. The new BST-deletion comparator accepts any strict BST containing
+exactly the surviving input values; predecessor/successor choices and unbalanced
+shapes are valid. It rejects missing/extra/noninteger values and malformed trees.
+Examples and failure feedback explain that the displayed shape is only one valid
+output. The iterative reference supports 10,000-node chains. Circular-loop tests
+separate same-direction multi-node cycles from mixed-direction and self cycles,
+and audit linear-time path clearing. Game minimax is checked against independent
+retrograde tables and small literal game trees. Repetition matching preserves
+partial matches across source blocks and skips cycles without expanding up to
+100 million characters; expanded-string and binary-lifting oracles cross-check it.
+All 294 imports were revalidated under the shared judge extension, with refreshed
+overlap proofs. Prior problem content, IDs, progress, and transfer tags are unchanged.
 Of the 73 overlaps, 69 map to original exercises and four map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
@@ -408,7 +421,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 391 problems; future
+been checked against every reviewed batch. The current package contains 395 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

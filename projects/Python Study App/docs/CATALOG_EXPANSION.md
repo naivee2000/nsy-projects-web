@@ -4,7 +4,7 @@ Status: in progress. Pending and quarantined records are not runnable imports.
 The owner requested a stable handoff before resuming expansion. The frozen
 380-problem checkpoint is documented in [RELEASE_380_CHECKPOINT.md](RELEASE_380_CHECKPOINT.md).
 The release contains 380 verified problems. Goal work has resumed locally;
-`main` has 391 problems, including eleven verified batch-39 additions outside
+`main` has 395 problems, including fifteen verified batch-39/40 additions outside
 that frozen release. The counts below describe current development, not the
 release ledger. All four handoff tags remain unchanged. New development does
 not change the other computer or authorize a push/deployment.
@@ -50,9 +50,30 @@ correctness. Generated tests must meet each problem's actual constraints.
 - All 3,629 workbook rows have portable source snapshots and ledger records.
 - Current behavioral mapping: 73 existing equivalents (69 original exercises and
   four approved imports). Static evidence identifies 155 approved-scope
-  design/interactive exclusions; 3,111 rows remain pending.
-- 290 new imports in thirty-nine reviewed batches pass deterministic tests and
-  500 independent oracle inputs each. The published catalog contains 391 problems.
+  design/interactive exclusions; 3,107 rows remain pending.
+- 294 new imports in forty reviewed batches pass deterministic tests and
+  500 independent oracle inputs each. The published catalog contains 395 problems.
+- Batch forty covers LeetCode 450, 457, 464, and 466: noncanonical BST deletion,
+  same-direction circular cycles, finite-pool minimax, and repeated-subsequence
+  cycle skipping. A dedicated `bst_delete` comparator binds the expected values
+  to the actual input tree minus the key, checks strict inorder ordering, and
+  permits unbalanced output. Schema gates reject mixed comparators, wrong
+  adapters, invalid original trees/keys, and expectations with incorrect survivors.
+  Native and browser serialization reject noninteger nodes, cycles/shared children,
+  and Python arrays masquerading as returned trees. Examples and failed-test
+  feedback label expected shapes as one valid answer. All 294 imports and four
+  overlap proofs were revalidated for the shared judge change before packaging.
+  Exhaustive checks cover all 626 tree shapes through seven nodes and deletion
+  of every present or nearby absent key, short signed circular arrays, small game
+  pools, and repeated binary strings. Larger checks cover 10,000-node chains,
+  5,000-position failed routes with a linear-access bound, the full 20-number
+  game domain at selected targets, and million-block strings. Game oracles use
+  bottom-up retrograde tables plus literal small game trees; repetition oracles
+  use expanded subsequence feasibility plus 500 full-domain binary-lifting checks.
+  The level-7 game initially failed the import builder's incomplete rubric mapping
+  and was quarantined until that mapping was extended; it was not published in
+  a failing state. Existing problem IDs/content, progress, and handoff tags remain
+  unchanged. Binary-search and recursion review priorities remain active.
 - Batch thirty-nine covers LeetCode 422, 425, 433, 436–440, and 443/445/446:
   ragged word-square validity, recursive square generation, shortest gene-bank
   paths, lower-bound intervals, same-chain tree sums, anagram windows, nested
@@ -486,18 +507,19 @@ correctness. Generated tests must meet each problem's actual constraints.
   nodes or tree mutations are rejected. It also supports an embedded full-list
   context that supplies one real non-tail ListNode and checks the complete list
   afterward. Ordered integer groups now also accept within-group permutations
-  while preserving outer order and duplicate counts. All 290 published imports
-  have matching passing reports in the 391-problem package. The judge is unchanged
-  since revalidation for value-only tree mutation and explicit-None identity snapshots.
+  while preserving outer order and duplicate counts. BST deletion now additionally
+  permits any valid strict BST with exactly the input values minus the requested
+  key, without a balancing requirement. All 294 published imports have matching
+  passing reports in the 395-problem package under this updated judge contract.
 - The interim benchmark now records kernel high-water RSS for both backend
   runs, not occasional memory samples. It excludes browser/driver memory.
-- Current 391-problem Chrome/M3 Pro run: library/search p95 1.13/2.13 ms,
-  detail p95 1.11 ms for Word Search and 1.13 ms for the 100,000-node selected-
-  list problem, and dashboard p95 1.46 ms (100 requests per route). Startup is
-  340 ms and backend peak RSS is 125.63 MiB across browsing large array and
-  linked-list details and restarting. All 290 imported references and
+- Current 395-problem Chrome/M3 Pro run: library/search p95 1.16/1.12 ms,
+  detail p95 1.13 ms for Word Search and 1.12 ms for the 100,000-node selected-
+  list problem, and dashboard p95 1.35 ms (100 requests per route). Startup is
+  234 ms and backend peak RSS is 144.33 MiB across browsing large array and
+  linked-list details and restarting. All 294 imported references and
   upgraded Spiral Matrix/Tree Height pass in Pyodide with external HTTP blocked.
-  The Recover Binary Search Tree suite finishes in 38.0 ms after runtime load,
+  The Recover Binary Search Tree suite finishes in 38.3 ms after runtime load,
   including both 1,000-node chains and all sixteen deterministic cases. Existing
   large in-place, string, stock, circuit, candy, and tree fixtures still pass.
   Browser checks also verify grading explanations,
@@ -520,24 +542,31 @@ correctness. Generated tests must meet each problem's actual constraints.
   All sixteen batch-thirty-seven wrong algorithms are also rejected. Numeric
   permutations accept reversed outer order but reject duplicate/missing rows
   and collapsing all rows to the same internal order. Its 40,320-output boundary
-  passes within a 239.9 ms suite; both 200-by-200 basin cases pass within a
-  199.8 ms suite after Pyodide load. The row-order explanation renders in the UI.
+  passes within a 238.6 ms suite; both 200-by-200 basin cases pass within a
+  195.3 ms suite after Pyodide load. The row-order explanation renders in the UI.
   All eighteen batch-thirty-eight wrong algorithms are rejected. Ocean coordinates
   accept reordered cells but reject row/column swaps, omissions, and duplicates;
   the plateau and coordinate rules render in the UI. Source-scale XOR, subset DP,
-  and ocean suites finish in 501.0, 323.1, and 227.5 ms respectively after load.
+  and ocean suites finish in 502.3, 358.8, and 220.0 ms respectively after load.
   All twenty-two batch-thirty-nine wrong algorithms are rejected. Character
   prefixes enforce actual input mutation and strict integer counts while ignoring
   the tail; word-square answers permit outer reordering but reject changed row
   order and duplicated/missing squares. Multi-digit compression examples render
-  the compound count/prefix output correctly. New suites finish in 32.7–129.2 ms
+  the compound count/prefix output correctly. Batch-39 suites finish in 31.9–123.2 ms
   after load, including the thousand-item arithmetic-subsequence DP and deep
   tree/conditional inputs.
+  All eight batch-forty wrong algorithms are rejected. BST deletion accepts
+  predecessor/successor roots and unbalanced shapes while rejecting invalid
+  ordering, missing/extra/noninteger values, cycles, shared children, and array
+  returns. Its 10,000-node cases pass within a 100.2 ms suite; the circular-loop
+  suite takes 44.1 ms and million-block repetition suite 31.5 ms. The 21-case
+  minimax suite, including the heavier (20,150) hidden case, finishes in 1,695.6 ms
+  after runtime load, within the three-second execution deadline.
   This is not the full-catalog gate. Exact snapshot hashes and unrounded values
   are in `catalog_import/benchmarks/current.json`.
   Reports also bind the judge contract, built worker, frontend index, and browser
   verifier hashes; the verifier refuses a stale built worker until it is rebuilt.
-- Current automated suite: 394 backend tests and 16 frontend tests pass. The
+- Current automated suite: 421 backend tests and 17 frontend tests pass. The
   conversion regressions check all 3,999 valid Roman numerals, the division
   reference's prohibited-operator rule, and string multiplication's avoidance
   of whole-input integer conversion. No deployment or push has been performed.

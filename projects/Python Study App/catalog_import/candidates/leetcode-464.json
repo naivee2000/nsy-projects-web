@@ -1,0 +1,323 @@
+{
+  "id": "leetcode-464",
+  "version": 1,
+  "status": "approved",
+  "title": "Can I Win",
+  "summary": "Given the maximum integer maxChoosableInteger and a target sum desiredTotal, determine if the first player can force a win by optimally selecting integers from 1 to maxChoosableInteger without repeating any integer.",
+  "statement": "Given the maximum integer maxChoosableInteger and a target sum desiredTotal, determine if the first player can force a win by optimally selecting integers from 1 to maxChoosableInteger without repeating any integer. Both players play optimally.",
+  "constraints": [
+    "1 <= max_choosable_integer <= 20; 0 <= desired_total <= 300.",
+    "Two optimal players alternate choosing an unused integer from 1 through the maximum. Choices are shared and cannot be reused.",
+    "The player reaching or exceeding the target wins. Target zero is already a first-player win; an unreachable target returns False."
+  ],
+  "topics": [
+    "dynamic-programming",
+    "recursion",
+    "game-theory"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "can_force_win",
+    "parameters": [
+      {
+        "name": "max_choosable_integer",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "desired_total",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "bool",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def can_force_win(max_choosable_integer: int, desired_total: int) -> bool:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def can_force_win(max_choosable_integer, desired_total):\n    from functools import cache\n    maximum = max_choosable_integer\n    total = maximum*(maximum+1)//2\n    if desired_total<=0:\n        return True\n    if total<desired_total:\n        return False\n    if total==desired_total:\n        return maximum%2==1\n    @cache\n    def win(mask,needed):\n        for value in range(maximum,0,-1):\n            bit = 1<<(value-1)\n            if mask & bit:\n                continue\n            if value>=needed or not win(mask | bit,needed-value):\n                return True\n        return False\n    return win(0,desired_total)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def can_force_win(max_choosable_integer,desired_total):\n    if desired_total<=0: return True\n    first=True\n    for value in range(max_choosable_integer,0,-1):\n        desired_total-=value\n        if desired_total<=0: return first\n        first=not first\n    return False\n",
+    "def can_force_win(max_choosable_integer,desired_total):\n    return desired_total==0 or desired_total%(max_choosable_integer+1)!=0\n"
+  ],
+  "target_time_complexity": "O(m*2^m)",
+  "target_space_complexity": "O(2^m)",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 2,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 1
+  },
+  "hints": [
+    "Winning means there exists a move that wins immediately or leaves the opponent unable to force a win.",
+    "The set of already-used numbers completely identifies the remaining choices and running total.",
+    "Memoize win(used_mask,needed). For each unused value, succeed if it reaches needed or the next state is losing.",
+    "Reject targets larger than the total sum before searching. The recursion depth is at most 20 because every move consumes a number."
+  ],
+  "editorial": "Minimax examines every legal response, not just a greedy line of play. A used-number mask determines both the available pool and remaining target, so there are at most 2^m states. Each tries at most m moves. An unreachable total is not a win merely because the other player has no move. If the target equals the sum of all numbers, exactly m turns are required and parity determines the winner. The oracle fills a separate retrograde table bottom-up.",
+  "tests": [
+    {
+      "id": "lc-464-1",
+      "arguments": [
+        10,
+        11
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Whatever the first pick x, the second player can choose 11-x and reach 11. The first player cannot force a win.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-2",
+      "arguments": [
+        4,
+        6
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Pick 1 first. Any opponent pick leaves an unused number that lets the first player reach 6 on the next turn.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-3",
+      "arguments": [
+        1,
+        0
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-4",
+      "arguments": [
+        1,
+        1
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-5",
+      "arguments": [
+        1,
+        2
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-6",
+      "arguments": [
+        2,
+        3
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-7",
+      "arguments": [
+        3,
+        6
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-8",
+      "arguments": [
+        4,
+        10
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-9",
+      "arguments": [
+        5,
+        15
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-10",
+      "arguments": [
+        5,
+        16
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-11",
+      "arguments": [
+        4,
+        4
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-12",
+      "arguments": [
+        4,
+        7
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-13",
+      "arguments": [
+        6,
+        10
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-14",
+      "arguments": [
+        8,
+        18
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-stress-1",
+      "arguments": [
+        20,
+        210
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-stress-2",
+      "arguments": [
+        19,
+        190
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-stress-3",
+      "arguments": [
+        20,
+        300
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-stress-4",
+      "arguments": [
+        20,
+        21
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-stress-5",
+      "arguments": [
+        20,
+        20
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-stress-6",
+      "arguments": [
+        20,
+        100
+      ],
+      "expected": true,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-464-stress-7",
+      "arguments": [
+        20,
+        150
+      ],
+      "expected": false,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}
