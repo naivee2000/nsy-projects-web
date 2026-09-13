@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-600",
+  "content_sha256": "c0505cbe092c546b58f6fd7f9826f483716ebfa03b96c55b5901021302d081d3",
+  "source_hash": "3ca3be76c8af9b2817a4d485f3566fd7d2e9c7e43e0ef873688fec9f9a40ecf9",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only one completion after each set bit.",
+      "failed_cases": [
+        "lc-600-1",
+        "lc-600-4",
+        "lc-600-5",
+        "lc-600-6",
+        "lc-600-7",
+        "lc-600-8",
+        "lc-600-9",
+        "lc-600-10",
+        "lc-600-11",
+        "lc-600-12",
+        "lc-600-13",
+        "lc-600-14",
+        "lc-600-15"
+      ]
+    },
+    {
+      "reason": "Forgets to include n itself when it is valid.",
+      "failed_cases": [
+        "lc-600-1",
+        "lc-600-2",
+        "lc-600-3",
+        "lc-600-4",
+        "lc-600-6",
+        "lc-600-9",
+        "lc-600-10",
+        "lc-600-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4647,
+  "oracle_implementation": "code_practice/import_batch_057.py:oracle",
+  "validator_implementation_sha256": "85b7963f8238378bd33a8f4b5199f2c23f57c70893a0127703143bc06994e4a6",
+  "batch_implementation_sha256": "ca0b3b8c20ac384cf417cecf19cf4521a268370c245c88a13444963401a72c73",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fcbcf496b5e2a9ce93b1d210241a0a1e7b8bede24b583ba626e3233f3be1dffe",
+  "elapsed_seconds": 0.282,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
