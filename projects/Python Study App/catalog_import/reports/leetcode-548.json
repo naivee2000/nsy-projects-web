@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-548",
+  "content_sha256": "a2a7083b78dca181b38d8e92791748ed179b17bf116e5ab34004cff6ea3bd54a",
+  "source_hash": "6ec52233cfda8ff5a8065ad4422576f4e32fe40e9385e578bdfc8b93e8160768",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only divisibility of the total and ignores the removed separator values.",
+      "failed_cases": [
+        "lc-548-1",
+        "lc-548-2",
+        "lc-548-4",
+        "lc-548-7",
+        "lc-548-8",
+        "lc-548-9",
+        "lc-548-12",
+        "lc-548-13"
+      ]
+    },
+    {
+      "reason": "Matches the first three sections but never checks the final suffix sum.",
+      "failed_cases": [
+        "lc-548-8",
+        "lc-548-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4595,
+  "oracle_implementation": "code_practice/import_batch_088b.py:split_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "8558170df1001c4103574630ea7c3dfaaabc91aaec611e72c61c5e7af901e2ea",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6d7c9f2a96f99ab549bc35579615c42bcc1f311e687364ea1ddeeaa2d3accaac",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

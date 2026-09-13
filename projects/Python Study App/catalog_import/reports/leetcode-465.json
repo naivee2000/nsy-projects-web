@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-465",
+  "content_sha256": "0cbde58150319f10f05c0f4b4104335247dbae084240962cba322674dc8e7a6b",
+  "source_hash": "0c7f2161c66fb5a0ad3a15f1b5c579b6ebdd79669357e009d223dca7aa0343cf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes all nonzero balances must form one settlement group, missing independent zero-sum groups.",
+      "failed_cases": [
+        "lc-465-5",
+        "lc-465-11"
+      ]
+    },
+    {
+      "reason": "Assumes one transfer per debtor even when a debtor must pay multiple creditors.",
+      "failed_cases": [
+        "lc-465-8",
+        "lc-465-9",
+        "lc-465-12",
+        "lc-465-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4512,
+  "oracle_implementation": "code_practice/import_batch_088b.py:balancing_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "8558170df1001c4103574630ea7c3dfaaabc91aaec611e72c61c5e7af901e2ea",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "486088159a8092584c3f615157d0b47e9b0ca999f35cbe3fd572f5d3d160614c",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

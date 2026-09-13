@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-167",
+  "content_sha256": "d31bc052803d4f7ac7a3de588f27d156a31426a2112147de5f00556285803c17",
+  "source_hash": "928e13ddd9870181acbdc6ffbb06d2e6cb38c4b5715233c6ed0bc979f1add2f2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns zero-based indices instead of the required one-based positions.",
+      "failed_cases": [
+        "lc-167-1",
+        "lc-167-2",
+        "lc-167-3",
+        "lc-167-4",
+        "lc-167-5",
+        "lc-167-6",
+        "lc-167-7",
+        "lc-167-8",
+        "lc-167-9",
+        "lc-167-10",
+        "lc-167-11",
+        "lc-167-12",
+        "lc-167-13",
+        "lc-167-14",
+        "lc-167-15",
+        "lc-167-16"
+      ]
+    },
+    {
+      "reason": "Moves the upper pointer inward when the current sum is too small.",
+      "failed_cases": [
+        "lc-167-3",
+        "lc-167-6",
+        "lc-167-7",
+        "lc-167-9",
+        "lc-167-12",
+        "lc-167-13",
+        "lc-167-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4214,
+  "oracle_implementation": "code_practice/import_batch_088.py:sorted_pair_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "e4bfa9b54b214a68174d343676ebb139849836fd708c51f5bf9d256af4475914",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c65cb763a9345a5e559cd4f2dc1fd5975f436cf90a9235f26cc288438913ed2e",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

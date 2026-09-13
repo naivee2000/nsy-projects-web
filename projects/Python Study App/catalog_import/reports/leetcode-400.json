@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-400",
+  "content_sha256": "ec8324d11e76db75cef977f472557d585b5deaa8952f09b76ab745cd6e238214",
+  "source_hash": "163f2c308e0a7fe5ce18b54ca144b14570b704f49ed779f270fff84bbd9e6b47",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Advances to the next number when n lands on a block boundary.",
+      "failed_cases": [
+        "lc-400-1",
+        "lc-400-2",
+        "lc-400-3",
+        "lc-400-4",
+        "lc-400-5",
+        "lc-400-8",
+        "lc-400-11"
+      ]
+    },
+    {
+      "reason": "Uses a zero-based digit offset on a one-based remaining position.",
+      "failed_cases": [
+        "lc-400-2",
+        "lc-400-6",
+        "lc-400-8",
+        "lc-400-9",
+        "lc-400-12",
+        "lc-400-14",
+        "lc-400-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4447,
+  "oracle_implementation": "code_practice/import_batch_088.py:digit_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "e4bfa9b54b214a68174d343676ebb139849836fd708c51f5bf9d256af4475914",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1cbadd4f47efe777953f1edfc86fcf0e4af499384e12eb9cc1a2e0783ea9662f",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

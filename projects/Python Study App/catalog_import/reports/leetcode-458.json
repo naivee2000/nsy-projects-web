@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-458",
+  "content_sha256": "1c635c4ad463c58578d91aa1300f5c3a8407d4a40c5d12dba09a9e5947119473",
+  "source_hash": "d684c0c7ccf9060ad62c8319127e2bced46bb600048bf47821fc725f4c813bf0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a strict capacity comparison and adds a pig when capacity equals the bucket count.",
+      "failed_cases": [
+        "lc-458-1",
+        "lc-458-3",
+        "lc-458-4",
+        "lc-458-6",
+        "lc-458-9"
+      ]
+    },
+    {
+      "reason": "Counts only death rounds and omits the final survives-all-rounds state.",
+      "failed_cases": [
+        "lc-458-1",
+        "lc-458-6",
+        "lc-458-7",
+        "lc-458-8",
+        "lc-458-9",
+        "lc-458-10",
+        "lc-458-11",
+        "lc-458-12",
+        "lc-458-13",
+        "lc-458-14",
+        "lc-458-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4505,
+  "oracle_implementation": "code_practice/import_batch_088b.py:pigs_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "8558170df1001c4103574630ea7c3dfaaabc91aaec611e72c61c5e7af901e2ea",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7afab0b5b363c0e0d176339953255a53b0c15622f09aadb2cd2dc3d1e7533109",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

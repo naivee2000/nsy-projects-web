@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-441",
+  "content_sha256": "a6b1f363206bd31c462997704ad5c97288849cfc3d581a2bab5cc112042a1826",
+  "source_hash": "abdfb656ac5c7323555a432a4f0d11d7608ff9d61f8ceba4941920685ae33f04",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rounds the square-root estimate without enforcing k(k+1)/2 <= n.",
+      "failed_cases": [
+        "lc-441-1",
+        "lc-441-2",
+        "lc-441-5",
+        "lc-441-10",
+        "lc-441-14"
+      ]
+    },
+    {
+      "reason": "Assumes every full row costs two coins.",
+      "failed_cases": [
+        "lc-441-2",
+        "lc-441-4",
+        "lc-441-6",
+        "lc-441-10",
+        "lc-441-11",
+        "lc-441-12",
+        "lc-441-13",
+        "lc-441-14",
+        "lc-441-15",
+        "lc-441-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4488,
+  "oracle_implementation": "code_practice/import_batch_088b.py:coins_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "8558170df1001c4103574630ea7c3dfaaabc91aaec611e72c61c5e7af901e2ea",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cac5ff442a49824a211e14d4e411872b427393b69e2e281839f255a3caef7305",
+  "elapsed_seconds": 0.6,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

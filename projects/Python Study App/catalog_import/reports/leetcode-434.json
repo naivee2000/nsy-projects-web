@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-434",
+  "content_sha256": "c83e02cb3683a8d41df9d1bcff663f6fbdc8d0a4f7c8f22e17127bc66d992bc3",
+  "source_hash": "44038c3df2dbddaf7789670d03a9715bb35d4d1966edfc0e27fc58dad4a2b205",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts empty pieces created by leading, trailing, or repeated spaces.",
+      "failed_cases": [
+        "lc-434-2",
+        "lc-434-3",
+        "lc-434-5",
+        "lc-434-6",
+        "lc-434-7",
+        "lc-434-9",
+        "lc-434-14",
+        "lc-434-16"
+      ]
+    },
+    {
+      "reason": "Treats commas as separators even though only spaces delimit segments.",
+      "failed_cases": [
+        "lc-434-1",
+        "lc-434-2",
+        "lc-434-3",
+        "lc-434-8",
+        "lc-434-9",
+        "lc-434-10",
+        "lc-434-12",
+        "lc-434-14",
+        "lc-434-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4481,
+  "oracle_implementation": "code_practice/import_batch_088b.py:segments_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "8558170df1001c4103574630ea7c3dfaaabc91aaec611e72c61c5e7af901e2ea",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e2b60fbf7e0410cac8545396a68e4a35561e120723ed365f3ce8891a90fcf344",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

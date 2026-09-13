@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-383",
+  "content_sha256": "72cebd4b7d2f59570ef8941cd1b0b4cfc719a3f2db6ab9247d11cfac8263c8e9",
+  "source_hash": "6ed335648d601a9695566b9a88d030ecad8c0d898e1c1f6b566c8b0d92fd3606",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only character presence and ignores required multiplicities.",
+      "failed_cases": [
+        "lc-383-6",
+        "lc-383-13"
+      ]
+    },
+    {
+      "reason": "Checks only total length and ignores which letters are available.",
+      "failed_cases": [
+        "lc-383-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4430,
+  "oracle_implementation": "code_practice/import_batch_088.py:ransom_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "e4bfa9b54b214a68174d343676ebb139849836fd708c51f5bf9d256af4475914",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "18b7bf351c5f2490b50beac9f7948c21e00da8639a20c99d4404338156a2f05a",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

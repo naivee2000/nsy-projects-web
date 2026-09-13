@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-412",
+  "content_sha256": "b8d989434442a1a54da7de7526ddeeb86c2b6ba8aae0efe57ad2853a079799bc",
+  "source_hash": "00ff98f6cfb507f432c06d067074617c19ebd30b0872779e5579284711232390",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks divisibility by three before the combined case, so multiples of fifteen become only Fizz.",
+      "failed_cases": [
+        "lc-412-2",
+        "lc-412-10",
+        "lc-412-11",
+        "lc-412-12",
+        "lc-412-13",
+        "lc-412-14",
+        "lc-412-15",
+        "lc-412-16"
+      ]
+    },
+    {
+      "reason": "Uses zero-based values and never performs the substitutions.",
+      "failed_cases": [
+        "lc-412-1",
+        "lc-412-2",
+        "lc-412-3",
+        "lc-412-4",
+        "lc-412-5",
+        "lc-412-6",
+        "lc-412-7",
+        "lc-412-8",
+        "lc-412-9",
+        "lc-412-10",
+        "lc-412-11",
+        "lc-412-12",
+        "lc-412-13",
+        "lc-412-14",
+        "lc-412-15",
+        "lc-412-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4459,
+  "oracle_implementation": "code_practice/import_batch_088b.py:fizz_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "8558170df1001c4103574630ea7c3dfaaabc91aaec611e72c61c5e7af901e2ea",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "856c62d1f59876492273fa5f6d526450c698540ba4dcb612e584efb4d1b4392a",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

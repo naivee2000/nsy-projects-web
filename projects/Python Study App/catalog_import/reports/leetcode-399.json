@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-399",
+  "content_sha256": "6e7e0c32323f75f25ed27f93fefdc04d5a04dfdc534ab474fd8c5cf5f114dd4c",
+  "source_hash": "1e8c4370d0e81cb8140622617e9ecfbc926a12478c254aeff1ba7b0fcb008ff6",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only direct equations and treats unknown self-queries as defined.",
+      "failed_cases": [
+        "lc-399-1",
+        "lc-399-2",
+        "lc-399-4",
+        "lc-399-6",
+        "lc-399-7",
+        "lc-399-9",
+        "lc-399-10",
+        "lc-399-11",
+        "lc-399-12",
+        "lc-399-14",
+        "lc-399-15",
+        "lc-399-16"
+      ]
+    },
+    {
+      "reason": "Builds no reciprocal edges, so reverse-direction paths are unreachable.",
+      "failed_cases": [
+        "lc-399-2",
+        "lc-399-3",
+        "lc-399-4",
+        "lc-399-7",
+        "lc-399-9",
+        "lc-399-10",
+        "lc-399-11",
+        "lc-399-12",
+        "lc-399-14",
+        "lc-399-15",
+        "lc-399-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4446,
+  "oracle_implementation": "code_practice/import_batch_088b.py:division_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "8558170df1001c4103574630ea7c3dfaaabc91aaec611e72c61c5e7af901e2ea",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1ee35cb6d2411f5c220aafb8cccd15cd171217a89c15b641b38c33a6e09f8ef8",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

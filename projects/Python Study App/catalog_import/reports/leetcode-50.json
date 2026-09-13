@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-50",
+  "content_sha256": "f0aebe60cf8257d5f9c3faee7755ca6c04b37ec7c545814ed5df5ac96df9e18e",
+  "source_hash": "435bed4ee0bb923633428a333441e72a56231c30ed2369bbaf0f8f747efc29cc",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets to take the reciprocal for negative exponents.",
+      "failed_cases": [
+        "lc-50-2",
+        "lc-50-9",
+        "lc-50-11",
+        "lc-50-14"
+      ]
+    },
+    {
+      "reason": "Squares the factor but never multiplies selected binary powers into the answer.",
+      "failed_cases": [
+        "lc-50-1",
+        "lc-50-2",
+        "lc-50-4",
+        "lc-50-6",
+        "lc-50-7",
+        "lc-50-8",
+        "lc-50-9",
+        "lc-50-10",
+        "lc-50-11",
+        "lc-50-12",
+        "lc-50-13",
+        "lc-50-14",
+        "lc-50-15",
+        "lc-50-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4097,
+  "oracle_implementation": "code_practice/import_batch_088.py:power_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "e4bfa9b54b214a68174d343676ebb139849836fd708c51f5bf9d256af4475914",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b1920a0c717ae5d35cdfe9234a0c234e70ed0e809c9c2f4a22d01ddf375bf908",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

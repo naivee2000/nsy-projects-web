@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-207",
+  "content_sha256": "649f91a5f98a3b24ce52e03f620748114b12fe066ba41f6629881264536b0cc4",
+  "source_hash": "bce7347644f881ade7df8408be20c9299de02512e9ff976cda0c25b5b6b47f4c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the existence of an initial zero-indegree course as proof that every component is acyclic.",
+      "failed_cases": [
+        "lc-207-8",
+        "lc-207-10",
+        "lc-207-13"
+      ]
+    },
+    {
+      "reason": "Uses edge count as a cycle test, although acyclic graphs may have at least as many edges as vertices.",
+      "failed_cases": [
+        "lc-207-7",
+        "lc-207-8",
+        "lc-207-10",
+        "lc-207-13",
+        "lc-207-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4254,
+  "oracle_implementation": "code_practice/import_batch_088.py:courses_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "e4bfa9b54b214a68174d343676ebb139849836fd708c51f5bf9d256af4475914",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "142998261ebda3db650bbd36b5380b036bd846e06fffd9b0c2d5be92e9930c20",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

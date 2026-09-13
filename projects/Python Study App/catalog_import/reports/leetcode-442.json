@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-442",
+  "content_sha256": "2ff2b660b6c477aa5091df65a4ceadda7d60a9c20ee3d755790946711fb105db",
+  "source_hash": "faeeb7aabb71bd39a433d827b2276956a59388c036c17323d9043d53e6bc1896",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns every distinct value rather than only values occurring twice.",
+      "failed_cases": [
+        "lc-442-1",
+        "lc-442-2",
+        "lc-442-3",
+        "lc-442-5",
+        "lc-442-7",
+        "lc-442-8",
+        "lc-442-9",
+        "lc-442-10",
+        "lc-442-11",
+        "lc-442-13",
+        "lc-442-15",
+        "lc-442-16"
+      ]
+    },
+    {
+      "reason": "Adds an extra first value even when it is not duplicated.",
+      "failed_cases": [
+        "lc-442-1",
+        "lc-442-2",
+        "lc-442-3",
+        "lc-442-4",
+        "lc-442-5",
+        "lc-442-6",
+        "lc-442-7",
+        "lc-442-8",
+        "lc-442-9",
+        "lc-442-10",
+        "lc-442-11",
+        "lc-442-12",
+        "lc-442-13",
+        "lc-442-14",
+        "lc-442-15",
+        "lc-442-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4489,
+  "oracle_implementation": "code_practice/import_batch_088b.py:duplicates_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "8558170df1001c4103574630ea7c3dfaaabc91aaec611e72c61c5e7af901e2ea",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c5e4c4ebab2fcb93653078062ee1248b32a3025a26486cee07bc473f79e72d4c",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-389",
+  "content_sha256": "d377f17a88889d785211804921b841ee4bd52bb6d48549017e9d2e9835e11818",
+  "source_hash": "e5a104049c9bf09e6a3cf23c858dc1186e05f5c2587ba39003599bc31cb87371",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "A membership check cannot identify which repeated occurrence is extra.",
+      "failed_cases": [
+        "lc-389-4",
+        "lc-389-5",
+        "lc-389-14",
+        "lc-389-16"
+      ]
+    },
+    {
+      "reason": "Assumes the added character remains last after t is shuffled.",
+      "failed_cases": [
+        "lc-389-8",
+        "lc-389-10",
+        "lc-389-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4436,
+  "oracle_implementation": "code_practice/import_batch_088.py:difference_oracle",
+  "validator_implementation_sha256": "3d1eac7b6cbdb1690387b2650391cb3083f3ddc4afb7d7dcf6328704c9d58bcc",
+  "batch_implementation_sha256": "e4bfa9b54b214a68174d343676ebb139849836fd708c51f5bf9d256af4475914",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7833000e0230d5806f745a3946effe6c4c2c93e24df072e549eb4dcd9b33a58c",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
