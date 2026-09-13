@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-827",
+  "content_sha256": "7d3ec73098debca782eec22cc9d887153dea62a37d9a6baf2b071f57334f9050",
+  "source_hash": "173cb56206cdd3fde76bd06f46a1d52cccb2b934a2321e29a64df4468e724567",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the same neighboring island more than once.",
+      "failed_cases": [
+        "lc-827-2",
+        "lc-827-9",
+        "lc-827-11",
+        "lc-827-12",
+        "lc-827-13",
+        "lc-827-14"
+      ]
+    },
+    {
+      "reason": "Forgets to include the flipped cell itself.",
+      "failed_cases": [
+        "lc-827-1",
+        "lc-827-2",
+        "lc-827-3",
+        "lc-827-5",
+        "lc-827-7",
+        "lc-827-8",
+        "lc-827-9",
+        "lc-827-10",
+        "lc-827-11",
+        "lc-827-12",
+        "lc-827-13",
+        "lc-827-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4874,
+  "oracle_implementation": "code_practice/import_batch_073.py:island_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "efd9900731c9c16d3c423c73707beb019dcdd082ec98a1dd986409bbdc35cee6",
+  "elapsed_seconds": 0.112,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

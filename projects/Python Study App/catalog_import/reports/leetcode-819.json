@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-819",
+  "content_sha256": "96f99a358154136388112f6a610cf5785ae276bc02e69c4fb1c4349d0decaf6c",
+  "source_hash": "84a735917a915de2de3efb2a8980b9430a2b8588f143074c1fbb0c2d1d94f6fa",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats uppercase and lowercase forms separately.",
+      "failed_cases": [
+        "lc-819-1"
+      ]
+    },
+    {
+      "reason": "Keeps punctuation attached to tokens.",
+      "failed_cases": [
+        "lc-819-1",
+        "lc-819-2",
+        "lc-819-6",
+        "lc-819-7",
+        "lc-819-10",
+        "lc-819-11",
+        "lc-819-13",
+        "lc-819-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4866,
+  "oracle_implementation": "code_practice/import_batch_073.py:common_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "39552e9adf7bde60edcf09f78a5f953891bec440b2ecace5dc05b052b170e16b",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

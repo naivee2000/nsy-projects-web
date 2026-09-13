@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-820",
+  "content_sha256": "2f4dfd87b3ae8fd7b85f035965d417d82e7335aab1245fba17b1e7f004a20bac",
+  "source_hash": "6c1432aacc6d7304b9593aa93fdb153e2d40cfd88e33df7760b30c0956115200",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to remove one-character-shorter suffixes.",
+      "failed_cases": [
+        "lc-820-7",
+        "lc-820-9",
+        "lc-820-10",
+        "lc-820-12"
+      ]
+    },
+    {
+      "reason": "Does not deduplicate repeated words.",
+      "failed_cases": [
+        "lc-820-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4867,
+  "oracle_implementation": "code_practice/import_batch_073.py:encoding_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "84ea06a0396d3610d199100747179a5348a2b64f4007dcb2cae6d5275d76af99",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

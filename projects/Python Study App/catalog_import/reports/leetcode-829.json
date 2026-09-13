@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-829",
+  "content_sha256": "c618e7286cd208b7beebaeb17a78768a2a788e01d297fb3a61189fc073eb74c2",
+  "source_hash": "95b763fce49c3d140bfd98abcd1fa503f9a202edc7770c898a3bd9126d6ee11e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts nondivisible lengths instead of valid starting integers.",
+      "failed_cases": [
+        "lc-829-1",
+        "lc-829-2",
+        "lc-829-3",
+        "lc-829-5",
+        "lc-829-6",
+        "lc-829-7",
+        "lc-829-8",
+        "lc-829-10",
+        "lc-829-11",
+        "lc-829-12",
+        "lc-829-13",
+        "lc-829-14"
+      ]
+    },
+    {
+      "reason": "A stale brute-force variant omits the one-term representation.",
+      "failed_cases": [
+        "lc-829-1",
+        "lc-829-2",
+        "lc-829-3",
+        "lc-829-4",
+        "lc-829-5",
+        "lc-829-6",
+        "lc-829-7",
+        "lc-829-8",
+        "lc-829-9",
+        "lc-829-10",
+        "lc-829-11",
+        "lc-829-12",
+        "lc-829-13",
+        "lc-829-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4876,
+  "oracle_implementation": "code_practice/import_batch_073.py:consecutive_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ee2110cebaa48535fbc5ef01420a61d5c0624b02c7acabcbb465892f6d4c0d25",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-824",
+  "content_sha256": "db57b2ba4c6bb9c6fabd4e05849eaeefb2ff0b024eb2a48880b7a6c0b1a6e2ad",
+  "source_hash": "cedd79f662103c2c1ed41a3ea7c9d9f87cf5d2bf857d743b9246a410f095c2a6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Applies the consonant rotation to vowel-starting words.",
+      "failed_cases": [
+        "lc-824-1",
+        "lc-824-2",
+        "lc-824-5",
+        "lc-824-6",
+        "lc-824-7",
+        "lc-824-8",
+        "lc-824-9",
+        "lc-824-11",
+        "lc-824-12",
+        "lc-824-14"
+      ]
+    },
+    {
+      "reason": "Appends only one a regardless of word position.",
+      "failed_cases": [
+        "lc-824-1",
+        "lc-824-2",
+        "lc-824-7",
+        "lc-824-8",
+        "lc-824-9",
+        "lc-824-10",
+        "lc-824-11",
+        "lc-824-12",
+        "lc-824-13",
+        "lc-824-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4871,
+  "oracle_implementation": "code_practice/import_batch_073.py:goat_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "303fb64bf0adefed54f5e48939f2027776dd24b9745a9467e5ed021b33f180e6",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

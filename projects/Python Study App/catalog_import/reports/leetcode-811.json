@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-811",
+  "content_sha256": "71c12a2f77d626ba39f9d454db637ba9f6282f19b6321961bd15e3638b7c5c4b",
+  "source_hash": "9de1ceeb12d2c3ca009d08cef24fd712649ea4518c3e6515ebf0b2209b1454a1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the top-level suffix.",
+      "failed_cases": [
+        "lc-811-1",
+        "lc-811-2",
+        "lc-811-3",
+        "lc-811-4",
+        "lc-811-5",
+        "lc-811-6",
+        "lc-811-7",
+        "lc-811-8",
+        "lc-811-9",
+        "lc-811-10",
+        "lc-811-11",
+        "lc-811-12",
+        "lc-811-13",
+        "lc-811-14"
+      ]
+    },
+    {
+      "reason": "Counts only the full domain.",
+      "failed_cases": [
+        "lc-811-1",
+        "lc-811-2",
+        "lc-811-3",
+        "lc-811-4",
+        "lc-811-6",
+        "lc-811-7",
+        "lc-811-8",
+        "lc-811-9",
+        "lc-811-11",
+        "lc-811-12",
+        "lc-811-13",
+        "lc-811-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4858,
+  "oracle_implementation": "code_practice/import_batch_073.py:domains_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e11e2c13e3094f0e989952ac3f5525c6f19ace96936a9a2b52b04672af6fce03",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

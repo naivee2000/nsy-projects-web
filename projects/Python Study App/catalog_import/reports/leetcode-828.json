@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-828",
+  "content_sha256": "0c900313bc3601f87006a78bbb11e1139dacc3e9181e19f677a8f89c759dcfc7",
+  "source_hash": "f52b1826056ec0199e8527ca64493e137c2128d783291002f55314d1eedd7108",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses total span rather than the product of independent left/right boundary choices.",
+      "failed_cases": [
+        "lc-828-1",
+        "lc-828-2",
+        "lc-828-3",
+        "lc-828-4",
+        "lc-828-5",
+        "lc-828-6",
+        "lc-828-7",
+        "lc-828-8",
+        "lc-828-9",
+        "lc-828-10",
+        "lc-828-11",
+        "lc-828-12",
+        "lc-828-13",
+        "lc-828-14"
+      ]
+    },
+    {
+      "reason": "Counts only suffix distance for final occurrences.",
+      "failed_cases": [
+        "lc-828-1",
+        "lc-828-2",
+        "lc-828-5",
+        "lc-828-7",
+        "lc-828-9",
+        "lc-828-10",
+        "lc-828-11",
+        "lc-828-13",
+        "lc-828-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4875,
+  "oracle_implementation": "code_practice/import_batch_073.py:unique_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b18e49b4026eb6562f4fb8bce189396c940ace42b4052a92126b140d9bb707c2",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-825",
+  "content_sha256": "b3bd80747fa8806a4b0683e5759dfcf263211802bb2a7f7a7a5ae71fd86dfdc0",
+  "source_hash": "acd74d70956d0b7fabb62ac3cabb9c23ea04424d7f8d7ca15d9411c3c95073e5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a strict lower-age cutoff and admits boundary recipients.",
+      "failed_cases": [
+        "lc-825-2",
+        "lc-825-12"
+      ]
+    },
+    {
+      "reason": "Counts requests to oneself.",
+      "failed_cases": [
+        "lc-825-1",
+        "lc-825-2",
+        "lc-825-4",
+        "lc-825-5",
+        "lc-825-6",
+        "lc-825-7",
+        "lc-825-8",
+        "lc-825-9",
+        "lc-825-10",
+        "lc-825-12",
+        "lc-825-13",
+        "lc-825-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4872,
+  "oracle_implementation": "code_practice/import_batch_073.py:requests_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ac1a41821fa9c14d95c0c47321e15ff3464f1b135fc002ec61d87b17bc263b70",
+  "elapsed_seconds": 0.373,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

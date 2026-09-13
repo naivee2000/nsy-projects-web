@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-831",
+  "content_sha256": "87b665cd11d2a9e82a219bb1633aee3f5bcde04106297c7afd8b81a7ffbff8df",
+  "source_hash": "6a59f7a10ce347021143964e5cf4ba80f6b2537de92e968c168a5177874eb579",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Exposes two leading email characters.",
+      "failed_cases": [
+        "lc-831-1",
+        "lc-831-4",
+        "lc-831-5"
+      ]
+    },
+    {
+      "reason": "Keeps the first four phone digits instead of the last four.",
+      "failed_cases": [
+        "lc-831-2",
+        "lc-831-6",
+        "lc-831-7",
+        "lc-831-8",
+        "lc-831-9",
+        "lc-831-10",
+        "lc-831-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4878,
+  "oracle_implementation": "code_practice/import_batch_073.py:mask_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c8bbf1315aa1c931111b0c2d15ec20da320b73365928d321f4ee63ff4a71f4b4",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-822",
+  "content_sha256": "25a4f0f5fc54a277415f48c841cb223a5d9b791fe138fd8441a107ce12d3247a",
+  "source_hash": "705f122cdda5538f5f08e13f373d93a3f946e7e03f6c32f44416992ac3cf98e5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forbids values on unequal-sided cards instead of equal-sided cards.",
+      "failed_cases": [
+        "lc-822-1",
+        "lc-822-2",
+        "lc-822-3",
+        "lc-822-5",
+        "lc-822-7",
+        "lc-822-8",
+        "lc-822-9",
+        "lc-822-10",
+        "lc-822-13",
+        "lc-822-14"
+      ]
+    },
+    {
+      "reason": "Selects only forbidden candidates.",
+      "failed_cases": [
+        "lc-822-1",
+        "lc-822-2",
+        "lc-822-3",
+        "lc-822-4",
+        "lc-822-5",
+        "lc-822-6",
+        "lc-822-7",
+        "lc-822-8",
+        "lc-822-9",
+        "lc-822-10",
+        "lc-822-11",
+        "lc-822-12",
+        "lc-822-13",
+        "lc-822-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4869,
+  "oracle_implementation": "code_practice/import_batch_073.py:flip_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "98954230b7e1151e36a1e95c20ddc998c2a889d1dda3d683464dfa696fb91281",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

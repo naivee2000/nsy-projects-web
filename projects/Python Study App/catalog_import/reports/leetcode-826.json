@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-826",
+  "content_sha256": "9f2de91069b71a190dc85abb003f4532949100a0ead24aaec25bd821b3b0b38b",
+  "source_hash": "d6e48731f6c543e96166ca467290ab75be7e536f6e28a779eb22e79358bb4231",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the most recent feasible job rather than best profit when profits are nonmonotone.",
+      "failed_cases": [
+        "lc-826-6",
+        "lc-826-9"
+      ]
+    },
+    {
+      "reason": "Scans unsorted worker abilities with a one-way job pointer.",
+      "failed_cases": [
+        "lc-826-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4873,
+  "oracle_implementation": "code_practice/import_batch_073.py:profit_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d84c892ff8c52be08878120c978d16fac826af2248d12b5902548651b8fe2450",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

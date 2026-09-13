@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-808",
+  "content_sha256": "00e2aff0edac7aba729c9f0fbe6cc3630844ff00c6b7ec4bd8a285d4a14f381e",
+  "source_hash": "81827de0b78a2743b62147956718308a637b3467c01f8a3fc6806022a037b389",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts a simultaneous emptying as a full A-first win.",
+      "failed_cases": [
+        "lc-808-1",
+        "lc-808-2",
+        "lc-808-3",
+        "lc-808-4",
+        "lc-808-5",
+        "lc-808-6",
+        "lc-808-7",
+        "lc-808-8",
+        "lc-808-9",
+        "lc-808-10",
+        "lc-808-11",
+        "lc-808-12",
+        "lc-808-13"
+      ]
+    },
+    {
+      "reason": "Swaps the asymmetric serving amounts.",
+      "failed_cases": [
+        "lc-808-1",
+        "lc-808-3",
+        "lc-808-4",
+        "lc-808-5",
+        "lc-808-6",
+        "lc-808-7",
+        "lc-808-8",
+        "lc-808-9",
+        "lc-808-10",
+        "lc-808-11",
+        "lc-808-12",
+        "lc-808-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4855,
+  "oracle_implementation": "code_practice/import_batch_073.py:soup_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0aae3bdf03800071b426fb4e2fe9b97577e2f0b2190f97bd2f16f0d12b728c2b",
+  "elapsed_seconds": 1.64,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

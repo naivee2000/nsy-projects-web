@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-823",
+  "content_sha256": "09da5dddb1a5ac2a501d998b92955f7d17ebe101f8e3e5f3548037d77f6a318e",
+  "source_hash": "18a47791293ee5f2c0102cb6b3735a09c7758eafa1b2ee0eba3dbc5c36dd40e4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts factor pairs but ignores the number of child subtrees.",
+      "failed_cases": [
+        "lc-823-5",
+        "lc-823-9",
+        "lc-823-10",
+        "lc-823-11",
+        "lc-823-12",
+        "lc-823-13"
+      ]
+    },
+    {
+      "reason": "Considers only the first possible left factor.",
+      "failed_cases": [
+        "lc-823-2",
+        "lc-823-5",
+        "lc-823-7",
+        "lc-823-8",
+        "lc-823-9",
+        "lc-823-10",
+        "lc-823-11",
+        "lc-823-12",
+        "lc-823-13",
+        "lc-823-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4870,
+  "oracle_implementation": "code_practice/import_batch_073.py:factor_trees_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "79c2adcce641efe5c4162f40b5b8962fd807627918fe994733e45a658bcff69e",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

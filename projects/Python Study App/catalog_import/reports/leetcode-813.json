@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-813",
+  "content_sha256": "146a69fd4eea1bede8df6359203fefca94e857028c3f4cdd6feac9ac3cf4ed8e",
+  "source_hash": "b2e95b7efc010c5a7c3138f90bcfb9227c8e51c7e182248dc71c82aa26af0343",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only k-1 groups.",
+      "failed_cases": [
+        "lc-813-1",
+        "lc-813-2",
+        "lc-813-5",
+        "lc-813-6",
+        "lc-813-7",
+        "lc-813-8",
+        "lc-813-9",
+        "lc-813-10",
+        "lc-813-11",
+        "lc-813-12",
+        "lc-813-13",
+        "lc-813-14"
+      ]
+    },
+    {
+      "reason": "Uses integer division and loses fractional averages.",
+      "failed_cases": [
+        "lc-813-2",
+        "lc-813-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4860,
+  "oracle_implementation": "code_practice/import_batch_073.py:averages_oracle",
+  "validator_implementation_sha256": "db91a716e5002fe3b081e190110b25918d60294913e08915e65000f5194867f7",
+  "batch_implementation_sha256": "2f5e615503b09f8993aafd35185fa516f6e0aaac7b5d41a4194da5f568716add",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7a46f1dc4c10d7ff3653083706f98b29fee3689169eef801d2dd9faaea8c3492",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
