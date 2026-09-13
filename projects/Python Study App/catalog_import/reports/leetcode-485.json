@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-485",
+  "content_sha256": "260c6bdc0d313f306cad69c0a4bbb622c0e5c951cd4b9fe06b149187b48fe6a0",
+  "source_hash": "f29958c2161e8012dd045ae0d6da30795647f751757fe431503bcd631d6c6f6c",
+  "visible_tests": 2,
+  "hidden_tests": 18,
+  "reference_passed": 20,
+  "wrong_solutions": [
+    {
+      "reason": "Counts disconnected runs together.",
+      "failed_cases": [
+        "lc-485-1",
+        "lc-485-2",
+        "lc-485-9",
+        "lc-485-12",
+        "lc-485-13",
+        "lc-485-14",
+        "lc-485-15",
+        "lc-485-16",
+        "lc-485-stress-3"
+      ]
+    },
+    {
+      "reason": "Returns the final run instead of the longest run.",
+      "failed_cases": [
+        "lc-485-2",
+        "lc-485-8",
+        "lc-485-10",
+        "lc-485-12",
+        "lc-485-13",
+        "lc-485-14",
+        "lc-485-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4532,
+  "oracle_implementation": "code_practice/import_batch_047.py:ones_oracle",
+  "validator_implementation_sha256": "08bd0cdbcaacbb5c95b456172ab9113d0ed73c7e298f0b4a484468e69328a034",
+  "batch_implementation_sha256": "642b3eae8bf2949795c3db6b2b1f01029d7e299f6c2b8c4ee5c7e1dfd977a2a2",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.106,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

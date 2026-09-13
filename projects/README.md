@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 425 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [419-problem handoff checklist](Python%20Study%20App/docs/RELEASE_419_CHECKPOINT.md) covers the frozen `python-study-419-checkpoint` release and updating the other computer without replacing its progress. It includes all seven verified batch-44/45 additions; six verified batch-46 additions from resumed local work remain outside the release. All seven handoff tags remain unchanged.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 429 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [419-problem handoff checklist](Python%20Study%20App/docs/RELEASE_419_CHECKPOINT.md) covers the frozen `python-study-419-checkpoint` release and updating the other computer without replacing its progress. It includes all seven verified batch-44/45 additions; ten verified batch-46/47 additions from resumed local work remain outside the release. All seven handoff tags remain unchanged.
 
 ## Python Study App
 
@@ -40,8 +40,8 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
-The workbook expansion currently accounts for 3,629 rows: 76 existing equivalents,
-324 verified new problems, 155 documented design/interactive exclusions, and 3,074
+The workbook expansion currently accounts for 3,629 rows: 78 existing equivalents,
+328 verified new problems, 155 documented design/interactive exclusions, and 3,068
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -235,7 +235,7 @@ windows. Matrix recursion review priority remains intact. Independent edit searc
 validates the Hard password formula; exhaustive small-domain checks and large
 fixtures cover 40,000-cell grids, 200,000 XOR values, and 100,000-character text.
 No judge change was needed, and all 371 earlier problems keep their content and IDs.
-The overlap total includes 69 original exercises plus four approved imports that
+An earlier overlap audit covered 69 original exercises plus four approved imports that
 also cover other workbook contracts. Rotated minimum 153 maps to 154 after
 500 seeded correctness/logarithmic-read checks, without a duplicate progress ID.
 Smallest Subsequence of Distinct Characters (1081) maps to Remove Duplicate
@@ -244,14 +244,15 @@ the source sample, and 1,000-character boundaries.
 Bulb Switcher (319) maps to integer square root (69): exactly the perfect-square
 bulb positions remain on. Evidence includes 500 literal toggle simulations,
 500 full-domain square counts, and n=1,000,000,000 boundaries.
-Run `.venv/bin/python -m code_practice.reconcile_overlaps` from the app folder
+Run `.venv/bin/python -m code_practice.reconcile_overlaps` and
+`.venv/bin/python -m code_practice.reconcile_original_overlaps` from the app folder
 after revalidating changed overlap targets and before repackaging. Stale source,
 target, judge, or proof data blocks publication rather than silently retaining
 an unproved equivalence. Normal studying does not execute these offline checks.
 
 Published content is portable under `Python Study App/catalog_data/`; startup does not execute reference solutions. Transfer this folder with the app, retain the destination computer's existing progress database, and restart after updates. Rebuild packaged content with `.venv/bin/python -m code_practice.package_catalog` from the app folder; that command never opens or replaces progress. Backup and restoration instructions and the interim browser benchmark command are in the app README. Full import and full-catalog performance acceptance remain unfinished.
 
-The 419-problem checkpoint freezes verified content for handoff; it does not declare the workbook goal complete. It includes the seven validated batch-44/45 additions since the earlier 412-problem release. Batch 39 covers word-square checks/search, gene-bank paths, interval binary search, tree path sums, anagram windows, nested conditionals, decimal rank search, character-prefix mutation, forward-digit linked addition, and arithmetic subsequences. Batch 40 adds BST deletion, circular-array loops, finite-pool minimax, and repeated-subsequence cycle skipping. The new deletion judge accepts any strict BST containing exactly the surviving values, including unbalanced shapes; all 294 then-published imports were revalidated. Batch 41 adds twelve problems covering ordered geometry, missing values, interval arrows, two array-move operations, 4Sum II, resource matching, strict 132 patterns, string repetition, bit distance, cyclic substrings, and strict IP grammar. Minimum Bit Flips is a verified Hamming Distance equivalent rather than a duplicate; the five then-current imported-target overlap proofs were refreshed. Players/Trainers now maps to version 2 of Assign Cookies, with a documented 100,000-item bound and independent equivalence proof. Existing progress IDs remain intact; two domain upgrades raise problem versions without erasing old attempts. Backups respect `CODE_PRACTICE_DB` and `CODE_PRACTICE_DATA_DIR`, with an optional external `CODE_PRACTICE_BACKUP_DIR`. Continuing catalog development on this laptop cannot affect the website until another explicit code update. Runtime progress and the existing seed snapshot were not changed. All seven handoff tags remain unchanged; six verified batch-46 problems are added locally outside the frozen release.
+The 419-problem checkpoint freezes verified content for handoff; it does not declare the workbook goal complete. It includes the seven validated batch-44/45 additions since the earlier 412-problem release. Batch 39 covers word-square checks/search, gene-bank paths, interval binary search, tree path sums, anagram windows, nested conditionals, decimal rank search, character-prefix mutation, forward-digit linked addition, and arithmetic subsequences. Batch 40 adds BST deletion, circular-array loops, finite-pool minimax, and repeated-subsequence cycle skipping. The new deletion judge accepts any strict BST containing exactly the surviving values, including unbalanced shapes; all 294 then-published imports were revalidated. Batch 41 adds twelve problems covering ordered geometry, missing values, interval arrows, two array-move operations, 4Sum II, resource matching, strict 132 patterns, string repetition, bit distance, cyclic substrings, and strict IP grammar. Minimum Bit Flips is a verified Hamming Distance equivalent rather than a duplicate; the five then-current imported-target overlap proofs were refreshed. Players/Trainers now maps to version 2 of Assign Cookies, with a documented 100,000-item bound and independent equivalence proof. Existing progress IDs remain intact; two domain upgrades raise problem versions without erasing old attempts. Backups respect `CODE_PRACTICE_DB` and `CODE_PRACTICE_DATA_DIR`, with an optional external `CODE_PRACTICE_BACKUP_DIR`. Continuing catalog development on this laptop cannot affect the website until another explicit code update. Runtime progress and the existing seed snapshot were not changed. All seven handoff tags remain unchanged; ten verified batch-46/47 problems are added locally outside the frozen release.
 
 Monaco editor and Pyodide runtime assets are included in the local frontend build, so studying needs no CDN after installation. Import validation runs in bounded per-problem processes and quarantines failures. The Chrome check uses a temporary progress database, blocks external requests, tests restart persistence, measures 100 requests per API route, and records OS-reported backend peak memory. No deployment or push is part of this expansion work.
 
@@ -302,6 +303,16 @@ Game and subsequence recursion retain the weak-topic review priority. Streaming
 one-flip checks need no stored prefix. Independent exhaustive regressions and
 source-scale fixtures cover exact 10^18 bases, 100,000-entry inputs, and 32,752
 subsequences. All 419 checkpoint definitions and progress IDs remain unchanged.
+
+Batch 47 adds Max Consecutive Ones, Reverse Pairs, Target Sum, and Diagonal Traverse.
+Tests preserve strict doubled comparisons for negative values, distinct plus/minus
+zero expressions, and rectangular diagonal direction. Recursive pair/sign problems
+retain weak-topic review priority. Teemo Attacking and Next Greater Element I map
+to the existing Total Covered Length and Next Greater Values exercises, using
+interval conversion and query projection. Each mapping has 500 independent checks,
+the source sample, and full-size fixtures; stale proofs block packaging. Regenerate
+these with `.venv/bin/python -m code_practice.reconcile_original_overlaps` from the
+app folder. All 425 preceding problem definitions and progress IDs remain unchanged.
 
 Linked-list and tree problems show the full `ListNode` or `TreeNode` class definition above the function in the editable code pane. The app also prepends the required class when reopening an older saved draft that predates this feature.
 

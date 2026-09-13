@@ -298,8 +298,24 @@ try {
   assert((await page.locator('.problem-pane').textContent()).includes('lexicographically smallest'));
   assert((await page.locator('.example code').nth(1).textContent()).includes('[2,1,3]'));
   report.checks.push('batch 46 examples distinguish lexicographic minimality, allowed equal subsequence values, and significant inner sequence order');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Target Sum');
+  await page.getByRole('button', { name: /Target Sum.*Medium/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('+0 and -0 are different expressions'));
+  assert((await page.locator('.example code').nth(1).textContent()).includes('[0,1]'));
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Reverse Pairs');
+  await page.getByRole('button', { name: /Reverse Pairs.*Advanced/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('Equal negative values can count'));
+  assert((await page.locator('.example code').nth(1).textContent()).includes('[-1,-1]'));
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByPlaceholder('Search title, topic, or pattern').fill('Diagonal Traverse');
+  await page.getByRole('button', { name: /Diagonal Traverse.*Medium/ }).click();
+  assert((await page.locator('.problem-pane').textContent()).includes('Rectangles need not be square'));
+  assert((await page.locator('.example code').nth(1).textContent()).includes('[1,2,4,5,3,6]'));
+  report.checks.push('batch 47 examples explain distinct zero signs, equal-negative reverse pairs, and rectangular diagonal direction');
 
-  for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth'].includes(e.id))) {
+  for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
     const result = await judge(page, problem, problem.reference_solution);
     assert.equal(result.status, 'accepted', `${entry.id}: ${JSON.stringify(result)}`);
@@ -522,6 +538,41 @@ def sliding_window_medians(nums, k):
     assert.equal((await judge(page,subsequenceCase,`${sequenceOriginal}\ndef nondecreasing_subsequences(nums):\n    return ${expression}\n`)).status,status);
   }
   report.checks.push('batch 46 wrong algorithms rejected: nonminimal bases/permutations, greedy play and lost ties, separated one-runs, strict-only/duplicated subsequences, and nonoptimal/reversed factor pairs; subsequences accept outer reorder but reject reversed rows, duplicates, and omissions');
+  for (const id of [485,493,494,498]) {
+    const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page,problem,wrong)).status,'wrong_answer',`leetcode-${id} wrong algorithm`);
+    }
+  }
+  const coverage = JSON.parse(await fs.readFile(path.join(root,'catalog_data/problems/total-covered-length.json'),'utf8'));
+  const nextValues = JSON.parse(await fs.readFile(path.join(root,'catalog_data/problems/next-greater-values.json'),'utf8'));
+  for (const original of [coverage,nextValues]) {
+    for (const wrong of original.known_wrong_solutions) {
+      assert.equal((await judge(page,original,wrong)).status,'wrong_answer',`${original.id} wrong original algorithm`);
+    }
+  }
+  const parameter = (name,annotation) => ({name,annotation,adapter:'raw',source_parameter:null});
+  const poisonAdaptation = {...coverage,signature:{...coverage.signature,name:'poison_adapter',
+    parameters:[parameter('times','list[int]'),parameter('duration','int')]},tests:[
+      {id:'sample',arguments:[[1,4],2],expected:4},
+      {id:'overlap',arguments:[[1,2],2],expected:3},
+      {id:'empty-duration',arguments:[[0,0],0],expected:0},
+      {id:'maximum',arguments:[Array.from({length:10000},(_,i)=>i),10000000],expected:10009999},
+    ]};
+  assert.equal((await judge(page,poisonAdaptation,`${coverage.reference_solution}\ndef poison_adapter(times,duration):\n    return total_covered_length([[t,t+duration] for t in times])`)).status,'accepted');
+  const nextAdaptation = {...nextValues,signature:{...nextValues.signature,name:'query_adapter',
+    parameters:[parameter('queries','list[int]'),parameter('nums','list[int]')]},tests:[
+      {id:'sample',arguments:[[4,1,2],[1,3,4,2]],expected:[-1,3,-1]},
+      {id:'first-not-smallest',arguments:[[1],[1,5,3]],expected:[5]},
+      {id:'maximum',arguments:[Array.from({length:1000},(_,i)=>999-i),Array.from({length:1000},(_,i)=>i)],
+        expected:[-1,...Array.from({length:999},(_,i)=>999-i)]},
+    ]};
+  assert.equal((await judge(page,nextAdaptation,`${nextValues.reference_solution}\ndef query_adapter(queries,nums):\n    following=dict(zip(nums,next_greater_values(nums)))\n    return [following[q] for q in queries]`)).status,'accepted');
+  for (const id of [495,496]) {
+    assert(!manifest.entries.some(p=>p.id===`leetcode-${id}`));
+    assert.equal((await fetch(`${base}/api/problems/leetcode-${id}`)).status,404);
+  }
+  report.checks.push('batch 47 rejects disconnected/final-only runs, inversion/non-strict pair counts, dropped zeros/equal positions, and row-major/same-direction diagonals; original interval-union and next-greater adaptations pass source samples and maximum cases without duplicate library/API entries');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],

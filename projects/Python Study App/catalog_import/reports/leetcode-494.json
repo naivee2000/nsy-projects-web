@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-494",
+  "content_sha256": "dc093a8a88871a599e20574820f26bfa3b60cd87f7fbc8d0c6623551131e5790",
+  "source_hash": "babeb5098760b1fd50f259327f1a1b6b1269ac16874c83da0bf4baaacabb31b2",
+  "visible_tests": 2,
+  "hidden_tests": 20,
+  "reference_passed": 22,
+  "wrong_solutions": [
+    {
+      "reason": "Discards zeros, losing the two distinct sign choices for every zero.",
+      "failed_cases": [
+        "lc-494-2",
+        "lc-494-6",
+        "lc-494-8",
+        "lc-494-13",
+        "lc-494-stress-1",
+        "lc-494-stress-3"
+      ]
+    },
+    {
+      "reason": "Deduplicates equal input values even though signs are assigned to positions.",
+      "failed_cases": [
+        "lc-494-1",
+        "lc-494-8",
+        "lc-494-9",
+        "lc-494-10",
+        "lc-494-12",
+        "lc-494-13",
+        "lc-494-stress-1",
+        "lc-494-stress-2",
+        "lc-494-stress-3",
+        "lc-494-stress-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4541,
+  "oracle_implementation": "code_practice/import_batch_047.py:target_oracle",
+  "validator_implementation_sha256": "08bd0cdbcaacbb5c95b456172ab9113d0ed73c7e298f0b4a484468e69328a034",
+  "batch_implementation_sha256": "642b3eae8bf2949795c3db6b2b1f01029d7e299f6c2b8c4ee5c7e1dfd977a2a2",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.092,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

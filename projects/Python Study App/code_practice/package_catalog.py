@@ -23,6 +23,7 @@ def package(output: Path) -> dict:
             payload = load_verified_import(record, ROOT)
             problems.append((ProblemDefinition.model_validate(payload), record["source_id"]))
         from .reconcile_overlaps import validate_import_overlap
+        from .reconcile_original_overlaps import DECISIONS as ORIGINAL_OVERLAPS, validate_original_overlap
         records = {record["source_id"]: record for record in ledger["records"]}
         published = {problem.id for problem, _ in problems}
         for record in ledger["records"]:
@@ -31,6 +32,8 @@ def package(output: Path) -> dict:
                     raise ValueError("Overlap points to an unpublished problem")
                 if record["existing_id"].startswith("leetcode-"):
                     validate_import_overlap(record, records, ROOT)
+                elif record['source_id'] in ORIGINAL_OVERLAPS:
+                    validate_original_overlap(record, ROOT)
     if len({p.id for p, _ in problems}) != len(problems):
         raise ValueError("Catalog IDs must be unique; existing progress IDs cannot be overwritten")
     entries = []

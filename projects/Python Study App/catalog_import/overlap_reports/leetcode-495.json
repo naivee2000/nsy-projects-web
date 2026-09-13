@@ -1,0 +1,20 @@
+{
+  "valid": true,
+  "source_id": 495,
+  "source_hash": "d90bc83095e4521adf478150326a8c08d0f161748c45fec704bc2b76a036f30f",
+  "target_problem_id": "total-covered-length",
+  "target_content_sha256": "37c8c5e918facc096f1816c3d8301579b228b595ff9e9444ddfd324176d65df9",
+  "implementation_sha256": "a1883cc613ce03e42eb8aa64660f50031dd21d190648bf1ec3db479b67cae7ee",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "decision": {
+    "target_id": "total-covered-length",
+    "source_hash": "d90bc83095e4521adf478150326a8c08d0f161748c45fec704bc2b76a036f30f",
+    "reason": "Each attack at t with duration d is the half-open interval [t,t+d); its integer length equals the count of inclusive poisoned seconds t..t+d-1. Total poison time is exactly the existing interval-union length, including overlap, repeated times, gaps, and d=0. The existing sort-and-merge reference handles 10,000 intervals and the full time domain; no new progress ID is needed."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 4542,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 20,
+  "largest_input": 10000,
+  "adaptation": "[t,t+duration) interval union"
+}

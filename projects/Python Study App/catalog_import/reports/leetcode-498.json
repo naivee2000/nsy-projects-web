@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-498",
+  "content_sha256": "bff54ab5da280669941f53e7233f07b989869f08c4f610267b54f829df6e4f29",
+  "source_hash": "242d66d0e7c56526e0d1d82884132b3b61df92bab43edd708826caf70c7d9ad6",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Traverses rows instead of alternating diagonals.",
+      "failed_cases": [
+        "lc-498-1",
+        "lc-498-2",
+        "lc-498-9",
+        "lc-498-12",
+        "lc-498-13",
+        "lc-498-15",
+        "lc-498-stress-3"
+      ]
+    },
+    {
+      "reason": "Visits every diagonal in the same direction.",
+      "failed_cases": [
+        "lc-498-1",
+        "lc-498-2",
+        "lc-498-9",
+        "lc-498-12",
+        "lc-498-13",
+        "lc-498-15",
+        "lc-498-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4545,
+  "oracle_implementation": "code_practice/import_batch_047.py:diagonal_oracle",
+  "validator_implementation_sha256": "08bd0cdbcaacbb5c95b456172ab9113d0ed73c7e298f0b4a484468e69328a034",
+  "batch_implementation_sha256": "642b3eae8bf2949795c3db6b2b1f01029d7e299f6c2b8c4ee5c7e1dfd977a2a2",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

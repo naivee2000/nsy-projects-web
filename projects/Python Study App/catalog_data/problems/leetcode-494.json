@@ -1,0 +1,490 @@
+{
+  "id": "leetcode-494",
+  "version": 1,
+  "status": "approved",
+  "title": "Target Sum",
+  "summary": "Given an integer array nums and an integer target, determine the count of distinct expressions formed by adding '+' or '-' before each number in nums, such that the expression evaluates to the target.",
+  "statement": "Given an integer array nums and an integer target, determine the count of distinct expressions formed by adding '+' or '-' before each number in nums, such that the expression evaluates to the target.",
+  "constraints": [
+    "1 <= nums.length <= 20; 0 <= nums[i] <= 1000; sum(nums) <= 1000; -1000 <= target <= 1000.",
+    "Assign exactly one plus or minus sign to EACH array position. Return the number of assignments whose signed sum equals target.",
+    "Equal values at different indices remain separate choices. +0 and -0 are different expressions, even though their numeric contributions agree."
+  ],
+  "topics": [
+    "arrays",
+    "dynamic-programming",
+    "recursion"
+  ],
+  "prerequisites": [],
+  "signature": {
+    "name": "target_sum_ways",
+    "parameters": [
+      {
+        "name": "nums",
+        "annotation": "list[int]",
+        "adapter": "raw",
+        "source_parameter": null
+      },
+      {
+        "name": "target",
+        "annotation": "int",
+        "adapter": "raw",
+        "source_parameter": null
+      }
+    ],
+    "returns": "int",
+    "return_adapter": "raw",
+    "node_policy": "values",
+    "result_mode": "return",
+    "mutated_parameter": null,
+    "immutable_parameters": []
+  },
+  "starter_code": "def target_sum_ways(nums: list[int], target: int) -> int:\n    # Write your solution here.\n    pass\n",
+  "reference_solution": "def target_sum_ways(nums,target):\n    from functools import cache\n    suffix=[0]*(len(nums)+1)\n    for i in range(len(nums)-1,-1,-1):\n        suffix[i]=suffix[i+1]+nums[i]\n    @cache\n    def ways(index,remaining):\n        if abs(remaining)>suffix[index]:\n            return 0\n        if index==len(nums):\n            return int(remaining==0)\n        return ways(index+1,remaining-nums[index])+ways(index+1,remaining+nums[index])\n    return ways(0,target)\n",
+  "brute_force_solution": null,
+  "known_wrong_solutions": [
+    "def target_sum_ways(nums,target):\n    nums=[value for value in nums if value]\n    from functools import cache\n    suffix=[0]*(len(nums)+1)\n    for i in range(len(nums)-1,-1,-1):\n        suffix[i]=suffix[i+1]+nums[i]\n    @cache\n    def ways(index,remaining):\n        if abs(remaining)>suffix[index]:\n            return 0\n        if index==len(nums):\n            return int(remaining==0)\n        return ways(index+1,remaining-nums[index])+ways(index+1,remaining+nums[index])\n    return ways(0,target)\n",
+    "def target_sum_ways(nums,target):\n    nums=list(dict.fromkeys(nums))\n    from functools import cache\n    suffix=[0]*(len(nums)+1)\n    for i in range(len(nums)-1,-1,-1):\n        suffix[i]=suffix[i+1]+nums[i]\n    @cache\n    def ways(index,remaining):\n        if abs(remaining)>suffix[index]:\n            return 0\n        if index==len(nums):\n            return int(remaining==0)\n        return ways(index+1,remaining-nums[index])+ways(index+1,remaining+nums[index])\n    return ways(0,target)\n"
+  ],
+  "target_time_complexity": "O(n*(S+1)), S=sum(nums)",
+  "target_space_complexity": "O(n*(S+1))",
+  "estimated_minutes": 35,
+  "rubric": {
+    "algorithmic_insight": 2,
+    "prerequisites": 1,
+    "implementation": 1,
+    "performance_pressure": 1,
+    "edge_cases": 0
+  },
+  "hints": [
+    "At each index there are two sign choices, including when the value is zero.",
+    "Cache the number of ways from an index to achieve a remaining signed sum.",
+    "Add ways(i+1,remaining-nums[i]) and ways(i+1,remaining+nums[i]); at the end count one only for remaining zero.",
+    "A suffix sum bounds the largest absolute contribution still possible. Memoization shares computation without merging distinct expression counts."
+  ],
+  "editorial": "Recursive states track index and remaining target. The two outgoing branches count separate sign assignments even if they reach the same cached state. A suffix-sum bound safely prunes unreachable targets. With S=sum(nums), at most O(n*(S+1)) states are needed. The oracle independently enumerates every sign tuple and evaluates the resulting expression.",
+  "tests": [
+    {
+      "id": "lc-494-1",
+      "arguments": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        3
+      ],
+      "expected": 5,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Exactly one of the five positions receives a minus sign, so there are five different expressions.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-2",
+      "arguments": [
+        [
+          0,
+          1
+        ],
+        1
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": true,
+      "explanation": "Both +0+1 and -0+1 give 1. The zero doubles the number of expressions instead of disappearing.",
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-3",
+      "arguments": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-4",
+      "arguments": [
+        [
+          1
+        ],
+        -1
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-5",
+      "arguments": [
+        [
+          1
+        ],
+        0
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-6",
+      "arguments": [
+        [
+          0
+        ],
+        0
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-7",
+      "arguments": [
+        [
+          0
+        ],
+        1
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-8",
+      "arguments": [
+        [
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-9",
+      "arguments": [
+        [
+          1,
+          1
+        ],
+        0
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-10",
+      "arguments": [
+        [
+          1,
+          1
+        ],
+        1
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-11",
+      "arguments": [
+        [
+          1,
+          2,
+          3
+        ],
+        0
+      ],
+      "expected": 2,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-12",
+      "arguments": [
+        [
+          2,
+          2,
+          2
+        ],
+        2
+      ],
+      "expected": 3,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-13",
+      "arguments": [
+        [
+          0,
+          0,
+          1
+        ],
+        -1
+      ],
+      "expected": 4,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-14",
+      "arguments": [
+        [
+          1000
+        ],
+        1000
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-15",
+      "arguments": [
+        [
+          1000
+        ],
+        -1000
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-16",
+      "arguments": [
+        [
+          1,
+          2
+        ],
+        1000
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-17",
+      "arguments": [
+        [
+          1,
+          2
+        ],
+        -3
+      ],
+      "expected": 1,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-stress-1",
+      "arguments": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": 1048576,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-stress-2",
+      "arguments": [
+        [
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50
+        ],
+        0
+      ],
+      "expected": 184756,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-stress-3",
+      "arguments": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1000
+        ],
+        -1000
+      ],
+      "expected": 524288,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-stress-4",
+      "arguments": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        0
+      ],
+      "expected": 184756,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    },
+    {
+      "id": "lc-494-stress-5",
+      "arguments": [
+        [
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50
+        ],
+        1
+      ],
+      "expected": 0,
+      "comparator": "exact",
+      "visible": false,
+      "explanation": null,
+      "expected_node_order": null
+    }
+  ],
+  "variation_dimensions": [],
+  "seed_problem_id": null,
+  "prompt_version": null
+}

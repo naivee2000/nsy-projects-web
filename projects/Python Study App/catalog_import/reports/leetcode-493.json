@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-493",
+  "content_sha256": "c552a17a5a4dc6fffa13ec4c6547f38611d33c0ec47d7ed758d38a0e7ebb2c34",
+  "source_hash": "3b8cf6a8398a303f2199870f49598d935703c09058eb67ef88cc0f0533ae6ab9",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Counts ordinary inversions rather than the doubled-value condition.",
+      "failed_cases": [
+        "lc-493-1",
+        "lc-493-2",
+        "lc-493-6",
+        "lc-493-12",
+        "lc-493-15",
+        "lc-493-16",
+        "lc-493-stress-1",
+        "lc-493-stress-3",
+        "lc-493-stress-4"
+      ]
+    },
+    {
+      "reason": "Counts equality even though the doubled-value comparison must be strict.",
+      "failed_cases": [
+        "lc-493-1",
+        "lc-493-6",
+        "lc-493-9",
+        "lc-493-10",
+        "lc-493-12",
+        "lc-493-16",
+        "lc-493-stress-2",
+        "lc-493-stress-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4540,
+  "oracle_implementation": "code_practice/import_batch_047.py:pairs_oracle",
+  "validator_implementation_sha256": "08bd0cdbcaacbb5c95b456172ab9113d0ed73c7e298f0b4a484468e69328a034",
+  "batch_implementation_sha256": "642b3eae8bf2949795c3db6b2b1f01029d7e299f6c2b8c4ee5c7e1dfd977a2a2",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.807,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

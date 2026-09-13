@@ -160,6 +160,8 @@ def inventory(workbook: Path, metadata_path: Path, source_repository: Path, outp
         records.append(record)
     from .reconcile_overlaps import restore_import_overlaps
     restore_import_overlaps(records, old_rows, output.parent)
+    from .reconcile_original_overlaps import restore_original_overlaps
+    restore_original_overlaps(records, old_rows, output.parent)
     counts = dict(Counter(r["status"] for r in records))
     ledger = {"schema_version": 1, "workbook": workbook.name,
         "workbook_sha256": hashlib.sha256(workbook.read_bytes()).hexdigest(),

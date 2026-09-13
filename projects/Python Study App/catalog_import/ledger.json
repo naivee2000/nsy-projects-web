@@ -4,9 +4,9 @@
   "workbook_sha256": "d4d791913078d0275fb404f4e61ff914b039f74f44ff4a2774070685e82e8e46",
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
-    "overlap": 76,
-    "imported": 324,
-    "pending": 3074,
+    "overlap": 78,
+    "imported": 328,
+    "pending": 3068,
     "excluded": 155
   },
   "record_count": 3629,
@@ -5513,10 +5513,11 @@
       "title": "Max Consecutive Ones",
       "difficulty": "Easy",
       "source_hash": "f29958c2161e8012dd045ae0d6da30795647f751757fe431503bcd631d6c6f6c",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-485.json",
+      "problem_id": "leetcode-485"
     },
     {
       "source_id": 486,
@@ -5607,10 +5608,11 @@
       "title": "Reverse Pairs",
       "difficulty": "Hard",
       "source_hash": "3b8cf6a8398a303f2199870f49598d935703c09058eb67ef88cc0f0533ae6ab9",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-493.json",
+      "problem_id": "leetcode-493"
     },
     {
       "source_id": 494,
@@ -5618,10 +5620,11 @@
       "title": "Target Sum",
       "difficulty": "Medium",
       "source_hash": "babeb5098760b1fd50f259327f1a1b6b1269ac16874c83da0bf4baaacabb31b2",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-494.json",
+      "problem_id": "leetcode-494"
     },
     {
       "source_id": 495,
@@ -5629,10 +5632,11 @@
       "title": "Teemo Attacking",
       "difficulty": "Easy",
       "source_hash": "d90bc83095e4521adf478150326a8c08d0f161748c45fec704bc2b76a036f30f",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "total-covered-length",
+      "reason": "Each attack at t with duration d is the half-open interval [t,t+d); its integer length equals the count of inclusive poisoned seconds t..t+d-1. Total poison time is exactly the existing interval-union length, including overlap, repeated times, gaps, and d=0. The existing sort-and-merge reference handles 10,000 intervals and the full time domain; no new progress ID is needed.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-495.json"
     },
     {
       "source_id": 496,
@@ -5640,10 +5644,11 @@
       "title": "Next Greater Element I",
       "difficulty": "Easy",
       "source_hash": "c0c9568dad4ade1d8e3f6d61654d9d7d5431ddb3e70c04ba89136ef02ead7e52",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "next-greater-values",
+      "reason": "The original exercise computes the first strictly greater value to the right for every input position. Source 496 adds only selecting those results for a unique-value subset in query order: zip nums2 to its complete next-greater output, then look up nums1. Its unique 0..10000 inputs are covered by the original arbitrary-integer contract. The mapping takes O(n+m) total time with the original stack; preserve its existing progress ID.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-496.json"
     },
     {
       "source_id": 497,
@@ -5662,10 +5667,11 @@
       "title": "Diagonal Traverse",
       "difficulty": "Medium",
       "source_hash": "242d66d0e7c56526e0d1d82884132b3b61df92bab43edd708826caf70c7d9ad6",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-498.json",
+      "problem_id": "leetcode-498"
     },
     {
       "source_id": 499,
