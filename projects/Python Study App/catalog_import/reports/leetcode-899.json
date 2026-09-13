@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-899",
+  "content_sha256": "a20ba9ca7b9b9e1b2a913831b0ab5f4ae42a023b1c8ef42048d751a974e3e890",
+  "source_hash": "4e0f66a91dfefb7fe54c323bf5e6163060ad8763d416e847da65d3de2e4e2667",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to unlock permutations when k equals two.",
+      "failed_cases": [
+        "lc-899-8",
+        "lc-899-15"
+      ]
+    },
+    {
+      "reason": "Never considers rotations for k equals one.",
+      "failed_cases": [
+        "lc-899-1",
+        "lc-899-4",
+        "lc-899-7",
+        "lc-899-10",
+        "lc-899-12",
+        "lc-899-14",
+        "lc-899-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4946,
+  "oracle_implementation": "code_practice/import_batch_076.py:orderly_oracle",
+  "validator_implementation_sha256": "54e70d30ce82fe16542959bebb7fc8dc1d3b38b197b62584f92652146e95395f",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9dc91a1074de1d00661ff7b98bc38e2b483af99241ccf643cb12329cf4e6db5b",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

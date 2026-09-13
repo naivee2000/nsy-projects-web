@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-923",
+  "content_sha256": "203a3a246959190c3bfd416af88459ccad67b0515ff6142d2f2a149569cbc26e",
+  "source_hash": "438259e7526d08745e5e8d600b27e15fee6d673ed8945a4fd79be10339ae23c8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the wrong combination divisor for three equal values.",
+      "failed_cases": [
+        "lc-923-3",
+        "lc-923-6",
+        "lc-923-10",
+        "lc-923-12"
+      ]
+    },
+    {
+      "reason": "Counts value orders more than once.",
+      "failed_cases": [
+        "lc-923-1",
+        "lc-923-2",
+        "lc-923-4",
+        "lc-923-5",
+        "lc-923-7",
+        "lc-923-8",
+        "lc-923-9",
+        "lc-923-10",
+        "lc-923-11",
+        "lc-923-13",
+        "lc-923-14",
+        "lc-923-15",
+        "lc-923-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4970,
+  "oracle_implementation": "code_practice/import_batch_076.py:three_sum_oracle",
+  "validator_implementation_sha256": "54e70d30ce82fe16542959bebb7fc8dc1d3b38b197b62584f92652146e95395f",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "820eeb45fb55bd5619c62f5429003ec89bf15aa2d77fe9b07b6e25c041ab8bf5",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-938",
+  "content_sha256": "e940a07670d389ddf4953978d4bc573be2cb84a10d35530fa0c09df1d000b60b",
+  "source_hash": "0d1142b6332aae937d1cd678bd0010b7f7af5910f40a0965c6eedc94757cd067",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Prunes a boundary value that must be included.",
+      "failed_cases": [
+        "lc-938-1",
+        "lc-938-2",
+        "lc-938-3",
+        "lc-938-4",
+        "lc-938-5",
+        "lc-938-7",
+        "lc-938-8",
+        "lc-938-11",
+        "lc-938-12",
+        "lc-938-13",
+        "lc-938-14",
+        "lc-938-15"
+      ]
+    },
+    {
+      "reason": "Traverses but never contributes the current node value.",
+      "failed_cases": [
+        "lc-938-1",
+        "lc-938-2",
+        "lc-938-3",
+        "lc-938-4",
+        "lc-938-5",
+        "lc-938-7",
+        "lc-938-8",
+        "lc-938-9",
+        "lc-938-10",
+        "lc-938-11",
+        "lc-938-12",
+        "lc-938-13",
+        "lc-938-14",
+        "lc-938-15",
+        "lc-938-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4985,
+  "oracle_implementation": "code_practice/import_batch_076.py:range_bst_oracle",
+  "validator_implementation_sha256": "54e70d30ce82fe16542959bebb7fc8dc1d3b38b197b62584f92652146e95395f",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dd77903dbdc67be88fced2f11e8cfe29254942343187368a9c2fa3a8a4903f84",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-915",
+  "content_sha256": "e289b33cd7d4d1d16f9fa714b1312a6cf4563b0896f0b634ac5ad062e53561a4",
+  "source_hash": "60c16305420497bb5552608ef77e8fd141c909f2951d67a7d6bbe3f9cfbcdb58",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Extends the left side unnecessarily on equality.",
+      "failed_cases": [
+        "lc-915-8",
+        "lc-915-10"
+      ]
+    },
+    {
+      "reason": "Always splits after the first value.",
+      "failed_cases": [
+        "lc-915-1",
+        "lc-915-2",
+        "lc-915-4",
+        "lc-915-6",
+        "lc-915-7",
+        "lc-915-9",
+        "lc-915-11",
+        "lc-915-13",
+        "lc-915-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4962,
+  "oracle_implementation": "code_practice/import_batch_076.py:partition_oracle",
+  "validator_implementation_sha256": "54e70d30ce82fe16542959bebb7fc8dc1d3b38b197b62584f92652146e95395f",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b550c58a9b94f05daed9d647e7fe2e878c1243efdef069754ca734a6fa94a7be",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

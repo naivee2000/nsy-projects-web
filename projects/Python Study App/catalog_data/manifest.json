@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 659,
+  "count": 679,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -11797,6 +11797,348 @@
       "path": "problems/leetcode-896.json",
       "content_sha256": "570ac451b2fdb3dff8addc03d17608746497774f5bdf95aadd6dcca5e0b734ae",
       "source_id": 896
+    },
+    {
+      "id": "leetcode-898",
+      "version": 1,
+      "status": "approved",
+      "title": "Bitwise ORs of Subarrays",
+      "summary": "For an integer array arr, count the unique bitwise OR results from all non-empty subarrays.",
+      "topics": [
+        "bit-manipulation",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-898.json",
+      "content_sha256": "36c92693bbb75d1d875f307676a682c8a236373af0f63f92d414bd3d1a193a2e",
+      "source_id": 898
+    },
+    {
+      "id": "leetcode-899",
+      "version": 1,
+      "status": "approved",
+      "title": "Orderly Queue",
+      "summary": "Given a string s and an integer k, select and move one of the first k characters to the end of s.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-899.json",
+      "content_sha256": "a20ba9ca7b9b9e1b2a913831b0ab5f4ae42a023b1c8ef42048d751a974e3e890",
+      "source_id": 899
+    },
+    {
+      "id": "leetcode-904",
+      "version": 1,
+      "status": "approved",
+      "title": "Fruit Into Baskets",
+      "summary": "You are visiting a farm with a single row of fruit trees arranged from left to right.",
+      "topics": [
+        "sliding-window",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-904.json",
+      "content_sha256": "3428ec381f9909659f557d90f98ea33f37eb3cdcd6fc0e2a6d9d7f1fa5eb3036",
+      "source_id": 904
+    },
+    {
+      "id": "leetcode-907",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Subarray Minimums",
+      "summary": "Calculate the sum of the minimum values for all possible contiguous subarrays in the given integer array, then return the result modulo 10^9 + 7.",
+      "topics": [
+        "monotonic-stack"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-907.json",
+      "content_sha256": "def8f40468f4a349e89bbe6e1a8c2041b43ae6b7bd6135529434b90e59993a87",
+      "source_id": 907
+    },
+    {
+      "id": "leetcode-908",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Range I",
+      "summary": "Given an integer array nums and an integer k, you can change each element nums[i] to nums[i] + x, where x is any integer within the range from -k to k.",
+      "topics": [
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-908.json",
+      "content_sha256": "b7cfd141e8efc59d4d3c2f3c09a013cb40122818aadab7e47279aa201bf64914",
+      "source_id": 908
+    },
+    {
+      "id": "leetcode-910",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Range II",
+      "summary": "Given an integer array nums and an integer k, for each index i, modify nums[i] to either nums[i] + k or nums[i] - k.",
+      "topics": [
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-910.json",
+      "content_sha256": "f39d6305b100e66fae3afa09df538946a87c806157f0548e474f5dd4916d8516",
+      "source_id": 910
+    },
+    {
+      "id": "leetcode-912",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort an Array",
+      "summary": "Provide an array of integers, nums, and return it sorted in ascending order, ensuring the sorting algorithm runs in O(nlog(n)) time and uses minimal space.",
+      "topics": [
+        "sorting",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-912.json",
+      "content_sha256": "dea057520f4f11a3d7a2e878070af0fd403f0737496c287da965f84f1df04c99",
+      "source_id": 912
+    },
+    {
+      "id": "leetcode-914",
+      "version": 1,
+      "status": "approved",
+      "title": "X of a Kind in a Deck of Cards",
+      "summary": "Given an integer array where each element represents the value on a card, determine if it is possible to partition the cards into one or more groups such that each group contains exactly two or more cards with the same value.",
+      "topics": [
+        "hash-maps",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-914.json",
+      "content_sha256": "040798beaaa4cb362d39d235c3dbfab034924db72a178be80960c7f9bad916ed",
+      "source_id": 914
+    },
+    {
+      "id": "leetcode-915",
+      "version": 1,
+      "status": "approved",
+      "title": "Partition Array into Disjoint Intervals",
+      "summary": "Given an integer array nums, divide it into two contiguous subarrays left and right such that every element in left is less than or equal to every element in right, both subarrays are non-empty, and left is as small as possible.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-915.json",
+      "content_sha256": "e289b33cd7d4d1d16f9fa714b1312a6cf4563b0896f0b634ac5ad062e53561a4",
+      "source_id": 915
+    },
+    {
+      "id": "leetcode-917",
+      "version": 1,
+      "status": "approved",
+      "title": "Reverse Only Letters",
+      "summary": "For a string s, reverse only the English letters while keeping non-letter characters in their original positions.",
+      "topics": [
+        "strings",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-917.json",
+      "content_sha256": "fc4b9fe1ac69d835c6d75645b8e5b3416277f53b1d73a93df6d86607e8cdfe1c",
+      "source_id": 917
+    },
+    {
+      "id": "leetcode-921",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Add to Make Parentheses Valid",
+      "summary": "A string is valid if it is empty, can be formed by concatenating two valid strings, or is a pair of parentheses around a valid string.",
+      "topics": [
+        "strings",
+        "stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-921.json",
+      "content_sha256": "02a1a61450165b632d013f932ea935060dfefea2dfa8aec0432412caf79dc9bc",
+      "source_id": 921
+    },
+    {
+      "id": "leetcode-923",
+      "version": 1,
+      "status": "approved",
+      "title": "3Sum With Multiplicity",
+      "summary": "For an integer array arr and a target integer, count the number of unique triplets (i, j, k) where i < j < k and arr[i] + arr[j] + arr[k] equals the target.",
+      "topics": [
+        "counting",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-923.json",
+      "content_sha256": "203a3a246959190c3bfd416af88459ccad67b0515ff6142d2f2a149569cbc26e",
+      "source_id": 923
+    },
+    {
+      "id": "leetcode-925",
+      "version": 1,
+      "status": "approved",
+      "title": "Long Pressed Name",
+      "summary": "Determine if a string could be a long-pressed version of a given name, where some characters may be repeated due to long pressing.",
+      "topics": [
+        "strings",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-925.json",
+      "content_sha256": "51c61c4cfb274bceadba0cb8f3815c53535b88944b9d8ed413bf0ce89dee1f29",
+      "source_id": 925
+    },
+    {
+      "id": "leetcode-926",
+      "version": 1,
+      "status": "approved",
+      "title": "Flip String to Monotone Increasing",
+      "summary": "Given a binary string, determine the least number of flips needed to transform it into a sequence where all zeros precede all ones.",
+      "topics": [
+        "dynamic-programming",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-926.json",
+      "content_sha256": "5b3dd02c27f3652e42af6a2cdb9c9f52bf1c4e73aeacaca5c9d8424aa7f69e2c",
+      "source_id": 926
+    },
+    {
+      "id": "leetcode-929",
+      "version": 1,
+      "status": "approved",
+      "title": "Unique Email Addresses",
+      "summary": "Each valid email includes a local name and a domain name, separated by '@'.",
+      "topics": [
+        "hash-maps",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-929.json",
+      "content_sha256": "ba274413ed988fd494cf43f09d8e4f7b504733751444adcaea3e2f3d0e2afa41",
+      "source_id": 929
+    },
+    {
+      "id": "leetcode-930",
+      "version": 1,
+      "status": "approved",
+      "title": "Binary Subarrays With Sum",
+      "summary": "Given a binary array and an integer goal, count the non-empty subarrays whose sum equals the goal.",
+      "topics": [
+        "prefix-sums",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-930.json",
+      "content_sha256": "d4e80d5b9218900d61b9cb2a65c24879f9f91fd5c39b80d848879b4d2315fb52",
+      "source_id": 930
+    },
+    {
+      "id": "leetcode-931",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Falling Path Sum",
+      "summary": "Determine the least sum of a falling path in an n x n matrix, where a falling path begins at any element in the top row and moves to the directly below or diagonally adjacent element in the subsequent rows.",
+      "topics": [
+        "dynamic-programming",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-931.json",
+      "content_sha256": "f62c023b9a9abc62fe95e1bc73d257b7edb6709ad7795d12283882a209083441",
+      "source_id": 931
+    },
+    {
+      "id": "leetcode-935",
+      "version": 1,
+      "status": "approved",
+      "title": "Knight Dialer",
+      "summary": "Given an integer n, determine the number of distinct phone numbers of length n that can be dialed using a chess knight's unique movement on a phone pad.",
+      "topics": [
+        "dynamic-programming",
+        "graphs"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-935.json",
+      "content_sha256": "c669d3bda2c5f8a3f05d9194db13e85997bdca2d91c3048033c4ad195bfa4a59",
+      "source_id": 935
+    },
+    {
+      "id": "leetcode-937",
+      "version": 1,
+      "status": "approved",
+      "title": "Reorder Data in Log Files",
+      "summary": "Given an array of logs where each log is a space-delimited string and the first word is an identifier, reorder the logs so that all letter-logs come before any digit-logs.",
+      "topics": [
+        "sorting",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-937.json",
+      "content_sha256": "6dcfbe138b4d880bcf1b3c73faba3bde1886e98fad489a578f7b480eaaf0b3ec",
+      "source_id": 937
+    },
+    {
+      "id": "leetcode-938",
+      "version": 1,
+      "status": "approved",
+      "title": "Range Sum of BST",
+      "summary": "For a binary search tree, calculate the sum of node values that fall within the range from low to high, inclusive.",
+      "topics": [
+        "trees",
+        "binary-search-trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-938.json",
+      "content_sha256": "e940a07670d389ddf4953978d4bc573be2cb84a10d35530fa0c09df1d000b60b",
+      "source_id": 938
     }
   ]
 }

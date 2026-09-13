@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-937",
+  "content_sha256": "6dcfbe138b4d880bcf1b3c73faba3bde1886e98fad489a578f7b480eaaf0b3ec",
+  "source_hash": "b1c6f8ce719a186504edf1a4d5ab3858fe494dce27490e4b393d0e0083517c31",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts letter logs in descending order.",
+      "failed_cases": [
+        "lc-937-1",
+        "lc-937-2",
+        "lc-937-6",
+        "lc-937-7",
+        "lc-937-9",
+        "lc-937-11",
+        "lc-937-12",
+        "lc-937-14",
+        "lc-937-15"
+      ]
+    },
+    {
+      "reason": "Reverses digit logs instead of preserving them.",
+      "failed_cases": [
+        "lc-937-1",
+        "lc-937-2",
+        "lc-937-5",
+        "lc-937-8",
+        "lc-937-10",
+        "lc-937-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4984,
+  "oracle_implementation": "code_practice/import_batch_076.py:logs_oracle",
+  "validator_implementation_sha256": "54e70d30ce82fe16542959bebb7fc8dc1d3b38b197b62584f92652146e95395f",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "984ee481536e62f2737d2e18e30a4ad01cfff45ef7e3a399ac429e64bb1c830b",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

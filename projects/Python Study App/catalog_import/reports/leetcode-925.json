@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-925",
+  "content_sha256": "51c61c4cfb274bceadba0cb8f3815c53535b88944b9d8ed413bf0ce89dee1f29",
+  "source_hash": "7ab418c96579787250e7f3f856851025ea56710805851ac23dbb21928c021e38",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects all legitimate repeated typed characters.",
+      "failed_cases": [
+        "lc-925-1",
+        "lc-925-4",
+        "lc-925-6",
+        "lc-925-7",
+        "lc-925-10",
+        "lc-925-11",
+        "lc-925-13",
+        "lc-925-15",
+        "lc-925-16"
+      ]
+    },
+    {
+      "reason": "Accepts typed strings that never finish the name.",
+      "failed_cases": [
+        "lc-925-5",
+        "lc-925-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4972,
+  "oracle_implementation": "code_practice/import_batch_076.py:long_press_oracle",
+  "validator_implementation_sha256": "54e70d30ce82fe16542959bebb7fc8dc1d3b38b197b62584f92652146e95395f",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "38b39b79aca5b8de2f48697199160492ec731c5cf9c06417123489fdb649e1e2",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

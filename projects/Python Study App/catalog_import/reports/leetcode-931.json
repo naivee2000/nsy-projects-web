@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-931",
+  "content_sha256": "f62c023b9a9abc62fe95e1bc73d257b7edb6709ad7795d12283882a209083441",
+  "source_hash": "35c132f04ef58827eefa16c16bf04f974a72a8191d16a2b09ec84ecba152bae6",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forbids down-left moves.",
+      "failed_cases": [
+        "lc-931-13",
+        "lc-931-15",
+        "lc-931-16"
+      ]
+    },
+    {
+      "reason": "Requires the final path to end in the first column.",
+      "failed_cases": [
+        "lc-931-6",
+        "lc-931-10",
+        "lc-931-12",
+        "lc-931-13",
+        "lc-931-15",
+        "lc-931-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4978,
+  "oracle_implementation": "code_practice/import_batch_076.py:falling_oracle",
+  "validator_implementation_sha256": "54e70d30ce82fe16542959bebb7fc8dc1d3b38b197b62584f92652146e95395f",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8f7435707621ce10a46d843fbcb80830f673aae6ed9dc9965afa7fbb57003972",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

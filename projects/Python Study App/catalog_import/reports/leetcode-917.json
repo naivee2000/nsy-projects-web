@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-917",
+  "content_sha256": "fc4b9fe1ac69d835c6d75645b8e5b3416277f53b1d73a93df6d86607e8cdfe1c",
+  "source_hash": "b9b1d80af7445a46ee0741cb476018d55a6e1fdcd9fbaf4138bd11707a3da299",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats digits as letters and moves them.",
+      "failed_cases": [
+        "lc-917-7",
+        "lc-917-8",
+        "lc-917-11",
+        "lc-917-13"
+      ]
+    },
+    {
+      "reason": "Overwrites one side instead of swapping.",
+      "failed_cases": [
+        "lc-917-1",
+        "lc-917-2",
+        "lc-917-5",
+        "lc-917-6",
+        "lc-917-7",
+        "lc-917-8",
+        "lc-917-9",
+        "lc-917-10",
+        "lc-917-11",
+        "lc-917-12",
+        "lc-917-14",
+        "lc-917-15",
+        "lc-917-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4964,
+  "oracle_implementation": "code_practice/import_batch_076.py:reverse_letters_oracle",
+  "validator_implementation_sha256": "54e70d30ce82fe16542959bebb7fc8dc1d3b38b197b62584f92652146e95395f",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "85e3d27f50c87d6852b320d1c0ee4fa22e4ead1ea98602f16a1ad3cad350fe3e",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

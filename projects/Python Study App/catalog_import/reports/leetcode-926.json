@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-926",
+  "content_sha256": "5b3dd02c27f3652e42af6a2cdb9c9f52bf1c4e73aeacaca5c9d8424aa7f69e2c",
+  "source_hash": "c1deab23226a839b9de940e9cac1a2d698a82e49702c106a3ee0fbf5f93114fb",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Always flips zeros after any one and misses cheaper earlier-one flips.",
+      "failed_cases": [
+        "lc-926-1",
+        "lc-926-2",
+        "lc-926-3",
+        "lc-926-5",
+        "lc-926-7",
+        "lc-926-9",
+        "lc-926-12",
+        "lc-926-13",
+        "lc-926-15"
+      ]
+    },
+    {
+      "reason": "Counts zeros as the prefix ones that could be flipped.",
+      "failed_cases": [
+        "lc-926-1",
+        "lc-926-5",
+        "lc-926-6",
+        "lc-926-9",
+        "lc-926-10",
+        "lc-926-13",
+        "lc-926-14",
+        "lc-926-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4973,
+  "oracle_implementation": "code_practice/import_batch_076.py:flips_oracle",
+  "validator_implementation_sha256": "54e70d30ce82fe16542959bebb7fc8dc1d3b38b197b62584f92652146e95395f",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8223299df8e6a94aa504b98a23686c98d49a01bdc922b00b6cc53e2101fcc5bb",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

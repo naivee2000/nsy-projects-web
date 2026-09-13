@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-929",
+  "content_sha256": "ba274413ed988fd494cf43f09d8e4f7b504733751444adcaea3e2f3d0e2afa41",
+  "source_hash": "3f7b17a5319179e9646c50c0bf09285f6476f1dd1f78c9978d9d9a9a58af702d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps dots in the local part.",
+      "failed_cases": [
+        "lc-929-1",
+        "lc-929-4",
+        "lc-929-7",
+        "lc-929-9",
+        "lc-929-12",
+        "lc-929-15"
+      ]
+    },
+    {
+      "reason": "Keeps ignored plus suffixes.",
+      "failed_cases": [
+        "lc-929-1",
+        "lc-929-5",
+        "lc-929-7",
+        "lc-929-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4976,
+  "oracle_implementation": "code_practice/import_batch_076.py:email_oracle",
+  "validator_implementation_sha256": "54e70d30ce82fe16542959bebb7fc8dc1d3b38b197b62584f92652146e95395f",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aca2a9d67a44411d8956d69e953169f3de032efac521b20cf63ef7f77a698415",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
