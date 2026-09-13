@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-527",
+  "content_sha256": "6851d115e33b35140760ef49f07721a1b03a8776e1506bd21cc48b9ecc0f8af8",
+  "source_hash": "0e92cc3d58a76c87aa5f10f879804a9bfa7614991448d71a7a91d47fdf3d6566",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Returns initial abbreviations without resolving collisions.",
+      "failed_cases": [
+        "lc-527-1",
+        "lc-527-2",
+        "lc-527-10",
+        "lc-527-12",
+        "lc-527-15",
+        "lc-527-16",
+        "lc-527-stress-1",
+        "lc-527-stress-2"
+      ]
+    },
+    {
+      "reason": "Keeps abbreviations that are as long as or longer than the original word.",
+      "failed_cases": [
+        "lc-527-1",
+        "lc-527-4",
+        "lc-527-6",
+        "lc-527-12",
+        "lc-527-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4574,
+  "oracle_implementation": "code_practice/import_batch_053.py:abbreviation_oracle",
+  "validator_implementation_sha256": "ee182126156f093aae5eec05f60f50149ea2f24e5493fc24ed0df3a1832bce0e",
+  "batch_implementation_sha256": "15a9f8623dc6c22767ce9102abab0d9a2da6c33a3d1868db557f9ed50fb57b7f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "elapsed_seconds": 0.208,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

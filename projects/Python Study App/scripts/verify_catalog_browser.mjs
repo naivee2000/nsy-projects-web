@@ -87,8 +87,9 @@ async function request(route, body, method = 'POST') {
   return response.json();
 }
 
+let completedJudgeRuns = 0;
 async function judge(page, problem, source) {
-  return page.evaluate(async ({ problem, source }) => {
+  const result = await page.evaluate(async ({ problem, source }) => {
     const worker = new Worker('/judge-worker.js');
     try {
       await new Promise((resolve, reject) => {
@@ -109,6 +110,8 @@ async function judge(page, problem, source) {
       });
     } finally { worker.terminate(); }
   }, { problem, source });
+  if (++completedJudgeRuns % 25 === 0) console.log(`Completed ${completedJudgeRuns} isolated browser judge runs`);
+  return result;
 }
 
 try {
@@ -376,6 +379,18 @@ try {
     assert((await page.locator('.problem-pane').textContent()).includes(explanation));
   }
   report.checks.push('batch 52 examples explain three capital patterns, containing input positions, alphabetical tie-breaking, and one-based divisibility without double counting');
+  for (const [title,explanation] of [
+    ['Continuous Subarray Sum','divisible by 6 but is too short'],
+    ['Word Abbreviation','extending just one colliding word is not allowed'],
+    ['Minesweeper','expansion does not cross a numbered cell'],
+    ['Minimum Absolute Difference in BST','They are not parent and child'],
+  ]) {
+    await page.getByRole('button',{name:'Back',exact:true}).click();
+    await page.getByPlaceholder('Search title, topic, or pattern').fill(title);
+    await page.locator('button.problem-card').filter({has:page.getByText(title,{exact:true})}).click();
+    assert((await page.locator('.problem-pane').textContent()).includes(explanation));
+  }
+  report.checks.push('batch 53 examples explain minimum subarray length, simultaneous abbreviation expansion, numbered mine boundaries, and non-edge BST pairs');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values', 'recursive-step-combinations', 'longest-target-sum-subarray'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -708,6 +723,55 @@ def sliding_window_medians(nums, k):
     assert.equal((await fetch(`${base}/api/problems/leetcode-${id}`)).status,404);
   }
   report.checks.push('batch 52 rejects eight wrong algorithms; all 15 arrangement inputs pass; two-string uncommon mapping includes length 100 and rejects truncation, while binary-balance mapping passes length 100000 and rejects noncontiguous counts; no duplicate API or library IDs');
+  for (const id of [523,527,529,530]) {
+    const problem=JSON.parse(await fs.readFile(path.join(root,`catalog_data/problems/leetcode-${id}.json`),'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page,problem,wrong)).status,'wrong_answer',`batch 53 wrong algorithm ${id}`);
+    }
+  }
+  const gap=JSON.parse(await fs.readFile(path.join(root,'catalog_data/problems/leetcode-530.json'),'utf8'));
+  const mutatingGap=gap.reference_solution.replace('return best','root.val+=1\n    return best');
+  assert.equal((await judge(page,gap,mutatingGap)).status,'wrong_answer');
+  const identityGap={...gap,tests:[{id:'readonly-identities',arguments:[[1,1,1]],expected:0,comparator:'exact',visible:true}]};
+  for (const mutation of [
+    'root.left=TreeNode(root.left.val,root.left.left,root.left.right)',
+    'root.left,root.right=root.right,root.left',
+    'root.left.val=True',
+    'root.left.left=TreeNode(1)',
+  ]) {
+    const rejected=await judge(page,identityGap,gap.reference_solution.replace('return best',mutation+'\n    return best'));
+    assert.equal(rejected.status,'wrong_answer');
+    assert(/Read-only trees|Do not modify the input parameter/.test(rejected.cases[0].error));
+  }
+  const morrisGap=`def minimum_bst_difference(root):
+    node=root;previous=None;best=100001
+    while node is not None:
+        if node.left is None:
+            if previous is not None:best=min(best,node.val-previous)
+            previous=node.val;node=node.right
+        else:
+            predecessor=node.left
+            while predecessor.right is not None and predecessor.right is not node:
+                predecessor=predecessor.right
+            if predecessor.right is None:
+                predecessor.right=node;node=node.left
+            else:
+                predecessor.right=None
+                if previous is not None:best=min(best,node.val-previous)
+                previous=node.val;node=node.right
+    return best
+`;
+  const falseyGap='class TreeNode:\n    def __init__(self,val=0,left=None,right=None):\n        self.val=val;self.left=left;self.right=right\n    def __bool__(self):\n        return False\n';
+  for (const source of [morrisGap,falseyGap+gap.reference_solution,falseyGap+morrisGap]) {
+    assert.equal((await judge(page,gap,source)).status,'accepted');
+  }
+  report.checks.push('read-only TreeNode inputs reject equal-looking replacements, equal-valued child swaps, bool-for-int values, and added nodes; falsey originals and fully restored Morris threads pass');
+  const mines=JSON.parse(await fs.readFile(path.join(root,'catalog_data/problems/leetcode-529.json'),'utf8'));
+  const copiedMines=mines.reference_solution.replace('def reveal_minesweeper(board,click):','def reveal_minesweeper(board,click):\n    board=[row[:] for row in board]');
+  assert.equal((await judge(page,mines,copiedMines)).status,'accepted');
+  assert(!manifest.entries.some(p=>p.id==='leetcode-783'));
+  assert.equal((await fetch(`${base}/api/problems/leetcode-783`)).status,404);
+  report.checks.push('batch 53 rejects eight incorrect algorithms and mutated BST inputs; accepts copied mine results, passes 50x50 reveals, 10000-node trees, 400 words of length 400, and 100000-entry residue arrays; duplicate BST source 783 is absent');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],

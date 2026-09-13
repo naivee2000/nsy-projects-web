@@ -4,9 +4,9 @@
   "workbook_sha256": "d4d791913078d0275fb404f4e61ff914b039f74f44ff4a2774070685e82e8e46",
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
-    "overlap": 81,
-    "imported": 348,
-    "pending": 3045,
+    "overlap": 82,
+    "imported": 352,
+    "pending": 3040,
     "excluded": 155
   },
   "record_count": 3629,
@@ -5941,10 +5941,11 @@
       "title": "Continuous Subarray Sum",
       "difficulty": "Medium",
       "source_hash": "9b4935271278d11b9a5ab49b0abd38aef87bca0cffac6f3788244d9a5d3ae4c6",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-523.json",
+      "problem_id": "leetcode-523"
     },
     {
       "source_id": 524,
@@ -5988,10 +5989,11 @@
       "title": "Word Abbreviation",
       "difficulty": "Hard",
       "source_hash": "0e92cc3d58a76c87aa5f10f879804a9bfa7614991448d71a7a91d47fdf3d6566",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-527.json",
+      "problem_id": "leetcode-527"
     },
     {
       "source_id": 528,
@@ -6010,10 +6012,11 @@
       "title": "Minesweeper",
       "difficulty": "Medium",
       "source_hash": "b0e8aaf453f7cbe0e8db84b63720fa692ffc5fd4dfb2ecddc6822e045bf3b221",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-529.json",
+      "problem_id": "leetcode-529"
     },
     {
       "source_id": 530,
@@ -6021,10 +6024,11 @@
       "title": "Minimum Absolute Difference in BST",
       "difficulty": "Easy",
       "source_hash": "99c4761bb1a27bd72e6c91a2a1dd90ec8f8dae2a290850ffba68f448892dc6c0",
-      "status": "pending",
+      "status": "imported",
       "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "reason": "Reviewed contract and independent oracle; see validation report.",
+      "validation_report": "catalog_import/reports/leetcode-530.json",
+      "problem_id": "leetcode-530"
     },
     {
       "source_id": 531,
@@ -8487,10 +8491,11 @@
       "title": "Minimum Distance Between BST Nodes",
       "difficulty": "Easy",
       "source_hash": "05c7d43acd096dcd78350e427c82deb2197b820aae82299332f38a87e08b95dd",
-      "status": "pending",
-      "existing_id": null,
-      "reason": "Requires contract review, independent tests, and validation.",
-      "validation_report": null
+      "status": "overlap",
+      "existing_id": "leetcode-530",
+      "reason": "Both source descriptions explicitly identify the other problem as identical: return the minimum absolute difference between any two distinct BST nodes. Source 783's 2..100 nodes and values 0..100000 are wholly covered by source 530's 2..10000-node contract. Pairwise JSON-value enumeration verifies 500 seeded BSTs, both workbook examples, extreme values, equal-node values, and full source-size shapes with read-only node checks. Keep the approved 530 progress ID; do not add a second exercise.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-783.json"
     },
     {
       "source_id": 784,

@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 449 runnable problems (101 original exercises plus 348 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 453 runnable problems (101 original exercises plus 352 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The transfer-ready **430-problem handoff checkpoint** is tagged `python-study-430-checkpoint`; all seven earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_430_CHECKPOINT.md) for exact-version update commands. It includes all eleven verified batch-46/47/48 additions since the 419-problem release. Resumed development adds nineteen batch-49/50/51/52 problems outside the frozen release. The remaining workbook expansion is unfinished. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The transfer-ready **430-problem handoff checkpoint** is tagged `python-study-430-checkpoint`; all seven earlier checkpoint tags remain unchanged. See [the current checkpoint and transfer checklist](docs/RELEASE_430_CHECKPOINT.md) for exact-version update commands. It includes all eleven verified batch-46/47/48 additions since the 419-problem release. Resumed development adds twenty-three batch-49/50/51/52/53 problems outside the frozen release. The remaining workbook expansion is unfinished. Continuing development on this laptop does not change the website until you explicitly transfer another release, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 81 existing equivalents, 348 verified imports, 155 documented
-design/interactive exclusions, and 3,045 pending records. Ordinary tree and
+Current status: 82 existing equivalents, 352 verified imports, 155 documented
+design/interactive exclusions, and 3,040 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Fifty-two reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Fifty-three reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -522,7 +522,27 @@ Longest Target-Sum Subarray exercise by replacing zero with -1 and using target
 zero; independent subarray enumeration and 100,000-entry fixtures verify it.
 All 445 preceding definitions and progress IDs remain unchanged. These four
 additions remain outside the frozen 430-problem transfer tag.
-Of the 81 overlaps, 73 map to original exercises and eight map to approved
+Batch fifty-three adds Continuous Subarray Sum, Word Abbreviation, Minesweeper,
+and Minimum Absolute Difference in BST. Their examples distinguish length-two
+subarrays, simultaneous collision expansion, eight-neighbor reveals with numbered
+boundaries, and closest tree values that are not parent/child pairs.
+Every import passes 500 independent oracle cases and rejects two wrong algorithms.
+Additional tests exhaust small residue arrays, abbreviation sets, all 512
+three-by-three mine layouts with every click, and small BST multisets in three
+shapes. Full-size cases cover 100,000 array entries, 400 words of length 400,
+50-by-50 mine boards, and 10,000-node trees without recursion-limit changes.
+Source 783 is a verified equivalent of the new BST exercise, not another ID.
+Existing tree values/links are protected by the read-only judge contract.
+An additional audit found that serialized-value comparisons alone allowed an
+identical-looking replacement child. Both native validation and the browser judge
+now retain original tree identities and check value types and exact child links.
+Regressions reject replacements, equal-valued swaps, added nodes, and bool-for-int
+changes; falsey original nodes and completely restored Morris threads remain valid.
+All 352 imports and thirteen detailed overlap proofs have been revalidated for
+this shared-judge change, without changing preceding problem definitions.
+All 449 previous definitions and progress IDs remain unchanged. The four new
+problems remain outside the frozen 430-problem transfer tag.
+Of the 82 overlaps, 73 map to original exercises and nine map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
 its full unique-input domain is covered, with 500 independent permutation checks,
 the original sample, and all 720 outputs on six-element boundaries. This is
@@ -578,7 +598,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 449 problems; future
+been checked against every reviewed batch. The current package contains 453 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the

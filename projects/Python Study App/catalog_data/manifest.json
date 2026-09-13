@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 449,
+  "count": 453,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -8068,6 +8068,24 @@
       "source_id": 522
     },
     {
+      "id": "leetcode-523",
+      "version": 1,
+      "status": "approved",
+      "title": "Continuous Subarray Sum",
+      "summary": "Given an integer array nums and an integer k, return true if nums contains a subarray of at least two consecutive elements whose sum is a multiple of k.",
+      "topics": [
+        "arrays",
+        "prefix-sums",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-523.json",
+      "content_sha256": "69b97a22091ad5662d463f06b606ee748e0dab79cf4e64f5eaa519b351b05a49",
+      "source_id": 523
+    },
+    {
       "id": "leetcode-524",
       "version": 1,
       "status": "approved",
@@ -8102,6 +8120,63 @@
       "path": "problems/leetcode-526.json",
       "content_sha256": "ff560d277dd379dbb85097d67daddb3bd75acc824b7c48e927ac8ec134e7b06e",
       "source_id": 526
+    },
+    {
+      "id": "leetcode-527",
+      "version": 1,
+      "status": "approved",
+      "title": "Word Abbreviation",
+      "summary": "Given an array of distinct strings, return the minimal possible abbreviations for each word.",
+      "topics": [
+        "strings",
+        "tries",
+        "hash-maps"
+      ],
+      "prerequisites": [
+        "strings",
+        "hash-maps"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-527.json",
+      "content_sha256": "6851d115e33b35140760ef49f07721a1b03a8776e1506bd21cc48b9ecc0f8af8",
+      "source_id": 527
+    },
+    {
+      "id": "leetcode-529",
+      "version": 1,
+      "status": "approved",
+      "title": "Minesweeper",
+      "summary": "Given an m x n board with unrevealed mines ('M'), empty squares ('E'), revealed blanks ('B'), and revealed mines ('X'), and a click position, reveal the board according to these rules: If 'M' is revealed, change it to 'X' and end the game.",
+      "topics": [
+        "matrices",
+        "recursion",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-529.json",
+      "content_sha256": "c384399ed7e32e0599db13046780df160d6fee76115506a435c842061359d392",
+      "source_id": 529
+    },
+    {
+      "id": "leetcode-530",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Absolute Difference in BST",
+      "summary": "For a given Binary Search Tree, find the smallest absolute difference between values of any two distinct nodes.",
+      "topics": [
+        "trees",
+        "binary-search-trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-530.json",
+      "content_sha256": "e646cafbf3313e7ee70ccf22cf317ae676736a42b516090828a4906463cee2d2",
+      "source_id": 530
     },
     {
       "id": "leetcode-543",

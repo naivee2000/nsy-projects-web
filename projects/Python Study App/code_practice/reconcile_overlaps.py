@@ -15,6 +15,11 @@ from .catalog_evidence import content_digest, judge_contract_hash, load_verified
 
 ROOT = Path(__file__).resolve().parent.parent
 DECISIONS = {
+    783: {
+        "target_source_id": 530,
+        "source_hash": "05c7d43acd096dcd78350e427c82deb2197b820aae82299332f38a87e08b95dd",
+        "reason": "Both source descriptions explicitly identify the other problem as identical: return the minimum absolute difference between any two distinct BST nodes. Source 783's 2..100 nodes and values 0..100000 are wholly covered by source 530's 2..10000-node contract. Pairwise JSON-value enumeration verifies 500 seeded BSTs, both workbook examples, extreme values, equal-node values, and full source-size shapes with read-only node checks. Keep the approved 530 progress ID; do not add a second exercise.",
+    },
     521: {
         "target_source_id": 522,
         "source_hash": "4ab29ded8049b4af47742a63617aca19a1e72790ca5aa7d5fd16df82d2db7c05",
@@ -99,6 +104,47 @@ def check_two_uncommon(payload,source):
     return dict(oracle_inputs=1000,oracle_seed=4568,workbook_sample_checked=True,
         deterministic_inputs=len(boundaries),largest_input=100,full_domain_generated_inputs=500,
         exhaustive_subsequence_inputs=500,domain='Two lowercase strings, each length 1..100; equal strings remain distinct input positions')
+
+
+def check_bst_gap(payload,source):
+    from collections import deque
+    from .build_import_batch import workbook_sample
+    from .schemas import ProblemDefinition,TestCase
+    from .validation import run_source
+    problem=ProblemDefinition.model_validate(payload)
+    if problem.signature.parameters[0].adapter!='treenode' or problem.signature.immutable_parameters!=[0]:
+        raise ValueError('BST gap target must use read-only TreeNode inputs')
+    def serialize(values):
+        queue=deque([values]);out=[]
+        while queue:
+            row=queue.popleft()
+            if not row:out.append(None);continue
+            mid=len(row)//2;out.append(row[mid]);queue.extend((row[:mid],row[mid+1:]))
+        while out[-1] is None:out.pop()
+        return out
+    def check(tree,expected=None):
+        values=[v for v in tree if v is not None]
+        oracle=min(abs(a-b) for i,a in enumerate(values) for b in values[i+1:])
+        if expected is not None and expected!=oracle:raise ValueError('BST source sample disagrees with pairwise oracle')
+        case=TestCase(id='overlap-gap',arguments=[tree],expected=oracle)
+        if run_source(problem.reference_solution,problem,case)!=(True,None):
+            raise ValueError('BST gap reference or read-only contract disagrees with independent pairwise oracle')
+    sample=workbook_sample(source['sample'],[{'name':'root'}])
+    if sample is None:raise ValueError('BST overlap requires its source sample')
+    check(sample[0][0],sample[1]);rng=random.Random(4830)
+    for _ in range(500):
+        values=sorted(rng.sample(range(100001),rng.randint(2,100)))
+        if rng.random()<.5:tree=serialize(values)
+        else:
+            tree=[values[0]]
+            for value in values[1:]:tree.extend((None,value))
+        check(tree)
+    boundaries=[[0,None,100000],[100000,0],[10,2,20,None,9],[1,0,48,None,None,12,49],
+                serialize(list(range(100))),serialize([17]*100)]
+    for tree in boundaries:check(tree)
+    return dict(oracle_inputs=500,oracle_seed=4830,workbook_sample_checked=True,
+        deterministic_inputs=len(boundaries)+1,largest_input=100,
+        domain='2..100 BST nodes, each value 0..100000; all pairs, not only parent-child edges; no mutation')
 
 
 def check_complement(payload, source):
@@ -411,7 +457,7 @@ def reconcile(root=ROOT):
                 raise ValueError("Source changed since the behavioral review")
             target = records[decision["target_source_id"]]
             payload = load_verified_import(target, root)
-            checker = {521: check_two_uncommon, 1009: check_complement, 2410: check_player_matching,
+            checker = {783: check_bst_gap, 521: check_two_uncommon, 1009: check_complement, 2410: check_player_matching,
                        2220: check_bit_flips, 46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
                        319: check_bulb_square_root}[source_id]
             evidence = checker(payload, sources[source_id])

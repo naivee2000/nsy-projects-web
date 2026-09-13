@@ -249,6 +249,11 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
             index: json.loads(json.dumps(_serialize(arguments[index], problem.signature.parameters[index].adapter)))
             for index in problem.signature.immutable_parameters
         }
+        immutable_tree_nodes = {
+            index: _tree_identity_snapshot(arguments[index])
+            for index in problem.signature.immutable_parameters
+            if problem.signature.parameters[index].adapter == "treenode"
+        }
         mode = problem.signature.result_mode
         observed_adapter = (problem.signature.return_adapter if mode == "return"
                             else problem.signature.parameters[problem.signature.mutated_parameter].adapter)
@@ -314,6 +319,12 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
                 expected_value = context["values"][selected + 1] if index == selected else context["values"][index]
                 if node.val != expected_value:
                     return False, None
+        if any(type(node.val) is not type(value) or node.val != value
+               or (id(node.left) if node.left is not None else None) != left
+               or (id(node.right) if node.right is not None else None) != right
+               for snapshot in immutable_tree_nodes.values()
+               for node, value, left, right in snapshot.values()):
+            return False, None
         if any(_serialize(arguments[index], problem.signature.parameters[index].adapter) != expected
                for index, expected in immutable_arguments.items()):
             return False, None

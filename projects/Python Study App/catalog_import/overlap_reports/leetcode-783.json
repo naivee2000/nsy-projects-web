@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "source_id": 783,
+  "source_hash": "05c7d43acd096dcd78350e427c82deb2197b820aae82299332f38a87e08b95dd",
+  "target_problem_id": "leetcode-530",
+  "target_source_hash": "99c4761bb1a27bd72e6c91a2a1dd90ec8f8dae2a290850ffba68f448892dc6c0",
+  "target_content_sha256": "e646cafbf3313e7ee70ccf22cf317ae676736a42b516090828a4906463cee2d2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "implementation_sha256": "e8cf307434bae1b64f456b123735b103c490e84810f0203cec706e169d0f1811",
+  "decision": {
+    "target_source_id": 530,
+    "source_hash": "05c7d43acd096dcd78350e427c82deb2197b820aae82299332f38a87e08b95dd",
+    "reason": "Both source descriptions explicitly identify the other problem as identical: return the minimum absolute difference between any two distinct BST nodes. Source 783's 2..100 nodes and values 0..100000 are wholly covered by source 530's 2..10000-node contract. Pairwise JSON-value enumeration verifies 500 seeded BSTs, both workbook examples, extreme values, equal-node values, and full source-size shapes with read-only node checks. Keep the approved 530 progress ID; do not add a second exercise."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 4830,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 7,
+  "largest_input": 100,
+  "domain": "2..100 BST nodes, each value 0..100000; all pairs, not only parent-child edges; no mutation"
+}

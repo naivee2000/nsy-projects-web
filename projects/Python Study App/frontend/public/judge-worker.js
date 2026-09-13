@@ -343,6 +343,11 @@ else:
                 index: json.loads(json.dumps(serialize(arguments[index], job["signature"]["parameters"][index].get("adapter", "raw"))))
                 for index in job["signature"].get("immutable_parameters", [])
             }
+            immutable_tree_nodes = {
+                index: tree_identity_snapshot(arguments[index])
+                for index in job["signature"].get("immutable_parameters", [])
+                if job["signature"]["parameters"][index].get("adapter") == "treenode"
+            }
             mode = job["signature"].get("result_mode", "return")
             observed_adapter = (job["signature"].get("return_adapter", "raw") if mode == "return"
                                 else job["signature"]["parameters"][job["signature"]["mutated_parameter"]].get("adapter", "raw"))
@@ -430,6 +435,13 @@ else:
                             passed = False
                             contract_error = "Delete the selected value by reusing the selected node, unlinking its original successor, and preserving every other original node."
                             break
+            if any(type(node.val) is not type(value) or node.val != value
+                   or (id(node.left) if node.left is not None else None) != left
+                   or (id(node.right) if node.right is not None else None) != right
+                   for snapshot in immutable_tree_nodes.values()
+                   for node, value, left, right in snapshot.values()):
+                passed = False
+                contract_error = "Read-only trees must preserve every original node value, value type, and exact child link. Identical-looking replacement nodes are not allowed."
             for index, expected_argument in immutable_arguments.items():
                 current_argument = serialize(arguments[index], job["signature"]["parameters"][index].get("adapter", "raw"))
                 if current_argument != expected_argument:

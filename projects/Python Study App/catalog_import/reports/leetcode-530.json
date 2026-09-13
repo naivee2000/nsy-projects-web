@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-530",
+  "content_sha256": "e646cafbf3313e7ee70ccf22cf317ae676736a42b516090828a4906463cee2d2",
+  "source_hash": "99c4761bb1a27bd72e6c91a2a1dd90ec8f8dae2a290850ffba68f448892dc6c0",
+  "visible_tests": 2,
+  "hidden_tests": 19,
+  "reference_passed": 21,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only edges rather than every possible pair of distinct nodes.",
+      "failed_cases": [
+        "lc-530-2",
+        "lc-530-14",
+        "lc-530-15"
+      ]
+    },
+    {
+      "reason": "Returns the entire range instead of the minimum pair gap.",
+      "failed_cases": [
+        "lc-530-1",
+        "lc-530-2",
+        "lc-530-7",
+        "lc-530-8",
+        "lc-530-9",
+        "lc-530-10",
+        "lc-530-13",
+        "lc-530-14",
+        "lc-530-15",
+        "lc-530-16",
+        "lc-530-17",
+        "lc-530-stress-1",
+        "lc-530-stress-2",
+        "lc-530-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4577,
+  "oracle_implementation": "code_practice/import_batch_053.py:gap_oracle",
+  "validator_implementation_sha256": "ee182126156f093aae5eec05f60f50149ea2f24e5493fc24ed0df3a1832bce0e",
+  "batch_implementation_sha256": "15a9f8623dc6c22767ce9102abab0d9a2da6c33a3d1868db557f9ed50fb57b7f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "elapsed_seconds": 0.19,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
