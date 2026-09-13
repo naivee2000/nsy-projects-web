@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1044",
+  "content_sha256": "8cbbd14cb5c9629f2d3dd14bc7c005911b4b121602a2b09e49905f9178ed00ec",
+  "source_hash": "6c5d5093025a02b6491562a4c68d9ee41e322aeb66037f9a9195afc0f1b60c91",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Shrinks the search after finding a repeated length.",
+      "failed_cases": [
+        "lc-1044-1",
+        "lc-1044-4",
+        "lc-1044-5",
+        "lc-1044-6",
+        "lc-1044-7",
+        "lc-1044-8",
+        "lc-1044-9",
+        "lc-1044-10",
+        "lc-1044-11",
+        "lc-1044-12",
+        "lc-1044-13",
+        "lc-1044-14",
+        "lc-1044-15",
+        "lc-1044-16"
+      ]
+    },
+    {
+      "reason": "Returns a prefix of the correct length without proving that prefix repeats.",
+      "failed_cases": [
+        "lc-1044-1",
+        "lc-1044-8",
+        "lc-1044-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5091,
+  "oracle_implementation": "code_practice/import_batch_080.py:duplicate_oracle",
+  "validator_implementation_sha256": "834f85da92ecd4073cc2e9d327410f2b7655bb2fa3e81e7ae2b318bb69e0036e",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "90bd4f67f8fe59888d0c9b8d6c6e42c59095bdef58c96080e842f12c1b93e7ab",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

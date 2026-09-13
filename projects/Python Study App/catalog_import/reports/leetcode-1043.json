@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1043",
+  "content_sha256": "31f18f020433ddb05e67234d3a1dd17d768ed04d03766d0a6b42885af0456394",
+  "source_hash": "26c8f58258c459baad1a2b4a9c01f08c4468eab36dcc323796ece225ad95b1c1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the partition maximum once instead of once per replaced element.",
+      "failed_cases": [
+        "lc-1043-1",
+        "lc-1043-4",
+        "lc-1043-5",
+        "lc-1043-7",
+        "lc-1043-8",
+        "lc-1043-9",
+        "lc-1043-10",
+        "lc-1043-12",
+        "lc-1043-13",
+        "lc-1043-14",
+        "lc-1043-15",
+        "lc-1043-16"
+      ]
+    },
+    {
+      "reason": "Never considers partitions of the allowed maximum length k.",
+      "failed_cases": [
+        "lc-1043-1",
+        "lc-1043-2",
+        "lc-1043-3",
+        "lc-1043-4",
+        "lc-1043-5",
+        "lc-1043-7",
+        "lc-1043-8",
+        "lc-1043-9",
+        "lc-1043-10",
+        "lc-1043-11",
+        "lc-1043-12",
+        "lc-1043-13",
+        "lc-1043-14",
+        "lc-1043-15",
+        "lc-1043-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5090,
+  "oracle_implementation": "code_practice/import_batch_080.py:partition_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "53e24a25667abe8b834c1a88f0e38ade163de1c11fceb382138209e644400512",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

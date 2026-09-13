@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1040",
+  "content_sha256": "f80b48fec5d750d43fc6ec088c530bb280375bae9867da3dfcf0cb7b5a4cd10e",
+  "source_hash": "4ef3b365dcc7641ebc53bd2caef62bf4a346617c4339df1ab0d23a1580c8130d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a window spanning exactly n consecutive positions.",
+      "failed_cases": [
+        "lc-1040-1",
+        "lc-1040-3",
+        "lc-1040-4",
+        "lc-1040-6",
+        "lc-1040-8",
+        "lc-1040-11",
+        "lc-1040-15"
+      ]
+    },
+    {
+      "reason": "Uses the smaller endpoint-gap plan for maximum moves.",
+      "failed_cases": [
+        "lc-1040-1",
+        "lc-1040-2",
+        "lc-1040-5",
+        "lc-1040-6",
+        "lc-1040-7",
+        "lc-1040-8",
+        "lc-1040-9",
+        "lc-1040-11",
+        "lc-1040-12",
+        "lc-1040-13",
+        "lc-1040-14",
+        "lc-1040-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5087,
+  "oracle_implementation": "code_practice/import_batch_080.py:stones_two_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "05f274bb83e5980e19ec2b9e7da0d3d52325a2dc112a01ad5bd670a63da67956",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

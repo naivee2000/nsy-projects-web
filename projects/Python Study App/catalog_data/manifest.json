@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 739,
+  "count": 759,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -13185,6 +13185,355 @@
       "path": "problems/leetcode-1028.json",
       "content_sha256": "5ba84e074d2669371418f7d97498d2144021fd3c33545c97e2cb502a211ccabb",
       "source_id": 1028
+    },
+    {
+      "id": "leetcode-1029",
+      "version": 1,
+      "status": "approved",
+      "title": "Two City Scheduling",
+      "summary": "Given an array of costs for flying each of the 2n people to either city A or city B, determine the lowest total cost to ensure that exactly n people are flown to each city.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1029.json",
+      "content_sha256": "d97d22418f000897849bbd36df80db6f9367f86c6253746bdf4343eacac60de7",
+      "source_id": 1029
+    },
+    {
+      "id": "leetcode-1031",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Sum of Two Non-Overlapping Subarrays",
+      "summary": "Given an integer array, find the maximum sum of two non-overlapping subarrays of specified lengths.",
+      "topics": [
+        "prefix-sums",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1031.json",
+      "content_sha256": "8e776ff3fd95a9ee400d5acfd284f4deda8c2b925e9739599962f14d5d2d08b1",
+      "source_id": 1031
+    },
+    {
+      "id": "leetcode-1033",
+      "version": 1,
+      "status": "approved",
+      "title": "Moving Stones Until Consecutive",
+      "summary": "Given three stones at distinct positions on the X-axis, represented by integers a, b, and c, determine the minimum and maximum number of moves required to align the stones consecutively.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1033.json",
+      "content_sha256": "d033b535d337bffbd32b2a97023fbc9736694f9be053c1abd8b44fb0802d1a3c",
+      "source_id": 1033
+    },
+    {
+      "id": "leetcode-1034",
+      "version": 1,
+      "status": "approved",
+      "title": "Coloring A Border",
+      "summary": "Given an m x n grid where each cell is colored with a specific color, and a target cell's coordinates, you are to change the color of the bordering cells of the target cell's connected component to a specified color.",
+      "topics": [
+        "matrices",
+        "depth-first-search",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1034.json",
+      "content_sha256": "a6caf8444ff305725fa53716b58d16f8a14c41a44ca7f5d7f995f354145a2594",
+      "source_id": 1034
+    },
+    {
+      "id": "leetcode-1035",
+      "version": 1,
+      "status": "approved",
+      "title": "Uncrossed Lines",
+      "summary": "Given two integer arrays, nums1 and nums2, write their integers on two horizontal lines.",
+      "topics": [
+        "dynamic-programming",
+        "longest-common-subsequence"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1035.json",
+      "content_sha256": "574bf4bf3c2f41cc554c6d9e4a0e3929092439397e2f5755c6157a93b42c8016",
+      "source_id": 1035
+    },
+    {
+      "id": "leetcode-1036",
+      "version": 1,
+      "status": "approved",
+      "title": "Escape a Large Maze",
+      "summary": "On a 1 million by 1 million grid, determine if it's possible to move from the start point to the target point without passing through any blocked squares, and without leaving the grid.",
+      "topics": [
+        "graphs",
+        "breadth-first-search"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1036.json",
+      "content_sha256": "efa8cd25391a2bb9390e5da7899da26803943ac4518d69fab64ab51a8fc7c6b1",
+      "source_id": 1036
+    },
+    {
+      "id": "leetcode-1037",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Boomerang",
+      "summary": "Determine if an array of points forms a boomerang by checking if all points are unique and not collinear.",
+      "topics": [
+        "geometry",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1037.json",
+      "content_sha256": "4197d0e8fec9f6962ce10bc018bcec996d33b26be3fad33d30729267c5b14717",
+      "source_id": 1037
+    },
+    {
+      "id": "leetcode-1038",
+      "version": 1,
+      "status": "approved",
+      "title": "Binary Search Tree to Greater Sum Tree",
+      "summary": "Given a Binary Search Tree (BST), transform it into a Greater Tree where each node's value is updated to include the sum of all nodes with greater values.",
+      "topics": [
+        "trees",
+        "binary-search-trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1038.json",
+      "content_sha256": "eed304520d2120b80e908ca81a44e8e52282e18a317a99bae0e4c1dddc3190df",
+      "source_id": 1038
+    },
+    {
+      "id": "leetcode-1039",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Score Triangulation of Polygon",
+      "summary": "Given a convex polygon with integer values at each vertex, represented by an array values, the task is to divide the polygon into triangles such that the sum of the products of the vertex values in each triangle is minimized.",
+      "topics": [
+        "dynamic-programming",
+        "interval-dp"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1039.json",
+      "content_sha256": "7c74e1c63b976747211f17cd6a87f7acf9a72a5a833d20627d6133391e6699d2",
+      "source_id": 1039
+    },
+    {
+      "id": "leetcode-1040",
+      "version": 1,
+      "status": "approved",
+      "title": "Moving Stones Until Consecutive II",
+      "summary": "Given an integer array representing the positions of stones on the X-axis, determine the minimum and maximum number of moves required to arrange the stones in three consecutive positions.",
+      "topics": [
+        "sorting",
+        "sliding-window"
+      ],
+      "prerequisites": [
+        "sorting"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1040.json",
+      "content_sha256": "f80b48fec5d750d43fc6ec088c530bb280375bae9867da3dfcf0cb7b5a4cd10e",
+      "source_id": 1040
+    },
+    {
+      "id": "leetcode-1041",
+      "version": 1,
+      "status": "approved",
+      "title": "Robot Bounded In Circle",
+      "summary": "On an infinite plane, a robot begins at coordinates (0, 0) facing north.",
+      "topics": [
+        "simulation",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1041.json",
+      "content_sha256": "21dd9f0d4503ed390ea6fd472926feb97a807b3a4581b8bcecb0983370eeb2ed",
+      "source_id": 1041
+    },
+    {
+      "id": "leetcode-1042",
+      "version": 1,
+      "status": "approved",
+      "title": "Flower Planting With No Adjacent",
+      "summary": "You manage n gardens, each with a unique label from 1 to n, and a network of bidirectional paths connecting them.",
+      "topics": [
+        "graphs",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1042.json",
+      "content_sha256": "4379ca96104892fb737f9d80e022d8db6946fda01d949ff384c589114adaa2c8",
+      "source_id": 1042
+    },
+    {
+      "id": "leetcode-1043",
+      "version": 1,
+      "status": "approved",
+      "title": "Partition Array for Maximum Sum",
+      "summary": "Given an integer array arr, partition it into contiguous subarrays such that each subarray's length is at most k.",
+      "topics": [
+        "dynamic-programming",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1043.json",
+      "content_sha256": "31f18f020433ddb05e67234d3a1dd17d768ed04d03766d0a6b42885af0456394",
+      "source_id": 1043
+    },
+    {
+      "id": "leetcode-1044",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Duplicate Substring",
+      "summary": "Given a string, identify the longest substring that appears at least twice, including overlapping instances.",
+      "topics": [
+        "strings",
+        "rolling-hash",
+        "binary-search"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1044.json",
+      "content_sha256": "8cbbd14cb5c9629f2d3dd14bc7c005911b4b121602a2b09e49905f9178ed00ec",
+      "source_id": 1044
+    },
+    {
+      "id": "leetcode-1046",
+      "version": 1,
+      "status": "approved",
+      "title": "Last Stone Weight",
+      "summary": "Given an array of integers representing the weights of stones, repeatedly select the two heaviest stones, smash them together, and continue until at most one stone remains.",
+      "topics": [
+        "heaps",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1046.json",
+      "content_sha256": "8fe8f320fd16c16dd72e9fbb276527e6202c0077381dec88492d22837dba578e",
+      "source_id": 1046
+    },
+    {
+      "id": "leetcode-1047",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove All Adjacent Duplicates In String",
+      "summary": "Given a string of lowercase English letters, repeatedly remove any pair of adjacent letters that are identical until no such pairs remain.",
+      "topics": [
+        "stacks",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1047.json",
+      "content_sha256": "0a899f938de7c538f487905432eb66752fb1f0c52e92a2edd841b44fe79f7a71",
+      "source_id": 1047
+    },
+    {
+      "id": "leetcode-1048",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest String Chain",
+      "summary": "Given an array of words, each consisting of lowercase English letters, determine the maximum length of a sequence where each word is a predecessor of the next.",
+      "topics": [
+        "dynamic-programming",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1048.json",
+      "content_sha256": "1bbcb5587740558914b3e96fa4f4b4d2a060f6c7ed1f311df4b053fb4347063f",
+      "source_id": 1048
+    },
+    {
+      "id": "leetcode-1049",
+      "version": 1,
+      "status": "approved",
+      "title": "Last Stone Weight II",
+      "summary": "Given an array of integers representing the weights of stones, repeatedly select any two stones.",
+      "topics": [
+        "dynamic-programming",
+        "knapsack"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1049.json",
+      "content_sha256": "b4833a0d2b5d843d58e14b62418841d319d3331e8d3191e8a9e77005416e42c5",
+      "source_id": 1049
+    },
+    {
+      "id": "leetcode-1051",
+      "version": 1,
+      "status": "approved",
+      "title": "Height Checker",
+      "summary": "A school arranges students by height in a line, comparing the current order to the expected order.",
+      "topics": [
+        "arrays",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1051.json",
+      "content_sha256": "402e3a8f8e25a63a1454132f4ff64d970ebcfeefea42d142e9f2d2cfcf0a0784",
+      "source_id": 1051
+    },
+    {
+      "id": "leetcode-1052",
+      "version": 1,
+      "status": "approved",
+      "title": "Grumpy Bookstore Owner",
+      "summary": "Given an integer array customers where customers[i] represents the number of customers arriving at the start of the i-th minute, and a binary array grumpy where grumpy[i] is 1 if the owner is grumpy during the i-th minute and 0 otherwise, determine the maximum number of satisfied customers.",
+      "topics": [
+        "sliding-window",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1052.json",
+      "content_sha256": "24346b92b8a05946ff731e83858df169ace44f9bffd8ef00c4a192f888adf8c4",
+      "source_id": 1052
     }
   ]
 }

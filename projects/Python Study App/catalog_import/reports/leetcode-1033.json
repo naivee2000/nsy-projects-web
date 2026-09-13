@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1033",
+  "content_sha256": "d033b535d337bffbd32b2a97023fbc9736694f9be053c1abd8b44fb0802d1a3c",
+  "source_hash": "2139b32af65cd79ac3ea71f900c043305f23e076a32fea36008e777ea760e3a4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Misses a one-empty-position shortcut.",
+      "failed_cases": [
+        "lc-1033-3",
+        "lc-1033-12",
+        "lc-1033-13"
+      ]
+    },
+    {
+      "reason": "Uses only the larger gap for the maximum moves.",
+      "failed_cases": [
+        "lc-1033-3",
+        "lc-1033-4",
+        "lc-1033-7",
+        "lc-1033-8",
+        "lc-1033-11",
+        "lc-1033-12",
+        "lc-1033-13",
+        "lc-1033-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5080,
+  "oracle_implementation": "code_practice/import_batch_080.py:three_stones_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d5a39afb31d7f30df47102febcbb6ee52b50bcdbf175d03c1f8d18ae473e83a2",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

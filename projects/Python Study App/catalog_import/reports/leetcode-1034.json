@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1034",
+  "content_sha256": "a6caf8444ff305725fa53716b58d16f8a14c41a44ca7f5d7f995f354145a2594",
+  "source_hash": "ec4872627bfb1a8e38d99cf681736bb02ffe76e582cd8e47bf07eb30b3a65d23",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Recolors every component cell, including protected interior cells.",
+      "failed_cases": [
+        "lc-1034-6",
+        "lc-1034-8"
+      ]
+    },
+    {
+      "reason": "Marks same-color neighbors as exterior border evidence.",
+      "failed_cases": [
+        "lc-1034-1",
+        "lc-1034-2",
+        "lc-1034-4",
+        "lc-1034-5",
+        "lc-1034-6",
+        "lc-1034-7",
+        "lc-1034-8",
+        "lc-1034-9",
+        "lc-1034-10",
+        "lc-1034-11",
+        "lc-1034-12",
+        "lc-1034-13",
+        "lc-1034-14",
+        "lc-1034-15",
+        "lc-1034-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5081,
+  "oracle_implementation": "code_practice/import_batch_080.py:border_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f5da938db2abaa73899ed8fa0d64c91fb9168da69a4d427a37f2a25eb0263752",
+  "elapsed_seconds": 0.068,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

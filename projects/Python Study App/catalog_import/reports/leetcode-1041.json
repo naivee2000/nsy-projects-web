@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1041",
+  "content_sha256": "21dd9f0d4503ed390ea6fd472926feb97a807b3a4581b8bcecb0983370eeb2ed",
+  "source_hash": "c219de9fe88eada49d11ee411bce9b9b1e3d7f74dd8a639f8df879767bf8061f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires both returning to origin and changing direction.",
+      "failed_cases": [
+        "lc-1041-6",
+        "lc-1041-7",
+        "lc-1041-10",
+        "lc-1041-11",
+        "lc-1041-14"
+      ]
+    },
+    {
+      "reason": "Turns left in the same direction as right.",
+      "failed_cases": [
+        "lc-1041-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5088,
+  "oracle_implementation": "code_practice/import_batch_080.py:robot_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "071817237a9bc26d3899d7bd516d93b11f84e2b1823d81f992c56a5584aee76b",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

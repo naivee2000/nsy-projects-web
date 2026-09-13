@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1035",
+  "content_sha256": "574bf4bf3c2f41cc554c6d9e4a0e3929092439397e2f5755c6157a93b42c8016",
+  "source_hash": "30d42a9d45c5afaa54aee8d11b2e3602535455d819b00d7b5b6268bac0ac4607",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Matches equal endpoints without adding the new line.",
+      "failed_cases": [
+        "lc-1035-1",
+        "lc-1035-2",
+        "lc-1035-3",
+        "lc-1035-5",
+        "lc-1035-6",
+        "lc-1035-7",
+        "lc-1035-8",
+        "lc-1035-9",
+        "lc-1035-10",
+        "lc-1035-11",
+        "lc-1035-12",
+        "lc-1035-13",
+        "lc-1035-14"
+      ]
+    },
+    {
+      "reason": "Keeps the smaller rather than larger skip alternative.",
+      "failed_cases": [
+        "lc-1035-1",
+        "lc-1035-2",
+        "lc-1035-10",
+        "lc-1035-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5082,
+  "oracle_implementation": "code_practice/import_batch_080.py:lines_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "180970a8283cc9be81869676fa963c7435598de6d86f7ad890233779fbe891f5",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

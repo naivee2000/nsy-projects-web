@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1049",
+  "content_sha256": "b4833a0d2b5d843d58e14b62418841d319d3331e8d3191e8a9e77005416e42c5",
+  "source_hash": "fd9704d57d0591a17c920beeb6f1f1b5cf65e28c74e43bdc8d193fc6eef592ab",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the stone value itself as a bit mask instead of shifting every achievable subset sum.",
+      "failed_cases": [
+        "lc-1049-1",
+        "lc-1049-2",
+        "lc-1049-4",
+        "lc-1049-6",
+        "lc-1049-7",
+        "lc-1049-8",
+        "lc-1049-9",
+        "lc-1049-10",
+        "lc-1049-11",
+        "lc-1049-12",
+        "lc-1049-13",
+        "lc-1049-14",
+        "lc-1049-15",
+        "lc-1049-16"
+      ]
+    },
+    {
+      "reason": "Searches from the total rather than the half-total partition target.",
+      "failed_cases": [
+        "lc-1049-1",
+        "lc-1049-2",
+        "lc-1049-3",
+        "lc-1049-4",
+        "lc-1049-5",
+        "lc-1049-6",
+        "lc-1049-7",
+        "lc-1049-8",
+        "lc-1049-9",
+        "lc-1049-10",
+        "lc-1049-11",
+        "lc-1049-12",
+        "lc-1049-13",
+        "lc-1049-14",
+        "lc-1049-15",
+        "lc-1049-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5096,
+  "oracle_implementation": "code_practice/import_batch_080.py:last_two_oracle",
+  "validator_implementation_sha256": "834f85da92ecd4073cc2e9d327410f2b7655bb2fa3e81e7ae2b318bb69e0036e",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c3d6b3360046a8408f9c22db0ea056bb2f67c3652c203ff6c3557d3c8a4a0a4c",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1039",
+  "content_sha256": "7c74e1c63b976747211f17cd6a87f7acf9a72a5a833d20627d6133391e6699d2",
+  "source_hash": "46e55de868b0faafeb5d2521c86f5c6a814c28a8b2aee593152d2bdde38bf764",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Maximizes rather than minimizes interval triangulation cost.",
+      "failed_cases": [
+        "lc-1039-2",
+        "lc-1039-4",
+        "lc-1039-5",
+        "lc-1039-7",
+        "lc-1039-8",
+        "lc-1039-9",
+        "lc-1039-10",
+        "lc-1039-11",
+        "lc-1039-12",
+        "lc-1039-14",
+        "lc-1039-15"
+      ]
+    },
+    {
+      "reason": "Adds vertex values instead of multiplying triangle weight.",
+      "failed_cases": [
+        "lc-1039-2",
+        "lc-1039-3",
+        "lc-1039-4",
+        "lc-1039-5",
+        "lc-1039-6",
+        "lc-1039-7",
+        "lc-1039-8",
+        "lc-1039-9",
+        "lc-1039-10",
+        "lc-1039-11",
+        "lc-1039-12",
+        "lc-1039-13",
+        "lc-1039-14",
+        "lc-1039-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5086,
+  "oracle_implementation": "code_practice/import_batch_080.py:triangle_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aa8e179f7a724b5784cb609ad5b5b840a0bdf01aa7b22063ba013f3f953b3124",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1037",
+  "content_sha256": "4197d0e8fec9f6962ce10bc018bcec996d33b26be3fad33d30729267c5b14717",
+  "source_hash": "11a472ab09368c774f7fd7541c954ec9492afdcdd7722de2fdd13f51904a5432",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns true for zero cross product instead of nonzero.",
+      "failed_cases": [
+        "lc-1037-1",
+        "lc-1037-2",
+        "lc-1037-3",
+        "lc-1037-4",
+        "lc-1037-5",
+        "lc-1037-6",
+        "lc-1037-7",
+        "lc-1037-8",
+        "lc-1037-9",
+        "lc-1037-10",
+        "lc-1037-11",
+        "lc-1037-12",
+        "lc-1037-13",
+        "lc-1037-14",
+        "lc-1037-15",
+        "lc-1037-16"
+      ]
+    },
+    {
+      "reason": "Adds one cross-product factor instead of multiplying it.",
+      "failed_cases": [
+        "lc-1037-2",
+        "lc-1037-4",
+        "lc-1037-5",
+        "lc-1037-6",
+        "lc-1037-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5084,
+  "oracle_implementation": "code_practice/import_batch_080.py:boomerang_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ebb9dbf94141938581dff7849668a6af27bad93764856c53e477c22ac901da91",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

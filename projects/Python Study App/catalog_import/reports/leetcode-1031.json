@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1031",
+  "content_sha256": "8e776ff3fd95a9ee400d5acfd284f4deda8c2b925e9739599962f14d5d2d08b1",
+  "source_hash": "45524cffca7a179247f137eed8d46fe2cb221dada17c61f127fea210b5b53458",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Builds the left window with one element too few.",
+      "failed_cases": [
+        "lc-1031-1",
+        "lc-1031-2",
+        "lc-1031-3",
+        "lc-1031-4",
+        "lc-1031-5",
+        "lc-1031-6",
+        "lc-1031-7",
+        "lc-1031-8",
+        "lc-1031-9",
+        "lc-1031-12",
+        "lc-1031-13",
+        "lc-1031-14",
+        "lc-1031-15",
+        "lc-1031-16"
+      ]
+    },
+    {
+      "reason": "Considers only the ordering with the first-length window first.",
+      "failed_cases": [
+        "lc-1031-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5078,
+  "oracle_implementation": "code_practice/import_batch_080.py:windows_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dbb00333e844d93e851e272c3c1f4a4fd8ccaaf14dc94e419c2e0008afe5fa0f",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

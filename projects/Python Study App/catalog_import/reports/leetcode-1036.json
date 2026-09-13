@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1036",
+  "content_sha256": "efa8cd25391a2bb9390e5da7899da26803943ac4518d69fab64ab51a8fc7c6b1",
+  "source_hash": "2305aec7c4fe5145c82bc5df8833d61931b168e4d42f0a0d4f7ecdd3b0342390",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts when only one endpoint is proven unconfined.",
+      "failed_cases": [
+        "lc-1036-1",
+        "lc-1036-5",
+        "lc-1036-9",
+        "lc-1036-10",
+        "lc-1036-12",
+        "lc-1036-16"
+      ]
+    },
+    {
+      "reason": "Treats reaching the enclosure bound as escaping one step too early.",
+      "failed_cases": [
+        "lc-1036-1",
+        "lc-1036-5",
+        "lc-1036-9",
+        "lc-1036-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5083,
+  "oracle_implementation": "code_practice/import_batch_080.py:maze_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "69f8adab4defca27bf5d081372b0a7aec15ed5f085857dde567ea34697ab0aba",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

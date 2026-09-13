@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1048",
+  "content_sha256": "1bbcb5587740558914b3e96fa4f4b4d2a060f6c7ed1f311df4b053fb4347063f",
+  "source_hash": "84a1dc341e76e5aadff9426669c28a20cf9d6eb85ce568a62272be74364a8564",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only prefixes rather than every one-character deletion.",
+      "failed_cases": [
+        "lc-1048-1",
+        "lc-1048-2",
+        "lc-1048-5",
+        "lc-1048-8",
+        "lc-1048-9",
+        "lc-1048-10",
+        "lc-1048-13",
+        "lc-1048-14",
+        "lc-1048-15",
+        "lc-1048-16"
+      ]
+    },
+    {
+      "reason": "Fails to count the current word in a chain.",
+      "failed_cases": [
+        "lc-1048-1",
+        "lc-1048-2",
+        "lc-1048-3",
+        "lc-1048-4",
+        "lc-1048-5",
+        "lc-1048-6",
+        "lc-1048-7",
+        "lc-1048-8",
+        "lc-1048-9",
+        "lc-1048-10",
+        "lc-1048-11",
+        "lc-1048-12",
+        "lc-1048-13",
+        "lc-1048-14",
+        "lc-1048-15",
+        "lc-1048-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5095,
+  "oracle_implementation": "code_practice/import_batch_080.py:chain_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "a0be584d73cdcc8a8e22ef0db837bf36f0a87b3efa22c09f10dadd727d22ca7e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "101e63eb30e67b5b7e302540e9accefb8b57185eb1522500d8d7d17f5fb9b1fe",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

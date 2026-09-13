@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1052",
+  "content_sha256": "24346b92b8a05946ff731e83858df169ace44f9bffd8ef00c4a192f888adf8c4",
+  "source_hash": "13617084a0572230320046ab2892711c854e5aa0a95dee3795bef20fea60ce95",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds already satisfied customers when the window enters instead of newly recoverable ones.",
+      "failed_cases": [
+        "lc-1052-5",
+        "lc-1052-6",
+        "lc-1052-10",
+        "lc-1052-16"
+      ]
+    },
+    {
+      "reason": "Keeps the least useful technique window instead of the best.",
+      "failed_cases": [
+        "lc-1052-1",
+        "lc-1052-6",
+        "lc-1052-8",
+        "lc-1052-10",
+        "lc-1052-13",
+        "lc-1052-14",
+        "lc-1052-15",
+        "lc-1052-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5099,
+  "oracle_implementation": "code_practice/import_batch_080b.py:grumpy_oracle",
+  "validator_implementation_sha256": "61271426572fbdbaacc8c99bd367ab410b00e9635b6169f6281d5fb238b154ee",
+  "batch_implementation_sha256": "b6aa5571e2bb24ef1942d7ab186f0f693f4b22d4336ab7f426a0006bd4968bdf",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6104b6cc0a7436e5e8bdfea560bb62cdb2e1d99cf9f426b38c0fc4abb6f29a5a",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
