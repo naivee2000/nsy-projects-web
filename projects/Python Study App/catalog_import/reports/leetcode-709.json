@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-709",
+  "content_sha256": "371b58eb70f9fb412b78cfc7be7a7758e7588025ef3a5a758408450122d90b20",
+  "source_hash": "a1592ff383019ff99a535e792be30d021fd5cbc717fbb248f434193e4e7319a0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses an overly broad ASCII interval and alters adjacent punctuation.",
+      "failed_cases": [
+        "lc-709-8",
+        "lc-709-9"
+      ]
+    },
+    {
+      "reason": "Uses strict bounds and fails to convert A and Z.",
+      "failed_cases": [
+        "lc-709-3",
+        "lc-709-4",
+        "lc-709-5",
+        "lc-709-6",
+        "lc-709-9",
+        "lc-709-12",
+        "lc-709-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4756,
+  "oracle_implementation": "code_practice/import_batch_070.py:lower_oracle",
+  "validator_implementation_sha256": "9c668b06b605348a06d48775d26dce3bab15cbb4e3ab09c3e771631365b65adb",
+  "batch_implementation_sha256": "9706f12ad6445847f5e4d34ca5a89ab8e8f7f23fd7c2878bd26df6734bc2ab6c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6e0584f1d0e9b587d22caa214acced481929954b5f20310c436c3dcf4978109d",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

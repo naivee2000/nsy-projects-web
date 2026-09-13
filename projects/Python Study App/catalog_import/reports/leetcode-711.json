@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-711",
+  "content_sha256": "57067c1bd9e83720cd1442f31c7c30ed04bebe5ed389384ce230f0eb0580f0ac",
+  "source_hash": "66551eab560ded02d692e859e1122f795fff8d757766dbd55bc0847f927a0875",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Normalizes translation only and treats rotated copies as distinct.",
+      "failed_cases": [
+        "lc-711-1"
+      ]
+    },
+    {
+      "reason": "Compares row totals instead of connected geometric shapes.",
+      "failed_cases": [
+        "lc-711-1",
+        "lc-711-3",
+        "lc-711-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4758,
+  "oracle_implementation": "code_practice/import_batch_070.py:islands_two_oracle",
+  "validator_implementation_sha256": "9c668b06b605348a06d48775d26dce3bab15cbb4e3ab09c3e771631365b65adb",
+  "batch_implementation_sha256": "9706f12ad6445847f5e4d34ca5a89ab8e8f7f23fd7c2878bd26df6734bc2ab6c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b30dfdfcd88a221d829387a728144c4a8efc768dcb32723711e3232c1ca6ba46",
+  "elapsed_seconds": 0.131,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

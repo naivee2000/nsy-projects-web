@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-699",
+  "content_sha256": "fe837b17f32a0831beaf3b52cc68543654c9cffae75b618a2ca7c78aef891801",
+  "source_hash": "55d03b00d1fbcd3bdf6e62c5bcd5aeb90d8449a08ccbbb6ad9fc6666cccf2d93",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats touching edges as overlap.",
+      "failed_cases": [
+        "lc-699-2",
+        "lc-699-4",
+        "lc-699-9",
+        "lc-699-12",
+        "lc-699-14"
+      ]
+    },
+    {
+      "reason": "Returns each new square’s height instead of the running global maximum.",
+      "failed_cases": [
+        "lc-699-1",
+        "lc-699-12",
+        "lc-699-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4746,
+  "oracle_implementation": "code_practice/import_batch_070.py:squares_oracle",
+  "validator_implementation_sha256": "9c668b06b605348a06d48775d26dce3bab15cbb4e3ab09c3e771631365b65adb",
+  "batch_implementation_sha256": "9706f12ad6445847f5e4d34ca5a89ab8e8f7f23fd7c2878bd26df6734bc2ab6c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4a3f2639dfaa4203edf10414d71b6b76e388c414efbf8915fca9b615d75c4574",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -10,7 +10,8 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ? pathToFileURL(process.env.PLAYWRIGHT_MODULE).href : 'playwright');
+const playwright = await import(process.env.PLAYWRIGHT_MODULE ? pathToFileURL(process.env.PLAYWRIGHT_MODULE).href : 'playwright');
+const { chromium } = playwright.chromium ? playwright : playwright.default;
 const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'code-practice-catalog-check-'));
 const socket = net.createServer();
 await new Promise(resolve => socket.listen(0, '127.0.0.1', resolve));
@@ -328,16 +329,16 @@ try {
   assert((await page.locator('.example code').nth(1).textContent()).includes('WWRRBBWW'));
   report.checks.push('Zuma examples explain full chain reactions, removing groups of more than three, and legal preparatory insertions');
 
-  for (const [title,label,explanation] of [
-    ['The Maze III',/The Maze III.*Advanced/,'BEFORE reaching the right wall'],
-    ['The Maze II',/The Maze II.*Medium/,'cannot stop there'],
-    ['IPO',/IPO.*Advanced/,'the threshold of 1 is not deducted'],
-    ['Next Greater Element II',/Next Greater Element II.*Medium/,'equal is not greater'],
-    ['Freedom Trail',/Freedom Trail.*Advanced/,'the ring does not reset'],
+  for (const [title,explanation] of [
+    ['The Maze III','BEFORE reaching the right wall'],
+    ['The Maze II','cannot stop there'],
+    ['IPO','the threshold of 1 is not deducted'],
+    ['Next Greater Element II','equal is not greater'],
+    ['Freedom Trail','the ring does not reset'],
   ]) {
     await page.getByRole('button', {name:'Back',exact:true}).click();
     await page.getByPlaceholder('Search title, topic, or pattern').fill(title);
-    await page.getByRole('button', {name:label}).click();
+    await page.locator('button.problem-card').filter({has:page.getByText(title,{exact:true})}).click();
     assert((await page.locator('.problem-pane').textContent()).includes(explanation));
   }
   report.checks.push('batch 49 examples distinguish hole interruption, stopping destinations, capital thresholds, circular strict successors, and persistent ring rotations');

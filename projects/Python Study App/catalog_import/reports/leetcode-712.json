@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-712",
+  "content_sha256": "234c8eac46ad62ac5533fab33a3f3416503ce6046fd31a6cf06ed5d58d7b453c",
+  "source_hash": "1e7849fcee95e528cc7606bd077503d925f24b0f5ceeb8e340064fd95441c68e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Minimizes deleted character count instead of ASCII value.",
+      "failed_cases": [
+        "lc-712-1",
+        "lc-712-2",
+        "lc-712-4",
+        "lc-712-5",
+        "lc-712-7",
+        "lc-712-8",
+        "lc-712-9",
+        "lc-712-10",
+        "lc-712-11",
+        "lc-712-12",
+        "lc-712-13",
+        "lc-712-14"
+      ]
+    },
+    {
+      "reason": "Assigns every deletion unit cost rather than its character code.",
+      "failed_cases": [
+        "lc-712-1",
+        "lc-712-2",
+        "lc-712-4",
+        "lc-712-7",
+        "lc-712-8",
+        "lc-712-9",
+        "lc-712-10",
+        "lc-712-12",
+        "lc-712-13",
+        "lc-712-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4759,
+  "oracle_implementation": "code_practice/import_batch_070.py:delete_sum_oracle",
+  "validator_implementation_sha256": "9c668b06b605348a06d48775d26dce3bab15cbb4e3ab09c3e771631365b65adb",
+  "batch_implementation_sha256": "9706f12ad6445847f5e4d34ca5a89ab8e8f7f23fd7c2878bd26df6734bc2ab6c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d0e212c534c83a2a09f8631adacd55eadbee4f9ffedff78525b4926022035072",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-717",
+  "content_sha256": "caaca8ba6da5f840203aa3df50ce8e4e342152409e1c32d22f8a133932feeb6e",
+  "source_hash": "36e74977c2603619697ed1e73da17123d904a4324df362be5ed50e44853fe9d0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Looks only at the penultimate bit and ignores how preceding ones are grouped.",
+      "failed_cases": [
+        "lc-717-7",
+        "lc-717-9",
+        "lc-717-13"
+      ]
+    },
+    {
+      "reason": "Returns true for every valid encoding merely because the final bit is zero.",
+      "failed_cases": [
+        "lc-717-2",
+        "lc-717-5",
+        "lc-717-6",
+        "lc-717-11",
+        "lc-717-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4764,
+  "oracle_implementation": "code_practice/import_batch_070.py:one_bit_oracle",
+  "validator_implementation_sha256": "9c668b06b605348a06d48775d26dce3bab15cbb4e3ab09c3e771631365b65adb",
+  "batch_implementation_sha256": "9706f12ad6445847f5e4d34ca5a89ab8e8f7f23fd7c2878bd26df6734bc2ab6c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "411168d1bdf7e852ea030eba948ff50c485666cb1a8050d427d92a308c48972c",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
