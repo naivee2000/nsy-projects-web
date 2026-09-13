@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-886",
+  "content_sha256": "c69bf3eb982f439486e4aa53ecbb546c07124b1f0b29f3d98d8f1488e7bd29a4",
+  "source_hash": "6bff00721b84eb1a8f6b9df474fa233138b63ec4351ac9d27e9e9b829bf931ef",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Assigns neighbors the same color.",
+      "failed_cases": [
+        "lc-886-1",
+        "lc-886-5",
+        "lc-886-6",
+        "lc-886-7",
+        "lc-886-8",
+        "lc-886-10",
+        "lc-886-11",
+        "lc-886-12",
+        "lc-886-13"
+      ]
+    },
+    {
+      "reason": "Checks only the component containing person one.",
+      "failed_cases": [
+        "lc-886-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4933,
+  "oracle_implementation": "code_practice/import_batch_075.py:bipartition_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5713841db1c3711ed9717bce4a97b967cf74d02545099e3c1cec557105b4795e",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

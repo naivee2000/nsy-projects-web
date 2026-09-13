@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-874",
+  "content_sha256": "0d7c098981785e76eaa37287d0b0f9c20b8430db55a6aae21683fc83e2ff2250",
+  "source_hash": "ddd407359d61efccbe7e157dccf7371f25612716ca83750c6ee0fb99b29c3a4e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Walks through obstacles.",
+      "failed_cases": [
+        "lc-874-2",
+        "lc-874-6",
+        "lc-874-8",
+        "lc-874-12",
+        "lc-874-13",
+        "lc-874-14"
+      ]
+    },
+    {
+      "reason": "Turns left in the same direction as a right turn.",
+      "failed_cases": [
+        "lc-874-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4921,
+  "oracle_implementation": "code_practice/import_batch_075.py:robot_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "974fcc3af644060d410ab26db6e7534a9678343b3c79e3adece1caed62bf9409",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

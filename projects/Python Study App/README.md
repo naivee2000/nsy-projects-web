@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 559 runnable problems (101 original exercises plus 458 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 659 runnable problems (101 original exercises plus 558 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 559-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 659-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 83 existing equivalents, 458 verified imports, 155 documented
-design/interactive exclusions, and 2,933 pending records. Ordinary tree and
+Current status: 83 existing equivalents, 558 verified imports, 155 documented
+design/interactive exclusions, and 2,833 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-Fifty-four reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+Seventy-five reviewed batches include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -557,9 +557,9 @@ logarithmic-time algorithm is verified by a strict element-read budget, which
 rejects the linear XOR reference. This validates the reference's complexity;
 the learner's ordinary judge still checks output and its execution deadline,
 not an automatic proof of arbitrary submission complexity.
-The 458-import checkpoint preserves all preceding definitions and progress IDs.
-All 458 import reports and current overlap evidence match the packaged catalog.
-The post-430 additions remain local development; 2,933 workbook records are
+The 558-import checkpoint preserves all preceding definitions and progress IDs.
+All 558 import reports and current overlap evidence match the packaged catalog.
+The post-430 additions remain local development; 2,833 workbook records are
 still pending.
 Of the 83 overlaps, 73 map to original exercises and ten map to approved
 imports. Unique-only Permutations (46) maps to numeric Permutations II (47):
@@ -617,7 +617,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 559 problems; future
+been checked against every reviewed batch. The current package contains 659 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the
@@ -644,12 +644,12 @@ browser and benchmark driver. Install dependencies and build the frontend first.
 Its report is `catalog_import/benchmarks/current.json`; until all imports finish,
 this is an interim measurement, not the final full-catalog performance gate.
 
-At the 458-import checkpoint, 791 backend tests and 19 frontend tests passed.
-Chrome/Pyodide validated all 464 packaged reference suites across 850 isolated
+At the 558-import checkpoint, 791 backend tests and 19 frontend tests passed.
+Chrome/Pyodide validated all 564 packaged reference suites across 950 isolated
 judge runs, including restart persistence and offline assets. On the recorded
-Apple M3 Pro/18 GiB development machine, backend startup took 223 ms and peak RSS
-was 267.125 MiB. Warm p95 latency over at least 100 requests per route ranged
-from 1.106 ms to 1.359 ms for library search/filtering, problem details, and the
+Apple M3 Pro/18 GiB development machine, backend startup took 332 ms and peak RSS
+was 267.828 MiB. Warm p95 latency over at least 100 requests per route ranged
+from 1.117 ms to 1.353 ms for library search/filtering, problem details, and the
 dashboard, below the interim 300/500 ms targets. Exact route measurements and
 hardware metadata are retained in `catalog_import/benchmarks/current.json`.
 

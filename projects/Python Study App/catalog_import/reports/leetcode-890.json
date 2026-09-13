@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-890",
+  "content_sha256": "3e54ef2e315f22f0c13e3eab4c7d9b2868e8b23cd8ab4f4749437000555a8c79",
+  "source_hash": "87058944c642077e86a1bd366bcf2abb4d90539e8f239c32edb05d58bd8e63d8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Compares literal character codes instead of structural first-occurrence IDs.",
+      "failed_cases": [
+        "lc-890-1",
+        "lc-890-2",
+        "lc-890-4",
+        "lc-890-6",
+        "lc-890-7",
+        "lc-890-8",
+        "lc-890-10",
+        "lc-890-11",
+        "lc-890-12",
+        "lc-890-13",
+        "lc-890-14"
+      ]
+    },
+    {
+      "reason": "Compares character sets and ignores position/repetition structure.",
+      "failed_cases": [
+        "lc-890-1",
+        "lc-890-2",
+        "lc-890-4",
+        "lc-890-6",
+        "lc-890-7",
+        "lc-890-8",
+        "lc-890-10",
+        "lc-890-11",
+        "lc-890-12",
+        "lc-890-13",
+        "lc-890-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4937,
+  "oracle_implementation": "code_practice/import_batch_075.py:pattern_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5ee57bdc959f797d29e0f325016c0a8fd7ba3999f1193dc9d61ec5c7d76d95c8",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

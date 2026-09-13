@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-873",
+  "content_sha256": "e36e3dc1f0db3feb4b8566d3061606c2e515c2c34b2bebd5a509bf438cd9bef6",
+  "source_hash": "15972998fb97719b42d437a5edc6147e05245da39f553d225e30d3ac64b42925",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never extends an existing Fibonacci pair beyond length three.",
+      "failed_cases": [
+        "lc-873-1",
+        "lc-873-4",
+        "lc-873-5",
+        "lc-873-6",
+        "lc-873-7",
+        "lc-873-8",
+        "lc-873-9",
+        "lc-873-10",
+        "lc-873-11",
+        "lc-873-12",
+        "lc-873-13",
+        "lc-873-14"
+      ]
+    },
+    {
+      "reason": "Allows an invalid predecessor at the same index.",
+      "failed_cases": [
+        "lc-873-1",
+        "lc-873-2",
+        "lc-873-3",
+        "lc-873-4",
+        "lc-873-5",
+        "lc-873-6",
+        "lc-873-7",
+        "lc-873-8",
+        "lc-873-9",
+        "lc-873-10",
+        "lc-873-11",
+        "lc-873-12",
+        "lc-873-13",
+        "lc-873-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4920,
+  "oracle_implementation": "code_practice/import_batch_075.py:fiblen_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4af7ff9e465a89586c85b1fb3d917dce8b2bbdcb16f0c9a538b93ec73a6b4b45",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

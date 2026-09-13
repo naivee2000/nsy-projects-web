@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-884",
+  "content_sha256": "5b18b418da89f5d057b29603b7e5c8b64b11b756fbab0ca1de02a060a9f614b8",
+  "source_hash": "5d8a05d62e40d363a1a33f2a74c1c60591e041b36edf3c5a0738da5b896f6e62",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes words appearing twice.",
+      "failed_cases": [
+        "lc-884-1",
+        "lc-884-2",
+        "lc-884-4",
+        "lc-884-6",
+        "lc-884-7",
+        "lc-884-9",
+        "lc-884-10",
+        "lc-884-11",
+        "lc-884-12",
+        "lc-884-14"
+      ]
+    },
+    {
+      "reason": "Counts only the first sentence.",
+      "failed_cases": [
+        "lc-884-1",
+        "lc-884-2",
+        "lc-884-3",
+        "lc-884-4",
+        "lc-884-5",
+        "lc-884-6",
+        "lc-884-7",
+        "lc-884-9",
+        "lc-884-10",
+        "lc-884-12",
+        "lc-884-13",
+        "lc-884-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4931,
+  "oracle_implementation": "code_practice/import_batch_075.py:uncommon_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cdb6cd39743e18b58c2fc6afa407e1b0a2da00feb95303a65395400d32c91cae",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

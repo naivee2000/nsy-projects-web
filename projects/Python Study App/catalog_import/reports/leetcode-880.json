@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-880",
+  "content_sha256": "b7dd5e90b7dc7217ca5cf1a4a689c55b718c85535ba6d3756863005e60f65e41",
+  "source_hash": "a2644f6ee7d26c89c6ff77696c11b86eb6e17cc7df7d01806fb5febb741f8ac4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Applies modulo in the wrong direction.",
+      "failed_cases": [
+        "lc-880-1",
+        "lc-880-2",
+        "lc-880-5",
+        "lc-880-7",
+        "lc-880-8",
+        "lc-880-11",
+        "lc-880-14"
+      ]
+    },
+    {
+      "reason": "Uses one instead of zero after modulo normalization.",
+      "failed_cases": [
+        "lc-880-1",
+        "lc-880-2",
+        "lc-880-3",
+        "lc-880-4",
+        "lc-880-5",
+        "lc-880-6",
+        "lc-880-7",
+        "lc-880-8",
+        "lc-880-9",
+        "lc-880-10",
+        "lc-880-11",
+        "lc-880-12",
+        "lc-880-13",
+        "lc-880-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4927,
+  "oracle_implementation": "code_practice/import_batch_075.py:decoded_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4d8d9f6939909a748915821ac386e302f132f9da3e2c482f203119d24f36d634",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

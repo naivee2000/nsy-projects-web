@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-866",
+  "content_sha256": "6414ab8078590772d31d407ac94d83bfa49dc317770d5a6da2df712a496a8923",
+  "source_hash": "f1a4305bac0e59c6d405af3ba8e4af13274721664cd44e222e59c5c9df7f402b",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Skips n itself when it already qualifies.",
+      "failed_cases": [
+        "lc-866-4",
+        "lc-866-5",
+        "lc-866-11"
+      ]
+    },
+    {
+      "reason": "Skips the special even-length prime palindrome eleven.",
+      "failed_cases": [
+        "lc-866-6",
+        "lc-866-7",
+        "lc-866-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4913,
+  "oracle_implementation": "code_practice/import_batch_075.py:prime_pal_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "856817b24cd4c26374ed96ddfef8e35af2b526aeb76ea1a9ab67394bbd9c6a15",
+  "elapsed_seconds": 0.181,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

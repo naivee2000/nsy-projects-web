@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-867",
+  "content_sha256": "ea20dbbb6caf2b66ac26f69e9334d6a0fab7268ddbd2cff38bb1281286fbb342",
+  "source_hash": "e48fc35f40f576ed48e8a038988b6280d9787d0e56f470e3c97fbdf8bc3fe397",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Indexes the source coordinates backward.",
+      "failed_cases": [
+        "lc-867-1",
+        "lc-867-2",
+        "lc-867-4",
+        "lc-867-5",
+        "lc-867-6",
+        "lc-867-7",
+        "lc-867-8",
+        "lc-867-9",
+        "lc-867-10",
+        "lc-867-11",
+        "lc-867-13",
+        "lc-867-14"
+      ]
+    },
+    {
+      "reason": "Keeps the original row count for rectangular output.",
+      "failed_cases": [
+        "lc-867-1",
+        "lc-867-2",
+        "lc-867-4",
+        "lc-867-5",
+        "lc-867-6",
+        "lc-867-7",
+        "lc-867-8",
+        "lc-867-9",
+        "lc-867-10",
+        "lc-867-11",
+        "lc-867-13",
+        "lc-867-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4914,
+  "oracle_implementation": "code_practice/import_batch_075.py:transpose_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e61eea1df57498962f72cf1789463f2c1a1d65feedfb1a005939072d1480550b",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-869",
+  "content_sha256": "6fbe775c3076c6efadd3a3119348e003846d6f42189525bc62abe75fe5879976",
+  "source_hash": "f18c861e7598d2b6f10faef73b4e923589186e9d1a977e28288a076a5f36d4e5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the largest relevant exponent.",
+      "failed_cases": [
+        "lc-869-8",
+        "lc-869-9",
+        "lc-869-11",
+        "lc-869-13",
+        "lc-869-15"
+      ]
+    },
+    {
+      "reason": "Compares digit sets and ignores multiplicity.",
+      "failed_cases": [
+        "lc-869-1",
+        "lc-869-3",
+        "lc-869-5",
+        "lc-869-6",
+        "lc-869-8",
+        "lc-869-9",
+        "lc-869-10",
+        "lc-869-11",
+        "lc-869-12",
+        "lc-869-13",
+        "lc-869-14",
+        "lc-869-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4916,
+  "oracle_implementation": "code_practice/import_batch_075.py:power_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "356df27dfaa055e50a9585653e4dcae470108583537d3d6835ed6ce397c21105",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

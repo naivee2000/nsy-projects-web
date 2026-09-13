@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-861",
+  "content_sha256": "452a9027fcded913666f52cf7edb611ff1d9786e6c53de147f3fa671e8e1e889",
+  "source_hash": "05770ad4b7a41fee3f660fbd97aea2c9eb524fd45f0e2f57361ba27294894c9b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never flips a column whose zeros are the majority.",
+      "failed_cases": [
+        "lc-861-1",
+        "lc-861-4",
+        "lc-861-5",
+        "lc-861-9",
+        "lc-861-10",
+        "lc-861-11",
+        "lc-861-12",
+        "lc-861-13",
+        "lc-861-14"
+      ]
+    },
+    {
+      "reason": "Counts bits that disagree with the normalized leading bit.",
+      "failed_cases": [
+        "lc-861-1",
+        "lc-861-9",
+        "lc-861-10",
+        "lc-861-11",
+        "lc-861-13",
+        "lc-861-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4908,
+  "oracle_implementation": "code_practice/import_batch_075.py:matrix_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cf42ad9d46f6c8e0b55f501c48463e9327387943a1de4c7c8237cac202e5427f",
+  "elapsed_seconds": 0.12,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

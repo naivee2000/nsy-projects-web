@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-877",
+  "content_sha256": "1dd3cec8422e265bd9e58b70366f3ab9ddd241e689c74b2dee5f607813280257",
+  "source_hash": "f42acd43c22e4b049f07262c7996482397b55531adbf00f352cb6362e44889ea",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Lets the opponent choose the minimizing outcome for the current player.",
+      "failed_cases": [
+        "lc-877-1",
+        "lc-877-2",
+        "lc-877-3",
+        "lc-877-4",
+        "lc-877-5",
+        "lc-877-6",
+        "lc-877-7",
+        "lc-877-8",
+        "lc-877-9",
+        "lc-877-11",
+        "lc-877-12",
+        "lc-877-13",
+        "lc-877-14"
+      ]
+    },
+    {
+      "reason": "Assumes the first player always loses.",
+      "failed_cases": [
+        "lc-877-1",
+        "lc-877-2",
+        "lc-877-3",
+        "lc-877-4",
+        "lc-877-5",
+        "lc-877-6",
+        "lc-877-7",
+        "lc-877-8",
+        "lc-877-9",
+        "lc-877-11",
+        "lc-877-12",
+        "lc-877-13",
+        "lc-877-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4924,
+  "oracle_implementation": "code_practice/import_batch_075.py:stone_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a42cafe5ee98e7597553f5e5f830992642d4a05f1d869e9696412af0e588065c",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-885",
+  "content_sha256": "716235aa19e2432cb1fa76cee5c7add4e107ab692cbd9a51bf50300d030a94f1",
+  "source_hash": "7883ad29d97bd674169459bc7438dcde29c81b6dc46494222f89403d639a8520",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Increases step length after every direction instead of every two directions.",
+      "failed_cases": [
+        "lc-885-1",
+        "lc-885-2",
+        "lc-885-4",
+        "lc-885-5",
+        "lc-885-6",
+        "lc-885-7",
+        "lc-885-8",
+        "lc-885-9",
+        "lc-885-10",
+        "lc-885-11",
+        "lc-885-12",
+        "lc-885-13",
+        "lc-885-14"
+      ]
+    },
+    {
+      "reason": "Starts by moving south rather than east.",
+      "failed_cases": [
+        "lc-885-2",
+        "lc-885-4",
+        "lc-885-5",
+        "lc-885-6",
+        "lc-885-7",
+        "lc-885-8",
+        "lc-885-11",
+        "lc-885-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4932,
+  "oracle_implementation": "code_practice/import_batch_075.py:spiral_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "75d980422c638ef48f48fc36043fc896a8a0bea7f734ebca16b3fb75f25b9fba",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

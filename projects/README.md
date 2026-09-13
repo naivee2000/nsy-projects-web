@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 559 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [430-problem handoff checklist](Python%20Study%20App/docs/RELEASE_430_CHECKPOINT.md) covers the frozen `python-study-430-checkpoint` release and updating the other computer without replacing its progress. The newer verified additions remain local development; they do not change the website without another explicit update.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 659 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [430-problem handoff checklist](Python%20Study%20App/docs/RELEASE_430_CHECKPOINT.md) covers the frozen `python-study-430-checkpoint` release and updating the other computer without replacing its progress. The newer verified additions remain local development; they do not change the website without another explicit update.
 
 ## Python Study App
 
@@ -41,7 +41,7 @@ The original Easy catalog is benchmarked against reusable patterns in LeetCode's
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
 
 The workbook expansion currently accounts for 3,629 rows: 83 existing equivalents,
-458 verified new problems, 155 documented design/interactive exclusions, and 2,933
+558 verified new problems, 155 documented design/interactive exclusions, and 2,833
 pending records. Ordinary trees and linked lists remain included.
 `Python Study App/catalog_import/ledger.json` is the resumable record; pending
 content is not exposed as runnable. Every imported problem has two explained
@@ -390,13 +390,13 @@ logarithmic-time algorithm is verified by a strict element-read budget, which
 rejects the linear XOR reference. This validates the reference's complexity;
 the learner's ordinary judge still checks output and its execution deadline,
 not an automatic proof of arbitrary submission complexity.
-The 458-import checkpoint preserves all preceding definitions and progress IDs.
-All 458 import reports and current overlap evidence match the 559-problem package.
-The post-430 additions remain local development; 2,933 workbook records are
+The 558-import checkpoint preserves all preceding definitions and progress IDs.
+All 558 import reports and current overlap evidence match the 659-problem package.
+The post-430 additions remain local development; 2,833 workbook records are
 still pending. At this checkpoint, 791 backend tests and 19 frontend tests pass;
-Chrome/Pyodide validates 464 reference suites across 850 isolated judge runs.
-Measured backend startup is 223 ms, peak RSS is 267.125 MiB, and warm p95 API
-latency ranges from 1.106 ms to 1.359 ms over at least 100 requests per route.
+Chrome/Pyodide validates 564 reference suites across 950 isolated judge runs.
+Measured backend startup is 332 ms, peak RSS is 267.828 MiB, and warm p95 API
+latency ranges from 1.117 ms to 1.353 ms over at least 100 requests per route.
 
 Linked-list and tree problems show the full `ListNode` or `TreeNode` class definition above the function in the editable code pane. The app also prepends the required class when reopening an older saved draft that predates this feature.
 

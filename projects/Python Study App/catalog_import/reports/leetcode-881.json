@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-881",
+  "content_sha256": "0923f56bf61575287036ae164de275b205d610f947832f322a32b0be2057c50f",
+  "source_hash": "5d99f1dff76d125114a60b667eb7c812776d98841995e6833a48d609aeeb19eb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects pairs that exactly fill the boat.",
+      "failed_cases": [
+        "lc-881-1",
+        "lc-881-2",
+        "lc-881-4",
+        "lc-881-6",
+        "lc-881-8",
+        "lc-881-9",
+        "lc-881-11",
+        "lc-881-12",
+        "lc-881-14"
+      ]
+    },
+    {
+      "reason": "Removes two people even when the heaviest rides alone.",
+      "failed_cases": [
+        "lc-881-2",
+        "lc-881-5",
+        "lc-881-6",
+        "lc-881-7",
+        "lc-881-10",
+        "lc-881-13",
+        "lc-881-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4928,
+  "oracle_implementation": "code_practice/import_batch_075.py:boats_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "055991c8ccaec6e2ea4a40b0271bc77f75441a01b243b35365ced227a735b492",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

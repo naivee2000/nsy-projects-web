@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-893",
+  "content_sha256": "eff792730e468a46bd8d32406c0e0481bb7d6d21f6dab0c7e4a552e2587888c1",
+  "source_hash": "6931425a63d0aaf33e415910370fba53e1e8f828ec45aa9da1ea0f2654f4c337",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts all letters together and permits cross-parity swaps.",
+      "failed_cases": [
+        "lc-893-1",
+        "lc-893-2",
+        "lc-893-5",
+        "lc-893-8",
+        "lc-893-12"
+      ]
+    },
+    {
+      "reason": "Ignores the odd-index multiset.",
+      "failed_cases": [
+        "lc-893-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4940,
+  "oracle_implementation": "code_practice/import_batch_075.py:special_oracle",
+  "validator_implementation_sha256": "f0b6235621153bc8d4fd8c12204fdefe58745db55089b5984f84a712ba6a692c",
+  "batch_implementation_sha256": "81ff08fa82f8d47100fb6186f64359a0dec9a32de0606515b1d294f03bd9b926",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "faa48e926908476820d1746bab61165732be763c26fe282cd90a60d6cef80963",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
