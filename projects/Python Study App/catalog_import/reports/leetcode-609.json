@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-609",
+  "content_sha256": "48b0775c537712a92acb7a23e409f34a4682a1b5fb6c824b7d07cb1a62d496c7",
+  "source_hash": "99c7aa684967a8a28aabc73555e5280d79f75ff634e39903c1bcab23c1f4a500",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns singleton content groups instead of duplicates only.",
+      "failed_cases": [
+        "lc-609-2",
+        "lc-609-3",
+        "lc-609-5",
+        "lc-609-6",
+        "lc-609-11",
+        "lc-609-12",
+        "lc-609-13",
+        "lc-609-14"
+      ]
+    },
+    {
+      "reason": "Groups files by filename rather than file content.",
+      "failed_cases": [
+        "lc-609-1",
+        "lc-609-4",
+        "lc-609-5",
+        "lc-609-7",
+        "lc-609-8",
+        "lc-609-9",
+        "lc-609-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4656,
+  "oracle_implementation": "code_practice/import_batch_061.py:duplicate_files_oracle",
+  "validator_implementation_sha256": "d92a5356a24e3681e17d56d4e89e5a3977de50a2be1791d215ccafe462ecea0c",
+  "batch_implementation_sha256": "42b3db4a01449627a86a3d6b509d4ab92f183c44091e20dfcaf1c1d9d2ff835c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "462f4e3d0390e6775cecfb7c6d4622036d767f4ee6d86fa834596978dedcdd62",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

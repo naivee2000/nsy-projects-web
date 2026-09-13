@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-633",
+  "content_sha256": "aaa315e42bf6247a0bcc01f3837539198bcfdab511d514389dd9189d6bbcf87b",
+  "source_hash": "ad9b8e60e64367f9656ad8858055f02bf7604c528c60c2d9496aee5523c6e809",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Excludes representations that use zero.",
+      "failed_cases": [
+        "lc-633-3",
+        "lc-633-4",
+        "lc-633-6",
+        "lc-633-8"
+      ]
+    },
+    {
+      "reason": "Excludes representations using the same integer twice.",
+      "failed_cases": [
+        "lc-633-3",
+        "lc-633-5",
+        "lc-633-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4680,
+  "oracle_implementation": "code_practice/import_batch_061.py:square_sum_oracle",
+  "validator_implementation_sha256": "d92a5356a24e3681e17d56d4e89e5a3977de50a2be1791d215ccafe462ecea0c",
+  "batch_implementation_sha256": "42b3db4a01449627a86a3d6b509d4ab92f183c44091e20dfcaf1c1d9d2ff835c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "64664950f437ce8523d254c97843967943493e5f35065e0180cd08d0ae90dcf6",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

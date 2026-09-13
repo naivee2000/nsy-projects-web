@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-629",
+  "content_sha256": "16488ba9ecd9e0c2a8a4c88d1a36557027a637809ae05dc2993f6ec28eee1896",
+  "source_hash": "13bc1bc14bb9b6a9dc674bbcd80e558251fbab91678b8752ceb615d963c3415f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows one too few insertion positions in each transition.",
+      "failed_cases": [
+        "lc-629-1",
+        "lc-629-2",
+        "lc-629-4",
+        "lc-629-5",
+        "lc-629-7",
+        "lc-629-8",
+        "lc-629-9",
+        "lc-629-10",
+        "lc-629-11",
+        "lc-629-12",
+        "lc-629-13",
+        "lc-629-14"
+      ]
+    },
+    {
+      "reason": "Does not reduce the rapidly growing count modulo the required value.",
+      "failed_cases": [
+        "lc-629-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4676,
+  "oracle_implementation": "code_practice/import_batch_061.py:inverse_pairs_oracle",
+  "validator_implementation_sha256": "d92a5356a24e3681e17d56d4e89e5a3977de50a2be1791d215ccafe462ecea0c",
+  "batch_implementation_sha256": "42b3db4a01449627a86a3d6b509d4ab92f183c44091e20dfcaf1c1d9d2ff835c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5e79f8a34f2cef8c7c39dfb598124e7711fd2a6248a897de1dcb3f63a49c5227",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
