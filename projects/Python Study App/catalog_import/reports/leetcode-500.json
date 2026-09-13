@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-500",
+  "content_sha256": "b67bf51e41642dfa617f9ff9fb21708aab287acd7f72a9d26be9c64ba3324652",
+  "source_hash": "9638e39f68c966426d601922a389baeb07b361afa1e5b6ab6a00dcf26ac95eee",
+  "visible_tests": 2,
+  "hidden_tests": 18,
+  "reference_passed": 20,
+  "wrong_solutions": [
+    {
+      "reason": "Treats uppercase letters as an unrelated row instead of case-folding them.",
+      "failed_cases": [
+        "lc-500-1",
+        "lc-500-9",
+        "lc-500-13",
+        "lc-500-14",
+        "lc-500-15",
+        "lc-500-stress-1"
+      ]
+    },
+    {
+      "reason": "Changes the returned spelling instead of preserving the matching input words.",
+      "failed_cases": [
+        "lc-500-1",
+        "lc-500-2",
+        "lc-500-4",
+        "lc-500-6",
+        "lc-500-9",
+        "lc-500-14",
+        "lc-500-15",
+        "lc-500-stress-1",
+        "lc-500-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4547,
+  "oracle_implementation": "code_practice/import_batch_051.py:keyboard_oracle",
+  "validator_implementation_sha256": "522ea6a37a7529980dee5b93893e02b8a5a2e531fa008838dafc7801cdcc2b15",
+  "batch_implementation_sha256": "a6e31317300b46a9f9e5ead81e09e7f791cf063021702710555117d41f6ac600",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

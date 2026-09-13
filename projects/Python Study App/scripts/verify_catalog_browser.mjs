@@ -350,6 +350,20 @@ try {
     assert((await page.locator('.problem-pane').textContent()).includes(explanation));
   }
   report.checks.push('batch 50 examples distinguish all tied modes, descendant sums, leftmost position, and negative row maxima');
+  for (const [title,explanation] of [
+    ['Keyboard Row','Preserve their spelling and repeated TYPE'],
+    ['Base 7','Attach the sign'],
+    ['Relative Ranks','not at output index 1'],
+    ['Perfect Number','being greater than 12 does not count'],
+    ['Longest Palindromic Subsequence','reordering is forbidden'],
+    ['Super Washing Machines','Receiving two dresses at once is allowed'],
+  ]) {
+    await page.getByRole('button',{name:'Back',exact:true}).click();
+    await page.getByPlaceholder('Search title, topic, or pattern').fill(title);
+    await page.locator('button.problem-card').filter({has:page.getByText(title,{exact:true})}).click();
+    assert((await page.locator('.problem-pane').textContent()).includes(explanation));
+  }
+  report.checks.push('batch 51 examples explain original word spelling/multiplicity, signed place values, original athlete order, proper-divisor equality, subsequence order, and simultaneous receipt versus one-dress sending');
 
   for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values', 'recursive-step-combinations'].includes(e.id))) {
     const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
@@ -647,6 +661,19 @@ def sliding_window_medians(nums, k):
   assert(!manifest.entries.some(p=>p.id==='leetcode-509'));
   assert.equal((await fetch(`${base}/api/problems/leetcode-509`)).status,404);
   report.checks.push('batch 50 rejects eight wrong tree algorithms, accepts reordered tied values but rejects duplicates/omissions, and proves all 31 Fibonacci inputs using the unchanged original step-count function without a duplicate API/library ID');
+  for (const id of [500,504,506,507,516,517]) {
+    const problem=JSON.parse(await fs.readFile(path.join(root,`catalog_data/problems/leetcode-${id}.json`),'utf8'));
+    for (const wrong of problem.known_wrong_solutions) {
+      assert.equal((await judge(page,problem,wrong)).status,'wrong_answer',`batch 51 wrong algorithm ${id}`);
+    }
+  }
+  const keyboard=JSON.parse(await fs.readFile(path.join(root,'catalog_data/problems/leetcode-500.json'),'utf8'));
+  const keyboardCase={...keyboard,tests:[keyboard.tests[1]]};
+  assert.equal((await judge(page,keyboardCase,'def keyboard_row_words(words):\n    return ["TYPE","TYPE","type"]')).status,'accepted');
+  for (const bad of [['TYPE','type'],['TYPE','type','TYPE','TYPE'],['type','type','type']]) {
+    assert.equal((await judge(page,keyboardCase,`def keyboard_row_words(words):\n    return ${JSON.stringify(bad)}`)).status,'wrong_answer');
+  }
+  report.checks.push('batch 51 rejects twelve incorrect algorithms; word selections accept reordering but reject changed spelling, lost occurrences, and extra copies; full-size reference cases include 250,000,000 washing rounds without simulation');
   console.log('New-batch wrong-answer and flexible-output checks passed');
   const upside = JSON.parse(await fs.readFile(path.join(root, 'catalog_data/problems/leetcode-156.json'), 'utf8'));
   const equalUpside = { ...upside, tests: [{ id: 'upside-original-order', arguments: [[1,1,1]],

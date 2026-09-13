@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-517",
+  "content_sha256": "e0228cc047267f874c194809e26765dd094cf53bb3c93fbd77fff9abb7610de0",
+  "source_hash": "b7f1e332e336d9407c73a796f26c00708b284d4827d08a65c54dbc725856bbaa",
+  "visible_tests": 2,
+  "hidden_tests": 24,
+  "reference_passed": 26,
+  "wrong_solutions": [
+    {
+      "reason": "Checks edge flow but ignores a machine that must send excess dresses in both directions.",
+      "failed_cases": [
+        "lc-517-9",
+        "lc-517-15",
+        "lc-517-16",
+        "lc-517-stress-2"
+      ]
+    },
+    {
+      "reason": "Treats a receiving deficit like an outgoing bottleneck, disallowing parallel receipt from both sides.",
+      "failed_cases": [
+        "lc-517-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4564,
+  "oracle_implementation": "code_practice/import_batch_051.py:washing_oracle",
+  "validator_implementation_sha256": "522ea6a37a7529980dee5b93893e02b8a5a2e531fa008838dafc7801cdcc2b15",
+  "batch_implementation_sha256": "a6e31317300b46a9f9e5ead81e09e7f791cf063021702710555117d41f6ac600",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

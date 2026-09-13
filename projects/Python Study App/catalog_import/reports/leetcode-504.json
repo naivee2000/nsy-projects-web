@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-504",
+  "content_sha256": "b2e4efbef020b0718436309229d3c23eed7e1ec49fa074a7c1137c13e490b08e",
+  "source_hash": "d693628e852c55305f9eb28597f587d59d4df77ba71579f4aa2a08e1f8695778",
+  "visible_tests": 2,
+  "hidden_tests": 21,
+  "reference_passed": 23,
+  "wrong_solutions": [
+    {
+      "reason": "Emits least-significant digits first.",
+      "failed_cases": [
+        "lc-504-2",
+        "lc-504-8",
+        "lc-504-12",
+        "lc-504-14",
+        "lc-504-15",
+        "lc-504-17",
+        "lc-504-stress-1",
+        "lc-504-stress-2",
+        "lc-504-stress-3",
+        "lc-504-stress-4"
+      ]
+    },
+    {
+      "reason": "Loses the sign of negative input.",
+      "failed_cases": [
+        "lc-504-2",
+        "lc-504-5",
+        "lc-504-7",
+        "lc-504-10",
+        "lc-504-15",
+        "lc-504-stress-1",
+        "lc-504-stress-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4551,
+  "oracle_implementation": "code_practice/import_batch_051.py:base_oracle",
+  "validator_implementation_sha256": "522ea6a37a7529980dee5b93893e02b8a5a2e531fa008838dafc7801cdcc2b15",
+  "batch_implementation_sha256": "a6e31317300b46a9f9e5ead81e09e7f791cf063021702710555117d41f6ac600",
+  "judge_contract_sha256": "68c86515d0abed469bca6b37a807e830181daf7dd97820d004ee02df2def9f1e",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
