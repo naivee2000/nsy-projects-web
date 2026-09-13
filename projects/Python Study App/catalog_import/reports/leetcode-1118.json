@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1118",
+  "content_sha256": "0d750231831c94aa3b56e379a74b59cc4f20b1affb0f60c98ac0c5727deebec4",
+  "source_hash": "79e1ee460ce904ba2878149fa8fd7812e72b3fdcfc0c61fd5e78ceed4cfe527d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats century years as leap years when divisible by four.",
+      "failed_cases": [
+        "lc-1118-4",
+        "lc-1118-5",
+        "lc-1118-6",
+        "lc-1118-7"
+      ]
+    },
+    {
+      "reason": "Gives November 31 days.",
+      "failed_cases": [
+        "lc-1118-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5165,
+  "oracle_implementation": "code_practice/import_batch_083.py:days_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4a24460ccbbc3427164ec8410d927be124b3ff871973c9cddb9ee9015f5837b0",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1128",
+  "content_sha256": "a315defb8239d1db6f979b7919d456181d05411c6d955f4db08ca14648aa8413",
+  "source_hash": "e4c9a0a454fa3968837815cc26fcbc92a3bd1f9ab763ce81d2e9ac106429413d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats reversed dominoes as different keys.",
+      "failed_cases": [
+        "lc-1128-1",
+        "lc-1128-4",
+        "lc-1128-8",
+        "lc-1128-9",
+        "lc-1128-10",
+        "lc-1128-12",
+        "lc-1128-13",
+        "lc-1128-14",
+        "lc-1128-15"
+      ]
+    },
+    {
+      "reason": "Counts ordered rather than unordered index pairs.",
+      "failed_cases": [
+        "lc-1128-1",
+        "lc-1128-2",
+        "lc-1128-4",
+        "lc-1128-5",
+        "lc-1128-7",
+        "lc-1128-8",
+        "lc-1128-9",
+        "lc-1128-10",
+        "lc-1128-11",
+        "lc-1128-12",
+        "lc-1128-13",
+        "lc-1128-14",
+        "lc-1128-15",
+        "lc-1128-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5175,
+  "oracle_implementation": "code_practice/import_batch_083.py:dominoes_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "008d9c2919410a626bf8ab1221c66ce106f6ad7a4c7d2ac0b148e446cf6f243b",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

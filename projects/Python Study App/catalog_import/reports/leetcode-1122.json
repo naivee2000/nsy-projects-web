@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1122",
+  "content_sha256": "416f88b53a3a747a0f2040f4c33e1c5d32c90e7e894be44e82b23c00d6093a98",
+  "source_hash": "edb44966abcc3f60ae24c67b5ea35351275ae2b1b7e3671818b347891cafdfdc",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts unranked values descending.",
+      "failed_cases": [
+        "lc-1122-1",
+        "lc-1122-2",
+        "lc-1122-7",
+        "lc-1122-10",
+        "lc-1122-11",
+        "lc-1122-13",
+        "lc-1122-14",
+        "lc-1122-15",
+        "lc-1122-16"
+      ]
+    },
+    {
+      "reason": "Ignores arr2 order and ranks by numeric value.",
+      "failed_cases": [
+        "lc-1122-1",
+        "lc-1122-2",
+        "lc-1122-8",
+        "lc-1122-9",
+        "lc-1122-10",
+        "lc-1122-12",
+        "lc-1122-13",
+        "lc-1122-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5169,
+  "oracle_implementation": "code_practice/import_batch_083.py:relative_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "038921595176fb725bd8d13023005dca23b2ae320918d34981b3038e376bd3be",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

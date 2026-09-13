@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1138",
+  "content_sha256": "bcc5f58d29fe256bc20dfd1716c535fd8a35591b8b61393a2609212562369339",
+  "source_hash": "2b259bca3790de01cdea65ec9ff23bb72b84922200122fb67d36be847241cf6b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Moves downward when an upward move is required, potentially entering invalid cells.",
+      "failed_cases": [
+        "lc-1138-1",
+        "lc-1138-2",
+        "lc-1138-6",
+        "lc-1138-9",
+        "lc-1138-12",
+        "lc-1138-15",
+        "lc-1138-16"
+      ]
+    },
+    {
+      "reason": "Never emits the selection marker.",
+      "failed_cases": [
+        "lc-1138-1",
+        "lc-1138-2",
+        "lc-1138-3",
+        "lc-1138-4",
+        "lc-1138-5",
+        "lc-1138-6",
+        "lc-1138-7",
+        "lc-1138-8",
+        "lc-1138-9",
+        "lc-1138-10",
+        "lc-1138-11",
+        "lc-1138-12",
+        "lc-1138-13",
+        "lc-1138-14",
+        "lc-1138-15",
+        "lc-1138-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5185,
+  "oracle_implementation": "code_practice/import_batch_083.py:board_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1da2ad3302d8eb5bba846c7c4f9d6b284836d338aa587a54e27be950c5cda932",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

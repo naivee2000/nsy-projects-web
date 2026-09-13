@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1129",
+  "content_sha256": "98ea6a277974af0958e76a67e3eaed2b1a6d1bfeb68a6a398e7eee06d16aef76",
+  "source_hash": "c3c33218dc039be78d219a651b6d4ad4cbfc663f1393f9f1de94226d9198f940",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Continues with the same color instead of alternating.",
+      "failed_cases": [
+        "lc-1129-1",
+        "lc-1129-2",
+        "lc-1129-7",
+        "lc-1129-8",
+        "lc-1129-9",
+        "lc-1129-10",
+        "lc-1129-11",
+        "lc-1129-12",
+        "lc-1129-14"
+      ]
+    },
+    {
+      "reason": "Seeds only one prior-color state at the source.",
+      "failed_cases": [
+        "lc-1129-5",
+        "lc-1129-6",
+        "lc-1129-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5176,
+  "oracle_implementation": "code_practice/import_batch_083.py:alternating_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9105d1d461130bf5649954486a4e2605cad23555c249b0c462b3c5a3e97e75e7",
+  "elapsed_seconds": 0.068,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

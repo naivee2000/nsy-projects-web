@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 799,
+  "count": 819,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -14229,6 +14229,348 @@
       "path": "problems/leetcode-1109.json",
       "content_sha256": "12594c89387290273fd60bc67be5de00c90780dd89fdb56a3d7e8f0b477b71fd",
       "source_id": 1109
+    },
+    {
+      "id": "leetcode-1110",
+      "version": 1,
+      "status": "approved",
+      "title": "Delete Nodes And Return Forest",
+      "summary": "Given a binary tree with unique node values, remove nodes whose values are in to_delete.",
+      "topics": [
+        "trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1110.json",
+      "content_sha256": "f1028072c5afcb37c10a503d41f905c15ee76b7c6e5ad5acf5262429050cc56d",
+      "source_id": 1110
+    },
+    {
+      "id": "leetcode-1111",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Nesting Depth of Two Valid Parentheses Strings",
+      "summary": "Define a valid parentheses string (VPS) as a string consisting solely of '(', ')' characters, where it is either empty, can be split into two VPS's, or is a single pair of parentheses around a VPS.",
+      "topics": [
+        "stacks",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1111.json",
+      "content_sha256": "90423f67aa498e6c4a02700f90558a021dc4cc35f0c2261e5b5a93722c81d0a2",
+      "source_id": 1111
+    },
+    {
+      "id": "leetcode-1118",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Days in a Month",
+      "summary": "Determine the number of days in a specified month of a given year.",
+      "topics": [
+        "math",
+        "dates"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1118.json",
+      "content_sha256": "0d750231831c94aa3b56e379a74b59cc4f20b1affb0f60c98ac0c5727deebec4",
+      "source_id": 1118
+    },
+    {
+      "id": "leetcode-1119",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Vowels from a String",
+      "summary": "Given a string s, eliminate the vowels 'a', 'e', 'i', 'o', and 'u', then return the modified string.",
+      "topics": [
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1119.json",
+      "content_sha256": "1e18e091c227ecb41dd8002313200dce4f78750dac262a2ebef8b0bb2d4b1989",
+      "source_id": 1119
+    },
+    {
+      "id": "leetcode-1120",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Average Subtree",
+      "summary": "For a given binary tree, find the subtree with the highest average value.",
+      "topics": [
+        "trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1120.json",
+      "content_sha256": "892435f3668be1818cd07d2f70fff3fd8cf770fbf1a8ef2912da142ef1578dc6",
+      "source_id": 1120
+    },
+    {
+      "id": "leetcode-1121",
+      "version": 1,
+      "status": "approved",
+      "title": "Divide Array Into Increasing Sequences",
+      "summary": "Given an integer array nums sorted in non-decreasing order and an integer k, determine if the array can be divided into one or more disjoint increasing subsequences, where each subsequence has a minimum length of k.",
+      "topics": [
+        "greedy",
+        "hash-maps"
+      ],
+      "prerequisites": [
+        "greedy"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1121.json",
+      "content_sha256": "b6d3e8fb13d6216c7a06a6e8b5f943de313b217307ba330685059a3ece253d3a",
+      "source_id": 1121
+    },
+    {
+      "id": "leetcode-1122",
+      "version": 1,
+      "status": "approved",
+      "title": "Relative Sort Array",
+      "summary": "Given arrays arr1 and arr2 where arr2 contains unique elements all found in arr1, sort arr1 so that elements follow the order of arr2, with remaining elements sorted in ascending order at the end.",
+      "topics": [
+        "sorting",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1122.json",
+      "content_sha256": "416f88b53a3a747a0f2040f4c33e1c5d32c90e7e894be44e82b23c00d6093a98",
+      "source_id": 1122
+    },
+    {
+      "id": "leetcode-1123",
+      "version": 1,
+      "status": "approved",
+      "title": "Lowest Common Ancestor of Deepest Leaves",
+      "summary": "Given a binary tree, identify the lowest common ancestor of the deepest leaves.",
+      "topics": [
+        "trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1123.json",
+      "content_sha256": "74c0f5c6abe18928335d8c61d3a84a12a670350bc07088ad1dbc61d784e24e98",
+      "source_id": 1123
+    },
+    {
+      "id": "leetcode-1124",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Well-Performing Interval",
+      "summary": "Given a list of daily work hours, identify the longest interval where the number of tiring days (hours > 8) exceeds the non-tiring days.",
+      "topics": [
+        "prefix-sums",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1124.json",
+      "content_sha256": "4ba977e12c9b3431a934d33c5e4f9b110c2f0469bc83168eb7a0ee10048ab614",
+      "source_id": 1124
+    },
+    {
+      "id": "leetcode-1125",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Sufficient Team",
+      "summary": "Given a list of required skills and a list of people, each with their respective skills, find a sufficient team of the smallest possible size such that every required skill is covered by at least one person in the team.",
+      "topics": [
+        "bitmask-dp",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "bitmask-dp"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1125.json",
+      "content_sha256": "4fac5e5a01779b0a75fce9b14c0d87b562ee79bb482fbf4dbe01a292158e47a7",
+      "source_id": 1125
+    },
+    {
+      "id": "leetcode-1128",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Equivalent Domino Pairs",
+      "summary": "Count the number of distinct pairs of dominoes from a list where each pair can be made identical by rotating one of the dominoes.",
+      "topics": [
+        "hash-maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1128.json",
+      "content_sha256": "a315defb8239d1db6f979b7919d456181d05411c6d955f4db08ca14648aa8413",
+      "source_id": 1128
+    },
+    {
+      "id": "leetcode-1129",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Path with Alternating Colors",
+      "summary": "Given an integer n representing the number of nodes in a directed graph with nodes labeled from 0 to n-1, and two arrays redEdges and blueEdges indicating directed red and blue edges, return an array answer of length n.",
+      "topics": [
+        "graphs",
+        "breadth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1129.json",
+      "content_sha256": "98ea6a277974af0958e76a67e3eaed2b1a6d1bfeb68a6a398e7eee06d16aef76",
+      "source_id": 1129
+    },
+    {
+      "id": "leetcode-1130",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost Tree From Leaf Values",
+      "summary": "Given an array of positive integers, find the minimum sum of non-leaf node values for all binary trees where each leaf's value matches the array's elements, and each non-leaf node's value is the product of the largest leaf values in its left and right subtrees.",
+      "topics": [
+        "monotonic-stack",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1130.json",
+      "content_sha256": "9db6f0d7a2da915f64ba49dac0ec6c2dda53c8dbabef9289b32f69dcc043c7ed",
+      "source_id": 1130
+    },
+    {
+      "id": "leetcode-1131",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum of Absolute Value Expression",
+      "summary": "For two equal-length integer arrays, find the greatest value of the expression |arr1[i] - arr1[j]| + |arr2[i] - arr2[j]| + |i - j| by evaluating it for all valid i and j where 0 <= i, j < arr1.length.",
+      "topics": [
+        "math",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1131.json",
+      "content_sha256": "949c2e2436aa2f9415ac084167a26ac548390c3a78ff6d113b993d6109546f0b",
+      "source_id": 1131
+    },
+    {
+      "id": "leetcode-1133",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Unique Number",
+      "summary": "For an integer array, identify the greatest number that appears exactly once; return -1 if no such number exists.",
+      "topics": [
+        "hash-maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1133.json",
+      "content_sha256": "27a55ca53fbee0eac57041df6030acdde8d4f6badfff57d922ec5054996846d0",
+      "source_id": 1133
+    },
+    {
+      "id": "leetcode-1134",
+      "version": 1,
+      "status": "approved",
+      "title": "Armstrong Number",
+      "summary": "Determine if an integer n is an Armstrong number by checking if the sum of its digits each raised to the power of the number of digits equals n.",
+      "topics": [
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1134.json",
+      "content_sha256": "02674df44d233f4ff73e0faa611a1d53abd81527ab68baca67c9076d5a51892d",
+      "source_id": 1134
+    },
+    {
+      "id": "leetcode-1135",
+      "version": 1,
+      "status": "approved",
+      "title": "Connecting Cities With Minimum Cost",
+      "summary": "Given n cities labeled from 1 to n and an array of connections where each connection is represented by [xi, yi, costi], determine the minimum total cost to connect all cities such that there is a path between every pair of cities.",
+      "topics": [
+        "union-find",
+        "minimum-spanning-tree"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1135.json",
+      "content_sha256": "13487b781f15f8058dee1bd3d69896cfd7de6351275ac598923e8a9a63fa58b9",
+      "source_id": 1135
+    },
+    {
+      "id": "leetcode-1136",
+      "version": 1,
+      "status": "approved",
+      "title": "Parallel Courses",
+      "summary": "Given an integer n representing n courses labeled 1 to n, and an array relations indicating prerequisite relationships, determine the minimum number of semesters needed to complete all courses.",
+      "topics": [
+        "graphs",
+        "topological-sort"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1136.json",
+      "content_sha256": "ea55681e3bdf0ad06e79f3d57ddf15e9a2108788374fe24f4a8ebdbe5c94ba00",
+      "source_id": 1136
+    },
+    {
+      "id": "leetcode-1137",
+      "version": 1,
+      "status": "approved",
+      "title": "N-th Tribonacci Number",
+      "summary": "The Tribonacci sequence is defined by T0 = 0, T1 = 1, T2 = 1, and for n >= 0, Tn+3 equals the sum of Tn, Tn+1, and Tn+2.",
+      "topics": [
+        "dynamic-programming",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1137.json",
+      "content_sha256": "0d02b216682415752a12a533a04ead1dabed7f21c1f878ca312cdb0da260b26f",
+      "source_id": 1137
+    },
+    {
+      "id": "leetcode-1138",
+      "version": 1,
+      "status": "approved",
+      "title": "Alphabet Board Path",
+      "summary": "Starting at (0, 0) on an alphabet board with the layout [\"abcde\", \"fghij\", \"klmno\", \"pqrst\", \"uvwxy\", \"z\"], we can move up ('U'), down ('D'), left ('L'), or right ('R') to adjacent letters.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1138.json",
+      "content_sha256": "bcc5f58d29fe256bc20dfd1716c535fd8a35591b8b61393a2609212562369339",
+      "source_id": 1138
     }
   ]
 }

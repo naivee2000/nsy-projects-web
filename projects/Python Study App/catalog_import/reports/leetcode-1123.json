@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1123",
+  "content_sha256": "74c0f5c6abe18928335d8c61d3a84a12a670350bc07088ad1dbc61d784e24e98",
+  "source_hash": "64e6be3f357057bc74abd54bd6365b3a0529077708fdcec7880bc1a6e3bd38ec",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the shallower subtree when depths differ.",
+      "failed_cases": [
+        "lc-1123-1",
+        "lc-1123-3",
+        "lc-1123-4",
+        "lc-1123-6",
+        "lc-1123-7",
+        "lc-1123-9",
+        "lc-1123-13",
+        "lc-1123-14",
+        "lc-1123-15"
+      ]
+    },
+    {
+      "reason": "Returns a child result rather than the current node when depths tie.",
+      "failed_cases": [
+        "lc-1123-1",
+        "lc-1123-2",
+        "lc-1123-3",
+        "lc-1123-4",
+        "lc-1123-5",
+        "lc-1123-6",
+        "lc-1123-7",
+        "lc-1123-8",
+        "lc-1123-9",
+        "lc-1123-10",
+        "lc-1123-11",
+        "lc-1123-12",
+        "lc-1123-13",
+        "lc-1123-14",
+        "lc-1123-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5170,
+  "oracle_implementation": "code_practice/import_batch_083.py:deepest_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "414baa847886ee849f5fef280fb008a7204906e027c3ac43d952eab1d2c3d714",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

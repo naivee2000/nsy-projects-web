@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1137",
+  "content_sha256": "0d02b216682415752a12a533a04ead1dabed7f21c1f878ca312cdb0da260b26f",
+  "source_hash": "e50b412cd15e1849f71c467205f424d8743adf4da875efb2ac27785ec2b868b0",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Drops the oldest of the three recurrence terms.",
+      "failed_cases": [
+        "lc-1137-1",
+        "lc-1137-2",
+        "lc-1137-7",
+        "lc-1137-8",
+        "lc-1137-9",
+        "lc-1137-10",
+        "lc-1137-11",
+        "lc-1137-12",
+        "lc-1137-13",
+        "lc-1137-14",
+        "lc-1137-15"
+      ]
+    },
+    {
+      "reason": "Uses the same base return for n=2 and returns two instead of one.",
+      "failed_cases": [
+        "lc-1137-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5184,
+  "oracle_implementation": "code_practice/import_batch_083.py:trib_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e0fa4303450a88a5412b1644aafbce821a20082495f5108aed9dda6f17dbdd50",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

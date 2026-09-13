@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1133",
+  "content_sha256": "27a55ca53fbee0eac57041df6030acdde8d4f6badfff57d922ec5054996846d0",
+  "source_hash": "69af08f141dca1ba5f3552105e64476e24b7c67fcf95e47107fb11c52daadd80",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows repeated values to compete.",
+      "failed_cases": [
+        "lc-1133-1",
+        "lc-1133-2",
+        "lc-1133-4",
+        "lc-1133-6",
+        "lc-1133-7",
+        "lc-1133-9",
+        "lc-1133-10",
+        "lc-1133-11",
+        "lc-1133-12",
+        "lc-1133-13",
+        "lc-1133-15"
+      ]
+    },
+    {
+      "reason": "Returns the smallest unique value.",
+      "failed_cases": [
+        "lc-1133-1",
+        "lc-1133-5",
+        "lc-1133-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5180,
+  "oracle_implementation": "code_practice/import_batch_083.py:unique_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c4819a72330248821e7c1162651af74eebcd961cd3379d05d91449318c4fa847",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

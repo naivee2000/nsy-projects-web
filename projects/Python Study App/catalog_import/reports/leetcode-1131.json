@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1131",
+  "content_sha256": "949c2e2436aa2f9415ac084167a26ac548390c3a78ff6d113b993d6109546f0b",
+  "source_hash": "e35cb16e4072a2f6032ceceb477c897624f394cfaa8d8994edc0eda7ec5fbb18",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only one sign combination.",
+      "failed_cases": [
+        "lc-1131-2",
+        "lc-1131-5",
+        "lc-1131-8",
+        "lc-1131-9",
+        "lc-1131-11",
+        "lc-1131-12",
+        "lc-1131-13",
+        "lc-1131-14"
+      ]
+    },
+    {
+      "reason": "Adds extrema rather than taking their range.",
+      "failed_cases": [
+        "lc-1131-2",
+        "lc-1131-3",
+        "lc-1131-4",
+        "lc-1131-5",
+        "lc-1131-7",
+        "lc-1131-8",
+        "lc-1131-9",
+        "lc-1131-10",
+        "lc-1131-11",
+        "lc-1131-12",
+        "lc-1131-13",
+        "lc-1131-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5178,
+  "oracle_implementation": "code_practice/import_batch_083.py:absolute_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3f04f2020ee94efa28c3fd03ff8616aff821a1a6dce97f699fae0f6ce69f9436",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

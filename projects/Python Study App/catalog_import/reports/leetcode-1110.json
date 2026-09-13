@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1110",
+  "content_sha256": "f1028072c5afcb37c10a503d41f905c15ee76b7c6e5ad5acf5262429050cc56d",
+  "source_hash": "0ec328fd7998888c32c981aeea5ef621f6ad1fc8ba4ae7616dfcec729f816d33",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Never removes deleted nodes from their parents.",
+      "failed_cases": [
+        "lc-1110-1",
+        "lc-1110-2",
+        "lc-1110-6",
+        "lc-1110-8",
+        "lc-1110-9",
+        "lc-1110-10",
+        "lc-1110-11",
+        "lc-1110-12",
+        "lc-1110-13",
+        "lc-1110-14",
+        "lc-1110-15",
+        "lc-1110-16"
+      ]
+    },
+    {
+      "reason": "Adds every surviving node as a separate forest root.",
+      "failed_cases": [
+        "lc-1110-1",
+        "lc-1110-2",
+        "lc-1110-4",
+        "lc-1110-5",
+        "lc-1110-7",
+        "lc-1110-8",
+        "lc-1110-10",
+        "lc-1110-11",
+        "lc-1110-14",
+        "lc-1110-15",
+        "lc-1110-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5157,
+  "oracle_implementation": "code_practice/import_batch_083.py:forest_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9ad054bfd60833ca861afe0f48e5148375c537fe361f5f39985e1ce4e761bfa2",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

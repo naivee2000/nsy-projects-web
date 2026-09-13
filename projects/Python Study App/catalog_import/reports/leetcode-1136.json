@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1136",
+  "content_sha256": "ea55681e3bdf0ad06e79f3d57ddf15e9a2108788374fe24f4a8ebdbe5c94ba00",
+  "source_hash": "c5aa6cdc17810e44d4f5f7ee588b3548d43c1dd78a81cb8890d2ae89580ab180",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts each ready course as a separate term.",
+      "failed_cases": [
+        "lc-1136-1",
+        "lc-1136-4",
+        "lc-1136-8",
+        "lc-1136-10",
+        "lc-1136-11",
+        "lc-1136-12",
+        "lc-1136-13",
+        "lc-1136-14"
+      ]
+    },
+    {
+      "reason": "Increments indegree of prerequisites instead of dependent courses.",
+      "failed_cases": [
+        "lc-1136-1",
+        "lc-1136-5",
+        "lc-1136-7",
+        "lc-1136-8",
+        "lc-1136-9",
+        "lc-1136-10",
+        "lc-1136-11",
+        "lc-1136-12",
+        "lc-1136-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5183,
+  "oracle_implementation": "code_practice/import_batch_083.py:courses_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c5c492af15d7835a78a30e24b02eca84b5faa9819cbe8820aa787c88ae936c87",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

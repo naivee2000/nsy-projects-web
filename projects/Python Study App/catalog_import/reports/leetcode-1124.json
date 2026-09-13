@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1124",
+  "content_sha256": "4ba977e12c9b3431a934d33c5e4f9b110c2f0469bc83168eb7a0ee10048ab614",
+  "source_hash": "c1bb393918aff099366044152c4b709011a1607379f7c74c81c8a248c6711fa7",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Looks for the wrong prior prefix score.",
+      "failed_cases": [
+        "lc-1124-1",
+        "lc-1124-2",
+        "lc-1124-4",
+        "lc-1124-8",
+        "lc-1124-10"
+      ]
+    },
+    {
+      "reason": "Overwrites earliest prefix positions and shortens intervals.",
+      "failed_cases": [
+        "lc-1124-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5171,
+  "oracle_implementation": "code_practice/import_batch_083.py:interval_oracle",
+  "validator_implementation_sha256": "62be25a4345a2b7e3ee7d6682c383521c75c60a7185416778fd34646fda899e8",
+  "batch_implementation_sha256": "c971075a99accdebf20c690a9288a7cae056e7c3fcca25ce5708e0ba501b3eeb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ba6ab502ac468ef0f715f75dd29b465ff677530b39c054c3208f19c0ab7a0c09",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
