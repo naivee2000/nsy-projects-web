@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-794",
+  "content_sha256": "c1fb08242c2af29733c8df0cbcf4c129335326da59917683acecacc23f336502",
+  "source_hash": "9ebaf5ac43283ab388eaad57745521e34abba34281133806868065578887955c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores turn-count legality.",
+      "failed_cases": [
+        "lc-794-1"
+      ]
+    },
+    {
+      "reason": "Checks mark counts and dual wins but not whether the winner made the last move.",
+      "failed_cases": [
+        "lc-794-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4841,
+  "oracle_implementation": "code_practice/import_batch_072.py:tictactoe_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "d3c1744a05c545e9852b483a75b92a85905455e6e579235adaff7ad583ceccb2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4ac424b55bf7b5c9ec41e49cc188300176ae4c96043a731de2dc2d7085bf65f1",
+  "elapsed_seconds": 0.105,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input board = [\"O \",\" \",\" \"] → Output false.",
+    "arguments": [
+      [
+        "O  ",
+        "   ",
+        "   "
+      ]
+    ],
+    "expected": false,
+    "reason": "The workbook collapsed repeated spaces inside the three fixed-width rows; the source contract requires a 3-by-3 board.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README_EN.md"
+  }
+}

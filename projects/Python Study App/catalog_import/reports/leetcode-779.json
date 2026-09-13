@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-779",
+  "content_sha256": "bbc1535768a2468863d8d6fe7b58a348a8bd00312df239f1aae6e188a6049ab7",
+  "source_hash": "dfba0a3b847da3ce3a1a1b3a6ae6e663dcf05e0ef844ab4d63f4c9cd048862d5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts bits from k instead of zero-based k-1.",
+      "failed_cases": [
+        "lc-779-1",
+        "lc-779-2",
+        "lc-779-3",
+        "lc-779-5",
+        "lc-779-7",
+        "lc-779-8",
+        "lc-779-9",
+        "lc-779-11",
+        "lc-779-12",
+        "lc-779-13"
+      ]
+    },
+    {
+      "reason": "Assumes the row simply alternates.",
+      "failed_cases": [
+        "lc-779-2",
+        "lc-779-7",
+        "lc-779-8",
+        "lc-779-12",
+        "lc-779-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4826,
+  "oracle_implementation": "code_practice/import_batch_072.py:grammar_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a178e363e8d64337cc3f8f5cafd711464a878ac6d068ff2eeea016fda9b39305",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

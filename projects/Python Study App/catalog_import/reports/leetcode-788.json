@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-788",
+  "content_sha256": "dce503ef0dfd875f48573aeb5894910f2f4f8157b6383b071aa036b55307b2b3",
+  "source_hash": "d68c721beed5573948327324d97f2bbc6c0e179ba7d59cbe964628f2c10e4a21",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts unchanged numbers containing only 0,1,8.",
+      "failed_cases": [
+        "lc-788-1",
+        "lc-788-2",
+        "lc-788-3",
+        "lc-788-4",
+        "lc-788-5",
+        "lc-788-6",
+        "lc-788-7",
+        "lc-788-8",
+        "lc-788-9",
+        "lc-788-10",
+        "lc-788-11",
+        "lc-788-12",
+        "lc-788-13",
+        "lc-788-14"
+      ]
+    },
+    {
+      "reason": "Allows invalid digits 3,4,7.",
+      "failed_cases": [
+        "lc-788-10",
+        "lc-788-11",
+        "lc-788-12",
+        "lc-788-13",
+        "lc-788-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4835,
+  "oracle_implementation": "code_practice/import_batch_072.py:rotated_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "14dfc1fed4fe41564baf209c31d6d3b91c9ddd107ff5d739333459a59cdd8383",
+  "elapsed_seconds": 0.155,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

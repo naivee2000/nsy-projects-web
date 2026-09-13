@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 579,
+  "count": 599,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -10437,6 +10437,344 @@
       "path": "problems/leetcode-771.json",
       "content_sha256": "0ec732c90569dbb2fcb3af5e657cb1082e8cc2c957eb9851032f5e798e84e757",
       "source_id": 771
+    },
+    {
+      "id": "leetcode-775",
+      "version": 1,
+      "status": "approved",
+      "title": "Global and Local Inversions",
+      "summary": "Given an integer array representing a permutation of [0, n-1], determine if the count of global inversions (pairs (i, j) where i nums[j]) equals the count of local inversions (pairs (i, i+1) where nums[i] > nums[i+1]).",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-775.json",
+      "content_sha256": "3d2c8d29219dc278b12888f878fd23d8d9baf6642b0f658a75441b7f273856e8",
+      "source_id": 775
+    },
+    {
+      "id": "leetcode-777",
+      "version": 1,
+      "status": "approved",
+      "title": "Swap Adjacent in LR String",
+      "summary": "Given a string made up of 'L', 'R', and 'X', determine if it's possible to transform the starting string into the ending string through a series of moves.",
+      "topics": [
+        "two-pointers",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-777.json",
+      "content_sha256": "849933c4c43963b6b1e379990ed78d2250f1bbf59d68864f8492aa218a9d7aca",
+      "source_id": 777
+    },
+    {
+      "id": "leetcode-779",
+      "version": 1,
+      "status": "approved",
+      "title": "K-th Symbol in Grammar",
+      "summary": "Construct a table with n rows, starting with 0 in the first row.",
+      "topics": [
+        "recursion",
+        "bit-manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-779.json",
+      "content_sha256": "bbc1535768a2468863d8d6fe7b58a348a8bd00312df239f1aae6e188a6049ab7",
+      "source_id": 779
+    },
+    {
+      "id": "leetcode-781",
+      "version": 1,
+      "status": "approved",
+      "title": "Rabbits in Forest",
+      "summary": "Given an array of answers from rabbits about how many other rabbits share their color, determine the minimum number of rabbits in the forest.",
+      "topics": [
+        "hash-maps",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-781.json",
+      "content_sha256": "a4ed529c9664f7de8ed812b46217683d99043a4f255ce19e4f96d1a8b281e359",
+      "source_id": 781
+    },
+    {
+      "id": "leetcode-786",
+      "version": 1,
+      "status": "approved",
+      "title": "K-th Smallest Prime Fraction",
+      "summary": "Given a sorted array of 1 and prime numbers, find the k-th smallest fraction formed by dividing any two elements.",
+      "topics": [
+        "heaps",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-786.json",
+      "content_sha256": "ad7743e7f8c55e21a4629e81047ed83a1ac2113a03c5654fde816f04fbceb3ca",
+      "source_id": 786
+    },
+    {
+      "id": "leetcode-787",
+      "version": 1,
+      "status": "approved",
+      "title": "Cheapest Flights Within K Stops",
+      "summary": "Given a list of flights connecting cities, determine the lowest cost route from a source city to a destination city with at most k stops.",
+      "topics": [
+        "graphs",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-787.json",
+      "content_sha256": "1c5b5b37e2871504830e65a93ff922e0ea81e004970cd383fe9aadeaeb66e746",
+      "source_id": 787
+    },
+    {
+      "id": "leetcode-788",
+      "version": 1,
+      "status": "approved",
+      "title": "Rotated Digits",
+      "summary": "Determine the count of integers within the range [1, n] that transform into a distinct number when each digit is rotated 180 degrees.",
+      "topics": [
+        "math",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-788.json",
+      "content_sha256": "dce503ef0dfd875f48573aeb5894910f2f4f8157b6383b071aa036b55307b2b3",
+      "source_id": 788
+    },
+    {
+      "id": "leetcode-789",
+      "version": 1,
+      "status": "approved",
+      "title": "Escape The Ghosts",
+      "summary": "In an infinite 2-D grid, you begin at the point [0, 0] and your goal is to reach a target located at [xtarget, ytarget].",
+      "topics": [
+        "math",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-789.json",
+      "content_sha256": "bb2e7b69b58955eb5ad54960d4ee1084e54f87fdf7a416e0bc03b17bb3ae8a92",
+      "source_id": 789
+    },
+    {
+      "id": "leetcode-790",
+      "version": 1,
+      "status": "approved",
+      "title": "Domino and Tromino Tiling",
+      "summary": "Given an integer n , determine the number of ways to tile a 2 × n board using 2 x 1 dominoes and L-shaped trominoes, taking into account all possible rotations.",
+      "topics": [
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-790.json",
+      "content_sha256": "5cdc41763142132286da56ee158f272c2e80dbc4a4e7fcf8c76d04ddceb7f7fb",
+      "source_id": 790
+    },
+    {
+      "id": "leetcode-791",
+      "version": 1,
+      "status": "approved",
+      "title": "Custom Sort String",
+      "summary": "Given strings order and s, rearrange s's characters to align with order.",
+      "topics": [
+        "hash-maps",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-791.json",
+      "content_sha256": "325943b3b1a4d6d1f89f789e281bbf157090e0f60ab9c7d34cddd52ea02ab084",
+      "source_id": 791
+    },
+    {
+      "id": "leetcode-792",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Matching Subsequences",
+      "summary": "Given a string and an array of strings, count how many of the array's strings can be formed by deleting some characters from the given string without changing the order of the remaining characters.",
+      "topics": [
+        "strings",
+        "queues"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-792.json",
+      "content_sha256": "24eae9d4adf3b87b7b1e8da9116d6128c6a3da11aabc8fdcb1f6b4ffb87335c6",
+      "source_id": 792
+    },
+    {
+      "id": "leetcode-794",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Tic-Tac-Toe State",
+      "summary": "Given a Tic-Tac-Toe board as a string array, determine if the board state can be reached through a valid game.",
+      "topics": [
+        "simulation",
+        "logic"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-794.json",
+      "content_sha256": "c1fb08242c2af29733c8df0cbcf4c129335326da59917683acecacc23f336502",
+      "source_id": 794
+    },
+    {
+      "id": "leetcode-795",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Subarrays with Bounded Maximum",
+      "summary": "Given an integer array and two integers defining a range, count the number of contiguous subarrays where the maximum element is within that range.",
+      "topics": [
+        "sliding-windows",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-795.json",
+      "content_sha256": "d0ca7046bfbd30ae30961bd508ce3c36b6dddf4e52f07d685c0d8b29427274d4",
+      "source_id": 795
+    },
+    {
+      "id": "leetcode-796",
+      "version": 1,
+      "status": "approved",
+      "title": "Rotate String",
+      "summary": "Given strings s and goal, determine if goal can be achieved by rotating s any number of times.",
+      "topics": [
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-796.json",
+      "content_sha256": "da87f53ed5da1af1c380f57c4041bd692534a154bea0ed74b0589d2e2fa6838e",
+      "source_id": 796
+    },
+    {
+      "id": "leetcode-797",
+      "version": 1,
+      "status": "approved",
+      "title": "All Paths From Source to Target",
+      "summary": "Given a directed acyclic graph with n nodes labeled from 0 to n-1, find all possible paths from node 0 to node n-1 and return them in any order.",
+      "topics": [
+        "graphs",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-797.json",
+      "content_sha256": "7b962c6be781a21d0b33f48ff354cb88c14658448163657dc911d5f3350b8f0f",
+      "source_id": 797
+    },
+    {
+      "id": "leetcode-799",
+      "version": 1,
+      "status": "approved",
+      "title": "Champagne Tower",
+      "summary": "We stack glasses in a pyramid where the first row contains 1 glass, and each subsequent row contains one more glass than the row above it, up to 100 rows.",
+      "topics": [
+        "dynamic-programming",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-799.json",
+      "content_sha256": "cb1b482db0ea3f6fb1ebd6eda1b3c85b46eb35713665810891f17f4c004258eb",
+      "source_id": 799
+    },
+    {
+      "id": "leetcode-800",
+      "version": 1,
+      "status": "approved",
+      "title": "Similar RGB Color",
+      "summary": "Given a color in shorthand format '#ABCDEF', find the closest color in shorthand format '#XYZ' by minimizing the similarity score -(AB - UV)^2 - (CD - WX)^2 - (EF - YZ)^2.",
+      "topics": [
+        "math",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-800.json",
+      "content_sha256": "24d9d60d3db635923fe33daf5aed2f2efdd55fab16d83de1ec6aa7f741236399",
+      "source_id": 800
+    },
+    {
+      "id": "leetcode-802",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Eventual Safe States",
+      "summary": "Given a directed graph with nodes numbered from 0 to n-1, where each node points to its adjacent nodes, identify all nodes that lead to a terminal node or another safe node through every possible path.",
+      "topics": [
+        "graphs",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-802.json",
+      "content_sha256": "bdc103110c5507cd3cc0ab94ea4b224b4867a96fa4217314cc5ebf4249be6c89",
+      "source_id": 802
+    },
+    {
+      "id": "leetcode-804",
+      "version": 1,
+      "status": "approved",
+      "title": "Unique Morse Code Words",
+      "summary": "Given an array of strings where each string is a word, transform each word into its Morse code representation by mapping each letter to its corresponding Morse code.",
+      "topics": [
+        "hash-maps",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-804.json",
+      "content_sha256": "08e93edf720119e44d31536d2e5c604b565c68594fabaa9fab5d7e2e2f0e9187",
+      "source_id": 804
+    },
+    {
+      "id": "leetcode-806",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Lines To Write String",
+      "summary": "Given a string s consisting of lowercase English letters and an array widths that specifies the width of each letter in pixels, determine the number of lines required to write the string such that no line exceeds 100 pixels in width.",
+      "topics": [
+        "greedy",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-806.json",
+      "content_sha256": "1cf34234ce450f6d6b5da63a19e885c80deb7069a7fd82a5c251a13de19627e3",
+      "source_id": 806
     }
   ]
 }

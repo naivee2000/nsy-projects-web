@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-795",
+  "content_sha256": "d0ca7046bfbd30ae30961bd508ce3c36b6dddf4e52f07d685c0d8b29427274d4",
+  "source_hash": "14d78efd70305b3e093bd1f8b58561a3a73aa68c3d2f365bd6957f316396f1bc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Initializes the last invalid boundary incorrectly.",
+      "failed_cases": [
+        "lc-795-1",
+        "lc-795-2",
+        "lc-795-3",
+        "lc-795-6",
+        "lc-795-7",
+        "lc-795-8",
+        "lc-795-9",
+        "lc-795-12",
+        "lc-795-13"
+      ]
+    },
+    {
+      "reason": "Counts every suffix after a valid value even when its maximum is too small.",
+      "failed_cases": [
+        "lc-795-1",
+        "lc-795-4",
+        "lc-795-7",
+        "lc-795-9",
+        "lc-795-10",
+        "lc-795-11",
+        "lc-795-12",
+        "lc-795-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4842,
+  "oracle_implementation": "code_practice/import_batch_072.py:bounded_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6b6ac98546fcaf4a960f60492dccbc6be2808ef048ceb3f4e89a78e1117b0d1a",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

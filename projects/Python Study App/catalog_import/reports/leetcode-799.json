@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-799",
+  "content_sha256": "cb1b482db0ea3f6fb1ebd6eda1b3c85b46eb35713665810891f17f4c004258eb",
+  "source_hash": "99619563a13ef342c7a60f71c1e5b95c8f8a6205a9874aa0e7253ff8c0ff6f30",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Splits the retained cup as well as overflow.",
+      "failed_cases": [
+        "lc-799-1",
+        "lc-799-2",
+        "lc-799-6",
+        "lc-799-9",
+        "lc-799-10",
+        "lc-799-12"
+      ]
+    },
+    {
+      "reason": "Returns uncapped volume rather than glass fullness.",
+      "failed_cases": [
+        "lc-799-5",
+        "lc-799-11",
+        "lc-799-13",
+        "lc-799-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4846,
+  "oracle_implementation": "code_practice/import_batch_072.py:champagne_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "407a0b7d208839db727743f902e89e581f96b27a614f5e6f67bdbd931a241363",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

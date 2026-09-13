@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-787",
+  "content_sha256": "1c5b5b37e2871504830e65a93ff922e0ea81e004970cd383fe9aadeaeb66e746",
+  "source_hash": "01be1fc421aa633671fa30249f422fbd541516554005269194e2a912ede706b4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forces exactly the current edge count and loses cheaper shorter routes.",
+      "failed_cases": [
+        "lc-787-8",
+        "lc-787-11",
+        "lc-787-12"
+      ]
+    },
+    {
+      "reason": "Allows only k edges instead of k+1 edges.",
+      "failed_cases": [
+        "lc-787-1",
+        "lc-787-2",
+        "lc-787-4",
+        "lc-787-6",
+        "lc-787-7",
+        "lc-787-9",
+        "lc-787-13",
+        "lc-787-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4834,
+  "oracle_implementation": "code_practice/import_batch_072.py:flights_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ebfd0d265b8793582c88bcfac3c55bf161522b7ddc2a4f870e0a6b765bac1e24",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

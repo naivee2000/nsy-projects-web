@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-800",
+  "content_sha256": "24d9d60d3db635923fe33daf5aed2f2efdd55fab16d83de1ec6aa7f741236399",
+  "source_hash": "d71d8653fa18a954042beac9474ed318feaba0ccaafdf04a7d331ae605caf7d7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always rounds channels downward.",
+      "failed_cases": [
+        "lc-800-1",
+        "lc-800-2",
+        "lc-800-7",
+        "lc-800-8"
+      ]
+    },
+    {
+      "reason": "Uses multiples of sixteen instead of seventeen.",
+      "failed_cases": [
+        "lc-800-1",
+        "lc-800-2",
+        "lc-800-11",
+        "lc-800-13",
+        "lc-800-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4847,
+  "oracle_implementation": "code_practice/import_batch_072.py:color_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6e72b0d7cee41f88e5c00b4a97a75d16934bedeed3194c6f7f691cf5e952a352",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

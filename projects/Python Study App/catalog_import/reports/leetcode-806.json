@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-806",
+  "content_sha256": "1cf34234ce450f6d6b5da63a19e885c80deb7069a7fd82a5c251a13de19627e3",
+  "source_hash": "fbd118e6ce747964102d0be5d46efa0478fe7326556a171916964003b2a3ae2b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts a new line when a letter exactly fills the current line.",
+      "failed_cases": [
+        "lc-806-1",
+        "lc-806-4",
+        "lc-806-5",
+        "lc-806-6",
+        "lc-806-7",
+        "lc-806-8",
+        "lc-806-9",
+        "lc-806-11"
+      ]
+    },
+    {
+      "reason": "Fails to count the initial line.",
+      "failed_cases": [
+        "lc-806-1",
+        "lc-806-2",
+        "lc-806-3",
+        "lc-806-4",
+        "lc-806-5",
+        "lc-806-6",
+        "lc-806-7",
+        "lc-806-8",
+        "lc-806-9",
+        "lc-806-10",
+        "lc-806-11",
+        "lc-806-12",
+        "lc-806-13",
+        "lc-806-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4853,
+  "oracle_implementation": "code_practice/import_batch_072.py:lines_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "decb424f8669984e35443106a1bdd6f7193ac6d88830a3eb949704e1b7887554",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

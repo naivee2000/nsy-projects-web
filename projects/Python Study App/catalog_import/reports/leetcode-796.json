@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-796",
+  "content_sha256": "da87f53ed5da1af1c380f57c4041bd692534a154bea0ed74b0589d2e2fa6838e",
+  "source_hash": "9df11ab47a980ed617a56480e22bf30a60bab12435faa0462204f6fe71b38be0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not require equal lengths.",
+      "failed_cases": [
+        "lc-796-13"
+      ]
+    },
+    {
+      "reason": "Checks only ordinary substring containment, not wraparound rotations.",
+      "failed_cases": [
+        "lc-796-1",
+        "lc-796-5",
+        "lc-796-7",
+        "lc-796-8",
+        "lc-796-11",
+        "lc-796-12",
+        "lc-796-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4843,
+  "oracle_implementation": "code_practice/import_batch_072.py:rotate_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b03bffc7a2642e765b1c9ef394828dcd2db6e0e4e2f81c31287e0652f830e739",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

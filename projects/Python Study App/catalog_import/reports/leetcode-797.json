@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-797",
+  "content_sha256": "7b962c6be781a21d0b33f48ff354cb88c14658448163657dc911d5f3350b8f0f",
+  "source_hash": "b15b7afd789a859b2b0330281ee22134680aecaf4a244d591c0afe8bc2d24c4f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops the path prefix while recursing.",
+      "failed_cases": [
+        "lc-797-1",
+        "lc-797-2",
+        "lc-797-4",
+        "lc-797-5",
+        "lc-797-6",
+        "lc-797-7",
+        "lc-797-8",
+        "lc-797-9",
+        "lc-797-10",
+        "lc-797-11",
+        "lc-797-12",
+        "lc-797-13",
+        "lc-797-14"
+      ]
+    },
+    {
+      "reason": "Explores only the first outgoing edge.",
+      "failed_cases": [
+        "lc-797-1",
+        "lc-797-2",
+        "lc-797-5",
+        "lc-797-7",
+        "lc-797-8",
+        "lc-797-10",
+        "lc-797-12",
+        "lc-797-13",
+        "lc-797-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4844,
+  "oracle_implementation": "code_practice/import_batch_072.py:paths_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "99e0f2c53c48dcdb9eae0a01627e6d2754c5ae949c7ac655eca9d9396c42c2c9",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

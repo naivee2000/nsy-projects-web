@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-792",
+  "content_sha256": "24eae9d4adf3b87b7b1e8da9116d6128c6a3da11aabc8fdcb1f6b4ffb87335c6",
+  "source_hash": "501c84c6e05c41c028a2488450fd86a0eba477911b188f387b5c2f54bb663129",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Leaves advanced iterators in the old bucket and advances them repeatedly.",
+      "failed_cases": [
+        "lc-792-1",
+        "lc-792-2",
+        "lc-792-7",
+        "lc-792-10",
+        "lc-792-13",
+        "lc-792-14"
+      ]
+    },
+    {
+      "reason": "Collapses all matched words to a boolean-like one.",
+      "failed_cases": [
+        "lc-792-1",
+        "lc-792-2",
+        "lc-792-5",
+        "lc-792-6",
+        "lc-792-7",
+        "lc-792-10",
+        "lc-792-11",
+        "lc-792-12",
+        "lc-792-13",
+        "lc-792-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4839,
+  "oracle_implementation": "code_practice/import_batch_072.py:subsequences_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ed407722606d482f07b03511f74de47dd85b036755e7808f77f636f0bc4f805a",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

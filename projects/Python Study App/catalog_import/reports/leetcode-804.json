@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-804",
+  "content_sha256": "08e93edf720119e44d31536d2e5c604b565c68594fabaa9fab5d7e2e2f0e9187",
+  "source_hash": "db953a7ef1e152ee1824e1e9ea7cffc818fb0836302b14ff040791ccf4e57515",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a one-off alphabet index.",
+      "failed_cases": [
+        "lc-804-13"
+      ]
+    },
+    {
+      "reason": "Returns total encoded length rather than number of distinct encodings.",
+      "failed_cases": [
+        "lc-804-1",
+        "lc-804-2",
+        "lc-804-4",
+        "lc-804-5",
+        "lc-804-6",
+        "lc-804-7",
+        "lc-804-8",
+        "lc-804-9",
+        "lc-804-10",
+        "lc-804-11",
+        "lc-804-12",
+        "lc-804-13",
+        "lc-804-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4851,
+  "oracle_implementation": "code_practice/import_batch_072.py:morse_oracle",
+  "validator_implementation_sha256": "6c3d94fce21573e58122be22650761abe772ea279c88dd6969538b6f02e36ddd",
+  "batch_implementation_sha256": "219c0178b281e4773311ea53dc96937f654d06dc42d2739919f84bc6a217e21c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b1a64cfff0bbf8aec36fb66056b2c1ccbb293114cb2a4909d394a682dc22eccb",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
