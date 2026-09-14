@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2396",
+  "content_sha256": "d33ff29f812232f6d57e7d76f36c574802748c191988baba32108d0ecaccd497",
+  "source_hash": "c52669a4cbabd28819ddc0b806e9b5f8a08fbe62e62df61fbbc1c11a8c1a75e1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns true for every input despite the universal-base requirement.",
+      "failed_cases": [
+        "lc-2396-1",
+        "lc-2396-2",
+        "lc-2396-3",
+        "lc-2396-4",
+        "lc-2396-5",
+        "lc-2396-6",
+        "lc-2396-7",
+        "lc-2396-8",
+        "lc-2396-9",
+        "lc-2396-10",
+        "lc-2396-11",
+        "lc-2396-12",
+        "lc-2396-13",
+        "lc-2396-14",
+        "lc-2396-15",
+        "lc-2396-16"
+      ]
+    },
+    {
+      "reason": "Checks only base two and ignores a failing representation in another required base.",
+      "failed_cases": [
+        "lc-2396-1",
+        "lc-2396-3",
+        "lc-2396-5",
+        "lc-2396-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6443,
+  "oracle_implementation": "code_practice/import_batch_132b.py:strict_oracle",
+  "validator_implementation_sha256": "476d072ca6d3bcd8f6e61e0cf0fe8a065565bb0e683592caf752c1f4c4879a2e",
+  "batch_implementation_sha256": "8d345aa4cac7f896c67e69cb9d195bcc8476c607c68a2201520debe1f0acab58",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1e20b0a17facc7b7e93c0fd529dc3534cdd45df707caa3cc47ea33911d8d4afe",
+  "elapsed_seconds": 0.009,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

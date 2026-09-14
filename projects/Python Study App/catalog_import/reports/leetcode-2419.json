@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2419",
+  "content_sha256": "8468cfced6bb99aa2cb8c6672e7e75bb3534e50788dbd2054c387661622792a1",
+  "source_hash": "826bcc1837ce91c0cc8cead5a4759cc332192ab600813f2669034d500563d6ad",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Targets the global minimum rather than the maximum possible AND.",
+      "failed_cases": [
+        "lc-2419-1",
+        "lc-2419-7",
+        "lc-2419-8",
+        "lc-2419-9",
+        "lc-2419-11",
+        "lc-2419-12",
+        "lc-2419-13",
+        "lc-2419-15",
+        "lc-2419-16"
+      ]
+    },
+    {
+      "reason": "Counts values no greater than the target instead of only values equal to the global maximum.",
+      "failed_cases": [
+        "lc-2419-1",
+        "lc-2419-2",
+        "lc-2419-5",
+        "lc-2419-7",
+        "lc-2419-8",
+        "lc-2419-9",
+        "lc-2419-11",
+        "lc-2419-12",
+        "lc-2419-13",
+        "lc-2419-14",
+        "lc-2419-15",
+        "lc-2419-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6466,
+  "oracle_implementation": "code_practice/import_batch_132b.py:maximum_run_oracle",
+  "validator_implementation_sha256": "476d072ca6d3bcd8f6e61e0cf0fe8a065565bb0e683592caf752c1f4c4879a2e",
+  "batch_implementation_sha256": "8d345aa4cac7f896c67e69cb9d195bcc8476c607c68a2201520debe1f0acab58",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9c91abbc79e09f1ad73186e58221db984a83a56eaf71afab9562fee7fbdce4c6",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

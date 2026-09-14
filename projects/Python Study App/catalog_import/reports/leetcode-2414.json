@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2414",
+  "content_sha256": "f8a66112eb505c070cbc5e59010843c04e8a8d4c63b89eb0363f082c9ec6de22",
+  "source_hash": "73d52910ef10a2217f66759283b2cf035986dcc9b99ee06ecc50cf92e7fbe8bb",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Resets a broken run to zero even though the current character begins a length-one run.",
+      "failed_cases": [
+        "lc-2414-11",
+        "lc-2414-15",
+        "lc-2414-16"
+      ]
+    },
+    {
+      "reason": "Allows skipped alphabet letters instead of requiring the immediate successor.",
+      "failed_cases": [
+        "lc-2414-6",
+        "lc-2414-7",
+        "lc-2414-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6461,
+  "oracle_implementation": "code_practice/import_batch_132b.py:continuous_oracle",
+  "validator_implementation_sha256": "476d072ca6d3bcd8f6e61e0cf0fe8a065565bb0e683592caf752c1f4c4879a2e",
+  "batch_implementation_sha256": "8d345aa4cac7f896c67e69cb9d195bcc8476c607c68a2201520debe1f0acab58",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7fb60b7a32d5bd375ee28f9ebfa233d25db89fae5c8b470e49a69ff8b937c17d",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

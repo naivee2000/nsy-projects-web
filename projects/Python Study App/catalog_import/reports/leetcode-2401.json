@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2401",
+  "content_sha256": "612736eb723942ac5c5ce89571919c9ab617aff98874d9ecd5a24e2257c2d3d8",
+  "source_hash": "a783a6fda9db6fc4c1046e85e0b183ac0c4f18255d098fa30e070deb2a70aa45",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Removes at most one conflicting left value even when several must leave.",
+      "failed_cases": [
+        "lc-2401-17",
+        "lc-2401-18"
+      ]
+    },
+    {
+      "reason": "Clears every retained bit when shrinking, losing conflicts from values still in the window.",
+      "failed_cases": [
+        "lc-2401-17",
+        "lc-2401-18"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6448,
+  "oracle_implementation": "code_practice/import_batch_132b.py:nice_oracle",
+  "validator_implementation_sha256": "476d072ca6d3bcd8f6e61e0cf0fe8a065565bb0e683592caf752c1f4c4879a2e",
+  "batch_implementation_sha256": "8d345aa4cac7f896c67e69cb9d195bcc8476c607c68a2201520debe1f0acab58",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3d12eaeb8b044420600b31ff28aaf5da90f0d0132ab2c3c60a3cb6d0df66a15a",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
