@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2542",
+  "content_sha256": "0cc13c0745a16e99deb13075ca05bf41f38ecd2b67fa1381c17e2bf585725ed4",
+  "source_hash": "a24c5affb237c6743e620653811ee18d0a1b0ec6cf4bdc7aefffe4f72c0ac12c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Processes candidate minimum values in ascending order, invalidating the threshold invariant.",
+      "failed_cases": [
+        "lc-2542-1",
+        "lc-2542-2",
+        "lc-2542-5",
+        "lc-2542-6",
+        "lc-2542-7",
+        "lc-2542-8",
+        "lc-2542-9",
+        "lc-2542-10",
+        "lc-2542-11",
+        "lc-2542-13",
+        "lc-2542-14",
+        "lc-2542-15",
+        "lc-2542-16"
+      ]
+    },
+    {
+      "reason": "Removes two small nums1 values whenever the heap exceeds k.",
+      "failed_cases": [
+        "lc-2542-2",
+        "lc-2542-12",
+        "lc-2542-14",
+        "lc-2542-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6589,
+  "oracle_implementation": "code_practice/import_batch_154.py:score_oracle",
+  "validator_implementation_sha256": "661d1ed6c18e05a217ae4d138461144dcfda0cfc6dbd966af250f79d51e60020",
+  "batch_implementation_sha256": "827ec1fcdc6c4da4fc7e9473bb5ce0b8cae57ecfac0f3bd5d67a5318bed0ad58",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "27b543e63193fb2f66a953e0b7a5d09c2a293295e35181ab4b1db77283200227",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

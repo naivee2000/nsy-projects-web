@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2545",
+  "content_sha256": "222b49ea0565f1f2e8e29da06e3edf3427062a15a7099695fbd67502e674e978",
+  "source_hash": "f7c61503cc238d65c3c4ecd18f89b5a1c690ebf0ac11676bda64d3f14c5601a5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts the selected exam scores in ascending order.",
+      "failed_cases": [
+        "lc-2545-1",
+        "lc-2545-2",
+        "lc-2545-5",
+        "lc-2545-6",
+        "lc-2545-7",
+        "lc-2545-8",
+        "lc-2545-9",
+        "lc-2545-10",
+        "lc-2545-11",
+        "lc-2545-12",
+        "lc-2545-13",
+        "lc-2545-14",
+        "lc-2545-15",
+        "lc-2545-16"
+      ]
+    },
+    {
+      "reason": "Always sorts by the first exam rather than the requested column.",
+      "failed_cases": [
+        "lc-2545-1",
+        "lc-2545-6",
+        "lc-2545-8",
+        "lc-2545-10",
+        "lc-2545-11",
+        "lc-2545-13",
+        "lc-2545-15",
+        "lc-2545-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6592,
+  "oracle_implementation": "code_practice/import_batch_154.py:students_oracle",
+  "validator_implementation_sha256": "661d1ed6c18e05a217ae4d138461144dcfda0cfc6dbd966af250f79d51e60020",
+  "batch_implementation_sha256": "827ec1fcdc6c4da4fc7e9473bb5ce0b8cae57ecfac0f3bd5d67a5318bed0ad58",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a627400026cbacf9c5ee4c76b81bd046283b3ac1cfcc982d9bb633ba1d94b1ef",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

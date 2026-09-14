@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2543",
+  "content_sha256": "09a50e3644c81ed1bd1def2ae2971c18ce94f7d8a36d373e7f559874b1a7680f",
+  "source_hash": "c871b484efbbbc050faf6c443123b5fd4c7a71562cfbbbadb0fe4819fc0ca3f1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts every even greatest common divisor, including values with odd factors.",
+      "failed_cases": [
+        "lc-2543-2",
+        "lc-2543-3",
+        "lc-2543-4",
+        "lc-2543-16"
+      ]
+    },
+    {
+      "reason": "Tests the coordinate sum instead of their greatest common divisor.",
+      "failed_cases": [
+        "lc-2543-2",
+        "lc-2543-4",
+        "lc-2543-9",
+        "lc-2543-13",
+        "lc-2543-14",
+        "lc-2543-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6590,
+  "oracle_implementation": "code_practice/import_batch_154.py:reachable_oracle",
+  "validator_implementation_sha256": "661d1ed6c18e05a217ae4d138461144dcfda0cfc6dbd966af250f79d51e60020",
+  "batch_implementation_sha256": "827ec1fcdc6c4da4fc7e9473bb5ce0b8cae57ecfac0f3bd5d67a5318bed0ad58",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9fda7bd769adf6801f3d0a469b2a5397901f1b70023eccddb09368294108998f",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

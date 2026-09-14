@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2547",
+  "content_sha256": "410703927b765ec8432ba95952175efef7966bb172d517847f21ad66986f9995",
+  "source_hash": "1c1a562b107155f528d92ca7782d436ad83d34c2fe996dab25385149ccf6766c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only one element when a value first becomes duplicated, rather than both copies.",
+      "failed_cases": [
+        "lc-2547-1",
+        "lc-2547-2",
+        "lc-2547-6",
+        "lc-2547-7",
+        "lc-2547-10",
+        "lc-2547-11",
+        "lc-2547-12",
+        "lc-2547-14",
+        "lc-2547-15",
+        "lc-2547-16"
+      ]
+    },
+    {
+      "reason": "Omits the fixed k charge for every created part.",
+      "failed_cases": [
+        "lc-2547-1",
+        "lc-2547-2",
+        "lc-2547-3",
+        "lc-2547-4",
+        "lc-2547-5",
+        "lc-2547-6",
+        "lc-2547-7",
+        "lc-2547-8",
+        "lc-2547-9",
+        "lc-2547-10",
+        "lc-2547-11",
+        "lc-2547-12",
+        "lc-2547-13",
+        "lc-2547-14",
+        "lc-2547-15",
+        "lc-2547-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6594,
+  "oracle_implementation": "code_practice/import_batch_154.py:split_oracle",
+  "validator_implementation_sha256": "661d1ed6c18e05a217ae4d138461144dcfda0cfc6dbd966af250f79d51e60020",
+  "batch_implementation_sha256": "827ec1fcdc6c4da4fc7e9473bb5ce0b8cae57ecfac0f3bd5d67a5318bed0ad58",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c67ce958c6310d8b5c6a67d7e2de240d9591a6d95affe7788676ba59fd02f8b6",
+  "elapsed_seconds": 0.763,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

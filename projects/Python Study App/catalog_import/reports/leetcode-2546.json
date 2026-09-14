@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2546",
+  "content_sha256": "a477394bdd7966f87a4319f8591c835f08c8478746e211c7ad61a00f03c701e7",
+  "source_hash": "a41904359cf44fbf7244937d5a2fbe8dbe55f621118056a1ac500c8eb102b650",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the necessary and sufficient invariant.",
+      "failed_cases": [
+        "lc-2546-1",
+        "lc-2546-2",
+        "lc-2546-3",
+        "lc-2546-4",
+        "lc-2546-5",
+        "lc-2546-6",
+        "lc-2546-7",
+        "lc-2546-8",
+        "lc-2546-9",
+        "lc-2546-10",
+        "lc-2546-11",
+        "lc-2546-12",
+        "lc-2546-13",
+        "lc-2546-14",
+        "lc-2546-15",
+        "lc-2546-16"
+      ]
+    },
+    {
+      "reason": "Compares the presence of zero even though zeros are not preserved in the same way.",
+      "failed_cases": [
+        "lc-2546-8",
+        "lc-2546-10",
+        "lc-2546-12",
+        "lc-2546-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6593,
+  "oracle_implementation": "code_practice/import_batch_154.py:strings_oracle",
+  "validator_implementation_sha256": "661d1ed6c18e05a217ae4d138461144dcfda0cfc6dbd966af250f79d51e60020",
+  "batch_implementation_sha256": "827ec1fcdc6c4da4fc7e9473bb5ce0b8cae57ecfac0f3bd5d67a5318bed0ad58",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "462a28c377ff06e89ce07444de1a5dee904ca20ea365be2488e70267d96cd452",
+  "elapsed_seconds": 0.205,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
