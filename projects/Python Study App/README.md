@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 1,566 runnable problems (101 original exercises plus 1,465 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 1,666 runnable problems (101 original exercises plus 1,565 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 1,566-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 1,666-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,13 +68,13 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 83 existing equivalents, 1,465 verified imports, 155 documented
-design/interactive exclusions, 18 quarantined records, and 1,908 pending records. Ordinary tree and
+Current status: 83 existing equivalents, 1,565 verified imports, 155 documented
+design/interactive exclusions, 18 quarantined records, and 1,808 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
 
-One hundred twenty-three reviewed batch groups include Add Two Numbers, Word Search, Swap Nodes in Pairs,
+One hundred twenty-nine reviewed batch groups include Add Two Numbers, Word Search, Swap Nodes in Pairs,
 Reverse Linked List II, Sum Root to Leaf Numbers, BST search/ranking, tree diameter,
 binary search, string/number exercises, and ordinary Hard problems such as
 Trapping Rain Water and Sliding Window Maximum. Each has two explained visible
@@ -644,13 +644,13 @@ browser and benchmark driver. Install dependencies and build the frontend first.
 Its report is `catalog_import/benchmarks/current.json`; until all imports finish,
 this is an interim measurement, not the final full-catalog performance gate.
 
-At the 1,465-import checkpoint, 887 backend tests and 19 frontend tests passed,
+At the 1,565-import checkpoint, 941 backend tests and 19 frontend tests passed,
 and the production frontend built successfully. Chrome/Pyodide validated all
-1,471 eligible approved reference suites across at least 1,850 isolated judge runs,
+1,571 eligible approved reference suites across at least 1,950 isolated judge runs,
 including wrong-answer rejection, timeout recovery, restart persistence, and
 offline assets. On the recorded Apple M3 Pro/18 GiB development machine, backend
-startup took 242 ms and peak RSS was 270.719 MiB. Warm p95 latency over 100
-requests per route ranged from 1.102 ms to 1.616 ms for library search/filtering,
+startup took 358 ms and peak RSS was 271.031 MiB. Warm p95 latency over 100
+requests per route ranged from 1.116 ms to 1.878 ms for library search/filtering,
 problem details, and the dashboard, below the interim 300/500 ms targets. Exact
 route measurements and hardware metadata are retained in
 `catalog_import/benchmarks/current.json`.
