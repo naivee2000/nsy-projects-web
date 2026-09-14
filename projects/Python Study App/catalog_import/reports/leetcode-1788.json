@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1788",
+  "content_sha256": "795b2bc7d8b91659d3d033ac814e1bb5db672cbcbc81bf730f4ee2f275c64538",
+  "source_hash": "d422a1454fa6acd029840ee3d70f28d1aacbb72f8cfa4dd5cd87cea6355e1826",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forces negative interior flowers to remain instead of removing them.",
+      "failed_cases": [
+        "lc-1788-2",
+        "lc-1788-3",
+        "lc-1788-6",
+        "lc-1788-7",
+        "lc-1788-8",
+        "lc-1788-9",
+        "lc-1788-12",
+        "lc-1788-14"
+      ]
+    },
+    {
+      "reason": "Counts only one of the two required equal endpoints.",
+      "failed_cases": [
+        "lc-1788-1",
+        "lc-1788-2",
+        "lc-1788-3",
+        "lc-1788-4",
+        "lc-1788-6",
+        "lc-1788-7",
+        "lc-1788-8",
+        "lc-1788-9",
+        "lc-1788-10",
+        "lc-1788-11",
+        "lc-1788-12",
+        "lc-1788-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5835,
+  "oracle_implementation": "code_practice/import_batch_105d.py:garden_oracle",
+  "validator_implementation_sha256": "8dd09c66cbc84e1e62429d9432d3e88a82aea649f3a082bc22771753c6716894",
+  "batch_implementation_sha256": "40b72007ddc3c98bdc63c6793f8a4ca7be0efc022cd145efdd4d5a2d8b87389c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e6c2f8c2db82512d455e3533ae22f5dad1ad73f8f1c393aacd4878a29bb50695",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1213,
+  "count": 1218,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -21425,6 +21425,101 @@
       "path": "problems/leetcode-1784.json",
       "content_sha256": "7a1e4e156399f19eceabd38a66a085aca1ff21ac388e6346afd69198fd30908c",
       "source_id": 1784
+    },
+    {
+      "id": "leetcode-1785",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Elements to Add to Form a Given Sum",
+      "summary": "Given an integer array nums with elements whose absolute values do not exceed a limit, determine the least number of elements to add to make the array sum equal to a specified goal, while ensuring all new elements also meet the limit.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1785.json",
+      "content_sha256": "7bd0cd8f23aac5db4852d3e42f7f4bb9530eba91e89c3a5ae9190c936b76bf05",
+      "source_id": 1785
+    },
+    {
+      "id": "leetcode-1786",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Restricted Paths From First to Last Node",
+      "summary": "Given an undirected weighted connected graph with n nodes labeled from 1 to n, and an array of edges where each edge connects two nodes with a specific weight, calculate the number of restricted paths from node 1 to node n.",
+      "topics": [
+        "graphs",
+        "shortest-path",
+        "dynamic-programming",
+        "heaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1786.json",
+      "content_sha256": "3f22ae0b3ce1f45cc4baf85c6990fd6666503868d353c266d70700bd61270b23",
+      "source_id": 1786
+    },
+    {
+      "id": "leetcode-1787",
+      "version": 1,
+      "status": "approved",
+      "title": "Make the XOR of All Segments Equal to Zero",
+      "summary": "Given an array and an integer k, determine the least number of element changes needed so that the XOR of every segment of size k equals zero.",
+      "topics": [
+        "arrays",
+        "bit-manipulation",
+        "dynamic-programming",
+        "counting"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1787.json",
+      "content_sha256": "77577fae73dd6a118f14c226a1ceb76c63524c53bd79c58a02dcba47b81a55d2",
+      "source_id": 1787
+    },
+    {
+      "id": "leetcode-1788",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize the Beauty of the Garden",
+      "summary": "Given an array of integers representing the beauty values of n flowers arranged in a line, find the maximum beauty of a valid garden by removing any number of flowers.",
+      "topics": [
+        "arrays",
+        "hash-maps",
+        "prefix-sums",
+        "greedy"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1788.json",
+      "content_sha256": "795b2bc7d8b91659d3d033ac814e1bb5db672cbcbc81bf730f4ee2f275c64538",
+      "source_id": 1788
+    },
+    {
+      "id": "leetcode-1790",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if One String Swap Can Make Strings Equal",
+      "summary": "Given two strings of equal length, determine if it is possible to make both strings identical by performing at most one swap of characters in one of the strings.",
+      "topics": [
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1790.json",
+      "content_sha256": "6838238ec7fe3a4855f8540085a85b3b2e65b79f98c7758a52a6305719a9e0b9",
+      "source_id": 1790
     }
   ]
 }

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1785",
+  "content_sha256": "7bd0cd8f23aac5db4852d3e42f7f4bb9530eba91e89c3a5ae9190c936b76bf05",
+  "source_hash": "d6266a8bf94d24bf43403543dfd70532a525a4837ad7dc093610a7d2ee01985b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails when the current sum is greater than the goal.",
+      "failed_cases": [
+        "lc-1785-1",
+        "lc-1785-2",
+        "lc-1785-6",
+        "lc-1785-9",
+        "lc-1785-11",
+        "lc-1785-13",
+        "lc-1785-14"
+      ]
+    },
+    {
+      "reason": "Uses floor division and undercounts any non-divisible remaining gap.",
+      "failed_cases": [
+        "lc-1785-1",
+        "lc-1785-2",
+        "lc-1785-5",
+        "lc-1785-6",
+        "lc-1785-9",
+        "lc-1785-11",
+        "lc-1785-12",
+        "lc-1785-13",
+        "lc-1785-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5832,
+  "oracle_implementation": "code_practice/import_batch_105d.py:elements_oracle",
+  "validator_implementation_sha256": "8dd09c66cbc84e1e62429d9432d3e88a82aea649f3a082bc22771753c6716894",
+  "batch_implementation_sha256": "40b72007ddc3c98bdc63c6793f8a4ca7be0efc022cd145efdd4d5a2d8b87389c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6bf501a53bccc741e763d8a2c2ab1ad964513dc9b5fda63567384fc94cb3e128",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

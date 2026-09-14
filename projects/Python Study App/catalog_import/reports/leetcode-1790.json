@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1790",
+  "content_sha256": "6838238ec7fe3a4855f8540085a85b3b2e65b79f98c7758a52a6305719a9e0b9",
+  "source_hash": "d93e09d0c1b15f545d046dcd842f92a586da962760e2fb06688c6af587d36ca6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects strings that are already equal.",
+      "failed_cases": [
+        "lc-1790-1",
+        "lc-1790-3",
+        "lc-1790-4",
+        "lc-1790-6",
+        "lc-1790-7",
+        "lc-1790-8",
+        "lc-1790-11",
+        "lc-1790-12",
+        "lc-1790-14"
+      ]
+    },
+    {
+      "reason": "Accepts any two mismatches even when their characters do not cross-match.",
+      "failed_cases": [
+        "lc-1790-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5837,
+  "oracle_implementation": "code_practice/import_batch_105d.py:swap_oracle",
+  "validator_implementation_sha256": "8dd09c66cbc84e1e62429d9432d3e88a82aea649f3a082bc22771753c6716894",
+  "batch_implementation_sha256": "40b72007ddc3c98bdc63c6793f8a4ca7be0efc022cd145efdd4d5a2d8b87389c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8931d51246269f5842819b9c309013b6c29f2c5f46923b06befe49cd5724a8b6",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

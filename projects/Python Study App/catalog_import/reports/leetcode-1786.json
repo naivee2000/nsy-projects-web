@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1786",
+  "content_sha256": "3f22ae0b3ce1f45cc4baf85c6990fd6666503868d353c266d70700bd61270b23",
+  "source_hash": "f4fd7a20688dae79dea3085b36d3d3f286a0761d5c2a5f55c886ee5b1da97503",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows equal-distance moves, which are forbidden.",
+      "failed_cases": [
+        "lc-1786-6",
+        "lc-1786-14"
+      ]
+    },
+    {
+      "reason": "Seeds the path count at the starting node instead of the destination.",
+      "failed_cases": [
+        "lc-1786-1",
+        "lc-1786-5",
+        "lc-1786-7",
+        "lc-1786-8",
+        "lc-1786-9",
+        "lc-1786-10",
+        "lc-1786-12",
+        "lc-1786-13",
+        "lc-1786-14",
+        "lc-1786-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5833,
+  "oracle_implementation": "code_practice/import_batch_105d.py:restricted_oracle",
+  "validator_implementation_sha256": "8dd09c66cbc84e1e62429d9432d3e88a82aea649f3a082bc22771753c6716894",
+  "batch_implementation_sha256": "40b72007ddc3c98bdc63c6793f8a4ca7be0efc022cd145efdd4d5a2d8b87389c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "266196f09139b91edb85c6a35830586ce7c0604cb55f7c611509777d17e76d0d",
+  "elapsed_seconds": 0.084,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
