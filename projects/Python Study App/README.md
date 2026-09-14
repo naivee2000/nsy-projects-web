@@ -2,7 +2,7 @@
 
 A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 759 runnable problems (101 original exercises plus 658 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 959-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 1,259-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -644,12 +644,12 @@ browser and benchmark driver. Install dependencies and build the frontend first.
 Its report is `catalog_import/benchmarks/current.json`; until all imports finish,
 this is an interim measurement, not the final full-catalog performance gate.
 
-At the 1,058-import checkpoint, 792 backend tests and 19 frontend tests passed.
-Chrome/Pyodide validated all 1,064 workbook-derived reference suites across more than 1,450
+At the 1,158-import checkpoint, 792 backend tests and 19 frontend tests passed.
+Chrome/Pyodide validated all 1,164 workbook-derived reference suites across 1,550
 isolated judge runs, including wrong-answer rejection, timeout recovery, restart
 persistence, and offline assets. On the recorded Apple M3 Pro/18 GiB development
-machine, backend startup took 332 ms and peak RSS was 269.703 MiB. Warm p95
-latency over 100 requests per route ranged from 1.191 ms to 1.871 ms for library
+machine, backend startup took 337 ms and peak RSS was 269.688 MiB. Warm p95
+latency over 100 requests per route ranged from 1.346 ms to 2.039 ms for library
 search/filtering, problem details, and the
 dashboard, below the interim 300/500 ms targets. Exact route measurements and
 hardware metadata are retained in `catalog_import/benchmarks/current.json`.
