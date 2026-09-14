@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1856",
+  "content_sha256": "f3c99c4e5299c6d1813eb9e448630bbab2864cdb13c70f766a08130c76b35093",
+  "source_hash": "5688720b272fb8997420d31c449c425b4c27ffb5fe1ac109c903f3ba5b655bc8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only singleton subarrays instead of the full span for each minimum.",
+      "failed_cases": [
+        "lc-1856-1",
+        "lc-1856-2",
+        "lc-1856-4",
+        "lc-1856-6",
+        "lc-1856-8",
+        "lc-1856-9",
+        "lc-1856-12",
+        "lc-1856-13"
+      ]
+    },
+    {
+      "reason": "Drops the leftmost value from each candidate subarray sum.",
+      "failed_cases": [
+        "lc-1856-1",
+        "lc-1856-2",
+        "lc-1856-3",
+        "lc-1856-4",
+        "lc-1856-5",
+        "lc-1856-6",
+        "lc-1856-7",
+        "lc-1856-8",
+        "lc-1856-9",
+        "lc-1856-10",
+        "lc-1856-11",
+        "lc-1856-12",
+        "lc-1856-13",
+        "lc-1856-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5903,
+  "oracle_implementation": "code_practice/import_batch_108d.py:product_o",
+  "validator_implementation_sha256": "4969713f4a8dcb2f4c05980a3336ebb11e6a4eee666ab8d6e3bd1eb088591a6d",
+  "batch_implementation_sha256": "d944f93334f5d3c9f717f895dea5567064a0e90139e41ef01383fe1d9eb6be8e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "532a81272b740ace3b8807f2f7d68de60cd30ce92a60a68196a815461ffff827",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

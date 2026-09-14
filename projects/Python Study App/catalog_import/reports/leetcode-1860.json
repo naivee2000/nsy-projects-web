@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1860",
+  "content_sha256": "fda91d10c45813c7b4591d0b7f953f6885e55e31c1ab9becf30c963fb715decd",
+  "source_hash": "134974e6a7d4d1b240ddd462bb24ca347ca61406ae1cf8b89182c4975c8df0ef",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks equal-memory ties toward the second stick.",
+      "failed_cases": [
+        "lc-1860-1",
+        "lc-1860-2",
+        "lc-1860-6",
+        "lc-1860-11",
+        "lc-1860-14"
+      ]
+    },
+    {
+      "reason": "Increases allocation size by two each second instead of one.",
+      "failed_cases": [
+        "lc-1860-1",
+        "lc-1860-2",
+        "lc-1860-4",
+        "lc-1860-5",
+        "lc-1860-6",
+        "lc-1860-7",
+        "lc-1860-8",
+        "lc-1860-9",
+        "lc-1860-10",
+        "lc-1860-11",
+        "lc-1860-12",
+        "lc-1860-13",
+        "lc-1860-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5907,
+  "oracle_implementation": "code_practice/import_batch_108d.py:memory_o",
+  "validator_implementation_sha256": "4969713f4a8dcb2f4c05980a3336ebb11e6a4eee666ab8d6e3bd1eb088591a6d",
+  "batch_implementation_sha256": "d944f93334f5d3c9f717f895dea5567064a0e90139e41ef01383fe1d9eb6be8e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8d9b24ccf9510f83b5482ced7546ea727b9cbe4e35031ea526f5146bad506ec8",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

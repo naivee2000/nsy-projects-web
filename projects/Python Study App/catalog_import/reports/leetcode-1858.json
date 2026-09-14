@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1858",
+  "content_sha256": "469588f66164f22562fc0895c16a86c111df9538113cfbf1dc4861537d1975fb",
+  "source_hash": "4c9e1ef1883fa7b7dff41da153ad85f3d290908bd9de133785663ef20b920b3a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips the one-character prefix requirement.",
+      "failed_cases": [
+        "lc-1858-13"
+      ]
+    },
+    {
+      "reason": "Breaks equal-length ties toward the lexicographically larger word.",
+      "failed_cases": [
+        "lc-1858-2",
+        "lc-1858-7",
+        "lc-1858-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5905,
+  "oracle_implementation": "code_practice/import_batch_108d.py:word_o",
+  "validator_implementation_sha256": "4969713f4a8dcb2f4c05980a3336ebb11e6a4eee666ab8d6e3bd1eb088591a6d",
+  "batch_implementation_sha256": "d944f93334f5d3c9f717f895dea5567064a0e90139e41ef01383fe1d9eb6be8e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d333a5f3cc29171168c2e4167cb5d872124857582e1d0738ffd0e6aceec959cc",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

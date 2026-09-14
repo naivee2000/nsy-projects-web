@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1857",
+  "content_sha256": "f97610856e72a1b3a3e8af05b732e7e2608f2493e022cc5729844a8081d0f1e7",
+  "source_hash": "1ce673cfe26baff36a3d7943b31f4714d01217a4954d9fc7b88a13e017754c9f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Resets a color count at each node instead of extending the path count.",
+      "failed_cases": [
+        "lc-1857-1",
+        "lc-1857-5",
+        "lc-1857-8",
+        "lc-1857-9",
+        "lc-1857-11",
+        "lc-1857-13"
+      ]
+    },
+    {
+      "reason": "Fails to reject cycles because the processed-node comparison is always true.",
+      "failed_cases": [
+        "lc-1857-2",
+        "lc-1857-6",
+        "lc-1857-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5904,
+  "oracle_implementation": "code_practice/import_batch_108d.py:color_o",
+  "validator_implementation_sha256": "4969713f4a8dcb2f4c05980a3336ebb11e6a4eee666ab8d6e3bd1eb088591a6d",
+  "batch_implementation_sha256": "d944f93334f5d3c9f717f895dea5567064a0e90139e41ef01383fe1d9eb6be8e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2a4ebebe15da93ab79f585be35b0a3c14674753f85664d62c3d8d7146220921c",
+  "elapsed_seconds": 0.081,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
