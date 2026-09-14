@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1950",
+  "content_sha256": "34404c4d817f7bb9fce95bdec28305bb5e2745113298445e1bda6ed4b5b1575e",
+  "source_hash": "fa90c3482f6211b64196371ee58a53bd5eb3a575e621a87850188fd1ad178eab",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites a known smaller-window candidate instead of taking its maximum with the propagated larger-window answer.",
+      "failed_cases": [
+        "lc-1950-1",
+        "lc-1950-2",
+        "lc-1950-5",
+        "lc-1950-6",
+        "lc-1950-8",
+        "lc-1950-9",
+        "lc-1950-11",
+        "lc-1950-12",
+        "lc-1950-13",
+        "lc-1950-14"
+      ]
+    },
+    {
+      "reason": "Returns only widths that were maximal spans for some element and never propagates larger-window minima to smaller widths.",
+      "failed_cases": [
+        "lc-1950-11",
+        "lc-1950-12",
+        "lc-1950-13",
+        "lc-1950-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5997,
+  "oracle_implementation": "code_practice/import_batch_112c.py:window_oracle",
+  "validator_implementation_sha256": "1d10e3ec5acbac75c17d7ecb957d9ced3b62af723cb7a0e04faccb23597f0f77",
+  "batch_implementation_sha256": "850347f3927569ff644898a15ecbb671855e43c075dbdf608568736ca56be5f9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "599acfefb65630fbedb83465dad26f948f209d9166bcc97441be79fbff325590",
+  "elapsed_seconds": 0.082,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

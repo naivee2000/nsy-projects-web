@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1348,
+  "count": 1353,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -23912,6 +23912,96 @@
       "path": "problems/leetcode-1946.json",
       "content_sha256": "eab161f8c77891e0f35a37671d270799a5750f4867f082a8a8cf22ef39e53433",
       "source_id": 1946
+    },
+    {
+      "id": "leetcode-1947",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Compatibility Score Sum",
+      "summary": "Given a survey with n questions where each answer is either 0 or 1, and m students and m mentors who have answered the survey, the task is to find the optimal student-mentor pairings to maximize the sum of their compatibility scores.",
+      "topics": [
+        "dynamic programming",
+        "bitmasking",
+        "matching"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1947.json",
+      "content_sha256": "1e0508595b50a729ce46c4b897d5c46c2bb69159968d6428f6944be36df12605",
+      "source_id": 1947
+    },
+    {
+      "id": "leetcode-1948",
+      "version": 1,
+      "status": "approved",
+      "title": "Delete Duplicate Folders in System",
+      "summary": "Given a 2D array paths, where each element represents an absolute path to a folder in the file system, identify and mark all folders that are identical to at least one other folder, including their subfolders.",
+      "topics": [
+        "trees",
+        "tries",
+        "hash maps",
+        "depth-first search"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1948.json",
+      "content_sha256": "47fe27c7efef27a248f322c95009e3a87c4a28afeb1a0edd3e48fa23fb315c88",
+      "source_id": 1948
+    },
+    {
+      "id": "leetcode-1950",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum of Minimum Values in All Subarrays",
+      "summary": "Given an integer array nums, compute the maximum of the minimum values for all subarrays of sizes ranging from 1 to the length of nums.",
+      "topics": [
+        "arrays",
+        "monotonic stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1950.json",
+      "content_sha256": "34404c4d817f7bb9fce95bdec28305bb5e2745113298445e1bda6ed4b5b1575e",
+      "source_id": 1950
+    },
+    {
+      "id": "leetcode-1952",
+      "version": 1,
+      "status": "approved",
+      "title": "Three Divisors",
+      "summary": "Given an integer n , return true if n has exactly three positive divisors.",
+      "topics": [
+        "math",
+        "number theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1952.json",
+      "content_sha256": "78b4d4134016f6ac491772925db004a04ac8ada9fbb4ed8f36338bb6c86db970",
+      "source_id": 1952
+    },
+    {
+      "id": "leetcode-1953",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Weeks for Which You Can Work",
+      "summary": "Given an integer array milestones where each element represents the number of milestones for the corresponding project, you must complete exactly one milestone per week from any project, ensuring that you do not work on the same project for two consecutive weeks.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1953.json",
+      "content_sha256": "beb4437cf277c847b30f7505f9893e756093f147f62b8b5674269c2303171efe",
+      "source_id": 1953
     }
   ]
 }

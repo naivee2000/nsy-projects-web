@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1952",
+  "content_sha256": "78b4d4134016f6ac491772925db004a04ac8ada9fbb4ed8f36338bb6c86db970",
+  "source_hash": "8db8438fc6f9bca276060cbbbeffa92df17407b2e508ab137b8e2cb6fe8815c0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects perfect squares instead of requiring them.",
+      "failed_cases": [
+        "lc-1952-2",
+        "lc-1952-5",
+        "lc-1952-6",
+        "lc-1952-7",
+        "lc-1952-9",
+        "lc-1952-10",
+        "lc-1952-12",
+        "lc-1952-15"
+      ]
+    },
+    {
+      "reason": "Misses a possible divisor exactly at the square root of the candidate root.",
+      "failed_cases": [
+        "lc-1952-8",
+        "lc-1952-11",
+        "lc-1952-13",
+        "lc-1952-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5999,
+  "oracle_implementation": "code_practice/import_batch_112c.py:divisors_oracle",
+  "validator_implementation_sha256": "1d10e3ec5acbac75c17d7ecb957d9ced3b62af723cb7a0e04faccb23597f0f77",
+  "batch_implementation_sha256": "850347f3927569ff644898a15ecbb671855e43c075dbdf608568736ca56be5f9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e30bd0ed781d3020f01c945741146d4a9308ed1de139d75df5bbd9306256bfe9",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input n = 2 → Output false Explantion: 2 has only two divisors: 1 and 2.",
+    "arguments": [
+      2
+    ],
+    "expected": false,
+    "reason": "The workbook appends misspelled explanation prose directly after the boolean output, so the raw output is not a parseable literal; the stated input and boolean are preserved.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/1900-1999/1952.Three%20Divisors/README_EN.md"
+  }
+}

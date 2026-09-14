@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1948",
+  "content_sha256": "47fe27c7efef27a248f322c95009e3a87c4a28afeb1a0edd3e48fa23fb315c88",
+  "source_hash": "d376b8d6a657bf6e542956e6967f6d09b673cf59222fac699dde35aadf617d80",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats all leaf folders as duplicate empty structures, although duplicate folders must contain at least one subfolder.",
+      "failed_cases": [
+        "lc-1948-1",
+        "lc-1948-2",
+        "lc-1948-4",
+        "lc-1948-6",
+        "lc-1948-8",
+        "lc-1948-9",
+        "lc-1948-10",
+        "lc-1948-11",
+        "lc-1948-15"
+      ]
+    },
+    {
+      "reason": "Compares only immediate child names and ignores deeper descendant structure and subtree deletion.",
+      "failed_cases": [
+        "lc-1948-1",
+        "lc-1948-2",
+        "lc-1948-5",
+        "lc-1948-7",
+        "lc-1948-8",
+        "lc-1948-11",
+        "lc-1948-12",
+        "lc-1948-13",
+        "lc-1948-14",
+        "lc-1948-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5995,
+  "oracle_implementation": "code_practice/import_batch_112c.py:folders_oracle",
+  "validator_implementation_sha256": "1d10e3ec5acbac75c17d7ecb957d9ced3b62af723cb7a0e04faccb23597f0f77",
+  "batch_implementation_sha256": "b6bd8fa7ded6e1701a3745d811e0d152855a23f5b6a7c8a9bfed6f2385b94e77",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "73a17891314a77a568ce967974c12c4002c38ebb76fefb6cfddb5e9f2fbc57fa",
+  "elapsed_seconds": 0.091,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

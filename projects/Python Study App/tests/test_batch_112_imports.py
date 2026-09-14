@@ -4,11 +4,12 @@ from pathlib import Path
 from code_practice.catalog import get_catalog
 from code_practice.import_batch_112 import BATCH
 from code_practice.import_batch_112b import BATCH as BATCH_B
+from code_practice.import_batch_112c import BATCH as BATCH_C
 
 
 ROOT = Path(__file__).resolve().parents[1]
-IDS = (1936, 1937, 1938, 1940, 1941, 1942, 1943, 1944, 1945, 1946)
-SPECS = {**BATCH, **BATCH_B}
+IDS = (1936, 1937, 1938, 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1950, 1952, 1953)
+SPECS = {**BATCH, **BATCH_B, **BATCH_C}
 
 
 def test_first_batch_112_slice_is_complete_and_verified():
