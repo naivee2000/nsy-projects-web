@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1834",
+  "content_sha256": "8eb86d364d18b7cac198c2d8cbf898679da7f149eb8ba62d8eade1bfa8733fdd",
+  "source_hash": "86de613d7cda1eda0e598973501ffc6d1cc6430afc3c118fc007111cc9fa467d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Prioritizes original index before processing duration.",
+      "failed_cases": [
+        "lc-1834-1",
+        "lc-1834-2",
+        "lc-1834-3",
+        "lc-1834-4",
+        "lc-1834-5",
+        "lc-1834-6",
+        "lc-1834-7",
+        "lc-1834-8",
+        "lc-1834-9",
+        "lc-1834-10",
+        "lc-1834-11",
+        "lc-1834-12",
+        "lc-1834-13",
+        "lc-1834-14"
+      ]
+    },
+    {
+      "reason": "Adds an idle time unit after every completed task.",
+      "failed_cases": [
+        "lc-1834-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5881,
+  "oracle_implementation": "code_practice/import_batch_107c.py:cpu_o",
+  "validator_implementation_sha256": "9ca7a296f1dea0e2ca0611ba2c7dffb78b18a6ee1a0560df0f71350f02b9347b",
+  "batch_implementation_sha256": "903af9fd8476cc10e24d07ac7f15a7002cba15e8fb496897c2dda11b34e03cf4",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "965d3b916b4e66b2ea61868e887788a5e268533106a1f8e3d924894f01fcb9f4",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

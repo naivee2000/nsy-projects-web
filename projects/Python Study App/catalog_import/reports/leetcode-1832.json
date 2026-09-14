@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1832",
+  "content_sha256": "aeead9dce6987c486359b9845b11618ac8f9fd9657466ace9d48ef8574db80f5",
+  "source_hash": "c76dcc5ea3e2f7a10a2bd79430c1f839442802c85caefde6032624c631704c28",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts sentences containing only twenty-five distinct letters.",
+      "failed_cases": [
+        "lc-1832-6",
+        "lc-1832-14"
+      ]
+    },
+    {
+      "reason": "Ignores the final character, which may be the only occurrence of a required letter.",
+      "failed_cases": [
+        "lc-1832-1",
+        "lc-1832-3",
+        "lc-1832-7",
+        "lc-1832-8",
+        "lc-1832-9",
+        "lc-1832-12",
+        "lc-1832-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5879,
+  "oracle_implementation": "code_practice/import_batch_107c.py:pangram_o",
+  "validator_implementation_sha256": "9ca7a296f1dea0e2ca0611ba2c7dffb78b18a6ee1a0560df0f71350f02b9347b",
+  "batch_implementation_sha256": "903af9fd8476cc10e24d07ac7f15a7002cba15e8fb496897c2dda11b34e03cf4",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d6f8721791e7b783454ad8d2d4729667fb0a003bf5b6afa80923287f87842f6c",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1833",
+  "content_sha256": "c65c8e07df75723794f46e0bb18ac683c37fdca4a7fa78e7b8d53315b05f14c9",
+  "source_hash": "9c9e145fafb3d41087d051f0a453f22a28d51778279afdefe83adc464b1431f4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Buys expensive bars first.",
+      "failed_cases": [
+        "lc-1833-1",
+        "lc-1833-8",
+        "lc-1833-11",
+        "lc-1833-12",
+        "lc-1833-13",
+        "lc-1833-14"
+      ]
+    },
+    {
+      "reason": "Refuses a bar whose cost exactly equals the remaining budget.",
+      "failed_cases": [
+        "lc-1833-1",
+        "lc-1833-3",
+        "lc-1833-6",
+        "lc-1833-8",
+        "lc-1833-11",
+        "lc-1833-12",
+        "lc-1833-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5880,
+  "oracle_implementation": "code_practice/import_batch_107c.py:cream_o",
+  "validator_implementation_sha256": "9ca7a296f1dea0e2ca0611ba2c7dffb78b18a6ee1a0560df0f71350f02b9347b",
+  "batch_implementation_sha256": "903af9fd8476cc10e24d07ac7f15a7002cba15e8fb496897c2dda11b34e03cf4",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fc5a1c0af76d4f1df0d84764a93512a438f83630a9281b8f9b15af53a48a853a",
+  "elapsed_seconds": 0.2,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
