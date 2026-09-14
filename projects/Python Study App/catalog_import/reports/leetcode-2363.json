@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2363",
+  "content_sha256": "727d6307dfd6f6e5bada525ed7c02333235722e5c7dbdf6408879ed7191b6664",
+  "source_hash": "b17d2355b56f55b1ca0f35eaa5e5f849b20bef033d50bdea6a69ba2a3bc71ce2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores every item from the second input.",
+      "failed_cases": [
+        "lc-2363-1",
+        "lc-2363-2",
+        "lc-2363-3",
+        "lc-2363-4",
+        "lc-2363-5",
+        "lc-2363-6",
+        "lc-2363-7",
+        "lc-2363-8",
+        "lc-2363-9",
+        "lc-2363-10",
+        "lc-2363-11",
+        "lc-2363-12",
+        "lc-2363-13",
+        "lc-2363-14",
+        "lc-2363-15",
+        "lc-2363-16"
+      ]
+    },
+    {
+      "reason": "Returns insertion order instead of the required increasing value order.",
+      "failed_cases": [
+        "lc-2363-1",
+        "lc-2363-2",
+        "lc-2363-5",
+        "lc-2363-8",
+        "lc-2363-10",
+        "lc-2363-12",
+        "lc-2363-13",
+        "lc-2363-15",
+        "lc-2363-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6410,
+  "oracle_implementation": "code_practice/import_batch_129b.py:merge_oracle",
+  "validator_implementation_sha256": "c6ddbea08ca600cf106d4b875b3b8908425ae4867410d15a1af6b0dc4a21a3cc",
+  "batch_implementation_sha256": "ac4ffa8fbbff1f472d79794ce5b31597404340741325e356e2887ffb74c888e1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "196c83304bf20667b6b12ac04bd117429bc7ab9b28444462d05cc75c2861725a",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

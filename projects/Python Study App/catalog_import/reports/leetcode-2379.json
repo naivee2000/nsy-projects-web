@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2379",
+  "content_sha256": "6e3242db9adc109c740fb99148ae30dfd54273a89320f6db8193c6d42cfef6b4",
+  "source_hash": "0e91e3f9956c000647297b854ea3ae8091f6b1e8743bfaa48f710d659da96d00",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Maximizes the number of white blocks instead of minimizing recolors.",
+      "failed_cases": [
+        "lc-2379-1",
+        "lc-2379-2",
+        "lc-2379-8",
+        "lc-2379-9",
+        "lc-2379-12",
+        "lc-2379-13",
+        "lc-2379-14",
+        "lc-2379-15",
+        "lc-2379-16"
+      ]
+    },
+    {
+      "reason": "Never removes the block leaving the window, so counts accumulate across windows.",
+      "failed_cases": [
+        "lc-2379-2",
+        "lc-2379-8",
+        "lc-2379-13",
+        "lc-2379-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6426,
+  "oracle_implementation": "code_practice/import_batch_129b.py:recolor_oracle",
+  "validator_implementation_sha256": "c6ddbea08ca600cf106d4b875b3b8908425ae4867410d15a1af6b0dc4a21a3cc",
+  "batch_implementation_sha256": "ac4ffa8fbbff1f472d79794ce5b31597404340741325e356e2887ffb74c888e1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d28bb7f544069767eb85b9c4c6efa14851a2a9e5adb8225ba0fff74103149b59",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

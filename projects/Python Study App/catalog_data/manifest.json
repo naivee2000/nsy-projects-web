@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1661,
+  "count": 1666,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -29556,6 +29556,93 @@
       "path": "problems/leetcode-2357.json",
       "content_sha256": "717d5fa05bd4702f7cad60c7ca61acf1a8c3ab7f8c25d751a83cbc0862548f77",
       "source_id": 2357
+    },
+    {
+      "id": "leetcode-2363",
+      "version": 1,
+      "status": "approved",
+      "title": "Merge Similar Items",
+      "summary": "Given two 2D integer arrays, items1 and items2, each containing unique values and weights, return a 2D array where each element contains a unique value and the sum of weights of all items sharing that value, sorted in ascending order by value.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2363.json",
+      "content_sha256": "727d6307dfd6f6e5bada525ed7c02333235722e5c7dbdf6408879ed7191b6664",
+      "source_id": 2363
+    },
+    {
+      "id": "leetcode-2364",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Number of Bad Pairs",
+      "summary": "Given an array of integers, count the number of index pairs (i, j) where i is less than j and the difference between j and i does not match the difference between the values at j and i.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2364.json",
+      "content_sha256": "e96e92a289d33290ba36c94cad41e1439e5e728103cef95cf5390ecaf7e13233",
+      "source_id": 2364
+    },
+    {
+      "id": "leetcode-2367",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Arithmetic Triplets",
+      "summary": "Given a strictly increasing integer array nums and a positive integer diff, count the number of unique triplets (i, j, k) such that i < j < k, nums[j] - nums[i] equals diff, and nums[k] - nums[j] equals diff.",
+      "topics": [
+        "arrays",
+        "hash sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2367.json",
+      "content_sha256": "513e84bfb29420e0e14465c22497a57a62a94336546503f243e3a023e2866876",
+      "source_id": 2367
+    },
+    {
+      "id": "leetcode-2373",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Local Values in a Matrix",
+      "summary": "Given an n x n integer matrix grid, create an (n-2) x (n-2) matrix maxLocal where each element maxLocal[i][j] represents the maximum value within the 3x3 submatrix of grid centered at (i+1, j+1).",
+      "topics": [
+        "matrices",
+        "sliding windows"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2373.json",
+      "content_sha256": "91ec0c8c0175bf9f033e2c6153b2e9a21cc398d194191a30fd0553c23e92e545",
+      "source_id": 2373
+    },
+    {
+      "id": "leetcode-2379",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Recolors to Get K Consecutive Black Blocks",
+      "summary": "Given a string of block colors 'W' (white) and 'B' (black), and an integer k, find the least number of operations to make at least one sequence of k consecutive 'B' blocks.",
+      "topics": [
+        "strings",
+        "sliding windows"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2379.json",
+      "content_sha256": "6e3242db9adc109c740fb99148ae30dfd54273a89320f6db8193c6d42cfef6b4",
+      "source_id": 2379
     }
   ]
 }

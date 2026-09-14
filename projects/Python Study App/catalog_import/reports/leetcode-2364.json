@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2364",
+  "content_sha256": "e96e92a289d33290ba36c94cad41e1439e5e728103cef95cf5390ecaf7e13233",
+  "source_hash": "4a539785e489d952276b388e769afef84b2fbe7ed9dc552df4a3504233781c93",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Groups by value+index instead of the invariant value-index.",
+      "failed_cases": [
+        "lc-2364-1",
+        "lc-2364-2",
+        "lc-2364-5",
+        "lc-2364-6",
+        "lc-2364-7",
+        "lc-2364-9",
+        "lc-2364-11",
+        "lc-2364-12",
+        "lc-2364-16"
+      ]
+    },
+    {
+      "reason": "Adds good pairs to total pairs instead of subtracting them.",
+      "failed_cases": [
+        "lc-2364-1",
+        "lc-2364-2",
+        "lc-2364-5",
+        "lc-2364-7",
+        "lc-2364-11",
+        "lc-2364-12",
+        "lc-2364-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6411,
+  "oracle_implementation": "code_practice/import_batch_129b.py:bad_oracle",
+  "validator_implementation_sha256": "c6ddbea08ca600cf106d4b875b3b8908425ae4867410d15a1af6b0dc4a21a3cc",
+  "batch_implementation_sha256": "ac4ffa8fbbff1f472d79794ce5b31597404340741325e356e2887ffb74c888e1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "706692108e99388c47aba8b597ace7ee722f543de736f04403a1b735417b3a86",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
