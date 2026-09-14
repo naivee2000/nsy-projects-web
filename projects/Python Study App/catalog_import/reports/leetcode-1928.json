@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1928",
+  "content_sha256": "82e93b4b2ac28f6dd7444c283bd8a45058efb577a2b8dc9df4a6205f7eb61c59",
+  "source_hash": "e5f90d804ace591bddd74f55fb22286052db6d701eefd2ec19c07d3ef7876b5c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the fastest route first and never compares a slower route with lower fees within the same time budget.",
+      "failed_cases": [
+        "lc-1928-1",
+        "lc-1928-6",
+        "lc-1928-10",
+        "lc-1928-11",
+        "lc-1928-12"
+      ]
+    },
+    {
+      "reason": "Omits the fee when arriving at the second endpoint of each stored edge.",
+      "failed_cases": [
+        "lc-1928-1",
+        "lc-1928-3",
+        "lc-1928-5",
+        "lc-1928-6",
+        "lc-1928-7",
+        "lc-1928-8",
+        "lc-1928-9",
+        "lc-1928-10",
+        "lc-1928-11",
+        "lc-1928-12",
+        "lc-1928-13",
+        "lc-1928-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5975,
+  "oracle_implementation": "code_practice/import_batch_111c.py:travel_oracle",
+  "validator_implementation_sha256": "063558a95732b0387f493d61f8fe1f770f94b48f9fd11921ea503a64d12a9e60",
+  "batch_implementation_sha256": "7ca972b5efb3c2aba5f74bb99021c40656a89f70236c1cddebcc0e3e81f8e7d8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "031470d74d620eb60b4b9c3cb88d0228364214d3a9eb3069b69691e59753f265",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

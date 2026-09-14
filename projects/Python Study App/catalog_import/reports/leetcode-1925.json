@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1925",
+  "content_sha256": "ba31d259fa3deb533f46c46583866fa9808a2f6d45f6d8e4ca14e3e46324d3d8",
+  "source_hash": "1815e9607c6e694ebb1a3dd42cecf9d80b9533c340907bb4d42613c4dd4998a5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Excludes triples whose hypotenuse is exactly n, creating an incorrect upper boundary.",
+      "failed_cases": [
+        "lc-1925-1",
+        "lc-1925-2",
+        "lc-1925-12",
+        "lc-1925-13",
+        "lc-1925-14"
+      ]
+    },
+    {
+      "reason": "Counts only one ordering of the two legs instead of treating (a,b) as ordered.",
+      "failed_cases": [
+        "lc-1925-1",
+        "lc-1925-2",
+        "lc-1925-7",
+        "lc-1925-8",
+        "lc-1925-9",
+        "lc-1925-10",
+        "lc-1925-11",
+        "lc-1925-12",
+        "lc-1925-13",
+        "lc-1925-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5972,
+  "oracle_implementation": "code_practice/import_batch_111c.py:triples_oracle",
+  "validator_implementation_sha256": "063558a95732b0387f493d61f8fe1f770f94b48f9fd11921ea503a64d12a9e60",
+  "batch_implementation_sha256": "7ca972b5efb3c2aba5f74bb99021c40656a89f70236c1cddebcc0e3e81f8e7d8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "00585e4619ae173a8c1bd5b532b09409ee271a0142a079e03edc7e0a67b85636",
+  "elapsed_seconds": 0.07,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

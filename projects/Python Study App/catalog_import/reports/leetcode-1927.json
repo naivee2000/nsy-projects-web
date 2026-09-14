@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1927",
+  "content_sha256": "f8ce932824a5ddeec5ba6310bc13a14145e5cba1831b053b9842d6c12cb97fcf",
+  "source_hash": "ac5f64fac04acacb4d7d05d9db65330af3c3619e6830a0cd162dd72ffdbaa293",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Applies only the even-question balance equation and misses Alice's extra move when the question count is odd.",
+      "failed_cases": [
+        "lc-1927-15",
+        "lc-1927-16"
+      ]
+    },
+    {
+      "reason": "Treats every question mark as zero instead of modeling alternating optimal digit choices.",
+      "failed_cases": [
+        "lc-1927-5",
+        "lc-1927-7",
+        "lc-1927-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5974,
+  "oracle_implementation": "code_practice/import_batch_111c.py:sum_game_oracle",
+  "validator_implementation_sha256": "063558a95732b0387f493d61f8fe1f770f94b48f9fd11921ea503a64d12a9e60",
+  "batch_implementation_sha256": "7ca972b5efb3c2aba5f74bb99021c40656a89f70236c1cddebcc0e3e81f8e7d8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d5ae674530b01a20d81e6a070c91726139678806eabf3db73e1ad43a02945bdd",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1926",
+  "content_sha256": "1bef196a729c4d2c3e138eb7fb594208ada0adbfce70c146864712a496b7a83e",
+  "source_hash": "2a31c31ba6a91b6f96b138d02b21d7daf849bc80d5c8b2786fad0c1df81d80ac",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly treats a boundary entrance itself as a zero-step exit.",
+      "failed_cases": [
+        "lc-1926-2",
+        "lc-1926-3",
+        "lc-1926-4",
+        "lc-1926-7",
+        "lc-1926-8",
+        "lc-1926-10",
+        "lc-1926-13",
+        "lc-1926-14"
+      ]
+    },
+    {
+      "reason": "Uses geometric distance to the boundary and ignores walls and reachable routes.",
+      "failed_cases": [
+        "lc-1926-2",
+        "lc-1926-6",
+        "lc-1926-10",
+        "lc-1926-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5973,
+  "oracle_implementation": "code_practice/import_batch_111c.py:exit_oracle",
+  "validator_implementation_sha256": "063558a95732b0387f493d61f8fe1f770f94b48f9fd11921ea503a64d12a9e60",
+  "batch_implementation_sha256": "7ca972b5efb3c2aba5f74bb99021c40656a89f70236c1cddebcc0e3e81f8e7d8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "841c9babd02973ad02c8b3b79540fa6946e51e83e48cb2aaba4b6bf503610323",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
