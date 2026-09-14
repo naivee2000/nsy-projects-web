@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1464",
+  "content_sha256": "a3c01f24d3c1a9f06c5d0377a1a9c57127ce5c5c4c8394d1fe235de2d364db43",
+  "source_hash": "2f0c1838963d4854f6320d11c46fbbc6eb49a9931c20d1a1a9580973a82b23fe",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks the smallest values instead of the largest two.",
+      "failed_cases": [
+        "lc-1464-1",
+        "lc-1464-2",
+        "lc-1464-4",
+        "lc-1464-5",
+        "lc-1464-6",
+        "lc-1464-7",
+        "lc-1464-8",
+        "lc-1464-9",
+        "lc-1464-10",
+        "lc-1464-11",
+        "lc-1464-12",
+        "lc-1464-13",
+        "lc-1464-14"
+      ]
+    },
+    {
+      "reason": "Forgets to decrement both chosen values.",
+      "failed_cases": [
+        "lc-1464-1",
+        "lc-1464-2",
+        "lc-1464-3",
+        "lc-1464-4",
+        "lc-1464-5",
+        "lc-1464-6",
+        "lc-1464-7",
+        "lc-1464-8",
+        "lc-1464-9",
+        "lc-1464-10",
+        "lc-1464-11",
+        "lc-1464-12",
+        "lc-1464-13",
+        "lc-1464-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5511,
+  "oracle_implementation": "code_practice/import_batch_095.py:product_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "b436206d40da232afa34ee097647064cc327632a6a07577e2b585809896df819",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cc5b78878f96096a221e2fefe57470f10bf5511ac986e69b24e4b0cee4208694",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

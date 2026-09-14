@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1466",
+  "content_sha256": "7d4c28d0a4e5d1945eaf3cc72710a527df2fd7deb62a8f17f23e15566c51f3fc",
+  "source_hash": "53dfb0ff9014db6681d786919f43ebc7fea58c0639a4554112edbc9f20f497bd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Marks originally outward edges as already correct.",
+      "failed_cases": [
+        "lc-1466-1",
+        "lc-1466-2",
+        "lc-1466-3",
+        "lc-1466-5",
+        "lc-1466-7",
+        "lc-1466-9",
+        "lc-1466-11",
+        "lc-1466-12",
+        "lc-1466-14"
+      ]
+    },
+    {
+      "reason": "Counts edges oriented toward zero rather than away from it.",
+      "failed_cases": [
+        "lc-1466-1",
+        "lc-1466-3",
+        "lc-1466-4",
+        "lc-1466-5",
+        "lc-1466-6",
+        "lc-1466-7",
+        "lc-1466-8",
+        "lc-1466-9",
+        "lc-1466-10",
+        "lc-1466-11",
+        "lc-1466-12",
+        "lc-1466-13",
+        "lc-1466-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5513,
+  "oracle_implementation": "code_practice/import_batch_095.py:routes_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "b436206d40da232afa34ee097647064cc327632a6a07577e2b585809896df819",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ded5806792dfa0f2486797c0b534e0692c36a4d6138ab7caa046dee23207ed5f",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

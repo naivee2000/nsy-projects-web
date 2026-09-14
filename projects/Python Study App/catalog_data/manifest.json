@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 999,
+  "count": 1019,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -17686,6 +17686,354 @@
       "path": "problems/leetcode-1457.json",
       "content_sha256": "85847dcb634e4ab7b3e7749d935875e9b7b4df8ac6ac1d046ba97caac2dd271b",
       "source_id": 1457
+    },
+    {
+      "id": "leetcode-1458",
+      "version": 1,
+      "status": "approved",
+      "title": "Max Dot Product of Two Subsequences",
+      "summary": "Given two arrays, nums1 and nums2, find the highest dot product of non-empty subsequences of equal length from both arrays, where a subsequence is formed by removing some elements from the original array without changing the order of the remaining elements.",
+      "topics": [
+        "dynamic-programming",
+        "subsequences"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1458.json",
+      "content_sha256": "1e842eda2a5e51838b1cb189365201795143c3fb09382d04079e5a39bf0ee996",
+      "source_id": 1458
+    },
+    {
+      "id": "leetcode-1460",
+      "version": 1,
+      "status": "approved",
+      "title": "Make Two Arrays Equal by Reversing Subarrays",
+      "summary": "Given two equal-length integer arrays target and arr, you can reverse any non-empty subarray of arr any number of times.",
+      "topics": [
+        "arrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1460.json",
+      "content_sha256": "a0a6ecd166f876c18696d8e32bf9f489ce2898ddd638c53ad9ce3c6b3416518e",
+      "source_id": 1460
+    },
+    {
+      "id": "leetcode-1461",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If a String Contains All Binary Codes of Size K",
+      "summary": "Determine if a binary string s includes every possible binary code of a specified length k as a substring.",
+      "topics": [
+        "strings",
+        "sliding-window"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1461.json",
+      "content_sha256": "e999ac07be18d41c32a63891a84a1c42030a4ce04b675f625a490acd9702fc1f",
+      "source_id": 1461
+    },
+    {
+      "id": "leetcode-1462",
+      "version": 1,
+      "status": "approved",
+      "title": "Course Schedule IV",
+      "summary": "Given a total of numCourses courses labeled from 0 to numCourses - 1, and an array of prerequisites indicating the order in which courses must be taken, determine for each query whether the first course in the query is a prerequisite for the second course.",
+      "topics": [
+        "graphs",
+        "transitive-closure"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1462.json",
+      "content_sha256": "e2dad5ca460315791b5e9529f67d65aa6dbfed83fbf22325e0c8b57009872bc4",
+      "source_id": 1462
+    },
+    {
+      "id": "leetcode-1463",
+      "version": 1,
+      "status": "approved",
+      "title": "Cherry Pickup II",
+      "summary": "Given a grid of cherries, two robots start at opposite corners.",
+      "topics": [
+        "dynamic-programming",
+        "grids"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1463.json",
+      "content_sha256": "dedc4a5f4e875d7aef96dfd7466ebb0c054b6f55b823845c211b33e49683a91d",
+      "source_id": 1463
+    },
+    {
+      "id": "leetcode-1464",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Product of Two Elements in an Array",
+      "summary": "Given an array of integers, select two distinct indices.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1464.json",
+      "content_sha256": "a3c01f24d3c1a9f06c5d0377a1a9c57127ce5c5c4c8394d1fe235de2d364db43",
+      "source_id": 1464
+    },
+    {
+      "id": "leetcode-1465",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts",
+      "summary": "Given a rectangular cake with dimensions h x w, and arrays horizontalCuts and verticalCuts detailing the positions for cuts, determine the largest piece area after making all specified cuts.",
+      "topics": [
+        "sorting",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1465.json",
+      "content_sha256": "7a43dfd03d19bf5e4bf8f3baeccca3e74b4623cc5ee167014deeccf98ae7383a",
+      "source_id": 1465
+    },
+    {
+      "id": "leetcode-1466",
+      "version": 1,
+      "status": "approved",
+      "title": "Reorder Routes to Make All Paths Lead to the City Zero",
+      "summary": "Given a tree with n cities and n-1 roads, where each road connects two cities, reorient some roads so that all cities can reach city 0.",
+      "topics": [
+        "graphs",
+        "trees"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1466.json",
+      "content_sha256": "7d4c28d0a4e5d1945eaf3cc72710a527df2fd7deb62a8f17f23e15566c51f3fc",
+      "source_id": 1466
+    },
+    {
+      "id": "leetcode-1469",
+      "version": 1,
+      "status": "approved",
+      "title": "Find All The Lonely Nodes",
+      "summary": "For a binary tree, identify nodes that are the sole child of their parent.",
+      "topics": [
+        "trees",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1469.json",
+      "content_sha256": "baaabff30e6c92f896634e49860e1b0bb7274af725c48f7a0d1df4a24d2906b6",
+      "source_id": 1469
+    },
+    {
+      "id": "leetcode-1470",
+      "version": 1,
+      "status": "approved",
+      "title": "Shuffle the Array",
+      "summary": "Given an array nums with 2n elements arranged as [x1,x2,...,xn,y1,y2,...,yn], rearrange it into [x1,y1,x2,y2,...,xn,yn].",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1470.json",
+      "content_sha256": "03fb3612b8a0271192147eff0392b7e72bfc2c144c7fc1ce8975505f5bfeaca9",
+      "source_id": 1470
+    },
+    {
+      "id": "leetcode-1471",
+      "version": 1,
+      "status": "approved",
+      "title": "The k Strongest Values in an Array",
+      "summary": "Given an array of integers arr and an integer k, identify the k strongest values based on their distance from the array's center.",
+      "topics": [
+        "sorting",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1471.json",
+      "content_sha256": "9caffcfb957db12712720def35552ce0ff1e607a94c75d3c2a812b6ad156623e",
+      "source_id": 1471
+    },
+    {
+      "id": "leetcode-1473",
+      "version": 1,
+      "status": "approved",
+      "title": "Paint House III",
+      "summary": "There is a row of m houses, each to be painted with one of n colors (labeled from 1 to n), with some houses already painted and thus cannot be repainted.",
+      "topics": [
+        "dynamic-programming",
+        "memoization"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1473.json",
+      "content_sha256": "eca1e340b30dcf254be41243e3a8ba2206a6761f2dce994bab525a77838df868",
+      "source_id": 1473
+    },
+    {
+      "id": "leetcode-1475",
+      "version": 1,
+      "status": "approved",
+      "title": "Final Prices With a Special Discount in a Shop",
+      "summary": "Given an array of item prices, calculate the final price for each item after applying a discount based on the next lower-priced item.",
+      "topics": [
+        "stacks",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1475.json",
+      "content_sha256": "b3e8a0ba10c6dc670a01a45c4d390685179cb8da46e02ead98345260b53f021f",
+      "source_id": 1475
+    },
+    {
+      "id": "leetcode-1477",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Two Non-overlapping Sub-arrays Each With Target Sum",
+      "summary": "Given an array of integers arr and an integer target, find two non-overlapping sub-arrays of arr such that the sum of each sub-array equals the target.",
+      "topics": [
+        "sliding-window",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1477.json",
+      "content_sha256": "12204c9353cf6e3db20d85211eb83e58f3b4a499c9ece177e1a612758f193e7e",
+      "source_id": 1477
+    },
+    {
+      "id": "leetcode-1478",
+      "version": 1,
+      "status": "approved",
+      "title": "Allocate Mailboxes",
+      "summary": "Given an array of house locations and an integer k, place k mailboxes to minimize the total distance from each house to its nearest mailbox.",
+      "topics": [
+        "dynamic-programming",
+        "sorting"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1478.json",
+      "content_sha256": "3acd4cb9dee09f95964cc40677a4c471a1c590348efc8d17ac09e5ae1cd71ac2",
+      "source_id": 1478
+    },
+    {
+      "id": "leetcode-1480",
+      "version": 1,
+      "status": "approved",
+      "title": "Running Sum of 1d Array",
+      "summary": "Given an array nums, calculate the running sum where runningSum[i] equals the sum of elements from the start up to the i-th element.",
+      "topics": [
+        "arrays",
+        "prefix-sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1480.json",
+      "content_sha256": "1a56b8c72646c05b53ff4683f91b992d698870ff3bd912d297ae9c39bfc8196f",
+      "source_id": 1480
+    },
+    {
+      "id": "leetcode-1481",
+      "version": 1,
+      "status": "approved",
+      "title": "Least Number of Unique Integers after K Removals",
+      "summary": "Given an array of integers and a count k, determine the minimum number of distinct integers remaining after removing exactly k elements.",
+      "topics": [
+        "greedy",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1481.json",
+      "content_sha256": "fd87c365120846f2837552ede2115d8dbe712995b1d840209d046c577bede80c",
+      "source_id": 1481
+    },
+    {
+      "id": "leetcode-1482",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Days to Make m Bouquets",
+      "summary": "Given an integer array bloomDay with the bloom day values for each flower, an integer m representing the number of bouquets needed, and an integer k representing the number of adjacent flowers required to make one bouquet, determine the minimum number of days you need to wait until you can gather exactly m bouquets.",
+      "topics": [
+        "binary-search",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1482.json",
+      "content_sha256": "efa1bd37a623cfd37e35f510fca110d549d0b5ad1cd6ae376757be8e6062112e",
+      "source_id": 1482
+    },
+    {
+      "id": "leetcode-1486",
+      "version": 1,
+      "status": "approved",
+      "title": "XOR Operation in an Array",
+      "summary": "Given an integer n and start, create an array nums where each element nums[i] equals start plus twice the index i.",
+      "topics": [
+        "bit-manipulation",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1486.json",
+      "content_sha256": "e5c0233e097225ffd7ceb6d24c01d7dcbf3b758aadb400a5f012087d81b96e31",
+      "source_id": 1486
+    },
+    {
+      "id": "leetcode-1487",
+      "version": 1,
+      "status": "approved",
+      "title": "Making File Names Unique",
+      "summary": "Given an array of strings names of size n, create n folders such that at the i-th minute, a folder named names[i] is created.",
+      "topics": [
+        "hash-maps",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1487.json",
+      "content_sha256": "320c31cb07b75dee2134a3852dcd092131b02079eeb6a32a1f1d34571b7da7de",
+      "source_id": 1487
     }
   ]
 }

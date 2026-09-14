@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1475",
+  "content_sha256": "b3e8a0ba10c6dc670a01a45c4d390685179cb8da46e02ead98345260b53f021f",
+  "source_hash": "573d88318581ebace6102b2acf2ea06e0f6669c3b2f47016b1886d1e10a73438",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires a strictly smaller discount and misses equal prices.",
+      "failed_cases": [
+        "lc-1475-4",
+        "lc-1475-5",
+        "lc-1475-7",
+        "lc-1475-9",
+        "lc-1475-12",
+        "lc-1475-13"
+      ]
+    },
+    {
+      "reason": "Discounts only one waiting price instead of every prior price resolved by the current value.",
+      "failed_cases": [
+        "lc-1475-1",
+        "lc-1475-7",
+        "lc-1475-8",
+        "lc-1475-9",
+        "lc-1475-10",
+        "lc-1475-13",
+        "lc-1475-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5522,
+  "oracle_implementation": "code_practice/import_batch_095b.py:prices_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "79a4543e4cd3b1553f2bf5edbc81e6f76fc1162d9b261f3d92afc46d7a99d128",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "41fe7892413aede3aaa14ec07cbe457b1e48dc41bc81884584fc4ac42cd677bd",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

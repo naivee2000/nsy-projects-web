@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1482",
+  "content_sha256": "efa1bd37a623cfd37e35f510fca110d549d0b5ad1cd6ae376757be8e6062112e",
+  "source_hash": "b4d6b31ba9b5dac347b17f239fb17f88f66b99ff612a8e6310b693ae1f5c8156",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats flowers blooming exactly on the tested day as unavailable.",
+      "failed_cases": [
+        "lc-1482-1",
+        "lc-1482-9",
+        "lc-1482-12",
+        "lc-1482-13",
+        "lc-1482-14"
+      ]
+    },
+    {
+      "reason": "Reuses one flower from each completed bouquet as the start of the next run.",
+      "failed_cases": [
+        "lc-1482-8",
+        "lc-1482-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5529,
+  "oracle_implementation": "code_practice/import_batch_095b.py:bouquets_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "79a4543e4cd3b1553f2bf5edbc81e6f76fc1162d9b261f3d92afc46d7a99d128",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1ae370867eba12fafa8105f8885b419b3651415a97425d4be7e32d1b1cb7944c",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

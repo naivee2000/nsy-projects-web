@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1469",
+  "content_sha256": "baaabff30e6c92f896634e49860e1b0bb7274af725c48f7a0d1df4a24d2906b6",
+  "source_hash": "8648797e4ca554175995d802f4ebe57f489f4aeb0c52a18c9760958220751ca9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires a left child to have a right sibling before recording it.",
+      "failed_cases": [
+        "lc-1469-1",
+        "lc-1469-2",
+        "lc-1469-4",
+        "lc-1469-6",
+        "lc-1469-7",
+        "lc-1469-8",
+        "lc-1469-9",
+        "lc-1469-10",
+        "lc-1469-11",
+        "lc-1469-12",
+        "lc-1469-13",
+        "lc-1469-14"
+      ]
+    },
+    {
+      "reason": "Returns the parent value for a lonely left child.",
+      "failed_cases": [
+        "lc-1469-2",
+        "lc-1469-4",
+        "lc-1469-7",
+        "lc-1469-8",
+        "lc-1469-9",
+        "lc-1469-11",
+        "lc-1469-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5516,
+  "oracle_implementation": "code_practice/import_batch_095.py:lonely_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "b436206d40da232afa34ee097647064cc327632a6a07577e2b585809896df819",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3c5875b73e3cb4e3710b768da4457f1d646cc12eae2212c4509cfba712888003",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

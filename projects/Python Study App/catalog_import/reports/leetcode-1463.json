@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1463",
+  "content_sha256": "dedc4a5f4e875d7aef96dfd7466ebb0c054b6f55b823845c211b33e49683a91d",
+  "source_hash": "3c09f1309ac5ec20d27e95e1cb4225810e312968cd9ae84e41f83b8109f10146",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Double-counts a cell when both robots meet.",
+      "failed_cases": [
+        "lc-1463-1",
+        "lc-1463-2",
+        "lc-1463-4",
+        "lc-1463-7",
+        "lc-1463-8",
+        "lc-1463-12",
+        "lc-1463-13",
+        "lc-1463-14",
+        "lc-1463-15"
+      ]
+    },
+    {
+      "reason": "Prevents the first robot from changing columns.",
+      "failed_cases": [
+        "lc-1463-1",
+        "lc-1463-2",
+        "lc-1463-6",
+        "lc-1463-11",
+        "lc-1463-12",
+        "lc-1463-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5510,
+  "oracle_implementation": "code_practice/import_batch_095.py:cherries_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "b436206d40da232afa34ee097647064cc327632a6a07577e2b585809896df819",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5b2a7a0d906553514171c7fff39ebac9543687a3a5afd888b7b7e7cb959b5464",
+  "elapsed_seconds": 0.088,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

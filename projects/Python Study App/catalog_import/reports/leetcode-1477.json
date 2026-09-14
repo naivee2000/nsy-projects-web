@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1477",
+  "content_sha256": "12204c9353cf6e3db20d85211eb83e58f3b4a499c9ece177e1a612758f193e7e",
+  "source_hash": "147e6a662b102151b95e230292214cdf71288461d0c8bef3014432838d4bb8a0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Combines with a potentially overlapping best interval ending near the current right edge.",
+      "failed_cases": [
+        "lc-1477-12"
+      ]
+    },
+    {
+      "reason": "Forgets shorter earlier intervals and stores only the latest target window.",
+      "failed_cases": [
+        "lc-1477-2",
+        "lc-1477-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5524,
+  "oracle_implementation": "code_practice/import_batch_095b.py:subarrays_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "79a4543e4cd3b1553f2bf5edbc81e6f76fc1162d9b261f3d92afc46d7a99d128",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3d3383b6948dfb234d62e880003a268b0def9f7fa6801fe3f7c7776c6e772ffb",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

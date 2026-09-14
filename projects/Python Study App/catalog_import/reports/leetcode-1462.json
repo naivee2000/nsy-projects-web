@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1462",
+  "content_sha256": "e2dad5ca460315791b5e9529f67d65aa6dbfed83fbf22325e0c8b57009872bc4",
+  "source_hash": "92174b4656bf2c8dcc41b77a3224406f5e716aa3dbabe1bc99fba8d464dd5ad1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites existing reachability while propagating through a middle course.",
+      "failed_cases": [
+        "lc-1462-1",
+        "lc-1462-2",
+        "lc-1462-4",
+        "lc-1462-5",
+        "lc-1462-6",
+        "lc-1462-7",
+        "lc-1462-9",
+        "lc-1462-10",
+        "lc-1462-11",
+        "lc-1462-12",
+        "lc-1462-13",
+        "lc-1462-14"
+      ]
+    },
+    {
+      "reason": "Checks only direct edges by skipping transitive closure.",
+      "failed_cases": [
+        "lc-1462-5",
+        "lc-1462-7",
+        "lc-1462-9",
+        "lc-1462-10",
+        "lc-1462-11",
+        "lc-1462-12",
+        "lc-1462-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5509,
+  "oracle_implementation": "code_practice/import_batch_095.py:courses_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "b436206d40da232afa34ee097647064cc327632a6a07577e2b585809896df819",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "06b44f75b587e169b156e70bb3f2afc3d5e3bc5aa03b3f6b551c778f8b0be156",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

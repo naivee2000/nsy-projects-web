@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1470",
+  "content_sha256": "03fb3612b8a0271192147eff0392b7e72bfc2c144c7fc1ce8975505f5bfeaca9",
+  "source_hash": "5491f83f08060c303ff76e983dc100bb65a6e1fc36e922525d24e422afc5e21f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Offsets the second half one position too early.",
+      "failed_cases": [
+        "lc-1470-1",
+        "lc-1470-2",
+        "lc-1470-3",
+        "lc-1470-4",
+        "lc-1470-5",
+        "lc-1470-6",
+        "lc-1470-7",
+        "lc-1470-8",
+        "lc-1470-10",
+        "lc-1470-11",
+        "lc-1470-13",
+        "lc-1470-14"
+      ]
+    },
+    {
+      "reason": "Outputs each y before its aligned x.",
+      "failed_cases": [
+        "lc-1470-1",
+        "lc-1470-2",
+        "lc-1470-3",
+        "lc-1470-4",
+        "lc-1470-5",
+        "lc-1470-6",
+        "lc-1470-7",
+        "lc-1470-8",
+        "lc-1470-10",
+        "lc-1470-11",
+        "lc-1470-13",
+        "lc-1470-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5517,
+  "oracle_implementation": "code_practice/import_batch_095.py:shuffle_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "b436206d40da232afa34ee097647064cc327632a6a07577e2b585809896df819",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f264a54baa04296e1d7d43fb63ba0c7c76febf86e69e8305bd3b75d97aa7032a",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

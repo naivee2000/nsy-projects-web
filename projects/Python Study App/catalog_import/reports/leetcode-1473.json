@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1473",
+  "content_sha256": "eca1e340b30dcf254be41243e3a8ba2206a6761f2dce994bab525a77838df868",
+  "source_hash": "500b45c370d6a0e69172edb64618524373dd26270854a7a21ef25d2df393d389",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Increments neighborhoods when adjacent colors match rather than change.",
+      "failed_cases": [
+        "lc-1473-1",
+        "lc-1473-2",
+        "lc-1473-3",
+        "lc-1473-4",
+        "lc-1473-7",
+        "lc-1473-8",
+        "lc-1473-10",
+        "lc-1473-11",
+        "lc-1473-13",
+        "lc-1473-14"
+      ]
+    },
+    {
+      "reason": "Charges repainting cost for houses that are already painted.",
+      "failed_cases": [
+        "lc-1473-2",
+        "lc-1473-4",
+        "lc-1473-8",
+        "lc-1473-10",
+        "lc-1473-11",
+        "lc-1473-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5520,
+  "oracle_implementation": "code_practice/import_batch_095b.py:paint_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "79a4543e4cd3b1553f2bf5edbc81e6f76fc1162d9b261f3d92afc46d7a99d128",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d58523d549ce26c7a85cfa1aff712afc55c8d428e12baf43ddb5b86b1116599e",
+  "elapsed_seconds": 0.064,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

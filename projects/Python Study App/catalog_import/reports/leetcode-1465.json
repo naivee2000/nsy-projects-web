@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1465",
+  "content_sha256": "7a43dfd03d19bf5e4bf8f3baeccca3e74b4623cc5ee167014deeccf98ae7383a",
+  "source_hash": "1f57e70908d9c34a25e09cc74a0ecc32aecb72258eedde180af32c5135253167",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the far cake boundary when computing horizontal gaps.",
+      "failed_cases": [
+        "lc-1465-7",
+        "lc-1465-9",
+        "lc-1465-13"
+      ]
+    },
+    {
+      "reason": "Adds maximum gaps instead of multiplying them for area.",
+      "failed_cases": [
+        "lc-1465-2",
+        "lc-1465-3",
+        "lc-1465-4",
+        "lc-1465-5",
+        "lc-1465-6",
+        "lc-1465-7",
+        "lc-1465-8",
+        "lc-1465-9",
+        "lc-1465-10",
+        "lc-1465-11",
+        "lc-1465-12",
+        "lc-1465-13",
+        "lc-1465-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5512,
+  "oracle_implementation": "code_practice/import_batch_095.py:cake_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "b436206d40da232afa34ee097647064cc327632a6a07577e2b585809896df819",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ae056c90b6ac05ab2b19895ebf00ea2238b5bc61258631b809460255ba9678c7",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

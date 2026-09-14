@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1458",
+  "content_sha256": "1e842eda2a5e51838b1cb189365201795143c3fb09382d04079e5a39bf0ee996",
+  "source_hash": "26ccea16952a869f1a1db8692b62f3aa07f56f281a37a7488c2d9578aa53e743",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses only one pair and misses profitable longer subsequences.",
+      "failed_cases": [
+        "lc-1458-1",
+        "lc-1458-7",
+        "lc-1458-11",
+        "lc-1458-13",
+        "lc-1458-14"
+      ]
+    },
+    {
+      "reason": "Allows an empty subsequence with score zero.",
+      "failed_cases": [
+        "lc-1458-4",
+        "lc-1458-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5505,
+  "oracle_implementation": "code_practice/import_batch_095.py:dot_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "b436206d40da232afa34ee097647064cc327632a6a07577e2b585809896df819",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a058bf3c818e8da778201b098f1469c3ebda38911dba8a7c58e62a3afc7f7565",
+  "elapsed_seconds": 0.095,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

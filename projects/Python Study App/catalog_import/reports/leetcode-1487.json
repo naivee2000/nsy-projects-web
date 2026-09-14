@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1487",
+  "content_sha256": "320c31cb07b75dee2134a3852dcd092131b02079eeb6a32a1f1d34571b7da7de",
+  "source_hash": "948c15a549bfdf226142849d7dd06bf9de9579bdaa50826f9e3daaceb50917d0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips the currently smallest candidate suffix before checking it.",
+      "failed_cases": [
+        "lc-1487-4",
+        "lc-1487-5",
+        "lc-1487-7",
+        "lc-1487-8",
+        "lc-1487-9",
+        "lc-1487-10"
+      ]
+    },
+    {
+      "reason": "Never checks whether a generated suffix name is already used.",
+      "failed_cases": [
+        "lc-1487-2",
+        "lc-1487-6",
+        "lc-1487-8",
+        "lc-1487-10",
+        "lc-1487-11",
+        "lc-1487-12",
+        "lc-1487-13",
+        "lc-1487-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5534,
+  "oracle_implementation": "code_practice/import_batch_095b.py:names_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "79a4543e4cd3b1553f2bf5edbc81e6f76fc1162d9b261f3d92afc46d7a99d128",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d18700cbd159574295cd323e886ee81d2d063bf6c0771612db311f9736fefb9c",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

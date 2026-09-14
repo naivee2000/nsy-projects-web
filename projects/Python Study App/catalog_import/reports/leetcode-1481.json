@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1481",
+  "content_sha256": "fd87c365120846f2837552ede2115d8dbe712995b1d840209d046c577bede80c",
+  "source_hash": "a30ca1906e1f23b536401cfc6d51d45cd3bed50eb62b55c7b63f6d59e9176631",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes the most frequent values first.",
+      "failed_cases": [
+        "lc-1481-1",
+        "lc-1481-2",
+        "lc-1481-7",
+        "lc-1481-10",
+        "lc-1481-11",
+        "lc-1481-13",
+        "lc-1481-14"
+      ]
+    },
+    {
+      "reason": "Refuses to remove a value whose frequency exactly equals remaining k.",
+      "failed_cases": [
+        "lc-1481-1",
+        "lc-1481-4",
+        "lc-1481-5",
+        "lc-1481-6",
+        "lc-1481-9",
+        "lc-1481-10",
+        "lc-1481-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5528,
+  "oracle_implementation": "code_practice/import_batch_095b.py:unique_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "79a4543e4cd3b1553f2bf5edbc81e6f76fc1162d9b261f3d92afc46d7a99d128",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "305d3ab5b3b5fbea7ddc0af7803710b9d0e302706d27d49a9b5e0add30f507a6",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

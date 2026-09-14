@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1478",
+  "content_sha256": "3acd4cb9dee09f95964cc40677a4c471a1c590348efc8d17ac09e5ae1cd71ac2",
+  "source_hash": "d3426a528ce9377bf3cd9084bc7be09c4ccfd0ec7738ef71bc42761f568d103d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Places each segment mailbox at its leftmost house instead of a median.",
+      "failed_cases": [
+        "lc-1478-2",
+        "lc-1478-6",
+        "lc-1478-8",
+        "lc-1478-11",
+        "lc-1478-12",
+        "lc-1478-13",
+        "lc-1478-14"
+      ]
+    },
+    {
+      "reason": "Uses one fewer mailbox than requested whenever k is greater than one.",
+      "failed_cases": [
+        "lc-1478-1",
+        "lc-1478-2",
+        "lc-1478-5",
+        "lc-1478-7",
+        "lc-1478-8",
+        "lc-1478-9",
+        "lc-1478-10",
+        "lc-1478-11",
+        "lc-1478-13",
+        "lc-1478-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5525,
+  "oracle_implementation": "code_practice/import_batch_095b.py:mail_o",
+  "validator_implementation_sha256": "4d7d9d069edeb5980a2ffad407ffb946869a3b54bde11ce0c2a95d1587acaef2",
+  "batch_implementation_sha256": "79a4543e4cd3b1553f2bf5edbc81e6f76fc1162d9b261f3d92afc46d7a99d128",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c6a315543cfb3fd581c41cd9e9fc947da34b122d446bfa18f781bfa4aa41c3cc",
+  "elapsed_seconds": 0.059,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
