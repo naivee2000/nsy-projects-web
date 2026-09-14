@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2025",
+  "content_sha256": "52446af5bd0f7846191b389f0305eb46f98290bb14cb1b878c715bab4abd8559",
+  "source_hash": "c5093c8e9de9757d0504ed1a42b61f078cf4bce679efda602a33348d12fe482d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the right-side sign rule for both sides of the changed index.",
+      "failed_cases": [
+        "lc-2025-5",
+        "lc-2025-8",
+        "lc-2025-11",
+        "lc-2025-14"
+      ]
+    },
+    {
+      "reason": "Uses the left-side sign rule for both sides of the changed index.",
+      "failed_cases": [
+        "lc-2025-8",
+        "lc-2025-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6072,
+  "oracle_implementation": "code_practice/import_batch_115c.py:partitions_o",
+  "validator_implementation_sha256": "685fd4ecabb8f2ba8287b5fb12ef26ac8a1bd76535436411f79f728e15418f3b",
+  "batch_implementation_sha256": "9c93af7378df059b5d437847b3dd2619b654d3d8d80804ced0936f0871754f10",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3c82550270328f398d4c90a8ae129d39bf89bc1e1f7134526eea103d9736328b",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

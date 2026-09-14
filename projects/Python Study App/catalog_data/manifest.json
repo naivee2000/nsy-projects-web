@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1408,
+  "count": 1413,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -24919,6 +24919,44 @@
       "source_id": 2017
     },
     {
+      "id": "leetcode-2018",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Word Can Be Placed In Crossword",
+      "summary": "Given an m x n matrix board representing a crossword puzzle with lowercase letters, spaces, and blocked cells, determine if a word can be placed horizontally or vertically without violating placement rules.",
+      "topics": [
+        "matrices",
+        "simulation",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2018.json",
+      "content_sha256": "11b5190f51b96c03f9afb7f76cd36037c41a0967104e026d42e469d641a2314e",
+      "source_id": 2018
+    },
+    {
+      "id": "leetcode-2019",
+      "version": 1,
+      "status": "approved",
+      "title": "The Score of Students Solving Math Expression",
+      "summary": "Given a string s containing digits and the operators '+' and '*', representing a valid math expression of single-digit numbers, compute the correct answer by first performing all multiplications from left to right, followed by all additions from left to right.",
+      "topics": [
+        "dynamic programming",
+        "parsing",
+        "intervals"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2019.json",
+      "content_sha256": "da9d36b8df568ead2fc936a7bc5da5442161b07412852b6d797f00709397cc1b",
+      "source_id": 2019
+    },
+    {
       "id": "leetcode-2021",
       "version": 1,
       "status": "approved",
@@ -24991,6 +25029,26 @@
       "source_id": 2024
     },
     {
+      "id": "leetcode-2025",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Ways to Partition an Array",
+      "summary": "Given an integer array nums of length n, determine the maximum number of ways to partition the array by changing at most one element to k.",
+      "topics": [
+        "prefix sums",
+        "hash maps",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "prefix sums"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2025.json",
+      "content_sha256": "52446af5bd0f7846191b389f0305eb46f98290bb14cb1b878c715bab4abd8559",
+      "source_id": 2025
+    },
+    {
       "id": "leetcode-2027",
       "version": 1,
       "status": "approved",
@@ -25006,6 +25064,44 @@
       "path": "problems/leetcode-2027.json",
       "content_sha256": "7fd8beade24b44e5f96b5208854e6f05ec4b16a8db4f009a955f5c4976750a01",
       "source_id": 2027
+    },
+    {
+      "id": "leetcode-2029",
+      "version": 1,
+      "status": "approved",
+      "title": "Stone Game IX",
+      "summary": "Alice and Bob play a game with stones.",
+      "topics": [
+        "game theory",
+        "counting",
+        "modular arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2029.json",
+      "content_sha256": "1003670e31fc3d3a807f1c14b8a93e45c5c69ea137201298bfb2ed0c213b16f4",
+      "source_id": 2029
+    },
+    {
+      "id": "leetcode-2030",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest K-Length Subsequence With Occurrences of a Letter",
+      "summary": "Given a string s, an integer k, a letter letter, and an integer repetition, find the lexicographically smallest subsequence of length k that contains the letter letter at least repetition times.",
+      "topics": [
+        "monotonic stack",
+        "greedy",
+        "subsequences"
+      ],
+      "prerequisites": [
+        "monotonic stack"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2030.json",
+      "content_sha256": "7153ab6e57ffd6e10c49028ec3444db7f1eaf490b59c46b7c201916a8acd7f94",
+      "source_id": 2030
     }
   ]
 }

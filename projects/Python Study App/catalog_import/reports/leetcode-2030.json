@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2030",
+  "content_sha256": "7153ab6e57ffd6e10c49028ec3444db7f1eaf490b59c46b7c201916a8acd7f94",
+  "source_hash": "d2058cae02856f1b31853e99d60fc9cfc391f3eb5ce9c34d2ce6abf9965b6dd0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pops a required letter when only exactly enough future copies remain.",
+      "failed_cases": [
+        "lc-2030-2",
+        "lc-2030-10",
+        "lc-2030-14"
+      ]
+    },
+    {
+      "reason": "Allows a nonrequired character to occupy the final slot reserved for a needed letter.",
+      "failed_cases": [
+        "lc-2030-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6077,
+  "oracle_implementation": "code_practice/import_batch_115c.py:subsequence_o",
+  "validator_implementation_sha256": "685fd4ecabb8f2ba8287b5fb12ef26ac8a1bd76535436411f79f728e15418f3b",
+  "batch_implementation_sha256": "9c93af7378df059b5d437847b3dd2619b654d3d8d80804ced0936f0871754f10",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5bc5fad75723a6bffe87f062d6f0d5629b3f95a6d408a9495150861d2a83be5e",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

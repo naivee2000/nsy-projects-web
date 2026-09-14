@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2018",
+  "content_sha256": "11b5190f51b96c03f9afb7f76cd36037c41a0967104e026d42e469d641a2314e",
+  "source_hash": "f85132e554468c2ae65bd3d968b335fe0092145649d014c28dd4d47bfbe578a0",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores a nonblocked cell before the word and permits placement inside a longer slot.",
+      "failed_cases": [
+        "lc-2018-17"
+      ]
+    },
+    {
+      "reason": "Allows only blank cells and rejects matching prefilled letters.",
+      "failed_cases": [
+        "lc-2018-1",
+        "lc-2018-4",
+        "lc-2018-8",
+        "lc-2018-9",
+        "lc-2018-10",
+        "lc-2018-11",
+        "lc-2018-12",
+        "lc-2018-13",
+        "lc-2018-14",
+        "lc-2018-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6065,
+  "oracle_implementation": "code_practice/import_batch_115c.py:crossword_o",
+  "validator_implementation_sha256": "685fd4ecabb8f2ba8287b5fb12ef26ac8a1bd76535436411f79f728e15418f3b",
+  "batch_implementation_sha256": "9c93af7378df059b5d437847b3dd2619b654d3d8d80804ced0936f0871754f10",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "791e240b839179cb7d551a8eff43beee0c5719593f75f712c2b0edcaef1c523c",
+  "elapsed_seconds": 0.093,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
