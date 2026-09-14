@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1924",
+  "content_sha256": "a690f64c0fa4f790baeed114d006787de7b7fa2bd66298c46aef2b1ced779dcc",
+  "source_hash": "c1796e42d6fdaad66489d76e2f0e25ea2c6b43eb6f8fbbb53647678a6d1bd14c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Centers the circle at the average point, which need not minimize the farthest distance.",
+      "failed_cases": [
+        "lc-1924-1",
+        "lc-1924-4",
+        "lc-1924-5",
+        "lc-1924-9",
+        "lc-1924-10",
+        "lc-1924-12",
+        "lc-1924-13",
+        "lc-1924-14"
+      ]
+    },
+    {
+      "reason": "Centers at the bounding-box midpoint, which can be suboptimal for asymmetric point sets.",
+      "failed_cases": [
+        "lc-1924-1",
+        "lc-1924-5",
+        "lc-1924-9",
+        "lc-1924-10",
+        "lc-1924-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5971,
+  "oracle_implementation": "code_practice/import_batch_111b.py:fence_oracle",
+  "validator_implementation_sha256": "c8dcbd90ed286f32da37a93ab835e67daa9060a6cafefbff6080304212cc2945",
+  "batch_implementation_sha256": "b5ca628d151a21d07c4bb8746e458c4431fe692e4ea03dcd2dea1faf454a3dbf",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4ebf0493b03a2383b5cc148e6f5ffe7253a1bb99f1895791454675276a487aa8",
+  "elapsed_seconds": 0.15,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

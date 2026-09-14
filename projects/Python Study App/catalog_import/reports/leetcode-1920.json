@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1920",
+  "content_sha256": "53225db79898aef2751402e74e0f63acc2b11e101a8eb7ec86b9fb9ef66201da",
+  "source_hash": "5e8823bdd4619372684f7aa3b26433d0353635fbb582a55e51bfd06e2d6b5fcb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Copies the permutation values instead of using each as another index.",
+      "failed_cases": [
+        "lc-1920-1",
+        "lc-1920-2",
+        "lc-1920-5",
+        "lc-1920-6",
+        "lc-1920-7",
+        "lc-1920-8",
+        "lc-1920-9",
+        "lc-1920-10",
+        "lc-1920-11",
+        "lc-1920-12",
+        "lc-1920-13",
+        "lc-1920-14"
+      ]
+    },
+    {
+      "reason": "Sorts the permutation before indexing and loses the original position mapping.",
+      "failed_cases": [
+        "lc-1920-1",
+        "lc-1920-2",
+        "lc-1920-5",
+        "lc-1920-6",
+        "lc-1920-7",
+        "lc-1920-8",
+        "lc-1920-9",
+        "lc-1920-10",
+        "lc-1920-11",
+        "lc-1920-12",
+        "lc-1920-13",
+        "lc-1920-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5967,
+  "oracle_implementation": "code_practice/import_batch_111b.py:permutation_oracle",
+  "validator_implementation_sha256": "c8dcbd90ed286f32da37a93ab835e67daa9060a6cafefbff6080304212cc2945",
+  "batch_implementation_sha256": "b5ca628d151a21d07c4bb8746e458c4431fe692e4ea03dcd2dea1faf454a3dbf",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ce8ec656db6b2f5c09828c01692ccd1afe2b2237d8127cb6084b9169d7d9d14",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

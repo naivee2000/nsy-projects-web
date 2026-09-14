@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1921",
+  "content_sha256": "691c8d6e00dd48c9c5c3b5f680092a17a8ab0a3eec8a10185e8c8b252c8475f7",
+  "source_hash": "b8583ff276beec88bf1e9ebefca70f6a121861783241fec788bc36adb7dd8986",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows firing at the exact minute a monster reaches the city, which is already too late.",
+      "failed_cases": [
+        "lc-1921-2",
+        "lc-1921-10",
+        "lc-1921-11",
+        "lc-1921-14"
+      ]
+    },
+    {
+      "reason": "Sorts by starting distance instead of arrival time, ignoring different speeds.",
+      "failed_cases": [
+        "lc-1921-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5968,
+  "oracle_implementation": "code_practice/import_batch_111b.py:monsters_oracle",
+  "validator_implementation_sha256": "c8dcbd90ed286f32da37a93ab835e67daa9060a6cafefbff6080304212cc2945",
+  "batch_implementation_sha256": "b5ca628d151a21d07c4bb8746e458c4431fe692e4ea03dcd2dea1faf454a3dbf",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a4cfe31af905e82baf82eed14de3a9991e588a2477142517139f1c7352ba5f89",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
