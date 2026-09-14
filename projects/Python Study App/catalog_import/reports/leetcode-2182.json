@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2182",
+  "content_sha256": "dd76d4ed508ea542d62b7cedb505c213f0cb996c545d5a1efd495f8ee4ab72e6",
+  "source_hash": "379ad0839b5da1c9bbd2875eeb5f6e619e2e91501ca88c320acc0e2e3e68de34",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the entire largest-character count at once and can violate the repeat limit.",
+      "failed_cases": [
+        "lc-2182-1",
+        "lc-2182-2",
+        "lc-2182-4",
+        "lc-2182-7",
+        "lc-2182-8",
+        "lc-2182-9",
+        "lc-2182-10",
+        "lc-2182-11",
+        "lc-2182-13",
+        "lc-2182-14"
+      ]
+    },
+    {
+      "reason": "Chooses the smallest available breaker, making the result lexicographically smaller.",
+      "failed_cases": [
+        "lc-2182-8",
+        "lc-2182-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6229,
+  "oracle_implementation": "code_practice/import_batch_122.py:limited_oracle",
+  "validator_implementation_sha256": "fbb271cd79f7ea09c9cc5f4f73b0d87be8c662ecf48dd8b9be69775d7ce77941",
+  "batch_implementation_sha256": "fed0c4c48578cbd8ee1e52b48060aa62d44cf74be5d94cd05a81439158f4a161",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1580713e64eeda7b298ace4063aeb657bef77c4d564ad985e6dd3e72b8972dd5",
+  "elapsed_seconds": 0.113,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

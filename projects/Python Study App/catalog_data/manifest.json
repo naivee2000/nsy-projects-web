@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1538,
+  "count": 1543,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -27359,6 +27359,96 @@
       "path": "problems/leetcode-2180.json",
       "content_sha256": "83c1a835cd3581230b33dcde2800521c5ed1e9909c6225db0a0ac7b5b5e7e5ae",
       "source_id": 2180
+    },
+    {
+      "id": "leetcode-2181",
+      "version": 1,
+      "status": "approved",
+      "title": "Merge Nodes in Between Zeros",
+      "summary": "Given a linked list with integers separated by zeros, merge consecutive nodes between each pair of zeros into a single node with the sum of those nodes.",
+      "topics": [
+        "linked lists",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2181.json",
+      "content_sha256": "49292dff754d1c877a012b289e3c7f2381970ff1634b676a964d735c239ec184",
+      "source_id": 2181
+    },
+    {
+      "id": "leetcode-2182",
+      "version": 1,
+      "status": "approved",
+      "title": "Construct String With Repeat Limit",
+      "summary": "Given a string s and an integer repeatLimit , construct the lexicographically largest string possible such that no character appears more than repeatLimit times consecutively.",
+      "topics": [
+        "strings",
+        "greedy",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2182.json",
+      "content_sha256": "dd76d4ed508ea542d62b7cedb505c213f0cb996c545d5a1efd495f8ee4ab72e6",
+      "source_id": 2182
+    },
+    {
+      "id": "leetcode-2183",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Array Pairs Divisible by K",
+      "summary": "Given an array of integers nums and an integer k, count the number of pairs (i, j) where 0 <= i < j < n and the product of nums[i] and nums[j] is divisible by k.",
+      "topics": [
+        "arrays",
+        "greatest common divisors",
+        "counting"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2183.json",
+      "content_sha256": "08f2734990ffc8ba0ee574c889fc00c0e0ac72a83016301cd738d64b38039eed",
+      "source_id": 2183
+    },
+    {
+      "id": "leetcode-2184",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Build Sturdy Brick Wall",
+      "summary": "Given the height and width of a brick wall, along with an array of unique brick widths where each brick has a height of 1 and a width corresponding to an entry in the array, determine the number of ways to build the wall such that no two adjacent rows have bricks aligned at the same position, except at the ends of the wall.",
+      "topics": [
+        "dynamic programming",
+        "bit masks",
+        "backtracking"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2184.json",
+      "content_sha256": "b10b2464ae1364e00c4262c95df96091305081baef5c20a9789e45e5a019adc4",
+      "source_id": 2184
+    },
+    {
+      "id": "leetcode-2185",
+      "version": 1,
+      "status": "approved",
+      "title": "Counting Words With a Given Prefix",
+      "summary": "Given an array of strings named words and a string named pref, count how many strings in words start with pref.",
+      "topics": [
+        "arrays",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2185.json",
+      "content_sha256": "194be9a539382dad5c16b14b7e67e627380a389f67e50f7023d025b0a0caa5a5",
+      "source_id": 2185
     }
   ]
 }
