@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1164,
+  "count": 1169,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -20523,6 +20523,24 @@
       "source_id": 1716
     },
     {
+      "id": "leetcode-1717",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Score From Removing Substrings",
+      "summary": "Given a string s and integers x and y, you can remove occurrences of 'ab' to earn x points or 'ba' to earn y points.",
+      "topics": [
+        "strings",
+        "greedy",
+        "stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1717.json",
+      "content_sha256": "e581362bda9c1f7b7f08ef372a6280a42bf4bee8f539331a160069f457b09ce6",
+      "source_id": 1717
+    },
+    {
       "id": "leetcode-1720",
       "version": 1,
       "status": "approved",
@@ -20540,6 +20558,24 @@
       "source_id": 1720
     },
     {
+      "id": "leetcode-1722",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize Hamming Distance After Swap Operations",
+      "summary": "Given two integer arrays, source and target, both of length n, and an array allowedSwaps where each element is a pair [ai, bi] indicating that you can swap the elements at indices ai and bi in source any number of times, your task is to find the minimum Hamming distance between source and target.",
+      "topics": [
+        "graphs",
+        "union-find",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1722.json",
+      "content_sha256": "213d19d1a5befceb12a9384aa45328c557abdd68ccb6db16207c940af45904b5",
+      "source_id": 1722
+    },
+    {
       "id": "leetcode-1725",
       "version": 1,
       "status": "approved",
@@ -20555,6 +20591,59 @@
       "path": "problems/leetcode-1725.json",
       "content_sha256": "6f812818a4abc3f23fd48faab051e5a4c2bacb935e8b738d958489f0d59107b9",
       "source_id": 1725
+    },
+    {
+      "id": "leetcode-1726",
+      "version": 1,
+      "status": "approved",
+      "title": "Tuple with Same Product",
+      "summary": "For an array of distinct positive integers, count the number of quadruples (a, b, c, d) where the product of the first two equals the product of the last two, with all elements being unique and distinct.",
+      "topics": [
+        "arrays",
+        "hash-maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1726.json",
+      "content_sha256": "c5d8878d91f4251e540f2da7edae8be4bdb866a219ca2a303aa750b75b5fc842",
+      "source_id": 1726
+    },
+    {
+      "id": "leetcode-1730",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Path to Get Food",
+      "summary": "You start at the '*' cell in an m x n grid and need to find the shortest path to reach any '#' cell.",
+      "topics": [
+        "matrices",
+        "graphs",
+        "breadth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1730.json",
+      "content_sha256": "424e6838d9ae9835aeaa70cf26e52d1c1fbfd087415cfa0c055903af9ee343f9",
+      "source_id": 1730
+    },
+    {
+      "id": "leetcode-1732",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Highest Altitude",
+      "summary": "Determine the peak altitude during a road trip involving n+1 points with varying altitudes.",
+      "topics": [
+        "arrays",
+        "prefix-sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1732.json",
+      "content_sha256": "e4961e173e96634a2da647823061608699d6279501663d730672ff353d7545a4",
+      "source_id": 1732
     }
   ]
 }

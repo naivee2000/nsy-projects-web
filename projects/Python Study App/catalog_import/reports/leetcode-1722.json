@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1722",
+  "content_sha256": "213d19d1a5befceb12a9384aa45328c557abdd68ccb6db16207c940af45904b5",
+  "source_hash": "5b14b8d32ccf7dc8706236e44bb52cecba4fe95fcf5a292d59e0c072f79f0fd5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only the first allowed edge and misses larger connected components.",
+      "failed_cases": [
+        "lc-1722-1",
+        "lc-1722-7",
+        "lc-1722-9",
+        "lc-1722-11"
+      ]
+    },
+    {
+      "reason": "Consumes all copies of a matched value at once, mishandling duplicates.",
+      "failed_cases": [
+        "lc-1722-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5769,
+  "oracle_implementation": "code_practice/import_batch_103b.py:hamming_o",
+  "validator_implementation_sha256": "df3f9e1140ef495218b3f732d7e7c97bf76a81cf74cf429b40652a2f4ae136a6",
+  "batch_implementation_sha256": "3dca0a13f2584835e46d3164cf6215f71f2609199d3c4bfab629253279fa19d9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "680085ca0b3ee0684207286c5c7f9f7593c6b39ef59e16b29f10228bac279443",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1730",
+  "content_sha256": "424e6838d9ae9835aeaa70cf26e52d1c1fbfd087415cfa0c055903af9ee343f9",
+  "source_hash": "d62e4a7d06057b1414d723a1ab60f8c03570035e6ab7c44869e166bde0f80dca",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the current cell distance without counting the final step into food.",
+      "failed_cases": [
+        "lc-1730-1",
+        "lc-1730-2",
+        "lc-1730-3",
+        "lc-1730-4",
+        "lc-1730-7",
+        "lc-1730-8",
+        "lc-1730-9",
+        "lc-1730-10",
+        "lc-1730-11",
+        "lc-1730-13",
+        "lc-1730-14"
+      ]
+    },
+    {
+      "reason": "Allows only open cells and therefore never steps onto a food cell.",
+      "failed_cases": [
+        "lc-1730-1",
+        "lc-1730-2",
+        "lc-1730-3",
+        "lc-1730-4",
+        "lc-1730-7",
+        "lc-1730-8",
+        "lc-1730-9",
+        "lc-1730-10",
+        "lc-1730-11",
+        "lc-1730-13",
+        "lc-1730-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5777,
+  "oracle_implementation": "code_practice/import_batch_103b.py:food_o",
+  "validator_implementation_sha256": "df3f9e1140ef495218b3f732d7e7c97bf76a81cf74cf429b40652a2f4ae136a6",
+  "batch_implementation_sha256": "3dca0a13f2584835e46d3164cf6215f71f2609199d3c4bfab629253279fa19d9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0f3e929ba476dac2a7bfcb115d6f1f7aff7caa91b2927108051e1379027fcee3",
+  "elapsed_seconds": 0.08,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

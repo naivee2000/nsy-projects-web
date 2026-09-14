@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1717",
+  "content_sha256": "e581362bda9c1f7b7f08ef372a6280a42bf4bee8f539331a160069f457b09ce6",
+  "source_hash": "d28dd9426a4820eb0c35a73fe9f7545b25c70a0620e2ad4356a0fc56fc1cdf4f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Prioritizes the lower-valued pair, which can destroy a more valuable overlapping removal.",
+      "failed_cases": [
+        "lc-1717-1",
+        "lc-1717-2",
+        "lc-1717-9",
+        "lc-1717-10",
+        "lc-1717-12",
+        "lc-1717-14"
+      ]
+    },
+    {
+      "reason": "Tests the pair in reversed character order inside both passes.",
+      "failed_cases": [
+        "lc-1717-1",
+        "lc-1717-4",
+        "lc-1717-5",
+        "lc-1717-9",
+        "lc-1717-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5764,
+  "oracle_implementation": "code_practice/import_batch_103b.py:removal_o",
+  "validator_implementation_sha256": "df3f9e1140ef495218b3f732d7e7c97bf76a81cf74cf429b40652a2f4ae136a6",
+  "batch_implementation_sha256": "3dca0a13f2584835e46d3164cf6215f71f2609199d3c4bfab629253279fa19d9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1f6a69dd52555284be58ca104d076cae837e36a95ff66d4731481ce428d8b0fa",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

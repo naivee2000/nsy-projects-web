@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1726",
+  "content_sha256": "c5d8878d91f4251e540f2da7edae8be4bdb866a219ca2a303aa750b75b5fc842",
+  "source_hash": "57dc337770ee06d9207e91a9b06add3034dd1923d6e201d85fae84aa4289790c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only half of the eight valid orderings for each pair-of-pairs.",
+      "failed_cases": [
+        "lc-1726-1",
+        "lc-1726-2",
+        "lc-1726-4",
+        "lc-1726-5",
+        "lc-1726-6",
+        "lc-1726-7",
+        "lc-1726-8",
+        "lc-1726-10",
+        "lc-1726-11",
+        "lc-1726-12",
+        "lc-1726-13",
+        "lc-1726-14"
+      ]
+    },
+    {
+      "reason": "Stores product presence rather than the number of prior pairs.",
+      "failed_cases": [
+        "lc-1726-10",
+        "lc-1726-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5773,
+  "oracle_implementation": "code_practice/import_batch_103b.py:tuples_o",
+  "validator_implementation_sha256": "df3f9e1140ef495218b3f732d7e7c97bf76a81cf74cf429b40652a2f4ae136a6",
+  "batch_implementation_sha256": "3dca0a13f2584835e46d3164cf6215f71f2609199d3c4bfab629253279fa19d9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4f9ccaff29e3bce9a9244f5ccf0b3ae4f7e2a871440f7f5cb79c7a7944c33ac5",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

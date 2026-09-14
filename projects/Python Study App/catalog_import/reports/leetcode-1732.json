@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1732",
+  "content_sha256": "e4961e173e96634a2da647823061608699d6279501663d730672ff353d7545a4",
+  "source_hash": "5352753f74edf40079af7dab4c76b254477fc8f7db2b239eb50264023884bd85",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the first gain as the starting altitude and then adds it again.",
+      "failed_cases": [
+        "lc-1732-1",
+        "lc-1732-2",
+        "lc-1732-4",
+        "lc-1732-5",
+        "lc-1732-7",
+        "lc-1732-8",
+        "lc-1732-9",
+        "lc-1732-10",
+        "lc-1732-12",
+        "lc-1732-13",
+        "lc-1732-14"
+      ]
+    },
+    {
+      "reason": "Tracks the minimum altitude instead of the maximum.",
+      "failed_cases": [
+        "lc-1732-1",
+        "lc-1732-2",
+        "lc-1732-4",
+        "lc-1732-5",
+        "lc-1732-7",
+        "lc-1732-8",
+        "lc-1732-9",
+        "lc-1732-10",
+        "lc-1732-12",
+        "lc-1732-13",
+        "lc-1732-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5779,
+  "oracle_implementation": "code_practice/import_batch_103b.py:altitude_o",
+  "validator_implementation_sha256": "df3f9e1140ef495218b3f732d7e7c97bf76a81cf74cf429b40652a2f4ae136a6",
+  "batch_implementation_sha256": "3dca0a13f2584835e46d3164cf6215f71f2609199d3c4bfab629253279fa19d9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cfed0db46f3fd0167bc471a054abeb31f8bb39af635172e45ea33b3e68ff9733",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
