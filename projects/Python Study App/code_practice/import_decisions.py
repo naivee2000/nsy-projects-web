@@ -2,7 +2,15 @@
 
 Values are (existing ID, behavioral equivalence and any presentation differences).
 Problems with materially different outputs/contracts are intentionally not mapped.
+
+Original-catalog deduplication is intentionally single-match: after the first
+workbook match for an original ID, that original leaves the future search set.
+Historical additional mappings remain valid, but never reopen a retired target.
 """
+
+from __future__ import annotations
+
+from collections.abc import Iterable, Mapping
 
 OVERLAPS = {
     1: ("pair-sum-indices", "Two indices with the unique target sum; existing app asks for ascending index order."),
@@ -75,3 +83,51 @@ OVERLAPS = {
     1572: ("matrix-diagonal-sum", "Sum both square-matrix diagonals, counting the center once."),
     2965: ("missing-repeated-grid-values", "Find the one duplicated and one missing value among 1..n squared."),
 }
+
+
+# Add an entry only after an original problem was compared with the workbook
+# inventory and no behaviorally equivalent record was found. This is separate
+# from OVERLAPS so a completed no-match review is cached just like a match.
+REVIEWED_NO_MATCH: dict[str, str] = {}
+
+
+def first_match_by_original(
+    overlaps: Mapping[int, tuple[str, str]] = OVERLAPS,
+    adaptations: Mapping[int, Mapping[str, object]] | None = None,
+) -> dict[str, int]:
+    """Return the first confirmed workbook match for each original problem."""
+    matches: dict[str, int] = {}
+    for source_id, (original_id, _) in overlaps.items():
+        matches.setdefault(original_id, source_id)
+    if adaptations is None:
+        from .reconcile_original_overlaps import DECISIONS as adaptations
+    for source_id, decision in adaptations.items():
+        matches.setdefault(str(decision["target_id"]), source_id)
+    return matches
+
+
+def original_overlap_search_state(original_ids: Iterable[str]) -> dict:
+    """Build the cached search set; retired originals are never reconsidered."""
+    originals = set(original_ids)
+    first_matches = first_match_by_original()
+    unknown_matches = set(first_matches) - originals
+    unknown_no_matches = set(REVIEWED_NO_MATCH) - originals
+    if unknown_matches or unknown_no_matches:
+        unknown = sorted(unknown_matches | unknown_no_matches)
+        raise ValueError(f"Overlap decisions reference unknown original IDs: {unknown}")
+    retired = set(first_matches) | set(REVIEWED_NO_MATCH)
+    return {
+        "policy": "one-confirmed-workbook-match-retires-original",
+        "original_count": len(originals),
+        "matched_count": len(first_matches),
+        "reviewed_no_match_count": len(REVIEWED_NO_MATCH),
+        "unresolved_count": len(originals - retired),
+        "matched": dict(sorted(first_matches.items())),
+        "reviewed_no_match": dict(sorted(REVIEWED_NO_MATCH.items())),
+        "unresolved": sorted(originals - retired),
+    }
+
+
+def eligible_original_ids(original_ids: Iterable[str]) -> list[str]:
+    """IDs that may still be considered while reviewing a workbook candidate."""
+    return original_overlap_search_state(original_ids)["unresolved"]

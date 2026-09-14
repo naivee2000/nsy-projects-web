@@ -12,10 +12,25 @@ from code_practice import catalog, database
 from code_practice.app import app
 from code_practice.build_import_batch import BATCH, build, verify, workbook_sample, review_isolated, cached_validation_is_current
 from code_practice.import_workbook import inspect_source
+from code_practice.import_decisions import eligible_original_ids, first_match_by_original, original_overlap_search_state
 from code_practice.package_catalog import package
 from code_practice.validation import run_source
 
 ROOT = Path(__file__).resolve().parent.parent
+
+
+def test_original_overlap_search_retires_each_original_after_its_first_match():
+    from code_practice.content import PROBLEMS
+
+    original_ids = [problem.id for problem in PROBLEMS]
+    state = original_overlap_search_state(original_ids)
+    first_matches = first_match_by_original()
+    assert state["original_count"] == 101
+    assert state["matched_count"] == len(first_matches) == 71
+    assert state["unresolved_count"] == len(eligible_original_ids(original_ids)) == 30
+    assert "recursive-step-combinations" in first_matches
+    assert first_matches["recursive-step-combinations"] == 70
+    assert "recursive-step-combinations" not in state["unresolved"]
 
 
 def test_interface_exclusions_preserve_ordinary_trees_and_linked_lists():
