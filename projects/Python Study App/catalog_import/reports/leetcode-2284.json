@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2284",
+  "content_sha256": "808430e07ff0715cb3aca9221da23a2f2512b782b7c49e032e19a1245f35796c",
+  "source_hash": "d683d04cc52d37afcb52d0fe9a1139bab3032aa64477ec2c458bfb2eecfd8f4f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the lexicographically largest tie-break and keeps an arbitrary maximum insertion order.",
+      "failed_cases": [
+        "lc-2284-2",
+        "lc-2284-5",
+        "lc-2284-9",
+        "lc-2284-11",
+        "lc-2284-12"
+      ]
+    },
+    {
+      "reason": "Counts messages instead of words within messages.",
+      "failed_cases": [
+        "lc-2284-6",
+        "lc-2284-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6331,
+  "oracle_implementation": "code_practice/import_batch_126c.py:sender_oracle",
+  "validator_implementation_sha256": "cbd1d6fa8df83617e652da34237365dd5c0f71352ce291528295b90d2c1f7e47",
+  "batch_implementation_sha256": "aaea674b5229b913a03023c7d77914e75f05318c0fb98ee8795fc6cdb04e957c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b441c493068d9320697241fc43145fff8f4aa20ef659347c9e086de90fd565fa",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

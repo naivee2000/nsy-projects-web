@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2283",
+  "content_sha256": "db73ce276f941435f663be2ec8b2926e442bdc24f32e1657fc5a90dd7e1103e3",
+  "source_hash": "07e86f10e832d2c0ab786f32f00a18cfca16ce42703d1d42d2009296c639e654",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a digit to occur more often than its declared count.",
+      "failed_cases": [
+        "lc-2283-3",
+        "lc-2283-8",
+        "lc-2283-9",
+        "lc-2283-13"
+      ]
+    },
+    {
+      "reason": "Skips validation of the required count for digit zero.",
+      "failed_cases": [
+        "lc-2283-3",
+        "lc-2283-4",
+        "lc-2283-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6330,
+  "oracle_implementation": "code_practice/import_batch_126c.py:digit_count_oracle",
+  "validator_implementation_sha256": "cbd1d6fa8df83617e652da34237365dd5c0f71352ce291528295b90d2c1f7e47",
+  "batch_implementation_sha256": "aaea674b5229b913a03023c7d77914e75f05318c0fb98ee8795fc6cdb04e957c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "98c9bfd11ca94fa2ea12889b35e020e9f37911d3e334755154993d92cf25d085",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2285",
+  "content_sha256": "9ef2688ecfa754f0c21bfbd8c6e15daf1a33fd0f12774aea4255fff5ab12621d",
+  "source_hash": "25f973a2bbd0478080ffe87a8a08605e036ac08303f4c9cc9fad8f7ec99ae376",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pairs the largest labels with the smallest degrees.",
+      "failed_cases": [
+        "lc-2285-1",
+        "lc-2285-5",
+        "lc-2285-6",
+        "lc-2285-8",
+        "lc-2285-9",
+        "lc-2285-11",
+        "lc-2285-12",
+        "lc-2285-13",
+        "lc-2285-14"
+      ]
+    },
+    {
+      "reason": "Assigns values zero through n-1 instead of the required one through n.",
+      "failed_cases": [
+        "lc-2285-1",
+        "lc-2285-4",
+        "lc-2285-5",
+        "lc-2285-6",
+        "lc-2285-7",
+        "lc-2285-8",
+        "lc-2285-9",
+        "lc-2285-10",
+        "lc-2285-11",
+        "lc-2285-12",
+        "lc-2285-13",
+        "lc-2285-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6332,
+  "oracle_implementation": "code_practice/import_batch_126c.py:importance_oracle",
+  "validator_implementation_sha256": "cbd1d6fa8df83617e652da34237365dd5c0f71352ce291528295b90d2c1f7e47",
+  "batch_implementation_sha256": "aaea674b5229b913a03023c7d77914e75f05318c0fb98ee8795fc6cdb04e957c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2dd529d89be1d1e395550cb869ef925d9ed08ea9d6a6ff372273f6b1e72738c8",
+  "elapsed_seconds": 1.355,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2282",
+  "content_sha256": "e9df3436089e6ca5a7d7f73dd81f8532494cbc5975aec3a356bdbd78739de788",
+  "source_hash": "d5bb2cbe8c1c1d7b1b898e52fddacede2f6c5e9a675c220ce1cdfa6d9f909adb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to count the first blocking person at least as tall.",
+      "failed_cases": [
+        "lc-2282-1",
+        "lc-2282-2",
+        "lc-2282-4",
+        "lc-2282-6",
+        "lc-2282-8",
+        "lc-2282-9",
+        "lc-2282-10",
+        "lc-2282-11",
+        "lc-2282-13",
+        "lc-2282-14"
+      ]
+    },
+    {
+      "reason": "Pops taller people instead of shorter ones and corrupts visibility order.",
+      "failed_cases": [
+        "lc-2282-1",
+        "lc-2282-2",
+        "lc-2282-8",
+        "lc-2282-9",
+        "lc-2282-10",
+        "lc-2282-11",
+        "lc-2282-13",
+        "lc-2282-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6329,
+  "oracle_implementation": "code_practice/import_batch_126c.py:people_oracle",
+  "validator_implementation_sha256": "cbd1d6fa8df83617e652da34237365dd5c0f71352ce291528295b90d2c1f7e47",
+  "batch_implementation_sha256": "aaea674b5229b913a03023c7d77914e75f05318c0fb98ee8795fc6cdb04e957c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7b5499eb7e2e3655f9cea719aa36fcb53380ec02f57acd5ad047d9bf1932b3cd",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

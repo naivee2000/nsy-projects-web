@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2287",
+  "content_sha256": "234cb52305d379cb56096e507886f571b17ad68496e4a36f471a7839f33a1961",
+  "source_hash": "998045606692f5b75143951c7e99c9e27bda416d48017da058eebefb24823dbe",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores repeated letters needed by each target copy.",
+      "failed_cases": [
+        "lc-2287-2",
+        "lc-2287-6",
+        "lc-2287-7",
+        "lc-2287-9",
+        "lc-2287-11"
+      ]
+    },
+    {
+      "reason": "Uses the most abundant required ratio instead of the limiting least abundant character.",
+      "failed_cases": [
+        "lc-2287-1",
+        "lc-2287-7",
+        "lc-2287-12",
+        "lc-2287-13",
+        "lc-2287-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6334,
+  "oracle_implementation": "code_practice/import_batch_126c.py:copies_oracle",
+  "validator_implementation_sha256": "cbd1d6fa8df83617e652da34237365dd5c0f71352ce291528295b90d2c1f7e47",
+  "batch_implementation_sha256": "aaea674b5229b913a03023c7d77914e75f05318c0fb98ee8795fc6cdb04e957c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a0fddbfce7cb65a634abc577336c0a80b4f3ed8404a3a156f44e9adc94265080",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
