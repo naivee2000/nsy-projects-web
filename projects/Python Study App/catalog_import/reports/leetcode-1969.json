@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1969",
+  "content_sha256": "d7a9559d4f37bd305905e951dc5252bee25b51a12bc7e92b6e37150f79beda22",
+  "source_hash": "ffde95bca185a5d3603ab8f56da3250536d79b56c8a769d8d020ae8f032b09c3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses 2^p-3 as the repeated paired value instead of 2^p-2.",
+      "failed_cases": [
+        "lc-1969-2",
+        "lc-1969-3",
+        "lc-1969-4",
+        "lc-1969-5",
+        "lc-1969-6",
+        "lc-1969-7",
+        "lc-1969-8",
+        "lc-1969-9",
+        "lc-1969-10",
+        "lc-1969-11",
+        "lc-1969-12",
+        "lc-1969-13",
+        "lc-1969-14",
+        "lc-1969-15",
+        "lc-1969-16"
+      ]
+    },
+    {
+      "reason": "Uses one too few paired factors.",
+      "failed_cases": [
+        "lc-1969-2",
+        "lc-1969-3",
+        "lc-1969-4",
+        "lc-1969-5",
+        "lc-1969-6",
+        "lc-1969-7",
+        "lc-1969-8",
+        "lc-1969-9",
+        "lc-1969-10",
+        "lc-1969-11",
+        "lc-1969-12",
+        "lc-1969-13",
+        "lc-1969-14",
+        "lc-1969-15",
+        "lc-1969-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6016,
+  "oracle_implementation": "code_practice/import_batch_113b.py:product_oracle",
+  "validator_implementation_sha256": "e4e867c88d8e49253b021df8d184b03e2dbdfc94ff24f031a28de363bbc3b0d4",
+  "batch_implementation_sha256": "751146c983cea78083ac4dcc452ad3d6179bb916db559131bb82b48010722dee",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "da76bfa45f1270b9e45855545aa3bdb04a0e368e1e66c736117e286dc9b42d80",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

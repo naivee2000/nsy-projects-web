@@ -3,13 +3,15 @@ from pathlib import Path
 
 from code_practice.catalog import get_catalog
 from code_practice.import_batch_113 import BATCH
+from code_practice.import_batch_113b import BATCH as BATCH_B
 
 
 ROOT = Path(__file__).resolve().parents[1]
-IDS = (1959, 1960, 1961, 1962, 1963)
+IDS = (1959, 1960, 1961, 1962, 1963, 1964, 1966, 1967, 1969, 1970)
+SPECS = {**BATCH, **BATCH_B}
 
 
-def test_first_batch_113_slice_is_complete_and_verified():
+def test_batch_113_slices_are_complete_and_verified():
     catalog = get_catalog()
     for source_id in IDS:
         problem = catalog[f"leetcode-{source_id}"]
@@ -22,9 +24,9 @@ def test_first_batch_113_slice_is_complete_and_verified():
         assert all(wrong["failed_cases"] for wrong in report["wrong_solutions"])
 
 
-def test_first_batch_113_inputs_are_distinct():
+def test_batch_113_inputs_are_distinct():
     for source_id in IDS:
-        spec = BATCH[source_id]
+        spec = SPECS[source_id]
         inputs = [arguments for arguments, _ in spec["examples"]] + spec["boundaries"]
         encoded = [json.dumps(arguments, sort_keys=True) for arguments in inputs]
         assert len(encoded) == len(set(encoded))

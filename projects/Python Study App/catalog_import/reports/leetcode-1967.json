@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1967",
+  "content_sha256": "3753d80b282f32fd896c188c94f0f3dd9730350f13c31e39cbc12e762df2dbab",
+  "source_hash": "298409284cd724db174ff32d973a74cbbf11e14203135fb0e4a7262b11b1a834",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the containment direction.",
+      "failed_cases": [
+        "lc-1967-1",
+        "lc-1967-5",
+        "lc-1967-7",
+        "lc-1967-8",
+        "lc-1967-9",
+        "lc-1967-10",
+        "lc-1967-11",
+        "lc-1967-12",
+        "lc-1967-13",
+        "lc-1967-14",
+        "lc-1967-16"
+      ]
+    },
+    {
+      "reason": "Deduplicates equal pattern entries even though indices count separately.",
+      "failed_cases": [
+        "lc-1967-2",
+        "lc-1967-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6014,
+  "oracle_implementation": "code_practice/import_batch_113b.py:substring_oracle",
+  "validator_implementation_sha256": "e4e867c88d8e49253b021df8d184b03e2dbdfc94ff24f031a28de363bbc3b0d4",
+  "batch_implementation_sha256": "751146c983cea78083ac4dcc452ad3d6179bb916db559131bb82b48010722dee",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6899ddf8ce1e46720eb194c0e333f6aac94aaaa3df75ae1a43de9b36d78e3d9f",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

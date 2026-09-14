@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1363,
+  "count": 1368,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -24185,6 +24185,99 @@
       "path": "problems/leetcode-1963.json",
       "content_sha256": "93bf758e151531c3b9c7298a28537445294e5ec1e30abea8c415bc68e728b5eb",
       "source_id": 1963
+    },
+    {
+      "id": "leetcode-1964",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Longest Valid Obstacle Course at Each Position",
+      "summary": "Given an array of obstacle heights, for each index i, determine the length of the longest obstacle course that includes the i-th obstacle and maintains a non-decreasing order of heights up to that point.",
+      "topics": [
+        "arrays",
+        "binary search",
+        "longest increasing subsequence"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1964.json",
+      "content_sha256": "98d0047f1c864242746be70408f60bd14c86fc1fe65fd106a1c96c30ad442754",
+      "source_id": 1964
+    },
+    {
+      "id": "leetcode-1966",
+      "version": 1,
+      "status": "approved",
+      "title": "Binary Searchable Numbers in an Unsorted Array",
+      "summary": "Analyze an algorithm similar to Binary Search on an unsorted array.",
+      "topics": [
+        "arrays",
+        "prefix maxima",
+        "suffix minima"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1966.json",
+      "content_sha256": "8991ab35c3e362a70f12196385871a32dfb95ebeb64046257c9328555d6121c5",
+      "source_id": 1966
+    },
+    {
+      "id": "leetcode-1967",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Strings That Appear as Substrings in Word",
+      "summary": "Given an array of strings patterns and a string word, count how many strings in patterns are found as a contiguous sequence within word.",
+      "topics": [
+        "strings",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1967.json",
+      "content_sha256": "3753d80b282f32fd896c188c94f0f3dd9730350f13c31e39cbc12e762df2dbab",
+      "source_id": 1967
+    },
+    {
+      "id": "leetcode-1969",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Non-Zero Product of the Array Elements",
+      "summary": "Given a positive integer p, an array nums is formed with integers from 1 to 2^p - 1.",
+      "topics": [
+        "math",
+        "greedy",
+        "modular arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1969.json",
+      "content_sha256": "d7a9559d4f37bd305905e951dc5252bee25b51a12bc7e92b6e37150f79beda22",
+      "source_id": 1969
+    },
+    {
+      "id": "leetcode-1970",
+      "version": 1,
+      "status": "approved",
+      "title": "Last Day Where You Can Still Cross",
+      "summary": "Given a 1-based binary matrix where land is 0 and water is 1, and a 1-based 2D array indicating when cells turn to water, find the last day one can walk from the top to the bottom on land.",
+      "topics": [
+        "matrices",
+        "binary search",
+        "breadth-first search"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1970.json",
+      "content_sha256": "1a874226df42df0da33051c687d6e05909009603c0598a2fbcf8561a631b176b",
+      "source_id": 1970
     }
   ]
 }
