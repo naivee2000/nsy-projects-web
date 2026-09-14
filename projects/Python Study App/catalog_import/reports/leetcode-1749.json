@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1749",
+  "content_sha256": "a1292be55907b7b7421d0dfc5872f214781f0509c9c5aaf78f31b271e7e2e4da",
+  "source_hash": "53fc7849be64a17fda05693f7c562e24a6bedd2e3c7affda003f5f3ec0b9eb28",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks only the largest positive subarray sum and misses a larger negative magnitude.",
+      "failed_cases": [
+        "lc-1749-2",
+        "lc-1749-7",
+        "lc-1749-13",
+        "lc-1749-14"
+      ]
+    },
+    {
+      "reason": "Initializes prefix extrema from a value rather than the empty prefix zero.",
+      "failed_cases": [
+        "lc-1749-3",
+        "lc-1749-4",
+        "lc-1749-6",
+        "lc-1749-7",
+        "lc-1749-10",
+        "lc-1749-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5796,
+  "oracle_implementation": "code_practice/import_batch_104.py:absolute_o",
+  "validator_implementation_sha256": "6fcfed1ff8ec93f01e393861443c40a2db701f6e8b40d7e75553d0805a7c0201",
+  "batch_implementation_sha256": "e545429aca6cf80f79649186818c8083d635ffa6a8f952d0dccac74bda966afd",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7048aed645899b8781f07d0a0ca4c3392e83bba50ed07985e5fcb05df7982c37",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

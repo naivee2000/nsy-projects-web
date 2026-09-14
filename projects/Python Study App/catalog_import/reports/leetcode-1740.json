@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1740",
+  "content_sha256": "06336ab02ab1cb3dc596fbbf916205f4164630543227f83e7797c73ad44249c8",
+  "source_hash": "6a4774a5752f82b8b3bd381c68160e886f43a2722c3e76c6e5b7c9bb7f8f7daa",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts only one copy of the common path and overcounts distance.",
+      "failed_cases": [
+        "lc-1740-1",
+        "lc-1740-2",
+        "lc-1740-3",
+        "lc-1740-4",
+        "lc-1740-5",
+        "lc-1740-6",
+        "lc-1740-7",
+        "lc-1740-8",
+        "lc-1740-9",
+        "lc-1740-10",
+        "lc-1740-11",
+        "lc-1740-12",
+        "lc-1740-13",
+        "lc-1740-14"
+      ]
+    },
+    {
+      "reason": "Does not backtrack failed path nodes, corrupting later root-to-node routes.",
+      "failed_cases": [
+        "lc-1740-1",
+        "lc-1740-2",
+        "lc-1740-5",
+        "lc-1740-6",
+        "lc-1740-7",
+        "lc-1740-10",
+        "lc-1740-11",
+        "lc-1740-12",
+        "lc-1740-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5787,
+  "oracle_implementation": "code_practice/import_batch_104.py:distance_o",
+  "validator_implementation_sha256": "6fcfed1ff8ec93f01e393861443c40a2db701f6e8b40d7e75553d0805a7c0201",
+  "batch_implementation_sha256": "e545429aca6cf80f79649186818c8083d635ffa6a8f952d0dccac74bda966afd",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ae956af14271314f37af14d569af1f6f4a067a183a3dc6851d52ac59444cf97e",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

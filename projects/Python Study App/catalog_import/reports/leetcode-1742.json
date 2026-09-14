@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1742",
+  "content_sha256": "d4f1f3f1932532a5913be343b7fc09b14762e5aa93e7f817620592ca24594f90",
+  "source_hash": "ed851ffd8fa86e3e73ba9b354e30262aae5558b59b7c9f8b97fbfdeeed8ed640",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats high_limit as exclusive.",
+      "failed_cases": [
+        "lc-1742-1",
+        "lc-1742-6",
+        "lc-1742-7",
+        "lc-1742-10",
+        "lc-1742-11"
+      ]
+    },
+    {
+      "reason": "Uses only the final digit instead of the full digit sum.",
+      "failed_cases": [
+        "lc-1742-1",
+        "lc-1742-7",
+        "lc-1742-9",
+        "lc-1742-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5789,
+  "oracle_implementation": "code_practice/import_batch_104.py:balls_o",
+  "validator_implementation_sha256": "6fcfed1ff8ec93f01e393861443c40a2db701f6e8b40d7e75553d0805a7c0201",
+  "batch_implementation_sha256": "e545429aca6cf80f79649186818c8083d635ffa6a8f952d0dccac74bda966afd",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a927d86c0abd93edd951746a92a4c5a8bf02d15ef67cde00a909d7d0d5f90d18",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
