@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2591",
+  "content_sha256": "15b5115ff50569f55e7bf4ebbbe601ef0afa59017278d84ffe787f3f707314ed",
+  "source_hash": "30b7479b648b72b2452fde6f82cdcce76fe79eaa8ae79c836336f1aa7b9a610a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects the valid case where every child receives exactly one dollar.",
+      "failed_cases": [
+        "lc-2591-3",
+        "lc-2591-4"
+      ]
+    },
+    {
+      "reason": "Handles the forbidden four-dollar remainder at the wrong value.",
+      "failed_cases": [
+        "lc-2591-1",
+        "lc-2591-6",
+        "lc-2591-11",
+        "lc-2591-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6638,
+  "oracle_implementation": "code_practice/import_batch_161.py:money_oracle",
+  "validator_implementation_sha256": "be4cd63c417a0c787772b51b6a54e148e09afe7f8fcaf868223736db11165106",
+  "batch_implementation_sha256": "c773e333b94aef3412e0f7067d185c5fd7c2c88020de06f6c92681f4684dea84",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aabcb3a3da6cba857306435acb54a7142d7e3202ce923813452b94659671a545",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

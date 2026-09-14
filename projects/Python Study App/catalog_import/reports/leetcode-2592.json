@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2592",
+  "content_sha256": "a79926c002a9c8e6e78ad5ffa1c841e4a810aa4983de49c42642b8fdd031fa0b",
+  "source_hash": "7e493c568638fd37f82060886944f33b0ff5ba6500cfe08c591e7c4336387f4c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal values as successful strictly-greater matches.",
+      "failed_cases": [
+        "lc-2592-1",
+        "lc-2592-2",
+        "lc-2592-3",
+        "lc-2592-4",
+        "lc-2592-5",
+        "lc-2592-6",
+        "lc-2592-7",
+        "lc-2592-8",
+        "lc-2592-9",
+        "lc-2592-10",
+        "lc-2592-11",
+        "lc-2592-12",
+        "lc-2592-13",
+        "lc-2592-14",
+        "lc-2592-15",
+        "lc-2592-16"
+      ]
+    },
+    {
+      "reason": "Consumes two small targets for each successful large value.",
+      "failed_cases": [
+        "lc-2592-1",
+        "lc-2592-2",
+        "lc-2592-5",
+        "lc-2592-6",
+        "lc-2592-11",
+        "lc-2592-12",
+        "lc-2592-15",
+        "lc-2592-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6639,
+  "oracle_implementation": "code_practice/import_batch_161.py:greatness_oracle",
+  "validator_implementation_sha256": "be4cd63c417a0c787772b51b6a54e148e09afe7f8fcaf868223736db11165106",
+  "batch_implementation_sha256": "c773e333b94aef3412e0f7067d185c5fd7c2c88020de06f6c92681f4684dea84",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9cc2bbb1f7b0ab292ed44774b5a5e010364a38bc383cee48815475823637866b",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

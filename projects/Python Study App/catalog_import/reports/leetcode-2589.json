@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2589",
+  "content_sha256": "26b83fe13faddd0ba7fb651e4c0a13ba6cc0cfa2d9229fde5148dd66ca06098f",
+  "source_hash": "0c83b12ae39f5bc15cc35822d93c5ed5a3584051b9acb070630e1200ce13cfb8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Processes tasks by start rather than deadline, losing the earliest-deadline invariant.",
+      "failed_cases": [
+        "lc-2589-1",
+        "lc-2589-8",
+        "lc-2589-9",
+        "lc-2589-13",
+        "lc-2589-15"
+      ]
+    },
+    {
+      "reason": "Adds needed time from the interval start instead of its end.",
+      "failed_cases": [
+        "lc-2589-2",
+        "lc-2589-6",
+        "lc-2589-7",
+        "lc-2589-12",
+        "lc-2589-14",
+        "lc-2589-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6636,
+  "oracle_implementation": "code_practice/import_batch_161.py:tasks_oracle",
+  "validator_implementation_sha256": "be4cd63c417a0c787772b51b6a54e148e09afe7f8fcaf868223736db11165106",
+  "batch_implementation_sha256": "c773e333b94aef3412e0f7067d185c5fd7c2c88020de06f6c92681f4684dea84",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9a3ab2875c80bbc6faf7a8c1921894182f0719768a55a48903296241ddb86af5",
+  "elapsed_seconds": 1.235,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

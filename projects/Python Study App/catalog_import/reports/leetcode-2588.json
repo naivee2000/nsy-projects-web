@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2588",
+  "content_sha256": "8c898e38b4e07e3d2ceae039e17a71bd34fb8ae7b6841e632962e7d0115722c3",
+  "source_hash": "610e6d338fc8e372090f5229f8d361052f339acb023441a23553c253afaa504e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to seed the empty prefix, losing beautiful subarrays starting at index zero.",
+      "failed_cases": [
+        "lc-2588-1",
+        "lc-2588-2",
+        "lc-2588-3",
+        "lc-2588-5",
+        "lc-2588-7",
+        "lc-2588-8",
+        "lc-2588-9",
+        "lc-2588-10",
+        "lc-2588-11",
+        "lc-2588-12",
+        "lc-2588-13",
+        "lc-2588-15",
+        "lc-2588-16"
+      ]
+    },
+    {
+      "reason": "Tracks prefix OR rather than bit parity through prefix XOR.",
+      "failed_cases": [
+        "lc-2588-1",
+        "lc-2588-9",
+        "lc-2588-10",
+        "lc-2588-11",
+        "lc-2588-13",
+        "lc-2588-15",
+        "lc-2588-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6635,
+  "oracle_implementation": "code_practice/import_batch_161.py:beautiful_oracle",
+  "validator_implementation_sha256": "be4cd63c417a0c787772b51b6a54e148e09afe7f8fcaf868223736db11165106",
+  "batch_implementation_sha256": "c773e333b94aef3412e0f7067d185c5fd7c2c88020de06f6c92681f4684dea84",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f3611ddbb23de546af78f54928fdc1acec26f7f3c8a7116b3a947312a819d8fc",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
