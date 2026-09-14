@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2306",
+  "content_sha256": "6ee9b8245bbe1d6f717eb545d1b25ea26eb9a088b71acc58186065bd459518c0",
+  "source_hash": "94e1cb894510330db30ef2fcf988d04aceb158a05cc8a3ab553b7dd978e8552b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Does not remove suffixes shared by both initial groups, allowing a generated word already in ideas.",
+      "failed_cases": [
+        "lc-2306-1",
+        "lc-2306-13",
+        "lc-2306-14"
+      ]
+    },
+    {
+      "reason": "Counts only one ordering for each valid pair of swapped ideas.",
+      "failed_cases": [
+        "lc-2306-1",
+        "lc-2306-3",
+        "lc-2306-6",
+        "lc-2306-9",
+        "lc-2306-10",
+        "lc-2306-11",
+        "lc-2306-12",
+        "lc-2306-13",
+        "lc-2306-15",
+        "lc-2306-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6353,
+  "oracle_implementation": "code_practice/import_batch_136.py:company_oracle",
+  "validator_implementation_sha256": "90a33d09c68f73839cbc966588e5a3c75407e90bc86a0bddfcf5a5ff2f00082e",
+  "batch_implementation_sha256": "e5c13829e6ae012cf0714eec5dadb084dce0cce2f49ad6e0092095a544151042",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fc77d5814523a6abc9216f82e4881934f12fc16074a8de8cc0490bd7aedd310a",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

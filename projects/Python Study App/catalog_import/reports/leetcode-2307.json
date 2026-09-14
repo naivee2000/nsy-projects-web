@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2307",
+  "content_sha256": "b458129633e8a082d609c770047b905b7f4b1b645d2b5326ad52cdd718d249a9",
+  "source_hash": "98cba0ba96091fab7698b232c81437d57e9b5dc17785fcf263c10001af996a3d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Attaches weighted roots with the ratio inverted, corrupting later implied equations.",
+      "failed_cases": [
+        "lc-2307-1",
+        "lc-2307-4",
+        "lc-2307-5",
+        "lc-2307-7",
+        "lc-2307-11",
+        "lc-2307-12",
+        "lc-2307-13",
+        "lc-2307-14",
+        "lc-2307-15"
+      ]
+    },
+    {
+      "reason": "Uses a tolerance one hundred times too loose and misses genuine contradictions.",
+      "failed_cases": [
+        "lc-2307-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6354,
+  "oracle_implementation": "code_practice/import_batch_136.py:contradiction_oracle",
+  "validator_implementation_sha256": "90a33d09c68f73839cbc966588e5a3c75407e90bc86a0bddfcf5a5ff2f00082e",
+  "batch_implementation_sha256": "e5c13829e6ae012cf0714eec5dadb084dce0cce2f49ad6e0092095a544151042",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "21492ee3b6ed766b9b18648332990ee796d0a432780574c0398937380ef959c9",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

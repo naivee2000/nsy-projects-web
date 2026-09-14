@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2327",
+  "content_sha256": "53fd3e236d070edfcde75753b9dda79d8ee62ddd55cc9d3619fdbdfbfa4ea9c7",
+  "source_hash": "eb5313648dc38de4accbecd226c56bc6a4fcea32e93b873fc9fa539a74ebf239",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Removes sharers one day late, allowing people to share on their forgetting day.",
+      "failed_cases": [
+        "lc-2327-1",
+        "lc-2327-2",
+        "lc-2327-4",
+        "lc-2327-6",
+        "lc-2327-7",
+        "lc-2327-8",
+        "lc-2327-9",
+        "lc-2327-10",
+        "lc-2327-11",
+        "lc-2327-12",
+        "lc-2327-13",
+        "lc-2327-14",
+        "lc-2327-15",
+        "lc-2327-16"
+      ]
+    },
+    {
+      "reason": "Includes people who forgot exactly on day n in the final aware count.",
+      "failed_cases": [
+        "lc-2327-2",
+        "lc-2327-4",
+        "lc-2327-7",
+        "lc-2327-8",
+        "lc-2327-9",
+        "lc-2327-10",
+        "lc-2327-11",
+        "lc-2327-12",
+        "lc-2327-13",
+        "lc-2327-14",
+        "lc-2327-15",
+        "lc-2327-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6374,
+  "oracle_implementation": "code_practice/import_batch_136.py:secret_oracle",
+  "validator_implementation_sha256": "90a33d09c68f73839cbc966588e5a3c75407e90bc86a0bddfcf5a5ff2f00082e",
+  "batch_implementation_sha256": "e5c13829e6ae012cf0714eec5dadb084dce0cce2f49ad6e0092095a544151042",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4f740903e8ed7e889de1d83058d91f32e592686783b7869c9ecd34fa4a899f24",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
