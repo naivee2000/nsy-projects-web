@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2289",
+  "content_sha256": "3e6f4117b2155c2c888cbc595c9b7565a2d6f9e2861361a75b3bb2187f27013e",
+  "source_hash": "850dc1f29384ca9a9151463b19eb4f012f179644dcb938eaf56b38ae15a5fe6a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not add the current removal round after surviving blockers.",
+      "failed_cases": [
+        "lc-2289-1",
+        "lc-2289-5",
+        "lc-2289-6",
+        "lc-2289-7",
+        "lc-2289-8",
+        "lc-2289-9",
+        "lc-2289-10",
+        "lc-2289-11",
+        "lc-2289-12",
+        "lc-2289-13",
+        "lc-2289-14"
+      ]
+    },
+    {
+      "reason": "Fails to pop equal values even though they do not remove one another and should merge their state.",
+      "failed_cases": [
+        "lc-2289-1",
+        "lc-2289-2",
+        "lc-2289-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6336,
+  "oracle_implementation": "code_practice/import_batch_126d.py:steps_oracle",
+  "validator_implementation_sha256": "948e2ae3cdf61c748ff11586ae9138abf58c60d5ba5c97305bf60bc005de3d9d",
+  "batch_implementation_sha256": "c8dcc08b827cbf422011a591d404f4cb69129e021e1ddf346914e22ea1916aae",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ad77aca85038d28342a33f184cf0a633fc227d3295fdcb4c784470b12797d189",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

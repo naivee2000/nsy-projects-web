@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2291",
+  "content_sha256": "602004d0b8770b461c49acedf3722ef42665b4fe6fbfff56e1fe93ccf30094b2",
+  "source_hash": "ac9cf9c45b3d08bac8736a9d826de3cce1c939b84ed1074248cc11b4e4a970c0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Updates budget from low to high and can buy the same stock repeatedly.",
+      "failed_cases": [
+        "lc-2291-10",
+        "lc-2291-12",
+        "lc-2291-14"
+      ]
+    },
+    {
+      "reason": "Skips profitable stocks and considers only nonpositive gains.",
+      "failed_cases": [
+        "lc-2291-1",
+        "lc-2291-2",
+        "lc-2291-4",
+        "lc-2291-6",
+        "lc-2291-7",
+        "lc-2291-8",
+        "lc-2291-10",
+        "lc-2291-11",
+        "lc-2291-12",
+        "lc-2291-13",
+        "lc-2291-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6338,
+  "oracle_implementation": "code_practice/import_batch_126d.py:stocks_oracle",
+  "validator_implementation_sha256": "948e2ae3cdf61c748ff11586ae9138abf58c60d5ba5c97305bf60bc005de3d9d",
+  "batch_implementation_sha256": "c8dcc08b827cbf422011a591d404f4cb69129e021e1ddf346914e22ea1916aae",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "708c42b6db1c62431d96e86605575889850dc6ed611db44d92e6972a2620d661",
+  "elapsed_seconds": 0.13,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

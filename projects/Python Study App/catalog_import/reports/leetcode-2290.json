@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2290",
+  "content_sha256": "e43715cad66930d4fa4a923690285c2a50e54c1ec7741395a1e32d6bf7a7adb9",
+  "source_hash": "b2a3743b5708ab787ac02560c305ca7f5c421bfbb46d4767fb1f5017fdc98fe4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Charges two removals for every obstacle cell instead of one.",
+      "failed_cases": [
+        "lc-2290-1",
+        "lc-2290-4",
+        "lc-2290-5",
+        "lc-2290-6",
+        "lc-2290-7",
+        "lc-2290-12",
+        "lc-2290-14"
+      ]
+    },
+    {
+      "reason": "Checks only the fixed top-row then right-column route rather than finding the least-cost path.",
+      "failed_cases": [
+        "lc-2290-2",
+        "lc-2290-8",
+        "lc-2290-9",
+        "lc-2290-11",
+        "lc-2290-12",
+        "lc-2290-13",
+        "lc-2290-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6337,
+  "oracle_implementation": "code_practice/import_batch_126d.py:obstacles_oracle",
+  "validator_implementation_sha256": "948e2ae3cdf61c748ff11586ae9138abf58c60d5ba5c97305bf60bc005de3d9d",
+  "batch_implementation_sha256": "c8dcc08b827cbf422011a591d404f4cb69129e021e1ddf346914e22ea1916aae",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "40cc33482b42e70cea04262b5b825adc7ccf963c273fbdc58853db1be208ce8f",
+  "elapsed_seconds": 0.072,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

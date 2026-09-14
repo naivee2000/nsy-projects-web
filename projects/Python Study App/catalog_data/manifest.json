@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1626,
+  "count": 1631,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -28942,6 +28942,96 @@
       "path": "problems/leetcode-2287.json",
       "content_sha256": "234cb52305d379cb56096e507886f571b17ad68496e4a36f471a7839f33a1961",
       "source_id": 2287
+    },
+    {
+      "id": "leetcode-2288",
+      "version": 1,
+      "status": "approved",
+      "title": "Apply Discount to Prices",
+      "summary": "Given a sentence that contains words which may represent prices, apply a discount percentage to each word that represents a price, update the price to two decimal places, and return the modified sentence.",
+      "topics": [
+        "strings",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2288.json",
+      "content_sha256": "ea2cbb83217c96e94533de04d67800f5e412b70dedddea61b0772b772f1a7f60",
+      "source_id": 2288
+    },
+    {
+      "id": "leetcode-2289",
+      "version": 1,
+      "status": "approved",
+      "title": "Steps to Make Array Non-decreasing",
+      "summary": "Given a 0-indexed integer array nums, repeatedly remove all elements nums[i] where nums[i - 1] is greater than nums[i] for each valid i.",
+      "topics": [
+        "arrays",
+        "monotonic stacks",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2289.json",
+      "content_sha256": "3e6f4117b2155c2c888cbc595c9b7565a2d6f9e2861361a75b3bb2187f27013e",
+      "source_id": 2289
+    },
+    {
+      "id": "leetcode-2290",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Obstacle Removal to Reach Corner",
+      "summary": "Given a grid with empty cells (0) and obstacles (1), determine the least number of obstacles to remove to travel from the top-left corner to the bottom-right corner.",
+      "topics": [
+        "matrices",
+        "graphs",
+        "0-1 BFS"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2290.json",
+      "content_sha256": "e43715cad66930d4fa4a923690285c2a50e54c1ec7741395a1e32d6bf7a7adb9",
+      "source_id": 2290
+    },
+    {
+      "id": "leetcode-2291",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Profit From Trading Stocks",
+      "summary": "Choose any subset of distinct stocks to buy now within the budget and sell later; return the maximum total profit.",
+      "topics": [
+        "arrays",
+        "0/1 knapsack",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2291.json",
+      "content_sha256": "602004d0b8770b461c49acedf3722ef42665b4fe6fbfff56e1fe93ccf30094b2",
+      "source_id": 2291
+    },
+    {
+      "id": "leetcode-2293",
+      "version": 1,
+      "status": "approved",
+      "title": "Min Max Game",
+      "summary": "Given an integer array nums whose length is a power of 2, repeatedly create a new array by replacing each element with either the minimum or maximum of two consecutive elements from the original array, depending on the element's index.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2293.json",
+      "content_sha256": "00a3f899a40de562239eb8b203437466689e7f5a4e090818077651b0c4566a73",
+      "source_id": 2293
     }
   ]
 }

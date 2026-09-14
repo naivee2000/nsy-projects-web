@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2288",
+  "content_sha256": "ea2cbb83217c96e94533de04d67800f5e412b70dedddea61b0772b772f1a7f60",
+  "source_hash": "bfd7e79337be3b4a3a8a6da94afead95d6004f7b9dab37d6d814c6fba575ec36",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Looks for a trailing dollar sign instead of the required leading dollar sign.",
+      "failed_cases": [
+        "lc-2288-1",
+        "lc-2288-2",
+        "lc-2288-3",
+        "lc-2288-4",
+        "lc-2288-6",
+        "lc-2288-7",
+        "lc-2288-8",
+        "lc-2288-9",
+        "lc-2288-11",
+        "lc-2288-12",
+        "lc-2288-13",
+        "lc-2288-14"
+      ]
+    },
+    {
+      "reason": "Fails to pad the fractional cents field to exactly two digits.",
+      "failed_cases": [
+        "lc-2288-1",
+        "lc-2288-2",
+        "lc-2288-3",
+        "lc-2288-4",
+        "lc-2288-6",
+        "lc-2288-9",
+        "lc-2288-11",
+        "lc-2288-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6335,
+  "oracle_implementation": "code_practice/import_batch_126d.py:discount_oracle",
+  "validator_implementation_sha256": "948e2ae3cdf61c748ff11586ae9138abf58c60d5ba5c97305bf60bc005de3d9d",
+  "batch_implementation_sha256": "c8dcc08b827cbf422011a591d404f4cb69129e021e1ddf346914e22ea1916aae",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "40858b46218119097eb2b13f55c74258253ea818705630f9373a0150d3352b7d",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

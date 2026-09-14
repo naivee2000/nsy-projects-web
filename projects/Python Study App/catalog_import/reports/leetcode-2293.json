@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2293",
+  "content_sha256": "00a3f899a40de562239eb8b203437466689e7f5a4e090818077651b0c4566a73",
+  "source_hash": "6842c67596aabc580653e0583b50ddeece37335a354484bb07df30f7299f817f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses which result indices take minimum and maximum.",
+      "failed_cases": [
+        "lc-2293-1",
+        "lc-2293-3",
+        "lc-2293-4",
+        "lc-2293-5",
+        "lc-2293-6",
+        "lc-2293-8",
+        "lc-2293-9",
+        "lc-2293-10",
+        "lc-2293-12",
+        "lc-2293-13",
+        "lc-2293-14",
+        "lc-2293-15"
+      ]
+    },
+    {
+      "reason": "Assumes the global minimum always survives, ignoring maximum rounds that can discard it.",
+      "failed_cases": [
+        "lc-2293-6",
+        "lc-2293-13",
+        "lc-2293-14",
+        "lc-2293-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6340,
+  "oracle_implementation": "code_practice/import_batch_126d.py:game_oracle",
+  "validator_implementation_sha256": "948e2ae3cdf61c748ff11586ae9138abf58c60d5ba5c97305bf60bc005de3d9d",
+  "batch_implementation_sha256": "c8dcc08b827cbf422011a591d404f4cb69129e021e1ddf346914e22ea1916aae",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b2be584aecb00f935a4e9fc2b102b86c2b935b84a4add416f2c9ed34dd35cf2b",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
