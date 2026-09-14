@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2211",
+  "content_sha256": "e18ad3ae6f11a566e4b39a34951bd92f8d3776b676f204566b5cdb35d97ef72a",
+  "source_hash": "2b48eb8009df7409d786b5b786c75238fcbd9b405dc48ebf6668eafccd1d6729",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Trims leading right-moving cars even though they may collide ahead.",
+      "failed_cases": [
+        "lc-2211-1",
+        "lc-2211-2",
+        "lc-2211-3",
+        "lc-2211-6",
+        "lc-2211-7",
+        "lc-2211-8",
+        "lc-2211-10",
+        "lc-2211-12",
+        "lc-2211-13",
+        "lc-2211-14",
+        "lc-2211-15",
+        "lc-2211-16"
+      ]
+    },
+    {
+      "reason": "Trims trailing left-moving cars even though they may collide behind.",
+      "failed_cases": [
+        "lc-2211-1",
+        "lc-2211-2",
+        "lc-2211-4",
+        "lc-2211-6",
+        "lc-2211-7",
+        "lc-2211-9",
+        "lc-2211-10",
+        "lc-2211-12",
+        "lc-2211-13",
+        "lc-2211-15",
+        "lc-2211-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6258,
+  "oracle_implementation": "code_practice/import_batch_123b.py:collisions_oracle",
+  "validator_implementation_sha256": "5e2096d13f65428a35b37b087ea3c17a8a7206dddc979598ed017d7c21c0511d",
+  "batch_implementation_sha256": "c1621ecb28b371c8b6fca8deb7f867fa9f61695406119e89165ab90fe48e6a47",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3b4fc0a3b0fa286c423b19d544263c0f6d516675776f2c4fe0ddf085b1e7fdd3",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

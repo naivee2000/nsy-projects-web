@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2214",
+  "content_sha256": "f6aa7d6848f72e079755c448d645ab53d9430f1aac84643ec21387806c19d369",
+  "source_hash": "0c25bb3c94651ffa3ec7af02f338910b1afbfa74c02c74aba23c493aed90e65f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses armor on the smallest damage level instead of the largest useful reduction.",
+      "failed_cases": [
+        "lc-2214-1",
+        "lc-2214-2",
+        "lc-2214-6",
+        "lc-2214-8",
+        "lc-2214-9",
+        "lc-2214-11",
+        "lc-2214-12",
+        "lc-2214-13"
+      ]
+    },
+    {
+      "reason": "Forgets the extra health point required to stay strictly above zero.",
+      "failed_cases": [
+        "lc-2214-1",
+        "lc-2214-2",
+        "lc-2214-3",
+        "lc-2214-4",
+        "lc-2214-5",
+        "lc-2214-6",
+        "lc-2214-7",
+        "lc-2214-8",
+        "lc-2214-9",
+        "lc-2214-10",
+        "lc-2214-11",
+        "lc-2214-12",
+        "lc-2214-13",
+        "lc-2214-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6261,
+  "oracle_implementation": "code_practice/import_batch_123b.py:health_oracle",
+  "validator_implementation_sha256": "5e2096d13f65428a35b37b087ea3c17a8a7206dddc979598ed017d7c21c0511d",
+  "batch_implementation_sha256": "c1621ecb28b371c8b6fca8deb7f867fa9f61695406119e89165ab90fe48e6a47",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d53c6a10014ef6edb8bf3fb78baf21e2b4a9a20df10031082e27769ed047018d",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
