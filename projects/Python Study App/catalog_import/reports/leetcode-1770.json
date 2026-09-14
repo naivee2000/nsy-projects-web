@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1770",
+  "content_sha256": "2281e07ba620b6f40359e16d87a2e90f8cec4ba0a6057435553b1e5bace9d3ef",
+  "source_hash": "7bda0c841aa2602f8c28b921bac7bd899e49074f7786d8c9106753a038eea6ec",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always selects the right endpoint and never considers a better left choice.",
+      "failed_cases": [
+        "lc-1770-2",
+        "lc-1770-6",
+        "lc-1770-7",
+        "lc-1770-10",
+        "lc-1770-12",
+        "lc-1770-13",
+        "lc-1770-14"
+      ]
+    },
+    {
+      "reason": "Fails to advance the left pointer after choosing the left value, allowing reuse.",
+      "failed_cases": [
+        "lc-1770-2",
+        "lc-1770-12",
+        "lc-1770-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5817,
+  "oracle_implementation": "code_practice/import_batch_105.py:score_o",
+  "validator_implementation_sha256": "6781a7fa6b6a55411cdd67c3e3f6f34d7514cdeab47b7e64188520782c4f2132",
+  "batch_implementation_sha256": "be44c9fed3d6bc3e6cd702a0d66bda8c38fc4605102745e727f629c63618c574",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "238378e72ededd8ceb296d6b1f4a33b113edf0da82cfa688bd9d5aff4de56836",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

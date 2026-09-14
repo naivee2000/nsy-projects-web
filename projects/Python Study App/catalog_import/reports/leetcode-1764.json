@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1764",
+  "content_sha256": "85be014ade09719519d7861872818e21626b568809094de057f58e98f8c7bea3",
+  "source_hash": "30d5e70a9855febbc8e2ceb450600c6b7ade95c09aef70ff5424225898db2616",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Advances only one position after a match, allowing later groups to overlap it.",
+      "failed_cases": [
+        "lc-1764-8"
+      ]
+    },
+    {
+      "reason": "Skips positions that match and stops at a nonmatching slice.",
+      "failed_cases": [
+        "lc-1764-2",
+        "lc-1764-3",
+        "lc-1764-4",
+        "lc-1764-5",
+        "lc-1764-10",
+        "lc-1764-11",
+        "lc-1764-12",
+        "lc-1764-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5811,
+  "oracle_implementation": "code_practice/import_batch_105.py:groups_o",
+  "validator_implementation_sha256": "6781a7fa6b6a55411cdd67c3e3f6f34d7514cdeab47b7e64188520782c4f2132",
+  "batch_implementation_sha256": "be44c9fed3d6bc3e6cd702a0d66bda8c38fc4605102745e727f629c63618c574",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "da713e2db5c4ba97d7b707b58f2ae23b8b9b299b5d0f048634c505f78662e5c8",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

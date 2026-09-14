@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1769",
+  "content_sha256": "e9c6f3abc51b1ae3640364409be0880ba1d77012d7d69044d620706e33890ab6",
+  "source_hash": "4c1bd40263bed34709a02a1b43b93f677468536fa8d9bac2794a621a993b669c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Increases movement by one per step instead of by the number of balls already crossed.",
+      "failed_cases": [
+        "lc-1769-1",
+        "lc-1769-2",
+        "lc-1769-5",
+        "lc-1769-6",
+        "lc-1769-8",
+        "lc-1769-9",
+        "lc-1769-11",
+        "lc-1769-12",
+        "lc-1769-13",
+        "lc-1769-14"
+      ]
+    },
+    {
+      "reason": "Counts empty boxes as balls during the right-to-left pass.",
+      "failed_cases": [
+        "lc-1769-1",
+        "lc-1769-2",
+        "lc-1769-5",
+        "lc-1769-6",
+        "lc-1769-7",
+        "lc-1769-8",
+        "lc-1769-9",
+        "lc-1769-10",
+        "lc-1769-11",
+        "lc-1769-12",
+        "lc-1769-13",
+        "lc-1769-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5816,
+  "oracle_implementation": "code_practice/import_batch_105.py:moves_o",
+  "validator_implementation_sha256": "6781a7fa6b6a55411cdd67c3e3f6f34d7514cdeab47b7e64188520782c4f2132",
+  "batch_implementation_sha256": "be44c9fed3d6bc3e6cd702a0d66bda8c38fc4605102745e727f629c63618c574",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "124fc7bb314c6a2374113b0ec594f1603e1fdcc895429c0cf9ab3eaa47e23d8e",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1765",
+  "content_sha256": "1682a1c18b64bb4e1adfae95588e8f90e347f025f9ae680952a346bc63f6f8bb",
+  "source_hash": "cd765444ef3f1dd4c53e9be7731cdbc24c2e8afbc8019172cb4bb44bde2bb72e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Raises each BFS layer by two and violates the adjacent-difference bound.",
+      "failed_cases": [
+        "lc-1765-1",
+        "lc-1765-2",
+        "lc-1765-4",
+        "lc-1765-5",
+        "lc-1765-6",
+        "lc-1765-7",
+        "lc-1765-9",
+        "lc-1765-10",
+        "lc-1765-11",
+        "lc-1765-12",
+        "lc-1765-13",
+        "lc-1765-14"
+      ]
+    },
+    {
+      "reason": "Uses depth-first processing, assigning nonminimal distance from whichever water source reaches a cell first.",
+      "failed_cases": [
+        "lc-1765-2",
+        "lc-1765-9",
+        "lc-1765-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5812,
+  "oracle_implementation": "code_practice/import_batch_105.py:peak_o",
+  "validator_implementation_sha256": "6781a7fa6b6a55411cdd67c3e3f6f34d7514cdeab47b7e64188520782c4f2132",
+  "batch_implementation_sha256": "be44c9fed3d6bc3e6cd702a0d66bda8c38fc4605102745e727f629c63618c574",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "154cb7260f5e8f8698ccdd8220cd4aba39a1b4f3b4ac70e716f4c05c743b1003",
+  "elapsed_seconds": 0.074,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

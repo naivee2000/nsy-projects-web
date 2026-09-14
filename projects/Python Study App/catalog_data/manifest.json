@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1198,
+  "count": 1203,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -21160,6 +21160,94 @@
       "path": "problems/leetcode-1763.json",
       "content_sha256": "a1caf6512db67ae27b956b9f66f1ee35fa85e8fbf38fb11ae1b426a6da9decf4",
       "source_id": 1763
+    },
+    {
+      "id": "leetcode-1764",
+      "version": 1,
+      "status": "approved",
+      "title": "Form Array by Concatenating Subarrays of Another Array",
+      "summary": "Given a 2D integer array groups of length n and an integer array nums, determine if you can select n non-overlapping subarrays from nums such that each subarray matches the corresponding element in groups and maintains the order of groups.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "pattern-matching"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1764.json",
+      "content_sha256": "85be014ade09719519d7861872818e21626b568809094de057f58e98f8c7bea3",
+      "source_id": 1764
+    },
+    {
+      "id": "leetcode-1765",
+      "version": 1,
+      "status": "approved",
+      "title": "Map of Highest Peak",
+      "summary": "Given an integer matrix isWater of size m x n, where each cell is either a land cell (indicated by 0) or a water cell (indicated by 1), assign a non-negative height to each cell such that: - Water cells must have a height of 0.",
+      "topics": [
+        "matrices",
+        "breadth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1765.json",
+      "content_sha256": "1682a1c18b64bb4e1adfae95588e8f90e347f025f9ae680952a346bc63f6f8bb",
+      "source_id": 1765
+    },
+    {
+      "id": "leetcode-1768",
+      "version": 1,
+      "status": "approved",
+      "title": "Merge Strings Alternately",
+      "summary": "Combine two strings by alternating characters from each, beginning with the first string.",
+      "topics": [
+        "strings",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1768.json",
+      "content_sha256": "a3437e75a028338554c1166774f966db2ac7b5ad2ce51cf5b20543515d405317",
+      "source_id": 1768
+    },
+    {
+      "id": "leetcode-1769",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Operations to Move All Balls to Each Box",
+      "summary": "Given n boxes, represented by a binary string where each character is '0' for an empty box and '1' for a box containing one ball, calculate the minimum number of operations required to move all the balls to each individual box.",
+      "topics": [
+        "strings",
+        "prefix-sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1769.json",
+      "content_sha256": "e9c6f3abc51b1ae3640364409be0880ba1d77012d7d69044d620706e33890ab6",
+      "source_id": 1769
+    },
+    {
+      "id": "leetcode-1770",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Score from Performing Multiplication Operations",
+      "summary": "Given two arrays, nums and multipliers, of sizes n and m (n >= m), start with a score of 0.",
+      "topics": [
+        "dynamic-programming",
+        "recursion"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1770.json",
+      "content_sha256": "2281e07ba620b6f40359e16d87a2e90f8cec4ba0a6057435553b1e5bace9d3ef",
+      "source_id": 1770
     }
   ]
 }
