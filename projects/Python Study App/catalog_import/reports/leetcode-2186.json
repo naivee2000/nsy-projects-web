@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2186",
+  "content_sha256": "4a21c206e58bf48ff2fd4427ded6a11bf5ce3ad8b93cc59e2b02303a14675410",
+  "source_hash": "afebae22a219eb75288d991141a48db51621aa15f2b434b2366bf9036a13f5d7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows surplus letters in the second string to cancel deficits instead of counting both directions.",
+      "failed_cases": [
+        "lc-2186-1",
+        "lc-2186-4",
+        "lc-2186-6",
+        "lc-2186-7",
+        "lc-2186-8",
+        "lc-2186-9",
+        "lc-2186-10",
+        "lc-2186-13"
+      ]
+    },
+    {
+      "reason": "Ignores letters appearing in only one string.",
+      "failed_cases": [
+        "lc-2186-1",
+        "lc-2186-4",
+        "lc-2186-6",
+        "lc-2186-9",
+        "lc-2186-10",
+        "lc-2186-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6233,
+  "oracle_implementation": "code_practice/import_batch_122b.py:anagram_oracle",
+  "validator_implementation_sha256": "89b908d11ac8468732e88f1aa3198a21a1610f078cd149f002d8916ff2db8035",
+  "batch_implementation_sha256": "c5f4bf4232fa1f23edd1671bb07a9de74167731284a3a53940a4c966410aabaa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f3c336a3bc65365b007a85538a64eb5209ba7fa016644596f5583dc78b74db45",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2190",
+  "content_sha256": "503153f44b358202c946568e7812d322f6a85f43b16486224e5c632c9153a663",
+  "source_hash": "1f2738ac1bff6c94ee9b4f772f7547eed4944f3b8374f06ee695cbb85123a764",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the key itself for each occurrence instead of counting the immediately following value.",
+      "failed_cases": [
+        "lc-2190-1",
+        "lc-2190-3",
+        "lc-2190-4",
+        "lc-2190-5",
+        "lc-2190-6",
+        "lc-2190-7",
+        "lc-2190-9",
+        "lc-2190-10",
+        "lc-2190-12",
+        "lc-2190-13",
+        "lc-2190-14"
+      ]
+    },
+    {
+      "reason": "Selects positions whose following value is key, reversing the relationship.",
+      "failed_cases": [
+        "lc-2190-1",
+        "lc-2190-4",
+        "lc-2190-5",
+        "lc-2190-6",
+        "lc-2190-7",
+        "lc-2190-9",
+        "lc-2190-10",
+        "lc-2190-12",
+        "lc-2190-13",
+        "lc-2190-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6237,
+  "oracle_implementation": "code_practice/import_batch_122b.py:follower_oracle",
+  "validator_implementation_sha256": "89b908d11ac8468732e88f1aa3198a21a1610f078cd149f002d8916ff2db8035",
+  "batch_implementation_sha256": "c5f4bf4232fa1f23edd1671bb07a9de74167731284a3a53940a4c966410aabaa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1c4c0608e63e5f9b88ae1a4d4828bcf2c102ca83d7323c5020f56b4f780b6f1e",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

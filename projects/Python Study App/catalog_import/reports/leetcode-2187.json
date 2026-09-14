@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2187",
+  "content_sha256": "da854176c768192801921ffef6f2456e0c11687e04b70ed8eba7ffa55abf0e30",
+  "source_hash": "54a8a3e1a4396e80adb9b61227a454ad19c7427cf6d0699cd154d8bf9c553f38",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires strictly more than the requested trips and can return a time that is too large.",
+      "failed_cases": [
+        "lc-2187-1",
+        "lc-2187-6",
+        "lc-2187-8",
+        "lc-2187-12",
+        "lc-2187-14"
+      ]
+    },
+    {
+      "reason": "Moves the lower bound upward on a feasible midpoint, converging to the upper bound.",
+      "failed_cases": [
+        "lc-2187-1",
+        "lc-2187-6",
+        "lc-2187-7",
+        "lc-2187-8",
+        "lc-2187-10",
+        "lc-2187-12",
+        "lc-2187-13",
+        "lc-2187-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6234,
+  "oracle_implementation": "code_practice/import_batch_122b.py:trips_oracle",
+  "validator_implementation_sha256": "89b908d11ac8468732e88f1aa3198a21a1610f078cd149f002d8916ff2db8035",
+  "batch_implementation_sha256": "c5f4bf4232fa1f23edd1671bb07a9de74167731284a3a53940a4c966410aabaa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5e8ae0604116a8e15975f953f58804b34bac436deb7cfc8b599225fc9b83fd69",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2189",
+  "content_sha256": "e06113468f964ebbd8f3f14aa029c5d4aed1e2652ce41adf2058b49aa5313ea2",
+  "source_hash": "1bf300b02f1dbce927108fa9369945321866453fc41029f95e6dca1924849607",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Updates totals upward and reuses the same row size multiple times.",
+      "failed_cases": [
+        "lc-2189-1",
+        "lc-2189-5",
+        "lc-2189-8",
+        "lc-2189-9",
+        "lc-2189-10",
+        "lc-2189-11",
+        "lc-2189-12",
+        "lc-2189-13",
+        "lc-2189-14",
+        "lc-2189-15"
+      ]
+    },
+    {
+      "reason": "Removes the empty construction base case, so no house can be formed.",
+      "failed_cases": [
+        "lc-2189-1",
+        "lc-2189-2",
+        "lc-2189-6",
+        "lc-2189-7",
+        "lc-2189-8",
+        "lc-2189-9",
+        "lc-2189-10",
+        "lc-2189-11",
+        "lc-2189-12",
+        "lc-2189-13",
+        "lc-2189-14",
+        "lc-2189-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6236,
+  "oracle_implementation": "code_practice/import_batch_122b.py:cards_oracle",
+  "validator_implementation_sha256": "89b908d11ac8468732e88f1aa3198a21a1610f078cd149f002d8916ff2db8035",
+  "batch_implementation_sha256": "c5f4bf4232fa1f23edd1671bb07a9de74167731284a3a53940a4c966410aabaa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5f21096da5e1774dd6f24de7f4f30c2645d46cc58d2f546ca05993453bfe4218",
+  "elapsed_seconds": 0.087,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

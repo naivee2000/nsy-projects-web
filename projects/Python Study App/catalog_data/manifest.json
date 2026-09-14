@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1543,
+  "count": 1548,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -27449,6 +27449,96 @@
       "path": "problems/leetcode-2185.json",
       "content_sha256": "194be9a539382dad5c16b14b7e67e627380a389f67e50f7023d025b0a0caa5a5",
       "source_id": 2185
+    },
+    {
+      "id": "leetcode-2186",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Steps to Make Two Strings Anagram II",
+      "summary": "Given two strings s and t, determine the fewest steps needed to append characters to either string so they both become anagrams of each other.",
+      "topics": [
+        "strings",
+        "counting",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2186.json",
+      "content_sha256": "4a21c206e58bf48ff2fd4427ded6a11bf5ce3ad8b93cc59e2b02303a14675410",
+      "source_id": 2186
+    },
+    {
+      "id": "leetcode-2187",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Complete Trips",
+      "summary": "Given an array of bus trip times and a total trip count, determine the least time needed for all buses to complete at least the specified number of trips, considering each bus can operate independently and consecutively.",
+      "topics": [
+        "arrays",
+        "binary search"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2187.json",
+      "content_sha256": "da854176c768192801921ffef6f2456e0c11687e04b70ed8eba7ffa55abf0e30",
+      "source_id": 2187
+    },
+    {
+      "id": "leetcode-2188",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Finish the Race",
+      "summary": "Given a 2D array tires where each element [fi, ri] represents the time to complete the x-th lap for the i-th tire, and integers changeTime and numLaps, determine the minimum time to complete numLaps laps.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2188.json",
+      "content_sha256": "37ed9c8e91e157123b240e2ef874cb0b4ea0905679cb24927dea783dc328760c",
+      "source_id": 2188
+    },
+    {
+      "id": "leetcode-2189",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Build House of Cards",
+      "summary": "Given an integer n representing the number of playing cards, determine the number of unique house of cards configurations that can be built, adhering to the rules that triangles are formed by two cards leaning against each other, a horizontal card must be placed between adjacent triangles in a row, triangles on higher rows must rest on horizontal cards from the previous row, and each triangle occupies the leftmost available spot in the row.",
+      "topics": [
+        "math",
+        "dynamic programming",
+        "partitions"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2189.json",
+      "content_sha256": "e06113468f964ebbd8f3f14aa029c5d4aed1e2652ce41adf2058b49aa5313ea2",
+      "source_id": 2189
+    },
+    {
+      "id": "leetcode-2190",
+      "version": 1,
+      "status": "approved",
+      "title": "Most Frequent Number Following Key In an Array",
+      "summary": "Given a 0-indexed integer array nums and an integer key that appears in nums, count how many times each unique integer target immediately follows the key.",
+      "topics": [
+        "arrays",
+        "counting",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2190.json",
+      "content_sha256": "503153f44b358202c946568e7812d322f6a85f43b16486224e5c632c9153a663",
+      "source_id": 2190
     }
   ]
 }
