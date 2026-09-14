@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2481",
+  "content_sha256": "ddd603d4ff020009b711887aa9d381618adbb7712d82ef6f5619a3975ce6511f",
+  "source_hash": "534273e09c8cfe8c943efe5490761db9f02ac9082c80f15146f641de85f319cd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses one cut even when the untouched circle already forms one sector.",
+      "failed_cases": [
+        "lc-2481-3"
+      ]
+    },
+    {
+      "reason": "Fails to exploit that each diameter cut creates two equal sectors for even n.",
+      "failed_cases": [
+        "lc-2481-1",
+        "lc-2481-4",
+        "lc-2481-6",
+        "lc-2481-8",
+        "lc-2481-10",
+        "lc-2481-12",
+        "lc-2481-14",
+        "lc-2481-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6528,
+  "oracle_implementation": "code_practice/import_batch_132.py:cuts_oracle",
+  "validator_implementation_sha256": "c1632dac5db0e7b7eac758ecdb28584eee745065b441a9a198f990c247e25103",
+  "batch_implementation_sha256": "0387f5ae2915f50b0d47aa45a33b6703653b6c146c923a67e52a5feeb77c8ad8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8d3d50e5dd8c5637610eee14f00d09f23a65b77fdbd7b001f2928a45993771dc",
+  "elapsed_seconds": 0.012,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

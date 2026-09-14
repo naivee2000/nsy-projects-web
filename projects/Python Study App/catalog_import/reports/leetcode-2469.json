@@ -1,0 +1,63 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2469",
+  "content_sha256": "292862f5de48e0a5a44393f9c93459a60a8ee142dafb393974e22ce5d1579eda",
+  "source_hash": "724765cd750ce68f794bc8a4763386ee01ef1c5ff014a6a9e631b4cfc9cbc190",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses an imprecise Kelvin offset.",
+      "failed_cases": [
+        "lc-2469-1",
+        "lc-2469-2",
+        "lc-2469-3",
+        "lc-2469-4",
+        "lc-2469-5",
+        "lc-2469-6",
+        "lc-2469-7",
+        "lc-2469-8",
+        "lc-2469-9",
+        "lc-2469-10",
+        "lc-2469-11",
+        "lc-2469-12",
+        "lc-2469-13",
+        "lc-2469-14",
+        "lc-2469-15",
+        "lc-2469-16"
+      ]
+    },
+    {
+      "reason": "Uses the wrong Celsius-to-Fahrenheit scale factor.",
+      "failed_cases": [
+        "lc-2469-1",
+        "lc-2469-3",
+        "lc-2469-4",
+        "lc-2469-5",
+        "lc-2469-6",
+        "lc-2469-7",
+        "lc-2469-8",
+        "lc-2469-9",
+        "lc-2469-10",
+        "lc-2469-11",
+        "lc-2469-12",
+        "lc-2469-13",
+        "lc-2469-14",
+        "lc-2469-15",
+        "lc-2469-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6516,
+  "oracle_implementation": "code_practice/import_batch_132.py:temperature_oracle",
+  "validator_implementation_sha256": "c1632dac5db0e7b7eac758ecdb28584eee745065b441a9a198f990c247e25103",
+  "batch_implementation_sha256": "0387f5ae2915f50b0d47aa45a33b6703653b6c146c923a67e52a5feeb77c8ad8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9e28765bef19b357218296ebd45c94dcb49f0ae6ba2198d2297987f3ae69b635",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

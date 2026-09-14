@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2475",
+  "content_sha256": "68b3b6e049a4c1c0aa68c37a381554948d539c138ecb431c534f533c54902179",
+  "source_hash": "b01dc8e7c4675f2a028e99938d204920739a977ec61a3567a4df975f80088613",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets the number of choices within the current value group.",
+      "failed_cases": [
+        "lc-2475-7",
+        "lc-2475-12",
+        "lc-2475-13"
+      ]
+    },
+    {
+      "reason": "Removes only one occurrence from the right side instead of the full equal-value group.",
+      "failed_cases": [
+        "lc-2475-1",
+        "lc-2475-4",
+        "lc-2475-5",
+        "lc-2475-7",
+        "lc-2475-8",
+        "lc-2475-9",
+        "lc-2475-10",
+        "lc-2475-12",
+        "lc-2475-13",
+        "lc-2475-14",
+        "lc-2475-15",
+        "lc-2475-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6522,
+  "oracle_implementation": "code_practice/import_batch_132.py:unequal_oracle",
+  "validator_implementation_sha256": "c1632dac5db0e7b7eac758ecdb28584eee745065b441a9a198f990c247e25103",
+  "batch_implementation_sha256": "0387f5ae2915f50b0d47aa45a33b6703653b6c146c923a67e52a5feeb77c8ad8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "be87fdf257866293ac40c719217f50cbbf9555b68454c7102ec04c230ba23933",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
