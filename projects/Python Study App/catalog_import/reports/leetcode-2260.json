@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2260",
+  "content_sha256": "4456fe0a869e9cd87a1f28d1bf130ded66c294d9fd307d428091799677ba5f12",
+  "source_hash": "931273a6f8ec9e1c98c098ca08e0c7c9bf0db7891319252f6041e9c87dd8dd0a",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the index distance instead of inclusive card count.",
+      "failed_cases": [
+        "lc-2260-1",
+        "lc-2260-4",
+        "lc-2260-5",
+        "lc-2260-6",
+        "lc-2260-7",
+        "lc-2260-8",
+        "lc-2260-9",
+        "lc-2260-10",
+        "lc-2260-11",
+        "lc-2260-12",
+        "lc-2260-13",
+        "lc-2260-15"
+      ]
+    },
+    {
+      "reason": "Keeps only the first occurrence and can miss a closer later pair.",
+      "failed_cases": [
+        "lc-2260-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6307,
+  "oracle_implementation": "code_practice/import_batch_125b.py:cards_oracle",
+  "validator_implementation_sha256": "fea89cdfd19f5c30fd94fe1495b17bb18d0b2f1a7b48b0376bfe83c07b343e0a",
+  "batch_implementation_sha256": "5cfc458adcd4c1ec517a619d6ad199602649ba873cdb91c626c933c65ba60771",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "78ddebb156e3ead13f4b13d42f3f43a7fd28e973acc522052c11f2a7f096e1b7",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

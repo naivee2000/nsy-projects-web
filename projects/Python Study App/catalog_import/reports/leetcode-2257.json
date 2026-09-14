@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2257",
+  "content_sha256": "bf8a29c764280a996f9dc244642b615cc71b323c66a1d21bb913426bf2ca191a",
+  "source_hash": "511ed5a5055f5f94e9e50c1f62f0ef06fee53ceeaa82be8393dd5457065b24e5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not let other guards block sight lines.",
+      "failed_cases": [
+        "lc-2257-1",
+        "lc-2257-2",
+        "lc-2257-4",
+        "lc-2257-5",
+        "lc-2257-7",
+        "lc-2257-8",
+        "lc-2257-9",
+        "lc-2257-10",
+        "lc-2257-11",
+        "lc-2257-12",
+        "lc-2257-13",
+        "lc-2257-14"
+      ]
+    },
+    {
+      "reason": "Never subtracts guarded empty cells from the result.",
+      "failed_cases": [
+        "lc-2257-1",
+        "lc-2257-2",
+        "lc-2257-4",
+        "lc-2257-5",
+        "lc-2257-7",
+        "lc-2257-8",
+        "lc-2257-9",
+        "lc-2257-10",
+        "lc-2257-11",
+        "lc-2257-12",
+        "lc-2257-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6304,
+  "oracle_implementation": "code_practice/import_batch_125b.py:guards_oracle",
+  "validator_implementation_sha256": "fea89cdfd19f5c30fd94fe1495b17bb18d0b2f1a7b48b0376bfe83c07b343e0a",
+  "batch_implementation_sha256": "5cfc458adcd4c1ec517a619d6ad199602649ba873cdb91c626c933c65ba60771",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3edb90c1eacef826c7698d26a7193b0fe6ce604df1a8246d24503cb6aecf1ea9",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

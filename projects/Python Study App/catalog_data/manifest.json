@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1596,
+  "count": 1601,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -28401,6 +28401,95 @@
       "path": "problems/leetcode-2255.json",
       "content_sha256": "02284b7d96e194d5cfe36cfd91594b308c029d53d065bc78ef27ffc13bb2815e",
       "source_id": 2255
+    },
+    {
+      "id": "leetcode-2256",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Average Difference",
+      "summary": "Given an integer array nums, find the index where the absolute difference between the average of the first i+1 elements and the average of the remaining elements is minimized.",
+      "topics": [
+        "arrays",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2256.json",
+      "content_sha256": "4dbd6076519e58027a64f7df9adfd6f0b3e4770ec23f335efe75bfa3f29452d2",
+      "source_id": 2256
+    },
+    {
+      "id": "leetcode-2257",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Unguarded Cells in the Grid",
+      "summary": "Given a grid of size m x n, along with the positions of guards and walls, determine the number of unoccupied cells that are not visible to any guard.",
+      "topics": [
+        "matrices",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2257.json",
+      "content_sha256": "bf8a29c764280a996f9dc244642b615cc71b323c66a1d21bb913426bf2ca191a",
+      "source_id": 2257
+    },
+    {
+      "id": "leetcode-2258",
+      "version": 1,
+      "status": "approved",
+      "title": "Escape the Spreading Fire",
+      "summary": "Given a grid representing a field with grass, fire, and walls, you start at the top-left and aim to reach the bottom-right safehouse.",
+      "topics": [
+        "matrices",
+        "breadth first search",
+        "binary search"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2258.json",
+      "content_sha256": "3347f8ca9778038fa7e301c5c0a72041420ea782d7a4660a6c41415615a75122",
+      "source_id": 2258
+    },
+    {
+      "id": "leetcode-2259",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Digit From Number to Maximize Result",
+      "summary": "Given a string number that represents a positive integer and a character digit, remove exactly one occurrence of digit from number to maximize the resulting string in decimal form.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2259.json",
+      "content_sha256": "eca6e9f2bc00fc39c5d48ea0eed5080b5e18e2dd87debb8e17c1a2bde9a0e9ce",
+      "source_id": 2259
+    },
+    {
+      "id": "leetcode-2260",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Consecutive Cards to Pick Up",
+      "summary": "Given an integer array cards, find the minimum number of consecutive cards to pick to ensure at least one matching pair.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "sliding window"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2260.json",
+      "content_sha256": "4456fe0a869e9cd87a1f28d1bf130ded66c294d9fd307d428091799677ba5f12",
+      "source_id": 2260
     }
   ]
 }
