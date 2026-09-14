@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2207",
+  "content_sha256": "069c8ddc4a16a73f5f29532572eff7945df2df790f670d034c0e2a1c10408396",
+  "source_hash": "ecf2d72edf1e13a9de5eeddfa949838f0134128dc97988f98b4cb5629a90b259",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds one per second-pattern character instead of all preceding first characters.",
+      "failed_cases": [
+        "lc-2207-2",
+        "lc-2207-3",
+        "lc-2207-4",
+        "lc-2207-6",
+        "lc-2207-7",
+        "lc-2207-9",
+        "lc-2207-10",
+        "lc-2207-11",
+        "lc-2207-12",
+        "lc-2207-13",
+        "lc-2207-14"
+      ]
+    },
+    {
+      "reason": "Chooses the smaller insertion gain rather than the larger one.",
+      "failed_cases": [
+        "lc-2207-1",
+        "lc-2207-4",
+        "lc-2207-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6254,
+  "oracle_implementation": "code_practice/import_batch_123.py:subsequence_oracle",
+  "validator_implementation_sha256": "9f1944ab982d7fb74c2dfb84114b07453641b24fdd489663b131db2e059d9119",
+  "batch_implementation_sha256": "d25faca9b47a0c298b8f08739f029793c038ccd83f80acd2d95036147263738e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ac3f8ba69341ea64f5638e5f8ca957b442ab785ffa96a333c9c19ef4e207c47",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

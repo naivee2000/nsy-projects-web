@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2203",
+  "content_sha256": "8bf5e245da1e20d63a904fb41723473d742d3556cd5455de437f1f6b360911bc",
+  "source_hash": "0271d9ddd0fe9904226524e74e8a7e5e467ef3502cd3052b1828956b92ae8418",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Runs destination distances on forward edges instead of reversed edges.",
+      "failed_cases": [
+        "lc-2203-1",
+        "lc-2203-4",
+        "lc-2203-5",
+        "lc-2203-6",
+        "lc-2203-9",
+        "lc-2203-11",
+        "lc-2203-12",
+        "lc-2203-13"
+      ]
+    },
+    {
+      "reason": "Ignores the second source’s path cost entirely.",
+      "failed_cases": [
+        "lc-2203-1",
+        "lc-2203-3",
+        "lc-2203-4",
+        "lc-2203-5",
+        "lc-2203-6",
+        "lc-2203-7",
+        "lc-2203-8",
+        "lc-2203-12",
+        "lc-2203-13",
+        "lc-2203-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6250,
+  "oracle_implementation": "code_practice/import_batch_123.py:weighted_oracle",
+  "validator_implementation_sha256": "9f1944ab982d7fb74c2dfb84114b07453641b24fdd489663b131db2e059d9119",
+  "batch_implementation_sha256": "d25faca9b47a0c298b8f08739f029793c038ccd83f80acd2d95036147263738e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3d847079816e8e268258851bd8e95c19fd61f714935f3f1ee4adaee13c7321b0",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

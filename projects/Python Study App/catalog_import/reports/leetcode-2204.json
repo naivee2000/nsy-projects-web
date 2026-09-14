@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2204",
+  "content_sha256": "9b66a5d4131f5242e60cf793b052680fc16aad8d943eb0de7bc444524f287778",
+  "source_hash": "a2690505833f96d8cfa2856d6685d9baec5a2ecebbeb4066f5a98b65ffc132f1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts pruning from zero-degree nodes, so attached trees are incorrectly treated as cycle nodes.",
+      "failed_cases": [
+        "lc-2204-1",
+        "lc-2204-3",
+        "lc-2204-4",
+        "lc-2204-5",
+        "lc-2204-6",
+        "lc-2204-7",
+        "lc-2204-8",
+        "lc-2204-10",
+        "lc-2204-11",
+        "lc-2204-12",
+        "lc-2204-13",
+        "lc-2204-14"
+      ]
+    },
+    {
+      "reason": "Fails to increase distance when expanding outward from the cycle.",
+      "failed_cases": [
+        "lc-2204-1",
+        "lc-2204-3",
+        "lc-2204-4",
+        "lc-2204-5",
+        "lc-2204-6",
+        "lc-2204-7",
+        "lc-2204-8",
+        "lc-2204-10",
+        "lc-2204-11",
+        "lc-2204-12",
+        "lc-2204-13",
+        "lc-2204-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6251,
+  "oracle_implementation": "code_practice/import_batch_123.py:cycle_oracle",
+  "validator_implementation_sha256": "9f1944ab982d7fb74c2dfb84114b07453641b24fdd489663b131db2e059d9119",
+  "batch_implementation_sha256": "d25faca9b47a0c298b8f08739f029793c038ccd83f80acd2d95036147263738e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "98ad5e1a777dd597b41243b4b8d4a99c0e7f1c13f62a974fadd0cbe323a69f91",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

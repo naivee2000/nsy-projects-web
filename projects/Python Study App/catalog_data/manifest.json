@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1556,
+  "count": 1561,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -27684,6 +27684,99 @@
       "path": "problems/leetcode-2201.json",
       "content_sha256": "1ec95258c704269a343cf5e05a2f2c0d5a677e7efa378112e6d36ca7aef382d9",
       "source_id": 2201
+    },
+    {
+      "id": "leetcode-2202",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize the Topmost Element After K Moves",
+      "summary": "Given a 0-indexed integer array nums, where nums[0] represents the topmost element of the pile, you are allowed to make exactly k moves.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2202.json",
+      "content_sha256": "019bfcb919268b582e95daeaf403bb885f81d85584e7e4d4b2cefbb025bcafa8",
+      "source_id": 2202
+    },
+    {
+      "id": "leetcode-2203",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Weighted Subgraph With the Required Paths",
+      "summary": "Given an integer n for the number of nodes in a weighted directed graph, and a 2D array of edges with their weights, along with three distinct node numbers src1, src2, and dest, find the minimum weight of a subgraph allowing travel from both src1 and src2 to dest.",
+      "topics": [
+        "graphs",
+        "shortest paths",
+        "dijkstra"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2203.json",
+      "content_sha256": "8bf5e245da1e20d63a904fb41723473d742d3556cd5455de437f1f6b360911bc",
+      "source_id": 2203
+    },
+    {
+      "id": "leetcode-2204",
+      "version": 1,
+      "status": "approved",
+      "title": "Distance to a Cycle in Undirected Graph",
+      "summary": "Given a connected undirected graph with exactly one cycle and containing n nodes numbered from 0 to n-1, along with a 2D integer array representing the edges, return an integer array of size n.",
+      "topics": [
+        "graphs",
+        "breadth first search",
+        "topological pruning"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2204.json",
+      "content_sha256": "9b66a5d4131f5242e60cf793b052680fc16aad8d943eb0de7bc444524f287778",
+      "source_id": 2204
+    },
+    {
+      "id": "leetcode-2206",
+      "version": 1,
+      "status": "approved",
+      "title": "Divide Array Into Equal Pairs",
+      "summary": "Given an integer array nums consisting of 2n integers, determine if it is possible to divide the array into n pairs such that each pair contains identical elements.",
+      "topics": [
+        "arrays",
+        "counting",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2206.json",
+      "content_sha256": "37600aa7aef64cf3e930fb42ab844381994c6b5ba5045a8a2e5377b50eada01f",
+      "source_id": 2206
+    },
+    {
+      "id": "leetcode-2207",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Number of Subsequences in a String",
+      "summary": "Given a string text and a pattern of length 2, determine the maximum number of times the pattern can appear as a subsequence in text after inserting either of the pattern's characters exactly once.",
+      "topics": [
+        "strings",
+        "greedy",
+        "prefix counts"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2207.json",
+      "content_sha256": "069c8ddc4a16a73f5f29532572eff7945df2df790f670d034c0e2a1c10408396",
+      "source_id": 2207
     }
   ]
 }

@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2202",
+  "content_sha256": "019bfcb919268b582e95daeaf403bb885f81d85584e7e4d4b2cefbb025bcafa8",
+  "source_hash": "5aa936e244a293c25b11f0e5dd6465270ad6b6430e7ce86c236eca0c0318a7e9",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Includes nums[k-1], which cannot be both removed and restored within k moves.",
+      "failed_cases": [
+        "lc-2202-6",
+        "lc-2202-12",
+        "lc-2202-14"
+      ]
+    },
+    {
+      "reason": "Reverses the exact-move parity rule for a one-element pile.",
+      "failed_cases": [
+        "lc-2202-2",
+        "lc-2202-4",
+        "lc-2202-5",
+        "lc-2202-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6249,
+  "oracle_implementation": "code_practice/import_batch_123.py:top_oracle",
+  "validator_implementation_sha256": "9f1944ab982d7fb74c2dfb84114b07453641b24fdd489663b131db2e059d9119",
+  "batch_implementation_sha256": "d25faca9b47a0c298b8f08739f029793c038ccd83f80acd2d95036147263738e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "537d7f972fa60ae18440babfd9cf46bbba9a3951437a0e7876877aacf93b8921",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
