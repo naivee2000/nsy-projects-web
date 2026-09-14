@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2566",
+  "content_sha256": "909b25d6451177fe222077797c287b2350f0648fd925a8b3db7eb210053e625c",
+  "source_hash": "caaa29743fd9201d18d5d54c5da03e8d503974180dfd3c629e0c3fc95f9e04f6",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the first nonzero digit rather than the first non-nine digit for maximizing.",
+      "failed_cases": [
+        "lc-2566-2",
+        "lc-2566-9",
+        "lc-2566-12"
+      ]
+    },
+    {
+      "reason": "Zeros the final digit’s value instead of the leading digit, which may not minimize the number.",
+      "failed_cases": [
+        "lc-2566-2",
+        "lc-2566-5",
+        "lc-2566-8",
+        "lc-2566-10",
+        "lc-2566-12",
+        "lc-2566-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6613,
+  "oracle_implementation": "code_practice/import_batch_135b.py:remap_oracle",
+  "validator_implementation_sha256": "26958b619cfd2c7a9a19616a83f40ea5cbbaa881944c2507ed1d037d920c1cd5",
+  "batch_implementation_sha256": "6b5befa60c056e7ab2a64ca68a4344a492f00997af98ba9d2f091738516a790c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5baf3e12d43943b9231581a8803220a6dce2253c93293b0c65c21acb02f55bd2",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

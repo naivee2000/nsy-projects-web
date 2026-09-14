@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2582",
+  "content_sha256": "a5aacef64cf5c9a0f7968637366370f90ba7317cceb268a11dbc0641ad8a2c45",
+  "source_hash": "286d5dadd010d0fb48968070e68b49cb94a170138f8c70d1a0e0bf39c129dcf7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only a one-way period and loses the return journey.",
+      "failed_cases": [
+        "lc-2582-1",
+        "lc-2582-2",
+        "lc-2582-4",
+        "lc-2582-6",
+        "lc-2582-11",
+        "lc-2582-12",
+        "lc-2582-15"
+      ]
+    },
+    {
+      "reason": "Reflects from the far endpoint with an off-by-one position.",
+      "failed_cases": [
+        "lc-2582-1",
+        "lc-2582-9",
+        "lc-2582-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6629,
+  "oracle_implementation": "code_practice/import_batch_135b.py:pillow_oracle",
+  "validator_implementation_sha256": "26958b619cfd2c7a9a19616a83f40ea5cbbaa881944c2507ed1d037d920c1cd5",
+  "batch_implementation_sha256": "6b5befa60c056e7ab2a64ca68a4344a492f00997af98ba9d2f091738516a790c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "26bf09ca3e884a0aff1a1cb4734d2fa20dce6f5e7b720d5a252024cbf04116d2",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

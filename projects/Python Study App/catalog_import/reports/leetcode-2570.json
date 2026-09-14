@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2570",
+  "content_sha256": "9feb8cced816c5bc620b80ce4cf93cef56d8db11cf0e5999f03aa024a23ed33d",
+  "source_hash": "a0e15774c9934216c12667a6efbaa86608c47e9131ef9134ad461613f0a4833d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores all contributions from the second array.",
+      "failed_cases": [
+        "lc-2570-1",
+        "lc-2570-2",
+        "lc-2570-3",
+        "lc-2570-4",
+        "lc-2570-5",
+        "lc-2570-6",
+        "lc-2570-7",
+        "lc-2570-8",
+        "lc-2570-9",
+        "lc-2570-10",
+        "lc-2570-11",
+        "lc-2570-12",
+        "lc-2570-13",
+        "lc-2570-14",
+        "lc-2570-15",
+        "lc-2570-16"
+      ]
+    },
+    {
+      "reason": "Returns dictionary insertion order rather than increasing id order.",
+      "failed_cases": [
+        "lc-2570-1",
+        "lc-2570-2",
+        "lc-2570-5",
+        "lc-2570-6",
+        "lc-2570-8",
+        "lc-2570-10",
+        "lc-2570-12",
+        "lc-2570-13",
+        "lc-2570-15",
+        "lc-2570-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6617,
+  "oracle_implementation": "code_practice/import_batch_135b.py:merge_arrays_oracle",
+  "validator_implementation_sha256": "26958b619cfd2c7a9a19616a83f40ea5cbbaa881944c2507ed1d037d920c1cd5",
+  "batch_implementation_sha256": "6b5befa60c056e7ab2a64ca68a4344a492f00997af98ba9d2f091738516a790c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2c4cbe77171bd467307fe7f9d3584f699f4d1f564814bb88ee5fa0f65c7e588d",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

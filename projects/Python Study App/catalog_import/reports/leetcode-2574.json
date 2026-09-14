@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2574",
+  "content_sha256": "987a8177f094e5b1a02158a05caa141b02b86336822e8130582ab9a8da166098",
+  "source_hash": "283f4c66ff5d0f1f499dc71db03d0ab6e0abc0c7769a72ea88d02b96c5cfff10",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Computes each difference before removing the current value from the right-side sum.",
+      "failed_cases": [
+        "lc-2574-1",
+        "lc-2574-2",
+        "lc-2574-3",
+        "lc-2574-4",
+        "lc-2574-5",
+        "lc-2574-6",
+        "lc-2574-7",
+        "lc-2574-8",
+        "lc-2574-9",
+        "lc-2574-10",
+        "lc-2574-11",
+        "lc-2574-12",
+        "lc-2574-13",
+        "lc-2574-14",
+        "lc-2574-15",
+        "lc-2574-16"
+      ]
+    },
+    {
+      "reason": "Subtracts processed values from the left accumulator instead of adding them.",
+      "failed_cases": [
+        "lc-2574-1",
+        "lc-2574-5",
+        "lc-2574-6",
+        "lc-2574-7",
+        "lc-2574-8",
+        "lc-2574-9",
+        "lc-2574-10",
+        "lc-2574-11",
+        "lc-2574-12",
+        "lc-2574-13",
+        "lc-2574-14",
+        "lc-2574-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6621,
+  "oracle_implementation": "code_practice/import_batch_135b.py:differences_oracle",
+  "validator_implementation_sha256": "26958b619cfd2c7a9a19616a83f40ea5cbbaa881944c2507ed1d037d920c1cd5",
+  "batch_implementation_sha256": "6b5befa60c056e7ab2a64ca68a4344a492f00997af98ba9d2f091738516a790c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c17ba6d37d4e0cbb65246062549339568be3654c58e88ef98bb409b19cd3f362",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
