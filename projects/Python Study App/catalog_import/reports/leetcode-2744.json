@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2744",
+  "content_sha256": "f5dea1ef2b398c8c1e59c860be83902336a97d5093cbd502fefea681739e3e0e",
+  "source_hash": "48c6861c8ed9d3ba627fad431b20e2f3347761e94cfec82c528de452f43268bd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pairs identical words instead of reversed words.",
+      "failed_cases": [
+        "lc-2744-1",
+        "lc-2744-2",
+        "lc-2744-4",
+        "lc-2744-8",
+        "lc-2744-12"
+      ]
+    },
+    {
+      "reason": "Leaves a matched reverse word available for reuse.",
+      "failed_cases": [
+        "lc-2744-9",
+        "lc-2744-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6791,
+  "oracle_implementation": "code_practice/import_batch_178.py:pairs_oracle",
+  "validator_implementation_sha256": "eb9aefc814108700773311cf8ecfe25af9cac2a5778126c4b6c5fe1db103f8b1",
+  "batch_implementation_sha256": "7b9db071892b38535a2893ef56c81ae7a526012ce12c59e521c9fa2555db8ef1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4e04aa702caa9b6e46f03edfb16295db69c186e4ac080946d6bdabb1e53ca3ad",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

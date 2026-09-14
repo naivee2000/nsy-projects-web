@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2741",
+  "content_sha256": "ea27bb94f9585d18fb973a7c366e3b6e3a94d68a2ad86f3f1296029e380902a7",
+  "source_hash": "82e31320658c33b644fc3a97fc26f530795fe828906039fef3f74bbec54d03fc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks divisibility in only one direction.",
+      "failed_cases": [
+        "lc-2741-1",
+        "lc-2741-2",
+        "lc-2741-4",
+        "lc-2741-6",
+        "lc-2741-7",
+        "lc-2741-8",
+        "lc-2741-9",
+        "lc-2741-10",
+        "lc-2741-11",
+        "lc-2741-12",
+        "lc-2741-13"
+      ]
+    },
+    {
+      "reason": "Returns only the largest count ending at one final value instead of summing all endpoints.",
+      "failed_cases": [
+        "lc-2741-1",
+        "lc-2741-2",
+        "lc-2741-4",
+        "lc-2741-6",
+        "lc-2741-7",
+        "lc-2741-8",
+        "lc-2741-9",
+        "lc-2741-10",
+        "lc-2741-11",
+        "lc-2741-12",
+        "lc-2741-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6788,
+  "oracle_implementation": "code_practice/import_batch_178.py:special_oracle",
+  "validator_implementation_sha256": "eb9aefc814108700773311cf8ecfe25af9cac2a5778126c4b6c5fe1db103f8b1",
+  "batch_implementation_sha256": "7b9db071892b38535a2893ef56c81ae7a526012ce12c59e521c9fa2555db8ef1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c0908308bfda608d2b2279eece3505ea349705dc25419dd4b6d91d78f8fd10d7",
+  "elapsed_seconds": 0.702,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

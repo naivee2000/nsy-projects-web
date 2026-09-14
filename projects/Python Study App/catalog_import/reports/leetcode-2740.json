@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2740",
+  "content_sha256": "00aa6c4d7093c121852fc4ce0095f260e01532d187c9409314d1e7e60658d56a",
+  "source_hash": "61b9425dc9a8ce577e9d3530360150159573c2475f991eaa64cc5e7768f3e97f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds adjacent values instead of taking their gap.",
+      "failed_cases": [
+        "lc-2740-1",
+        "lc-2740-2",
+        "lc-2740-3",
+        "lc-2740-4",
+        "lc-2740-5",
+        "lc-2740-6",
+        "lc-2740-7",
+        "lc-2740-8",
+        "lc-2740-9",
+        "lc-2740-10",
+        "lc-2740-11",
+        "lc-2740-12",
+        "lc-2740-13",
+        "lc-2740-14"
+      ]
+    },
+    {
+      "reason": "Checks adjacency in input order rather than value order.",
+      "failed_cases": [
+        "lc-2740-1",
+        "lc-2740-2",
+        "lc-2740-4",
+        "lc-2740-7",
+        "lc-2740-8",
+        "lc-2740-10",
+        "lc-2740-11",
+        "lc-2740-12",
+        "lc-2740-13",
+        "lc-2740-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6787,
+  "oracle_implementation": "code_practice/import_batch_178.py:partition_oracle",
+  "validator_implementation_sha256": "eb9aefc814108700773311cf8ecfe25af9cac2a5778126c4b6c5fe1db103f8b1",
+  "batch_implementation_sha256": "7b9db071892b38535a2893ef56c81ae7a526012ce12c59e521c9fa2555db8ef1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a451da863b4a1ed7e87ae84c387a99a137a1b2c111ad45b0e41a3b523d0f59f7",
+  "elapsed_seconds": 0.124,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

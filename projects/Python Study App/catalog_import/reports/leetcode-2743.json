@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2743",
+  "content_sha256": "7944630695c1ec373f0b1e31c6a8ad6308abd8f7084a55469f58d788753f075d",
+  "source_hash": "5cdba7a9ef9c39e87f65c51a955ce1067149e19ce80404987f3e771bbfd86ba2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Moves the left boundary backward when an old duplicate lies outside the window.",
+      "failed_cases": [
+        "lc-2743-2",
+        "lc-2743-4",
+        "lc-2743-6",
+        "lc-2743-7",
+        "lc-2743-8",
+        "lc-2743-9",
+        "lc-2743-10",
+        "lc-2743-11",
+        "lc-2743-12",
+        "lc-2743-13",
+        "lc-2743-14"
+      ]
+    },
+    {
+      "reason": "Moves to the duplicate itself rather than the following character.",
+      "failed_cases": [
+        "lc-2743-2",
+        "lc-2743-4",
+        "lc-2743-6",
+        "lc-2743-7",
+        "lc-2743-8",
+        "lc-2743-9",
+        "lc-2743-10",
+        "lc-2743-11",
+        "lc-2743-12",
+        "lc-2743-13",
+        "lc-2743-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6790,
+  "oracle_implementation": "code_practice/import_batch_178.py:unique_oracle",
+  "validator_implementation_sha256": "eb9aefc814108700773311cf8ecfe25af9cac2a5778126c4b6c5fe1db103f8b1",
+  "batch_implementation_sha256": "7b9db071892b38535a2893ef56c81ae7a526012ce12c59e521c9fa2555db8ef1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4e0c27616ff8270bf2b239fdb1b176cfde263144589b703746bf12e296fbd0d4",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
