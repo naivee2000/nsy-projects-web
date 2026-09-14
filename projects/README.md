@@ -13,7 +13,7 @@ Current projects:
 - `dem-claim/` - DEM claim Excel workflow for turning load/discharge documents into fixed-format claim workbooks.
 - `Car Compare/` - authenticated vehicle depreciation research workspace served at `carcompare.nsyprojects.com`. Start with `Car Compare/docs/DEPLOYMENT.md` on a website host, `Car Compare/docs/CODEX_CONTEXT.md` for a new Codex task, and `Car Compare/docs/PERFORMANCE_ACCURACY_BENCHMARK.md` for the portable acceptance gate.
 - `Stock Strategy Test/` - public Long-Term Stock Allocation Lab served at `strategy.nsyprojects.com`. It includes no-login demo and free automatic tests, plus a protected quota-aware history vault and deployment/licensing guidance in `Stock Strategy Test/docs/DEPLOYMENT.md`.
-- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 1,363 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [430-problem handoff checklist](Python%20Study%20App/docs/RELEASE_430_CHECKPOINT.md) covers the frozen `python-study-430-checkpoint` release and updating the other computer without replacing its progress. The newer verified additions remain local development; they do not change the website without another explicit update.
+- `Python Study App/` - Code Practice Lab, a private Python interview-practice app with 1,463 runnable problems so far, recursion exercises from easy through hard, a Pyodide judge, visible test tracing, progressive hints, mastery tracking, saved drafts, and persistent SQLite progress. Its 3,629-row workbook expansion remains unfinished. It runs locally without login or as an authenticated personal website whose backend remains on `127.0.0.1` behind the existing tunnel. The [430-problem handoff checklist](Python%20Study%20App/docs/RELEASE_430_CHECKPOINT.md) covers the frozen `python-study-430-checkpoint` release and updating the other computer without replacing its progress. The newer verified additions remain local development; they do not change the website without another explicit update.
 
 ## Python Study App
 
@@ -390,15 +390,16 @@ logarithmic-time algorithm is verified by a strict element-read budget, which
 rejects the linear XOR reference. This validates the reference's complexity;
 the learner's ordinary judge still checks output and its execution deadline,
 not an automatic proof of arbitrary submission complexity.
-The 1,262-import checkpoint preserves all preceding definitions and progress IDs.
-All 1,262 import reports and current overlap evidence match the 1,363-problem package.
+The 1,362-import checkpoint preserves all preceding definitions and progress IDs.
+All 1,362 import reports and current overlap evidence match the 1,463-problem package.
 The post-430 additions remain local development; the workbook ledger records 83
-overlaps, 1,262 verified imports, 155 justified exclusions, 16 quarantined records,
-and 2,113 pending records. At this checkpoint, 801 backend tests and 19 frontend
-tests pass; Chrome/Pyodide validates 1,268 approved reference suites across
-1,650 isolated judge runs, including wrong-answer rejection, timeout recovery,
-restart persistence, and offline assets. Measured backend startup is 241 ms, peak
-RSS is 269.594 MiB, and warm p95 API latency ranges from 1.100 ms to 1.508 ms over
+overlaps, 1,362 verified imports, 155 justified exclusions, 16 quarantined records,
+and 2,013 pending records. At this checkpoint, 825 backend tests and 19 frontend
+tests pass and the production frontend builds; Chrome/Pyodide validates 1,368
+approved reference suites across at least 1,750 isolated judge runs, including
+wrong-answer rejection, timeout recovery, restart persistence, and offline assets.
+Measured backend startup is 353 ms, peak RSS is 270.453 MiB, and warm p95 API
+latency ranges from 1.111 ms to 1.466 ms over
 100 requests per route. This is an interim checkpoint;
 the full 3,629-record workbook goal remains unfinished.
 
