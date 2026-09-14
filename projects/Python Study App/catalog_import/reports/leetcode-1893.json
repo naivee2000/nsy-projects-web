@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1893",
+  "content_sha256": "12c452ec4332b65beb11724d3790cb80e93ac41e6cae383864a5d48a8aaa7747",
+  "source_hash": "62b6a5429098197d549324aabe7aca88a1f7cfefedc2c928ef893cf4280dddb0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats interval ends as exclusive instead of inclusive.",
+      "failed_cases": [
+        "lc-1893-1",
+        "lc-1893-3",
+        "lc-1893-5",
+        "lc-1893-7",
+        "lc-1893-11",
+        "lc-1893-12",
+        "lc-1893-14"
+      ]
+    },
+    {
+      "reason": "Checks only the query endpoints and can miss an uncovered gap between them.",
+      "failed_cases": [
+        "lc-1893-4",
+        "lc-1893-10",
+        "lc-1893-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5940,
+  "oracle_implementation": "code_practice/import_batch_110.py:coverage_oracle",
+  "validator_implementation_sha256": "362ce092ec01df7bff55474bfd7dda7a827e212e39f8d0ec1aa4021e829635f7",
+  "batch_implementation_sha256": "f7658eb4a6e57a14e34578d5b9f4d7a6d4dd543e320805400c93e80276561708",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f4a47d59e2e227ebc222b405946c757b57eafd20de443d09027e4caec454b9e4",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

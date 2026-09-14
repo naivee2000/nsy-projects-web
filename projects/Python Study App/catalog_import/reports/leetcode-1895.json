@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1895",
+  "content_sha256": "72694ed8f62a24cbf31924fead5f8f6b34528108ba3650a8bb224569319c0c42",
+  "source_hash": "366d8618e4997d0e3c7ca6d3cdbf2ee9846b616d1bfe99ee418357b7c7dbd1dc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks row and column sums but omits both required diagonals.",
+      "failed_cases": [
+        "lc-1895-7"
+      ]
+    },
+    {
+      "reason": "Checks rows and diagonals but omits the column sums.",
+      "failed_cases": [
+        "lc-1895-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5942,
+  "oracle_implementation": "code_practice/import_batch_110.py:magic_oracle",
+  "validator_implementation_sha256": "362ce092ec01df7bff55474bfd7dda7a827e212e39f8d0ec1aa4021e829635f7",
+  "batch_implementation_sha256": "f7658eb4a6e57a14e34578d5b9f4d7a6d4dd543e320805400c93e80276561708",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ae89d2ee479e751de6695f8d5c1e592ca79e45e68b99cdeaf297393597618452",
+  "elapsed_seconds": 0.107,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

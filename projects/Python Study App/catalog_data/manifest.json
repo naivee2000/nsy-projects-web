@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1298,
+  "count": 1303,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -22992,6 +22992,98 @@
       "path": "problems/leetcode-1888.json",
       "content_sha256": "023bd24130f327374ab354ab0fae25cc8e1f33d2dec744597cb5dc056ec97ef5",
       "source_id": 1888
+    },
+    {
+      "id": "leetcode-1889",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Space Wasted From Packaging",
+      "summary": "Given n packages with specified sizes and m suppliers each offering different box sizes, select a supplier such that the total wasted space is minimized.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "binary-search",
+        "prefix-sums"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1889.json",
+      "content_sha256": "0d819b3d8a4b61031264d8b4c7dba9957291a365a517e740c365719ea9e15a41",
+      "source_id": 1889
+    },
+    {
+      "id": "leetcode-1891",
+      "version": 1,
+      "status": "approved",
+      "title": "Cutting Ribbons",
+      "summary": "Given an integer array ribbons where each element represents the length of a ribbon, and an integer k, determine the maximum length x such that you can cut at least k ribbons, each of length x.",
+      "topics": [
+        "arrays",
+        "binary-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1891.json",
+      "content_sha256": "4abc30950f34cb12847ca8f2618b076b567e75bcc4022d0e7e3379f098bb33db",
+      "source_id": 1891
+    },
+    {
+      "id": "leetcode-1893",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if All the Integers in a Range Are Covered",
+      "summary": "Given a 2D array of intervals and two integers left and right, determine if every integer in the range [left, right] is included in at least one interval.",
+      "topics": [
+        "arrays",
+        "prefix-sums",
+        "intervals"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1893.json",
+      "content_sha256": "12c452ec4332b65beb11724d3790cb80e93ac41e6cae383864a5d48a8aaa7747",
+      "source_id": 1893
+    },
+    {
+      "id": "leetcode-1894",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Student that Will Replace the Chalk",
+      "summary": "Given a 0-indexed integer array chalk where chalk[i] represents the number of chalk pieces required by the student numbered i, and an integer k representing the initial number of chalk pieces, determine the index of the student who will need to replace the chalk when the chalk count falls below the required amount for the next student.",
+      "topics": [
+        "arrays",
+        "prefix-sums",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1894.json",
+      "content_sha256": "e59ff9f864f5992ef645197a0cfffdbbc213138eb340b2fb7248e73239ea37e5",
+      "source_id": 1894
+    },
+    {
+      "id": "leetcode-1895",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Magic Square",
+      "summary": "Determine the largest k x k grid within an m x n integer grid where every row, column, and both diagonals sum to the same value, allowing for non-distinct integers.",
+      "topics": [
+        "matrices",
+        "prefix-sums",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1895.json",
+      "content_sha256": "72694ed8f62a24cbf31924fead5f8f6b34528108ba3650a8bb224569319c0c42",
+      "source_id": 1895
     }
   ]
 }

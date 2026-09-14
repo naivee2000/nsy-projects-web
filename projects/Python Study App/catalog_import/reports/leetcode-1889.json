@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1889",
+  "content_sha256": "0d819b3d8a4b61031264d8b4c7dba9957291a365a517e740c365719ea9e15a41",
+  "source_hash": "4d5f033ee7aeb9aec9fd55865bd0aac2b6f95445156d9b3b144c7a64d1edcc20",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a left boundary and fails to assign packages whose size exactly equals the box.",
+      "failed_cases": [
+        "lc-1889-4",
+        "lc-1889-7",
+        "lc-1889-9",
+        "lc-1889-12",
+        "lc-1889-14"
+      ]
+    },
+    {
+      "reason": "Returns the first viable supplier instead of comparing waste across every supplier.",
+      "failed_cases": [
+        "lc-1889-4",
+        "lc-1889-10",
+        "lc-1889-11",
+        "lc-1889-12",
+        "lc-1889-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5936,
+  "oracle_implementation": "code_practice/import_batch_110.py:packaging_oracle",
+  "validator_implementation_sha256": "362ce092ec01df7bff55474bfd7dda7a827e212e39f8d0ec1aa4021e829635f7",
+  "batch_implementation_sha256": "f7658eb4a6e57a14e34578d5b9f4d7a6d4dd543e320805400c93e80276561708",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c0f761fccc3796bf7567c86c51ca308fc8482b13857f88707acd524617329ab8",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
