@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1886,
+  "count": 1891,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -33613,6 +33613,96 @@
       "path": "problems/leetcode-2653.json",
       "content_sha256": "7a430195b705dbca46958eeb24f0f7718d38be72529cbac5681290fe07713a0c",
       "source_id": 2653
+    },
+    {
+      "id": "leetcode-2654",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Operations to Make All Array Elements Equal to 1",
+      "summary": "Given a 0-indexed array of positive integers, you can perform operations where you select an index i (0 <= i < n-1) and replace either nums[i] or nums[i+1] with their gcd.",
+      "topics": [
+        "arrays",
+        "greatest common divisor",
+        "number theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2654.json",
+      "content_sha256": "1251dd56dc5a90e28b9efca2ee3acf0693e3585eedd519e4379ad784814b495e",
+      "source_id": 2654
+    },
+    {
+      "id": "leetcode-2655",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Maximal Uncovered Ranges",
+      "summary": "Given an integer n representing the length of an array nums, and a 2D-array ranges indicating sub-ranges of nums, find all maximal length uncovered ranges.",
+      "topics": [
+        "arrays",
+        "intervals",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2655.json",
+      "content_sha256": "0d9bd83e02241c3745f65389ca500c2ca3366bdf2629bf1c545ab9cb38eb570a",
+      "source_id": 2655
+    },
+    {
+      "id": "leetcode-2656",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Sum With Exactly K Elements ",
+      "summary": "Given a 0-indexed integer array nums and an integer k, you must execute the following operation exactly k times to maximize your score: choose an element m from nums, remove it, add m + 1 to the array, and increase your score by m.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2656.json",
+      "content_sha256": "1b3330dca3c64e6743ff774794dd4b53c25f61a5053964ef6362cf82ff71f753",
+      "source_id": 2656
+    },
+    {
+      "id": "leetcode-2657",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Prefix Common Array of Two Arrays",
+      "summary": "Given two 0-indexed integer permutations A and B of length n, determine an array C where C[i] is the count of elements that appear in both A and B up to index i.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2657.json",
+      "content_sha256": "622816a0df24001845abf5fadcf8484d36b9f66d38bf4fe315ef771e90223099",
+      "source_id": 2657
+    },
+    {
+      "id": "leetcode-2658",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Fish in a Grid",
+      "summary": "Given a 0-indexed 2D matrix grid of size m x n, where each cell (r, c) is either a land cell with grid[r][c] = 0 or a water cell containing grid[r][c] fish, a fisher can start at any water cell and perform the following actions any number of times: - Catch all the fish at the current water cell, or - Move to any adjacent water cell.",
+      "topics": [
+        "matrices",
+        "graphs",
+        "depth-first search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2658.json",
+      "content_sha256": "e501f7519011c08ae889127097d4d965faeb493b6b3232978866723e02d8641e",
+      "source_id": 2658
     }
   ]
 }

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2656",
+  "content_sha256": "1b3330dca3c64e6743ff774794dd4b53c25f61a5053964ef6362cf82ff71f753",
+  "source_hash": "7d992b8ebd14971f8974c17427e3d6fa637f536e0c9625ac6bf58a8093111837",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Starts from the smallest array value.",
+      "failed_cases": [
+        "lc-2656-1",
+        "lc-2656-5",
+        "lc-2656-6",
+        "lc-2656-8",
+        "lc-2656-9",
+        "lc-2656-11",
+        "lc-2656-12",
+        "lc-2656-13",
+        "lc-2656-14",
+        "lc-2656-15"
+      ]
+    },
+    {
+      "reason": "Adds increments one through k instead of zero through k-1.",
+      "failed_cases": [
+        "lc-2656-1",
+        "lc-2656-2",
+        "lc-2656-3",
+        "lc-2656-4",
+        "lc-2656-5",
+        "lc-2656-6",
+        "lc-2656-7",
+        "lc-2656-8",
+        "lc-2656-9",
+        "lc-2656-10",
+        "lc-2656-11",
+        "lc-2656-12",
+        "lc-2656-13",
+        "lc-2656-14",
+        "lc-2656-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6703,
+  "oracle_implementation": "code_practice/import_batch_169.py:maximum_oracle",
+  "validator_implementation_sha256": "99e2cf8f2e53f733bc03644b7b6232a881241f81c8e56f477cf1cc5597edb0b5",
+  "batch_implementation_sha256": "a4a3684a003be06943534bfa39087156c1b8afdcf190bf48dd0d71a2789ff7c8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5426d76500470dc07247c5c0d6a99c750f434021160270288ce8fc3a87d1f8be",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

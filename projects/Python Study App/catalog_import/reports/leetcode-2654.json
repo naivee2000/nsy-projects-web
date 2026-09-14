@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2654",
+  "content_sha256": "1251dd56dc5a90e28b9efca2ee3acf0693e3585eedd519e4379ad784814b495e",
+  "source_hash": "467a5e00951a7512d51ada53ae988b7f193da7ca1e984182d808c4b6325e5509",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Charges one extra operation after creating the first one.",
+      "failed_cases": [
+        "lc-2654-1",
+        "lc-2654-8",
+        "lc-2654-10",
+        "lc-2654-12",
+        "lc-2654-14",
+        "lc-2654-15",
+        "lc-2654-16"
+      ]
+    },
+    {
+      "reason": "Returns the number of existing ones rather than operations needed to convert the rest.",
+      "failed_cases": [
+        "lc-2654-3",
+        "lc-2654-5",
+        "lc-2654-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6701,
+  "oracle_implementation": "code_practice/import_batch_169.py:ones_oracle",
+  "validator_implementation_sha256": "99e2cf8f2e53f733bc03644b7b6232a881241f81c8e56f477cf1cc5597edb0b5",
+  "batch_implementation_sha256": "a4a3684a003be06943534bfa39087156c1b8afdcf190bf48dd0d71a2789ff7c8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b0a1ce6c95f4c68f3de934e13e346f2f60d22dbefef5512be256969b88055c8e",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
