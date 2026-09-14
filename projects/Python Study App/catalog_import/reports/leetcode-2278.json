@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2278",
+  "content_sha256": "7b5c4008789cfc667f638bb07c5779901c55b65cbdc94c6b06f1f08f219bee33",
+  "source_hash": "c691b8c4fb0d9009e5631a998996d50bdc4b470a258bed392309ab425752ecc0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the raw fraction count divided by length instead of a percentage.",
+      "failed_cases": [
+        "lc-2278-1",
+        "lc-2278-2",
+        "lc-2278-3",
+        "lc-2278-5",
+        "lc-2278-7",
+        "lc-2278-8",
+        "lc-2278-9",
+        "lc-2278-10",
+        "lc-2278-11",
+        "lc-2278-12",
+        "lc-2278-13",
+        "lc-2278-14"
+      ]
+    },
+    {
+      "reason": "Uses floating-point division instead of flooring to an integer.",
+      "failed_cases": [
+        "lc-2278-1",
+        "lc-2278-5",
+        "lc-2278-7",
+        "lc-2278-8",
+        "lc-2278-9",
+        "lc-2278-10",
+        "lc-2278-13",
+        "lc-2278-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6325,
+  "oracle_implementation": "code_practice/import_batch_126b.py:percent_oracle",
+  "validator_implementation_sha256": "41b59fba4bfd648fda3f4c2b6f92fdabac51e384352050109d4641bd886ae668",
+  "batch_implementation_sha256": "383f2d86bb79710d978426d8882e0a919e2a9324ac36478d2ac1e4f66cb99534",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f455e28619d87aaaccdd8e45b5fac7fe475e34037a0d6538ba3236e47506b009",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

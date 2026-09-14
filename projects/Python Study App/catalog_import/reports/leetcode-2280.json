@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2280",
+  "content_sha256": "87de918086731af532396aebc64168f84631468bfad093d9aa88bdeb0a47195f",
+  "source_hash": "ecf67c3b757c260398026952e005b64ceaf6e32a2bfc27a3ece54a5b9ceecefd",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts a new line when slopes stay equal instead of when they change.",
+      "failed_cases": [
+        "lc-2280-1",
+        "lc-2280-2",
+        "lc-2280-5",
+        "lc-2280-6",
+        "lc-2280-7",
+        "lc-2280-8",
+        "lc-2280-9",
+        "lc-2280-11",
+        "lc-2280-12",
+        "lc-2280-14"
+      ]
+    },
+    {
+      "reason": "Uses the unsorted input order rather than chronological day order.",
+      "failed_cases": [
+        "lc-2280-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6327,
+  "oracle_implementation": "code_practice/import_batch_126b.py:lines_oracle",
+  "validator_implementation_sha256": "41b59fba4bfd648fda3f4c2b6f92fdabac51e384352050109d4641bd886ae668",
+  "batch_implementation_sha256": "383f2d86bb79710d978426d8882e0a919e2a9324ac36478d2ac1e4f66cb99534",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "acc8c6223f71ada35f5843d3e27aab0bbce9f64220ea7e7ecbb814eab75af047",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
