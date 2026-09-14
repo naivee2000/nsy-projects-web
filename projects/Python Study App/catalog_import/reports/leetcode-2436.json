@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2436",
+  "content_sha256": "2424f5dba7dfd63dea353367606e0458abdde2588ab67e43f6c7084d89bb31d6",
+  "source_hash": "034278b0558defc5aaca00cf2c68f43c1b96890ebbcfc72f95881204749d32d4",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly splits a valid group whose GCD is exactly two.",
+      "failed_cases": [
+        "lc-2436-1",
+        "lc-2436-2",
+        "lc-2436-3",
+        "lc-2436-5",
+        "lc-2436-7",
+        "lc-2436-9",
+        "lc-2436-12"
+      ]
+    },
+    {
+      "reason": "Starts with zero groups and undercounts every nonempty input.",
+      "failed_cases": [
+        "lc-2436-1",
+        "lc-2436-2",
+        "lc-2436-3",
+        "lc-2436-4",
+        "lc-2436-5",
+        "lc-2436-6",
+        "lc-2436-7",
+        "lc-2436-8",
+        "lc-2436-9",
+        "lc-2436-10",
+        "lc-2436-11",
+        "lc-2436-12",
+        "lc-2436-13",
+        "lc-2436-14",
+        "lc-2436-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6483,
+  "oracle_implementation": "code_practice/import_batch_142.py:splits_oracle",
+  "validator_implementation_sha256": "b942a7fafe196b05c05901784cae6885795a1fb0a35ba3b99021bc994838c3fc",
+  "batch_implementation_sha256": "b408c7614107cada5cbd92c6f1b6998beaf8c79b18eb70898e32b9ea4045c49a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5461595874c487ee0550f897a5940fb980af439d048d925086d4d526948cc8e7",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

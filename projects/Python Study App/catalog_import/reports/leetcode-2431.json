@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2431",
+  "content_sha256": "2a8422a7c33e4ec99d76841f5435d47c1a7f7290d4a20f93948c9e1267b8c6cc",
+  "source_hash": "f84cf7aadecc9b493095e71d41625e80fbaf1d2b572073a959267c74a0e9113b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Never permits the discounted purchase transition.",
+      "failed_cases": [
+        "lc-2431-1",
+        "lc-2431-2",
+        "lc-2431-4",
+        "lc-2431-5",
+        "lc-2431-8",
+        "lc-2431-10",
+        "lc-2431-12",
+        "lc-2431-13",
+        "lc-2431-14",
+        "lc-2431-15",
+        "lc-2431-16"
+      ]
+    },
+    {
+      "reason": "Rounds a discounted odd price upward instead of downward.",
+      "failed_cases": [
+        "lc-2431-4",
+        "lc-2431-12",
+        "lc-2431-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6478,
+  "oracle_implementation": "code_practice/import_batch_142.py:fruit_oracle",
+  "validator_implementation_sha256": "b942a7fafe196b05c05901784cae6885795a1fb0a35ba3b99021bc994838c3fc",
+  "batch_implementation_sha256": "b408c7614107cada5cbd92c6f1b6998beaf8c79b18eb70898e32b9ea4045c49a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "821011a86a979b67d534aef60f8ba13759d42295d9d51d62c76a033f345d5761",
+  "elapsed_seconds": 0.08,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

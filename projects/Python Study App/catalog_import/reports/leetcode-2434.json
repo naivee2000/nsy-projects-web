@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2434",
+  "content_sha256": "ff03ec276e2769fd954a86317ada77ab34d35fb81d78f0f4c572f8fb8c4caed2",
+  "source_hash": "2036ea7f886199c944b8edbd9370fea7c7526ec738309c44f99255a73248734a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to pop a stack character equal to the smallest remaining source character.",
+      "failed_cases": [
+        "lc-2434-14"
+      ]
+    },
+    {
+      "reason": "Increases remaining counts as characters are consumed and loses the true suffix minimum.",
+      "failed_cases": [
+        "lc-2434-2",
+        "lc-2434-8",
+        "lc-2434-11",
+        "lc-2434-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6481,
+  "oracle_implementation": "code_practice/import_batch_142.py:robot_oracle",
+  "validator_implementation_sha256": "b942a7fafe196b05c05901784cae6885795a1fb0a35ba3b99021bc994838c3fc",
+  "batch_implementation_sha256": "b408c7614107cada5cbd92c6f1b6998beaf8c79b18eb70898e32b9ea4045c49a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "132e340570f52968bce38b68cf29811399974db8a9bd4d62d925e9cce71f55c6",
+  "elapsed_seconds": 0.077,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

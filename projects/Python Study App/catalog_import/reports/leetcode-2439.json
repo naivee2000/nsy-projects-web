@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2439",
+  "content_sha256": "f8fcb887e0df249ec2a858262e69571c0289d21fa9901e6d40e96f0bfc7f11c6",
+  "source_hash": "8bd886ae9334657260cf7ed03b99dd301e3fe91f973218ae6299bb39b65811e1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses floor instead of ceiling for a prefix average.",
+      "failed_cases": [
+        "lc-2439-5",
+        "lc-2439-14",
+        "lc-2439-16"
+      ]
+    },
+    {
+      "reason": "Checks only the final prefix average instead of the maximum constraint across all prefixes.",
+      "failed_cases": [
+        "lc-2439-2",
+        "lc-2439-8",
+        "lc-2439-10",
+        "lc-2439-12",
+        "lc-2439-14",
+        "lc-2439-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6486,
+  "oracle_implementation": "code_practice/import_batch_142.py:minimize_oracle",
+  "validator_implementation_sha256": "b942a7fafe196b05c05901784cae6885795a1fb0a35ba3b99021bc994838c3fc",
+  "batch_implementation_sha256": "b408c7614107cada5cbd92c6f1b6998beaf8c79b18eb70898e32b9ea4045c49a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ee1b493749ac7c6d27ebcba556b35df14ceeedcb4651b4e838aec7ccfa023059",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
