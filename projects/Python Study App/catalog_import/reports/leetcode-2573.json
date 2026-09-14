@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2573",
+  "content_sha256": "b5a7dbe6ba72fcc313a1f3fe94ebc21ebcab8d7c98557ce1aa7db4620bbc0459",
+  "source_hash": "44f1fff83ff1d2ad9d6412cafbd8976f2d67aac01b037f895c394a9f9e2c8076",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Assigns every later position the same letter even when its LCP is zero.",
+      "failed_cases": [
+        "lc-2573-1",
+        "lc-2573-4",
+        "lc-2573-8",
+        "lc-2573-9",
+        "lc-2573-11",
+        "lc-2573-15"
+      ]
+    },
+    {
+      "reason": "Skips alphabet letters and therefore does not produce the lexicographically smallest valid string.",
+      "failed_cases": [
+        "lc-2573-1",
+        "lc-2573-4",
+        "lc-2573-8",
+        "lc-2573-9",
+        "lc-2573-11",
+        "lc-2573-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6620,
+  "oracle_implementation": "code_practice/import_batch_158.py:lcp_oracle",
+  "validator_implementation_sha256": "f049bcfd2cc20cd9a0c2b0183b15eaec37def44ac871da0d9c01d0f943bd33db",
+  "batch_implementation_sha256": "cde3d920017b7549e045453f4ce1dbfcb54540c8bfa4e0dc1a12876c3da7ca4c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c5b0666584496122ad4a12776e312536e4380dca3f5c3b19c1f1b087147de21c",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

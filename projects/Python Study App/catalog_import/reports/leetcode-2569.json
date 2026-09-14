@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2569",
+  "content_sha256": "eb88ee78df8dac91f9d5f29bd1cc68d17e1e8c40eda662bc76ea57c8058b5346",
+  "source_hash": "9ada0a28145f477f40913b11f0fd860dd6c1c22f23041b95bbec80350c62b892",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a range length one too small when flipping a fully covered segment.",
+      "failed_cases": [
+        "lc-2569-1",
+        "lc-2569-2",
+        "lc-2569-5",
+        "lc-2569-7",
+        "lc-2569-9",
+        "lc-2569-10",
+        "lc-2569-11",
+        "lc-2569-13",
+        "lc-2569-14",
+        "lc-2569-15",
+        "lc-2569-16"
+      ]
+    },
+    {
+      "reason": "Uses the unused third query field instead of multiplier p.",
+      "failed_cases": [
+        "lc-2569-1",
+        "lc-2569-4",
+        "lc-2569-5",
+        "lc-2569-7",
+        "lc-2569-9",
+        "lc-2569-11",
+        "lc-2569-12",
+        "lc-2569-13",
+        "lc-2569-14",
+        "lc-2569-15",
+        "lc-2569-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6616,
+  "oracle_implementation": "code_practice/import_batch_158.py:queries_oracle",
+  "validator_implementation_sha256": "f049bcfd2cc20cd9a0c2b0183b15eaec37def44ac871da0d9c01d0f943bd33db",
+  "batch_implementation_sha256": "cde3d920017b7549e045453f4ce1dbfcb54540c8bfa4e0dc1a12876c3da7ca4c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "21e12411cd5c28711dc3d590aae094d50ce488f7cb2bff3b03ca7865a14edf2b",
+  "elapsed_seconds": 0.112,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

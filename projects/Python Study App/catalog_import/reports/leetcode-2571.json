@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2571",
+  "content_sha256": "6db6266036ca95854f911900bba7d82def73d333d95b779419139f5a0bbadfc1",
+  "source_hash": "937173803abb279d13ef61d44581c53709cd00dbcc3e54a57679cd1ab2301482",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Looks two bit positions ahead instead of detecting an adjacent run of ones.",
+      "failed_cases": [
+        "lc-2571-1",
+        "lc-2571-2",
+        "lc-2571-7"
+      ]
+    },
+    {
+      "reason": "Always clears a set bit and misses cheaper carries across long runs of ones.",
+      "failed_cases": [
+        "lc-2571-1",
+        "lc-2571-2",
+        "lc-2571-9",
+        "lc-2571-11",
+        "lc-2571-13",
+        "lc-2571-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6618,
+  "oracle_implementation": "code_practice/import_batch_158.py:reduce_oracle",
+  "validator_implementation_sha256": "f049bcfd2cc20cd9a0c2b0183b15eaec37def44ac871da0d9c01d0f943bd33db",
+  "batch_implementation_sha256": "cde3d920017b7549e045453f4ce1dbfcb54540c8bfa4e0dc1a12876c3da7ca4c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7b1479d92fb7bade4e074499b4bc5dbdca7fbca2145153fff69aab11054c39f7",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
