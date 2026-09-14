@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2251",
+  "content_sha256": "c13f98c04d07ee3bfa819154492811f92cff857f84efd942ddf001b75ea595ef",
+  "source_hash": "75940e1387b8c5cc63d823083c706a63a5739d3ac895a2c80249f7b5188362f4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts flowers ending exactly at the arrival time even though endpoints are inclusive.",
+      "failed_cases": [
+        "lc-2251-1",
+        "lc-2251-2",
+        "lc-2251-3",
+        "lc-2251-5",
+        "lc-2251-6",
+        "lc-2251-7",
+        "lc-2251-8",
+        "lc-2251-9",
+        "lc-2251-11",
+        "lc-2251-12",
+        "lc-2251-13",
+        "lc-2251-14"
+      ]
+    },
+    {
+      "reason": "Omits flowers starting exactly at the arrival time.",
+      "failed_cases": [
+        "lc-2251-1",
+        "lc-2251-2",
+        "lc-2251-3",
+        "lc-2251-5",
+        "lc-2251-6",
+        "lc-2251-7",
+        "lc-2251-8",
+        "lc-2251-9",
+        "lc-2251-10",
+        "lc-2251-11",
+        "lc-2251-12",
+        "lc-2251-13",
+        "lc-2251-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6298,
+  "oracle_implementation": "code_practice/import_batch_125.py:flowers_oracle",
+  "validator_implementation_sha256": "63ebc041f33b8d736413c5811b680cbe27b49a96768b53b8990b160ef382d876",
+  "batch_implementation_sha256": "8916c77dbf1abe33f33bb121cbb3a1e33b3fda5360147f58d08696b570b91749",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6aa554d38360be286e2ef2dbb9f69d472e7481c81605d0dab8d2f99f9f7a1934",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

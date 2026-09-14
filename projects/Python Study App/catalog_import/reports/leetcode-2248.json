@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2248",
+  "content_sha256": "68ef283759d30d6b41a768e1bcc9306d992e074e3a3a764b7d58b9717c15b282",
+  "source_hash": "287996d2d63a5f7a891fd0a1b7dfc85507171ec0592f55e8d20f34f69fb7013e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Builds a union instead of retaining only common values.",
+      "failed_cases": [
+        "lc-2248-1",
+        "lc-2248-2",
+        "lc-2248-5",
+        "lc-2248-7",
+        "lc-2248-8",
+        "lc-2248-10",
+        "lc-2248-11",
+        "lc-2248-12",
+        "lc-2248-13",
+        "lc-2248-14"
+      ]
+    },
+    {
+      "reason": "Sorts the common values in descending rather than required increasing order.",
+      "failed_cases": [
+        "lc-2248-1",
+        "lc-2248-6",
+        "lc-2248-7",
+        "lc-2248-8",
+        "lc-2248-9",
+        "lc-2248-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6295,
+  "oracle_implementation": "code_practice/import_batch_125.py:intersection_oracle",
+  "validator_implementation_sha256": "63ebc041f33b8d736413c5811b680cbe27b49a96768b53b8990b160ef382d876",
+  "batch_implementation_sha256": "8916c77dbf1abe33f33bb121cbb3a1e33b3fda5360147f58d08696b570b91749",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e0fa20481e13bbde5682a1fccd351e8c2dfbceaf1e009f03d11ac3593c221343",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

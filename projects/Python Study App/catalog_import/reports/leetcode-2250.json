@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2250",
+  "content_sha256": "1ac4f61b1f38c5c74376bca8078b8bd74df1e087ddd23558ac62a080b511c9e0",
+  "source_hash": "3b5d1f7a9a27d561637acc95d1fe210056ca3e8174dce860a442317f4a08a597",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires width to be strictly greater than the point x-coordinate.",
+      "failed_cases": [
+        "lc-2250-1",
+        "lc-2250-2",
+        "lc-2250-3",
+        "lc-2250-5",
+        "lc-2250-6",
+        "lc-2250-7",
+        "lc-2250-8",
+        "lc-2250-10",
+        "lc-2250-11",
+        "lc-2250-12",
+        "lc-2250-13",
+        "lc-2250-14"
+      ]
+    },
+    {
+      "reason": "Requires rectangle height to be strictly greater and omits equality at y.",
+      "failed_cases": [
+        "lc-2250-2",
+        "lc-2250-3",
+        "lc-2250-5",
+        "lc-2250-6",
+        "lc-2250-7",
+        "lc-2250-8",
+        "lc-2250-9",
+        "lc-2250-10",
+        "lc-2250-11",
+        "lc-2250-12",
+        "lc-2250-13",
+        "lc-2250-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6297,
+  "oracle_implementation": "code_practice/import_batch_125.py:rectangles_oracle",
+  "validator_implementation_sha256": "63ebc041f33b8d736413c5811b680cbe27b49a96768b53b8990b160ef382d876",
+  "batch_implementation_sha256": "8916c77dbf1abe33f33bb121cbb3a1e33b3fda5360147f58d08696b570b91749",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7b4aff21e8213a77496470c3787b12728f923da980a463b5f7204400dbf90ec3",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2255",
+  "content_sha256": "02284b7d96e194d5cfe36cfd91594b308c029d53d065bc78ef27ffc13bb2815e",
+  "source_hash": "e571829144b5b364bed33b97f84e4a27a5fd2ea9e34e9cb8993edce399eac6d9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the prefix relationship and tests whether each word starts with s.",
+      "failed_cases": [
+        "lc-2255-1",
+        "lc-2255-5",
+        "lc-2255-6",
+        "lc-2255-8",
+        "lc-2255-9",
+        "lc-2255-11",
+        "lc-2255-12",
+        "lc-2255-13",
+        "lc-2255-14"
+      ]
+    },
+    {
+      "reason": "Returns only whether any prefix exists instead of counting every matching occurrence.",
+      "failed_cases": [
+        "lc-2255-1",
+        "lc-2255-2",
+        "lc-2255-8",
+        "lc-2255-9",
+        "lc-2255-11",
+        "lc-2255-13",
+        "lc-2255-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6302,
+  "oracle_implementation": "code_practice/import_batch_125.py:prefixes_oracle",
+  "validator_implementation_sha256": "63ebc041f33b8d736413c5811b680cbe27b49a96768b53b8990b160ef382d876",
+  "batch_implementation_sha256": "8916c77dbf1abe33f33bb121cbb3a1e33b3fda5360147f58d08696b570b91749",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8c55442c7d160e9826ea25032300ad9faacadcf2181b1258a2100c47ce06d602",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
