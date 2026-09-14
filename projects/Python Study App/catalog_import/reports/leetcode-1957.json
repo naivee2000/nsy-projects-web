@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1957",
+  "content_sha256": "6354f12bfd885144303e745ae5ba6dda44f563636fe02d174d2da548c548eb2e",
+  "source_hash": "b0a07d9d6c6e061cdebbd2a5e129c1c52b6e13eb25ef84a9081fac8763d00797",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a third equal character before filtering begins.",
+      "failed_cases": [
+        "lc-1957-2",
+        "lc-1957-5",
+        "lc-1957-6",
+        "lc-1957-10",
+        "lc-1957-13"
+      ]
+    },
+    {
+      "reason": "Keeps the next character only when the character two positions back is equal, reversing the intended condition.",
+      "failed_cases": [
+        "lc-1957-1",
+        "lc-1957-2",
+        "lc-1957-5",
+        "lc-1957-6",
+        "lc-1957-8",
+        "lc-1957-9",
+        "lc-1957-10",
+        "lc-1957-11",
+        "lc-1957-12",
+        "lc-1957-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6004,
+  "oracle_implementation": "code_practice/import_batch_112d.py:fancy_oracle",
+  "validator_implementation_sha256": "17afc0e08e36c01302b53bc5293e020f416f9a26f31ec81b9587981328f537c0",
+  "batch_implementation_sha256": "e9a51e6c589ff4ba2bbec4fd21df2c921a3d7194c37f977b4c92f853f8662567",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8cf812a6c587d5eaf45b01d8d7f75d08a73e768b10c61043f304a83c0e03afbf",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1958",
+  "content_sha256": "84ca301e4e320e975a2bbea465ab4ceae52fc491f12b4f7e14aad765d80dd05a",
+  "source_hash": "2520978b2b79905ea48f9db25695ef8971a9ab2855b07426de5c7db13c08815c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks horizontal directions only and misses legal vertical or diagonal lines.",
+      "failed_cases": [
+        "lc-1958-2",
+        "lc-1958-6",
+        "lc-1958-7",
+        "lc-1958-8",
+        "lc-1958-9",
+        "lc-1958-10",
+        "lc-1958-13",
+        "lc-1958-14"
+      ]
+    },
+    {
+      "reason": "Allows an adjacent same-color piece without at least one bracketed opponent.",
+      "failed_cases": [
+        "lc-1958-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6005,
+  "oracle_implementation": "code_practice/import_batch_112d.py:move_oracle",
+  "validator_implementation_sha256": "17afc0e08e36c01302b53bc5293e020f416f9a26f31ec81b9587981328f537c0",
+  "batch_implementation_sha256": "e9a51e6c589ff4ba2bbec4fd21df2c921a3d7194c37f977b4c92f853f8662567",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0ff6f1ca52176dce9b6371b382a87e6a8b1a03b2c12056057300ff9d39f21183",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "missing in workbook; reviewed examples authored"
+}

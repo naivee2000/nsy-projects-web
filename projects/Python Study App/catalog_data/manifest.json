@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1353,
+  "count": 1358,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -24002,6 +24002,97 @@
       "path": "problems/leetcode-1953.json",
       "content_sha256": "beb4437cf277c847b30f7505f9893e756093f147f62b8b5674269c2303171efe",
       "source_id": 1953
+    },
+    {
+      "id": "leetcode-1954",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Garden Perimeter to Collect Enough Apples",
+      "summary": "Given an integer neededApples, determine the smallest perimeter of a square plot centered at (0, 0) such that the plot contains at least the specified number of apples.",
+      "topics": [
+        "math",
+        "binary search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1954.json",
+      "content_sha256": "51528e9dc326d273e91e9938c831ec84b205b79bbcb1a065280facd3f87b3ad0",
+      "source_id": 1954
+    },
+    {
+      "id": "leetcode-1955",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Number of Special Subsequences",
+      "summary": "Determine the count of unique subsequences in an array of 0s, 1s, and 2s that follow a specific order (positive number of 0s, followed by 1s, then 2s).",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1955.json",
+      "content_sha256": "ef0d61749d7ad19bb6ac08cf316619310f4d200c9f9b4ab92d0044eda9db4992",
+      "source_id": 1955
+    },
+    {
+      "id": "leetcode-1956",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time For K Virus Variants to Spread",
+      "summary": "Given n unique virus variants on an infinite 2D grid, where each variant starts at a point given by a 2D array, determine the minimum number of days required for any point to have at least k different virus variants, with each variant spreading to adjacent cells daily.",
+      "topics": [
+        "geometry",
+        "binary search",
+        "coordinate transforms"
+      ],
+      "prerequisites": [
+        "geometry"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1956.json",
+      "content_sha256": "2f2c6f497f9c8d9d586ba09ec5ade255491ba4511b4f6d84f89383b800d513e3",
+      "source_id": 1956
+    },
+    {
+      "id": "leetcode-1957",
+      "version": 1,
+      "status": "approved",
+      "title": "Delete Characters to Make Fancy String",
+      "summary": "A fancy string has no three consecutive identical characters.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1957.json",
+      "content_sha256": "6354f12bfd885144303e745ae5ba6dda44f563636fe02d174d2da548c548eb2e",
+      "source_id": 1957
+    },
+    {
+      "id": "leetcode-1958",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Move is Legal",
+      "summary": "Given an 8x8 grid board where free cells are marked '.', white cells are marked 'W', and black cells are marked 'B', determine if changing a free cell at position (rMove, cMove) to the specified color (either white or black) results in a good line.",
+      "topics": [
+        "matrices",
+        "simulation",
+        "directional search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1958.json",
+      "content_sha256": "84ca301e4e320e975a2bbea465ab4ceae52fc491f12b4f7e14aad765d80dd05a",
+      "source_id": 1958
     }
   ]
 }

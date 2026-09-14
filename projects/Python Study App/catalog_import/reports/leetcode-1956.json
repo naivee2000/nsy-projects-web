@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1956",
+  "content_sha256": "2f2c6f497f9c8d9d586ba09ec5ade255491ba4511b4f6d84f89383b800d513e3",
+  "source_hash": "e104a4540a2fbaed71ae9e4ea681caac32ac691a837cf5cbadcb146a5aba0004",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats each spread diamond as open and misses points reached exactly on day t.",
+      "failed_cases": [
+        "lc-1956-1",
+        "lc-1956-3",
+        "lc-1956-4",
+        "lc-1956-5",
+        "lc-1956-6",
+        "lc-1956-7",
+        "lc-1956-8",
+        "lc-1956-10",
+        "lc-1956-11",
+        "lc-1956-13",
+        "lc-1956-14"
+      ]
+    },
+    {
+      "reason": "Ignores the parity constraint required for transformed coordinates to map back to an integer grid point.",
+      "failed_cases": [
+        "lc-1956-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6003,
+  "oracle_implementation": "code_practice/import_batch_112d.py:virus_oracle",
+  "validator_implementation_sha256": "17afc0e08e36c01302b53bc5293e020f416f9a26f31ec81b9587981328f537c0",
+  "batch_implementation_sha256": "e9a51e6c589ff4ba2bbec4fd21df2c921a3d7194c37f977b4c92f853f8662567",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bc9b7d37735a47cdc18d57e9be95eb54b33665a5bddcac98e8feeef5d4c492f6",
+  "elapsed_seconds": 0.135,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

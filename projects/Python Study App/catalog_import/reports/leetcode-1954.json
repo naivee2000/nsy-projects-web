@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1954",
+  "content_sha256": "51528e9dc326d273e91e9938c831ec84b205b79bbcb1a065280facd3f87b3ad0",
+  "source_hash": "8b6edd49687a6ab64bc566bdfe99f949b3977b2eee6be8ac1aa79b8597ca6328",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns a side-length multiple rather than the perimeter of all four sides.",
+      "failed_cases": [
+        "lc-1954-1",
+        "lc-1954-2",
+        "lc-1954-3",
+        "lc-1954-4",
+        "lc-1954-5",
+        "lc-1954-6",
+        "lc-1954-7",
+        "lc-1954-8",
+        "lc-1954-9",
+        "lc-1954-10",
+        "lc-1954-11",
+        "lc-1954-12",
+        "lc-1954-13",
+        "lc-1954-14",
+        "lc-1954-15",
+        "lc-1954-16"
+      ]
+    },
+    {
+      "reason": "Uses a strict target comparison and overshoots when the apple count equals the requirement.",
+      "failed_cases": [
+        "lc-1954-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6001,
+  "oracle_implementation": "code_practice/import_batch_112d.py:garden_oracle",
+  "validator_implementation_sha256": "17afc0e08e36c01302b53bc5293e020f416f9a26f31ec81b9587981328f537c0",
+  "batch_implementation_sha256": "de903fd89c88b33c45371a993b057411e6a47bfea072a2c80e05249003b65f21",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3af3759a8bf0cb642ad9891320da27f753bc6af6892ca683f9c0f3eec7f1e0c6",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
