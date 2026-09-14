@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1183,
+  "count": 1188,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -20805,6 +20805,26 @@
       "source_id": 1738
     },
     {
+      "id": "leetcode-1739",
+      "version": 1,
+      "status": "approved",
+      "title": "Building Boxes",
+      "summary": "Given an integer n, determine the least number of unit cubes that must touch the floor when n unit cubes are placed in a cubic room of side length n, with the condition that if a cube is placed on top of another, the sides of the lower cube must be adjacent to another cube or a wall.",
+      "topics": [
+        "math",
+        "greedy",
+        "binary-search"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1739.json",
+      "content_sha256": "2a081b4389e5dcf7ae431cee08d215464f30b918efcf36ffd99fbbf24d422d50",
+      "source_id": 1739
+    },
+    {
       "id": "leetcode-1740",
       "version": 1,
       "status": "approved",
@@ -20838,6 +20858,43 @@
       "path": "problems/leetcode-1742.json",
       "content_sha256": "d4f1f3f1932532a5913be343b7fc09b14762e5aa93e7f817620592ca24594f90",
       "source_id": 1742
+    },
+    {
+      "id": "leetcode-1744",
+      "version": 1,
+      "status": "approved",
+      "title": "Can You Eat Your Favorite Candy on Your Favorite Day?",
+      "summary": "Given an array candiesCount indicating the number of each type of candy, and an array of queries specifying a favorite candy type, a favorite day, and a daily cap, determine whether it is possible to eat a candy of the specified type on the given day without exceeding the daily cap on any day.",
+      "topics": [
+        "arrays",
+        "prefix-sums",
+        "intervals"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1744.json",
+      "content_sha256": "9558443a633b531c88dbc45fff59635a422f02d7863074221781f954ddcb638d",
+      "source_id": 1744
+    },
+    {
+      "id": "leetcode-1745",
+      "version": 1,
+      "status": "approved",
+      "title": "Palindrome Partitioning IV",
+      "summary": "Determine if a string can be divided into three non-empty palindromic substrings.",
+      "topics": [
+        "strings",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1745.json",
+      "content_sha256": "c8e84fb991bf4f263cc08c80bcca42ee983f127989d5c695396396609ee1ec2a",
+      "source_id": 1745
     },
     {
       "id": "leetcode-1748",
@@ -20891,6 +20948,39 @@
       "path": "problems/leetcode-1750.json",
       "content_sha256": "8f1ba984fb7337a548b6d3c325842ccba4c58d9295f8256901aa403987901585",
       "source_id": 1750
+    },
+    {
+      "id": "leetcode-1752",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Array Is Sorted and Rotated",
+      "summary": "Determine if an array was originally sorted in non-decreasing order and then rotated by some number of positions, including zero rotations.",
+      "topics": [
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1752.json",
+      "content_sha256": "67f8b0104bedadd4fc0218354b6a497009eef0409626531b6738b2a6de6f39ba",
+      "source_id": 1752
+    },
+    {
+      "id": "leetcode-1753",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Score From Removing Stones",
+      "summary": "In a solitaire game with three piles of stones, each turn involves removing one stone from two different piles to earn a point.",
+      "topics": [
+        "math",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1753.json",
+      "content_sha256": "c6093420b2f8ffd28793bc3e654e7024883a8499753563b41c5ee04e198760eb",
+      "source_id": 1753
     }
   ]
 }

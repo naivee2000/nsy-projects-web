@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1744",
+  "content_sha256": "9558443a633b531c88dbc45fff59635a422f02d7863074221781f954ddcb638d",
+  "source_hash": "fc3ddddeb86fe41a1d9e1b85637fe26697b07cf5a4776c9a6420a56bf8657624",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the maximum eaten count to stop before the first candy of the requested type.",
+      "failed_cases": [
+        "lc-1744-6"
+      ]
+    },
+    {
+      "reason": "Treats the requested type as exhausted one day before its last possible candy.",
+      "failed_cases": [
+        "lc-1744-2",
+        "lc-1744-3",
+        "lc-1744-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5791,
+  "oracle_implementation": "code_practice/import_batch_104b.py:candy_o",
+  "validator_implementation_sha256": "6502023c17b81322f1ddc7fe9362af0268c03c2ea5636be25ee958e994a96730",
+  "batch_implementation_sha256": "e1624316c341d6fee86f604bc90b9d6a29fcb02f782ec8e10483ec5f0beb7255",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a83c95e1eda0fdda398e78185674ea6c60db9a4bfcbcf70228881b47ee017344",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

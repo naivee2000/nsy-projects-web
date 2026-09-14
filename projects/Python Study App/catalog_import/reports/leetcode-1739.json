@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1739",
+  "content_sha256": "2a081b4389e5dcf7ae431cee08d215464f30b918efcf36ffd99fbbf24d422d50",
+  "source_hash": "26c9809646d9c7209b7e7a0f17266676a4c9ec541e2196a166d326ad2f60f595",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds one nonexistent floor position for every completed corner layer.",
+      "failed_cases": [
+        "lc-1739-1",
+        "lc-1739-2",
+        "lc-1739-3",
+        "lc-1739-4",
+        "lc-1739-5",
+        "lc-1739-6",
+        "lc-1739-7",
+        "lc-1739-8",
+        "lc-1739-9",
+        "lc-1739-10",
+        "lc-1739-11",
+        "lc-1739-12",
+        "lc-1739-13",
+        "lc-1739-14",
+        "lc-1739-15",
+        "lc-1739-16"
+      ]
+    },
+    {
+      "reason": "Credits each partial floor extension with one too many supported boxes.",
+      "failed_cases": [
+        "lc-1739-1",
+        "lc-1739-7",
+        "lc-1739-9",
+        "lc-1739-10",
+        "lc-1739-12",
+        "lc-1739-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5786,
+  "oracle_implementation": "code_practice/import_batch_104b.py:boxes_o",
+  "validator_implementation_sha256": "6502023c17b81322f1ddc7fe9362af0268c03c2ea5636be25ee958e994a96730",
+  "batch_implementation_sha256": "e1624316c341d6fee86f604bc90b9d6a29fcb02f782ec8e10483ec5f0beb7255",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "46d75d22de6db7d8d983a61ee4894703093c448576b2733133cf3f4dc31a9e27",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

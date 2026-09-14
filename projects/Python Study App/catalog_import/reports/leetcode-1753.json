@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1753",
+  "content_sha256": "c6093420b2f8ffd28793bc3e654e7024883a8499753563b41c5ee04e198760eb",
+  "source_hash": "f8375cc76fdb033a5d34a8340bf42e6c10a8a22de0b58dac8e254e10f7486445",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the largest pile size rather than the total stones outside it as the imbalance bound.",
+      "failed_cases": [
+        "lc-1753-2",
+        "lc-1753-4",
+        "lc-1753-6",
+        "lc-1753-7",
+        "lc-1753-8",
+        "lc-1753-9",
+        "lc-1753-11",
+        "lc-1753-14"
+      ]
+    },
+    {
+      "reason": "Rounds down after subtracting one and loses a move when the total is even.",
+      "failed_cases": [
+        "lc-1753-1",
+        "lc-1753-2",
+        "lc-1753-5",
+        "lc-1753-9",
+        "lc-1753-11",
+        "lc-1753-12",
+        "lc-1753-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5800,
+  "oracle_implementation": "code_practice/import_batch_104b.py:stones_o",
+  "validator_implementation_sha256": "6502023c17b81322f1ddc7fe9362af0268c03c2ea5636be25ee958e994a96730",
+  "batch_implementation_sha256": "e1624316c341d6fee86f604bc90b9d6a29fcb02f782ec8e10483ec5f0beb7255",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2cfcfa38bf67b5f08307790de32ccb1cc082f2f96f01515db9a571c393c7abaf",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

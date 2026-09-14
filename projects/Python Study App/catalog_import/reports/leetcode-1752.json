@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1752",
+  "content_sha256": "67f8b0104bedadd4fc0218354b6a497009eef0409626531b6738b2a6de6f39ba",
+  "source_hash": "6c571f0dd16b2ed3be8e25971fed47e39cee04383934687e1e5b9651dce06ecc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects already sorted arrays with zero rotations.",
+      "failed_cases": [
+        "lc-1752-3",
+        "lc-1752-6"
+      ]
+    },
+    {
+      "reason": "Treats equal adjacent values as decreases.",
+      "failed_cases": [
+        "lc-1752-6",
+        "lc-1752-8",
+        "lc-1752-13",
+        "lc-1752-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5799,
+  "oracle_implementation": "code_practice/import_batch_104b.py:rotated_o",
+  "validator_implementation_sha256": "6502023c17b81322f1ddc7fe9362af0268c03c2ea5636be25ee958e994a96730",
+  "batch_implementation_sha256": "e1624316c341d6fee86f604bc90b9d6a29fcb02f782ec8e10483ec5f0beb7255",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "93a1d20dae58f59ff60a83e475948f6aefea26d7511fa197934231b0d039b17d",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

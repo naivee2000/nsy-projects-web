@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1745",
+  "content_sha256": "c8e84fb991bf4f263cc08c80bcca42ee983f127989d5c695396396609ee1ec2a",
+  "source_hash": "cb5499bbd5b78266e3bedc3d849638123e38c4d6da671cfafb1352f6f1bf1803",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to initialize adjacent equal characters as palindromes.",
+      "failed_cases": [
+        "lc-1745-1",
+        "lc-1745-6",
+        "lc-1745-7",
+        "lc-1745-8"
+      ]
+    },
+    {
+      "reason": "Never allows the first piece to have length one.",
+      "failed_cases": [
+        "lc-1745-1",
+        "lc-1745-3",
+        "lc-1745-4",
+        "lc-1745-5",
+        "lc-1745-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5792,
+  "oracle_implementation": "code_practice/import_batch_104b.py:partition_o",
+  "validator_implementation_sha256": "6502023c17b81322f1ddc7fe9362af0268c03c2ea5636be25ee958e994a96730",
+  "batch_implementation_sha256": "e1624316c341d6fee86f604bc90b9d6a29fcb02f782ec8e10483ec5f0beb7255",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f92dec24e8ebacaa4b4102db0c787d7b4bce2541556d39a6b0a80c2e373d56f0",
+  "elapsed_seconds": 0.067,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
