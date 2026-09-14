@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2023",
+  "content_sha256": "d057dd81adb7db07deb59564a85dbae3ddaac286b2538907cee805325bc6c128",
+  "source_hash": "9e49ece14081451c9255639f21cf03ed7291a0649c72a3a167ec356a860cbfd5",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a suffix test when deciding whether the current value can be the first half.",
+      "failed_cases": [
+        "lc-2023-4",
+        "lc-2023-10"
+      ]
+    },
+    {
+      "reason": "Discards duplicate frequencies and undercounts distinct index choices.",
+      "failed_cases": [
+        "lc-2023-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6070,
+  "oracle_implementation": "code_practice/import_batch_115b.py:concat_o",
+  "validator_implementation_sha256": "ea6d053d0f2239ba9243b27365c027b7d9a4c5bc5f6eb3b3f65baf1b12dec4cd",
+  "batch_implementation_sha256": "cc93cbb1f2a4977fb2001505569005db5853e06787e45d75c219989f803b65f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c4fcf7562be08c6017de01c6d9499bfee382ae8d3e74a3afd2b6c09888d65343",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

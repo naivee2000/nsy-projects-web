@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2021",
+  "content_sha256": "dd49b40d7f34e2d7fadc0e04627c46ce5639bbd5d0e6d801fe70a4dae745f6ed",
+  "source_hash": "242a7da67cc1f8210950a0e51a5cd7141434c583dc28d34c66139dcbe59e009b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ends inclusive light intervals one position too early.",
+      "failed_cases": [
+        "lc-2021-1",
+        "lc-2021-2",
+        "lc-2021-5",
+        "lc-2021-8",
+        "lc-2021-9",
+        "lc-2021-10",
+        "lc-2021-11"
+      ]
+    },
+    {
+      "reason": "Overwrites ties and returns the largest brightest position rather than the smallest.",
+      "failed_cases": [
+        "lc-2021-1",
+        "lc-2021-7",
+        "lc-2021-8",
+        "lc-2021-12",
+        "lc-2021-13",
+        "lc-2021-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6068,
+  "oracle_implementation": "code_practice/import_batch_115b.py:bright_o",
+  "validator_implementation_sha256": "ea6d053d0f2239ba9243b27365c027b7d9a4c5bc5f6eb3b3f65baf1b12dec4cd",
+  "batch_implementation_sha256": "cc93cbb1f2a4977fb2001505569005db5853e06787e45d75c219989f803b65f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "333d785208b4bd1f97d8323ee5295b3cf0fea6680f49cbfba64b7f3a4d405b8a",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

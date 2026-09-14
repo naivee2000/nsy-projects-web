@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2027",
+  "content_sha256": "7fd8beade24b44e5f96b5208854e6f05ec4b16a8db4f009a955f5c4976750a01",
+  "source_hash": "6f3f89cd08f7aa3f42c368a9f1856effefb4e1aa82c0ebb9e6872b1495363712",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Advances only two positions and can count overlapping work unnecessarily.",
+      "failed_cases": [
+        "lc-2027-1",
+        "lc-2027-8",
+        "lc-2027-9",
+        "lc-2027-10",
+        "lc-2027-11"
+      ]
+    },
+    {
+      "reason": "Starts a move only for three consecutive X values, leaving isolated X values unchanged.",
+      "failed_cases": [
+        "lc-2027-2",
+        "lc-2027-4",
+        "lc-2027-5",
+        "lc-2027-6",
+        "lc-2027-7",
+        "lc-2027-8",
+        "lc-2027-10",
+        "lc-2027-11",
+        "lc-2027-12",
+        "lc-2027-13",
+        "lc-2027-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6074,
+  "oracle_implementation": "code_practice/import_batch_115b.py:moves_o",
+  "validator_implementation_sha256": "ea6d053d0f2239ba9243b27365c027b7d9a4c5bc5f6eb3b3f65baf1b12dec4cd",
+  "batch_implementation_sha256": "cc93cbb1f2a4977fb2001505569005db5853e06787e45d75c219989f803b65f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "feb88f9c7948e9689360d3352f9b0d49e9e228463b6c601908541eed5ae5f2d7",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2022",
+  "content_sha256": "ec2a3ba612dfee6d43314199bc0d4d015121b9816dc65702dc1475e5732fdb8b",
+  "source_hash": "584729c689d65dc4c88918a399f2e8ab5b8b79455cde04c0bcbaf6de4d5011bb",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts oversized arrays and silently ignores extra values.",
+      "failed_cases": [
+        "lc-2022-15"
+      ]
+    },
+    {
+      "reason": "Uses the row count instead of the column count as slice width.",
+      "failed_cases": [
+        "lc-2022-2",
+        "lc-2022-5",
+        "lc-2022-6",
+        "lc-2022-7",
+        "lc-2022-9",
+        "lc-2022-10",
+        "lc-2022-11",
+        "lc-2022-12",
+        "lc-2022-13",
+        "lc-2022-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6069,
+  "oracle_implementation": "code_practice/import_batch_115b.py:matrix_o",
+  "validator_implementation_sha256": "ea6d053d0f2239ba9243b27365c027b7d9a4c5bc5f6eb3b3f65baf1b12dec4cd",
+  "batch_implementation_sha256": "cc93cbb1f2a4977fb2001505569005db5853e06787e45d75c219989f803b65f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3ae0697bcaf1aa6ed28b58569ca9d8aecc192300c47d5bce43ea5f1f0392623c",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
