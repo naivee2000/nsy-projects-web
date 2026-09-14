@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2016",
+  "content_sha256": "40643d896e78a7c5a53fc4d8dfb81e147c60b2486757aebcac87cc0bd924c962",
+  "source_hash": "61f5098ab776ff404c4d211d7488ce8c1f85d6c39a103952f48d81c90cdd48f2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only the immediately previous value instead of the minimum earlier value.",
+      "failed_cases": [
+        "lc-2016-6",
+        "lc-2016-7"
+      ]
+    },
+    {
+      "reason": "Returns zero rather than -1 when no strictly increasing pair exists.",
+      "failed_cases": [
+        "lc-2016-2",
+        "lc-2016-4",
+        "lc-2016-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6063,
+  "oracle_implementation": "code_practice/import_batch_115.py:increase_o",
+  "validator_implementation_sha256": "7477e594bc2d4bef9224fd67738d807a26308ecf8fa38f1558ee9d41eeca845d",
+  "batch_implementation_sha256": "f7ca9a276e77e9af88cfa80d7388e9c093ba269d2990fe26727ecf3d786e63ce",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "425f72592d983ad686c19fd8ed7ae3034b94a30d6bb59fc51a891b215f7585c6",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

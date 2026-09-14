@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2014",
+  "content_sha256": "61de602551df1c31cb36856c6cc965c94f10c4e7825584fc12863b9f2ccff1bf",
+  "source_hash": "4b321d89c3214acb5a0fb35f4e74763a20ee0c149e85c8288f3c2ddd7a2733d2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the first maximum-length candidate and ignores the lexicographically larger tie rule.",
+      "failed_cases": [
+        "lc-2014-1",
+        "lc-2014-7",
+        "lc-2014-8",
+        "lc-2014-11",
+        "lc-2014-12"
+      ]
+    },
+    {
+      "reason": "Checks only k-1 repetitions and accepts candidates that do not repeat k times.",
+      "failed_cases": [
+        "lc-2014-1",
+        "lc-2014-2",
+        "lc-2014-4",
+        "lc-2014-5",
+        "lc-2014-6",
+        "lc-2014-8",
+        "lc-2014-9",
+        "lc-2014-12",
+        "lc-2014-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6061,
+  "oracle_implementation": "code_practice/import_batch_115.py:repeated_o",
+  "validator_implementation_sha256": "7477e594bc2d4bef9224fd67738d807a26308ecf8fa38f1558ee9d41eeca845d",
+  "batch_implementation_sha256": "f7ca9a276e77e9af88cfa80d7388e9c093ba269d2990fe26727ecf3d786e63ce",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7579316ad7536ecd1277507124c583ce2497e5ab4fea5fd0de45457edbc039cf",
+  "elapsed_seconds": 0.071,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

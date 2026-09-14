@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1398,
+  "count": 1403,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -24826,6 +24826,97 @@
       "path": "problems/leetcode-2011.json",
       "content_sha256": "9cb1a721432408041db669bfec82512642c2eebde396c07c5395606eb337551f",
       "source_id": 2011
+    },
+    {
+      "id": "leetcode-2012",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Beauty in the Array",
+      "summary": "Given an array of integers, calculate the beauty of each element at index i (1 i, the beauty is 2; if nums[i - 1] < nums[i] < nums[i + 1] but the first condition does not hold, the beauty is 1; otherwise, the beauty is 0.",
+      "topics": [
+        "arrays",
+        "prefix maxima",
+        "suffix minima"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2012.json",
+      "content_sha256": "01996bf11da1250dcb863a812d0058105be946bba68d2a7c20b2b8755da92da6",
+      "source_id": 2012
+    },
+    {
+      "id": "leetcode-2014",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Subsequence Repeated k Times",
+      "summary": "Given a string s and an integer k, find the longest subsequence that can be repeated k times within s.",
+      "topics": [
+        "backtracking",
+        "breadth-first-search",
+        "subsequences"
+      ],
+      "prerequisites": [
+        "backtracking"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2014.json",
+      "content_sha256": "61de602551df1c31cb36856c6cc965c94f10c4e7825584fc12863b9f2ccff1bf",
+      "source_id": 2014
+    },
+    {
+      "id": "leetcode-2015",
+      "version": 1,
+      "status": "approved",
+      "title": "Average Height of Buildings in Each Segment",
+      "summary": "A straight street is modeled by a number line with buildings represented as segments.",
+      "topics": [
+        "sweep line",
+        "prefix sums",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2015.json",
+      "content_sha256": "32546d5ffd6e65ddc5ae89f318a08b40c4ede0fa88bb6abf3a7d14e80aa71251",
+      "source_id": 2015
+    },
+    {
+      "id": "leetcode-2016",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Difference Between Increasing Elements",
+      "summary": "Given a 0-indexed integer array nums of size n, find the maximum value of nums[j] - nums[i] where 0 <= i < j < n and nums[i] < nums[j].",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2016.json",
+      "content_sha256": "40643d896e78a7c5a53fc4d8dfb81e147c60b2486757aebcac87cc0bd924c962",
+      "source_id": 2016
+    },
+    {
+      "id": "leetcode-2017",
+      "version": 1,
+      "status": "approved",
+      "title": "Grid Game",
+      "summary": "Given a 2D array grid of size 2 x n, where each cell grid[r][c] contains a number of points, two robots start at position (0, 0) and aim to reach (1, n-1).",
+      "topics": [
+        "matrices",
+        "prefix sums",
+        "game theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2017.json",
+      "content_sha256": "7b5df2028fc7193f6fc17a92b5c8757dc7f3578436e00858adfaaf747ca69ba1",
+      "source_id": 2017
     }
   ]
 }
