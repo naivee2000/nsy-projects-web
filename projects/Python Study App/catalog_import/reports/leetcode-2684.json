@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2684",
+  "content_sha256": "8ced3d07da7777a9e1c7a586686380a54e3f2bd4f17c3f296f163b1ff26dca1c",
+  "source_hash": "f8e81ee2c41bcbf0c96ea20fb8e6e03f728fba32f9f272c845c042725e597f36",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows equal-valued moves despite the strict-increase rule.",
+      "failed_cases": [
+        "lc-2684-2",
+        "lc-2684-9"
+      ]
+    },
+    {
+      "reason": "Allows only same-row moves and ignores both diagonals.",
+      "failed_cases": [
+        "lc-2684-1",
+        "lc-2684-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6731,
+  "oracle_implementation": "code_practice/import_batch_172.py:moves_oracle",
+  "validator_implementation_sha256": "ede36706fe4b474ed6b66cafb81ad3d7615d97ce82ab4b60634e966ce6c0cf43",
+  "batch_implementation_sha256": "f644d029b411ace3fb9296993813a948ccf6366b822aa6bda15ff9034320f353",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2a4e0f8e6829541aafcb4453a3b0a319a2a7c194e472ad3794d0532fbf4e0af6",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

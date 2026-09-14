@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2682",
+  "content_sha256": "d6ec67721ed4e689655c911a26ea16bb884765749952182c81bb45df0caae606",
+  "source_hash": "6b463b970894e642bce3c04478b9bd31229c073c2c67daa8adcedd2b9eddf441",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a constant k-step pass instead of increasing the multiplier each turn.",
+      "failed_cases": [
+        "lc-2682-1",
+        "lc-2682-6",
+        "lc-2682-7",
+        "lc-2682-9",
+        "lc-2682-10",
+        "lc-2682-11",
+        "lc-2682-12"
+      ]
+    },
+    {
+      "reason": "Compares one-based friend IDs directly with zero-based visited positions.",
+      "failed_cases": [
+        "lc-2682-1",
+        "lc-2682-2",
+        "lc-2682-3",
+        "lc-2682-4",
+        "lc-2682-5",
+        "lc-2682-6",
+        "lc-2682-7",
+        "lc-2682-8",
+        "lc-2682-9",
+        "lc-2682-10",
+        "lc-2682-11",
+        "lc-2682-12",
+        "lc-2682-13",
+        "lc-2682-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6729,
+  "oracle_implementation": "code_practice/import_batch_172.py:losers_oracle",
+  "validator_implementation_sha256": "ede36706fe4b474ed6b66cafb81ad3d7615d97ce82ab4b60634e966ce6c0cf43",
+  "batch_implementation_sha256": "f644d029b411ace3fb9296993813a948ccf6366b822aa6bda15ff9034320f353",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9c842a1650b1f03adbffa08375bee2118859b1f9ddd5755faea0247af4c6bf7c",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

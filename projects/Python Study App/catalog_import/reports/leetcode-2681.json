@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2681",
+  "content_sha256": "7d74962669d24820c8477c06af6fa8008b1dda65b71fd3d82cc9c3f1c1e89f82",
+  "source_hash": "afa182ed03a26d0c755036c37e2f49c202bebf0b2cb4c78941f1dde6e9e03d63",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts earlier possible minima instead of adding their subset contributions.",
+      "failed_cases": [
+        "lc-2681-1",
+        "lc-2681-2",
+        "lc-2681-5",
+        "lc-2681-6",
+        "lc-2681-7",
+        "lc-2681-8",
+        "lc-2681-9",
+        "lc-2681-10",
+        "lc-2681-11",
+        "lc-2681-12",
+        "lc-2681-13",
+        "lc-2681-14",
+        "lc-2681-15"
+      ]
+    },
+    {
+      "reason": "Fails to double prior minimum contributions when the new maximum may join every prior subset.",
+      "failed_cases": [
+        "lc-2681-1",
+        "lc-2681-2",
+        "lc-2681-8",
+        "lc-2681-9",
+        "lc-2681-10",
+        "lc-2681-12",
+        "lc-2681-13",
+        "lc-2681-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6728,
+  "oracle_implementation": "code_practice/import_batch_172.py:power_oracle",
+  "validator_implementation_sha256": "ede36706fe4b474ed6b66cafb81ad3d7615d97ce82ab4b60634e966ce6c0cf43",
+  "batch_implementation_sha256": "f644d029b411ace3fb9296993813a948ccf6366b822aa6bda15ff9034320f353",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fa8bd9201fdbe000a64277ce5823db3746d2807bff1c64307c7dec9e272da25a",
+  "elapsed_seconds": 0.314,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
