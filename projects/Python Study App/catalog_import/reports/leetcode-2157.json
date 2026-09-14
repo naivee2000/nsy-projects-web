@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2157",
+  "content_sha256": "fedb10bb5fc17744c2b1e01aaa3cb46a0da2a1e0180e36915e9fe073dd02bf8f",
+  "source_hash": "617661ea437a4bef307a7cc302c5571a0b23c3a3c0f9d1a7388f2fe1d631fb43",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Never joins words related by replacing one letter.",
+      "failed_cases": [
+        "lc-2157-5",
+        "lc-2157-8",
+        "lc-2157-14",
+        "lc-2157-16"
+      ]
+    },
+    {
+      "reason": "Never joins words related by adding or deleting a letter.",
+      "failed_cases": [
+        "lc-2157-1",
+        "lc-2157-2",
+        "lc-2157-6",
+        "lc-2157-9",
+        "lc-2157-10",
+        "lc-2157-12",
+        "lc-2157-13",
+        "lc-2157-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6204,
+  "oracle_implementation": "code_practice/import_batch_121.py:groups_oracle",
+  "validator_implementation_sha256": "bbad76fb3660e3a099e4a71e2fdc5a30a486522afba46875e5f0082a2188de2d",
+  "batch_implementation_sha256": "f1ff6d510cc80a631f1b9fda2f9772e2fc7111df1e23c1fa277514db5ec6cbb6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5a041252d1583eb1e82261e39ce4c47898e43fb909f8ace9e3b63f03f2617b10",
+  "elapsed_seconds": 0.108,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

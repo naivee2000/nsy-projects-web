@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1518,
+  "count": 1523,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -26993,6 +26993,101 @@
       "path": "problems/leetcode-2155.json",
       "content_sha256": "71c0e29c212728323403a4b57543e4c4c27d324954e0b98f4e63f4c1a056bdf8",
       "source_id": 2155
+    },
+    {
+      "id": "leetcode-2156",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Substring With Given Hash Value",
+      "summary": "Given a string s, integers power, modulo, k, and hashValue, find the first substring of length k in s whose hash value matches hashValue.",
+      "topics": [
+        "strings",
+        "sliding window",
+        "rolling hash"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2156.json",
+      "content_sha256": "3544d77b173a30ebad06f6ca6aa8c9fe4b1228f2e0bc316a9e3143746a6e706c",
+      "source_id": 2156
+    },
+    {
+      "id": "leetcode-2157",
+      "version": 1,
+      "status": "approved",
+      "title": "Groups of Strings",
+      "summary": "Given a 0-indexed array of strings words, where each string consists of unique lowercase English letters, determine the maximum number of non-intersecting groups the strings can be divided into.",
+      "topics": [
+        "bit manipulation",
+        "union find",
+        "hash maps"
+      ],
+      "prerequisites": [
+        "bit manipulation"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2157.json",
+      "content_sha256": "fedb10bb5fc17744c2b1e01aaa3cb46a0da2a1e0180e36915e9fe073dd02bf8f",
+      "source_id": 2157
+    },
+    {
+      "id": "leetcode-2158",
+      "version": 1,
+      "status": "approved",
+      "title": "Amount of New Area Painted Each Day",
+      "summary": "Given a 0-indexed 2D integer array paint of length n, where each element paint[i] is a start-end pair indicating the area to paint on the ith day, return an integer array worklog of length n.",
+      "topics": [
+        "arrays",
+        "disjoint sets",
+        "intervals"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2158.json",
+      "content_sha256": "9c098588406a7571edae147c41c3ab7e185412eacf243a6ad17c7cd0e65b8610",
+      "source_id": 2158
+    },
+    {
+      "id": "leetcode-2160",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Sum of Four Digit Number After Splitting Digits",
+      "summary": "Given a positive integer num consisting of exactly four digits, split num into two new integers new1 and new2 by using the digits found in num.",
+      "topics": [
+        "math",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2160.json",
+      "content_sha256": "cf43f7608174d6600fc762a31c9a2aa252977a39f080e163c5d0e3fc3d7e28a3",
+      "source_id": 2160
+    },
+    {
+      "id": "leetcode-2161",
+      "version": 1,
+      "status": "approved",
+      "title": "Partition Array According to Given Pivot",
+      "summary": "Given a 0-indexed integer array nums and an integer pivot, rearrange nums so that all elements less than pivot precede those greater than pivot, with elements equal to pivot in between.",
+      "topics": [
+        "arrays",
+        "stable partition"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2161.json",
+      "content_sha256": "c08ae7895cf5d7389d72519b89ba02145d81dd66dd42936a79c1f77e4c9606ca",
+      "source_id": 2161
     }
   ]
 }

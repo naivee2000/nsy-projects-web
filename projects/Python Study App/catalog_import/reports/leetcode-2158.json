@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2158",
+  "content_sha256": "9c098588406a7571edae147c41c3ab7e185412eacf243a6ad17c7cd0e65b8610",
+  "source_hash": "9379fdce312c9a7af8e6f1ba8082d0ed63bcbc358f27f2f7f3b5d2081e629587",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Restarts at every coordinate and counts already painted positions again.",
+      "failed_cases": [
+        "lc-2158-1",
+        "lc-2158-2",
+        "lc-2158-4",
+        "lc-2158-5",
+        "lc-2158-7",
+        "lc-2158-9",
+        "lc-2158-11",
+        "lc-2158-12",
+        "lc-2158-13",
+        "lc-2158-14"
+      ]
+    },
+    {
+      "reason": "Treats the half-open interval endpoint as painted.",
+      "failed_cases": [
+        "lc-2158-1",
+        "lc-2158-2",
+        "lc-2158-3",
+        "lc-2158-4",
+        "lc-2158-5",
+        "lc-2158-6",
+        "lc-2158-7",
+        "lc-2158-8",
+        "lc-2158-9",
+        "lc-2158-10",
+        "lc-2158-11",
+        "lc-2158-12",
+        "lc-2158-13",
+        "lc-2158-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6205,
+  "oracle_implementation": "code_practice/import_batch_121.py:paint_oracle",
+  "validator_implementation_sha256": "bbad76fb3660e3a099e4a71e2fdc5a30a486522afba46875e5f0082a2188de2d",
+  "batch_implementation_sha256": "f1ff6d510cc80a631f1b9fda2f9772e2fc7111df1e23c1fa277514db5ec6cbb6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "22da4b15e4e6bb2699b3fe073328311e4e7e06fba5e132cbf9cd6315e44961c9",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

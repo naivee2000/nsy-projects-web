@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2160",
+  "content_sha256": "cf43f7608174d6600fc762a31c9a2aa252977a39f080e163c5d0e3fc3d7e28a3",
+  "source_hash": "5c4525ded61e289d05b9b774b32379b67fc42d8cc97234c675f0e580935c7ab4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Places a larger digit in a tens position.",
+      "failed_cases": [
+        "lc-2160-1",
+        "lc-2160-2",
+        "lc-2160-4",
+        "lc-2160-5",
+        "lc-2160-6",
+        "lc-2160-8",
+        "lc-2160-9",
+        "lc-2160-11",
+        "lc-2160-12",
+        "lc-2160-14",
+        "lc-2160-15",
+        "lc-2160-16"
+      ]
+    },
+    {
+      "reason": "Reuses the two smallest digits in the ones positions instead of using every digit once.",
+      "failed_cases": [
+        "lc-2160-1",
+        "lc-2160-2",
+        "lc-2160-3",
+        "lc-2160-4",
+        "lc-2160-5",
+        "lc-2160-6",
+        "lc-2160-8",
+        "lc-2160-9",
+        "lc-2160-11",
+        "lc-2160-12",
+        "lc-2160-13",
+        "lc-2160-14",
+        "lc-2160-15",
+        "lc-2160-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6207,
+  "oracle_implementation": "code_practice/import_batch_121.py:split_oracle",
+  "validator_implementation_sha256": "bbad76fb3660e3a099e4a71e2fdc5a30a486522afba46875e5f0082a2188de2d",
+  "batch_implementation_sha256": "f1ff6d510cc80a631f1b9fda2f9772e2fc7111df1e23c1fa277514db5ec6cbb6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b0426d4b8f8979cf3db7a16e3af6b41635c52ecfb8640d0d59413ad24650e71f",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2161",
+  "content_sha256": "c08ae7895cf5d7389d72519b89ba02145d81dd66dd42936a79c1f77e4c9606ca",
+  "source_hash": "9c76071c91f3a9b0399038a31fc2ca1004969c1c27282a3dd9467e2791bd2cba",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Mixes pivot-equal values into the first group and duplicates them.",
+      "failed_cases": [
+        "lc-2161-1",
+        "lc-2161-2",
+        "lc-2161-3",
+        "lc-2161-5",
+        "lc-2161-6",
+        "lc-2161-7",
+        "lc-2161-8",
+        "lc-2161-9",
+        "lc-2161-10",
+        "lc-2161-11",
+        "lc-2161-12",
+        "lc-2161-13",
+        "lc-2161-14"
+      ]
+    },
+    {
+      "reason": "Reverses the required relative order of greater values.",
+      "failed_cases": [
+        "lc-2161-1",
+        "lc-2161-2",
+        "lc-2161-11",
+        "lc-2161-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6208,
+  "oracle_implementation": "code_practice/import_batch_121.py:pivot_oracle",
+  "validator_implementation_sha256": "bbad76fb3660e3a099e4a71e2fdc5a30a486522afba46875e5f0082a2188de2d",
+  "batch_implementation_sha256": "f1ff6d510cc80a631f1b9fda2f9772e2fc7111df1e23c1fa277514db5ec6cbb6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "65ac004ebec0c6d3b1aa75e656e02d0ec02bbb248b895ff5b4a614eef1c0e977",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

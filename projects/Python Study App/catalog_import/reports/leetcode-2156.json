@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2156",
+  "content_sha256": "3544d77b173a30ebad06f6ca6aa8c9fe4b1228f2e0bc316a9e3143746a6e706c",
+  "source_hash": "297752f38351e58fe0778deac5b9315bea51c66f3ef3f3a8a435fd2221e0b15e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Scans rolling windows in the wrong direction and can return a later match.",
+      "failed_cases": [
+        "lc-2156-1",
+        "lc-2156-2",
+        "lc-2156-4",
+        "lc-2156-7",
+        "lc-2156-8",
+        "lc-2156-10",
+        "lc-2156-12",
+        "lc-2156-13",
+        "lc-2156-14",
+        "lc-2156-15"
+      ]
+    },
+    {
+      "reason": "Maps a to zero instead of one when adding the incoming character.",
+      "failed_cases": [
+        "lc-2156-1",
+        "lc-2156-2",
+        "lc-2156-4",
+        "lc-2156-5",
+        "lc-2156-7",
+        "lc-2156-8",
+        "lc-2156-10",
+        "lc-2156-12",
+        "lc-2156-13",
+        "lc-2156-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6203,
+  "oracle_implementation": "code_practice/import_batch_121.py:hash_oracle",
+  "validator_implementation_sha256": "bbad76fb3660e3a099e4a71e2fdc5a30a486522afba46875e5f0082a2188de2d",
+  "batch_implementation_sha256": "f1ff6d510cc80a631f1b9fda2f9772e2fc7111df1e23c1fa277514db5ec6cbb6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cb603ece1a18133c2a302c222f42a934e9971a40c7e2b09cd213815d012ce1e3",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
