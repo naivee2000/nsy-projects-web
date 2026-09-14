@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2503",
+  "content_sha256": "3e977e0bfdb618f5dc1ca26c9b7ff1a4084b0458d380e753a5ea3c4558cfd269",
+  "source_hash": "47274db01f51593e9be025bfb34ae8f880ffd4238c1ffadd9b30ef888341166a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a non-strict threshold and includes cells equal to the query.",
+      "failed_cases": [
+        "lc-2503-1",
+        "lc-2503-2",
+        "lc-2503-3",
+        "lc-2503-5",
+        "lc-2503-6",
+        "lc-2503-8",
+        "lc-2503-9",
+        "lc-2503-10",
+        "lc-2503-11",
+        "lc-2503-15",
+        "lc-2503-16"
+      ]
+    },
+    {
+      "reason": "Appends answers in sorted-query order instead of restoring original order.",
+      "failed_cases": [
+        "lc-2503-1",
+        "lc-2503-2",
+        "lc-2503-3",
+        "lc-2503-4",
+        "lc-2503-5",
+        "lc-2503-6",
+        "lc-2503-7",
+        "lc-2503-8",
+        "lc-2503-9",
+        "lc-2503-10",
+        "lc-2503-11",
+        "lc-2503-12",
+        "lc-2503-13",
+        "lc-2503-14",
+        "lc-2503-15",
+        "lc-2503-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6550,
+  "oracle_implementation": "code_practice/import_batch_149.py:points_oracle",
+  "validator_implementation_sha256": "c23010bf9e15f2711daa87a3e8c146bd5f408239b596e0f26d0ff17c411f9489",
+  "batch_implementation_sha256": "4f1439b9423bbcf57b6c9a285e3044501ef2c6d16f9caed28420aead2f424e91",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c3a94be32912df19a24cf166034d4829540bc09427f4db9e1b0030a12e952730",
+  "elapsed_seconds": 0.084,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

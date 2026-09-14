@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2508",
+  "content_sha256": "0660c3ffeb3b58e8724f67f20da67ae356d252559036f4445236d1062561505e",
+  "source_hash": "ae9e09721a93f36d0557b2ce232b372f4e4e952e5e314587616ad290c13390b5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects graphs whose degrees are already all even.",
+      "failed_cases": [
+        "lc-2508-3",
+        "lc-2508-4",
+        "lc-2508-8",
+        "lc-2508-9",
+        "lc-2508-15"
+      ]
+    },
+    {
+      "reason": "When the odd vertices are adjacent, never tries a shared intermediate vertex.",
+      "failed_cases": [
+        "lc-2508-6",
+        "lc-2508-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6555,
+  "oracle_implementation": "code_practice/import_batch_149.py:even_degrees_oracle",
+  "validator_implementation_sha256": "c23010bf9e15f2711daa87a3e8c146bd5f408239b596e0f26d0ff17c411f9489",
+  "batch_implementation_sha256": "4f1439b9423bbcf57b6c9a285e3044501ef2c6d16f9caed28420aead2f424e91",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6fb1a0d20dd1d38990358b19d4ee3439f54fff314444eb726e0076cdd6ced3e5",
+  "elapsed_seconds": 0.078,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

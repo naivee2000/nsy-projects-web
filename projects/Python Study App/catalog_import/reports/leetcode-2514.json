@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2514",
+  "content_sha256": "595670eadeb4313b661506945e1530374b144d425ee266dbc2d56d7fdeb87d3c",
+  "source_hash": "376556c197103fbfaa5c524a565ebae3c8a73ec8e42b70ddb025546b524b14ce",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts repeated letters as distinct choices.",
+      "failed_cases": [
+        "lc-2514-1",
+        "lc-2514-2",
+        "lc-2514-6",
+        "lc-2514-7",
+        "lc-2514-10",
+        "lc-2514-12",
+        "lc-2514-13"
+      ]
+    },
+    {
+      "reason": "Adds per-word permutation counts instead of multiplying independent choices.",
+      "failed_cases": [
+        "lc-2514-1",
+        "lc-2514-2",
+        "lc-2514-3",
+        "lc-2514-4",
+        "lc-2514-5",
+        "lc-2514-6",
+        "lc-2514-7",
+        "lc-2514-8",
+        "lc-2514-9",
+        "lc-2514-10",
+        "lc-2514-11",
+        "lc-2514-12",
+        "lc-2514-13",
+        "lc-2514-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6561,
+  "oracle_implementation": "code_practice/import_batch_149.py:anagrams_oracle",
+  "validator_implementation_sha256": "c23010bf9e15f2711daa87a3e8c146bd5f408239b596e0f26d0ff17c411f9489",
+  "batch_implementation_sha256": "4f1439b9423bbcf57b6c9a285e3044501ef2c6d16f9caed28420aead2f424e91",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c6261947358c9393809964b16943480b2ed150b676f1d809b2c7e2bf7d5215ec",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2499",
+  "content_sha256": "50bab53ca20710f282834d35924b3297559ce080e21b63ca73af01428100a614",
+  "source_hash": "670f0125bd6880dcc5c6b912bd4941854233e9c42ca6eee51eb1c298b6ff3d55",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts participating swaps instead of paying their required index costs.",
+      "failed_cases": [
+        "lc-2499-1",
+        "lc-2499-6",
+        "lc-2499-11",
+        "lc-2499-12",
+        "lc-2499-13",
+        "lc-2499-14",
+        "lc-2499-15",
+        "lc-2499-16"
+      ]
+    },
+    {
+      "reason": "Uses an extra position whose nums2 value equals the dominant conflict value, so it cannot safely repair the conflict.",
+      "failed_cases": [
+        "lc-2499-9",
+        "lc-2499-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6546,
+  "oracle_implementation": "code_practice/import_batch_149.py:unequal_oracle",
+  "validator_implementation_sha256": "c23010bf9e15f2711daa87a3e8c146bd5f408239b596e0f26d0ff17c411f9489",
+  "batch_implementation_sha256": "4f1439b9423bbcf57b6c9a285e3044501ef2c6d16f9caed28420aead2f424e91",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b5254f3d545e3d4dd2ac18a60874f1bfaace79fbaee43f14cba7e6f4ddc19ae2",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
