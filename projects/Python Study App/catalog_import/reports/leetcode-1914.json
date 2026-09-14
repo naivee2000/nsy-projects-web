@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1914",
+  "content_sha256": "22e6b2d84b50f868b91f3bc70aad22a463ef30b216fbdbc43e779f0be20b7a55",
+  "source_hash": "f19d2b87f1a8642c8426dee5862b5bc2555cc9c8ca1628fcc434ad530c485d96",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rotates each ring clockwise rather than counter-clockwise.",
+      "failed_cases": [
+        "lc-1914-1",
+        "lc-1914-2",
+        "lc-1914-4",
+        "lc-1914-5",
+        "lc-1914-6",
+        "lc-1914-7",
+        "lc-1914-8",
+        "lc-1914-10",
+        "lc-1914-11",
+        "lc-1914-12"
+      ]
+    },
+    {
+      "reason": "Rotates only the outer ring and leaves inner layers unchanged.",
+      "failed_cases": [
+        "lc-1914-2",
+        "lc-1914-8",
+        "lc-1914-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5961,
+  "oracle_implementation": "code_practice/import_batch_111.py:rotation_oracle",
+  "validator_implementation_sha256": "a13211144537f8864339758969de43f96ace59be51ed518a7c4b13f3a863264e",
+  "batch_implementation_sha256": "93e6a90fa5f8ca44c924fabe29e9bf918cbda45009d8a6252e7d252950056491",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "413fd84705084938c0ce519da1ba86fbb667d35015f58a453cae308c0bb8554d",
+  "elapsed_seconds": 0.076,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

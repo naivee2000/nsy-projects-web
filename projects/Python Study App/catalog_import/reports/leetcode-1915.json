@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1915",
+  "content_sha256": "572b0cbd6950e2665496864092ea7dd04b4637bec0bd3d99df633fcc771a6183",
+  "source_hash": "40145d1b5381f986aa2f180f002543cfa05afbc97ecf2f45da0142281093539c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only substrings with zero odd-frequency characters and omits the allowed single odd count.",
+      "failed_cases": [
+        "lc-1915-1",
+        "lc-1915-2",
+        "lc-1915-3",
+        "lc-1915-4",
+        "lc-1915-5",
+        "lc-1915-6",
+        "lc-1915-7",
+        "lc-1915-8",
+        "lc-1915-9",
+        "lc-1915-10",
+        "lc-1915-11",
+        "lc-1915-12",
+        "lc-1915-13",
+        "lc-1915-14",
+        "lc-1915-15",
+        "lc-1915-16"
+      ]
+    },
+    {
+      "reason": "Also counts substrings with two odd-frequency characters, exceeding the definition's limit.",
+      "failed_cases": [
+        "lc-1915-1",
+        "lc-1915-2",
+        "lc-1915-5",
+        "lc-1915-6",
+        "lc-1915-8",
+        "lc-1915-10",
+        "lc-1915-11",
+        "lc-1915-12",
+        "lc-1915-13",
+        "lc-1915-14",
+        "lc-1915-15",
+        "lc-1915-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5962,
+  "oracle_implementation": "code_practice/import_batch_111.py:wonderful_oracle",
+  "validator_implementation_sha256": "a13211144537f8864339758969de43f96ace59be51ed518a7c4b13f3a863264e",
+  "batch_implementation_sha256": "93e6a90fa5f8ca44c924fabe29e9bf918cbda45009d8a6252e7d252950056491",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dbab50931f6b1d70176ad0fdf14d881af4d14335903623bb887e1d4247650c9f",
+  "elapsed_seconds": 0.064,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
