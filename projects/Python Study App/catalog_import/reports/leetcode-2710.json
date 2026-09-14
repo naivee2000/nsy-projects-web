@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2710",
+  "content_sha256": "bd158feda9d96d8da457e6c898a563995d64a05381a3875d932cf3cbee293b9f",
+  "source_hash": "930327a9403f7166f68be3c578acc815f7a0fe79076bda74f58e04735f0f1e65",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes zero digits from the middle of the number as well as its suffix.",
+      "failed_cases": [
+        "lc-2710-1",
+        "lc-2710-6",
+        "lc-2710-7",
+        "lc-2710-9",
+        "lc-2710-11",
+        "lc-2710-13"
+      ]
+    },
+    {
+      "reason": "Strips whitespace rather than zero characters.",
+      "failed_cases": [
+        "lc-2710-1",
+        "lc-2710-4",
+        "lc-2710-5",
+        "lc-2710-8",
+        "lc-2710-9",
+        "lc-2710-10",
+        "lc-2710-11",
+        "lc-2710-13",
+        "lc-2710-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6757,
+  "oracle_implementation": "code_practice/import_batch_174.py:zeros_oracle",
+  "validator_implementation_sha256": "ea2ac7f63f9937c831005beca8e566ecf6f5fd50eab78a449905082643a54659",
+  "batch_implementation_sha256": "0e51c7f13684b655e2add100e703c5f55c9269e3d6b09aa571d847a614fa3a2c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2cd0251de204ec01d3e98f87395cb5c95317a48cfdc6910de560fc79ad3b8341",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

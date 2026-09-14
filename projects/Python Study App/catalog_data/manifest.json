@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1911,
+  "count": 1916,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -34063,6 +34063,96 @@
       "path": "problems/leetcode-2706.json",
       "content_sha256": "57cab6229563e4acbd3abe6262cafa8eae2b812e475247fcafbc1d26d0f98155",
       "source_id": 2706
+    },
+    {
+      "id": "leetcode-2707",
+      "version": 1,
+      "status": "approved",
+      "title": "Extra Characters in a String",
+      "summary": "Given a string s and a dictionary of words, find the minimum number of extra characters in s that cannot be part of any substring found in the dictionary when optimally breaking s.",
+      "topics": [
+        "strings",
+        "dynamic programming",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2707.json",
+      "content_sha256": "c5286c3071280d3dabcfabac43e37914b6de3007f33386ddbae6a546bd12a178",
+      "source_id": 2707
+    },
+    {
+      "id": "leetcode-2708",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Strength of a Group",
+      "summary": "Given a 0-indexed integer array nums representing student scores in an exam, determine the maximum product that can be obtained by multiplying the scores of a non-empty subset of these students.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2708.json",
+      "content_sha256": "27551e7cf8ead28f78efca69c38b7e28eac780ab5e71069807bbac2fde4aa438",
+      "source_id": 2708
+    },
+    {
+      "id": "leetcode-2709",
+      "version": 1,
+      "status": "approved",
+      "title": "Greatest Common Divisor Traversal",
+      "summary": "Given a 0-indexed integer array nums, you can traverse between indices i and j if the greatest common divisor of nums[i] and nums[j] is greater than 1.",
+      "topics": [
+        "arrays",
+        "union find",
+        "number theory",
+        "prime factorization"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2709.json",
+      "content_sha256": "b157353f4793c3cf74ce885c6936125b4814a6548d672f4a3aa4155ec3683f0b",
+      "source_id": 2709
+    },
+    {
+      "id": "leetcode-2710",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Trailing Zeros From a String",
+      "summary": "Given a positive integer num as a string, remove any trailing zeros and return the resulting string representation of the integer.",
+      "topics": [
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2710.json",
+      "content_sha256": "bd158feda9d96d8da457e6c898a563995d64a05381a3875d932cf3cbee293b9f",
+      "source_id": 2710
+    },
+    {
+      "id": "leetcode-2711",
+      "version": 1,
+      "status": "approved",
+      "title": "Difference of Number of Distinct Values on Diagonals",
+      "summary": "Given a 2D grid of size m x n, compute a new grid where each cell's value is the absolute difference between the number of distinct values on the diagonal to the left and above the cell, and the number of distinct values on the diagonal to the right and below the cell, excluding the cell itself.",
+      "topics": [
+        "matrices",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2711.json",
+      "content_sha256": "80abbab0e11016c50e89c39acdcb91be0c23e7dd8b8afc3fbbb06cc92f2b4218",
+      "source_id": 2711
     }
   ]
 }

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2709",
+  "content_sha256": "b157353f4793c3cf74ce885c6936125b4814a6548d672f4a3aa4155ec3683f0b",
+  "source_hash": "5b31e1985711fdf51c7b1c8fbcaf24356211efcbd0e2c194e5a887423b7d3231",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats one as connected to every other value.",
+      "failed_cases": [
+        "lc-2709-5"
+      ]
+    },
+    {
+      "reason": "Forgets the remaining prime factor after trial division finishes.",
+      "failed_cases": [
+        "lc-2709-1",
+        "lc-2709-7",
+        "lc-2709-8",
+        "lc-2709-11",
+        "lc-2709-12",
+        "lc-2709-13",
+        "lc-2709-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6756,
+  "oracle_implementation": "code_practice/import_batch_174.py:traversal_oracle",
+  "validator_implementation_sha256": "ea2ac7f63f9937c831005beca8e566ecf6f5fd50eab78a449905082643a54659",
+  "batch_implementation_sha256": "0e51c7f13684b655e2add100e703c5f55c9269e3d6b09aa571d847a614fa3a2c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "05661ea42cfc1ac1fa9f5241b01a9a3c87c05edc4e21337798b281198aa8d62e",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

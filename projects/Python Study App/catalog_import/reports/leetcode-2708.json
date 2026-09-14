@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2708",
+  "content_sha256": "27551e7cf8ead28f78efca69c38b7e28eac780ab5e71069807bbac2fde4aa438",
+  "source_hash": "19dccc15f983750a4d9ef84b853830a293ce3f554944cfafdddb2d8a0fddf0c3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops the most negative value when an odd count should drop the one closest to zero.",
+      "failed_cases": [
+        "lc-2708-1",
+        "lc-2708-2",
+        "lc-2708-14"
+      ]
+    },
+    {
+      "reason": "Incorrectly treats a negative singleton as better than an available zero.",
+      "failed_cases": [
+        "lc-2708-4",
+        "lc-2708-8",
+        "lc-2708-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6755,
+  "oracle_implementation": "code_practice/import_batch_174.py:strength_oracle",
+  "validator_implementation_sha256": "ea2ac7f63f9937c831005beca8e566ecf6f5fd50eab78a449905082643a54659",
+  "batch_implementation_sha256": "0e51c7f13684b655e2add100e703c5f55c9269e3d6b09aa571d847a614fa3a2c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3c503d505f233da05ff53cf45fbea96be82674d3c68e8adbe066b1b17d7fdb64",
+  "elapsed_seconds": 0.149,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
