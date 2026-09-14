@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2008",
+  "content_sha256": "3bde438843b4195e59f2c8316ae5079f6c3d5d8e6fa967914f96055d9bc055cd",
+  "source_hash": "dd81dad8d815951c25f2c1a1e99f3dd8ad92530c1e9459d5d41dd0509540b463",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a ride ending exactly when the next ride begins.",
+      "failed_cases": [
+        "lc-2008-2",
+        "lc-2008-4",
+        "lc-2008-6",
+        "lc-2008-7",
+        "lc-2008-8",
+        "lc-2008-9",
+        "lc-2008-11",
+        "lc-2008-12",
+        "lc-2008-14"
+      ]
+    },
+    {
+      "reason": "Subtracts tips instead of adding them to fare earnings.",
+      "failed_cases": [
+        "lc-2008-1",
+        "lc-2008-2",
+        "lc-2008-4",
+        "lc-2008-5",
+        "lc-2008-6",
+        "lc-2008-7",
+        "lc-2008-9",
+        "lc-2008-10",
+        "lc-2008-11",
+        "lc-2008-12",
+        "lc-2008-13",
+        "lc-2008-14",
+        "lc-2008-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6055,
+  "oracle_implementation": "code_practice/import_batch_114d.py:taxi_o",
+  "validator_implementation_sha256": "134711094e23b7fcf60481a0d6ce20de8ee7f51ca9455004ae90a489cb394e78",
+  "batch_implementation_sha256": "e1b45369064a64188849c3c05ad48772e1a3bd263d64426f8d8d8bc3cf7f05c5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e5cff155677273c337199f8f19067132e47c1fee595db16929d26772a959bdc1",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

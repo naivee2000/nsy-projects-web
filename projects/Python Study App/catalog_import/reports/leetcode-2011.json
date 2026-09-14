@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2011",
+  "content_sha256": "9cb1a721432408041db669bfec82512642c2eebde396c07c5395606eb337551f",
+  "source_hash": "2ccf492659097add0619d86ccf1d97c35a1d7510f99ce0628ac3a5dc539bf58c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Recognizes prefix increment but misses the postfix X++ form.",
+      "failed_cases": [
+        "lc-2011-1",
+        "lc-2011-2",
+        "lc-2011-5",
+        "lc-2011-8",
+        "lc-2011-10",
+        "lc-2011-14"
+      ]
+    },
+    {
+      "reason": "Starts X at one instead of zero.",
+      "failed_cases": [
+        "lc-2011-1",
+        "lc-2011-2",
+        "lc-2011-3",
+        "lc-2011-4",
+        "lc-2011-5",
+        "lc-2011-6",
+        "lc-2011-7",
+        "lc-2011-8",
+        "lc-2011-9",
+        "lc-2011-10",
+        "lc-2011-11",
+        "lc-2011-12",
+        "lc-2011-13",
+        "lc-2011-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6058,
+  "oracle_implementation": "code_practice/import_batch_114d.py:variable_o",
+  "validator_implementation_sha256": "134711094e23b7fcf60481a0d6ce20de8ee7f51ca9455004ae90a489cb394e78",
+  "batch_implementation_sha256": "e1b45369064a64188849c3c05ad48772e1a3bd263d64426f8d8d8bc3cf7f05c5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "286a88421495e006c8c45f50053478ac8fe238d22a38ee285c73853ec5a049bc",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

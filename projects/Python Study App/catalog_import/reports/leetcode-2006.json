@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2006",
+  "content_sha256": "8710717bac9f378e6a00ab2c02d08f50b7a50dfd916132cf1628aaa8186dcc18",
+  "source_hash": "d2ec44690aca527454fb3b00f21e894cb68f02258efb058134b9e7409ef4993a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Double-counts equal-value pairs when k is zero.",
+      "failed_cases": [
+        "lc-2006-4",
+        "lc-2006-7",
+        "lc-2006-10"
+      ]
+    },
+    {
+      "reason": "Looks for a difference one larger than k on one side.",
+      "failed_cases": [
+        "lc-2006-1",
+        "lc-2006-4",
+        "lc-2006-5",
+        "lc-2006-7",
+        "lc-2006-8",
+        "lc-2006-9",
+        "lc-2006-10",
+        "lc-2006-11",
+        "lc-2006-12",
+        "lc-2006-13",
+        "lc-2006-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6053,
+  "oracle_implementation": "code_practice/import_batch_114d.py:diff_o",
+  "validator_implementation_sha256": "134711094e23b7fcf60481a0d6ce20de8ee7f51ca9455004ae90a489cb394e78",
+  "batch_implementation_sha256": "e1b45369064a64188849c3c05ad48772e1a3bd263d64426f8d8d8bc3cf7f05c5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9373608832d1769dc6e42185c78b263ebb91c85b7b070d69c2d95990ea4c84c8",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

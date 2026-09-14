@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2009",
+  "content_sha256": "88d4b076acf7cebb8fb2bd8b0de31ed3cceb225abc1988280c6e2ba87f159d60",
+  "source_hash": "883fb639adc19060d5986e89654a97b01128b63a8bd07a804363540eafa1e2bd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps duplicates in the window even though final values must be distinct.",
+      "failed_cases": [
+        "lc-2009-5",
+        "lc-2009-7",
+        "lc-2009-8",
+        "lc-2009-11"
+      ]
+    },
+    {
+      "reason": "Allows a span of n, which needs n+1 distinct integer positions rather than n.",
+      "failed_cases": [
+        "lc-2009-2",
+        "lc-2009-10",
+        "lc-2009-12",
+        "lc-2009-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6056,
+  "oracle_implementation": "code_practice/import_batch_114d.py:continuous_o",
+  "validator_implementation_sha256": "134711094e23b7fcf60481a0d6ce20de8ee7f51ca9455004ae90a489cb394e78",
+  "batch_implementation_sha256": "e1b45369064a64188849c3c05ad48772e1a3bd263d64426f8d8d8bc3cf7f05c5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4a26cde2bbfee006340eee16de9a33062d28e48d79d71ca145c5c76e8d67de2a",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
