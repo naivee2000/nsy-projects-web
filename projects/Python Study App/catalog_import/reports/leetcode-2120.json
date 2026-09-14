@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2120",
+  "content_sha256": "fdd9a84b79e6ab4933e1a6bd3bd0310d05d8309b890f56a6c87bbe96ab27d52b",
+  "source_hash": "efc713cb6522750ce65ce4fb432b1a63b48f0b67557332a73bdcb445beb73316",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Starts every suffix at the grid origin instead of start_pos.",
+      "failed_cases": [
+        "lc-2120-1",
+        "lc-2120-2",
+        "lc-2120-8",
+        "lc-2120-9",
+        "lc-2120-11",
+        "lc-2120-12",
+        "lc-2120-13",
+        "lc-2120-14",
+        "lc-2120-16"
+      ]
+    },
+    {
+      "reason": "Counts the first invalid instruction as successfully executed.",
+      "failed_cases": [
+        "lc-2120-1",
+        "lc-2120-2",
+        "lc-2120-3",
+        "lc-2120-4",
+        "lc-2120-5",
+        "lc-2120-6",
+        "lc-2120-7",
+        "lc-2120-8",
+        "lc-2120-9",
+        "lc-2120-10",
+        "lc-2120-11",
+        "lc-2120-12",
+        "lc-2120-13",
+        "lc-2120-14",
+        "lc-2120-15",
+        "lc-2120-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6167,
+  "oracle_implementation": "code_practice/import_batch_119b.py:instructions_o",
+  "validator_implementation_sha256": "deb6d00ceabe765396a7c42c81eeefcee2034bd98794b4d4ad5c52cf21fc427b",
+  "batch_implementation_sha256": "ebf3dd95f8e4a638dff96074548fb6b706a89034de98375334fc1297f463a90f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1a4a88dd5f8344c44ab8e2e7f68ff170b622d1acf69b14d113b208ec2e13e9e0",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

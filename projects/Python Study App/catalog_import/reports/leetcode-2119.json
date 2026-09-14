@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2119",
+  "content_sha256": "c3bdfdbd6eddd67d491513026797628265ce80ba18c9a056ababe4efadb71b8d",
+  "source_hash": "a3916189e1991a7905dd3c2578f197670d306cb26ce09c1d26e0f6b465d092d2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires both zero and a nonzero last digit, rejecting every input.",
+      "failed_cases": [
+        "lc-2119-1",
+        "lc-2119-3",
+        "lc-2119-4",
+        "lc-2119-7",
+        "lc-2119-10",
+        "lc-2119-11",
+        "lc-2119-14",
+        "lc-2119-15",
+        "lc-2119-16"
+      ]
+    },
+    {
+      "reason": "Accepts exactly the positive numbers ending in zero, reversing the condition.",
+      "failed_cases": [
+        "lc-2119-1",
+        "lc-2119-2",
+        "lc-2119-4",
+        "lc-2119-5",
+        "lc-2119-6",
+        "lc-2119-7",
+        "lc-2119-8",
+        "lc-2119-9",
+        "lc-2119-10",
+        "lc-2119-11",
+        "lc-2119-12",
+        "lc-2119-13",
+        "lc-2119-14",
+        "lc-2119-15",
+        "lc-2119-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6166,
+  "oracle_implementation": "code_practice/import_batch_119b.py:reversal_o",
+  "validator_implementation_sha256": "deb6d00ceabe765396a7c42c81eeefcee2034bd98794b4d4ad5c52cf21fc427b",
+  "batch_implementation_sha256": "ebf3dd95f8e4a638dff96074548fb6b706a89034de98375334fc1297f463a90f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "85e55938d8a67ac8f73ee18526071ae3800b6d2950eadd26a55f8a1855ed60bd",
+  "elapsed_seconds": 0.011,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

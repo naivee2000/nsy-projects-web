@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2124",
+  "content_sha256": "2bdef22520aaeb04c39249976e352bf4b1db35a87af4d436f8bc2913d2249e4d",
+  "source_hash": "762a0994d14e35fc4805061f14acf06b3c7b76edfec773ed445fb0dbbd560c2c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks for the opposite adjacent transition and rejects valid ordered strings.",
+      "failed_cases": [
+        "lc-2124-1",
+        "lc-2124-5",
+        "lc-2124-6",
+        "lc-2124-9",
+        "lc-2124-10",
+        "lc-2124-11",
+        "lc-2124-13",
+        "lc-2124-14"
+      ]
+    },
+    {
+      "reason": "Returns true when a forbidden ba transition exists.",
+      "failed_cases": [
+        "lc-2124-1",
+        "lc-2124-2",
+        "lc-2124-3",
+        "lc-2124-4",
+        "lc-2124-5",
+        "lc-2124-6",
+        "lc-2124-7",
+        "lc-2124-8",
+        "lc-2124-9",
+        "lc-2124-10",
+        "lc-2124-11",
+        "lc-2124-12",
+        "lc-2124-13",
+        "lc-2124-14",
+        "lc-2124-15",
+        "lc-2124-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6171,
+  "oracle_implementation": "code_practice/import_batch_119b.py:order_o",
+  "validator_implementation_sha256": "deb6d00ceabe765396a7c42c81eeefcee2034bd98794b4d4ad5c52cf21fc427b",
+  "batch_implementation_sha256": "ebf3dd95f8e4a638dff96074548fb6b706a89034de98375334fc1297f463a90f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "943eb317f0393474845a7f8c99e2e25879444cb1db32023707a90448077ddb00",
+  "elapsed_seconds": 0.009,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
