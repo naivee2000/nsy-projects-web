@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1887",
+  "content_sha256": "56dbc6a1002f7a8852f37848fc8f9f56ff63b095b27336978c02325633ff6aff",
+  "source_hash": "3e66b0479fa1d5a6c7bd2ae81b046961126668fe09765a52e734553f941dbeec",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts distinct value levels rather than reducing every occurrence that remains above the minimum.",
+      "failed_cases": [
+        "lc-1887-1",
+        "lc-1887-5",
+        "lc-1887-6",
+        "lc-1887-7",
+        "lc-1887-8",
+        "lc-1887-9",
+        "lc-1887-10",
+        "lc-1887-11",
+        "lc-1887-12",
+        "lc-1887-13",
+        "lc-1887-14"
+      ]
+    },
+    {
+      "reason": "Adds only one operation per element regardless of how many levels it must cross.",
+      "failed_cases": [
+        "lc-1887-1",
+        "lc-1887-6",
+        "lc-1887-7",
+        "lc-1887-9",
+        "lc-1887-10",
+        "lc-1887-11",
+        "lc-1887-12",
+        "lc-1887-13",
+        "lc-1887-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5934,
+  "oracle_implementation": "code_practice/import_batch_109d.py:reductions_oracle",
+  "validator_implementation_sha256": "1103bff5db2dd178835ebac7e59c03580829f9f4f723f65e83fb696a0e27f1c2",
+  "batch_implementation_sha256": "ba4d563958775b53358a54be0386f6b91b157b6fa994770d4c10301047af7571",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "398d6825eef3dd38aaca3894c3b38b21128cf72830a5e1a73eba0071cd43c840",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

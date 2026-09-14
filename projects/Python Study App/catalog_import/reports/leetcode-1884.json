@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1884",
+  "content_sha256": "f20df6765482d20385ce8611da0285c1e4428831f20aa50822858199e31dc9b7",
+  "source_hash": "c1e3871a927e031531a72a477ad2ae4b839a8508eef03238f62d5b32e57843fa",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the exponential coverage available with unlimited eggs instead of two eggs.",
+      "failed_cases": [
+        "lc-1884-2",
+        "lc-1884-8",
+        "lc-1884-10",
+        "lc-1884-11",
+        "lc-1884-12",
+        "lc-1884-13",
+        "lc-1884-14"
+      ]
+    },
+    {
+      "reason": "Runs one extra move when the triangular coverage equals n exactly.",
+      "failed_cases": [
+        "lc-1884-3",
+        "lc-1884-4",
+        "lc-1884-7",
+        "lc-1884-9",
+        "lc-1884-11",
+        "lc-1884-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5931,
+  "oracle_implementation": "code_practice/import_batch_109d.py:egg_oracle",
+  "validator_implementation_sha256": "1103bff5db2dd178835ebac7e59c03580829f9f4f723f65e83fb696a0e27f1c2",
+  "batch_implementation_sha256": "ba4d563958775b53358a54be0386f6b91b157b6fa994770d4c10301047af7571",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "73069d900027e03bd547ac6c7f72180c21d2553def478dce23cac42ac01cc3c5",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

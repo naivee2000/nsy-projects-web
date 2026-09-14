@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1885",
+  "content_sha256": "f0f14caebb664bc3ae10460b5bc57ce3eb840bdb5deb271f34d9ea66d9e7e407",
+  "source_hash": "5e867f5d24b5f9b8f6a94b90a1b23aa66a487dab85152b68c48b22b69dc4e104",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal pair sums even though the comparison must be strict.",
+      "failed_cases": [
+        "lc-1885-1",
+        "lc-1885-4",
+        "lc-1885-7",
+        "lc-1885-9",
+        "lc-1885-11",
+        "lc-1885-13",
+        "lc-1885-14"
+      ]
+    },
+    {
+      "reason": "Counts individually positive differences instead of pairs whose two differences sum positively.",
+      "failed_cases": [
+        "lc-1885-1",
+        "lc-1885-2",
+        "lc-1885-4",
+        "lc-1885-5",
+        "lc-1885-10",
+        "lc-1885-11",
+        "lc-1885-12",
+        "lc-1885-13",
+        "lc-1885-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5932,
+  "oracle_implementation": "code_practice/import_batch_109d.py:count_pairs_oracle",
+  "validator_implementation_sha256": "1103bff5db2dd178835ebac7e59c03580829f9f4f723f65e83fb696a0e27f1c2",
+  "batch_implementation_sha256": "ba4d563958775b53358a54be0386f6b91b157b6fa994770d4c10301047af7571",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6f99409c3b3c2aefed5378fb24fcc5184b0042785ba9b7852f404a28de04625f",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

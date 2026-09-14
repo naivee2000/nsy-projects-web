@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1888",
+  "content_sha256": "023bd24130f327374ab354ab0fae25cc8e1f33d2dec744597cb5dc056ec97ef5",
+  "source_hash": "ec865bfd44d1c7cd0e6fb252487b13dff93e97ced93d9170c7fb845139600d08",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Compares only the original orientation and ignores beneficial free rotations.",
+      "failed_cases": [
+        "lc-1888-10",
+        "lc-1888-13"
+      ]
+    },
+    {
+      "reason": "Divides mismatches as if arbitrary swaps were allowed, but this problem charges individual bit flips.",
+      "failed_cases": [
+        "lc-1888-1",
+        "lc-1888-7",
+        "lc-1888-8",
+        "lc-1888-11",
+        "lc-1888-12",
+        "lc-1888-14",
+        "lc-1888-16",
+        "lc-1888-17",
+        "lc-1888-18"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5935,
+  "oracle_implementation": "code_practice/import_batch_109d.py:flips_oracle",
+  "validator_implementation_sha256": "1103bff5db2dd178835ebac7e59c03580829f9f4f723f65e83fb696a0e27f1c2",
+  "batch_implementation_sha256": "ba4d563958775b53358a54be0386f6b91b157b6fa994770d4c10301047af7571",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a1d570f9ccb59024b951e3feacbb8b97d8622e4d8b7ac290ade61a646ec90738",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
