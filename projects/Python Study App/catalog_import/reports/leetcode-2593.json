@@ -1,0 +1,63 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2593",
+  "content_sha256": "094e5a5afc3149a65f942dbf4a319dc6eff568b991607944d254b813a3a50ccf",
+  "source_hash": "cf0e43cae1d7a04500762f072d95cad44206c3cba16c76f9d8566f74a4043649",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a max-heap and selects the largest unmarked value.",
+      "failed_cases": [
+        "lc-2593-1",
+        "lc-2593-2",
+        "lc-2593-3",
+        "lc-2593-4",
+        "lc-2593-5",
+        "lc-2593-6",
+        "lc-2593-7",
+        "lc-2593-8",
+        "lc-2593-9",
+        "lc-2593-10",
+        "lc-2593-11",
+        "lc-2593-12",
+        "lc-2593-13",
+        "lc-2593-14",
+        "lc-2593-15",
+        "lc-2593-16"
+      ]
+    },
+    {
+      "reason": "Marks only the selected index and leaves its neighbors available.",
+      "failed_cases": [
+        "lc-2593-1",
+        "lc-2593-2",
+        "lc-2593-4",
+        "lc-2593-5",
+        "lc-2593-6",
+        "lc-2593-7",
+        "lc-2593-8",
+        "lc-2593-9",
+        "lc-2593-10",
+        "lc-2593-11",
+        "lc-2593-12",
+        "lc-2593-13",
+        "lc-2593-14",
+        "lc-2593-15",
+        "lc-2593-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6640,
+  "oracle_implementation": "code_practice/import_batch_162.py:marking_oracle",
+  "validator_implementation_sha256": "fa9bb0d8f4fc5aba9ff45a530022ebbcfa1d56cfecf7e5660630060eef0f87eb",
+  "batch_implementation_sha256": "a383f58319b0395b4d3a0a0d7fa74b84516c5472207b8f4c263415d56af8cb00",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fde0e001455a8924c314bf67f37937480e277bec7f69f703fdf05dfe4d21932c",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

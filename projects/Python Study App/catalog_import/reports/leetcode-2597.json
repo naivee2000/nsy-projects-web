@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2597",
+  "content_sha256": "3604ccde2c5851e4fc1e748c1ca589beed8e26abb8313a1984e8a14a54622f15",
+  "source_hash": "8a534ab8d8e8d10d4ad7d1fb01f6b282c69db646f3022ca09be18e8c21077d5d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Blocks duplicate values even though their difference is zero rather than positive k.",
+      "failed_cases": [
+        "lc-2597-1",
+        "lc-2597-3",
+        "lc-2597-5",
+        "lc-2597-6",
+        "lc-2597-7",
+        "lc-2597-8",
+        "lc-2597-9",
+        "lc-2597-10",
+        "lc-2597-11",
+        "lc-2597-12",
+        "lc-2597-13",
+        "lc-2597-14",
+        "lc-2597-15",
+        "lc-2597-16"
+      ]
+    },
+    {
+      "reason": "Includes the empty subset in the returned count.",
+      "failed_cases": [
+        "lc-2597-1",
+        "lc-2597-2",
+        "lc-2597-3",
+        "lc-2597-4",
+        "lc-2597-5",
+        "lc-2597-6",
+        "lc-2597-7",
+        "lc-2597-8",
+        "lc-2597-9",
+        "lc-2597-10",
+        "lc-2597-11",
+        "lc-2597-12",
+        "lc-2597-13",
+        "lc-2597-14",
+        "lc-2597-15",
+        "lc-2597-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6644,
+  "oracle_implementation": "code_practice/import_batch_162.py:subsets_oracle",
+  "validator_implementation_sha256": "fa9bb0d8f4fc5aba9ff45a530022ebbcfa1d56cfecf7e5660630060eef0f87eb",
+  "batch_implementation_sha256": "a383f58319b0395b4d3a0a0d7fa74b84516c5472207b8f4c263415d56af8cb00",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c10c58b5c43e9ff5825e653954c29535d1a187cfe5869fd4606eae3f1e01da03",
+  "elapsed_seconds": 1.35,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

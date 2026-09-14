@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2594",
+  "content_sha256": "1f67b5d56801db3c39b3271842dd3d4dfd308873e7f078d4bb1120cba4fc6346",
+  "source_hash": "082fff717bbe5e8b1b48ccb5bb9530145c89a45dc0dc26ca7c42dfdc1a1a5d0d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Tests one minute too early when calculating each mechanic's capacity.",
+      "failed_cases": [
+        "lc-2594-1",
+        "lc-2594-2",
+        "lc-2594-6",
+        "lc-2594-7",
+        "lc-2594-9",
+        "lc-2594-10",
+        "lc-2594-11",
+        "lc-2594-12",
+        "lc-2594-13",
+        "lc-2594-14",
+        "lc-2594-15",
+        "lc-2594-16"
+      ]
+    },
+    {
+      "reason": "Requires enough capacity for more than the requested number of cars.",
+      "failed_cases": [
+        "lc-2594-1",
+        "lc-2594-2",
+        "lc-2594-6",
+        "lc-2594-7",
+        "lc-2594-9",
+        "lc-2594-10",
+        "lc-2594-11",
+        "lc-2594-12",
+        "lc-2594-14",
+        "lc-2594-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6641,
+  "oracle_implementation": "code_practice/import_batch_162.py:repair_oracle",
+  "validator_implementation_sha256": "fa9bb0d8f4fc5aba9ff45a530022ebbcfa1d56cfecf7e5660630060eef0f87eb",
+  "batch_implementation_sha256": "a383f58319b0395b4d3a0a0d7fa74b84516c5472207b8f4c263415d56af8cb00",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0d15d9056a39b7b207a74131b805e29d6ce84b00f27aeb1b8384835bfb395cce",
+  "elapsed_seconds": 0.064,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

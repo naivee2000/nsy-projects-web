@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2595",
+  "content_sha256": "d27422b2841fd8bd76c22c330c11b8a7e1f17e092dadea6de776eb49c8cab5d7",
+  "source_hash": "de0818f5ce922f4bcff45da1d16ba90ae3217a0a37218807adbee9410ad9b7f1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds each bit to the opposite parity bucket.",
+      "failed_cases": [
+        "lc-2595-1",
+        "lc-2595-2",
+        "lc-2595-3",
+        "lc-2595-5",
+        "lc-2595-6",
+        "lc-2595-7",
+        "lc-2595-8",
+        "lc-2595-9",
+        "lc-2595-11",
+        "lc-2595-12",
+        "lc-2595-13",
+        "lc-2595-16"
+      ]
+    },
+    {
+      "reason": "Never alternates parity while shifting through the bits.",
+      "failed_cases": [
+        "lc-2595-1",
+        "lc-2595-2",
+        "lc-2595-4",
+        "lc-2595-7",
+        "lc-2595-8",
+        "lc-2595-9",
+        "lc-2595-10",
+        "lc-2595-12",
+        "lc-2595-13",
+        "lc-2595-14",
+        "lc-2595-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6642,
+  "oracle_implementation": "code_practice/import_batch_162.py:bits_oracle",
+  "validator_implementation_sha256": "fa9bb0d8f4fc5aba9ff45a530022ebbcfa1d56cfecf7e5660630060eef0f87eb",
+  "batch_implementation_sha256": "a383f58319b0395b4d3a0a0d7fa74b84516c5472207b8f4c263415d56af8cb00",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7e21029cc1c588218dd883225e954db307ca7b17c6e5eb14f747fa1478dea63a",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
