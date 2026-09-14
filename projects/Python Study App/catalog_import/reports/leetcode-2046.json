@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2046",
+  "content_sha256": "5ccbc64146139459e6f653334b609358ef87e03abdbf52303ad1d7e81526df55",
+  "source_hash": "aa7a566eec2e83b79a3f56d62ec7afd2fe2eaf17e3db1e78980a6ffdc33c8c7f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops earlier negative nodes instead of prepending each new negative value.",
+      "failed_cases": [
+        "lc-2046-1",
+        "lc-2046-8",
+        "lc-2046-9",
+        "lc-2046-11",
+        "lc-2046-12",
+        "lc-2046-13"
+      ]
+    },
+    {
+      "reason": "Fails to connect the reversed negative prefix to the nonnegative suffix.",
+      "failed_cases": [
+        "lc-2046-1",
+        "lc-2046-6",
+        "lc-2046-7",
+        "lc-2046-8",
+        "lc-2046-11",
+        "lc-2046-12",
+        "lc-2046-13",
+        "lc-2046-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6093,
+  "oracle_implementation": "code_practice/import_batch_116b.py:list_o",
+  "validator_implementation_sha256": "8419716761b634b7bbe3a9cefacd4a1875cd786244b68f051416b72ff42e0c10",
+  "batch_implementation_sha256": "7aba1776930fe298abdca50c91f9a52d3be63ad8012e9594aa75172a6845ccc7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "562801e2ab710706d2defd8d292103b16d42fe6464379768701bfe77e853d09b",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

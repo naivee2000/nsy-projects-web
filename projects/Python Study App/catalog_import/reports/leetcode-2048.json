@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2048",
+  "content_sha256": "9c725edde0237f5ffb4e475f6b0fa2978923e12b673aec8be74efbc4ef84c2b0",
+  "source_hash": "6ea2f1158592672f57985c8f5902ae5474222a571caa9ad609b1027685186243",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts at n itself and violates the strictly greater requirement when n is balanced.",
+      "failed_cases": [
+        "lc-2048-1",
+        "lc-2048-5",
+        "lc-2048-11"
+      ]
+    },
+    {
+      "reason": "Accepts digits that appear fewer times than their numeric value.",
+      "failed_cases": [
+        "lc-2048-1",
+        "lc-2048-2",
+        "lc-2048-5",
+        "lc-2048-6",
+        "lc-2048-9",
+        "lc-2048-10",
+        "lc-2048-11",
+        "lc-2048-12",
+        "lc-2048-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6095,
+  "oracle_implementation": "code_practice/import_batch_116b.py:balanced_o",
+  "validator_implementation_sha256": "8419716761b634b7bbe3a9cefacd4a1875cd786244b68f051416b72ff42e0c10",
+  "batch_implementation_sha256": "7aba1776930fe298abdca50c91f9a52d3be63ad8012e9594aa75172a6845ccc7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d656e2372612aaac058a69e127bfd7c369888802587089a62d95600eb345a0d7",
+  "elapsed_seconds": 10.468,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

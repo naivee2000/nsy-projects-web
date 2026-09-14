@@ -2,9 +2,12 @@ import json
 from pathlib import Path
 from code_practice.catalog import get_catalog
 from code_practice.import_batch_116 import BATCH
+from code_practice.import_batch_116b import BATCH as BATCH_B
 
 ROOT=Path(__file__).resolve().parents[1]
 IDS=(2036,2038,2039,2040,2042)
+IDS+=(2044,2045,2046,2047,2048)
+SPECS={**BATCH,**BATCH_B}
 
 def test_batch_116_first_slice_is_complete_and_verified():
  catalog=get_catalog()
@@ -20,7 +23,7 @@ def test_batch_116_first_slice_is_complete_and_verified():
 
 def test_batch_116_first_slice_inputs_are_distinct():
  for source_id in IDS:
-  spec=BATCH[source_id]
+  spec=SPECS[source_id]
   values=[a for a,_ in spec['examples']]+spec['boundaries']
   encoded=[json.dumps(a,sort_keys=True) for a in values]
   assert len(encoded)==len(set(encoded))

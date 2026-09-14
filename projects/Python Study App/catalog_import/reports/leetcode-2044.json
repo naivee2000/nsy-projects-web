@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2044",
+  "content_sha256": "aebea8f18dabd618ce3da934cacf4a6e94ec48311c8d5056548ae94e89f01f16",
+  "source_hash": "83fb4e79508982cea21cd63f0809380829b52f1a5f848520e638fcfe0346124f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the empty subset when the maximum OR is zero.",
+      "failed_cases": [
+        "lc-2044-3",
+        "lc-2044-5"
+      ]
+    },
+    {
+      "reason": "Uses arithmetic addition instead of bitwise OR when including an element.",
+      "failed_cases": [
+        "lc-2044-1",
+        "lc-2044-2",
+        "lc-2044-7",
+        "lc-2044-9",
+        "lc-2044-11",
+        "lc-2044-12",
+        "lc-2044-13",
+        "lc-2044-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6091,
+  "oracle_implementation": "code_practice/import_batch_116b.py:or_o",
+  "validator_implementation_sha256": "8419716761b634b7bbe3a9cefacd4a1875cd786244b68f051416b72ff42e0c10",
+  "batch_implementation_sha256": "7aba1776930fe298abdca50c91f9a52d3be63ad8012e9594aa75172a6845ccc7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d8a94d444eac4b77ce659d0631cecc865b05c143a37f0ef07ce696919ea359ac",
+  "elapsed_seconds": 0.084,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
