@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3199",
+  "content_sha256": "25a642425e9ed95ada25531ff9f8916a702c554222ac662c49909eac0b23bdf9",
+  "source_hash": "7656b6b2d94c6f8677b4222009072e8acdf324a5c200670bcea9a068559cf7bf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts odd set-bit parity instead of even.",
+      "failed_cases": [
+        "lc-3199-1",
+        "lc-3199-2",
+        "lc-3199-3",
+        "lc-3199-4",
+        "lc-3199-5",
+        "lc-3199-7",
+        "lc-3199-9",
+        "lc-3199-11",
+        "lc-3199-12",
+        "lc-3199-13",
+        "lc-3199-14"
+      ]
+    },
+    {
+      "reason": "Combines values with OR instead of XOR.",
+      "failed_cases": [
+        "lc-3199-5",
+        "lc-3199-6",
+        "lc-3199-8",
+        "lc-3199-9",
+        "lc-3199-10",
+        "lc-3199-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7246,
+  "oracle_implementation": "code_practice/import_batch_190c.py:parity_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "2c2b336af50fd78115dd53f927b862c534a4064c68008ea5aac35cfa28d7b015",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3229800ede152928e35dd15e8d6918ff0074e228b074cf82f54815f832765c59",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

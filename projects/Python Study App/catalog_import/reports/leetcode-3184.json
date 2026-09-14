@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3184",
+  "content_sha256": "a3713fcb6e6841c93df41392bf3c5885da4def0cd6d6f59a378d472046c2088d",
+  "source_hash": "ee52a4f306d6941fea8a66308de7aaff15f12597f45a05852e306fffed6ca24c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts sums divisible by twelve rather than by twenty-four.",
+      "failed_cases": [
+        "lc-3184-1",
+        "lc-3184-7"
+      ]
+    },
+    {
+      "reason": "Pairs equal remainders instead of complementary remainders.",
+      "failed_cases": [
+        "lc-3184-6",
+        "lc-3184-7",
+        "lc-3184-9",
+        "lc-3184-11",
+        "lc-3184-12",
+        "lc-3184-13",
+        "lc-3184-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7231,
+  "oracle_implementation": "code_practice/import_batch_190c.py:day_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "2c2b336af50fd78115dd53f927b862c534a4064c68008ea5aac35cfa28d7b015",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "74c01699636e3c6a68dc4e8b1b7287dec7276c41bf20020052488ebabb9e7f02",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

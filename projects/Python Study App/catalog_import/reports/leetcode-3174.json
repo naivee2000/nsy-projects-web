@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3174",
+  "content_sha256": "6faec41d0c47a96fecf5cda9ffd8a2ce14c217d6e532e0c32ea853372f95982f",
+  "source_hash": "8fb4ba02ee1ba28d8cb190589c8ce571fc6438f5feb92c990457b46ae87ef8f1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes the farthest-left remaining character instead of the closest-left one.",
+      "failed_cases": [
+        "lc-3174-5",
+        "lc-3174-8",
+        "lc-3174-9",
+        "lc-3174-10",
+        "lc-3174-12",
+        "lc-3174-13",
+        "lc-3174-14"
+      ]
+    },
+    {
+      "reason": "Treats letters as removal commands and digits as retained text.",
+      "failed_cases": [
+        "lc-3174-2",
+        "lc-3174-4",
+        "lc-3174-5",
+        "lc-3174-6",
+        "lc-3174-7",
+        "lc-3174-8",
+        "lc-3174-9",
+        "lc-3174-10",
+        "lc-3174-11",
+        "lc-3174-12",
+        "lc-3174-13",
+        "lc-3174-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7221,
+  "oracle_implementation": "code_practice/import_batch_190b.py:clear_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "ad0ffd80bd87a5a17553553d9cdc407309a28007abc797d29fd0565651f92eaa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "413e050a2a5bc71cbf307f6f236fe2edeb02d9b9e28efca756f6b6d3e3f416f7",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

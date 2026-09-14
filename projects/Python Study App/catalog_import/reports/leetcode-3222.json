@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3222",
+  "content_sha256": "57281b30f81f52bda4c7b5c1d725769969f288ee39fb8e9bdaacd9c783f813f8",
+  "source_hash": "2b58927dc57146350bcaf19f535b5963977bbd7449771c9e77501203e1a3adda",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only three 10-value coins per turn.",
+      "failed_cases": [
+        "lc-3222-1",
+        "lc-3222-2",
+        "lc-3222-10",
+        "lc-3222-14"
+      ]
+    },
+    {
+      "reason": "Declares Alice the winner after an even number of moves.",
+      "failed_cases": [
+        "lc-3222-1",
+        "lc-3222-2",
+        "lc-3222-3",
+        "lc-3222-4",
+        "lc-3222-5",
+        "lc-3222-6",
+        "lc-3222-7",
+        "lc-3222-8",
+        "lc-3222-9",
+        "lc-3222-10",
+        "lc-3222-11",
+        "lc-3222-12",
+        "lc-3222-13",
+        "lc-3222-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7269,
+  "oracle_implementation": "code_practice/import_batch_190d.py:coins_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "2059165e69d83c68594df82885feb58ba3450b5f71f856606a34ec2e5983d721",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "187a95a49c15cfd9cd209858c4616fbee29f68ab4184afc2869ecda7c135f3c2",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

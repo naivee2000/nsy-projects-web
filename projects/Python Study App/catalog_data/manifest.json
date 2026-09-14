@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2036,
+  "count": 2056,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -36302,6 +36302,354 @@
       "path": "problems/leetcode-3127.json",
       "content_sha256": "1c61f819db09c407bd5e826e35ffc801c0acecde92a5a74af6835bf72de59628",
       "source_id": 3127
+    },
+    {
+      "id": "leetcode-3131",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Integer Added to Array I",
+      "summary": "Given two equal-length arrays, nums1 and nums2, where each element in nums1 differs from the corresponding element in nums2 by an integer x, determine the value of x.",
+      "topics": [
+        "arrays",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3131.json",
+      "content_sha256": "d1ef7fa45c06a519013f77972d49955d92496b3eec4fc1f1382a7baaa5e33ae8",
+      "source_id": 3131
+    },
+    {
+      "id": "leetcode-3136",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Word",
+      "summary": "A word is valid if it has at least 3 characters, consists only of digits and English letters, contains at least one vowel, and at least one consonant.",
+      "topics": [
+        "strings",
+        "character classes"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3136.json",
+      "content_sha256": "d1476a11a2152af6df8c328573ccb38e808e34d19aad62933dbcddee5734d8b9",
+      "source_id": 3136
+    },
+    {
+      "id": "leetcode-3142",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Grid Satisfies Conditions",
+      "summary": "Given a 2D matrix of size m x n, verify that each cell equals the one directly below it and differs from the cell to its right.",
+      "topics": [
+        "matrices",
+        "local comparisons"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3142.json",
+      "content_sha256": "dc5806d845526b117b7142112b6b9d1364090f4bb01f0cd5b31ebaafeb344525",
+      "source_id": 3142
+    },
+    {
+      "id": "leetcode-3146",
+      "version": 1,
+      "status": "approved",
+      "title": "Permutation Difference between Two Strings",
+      "summary": "Given two strings s and t , where each character in s appears exactly once and t is a permutation of s , calculate the permutation difference.",
+      "topics": [
+        "strings",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3146.json",
+      "content_sha256": "f3489939900b129f34c43762cf22ead662d5f37421ab6eed9543d1acacc6593e",
+      "source_id": 3146
+    },
+    {
+      "id": "leetcode-3151",
+      "version": 1,
+      "status": "approved",
+      "title": "Special Array I",
+      "summary": "An array is special if adjacent elements have different parities.",
+      "topics": [
+        "arrays",
+        "parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3151.json",
+      "content_sha256": "99c173eb6ae69200c6a7d4952a5d4fdf4b6a594d3c56988a2711f4c104255c23",
+      "source_id": 3151
+    },
+    {
+      "id": "leetcode-3158",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the XOR of Numbers Which Appear Twice",
+      "summary": "Given an array where each number appears once or twice, return the bitwise XOR of all numbers that appear twice, or 0 if no such number exists.",
+      "topics": [
+        "arrays",
+        "sets",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3158.json",
+      "content_sha256": "44ccc08f2669eb1f76104dcfcfb9b0f2ce03333b8b80cb4455bda2e4887b3e33",
+      "source_id": 3158
+    },
+    {
+      "id": "leetcode-3162",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Number of Good Pairs I",
+      "summary": "Given two integer arrays nums1 and nums2 of lengths n and m, and a positive integer k, count the pairs (i, j) where nums1[i] is divisible by nums2[j] multiplied by k.",
+      "topics": [
+        "arrays",
+        "enumeration",
+        "divisibility"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3162.json",
+      "content_sha256": "eeced3d38d746479bb9bb0f9726f663113809921e1f5d077f4b57e24df9ceca9",
+      "source_id": 3162
+    },
+    {
+      "id": "leetcode-3168",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Chairs in a Waiting Room",
+      "summary": "Simulate events for each second in a string s where 'E' represents a person entering and 'L' a person leaving.",
+      "topics": [
+        "strings",
+        "prefix sums",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3168.json",
+      "content_sha256": "40b078e3e827698563b1e2ca11cbae7509a937cb7c50ee3134a6cc776f12b189",
+      "source_id": 3168
+    },
+    {
+      "id": "leetcode-3173",
+      "version": 1,
+      "status": "approved",
+      "title": "Bitwise OR of Adjacent Elements",
+      "summary": "Given an array nums of length n, return an array answer of length n - 1 where each element answer[i] is the result of the bitwise OR operation between nums[i] and nums[i + 1].",
+      "topics": [
+        "arrays",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3173.json",
+      "content_sha256": "3b726dfe01f739a4597e2b43f072f428e9db6a859afad14c4b7dd3f49b459d91",
+      "source_id": 3173
+    },
+    {
+      "id": "leetcode-3174",
+      "version": 1,
+      "status": "approved",
+      "title": "Clear Digits",
+      "summary": "Given a string s , repeatedly remove the first digit and the closest non-digit character to its left, if such a non-digit character exists.",
+      "topics": [
+        "strings",
+        "stacks",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3174.json",
+      "content_sha256": "6faec41d0c47a96fecf5cda9ffd8a2ce14c217d6e532e0c32ea853372f95982f",
+      "source_id": 3174
+    },
+    {
+      "id": "leetcode-3178",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Child Who Has the Ball After K Seconds",
+      "summary": "Given positive integers n and k, there are n children in a queue numbered 0 to n-1.",
+      "topics": [
+        "math",
+        "simulation",
+        "cycles"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3178.json",
+      "content_sha256": "779472ca80452c298af47933c5cf1e47fa078c5c65d328c552a3ef6970896483",
+      "source_id": 3178
+    },
+    {
+      "id": "leetcode-3184",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Pairs That Form a Complete Day I",
+      "summary": "Given an integer array representing times in hours, count the number of pairs i, j where i < j and the sum of hours[i] and hours[j] is an exact multiple of 24 hours.",
+      "topics": [
+        "arrays",
+        "modular arithmetic",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3184.json",
+      "content_sha256": "a3713fcb6e6841c93df41392bf3c5885da4def0cd6d6f59a378d472046c2088d",
+      "source_id": 3184
+    },
+    {
+      "id": "leetcode-3190",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Minimum Operations to Make All Elements Divisible by Three",
+      "summary": "Given an integer array nums, determine the least number of operations needed to make each element divisible by 3.",
+      "topics": [
+        "arrays",
+        "modular arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3190.json",
+      "content_sha256": "b6c5495ee6c4d4930ef6585de4fc856715b8519021278a11b983f44b7807cd3b",
+      "source_id": 3190
+    },
+    {
+      "id": "leetcode-3194",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Average of Smallest and Largest Elements",
+      "summary": "Start with an empty array of averages.",
+      "topics": [
+        "arrays",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3194.json",
+      "content_sha256": "5e3fb402b5c54d3ea79427010f49208fc99c8e21ca3f7300e5335440cf37b9fc",
+      "source_id": 3194
+    },
+    {
+      "id": "leetcode-3199",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Triplets with Even XOR Set Bits I",
+      "summary": "Count triplets from arrays a, b, and c where the bitwise XOR of each triplet's elements has an even number of set bits.",
+      "topics": [
+        "arrays",
+        "bit manipulation",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3199.json",
+      "content_sha256": "25a642425e9ed95ada25531ff9f8916a702c554222ac662c49909eac0b23bdf9",
+      "source_id": 3199
+    },
+    {
+      "id": "leetcode-3200",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Height of a Triangle",
+      "summary": "Given the counts of red and blue balls, arrange them in a triangular pattern where each row increases by one ball, with same-colored balls in each row and alternating colors between rows.",
+      "topics": [
+        "greedy",
+        "simulation",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3200.json",
+      "content_sha256": "489d21514fccae1d2d75fc8c8f5d86454ee05d07de96fe6225346efec720dfd8",
+      "source_id": 3200
+    },
+    {
+      "id": "leetcode-3206",
+      "version": 1,
+      "status": "approved",
+      "title": "Alternating Groups I",
+      "summary": "Given an array representing a circular sequence of red (0) and blue (1) tiles, count the number of groups where every third tile alternates in color, considering the first and last tiles as adjacent.",
+      "topics": [
+        "arrays",
+        "circular arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3206.json",
+      "content_sha256": "1e630b28e2ac4aeed3f7c2358ba0847dbe320284bd5f65d4e4bcd704dad0cea7",
+      "source_id": 3206
+    },
+    {
+      "id": "leetcode-3210",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Encrypted String",
+      "summary": "Given a string s and an integer k, for each character in s, replace it with the character that is k positions ahead in the string, wrapping around if necessary.",
+      "topics": [
+        "strings",
+        "circular arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3210.json",
+      "content_sha256": "a15909957caecaf098726c2d2d3e02abd7f6ec7c5ad8ed3acd65d218de01746f",
+      "source_id": 3210
+    },
+    {
+      "id": "leetcode-3216",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographically Smallest String After a Swap",
+      "summary": "Given a string s consisting solely of digits, provide the lexicographically smallest string achievable by swapping adjacent digits with the same parity at most once.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3216.json",
+      "content_sha256": "65865f7efa8dd1f65a4f81e011969c3c9f268e08b8c674580e2965eb073c9e0c",
+      "source_id": 3216
+    },
+    {
+      "id": "leetcode-3222",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Winning Player in Coin Game",
+      "summary": "Given positive integers x and y representing the number of coins valued at 75 and 10 respectively, determine which player wins the game where each turn requires picking coins summing to 115.",
+      "topics": [
+        "math",
+        "games"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3222.json",
+      "content_sha256": "57281b30f81f52bda4c7b5c1d725769969f288ee39fb8e9bdaacd9c783f813f8",
+      "source_id": 3222
     }
   ]
 }

@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3136",
+  "content_sha256": "d1476a11a2152af6df8c328573ccb38e808e34d19aad62933dbcddee5734d8b9",
+  "source_hash": "f7510c1dd255af464051c5e8f3cc93018cef2d6b29a54009c78e9c49b9941fd0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts two-character words.",
+      "failed_cases": [
+        "lc-3136-16"
+      ]
+    },
+    {
+      "reason": "Treats digits as consonants.",
+      "failed_cases": [
+        "lc-3136-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7183,
+  "oracle_implementation": "code_practice/import_batch_190a.py:valid_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "989efb4dd1e7d4c71fd95ef75f40c61da2f20d2120716cdaa0e33c2c6d1b4f2a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "42d54eeef427a04894fbd294bcfa6805ea87a9ebeae82360a8e9242500131e1a",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

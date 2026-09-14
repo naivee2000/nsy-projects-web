@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3142",
+  "content_sha256": "dc5806d845526b117b7142112b6b9d1364090f4bb01f0cd5b31ebaafeb344525",
+  "source_hash": "9551b708dd69450af21de7bc58e9916362cc8937d6c4ba1357f13691f63d9f42",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects equal vertical neighbors instead of requiring them.",
+      "failed_cases": [
+        "lc-3142-1",
+        "lc-3142-5",
+        "lc-3142-6",
+        "lc-3142-7",
+        "lc-3142-10",
+        "lc-3142-11",
+        "lc-3142-12"
+      ]
+    },
+    {
+      "reason": "Rejects different horizontal neighbors instead of requiring them.",
+      "failed_cases": [
+        "lc-3142-1",
+        "lc-3142-4",
+        "lc-3142-7",
+        "lc-3142-9",
+        "lc-3142-11",
+        "lc-3142-12",
+        "lc-3142-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7189,
+  "oracle_implementation": "code_practice/import_batch_190a.py:grid_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "989efb4dd1e7d4c71fd95ef75f40c61da2f20d2120716cdaa0e33c2c6d1b4f2a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3e2fba14a05ba7e8d946ee890114f315f7195109cd242534e1fb5d358fb39f32",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

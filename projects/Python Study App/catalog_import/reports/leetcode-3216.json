@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3216",
+  "content_sha256": "65865f7efa8dd1f65a4f81e011969c3c9f268e08b8c674580e2965eb073c9e0c",
+  "source_hash": "d6f3e4fb64a5e5c7345a33301045ff8144756922f6d7f07bbfa34558c5270f34",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Swaps the first increasing pair and makes the string larger.",
+      "failed_cases": [
+        "lc-3216-1",
+        "lc-3216-5",
+        "lc-3216-6",
+        "lc-3216-7",
+        "lc-3216-8",
+        "lc-3216-11",
+        "lc-3216-12",
+        "lc-3216-13",
+        "lc-3216-14"
+      ]
+    },
+    {
+      "reason": "Performs every useful swap rather than at most one.",
+      "failed_cases": [
+        "lc-3216-1",
+        "lc-3216-7",
+        "lc-3216-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7263,
+  "oracle_implementation": "code_practice/import_batch_190d.py:swap_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "2059165e69d83c68594df82885feb58ba3450b5f71f856606a34ec2e5983d721",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b108d29b9c130574915ff7ebd077de2bfbc9a6f9191380206f93c47335cd237d",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

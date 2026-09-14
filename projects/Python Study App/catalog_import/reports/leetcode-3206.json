@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3206",
+  "content_sha256": "1e630b28e2ac4aeed3f7c2358ba0847dbe320284bd5f65d4e4bcd704dad0cea7",
+  "source_hash": "5a2ffd58ede09cdaab006bcb8a9246e80286e6bac7fbff866d3114db8a201141",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a center when only one neighbor differs.",
+      "failed_cases": [
+        "lc-3206-2",
+        "lc-3206-4",
+        "lc-3206-5",
+        "lc-3206-7",
+        "lc-3206-8",
+        "lc-3206-9",
+        "lc-3206-10",
+        "lc-3206-11",
+        "lc-3206-12",
+        "lc-3206-13",
+        "lc-3206-14"
+      ]
+    },
+    {
+      "reason": "Does not wrap the right neighbor at the final index.",
+      "failed_cases": [
+        "lc-3206-2",
+        "lc-3206-6",
+        "lc-3206-10",
+        "lc-3206-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7253,
+  "oracle_implementation": "code_practice/import_batch_190d.py:colors_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "2059165e69d83c68594df82885feb58ba3450b5f71f856606a34ec2e5983d721",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7751e78e180b96dc5a68c323a9fd8dcda41d53ce69e45b89495c9ec7938618b6",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

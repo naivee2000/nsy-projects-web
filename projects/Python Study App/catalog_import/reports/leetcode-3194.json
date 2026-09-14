@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3194",
+  "content_sha256": "5e3fb402b5c54d3ea79427010f49208fc99c8e21ca3f7300e5335440cf37b9fc",
+  "source_hash": "823b96ae63934b48547046b7e864319c4f0abf5cb22a36b3e2cb5f1a64ab0ff3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the maximum recorded average instead of the minimum.",
+      "failed_cases": [
+        "lc-3194-1",
+        "lc-3194-11"
+      ]
+    },
+    {
+      "reason": "Subtracts extremes rather than averaging their sum.",
+      "failed_cases": [
+        "lc-3194-1",
+        "lc-3194-2",
+        "lc-3194-3",
+        "lc-3194-4",
+        "lc-3194-5",
+        "lc-3194-6",
+        "lc-3194-7",
+        "lc-3194-8",
+        "lc-3194-9",
+        "lc-3194-10",
+        "lc-3194-11",
+        "lc-3194-12",
+        "lc-3194-13",
+        "lc-3194-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7241,
+  "oracle_implementation": "code_practice/import_batch_190c.py:average_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "2c2b336af50fd78115dd53f927b862c534a4064c68008ea5aac35cfa28d7b015",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ec60ef4826cd7fd639fb0d7685efcf2c81e29ddd6f76865ca2c6e8ff1838fa6d",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

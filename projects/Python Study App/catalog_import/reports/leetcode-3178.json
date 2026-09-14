@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3178",
+  "content_sha256": "779472ca80452c298af47933c5cf1e47fa078c5c65d328c552a3ef6970896483",
+  "source_hash": "f7bf2bcbd38a9bcd53188ff0fe9901dfe3ec732ebffd5895c596f90d54c51019",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses n as the cycle length instead of the out-and-back period.",
+      "failed_cases": [
+        "lc-3178-1",
+        "lc-3178-2",
+        "lc-3178-8",
+        "lc-3178-9",
+        "lc-3178-10",
+        "lc-3178-11",
+        "lc-3178-13",
+        "lc-3178-14"
+      ]
+    },
+    {
+      "reason": "Reflects the second half in the wrong direction.",
+      "failed_cases": [
+        "lc-3178-2",
+        "lc-3178-8",
+        "lc-3178-13",
+        "lc-3178-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7225,
+  "oracle_implementation": "code_practice/import_batch_190c.py:child_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "2c2b336af50fd78115dd53f927b862c534a4064c68008ea5aac35cfa28d7b015",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5d88e9830f65dafca1fffdea2047fa6e89137b0d3cadd8aa688c64e0a3fdbd4a",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

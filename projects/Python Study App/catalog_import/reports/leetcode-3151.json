@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3151",
+  "content_sha256": "99c173eb6ae69200c6a7d4952a5d4fdf4b6a594d3c56988a2711f4c104255c23",
+  "source_hash": "0663e6a8b0021f5414eebdbf585ebdf84df365ce1aa91f0eceb17dffc305d1a3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires equal parity instead of alternating parity.",
+      "failed_cases": [
+        "lc-3151-2",
+        "lc-3151-4",
+        "lc-3151-5",
+        "lc-3151-6",
+        "lc-3151-7",
+        "lc-3151-8",
+        "lc-3151-9",
+        "lc-3151-12",
+        "lc-3151-13",
+        "lc-3151-14"
+      ]
+    },
+    {
+      "reason": "Accepts when only one adjacent pair alternates.",
+      "failed_cases": [
+        "lc-3151-1",
+        "lc-3151-3",
+        "lc-3151-10",
+        "lc-3151-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7198,
+  "oracle_implementation": "code_practice/import_batch_190a.py:special_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "989efb4dd1e7d4c71fd95ef75f40c61da2f20d2120716cdaa0e33c2c6d1b4f2a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "10d63353601c6f95b17d145e4e1439a115b54a7aca3b818696bc702f820eb62b",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

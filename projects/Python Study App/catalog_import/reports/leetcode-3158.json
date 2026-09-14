@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3158",
+  "content_sha256": "44ccc08f2669eb1f76104dcfcfb9b0f2ce03333b8b80cb4455bda2e4887b3e33",
+  "source_hash": "d4848945d5008cb06036a636c7ed94e2e2dfa7c54618e86e80536ea2506cf7bc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds duplicate values instead of XOR-ing them.",
+      "failed_cases": [
+        "lc-3158-6",
+        "lc-3158-10",
+        "lc-3158-12"
+      ]
+    },
+    {
+      "reason": "XORs first occurrences rather than second occurrences.",
+      "failed_cases": [
+        "lc-3158-3",
+        "lc-3158-4",
+        "lc-3158-5",
+        "lc-3158-6",
+        "lc-3158-7",
+        "lc-3158-8",
+        "lc-3158-10",
+        "lc-3158-11",
+        "lc-3158-12",
+        "lc-3158-13",
+        "lc-3158-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7205,
+  "oracle_implementation": "code_practice/import_batch_190b.py:duplicate_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "ad0ffd80bd87a5a17553553d9cdc407309a28007abc797d29fd0565651f92eaa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6b80f0706c193b83da4f9c922769e99d0d6d9941b3735eb3922a7f29948e3d27",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

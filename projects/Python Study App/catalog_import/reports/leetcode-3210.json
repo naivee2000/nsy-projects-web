@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3210",
+  "content_sha256": "a15909957caecaf098726c2d2d3e02abd7f6ec7c5ad8ed3acd65d218de01746f",
+  "source_hash": "18dc5a926bdcc7e3f703ca2f3279c011c2cb8ce251ad2834151aae084cb67758",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rotates right rather than selecting characters to the right.",
+      "failed_cases": [
+        "lc-3210-1",
+        "lc-3210-6",
+        "lc-3210-7",
+        "lc-3210-8",
+        "lc-3210-9",
+        "lc-3210-10",
+        "lc-3210-14"
+      ]
+    },
+    {
+      "reason": "Adds one to the requested shift.",
+      "failed_cases": [
+        "lc-3210-1",
+        "lc-3210-4",
+        "lc-3210-5",
+        "lc-3210-6",
+        "lc-3210-7",
+        "lc-3210-8",
+        "lc-3210-9",
+        "lc-3210-10",
+        "lc-3210-11",
+        "lc-3210-12",
+        "lc-3210-13",
+        "lc-3210-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7257,
+  "oracle_implementation": "code_practice/import_batch_190d.py:encrypted_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "2059165e69d83c68594df82885feb58ba3450b5f71f856606a34ec2e5983d721",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c608da700763b63c5afb748e62c19fe71cdbbc89ed4850b4fa12b059b348f145",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3162",
+  "content_sha256": "eeced3d38d746479bb9bb0f9726f663113809921e1f5d077f4b57e24df9ceca9",
+  "source_hash": "48cf357fb76b7fe1f810ca169d1c068d3cc7531ac676e7aa37c3f0175b1e709f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Divides by b+k instead of the product b*k.",
+      "failed_cases": [
+        "lc-3162-1",
+        "lc-3162-2",
+        "lc-3162-3",
+        "lc-3162-5",
+        "lc-3162-6",
+        "lc-3162-7",
+        "lc-3162-8",
+        "lc-3162-9",
+        "lc-3162-11",
+        "lc-3162-12",
+        "lc-3162-13",
+        "lc-3162-14"
+      ]
+    },
+    {
+      "reason": "Counts nondivisible pairs instead of divisible ones.",
+      "failed_cases": [
+        "lc-3162-1",
+        "lc-3162-2",
+        "lc-3162-3",
+        "lc-3162-4",
+        "lc-3162-5",
+        "lc-3162-6",
+        "lc-3162-7",
+        "lc-3162-8",
+        "lc-3162-10",
+        "lc-3162-11",
+        "lc-3162-12",
+        "lc-3162-13",
+        "lc-3162-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7209,
+  "oracle_implementation": "code_practice/import_batch_190b.py:pairs_oracle",
+  "validator_implementation_sha256": "03b38ec0c165a67917263d8e470c19adfb423af3621887bda777ec5b6663a3e7",
+  "batch_implementation_sha256": "ad0ffd80bd87a5a17553553d9cdc407309a28007abc797d29fd0565651f92eaa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a56411503cd22d7750e13b4169663bae2d4ab7187d693a96f146a69cac5661e1",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
