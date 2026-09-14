@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1755",
+  "content_sha256": "0b24d80736a88eab177f989206e59cd01b11022204c190a4ba5ad62e041564db",
+  "source_hash": "4f8727baa255351192ac7684f7eae4527108a1bb48e6077b557b0195c32aac74",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only the insertion-side sum and misses the closest value immediately below it.",
+      "failed_cases": [
+        "lc-1755-4",
+        "lc-1755-6",
+        "lc-1755-13"
+      ]
+    },
+    {
+      "reason": "Omits the empty subset, preventing subset construction entirely.",
+      "failed_cases": [
+        "lc-1755-1",
+        "lc-1755-2",
+        "lc-1755-4",
+        "lc-1755-5",
+        "lc-1755-6",
+        "lc-1755-7",
+        "lc-1755-10",
+        "lc-1755-11",
+        "lc-1755-13",
+        "lc-1755-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5802,
+  "oracle_implementation": "code_practice/import_batch_104c.py:closest_o",
+  "validator_implementation_sha256": "ae91702cc9d683c41258afde464fed0b3254511ea506f26035dd93ab9e81724d",
+  "batch_implementation_sha256": "9240ccd0e327cbc5d40f2ce0ccededaea95fc454b3b3fc63e2de4558dd0ee2ce",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ec9d982193f4483fafadb2b988aa8c2465c9f8a910b5faf0782a3b22986cc924",
+  "elapsed_seconds": 0.276,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

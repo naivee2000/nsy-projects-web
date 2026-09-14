@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1746",
+  "content_sha256": "dcb5b8b8ad7ded0baaf2739e675c307fe400824a4c4d1a94887182d77fc5df94",
+  "source_hash": "2d465227bdaf303a505c4ef52e2e09565b17477d34a0a2ec641f2f6c141326f3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never squares the current element when starting the transformed state.",
+      "failed_cases": [
+        "lc-1746-4",
+        "lc-1746-7",
+        "lc-1746-10",
+        "lc-1746-12",
+        "lc-1746-13"
+      ]
+    },
+    {
+      "reason": "Forgets the already-used state and permits postponing the square beyond the chosen subarray.",
+      "failed_cases": [
+        "lc-1746-2",
+        "lc-1746-3",
+        "lc-1746-8",
+        "lc-1746-10",
+        "lc-1746-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5793,
+  "oracle_implementation": "code_practice/import_batch_104c.py:square_o",
+  "validator_implementation_sha256": "ae91702cc9d683c41258afde464fed0b3254511ea506f26035dd93ab9e81724d",
+  "batch_implementation_sha256": "9240ccd0e327cbc5d40f2ce0ccededaea95fc454b3b3fc63e2de4558dd0ee2ce",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c2c1806658268dde346583f4b272cb8f98c26d3264ad6731a299fba986fdeb0a",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

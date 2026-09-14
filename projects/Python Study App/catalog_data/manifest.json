@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1188,
+  "count": 1193,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -20897,6 +20897,25 @@
       "source_id": 1745
     },
     {
+      "id": "leetcode-1746",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Subarray Sum After One Operation",
+      "summary": "Given an integer array nums, you must replace exactly one element nums[i] with nums[i] * nums[i].",
+      "topics": [
+        "arrays",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1746.json",
+      "content_sha256": "dcb5b8b8ad7ded0baaf2739e675c307fe400824a4c4d1a94887182d77fc5df94",
+      "source_id": 1746
+    },
+    {
       "id": "leetcode-1748",
       "version": 1,
       "status": "approved",
@@ -20950,6 +20969,25 @@
       "source_id": 1750
     },
     {
+      "id": "leetcode-1751",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Events That Can Be Attended II",
+      "summary": "Given an array of events where each event is represented by [startDayi, endDayi, valuei], and an integer k representing the maximum number of events you can attend, determine the maximum sum of values you can achieve by attending non-overlapping events.",
+      "topics": [
+        "dynamic-programming",
+        "binary-search"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1751.json",
+      "content_sha256": "d085edeccf04bc76560f3c0c310fda8dc08911906f7740d71eaf1b77b6aa0180",
+      "source_id": 1751
+    },
+    {
       "id": "leetcode-1752",
       "version": 1,
       "status": "approved",
@@ -20981,6 +21019,59 @@
       "path": "problems/leetcode-1753.json",
       "content_sha256": "c6093420b2f8ffd28793bc3e654e7024883a8499753563b41c5ee04e198760eb",
       "source_id": 1753
+    },
+    {
+      "id": "leetcode-1754",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Merge Of Two Strings",
+      "summary": "Given two strings, word1 and word2, construct the lexicographically largest merge by repeatedly appending the first character of either word1 or word2 to the merge string.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1754.json",
+      "content_sha256": "2b2d86d3dd0c874b7c215c96a996220f7a3e9b2896b87bffc31d5002dad19197",
+      "source_id": 1754
+    },
+    {
+      "id": "leetcode-1755",
+      "version": 1,
+      "status": "approved",
+      "title": "Closest Subsequence Sum",
+      "summary": "Given an integer array nums and a goal, find a subsequence of nums whose sum is as close as possible to the goal.",
+      "topics": [
+        "meet-in-the-middle",
+        "binary-search"
+      ],
+      "prerequisites": [
+        "meet-in-the-middle"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1755.json",
+      "content_sha256": "0b24d80736a88eab177f989206e59cd01b11022204c190a4ba5ad62e041564db",
+      "source_id": 1755
+    },
+    {
+      "id": "leetcode-1758",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Changes To Make Alternating Binary String",
+      "summary": "Given a string s consisting only of the characters '0' and '1', determine the minimum number of operations needed to make the string alternating.",
+      "topics": [
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1758.json",
+      "content_sha256": "da228c02241e63752ed2deb7d88669dc2756ba9b149d4d5e7ff690a25f7d6cb5",
+      "source_id": 1758
     }
   ]
 }
