@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1872",
+  "content_sha256": "6fc5c7741b302961009b893210af044053914002a7d3c2698bb36039e720298f",
+  "source_hash": "36d788a3cc7b3f979992817e3101c68f2cb17948ec91850e65871a0ccd222e73",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes the player may stop with zero advantage even though play must continue until one stone remains.",
+      "failed_cases": [
+        "lc-1872-1",
+        "lc-1872-2",
+        "lc-1872-3",
+        "lc-1872-4",
+        "lc-1872-5",
+        "lc-1872-6",
+        "lc-1872-7",
+        "lc-1872-9",
+        "lc-1872-10",
+        "lc-1872-11",
+        "lc-1872-12",
+        "lc-1872-13",
+        "lc-1872-14"
+      ]
+    },
+    {
+      "reason": "Minimizes the current player's best advantage instead of maximizing it.",
+      "failed_cases": [
+        "lc-1872-1",
+        "lc-1872-2",
+        "lc-1872-5",
+        "lc-1872-6",
+        "lc-1872-7",
+        "lc-1872-9",
+        "lc-1872-10",
+        "lc-1872-11",
+        "lc-1872-12",
+        "lc-1872-13",
+        "lc-1872-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5919,
+  "oracle_implementation": "code_practice/import_batch_109b.py:stone_game_oracle",
+  "validator_implementation_sha256": "91146def5d384d72d8293788e030c3dbdf8bde4fffa6783482075a7b1c32f399",
+  "batch_implementation_sha256": "8411126f339ec0090a8718ea796a3e62cbe0aeda67ea1b777bc1500bee0c114b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e5668e50ea6eaea58d345e5d69baf87eeb67798af653b59d1bf4e50e63344849",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

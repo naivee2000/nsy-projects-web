@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1874",
+  "content_sha256": "030a03ff85ce33710702c9112de76f80d9039a3e0446f62b9b61042274d0ab45",
+  "source_hash": "f8cc14043184a373f20951231a321df2b0792d8ba8cdf947b7073f7a811368cb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts both arrays in the same direction, maximizing rather than minimizing aligned products.",
+      "failed_cases": [
+        "lc-1874-1",
+        "lc-1874-2",
+        "lc-1874-4",
+        "lc-1874-7",
+        "lc-1874-9",
+        "lc-1874-10",
+        "lc-1874-11",
+        "lc-1874-12",
+        "lc-1874-13",
+        "lc-1874-14"
+      ]
+    },
+    {
+      "reason": "Leaves the second array in its original order instead of choosing the optimal rearrangement.",
+      "failed_cases": [
+        "lc-1874-1",
+        "lc-1874-2",
+        "lc-1874-4",
+        "lc-1874-7",
+        "lc-1874-9",
+        "lc-1874-10",
+        "lc-1874-12",
+        "lc-1874-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5921,
+  "oracle_implementation": "code_practice/import_batch_109b.py:product_sum_oracle",
+  "validator_implementation_sha256": "91146def5d384d72d8293788e030c3dbdf8bde4fffa6783482075a7b1c32f399",
+  "batch_implementation_sha256": "8411126f339ec0090a8718ea796a3e62cbe0aeda67ea1b777bc1500bee0c114b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7038308cdf92604d74e82402a324082e82b39c794f509678960fb16c86f8cece",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

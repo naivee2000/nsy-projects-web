@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1878",
+  "content_sha256": "f703439ce25ead63a3a3adc18133a7b2c949cd59c9435606ea68ebeae6c85da8",
+  "source_hash": "035a18165b0435e4a36cbc29533f69c17285408de8553ad751b6e57108fac8b8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Double-counts the bottom vertex of every nontrivial rhombus.",
+      "failed_cases": [
+        "lc-1878-1",
+        "lc-1878-2",
+        "lc-1878-7",
+        "lc-1878-8",
+        "lc-1878-9",
+        "lc-1878-10",
+        "lc-1878-11",
+        "lc-1878-12",
+        "lc-1878-13",
+        "lc-1878-14"
+      ]
+    },
+    {
+      "reason": "Omits all valid one-cell rhombi.",
+      "failed_cases": [
+        "lc-1878-2",
+        "lc-1878-3",
+        "lc-1878-4",
+        "lc-1878-5",
+        "lc-1878-6",
+        "lc-1878-7",
+        "lc-1878-8",
+        "lc-1878-11",
+        "lc-1878-12",
+        "lc-1878-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5925,
+  "oracle_implementation": "code_practice/import_batch_109b.py:rhombus_oracle",
+  "validator_implementation_sha256": "91146def5d384d72d8293788e030c3dbdf8bde4fffa6783482075a7b1c32f399",
+  "batch_implementation_sha256": "8411126f339ec0090a8718ea796a3e62cbe0aeda67ea1b777bc1500bee0c114b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cb1d93b43d48317b665275f8e1222815b10f9dcae8539e4f62049a28d7329774",
+  "elapsed_seconds": 0.096,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1877",
+  "content_sha256": "7df75b1218a586f02a419c2f6cad53186025f4cd83b39cb061b273d995bb110f",
+  "source_hash": "6f3a7a789c0d32315e06758a3efaf000308161e9e1af5952b75d84a7b3788072",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pairs adjacent small elements while leaving the largest values paired together.",
+      "failed_cases": [
+        "lc-1877-1",
+        "lc-1877-8",
+        "lc-1877-13",
+        "lc-1877-14"
+      ]
+    },
+    {
+      "reason": "Pairs the lower and upper halves in the same order instead of opposite order.",
+      "failed_cases": [
+        "lc-1877-1",
+        "lc-1877-2",
+        "lc-1877-5",
+        "lc-1877-8",
+        "lc-1877-9",
+        "lc-1877-10",
+        "lc-1877-11",
+        "lc-1877-13",
+        "lc-1877-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5924,
+  "oracle_implementation": "code_practice/import_batch_109b.py:pair_sum_oracle",
+  "validator_implementation_sha256": "91146def5d384d72d8293788e030c3dbdf8bde4fffa6783482075a7b1c32f399",
+  "batch_implementation_sha256": "8411126f339ec0090a8718ea796a3e62cbe0aeda67ea1b777bc1500bee0c114b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "27f27340649299c069ba54d50761532dcdbc5e73d51d58916d6e14b436ad3bf7",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

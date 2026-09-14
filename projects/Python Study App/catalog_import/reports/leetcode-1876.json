@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1876",
+  "content_sha256": "6594cdc7b35a81b84e5d44970ead849073d790602f109922eb2c9761767bbd0b",
+  "source_hash": "feedc432b4a5eb04e24603ea1edda136ee138fc41c25ba870c561c69ddf6e066",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts windows containing only two distinct characters.",
+      "failed_cases": [
+        "lc-1876-1",
+        "lc-1876-2",
+        "lc-1876-7",
+        "lc-1876-9",
+        "lc-1876-10",
+        "lc-1876-11",
+        "lc-1876-12",
+        "lc-1876-13",
+        "lc-1876-15"
+      ]
+    },
+    {
+      "reason": "Skips the first length-three window.",
+      "failed_cases": [
+        "lc-1876-1",
+        "lc-1876-5",
+        "lc-1876-8",
+        "lc-1876-14",
+        "lc-1876-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5923,
+  "oracle_implementation": "code_practice/import_batch_109b.py:distinct_three_oracle",
+  "validator_implementation_sha256": "91146def5d384d72d8293788e030c3dbdf8bde4fffa6783482075a7b1c32f399",
+  "batch_implementation_sha256": "8411126f339ec0090a8718ea796a3e62cbe0aeda67ea1b777bc1500bee0c114b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4cb221f5fb200c49884221e2d800e6ed4a5f810b614e60031c30227289e87a59",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
