@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1911",
+  "content_sha256": "67a4cd980879b23d7dd03c293a761db4ea6f1cd17ecca75bfc05131fe2bfcb28",
+  "source_hash": "cfe242805a74aeea5c6e209b695d6ba3304c1b9c8e57e509bcd51b02f920c53e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forces every input value into the subsequence instead of allowing elements to be skipped.",
+      "failed_cases": [
+        "lc-1911-1",
+        "lc-1911-2",
+        "lc-1911-4",
+        "lc-1911-5",
+        "lc-1911-6",
+        "lc-1911-7",
+        "lc-1911-9",
+        "lc-1911-10",
+        "lc-1911-11",
+        "lc-1911-13"
+      ]
+    },
+    {
+      "reason": "Chooses only one value and misses profitable add-subtract-add combinations.",
+      "failed_cases": [
+        "lc-1911-1",
+        "lc-1911-4",
+        "lc-1911-8",
+        "lc-1911-9",
+        "lc-1911-11",
+        "lc-1911-12",
+        "lc-1911-13",
+        "lc-1911-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5958,
+  "oracle_implementation": "code_practice/import_batch_110d.py:alternating_oracle",
+  "validator_implementation_sha256": "359d201cc3bef6d958b5be3a27cbd181198db906c4d6e0af3dac2d79f61164c7",
+  "batch_implementation_sha256": "b85a337e04535c4bdacecb33158c6e2b0efbb527e62de82f8b497f458c5aac01",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b9e7ad9074dc1d4ba87e5322be308cbd35d7729e903e96a85c349f6503945eaf",
+  "elapsed_seconds": 0.297,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

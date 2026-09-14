@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1909",
+  "content_sha256": "dc96765efec148dd1626e69926809d02891251e8f83cba871ad3d44491981f3c",
+  "source_hash": "d8aa61ecfdeeacde8228908034c0928ccc3768d8bc923e5aa7ff991b72fe8b03",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts equal adjacent values by checking nondecreasing rather than strictly increasing order.",
+      "failed_cases": [
+        "lc-1909-16"
+      ]
+    },
+    {
+      "reason": "Tries removing only the right side of the first violation, though sometimes the left value must be removed.",
+      "failed_cases": [
+        "lc-1909-1",
+        "lc-1909-10",
+        "lc-1909-12",
+        "lc-1909-13",
+        "lc-1909-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5956,
+  "oracle_implementation": "code_practice/import_batch_110d.py:increasing_oracle",
+  "validator_implementation_sha256": "359d201cc3bef6d958b5be3a27cbd181198db906c4d6e0af3dac2d79f61164c7",
+  "batch_implementation_sha256": "b85a337e04535c4bdacecb33158c6e2b0efbb527e62de82f8b497f458c5aac01",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0b73fdf01d5f922f8593b290cb153586fd6fddc83fe407020148a8da62c73540",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

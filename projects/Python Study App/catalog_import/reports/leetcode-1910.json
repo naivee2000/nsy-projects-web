@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1910",
+  "content_sha256": "3404ffd558ea624c9e86a6fcd1daea1b49201640016ec9623e871be225d78d07",
+  "source_hash": "152da75bee8cbc79a702195df9bc05e37812381114a6c3e336ce17f388c3e8ce",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes only the first occurrence and stops before newly exposed matches are processed.",
+      "failed_cases": [
+        "lc-1910-1",
+        "lc-1910-2",
+        "lc-1910-5",
+        "lc-1910-8",
+        "lc-1910-10",
+        "lc-1910-13",
+        "lc-1910-14"
+      ]
+    },
+    {
+      "reason": "Removes the rightmost occurrence first, which can produce a different final string when matches overlap.",
+      "failed_cases": [
+        "lc-1910-6",
+        "lc-1910-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5957,
+  "oracle_implementation": "code_practice/import_batch_110d.py:occurrences_oracle",
+  "validator_implementation_sha256": "359d201cc3bef6d958b5be3a27cbd181198db906c4d6e0af3dac2d79f61164c7",
+  "batch_implementation_sha256": "b85a337e04535c4bdacecb33158c6e2b0efbb527e62de82f8b497f458c5aac01",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "37aa6a36eb3157ec1926f02aae4c65c56728dc8c6d60a9258bfcb5aa3e14cd1a",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
