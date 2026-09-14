@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1983",
+  "content_sha256": "47fac02ec91b507eb0e14a13932e50245131ed7f23d48bf4bd45fd01c9d1e9e2",
+  "source_hash": "9b5959d613f564d3797cfddd0a766424e30794953e75f14752129d1b179cc595",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the virtual prefix before index zero and misses qualifying ranges that start at zero.",
+      "failed_cases": [
+        "lc-1983-3",
+        "lc-1983-5",
+        "lc-1983-6",
+        "lc-1983-7",
+        "lc-1983-8",
+        "lc-1983-11",
+        "lc-1983-12",
+        "lc-1983-13",
+        "lc-1983-14"
+      ]
+    },
+    {
+      "reason": "Overwrites the earliest occurrence of a prefix difference, producing ranges that are too short.",
+      "failed_cases": [
+        "lc-1983-6",
+        "lc-1983-8",
+        "lc-1983-11",
+        "lc-1983-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6030,
+  "oracle_implementation": "code_practice/import_batch_113d.py:widest_oracle",
+  "validator_implementation_sha256": "2835101d080960861ebfdc2dfae98f0c2b7282e356df95a7795f09cd3e01acc2",
+  "batch_implementation_sha256": "ae3a70f521e643fc8c9b3cf65281455edc0bca9f18bc7a35fdb68df5af51b0be",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1d12fbaf46b612f486ee477f3ec310b1e909461ad48a3240cc49dd5c011dfc6f",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

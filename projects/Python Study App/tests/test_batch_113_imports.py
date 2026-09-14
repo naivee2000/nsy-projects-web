@@ -5,12 +5,14 @@ from code_practice.catalog import get_catalog
 from code_practice.import_batch_113 import BATCH
 from code_practice.import_batch_113b import BATCH as BATCH_B
 from code_practice.import_batch_113c import BATCH as BATCH_C
+from code_practice.import_batch_113d import BATCH as BATCH_D
 
 
 ROOT = Path(__file__).resolve().parents[1]
 IDS = (1959, 1960, 1961, 1962, 1963, 1964, 1966, 1967, 1969, 1970,
        1971, 1973, 1974, 1975, 1976)
-SPECS = {**BATCH, **BATCH_B, **BATCH_C}
+IDS += (1979, 1981, 1983, 1984, 1985)
+SPECS = {**BATCH, **BATCH_B, **BATCH_C, **BATCH_D}
 
 
 def test_batch_113_slices_are_complete_and_verified():

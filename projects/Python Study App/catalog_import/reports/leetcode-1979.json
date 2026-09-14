@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1979",
+  "content_sha256": "ccabf40ddd0857731529f185081394f1ea5aeb655882ba1eeb5b65ae474f150a",
+  "source_hash": "efb59a0e8601421c957ffe839f9d2da1d5b32f62caea161c2b3ae44f20755d41",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes the input is already sorted, so it may use the wrong extremes.",
+      "failed_cases": [
+        "lc-1979-15"
+      ]
+    },
+    {
+      "reason": "Returns the minimum itself instead of computing a greatest common divisor.",
+      "failed_cases": [
+        "lc-1979-2",
+        "lc-1979-6",
+        "lc-1979-10",
+        "lc-1979-12",
+        "lc-1979-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6026,
+  "oracle_implementation": "code_practice/import_batch_113d.py:gcd_oracle",
+  "validator_implementation_sha256": "2835101d080960861ebfdc2dfae98f0c2b7282e356df95a7795f09cd3e01acc2",
+  "batch_implementation_sha256": "ae3a70f521e643fc8c9b3cf65281455edc0bca9f18bc7a35fdb68df5af51b0be",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f67c0c09be9df5765f987d66e3948fb1aa8083da3f0b17fadb71f36c94ea1dc8",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

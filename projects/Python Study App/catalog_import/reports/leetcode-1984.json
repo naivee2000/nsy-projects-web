@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1984",
+  "content_sha256": "b623826b327779fe2a780906ac6dd2a4f263f420b12e5d3d9f2970b555e055c2",
+  "source_hash": "7938c304a34c3dfbd5f92df5014e0d7bdd1ef4c16904e30fc57abd6e9dadb8a4",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a window of k+1 scores instead of exactly k.",
+      "failed_cases": [
+        "lc-1984-1",
+        "lc-1984-4",
+        "lc-1984-5",
+        "lc-1984-6",
+        "lc-1984-7",
+        "lc-1984-9",
+        "lc-1984-10",
+        "lc-1984-11",
+        "lc-1984-12",
+        "lc-1984-13",
+        "lc-1984-14",
+        "lc-1984-15"
+      ]
+    },
+    {
+      "reason": "Starts one position late and can miss the best first sorted window.",
+      "failed_cases": [
+        "lc-1984-13",
+        "lc-1984-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6031,
+  "oracle_implementation": "code_practice/import_batch_113d.py:scores_oracle",
+  "validator_implementation_sha256": "2835101d080960861ebfdc2dfae98f0c2b7282e356df95a7795f09cd3e01acc2",
+  "batch_implementation_sha256": "ae3a70f521e643fc8c9b3cf65281455edc0bca9f18bc7a35fdb68df5af51b0be",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5187752e9b3069fd7a99c12ea97d2882cea36d362acb2c6cc30ac298ea3367b6",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
