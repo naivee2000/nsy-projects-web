@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2697",
+  "content_sha256": "c378352cc27220001993843ad50afd63a985f990af1351e59d65d3c8ab4db051",
+  "source_hash": "ffaa0af070f708a715d4b8b7b9cb240bbb512576917f68d638f7210e6152dacd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the larger character in each mismatched pair, losing lexicographic minimality.",
+      "failed_cases": [
+        "lc-2697-1",
+        "lc-2697-2",
+        "lc-2697-5",
+        "lc-2697-6",
+        "lc-2697-8",
+        "lc-2697-10",
+        "lc-2697-11",
+        "lc-2697-12",
+        "lc-2697-14"
+      ]
+    },
+    {
+      "reason": "Stops before processing the innermost pair of an even-length string.",
+      "failed_cases": [
+        "lc-2697-2",
+        "lc-2697-5",
+        "lc-2697-6",
+        "lc-2697-10",
+        "lc-2697-11",
+        "lc-2697-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6744,
+  "oracle_implementation": "code_practice/import_batch_173.py:palindrome_oracle",
+  "validator_implementation_sha256": "a325726fef84a2202bdad72b8ad12bd3a6a68d1765b0ba581cd4fee3530ad916",
+  "batch_implementation_sha256": "e9d4a044832082997c84c61c800c558c2b58182524686c8725317917a7d3ad93",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7c45a91e22e8ac21d800318ca03c3c968533cc3c27b78b23ac1717d30db6a573",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

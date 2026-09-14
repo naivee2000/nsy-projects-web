@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2702",
+  "content_sha256": "646e33862866e28068853a5df51ed5f3695c67a3591cbb9e43aff5a24d256488",
+  "source_hash": "b26bbeb4af6579015d339f46032009d835864e05f5dd805f9f1e452c05dce761",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires fewer targeted decreases than available rather than allowing equality.",
+      "failed_cases": [
+        "lc-2702-2",
+        "lc-2702-6",
+        "lc-2702-7",
+        "lc-2702-10",
+        "lc-2702-11",
+        "lc-2702-14"
+      ]
+    },
+    {
+      "reason": "Applies the large decrease x to every index as the baseline.",
+      "failed_cases": [
+        "lc-2702-1",
+        "lc-2702-4",
+        "lc-2702-5",
+        "lc-2702-7",
+        "lc-2702-10",
+        "lc-2702-11",
+        "lc-2702-12",
+        "lc-2702-13",
+        "lc-2702-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6749,
+  "oracle_implementation": "code_practice/import_batch_173.py:nonpositive_oracle",
+  "validator_implementation_sha256": "a325726fef84a2202bdad72b8ad12bd3a6a68d1765b0ba581cd4fee3530ad916",
+  "batch_implementation_sha256": "e9d4a044832082997c84c61c800c558c2b58182524686c8725317917a7d3ad93",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "903ccdaaac4a964b0f2967eda83d82669018ffbbcbd862c77cde4db0f8744f5b",
+  "elapsed_seconds": 0.089,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

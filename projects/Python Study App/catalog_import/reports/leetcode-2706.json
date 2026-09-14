@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2706",
+  "content_sha256": "57cab6229563e4acbd3abe6262cafa8eae2b812e475247fcafbc1d26d0f98155",
+  "source_hash": "efcc603a3d10fa5de0c7152b9016cf72e006aeab44aa29b6bd46be8c143a4c54",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Buys the two most expensive chocolates rather than the cheapest affordable pair.",
+      "failed_cases": [
+        "lc-2706-1",
+        "lc-2706-8",
+        "lc-2706-9",
+        "lc-2706-11",
+        "lc-2706-12",
+        "lc-2706-13",
+        "lc-2706-14"
+      ]
+    },
+    {
+      "reason": "Rejects a pair whose cost equals the available money.",
+      "failed_cases": [
+        "lc-2706-1",
+        "lc-2706-3",
+        "lc-2706-5",
+        "lc-2706-6",
+        "lc-2706-8",
+        "lc-2706-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6753,
+  "oracle_implementation": "code_practice/import_batch_173.py:chocolate_oracle",
+  "validator_implementation_sha256": "a325726fef84a2202bdad72b8ad12bd3a6a68d1765b0ba581cd4fee3530ad916",
+  "batch_implementation_sha256": "e9d4a044832082997c84c61c800c558c2b58182524686c8725317917a7d3ad93",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "631f2286c03bfae2ef8f354e1287c88b4c45b42ae2e1290fa84225e900d45161",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

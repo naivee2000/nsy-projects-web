@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2696",
+  "content_sha256": "db60b8cd6b09d28cf1173047b870604846cae2003068b2dcf02adb63136584c8",
+  "source_hash": "41c615935949545cbfcd01636e18abe42fc68d5036cfb5000cf9467a9c895eed",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Removes reversed pairs BA and DC instead of the specified pairs.",
+      "failed_cases": [
+        "lc-2696-1",
+        "lc-2696-4",
+        "lc-2696-5",
+        "lc-2696-7",
+        "lc-2696-8",
+        "lc-2696-9",
+        "lc-2696-10",
+        "lc-2696-11",
+        "lc-2696-12",
+        "lc-2696-13",
+        "lc-2696-14"
+      ]
+    },
+    {
+      "reason": "Clears the entire stack whenever one removable pair is found.",
+      "failed_cases": [
+        "lc-2696-1",
+        "lc-2696-9",
+        "lc-2696-10",
+        "lc-2696-11",
+        "lc-2696-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6743,
+  "oracle_implementation": "code_practice/import_batch_173.py:reduction_oracle",
+  "validator_implementation_sha256": "a325726fef84a2202bdad72b8ad12bd3a6a68d1765b0ba581cd4fee3530ad916",
+  "batch_implementation_sha256": "e9d4a044832082997c84c61c800c558c2b58182524686c8725317917a7d3ad93",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fd62157c7cf1780c2eadabbc435f098fc8e0264ac1a1cf6d09921581819fa398",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

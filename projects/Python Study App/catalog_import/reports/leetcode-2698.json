@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2698",
+  "content_sha256": "1e87b2cefe600063cd816bc8c6b1bba08446a540771bbc3e518243665f38277d",
+  "source_hash": "299bf20d20ebc79d472001411f53072df75324464d8aa272b60f245df42b84bb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds each chosen piece to the remaining target instead of subtracting it.",
+      "failed_cases": [
+        "lc-2698-1",
+        "lc-2698-2",
+        "lc-2698-3",
+        "lc-2698-4",
+        "lc-2698-5",
+        "lc-2698-6",
+        "lc-2698-7",
+        "lc-2698-8",
+        "lc-2698-9",
+        "lc-2698-10",
+        "lc-2698-11",
+        "lc-2698-12",
+        "lc-2698-13",
+        "lc-2698-14"
+      ]
+    },
+    {
+      "reason": "Tests the digits of i rather than i squared.",
+      "failed_cases": [
+        "lc-2698-1",
+        "lc-2698-2",
+        "lc-2698-6",
+        "lc-2698-7",
+        "lc-2698-8",
+        "lc-2698-9",
+        "lc-2698-10",
+        "lc-2698-11",
+        "lc-2698-12",
+        "lc-2698-13",
+        "lc-2698-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6745,
+  "oracle_implementation": "code_practice/import_batch_173.py:punishment_oracle",
+  "validator_implementation_sha256": "a325726fef84a2202bdad72b8ad12bd3a6a68d1765b0ba581cd4fee3530ad916",
+  "batch_implementation_sha256": "e9d4a044832082997c84c61c800c558c2b58182524686c8725317917a7d3ad93",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6a2837f39a2463d67ba7786a8b0ced8d7fe8f3c8f5177598a0cd7600c1c4fea0",
+  "elapsed_seconds": 0.09,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
