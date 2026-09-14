@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2062",
+  "content_sha256": "b140be4e34f023e1be89082b6fb4c98fb4858e0139f5a007b0d0fd0231c6d2ea",
+  "source_hash": "befa6c5861c2ad0e8aaf257419b3b481d17966abd7e449a0cca3f73d83c7b674",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips consonants but continues the same substring across them.",
+      "failed_cases": [
+        "lc-2062-5",
+        "lc-2062-7",
+        "lc-2062-10",
+        "lc-2062-14"
+      ]
+    },
+    {
+      "reason": "Accepts vowel-only substrings containing only four vowel types.",
+      "failed_cases": [
+        "lc-2062-1",
+        "lc-2062-4",
+        "lc-2062-5",
+        "lc-2062-7",
+        "lc-2062-8",
+        "lc-2062-9",
+        "lc-2062-10",
+        "lc-2062-11",
+        "lc-2062-12",
+        "lc-2062-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6109,
+  "oracle_implementation": "code_practice/import_batch_117.py:vowel_sub_o",
+  "validator_implementation_sha256": "bc62ceff8d5e391d17ffc710638918de26a987675c98fead1e5c08cfec8bcc94",
+  "batch_implementation_sha256": "d2c6a6370ca0f4afaa88c2711882a24d3e90d7842a523a2f5e6825e57c54c371",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1846ce4350bd3f2b735a1e592750a4578cfa0731668f42031bb6a5df60949cc1",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

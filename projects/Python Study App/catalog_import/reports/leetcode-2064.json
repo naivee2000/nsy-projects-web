@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2064",
+  "content_sha256": "ffd40f7d7d8024569b45bf2cfa106854684f7e747326366bdb1d2689fe3a5f3a",
+  "source_hash": "92457e030e23ebfbf9b78f7919c171e34aec5778ca78524603d3e5f40a363b6e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses floor division and underestimates stores for a partial final batch.",
+      "failed_cases": [
+        "lc-2064-2",
+        "lc-2064-7",
+        "lc-2064-10",
+        "lc-2064-11",
+        "lc-2064-12",
+        "lc-2064-13",
+        "lc-2064-14"
+      ]
+    },
+    {
+      "reason": "Rejects feasible distributions that use exactly all n stores.",
+      "failed_cases": [
+        "lc-2064-1",
+        "lc-2064-2",
+        "lc-2064-6",
+        "lc-2064-8",
+        "lc-2064-9",
+        "lc-2064-11",
+        "lc-2064-13",
+        "lc-2064-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6111,
+  "oracle_implementation": "code_practice/import_batch_117.py:distribute_o",
+  "validator_implementation_sha256": "bc62ceff8d5e391d17ffc710638918de26a987675c98fead1e5c08cfec8bcc94",
+  "batch_implementation_sha256": "d2c6a6370ca0f4afaa88c2711882a24d3e90d7842a523a2f5e6825e57c54c371",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "384a2ce06881ef5f92e9367c660dbdd6800dfd20f16b23bbb0e9ed243980cc92",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
