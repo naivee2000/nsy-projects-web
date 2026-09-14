@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1541",
+  "content_sha256": "e96891891a21f0c986b261d5cc3de9771ea978bc5fb9c7dee2c797e32ec7adc7",
+  "source_hash": "b83e57411b36510b35145c0543bdcad0cecb890fc9e98fc511dddfecf72c7884",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Closes an even pending requirement before accepting a new opening.",
+      "failed_cases": [
+        "lc-1541-2",
+        "lc-1541-6",
+        "lc-1541-11",
+        "lc-1541-12",
+        "lc-1541-14"
+      ]
+    },
+    {
+      "reason": "After an unmatched closing, leaves two rather than one required closing parenthesis.",
+      "failed_cases": [
+        "lc-1541-4",
+        "lc-1541-6",
+        "lc-1541-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5588,
+  "oracle_implementation": "code_practice/import_batch_097b.py:balance_o",
+  "validator_implementation_sha256": "4704554e0b71cab4e45179c4459aa76f7d950485944c00cca4ee2b5fe12a2695",
+  "batch_implementation_sha256": "fb463237abcebafbc62c7004ea17036bbbc4c5d1511086694ce50c125a6295e7",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "71dbb39288f5d0f77a0076391f096a354c4fbc2ab587b15dfad8541d3d14b89d",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

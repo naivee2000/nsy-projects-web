@@ -390,15 +390,16 @@ logarithmic-time algorithm is verified by a strict element-read budget, which
 rejects the linear XOR reference. This validates the reference's complexity;
 the learner's ordinary judge still checks output and its execution deadline,
 not an automatic proof of arbitrary submission complexity.
-The 858-import checkpoint preserves all preceding definitions and progress IDs.
-All 858 import reports and current overlap evidence match the 959-problem package.
+The 958-import checkpoint preserves all preceding definitions and progress IDs.
+All 958 import reports and current overlap evidence match the 1,059-problem package.
 The post-430 additions remain local development; the workbook ledger records 83
-overlaps, 858 verified imports, 155 justified exclusions, 11 quarantined records,
-and 2,522 pending records. At this checkpoint, 791 backend tests and 19 frontend
-tests pass; Chrome/Pyodide validates 864 reference suites across 1,250 isolated
-judge runs, including restart persistence and offline assets. Measured backend
-startup is 331 ms, peak RSS is 268.625 MiB, and warm p95 API latency ranges from
-1.505 ms to 2.128 ms over 100 requests per route. This is an interim checkpoint;
+overlaps, 958 verified imports, 155 justified exclusions, 12 quarantined records,
+and 2,421 pending records. At this checkpoint, 791 backend tests and 19 frontend
+tests pass; Chrome/Pyodide validates 964 workbook-derived reference suites across
+1,350 isolated judge runs, including wrong-answer rejection, timeout recovery,
+restart persistence, and offline assets. Measured backend startup is 225 ms, peak
+RSS is 269.172 MiB, and warm p95 API latency ranges from 1.097 ms to 2.116 ms over
+100 requests per route. This is an interim checkpoint;
 the full 3,629-record workbook goal remains unfinished.
 
 Linked-list and tree problems show the full `ListNode` or `TreeNode` class definition above the function in the editable code pane. The app also prepends the required class when reopening an older saved draft that predates this feature.

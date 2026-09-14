@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1542",
+  "content_sha256": "5f1378a7ab34242b639715950a8177270fa78db595f1f6070ef238b12e32b1fc",
+  "source_hash": "c79b15111c2d58540bdc2b396979ecad646e6da67ad4457e11ab4c6af9fb346e",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Never checks the parity exception for digit nine.",
+      "failed_cases": [
+        "lc-1542-7"
+      ]
+    },
+    {
+      "reason": "Records the empty prefix at index zero instead of before the string.",
+      "failed_cases": [
+        "lc-1542-3",
+        "lc-1542-4",
+        "lc-1542-6",
+        "lc-1542-7",
+        "lc-1542-9",
+        "lc-1542-10",
+        "lc-1542-11",
+        "lc-1542-12",
+        "lc-1542-13",
+        "lc-1542-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5589,
+  "oracle_implementation": "code_practice/import_batch_097b.py:awesome_o",
+  "validator_implementation_sha256": "4704554e0b71cab4e45179c4459aa76f7d950485944c00cca4ee2b5fe12a2695",
+  "batch_implementation_sha256": "fb463237abcebafbc62c7004ea17036bbbc4c5d1511086694ce50c125a6295e7",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6a1fcef3b17c1a227f37209f09892db3f67e7ed3635eb7400bdde7f66b72bb00",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

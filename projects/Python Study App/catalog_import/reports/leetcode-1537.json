@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1537",
+  "content_sha256": "b5612b4084030d69b8bf46cd9b783b6cf691fae6c192e03f4a485ca49aa9c0bf",
+  "source_hash": "c5e019a53df8a4c2d75ddfa52527c9223e270daa5d0aa050797d07eea714deaa",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the smaller accumulated segment at each crossing.",
+      "failed_cases": [
+        "lc-1537-1",
+        "lc-1537-2",
+        "lc-1537-3",
+        "lc-1537-5",
+        "lc-1537-7",
+        "lc-1537-8",
+        "lc-1537-9",
+        "lc-1537-10",
+        "lc-1537-11",
+        "lc-1537-12",
+        "lc-1537-14"
+      ]
+    },
+    {
+      "reason": "Double-counts every shared switching value.",
+      "failed_cases": [
+        "lc-1537-1",
+        "lc-1537-2",
+        "lc-1537-4",
+        "lc-1537-6",
+        "lc-1537-7",
+        "lc-1537-8",
+        "lc-1537-9",
+        "lc-1537-10",
+        "lc-1537-11",
+        "lc-1537-13",
+        "lc-1537-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5584,
+  "oracle_implementation": "code_practice/import_batch_097b.py:score_o",
+  "validator_implementation_sha256": "4704554e0b71cab4e45179c4459aa76f7d950485944c00cca4ee2b5fe12a2695",
+  "batch_implementation_sha256": "fb463237abcebafbc62c7004ea17036bbbc4c5d1511086694ce50c125a6295e7",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "94262cf6223c00327652d07c0f0f2dfc4ac451e7b6d06c041a8c726ffb3ba7cc",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

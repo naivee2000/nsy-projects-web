@@ -316,7 +316,7 @@ try {
   assert((await page.locator('.example code').nth(1).textContent()).includes('[-1,-1]'));
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await page.getByPlaceholder('Search title, topic, or pattern').fill('Diagonal Traverse');
-  await page.getByRole('button', { name: /Diagonal Traverse.*Medium/ }).click();
+  await page.locator('button.problem-card').filter({ has: page.getByText('Diagonal Traverse', { exact: true }) }).click();
   assert((await page.locator('.problem-pane').textContent()).includes('Rectangles need not be square'));
   assert((await page.locator('.example code').nth(1).textContent()).includes('[1,2,4,5,3,6]'));
   report.checks.push('batch 47 examples explain distinct zero signs, equal-negative reverse pairs, and rectangular diagonal direction');

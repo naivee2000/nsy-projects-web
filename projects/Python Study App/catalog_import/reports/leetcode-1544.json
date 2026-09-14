@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1544",
+  "content_sha256": "a678ae9376d89eecf535ea77416b636121f955e156d7aab29bfe466d8ff57657",
+  "source_hash": "e167ac13240a3e1338ca1cc50010731d99a9c9ea95aa578c93aa56646aa3e80b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes identical same-case adjacent letters too.",
+      "failed_cases": [
+        "lc-1544-1",
+        "lc-1544-11"
+      ]
+    },
+    {
+      "reason": "Clears the entire stack whenever one bad pair appears.",
+      "failed_cases": [
+        "lc-1544-1",
+        "lc-1544-10",
+        "lc-1544-12",
+        "lc-1544-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5591,
+  "oracle_implementation": "code_practice/import_batch_097b.py:great_o",
+  "validator_implementation_sha256": "4704554e0b71cab4e45179c4459aa76f7d950485944c00cca4ee2b5fe12a2695",
+  "batch_implementation_sha256": "fb463237abcebafbc62c7004ea17036bbbc4c5d1511086694ce50c125a6295e7",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2334a72ee89555419f07dcc7290998bec86c1ddd14474664eeb11a6ba9079bf2",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

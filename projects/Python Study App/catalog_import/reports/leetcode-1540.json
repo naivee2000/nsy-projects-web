@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1540",
+  "content_sha256": "3e873fd0def28a03a3613a1cb4dfb452c391e33af8357862128f18bec8cbfe46",
+  "source_hash": "7446060800e8a2c7e31f2d166c7c6826a5dc7f157277de8f757b9255cb2d4ee9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reuses the same move number for multiple indices needing an equal shift.",
+      "failed_cases": [
+        "lc-1540-6",
+        "lc-1540-13"
+      ]
+    },
+    {
+      "reason": "Schedules repeated equal shifts only twenty-five moves apart, causing move collisions modulo 26.",
+      "failed_cases": [
+        "lc-1540-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5587,
+  "oracle_implementation": "code_practice/import_batch_097b.py:convert_o",
+  "validator_implementation_sha256": "4704554e0b71cab4e45179c4459aa76f7d950485944c00cca4ee2b5fe12a2695",
+  "batch_implementation_sha256": "fb463237abcebafbc62c7004ea17036bbbc4c5d1511086694ce50c125a6295e7",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3f9ce59244cbc39f875dc0a38d9dd5a386a0fa30147dcb1a7ed5100a546d1ff3",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

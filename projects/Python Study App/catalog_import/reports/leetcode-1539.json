@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1539",
+  "content_sha256": "602dd680f26e8c5bc2a5d42114b2c2d268f4d12fc84953d6579d0bf9f5592e87",
+  "source_hash": "9375caa5879e6989fdd2d87084607276c9775f23f59f03a04a8dd693c9ab30df",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the present endpoint itself as missing inside every gap.",
+      "failed_cases": [
+        "lc-1539-1",
+        "lc-1539-2",
+        "lc-1539-3",
+        "lc-1539-7",
+        "lc-1539-8",
+        "lc-1539-9",
+        "lc-1539-11",
+        "lc-1539-13",
+        "lc-1539-14"
+      ]
+    },
+    {
+      "reason": "Adds one after the final array value.",
+      "failed_cases": [
+        "lc-1539-1",
+        "lc-1539-2",
+        "lc-1539-3",
+        "lc-1539-4",
+        "lc-1539-5",
+        "lc-1539-6",
+        "lc-1539-7",
+        "lc-1539-8",
+        "lc-1539-9",
+        "lc-1539-10",
+        "lc-1539-11",
+        "lc-1539-12",
+        "lc-1539-13",
+        "lc-1539-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5586,
+  "oracle_implementation": "code_practice/import_batch_097b.py:missing_o",
+  "validator_implementation_sha256": "4704554e0b71cab4e45179c4459aa76f7d950485944c00cca4ee2b5fe12a2695",
+  "batch_implementation_sha256": "fb463237abcebafbc62c7004ea17036bbbc4c5d1511086694ce50c125a6295e7",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "58e02c43246bbbfc4ee0093ed01ea75189fa66f4ec640b96a0277f32628ea48f",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

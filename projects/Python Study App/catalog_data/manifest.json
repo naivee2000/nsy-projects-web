@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1049,
+  "count": 1059,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -18557,6 +18557,182 @@
       "path": "problems/leetcode-1530.json",
       "content_sha256": "ab1f7f7018821f54003eae765994237037f9932754d9f5894cfa9f8e09426e5d",
       "source_id": 1530
+    },
+    {
+      "id": "leetcode-1531",
+      "version": 1,
+      "status": "approved",
+      "title": "String Compression II",
+      "summary": "Given a string s and an integer k , remove at most k characters to minimize the length of the run-length encoded version of s .",
+      "topics": [
+        "dynamic-programming",
+        "strings"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1531.json",
+      "content_sha256": "0277b852b9b247ee23281f1009ab44ebbc5fbc7c994756a0ee2cda4e71190766",
+      "source_id": 1531
+    },
+    {
+      "id": "leetcode-1534",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Good Triplets",
+      "summary": "Given an array of integers, determine the count of triplets (i, j, k) where 0 <= i < j < k < array length, and the differences between the elements satisfy specific conditions involving absolute values and predefined thresholds.",
+      "topics": [
+        "arrays",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1534.json",
+      "content_sha256": "a754245df8554b5784c7741b9adffc1ed0aaf970a5527e9a2c463a65a7818b06",
+      "source_id": 1534
+    },
+    {
+      "id": "leetcode-1535",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Winner of an Array Game",
+      "summary": "Given an array of distinct integers and an integer k, compare the first two elements.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1535.json",
+      "content_sha256": "0966360271d9cae8fc12cf7d812de92a30828d77c428db64cc54e5fe3a84e6fc",
+      "source_id": 1535
+    },
+    {
+      "id": "leetcode-1536",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Swaps to Arrange a Binary Grid",
+      "summary": "For an n x n binary grid, determine the least number of adjacent row swaps required to make all cells above the main diagonal zeros.",
+      "topics": [
+        "matrices",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1536.json",
+      "content_sha256": "406291982e1d4ef72585c1e6993aca6cc7537fc34846bdbcd16dc5893c47257a",
+      "source_id": 1536
+    },
+    {
+      "id": "leetcode-1537",
+      "version": 1,
+      "status": "approved",
+      "title": "Get the Maximum Score",
+      "summary": "Given two sorted arrays of distinct integers, determine the maximum score by choosing a path that allows switching between the arrays at a single repeated value.",
+      "topics": [
+        "two-pointers",
+        "greedy"
+      ],
+      "prerequisites": [
+        "two-pointers"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1537.json",
+      "content_sha256": "b5612b4084030d69b8bf46cd9b783b6cf691fae6c192e03f4a485ca49aa9c0bf",
+      "source_id": 1537
+    },
+    {
+      "id": "leetcode-1539",
+      "version": 1,
+      "status": "approved",
+      "title": "Kth Missing Positive Number",
+      "summary": "Given an array of positive integers in strictly increasing order and an integer k, return the kth positive integer missing from the array.",
+      "topics": [
+        "arrays",
+        "binary-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1539.json",
+      "content_sha256": "602dd680f26e8c5bc2a5d42114b2c2d268f4d12fc84953d6579d0bf9f5592e87",
+      "source_id": 1539
+    },
+    {
+      "id": "leetcode-1540",
+      "version": 1,
+      "status": "approved",
+      "title": "Can Convert String in K Moves",
+      "summary": "Given two strings s and t , determine if it is possible to convert s into t in no more than k moves.",
+      "topics": [
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1540.json",
+      "content_sha256": "3e873fd0def28a03a3613a1cb4dfb452c391e33af8357862128f18bec8cbfe46",
+      "source_id": 1540
+    },
+    {
+      "id": "leetcode-1541",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Insertions to Balance a Parentheses String",
+      "summary": "Given a string s with parentheses '(', ')', a string is balanced if every '(' has a corresponding '))' and '(' precedes '))'.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1541.json",
+      "content_sha256": "e96891891a21f0c986b261d5cc3de9771ea978bc5fb9c7dee2c797e32ec7adc7",
+      "source_id": 1541
+    },
+    {
+      "id": "leetcode-1542",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Longest Awesome Substring",
+      "summary": "Given a string, determine the length of the longest substring that can be transformed into a palindrome through any number of swaps.",
+      "topics": [
+        "bit-manipulation",
+        "prefix-parity"
+      ],
+      "prerequisites": [
+        "bit-manipulation"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1542.json",
+      "content_sha256": "5f1378a7ab34242b639715950a8177270fa78db595f1f6070ef238b12e32b1fc",
+      "source_id": 1542
+    },
+    {
+      "id": "leetcode-1544",
+      "version": 1,
+      "status": "approved",
+      "title": "Make The String Great",
+      "summary": "Given a string s consisting of lowercase and uppercase English letters, remove adjacent characters that are the same letter but differ in case until no such pairs remain.",
+      "topics": [
+        "strings",
+        "stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1544.json",
+      "content_sha256": "a678ae9376d89eecf535ea77416b636121f955e156d7aab29bfe466d8ff57657",
+      "source_id": 1544
     }
   ]
 }

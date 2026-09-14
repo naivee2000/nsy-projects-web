@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1531",
+  "content_sha256": "0277b852b9b247ee23281f1009ab44ebbc5fbc7c994756a0ee2cda4e71190766",
+  "source_hash": "e3eee936b5557219e038291af8fae01c07a9031598fcdaf10b3c1f93ecaada98",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the deletion budget and compresses the original string only.",
+      "failed_cases": [
+        "lc-1531-1",
+        "lc-1531-2",
+        "lc-1531-4",
+        "lc-1531-7",
+        "lc-1531-8",
+        "lc-1531-9",
+        "lc-1531-10",
+        "lc-1531-11",
+        "lc-1531-12",
+        "lc-1531-13",
+        "lc-1531-14"
+      ]
+    },
+    {
+      "reason": "Adds a count digit even for singleton runs.",
+      "failed_cases": [
+        "lc-1531-3",
+        "lc-1531-7",
+        "lc-1531-9",
+        "lc-1531-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5578,
+  "oracle_implementation": "code_practice/import_batch_097b.py:compress_o",
+  "validator_implementation_sha256": "4704554e0b71cab4e45179c4459aa76f7d950485944c00cca4ee2b5fe12a2695",
+  "batch_implementation_sha256": "fb463237abcebafbc62c7004ea17036bbbc4c5d1511086694ce50c125a6295e7",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "13ad7ebd57286a4edc45fbf150aee22b00e4eac80b92c9c507efa9a060c725cf",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

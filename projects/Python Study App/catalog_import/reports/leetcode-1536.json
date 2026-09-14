@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1536",
+  "content_sha256": "406291982e1d4ef72585c1e6993aca6cc7537fc34846bdbcd16dc5893c47257a",
+  "source_hash": "68589e49755aa60ee038ccd726969e97b2dbce8a86a4e408c68ac542d2fa3229",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires one extra trailing zero in every row.",
+      "failed_cases": [
+        "lc-1536-1",
+        "lc-1536-5",
+        "lc-1536-6",
+        "lc-1536-9",
+        "lc-1536-10",
+        "lc-1536-11",
+        "lc-1536-12",
+        "lc-1536-13",
+        "lc-1536-14"
+      ]
+    },
+    {
+      "reason": "Counts one per selected row instead of the adjacent swaps needed to bubble it upward.",
+      "failed_cases": [
+        "lc-1536-3",
+        "lc-1536-4",
+        "lc-1536-5",
+        "lc-1536-6",
+        "lc-1536-7",
+        "lc-1536-9",
+        "lc-1536-10",
+        "lc-1536-11",
+        "lc-1536-12",
+        "lc-1536-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5583,
+  "oracle_implementation": "code_practice/import_batch_097b.py:grid_o",
+  "validator_implementation_sha256": "4704554e0b71cab4e45179c4459aa76f7d950485944c00cca4ee2b5fe12a2695",
+  "batch_implementation_sha256": "fb463237abcebafbc62c7004ea17036bbbc4c5d1511086694ce50c125a6295e7",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fa21d9a98dd203e5cafc92b70001414523b9da0dad8f06431f22398f3de0f938",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
