@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1879",
+  "content_sha256": "c6cc14c041cc85dec6f1c3bdc8928fe2601763a2006404ae293e701bfab1cdac",
+  "source_hash": "76b8cd9b7a11fb8b0c45c300d4467461c130b12eff2e27959c37d34562dc7168",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses bitwise OR as the pair cost instead of XOR.",
+      "failed_cases": [
+        "lc-1879-1",
+        "lc-1879-2",
+        "lc-1879-5",
+        "lc-1879-6",
+        "lc-1879-7",
+        "lc-1879-8",
+        "lc-1879-10",
+        "lc-1879-11",
+        "lc-1879-12",
+        "lc-1879-13",
+        "lc-1879-14"
+      ]
+    },
+    {
+      "reason": "Chooses the cheapest current partner greedily, which can block a better global assignment.",
+      "failed_cases": [
+        "lc-1879-2",
+        "lc-1879-8",
+        "lc-1879-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5926,
+  "oracle_implementation": "code_practice/import_batch_109c.py:xor_sum_oracle",
+  "validator_implementation_sha256": "f1d9cff664b08f8d262f286af53f7a6247ee4df4759f529417a61460e77f4270",
+  "batch_implementation_sha256": "67b35d827f05b1b7713023f3a76536573d9c59f6fae19e79a85e22889fb8484c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6a956f99e8a0313876b25b834a44c92bf4c3bc0a8ea0c1e6adc612c66d1420ca",
+  "elapsed_seconds": 0.077,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1880",
+  "content_sha256": "ce7e8644e7cb9460e3ea9227824850cf28a338aa1a5f02e062662ec9ad67cdc8",
+  "source_hash": "5aa1d9198648d8b360b307e1fc8ccffc440e1e673451a4b3f8432d9cd3f34591",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Maps letters to one through ten rather than digits zero through nine.",
+      "failed_cases": [
+        "lc-1880-1",
+        "lc-1880-2",
+        "lc-1880-3",
+        "lc-1880-4",
+        "lc-1880-5",
+        "lc-1880-6",
+        "lc-1880-7",
+        "lc-1880-8",
+        "lc-1880-9",
+        "lc-1880-10",
+        "lc-1880-11",
+        "lc-1880-12",
+        "lc-1880-13",
+        "lc-1880-14"
+      ]
+    },
+    {
+      "reason": "Adds letter digits instead of concatenating them by place value.",
+      "failed_cases": [
+        "lc-1880-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5927,
+  "oracle_implementation": "code_practice/import_batch_109c.py:word_sum_oracle",
+  "validator_implementation_sha256": "f1d9cff664b08f8d262f286af53f7a6247ee4df4759f529417a61460e77f4270",
+  "batch_implementation_sha256": "67b35d827f05b1b7713023f3a76536573d9c59f6fae19e79a85e22889fb8484c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1837f0ff9773980b59e5efefcb0330c829372b24e52a8943f90602557e294913",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

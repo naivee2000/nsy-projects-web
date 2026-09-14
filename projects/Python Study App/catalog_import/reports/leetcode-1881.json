@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1881",
+  "content_sha256": "0fe83dc1c40ff625e279a4aa54bf2e6d3a76191ccb3e974286583849eeebb8d8",
+  "source_hash": "7409342efe6ab6da2e440b10d1f837e3c9a94a24f2a9a7ec0490859a1cb47ca8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Always appends the digit, ignoring the first position that improves the number.",
+      "failed_cases": [
+        "lc-1881-2",
+        "lc-1881-4",
+        "lc-1881-6",
+        "lc-1881-7",
+        "lc-1881-8",
+        "lc-1881-11",
+        "lc-1881-12",
+        "lc-1881-13",
+        "lc-1881-16"
+      ]
+    },
+    {
+      "reason": "Uses the positive-number comparison for negatives, where smaller magnitude digits must come earlier.",
+      "failed_cases": [
+        "lc-1881-2",
+        "lc-1881-8",
+        "lc-1881-10",
+        "lc-1881-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5928,
+  "oracle_implementation": "code_practice/import_batch_109c.py:insertion_oracle",
+  "validator_implementation_sha256": "f1d9cff664b08f8d262f286af53f7a6247ee4df4759f529417a61460e77f4270",
+  "batch_implementation_sha256": "67b35d827f05b1b7713023f3a76536573d9c59f6fae19e79a85e22889fb8484c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e3daeac6a935a8978cc4f4ed0a8d514c03b9a06d905e4a9c4a995c9bf898ae31",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1882",
+  "content_sha256": "03807638285230143ab24836db3c0319132bc71e1bbf14a1128d365caebda2d3",
+  "source_hash": "39ab8ce43972613af0d05a4196cafe443a76dd87dbc4a56a0ede573583016d26",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Prioritizes server index while ignoring the required lower-weight preference.",
+      "failed_cases": [
+        "lc-1882-1",
+        "lc-1882-2",
+        "lc-1882-6",
+        "lc-1882-9",
+        "lc-1882-10",
+        "lc-1882-12",
+        "lc-1882-13",
+        "lc-1882-15"
+      ]
+    },
+    {
+      "reason": "Schedules a delayed task from its original arrival time instead of the time a server becomes available.",
+      "failed_cases": [
+        "lc-1882-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5929,
+  "oracle_implementation": "code_practice/import_batch_109c.py:server_oracle",
+  "validator_implementation_sha256": "f1d9cff664b08f8d262f286af53f7a6247ee4df4759f529417a61460e77f4270",
+  "batch_implementation_sha256": "67b35d827f05b1b7713023f3a76536573d9c59f6fae19e79a85e22889fb8484c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3b840c643f607a6ce6945f636c6a8341787fe4676cddcc95c5f71dcbeadb61c3",
+  "elapsed_seconds": 0.059,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

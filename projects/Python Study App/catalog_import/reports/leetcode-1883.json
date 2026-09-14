@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1883",
+  "content_sha256": "e22a85036ea3fb05d764708e3dac60dd3e46d22222bea44a7e63bc7d4a3c685f",
+  "source_hash": "93c7e124e05be46bbb092a74cc6b2924fe1a1d96686a500caee109e5730ca5ef",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Carries the rounded rest time into the skip transition, so spending a skip provides no benefit.",
+      "failed_cases": [
+        "lc-1883-1",
+        "lc-1883-2",
+        "lc-1883-6",
+        "lc-1883-7",
+        "lc-1883-9",
+        "lc-1883-10",
+        "lc-1883-11",
+        "lc-1883-12",
+        "lc-1883-14",
+        "lc-1883-16"
+      ]
+    },
+    {
+      "reason": "Rounds completed travel down at rests instead of waiting until the next whole hour.",
+      "failed_cases": [
+        "lc-1883-1",
+        "lc-1883-2",
+        "lc-1883-6",
+        "lc-1883-7",
+        "lc-1883-9",
+        "lc-1883-10",
+        "lc-1883-11",
+        "lc-1883-12",
+        "lc-1883-14",
+        "lc-1883-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5930,
+  "oracle_implementation": "code_practice/import_batch_109c.py:skips_oracle",
+  "validator_implementation_sha256": "f1d9cff664b08f8d262f286af53f7a6247ee4df4759f529417a61460e77f4270",
+  "batch_implementation_sha256": "67b35d827f05b1b7713023f3a76536573d9c59f6fae19e79a85e22889fb8484c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "19e27436aa228e83d8a3038704b1e787fa0232666c8de30081d9af4cca5f64bd",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
