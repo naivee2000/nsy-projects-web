@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2460",
+  "content_sha256": "c44a5d7524dde705d6a72d7611c66b0e10818c6ade080184951a7a9d8a599f79",
+  "source_hash": "6cc4f1a5b1a10fc934c2cd9e41cc4b80e861e0f2b3f5978d118d57b0cef318fb",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Never processes the final adjacent pair.",
+      "failed_cases": [
+        "lc-2460-3",
+        "lc-2460-7",
+        "lc-2460-9",
+        "lc-2460-10",
+        "lc-2460-11",
+        "lc-2460-14",
+        "lc-2460-15"
+      ]
+    },
+    {
+      "reason": "Doubles unequal neighbors instead of equal neighbors.",
+      "failed_cases": [
+        "lc-2460-1",
+        "lc-2460-2",
+        "lc-2460-3",
+        "lc-2460-4",
+        "lc-2460-6",
+        "lc-2460-7",
+        "lc-2460-8",
+        "lc-2460-9",
+        "lc-2460-10",
+        "lc-2460-11",
+        "lc-2460-12",
+        "lc-2460-13",
+        "lc-2460-14",
+        "lc-2460-15",
+        "lc-2460-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6507,
+  "oracle_implementation": "code_practice/import_batch_131b.py:operations_oracle",
+  "validator_implementation_sha256": "a2401346495747d9ed9c0fb3a2a32b5750931fb5155c93c4563c33037ab3a13a",
+  "batch_implementation_sha256": "0fb0a458c0b3a56cd3fb30cccc3d4540d806307fa8f65e18f60ea33dbeee8d3c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eff44cba5228e658cd91162cef4123a048ae30441afe9a8857ef831598a24d70",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

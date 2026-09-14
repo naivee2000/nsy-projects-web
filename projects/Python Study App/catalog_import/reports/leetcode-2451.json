@@ -1,0 +1,64 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2451",
+  "content_sha256": "71b5b6d830c868333f310520892e09000885f8f5470c17a1705a7dd6a2931026",
+  "source_hash": "b28479860a54e2c5fa3a831a19e80622c8ea911caf872eb86d266ecf8d02a154",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses sums of adjacent codes, which are not invariant under uniform character shifts.",
+      "failed_cases": [
+        "lc-2451-1",
+        "lc-2451-2",
+        "lc-2451-3",
+        "lc-2451-4",
+        "lc-2451-5",
+        "lc-2451-6",
+        "lc-2451-7",
+        "lc-2451-8",
+        "lc-2451-9",
+        "lc-2451-10",
+        "lc-2451-11",
+        "lc-2451-12",
+        "lc-2451-13",
+        "lc-2451-14",
+        "lc-2451-15",
+        "lc-2451-16"
+      ]
+    },
+    {
+      "reason": "Returns a word from the repeated signature group instead of the unique signature.",
+      "failed_cases": [
+        "lc-2451-1",
+        "lc-2451-2",
+        "lc-2451-3",
+        "lc-2451-4",
+        "lc-2451-5",
+        "lc-2451-6",
+        "lc-2451-7",
+        "lc-2451-8",
+        "lc-2451-9",
+        "lc-2451-10",
+        "lc-2451-11",
+        "lc-2451-12",
+        "lc-2451-13",
+        "lc-2451-14",
+        "lc-2451-15",
+        "lc-2451-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6498,
+  "oracle_implementation": "code_practice/import_batch_131b.py:odd_oracle",
+  "validator_implementation_sha256": "a2401346495747d9ed9c0fb3a2a32b5750931fb5155c93c4563c33037ab3a13a",
+  "batch_implementation_sha256": "0fb0a458c0b3a56cd3fb30cccc3d4540d806307fa8f65e18f60ea33dbeee8d3c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eca82963d0ed5275c080bd1325868711a5f99b6b889a26650f6eb1247d4dbb79",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

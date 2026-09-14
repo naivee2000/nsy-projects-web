@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2455",
+  "content_sha256": "c8b02f90f6fd5673cc5c4b394ef7bfb49a9379c86ab552e745a5ec8f568cb381",
+  "source_hash": "ec7f63e1b441e51b6bdddb97698d7a7c5ee05090ed6e7cc3c3d7220cc9a33faa",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Includes odd multiples of three even though qualifying values must also be even.",
+      "failed_cases": [
+        "lc-2455-7",
+        "lc-2455-11",
+        "lc-2455-14"
+      ]
+    },
+    {
+      "reason": "Divides the qualifying sum by the full input length.",
+      "failed_cases": [
+        "lc-2455-1",
+        "lc-2455-7",
+        "lc-2455-9",
+        "lc-2455-12",
+        "lc-2455-13",
+        "lc-2455-15",
+        "lc-2455-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6502,
+  "oracle_implementation": "code_practice/import_batch_131b.py:average_oracle",
+  "validator_implementation_sha256": "a2401346495747d9ed9c0fb3a2a32b5750931fb5155c93c4563c33037ab3a13a",
+  "batch_implementation_sha256": "0fb0a458c0b3a56cd3fb30cccc3d4540d806307fa8f65e18f60ea33dbeee8d3c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e91a659d8a49f206849221599563a36a79ac4975e4dce557b0bf2b5c9979507d",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
