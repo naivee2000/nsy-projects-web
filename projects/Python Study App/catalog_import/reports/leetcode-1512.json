@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1512",
+  "content_sha256": "dadb00d08bdcf15beb3821ce5599ea68f508d631b08cd2376fdbb9a2d7d0a3e3",
+  "source_hash": "c608c2ba76865f75e041d4fa2954ef16d9a95ef50ca62b338d630aaa2c95bd42",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only one fewer than each frequency, missing combinations among larger groups.",
+      "failed_cases": [
+        "lc-1512-1",
+        "lc-1512-2",
+        "lc-1512-8",
+        "lc-1512-9",
+        "lc-1512-10",
+        "lc-1512-12",
+        "lc-1512-13",
+        "lc-1512-14"
+      ]
+    },
+    {
+      "reason": "Counts ordered equal pairs twice.",
+      "failed_cases": [
+        "lc-1512-1",
+        "lc-1512-2",
+        "lc-1512-5",
+        "lc-1512-7",
+        "lc-1512-8",
+        "lc-1512-9",
+        "lc-1512-10",
+        "lc-1512-11",
+        "lc-1512-12",
+        "lc-1512-13",
+        "lc-1512-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5559,
+  "oracle_implementation": "code_practice/import_batch_096b.py:good_o",
+  "validator_implementation_sha256": "f3fc47e7023c6efd92ae5ea4a953652e69ff9de0a4936c2427c75d5237ca86d1",
+  "batch_implementation_sha256": "be26347551c7e1b0e0ffe74a0bc332372d970f231bba625f21e3e4493a316aa0",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9a3c4d1fa689ffa0f1d958931d9c9cb541c54e80ca33242820f0b423616d5606",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

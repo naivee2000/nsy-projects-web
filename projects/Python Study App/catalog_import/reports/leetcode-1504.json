@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1504",
+  "content_sha256": "bdf9c0015a2368619c6b7b68d79ae62cc2a43e9db2c204e278703da8746923b3",
+  "source_hash": "17352eba1a390f71e0a2910b8f2681cb2752b280d7d8129bee4784b7db6164a5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only one rectangle per positive-width ending instead of every possible height.",
+      "failed_cases": [
+        "lc-1504-1",
+        "lc-1504-2",
+        "lc-1504-7",
+        "lc-1504-9",
+        "lc-1504-10",
+        "lc-1504-11",
+        "lc-1504-12",
+        "lc-1504-13",
+        "lc-1504-14"
+      ]
+    },
+    {
+      "reason": "Forgets the minimum height across the full column interval.",
+      "failed_cases": [
+        "lc-1504-1",
+        "lc-1504-5",
+        "lc-1504-9",
+        "lc-1504-10",
+        "lc-1504-11",
+        "lc-1504-13",
+        "lc-1504-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5551,
+  "oracle_implementation": "code_practice/import_batch_096b.py:submat_o",
+  "validator_implementation_sha256": "f3fc47e7023c6efd92ae5ea4a953652e69ff9de0a4936c2427c75d5237ca86d1",
+  "batch_implementation_sha256": "be26347551c7e1b0e0ffe74a0bc332372d970f231bba625f21e3e4493a316aa0",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f090accb0d2680312134e17a3e2c1560681acf4ef799f2ebf94c21dc7f672aec",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

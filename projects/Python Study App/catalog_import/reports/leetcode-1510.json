@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1510",
+  "content_sha256": "8e3dec66fc2bacbffb170174a8e79793c2b3f0946f4fb328d7c8891b60b19b05",
+  "source_hash": "24188f02e982969b1dec539f1878f3b2a87e85da3b23cf8e5e8ba464854232b6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Moves only to positions already known to be winning for the opponent.",
+      "failed_cases": [
+        "lc-1510-1",
+        "lc-1510-4",
+        "lc-1510-5",
+        "lc-1510-11",
+        "lc-1510-13",
+        "lc-1510-14"
+      ]
+    },
+    {
+      "reason": "Incorrectly marks the zero-stone base state as winning.",
+      "failed_cases": [
+        "lc-1510-1",
+        "lc-1510-2",
+        "lc-1510-3",
+        "lc-1510-4",
+        "lc-1510-6",
+        "lc-1510-7",
+        "lc-1510-8",
+        "lc-1510-9",
+        "lc-1510-10",
+        "lc-1510-11",
+        "lc-1510-12",
+        "lc-1510-13",
+        "lc-1510-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5557,
+  "oracle_implementation": "code_practice/import_batch_096b.py:stone_o",
+  "validator_implementation_sha256": "f3fc47e7023c6efd92ae5ea4a953652e69ff9de0a4936c2427c75d5237ca86d1",
+  "batch_implementation_sha256": "be26347551c7e1b0e0ffe74a0bc332372d970f231bba625f21e3e4493a316aa0",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "811367c6f9a3bffd1ae75425fe427d480ff673f6ea1f32bd0dd0f68c6c2ef017",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

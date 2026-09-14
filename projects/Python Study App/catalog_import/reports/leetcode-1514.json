@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1514",
+  "content_sha256": "3c13e669919e989929533e96a3269f15c3110509ad35ebe185fc3ddbdc55cbaf",
+  "source_hash": "e24483788b84897f4e3dc73ec8a1748d41d014fa1e79d9df7bb7f08b959e8958",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses failure probability rather than success probability on each edge.",
+      "failed_cases": [
+        "lc-1514-1",
+        "lc-1514-3",
+        "lc-1514-5",
+        "lc-1514-7",
+        "lc-1514-9",
+        "lc-1514-11",
+        "lc-1514-12",
+        "lc-1514-13"
+      ]
+    },
+    {
+      "reason": "Halves the probability when the destination is reached.",
+      "failed_cases": [
+        "lc-1514-1",
+        "lc-1514-3",
+        "lc-1514-4",
+        "lc-1514-6",
+        "lc-1514-7",
+        "lc-1514-8",
+        "lc-1514-9",
+        "lc-1514-11",
+        "lc-1514-12",
+        "lc-1514-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5561,
+  "oracle_implementation": "code_practice/import_batch_096b.py:probability_o",
+  "validator_implementation_sha256": "f3fc47e7023c6efd92ae5ea4a953652e69ff9de0a4936c2427c75d5237ca86d1",
+  "batch_implementation_sha256": "be26347551c7e1b0e0ffe74a0bc332372d970f231bba625f21e3e4493a316aa0",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "02ab0b706b21e93afad686891867d81309f1be996a82d1183c3e4b6f56602007",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

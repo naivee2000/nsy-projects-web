@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1508",
+  "content_sha256": "2f2ac6cbfef60961a98224a6867185e4ff14df7b6c4e3891b14b9bd3e9fa2dfb",
+  "source_hash": "84c489945dcf6b34ccea3127bd3e9fd65a8ca039477054e93f784c2c9f963db7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits every length-one subarray except the final index.",
+      "failed_cases": [
+        "lc-1508-1",
+        "lc-1508-2",
+        "lc-1508-3",
+        "lc-1508-4",
+        "lc-1508-5",
+        "lc-1508-6",
+        "lc-1508-7",
+        "lc-1508-8",
+        "lc-1508-9",
+        "lc-1508-10",
+        "lc-1508-11",
+        "lc-1508-12",
+        "lc-1508-13",
+        "lc-1508-14"
+      ]
+    },
+    {
+      "reason": "Treats one-based ranks as zero-based slice indices.",
+      "failed_cases": [
+        "lc-1508-1",
+        "lc-1508-2",
+        "lc-1508-3",
+        "lc-1508-4",
+        "lc-1508-5",
+        "lc-1508-6",
+        "lc-1508-7",
+        "lc-1508-8",
+        "lc-1508-9",
+        "lc-1508-10",
+        "lc-1508-11",
+        "lc-1508-12",
+        "lc-1508-13",
+        "lc-1508-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5555,
+  "oracle_implementation": "code_practice/import_batch_096b.py:ranges_o",
+  "validator_implementation_sha256": "f3fc47e7023c6efd92ae5ea4a953652e69ff9de0a4936c2427c75d5237ca86d1",
+  "batch_implementation_sha256": "be26347551c7e1b0e0ffe74a0bc332372d970f231bba625f21e3e4493a316aa0",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "87bb3afde011bfe90250177565d037f87fb2938ff649fbfdbb4fa1fad3f3849d",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

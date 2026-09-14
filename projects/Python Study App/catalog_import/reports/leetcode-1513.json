@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1513",
+  "content_sha256": "646f70e5cfb3501cb67b02d43c67be8ccb39a91857ffe55b9e69fec63b630ed0",
+  "source_hash": "72f26dee8a335d35e88686839e5a7b5c92d098211f08f81d3db2d9c903cece33",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds only one per one character instead of the number of substrings ending there.",
+      "failed_cases": [
+        "lc-1513-1",
+        "lc-1513-2",
+        "lc-1513-3",
+        "lc-1513-5",
+        "lc-1513-6",
+        "lc-1513-7",
+        "lc-1513-8",
+        "lc-1513-9",
+        "lc-1513-11",
+        "lc-1513-12",
+        "lc-1513-13",
+        "lc-1513-14"
+      ]
+    },
+    {
+      "reason": "Fails to reset the run at a zero.",
+      "failed_cases": [
+        "lc-1513-1",
+        "lc-1513-2",
+        "lc-1513-8",
+        "lc-1513-10",
+        "lc-1513-11",
+        "lc-1513-12",
+        "lc-1513-13",
+        "lc-1513-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5560,
+  "oracle_implementation": "code_practice/import_batch_096b.py:ones_o",
+  "validator_implementation_sha256": "f3fc47e7023c6efd92ae5ea4a953652e69ff9de0a4936c2427c75d5237ca86d1",
+  "batch_implementation_sha256": "be26347551c7e1b0e0ffe74a0bc332372d970f231bba625f21e3e4493a316aa0",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ad703ab53ff1cc1d043f6fd86fc68d69af463d4e56f6dae84412412738b39ec1",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

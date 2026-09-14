@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1029,
+  "count": 1039,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -18208,6 +18208,180 @@
       "path": "problems/leetcode-1503.json",
       "content_sha256": "9a8974fd281f73b79c38b1cbc3b0176085d91fc824b5678ad016f75f171025b4",
       "source_id": 1503
+    },
+    {
+      "id": "leetcode-1504",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Submatrices With All Ones",
+      "summary": "Determine the count of submatrices within a binary matrix where all elements are ones.",
+      "topics": [
+        "matrices",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1504.json",
+      "content_sha256": "bdf9c0015a2368619c6b7b68d79ae62cc2a43e9db2c204e278703da8746923b3",
+      "source_id": 1504
+    },
+    {
+      "id": "leetcode-1507",
+      "version": 1,
+      "status": "approved",
+      "title": "Reformat Date",
+      "summary": "Convert a date string from 'Day Month Year' format to 'YYYY-MM-DD' format, ensuring the year is between 1900 and 2100, and the day and month are appropriately formatted.",
+      "topics": [
+        "strings",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1507.json",
+      "content_sha256": "e344eb9e1e25cec079dd00596e933fb6d29775a03a3c31447946b3f51dedbfa7",
+      "source_id": 1507
+    },
+    {
+      "id": "leetcode-1508",
+      "version": 1,
+      "status": "approved",
+      "title": "Range Sum of Sorted Subarray Sums",
+      "summary": "Given an array of n positive integers, compute the sum of all non-empty continuous subarrays, sort these sums, and return the sum of elements from index left to right in the sorted array, modulo 10^9 + 7.",
+      "topics": [
+        "arrays",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1508.json",
+      "content_sha256": "2f2ac6cbfef60961a98224a6867185e4ff14df7b6c4e3891b14b9bd3e9fa2dfb",
+      "source_id": 1508
+    },
+    {
+      "id": "leetcode-1509",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Difference Between Largest and Smallest Value in Three Moves",
+      "summary": "Given an integer array nums, you can change at most one element to any value in a single move.",
+      "topics": [
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1509.json",
+      "content_sha256": "fdb3c2575305acab46af1f0163d5e70b745c6926dc27f4ae8dde569d73209cd7",
+      "source_id": 1509
+    },
+    {
+      "id": "leetcode-1510",
+      "version": 1,
+      "status": "approved",
+      "title": "Stone Game IV",
+      "summary": "Alice and Bob play a game starting with n stones.",
+      "topics": [
+        "dynamic-programming",
+        "game-theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1510.json",
+      "content_sha256": "8e3dec66fc2bacbffb170174a8e79793c2b3f0946f4fb328d7c8891b60b19b05",
+      "source_id": 1510
+    },
+    {
+      "id": "leetcode-1512",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Good Pairs",
+      "summary": "For an array of integers, count the pairs where the elements are equal and the first index is less than the second.",
+      "topics": [
+        "arrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1512.json",
+      "content_sha256": "dadb00d08bdcf15beb3821ce5599ea68f508d631b08cd2376fdbb9a2d7d0a3e3",
+      "source_id": 1512
+    },
+    {
+      "id": "leetcode-1513",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Substrings With Only 1s",
+      "summary": "For a binary string, count the substrings consisting solely of '1's, then return this count modulo 1000000007.",
+      "topics": [
+        "strings",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1513.json",
+      "content_sha256": "646f70e5cfb3501cb67b02d43c67be8ccb39a91857ffe55b9e69fec63b630ed0",
+      "source_id": 1513
+    },
+    {
+      "id": "leetcode-1514",
+      "version": 1,
+      "status": "approved",
+      "title": "Path with Maximum Probability",
+      "summary": "Given an undirected weighted graph with n nodes, where each edge has a probability of success associated with it, find the path from a specified start node to an end node that has the maximum probability of success.",
+      "topics": [
+        "graphs",
+        "shortest-path"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1514.json",
+      "content_sha256": "3c13e669919e989929533e96a3269f15c3110509ad35ebe185fc3ddbdc55cbaf",
+      "source_id": 1514
+    },
+    {
+      "id": "leetcode-1518",
+      "version": 1,
+      "status": "approved",
+      "title": "Water Bottles",
+      "summary": "Given the initial number of full water bottles and the number of empty bottles required to exchange for one full bottle, determine the maximum number of water bottles that can be drunk.",
+      "topics": [
+        "simulation",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1518.json",
+      "content_sha256": "72e6373bac16f33c73f07b53fc51480e53e6b9ef3405e7b44bb339e7d250de13",
+      "source_id": 1518
+    },
+    {
+      "id": "leetcode-1519",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Nodes in the Sub-Tree With the Same Label",
+      "summary": "Given a tree with n nodes numbered from 0 to n-1 , where each node has a label represented by a character in the string labels, and edges connecting the nodes, return an array of size n .",
+      "topics": [
+        "trees",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1519.json",
+      "content_sha256": "e5bcb9707a96de52e1ed995fc7371b72d9bd228922746bb73b7e5aaa6b9693c0",
+      "source_id": 1519
     }
   ]
 }

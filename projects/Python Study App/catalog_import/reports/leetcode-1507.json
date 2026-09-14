@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1507",
+  "content_sha256": "e344eb9e1e25cec079dd00596e933fb6d29775a03a3c31447946b3f51dedbfa7",
+  "source_hash": "c881b0eea81800311398e63827a4875a757f06fd9564bc23486c756fd1fc888e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Swaps the month and day fields in the output.",
+      "failed_cases": [
+        "lc-1507-1",
+        "lc-1507-9",
+        "lc-1507-10",
+        "lc-1507-11",
+        "lc-1507-12",
+        "lc-1507-13",
+        "lc-1507-14"
+      ]
+    },
+    {
+      "reason": "Assigns January the wrong month number.",
+      "failed_cases": [
+        "lc-1507-1",
+        "lc-1507-2",
+        "lc-1507-3",
+        "lc-1507-4",
+        "lc-1507-5",
+        "lc-1507-6",
+        "lc-1507-7",
+        "lc-1507-8",
+        "lc-1507-9",
+        "lc-1507-10",
+        "lc-1507-11",
+        "lc-1507-12",
+        "lc-1507-13",
+        "lc-1507-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5554,
+  "oracle_implementation": "code_practice/import_batch_096b.py:date_o",
+  "validator_implementation_sha256": "f3fc47e7023c6efd92ae5ea4a953652e69ff9de0a4936c2427c75d5237ca86d1",
+  "batch_implementation_sha256": "be26347551c7e1b0e0ffe74a0bc332372d970f231bba625f21e3e4493a316aa0",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "963b851726380a829f59e0511869a97426fb5b28e7affffc1fcee5c96cc26964",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
