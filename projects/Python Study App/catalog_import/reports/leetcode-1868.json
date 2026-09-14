@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1868",
+  "content_sha256": "f3f1c569cef3a76b3719aff5cbc1ddf9a98ee5d4f5d06daf0f428a178b119de5",
+  "source_hash": "7989771ed8e45b7a1cbd0ef261b9d3f6de4105f4ea41de1063af36c736a9c917",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Never merges adjacent runs that produce the same product.",
+      "failed_cases": [
+        "lc-1868-1",
+        "lc-1868-9"
+      ]
+    },
+    {
+      "reason": "Expands correctly but returns one run per element instead of the minimum-length encoding.",
+      "failed_cases": [
+        "lc-1868-1",
+        "lc-1868-2",
+        "lc-1868-4",
+        "lc-1868-5",
+        "lc-1868-6",
+        "lc-1868-8",
+        "lc-1868-9",
+        "lc-1868-10",
+        "lc-1868-11",
+        "lc-1868-12",
+        "lc-1868-13",
+        "lc-1868-14",
+        "lc-1868-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5915,
+  "oracle_implementation": "code_practice/import_batch_109.py:rle_product_oracle",
+  "validator_implementation_sha256": "26bd9e2faf5d94e4eb685451775f4eeb8b6ef8a7c2407df96326fb5ccfe910cd",
+  "batch_implementation_sha256": "2c21af396eeeab8a45cb8f9a61ac4f37c2677cba7bb1b7b81a328900a069398b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "068e94e5f60d837de865448865e7539fc6c5ffb4e90ae780b3a2336412b51831",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
