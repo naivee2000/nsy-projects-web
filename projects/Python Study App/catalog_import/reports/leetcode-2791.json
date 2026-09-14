@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2791",
+  "content_sha256": "3f79cf256de98cf3c4f6676ae1b07e52a4781baed254b8eedda434bfc83d8ccb",
+  "source_hash": "a3701fbea1b5ae4917325914337a518fc2e31c55485f4a8997a375a74c44da2f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only paths with every character even.",
+      "failed_cases": [
+        "lc-2791-1",
+        "lc-2791-2",
+        "lc-2791-4",
+        "lc-2791-5",
+        "lc-2791-6",
+        "lc-2791-7",
+        "lc-2791-8",
+        "lc-2791-9",
+        "lc-2791-10",
+        "lc-2791-11",
+        "lc-2791-12",
+        "lc-2791-13",
+        "lc-2791-14",
+        "lc-2791-15"
+      ]
+    },
+    {
+      "reason": "Never permits z as the one odd character.",
+      "failed_cases": [
+        "lc-2791-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6838,
+  "oracle_implementation": "code_practice/import_batch_185.py:paths_oracle",
+  "validator_implementation_sha256": "33ee8d376f82afd0b2e97e519770577b3a77b4231426fd4349ebe5ce9a13aa06",
+  "batch_implementation_sha256": "1e389c262a86c238160f4579fd3adafeaf2c2aa4c92118686dbb4c97969096fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fa3b823cd3efc1a2bf5b91e32fdc2acb7634e232e3a3f418b5dad8803a6b3f9f",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

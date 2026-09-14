@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2790",
+  "content_sha256": "83850ceaa7a3528eefd4d5901a779c8640a71fea4f6817fe5fa89a42c982dbb0",
+  "source_hash": "d3c67a76704ee283dc2ba0dbeb9c29f4ce84c40c047c5199d26fb4bdcc7b9034",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires surplus capacity beyond the exact triangular demand.",
+      "failed_cases": [
+        "lc-2790-1",
+        "lc-2790-3",
+        "lc-2790-5",
+        "lc-2790-7",
+        "lc-2790-8",
+        "lc-2790-11",
+        "lc-2790-12",
+        "lc-2790-13"
+      ]
+    },
+    {
+      "reason": "Processes types in input order instead of increasing capacity order.",
+      "failed_cases": [
+        "lc-2790-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6837,
+  "oracle_implementation": "code_practice/import_batch_185.py:groups_oracle",
+  "validator_implementation_sha256": "33ee8d376f82afd0b2e97e519770577b3a77b4231426fd4349ebe5ce9a13aa06",
+  "batch_implementation_sha256": "1e389c262a86c238160f4579fd3adafeaf2c2aa4c92118686dbb4c97969096fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f6ea96f264fbd731703e9507d110cbb4801b383aff2d7aff21a03db9931b8566",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

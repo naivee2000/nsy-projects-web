@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2798",
+  "content_sha256": "9926f088c8f267464579f4c8117311e1b8bce0cc9feb5915a7014256187b4a7a",
+  "source_hash": "156deeb12b1bd6809139cb6a030a023223000c1500516bc1301ccb39e7fd8c58",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats equality with target as insufficient.",
+      "failed_cases": [
+        "lc-2798-1",
+        "lc-2798-2",
+        "lc-2798-3",
+        "lc-2798-6",
+        "lc-2798-7",
+        "lc-2798-8",
+        "lc-2798-12",
+        "lc-2798-13",
+        "lc-2798-14"
+      ]
+    },
+    {
+      "reason": "Returns the number of booleans generated rather than the number that are true.",
+      "failed_cases": [
+        "lc-2798-1",
+        "lc-2798-4",
+        "lc-2798-5",
+        "lc-2798-6",
+        "lc-2798-8",
+        "lc-2798-9",
+        "lc-2798-10",
+        "lc-2798-12",
+        "lc-2798-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6845,
+  "oracle_implementation": "code_practice/import_batch_185.py:target_oracle",
+  "validator_implementation_sha256": "33ee8d376f82afd0b2e97e519770577b3a77b4231426fd4349ebe5ce9a13aa06",
+  "batch_implementation_sha256": "1e389c262a86c238160f4579fd3adafeaf2c2aa4c92118686dbb4c97969096fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "31e824c25fa7be3685c810c355853b4f33181d3f70aa3743baa9dbe631d3c63c",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1966,
+  "count": 1971,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -35063,6 +35063,99 @@
       "path": "problems/leetcode-2789.json",
       "content_sha256": "b73fffdb6b502453e4cdd2c873b71310cc6752116f25098007e697b16f50cf86",
       "source_id": 2789
+    },
+    {
+      "id": "leetcode-2790",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Groups With Increasing Length",
+      "summary": "Given an array usageLimits of length n, create groups using numbers from 0 to n-1, with each number i used no more than usageLimits[i] times.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2790.json",
+      "content_sha256": "83850ceaa7a3528eefd4d5901a779c8640a71fea4f6817fe5fa89a42c982dbb0",
+      "source_id": 2790
+    },
+    {
+      "id": "leetcode-2791",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Paths That Can Form a Palindrome in a Tree",
+      "summary": "Given a tree with nodes numbered from 0 to n-1, where each node i has a parent parent[i] and an edge character s[i], count the number of node pairs (u, v) where u < v and the edge characters on the path from u to v can be rearranged to form a palindrome.",
+      "topics": [
+        "trees",
+        "bit manipulation",
+        "prefix masks"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2791.json",
+      "content_sha256": "3f79cf256de98cf3c4f6676ae1b07e52a4781baed254b8eedda434bfc83d8ccb",
+      "source_id": 2791
+    },
+    {
+      "id": "leetcode-2798",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Employees Who Met the Target",
+      "summary": "Given a 0-indexed array hours of non-negative integers representing the number of hours each of the n employees has worked, and a non-negative integer target representing the minimum required hours of work, return the count of employees who have worked at least the target number of hours.",
+      "topics": [
+        "arrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2798.json",
+      "content_sha256": "9926f088c8f267464579f4c8117311e1b8bce0cc9feb5915a7014256187b4a7a",
+      "source_id": 2798
+    },
+    {
+      "id": "leetcode-2799",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Complete Subarrays in an Array",
+      "summary": "Given an array of positive integers, count the number of contiguous subarrays where the count of distinct elements matches the count of distinct elements in the entire array.",
+      "topics": [
+        "arrays",
+        "sliding window",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2799.json",
+      "content_sha256": "f43a22783ffc3ecbf9eba85edeaf66072930a28d511ad9b9deeb1da86ce56ee7",
+      "source_id": 2799
+    },
+    {
+      "id": "leetcode-2800",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest String That Contains Three Strings",
+      "summary": "Given three strings a, b, and c, determine the shortest string that includes all three as substrings.",
+      "topics": [
+        "strings",
+        "greedy",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2800.json",
+      "content_sha256": "e0cf4a2bb6becf47d0780576facbf459490806d125cdef3ad57fefdabb597bd2",
+      "source_id": 2800
     }
   ]
 }

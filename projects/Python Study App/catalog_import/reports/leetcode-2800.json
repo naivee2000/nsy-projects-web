@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2800",
+  "content_sha256": "e0cf4a2bb6becf47d0780576facbf459490806d125cdef3ad57fefdabb597bd2",
+  "source_hash": "42ff8caab80777ee1f746b996e5e30e568647a79bc4ebcb84cae94cb65219211",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to remove a string already contained inside another.",
+      "failed_cases": [
+        "lc-2800-13"
+      ]
+    },
+    {
+      "reason": "Ignores lexicographic tie-breaking among equal shortest results.",
+      "failed_cases": [
+        "lc-2800-1",
+        "lc-2800-10",
+        "lc-2800-11",
+        "lc-2800-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6847,
+  "oracle_implementation": "code_practice/import_batch_185.py:shortest_oracle",
+  "validator_implementation_sha256": "33ee8d376f82afd0b2e97e519770577b3a77b4231426fd4349ebe5ce9a13aa06",
+  "batch_implementation_sha256": "1e389c262a86c238160f4579fd3adafeaf2c2aa4c92118686dbb4c97969096fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "68fe01801ae22ac39e3153a33fc917c3e2be8a48e9b433fcc9bc93bc991236c6",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
