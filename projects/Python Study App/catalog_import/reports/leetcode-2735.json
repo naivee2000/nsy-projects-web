@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2735",
+  "content_sha256": "61f990dadd48673a5933de23f60d1b5db5f9051c531eefdbf93138136b35d121",
+  "source_hash": "d5a698b596b1fa469e31e024adafd0a5823b1bf45da373b17181578bf46bdc68",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never considers using n-1 rotations, which can be the unique optimum.",
+      "failed_cases": [
+        "lc-2735-1",
+        "lc-2735-5",
+        "lc-2735-9",
+        "lc-2735-11",
+        "lc-2735-12"
+      ]
+    },
+    {
+      "reason": "Keeps only the newest rotated price instead of the cheapest price seen across all rotations.",
+      "failed_cases": [
+        "lc-2735-1",
+        "lc-2735-5",
+        "lc-2735-6",
+        "lc-2735-7",
+        "lc-2735-8",
+        "lc-2735-9",
+        "lc-2735-10",
+        "lc-2735-11",
+        "lc-2735-12",
+        "lc-2735-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6782,
+  "oracle_implementation": "code_practice/import_batch_177.py:chocolates_oracle",
+  "validator_implementation_sha256": "5cc99dcbcb59c99047b86e994f387691d43b1a8d2bd2853a6b8124c1bf433dd6",
+  "batch_implementation_sha256": "acebe1c74c2ab507464bb2e1ae43fe0d4e8b7b2b2bd5f2a21f1d68caef6fbf4f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4a9c196d81ed5d0fb35121da741ef353e5ac39a4c7aa41aab9ec329e60a8e8bd",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

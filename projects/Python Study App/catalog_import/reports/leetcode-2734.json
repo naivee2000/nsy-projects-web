@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2734",
+  "content_sha256": "9b68a2000ac1f3c5e3c226099bf1b04f44dfb338c76fcd13792ecd9005718849",
+  "source_hash": "cfb256e2b2864bcf8788e2cfa3e71d0f7b0235461ef146cd169d01cb602323c7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips the first non-a block and begins at an a, causing a harmful wrap.",
+      "failed_cases": [
+        "lc-2734-1",
+        "lc-2734-2",
+        "lc-2734-3",
+        "lc-2734-4",
+        "lc-2734-5",
+        "lc-2734-6",
+        "lc-2734-7",
+        "lc-2734-8",
+        "lc-2734-9",
+        "lc-2734-10",
+        "lc-2734-11",
+        "lc-2734-12",
+        "lc-2734-13",
+        "lc-2734-14"
+      ]
+    },
+    {
+      "reason": "For an all-a string, changes the first character rather than the lexicographically least-significant last character.",
+      "failed_cases": [
+        "lc-2734-2",
+        "lc-2734-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6781,
+  "oracle_implementation": "code_practice/import_batch_177.py:smallest_oracle",
+  "validator_implementation_sha256": "5cc99dcbcb59c99047b86e994f387691d43b1a8d2bd2853a6b8124c1bf433dd6",
+  "batch_implementation_sha256": "acebe1c74c2ab507464bb2e1ae43fe0d4e8b7b2b2bd5f2a21f1d68caef6fbf4f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "67b317ab4301e82662ba51cd51e553aa69dfdedaeb5ec0a7a46cb39cf1ca766a",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

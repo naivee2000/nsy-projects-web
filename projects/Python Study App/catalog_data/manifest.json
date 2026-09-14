@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1926,
+  "count": 1931,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -34338,6 +34338,97 @@
       "path": "problems/leetcode-2731.json",
       "content_sha256": "4561506b6441161bca65fc5cf300a1dfb4f713f2297803c725360af22b9d007c",
       "source_id": 2731
+    },
+    {
+      "id": "leetcode-2734",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographically Smallest String After Substring Operation",
+      "summary": "Given a string s made of lowercase English letters, choose any non-empty substring and replace each letter with the one before it in the alphabet.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2734.json",
+      "content_sha256": "9b68a2000ac1f3c5e3c226099bf1b04f44dfb338c76fcd13792ecd9005718849",
+      "source_id": 2734
+    },
+    {
+      "id": "leetcode-2735",
+      "version": 1,
+      "status": "approved",
+      "title": "Collecting Chocolates",
+      "summary": "Given a 0-indexed integer array nums of size n, where nums[i] represents the cost of collecting the chocolate of the ith type, you can perform an operation that changes the type of all chocolates of the ith type to the (i + 1) % n type, incurring a cost of x for each operation.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2735.json",
+      "content_sha256": "61f990dadd48673a5933de23f60d1b5db5f9051c531eefdbf93138136b35d121",
+      "source_id": 2735
+    },
+    {
+      "id": "leetcode-2736",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Sum Queries",
+      "summary": "Given arrays nums1 and nums2 of length n, and queries where each query specifies xi and yi, find the maximum value of nums1[j] + nums2[j] for all j where nums1[j] is at least xi and nums2[j] is at least yi.",
+      "topics": [
+        "arrays",
+        "offline queries",
+        "sorting",
+        "fenwick tree"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2736.json",
+      "content_sha256": "065d1406185dbc766b60439f7abdc5d7e63d9ca2d30982242c45b01c25d674d5",
+      "source_id": 2736
+    },
+    {
+      "id": "leetcode-2737",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Closest Marked Node",
+      "summary": "Given a directed weighted graph with n nodes, an edge list, a starting node s, and a list of marked nodes, find the shortest path from s to any marked node.",
+      "topics": [
+        "graphs",
+        "shortest path",
+        "heaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2737.json",
+      "content_sha256": "977a320e4196c3d894e4f50cd566ebad0e9721e364590374ab2219add4e175f9",
+      "source_id": 2737
+    },
+    {
+      "id": "leetcode-2739",
+      "version": 1,
+      "status": "approved",
+      "title": "Total Distance Traveled",
+      "summary": "A truck with two fuel tanks has a mileage of 10 km per liter.",
+      "topics": [
+        "math",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2739.json",
+      "content_sha256": "ac11f6ba182f019d60e8cdbc02cff772d5150e30e9382487e6bbe158a6d148b5",
+      "source_id": 2739
     }
   ]
 }

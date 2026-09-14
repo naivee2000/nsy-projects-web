@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2737",
+  "content_sha256": "977a320e4196c3d894e4f50cd566ebad0e9721e364590374ab2219add4e175f9",
+  "source_hash": "edcbac8da8f26fbd62f66ebf5dd12137b91f50a09f26a49e6311387ed57dcce9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses every directed edge.",
+      "failed_cases": [
+        "lc-2737-1",
+        "lc-2737-4",
+        "lc-2737-5",
+        "lc-2737-6",
+        "lc-2737-8",
+        "lc-2737-9",
+        "lc-2737-11",
+        "lc-2737-12",
+        "lc-2737-13"
+      ]
+    },
+    {
+      "reason": "Refuses to return zero when the starting node itself is marked.",
+      "failed_cases": [
+        "lc-2737-3",
+        "lc-2737-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6784,
+  "oracle_implementation": "code_practice/import_batch_177.py:marked_oracle",
+  "validator_implementation_sha256": "5cc99dcbcb59c99047b86e994f387691d43b1a8d2bd2853a6b8124c1bf433dd6",
+  "batch_implementation_sha256": "acebe1c74c2ab507464bb2e1ae43fe0d4e8b7b2b2bd5f2a21f1d68caef6fbf4f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ce0d5b877eb431f897fbd5be5a2ee0c7259262bb373f120560ee4c17e1234da5",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2736",
+  "content_sha256": "065d1406185dbc766b60439f7abdc5d7e63d9ca2d30982242c45b01c25d674d5",
+  "source_hash": "3e2a6b5e0fdb6e042febe90161c418df32ecfdff6ff5cd864e573b3f212eb815",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the first-coordinate threshold as strict.",
+      "failed_cases": [
+        "lc-2736-1",
+        "lc-2736-3",
+        "lc-2736-5",
+        "lc-2736-6",
+        "lc-2736-8",
+        "lc-2736-9",
+        "lc-2736-10",
+        "lc-2736-12",
+        "lc-2736-14"
+      ]
+    },
+    {
+      "reason": "Queries values strictly above y and loses points exactly on the second-coordinate threshold.",
+      "failed_cases": [
+        "lc-2736-1",
+        "lc-2736-3",
+        "lc-2736-5",
+        "lc-2736-6",
+        "lc-2736-10",
+        "lc-2736-12",
+        "lc-2736-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6783,
+  "oracle_implementation": "code_practice/import_batch_177.py:queries_oracle",
+  "validator_implementation_sha256": "5cc99dcbcb59c99047b86e994f387691d43b1a8d2bd2853a6b8124c1bf433dd6",
+  "batch_implementation_sha256": "acebe1c74c2ab507464bb2e1ae43fe0d4e8b7b2b2bd5f2a21f1d68caef6fbf4f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bb732d4abc2ec20d6fb4060121b4a08e1985fd0f2916aceb3e6c7d68c6761423",
+  "elapsed_seconds": 0.102,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

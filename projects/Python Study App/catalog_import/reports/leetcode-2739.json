@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2739",
+  "content_sha256": "ac11f6ba182f019d60e8cdbc02cff772d5150e30e9382487e6bbe158a6d148b5",
+  "source_hash": "ab46dc017db0500c647f73bce10f318b9cc7c24ba57e8f9fde9027aee021e585",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts transfers from each original block of five and misses that transferred fuel can trigger later transfers.",
+      "failed_cases": [
+        "lc-2739-8",
+        "lc-2739-13",
+        "lc-2739-14"
+      ]
+    },
+    {
+      "reason": "Ignores the limited number of liters in the additional tank.",
+      "failed_cases": [
+        "lc-2739-5",
+        "lc-2739-9",
+        "lc-2739-11",
+        "lc-2739-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6786,
+  "oracle_implementation": "code_practice/import_batch_177.py:fuel_oracle",
+  "validator_implementation_sha256": "5cc99dcbcb59c99047b86e994f387691d43b1a8d2bd2853a6b8124c1bf433dd6",
+  "batch_implementation_sha256": "acebe1c74c2ab507464bb2e1ae43fe0d4e8b7b2b2bd5f2a21f1d68caef6fbf4f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d5ca9008324ca35fd55bdee03a908d29819217f8431a122301a55a9b32c1ec0c",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
