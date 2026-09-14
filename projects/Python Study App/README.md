@@ -617,7 +617,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 1,059 problems; future
+been checked against every reviewed batch. The current package contains 1,159 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the
@@ -644,12 +644,12 @@ browser and benchmark driver. Install dependencies and build the frontend first.
 Its report is `catalog_import/benchmarks/current.json`; until all imports finish,
 this is an interim measurement, not the final full-catalog performance gate.
 
-At the 958-import checkpoint, 791 backend tests and 19 frontend tests passed.
-Chrome/Pyodide validated all 964 workbook-derived reference suites across 1,350
+At the 1,058-import checkpoint, 792 backend tests and 19 frontend tests passed.
+Chrome/Pyodide validated all 1,064 workbook-derived reference suites across more than 1,450
 isolated judge runs, including wrong-answer rejection, timeout recovery, restart
 persistence, and offline assets. On the recorded Apple M3 Pro/18 GiB development
-machine, backend startup took 225 ms and peak RSS was 269.172 MiB. Warm p95
-latency over 100 requests per route ranged from 1.097 ms to 2.116 ms for library
+machine, backend startup took 332 ms and peak RSS was 269.703 MiB. Warm p95
+latency over 100 requests per route ranged from 1.191 ms to 1.871 ms for library
 search/filtering, problem details, and the
 dashboard, below the interim 300/500 ms targets. Exact route measurements and
 hardware metadata are retained in `catalog_import/benchmarks/current.json`.
