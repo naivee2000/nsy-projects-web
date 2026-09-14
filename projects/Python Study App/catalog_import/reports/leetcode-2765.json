@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2765",
+  "content_sha256": "407ed0ba6a0456c3a4272134fc7223c545a03a3e91add57a1c151fe4e6820fd6",
+  "source_hash": "ede5e3d84942a6405ebde3b407821e88cbee6ff66c76212972ea39b030856e0c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts the alternating pattern with -1 instead of +1.",
+      "failed_cases": [
+        "lc-2765-1",
+        "lc-2765-2",
+        "lc-2765-3",
+        "lc-2765-4",
+        "lc-2765-5",
+        "lc-2765-6",
+        "lc-2765-7",
+        "lc-2765-8",
+        "lc-2765-9",
+        "lc-2765-10",
+        "lc-2765-11",
+        "lc-2765-12",
+        "lc-2765-13",
+        "lc-2765-14"
+      ]
+    },
+    {
+      "reason": "Extends a -1 step at the wrong parity.",
+      "failed_cases": [
+        "lc-2765-1",
+        "lc-2765-2",
+        "lc-2765-4",
+        "lc-2765-5",
+        "lc-2765-6",
+        "lc-2765-7",
+        "lc-2765-8",
+        "lc-2765-9",
+        "lc-2765-10",
+        "lc-2765-12",
+        "lc-2765-13",
+        "lc-2765-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6812,
+  "oracle_implementation": "code_practice/import_batch_181.py:alternate_oracle",
+  "validator_implementation_sha256": "abae6d24a2d06343f026b2482f17aa948aa68796e231305abd3eb026f6883d23",
+  "batch_implementation_sha256": "b770bf4d733d51c38669b86f16fcdc923aaa483230b9f7404559b0a21813a55b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4762df29682856d582c389d7868453eebe243374ba3ef14e734929b3e8650b77",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

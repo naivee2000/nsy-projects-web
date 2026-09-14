@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2767",
+  "content_sha256": "494072a28443ac008ccc19ca775cdfea6a787406b242254c27c15d3e6af4a3a8",
+  "source_hash": "afc9e76f364d9a3f5e84af7313af96a6aa62ebc84bd90b0f5351816b280b9669",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts with one part before consuming any characters.",
+      "failed_cases": [
+        "lc-2767-1",
+        "lc-2767-3",
+        "lc-2767-4",
+        "lc-2767-5",
+        "lc-2767-6",
+        "lc-2767-7",
+        "lc-2767-10",
+        "lc-2767-11",
+        "lc-2767-14"
+      ]
+    },
+    {
+      "reason": "Never permits a valid part beginning at index zero.",
+      "failed_cases": [
+        "lc-2767-1",
+        "lc-2767-3",
+        "lc-2767-4",
+        "lc-2767-5",
+        "lc-2767-6",
+        "lc-2767-7",
+        "lc-2767-10",
+        "lc-2767-11",
+        "lc-2767-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6814,
+  "oracle_implementation": "code_practice/import_batch_181.py:partition_oracle",
+  "validator_implementation_sha256": "abae6d24a2d06343f026b2482f17aa948aa68796e231305abd3eb026f6883d23",
+  "batch_implementation_sha256": "b770bf4d733d51c38669b86f16fcdc923aaa483230b9f7404559b0a21813a55b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7d56c4297d4fb964ce2a128911a0b70f85cf1ae9f66fd4e22b099861b18968db",
+  "elapsed_seconds": 0.179,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

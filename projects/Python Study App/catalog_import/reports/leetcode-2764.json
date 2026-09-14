@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2764",
+  "content_sha256": "91e7d7fc50ffb663315e9abbb15e2493ea3ac79790218f600946c992c6cae36f",
+  "source_hash": "7868f8e913a5e6296a565e50e3c6f5fddb8b26fcca7680c9fc801cad83c61549",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Pops while the correct parent is on top instead of while searching for it.",
+      "failed_cases": [
+        "lc-2764-1",
+        "lc-2764-4",
+        "lc-2764-5",
+        "lc-2764-6",
+        "lc-2764-7",
+        "lc-2764-8",
+        "lc-2764-9",
+        "lc-2764-10",
+        "lc-2764-12",
+        "lc-2764-15"
+      ]
+    },
+    {
+      "reason": "Allows a second root to restart traversal.",
+      "failed_cases": [
+        "lc-2764-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6811,
+  "oracle_implementation": "code_practice/import_batch_181.py:preorder_oracle",
+  "validator_implementation_sha256": "abae6d24a2d06343f026b2482f17aa948aa68796e231305abd3eb026f6883d23",
+  "batch_implementation_sha256": "b770bf4d733d51c38669b86f16fcdc923aaa483230b9f7404559b0a21813a55b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a7fdb48f5302f4e8fe0ff184764b851ee66bac2c4b59cb5f58d660e1ebd2ee57",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

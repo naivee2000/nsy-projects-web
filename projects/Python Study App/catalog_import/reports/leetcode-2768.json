@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2768",
+  "content_sha256": "4aa5d455930512aa0b61008f264890aa67bff2c0043c018a30cdc6860b4bb072",
+  "source_hash": "3103fb936b6352f023a1b4baca93df450242774df4814333f10d6afe6cd61655",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Excludes valid 2-by-2 blocks whose top row is zero.",
+      "failed_cases": [
+        "lc-2768-1",
+        "lc-2768-2",
+        "lc-2768-4",
+        "lc-2768-5",
+        "lc-2768-6",
+        "lc-2768-7",
+        "lc-2768-8",
+        "lc-2768-9",
+        "lc-2768-11",
+        "lc-2768-12",
+        "lc-2768-14"
+      ]
+    },
+    {
+      "reason": "Subtracts black incidences rather than the number of nonzero blocks when counting empty blocks.",
+      "failed_cases": [
+        "lc-2768-2",
+        "lc-2768-5",
+        "lc-2768-7",
+        "lc-2768-8",
+        "lc-2768-12",
+        "lc-2768-13",
+        "lc-2768-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6815,
+  "oracle_implementation": "code_practice/import_batch_181.py:blocks_oracle",
+  "validator_implementation_sha256": "abae6d24a2d06343f026b2482f17aa948aa68796e231305abd3eb026f6883d23",
+  "batch_implementation_sha256": "b770bf4d733d51c38669b86f16fcdc923aaa483230b9f7404559b0a21813a55b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8511c888ebd4e6c887d8b10489b4f8c5d08bf98ff44af323f1c4a20937b4b7b9",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
