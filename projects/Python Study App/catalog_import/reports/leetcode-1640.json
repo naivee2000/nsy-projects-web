@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1640",
+  "content_sha256": "8e91399460186cbeb60a02150ab5956b0997d256e7aa898751acdf647a9fad27",
+  "source_hash": "396b333da493a974c7edf73e9cb7bcc529e78e69c4653e699251f37c7acc0a36",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows values inside each piece to be reordered.",
+      "failed_cases": [
+        "lc-1640-6"
+      ]
+    },
+    {
+      "reason": "Advances only one target position after consuming a multi-value piece.",
+      "failed_cases": [
+        "lc-1640-4",
+        "lc-1640-5",
+        "lc-1640-9",
+        "lc-1640-11",
+        "lc-1640-13",
+        "lc-1640-14",
+        "lc-1640-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5687,
+  "oracle_implementation": "code_practice/import_batch_100c.py:formation_oracle",
+  "validator_implementation_sha256": "900c456625c74ec0267b44ce939caeed209e98556ccac5a0845e8cef9d7cf39c",
+  "batch_implementation_sha256": "702c9e48d0edebf4fdb5b19ac01633b47a73616f8e5cbca384400f042e353b08",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6507992d1f11301d2372ac6b54ed28e53a7a9f193e81a8f30dae2ae3fdd73c37",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1626",
+  "content_sha256": "8a6053fdc8b3798cf8db87173fe7710e9b961a8a6b1b3407db237e748333db30",
+  "source_hash": "37dbcc6b3e80f01650e6d6545974fe5ffd16870d18fee60a87d3de5bae99f4fa",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Runs the subsequence DP in input order without sorting by age.",
+      "failed_cases": [
+        "lc-1626-2",
+        "lc-1626-4",
+        "lc-1626-9",
+        "lc-1626-10",
+        "lc-1626-12",
+        "lc-1626-14"
+      ]
+    },
+    {
+      "reason": "Rejects equal scores even though equality creates no conflict.",
+      "failed_cases": [
+        "lc-1626-2",
+        "lc-1626-5",
+        "lc-1626-10",
+        "lc-1626-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5673,
+  "oracle_implementation": "code_practice/import_batch_100b.py:team_oracle",
+  "validator_implementation_sha256": "900c456625c74ec0267b44ce939caeed209e98556ccac5a0845e8cef9d7cf39c",
+  "batch_implementation_sha256": "189be236110f64330bfb234ed12fd8c3a7c655735ae95de21018c43a4b7c6ad5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "64900f141bdae1459be7a272c2f7a10ea4c723f5855498e289c1fac6d448533e",
+  "elapsed_seconds": 0.122,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

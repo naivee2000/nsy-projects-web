@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1630",
+  "content_sha256": "0cf3ce6fe95c1ed52829d70c5d8ff489d4dfc4ddebb439932cf41ed9b9b9b2bc",
+  "source_hash": "46032b110a2982fa6516d3f4ffdf0e605f04264649a2e6613ab24fa78a1bf18c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks the original subarray order without considering rearrangement.",
+      "failed_cases": [
+        "lc-1630-1",
+        "lc-1630-4",
+        "lc-1630-8",
+        "lc-1630-10",
+        "lc-1630-11",
+        "lc-1630-12"
+      ]
+    },
+    {
+      "reason": "Fails to compare the final adjacent pair.",
+      "failed_cases": [
+        "lc-1630-1",
+        "lc-1630-6",
+        "lc-1630-9",
+        "lc-1630-11",
+        "lc-1630-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5677,
+  "oracle_implementation": "code_practice/import_batch_100b.py:arithmetic_oracle",
+  "validator_implementation_sha256": "900c456625c74ec0267b44ce939caeed209e98556ccac5a0845e8cef9d7cf39c",
+  "batch_implementation_sha256": "189be236110f64330bfb234ed12fd8c3a7c655735ae95de21018c43a4b7c6ad5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "38a8784de0b4b47324f672382046b052a0c129efd4ba0b317be5af4e3349571f",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

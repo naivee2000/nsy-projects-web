@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1629",
+  "content_sha256": "56e028909297420046560479bdca4e3b9bf473b91b034eb8e6666a7c058d34e9",
+  "source_hash": "16fa8ff4420122ee65276d924e1250b6196119e7439d2ed03b886e24621f1fae",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the first press as having zero duration.",
+      "failed_cases": [
+        "lc-1629-6",
+        "lc-1629-9"
+      ]
+    },
+    {
+      "reason": "Breaks equal-duration ties using the smaller letter.",
+      "failed_cases": [
+        "lc-1629-1",
+        "lc-1629-5",
+        "lc-1629-6",
+        "lc-1629-8",
+        "lc-1629-9",
+        "lc-1629-11",
+        "lc-1629-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5676,
+  "oracle_implementation": "code_practice/import_batch_100b.py:slowest_oracle",
+  "validator_implementation_sha256": "900c456625c74ec0267b44ce939caeed209e98556ccac5a0845e8cef9d7cf39c",
+  "batch_implementation_sha256": "189be236110f64330bfb234ed12fd8c3a7c655735ae95de21018c43a4b7c6ad5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e2791f0cee3efd647149b07d65b7eef88e3ecb96e30cec0aec919624082424e6",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1636",
+  "content_sha256": "bbcad711ff71f301cec4fa2e86b1328e3c57458fe19b5dc1fc63159d1af72a3d",
+  "source_hash": "ede3a176812cc4ed4406d27fb4aded13c27bc2f0f6a5ec342f679dd94220567a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks equal-frequency ties by increasing rather than decreasing value.",
+      "failed_cases": [
+        "lc-1636-2",
+        "lc-1636-3",
+        "lc-1636-5",
+        "lc-1636-6",
+        "lc-1636-8",
+        "lc-1636-9",
+        "lc-1636-10",
+        "lc-1636-13"
+      ]
+    },
+    {
+      "reason": "Places the most frequent values first.",
+      "failed_cases": [
+        "lc-1636-1",
+        "lc-1636-2",
+        "lc-1636-3",
+        "lc-1636-9",
+        "lc-1636-11",
+        "lc-1636-12",
+        "lc-1636-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5683,
+  "oracle_implementation": "code_practice/import_batch_100c.py:frequency_oracle",
+  "validator_implementation_sha256": "900c456625c74ec0267b44ce939caeed209e98556ccac5a0845e8cef9d7cf39c",
+  "batch_implementation_sha256": "702c9e48d0edebf4fdb5b19ac01633b47a73616f8e5cbca384400f042e353b08",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7bd3b8e66a15211f11bfabd8a539def374774ceb069019a322aa681cf021e07a",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

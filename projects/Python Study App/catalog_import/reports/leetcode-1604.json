@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1604",
+  "content_sha256": "92be1e26d17f5c899ca7110415359a4c33c5eb076002e1d76f3117ece2ab06f6",
+  "source_hash": "6a5e186f621ccdc9bf58380af19b8b10a86411b43a72896a7b4acb35392a83e2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Excludes a span of exactly one hour.",
+      "failed_cases": [
+        "lc-1604-1",
+        "lc-1604-4",
+        "lc-1604-8",
+        "lc-1604-10",
+        "lc-1604-14"
+      ]
+    },
+    {
+      "reason": "Returns names in dictionary encounter order instead of alphabetical order.",
+      "failed_cases": [
+        "lc-1604-6",
+        "lc-1604-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5651,
+  "oracle_implementation": "code_practice/import_batch_100.py:alerts_oracle",
+  "validator_implementation_sha256": "3bd993be65f42a3e95c7fec20a38b253393e75511edf152ef00044a177bcae74",
+  "batch_implementation_sha256": "ddf92029931504041f92a99a3cd33f0ce5e9c1ce6b26951c72aa60d7342a6ee2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9afc2e253e3291c77d2d82416328d27271f9c603505f687d20bc1fd2f24fab15",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

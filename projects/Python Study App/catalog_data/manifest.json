@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1099,
+  "count": 1119,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -19433,6 +19433,351 @@
       "path": "problems/leetcode-1593.json",
       "content_sha256": "047841021282d83907730a5c2e94ed243c3474615517cb2244dd8d8f0357689e",
       "source_id": 1593
+    },
+    {
+      "id": "leetcode-1594",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Non Negative Product in a Matrix",
+      "summary": "Given a m x n matrix grid, starting from the top-left corner (0, 0), find a path to the bottom-right corner (m - 1, n - 1) such that the product of the integers along the path is maximized and non-negative.",
+      "topics": [
+        "dynamic-programming",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1594.json",
+      "content_sha256": "12937af831fa417f18dbe5ec8b069906d354c9ab6817f89a0b6793d2f81bf711",
+      "source_id": 1594
+    },
+    {
+      "id": "leetcode-1598",
+      "version": 1,
+      "status": "approved",
+      "title": "Crawler Log Folder",
+      "summary": "The Leetcode file system records user actions for navigating folders.",
+      "topics": [
+        "stacks",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1598.json",
+      "content_sha256": "c054c578a6400319663223287b3131db0d847c743c2cfca196094bb4a3f472b2",
+      "source_id": 1598
+    },
+    {
+      "id": "leetcode-1599",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Profit of Operating a Centennial Wheel",
+      "summary": "You operate a Centennial Wheel with four gondolas, each capable of holding up to four people.",
+      "topics": [
+        "simulation",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1599.json",
+      "content_sha256": "9bb689a24d7ded42cb48219c50e53ced5020625028fa73342b8b832caa8afb6d",
+      "source_id": 1599
+    },
+    {
+      "id": "leetcode-1601",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Achievable Transfer Requests",
+      "summary": "Given n buildings numbered 0 to n-1, each with a certain number of employees, an array of transfer requests is provided.",
+      "topics": [
+        "backtracking",
+        "bitmasks"
+      ],
+      "prerequisites": [
+        "backtracking"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1601.json",
+      "content_sha256": "e09dab456c067ffc4b92493842a3af0a8e37f5067e31b09019d8340909c98d4e",
+      "source_id": 1601
+    },
+    {
+      "id": "leetcode-1604",
+      "version": 1,
+      "status": "approved",
+      "title": "Alert Using Same Key-Card Three or More Times in a One Hour Period",
+      "summary": "Given a list of worker names and their key-card access times, identify and return a sorted list of unique worker names who used their key-card three or more times within any one-hour period.",
+      "topics": [
+        "hash-maps",
+        "sliding-windows"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1604.json",
+      "content_sha256": "92be1e26d17f5c899ca7110415359a4c33c5eb076002e1d76f3117ece2ab06f6",
+      "source_id": 1604
+    },
+    {
+      "id": "leetcode-1608",
+      "version": 1,
+      "status": "approved",
+      "title": "Special Array With X Elements Greater Than or Equal X",
+      "summary": "Given an array of non-negative integers, determine if there exists a number x such that exactly x elements in the array are greater than or equal to x.",
+      "topics": [
+        "binary-search",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1608.json",
+      "content_sha256": "9a9338b2302587a533a4505c242ffb86a4dacaaa97582d41eedc2f6a4a85ce2a",
+      "source_id": 1608
+    },
+    {
+      "id": "leetcode-1609",
+      "version": 1,
+      "status": "approved",
+      "title": "Even Odd Tree",
+      "summary": "An Even-Odd binary tree must have nodes at even levels with odd values in increasing order, and nodes at odd levels with even values in decreasing order, starting from the root at level 0.",
+      "topics": [
+        "trees",
+        "breadth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1609.json",
+      "content_sha256": "a610132d371990cffea1166d06ad26fbf1a20f75849ecaae95c772ecbb78a090",
+      "source_id": 1609
+    },
+    {
+      "id": "leetcode-1611",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum One Bit Operations to Make Integers Zero",
+      "summary": "For an integer n, apply operations to convert it to zero by flipping the least significant bit or a bit if the preceding bit is one and all preceding bits are zero.",
+      "topics": [
+        "bit-manipulation",
+        "recursion"
+      ],
+      "prerequisites": [
+        "bit-manipulation"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1611.json",
+      "content_sha256": "8aac78db0e48eab4c86dfde641b1d23afaccb2a45b3b6bd63ba4bd91a27f02de",
+      "source_id": 1611
+    },
+    {
+      "id": "leetcode-1614",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Nesting Depth of the Parentheses",
+      "summary": "For a valid parentheses string s, determine the deepest level of nesting by counting the maximum number of consecutive opening parentheses before a closing one.",
+      "topics": [
+        "strings",
+        "stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1614.json",
+      "content_sha256": "437f456c3163fe1c501e137d16f31ef0087cf331cfe29d196cbe30c140625b75",
+      "source_id": 1614
+    },
+    {
+      "id": "leetcode-1615",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximal Network Rank",
+      "summary": "Given n cities and their bidirectional roads, calculate the maximal network rank by finding the highest total number of directly connected roads for any two different cities, ensuring each road is counted only once if it connects both cities.",
+      "topics": [
+        "graphs",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1615.json",
+      "content_sha256": "37b49bc7b22c1c85237f7e0d71ae89b17903d2daee1e7e095b5646039fbb1a80",
+      "source_id": 1615
+    },
+    {
+      "id": "leetcode-1619",
+      "version": 1,
+      "status": "approved",
+      "title": "Mean of Array After Removing Some Elements",
+      "summary": "Given an integer array, calculate the mean of the elements excluding the smallest 5% and the largest 5%.",
+      "topics": [
+        "arrays",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1619.json",
+      "content_sha256": "d3497c551489e5da55339856920c5c9b3ad134ebfb9b1583d0b02aed4ff57f5c",
+      "source_id": 1619
+    },
+    {
+      "id": "leetcode-1621",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Sets of K Non-Overlapping Line Segments",
+      "summary": "Determine the number of ways to draw exactly k non-overlapping line segments on a 1-D plane with n points at x = i, where each segment covers two or more points and endpoints have integral coordinates.",
+      "topics": [
+        "combinatorics",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1621.json",
+      "content_sha256": "fd1245ede4f6f8269367d9c3a34a0a1a2daf60485f81bad5a4616f527026b399",
+      "source_id": 1621
+    },
+    {
+      "id": "leetcode-1624",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Substring Between Two Equal Characters",
+      "summary": "For a given string, find the length of the longest substring that lies between two identical characters, not counting those characters.",
+      "topics": [
+        "strings",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1624.json",
+      "content_sha256": "ab52baf489c9e9982f3c9b297bfb0a7b89fc3737dcb388bb9974aed4707bc77d",
+      "source_id": 1624
+    },
+    {
+      "id": "leetcode-1626",
+      "version": 1,
+      "status": "approved",
+      "title": "Best Team With No Conflicts",
+      "summary": "You manage a basketball team for a tournament.",
+      "topics": [
+        "dynamic-programming",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1626.json",
+      "content_sha256": "8a6053fdc8b3798cf8db87173fe7710e9b961a8a6b1b3407db237e748333db30",
+      "source_id": 1626
+    },
+    {
+      "id": "leetcode-1629",
+      "version": 1,
+      "status": "approved",
+      "title": "Slowest Key",
+      "summary": "Given a string of keys pressed and a sorted list of release times, determine the key with the longest duration.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1629.json",
+      "content_sha256": "56e028909297420046560479bdca4e3b9bf473b91b034eb8e6666a7c058d34e9",
+      "source_id": 1629
+    },
+    {
+      "id": "leetcode-1630",
+      "version": 1,
+      "status": "approved",
+      "title": "Arithmetic Subarrays",
+      "summary": "An arithmetic sequence consists of at least two elements with a constant difference between consecutive elements.",
+      "topics": [
+        "arrays",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1630.json",
+      "content_sha256": "0cf3ce6fe95c1ed52829d70c5d8ff489d4dfc4ddebb439932cf41ed9b9b9b2bc",
+      "source_id": 1630
+    },
+    {
+      "id": "leetcode-1631",
+      "version": 1,
+      "status": "approved",
+      "title": "Path With Minimum Effort",
+      "summary": "You prepare for a hike by finding the path with the least effort from the start to the end of a grid, where effort is defined as the greatest height difference between any two consecutive cells on the path.",
+      "topics": [
+        "graphs",
+        "dijkstra",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1631.json",
+      "content_sha256": "1e7ee5195b4e8a4131a07478a72e8ebaa6c4e91ddab1804e3f3905ad4a7b202a",
+      "source_id": 1631
+    },
+    {
+      "id": "leetcode-1636",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort Array by Increasing Frequency",
+      "summary": "Provide an array of integers and sort it by the ascending frequency of its elements.",
+      "topics": [
+        "arrays",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1636.json",
+      "content_sha256": "bbcad711ff71f301cec4fa2e86b1328e3c57458fe19b5dc1fc63159d1af72a3d",
+      "source_id": 1636
+    },
+    {
+      "id": "leetcode-1637",
+      "version": 1,
+      "status": "approved",
+      "title": "Widest Vertical Area Between Two Points Containing No Points",
+      "summary": "Given n points on a 2D plane, find the maximum width of a vertical area between two points where no other points lie within the area.",
+      "topics": [
+        "geometry",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1637.json",
+      "content_sha256": "095ee0043b104159a568ec77e16b8ee7212af6ef1421568836bf9c770a52e5c3",
+      "source_id": 1637
+    },
+    {
+      "id": "leetcode-1640",
+      "version": 1,
+      "status": "approved",
+      "title": "Check Array Formation Through Concatenation",
+      "summary": "Given an array of unique integers and an array of integer arrays with unique integers, determine if the original array can be reconstructed by concatenating the sub-arrays in any order without altering their internal sequence.",
+      "topics": [
+        "arrays",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1640.json",
+      "content_sha256": "8e91399460186cbeb60a02150ab5956b0997d256e7aa898751acdf647a9fad27",
+      "source_id": 1640
     }
   ]
 }

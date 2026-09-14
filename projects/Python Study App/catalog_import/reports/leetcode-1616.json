@@ -1,0 +1,47 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-1616",
+  "content_sha256": "a52867337a033c6beb6c696d5f3406f23487b98fc90a2ff61fc648f29ee1fd4d",
+  "source_hash": "89212f6e3cdc3a25534d32e095a604cc8cb2046f00f0f5a0b367932f5b15530a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only a-prefix with b-suffix and misses the opposite direction.",
+      "failed_cases": [
+        "lc-1616-3"
+      ]
+    },
+    {
+      "reason": "After the cross-match stops, checks only the middle from the first string.",
+      "failed_cases": []
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5663,
+  "oracle_implementation": "code_practice/import_batch_100b.py:split_oracle",
+  "validator_implementation_sha256": "b83d2a585d91c1f826aca3561efadc0d29d689e96cbf67618a317a59149cd6c0",
+  "batch_implementation_sha256": "189be236110f64330bfb234ed12fd8c3a7c655735ae95de21018c43a4b7c6ad5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c4dda458e315d1e51c2209604ddc99bab412812a02db540de95943a8b96a6ab5",
+  "elapsed_seconds": 0.034,
+  "failures": [
+    {
+      "phase": "known_wrong",
+      "index": 1
+    }
+  ],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input a = \"x\", b = \"y\" → Output true Explaination: If either a or b are palindromes the answer is true since you can split in the following way: aprefix = \"\", asuffix = \"x\" bprefix = \"\", bsuffix = \"y\" Then, aprefix + bsuffix = \"\" + \"y\" = \"y\", which is a palindrome.",
+    "arguments": [
+      "x",
+      "y"
+    ],
+    "expected": true,
+    "reason": "The workbook cell appends explanatory prose after the Boolean output; this adapter preserves the stated input and Boolean result.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/1600-1699/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README_EN.md"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1599",
+  "content_sha256": "9bb689a24d7ded42cb48219c50e53ced5020625028fa73342b8b832caa8afb6d",
+  "source_hash": "64c21cebf39a4f4d812f2201b6e41613b5060ac0011257d9c13810bb2d5a64f0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the latest rotation when several rotations share the maximum profit.",
+      "failed_cases": [
+        "lc-1599-6",
+        "lc-1599-14"
+      ]
+    },
+    {
+      "reason": "Stops after the arrivals and fails to serve customers still waiting.",
+      "failed_cases": [
+        "lc-1599-1",
+        "lc-1599-3",
+        "lc-1599-8",
+        "lc-1599-9",
+        "lc-1599-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5646,
+  "oracle_implementation": "code_practice/import_batch_100.py:wheel_oracle",
+  "validator_implementation_sha256": "3bd993be65f42a3e95c7fec20a38b253393e75511edf152ef00044a177bcae74",
+  "batch_implementation_sha256": "ddf92029931504041f92a99a3cd33f0ce5e9c1ce6b26951c72aa60d7342a6ee2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "79fabcd4d857794dd68adff81541796c52c0d5d13d2fd4b47b555109709e5dc8",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

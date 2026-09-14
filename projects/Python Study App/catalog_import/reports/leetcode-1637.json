@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1637",
+  "content_sha256": "095ee0043b104159a568ec77e16b8ee7212af6ef1421568836bf9c770a52e5c3",
+  "source_hash": "6fe0d66f0614e4f39108ddd85099f0f5507c4e4f0df7aae44468d13378af42fc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts y-coordinates instead of x-coordinates.",
+      "failed_cases": [
+        "lc-1637-1",
+        "lc-1637-2",
+        "lc-1637-4",
+        "lc-1637-6",
+        "lc-1637-7",
+        "lc-1637-8",
+        "lc-1637-10",
+        "lc-1637-11",
+        "lc-1637-12",
+        "lc-1637-13",
+        "lc-1637-14"
+      ]
+    },
+    {
+      "reason": "Subtracts one as if width counted integer columns rather than geometric distance.",
+      "failed_cases": [
+        "lc-1637-1",
+        "lc-1637-2",
+        "lc-1637-3",
+        "lc-1637-4",
+        "lc-1637-5",
+        "lc-1637-6",
+        "lc-1637-7",
+        "lc-1637-8",
+        "lc-1637-9",
+        "lc-1637-10",
+        "lc-1637-11",
+        "lc-1637-12",
+        "lc-1637-13",
+        "lc-1637-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5684,
+  "oracle_implementation": "code_practice/import_batch_100c.py:width_oracle",
+  "validator_implementation_sha256": "900c456625c74ec0267b44ce939caeed209e98556ccac5a0845e8cef9d7cf39c",
+  "batch_implementation_sha256": "702c9e48d0edebf4fdb5b19ac01633b47a73616f8e5cbca384400f042e353b08",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "02bafa0cefea8ed48c8b9ab5b755c8ab20defaecd20bb5c437fdbf396b18e0a7",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

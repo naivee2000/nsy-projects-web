@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1608",
+  "content_sha256": "9a9338b2302587a533a4505c242ffb86a4dacaaa97582d41eedc2f6a4a85ce2a",
+  "source_hash": "7813a44ed36a27f65f8fe85decf56e5a374c147f82ab9812af5c882d2f21eed4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only values strictly greater than x.",
+      "failed_cases": [
+        "lc-1608-3",
+        "lc-1608-4",
+        "lc-1608-5",
+        "lc-1608-8",
+        "lc-1608-9",
+        "lc-1608-11",
+        "lc-1608-14"
+      ]
+    },
+    {
+      "reason": "Never considers x equal to the full array length.",
+      "failed_cases": [
+        "lc-1608-1",
+        "lc-1608-5",
+        "lc-1608-8",
+        "lc-1608-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5655,
+  "oracle_implementation": "code_practice/import_batch_100.py:special_oracle",
+  "validator_implementation_sha256": "3bd993be65f42a3e95c7fec20a38b253393e75511edf152ef00044a177bcae74",
+  "batch_implementation_sha256": "ddf92029931504041f92a99a3cd33f0ce5e9c1ce6b26951c72aa60d7342a6ee2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e1578056dd22efcbf433043a63b300cf8f592da611eed30352ff5ea9e5e80daa",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

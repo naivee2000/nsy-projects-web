@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1594",
+  "content_sha256": "12937af831fa417f18dbe5ec8b069906d354c9ab6817f89a0b6793d2f81bf711",
+  "source_hash": "e55d631544748fcb359b7119a9d6ec68546839f10dc5e366744bf35c6bed36e2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks only the largest prefix product, losing a negative prefix that can become the maximum after another negative.",
+      "failed_cases": [
+        "lc-1594-2"
+      ]
+    },
+    {
+      "reason": "Applies the modulus before sign-sensitive comparisons.",
+      "failed_cases": [
+        "lc-1594-2",
+        "lc-1594-8",
+        "lc-1594-9",
+        "lc-1594-10",
+        "lc-1594-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5641,
+  "oracle_implementation": "code_practice/import_batch_100.py:product_oracle",
+  "validator_implementation_sha256": "3bd993be65f42a3e95c7fec20a38b253393e75511edf152ef00044a177bcae74",
+  "batch_implementation_sha256": "ddf92029931504041f92a99a3cd33f0ce5e9c1ce6b26951c72aa60d7342a6ee2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d7d609a17a8df631bbd1f4b32f4681de921351530c768cecc53c0ea10b14869a",
+  "elapsed_seconds": 0.075,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

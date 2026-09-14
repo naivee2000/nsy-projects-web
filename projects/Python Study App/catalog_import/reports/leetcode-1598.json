@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1598",
+  "content_sha256": "c054c578a6400319663223287b3131db0d847c743c2cfca196094bb4a3f472b2",
+  "source_hash": "845498fb12155a24945e752f1b18336676e9d9e10589ea59790698e8fd2d733f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Moves above the main folder when ../ appears at depth zero.",
+      "failed_cases": [
+        "lc-1598-2",
+        "lc-1598-5",
+        "lc-1598-10"
+      ]
+    },
+    {
+      "reason": "Treats staying in place as entering a child folder.",
+      "failed_cases": [
+        "lc-1598-1",
+        "lc-1598-2",
+        "lc-1598-4",
+        "lc-1598-6",
+        "lc-1598-7",
+        "lc-1598-8",
+        "lc-1598-9",
+        "lc-1598-10",
+        "lc-1598-12",
+        "lc-1598-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5645,
+  "oracle_implementation": "code_practice/import_batch_100.py:crawler_oracle",
+  "validator_implementation_sha256": "3bd993be65f42a3e95c7fec20a38b253393e75511edf152ef00044a177bcae74",
+  "batch_implementation_sha256": "ddf92029931504041f92a99a3cd33f0ce5e9c1ce6b26951c72aa60d7342a6ee2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "196a00ae7597c7bb5143ed89227e2785bc55e675ade6b2445e0da789ec1e7ad4",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
