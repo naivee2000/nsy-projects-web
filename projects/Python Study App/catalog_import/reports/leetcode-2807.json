@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2807",
+  "content_sha256": "b0f56146e14926508a6cac00b1a45e885e448146b3a522cff06fdacc174246af",
+  "source_hash": "84d0965849b7f53fb6495b40ef36574a79804bda01e578448d6f0743979a7ea5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Inserts the adjacent sum instead of their greatest common divisor.",
+      "failed_cases": [
+        "lc-2807-1",
+        "lc-2807-4",
+        "lc-2807-5",
+        "lc-2807-6",
+        "lc-2807-7",
+        "lc-2807-8",
+        "lc-2807-9",
+        "lc-2807-10",
+        "lc-2807-11",
+        "lc-2807-12",
+        "lc-2807-13",
+        "lc-2807-14"
+      ]
+    },
+    {
+      "reason": "Fails to connect each inserted node to the following original suffix.",
+      "failed_cases": [
+        "lc-2807-1",
+        "lc-2807-4",
+        "lc-2807-5",
+        "lc-2807-6",
+        "lc-2807-7",
+        "lc-2807-8",
+        "lc-2807-9",
+        "lc-2807-10",
+        "lc-2807-11",
+        "lc-2807-12",
+        "lc-2807-13",
+        "lc-2807-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6854,
+  "oracle_implementation": "code_practice/import_batch_186.py:gcd_list_oracle",
+  "validator_implementation_sha256": "cf1f1dc20546e8f15d0feb3215430e429c68d60918ba37e79bfcd9fb3c55d849",
+  "batch_implementation_sha256": "65083055014cae388ff0f2fe433b27943d3ad460f9bd33eb6d3da5fcb174b9e5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3c7e3694d798efbde09bd8020c7fc3565c9030c6b22d441fcbdccdbb3345d10d",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

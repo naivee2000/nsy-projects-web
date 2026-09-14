@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2806",
+  "content_sha256": "c0633fe11119f1ffe4c01b825d0f4b75d8669bc3245375a4585d3cf2a1766a13",
+  "source_hash": "e95caa5dce1d4459ce75e5608e6d4bb0189e9c4ecb17864a4e58c1694444c447",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rounds a five-ending tie downward.",
+      "failed_cases": [
+        "lc-2806-2",
+        "lc-2806-6",
+        "lc-2806-12"
+      ]
+    },
+    {
+      "reason": "Forgets to restore the tens place after integer division.",
+      "failed_cases": [
+        "lc-2806-1",
+        "lc-2806-2",
+        "lc-2806-6",
+        "lc-2806-7",
+        "lc-2806-8",
+        "lc-2806-9",
+        "lc-2806-10",
+        "lc-2806-11",
+        "lc-2806-12",
+        "lc-2806-13",
+        "lc-2806-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6853,
+  "oracle_implementation": "code_practice/import_batch_186.py:balance_oracle",
+  "validator_implementation_sha256": "cf1f1dc20546e8f15d0feb3215430e429c68d60918ba37e79bfcd9fb3c55d849",
+  "batch_implementation_sha256": "65083055014cae388ff0f2fe433b27943d3ad460f9bd33eb6d3da5fcb174b9e5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9f30dec58c83475aa6e87db87876e31c0e4c8e1ef369790120555ed883b78470",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

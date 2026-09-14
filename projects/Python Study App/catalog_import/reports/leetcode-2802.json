@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2802",
+  "content_sha256": "df3d28cdfe5cd91fab0b21ade171b699ae9055819477d699b9415ad71ce3edfd",
+  "source_hash": "966c8fed7264544934ee8ac045eb2364c0aac058ef48f5061e03b666a79604fa",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses k directly and therefore loses the complete binary-tree level offset.",
+      "failed_cases": [
+        "lc-2802-1",
+        "lc-2802-2",
+        "lc-2802-3",
+        "lc-2802-4",
+        "lc-2802-5",
+        "lc-2802-6",
+        "lc-2802-7",
+        "lc-2802-8",
+        "lc-2802-9",
+        "lc-2802-10",
+        "lc-2802-11",
+        "lc-2802-12",
+        "lc-2802-13",
+        "lc-2802-14"
+      ]
+    },
+    {
+      "reason": "Maps binary one to four and zero to seven, reversing the within-level order.",
+      "failed_cases": [
+        "lc-2802-1",
+        "lc-2802-2",
+        "lc-2802-3",
+        "lc-2802-4",
+        "lc-2802-5",
+        "lc-2802-6",
+        "lc-2802-7",
+        "lc-2802-8",
+        "lc-2802-9",
+        "lc-2802-10",
+        "lc-2802-11",
+        "lc-2802-12",
+        "lc-2802-13",
+        "lc-2802-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6849,
+  "oracle_implementation": "code_practice/import_batch_186.py:lucky_oracle",
+  "validator_implementation_sha256": "cf1f1dc20546e8f15d0feb3215430e429c68d60918ba37e79bfcd9fb3c55d849",
+  "batch_implementation_sha256": "65083055014cae388ff0f2fe433b27943d3ad460f9bd33eb6d3da5fcb174b9e5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9ea2ef5a21e54e5173dabe81bf7e30a518d31db8c1c9f58279474da2ff390e67",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

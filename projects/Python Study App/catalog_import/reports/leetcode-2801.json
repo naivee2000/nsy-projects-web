@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2801",
+  "content_sha256": "b49a4b37f47c61f597c4361126527813e7b19ed8e2b2cfad5080002d244cf418",
+  "source_hash": "31928c50a3be797d219df97ff3c7d196eaf1254196608da296843d104a389987",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows equal adjacent digits as stepping.",
+      "failed_cases": [
+        "lc-2801-1",
+        "lc-2801-2",
+        "lc-2801-5",
+        "lc-2801-7",
+        "lc-2801-9",
+        "lc-2801-10",
+        "lc-2801-11",
+        "lc-2801-12",
+        "lc-2801-13",
+        "lc-2801-14"
+      ]
+    },
+    {
+      "reason": "Subtracts through low itself and incorrectly excludes an inclusive endpoint.",
+      "failed_cases": [
+        "lc-2801-1",
+        "lc-2801-3",
+        "lc-2801-4",
+        "lc-2801-6",
+        "lc-2801-8",
+        "lc-2801-10",
+        "lc-2801-13",
+        "lc-2801-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6848,
+  "oracle_implementation": "code_practice/import_batch_186.py:stepping_oracle",
+  "validator_implementation_sha256": "cf1f1dc20546e8f15d0feb3215430e429c68d60918ba37e79bfcd9fb3c55d849",
+  "batch_implementation_sha256": "65083055014cae388ff0f2fe433b27943d3ad460f9bd33eb6d3da5fcb174b9e5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b15f8de3590778938771ecad65d4f6b415def594aed0d5b0fcff798258ad0b6d",
+  "elapsed_seconds": 0.382,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
