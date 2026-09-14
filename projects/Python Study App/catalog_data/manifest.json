@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1259,
+  "count": 1264,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -22270,6 +22270,93 @@
       "path": "problems/leetcode-1842.json",
       "content_sha256": "11fd9c1ad88e54f08c9defa9ce27bbf4e7c2863b9d09adbdb88dbc021e0859bd",
       "source_id": 1842
+    },
+    {
+      "id": "leetcode-1844",
+      "version": 1,
+      "status": "approved",
+      "title": "Replace All Digits with Characters",
+      "summary": "Given a 0-indexed string s where lowercase English letters are in the even indices and digits are in the odd indices, you are to replace each digit with the character obtained by shifting the preceding character by the digit's value.",
+      "topics": [
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1844.json",
+      "content_sha256": "4cbd1df11bb22307ebd4fbbf0acaba6ee4309ee90bbc46a04780d43e807278d4",
+      "source_id": 1844
+    },
+    {
+      "id": "leetcode-1846",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Element After Decreasing and Rearranging",
+      "summary": "Given an array of positive integers arr, you can perform operations to decrease any element to a smaller positive integer or rearrange the elements in any order.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1846.json",
+      "content_sha256": "54ff995bf6f65f44aa376287d41170902167c556862d1e54d3133ac3cdb1eee3",
+      "source_id": 1846
+    },
+    {
+      "id": "leetcode-1848",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Distance to the Target Element",
+      "summary": "In an integer array nums, locate an index i where nums[i] equals the target and the absolute difference between i and the start index is minimal.",
+      "topics": [
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1848.json",
+      "content_sha256": "b45e860517f766992b1e5dced2c3404ac33fc60279fb02b049e01d4a1fbfdd68",
+      "source_id": 1848
+    },
+    {
+      "id": "leetcode-1849",
+      "version": 1,
+      "status": "approved",
+      "title": "Splitting a String Into Descending Consecutive Values",
+      "summary": "Given a string s made of digits, determine if it can be split into two or more non-empty substrings such that the numerical values of these substrings are in strictly decreasing order and the difference between consecutive values is exactly 1.",
+      "topics": [
+        "strings",
+        "backtracking",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1849.json",
+      "content_sha256": "93c8631886e2650c98f41a1dc2b4ad85eb86769aeb3e92068b98c9f2433ae25d",
+      "source_id": 1849
+    },
+    {
+      "id": "leetcode-1850",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Adjacent Swaps to Reach the Kth Smallest Number",
+      "summary": "Given a string num representing a large integer and an integer k, find the minimum number of adjacent swaps needed to transform num into the k-th smallest wonderful integer, where a wonderful integer is a permutation of num's digits and greater than num.",
+      "topics": [
+        "strings",
+        "two-pointers",
+        "greedy",
+        "permutations"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1850.json",
+      "content_sha256": "91a7de253ac6b3b3e3abb660914fde5352caa34c66b6b040c501630ec614f59e",
+      "source_id": 1850
     }
   ]
 }

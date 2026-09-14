@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1848",
+  "content_sha256": "b45e860517f766992b1e5dced2c3404ac33fc60279fb02b049e01d4a1fbfdd68",
+  "source_hash": "f9dd5b43d87c68d5883bd6e217344aaa4f618af40481987da69ab0bd5c3cb7b5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the farthest occurrence instead of the nearest.",
+      "failed_cases": [
+        "lc-1848-2",
+        "lc-1848-8",
+        "lc-1848-10",
+        "lc-1848-11",
+        "lc-1848-13"
+      ]
+    },
+    {
+      "reason": "Measures positions whose value is not the target.",
+      "failed_cases": [
+        "lc-1848-1",
+        "lc-1848-4",
+        "lc-1848-5",
+        "lc-1848-6",
+        "lc-1848-7",
+        "lc-1848-8",
+        "lc-1848-9",
+        "lc-1848-10",
+        "lc-1848-11",
+        "lc-1848-12",
+        "lc-1848-13",
+        "lc-1848-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5895,
+  "oracle_implementation": "code_practice/import_batch_108b.py:distance_o",
+  "validator_implementation_sha256": "4c5120dfc5ca2223a6e32688a037f73faa4ee27ea7064f8a6454f2e5c239c04e",
+  "batch_implementation_sha256": "73dbfa87aa71c774faf262a08eb5654acc3c143631e21d76e5e6add3767ae96d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "42974667ef23838e4a099e98070f4758e483a595a758377ad6b16082f4d7f83c",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
