@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2225",
+  "content_sha256": "e0ec3227373ce3b77227ae6cddf3b0823bcd98a10459ddfc3a5dca73f3561022",
+  "source_hash": "a18993390cc1a97c8c1cb1efb888240131476f17a335ab7e3bf232e63d024ac8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes undefeated players again in the exactly-one-loss row.",
+      "failed_cases": [
+        "lc-2225-1",
+        "lc-2225-2",
+        "lc-2225-3",
+        "lc-2225-4",
+        "lc-2225-5",
+        "lc-2225-6",
+        "lc-2225-8",
+        "lc-2225-9",
+        "lc-2225-10",
+        "lc-2225-11",
+        "lc-2225-12",
+        "lc-2225-13",
+        "lc-2225-14"
+      ]
+    },
+    {
+      "reason": "Tracks only losers, omitting winners who never lose.",
+      "failed_cases": [
+        "lc-2225-1",
+        "lc-2225-2",
+        "lc-2225-3",
+        "lc-2225-4",
+        "lc-2225-5",
+        "lc-2225-6",
+        "lc-2225-8",
+        "lc-2225-9",
+        "lc-2225-10",
+        "lc-2225-11",
+        "lc-2225-12",
+        "lc-2225-13",
+        "lc-2225-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6272,
+  "oracle_implementation": "code_practice/import_batch_124.py:players_oracle",
+  "validator_implementation_sha256": "8840132390e208818490ae1dc2e010c93815c2a8756d5240b8def2788a24cea2",
+  "batch_implementation_sha256": "f7ecb407e9f70ded2003c4eb9df47b87f0cad413ca9eb99fe9404d29c8e77387",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c485925363817b81293e4e81a0218ed87f0e74c7bfd0f57b3ce3d5e37a437b7b",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

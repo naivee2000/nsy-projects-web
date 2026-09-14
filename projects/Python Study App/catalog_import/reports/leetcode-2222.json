@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2222",
+  "content_sha256": "5b53b28cf1397a75e9e160fc67f05dbe32c36b7af0cac760d7e5bc70b0ac15f8",
+  "source_hash": "5d8a2fd1e41c16a87d815d1c0f505f450c60a41e21ef72281fde1eb9d661b56b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses remaining zeros instead of remaining ones around a zero center.",
+      "failed_cases": [
+        "lc-2222-2",
+        "lc-2222-3",
+        "lc-2222-8",
+        "lc-2222-9",
+        "lc-2222-10",
+        "lc-2222-11",
+        "lc-2222-12",
+        "lc-2222-14",
+        "lc-2222-15",
+        "lc-2222-16"
+      ]
+    },
+    {
+      "reason": "Treats a one as the center of a 101 pattern and corrupts both prefix counters.",
+      "failed_cases": [
+        "lc-2222-2",
+        "lc-2222-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6269,
+  "oracle_implementation": "code_practice/import_batch_124.py:buildings_oracle",
+  "validator_implementation_sha256": "8840132390e208818490ae1dc2e010c93815c2a8756d5240b8def2788a24cea2",
+  "batch_implementation_sha256": "f7ecb407e9f70ded2003c4eb9df47b87f0cad413ca9eb99fe9404d29c8e77387",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "10ce39b9683cfbc0a797e1ea46b390ed556b427cd372d7eb0cc5bd40d699f4b5",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

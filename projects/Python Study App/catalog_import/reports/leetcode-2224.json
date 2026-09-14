@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2224",
+  "content_sha256": "b97e66952cdffaec583e075bb7748dcdc122e3638fe9f37422b127b094d3cad3",
+  "source_hash": "1d48f6faba347cc6c64212a594161df2f926ea627faba42ba7852968c28661fa",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses denominations out of descending order, so greedy consumes fives before fifteens.",
+      "failed_cases": [
+        "lc-2224-6",
+        "lc-2224-8",
+        "lc-2224-9",
+        "lc-2224-10",
+        "lc-2224-12",
+        "lc-2224-13"
+      ]
+    },
+    {
+      "reason": "Counts each denomination at most once even when several equal additions are required.",
+      "failed_cases": [
+        "lc-2224-1",
+        "lc-2224-8",
+        "lc-2224-9",
+        "lc-2224-10",
+        "lc-2224-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6271,
+  "oracle_implementation": "code_practice/import_batch_124.py:time_oracle",
+  "validator_implementation_sha256": "8840132390e208818490ae1dc2e010c93815c2a8756d5240b8def2788a24cea2",
+  "batch_implementation_sha256": "f7ecb407e9f70ded2003c4eb9df47b87f0cad413ca9eb99fe9404d29c8e77387",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b81d05aa4fb0e2c0029221ad9204ec97385c9bc8b0f4b6ecedf5c5307483a899",
+  "elapsed_seconds": 0.083,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

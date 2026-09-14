@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2223",
+  "content_sha256": "aef91ad840e74a4e8f59586022217345f28589a4247027cc8081642ff413595b",
+  "source_hash": "a5b1b0ccafc1ead5f7a4e7a23745d947c31bfc2102ec3224c76eb69cd41eec62",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the full string score, which is not stored in z[0].",
+      "failed_cases": [
+        "lc-2223-1",
+        "lc-2223-2",
+        "lc-2223-3",
+        "lc-2223-4",
+        "lc-2223-5",
+        "lc-2223-6",
+        "lc-2223-7",
+        "lc-2223-8",
+        "lc-2223-9",
+        "lc-2223-10",
+        "lc-2223-11",
+        "lc-2223-12",
+        "lc-2223-13",
+        "lc-2223-14",
+        "lc-2223-15",
+        "lc-2223-16"
+      ]
+    },
+    {
+      "reason": "Compares every extension to only the first character instead of the corresponding prefix position.",
+      "failed_cases": [
+        "lc-2223-1",
+        "lc-2223-2",
+        "lc-2223-8",
+        "lc-2223-12",
+        "lc-2223-13",
+        "lc-2223-14",
+        "lc-2223-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6270,
+  "oracle_implementation": "code_practice/import_batch_124.py:scores_oracle",
+  "validator_implementation_sha256": "8840132390e208818490ae1dc2e010c93815c2a8756d5240b8def2788a24cea2",
+  "batch_implementation_sha256": "f7ecb407e9f70ded2003c4eb9df47b87f0cad413ca9eb99fe9404d29c8e77387",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "26fa1e693354b6a92a5451ca81271a5e221e4d3098061efb3836236851bb5a3f",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

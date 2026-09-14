@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1571,
+  "count": 1576,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -27956,6 +27956,96 @@
       "path": "problems/leetcode-2219.json",
       "content_sha256": "0d783a310a374c2c962c9c7c84437a48fda69b9483ad2c94de6f6e1d3c273102",
       "source_id": 2219
+    },
+    {
+      "id": "leetcode-2221",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Triangular Sum of an Array",
+      "summary": "Given a 0-indexed integer array nums, where each element is a digit from 0 to 9, the triangular sum is found by repeatedly creating a new array where each element is the sum modulo 10 of consecutive elements from the previous array, until only one element remains.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2221.json",
+      "content_sha256": "2587acd5898c9411358e5edb553ed1c805c3f96e470ecca7e1957d1de7b2798a",
+      "source_id": 2221
+    },
+    {
+      "id": "leetcode-2222",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Select Buildings",
+      "summary": "Given a 0-indexed binary string s representing the types of buildings along a street, where '0' denotes an office and '1' denotes a restaurant, determine the number of valid ways to select 3 buildings such that no two consecutive buildings are of the same type.",
+      "topics": [
+        "strings",
+        "prefix sums",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2222.json",
+      "content_sha256": "5b53b28cf1397a75e9e160fc67f05dbe32c36b7af0cac760d7e5bc70b0ac15f8",
+      "source_id": 2222
+    },
+    {
+      "id": "leetcode-2223",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Scores of Built Strings",
+      "summary": "Construct a string s of length n by adding characters to the front, then calculate the sum of the longest common prefixes between each prefix of s and the full string s.",
+      "topics": [
+        "strings",
+        "string matching",
+        "z algorithm"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2223.json",
+      "content_sha256": "aef91ad840e74a4e8f59586022217345f28589a4247027cc8081642ff413595b",
+      "source_id": 2223
+    },
+    {
+      "id": "leetcode-2224",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Operations to Convert Time",
+      "summary": "Given two 24-hour time strings, current and correct, determine the least number of operations required to convert current to correct by adding 1, 5, 15, or 60 minutes in any combination.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2224.json",
+      "content_sha256": "b97e66952cdffaec583e075bb7748dcdc122e3638fe9f37422b127b094d3cad3",
+      "source_id": 2224
+    },
+    {
+      "id": "leetcode-2225",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Players With Zero or One Losses",
+      "summary": "Given an array of match results, return two lists: one for players with no losses and another for players with exactly one loss, both sorted in increasing order.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2225.json",
+      "content_sha256": "e0ec3227373ce3b77227ae6cddf3b0823bcd98a10459ddfc3a5dca73f3561022",
+      "source_id": 2225
     }
   ]
 }
