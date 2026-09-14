@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1773",
+  "content_sha256": "92e5e239912dceb6e1e3b4115304e5eec000d7e1211671923498eb243d550075",
+  "source_hash": "ee54998641853d1952577d6314964c85d76057b8462de4379349b3e5570f2873",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reads item name when the rule requests color.",
+      "failed_cases": [
+        "lc-1773-1",
+        "lc-1773-10",
+        "lc-1773-12"
+      ]
+    },
+    {
+      "reason": "Counts nonmatching items instead of matching items.",
+      "failed_cases": [
+        "lc-1773-1",
+        "lc-1773-2",
+        "lc-1773-3",
+        "lc-1773-4",
+        "lc-1773-5",
+        "lc-1773-6",
+        "lc-1773-9",
+        "lc-1773-10",
+        "lc-1773-11",
+        "lc-1773-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5820,
+  "oracle_implementation": "code_practice/import_batch_105b.py:items_o",
+  "validator_implementation_sha256": "fb8b06b3d2deb4dc065e921cfc2fd794a8c120c6580325a34cefea93e3449f60",
+  "batch_implementation_sha256": "29834dda6d672eefa139a8ec3b742689748a5cd0047906b4dde9538f98692bd3",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fa91b92d0607cdf5e31f1d83b197c052509375dec238d29323a279dc2c1c80ca",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

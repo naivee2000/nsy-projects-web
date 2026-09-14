@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1203,
+  "count": 1208,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -21197,6 +21197,26 @@
       "source_id": 1765
     },
     {
+      "id": "leetcode-1766",
+      "version": 1,
+      "status": "approved",
+      "title": "Tree of Coprimes",
+      "summary": "Given a tree with n nodes numbered from 0 to n-1 , where each node has an associated value, determine for each node the closest ancestor whose value is coprime with the node's value.",
+      "topics": [
+        "trees",
+        "depth-first-search",
+        "number-theory"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1766.json",
+      "content_sha256": "f72d9a405e877b23e95a82a3d1d17edd04d45ca85fe09f7478a43819ab57049e",
+      "source_id": 1766
+    },
+    {
       "id": "leetcode-1768",
       "version": 1,
       "status": "approved",
@@ -21248,6 +21268,77 @@
       "path": "problems/leetcode-1770.json",
       "content_sha256": "2281e07ba620b6f40359e16d87a2e90f8cec4ba0a6057435553b1e5bace9d3ef",
       "source_id": 1770
+    },
+    {
+      "id": "leetcode-1771",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Palindrome Length From Subsequences",
+      "summary": "Given two strings, select non-empty subsequences from each, concatenate them, and determine the maximum possible length of a palindrome.",
+      "topics": [
+        "strings",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1771.json",
+      "content_sha256": "52d792499f7df3e81edce70561537bb7828aeeec688c0717bebc3265c582a204",
+      "source_id": 1771
+    },
+    {
+      "id": "leetcode-1772",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort Features by Popularity",
+      "summary": "Given a string array of feature names and a string array of user responses, count the unique occurrences of each feature in the responses.",
+      "topics": [
+        "strings",
+        "hash-maps",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1772.json",
+      "content_sha256": "d3e362dd3ea67f00d1ee1c29be6f9fbf46c6d3f8aa1b24f7295b3b2a7c00c581",
+      "source_id": 1772
+    },
+    {
+      "id": "leetcode-1773",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Items Matching a Rule",
+      "summary": "Given an array of items with type, color, and name, count how many items match a specified rule based on type, color, or name, as defined by ruleKey and ruleValue.",
+      "topics": [
+        "arrays",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1773.json",
+      "content_sha256": "92e5e239912dceb6e1e3b4115304e5eec000d7e1211671923498eb243d550075",
+      "source_id": 1773
+    },
+    {
+      "id": "leetcode-1774",
+      "version": 1,
+      "status": "approved",
+      "title": "Closest Dessert Cost",
+      "summary": "You must choose exactly one ice cream base and zero or more toppings, with no more than two of each topping.",
+      "topics": [
+        "backtracking",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1774.json",
+      "content_sha256": "8ef0d38f764950faeb43377a1c0468e1ec19876cb96415143d8f6792f58e9881",
+      "source_id": 1774
     }
   ]
 }

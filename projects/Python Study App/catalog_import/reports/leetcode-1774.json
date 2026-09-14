@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1774",
+  "content_sha256": "8ef0d38f764950faeb43377a1c0468e1ec19876cb96415143d8f6792f58e9881",
+  "source_hash": "1f10923b67417f0b7b25366f94decc17edb28b17cc4f42442c32a12bdad663d1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Generates zero or one copy of each topping but omits the allowed second copy.",
+      "failed_cases": [
+        "lc-1774-2",
+        "lc-1774-5",
+        "lc-1774-10",
+        "lc-1774-11",
+        "lc-1774-13",
+        "lc-1774-14"
+      ]
+    },
+    {
+      "reason": "Breaks equal-distance ties toward the larger total.",
+      "failed_cases": [
+        "lc-1774-6",
+        "lc-1774-9",
+        "lc-1774-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5821,
+  "oracle_implementation": "code_practice/import_batch_105b.py:dessert_o",
+  "validator_implementation_sha256": "fb8b06b3d2deb4dc065e921cfc2fd794a8c120c6580325a34cefea93e3449f60",
+  "batch_implementation_sha256": "29834dda6d672eefa139a8ec3b742689748a5cd0047906b4dde9538f98692bd3",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "df6d48386c45f31bd0f720167d0be7fbc41602e7094b9002cb6bbc4a3bd49f4e",
+  "elapsed_seconds": 0.08,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

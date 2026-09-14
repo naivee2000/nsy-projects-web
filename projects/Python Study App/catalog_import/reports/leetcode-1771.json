@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1771",
+  "content_sha256": "52d792499f7df3e81edce70561537bb7828aeeec688c0717bebc3265c582a204",
+  "source_hash": "11a07b298e364af18e6e3bd81142de223a50599d5bb5460a02f17e1ca4dadda1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the left palindrome endpoint to come from word2, accepting a one-word palindrome.",
+      "failed_cases": [
+        "lc-1771-5"
+      ]
+    },
+    {
+      "reason": "Records only the matching endpoint pair and ignores a longer palindromic interior.",
+      "failed_cases": [
+        "lc-1771-1",
+        "lc-1771-2",
+        "lc-1771-6",
+        "lc-1771-8",
+        "lc-1771-9",
+        "lc-1771-10",
+        "lc-1771-11",
+        "lc-1771-12",
+        "lc-1771-13",
+        "lc-1771-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5818,
+  "oracle_implementation": "code_practice/import_batch_105b.py:palindrome_o",
+  "validator_implementation_sha256": "fb8b06b3d2deb4dc065e921cfc2fd794a8c120c6580325a34cefea93e3449f60",
+  "batch_implementation_sha256": "29834dda6d672eefa139a8ec3b742689748a5cd0047906b4dde9538f98692bd3",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8eeee6682aaa1c4a2e56a836bc39f8fe024d31705b68cd26bf8e71757f49df58",
+  "elapsed_seconds": 0.138,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

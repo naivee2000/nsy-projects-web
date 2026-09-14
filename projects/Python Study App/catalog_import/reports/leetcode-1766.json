@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1766",
+  "content_sha256": "f72d9a405e877b23e95a82a3d1d17edd04d45ca85fe09f7478a43819ab57049e",
+  "source_hash": "c029fa6a77f0efd700ac00ed4057c1bd9d1f94693a09c07528288d3d3c0388e0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the first coprime value numerically instead of the deepest coprime ancestor.",
+      "failed_cases": [
+        "lc-1766-6",
+        "lc-1766-7",
+        "lc-1766-10",
+        "lc-1766-11",
+        "lc-1766-13"
+      ]
+    },
+    {
+      "reason": "Clears all same-valued ancestors when backtracking instead of removing only the current node.",
+      "failed_cases": [
+        "lc-1766-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5813,
+  "oracle_implementation": "code_practice/import_batch_105b.py:coprime_o",
+  "validator_implementation_sha256": "fb8b06b3d2deb4dc065e921cfc2fd794a8c120c6580325a34cefea93e3449f60",
+  "batch_implementation_sha256": "29834dda6d672eefa139a8ec3b742689748a5cd0047906b4dde9538f98692bd3",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "954c83a6fe61cd9b92d57501c1dc8ad57f2a37fd5a3174b13870c3a05cdef9f1",
+  "elapsed_seconds": 0.088,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
