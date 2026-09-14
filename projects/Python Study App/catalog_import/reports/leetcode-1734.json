@@ -1,0 +1,64 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1734",
+  "content_sha256": "d648187f799450d9abe5dab832a3b759141c5cd053e2e0c7c23b182c272cf49b",
+  "source_hash": "55230229b6ce98891f40a837ce8888ef25d7c29c56bf021b96abad41623eb0fa",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "XORs even encoded positions instead of the odd positions needed to isolate the first value.",
+      "failed_cases": [
+        "lc-1734-1",
+        "lc-1734-2",
+        "lc-1734-3",
+        "lc-1734-4",
+        "lc-1734-5",
+        "lc-1734-6",
+        "lc-1734-7",
+        "lc-1734-8",
+        "lc-1734-9",
+        "lc-1734-10",
+        "lc-1734-11",
+        "lc-1734-12",
+        "lc-1734-13",
+        "lc-1734-14",
+        "lc-1734-15",
+        "lc-1734-16"
+      ]
+    },
+    {
+      "reason": "Omits n from the XOR of the complete permutation domain.",
+      "failed_cases": [
+        "lc-1734-1",
+        "lc-1734-2",
+        "lc-1734-3",
+        "lc-1734-4",
+        "lc-1734-5",
+        "lc-1734-6",
+        "lc-1734-7",
+        "lc-1734-8",
+        "lc-1734-9",
+        "lc-1734-10",
+        "lc-1734-11",
+        "lc-1734-12",
+        "lc-1734-13",
+        "lc-1734-14",
+        "lc-1734-15",
+        "lc-1734-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5781,
+  "oracle_implementation": "code_practice/import_batch_103c.py:permutation_o",
+  "validator_implementation_sha256": "11eba5f02a8ed1e009b0d686eb29ef6197a621da261058ecf616e603c2795567",
+  "batch_implementation_sha256": "7f9e4d135e7c85d66b43966d50e47a63aba4a267519c1879d0010eac6bae7298",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cef173495288b93a7f83c513e53de406b4142d1a90b767d81ab38ea3b0613e62",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1723",
+  "content_sha256": "e8ac07176c2037798ff45e4de174cdfe8b25c810933a5ac9ae9df8e6b718e1ed",
+  "source_hash": "8f61ab7808084715fd9702164af9d3ed8b73b81c16d0aab1bf9cf39949cfea1d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assigns every job to the first worker and never explores balanced distributions.",
+      "failed_cases": [
+        "lc-1723-2",
+        "lc-1723-6",
+        "lc-1723-7",
+        "lc-1723-8",
+        "lc-1723-9",
+        "lc-1723-10",
+        "lc-1723-11",
+        "lc-1723-12",
+        "lc-1723-13",
+        "lc-1723-14"
+      ]
+    },
+    {
+      "reason": "Optimizes total assigned work, which is constant, instead of the maximum worker load.",
+      "failed_cases": [
+        "lc-1723-2",
+        "lc-1723-6",
+        "lc-1723-7",
+        "lc-1723-8",
+        "lc-1723-9",
+        "lc-1723-10",
+        "lc-1723-11",
+        "lc-1723-12",
+        "lc-1723-13",
+        "lc-1723-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5770,
+  "oracle_implementation": "code_practice/import_batch_103c.py:jobs_o",
+  "validator_implementation_sha256": "11eba5f02a8ed1e009b0d686eb29ef6197a621da261058ecf616e603c2795567",
+  "batch_implementation_sha256": "7f9e4d135e7c85d66b43966d50e47a63aba4a267519c1879d0010eac6bae7298",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "059aaf1957410a6ed712a5a266b33d6f0cd07690ad7cb8963f1027d77a9c75de",
+  "elapsed_seconds": 0.11,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1727",
+  "content_sha256": "9d66596f123143ac9003250cd7d34a0ba386d2c18e3ead4f7f94e92b18465cf4",
+  "source_hash": "b9c093c49fc1ab5a63e17227233854a5ae163c1c728e7c1b7b3228a839f18171",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts heights ascending, pairing wide widths with the wrong minimum heights.",
+      "failed_cases": [
+        "lc-1727-1",
+        "lc-1727-2",
+        "lc-1727-6",
+        "lc-1727-8",
+        "lc-1727-9",
+        "lc-1727-11",
+        "lc-1727-12",
+        "lc-1727-13",
+        "lc-1727-14"
+      ]
+    },
+    {
+      "reason": "Resets every one-cell height to one instead of extending vertical runs.",
+      "failed_cases": [
+        "lc-1727-1",
+        "lc-1727-5",
+        "lc-1727-8",
+        "lc-1727-10",
+        "lc-1727-12",
+        "lc-1727-13",
+        "lc-1727-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5774,
+  "oracle_implementation": "code_practice/import_batch_103c.py:matrix_o",
+  "validator_implementation_sha256": "11eba5f02a8ed1e009b0d686eb29ef6197a621da261058ecf616e603c2795567",
+  "batch_implementation_sha256": "7f9e4d135e7c85d66b43966d50e47a63aba4a267519c1879d0010eac6bae7298",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b7fdf572e73a665f6fdff87d0708da2556372b36ad5e0db59f5cfe6ab996531f",
+  "elapsed_seconds": 0.075,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
