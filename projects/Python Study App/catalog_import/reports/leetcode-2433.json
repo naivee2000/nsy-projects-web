@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2433",
+  "content_sha256": "3161aad175351bc0ef93bd70816f8cada167777c94dbfd9d0639e277deca9b78",
+  "source_hash": "a02bdb1c5f7b0e8774d518d47284a085686c1001a94c02dca969b989721e3946",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "XORs every later prefix with the first prefix instead of its immediate predecessor.",
+      "failed_cases": [
+        "lc-2433-1",
+        "lc-2433-7",
+        "lc-2433-8",
+        "lc-2433-10",
+        "lc-2433-11",
+        "lc-2433-12",
+        "lc-2433-13",
+        "lc-2433-14",
+        "lc-2433-15",
+        "lc-2433-16"
+      ]
+    },
+    {
+      "reason": "Assumes the first original value is zero rather than pref[0].",
+      "failed_cases": [
+        "lc-2433-1",
+        "lc-2433-2",
+        "lc-2433-4",
+        "lc-2433-5",
+        "lc-2433-7",
+        "lc-2433-8",
+        "lc-2433-9",
+        "lc-2433-10",
+        "lc-2433-11",
+        "lc-2433-12",
+        "lc-2433-13",
+        "lc-2433-14",
+        "lc-2433-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6480,
+  "oracle_implementation": "code_practice/import_batch_133.py:prefix_xor_oracle",
+  "validator_implementation_sha256": "f97511fb95ff45390c0fbb7abddeef9a035e7efd6f6151f37d99b8e951ba802f",
+  "batch_implementation_sha256": "cf969f8ca7e5fbb7c71fb978bb3d81222f4287749e7c5322d6869c7c575ee3dd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "78d23482d7780bad48657d4029aa71446997aa8055f5786e892466dab901c700",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

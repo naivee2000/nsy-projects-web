@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2429",
+  "content_sha256": "40e6948bafa3bbbf8fbea25ed17708e49f4b101c6c38c1ea73e1933b685b33a3",
+  "source_hash": "622186a6f0f5c2e341aec7f72e97e092b8afd4a93392fc9d54ace6637d340f18",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps low num1 bits before high bits, causing a larger XOR penalty at a missed high bit.",
+      "failed_cases": [
+        "lc-2429-6",
+        "lc-2429-7",
+        "lc-2429-9",
+        "lc-2429-12"
+      ]
+    },
+    {
+      "reason": "Adds required new bits from high to low instead of using the cheapest low zero bits.",
+      "failed_cases": [
+        "lc-2429-2",
+        "lc-2429-8",
+        "lc-2429-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6476,
+  "oracle_implementation": "code_practice/import_batch_133.py:minimize_xor_oracle",
+  "validator_implementation_sha256": "f97511fb95ff45390c0fbb7abddeef9a035e7efd6f6151f37d99b8e951ba802f",
+  "batch_implementation_sha256": "cf969f8ca7e5fbb7c71fb978bb3d81222f4287749e7c5322d6869c7c575ee3dd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c56c41ecb2814f713cb8a6fc1bb92e3033d51b43b214e1d575b73f958ab54d32",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
