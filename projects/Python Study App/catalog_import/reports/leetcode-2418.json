@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2418",
+  "content_sha256": "988fdcebc689f9f88b1e2523d18f0c8691821ded1693eec5d1119da48979a5dc",
+  "source_hash": "e150f53545de2553a38ddcbfc864ee6f2c036e4bbb7a812fc88832db25dcf1dd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts heights in ascending order.",
+      "failed_cases": [
+        "lc-2418-1",
+        "lc-2418-4",
+        "lc-2418-5",
+        "lc-2418-6",
+        "lc-2418-8",
+        "lc-2418-9",
+        "lc-2418-10",
+        "lc-2418-11",
+        "lc-2418-12",
+        "lc-2418-13",
+        "lc-2418-14",
+        "lc-2418-15",
+        "lc-2418-16"
+      ]
+    },
+    {
+      "reason": "Pairs fields in the wrong order and returns numeric heights rather than names.",
+      "failed_cases": [
+        "lc-2418-1",
+        "lc-2418-2",
+        "lc-2418-3",
+        "lc-2418-4",
+        "lc-2418-5",
+        "lc-2418-6",
+        "lc-2418-7",
+        "lc-2418-8",
+        "lc-2418-9",
+        "lc-2418-10",
+        "lc-2418-11",
+        "lc-2418-12",
+        "lc-2418-13",
+        "lc-2418-14",
+        "lc-2418-15",
+        "lc-2418-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6465,
+  "oracle_implementation": "code_practice/import_batch_130b.py:people_oracle",
+  "validator_implementation_sha256": "4dc813aa4f329b0bcac2c519698c1d76eb7991e1ce7d8ba598bf085eb2161bbd",
+  "batch_implementation_sha256": "bad73f51c4762c49a4ee7b0a16f34e156ad0f684629312d3125e83f9f4d23ef1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "180c33645b1cf6b5826ff2a308b3a2d91e09838cc49cf4c44973c9521f17dfa8",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

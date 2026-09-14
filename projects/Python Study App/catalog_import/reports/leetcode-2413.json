@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2413",
+  "content_sha256": "9c5179f6289cc12a0af90d5a3316cda2f5c52c6e033d4cb1089326a2ced3dc71",
+  "source_hash": "a4f0956be339f34395104e1c3e12d0a62f1887467ef23f52de8b242ea3fef44b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds two to an odd number, which is not generally divisible by the original n.",
+      "failed_cases": [
+        "lc-2413-1",
+        "lc-2413-3",
+        "lc-2413-5",
+        "lc-2413-7",
+        "lc-2413-9",
+        "lc-2413-11",
+        "lc-2413-13",
+        "lc-2413-15"
+      ]
+    },
+    {
+      "reason": "Always doubles n even when n itself is already even.",
+      "failed_cases": [
+        "lc-2413-2",
+        "lc-2413-4",
+        "lc-2413-6",
+        "lc-2413-8",
+        "lc-2413-10",
+        "lc-2413-12",
+        "lc-2413-14",
+        "lc-2413-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6460,
+  "oracle_implementation": "code_practice/import_batch_130b.py:multiple_oracle",
+  "validator_implementation_sha256": "4dc813aa4f329b0bcac2c519698c1d76eb7991e1ce7d8ba598bf085eb2161bbd",
+  "batch_implementation_sha256": "bad73f51c4762c49a4ee7b0a16f34e156ad0f684629312d3125e83f9f4d23ef1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c42d2fe3806e2ad06e332d8932dd27cbc72f86dd7de052f9d20537342e12f50c",
+  "elapsed_seconds": 0.01,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
