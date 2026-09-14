@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2555",
+  "content_sha256": "7ad1e3b3943503515578d2bcf5b3d9fd75e164f91e6f0079d0a9f19eec450f74",
+  "source_hash": "90d97e12b8aea8147ee0e31102312d5a02df71a1e18a156a7f5f8d47f64bc2b7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Shrinks windows whose endpoint distance equals the allowed length.",
+      "failed_cases": [
+        "lc-2555-1",
+        "lc-2555-7",
+        "lc-2555-10",
+        "lc-2555-11",
+        "lc-2555-13",
+        "lc-2555-14",
+        "lc-2555-15",
+        "lc-2555-16"
+      ]
+    },
+    {
+      "reason": "Combines the current segment with a prefix that may overlap it.",
+      "failed_cases": [
+        "lc-2555-1",
+        "lc-2555-4",
+        "lc-2555-5",
+        "lc-2555-7",
+        "lc-2555-8",
+        "lc-2555-14",
+        "lc-2555-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6602,
+  "oracle_implementation": "code_practice/import_batch_156.py:win_oracle",
+  "validator_implementation_sha256": "738a5c16a9b87b7791b19416d722accfcfdef046e5a5c00d2813b1779b881c8b",
+  "batch_implementation_sha256": "e13254a5d939a647fef66d59795516d77b6f668945f6c168d409b376e5257c93",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6212cccc8a562b95d7b1915fc6d60ee236b6e396f8479612511291ed576ac093",
+  "elapsed_seconds": 0.101,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

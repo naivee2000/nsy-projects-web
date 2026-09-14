@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2557",
+  "content_sha256": "218e06efdb0e85ab9ff1a9e7e378038d5924b609ac3ebade62ecf6b67c35c6cb",
+  "source_hash": "048767f5427730123d4b55429119851c5a25ca3896b0ff40f9f27cc9d974bd83",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses n itself as a sentinel and can omit the allowed endpoint.",
+      "failed_cases": [
+        "lc-2557-2",
+        "lc-2557-3",
+        "lc-2557-7",
+        "lc-2557-8",
+        "lc-2557-15"
+      ]
+    },
+    {
+      "reason": "Rejects an arithmetic prefix whose cost exactly equals the remaining budget.",
+      "failed_cases": [
+        "lc-2557-3",
+        "lc-2557-4",
+        "lc-2557-7",
+        "lc-2557-8",
+        "lc-2557-10",
+        "lc-2557-11",
+        "lc-2557-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6604,
+  "oracle_implementation": "code_practice/import_batch_156.py:range_oracle",
+  "validator_implementation_sha256": "738a5c16a9b87b7791b19416d722accfcfdef046e5a5c00d2813b1779b881c8b",
+  "batch_implementation_sha256": "e13254a5d939a647fef66d59795516d77b6f668945f6c168d409b376e5257c93",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3c1957d78427666e87788ee5efb71018bb056ab448c5793b4276199b8ce5330e",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

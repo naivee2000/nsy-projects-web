@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2556",
+  "content_sha256": "9678ccad6674ed100fa526c6b860bebb78092cb234f6f119dc518fdecb6ceeab",
+  "source_hash": "98e7efb6024ec9de0574ed94fa16178698db3b99e9a9b4943e8fcbbb2f4cff01",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to restore the start cell before searching for a second path.",
+      "failed_cases": [
+        "lc-2556-2",
+        "lc-2556-4",
+        "lc-2556-5",
+        "lc-2556-7",
+        "lc-2556-11",
+        "lc-2556-14"
+      ]
+    },
+    {
+      "reason": "Requires both recursive branches instead of finding either valid path.",
+      "failed_cases": [
+        "lc-2556-2",
+        "lc-2556-4",
+        "lc-2556-5",
+        "lc-2556-7",
+        "lc-2556-11",
+        "lc-2556-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6603,
+  "oracle_implementation": "code_practice/import_batch_156.py:cut_oracle",
+  "validator_implementation_sha256": "738a5c16a9b87b7791b19416d722accfcfdef046e5a5c00d2813b1779b881c8b",
+  "batch_implementation_sha256": "e13254a5d939a647fef66d59795516d77b6f668945f6c168d409b376e5257c93",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0e08377bb1c4eea43bfcadca8e9a895a92b457a1e492b8342570be9a3dc07926",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

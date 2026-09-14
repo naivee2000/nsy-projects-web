@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2560",
+  "content_sha256": "f166c93560ae1bf8699856e1968aa79039a207ca064acc04bb061fb873aa5bfe",
+  "source_hash": "fca2afd1613419d9a5d0e2cd2d9fcc95a72429dd2678245c50c1f1ca11b14c6c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a house whose value equals the tested capability.",
+      "failed_cases": [
+        "lc-2560-1",
+        "lc-2560-2",
+        "lc-2560-4",
+        "lc-2560-8",
+        "lc-2560-9",
+        "lc-2560-10",
+        "lc-2560-12",
+        "lc-2560-13",
+        "lc-2560-15",
+        "lc-2560-16"
+      ]
+    },
+    {
+      "reason": "Requires an unnecessary two-house gap between robberies.",
+      "failed_cases": [
+        "lc-2560-1",
+        "lc-2560-2",
+        "lc-2560-4",
+        "lc-2560-8",
+        "lc-2560-9",
+        "lc-2560-10",
+        "lc-2560-12",
+        "lc-2560-13",
+        "lc-2560-15",
+        "lc-2560-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6607,
+  "oracle_implementation": "code_practice/import_batch_156.py:capability_oracle",
+  "validator_implementation_sha256": "738a5c16a9b87b7791b19416d722accfcfdef046e5a5c00d2813b1779b881c8b",
+  "batch_implementation_sha256": "e13254a5d939a647fef66d59795516d77b6f668945f6c168d409b376e5257c93",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "26ccee8faf70f8fe90e7bd53def417acfb6099569e759d02ba7276ec8ada8648",
+  "elapsed_seconds": 0.108,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
