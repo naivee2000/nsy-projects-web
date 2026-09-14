@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2033",
+  "content_sha256": "d873a0d0d8765bee270bd52418bb93096cfbac78ea07c9ebc9544166947a0f59",
+  "source_hash": "002de4539e237fad3ab2fb743b4a0a1199ee72940d10c4661982122141a010d7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Targets the smallest value rather than a median and can use extra moves.",
+      "failed_cases": [
+        "lc-2033-1",
+        "lc-2033-5",
+        "lc-2033-8",
+        "lc-2033-9",
+        "lc-2033-10",
+        "lc-2033-12",
+        "lc-2033-14"
+      ]
+    },
+    {
+      "reason": "Tests congruence modulo x+1 instead of the permitted step x.",
+      "failed_cases": [
+        "lc-2033-1",
+        "lc-2033-5",
+        "lc-2033-6",
+        "lc-2033-7",
+        "lc-2033-8",
+        "lc-2033-9",
+        "lc-2033-10",
+        "lc-2033-12",
+        "lc-2033-13",
+        "lc-2033-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6080,
+  "oracle_implementation": "code_practice/import_batch_115d.py:grid_o",
+  "validator_implementation_sha256": "624a8b7a55b065092182afe359199f7f451ffb99d59b4516ccb01a5b93d7e3cb",
+  "batch_implementation_sha256": "a98aa10762e4307732254fe7a47d1a4655d94278bcf0a0306aafaddc10db2805",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "302e53a40fa2de99677686a992865af5e479b6b8217ffad17304f2228fba3a1e",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

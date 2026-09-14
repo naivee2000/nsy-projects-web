@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2032",
+  "content_sha256": "25bc62acf67c9700ef8e3cfcce0fc6ad45b4b43e06158174d1bb53cc009eeb66",
+  "source_hash": "3acb7d59968af0ab7c096a62553d1b2e73a665d23b28e6af5c4291a8a0717dd6",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Omits values appearing only in the second and third arrays.",
+      "failed_cases": [
+        "lc-2032-2",
+        "lc-2032-7",
+        "lc-2032-9",
+        "lc-2032-10",
+        "lc-2032-11"
+      ]
+    },
+    {
+      "reason": "Ignores the third array entirely.",
+      "failed_cases": [
+        "lc-2032-2",
+        "lc-2032-7",
+        "lc-2032-9",
+        "lc-2032-10",
+        "lc-2032-11",
+        "lc-2032-13",
+        "lc-2032-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6079,
+  "oracle_implementation": "code_practice/import_batch_115d.py:two_o",
+  "validator_implementation_sha256": "624a8b7a55b065092182afe359199f7f451ffb99d59b4516ccb01a5b93d7e3cb",
+  "batch_implementation_sha256": "a98aa10762e4307732254fe7a47d1a4655d94278bcf0a0306aafaddc10db2805",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "82bead4752c2b2363292b9732013156cada2bdbe7920b266bf284a8a4e01f765",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

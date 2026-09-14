@@ -4,12 +4,14 @@ from code_practice.catalog import get_catalog
 from code_practice.import_batch_115 import BATCH
 from code_practice.import_batch_115b import BATCH as BATCH_B
 from code_practice.import_batch_115c import BATCH as BATCH_C
+from code_practice.import_batch_115d import BATCH as BATCH_D
 
 ROOT=Path(__file__).resolve().parents[1]
 IDS=(2012,2014,2015,2016,2017)
 IDS+=(2021,2022,2023,2024,2027)
 IDS+=(2018,2019,2025,2029,2030)
-SPECS={**BATCH,**BATCH_B,**BATCH_C}
+IDS+=(2031,2032,2033,2035,2037)
+SPECS={**BATCH,**BATCH_B,**BATCH_C,**BATCH_D}
 
 def test_batch_115_first_slice_is_complete_and_verified():
  catalog=get_catalog()

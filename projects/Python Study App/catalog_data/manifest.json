@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1413,
+  "count": 1418,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -25102,6 +25102,96 @@
       "path": "problems/leetcode-2030.json",
       "content_sha256": "7153ab6e57ffd6e10c49028ec3444db7f1eaf490b59c46b7c201916a8acd7f94",
       "source_id": 2030
+    },
+    {
+      "id": "leetcode-2031",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Subarrays With More Ones Than Zeros",
+      "summary": "Given a binary array consisting solely of 0s and 1s, count the number of contiguous subarrays where the count of 1s exceeds the count of 0s.",
+      "topics": [
+        "prefix sums",
+        "Fenwick tree",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2031.json",
+      "content_sha256": "4512fe073c8b579e1dc08f8c68853328cdf4c701e426ebfe622a7d588423a781",
+      "source_id": 2031
+    },
+    {
+      "id": "leetcode-2032",
+      "version": 1,
+      "status": "approved",
+      "title": "Two Out of Three",
+      "summary": "Provide an array of unique integers that appear in at least two of the three given integer arrays, in any order.",
+      "topics": [
+        "sets",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2032.json",
+      "content_sha256": "25bc62acf67c9700ef8e3cfcce0fc6ad45b4b43e06158174d1bb53cc009eeb66",
+      "source_id": 2032
+    },
+    {
+      "id": "leetcode-2033",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make a Uni-Value Grid",
+      "summary": "Given a grid of size m x n and an integer x, determine the least number of operations needed to make all elements equal by adding or subtracting x.",
+      "topics": [
+        "matrices",
+        "sorting",
+        "median"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2033.json",
+      "content_sha256": "d873a0d0d8765bee270bd52418bb93096cfbac78ea07c9ebc9544166947a0f59",
+      "source_id": 2033
+    },
+    {
+      "id": "leetcode-2035",
+      "version": 1,
+      "status": "approved",
+      "title": "Partition Array Into Two Arrays to Minimize Sum Difference",
+      "summary": "Given an integer array of 2n elements, divide it into two arrays of n elements each to minimize the absolute difference between their sums.",
+      "topics": [
+        "meet-in-the-middle",
+        "binary search",
+        "bitmasks"
+      ],
+      "prerequisites": [
+        "meet-in-the-middle"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2035.json",
+      "content_sha256": "f3265255d7aeb216976af6b00ae7c60e43061bddd4e1b54a4ec8f0899cde7622",
+      "source_id": 2035
+    },
+    {
+      "id": "leetcode-2037",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Moves to Seat Everyone",
+      "summary": "Given an array of seat positions and an array of student positions, determine the least number of moves needed to seat each student in a seat, ensuring no two students occupy the same seat.",
+      "topics": [
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2037.json",
+      "content_sha256": "067da8d7590861627db07ec6930ad9ea08f0c0fd4554193b04af0a9889aa5433",
+      "source_id": 2037
     }
   ]
 }

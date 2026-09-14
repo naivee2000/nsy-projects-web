@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2035",
+  "content_sha256": "f3265255d7aeb216976af6b00ae7c60e43061bddd4e1b54a4ec8f0899cde7622",
+  "source_hash": "14faed96c7018c9387c0912f0c53d19ca768995b25cf5b267dfeac904c1c1d17",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the same subset size from each half instead of complementary sizes totaling n.",
+      "failed_cases": [
+        "lc-2035-2",
+        "lc-2035-3",
+        "lc-2035-4",
+        "lc-2035-9",
+        "lc-2035-12"
+      ]
+    },
+    {
+      "reason": "Adds the left-half sum when locating its complement instead of subtracting it.",
+      "failed_cases": [
+        "lc-2035-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6082,
+  "oracle_implementation": "code_practice/import_batch_115d.py:partition_o",
+  "validator_implementation_sha256": "624a8b7a55b065092182afe359199f7f451ffb99d59b4516ccb01a5b93d7e3cb",
+  "batch_implementation_sha256": "a98aa10762e4307732254fe7a47d1a4655d94278bcf0a0306aafaddc10db2805",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "282f3e2d3cfc1958a2f7813e04d0e7b945d106486400749f0526e07334568184",
+  "elapsed_seconds": 0.485,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
