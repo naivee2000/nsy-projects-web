@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1725",
+  "content_sha256": "6f812818a4abc3f23fd48faab051e5a4c2bacb935e8b738d958489f0d59107b9",
+  "source_hash": "538b6c23910af5bc531e7c10224f247e40aac927a7b79dd269e746630cba2679",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the longer rectangle side, which cannot fit inside the shorter side.",
+      "failed_cases": [
+        "lc-1725-1",
+        "lc-1725-2",
+        "lc-1725-9",
+        "lc-1725-14"
+      ]
+    },
+    {
+      "reason": "Counts rectangles below the maximum instead of tied at it.",
+      "failed_cases": [
+        "lc-1725-1",
+        "lc-1725-2",
+        "lc-1725-3",
+        "lc-1725-4",
+        "lc-1725-6",
+        "lc-1725-7",
+        "lc-1725-8",
+        "lc-1725-9",
+        "lc-1725-10",
+        "lc-1725-11",
+        "lc-1725-12",
+        "lc-1725-13",
+        "lc-1725-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5772,
+  "oracle_implementation": "code_practice/import_batch_103.py:squares_o",
+  "validator_implementation_sha256": "7e15be67a5e9385ad2343da24633e4707248ea1f84533434d462cb1cee4e32f0",
+  "batch_implementation_sha256": "d6d7965ee01d8adf18cd176c02cd276b4c40f50d86168bfd7bec3751d4ff5183",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "25272dee2cade67c00e47066558ba200df59512b9421f60b3f4b3dd388e84008",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

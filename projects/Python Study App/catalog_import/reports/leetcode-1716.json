@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1716",
+  "content_sha256": "78df168a37ff02433f65dbcdbc26986c807f31a91f7b5d4f007094c1dc331061",
+  "source_hash": "f6bb1e3efd9ba2ce963c008a5a46fae8482a64c3016ea88ee6a100e4dc15c1df",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Raises every completed week by one extra dollar per day.",
+      "failed_cases": [
+        "lc-1716-2",
+        "lc-1716-5",
+        "lc-1716-6",
+        "lc-1716-7",
+        "lc-1716-8",
+        "lc-1716-9",
+        "lc-1716-10",
+        "lc-1716-11",
+        "lc-1716-12",
+        "lc-1716-13",
+        "lc-1716-14"
+      ]
+    },
+    {
+      "reason": "Starts the partial week one dollar too low.",
+      "failed_cases": [
+        "lc-1716-1",
+        "lc-1716-2",
+        "lc-1716-3",
+        "lc-1716-4",
+        "lc-1716-6",
+        "lc-1716-8",
+        "lc-1716-9",
+        "lc-1716-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5763,
+  "oracle_implementation": "code_practice/import_batch_103.py:money_o",
+  "validator_implementation_sha256": "7e15be67a5e9385ad2343da24633e4707248ea1f84533434d462cb1cee4e32f0",
+  "batch_implementation_sha256": "d6d7965ee01d8adf18cd176c02cd276b4c40f50d86168bfd7bec3751d4ff5183",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3081c3b8647cf9564a153fece1f675d008d7bf1e1b5867a89673d2c510c3d5bd",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

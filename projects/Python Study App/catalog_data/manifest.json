@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1159,
+  "count": 1164,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -20466,6 +20466,95 @@
       "path": "problems/leetcode-1711.json",
       "content_sha256": "385c45720dc5e6c31b43329dd85a73f3cac4d40f0b6e3c7eed4ac40ca36da4cd",
       "source_id": 1711
+    },
+    {
+      "id": "leetcode-1712",
+      "version": 1,
+      "status": "approved",
+      "title": "Ways to Split Array Into Three Subarrays",
+      "summary": "Determine the count of valid ways to divide an array into three contiguous subarrays such that the sum of the left subarray is less than or equal to the mid subarray, and the mid subarray is less than or equal to the right subarray.",
+      "topics": [
+        "arrays",
+        "prefix-sums",
+        "binary-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1712.json",
+      "content_sha256": "1530dfb2d08533ba0ad2c73407b3a48003f67c7de4adbd25a828e4c4937ac763",
+      "source_id": 1712
+    },
+    {
+      "id": "leetcode-1713",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make a Subsequence",
+      "summary": "Given an array target consisting of distinct integers and an array arr that may contain duplicates, find the minimum number of insertions required into arr to make target a subsequence of arr.",
+      "topics": [
+        "arrays",
+        "binary-search",
+        "longest-increasing-subsequence"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1713.json",
+      "content_sha256": "eeff9d8c5138abe830a79b29d23204152c668d8106fb859e9c5b2e181139eae3",
+      "source_id": 1713
+    },
+    {
+      "id": "leetcode-1716",
+      "version": 1,
+      "status": "approved",
+      "title": "Calculate Money in Leetcode Bank",
+      "summary": "Hercy initiates a savings plan by depositing $1 on the first Monday.",
+      "topics": [
+        "math",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1716.json",
+      "content_sha256": "78df168a37ff02433f65dbcdbc26986c807f31a91f7b5d4f007094c1dc331061",
+      "source_id": 1716
+    },
+    {
+      "id": "leetcode-1720",
+      "version": 1,
+      "status": "approved",
+      "title": "Decode XORed Array",
+      "summary": "Given an encoded array of length n-1 where each element is the result of XORing consecutive elements from the original array of length n, and the first element of the original array, decode the original array.",
+      "topics": [
+        "arrays",
+        "bit-manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1720.json",
+      "content_sha256": "8baff2a843cca8fdf0686582780a1671ec2bcc982359adf84870f01bbfa35255",
+      "source_id": 1720
+    },
+    {
+      "id": "leetcode-1725",
+      "version": 1,
+      "status": "approved",
+      "title": "Number Of Rectangles That Can Form The Largest Square",
+      "summary": "Given an array of rectangles where each rectangle is represented by its length and width, determine the number of rectangles that can be cut to form a square with the largest possible side length.",
+      "topics": [
+        "arrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1725.json",
+      "content_sha256": "6f812818a4abc3f23fd48faab051e5a4c2bacb935e8b738d958489f0d59107b9",
+      "source_id": 1725
     }
   ]
 }

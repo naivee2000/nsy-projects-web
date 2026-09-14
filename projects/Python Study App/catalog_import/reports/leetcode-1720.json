@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1720",
+  "content_sha256": "8baff2a843cca8fdf0686582780a1671ec2bcc982359adf84870f01bbfa35255",
+  "source_hash": "8b4692ea0a35bf0d804a449779717941da0ec90339426ba633014e6cda9f7ad0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Decodes every position from the first value rather than the previous decoded value.",
+      "failed_cases": [
+        "lc-1720-1",
+        "lc-1720-2",
+        "lc-1720-9",
+        "lc-1720-10",
+        "lc-1720-12",
+        "lc-1720-13",
+        "lc-1720-14"
+      ]
+    },
+    {
+      "reason": "Assumes the first decoded value is zero instead of using the supplied first value.",
+      "failed_cases": [
+        "lc-1720-1",
+        "lc-1720-2",
+        "lc-1720-4",
+        "lc-1720-6",
+        "lc-1720-7",
+        "lc-1720-8",
+        "lc-1720-9",
+        "lc-1720-10",
+        "lc-1720-12",
+        "lc-1720-13",
+        "lc-1720-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5767,
+  "oracle_implementation": "code_practice/import_batch_103.py:xor_o",
+  "validator_implementation_sha256": "7e15be67a5e9385ad2343da24633e4707248ea1f84533434d462cb1cee4e32f0",
+  "batch_implementation_sha256": "d6d7965ee01d8adf18cd176c02cd276b4c40f50d86168bfd7bec3751d4ff5183",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "48fec4882fd3697d1b89fcac13b440829f71c4e3f62fb51a827098fd93d74efd",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

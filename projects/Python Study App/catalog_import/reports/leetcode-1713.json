@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1713",
+  "content_sha256": "eeff9d8c5138abe830a79b29d23204152c668d8106fb859e9c5b2e181139eae3",
+  "source_hash": "0377c068669dda2f72caeb4f1baa76a0b4d6604b9cb173193ec97db532c0cf1a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows duplicate mapped positions to extend the subsequence.",
+      "failed_cases": [
+        "lc-1713-7"
+      ]
+    },
+    {
+      "reason": "Subtracts from arr length instead of the required target length.",
+      "failed_cases": [
+        "lc-1713-1",
+        "lc-1713-2",
+        "lc-1713-7",
+        "lc-1713-8",
+        "lc-1713-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5760,
+  "oracle_implementation": "code_practice/import_batch_103.py:ops_o",
+  "validator_implementation_sha256": "7e15be67a5e9385ad2343da24633e4707248ea1f84533434d462cb1cee4e32f0",
+  "batch_implementation_sha256": "d6d7965ee01d8adf18cd176c02cd276b4c40f50d86168bfd7bec3751d4ff5183",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "00eda41247a655e316704bd1555ea1ce0b1b15dbb6ab964dc30885218bbd2ef2",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
