@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2749",
+  "content_sha256": "6e45b2f63bd5b607daf9b4d9f0c7229d0080f25cbabe4f3565e1897592e4c9bd",
+  "source_hash": "e5890b2c7b9571773c933b551b346f42ae625e4027eaa3d1f9490c231620d310",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a valid representation whose remaining sum equals the number of one-valued powers.",
+      "failed_cases": [
+        "lc-2749-3",
+        "lc-2749-13"
+      ]
+    },
+    {
+      "reason": "Requires exactly one set bit per operation and ignores splitting a power into smaller powers.",
+      "failed_cases": [
+        "lc-2749-1",
+        "lc-2749-5",
+        "lc-2749-11",
+        "lc-2749-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6796,
+  "oracle_implementation": "code_practice/import_batch_179.py:zero_oracle",
+  "validator_implementation_sha256": "eabb6390b79bf0148390c935cff90511d2da37e946d50499c9d5fdecf8c1ada5",
+  "batch_implementation_sha256": "482287e82901c0e6d13e4ef20c53ac1dab924e6a515b697bcb2da4638d843e77",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2d2bd5fc1361d50399c14b110404bba3e161dd8ece15c9724f06772e5060eb81",
+  "elapsed_seconds": 0.107,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

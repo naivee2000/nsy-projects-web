@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1936,
+  "count": 1941,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -34521,6 +34521,98 @@
       "path": "problems/leetcode-2744.json",
       "content_sha256": "f5dea1ef2b398c8c1e59c860be83902336a97d5093cbd502fefea681739e3e0e",
       "source_id": 2744
+    },
+    {
+      "id": "leetcode-2745",
+      "version": 1,
+      "status": "approved",
+      "title": "Construct the Longest New String",
+      "summary": "Given x strings 'AA', y strings 'BB', and z strings 'AB', form the longest string without 'AAA' or 'BBB' as a substring by concatenating some of these strings in any order.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2745.json",
+      "content_sha256": "383ddcf1fbfa2a1e47693463e993645d729d6e29088d5f69e50d9edcee163a8b",
+      "source_id": 2745
+    },
+    {
+      "id": "leetcode-2747",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Zero Request Servers",
+      "summary": "Given an integer n for the total number of servers, a 2D array logs for server requests, and an integer x with a queries array, return an array arr where each arr[i] is the count of servers that did not receive any requests in the interval [queries[i] - x, queries[i]].",
+      "topics": [
+        "arrays",
+        "sorting",
+        "sliding window"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2747.json",
+      "content_sha256": "cad36b7277c14e5f6e067554bba0db2fe1d15dc89f75390aea8d7f7de6cffa73",
+      "source_id": 2747
+    },
+    {
+      "id": "leetcode-2748",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Beautiful Pairs",
+      "summary": "Given an integer array nums, count the number of index pairs (i, j) where 0 <= i < j < nums.length, such that the first digit of nums[i] and the last digit of nums[j] are coprime.",
+      "topics": [
+        "arrays",
+        "math",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2748.json",
+      "content_sha256": "2fb015ef5936afa15c4c18459a0e997cc1a240deccc07922b157677f9cebab7c",
+      "source_id": 2748
+    },
+    {
+      "id": "leetcode-2749",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make the Integer Zero",
+      "summary": "Given integers num1 and num2, perform operations by choosing an integer i in the range [0, 60] to subtract 2^i + num2 from num1.",
+      "topics": [
+        "math",
+        "bit manipulation",
+        "enumeration"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2749.json",
+      "content_sha256": "6e45b2f63bd5b607daf9b4d9f0c7229d0080f25cbabe4f3565e1897592e4c9bd",
+      "source_id": 2749
+    },
+    {
+      "id": "leetcode-2750",
+      "version": 1,
+      "status": "approved",
+      "title": "Ways to Split Array Into Good Subarrays",
+      "summary": "Given a binary array, count the number of ways to divide it into subarrays, each containing exactly one '1'.",
+      "topics": [
+        "arrays",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2750.json",
+      "content_sha256": "933eb4b0941bd1f5bdf1dc475b950e9c2892c4db372ba7c234c45e0683803992",
+      "source_id": 2750
     }
   ]
 }

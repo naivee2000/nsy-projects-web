@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2748",
+  "content_sha256": "2fb015ef5936afa15c4c18459a0e997cc1a240deccc07922b157677f9cebab7c",
+  "source_hash": "bd5496a5aa23b2aebce2349d2e21a9cfbeffbc6dbe722dc6812346ac7499cf1a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the second number’s first digit instead of its last digit.",
+      "failed_cases": [
+        "lc-2748-2",
+        "lc-2748-7",
+        "lc-2748-10"
+      ]
+    },
+    {
+      "reason": "Counts non-coprime pairs rather than coprime pairs.",
+      "failed_cases": [
+        "lc-2748-1",
+        "lc-2748-2",
+        "lc-2748-3",
+        "lc-2748-4",
+        "lc-2748-5",
+        "lc-2748-6",
+        "lc-2748-7",
+        "lc-2748-8",
+        "lc-2748-9",
+        "lc-2748-11",
+        "lc-2748-12",
+        "lc-2748-13",
+        "lc-2748-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6795,
+  "oracle_implementation": "code_practice/import_batch_179.py:beautiful_oracle",
+  "validator_implementation_sha256": "eabb6390b79bf0148390c935cff90511d2da37e946d50499c9d5fdecf8c1ada5",
+  "batch_implementation_sha256": "482287e82901c0e6d13e4ef20c53ac1dab924e6a515b697bcb2da4638d843e77",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "01397e272ce7248cb0459d4c612a8dda264cef9e815004ac4b1beaf382a2d4ad",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

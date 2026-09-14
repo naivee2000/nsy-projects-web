@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2747",
+  "content_sha256": "cad36b7277c14e5f6e067554bba0db2fe1d15dc89f75390aea8d7f7de6cffa73",
+  "source_hash": "5eeb7b07a3d645b3bf57bdff836e59bcd3556b0cbf16b9c2e3ab700c8cf78136",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the inclusive left endpoint as expired.",
+      "failed_cases": [
+        "lc-2747-1",
+        "lc-2747-2",
+        "lc-2747-4",
+        "lc-2747-5",
+        "lc-2747-6",
+        "lc-2747-7",
+        "lc-2747-9",
+        "lc-2747-13"
+      ]
+    },
+    {
+      "reason": "Returns active-server counts rather than idle-server counts.",
+      "failed_cases": [
+        "lc-2747-1",
+        "lc-2747-2",
+        "lc-2747-3",
+        "lc-2747-4",
+        "lc-2747-5",
+        "lc-2747-6",
+        "lc-2747-8",
+        "lc-2747-9",
+        "lc-2747-10",
+        "lc-2747-12",
+        "lc-2747-13",
+        "lc-2747-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6794,
+  "oracle_implementation": "code_practice/import_batch_179.py:servers_oracle",
+  "validator_implementation_sha256": "eabb6390b79bf0148390c935cff90511d2da37e946d50499c9d5fdecf8c1ada5",
+  "batch_implementation_sha256": "482287e82901c0e6d13e4ef20c53ac1dab924e6a515b697bcb2da4638d843e77",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f823adf959020c8c72b2daa57f8cc037e68aa02aafd47a386af852cdf59b18ae",
+  "elapsed_seconds": 0.072,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

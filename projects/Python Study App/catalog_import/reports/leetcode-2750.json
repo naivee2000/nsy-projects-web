@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2750",
+  "content_sha256": "933eb4b0941bd1f5bdf1dc475b950e9c2892c4db372ba7c234c45e0683803992",
+  "source_hash": "ff1ef51d56f8c0f5de6658d0039fac75156826f7a40eb12fb217ceea87681c4f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only zeros between consecutive ones instead of all valid cut positions.",
+      "failed_cases": [
+        "lc-2750-1",
+        "lc-2750-5",
+        "lc-2750-6",
+        "lc-2750-7",
+        "lc-2750-11",
+        "lc-2750-12",
+        "lc-2750-13",
+        "lc-2750-14"
+      ]
+    },
+    {
+      "reason": "Treats an all-zero array as one valid split.",
+      "failed_cases": [
+        "lc-2750-2",
+        "lc-2750-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6797,
+  "oracle_implementation": "code_practice/import_batch_179.py:split_oracle",
+  "validator_implementation_sha256": "eabb6390b79bf0148390c935cff90511d2da37e946d50499c9d5fdecf8c1ada5",
+  "batch_implementation_sha256": "482287e82901c0e6d13e4ef20c53ac1dab924e6a515b697bcb2da4638d843e77",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f1f4218f86b31af76236355fd46fb6740a1a674c89c92db4d0602a8e9b749f6c",
+  "elapsed_seconds": 0.224,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
