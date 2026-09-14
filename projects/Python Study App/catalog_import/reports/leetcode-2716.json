@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2716",
+  "content_sha256": "1806e20f7605662be119fc75dd487ffc3601eb01fa11679a799ae20970e3c301",
+  "source_hash": "ba025089a6cbdeff4d0c7f3d4a34377654635687aacb733f2865ba6ab60cf9a6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Performs no deletion.",
+      "failed_cases": [
+        "lc-2716-1",
+        "lc-2716-2",
+        "lc-2716-4",
+        "lc-2716-5",
+        "lc-2716-7",
+        "lc-2716-8",
+        "lc-2716-9",
+        "lc-2716-10",
+        "lc-2716-11",
+        "lc-2716-13",
+        "lc-2716-14"
+      ]
+    },
+    {
+      "reason": "Assumes only odd-frequency characters need remain, incorrectly allowing a character to disappear completely.",
+      "failed_cases": [
+        "lc-2716-2",
+        "lc-2716-4",
+        "lc-2716-7",
+        "lc-2716-8",
+        "lc-2716-9",
+        "lc-2716-10",
+        "lc-2716-11",
+        "lc-2716-13",
+        "lc-2716-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6763,
+  "oracle_implementation": "code_practice/import_batch_175.py:length_oracle",
+  "validator_implementation_sha256": "539fec0ed3f9a70214cf7debd376133ea53f339225587549e6d8b92340d023c7",
+  "batch_implementation_sha256": "c5e4030536e4ab2c80ee6206d402a2a9c68d7f3aafdc0fcbac44665e27246ee1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5d8d849100ab9abfff77895d200c055034030319e1d33a757e711544755dd580",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

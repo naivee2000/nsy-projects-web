@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1916,
+  "count": 1921,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -34153,6 +34153,99 @@
       "path": "problems/leetcode-2711.json",
       "content_sha256": "80abbab0e11016c50e89c39acdcb91be0c23e7dd8b8afc3fbbb06cc92f2b4218",
       "source_id": 2711
+    },
+    {
+      "id": "leetcode-2712",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Make All Characters Equal",
+      "summary": "Given a 0-indexed binary string s of length n , you can perform the following operations: - Choose an index i and invert all characters from index 0 to index i (inclusive), with a cost of i + 1 .",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2712.json",
+      "content_sha256": "43957dfaac86e2fa3f8f70c240a00843995b7ffba09c3e38492ea98679aa1784",
+      "source_id": 2712
+    },
+    {
+      "id": "leetcode-2713",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Strictly Increasing Cells in a Matrix",
+      "summary": "Given an m x n matrix with 1-indexed cells, starting from any cell, move to another cell in the same row or column only if its value is strictly greater.",
+      "topics": [
+        "matrices",
+        "dynamic programming",
+        "sorting"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2713.json",
+      "content_sha256": "aed1e5e32411b136ee1d4c200552bcee2ca148d71fb1291da833d8a79d5a1e31",
+      "source_id": 2713
+    },
+    {
+      "id": "leetcode-2714",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Shortest Path with K Hops",
+      "summary": "Given a positive integer n representing the number of nodes in a 0-indexed undirected weighted connected graph, and a 0-indexed 2D array edges where edges[i] = [u_i, v_i, w_i] indicates an edge between nodes u_i and v_i with weight w_i , along with two nodes s and d , and a positive integer k , your task is to find the shortest path from node s to node d by allowing at most k hops.",
+      "topics": [
+        "graphs",
+        "shortest path",
+        "heaps",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2714.json",
+      "content_sha256": "8cb6787e50552fcf57bbc0437557b89a1a9ee01d9f69ebe7a3d0644e8c1adda4",
+      "source_id": 2714
+    },
+    {
+      "id": "leetcode-2716",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize String Length",
+      "summary": "Given a string, you can delete the nearest occurrence of any character to the left or right of the chosen index.",
+      "topics": [
+        "strings",
+        "hash maps",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2716.json",
+      "content_sha256": "1806e20f7605662be119fc75dd487ffc3601eb01fa11679a799ae20970e3c301",
+      "source_id": 2716
+    },
+    {
+      "id": "leetcode-2717",
+      "version": 1,
+      "status": "approved",
+      "title": "Semi-Ordered Permutation",
+      "summary": "Given a 0-indexed permutation of n integers, denoted as nums , transform it into a semi-ordered permutation where the first element is 1 and the last element is n by swapping adjacent elements.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2717.json",
+      "content_sha256": "601e91e07e2959a4551c14af52d46ff226ef8d2e7811dc1163b5e11434e2d622",
+      "source_id": 2717
     }
   ]
 }

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2713",
+  "content_sha256": "aed1e5e32411b136ee1d4c200552bcee2ca148d71fb1291da833d8a79d5a1e31",
+  "source_hash": "a6e08eb7dc6fa3b4ce87bb33dab1f704965c11c472b8b26b0449e3b93b844b2d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Updates equal-valued cells together with smaller cells, incorrectly allowing moves between equal values.",
+      "failed_cases": [
+        "lc-2713-1",
+        "lc-2713-2",
+        "lc-2713-11"
+      ]
+    },
+    {
+      "reason": "Ignores predecessors in the same column.",
+      "failed_cases": [
+        "lc-2713-6",
+        "lc-2713-7",
+        "lc-2713-8",
+        "lc-2713-13",
+        "lc-2713-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6760,
+  "oracle_implementation": "code_practice/import_batch_175.py:cells_oracle",
+  "validator_implementation_sha256": "539fec0ed3f9a70214cf7debd376133ea53f339225587549e6d8b92340d023c7",
+  "batch_implementation_sha256": "c5e4030536e4ab2c80ee6206d402a2a9c68d7f3aafdc0fcbac44665e27246ee1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "899c9d6f4cbce278da166244734f760cfeff0eb88b85993221c3fceb8232ea21",
+  "elapsed_seconds": 0.072,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

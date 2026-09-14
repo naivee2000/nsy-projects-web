@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2712",
+  "content_sha256": "43957dfaac86e2fa3f8f70c240a00843995b7ffba09c3e38492ea98679aa1784",
+  "source_hash": "a28701e90cd75e6e2d851a65ef34e6c184a376fdebb19806976581d57dba1a26",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always pays from the left even when the suffix is shorter.",
+      "failed_cases": [
+        "lc-2712-2",
+        "lc-2712-8",
+        "lc-2712-9",
+        "lc-2712-10",
+        "lc-2712-11",
+        "lc-2712-12",
+        "lc-2712-13",
+        "lc-2712-14"
+      ]
+    },
+    {
+      "reason": "Charges equal adjacent characters instead of transition boundaries.",
+      "failed_cases": [
+        "lc-2712-2",
+        "lc-2712-5",
+        "lc-2712-6",
+        "lc-2712-7",
+        "lc-2712-8",
+        "lc-2712-9",
+        "lc-2712-10",
+        "lc-2712-11",
+        "lc-2712-12",
+        "lc-2712-13",
+        "lc-2712-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6759,
+  "oracle_implementation": "code_practice/import_batch_175.py:equal_cost_oracle",
+  "validator_implementation_sha256": "539fec0ed3f9a70214cf7debd376133ea53f339225587549e6d8b92340d023c7",
+  "batch_implementation_sha256": "c5e4030536e4ab2c80ee6206d402a2a9c68d7f3aafdc0fcbac44665e27246ee1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8a9e2d242439056e5c43a12fd4a80fd06ad3360246a9f7716a1ab2359b842803",
+  "elapsed_seconds": 0.09,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2717",
+  "content_sha256": "601e91e07e2959a4551c14af52d46ff226ef8d2e7811dc1163b5e11434e2d622",
+  "source_hash": "5b07518879507ab834d2a43534232035430e8358094954cf861c71d616eba31e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Double-counts the crossing when one initially appears after n.",
+      "failed_cases": [
+        "lc-2717-2",
+        "lc-2717-4",
+        "lc-2717-6",
+        "lc-2717-9",
+        "lc-2717-11",
+        "lc-2717-12",
+        "lc-2717-13",
+        "lc-2717-14"
+      ]
+    },
+    {
+      "reason": "Moves n-1 to the end instead of the maximum n.",
+      "failed_cases": [
+        "lc-2717-1",
+        "lc-2717-2",
+        "lc-2717-3",
+        "lc-2717-5",
+        "lc-2717-6",
+        "lc-2717-7",
+        "lc-2717-8",
+        "lc-2717-9",
+        "lc-2717-10",
+        "lc-2717-11",
+        "lc-2717-12",
+        "lc-2717-13",
+        "lc-2717-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6764,
+  "oracle_implementation": "code_practice/import_batch_175.py:semi_oracle",
+  "validator_implementation_sha256": "539fec0ed3f9a70214cf7debd376133ea53f339225587549e6d8b92340d023c7",
+  "batch_implementation_sha256": "c5e4030536e4ab2c80ee6206d402a2a9c68d7f3aafdc0fcbac44665e27246ee1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f9830f45e2dfc258fb92aea09139455b63104b9025133d9421e1c5dd1e63ca95",
+  "elapsed_seconds": 0.283,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
