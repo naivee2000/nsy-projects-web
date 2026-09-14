@@ -390,15 +390,15 @@ logarithmic-time algorithm is verified by a strict element-read budget, which
 rejects the linear XOR reference. This validates the reference's complexity;
 the learner's ordinary judge still checks output and its execution deadline,
 not an automatic proof of arbitrary submission complexity.
-The 958-import checkpoint preserves all preceding definitions and progress IDs.
-All 958 import reports and current overlap evidence match the 1,059-problem package.
+The 1,058-import checkpoint preserves all preceding definitions and progress IDs.
+All 1,058 import reports and current overlap evidence match the 1,159-problem package.
 The post-430 additions remain local development; the workbook ledger records 83
-overlaps, 958 verified imports, 155 justified exclusions, 12 quarantined records,
-and 2,421 pending records. At this checkpoint, 791 backend tests and 19 frontend
-tests pass; Chrome/Pyodide validates 964 workbook-derived reference suites across
-1,350 isolated judge runs, including wrong-answer rejection, timeout recovery,
-restart persistence, and offline assets. Measured backend startup is 225 ms, peak
-RSS is 269.172 MiB, and warm p95 API latency ranges from 1.097 ms to 2.116 ms over
+overlaps, 1,058 verified imports, 155 justified exclusions, 15 quarantined records,
+and 2,318 pending records. At this checkpoint, 792 backend tests and 19 frontend
+tests pass; Chrome/Pyodide validates 1,064 workbook-derived reference suites across
+more than 1,450 isolated judge runs, including wrong-answer rejection, timeout recovery,
+restart persistence, and offline assets. Measured backend startup is 332 ms, peak
+RSS is 269.703 MiB, and warm p95 API latency ranges from 1.191 ms to 1.871 ms over
 100 requests per route. This is an interim checkpoint;
 the full 3,629-record workbook goal remains unfinished.
 
