@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2718",
+  "content_sha256": "bf9aed68385c8bee9da134a78ad55935a61186605d97120b66fd5d81bfa6175b",
+  "source_hash": "8205255b58563347aaf33af5cc626481252ff0fbffc0891bc34246372aa0f55b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Processes earliest writes first and therefore ignores later overwrites.",
+      "failed_cases": [
+        "lc-2718-1",
+        "lc-2718-2",
+        "lc-2718-7",
+        "lc-2718-8",
+        "lc-2718-9",
+        "lc-2718-12",
+        "lc-2718-13",
+        "lc-2718-14"
+      ]
+    },
+    {
+      "reason": "Counts every newly fixed row cell even when some columns were already fixed by later queries.",
+      "failed_cases": [
+        "lc-2718-1",
+        "lc-2718-7",
+        "lc-2718-8",
+        "lc-2718-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6765,
+  "oracle_implementation": "code_practice/import_batch_176.py:matrix_oracle",
+  "validator_implementation_sha256": "d148b3070b5c2d4e30e51949b85e2c70e5fcb92969152ff3392393b69e0932c3",
+  "batch_implementation_sha256": "466975d052acb0745c4c01095133a820a39fade5d5a796f7ec487c8338d42b8f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2d57021ad7ba2fab0bf6fbc4a91aa0f5a3009dcd0e908bc3cfdbfb679c4988aa",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

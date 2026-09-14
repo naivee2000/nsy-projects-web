@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2730",
+  "content_sha256": "a378700c9255ef8f86386f5ca0a9b5de4b97447b4ba1efcb19b73428393ca190",
+  "source_hash": "d557628ba928dce44d578d2ea0986b755dafc6a3d404331c23f6f677068403c6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Moves one character too far right when discarding the older equal pair.",
+      "failed_cases": [
+        "lc-2730-1",
+        "lc-2730-4",
+        "lc-2730-5",
+        "lc-2730-7",
+        "lc-2730-8",
+        "lc-2730-9",
+        "lc-2730-10",
+        "lc-2730-11",
+        "lc-2730-13",
+        "lc-2730-14"
+      ]
+    },
+    {
+      "reason": "Uses a sentinel before the string, incorrectly shortening windows beginning with an equal pair.",
+      "failed_cases": [
+        "lc-2730-1",
+        "lc-2730-4",
+        "lc-2730-5",
+        "lc-2730-7",
+        "lc-2730-8",
+        "lc-2730-9",
+        "lc-2730-10",
+        "lc-2730-11",
+        "lc-2730-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6777,
+  "oracle_implementation": "code_practice/import_batch_176.py:semi_repetitive_oracle",
+  "validator_implementation_sha256": "d148b3070b5c2d4e30e51949b85e2c70e5fcb92969152ff3392393b69e0932c3",
+  "batch_implementation_sha256": "466975d052acb0745c4c01095133a820a39fade5d5a796f7ec487c8338d42b8f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "371e5cd2755027dc491f39db4810402db96fcd143ad6a1c1420bf6bb244f465f",
+  "elapsed_seconds": 0.075,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

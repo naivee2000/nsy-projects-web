@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2719",
+  "content_sha256": "a05e8b49247151f6b02f770b7494f86980b9ac28da3536364b86f011b85ff029",
+  "source_hash": "1fcfba274095c4076d777f6a28dd2f49f53ce016fd22ff86b5421c21a73f2244",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts the count through num1 itself, incorrectly excluding the lower endpoint.",
+      "failed_cases": [
+        "lc-2719-1",
+        "lc-2719-3",
+        "lc-2719-4",
+        "lc-2719-5",
+        "lc-2719-6",
+        "lc-2719-7",
+        "lc-2719-8",
+        "lc-2719-9",
+        "lc-2719-10",
+        "lc-2719-12",
+        "lc-2719-13"
+      ]
+    },
+    {
+      "reason": "Treats min_sum as an exclusive lower bound.",
+      "failed_cases": [
+        "lc-2719-1",
+        "lc-2719-2",
+        "lc-2719-3",
+        "lc-2719-4",
+        "lc-2719-5",
+        "lc-2719-6",
+        "lc-2719-7",
+        "lc-2719-8",
+        "lc-2719-9",
+        "lc-2719-10",
+        "lc-2719-12",
+        "lc-2719-13",
+        "lc-2719-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6766,
+  "oracle_implementation": "code_practice/import_batch_176.py:integers_oracle",
+  "validator_implementation_sha256": "d148b3070b5c2d4e30e51949b85e2c70e5fcb92969152ff3392393b69e0932c3",
+  "batch_implementation_sha256": "466975d052acb0745c4c01095133a820a39fade5d5a796f7ec487c8338d42b8f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8fb3298c447187bd5b5d53ac7db5a3093534f92793a24bdb1cdb55a2455e9ca2",
+  "elapsed_seconds": 0.272,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

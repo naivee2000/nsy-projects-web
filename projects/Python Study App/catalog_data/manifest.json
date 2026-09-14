@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1921,
+  "count": 1926,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -34246,6 +34246,98 @@
       "path": "problems/leetcode-2717.json",
       "content_sha256": "601e91e07e2959a4551c14af52d46ff226ef8d2e7811dc1163b5e11434e2d622",
       "source_id": 2717
+    },
+    {
+      "id": "leetcode-2718",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Matrix After Queries",
+      "summary": "Given an integer n and a 2D array queries, initially create an n x n matrix filled with zeros.",
+      "topics": [
+        "matrices",
+        "arrays",
+        "reverse processing"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2718.json",
+      "content_sha256": "bf9aed68385c8bee9da134a78ad55935a61186605d97120b66fd5d81bfa6175b",
+      "source_id": 2718
+    },
+    {
+      "id": "leetcode-2719",
+      "version": 1,
+      "status": "approved",
+      "title": "Count of Integers",
+      "summary": "Given numeric strings num1 and num2, along with integers max_sum and min_sum, find the count of integers x that satisfy num1 <= x <= num2 and min_sum <= digit_sum(x) <= max_sum.",
+      "topics": [
+        "strings",
+        "dynamic programming",
+        "digit DP"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2719.json",
+      "content_sha256": "a05e8b49247151f6b02f770b7494f86980b9ac28da3536364b86f011b85ff029",
+      "source_id": 2719
+    },
+    {
+      "id": "leetcode-2729",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if The Number is Fascinating",
+      "summary": "Given a three-digit integer n, determine if concatenating n with 2 * n and 3 * n results in a number containing each digit from 1 to 9 exactly once without any zeros.",
+      "topics": [
+        "math",
+        "strings",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2729.json",
+      "content_sha256": "b9b0669577a35d3cdc2678d189b1ecc0f0caacf964e7d79473811f5c335eb12b",
+      "source_id": 2729
+    },
+    {
+      "id": "leetcode-2730",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Longest Semi-Repetitive Substring",
+      "summary": "Given a digit string s, find the longest substring where there is at most one adjacent pair of the same digit.",
+      "topics": [
+        "strings",
+        "sliding window",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2730.json",
+      "content_sha256": "a378700c9255ef8f86386f5ca0a9b5de4b97447b4ba1efcb19b73428393ca190",
+      "source_id": 2730
+    },
+    {
+      "id": "leetcode-2731",
+      "version": 1,
+      "status": "approved",
+      "title": "Movement of Robots",
+      "summary": "Given an array of initial positions for robots on an infinite number line and a command direction ('L' for left or 'R' for right), calculate the sum of distances between all pairs of robots after d seconds, considering that robots reverse direction immediately upon collision.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2731.json",
+      "content_sha256": "4561506b6441161bca65fc5cf300a1dfb4f713f2297803c725360af22b9d007c",
+      "source_id": 2731
     }
   ]
 }

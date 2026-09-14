@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2731",
+  "content_sha256": "4561506b6441161bca65fc5cf300a1dfb4f713f2297803c725360af22b9d007c",
+  "source_hash": "773ecf80bee501a0b158288437ceaba45da4b9ce0bfead0819b6f2096973937b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the required modulo reduction on the accumulated answer.",
+      "failed_cases": [
+        "lc-2731-11"
+      ]
+    },
+    {
+      "reason": "Computes distances from starting positions and ignores robot movement.",
+      "failed_cases": [
+        "lc-2731-2",
+        "lc-2731-3",
+        "lc-2731-4",
+        "lc-2731-9",
+        "lc-2731-10",
+        "lc-2731-11",
+        "lc-2731-12",
+        "lc-2731-13",
+        "lc-2731-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6778,
+  "oracle_implementation": "code_practice/import_batch_176.py:robots_oracle",
+  "validator_implementation_sha256": "d148b3070b5c2d4e30e51949b85e2c70e5fcb92969152ff3392393b69e0932c3",
+  "batch_implementation_sha256": "466975d052acb0745c4c01095133a820a39fade5d5a796f7ec487c8338d42b8f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a522348a62492d0d31bea4b9ad7684f7a930dcebb5dcd6ade7aaf24aa3d8a21a",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
