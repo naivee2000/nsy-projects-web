@@ -103,6 +103,16 @@ def inspect_source(readme: str, source: str) -> dict:
         if designed:
             info["exclusion"] = {"category": "multi-method-design", "reason": "Design exercise requires persistent operations: " +
                 "; ".join(i["class"] + ".{" + ", ".join(i["methods"]) + "}" for i in designed)}
+    elif "Design" in tags:
+        # Some upstream design entries have complete HTML documentation but no
+        # Python solution file. Preserve the same scope decision when the prose
+        # explicitly documents several persistent public operations.
+        methods = list(dict.fromkeys(re.findall(r"<li><code>(?:[\w\[\]]+\s+)?(\w+)\(", readme)))
+        if len(methods) >= 2:
+            class_match = re.search(r"Implement the <code>(\w+)</code> class", readme)
+            class_name = class_match.group(1) if class_match else "documented design class"
+            info["exclusion"] = {"category": "multi-method-design",
+                                 "reason": f"Design exercise requires persistent operations: {class_name}.{{{', '.join(methods)}}}"}
     if not source.strip():
         info["review_notes"].append("Missing Python reference candidate; implementation required.")
     return info

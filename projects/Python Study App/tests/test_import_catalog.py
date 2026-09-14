@@ -44,6 +44,14 @@ def test_interface_exclusions_preserve_ordinary_trees_and_linked_lists():
         "class NumArray:\n    def __init__(self, nums): pass\n    def sumRange(self, left, right): pass\n",
     )
     assert immutable_query["exclusion"]["category"] == "multi-method-design"
+    documented_only = inspect_source(
+        "---\ntags:\n    - Design\n---\nImplement the <code>VideoShelf</code> class"
+        "<li><code>VideoShelf()</code></li><li><code>int upload(String video)</code></li>"
+        "<li><code>void remove(int id)</code></li>",
+        "",
+    )
+    assert documented_only["exclusion"]["category"] == "multi-method-design"
+    assert "VideoShelf.{VideoShelf, upload, remove}" in documented_only["exclusion"]["reason"]
     interactive = inspect_source("---\ntags:\n    - Interactive\n---", "class Solution:\n    def solve(self, master): pass\n")
     assert interactive["exclusion"]["category"] == "interactive"
 
