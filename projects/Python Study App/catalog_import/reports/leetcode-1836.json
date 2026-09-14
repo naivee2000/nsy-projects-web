@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1836",
+  "content_sha256": "a4c7ffe8a531b46b8edcdd59554753093d6b9c36d6f26e66395437cefce28dd8",
+  "source_hash": "3823cc6a9aea4aec9a10a69bd56c970901a7e85011ff61a809182f99aec95f6f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps values that occur exactly twice.",
+      "failed_cases": [
+        "lc-1836-1",
+        "lc-1836-5",
+        "lc-1836-7",
+        "lc-1836-9",
+        "lc-1836-10",
+        "lc-1836-11",
+        "lc-1836-12",
+        "lc-1836-13",
+        "lc-1836-14"
+      ]
+    },
+    {
+      "reason": "Advances over duplicates without unlinking them.",
+      "failed_cases": [
+        "lc-1836-1",
+        "lc-1836-2",
+        "lc-1836-5",
+        "lc-1836-7",
+        "lc-1836-9",
+        "lc-1836-10",
+        "lc-1836-11",
+        "lc-1836-12",
+        "lc-1836-13",
+        "lc-1836-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5883,
+  "oracle_implementation": "code_practice/import_batch_107d.py:duplicate_o",
+  "validator_implementation_sha256": "f818dc01b105510ce85d1c2f9de4b7e6973095ac2e878d299ec09a75e8f3f001",
+  "batch_implementation_sha256": "3d36299f6badb1cac6342d4a11398a408e06ddce0900b58f4692dd242fcd626b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e5c91509d8436f5431d62ef90bdc2cc78bf4b8b4d583d66da74d25a4662ad612",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

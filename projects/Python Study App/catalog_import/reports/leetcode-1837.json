@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1837",
+  "content_sha256": "c2d5b8f367e24db87c4509c72a7d2cbbb9aa0468224e5871148d7b433782c0eb",
+  "source_hash": "5fce049134c9156ca8a697efdb838c3bb38821be2a670b59791f25ac9aef6944",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the quotient rather than the next base-k digit.",
+      "failed_cases": [
+        "lc-1837-1",
+        "lc-1837-3",
+        "lc-1837-5",
+        "lc-1837-6",
+        "lc-1837-7",
+        "lc-1837-8",
+        "lc-1837-9",
+        "lc-1837-10",
+        "lc-1837-11",
+        "lc-1837-12",
+        "lc-1837-13",
+        "lc-1837-14"
+      ]
+    },
+    {
+      "reason": "Peels decimal digits instead of base-k digits.",
+      "failed_cases": [
+        "lc-1837-1",
+        "lc-1837-4",
+        "lc-1837-5",
+        "lc-1837-6",
+        "lc-1837-7",
+        "lc-1837-8",
+        "lc-1837-9",
+        "lc-1837-10",
+        "lc-1837-12",
+        "lc-1837-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5884,
+  "oracle_implementation": "code_practice/import_batch_107d.py:base_o",
+  "validator_implementation_sha256": "f818dc01b105510ce85d1c2f9de4b7e6973095ac2e878d299ec09a75e8f3f001",
+  "batch_implementation_sha256": "3d36299f6badb1cac6342d4a11398a408e06ddce0900b58f4692dd242fcd626b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1cb511f5e2bb254c91591ce3980874ed6d7847cabb5d3481ca643e3911518126",
+  "elapsed_seconds": 0.012,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1840",
+  "content_sha256": "4f4186251a6f4c721057ba7a3c4bcec6798d90d72cd1b8a1adbcfb424e6e6c27",
+  "source_hash": "6a3b228933f494aaed9fcddfbacdc6ea7ff7c2a2a90c3d2074203b413729781b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Loosens a restriction during the forward feasibility pass.",
+      "failed_cases": [
+        "lc-1840-1",
+        "lc-1840-4",
+        "lc-1840-5",
+        "lc-1840-6",
+        "lc-1840-7",
+        "lc-1840-8",
+        "lc-1840-9",
+        "lc-1840-10",
+        "lc-1840-11",
+        "lc-1840-12",
+        "lc-1840-13",
+        "lc-1840-14"
+      ]
+    },
+    {
+      "reason": "Divides the feasible peak formula by three instead of two.",
+      "failed_cases": [
+        "lc-1840-1",
+        "lc-1840-2",
+        "lc-1840-3",
+        "lc-1840-4",
+        "lc-1840-5",
+        "lc-1840-7",
+        "lc-1840-8",
+        "lc-1840-9",
+        "lc-1840-10",
+        "lc-1840-11",
+        "lc-1840-12",
+        "lc-1840-13",
+        "lc-1840-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5887,
+  "oracle_implementation": "code_practice/import_batch_107d.py:building_o",
+  "validator_implementation_sha256": "f818dc01b105510ce85d1c2f9de4b7e6973095ac2e878d299ec09a75e8f3f001",
+  "batch_implementation_sha256": "3d36299f6badb1cac6342d4a11398a408e06ddce0900b58f4692dd242fcd626b",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1e1e6efc2ebdcf7c3a07000144f031df73697312a1e1f5cee06ac45deee46adc",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
