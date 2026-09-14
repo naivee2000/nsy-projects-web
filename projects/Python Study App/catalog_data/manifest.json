@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1418,
+  "count": 1423,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -25177,6 +25177,23 @@
       "source_id": 2035
     },
     {
+      "id": "leetcode-2036",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Alternating Subarray Sum",
+      "summary": "An alternating subarray is a sequence of elements in an array where the sum is calculated by adding and subtracting consecutive elements.",
+      "topics": [
+        "dynamic programming",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2036.json",
+      "content_sha256": "dfea9aed02f2c27f1e99e73eb9f89609d994c499fe78af77d484f8c4cbdf4f00",
+      "source_id": 2036
+    },
+    {
       "id": "leetcode-2037",
       "version": 1,
       "status": "approved",
@@ -25192,6 +25209,79 @@
       "path": "problems/leetcode-2037.json",
       "content_sha256": "067da8d7590861627db07ec6930ad9ea08f0c0fd4554193b04af0a9889aa5433",
       "source_id": 2037
+    },
+    {
+      "id": "leetcode-2038",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Colored Pieces if Both Neighbors are the Same Color",
+      "summary": "Given a line of n pieces colored 'A' or 'B', Alice and Bob take turns removing pieces.",
+      "topics": [
+        "game theory",
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2038.json",
+      "content_sha256": "ba832db3c9b600c93ab3cd8ece52a88e545bac9d224823cd00c38d418682d0c7",
+      "source_id": 2038
+    },
+    {
+      "id": "leetcode-2039",
+      "version": 1,
+      "status": "approved",
+      "title": "The Time When the Network Becomes Idle",
+      "summary": "A network consists of n servers labeled from 0 to n-1, where server 0 is the master server and the rest are data servers.",
+      "topics": [
+        "graphs",
+        "breadth-first-search",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2039.json",
+      "content_sha256": "34aba4a3b66cab5299ac8b21af278cd0bee35bcb6f20085a6759ebece94fe578",
+      "source_id": 2039
+    },
+    {
+      "id": "leetcode-2040",
+      "version": 1,
+      "status": "approved",
+      "title": "Kth Smallest Product of Two Sorted Arrays",
+      "summary": "Given two sorted integer arrays nums1 and nums2, and an integer k, find the k-th (1-based) smallest product of elements nums1[i] * nums2[j] where 0 <= i < nums1.length and 0 <= j < nums2.length.",
+      "topics": [
+        "binary search",
+        "sorted arrays",
+        "math"
+      ],
+      "prerequisites": [
+        "binary search"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2040.json",
+      "content_sha256": "7333265a39d10286bd7de1ef1ae41bda24877dc6ddb96792ca4f316484e696ff",
+      "source_id": 2040
+    },
+    {
+      "id": "leetcode-2042",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Numbers Are Ascending in a Sentence",
+      "summary": "A sentence consists of tokens separated by a single space, with no leading or trailing spaces.",
+      "topics": [
+        "strings",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2042.json",
+      "content_sha256": "2350bc6f7b9aaadb8030f9f0461d747b20f54b647a1898e876e885199d51ec63",
+      "source_id": 2042
     }
   ]
 }

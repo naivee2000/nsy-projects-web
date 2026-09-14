@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2036",
+  "content_sha256": "dfea9aed02f2c27f1e99e73eb9f89609d994c499fe78af77d484f8c4cbdf4f00",
+  "source_hash": "9d210c59c7c688ed70ac4c0ff987045074c9eec888e562b768b0dabb1850d2ee",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Extends a minus-ending state with another subtraction instead of alternating back from plus.",
+      "failed_cases": [
+        "lc-2036-1",
+        "lc-2036-8",
+        "lc-2036-9",
+        "lc-2036-11",
+        "lc-2036-12",
+        "lc-2036-13",
+        "lc-2036-14"
+      ]
+    },
+    {
+      "reason": "Never starts a new subarray at the current value.",
+      "failed_cases": [
+        "lc-2036-5",
+        "lc-2036-7",
+        "lc-2036-8",
+        "lc-2036-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6083,
+  "oracle_implementation": "code_practice/import_batch_116.py:alternating_o",
+  "validator_implementation_sha256": "addcbc67c660413dba5297227324f6c350c93f61c20ba3c754c486d1268383dc",
+  "batch_implementation_sha256": "31cf1bcfb7444b587a7af75d216e7275516750e9092dd5f3189a69176edf77bd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8ddd9dac5c739027090d05f38e085d5928ee1c3ace5e776df4dfec84556e45d2",
+  "elapsed_seconds": 0.144,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

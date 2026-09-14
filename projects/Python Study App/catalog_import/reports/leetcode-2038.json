@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2038",
+  "content_sha256": "ba832db3c9b600c93ab3cd8ece52a88e545bac9d224823cd00c38d418682d0c7",
+  "source_hash": "9d836cf867d7a4c06b2d5e50a7b570f02ca1f6eb9ed7caf18e5e6d0b84ceda35",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Attributes A-run moves to Bob and corrupts both move totals.",
+      "failed_cases": [
+        "lc-2038-1",
+        "lc-2038-5",
+        "lc-2038-6",
+        "lc-2038-8",
+        "lc-2038-9",
+        "lc-2038-11",
+        "lc-2038-13",
+        "lc-2038-14"
+      ]
+    },
+    {
+      "reason": "Treats a tie as an Alice win even though Alice runs out first.",
+      "failed_cases": [
+        "lc-2038-2",
+        "lc-2038-3",
+        "lc-2038-4",
+        "lc-2038-7",
+        "lc-2038-10",
+        "lc-2038-12",
+        "lc-2038-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6085,
+  "oracle_implementation": "code_practice/import_batch_116.py:colors_o",
+  "validator_implementation_sha256": "addcbc67c660413dba5297227324f6c350c93f61c20ba3c754c486d1268383dc",
+  "batch_implementation_sha256": "31cf1bcfb7444b587a7af75d216e7275516750e9092dd5f3189a69176edf77bd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "724985c186cc8a2b71ed05be8736ef9f5a3b005b73f0a9f65544f1c244606808",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

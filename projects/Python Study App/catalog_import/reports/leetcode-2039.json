@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2039",
+  "content_sha256": "34aba4a3b66cab5299ac8b21af278cd0bee35bcb6f20085a6759ebece94fe578",
+  "source_hash": "64256a15646611e89ee3e1fe28affa5c9cad47251dcabd3709595a3f72d6d168",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Resends at the exact reply time even though the reply has already arrived.",
+      "failed_cases": [
+        "lc-2039-1",
+        "lc-2039-2",
+        "lc-2039-3",
+        "lc-2039-5",
+        "lc-2039-7",
+        "lc-2039-9",
+        "lc-2039-10",
+        "lc-2039-11",
+        "lc-2039-12",
+        "lc-2039-13",
+        "lc-2039-14"
+      ]
+    },
+    {
+      "reason": "Returns the last busy second rather than the following first idle second.",
+      "failed_cases": [
+        "lc-2039-1",
+        "lc-2039-2",
+        "lc-2039-3",
+        "lc-2039-4",
+        "lc-2039-5",
+        "lc-2039-6",
+        "lc-2039-7",
+        "lc-2039-8",
+        "lc-2039-9",
+        "lc-2039-10",
+        "lc-2039-11",
+        "lc-2039-12",
+        "lc-2039-13",
+        "lc-2039-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6086,
+  "oracle_implementation": "code_practice/import_batch_116.py:idle_o",
+  "validator_implementation_sha256": "addcbc67c660413dba5297227324f6c350c93f61c20ba3c754c486d1268383dc",
+  "batch_implementation_sha256": "31cf1bcfb7444b587a7af75d216e7275516750e9092dd5f3189a69176edf77bd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f6fa289c12d9ddb67372000a6237abac5e2315f41303b5b85b7fd1ca8158d60d",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
