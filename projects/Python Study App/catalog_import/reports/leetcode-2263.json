@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2263",
+  "content_sha256": "39dcf743d148dffdeb1028f59c1bdc203dc46b21df3a96cfd3c792eea5a0ccfa",
+  "source_hash": "0a5bb7ef7e76c89a7d6647465eb78991f6e6cf33909811249d17f6a67eb44c6c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only non-decreasing targets and misses cheaper non-increasing adjustments.",
+      "failed_cases": [
+        "lc-2263-1",
+        "lc-2263-2",
+        "lc-2263-5",
+        "lc-2263-7",
+        "lc-2263-8",
+        "lc-2263-12",
+        "lc-2263-13",
+        "lc-2263-14"
+      ]
+    },
+    {
+      "reason": "Adds the removed value rather than only its difference from the current value.",
+      "failed_cases": [
+        "lc-2263-1",
+        "lc-2263-2",
+        "lc-2263-7",
+        "lc-2263-9",
+        "lc-2263-12",
+        "lc-2263-13",
+        "lc-2263-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6310,
+  "oracle_implementation": "code_practice/import_batch_125c.py:conversion_oracle",
+  "validator_implementation_sha256": "65807f772165fbb473b516ca298dee00ac57f77ddb9c819bcdd35d33caf72de8",
+  "batch_implementation_sha256": "b36320f59d34bc18dd5593f35ee57fa40639ddce807a5e30d30d0dbacac3ca69",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a3f8dca00e078c9831ab6da6fb05b1e8dbd9ae6427a53b717a5ea1b48eef61a0",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
