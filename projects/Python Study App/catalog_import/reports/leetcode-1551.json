@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1551",
+  "content_sha256": "9e9730a245acfa71eb7ad0d42c5ce4da9dc049653f9d6f3224869c7a80172151",
+  "source_hash": "cff510c0b9506939aef1260a30d7eece9cd4f390de4e97c221815844ef8e0bfc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Doubles the required transfer count.",
+      "failed_cases": [
+        "lc-1551-1",
+        "lc-1551-2",
+        "lc-1551-4",
+        "lc-1551-5",
+        "lc-1551-6",
+        "lc-1551-7",
+        "lc-1551-8",
+        "lc-1551-9",
+        "lc-1551-10",
+        "lc-1551-11",
+        "lc-1551-12",
+        "lc-1551-13",
+        "lc-1551-14"
+      ]
+    },
+    {
+      "reason": "Uses the wrong quadratic expression for the symmetric distances.",
+      "failed_cases": [
+        "lc-1551-1",
+        "lc-1551-2",
+        "lc-1551-4",
+        "lc-1551-5",
+        "lc-1551-6",
+        "lc-1551-7",
+        "lc-1551-8",
+        "lc-1551-9",
+        "lc-1551-10",
+        "lc-1551-11",
+        "lc-1551-12",
+        "lc-1551-13",
+        "lc-1551-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5598,
+  "oracle_implementation": "code_practice/import_batch_098.py:equal_o",
+  "validator_implementation_sha256": "50762eff3c9b8eda1b35523a1674e0e6d0bc073c67bb24475cc2631c2a941e46",
+  "batch_implementation_sha256": "d91fbc11a267d2021c4914dc965ee3f4839d8ad4b6e14cc293760e4c0040ba34",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "af0127c4d764fb271e95a90031babe74b8b57e0f35f545c7fb96bde73ba4294f",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

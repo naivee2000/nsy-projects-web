@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1546",
+  "content_sha256": "b3f08b4759fc73bea63faef4d244d6a3684820def134aea6ef0d9434936f883f",
+  "source_hash": "ebcddcc8fc4438d4b35471699f898d711febe39ecf779d64d48e64e4a2c7ad6c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not reset the running prefix after committing a subarray.",
+      "failed_cases": [
+        "lc-1546-2",
+        "lc-1546-7",
+        "lc-1546-8"
+      ]
+    },
+    {
+      "reason": "Recognizes only subarrays beginning at the current segment start.",
+      "failed_cases": [
+        "lc-1546-2",
+        "lc-1546-9",
+        "lc-1546-10",
+        "lc-1546-11",
+        "lc-1546-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5593,
+  "oracle_implementation": "code_practice/import_batch_098.py:overlap_o",
+  "validator_implementation_sha256": "50762eff3c9b8eda1b35523a1674e0e6d0bc073c67bb24475cc2631c2a941e46",
+  "batch_implementation_sha256": "d91fbc11a267d2021c4914dc965ee3f4839d8ad4b6e14cc293760e4c0040ba34",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9ec08b4dd393f7c5af33210506b1c97dcaf1299b1d58dae66f3c9e957d6e7a9a",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1059,
+  "count": 1069,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -18733,6 +18733,182 @@
       "path": "problems/leetcode-1544.json",
       "content_sha256": "a678ae9376d89eecf535ea77416b636121f955e156d7aab29bfe466d8ff57657",
       "source_id": 1544
+    },
+    {
+      "id": "leetcode-1545",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Kth Bit in Nth Binary String",
+      "summary": "Given two positive integers n and k , the binary string S_n is constructed as follows: - S_1 = \"0\" - For i > 1 , S_i = S_{i-1} + \"1\" + reverse(invert(S_{i-1})) Here, + denotes string concatenation, reverse(x) returns the reversed string x , and invert(x) inverts all the bits in x (changing 0 to 1 and 1 to 0).",
+      "topics": [
+        "recursion",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1545.json",
+      "content_sha256": "e0a4ded2902b08897489a353c85a08d55f6fa407db1c85ffd80d1ca3e1ed69e2",
+      "source_id": 1545
+    },
+    {
+      "id": "leetcode-1546",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Non-Overlapping Subarrays With Sum Equals Target",
+      "summary": "Given an array of numbers and a target sum, find the greatest count of non-overlapping subarrays where each subarray sums to the target.",
+      "topics": [
+        "prefix-sums",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1546.json",
+      "content_sha256": "b3f08b4759fc73bea63faef4d244d6a3684820def134aea6ef0d9434936f883f",
+      "source_id": 1546
+    },
+    {
+      "id": "leetcode-1547",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Cut a Stick",
+      "summary": "Given a wooden stick of length n units, with labels from 0 to n, and an integer array cuts indicating positions to cut, determine the minimum total cost of performing the cuts in any order.",
+      "topics": [
+        "dynamic-programming",
+        "intervals"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1547.json",
+      "content_sha256": "c52ceeb2f67172db1848a6f8994f9a811abf139da0dd6b826067acc731de3303",
+      "source_id": 1547
+    },
+    {
+      "id": "leetcode-1548",
+      "version": 1,
+      "status": "approved",
+      "title": "The Most Similar Path in a Graph",
+      "summary": "Given n cities and m bi-directional roads connecting them, find a path of the same length as the given targetPath with the minimum edit distance.",
+      "topics": [
+        "graphs",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1548.json",
+      "content_sha256": "2a8f7f7f5c98a355d59cb3efb9ea2cd35857fbd907d86b979fd038973fcf567b",
+      "source_id": 1548
+    },
+    {
+      "id": "leetcode-1550",
+      "version": 1,
+      "status": "approved",
+      "title": "Three Consecutive Odds",
+      "summary": "Determine if an integer array contains three consecutive odd numbers; return true if so, otherwise return false.",
+      "topics": [
+        "arrays",
+        "scanning"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1550.json",
+      "content_sha256": "7f7e4269371bad6d3ef4ab74a913996fed4ab2b401bdde01308a05ff4da9a44f",
+      "source_id": 1550
+    },
+    {
+      "id": "leetcode-1551",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make Array Equal",
+      "summary": "Given an array arr of length n where each element is defined as (2 * i) + 1, you can perform operations to make all elements equal by selecting two indices x and y and adjusting arr[x] and arr[y] by -1 and +1 respectively.",
+      "topics": [
+        "math",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1551.json",
+      "content_sha256": "9e9730a245acfa71eb7ad0d42c5ce4da9dc049653f9d6f3224869c7a80172151",
+      "source_id": 1551
+    },
+    {
+      "id": "leetcode-1552",
+      "version": 1,
+      "status": "approved",
+      "title": "Magnetic Force Between Two Balls",
+      "summary": "Rick has n baskets at specific positions, and Morty must place m balls into these baskets to maximize the minimum distance between any two balls.",
+      "topics": [
+        "binary-search",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1552.json",
+      "content_sha256": "a71623e55214cab35bc05780a38bf7b2013267392c41465c0a21e1c9404431a6",
+      "source_id": 1552
+    },
+    {
+      "id": "leetcode-1553",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Days to Eat N Oranges",
+      "summary": "Given an integer n representing the number of oranges, determine the least number of days required to consume all oranges by eating one per day or, if divisible by 2 or 3, eating half or two-thirds of the oranges, respectively, each day.",
+      "topics": [
+        "recursion",
+        "memoization"
+      ],
+      "prerequisites": [
+        "recursion"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1553.json",
+      "content_sha256": "bbf80dc455a07609b5a69e0cdd8ed17dd217e61813ddd28b7108ccf39904b573",
+      "source_id": 1553
+    },
+    {
+      "id": "leetcode-1554",
+      "version": 1,
+      "status": "approved",
+      "title": "Strings Differ by One Character",
+      "summary": "Given a list of strings of equal length, determine if any two strings differ by exactly one character at the same position.",
+      "topics": [
+        "strings",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1554.json",
+      "content_sha256": "68f73b28aba026fd1baf1453831ffeed56fe7caa5ba3c05ca4ea64c0de07be9a",
+      "source_id": 1554
+    },
+    {
+      "id": "leetcode-1556",
+      "version": 1,
+      "status": "approved",
+      "title": "Thousand Separator",
+      "summary": "Provide an integer n and return it as a string with a dot ('.') separating every three digits starting from the right.",
+      "topics": [
+        "strings",
+        "formatting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1556.json",
+      "content_sha256": "a16412d12e17f8005c703ebf731a531317cae4a6e3a4073c4629fa6935b22c56",
+      "source_id": 1556
     }
   ]
 }

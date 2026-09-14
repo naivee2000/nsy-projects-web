@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1553",
+  "content_sha256": "bbf80dc455a07609b5a69e0cdd8ed17dd217e61813ddd28b7108ccf39904b573",
+  "source_hash": "e44fccae18f9bd7294fd2d2ee6222f0ac1d73bab95d33e75d866d9052571318a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows division by two without first eating the remainder oranges.",
+      "failed_cases": [
+        "lc-1553-8",
+        "lc-1553-9",
+        "lc-1553-14"
+      ]
+    },
+    {
+      "reason": "Charges two days for every division step.",
+      "failed_cases": [
+        "lc-1553-1",
+        "lc-1553-2",
+        "lc-1553-5",
+        "lc-1553-6",
+        "lc-1553-7",
+        "lc-1553-8",
+        "lc-1553-9",
+        "lc-1553-10",
+        "lc-1553-11",
+        "lc-1553-12",
+        "lc-1553-13",
+        "lc-1553-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5600,
+  "oracle_implementation": "code_practice/import_batch_098.py:oranges_o",
+  "validator_implementation_sha256": "50762eff3c9b8eda1b35523a1674e0e6d0bc073c67bb24475cc2631c2a941e46",
+  "batch_implementation_sha256": "d91fbc11a267d2021c4914dc965ee3f4839d8ad4b6e14cc293760e4c0040ba34",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6fa031df44343a93cd32bf96a0b93260a9a18f6cc06e7d26a90074f1cc900ea9",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

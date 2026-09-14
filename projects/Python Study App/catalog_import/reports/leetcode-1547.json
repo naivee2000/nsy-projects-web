@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1547",
+  "content_sha256": "c52ceeb2f67172db1848a6f8994f9a811abf139da0dd6b826067acc731de3303",
+  "source_hash": "9ee42419068b9388c1f1352d12674d61682434ce0c6085fe9fe4e8e4f766fffe",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Charges the full original stick length for every recursive cut.",
+      "failed_cases": [
+        "lc-1547-1",
+        "lc-1547-2",
+        "lc-1547-5",
+        "lc-1547-6",
+        "lc-1547-7",
+        "lc-1547-8",
+        "lc-1547-9",
+        "lc-1547-10",
+        "lc-1547-11",
+        "lc-1547-12",
+        "lc-1547-13",
+        "lc-1547-14"
+      ]
+    },
+    {
+      "reason": "Chooses the most expensive split instead of the least expensive one.",
+      "failed_cases": [
+        "lc-1547-1",
+        "lc-1547-2",
+        "lc-1547-6",
+        "lc-1547-7",
+        "lc-1547-9",
+        "lc-1547-10",
+        "lc-1547-11",
+        "lc-1547-12",
+        "lc-1547-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5594,
+  "oracle_implementation": "code_practice/import_batch_098.py:cuts_o",
+  "validator_implementation_sha256": "50762eff3c9b8eda1b35523a1674e0e6d0bc073c67bb24475cc2631c2a941e46",
+  "batch_implementation_sha256": "d91fbc11a267d2021c4914dc965ee3f4839d8ad4b6e14cc293760e4c0040ba34",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "95d2c5e9a4b35aa89175edbb004a59ccf16f30084b073f0c1d1567983449db36",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
