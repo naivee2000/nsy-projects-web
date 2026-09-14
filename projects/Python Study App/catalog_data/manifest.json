@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1358,
+  "count": 1363,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -24093,6 +24093,98 @@
       "path": "problems/leetcode-1958.json",
       "content_sha256": "84ca301e4e320e975a2bbea465ab4ceae52fc491f12b4f7e14aad765d80dd05a",
       "source_id": 1958
+    },
+    {
+      "id": "leetcode-1959",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Total Space Wasted With K Resizing Operations",
+      "summary": "Given a sequence of element counts over time in the array nums, and a limit k on the number of resizing operations, determine the smallest total space wasted by resizing the array at most k times.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1959.json",
+      "content_sha256": "9972632220be28447814858b79414ea83829455cfea77095b882082ff9714aa9",
+      "source_id": 1959
+    },
+    {
+      "id": "leetcode-1960",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Product of the Length of Two Palindromic Substrings",
+      "summary": "Given a string, find two non-overlapping palindromic substrings of odd length with the highest product of their lengths.",
+      "topics": [
+        "strings",
+        "palindromes",
+        "Manacher algorithm"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1960.json",
+      "content_sha256": "393fcec9acd015f3d4fc49224a569b0a1cc8d7fcf4c9acc4b7ba68b2f31d2e8e",
+      "source_id": 1960
+    },
+    {
+      "id": "leetcode-1961",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If String Is a Prefix of Array",
+      "summary": "Evaluate if a given string s matches the prefix of an array of strings words by checking if s can be formed by joining the initial segments of words up to a certain index.",
+      "topics": [
+        "strings",
+        "arrays",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1961.json",
+      "content_sha256": "545693f9f9dfc2ce94cdc7ac7dd14a43f6b502c295c34c66a4581f3e2e5504e9",
+      "source_id": 1961
+    },
+    {
+      "id": "leetcode-1962",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Stones to Minimize the Total",
+      "summary": "Given an array piles where piles[i] is the number of stones in the i-th pile, and an integer k, perform exactly k operations by removing floor(piles[i] / 2) stones from any pile.",
+      "topics": [
+        "heaps",
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1962.json",
+      "content_sha256": "a40c08cbcb2b389d9d5f4c524ecf9b7556993e15a268308e5ab16637a365083e",
+      "source_id": 1962
+    },
+    {
+      "id": "leetcode-1963",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Swaps to Make the String Balanced",
+      "summary": "Given a string s of even length n, containing exactly n/2 opening and n/2 closing brackets, determine the minimum number of swaps needed to make the string balanced.",
+      "topics": [
+        "strings",
+        "greedy",
+        "brackets"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1963.json",
+      "content_sha256": "93bf758e151531c3b9c7298a28537445294e5ec1e30abea8c415bc68e728b5eb",
+      "source_id": 1963
     }
   ]
 }

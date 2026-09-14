@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1959",
+  "content_sha256": "9972632220be28447814858b79414ea83829455cfea77095b882082ff9714aa9",
+  "source_hash": "00bac805e6552a5483e6c6338a8b5422592d6bdc05ef45ac59277441bddf5dc1",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only k capacity segments instead of the initial segment plus k allowed resizes.",
+      "failed_cases": [
+        "lc-1959-2",
+        "lc-1959-4",
+        "lc-1959-6",
+        "lc-1959-8",
+        "lc-1959-9",
+        "lc-1959-12",
+        "lc-1959-13",
+        "lc-1959-14"
+      ]
+    },
+    {
+      "reason": "Sets a segment capacity from its first value rather than its maximum, which can undercount waste and violate capacity.",
+      "failed_cases": [
+        "lc-1959-1",
+        "lc-1959-2",
+        "lc-1959-7",
+        "lc-1959-9",
+        "lc-1959-11",
+        "lc-1959-12",
+        "lc-1959-13",
+        "lc-1959-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6006,
+  "oracle_implementation": "code_practice/import_batch_113.py:resizing_oracle",
+  "validator_implementation_sha256": "159a2d07aa7f5855fc9caf57dc96164f3c322fb386f468c079d5ea40893ac613",
+  "batch_implementation_sha256": "364b10b1257c0e29ef14b4a0219ed8601639ad58bc350e697f459d5187ed020c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "661d91a0f3922a371cbde631d9011a10fc9d50a14dd5ff2b40a5ccfb733b3345",
+  "elapsed_seconds": 0.067,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

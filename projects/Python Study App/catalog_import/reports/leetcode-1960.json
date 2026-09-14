@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1960",
+  "content_sha256": "393fcec9acd015f3d4fc49224a569b0a1cc8d7fcf4c9acc4b7ba68b2f31d2e8e",
+  "source_hash": "c543ab11ca56d57a285f3b58f3ddb916e8763402ea9e9d63212f22f78988d97f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the two lengths instead of multiplying them.",
+      "failed_cases": [
+        "lc-1960-1",
+        "lc-1960-2",
+        "lc-1960-3",
+        "lc-1960-4",
+        "lc-1960-5",
+        "lc-1960-6",
+        "lc-1960-7",
+        "lc-1960-8",
+        "lc-1960-9",
+        "lc-1960-10",
+        "lc-1960-11",
+        "lc-1960-12",
+        "lc-1960-13",
+        "lc-1960-14"
+      ]
+    },
+    {
+      "reason": "Squares one longest palindrome as though two nonoverlapping copies were available.",
+      "failed_cases": [
+        "lc-1960-5",
+        "lc-1960-6",
+        "lc-1960-8",
+        "lc-1960-9",
+        "lc-1960-10",
+        "lc-1960-11",
+        "lc-1960-12",
+        "lc-1960-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6007,
+  "oracle_implementation": "code_practice/import_batch_113.py:palindrome_product_oracle",
+  "validator_implementation_sha256": "159a2d07aa7f5855fc9caf57dc96164f3c322fb386f468c079d5ea40893ac613",
+  "batch_implementation_sha256": "364b10b1257c0e29ef14b4a0219ed8601639ad58bc350e697f459d5187ed020c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f419eb0845e89e2665ef4b20ec6e46db00a8dbd336daf618ad32f7c9130d8ae2",
+  "elapsed_seconds": 0.091,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

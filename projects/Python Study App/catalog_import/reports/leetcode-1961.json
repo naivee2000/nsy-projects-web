@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1961",
+  "content_sha256": "545693f9f9dfc2ce94cdc7ac7dd14a43f6b502c295c34c66a4581f3e2e5504e9",
+  "source_hash": "983a66ea1ec9d944fad0ffc66a6b6e0c5148f02f20965eacbe606a6f718cff6a",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only alignment with the first word and ignores the required remaining concatenation.",
+      "failed_cases": [
+        "lc-1961-8"
+      ]
+    },
+    {
+      "reason": "Checks whether s is a character prefix of the full join, ignoring complete-word boundaries.",
+      "failed_cases": [
+        "lc-1961-4",
+        "lc-1961-8",
+        "lc-1961-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6008,
+  "oracle_implementation": "code_practice/import_batch_113.py:prefix_oracle",
+  "validator_implementation_sha256": "159a2d07aa7f5855fc9caf57dc96164f3c322fb386f468c079d5ea40893ac613",
+  "batch_implementation_sha256": "364b10b1257c0e29ef14b4a0219ed8601639ad58bc350e697f459d5187ed020c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6c0781f5658a71b26eb3e927a0de8df04ae246b191840e52b6b2bebbb4f30c98",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
