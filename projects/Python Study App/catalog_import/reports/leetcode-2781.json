@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2781",
+  "content_sha256": "ef3ba10c074d9a3b2cc13dfe55c2598aa119c5ea4b4d94c418be38fd9f2997d7",
+  "source_hash": "b7300e94d88f19e97074d68791b2df4dbeb92428edc8c8a80150c2120be21adf",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only suffixes of length at most nine and misses a ten-character forbidden word.",
+      "failed_cases": [
+        "lc-2781-15"
+      ]
+    },
+    {
+      "reason": "Keeps the forbidden occurrence’s first character inside the window.",
+      "failed_cases": [
+        "lc-2781-1",
+        "lc-2781-3",
+        "lc-2781-5",
+        "lc-2781-6",
+        "lc-2781-7",
+        "lc-2781-8",
+        "lc-2781-9",
+        "lc-2781-11",
+        "lc-2781-12",
+        "lc-2781-14",
+        "lc-2781-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6828,
+  "oracle_implementation": "code_practice/import_batch_183.py:forbidden_oracle",
+  "validator_implementation_sha256": "a78a39d69b9e676936ea360db027f448957fc47b6811f0047c55d8fea11be337",
+  "batch_implementation_sha256": "fd39fa017c1b422d2b11842fb3694a747a76e942b3db0ee405d17ca909538433",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3d6d8e68067423d6857316c78f92cb1c1be9b5e480e910b2b2c321110e78722a",
+  "elapsed_seconds": 0.064,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

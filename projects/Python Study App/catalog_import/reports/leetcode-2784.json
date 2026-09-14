@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2784",
+  "content_sha256": "28714055002414d136baa1a4479b7075dfdfbe40912476b457a566ddfd744599",
+  "source_hash": "2a8045a7c7e5d8ac3d309baf627c76bf04de3d59599856cf5ab746f88697700e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires only one copy of the maximum n.",
+      "failed_cases": [
+        "lc-2784-2",
+        "lc-2784-3",
+        "lc-2784-5",
+        "lc-2784-6",
+        "lc-2784-9",
+        "lc-2784-11",
+        "lc-2784-12",
+        "lc-2784-13"
+      ]
+    },
+    {
+      "reason": "Uses the array length itself as n.",
+      "failed_cases": [
+        "lc-2784-2",
+        "lc-2784-3",
+        "lc-2784-5",
+        "lc-2784-6",
+        "lc-2784-9",
+        "lc-2784-11",
+        "lc-2784-12",
+        "lc-2784-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6831,
+  "oracle_implementation": "code_practice/import_batch_183.py:good_oracle",
+  "validator_implementation_sha256": "a78a39d69b9e676936ea360db027f448957fc47b6811f0047c55d8fea11be337",
+  "batch_implementation_sha256": "fd39fa017c1b422d2b11842fb3694a747a76e942b3db0ee405d17ca909538433",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fd2fcff98a2270e82fcb983cfd3b14e284447b232623ad1c2d8bbf6156711818",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

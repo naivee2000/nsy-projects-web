@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2780",
+  "content_sha256": "a0e7bb74c77c9b59a0e2035ddf9d23eb0433cff291cd696e2d8359176569255d",
+  "source_hash": "33b4a2a51a87cf6251009788f05d22038cbf8fe879e1c5652c294eb71f73f355",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts exactly-half frequency as dominant on the left.",
+      "failed_cases": [
+        "lc-2780-1",
+        "lc-2780-12"
+      ]
+    },
+    {
+      "reason": "Returns the final index instead of -1 when no nonempty split works.",
+      "failed_cases": [
+        "lc-2780-2",
+        "lc-2780-4",
+        "lc-2780-5",
+        "lc-2780-7",
+        "lc-2780-8",
+        "lc-2780-11",
+        "lc-2780-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6827,
+  "oracle_implementation": "code_practice/import_batch_183.py:split_oracle",
+  "validator_implementation_sha256": "a78a39d69b9e676936ea360db027f448957fc47b6811f0047c55d8fea11be337",
+  "batch_implementation_sha256": "fd39fa017c1b422d2b11842fb3694a747a76e942b3db0ee405d17ca909538433",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9efb75a7b34e319cb7264902970c49f7cf5fbf4901af221e6c65ca0acb96c956",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

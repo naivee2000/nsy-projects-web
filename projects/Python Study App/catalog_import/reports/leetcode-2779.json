@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2779",
+  "content_sha256": "f41b0bed6b95366606ab8845dd3f9835bb976572ce71a6b7eb13cebdb406cc12",
+  "source_hash": "647ed3ebb1d89843b884ec08855f502b76121e222444dabb4095b3abc0497ee9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a total original-value span of only k instead of 2k.",
+      "failed_cases": [
+        "lc-2779-1",
+        "lc-2779-5",
+        "lc-2779-6",
+        "lc-2779-7",
+        "lc-2779-9",
+        "lc-2779-10",
+        "lc-2779-11",
+        "lc-2779-12",
+        "lc-2779-14"
+      ]
+    },
+    {
+      "reason": "Treats intervals touching at one endpoint as disjoint.",
+      "failed_cases": [
+        "lc-2779-6",
+        "lc-2779-9",
+        "lc-2779-10",
+        "lc-2779-11",
+        "lc-2779-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6826,
+  "oracle_implementation": "code_practice/import_batch_183.py:beauty_oracle",
+  "validator_implementation_sha256": "a78a39d69b9e676936ea360db027f448957fc47b6811f0047c55d8fea11be337",
+  "batch_implementation_sha256": "fd39fa017c1b422d2b11842fb3694a747a76e942b3db0ee405d17ca909538433",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b4bef34619611e5df0c28ba843b876d31ec5c42154d617efcbdbd1f8adab40be",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
