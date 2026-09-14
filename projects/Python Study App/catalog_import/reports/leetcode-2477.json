@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2477",
+  "content_sha256": "317bf48e03f6f8dbd82cc2ae14c923c461334cc35d1e03c98a59e01b945dd030",
+  "source_hash": "80e8c88e161c9d49ff003cc808d349ad74e97e2a0c4f79d684cb9a84c1848a42",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rounds the required car count down instead of up.",
+      "failed_cases": [
+        "lc-2477-1",
+        "lc-2477-2",
+        "lc-2477-5",
+        "lc-2477-6",
+        "lc-2477-7",
+        "lc-2477-8",
+        "lc-2477-9",
+        "lc-2477-10",
+        "lc-2477-11",
+        "lc-2477-13",
+        "lc-2477-14",
+        "lc-2477-15",
+        "lc-2477-16"
+      ]
+    },
+    {
+      "reason": "Charges fuel at the capital even though no edge remains to cross.",
+      "failed_cases": [
+        "lc-2477-1",
+        "lc-2477-2",
+        "lc-2477-3",
+        "lc-2477-4",
+        "lc-2477-5",
+        "lc-2477-6",
+        "lc-2477-7",
+        "lc-2477-8",
+        "lc-2477-9",
+        "lc-2477-10",
+        "lc-2477-11",
+        "lc-2477-12",
+        "lc-2477-13",
+        "lc-2477-14",
+        "lc-2477-15",
+        "lc-2477-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6524,
+  "oracle_implementation": "code_practice/import_batch_146.py:fuel_oracle",
+  "validator_implementation_sha256": "4234e65c7b255fc591a02b8c0eaae96a0dcead1061f1849c1c259b59e4083aec",
+  "batch_implementation_sha256": "f775be4573fd394a13e8919c9c5fa39a0c7b5cb29961e8e1a477ebc21af12775",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e9615f7a0998a42dde74cc66948aac9995fe2d3923b9d24fb7f6e4fe1d035792",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

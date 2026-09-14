@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2482",
+  "content_sha256": "3633d9c91feb29fb4380c40f13190492e5ace6acb6deb15f16ccc541ba886aef",
+  "source_hash": "fcb5c75a64a90f021c9bc3e7e7e60ec8d11665569fb2208bd8b652c8d5461b92",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts only row width/height terms and omits column zero counts.",
+      "failed_cases": [
+        "lc-2482-1",
+        "lc-2482-2",
+        "lc-2482-3",
+        "lc-2482-4",
+        "lc-2482-5",
+        "lc-2482-6",
+        "lc-2482-7",
+        "lc-2482-8",
+        "lc-2482-9",
+        "lc-2482-10",
+        "lc-2482-11",
+        "lc-2482-12",
+        "lc-2482-13",
+        "lc-2482-14",
+        "lc-2482-15",
+        "lc-2482-16"
+      ]
+    },
+    {
+      "reason": "Subtracts column ones instead of adding them.",
+      "failed_cases": [
+        "lc-2482-1",
+        "lc-2482-2",
+        "lc-2482-4",
+        "lc-2482-6",
+        "lc-2482-7",
+        "lc-2482-8",
+        "lc-2482-10",
+        "lc-2482-11",
+        "lc-2482-12",
+        "lc-2482-13",
+        "lc-2482-14",
+        "lc-2482-15",
+        "lc-2482-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6529,
+  "oracle_implementation": "code_practice/import_batch_146.py:matrix_oracle",
+  "validator_implementation_sha256": "4234e65c7b255fc591a02b8c0eaae96a0dcead1061f1849c1c259b59e4083aec",
+  "batch_implementation_sha256": "f775be4573fd394a13e8919c9c5fa39a0c7b5cb29961e8e1a477ebc21af12775",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3ef71a4fa44713bebdefd330c0c43a4c083a4eddd2c5a01e0b6e7bc4594361e1",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

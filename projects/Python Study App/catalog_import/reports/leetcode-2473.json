@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2473",
+  "content_sha256": "540e7a41f654be9f3f41ee6ea22a53b48a7498890b9466b7762d5f376a8988af",
+  "source_hash": "8fc0551aa864a61cf0994885ed4aee93b9eceea559e6f19bdb4fe8b550c2333d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Charges only k times distance instead of the required outbound-plus-return factor k+1.",
+      "failed_cases": [
+        "lc-2473-1",
+        "lc-2473-2",
+        "lc-2473-4",
+        "lc-2473-5",
+        "lc-2473-6",
+        "lc-2473-7",
+        "lc-2473-8",
+        "lc-2473-9",
+        "lc-2473-10",
+        "lc-2473-11",
+        "lc-2473-13",
+        "lc-2473-14",
+        "lc-2473-15"
+      ]
+    },
+    {
+      "reason": "Treats undirected roads as one-way edges.",
+      "failed_cases": [
+        "lc-2473-1",
+        "lc-2473-4",
+        "lc-2473-5",
+        "lc-2473-9",
+        "lc-2473-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6520,
+  "oracle_implementation": "code_practice/import_batch_146.py:apples_oracle",
+  "validator_implementation_sha256": "4234e65c7b255fc591a02b8c0eaae96a0dcead1061f1849c1c259b59e4083aec",
+  "batch_implementation_sha256": "f775be4573fd394a13e8919c9c5fa39a0c7b5cb29961e8e1a477ebc21af12775",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5ec68c1478633b61f71ed57c0aff5e0c4ec99213e6ba3639b373d19fcef3242f",
+  "elapsed_seconds": 0.08,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2483",
+  "content_sha256": "c4b8fea2f3a3192e9c318f225c2e83ba4ac654d4745283c07cdae931ce11a278",
+  "source_hash": "d1faafe7c7f8cfc77630a00b22acdcceaa1e9fe893c4a9eb0ad9223ad7725467",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Updates on equal penalties and returns the latest rather than earliest optimum.",
+      "failed_cases": [
+        "lc-2483-1",
+        "lc-2483-8",
+        "lc-2483-11",
+        "lc-2483-12",
+        "lc-2483-14"
+      ]
+    },
+    {
+      "reason": "Reverses the penalty changes for open N and newly served Y hours.",
+      "failed_cases": [
+        "lc-2483-1",
+        "lc-2483-2",
+        "lc-2483-3",
+        "lc-2483-4",
+        "lc-2483-5",
+        "lc-2483-6",
+        "lc-2483-7",
+        "lc-2483-8",
+        "lc-2483-9",
+        "lc-2483-10",
+        "lc-2483-11",
+        "lc-2483-12",
+        "lc-2483-13",
+        "lc-2483-14",
+        "lc-2483-15",
+        "lc-2483-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6530,
+  "oracle_implementation": "code_practice/import_batch_146.py:closing_oracle",
+  "validator_implementation_sha256": "4234e65c7b255fc591a02b8c0eaae96a0dcead1061f1849c1c259b59e4083aec",
+  "batch_implementation_sha256": "f775be4573fd394a13e8919c9c5fa39a0c7b5cb29961e8e1a477ebc21af12775",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "71f973d5031acb78c6b4f6dfb1d539bf65389c1071d4e83c56b1d46ebb16ff4f",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
