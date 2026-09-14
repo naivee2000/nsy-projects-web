@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2302",
+  "content_sha256": "341a4ea5575f2512b9a9f9e9d478f597f3d5af74ab6e6bba14fbb9f274ddc128",
+  "source_hash": "b7c29112ad3e689bb774ae3d78f55597fcd39a7f863b819718f788f64d42ce2c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats a score equal to k as valid despite the strict inequality.",
+      "failed_cases": [
+        "lc-2302-1",
+        "lc-2302-3",
+        "lc-2302-5",
+        "lc-2302-7",
+        "lc-2302-11"
+      ]
+    },
+    {
+      "reason": "Omits one valid subarray ending at every right boundary.",
+      "failed_cases": [
+        "lc-2302-1",
+        "lc-2302-2",
+        "lc-2302-3",
+        "lc-2302-4",
+        "lc-2302-5",
+        "lc-2302-6",
+        "lc-2302-7",
+        "lc-2302-8",
+        "lc-2302-9",
+        "lc-2302-10",
+        "lc-2302-11",
+        "lc-2302-12",
+        "lc-2302-13",
+        "lc-2302-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6349,
+  "oracle_implementation": "code_practice/import_batch_127b.py:score_oracle",
+  "validator_implementation_sha256": "be5645dae1d8951d1114748ff067a905b788277c6ff576caf994c2307e779936",
+  "batch_implementation_sha256": "c0dca4c313db06dfabee0852472d204e30c3344db50c2d99524fa007d1567c13",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d98212bbb22266d24beed58d1836b3a6a9b882e55f363dce6e3dc48f4e0c16ef",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

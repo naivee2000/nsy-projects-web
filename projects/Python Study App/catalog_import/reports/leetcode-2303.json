@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2303",
+  "content_sha256": "384a868063ca055b9651f9da136cf0a2ffd36d8bc5470c20b230478cdde07862",
+  "source_hash": "f5655a589462e05fda43ce19d2e9dc5673bf8852352fc5e425e3a94f2908cd0c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Resets the lower bracket boundary and taxes earlier income repeatedly.",
+      "failed_cases": [
+        "lc-2303-1",
+        "lc-2303-2",
+        "lc-2303-6",
+        "lc-2303-7",
+        "lc-2303-8",
+        "lc-2303-10",
+        "lc-2303-13",
+        "lc-2303-14"
+      ]
+    },
+    {
+      "reason": "Uses integer division within each bracket and discards fractional tax.",
+      "failed_cases": [
+        "lc-2303-1",
+        "lc-2303-2",
+        "lc-2303-4",
+        "lc-2303-6",
+        "lc-2303-8",
+        "lc-2303-9",
+        "lc-2303-10",
+        "lc-2303-11",
+        "lc-2303-13",
+        "lc-2303-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6350,
+  "oracle_implementation": "code_practice/import_batch_127b.py:tax_oracle",
+  "validator_implementation_sha256": "be5645dae1d8951d1114748ff067a905b788277c6ff576caf994c2307e779936",
+  "batch_implementation_sha256": "c0dca4c313db06dfabee0852472d204e30c3344db50c2d99524fa007d1567c13",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f8f789fa90b6f2988b840d73c80160905839719d23277cd080b6cdeba6784739",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
