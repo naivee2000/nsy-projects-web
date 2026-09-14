@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2200",
+  "content_sha256": "3bfe2e6586d2131444edb17a3de9aeb6e8d78344faa7896e3f422bb888f9624e",
+  "source_hash": "9a9a03496bf3dec6ca3f350e21454f901d0db3d684cb8860fc505b247cd11a74",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the distance-k right endpoint as exclusive.",
+      "failed_cases": [
+        "lc-2200-1",
+        "lc-2200-3",
+        "lc-2200-5",
+        "lc-2200-6",
+        "lc-2200-7",
+        "lc-2200-8",
+        "lc-2200-10",
+        "lc-2200-11",
+        "lc-2200-13"
+      ]
+    },
+    {
+      "reason": "Returns only indices covered by at least two key neighborhoods.",
+      "failed_cases": [
+        "lc-2200-1",
+        "lc-2200-3",
+        "lc-2200-4",
+        "lc-2200-5",
+        "lc-2200-6",
+        "lc-2200-7",
+        "lc-2200-8",
+        "lc-2200-10",
+        "lc-2200-11",
+        "lc-2200-12",
+        "lc-2200-13",
+        "lc-2200-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6247,
+  "oracle_implementation": "code_practice/import_batch_122d.py:distant_oracle",
+  "validator_implementation_sha256": "bfeed02ec05717de8a8c672bf2b455252e015c6b5c72f678eee1c50782fb5ea7",
+  "batch_implementation_sha256": "51a5292ce6e978b6ad0b7f1406ba66c14816d90364e94e576c7d68804d91dc4c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ee419c7ebbf5e7f65a1e1a7b7bb77f21465a581a0037bc55707aacd8a3c9bb14",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

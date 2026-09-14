@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1551,
+  "count": 1556,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -27592,6 +27592,98 @@
       "path": "problems/leetcode-2194.json",
       "content_sha256": "dcabe2103a86b0f8a49dd7c276e6d08ca1187903b69c1a4f3ef81bbb2dac1eea",
       "source_id": 2194
+    },
+    {
+      "id": "leetcode-2196",
+      "version": 1,
+      "status": "approved",
+      "title": "Create Binary Tree From Descriptions",
+      "summary": "Given a 2D integer array describing parent-child relationships in a binary tree, construct the tree and return its root.",
+      "topics": [
+        "trees",
+        "hash maps",
+        "construction"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2196.json",
+      "content_sha256": "434e59216e386c5836873529b4e345e87711c23a2412a34d7ce70edf1895d1f0",
+      "source_id": 2196
+    },
+    {
+      "id": "leetcode-2197",
+      "version": 1,
+      "status": "approved",
+      "title": "Replace Non-Coprime Numbers in Array",
+      "summary": "Given an array of integers, repeatedly replace any two adjacent non-coprime numbers with their LCM until no such pairs exist.",
+      "topics": [
+        "arrays",
+        "stacks",
+        "greatest common divisors"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2197.json",
+      "content_sha256": "f3cdf2399314b7a88042ad938c6c54f9aa03d1199faf5f1b42ba7b739b065768",
+      "source_id": 2197
+    },
+    {
+      "id": "leetcode-2198",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Single Divisor Triplets",
+      "summary": "Given an array of positive integers, count the triplets of distinct indices where the sum of the elements at these indices is divisible by exactly one of the elements in the triplet.",
+      "topics": [
+        "arrays",
+        "counting",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2198.json",
+      "content_sha256": "6aa6c224cc7002c5c5112cdff5086b6d257e9cd795e321f8f5a2a64f9d51fc9d",
+      "source_id": 2198
+    },
+    {
+      "id": "leetcode-2200",
+      "version": 1,
+      "status": "approved",
+      "title": "Find All K-Distant Indices in an Array",
+      "summary": "Given a 0-indexed integer array nums and integers key and k, identify all indices i where there exists at least one index j such that the absolute difference between i and j is less than or equal to k and nums[j] equals key.",
+      "topics": [
+        "arrays",
+        "difference arrays",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2200.json",
+      "content_sha256": "3bfe2e6586d2131444edb17a3de9aeb6e8d78344faa7896e3f422bb888f9624e",
+      "source_id": 2200
+    },
+    {
+      "id": "leetcode-2201",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Artifacts That Can Be Extracted",
+      "summary": "Given an n x n grid with artifacts buried in it, and a list of cells to excavate, return the count of artifacts that can be fully uncovered and extracted.",
+      "topics": [
+        "matrices",
+        "hash sets",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2201.json",
+      "content_sha256": "1ec95258c704269a343cf5e05a2f2c0d5a677e7efa378112e6d36ca7aef382d9",
+      "source_id": 2201
     }
   ]
 }

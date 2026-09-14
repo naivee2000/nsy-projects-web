@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2197",
+  "content_sha256": "f3cdf2399314b7a88042ad938c6c54f9aa03d1199faf5f1b42ba7b739b065768",
+  "source_hash": "951b7cc6846992d7cfbc6479a971aba09a45de872ef132459e0fb4f64a246868",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stops on non-coprime pairs and tries to merge coprime pairs.",
+      "failed_cases": [
+        "lc-2197-1",
+        "lc-2197-2",
+        "lc-2197-4",
+        "lc-2197-5",
+        "lc-2197-6",
+        "lc-2197-7",
+        "lc-2197-8",
+        "lc-2197-9",
+        "lc-2197-10",
+        "lc-2197-11",
+        "lc-2197-12",
+        "lc-2197-13",
+        "lc-2197-14"
+      ]
+    },
+    {
+      "reason": "Uses the product instead of dividing by gcd to form the least common multiple.",
+      "failed_cases": [
+        "lc-2197-1",
+        "lc-2197-2",
+        "lc-2197-5",
+        "lc-2197-6",
+        "lc-2197-7",
+        "lc-2197-9",
+        "lc-2197-10",
+        "lc-2197-11",
+        "lc-2197-12",
+        "lc-2197-13",
+        "lc-2197-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6244,
+  "oracle_implementation": "code_practice/import_batch_122d.py:replace_oracle",
+  "validator_implementation_sha256": "bfeed02ec05717de8a8c672bf2b455252e015c6b5c72f678eee1c50782fb5ea7",
+  "batch_implementation_sha256": "51a5292ce6e978b6ad0b7f1406ba66c14816d90364e94e576c7d68804d91dc4c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "db90c12c61fb3cfb495dacaa1483dc5b66ea597cc4f7e7cdcf8117ca40a5948f",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

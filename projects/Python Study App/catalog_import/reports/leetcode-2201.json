@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2201",
+  "content_sha256": "1ec95258c704269a343cf5e05a2f2c0d5a677e7efa378112e6d36ca7aef382d9",
+  "source_hash": "d5316ad045ffa8701cd946eca6a844c74259a955670ef72cbe6c0385f8e73fa2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts a partially excavated artifact when any one cell is dug.",
+      "failed_cases": [
+        "lc-2201-1",
+        "lc-2201-6",
+        "lc-2201-11",
+        "lc-2201-13"
+      ]
+    },
+    {
+      "reason": "Omits the artifact’s bottom row from the completeness check.",
+      "failed_cases": [
+        "lc-2201-1",
+        "lc-2201-3",
+        "lc-2201-6",
+        "lc-2201-10",
+        "lc-2201-11",
+        "lc-2201-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6248,
+  "oracle_implementation": "code_practice/import_batch_122d.py:artifacts_oracle",
+  "validator_implementation_sha256": "bfeed02ec05717de8a8c672bf2b455252e015c6b5c72f678eee1c50782fb5ea7",
+  "batch_implementation_sha256": "51a5292ce6e978b6ad0b7f1406ba66c14816d90364e94e576c7d68804d91dc4c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6813d6bbdaa966fb4deab9cbaa41a0239fa33c58c5f43b7314d1050faf7bff40",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

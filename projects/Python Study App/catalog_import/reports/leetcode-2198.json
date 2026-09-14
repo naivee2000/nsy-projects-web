@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2198",
+  "content_sha256": "6aa6c224cc7002c5c5112cdff5086b6d257e9cd795e321f8f5a2a64f9d51fc9d",
+  "source_hash": "5fa46f39e6146e60b943ecef7f9ed674812dd1df9dfcf77888c7576fc7ad3b26",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts unordered index sets but omits their six orderings.",
+      "failed_cases": [
+        "lc-2198-1",
+        "lc-2198-4",
+        "lc-2198-7",
+        "lc-2198-8",
+        "lc-2198-10",
+        "lc-2198-11",
+        "lc-2198-14"
+      ]
+    },
+    {
+      "reason": "Accepts only sums divisible by none of the selected values.",
+      "failed_cases": [
+        "lc-2198-1",
+        "lc-2198-2",
+        "lc-2198-6",
+        "lc-2198-10",
+        "lc-2198-11",
+        "lc-2198-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6245,
+  "oracle_implementation": "code_practice/import_batch_122d.py:divisor_oracle",
+  "validator_implementation_sha256": "bfeed02ec05717de8a8c672bf2b455252e015c6b5c72f678eee1c50782fb5ea7",
+  "batch_implementation_sha256": "51a5292ce6e978b6ad0b7f1406ba66c14816d90364e94e576c7d68804d91dc4c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "55c216ec36a1562ebeb3710b2ef591e07b1f9eb6e1f0cf8d6303465b53668d30",
+  "elapsed_seconds": 0.131,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
