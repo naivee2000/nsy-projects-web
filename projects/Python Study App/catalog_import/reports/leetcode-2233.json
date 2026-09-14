@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2233",
+  "content_sha256": "218d40c8edb5af6fe00bcd7afb599b84849661affb0eee028a2b1e63d002c73c",
+  "source_hash": "4586ed9895b3bb4cbff83c92d51ac7da2e3f2e24f0993e13787015b4192cfea2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Replaces the smallest value using a sign-flipped update rather than incrementing it.",
+      "failed_cases": [
+        "lc-2233-1",
+        "lc-2233-2",
+        "lc-2233-4",
+        "lc-2233-7",
+        "lc-2233-8",
+        "lc-2233-9",
+        "lc-2233-10",
+        "lc-2233-11",
+        "lc-2233-12",
+        "lc-2233-14",
+        "lc-2233-15",
+        "lc-2233-16"
+      ]
+    },
+    {
+      "reason": "Performs only k-1 increments and leaves one operation unused.",
+      "failed_cases": [
+        "lc-2233-1",
+        "lc-2233-2",
+        "lc-2233-4",
+        "lc-2233-6",
+        "lc-2233-7",
+        "lc-2233-8",
+        "lc-2233-9",
+        "lc-2233-10",
+        "lc-2233-11",
+        "lc-2233-12",
+        "lc-2233-14",
+        "lc-2233-15",
+        "lc-2233-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6280,
+  "oracle_implementation": "code_practice/import_batch_124b.py:product_oracle",
+  "validator_implementation_sha256": "b6c2c1adda0f13cfcd3c04e94ac75331c4a09dd003505fef0e28ec67a742ae39",
+  "batch_implementation_sha256": "3655c0a454799a814359201a1e41715adfe9e121c5e3ede07aafde9c3500ebb7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "71ee81b698b86980ca0b8ff8ecc03e958b982e1a6d6c7450858b57dca15ace7b",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
