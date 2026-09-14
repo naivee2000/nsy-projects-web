@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2567",
+  "content_sha256": "88e76970206956e2ea8ca125553a195b86fd8f91f836e240e7e729d36f468a17",
+  "source_hash": "ba62128524502ba0d9dabe78226a04f8b40b2bc9bc76e7c70e28de5005b9a64d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the worst of the three extreme-change patterns instead of the best.",
+      "failed_cases": [
+        "lc-2567-1",
+        "lc-2567-7",
+        "lc-2567-9",
+        "lc-2567-10",
+        "lc-2567-12",
+        "lc-2567-13",
+        "lc-2567-14",
+        "lc-2567-15",
+        "lc-2567-16"
+      ]
+    },
+    {
+      "reason": "Fails to change one low extreme in the balanced one-from-each-side case.",
+      "failed_cases": [
+        "lc-2567-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6614,
+  "oracle_implementation": "code_practice/import_batch_157.py:change_oracle",
+  "validator_implementation_sha256": "3f0ef62b06c6d394555a05dad81008ce89d893898e9e1da6d6eb197444c0265d",
+  "batch_implementation_sha256": "d02bee93a7d34a2e791723bcd7771f2debd4a09f04db55ece128950bbd73752d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e3c71785edd46e5f5ee7097997bff044fb15ea259c7715a53129244440b88a5f",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

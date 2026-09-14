@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2564",
+  "content_sha256": "406027e4a0500a3dc04925a164ff0fa8b58ed5a79d67f2ee9a2f23168f21959e",
+  "source_hash": "ff78d5d01a9272b8668f1cf91c65914c13f0476479966dc32d3a4190e055af8e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Examines only three bits and misses larger query targets.",
+      "failed_cases": [
+        "lc-2564-13",
+        "lc-2564-16"
+      ]
+    },
+    {
+      "reason": "Overwrites only existing mappings and never records a first occurrence.",
+      "failed_cases": [
+        "lc-2564-1",
+        "lc-2564-3",
+        "lc-2564-4",
+        "lc-2564-5",
+        "lc-2564-6",
+        "lc-2564-7",
+        "lc-2564-8",
+        "lc-2564-9",
+        "lc-2564-10",
+        "lc-2564-11",
+        "lc-2564-12",
+        "lc-2564-13",
+        "lc-2564-14",
+        "lc-2564-15",
+        "lc-2564-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6611,
+  "oracle_implementation": "code_practice/import_batch_157.py:xor_oracle",
+  "validator_implementation_sha256": "3f0ef62b06c6d394555a05dad81008ce89d893898e9e1da6d6eb197444c0265d",
+  "batch_implementation_sha256": "d02bee93a7d34a2e791723bcd7771f2debd4a09f04db55ece128950bbd73752d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d6f00bfa9e42cbc618bf760ad488912c7d6ee3c625b22f64ee38fe4f14e7f17d",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
