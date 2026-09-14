@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3678",
+  "content_sha256": "02b281ac7280abc001777ff22299cc636c8f134addc44f9a8acc607ce8db804d",
+  "source_hash": "23c8623e8283d8d4a011a10b0d0d27f41a8d50d4d0959f55af9e4091630a0c7a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts at the floor of the average rather than strictly above it.",
+      "failed_cases": [
+        "lc-3678-1",
+        "lc-3678-4",
+        "lc-3678-7",
+        "lc-3678-14"
+      ]
+    },
+    {
+      "reason": "Returns one more than the smallest absent candidate.",
+      "failed_cases": [
+        "lc-3678-1",
+        "lc-3678-2",
+        "lc-3678-3",
+        "lc-3678-4",
+        "lc-3678-5",
+        "lc-3678-6",
+        "lc-3678-7",
+        "lc-3678-8",
+        "lc-3678-9",
+        "lc-3678-10",
+        "lc-3678-11",
+        "lc-3678-12",
+        "lc-3678-13",
+        "lc-3678-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7725,
+  "oracle_implementation": "code_practice/import_batch_195a.py:absent_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "e89d665819dde45c3196b413bdcee8806d7cbc94e92614c54c70b55ef78d3dda",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3c4b30766c589a986d7664e8bedbdf1073ac1e9a56c78d07290d7bdcc061f04c",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

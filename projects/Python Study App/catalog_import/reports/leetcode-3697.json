@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3697",
+  "content_sha256": "d10a75211b9908866aa46a03563b3541690ed8b980f3164801a073a68dafd490",
+  "source_hash": "2d53975badf8fcd6e1828d14bbdd11e58f184b96050e7d058d9f0b32397a584b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes zero-valued place components.",
+      "failed_cases": [
+        "lc-3697-2",
+        "lc-3697-5",
+        "lc-3697-7",
+        "lc-3697-8",
+        "lc-3697-9",
+        "lc-3697-10",
+        "lc-3697-12",
+        "lc-3697-13"
+      ]
+    },
+    {
+      "reason": "Returns components in ascending rather than descending order.",
+      "failed_cases": [
+        "lc-3697-1",
+        "lc-3697-2",
+        "lc-3697-6",
+        "lc-3697-8",
+        "lc-3697-9",
+        "lc-3697-10",
+        "lc-3697-11",
+        "lc-3697-12",
+        "lc-3697-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7744,
+  "oracle_implementation": "code_practice/import_batch_195b.py:decimal_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "927d93965b76f4038639325315cf9a8f007998a0550ee015e623c918c4f52756",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2ce2988ed28d6067bdcda1e4b204a2ab9ad3202c7b0c8ed0e33d3723e95b532f",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

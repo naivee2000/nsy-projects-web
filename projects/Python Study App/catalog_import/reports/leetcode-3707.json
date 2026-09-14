@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3707",
+  "content_sha256": "744557ad09f665e7b8fea77d58d34a07cb245391efa92c8fc8b40bda29cc230a",
+  "source_hash": "93221ed03420d0eb98415d775e08d13aaa01704097540f96d04a4ba652455e01",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses zero-based alphabet scores instead of one-based scores.",
+      "failed_cases": [
+        "lc-3707-2",
+        "lc-3707-8",
+        "lc-3707-9",
+        "lc-3707-13"
+      ]
+    },
+    {
+      "reason": "Accepts unequal halves once the prefix reaches at least half.",
+      "failed_cases": [
+        "lc-3707-8",
+        "lc-3707-9",
+        "lc-3707-10",
+        "lc-3707-11",
+        "lc-3707-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7754,
+  "oracle_implementation": "code_practice/import_batch_195b.py:score_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "927d93965b76f4038639325315cf9a8f007998a0550ee015e623c918c4f52756",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "02b48d113804c3e695f822929a4c5e21d0bb5bc92aaed93a11c1c201c771b2d5",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

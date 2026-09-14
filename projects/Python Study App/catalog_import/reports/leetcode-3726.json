@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3726",
+  "content_sha256": "55b0928ff92a2ebbcdf36d7381ea441947a8ef7d925ac744fd9d3e9a555c15c4",
+  "source_hash": "0fc110a43da5944cc8298cd793ae6f92867e5e22d579b4cc7e7a2873a5a9446d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Replaces zeros with ones instead of removing them.",
+      "failed_cases": [
+        "lc-3726-1",
+        "lc-3726-4",
+        "lc-3726-5",
+        "lc-3726-6",
+        "lc-3726-7",
+        "lc-3726-8",
+        "lc-3726-10",
+        "lc-3726-11",
+        "lc-3726-12",
+        "lc-3726-13",
+        "lc-3726-14"
+      ]
+    },
+    {
+      "reason": "Reverses the digit order before removing zeros.",
+      "failed_cases": [
+        "lc-3726-1",
+        "lc-3726-8",
+        "lc-3726-9",
+        "lc-3726-11",
+        "lc-3726-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7773,
+  "oracle_implementation": "code_practice/import_batch_195c.py:zeros_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "44779ca18de2210a832b76fba04fbf1b797b84644e1df622ec136740687438e9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bffd1f7e0d32d3428bb51fd1a6485514ada434e1830f31943828b56dca5437f9",
+  "elapsed_seconds": 0.011,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

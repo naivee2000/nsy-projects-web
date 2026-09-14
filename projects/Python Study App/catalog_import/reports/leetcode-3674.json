@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3674",
+  "content_sha256": "4b86aabc43062825baa7d65fd8937f3a965c6773c522cc559b84b707c9fc78c7",
+  "source_hash": "bc7af224ec9d8a5199488521bb1638ffbd1ea93532f57e7109bf40d7fe654630",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats an empty distinct set as the equal condition.",
+      "failed_cases": [
+        "lc-3674-2",
+        "lc-3674-3",
+        "lc-3674-7"
+      ]
+    },
+    {
+      "reason": "Claims two operations are needed when one whole-array operation suffices.",
+      "failed_cases": [
+        "lc-3674-1",
+        "lc-3674-4",
+        "lc-3674-5",
+        "lc-3674-6",
+        "lc-3674-8",
+        "lc-3674-9",
+        "lc-3674-10",
+        "lc-3674-11",
+        "lc-3674-12",
+        "lc-3674-13",
+        "lc-3674-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7721,
+  "oracle_implementation": "code_practice/import_batch_195a.py:equal_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "e89d665819dde45c3196b413bdcee8806d7cbc94e92614c54c70b55ef78d3dda",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "627f6397e9a06764671ad9575e8d7c8a121da039c0fdce01bdda575bf2fead65",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

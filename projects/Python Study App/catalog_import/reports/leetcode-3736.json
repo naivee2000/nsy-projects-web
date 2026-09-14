@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3736",
+  "content_sha256": "1be285eca195519d73423c12c7aabab1d3e6629fdfb2f758cf2a11a4892b5c34",
+  "source_hash": "8a753607217cbe29cc206a512ac280db4b84157016c4ae1318898ca0d4eaa48e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Targets the minimum even though decrements are unavailable.",
+      "failed_cases": [
+        "lc-3736-1",
+        "lc-3736-4",
+        "lc-3736-5",
+        "lc-3736-6",
+        "lc-3736-7",
+        "lc-3736-8",
+        "lc-3736-9",
+        "lc-3736-10",
+        "lc-3736-11",
+        "lc-3736-12",
+        "lc-3736-13",
+        "lc-3736-14"
+      ]
+    },
+    {
+      "reason": "Counts decreases to the minimum instead of increments to the maximum.",
+      "failed_cases": [
+        "lc-3736-1",
+        "lc-3736-4",
+        "lc-3736-5",
+        "lc-3736-6",
+        "lc-3736-7",
+        "lc-3736-8",
+        "lc-3736-9",
+        "lc-3736-10",
+        "lc-3736-11",
+        "lc-3736-12",
+        "lc-3736-13",
+        "lc-3736-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7783,
+  "oracle_implementation": "code_practice/import_batch_195c.py:moves_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "44779ca18de2210a832b76fba04fbf1b797b84644e1df622ec136740687438e9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7bff81a64f04e88b6d0b15558b1ab3e956c5f7f25abddb4b2b24fdb8b8ac672c",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

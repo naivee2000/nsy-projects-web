@@ -1,0 +1,49 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-3740",
+  "content_sha256": "d41f4156de50cde3826bef1f52ca2934c61eaf5cb216fa3bfa625cbbcc854253",
+  "source_hash": "8369d12db66d7ed5a42718e15324a8f43ce98565d4d0b2e6e0a422eede49e3a2",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only the outer index gap rather than all pairwise distances.",
+      "failed_cases": [
+        "lc-3740-1",
+        "lc-3740-3",
+        "lc-3740-4",
+        "lc-3740-5",
+        "lc-3740-7",
+        "lc-3740-8",
+        "lc-3740-9",
+        "lc-3740-10",
+        "lc-3740-11",
+        "lc-3740-12",
+        "lc-3740-13",
+        "lc-3740-14",
+        "lc-3740-15"
+      ]
+    },
+    {
+      "reason": "Checks only the earliest triplet for each value.",
+      "failed_cases": []
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7787,
+  "oracle_implementation": "code_practice/import_batch_195d.py:triple_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "7fe7d19f6ebb52d009c0aba7eea7784d6fbc132ea783030b501c4ac850a11c5d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "192e3c9c80038641cfc2e6d677c0f7b251801faa47fa5ba88afd8599d7b15c8f",
+  "elapsed_seconds": 0.035,
+  "failures": [
+    {
+      "phase": "known_wrong",
+      "index": 1
+    }
+  ],
+  "workbook_sample": "preserved and independently verified"
+}

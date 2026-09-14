@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3684",
+  "content_sha256": "f7386d51ae9c9eed1a8430d85ba90fbe4e91bb59c15e21f658939d6158ba2d78",
+  "source_hash": "25deba859f32a117660ab640459806287a8da8599b31aa2cc73aac8f9d62967c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Retains duplicate occurrences.",
+      "failed_cases": [
+        "lc-3684-2",
+        "lc-3684-6",
+        "lc-3684-7",
+        "lc-3684-9",
+        "lc-3684-13",
+        "lc-3684-14"
+      ]
+    },
+    {
+      "reason": "Returns the smallest values in ascending order.",
+      "failed_cases": [
+        "lc-3684-1",
+        "lc-3684-2",
+        "lc-3684-4",
+        "lc-3684-5",
+        "lc-3684-7",
+        "lc-3684-8",
+        "lc-3684-9",
+        "lc-3684-10",
+        "lc-3684-11",
+        "lc-3684-12",
+        "lc-3684-13",
+        "lc-3684-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7731,
+  "oracle_implementation": "code_practice/import_batch_195a.py:maximize_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "e89d665819dde45c3196b413bdcee8806d7cbc94e92614c54c70b55ef78d3dda",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8862280f8f6df1d794007b39d47418ab43b34f65b505dd174a7a5ba5a6f266e5",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

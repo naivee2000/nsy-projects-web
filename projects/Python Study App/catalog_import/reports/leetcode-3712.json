@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3712",
+  "content_sha256": "48c7b155daf6004bc57209869aa700be6f4e38a76610db7dca7745ed8b72a5ae",
+  "source_hash": "ae5a255241616afac1effdacdcb11eceff9549ba73ae1716c31d897ace120e78",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes values whose frequencies are not divisible by k.",
+      "failed_cases": [
+        "lc-3712-1",
+        "lc-3712-2",
+        "lc-3712-3",
+        "lc-3712-4",
+        "lc-3712-5",
+        "lc-3712-6",
+        "lc-3712-7",
+        "lc-3712-8",
+        "lc-3712-9",
+        "lc-3712-10",
+        "lc-3712-11",
+        "lc-3712-12",
+        "lc-3712-13",
+        "lc-3712-14"
+      ]
+    },
+    {
+      "reason": "Adds each qualifying distinct value once rather than every occurrence.",
+      "failed_cases": [
+        "lc-3712-1",
+        "lc-3712-5",
+        "lc-3712-6",
+        "lc-3712-7",
+        "lc-3712-8",
+        "lc-3712-9",
+        "lc-3712-11",
+        "lc-3712-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7759,
+  "oracle_implementation": "code_practice/import_batch_195c.py:frequency_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "44779ca18de2210a832b76fba04fbf1b797b84644e1df622ec136740687438e9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "269be4481a075291fe8b3bbd9f5af18dbef44b0a9cc6739b519bcc14b2890949",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

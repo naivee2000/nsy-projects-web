@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3687",
+  "content_sha256": "4a63515654ab6b0dee161a27872d593055e01c8cbe5d516daed81a83e629b8ec",
+  "source_hash": "72e122632a8e823a8fc5992a90b5858393f2f9c2f6a626fb028af4dde99d169a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Places day five in the highest fee band.",
+      "failed_cases": [
+        "lc-3687-1",
+        "lc-3687-5",
+        "lc-3687-10",
+        "lc-3687-13"
+      ]
+    },
+    {
+      "reason": "Charges only double for more than five days.",
+      "failed_cases": [
+        "lc-3687-1",
+        "lc-3687-2",
+        "lc-3687-6",
+        "lc-3687-8",
+        "lc-3687-10",
+        "lc-3687-11",
+        "lc-3687-12",
+        "lc-3687-13",
+        "lc-3687-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7734,
+  "oracle_implementation": "code_practice/import_batch_195a.py:fee_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "e89d665819dde45c3196b413bdcee8806d7cbc94e92614c54c70b55ef78d3dda",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ebf339b17be5581601107444f7f4fb3d52f156ca2702ce4a2f7930dd4ec8f88",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

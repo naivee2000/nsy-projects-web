@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3688",
+  "content_sha256": "ea38c4adddb14174c898f1311717c49929a9f627526d84b0f1574cfeb6105a79",
+  "source_hash": "0871a3c6c576e9edc09d1d82bb30b733edf7f3c519dd9da6dda188276af12e04",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes odd rather than even values.",
+      "failed_cases": [
+        "lc-3688-1",
+        "lc-3688-2",
+        "lc-3688-4",
+        "lc-3688-5",
+        "lc-3688-6",
+        "lc-3688-7",
+        "lc-3688-8",
+        "lc-3688-9",
+        "lc-3688-10",
+        "lc-3688-11",
+        "lc-3688-12",
+        "lc-3688-13",
+        "lc-3688-14"
+      ]
+    },
+    {
+      "reason": "Adds selected values instead of taking their bitwise OR.",
+      "failed_cases": [
+        "lc-3688-1",
+        "lc-3688-7",
+        "lc-3688-8",
+        "lc-3688-11",
+        "lc-3688-12",
+        "lc-3688-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7735,
+  "oracle_implementation": "code_practice/import_batch_195b.py:even_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "927d93965b76f4038639325315cf9a8f007998a0550ee015e623c918c4f52756",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d39f71d99fa846b9d544e010bd9c0f4f31417384bca3b2ebce340dd622851c39",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3754",
+  "content_sha256": "54c6e27f89716116d78fbd8d6f99d4c4481fbf703a0610eff27a1ae2f6b44ca3",
+  "source_hash": "d0df54a85cd05a0921add3ec7c0c58b96ded6f0a0d20430bad18c5a7a12162ab",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps zero digits in the concatenated integer.",
+      "failed_cases": [
+        "lc-3754-1",
+        "lc-3754-2",
+        "lc-3754-5",
+        "lc-3754-6",
+        "lc-3754-7",
+        "lc-3754-8",
+        "lc-3754-10",
+        "lc-3754-11",
+        "lc-3754-12",
+        "lc-3754-14"
+      ]
+    },
+    {
+      "reason": "Adds x and its digit sum instead of multiplying.",
+      "failed_cases": [
+        "lc-3754-1",
+        "lc-3754-2",
+        "lc-3754-4",
+        "lc-3754-5",
+        "lc-3754-6",
+        "lc-3754-7",
+        "lc-3754-8",
+        "lc-3754-9",
+        "lc-3754-10",
+        "lc-3754-11",
+        "lc-3754-12",
+        "lc-3754-13",
+        "lc-3754-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7801,
+  "oracle_implementation": "code_practice/import_batch_195d.py:concatenate_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "e27b38c30679efcf2a05207e2932441f325d2c9e6512fa6be46ed30118c880f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eb516abf1cd44348deb309d2d600242b88ee8dcb1ba78fe5fec0bf5177e20213",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

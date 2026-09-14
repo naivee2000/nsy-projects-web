@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3701",
+  "content_sha256": "5163e65064c93c97553ea0e9b95863b2fd013e4e9653d655c189aa448a0c792c",
+  "source_hash": "6a0e67ec383dc3548a09dc625492d37b7835b3d500bc2b8c91c210b5b11069e3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds odd positions and subtracts even positions.",
+      "failed_cases": [
+        "lc-3701-1",
+        "lc-3701-2",
+        "lc-3701-4",
+        "lc-3701-5",
+        "lc-3701-6",
+        "lc-3701-7",
+        "lc-3701-8",
+        "lc-3701-9",
+        "lc-3701-10",
+        "lc-3701-11",
+        "lc-3701-12",
+        "lc-3701-13",
+        "lc-3701-14"
+      ]
+    },
+    {
+      "reason": "Adds every value instead of alternating signs.",
+      "failed_cases": [
+        "lc-3701-1",
+        "lc-3701-4",
+        "lc-3701-5",
+        "lc-3701-6",
+        "lc-3701-7",
+        "lc-3701-8",
+        "lc-3701-9",
+        "lc-3701-11",
+        "lc-3701-12",
+        "lc-3701-13",
+        "lc-3701-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7748,
+  "oracle_implementation": "code_practice/import_batch_195b.py:alternating_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "927d93965b76f4038639325315cf9a8f007998a0550ee015e623c918c4f52756",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7a64c2d784fb74768efafa7dd3b5a2c966ca76da7d3395b9f3518dc1c5b75837",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

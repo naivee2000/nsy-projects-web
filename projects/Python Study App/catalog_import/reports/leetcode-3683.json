@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3683",
+  "content_sha256": "b2f0590f13980f695174958ba29c17369413b52987a7ef5a552774fd5c381fe2",
+  "source_hash": "b1f1718477f45f9288b04c48207c0cfa0c94796339f3b85910ed8f66cf1eff87",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the latest finish.",
+      "failed_cases": [
+        "lc-3683-1",
+        "lc-3683-4",
+        "lc-3683-5",
+        "lc-3683-7",
+        "lc-3683-8",
+        "lc-3683-9",
+        "lc-3683-10",
+        "lc-3683-12",
+        "lc-3683-13",
+        "lc-3683-14"
+      ]
+    },
+    {
+      "reason": "Ignores task start times.",
+      "failed_cases": [
+        "lc-3683-1",
+        "lc-3683-2",
+        "lc-3683-4",
+        "lc-3683-5",
+        "lc-3683-6",
+        "lc-3683-7",
+        "lc-3683-8",
+        "lc-3683-9",
+        "lc-3683-10",
+        "lc-3683-11",
+        "lc-3683-12",
+        "lc-3683-13",
+        "lc-3683-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7730,
+  "oracle_implementation": "code_practice/import_batch_195a.py:task_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "e89d665819dde45c3196b413bdcee8806d7cbc94e92614c54c70b55ef78d3dda",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a9d8f43e7e173a2b4364d2d7d7172dfd67a75fee73fcd6b57af1a268b97760a4",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

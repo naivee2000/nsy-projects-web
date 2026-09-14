@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3745",
+  "content_sha256": "a41386c28dedb9a97dc2b3cf30ce271958c3ef6b37599ef2edef2c7a9ae17b2d",
+  "source_hash": "868c438ed4bd44709b106f4fddeba1151c513489df44cf72f3b6bacc715fad3d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reuses the minimum as both a positive term and c choice pattern.",
+      "failed_cases": [
+        "lc-3745-1",
+        "lc-3745-2",
+        "lc-3745-3",
+        "lc-3745-5",
+        "lc-3745-6",
+        "lc-3745-7",
+        "lc-3745-8",
+        "lc-3745-9",
+        "lc-3745-10",
+        "lc-3745-11",
+        "lc-3745-12",
+        "lc-3745-13",
+        "lc-3745-14"
+      ]
+    },
+    {
+      "reason": "Subtracts the maximum instead of the minimum.",
+      "failed_cases": [
+        "lc-3745-1",
+        "lc-3745-2",
+        "lc-3745-3",
+        "lc-3745-5",
+        "lc-3745-6",
+        "lc-3745-7",
+        "lc-3745-8",
+        "lc-3745-9",
+        "lc-3745-10",
+        "lc-3745-11",
+        "lc-3745-12",
+        "lc-3745-13",
+        "lc-3745-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7792,
+  "oracle_implementation": "code_practice/import_batch_195d.py:expression_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "e27b38c30679efcf2a05207e2932441f325d2c9e6512fa6be46ed30118c880f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7054472c0aacc1319d0c21bcabe97225322a4e5cc128238b697f62f215fb278f",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

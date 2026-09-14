@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3783",
+  "content_sha256": "dcad77422d9a4d67d89095bcc629df6ea7f33f892c671c1fcb43b23823a3a05b",
+  "source_hash": "6dc1a2b15d96b49ad31c0f961c62580820b013d689bd7cf7f4b8eb4c87f3baac",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns a signed difference rather than its absolute value.",
+      "failed_cases": [
+        "lc-3783-1",
+        "lc-3783-10",
+        "lc-3783-14"
+      ]
+    },
+    {
+      "reason": "Drops the first digit instead of reversing digits.",
+      "failed_cases": [
+        "lc-3783-1",
+        "lc-3783-2",
+        "lc-3783-5",
+        "lc-3783-6",
+        "lc-3783-7",
+        "lc-3783-8",
+        "lc-3783-9",
+        "lc-3783-10",
+        "lc-3783-11",
+        "lc-3783-12",
+        "lc-3783-13",
+        "lc-3783-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7830,
+  "oracle_implementation": "code_practice/import_batch_195d.py:mirror_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "e27b38c30679efcf2a05207e2932441f325d2c9e6512fa6be46ed30118c880f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "760afa0dbe33f6f6b2b8bbb32c0ffefbbb495cbf2234df74197778327ccb425e",
+  "elapsed_seconds": 0.011,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

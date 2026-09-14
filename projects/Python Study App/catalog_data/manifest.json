@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2126,
+  "count": 2146,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -37875,6 +37875,358 @@
       "path": "problems/leetcode-3668.json",
       "content_sha256": "3146988b6ca45a87c5e25d74aed6c7ba0a0c3eaf5d6aaaa7aa54cfb68221dcbe",
       "source_id": 3668
+    },
+    {
+      "id": "leetcode-3674",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Equalize Array",
+      "summary": "Given an integer array nums, determine the least number of operations needed to make all elements equal by replacing each element in a chosen subarray with the bitwise AND of all elements in that subarray.",
+      "topics": [
+        "arrays",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3674.json",
+      "content_sha256": "4b86aabc43062825baa7d65fd8937f3a965c6773c522cc559b84b707c9fc78c7",
+      "source_id": 3674
+    },
+    {
+      "id": "leetcode-3678",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Absent Positive Greater Than Average",
+      "summary": "Given an integer array, find the smallest missing positive integer that exceeds the average of the array elements.",
+      "topics": [
+        "arrays",
+        "sets",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3678.json",
+      "content_sha256": "02b281ac7280abc001777ff22299cc636c8f134addc44f9a8acc607ce8db804d",
+      "source_id": 3678
+    },
+    {
+      "id": "leetcode-3683",
+      "version": 1,
+      "status": "approved",
+      "title": "Earliest Time to Finish One Task",
+      "summary": "Given a 2D integer array tasks where each entry consists of a start time si and a duration ti , find the earliest time at which any task completes.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3683.json",
+      "content_sha256": "b2f0590f13980f695174958ba29c17369413b52987a7ef5a552774fd5c381fe2",
+      "source_id": 3683
+    },
+    {
+      "id": "leetcode-3684",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Sum of At Most K Distinct Elements",
+      "summary": "Given a positive integer array nums and an integer k, select at most k distinct elements to maximize their sum.",
+      "topics": [
+        "arrays",
+        "sets",
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3684.json",
+      "content_sha256": "f7386d51ae9c9eed1a8430d85ba90fbe4e91bb59c15e21f658939d6158ba2d78",
+      "source_id": 3684
+    },
+    {
+      "id": "leetcode-3687",
+      "version": 1,
+      "status": "approved",
+      "title": "Library Late Fee Calculator",
+      "summary": "Given an array of integers representing the number of days each book was returned late, calculate the total penalty based on the following rules: if a book is returned one day late, the penalty is 1; if it is returned between 2 and 5 days late, the penalty is twice the number of days; if it is returned more than 5 days late, the penalty is three times the number of days.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3687.json",
+      "content_sha256": "4a63515654ab6b0dee161a27872d593055e01c8cbe5d516daed81a83e629b8ec",
+      "source_id": 3687
+    },
+    {
+      "id": "leetcode-3688",
+      "version": 1,
+      "status": "approved",
+      "title": "Bitwise OR of Even Numbers in an Array",
+      "summary": "Given an integer array, compute the bitwise OR of all even numbers within it.",
+      "topics": [
+        "arrays",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3688.json",
+      "content_sha256": "ea38c4adddb14174c898f1311717c49929a9f627526d84b0f1574cfeb6105a79",
+      "source_id": 3688
+    },
+    {
+      "id": "leetcode-3696",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Distance Between Unequal Words in Array I",
+      "summary": "Given an array of strings, determine the greatest distance between two different indices where the strings at these indices are not identical.",
+      "topics": [
+        "arrays",
+        "strings",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3696.json",
+      "content_sha256": "8cf24828c00ced5653a9cd46a9b8fc2be3a7476cac9cbf9fb8f22b886805b834",
+      "source_id": 3696
+    },
+    {
+      "id": "leetcode-3697",
+      "version": 1,
+      "status": "approved",
+      "title": "Compute Decimal Representation",
+      "summary": "Given a positive integer n, express it as a sum of the fewest base-10 components possible, where a base-10 component is defined as a product of a single digit from 1 to 9 and a non-negative power of 10.",
+      "topics": [
+        "math",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3697.json",
+      "content_sha256": "d10a75211b9908866aa46a03563b3541690ed8b980f3164801a073a68dafd490",
+      "source_id": 3697
+    },
+    {
+      "id": "leetcode-3701",
+      "version": 1,
+      "status": "approved",
+      "title": "Compute Alternating Sum",
+      "summary": "Given an integer array, calculate the alternating sum by adding elements at even indices and subtracting elements at odd indices.",
+      "topics": [
+        "arrays",
+        "sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3701.json",
+      "content_sha256": "5163e65064c93c97553ea0e9b95863b2fd013e4e9653d655c189aa448a0c792c",
+      "source_id": 3701
+    },
+    {
+      "id": "leetcode-3707",
+      "version": 1,
+      "status": "approved",
+      "title": "Equal Score Substrings",
+      "summary": "Given a string of lowercase letters, calculate if it can be divided into two non-empty parts with equal scores, where each letter's score is its position in the alphabet.",
+      "topics": [
+        "strings",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3707.json",
+      "content_sha256": "744557ad09f665e7b8fea77d58d34a07cb245391efa92c8fc8b40bda29cc230a",
+      "source_id": 3707
+    },
+    {
+      "id": "leetcode-3712",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Elements With Frequency Divisible by K",
+      "summary": "Given an integer array nums and an integer k, return the sum of all elements in nums whose frequency is divisible by k, or 0 if no such elements exist.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3712.json",
+      "content_sha256": "48c7b155daf6004bc57209869aa700be6f4e38a76610db7dca7745ed8b72a5ae",
+      "source_id": 3712
+    },
+    {
+      "id": "leetcode-3718",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Missing Multiple of K",
+      "summary": "Given an integer array and a positive integer k, find the least positive multiple of k not present in the array.",
+      "topics": [
+        "arrays",
+        "sets",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3718.json",
+      "content_sha256": "2857af7931c7e0a4b3dc07781ab0d6d01f4fe4ffd5db05f4acbcf24a13950e7a",
+      "source_id": 3718
+    },
+    {
+      "id": "leetcode-3726",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Zeros in Decimal Representation",
+      "summary": "Given a positive integer n, return the integer formed by removing all zeros from its decimal representation.",
+      "topics": [
+        "math",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3726.json",
+      "content_sha256": "55b0928ff92a2ebbcdf36d7381ea441947a8ef7d925ac744fd9d3e9a555c15c4",
+      "source_id": 3726
+    },
+    {
+      "id": "leetcode-3731",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Missing Elements",
+      "summary": "Given an array of unique integers, find and return a sorted list of all missing integers within the original range, which includes the smallest and largest integers present in the array.",
+      "topics": [
+        "arrays",
+        "sets",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3731.json",
+      "content_sha256": "53e3066afc45d74a42dc28b757221664ba4b7826e66542c37aa96cc3a3977cfb",
+      "source_id": 3731
+    },
+    {
+      "id": "leetcode-3736",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Moves to Equal Array Elements III",
+      "summary": "Given an integer array, determine the least number of increment moves needed to make all elements equal by increasing any single element by one in each move.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3736.json",
+      "content_sha256": "1be285eca195519d73423c12c7aabab1d3e6629fdfb2f758cf2a11a4892b5c34",
+      "source_id": 3736
+    },
+    {
+      "id": "leetcode-3745",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Expression of Three Elements",
+      "summary": "Given an integer array, select three distinct elements to maximize the expression a + b - c.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3745.json",
+      "content_sha256": "a41386c28dedb9a97dc2b3cf30ce271958c3ef6b37599ef2edef2c7a9ae17b2d",
+      "source_id": 3745
+    },
+    {
+      "id": "leetcode-3750",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Flips to Reverse Binary String",
+      "summary": "Given a positive integer n , let s be its binary representation without leading zeros.",
+      "topics": [
+        "bit manipulation",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3750.json",
+      "content_sha256": "79b3673a265541d750b90cec8e1e5957b462648031c8bea3635cf456963da456",
+      "source_id": 3750
+    },
+    {
+      "id": "leetcode-3754",
+      "version": 1,
+      "status": "approved",
+      "title": "Concatenate Non-Zero Digits and Multiply by Sum I",
+      "summary": "Given an integer n, create a new integer x by joining all non-zero digits of n in their original sequence.",
+      "topics": [
+        "math",
+        "digits",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3754.json",
+      "content_sha256": "54c6e27f89716116d78fbd8d6f99d4c4481fbf703a0610eff27a1ae2f6b44ca3",
+      "source_id": 3754
+    },
+    {
+      "id": "leetcode-3769",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort Integers by Binary Reflection",
+      "summary": "Given an integer array, sort it in ascending order based on the binary reflection of each element.",
+      "topics": [
+        "arrays",
+        "bit manipulation",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3769.json",
+      "content_sha256": "bf6de0d77b6618837fb52cb993aa1b3eac4f1494e0f004aa2098daffb6ed9d42",
+      "source_id": 3769
+    },
+    {
+      "id": "leetcode-3783",
+      "version": 1,
+      "status": "approved",
+      "title": "Mirror Distance of an Integer",
+      "summary": "Given an integer n, calculate its mirror distance by finding the absolute difference between n and its digit-reversed counterpart.",
+      "topics": [
+        "math",
+        "digits",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3783.json",
+      "content_sha256": "dcad77422d9a4d67d89095bcc629df6ea7f33f892c671c1fcb43b23823a3a05b",
+      "source_id": 3783
     }
   ]
 }

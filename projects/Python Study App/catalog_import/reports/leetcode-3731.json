@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3731",
+  "content_sha256": "53e3066afc45d74a42dc28b757221664ba4b7826e66542c37aa96cc3a3977cfb",
+  "source_hash": "f63338d599d155c81941276ff0f9480b02c32b05a23f57bdf703261238a1d5d0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only every other integer in the range.",
+      "failed_cases": [
+        "lc-3731-4",
+        "lc-3731-5",
+        "lc-3731-6",
+        "lc-3731-8",
+        "lc-3731-9",
+        "lc-3731-10",
+        "lc-3731-11",
+        "lc-3731-12",
+        "lc-3731-13"
+      ]
+    },
+    {
+      "reason": "Returns present values rather than missing ones.",
+      "failed_cases": [
+        "lc-3731-1",
+        "lc-3731-2",
+        "lc-3731-3",
+        "lc-3731-4",
+        "lc-3731-5",
+        "lc-3731-6",
+        "lc-3731-7",
+        "lc-3731-8",
+        "lc-3731-9",
+        "lc-3731-10",
+        "lc-3731-11",
+        "lc-3731-12",
+        "lc-3731-13",
+        "lc-3731-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7778,
+  "oracle_implementation": "code_practice/import_batch_195c.py:missing_oracle",
+  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
+  "batch_implementation_sha256": "44779ca18de2210a832b76fba04fbf1b797b84644e1df622ec136740687438e9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "82215283c7c900a9ce660abbf9036f3840526acc29eb2e6eb61eb402f79f4644",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
