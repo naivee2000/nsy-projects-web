@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2103",
+  "content_sha256": "34581585ba94db0becf47d7a600f3aca17c33218616a63b2cf85168ceb7eb3ca",
+  "source_hash": "d431580aafd529419520352f3a9cad8477dd187dd32b13c57b6c213f37b31f13",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the same bit for blue and green, so no rod reaches mask seven.",
+      "failed_cases": [
+        "lc-2103-1",
+        "lc-2103-2",
+        "lc-2103-5",
+        "lc-2103-7",
+        "lc-2103-8",
+        "lc-2103-9",
+        "lc-2103-11",
+        "lc-2103-12",
+        "lc-2103-13",
+        "lc-2103-14",
+        "lc-2103-15",
+        "lc-2103-16"
+      ]
+    },
+    {
+      "reason": "Counts rods missing red by testing mask six.",
+      "failed_cases": [
+        "lc-2103-1",
+        "lc-2103-2",
+        "lc-2103-5",
+        "lc-2103-7",
+        "lc-2103-8",
+        "lc-2103-9",
+        "lc-2103-11",
+        "lc-2103-12",
+        "lc-2103-14",
+        "lc-2103-15",
+        "lc-2103-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6150,
+  "oracle_implementation": "code_practice/import_batch_118c.py:rods_o",
+  "validator_implementation_sha256": "329173d283e2fca052e09ae989c7bd11472d9ed56198434bceffe73a015d6e5a",
+  "batch_implementation_sha256": "a268887c3a456636096d4f44a2130238dd8d5beb482a2bc42ef7c5841aabdf18",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b20952f0d02518ba5393647585bb0d5d5b190670eb78ce2c0323063d00d9a406",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2104",
+  "content_sha256": "c791014f0db3d01a38bf0b0ec58a0b3712f58d6a648a364ecd7a7e75d58ed548",
+  "source_hash": "095228bbb364f1299368893933cc7ad373e65740f0c7f377ecf28419e8e6cb7b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds extrema instead of subtracting the minimum from the maximum.",
+      "failed_cases": [
+        "lc-2104-1",
+        "lc-2104-2",
+        "lc-2104-4",
+        "lc-2104-5",
+        "lc-2104-6",
+        "lc-2104-7",
+        "lc-2104-8",
+        "lc-2104-9",
+        "lc-2104-10",
+        "lc-2104-11",
+        "lc-2104-12",
+        "lc-2104-13",
+        "lc-2104-14",
+        "lc-2104-15",
+        "lc-2104-16"
+      ]
+    },
+    {
+      "reason": "Skips every length-two subarray.",
+      "failed_cases": [
+        "lc-2104-1",
+        "lc-2104-2",
+        "lc-2104-4",
+        "lc-2104-5",
+        "lc-2104-7",
+        "lc-2104-8",
+        "lc-2104-9",
+        "lc-2104-10",
+        "lc-2104-11",
+        "lc-2104-12",
+        "lc-2104-13",
+        "lc-2104-14",
+        "lc-2104-15",
+        "lc-2104-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6151,
+  "oracle_implementation": "code_practice/import_batch_118c.py:ranges_o",
+  "validator_implementation_sha256": "329173d283e2fca052e09ae989c7bd11472d9ed56198434bceffe73a015d6e5a",
+  "batch_implementation_sha256": "a268887c3a456636096d4f44a2130238dd8d5beb482a2bc42ef7c5841aabdf18",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0864d114891350dbfb46926b6a6da37c89d6a1b46f9baceef439c55e012bcecc",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

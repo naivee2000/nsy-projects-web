@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2100",
+  "content_sha256": "d3688479a4f5fd870a1a691ed6b156865e468be41362b13e0211b69dcf3da94e",
+  "source_hash": "e08f7ec4c5b2bb85cf3323057073518ba207a1245276e08ec62f7f00d4f818d8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires strict decreases and rejects equal guard counts.",
+      "failed_cases": [
+        "lc-2100-1",
+        "lc-2100-6",
+        "lc-2100-8",
+        "lc-2100-10",
+        "lc-2100-15"
+      ]
+    },
+    {
+      "reason": "Requires one extra nondecreasing day after the candidate.",
+      "failed_cases": [
+        "lc-2100-1",
+        "lc-2100-2",
+        "lc-2100-6",
+        "lc-2100-8",
+        "lc-2100-9",
+        "lc-2100-11",
+        "lc-2100-12",
+        "lc-2100-13",
+        "lc-2100-14",
+        "lc-2100-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6147,
+  "oracle_implementation": "code_practice/import_batch_118c.py:days_o",
+  "validator_implementation_sha256": "329173d283e2fca052e09ae989c7bd11472d9ed56198434bceffe73a015d6e5a",
+  "batch_implementation_sha256": "a268887c3a456636096d4f44a2130238dd8d5beb482a2bc42ef7c5841aabdf18",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "090eeef7c7a69ed16e499cbd51598bae3a61e27ac94aa80d92fad06f9ce3b8a4",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

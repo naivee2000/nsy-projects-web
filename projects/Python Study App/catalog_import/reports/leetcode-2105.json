@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2105",
+  "content_sha256": "e43de174d272cd75f84743c7564b8efa1916f9011761f99cf70c9bcd8e2dc39a",
+  "source_hash": "8312828aebaea12842069ae13a0176c053c39b896d1c56e3a424a73796d542d9",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Refills unnecessarily when Alice has exactly enough water.",
+      "failed_cases": [
+        "lc-2105-6",
+        "lc-2105-7",
+        "lc-2105-10",
+        "lc-2105-11",
+        "lc-2105-12",
+        "lc-2105-14",
+        "lc-2105-15"
+      ]
+    },
+    {
+      "reason": "At the middle plant, tests the weaker can instead of the stronger available can.",
+      "failed_cases": [
+        "lc-2105-4",
+        "lc-2105-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6152,
+  "oracle_implementation": "code_practice/import_batch_118c.py:refill_o",
+  "validator_implementation_sha256": "329173d283e2fca052e09ae989c7bd11472d9ed56198434bceffe73a015d6e5a",
+  "batch_implementation_sha256": "a268887c3a456636096d4f44a2130238dd8d5beb482a2bc42ef7c5841aabdf18",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d309b46137ca69c31e3060321d37f67d50e8ba5e5b8798f34636629c0a101bf4",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
