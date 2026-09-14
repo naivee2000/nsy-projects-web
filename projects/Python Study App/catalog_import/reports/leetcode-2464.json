@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2464",
+  "content_sha256": "84c19afc7fcc4b23f9776262a9ece3572fe9c09659b370258fa9561fa8ca91c9",
+  "source_hash": "57d0043bc7b6067f7dc73f4815240a4da271b5af3beb024bbbf00a68da6a9898",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats every endpoint pair as valid, including GCD one.",
+      "failed_cases": [
+        "lc-2464-1",
+        "lc-2464-2",
+        "lc-2464-4",
+        "lc-2464-5",
+        "lc-2464-9",
+        "lc-2464-10"
+      ]
+    },
+    {
+      "reason": "Does not charge a group for each chosen subarray.",
+      "failed_cases": [
+        "lc-2464-1",
+        "lc-2464-3",
+        "lc-2464-5",
+        "lc-2464-6",
+        "lc-2464-7",
+        "lc-2464-8",
+        "lc-2464-9",
+        "lc-2464-10",
+        "lc-2464-11",
+        "lc-2464-12",
+        "lc-2464-13",
+        "lc-2464-14",
+        "lc-2464-15",
+        "lc-2464-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6511,
+  "oracle_implementation": "code_practice/import_batch_145.py:split_oracle",
+  "validator_implementation_sha256": "3a065b5c6f75166d4013d70af1f49baf47a42f95cce737236516a94a5deca968",
+  "batch_implementation_sha256": "5cba0564d8e5b5f320f4c71d754b3cee7ff69498405fba2ead7b2f08687286c4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "013da98cebcca65e13452e5e49bb165e20fabc8e155d54ac7477a836dc717a0a",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2467",
+  "content_sha256": "73fcd46b160007ec8ed926eda1d0b600495ede46b9caf5194e4b7fb69e0b0e41",
+  "source_hash": "5fda33078baf6550a293cf558d618c200a09a20a9801aa8f1ba812f4a4b2bcd7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Awards the full amount rather than half when Alice and Bob arrive together.",
+      "failed_cases": [
+        "lc-2467-1",
+        "lc-2467-5",
+        "lc-2467-6",
+        "lc-2467-7",
+        "lc-2467-9",
+        "lc-2467-10",
+        "lc-2467-13"
+      ]
+    },
+    {
+      "reason": "Awards zero instead of half at simultaneous arrivals.",
+      "failed_cases": [
+        "lc-2467-1",
+        "lc-2467-5",
+        "lc-2467-6",
+        "lc-2467-9",
+        "lc-2467-10",
+        "lc-2467-11",
+        "lc-2467-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6514,
+  "oracle_implementation": "code_practice/import_batch_145.py:profit_oracle",
+  "validator_implementation_sha256": "3a065b5c6f75166d4013d70af1f49baf47a42f95cce737236516a94a5deca968",
+  "batch_implementation_sha256": "5cba0564d8e5b5f320f4c71d754b3cee7ff69498405fba2ead7b2f08687286c4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bdf0b51027c981a780efde2b5117f68bd61a225ad08e90900099d25fc23b9041",
+  "elapsed_seconds": 0.088,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

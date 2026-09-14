@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2462",
+  "content_sha256": "01ac146cbc39032816b55fc915b93b065ebadb647899563ce2fc7ad6980bb65b",
+  "source_hash": "1cb9af80041bc53f2a3d4587342632528fe342cdb41ab1d4000e342759e2117a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks equal-cost side ties toward the larger right-side index.",
+      "failed_cases": [
+        "lc-2462-8"
+      ]
+    },
+    {
+      "reason": "Refills the right heap from the left pointer instead of the right pointer.",
+      "failed_cases": [
+        "lc-2462-1",
+        "lc-2462-6",
+        "lc-2462-8",
+        "lc-2462-9",
+        "lc-2462-10",
+        "lc-2462-11",
+        "lc-2462-12",
+        "lc-2462-13",
+        "lc-2462-14",
+        "lc-2462-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6509,
+  "oracle_implementation": "code_practice/import_batch_145.py:hiring_oracle",
+  "validator_implementation_sha256": "3a065b5c6f75166d4013d70af1f49baf47a42f95cce737236516a94a5deca968",
+  "batch_implementation_sha256": "5cba0564d8e5b5f320f4c71d754b3cee7ff69498405fba2ead7b2f08687286c4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "93b1d522fcda2809a0a57753d1e27361ee319e8653111e0039f41565c5567973",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

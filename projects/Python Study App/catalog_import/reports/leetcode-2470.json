@@ -1,0 +1,63 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2470",
+  "content_sha256": "9797ebcc195a0634b23113d034035f4b0ce32d711552032213b3269132e343c6",
+  "source_hash": "2ce8187c105e245d3b9ee395b4a673b0115e7e0c1b3baf0f7b2381b8d075cbf7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits all single-element subarrays.",
+      "failed_cases": [
+        "lc-2470-1",
+        "lc-2470-2",
+        "lc-2470-3",
+        "lc-2470-5",
+        "lc-2470-6",
+        "lc-2470-7",
+        "lc-2470-8",
+        "lc-2470-9",
+        "lc-2470-10",
+        "lc-2470-11",
+        "lc-2470-12",
+        "lc-2470-13",
+        "lc-2470-14",
+        "lc-2470-15",
+        "lc-2470-16"
+      ]
+    },
+    {
+      "reason": "Counts LCM k+1 instead of exactly k.",
+      "failed_cases": [
+        "lc-2470-1",
+        "lc-2470-2",
+        "lc-2470-3",
+        "lc-2470-4",
+        "lc-2470-5",
+        "lc-2470-6",
+        "lc-2470-7",
+        "lc-2470-8",
+        "lc-2470-9",
+        "lc-2470-10",
+        "lc-2470-11",
+        "lc-2470-12",
+        "lc-2470-13",
+        "lc-2470-14",
+        "lc-2470-15",
+        "lc-2470-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6517,
+  "oracle_implementation": "code_practice/import_batch_145.py:lcm_oracle",
+  "validator_implementation_sha256": "3a065b5c6f75166d4013d70af1f49baf47a42f95cce737236516a94a5deca968",
+  "batch_implementation_sha256": "5cba0564d8e5b5f320f4c71d754b3cee7ff69498405fba2ead7b2f08687286c4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "42c068cec825cdffc118a70baa7d895beb2f6ea77e6692dc268bb3bc0f7bb8ad",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
