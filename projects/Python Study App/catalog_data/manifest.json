@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1836,
+  "count": 1841,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -32653,6 +32653,64 @@
       "source_id": 2574
     },
     {
+      "id": "leetcode-2575",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Divisibility Array of a String",
+      "summary": "Given a string of digits and a positive integer, generate an array where each element indicates if the prefix up to that index is divisible by the integer.",
+      "topics": [
+        "strings",
+        "math",
+        "modular arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2575.json",
+      "content_sha256": "8405873791f5b6dfde08a86f43f7398ccc3aef46dd316b853657c5b2ddd6708a",
+      "source_id": 2575
+    },
+    {
+      "id": "leetcode-2576",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Maximum Number of Marked Indices",
+      "summary": "Given a 0-indexed integer array, you can mark pairs of indices i and j if 2 * nums[i] <= nums[j] and both are unmarked.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "two pointers",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2576.json",
+      "content_sha256": "a89a3d85342d3da699c28b558d44b975fb96878c52b2802bdcf57fa5df3dc903",
+      "source_id": 2576
+    },
+    {
+      "id": "leetcode-2577",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Visit a Cell In a Grid",
+      "summary": "Given a m x n grid with each cell containing a non-negative integer representing the minimum time required to visit that cell, you start at the top-left cell and must move to adjacent cells in one second per move.",
+      "topics": [
+        "matrices",
+        "graphs",
+        "shortest paths",
+        "heaps"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2577.json",
+      "content_sha256": "91877f888f878337a5e6d2e93171114669e12d107526dc732a7fc439ad06f91d",
+      "source_id": 2577
+    },
+    {
       "id": "leetcode-2578",
       "version": 1,
       "status": "approved",
@@ -32669,6 +32727,42 @@
       "path": "problems/leetcode-2578.json",
       "content_sha256": "17e1b3a4769fe9d1da5e8fc804f9937a5978d0dff910af2c89b6ce7e8b49a9fc",
       "source_id": 2578
+    },
+    {
+      "id": "leetcode-2579",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Total Number of Colored Cells",
+      "summary": "For each of n minutes, initially color one cell blue, then each minute thereafter, color all adjacent uncolored cells blue.",
+      "topics": [
+        "math",
+        "geometry",
+        "patterns"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2579.json",
+      "content_sha256": "59f2e3b02b1872b98e0b5c461c59162e33a1240c990518c5042169dca5da6d71",
+      "source_id": 2579
+    },
+    {
+      "id": "leetcode-2580",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Ways to Group Overlapping Ranges",
+      "summary": "Given a 2D integer array ranges where each ranges[i] is defined as [starti, endi], split these ranges into two groups such that each range is assigned to exactly one group and no two overlapping ranges are placed in different groups.",
+      "topics": [
+        "intervals",
+        "sorting",
+        "connected components"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2580.json",
+      "content_sha256": "3fa888a1008c056f1a825c44b6479df6a17553ab9bc10cd6b8eda826c493d720",
+      "source_id": 2580
     },
     {
       "id": "leetcode-2582",

@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2580",
+  "content_sha256": "3fa888a1008c056f1a825c44b6479df6a17553ab9bc10cd6b8eda826c493d720",
+  "source_hash": "52ed45ce476bfd81c9da89f3369554108b546d141bc02d1a57612535dc4ad2a8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats intervals touching at an endpoint as separate components.",
+      "failed_cases": [
+        "lc-2580-5",
+        "lc-2580-7",
+        "lc-2580-9",
+        "lc-2580-11",
+        "lc-2580-13",
+        "lc-2580-16"
+      ]
+    },
+    {
+      "reason": "Returns only half of the two-group assignments.",
+      "failed_cases": [
+        "lc-2580-1",
+        "lc-2580-2",
+        "lc-2580-3",
+        "lc-2580-4",
+        "lc-2580-5",
+        "lc-2580-6",
+        "lc-2580-7",
+        "lc-2580-8",
+        "lc-2580-9",
+        "lc-2580-10",
+        "lc-2580-11",
+        "lc-2580-12",
+        "lc-2580-13",
+        "lc-2580-14",
+        "lc-2580-15",
+        "lc-2580-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6627,
+  "oracle_implementation": "code_practice/import_batch_159.py:ranges_oracle",
+  "validator_implementation_sha256": "0d1338610b3a5b258f18544a091215797e886967b0e591b100a80885804252cd",
+  "batch_implementation_sha256": "9b45e3f5ac615ca18fa30ab0fe81894cb1945e4a2048170691974f2c5dcf84af",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5743f7582fb583f4f06b850e23a15154cdf8f153e4055b36947b7e5d9810145c",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

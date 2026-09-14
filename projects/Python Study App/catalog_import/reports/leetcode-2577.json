@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2577",
+  "content_sha256": "91877f888f878337a5e6d2e93171114669e12d107526dc732a7fc439ad06f91d",
+  "source_hash": "925d3216a051b7f8a7a130e21790f1cb4fc6d6943cec72d4d8c0de0cf5741e65",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Waits directly in place and ignores the parity forced by moving back and forth.",
+      "failed_cases": [
+        "lc-2577-1",
+        "lc-2577-5"
+      ]
+    },
+    {
+      "reason": "Declares failure when either first neighbor is blocked instead of when both are blocked.",
+      "failed_cases": [
+        "lc-2577-1",
+        "lc-2577-4",
+        "lc-2577-5",
+        "lc-2577-8",
+        "lc-2577-11",
+        "lc-2577-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6624,
+  "oracle_implementation": "code_practice/import_batch_159.py:timed_oracle",
+  "validator_implementation_sha256": "0d1338610b3a5b258f18544a091215797e886967b0e591b100a80885804252cd",
+  "batch_implementation_sha256": "9b45e3f5ac615ca18fa30ab0fe81894cb1945e4a2048170691974f2c5dcf84af",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "90e0d43b0a4540ec1dcf714a86e7bd3f7ca410e87d26203ec80268ed6d427ea1",
+  "elapsed_seconds": 0.078,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
