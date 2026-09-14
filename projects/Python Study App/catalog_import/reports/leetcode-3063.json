@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3063",
+  "content_sha256": "799bcfc238bfb38082db817ee8eb37af16c78618f76e2adfe1bf0fd62db71404",
+  "source_hash": "0b6f8c0c0b2839e721da4a4a882e1dd8fa2973628762118c1c29974bd452ad09",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Records only presence, so repeated values still produce frequency one.",
+      "failed_cases": [
+        "lc-3063-1",
+        "lc-3063-2",
+        "lc-3063-4",
+        "lc-3063-7",
+        "lc-3063-8",
+        "lc-3063-9",
+        "lc-3063-10",
+        "lc-3063-11",
+        "lc-3063-12",
+        "lc-3063-13",
+        "lc-3063-14"
+      ]
+    },
+    {
+      "reason": "Returns the distinct values themselves rather than their frequencies.",
+      "failed_cases": [
+        "lc-3063-2",
+        "lc-3063-4",
+        "lc-3063-5",
+        "lc-3063-6",
+        "lc-3063-8",
+        "lc-3063-9",
+        "lc-3063-10",
+        "lc-3063-11",
+        "lc-3063-12",
+        "lc-3063-13",
+        "lc-3063-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7110,
+  "oracle_implementation": "code_practice/import_batch_189b.py:frequencies_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "1599d9497a23b5b31d87afbdb4ad5ed6b005924b1cbc599b415db9ed89a8d1ce",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e6554021fae2d96ac115abf761c2678b45e0e8ffae36982ded4b69d480cda0ce",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2016,
+  "count": 2036,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -35955,6 +35955,353 @@
       "path": "problems/leetcode-3028.json",
       "content_sha256": "6dc08cc387bf44e602e3ffb339bedcbf4efa3601c5e40de75cd1ba9754f7bf21",
       "source_id": 3028
+    },
+    {
+      "id": "leetcode-3032",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Numbers With Unique Digits II",
+      "summary": "Determine the quantity of numbers with distinct digits within the interval from a to b, including both endpoints.",
+      "topics": [
+        "math",
+        "digits",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3032.json",
+      "content_sha256": "4a103863af1d45b17a14e130ce02975969ef85ca6137b20b8bbc51340ae44b96",
+      "source_id": 3032
+    },
+    {
+      "id": "leetcode-3033",
+      "version": 1,
+      "status": "approved",
+      "title": "Modify the Matrix",
+      "summary": "Given an m x n integer matrix, generate a new matrix identical to the original.",
+      "topics": [
+        "matrices",
+        "column scans"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3033.json",
+      "content_sha256": "7eccbf8be4e259ea93b4b4809c938c7928698624af0a2e2d959672312a2919ff",
+      "source_id": 3033
+    },
+    {
+      "id": "leetcode-3038",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Operations With the Same Score I",
+      "summary": "Given an array of integers, repeatedly remove the first two elements and calculate their sum as the score.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3038.json",
+      "content_sha256": "ba8824f25fe9c60278aad9bcb0eb9e45324911466c5db133dfea88f7c5f277fe",
+      "source_id": 3038
+    },
+    {
+      "id": "leetcode-3042",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Prefix and Suffix Pairs I",
+      "summary": "Given a 0-indexed array of string words, count the number of index pairs (i, j) where i < j and the function isPrefixAndSuffix(words[i], words[j]) returns true, indicating words[i] is both a prefix and a suffix of words[j].",
+      "topics": [
+        "strings",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3042.json",
+      "content_sha256": "964cac17f3c8545842d14da5e22ec7fea6e32220d2ce7c63521f59767efc970b",
+      "source_id": 3042
+    },
+    {
+      "id": "leetcode-3046",
+      "version": 1,
+      "status": "approved",
+      "title": "Split the Array",
+      "summary": "Given an integer array of even length, determine if it can be divided into two arrays of equal length, each containing distinct elements.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3046.json",
+      "content_sha256": "c2652d4697f06fa643c19cac22f10327fcd7d3c5dc71a1c935644089ab022a5e",
+      "source_id": 3046
+    },
+    {
+      "id": "leetcode-3062",
+      "version": 1,
+      "status": "approved",
+      "title": "Winner of the Linked List Game",
+      "summary": "Given a linked list with even length, where odd-indexed nodes have odd integers and even-indexed nodes have even integers, compare each pair of nodes.",
+      "topics": [
+        "linked lists",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3062.json",
+      "content_sha256": "32b3bdc59dfd08ca0dca10fbe7cb3fd3fb2e71051c24c5fef66900fb23e7ae8d",
+      "source_id": 3062
+    },
+    {
+      "id": "leetcode-3063",
+      "version": 1,
+      "status": "approved",
+      "title": "Linked List Frequency",
+      "summary": "Given a linked list with k unique elements, generate a new linked list of length k showing the frequency of each unique element from the original list, in any order.",
+      "topics": [
+        "linked lists",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3063.json",
+      "content_sha256": "799bcfc238bfb38082db817ee8eb37af16c78618f76e2adfe1bf0fd62db71404",
+      "source_id": 3063
+    },
+    {
+      "id": "leetcode-3065",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Exceed Threshold Value I",
+      "summary": "Given an array of integers nums and an integer k, determine the least number of operations required to ensure all elements in nums are at least k by removing the smallest element in each operation.",
+      "topics": [
+        "arrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3065.json",
+      "content_sha256": "95a13d5dcd85374704ebdf099f502fd0284c810cd4cbaeb6ac7e6c9c94050049",
+      "source_id": 3065
+    },
+    {
+      "id": "leetcode-3069",
+      "version": 1,
+      "status": "approved",
+      "title": "Distribute Elements Into Two Arrays I",
+      "summary": "Given a 1-indexed array of distinct integers, distribute its elements into two arrays, arr1 and arr2, through n operations.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3069.json",
+      "content_sha256": "5f51fd929f3727d333b3c991ed6879e17ce317acddc2bbb58b7bd324c6b0a3c8",
+      "source_id": 3069
+    },
+    {
+      "id": "leetcode-3074",
+      "version": 1,
+      "status": "approved",
+      "title": "Apple Redistribution into Boxes",
+      "summary": "Given an array of apple counts and an array of box capacities, determine the least number of boxes required to redistribute all apples from packs into boxes, allowing apples from the same pack to be placed in different boxes.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3074.json",
+      "content_sha256": "1b6fdd24607fc3c8d105f854333223a930139d242dd76aa5bd6632e075b943e2",
+      "source_id": 3074
+    },
+    {
+      "id": "leetcode-3079",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Sum of Encrypted Integers",
+      "summary": "Given an array of positive integers, apply a function that replaces each digit in an integer with the largest digit found in that integer.",
+      "topics": [
+        "arrays",
+        "digits",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3079.json",
+      "content_sha256": "e84804d9275f6008de60dbaa82273835f81f98d744ea4f6094c50d937d09a88b",
+      "source_id": 3079
+    },
+    {
+      "id": "leetcode-3083",
+      "version": 1,
+      "status": "approved",
+      "title": "Existence of a Substring in a String and Its Reverse",
+      "summary": "Determine if a string s contains any substring of length 2 that also appears in the reversed version of s.",
+      "topics": [
+        "strings",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3083.json",
+      "content_sha256": "3d583318c8c3e25d1a1e499f3a9d8c842ae4b2da29699ad484da2ab10908afd2",
+      "source_id": 3083
+    },
+    {
+      "id": "leetcode-3090",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Length Substring With Two Occurrences",
+      "summary": "Given a string s , return the maximum length of a substring where each character appears no more than twice.",
+      "topics": [
+        "strings",
+        "sliding window",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3090.json",
+      "content_sha256": "8c876bb5918df90933c057840713775abd585e98990635718fffee6d80baac12",
+      "source_id": 3090
+    },
+    {
+      "id": "leetcode-3095",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Subarray With OR at Least K I",
+      "summary": "Given an array of non-negative integers and an integer k, find the minimum length of a contiguous subarray whose bitwise OR of elements is at least k.",
+      "topics": [
+        "arrays",
+        "bit manipulation",
+        "subarrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3095.json",
+      "content_sha256": "8daabc01f9e675418d31f95c71a28937829801361a854198e9292903a3226012",
+      "source_id": 3095
+    },
+    {
+      "id": "leetcode-3099",
+      "version": 1,
+      "status": "approved",
+      "title": "Harshad Number",
+      "summary": "Determine if the given integer x is a Harshad number by checking if it is divisible by the sum of its digits.",
+      "topics": [
+        "math",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3099.json",
+      "content_sha256": "91b09146213a3b606485512daf262407687c1ccf1ac4c1613a17b184612ac4d4",
+      "source_id": 3099
+    },
+    {
+      "id": "leetcode-3105",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Strictly Increasing or Strictly Decreasing Subarray",
+      "summary": "Given an array of integers, find the length of the longest subarray that is either strictly increasing or strictly decreasing.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3105.json",
+      "content_sha256": "38a61e06789e86d84261013b7afa8ed0137167db61f37f954d9a432ce811fa4c",
+      "source_id": 3105
+    },
+    {
+      "id": "leetcode-3110",
+      "version": 1,
+      "status": "approved",
+      "title": "Score of a String",
+      "summary": "Calculate the score of a string by summing the absolute differences between the ASCII values of consecutive characters.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3110.json",
+      "content_sha256": "bd28df0fbd0a48ade3640327d64878e83f663e0c95eec3573a59c4c15e11201d",
+      "source_id": 3110
+    },
+    {
+      "id": "leetcode-3114",
+      "version": 1,
+      "status": "approved",
+      "title": "Latest Time You Can Obtain After Replacing Characters",
+      "summary": "Given a string s in 12-hour format with some digits replaced by '?', replace all '?' with digits to form the latest valid 12-hour time.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3114.json",
+      "content_sha256": "85d68f71a2858b2214454744da22d74cee92074110e4f05c5daf178999b7f9f1",
+      "source_id": 3114
+    },
+    {
+      "id": "leetcode-3120",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Special Characters I",
+      "summary": "Given a string, count how many letters appear in both lowercase and uppercase forms.",
+      "topics": [
+        "strings",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3120.json",
+      "content_sha256": "368f62e8adcd4b00b2d592b34ba91cbd68e11e86a898bce84579f888a87370a3",
+      "source_id": 3120
+    },
+    {
+      "id": "leetcode-3127",
+      "version": 1,
+      "status": "approved",
+      "title": "Make a Square with the Same Color",
+      "summary": "Given a 3x3 grid where each cell is either 'B' (black) or 'W' (white), your task is to check if it is possible to change the color of at most one cell so that there exists a 2x2 square with all cells of the same color.",
+      "topics": [
+        "matrices",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3127.json",
+      "content_sha256": "1c61f819db09c407bd5e826e35ffc801c0acecde92a5a74af6835bf72de59628",
+      "source_id": 3127
     }
   ]
 }

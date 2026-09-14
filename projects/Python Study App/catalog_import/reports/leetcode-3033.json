@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3033",
+  "content_sha256": "7eccbf8be4e259ea93b4b4809c938c7928698624af0a2e2d959672312a2919ff",
+  "source_hash": "d3a99f96454efe63585530f22232ca5939e6761a12ed9121a9779a652483d4aa",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses each row maximum rather than the current column maximum.",
+      "failed_cases": [
+        "lc-3033-1",
+        "lc-3033-2",
+        "lc-3033-5",
+        "lc-3033-6",
+        "lc-3033-9",
+        "lc-3033-10",
+        "lc-3033-13",
+        "lc-3033-14"
+      ]
+    },
+    {
+      "reason": "Replaces zeros as well as -1 cells.",
+      "failed_cases": [
+        "lc-3033-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7080,
+  "oracle_implementation": "code_practice/import_batch_189a.py:matrix_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "09e2ee1be9fc9ba6ce78172c9eac6c547ac3eb93f246c2d11cad128985cbdeb9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5115075aa31ead0b020cf4cecc0f7cefa818704e0f9cd404128955d30441fc42",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

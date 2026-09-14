@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3038",
+  "content_sha256": "ba8824f25fe9c60278aad9bcb0eb9e45324911466c5db133dfea88f7c5f277fe",
+  "source_hash": "1dd7d22dc263b0a91cdd39c9b5be87face211b30028c980fadcf6e0f643bdbb2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stops on matching pairs instead of the first mismatching pair.",
+      "failed_cases": [
+        "lc-3038-1",
+        "lc-3038-2",
+        "lc-3038-3",
+        "lc-3038-4",
+        "lc-3038-5",
+        "lc-3038-6",
+        "lc-3038-7",
+        "lc-3038-8",
+        "lc-3038-9",
+        "lc-3038-10",
+        "lc-3038-11",
+        "lc-3038-12",
+        "lc-3038-13",
+        "lc-3038-14"
+      ]
+    },
+    {
+      "reason": "Skips the final complete pair for even-length input.",
+      "failed_cases": [
+        "lc-3038-3",
+        "lc-3038-4",
+        "lc-3038-5",
+        "lc-3038-6",
+        "lc-3038-7",
+        "lc-3038-8",
+        "lc-3038-12",
+        "lc-3038-13",
+        "lc-3038-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7085,
+  "oracle_implementation": "code_practice/import_batch_189a.py:operations_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "09e2ee1be9fc9ba6ce78172c9eac6c547ac3eb93f246c2d11cad128985cbdeb9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b2041781824969ecfdc01d0f203a4618c239533516328999fc80d87cc7b92ea6",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

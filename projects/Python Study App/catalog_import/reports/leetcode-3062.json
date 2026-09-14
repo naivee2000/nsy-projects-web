@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3062",
+  "content_sha256": "32b3bdc59dfd08ca0dca10fbe7cb3fd3fb2e71051c24c5fef66900fb23e7ae8d",
+  "source_hash": "946c8783e189a37eaeb21a48122d2aabc83770921a16b66246bbdd9f380d499b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Awards Even points using the reversed comparison.",
+      "failed_cases": [
+        "lc-3062-1",
+        "lc-3062-2",
+        "lc-3062-3",
+        "lc-3062-4",
+        "lc-3062-5",
+        "lc-3062-6",
+        "lc-3062-7",
+        "lc-3062-8",
+        "lc-3062-9",
+        "lc-3062-10",
+        "lc-3062-11",
+        "lc-3062-12",
+        "lc-3062-13"
+      ]
+    },
+    {
+      "reason": "Advances one node and then pairs overlapping/wrong parity positions.",
+      "failed_cases": [
+        "lc-3062-4",
+        "lc-3062-7",
+        "lc-3062-9",
+        "lc-3062-11",
+        "lc-3062-12",
+        "lc-3062-13",
+        "lc-3062-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7109,
+  "oracle_implementation": "code_practice/import_batch_189b.py:game_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "1599d9497a23b5b31d87afbdb4ad5ed6b005924b1cbc599b415db9ed89a8d1ce",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a7ddb2bc2e21ec5ea5ae19acf6352204de9627261c99098b974cb8ae1a78557b",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

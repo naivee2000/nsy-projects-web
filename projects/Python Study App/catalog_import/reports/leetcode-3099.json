@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3099",
+  "content_sha256": "91b09146213a3b606485512daf262407687c1ccf1ac4c1613a17b184612ac4d4",
+  "source_hash": "dd09b830d13fb8f41aa69fccfa5d37037e8f695d96707554a17ee63e99dcd0f7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the divisibility result.",
+      "failed_cases": [
+        "lc-3099-1",
+        "lc-3099-2",
+        "lc-3099-3",
+        "lc-3099-4",
+        "lc-3099-5",
+        "lc-3099-6",
+        "lc-3099-7",
+        "lc-3099-8",
+        "lc-3099-9",
+        "lc-3099-10",
+        "lc-3099-11",
+        "lc-3099-12",
+        "lc-3099-13",
+        "lc-3099-14"
+      ]
+    },
+    {
+      "reason": "Tests divisibility using one more than the true digit sum.",
+      "failed_cases": [
+        "lc-3099-1",
+        "lc-3099-3",
+        "lc-3099-4",
+        "lc-3099-6",
+        "lc-3099-8",
+        "lc-3099-9",
+        "lc-3099-11",
+        "lc-3099-13",
+        "lc-3099-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7146,
+  "oracle_implementation": "code_practice/import_batch_189c.py:harshad_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "5344c97b47fd1dde7d6e69725e126a5f3ecd5e015ad0fbe61edf103b4a08454b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6af71d3dd44e20f4cbb1641e112c5a023219e2b707652f475d5e5b3bd43df735",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3083",
+  "content_sha256": "3d583318c8c3e25d1a1e499f3a9d8c842ae4b2da29699ad484da2ab10908afd2",
+  "source_hash": "a1de50bffa63d6ecfee7c1a4fdc6a292e3cf792937f9f0bf4e07305a4d57ecaf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks every existing pair against itself, making any length-two string pass.",
+      "failed_cases": [
+        "lc-3083-4",
+        "lc-3083-6",
+        "lc-3083-8",
+        "lc-3083-10",
+        "lc-3083-12",
+        "lc-3083-14"
+      ]
+    },
+    {
+      "reason": "Skips the final adjacent pair.",
+      "failed_cases": [
+        "lc-3083-5",
+        "lc-3083-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7130,
+  "oracle_implementation": "code_practice/import_batch_189c.py:reverse_substring_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "5344c97b47fd1dde7d6e69725e126a5f3ecd5e015ad0fbe61edf103b4a08454b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5feeed0757bac08dc093640c041b3452f7b07bc8ab60df41d59b6938d1946d1a",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

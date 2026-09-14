@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3065",
+  "content_sha256": "95a13d5dcd85374704ebdf099f502fd0284c810cd4cbaeb6ac7e6c9c94050049",
+  "source_hash": "b692d7b8cc7a6de3da8ca63993eabe8aabe2e071a30c3a40436ff6e54a0c6fe0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes values equal to k even though they already satisfy the goal.",
+      "failed_cases": [
+        "lc-3065-1",
+        "lc-3065-2",
+        "lc-3065-3",
+        "lc-3065-5",
+        "lc-3065-6",
+        "lc-3065-9",
+        "lc-3065-10",
+        "lc-3065-12",
+        "lc-3065-14"
+      ]
+    },
+    {
+      "reason": "The altered counting expression double-filters incorrectly.",
+      "failed_cases": [
+        "lc-3065-1",
+        "lc-3065-2",
+        "lc-3065-4",
+        "lc-3065-6",
+        "lc-3065-7",
+        "lc-3065-8",
+        "lc-3065-11",
+        "lc-3065-12",
+        "lc-3065-13",
+        "lc-3065-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7112,
+  "oracle_implementation": "code_practice/import_batch_189b.py:threshold_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "1599d9497a23b5b31d87afbdb4ad5ed6b005924b1cbc599b415db9ed89a8d1ce",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c85aa9a965f954b160e95e3608f25de23ffb27d89a65cadee3959d0a0c70058e",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

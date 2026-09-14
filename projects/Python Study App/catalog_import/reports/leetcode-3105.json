@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3105",
+  "content_sha256": "38a61e06789e86d84261013b7afa8ed0137167db61f37f954d9a432ce811fa4c",
+  "source_hash": "a1223b3d7e806e709334d0cfe5193c908f6deec5a0bcbe8acb744833543a56dd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows equal values in an increasing run.",
+      "failed_cases": [
+        "lc-3105-6",
+        "lc-3105-10",
+        "lc-3105-12"
+      ]
+    },
+    {
+      "reason": "Extends decreasing runs from the unrelated increasing length.",
+      "failed_cases": [
+        "lc-3105-2",
+        "lc-3105-8",
+        "lc-3105-13",
+        "lc-3105-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7152,
+  "oracle_implementation": "code_practice/import_batch_189d.py:monotonic_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "cb9dc5a7e34f0db71ea693df1ffcfa558782ed85610956626f255ad242c41971",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3efeb6474a6dee1547da54471dc52def6a30fb1fe65235dd8dd6d43e84ce344a",
+  "elapsed_seconds": 0.102,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

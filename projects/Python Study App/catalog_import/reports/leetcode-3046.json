@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3046",
+  "content_sha256": "c2652d4697f06fa643c19cac22f10327fcd7d3c5dc71a1c935644089ab022a5e",
+  "source_hash": "837ac77be16eac44205fd1472a5648de931ba820576d9464c442beb210bc09d9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects values appearing exactly twice even though one copy fits in each half.",
+      "failed_cases": [
+        "lc-3046-1",
+        "lc-3046-4",
+        "lc-3046-6",
+        "lc-3046-7",
+        "lc-3046-9",
+        "lc-3046-10",
+        "lc-3046-12",
+        "lc-3046-13",
+        "lc-3046-14"
+      ]
+    },
+    {
+      "reason": "Tests the number of distinct values against two rather than the maximum multiplicity.",
+      "failed_cases": [
+        "lc-3046-1",
+        "lc-3046-2",
+        "lc-3046-5",
+        "lc-3046-6",
+        "lc-3046-8",
+        "lc-3046-9",
+        "lc-3046-11",
+        "lc-3046-12",
+        "lc-3046-13",
+        "lc-3046-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7093,
+  "oracle_implementation": "code_practice/import_batch_189a.py:split_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "09e2ee1be9fc9ba6ce78172c9eac6c547ac3eb93f246c2d11cad128985cbdeb9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "35d9bcf80f66bfba3a80a57a164d7498b69f3b1675e7fc7413863e2eab1e1243",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3079",
+  "content_sha256": "e84804d9275f6008de60dbaa82273835f81f98d744ea4f6094c50d937d09a88b",
+  "source_hash": "ba69a033e0c31702a63bba515d96a6708c5ab0139c3d72203704a80e0616e332",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the smallest digit rather than the largest.",
+      "failed_cases": [
+        "lc-3079-2",
+        "lc-3079-5",
+        "lc-3079-7",
+        "lc-3079-8",
+        "lc-3079-9",
+        "lc-3079-10",
+        "lc-3079-12",
+        "lc-3079-13",
+        "lc-3079-14"
+      ]
+    },
+    {
+      "reason": "Produces only one copy of the largest digit.",
+      "failed_cases": [
+        "lc-3079-2",
+        "lc-3079-5",
+        "lc-3079-6",
+        "lc-3079-7",
+        "lc-3079-8",
+        "lc-3079-9",
+        "lc-3079-10",
+        "lc-3079-11",
+        "lc-3079-12",
+        "lc-3079-13",
+        "lc-3079-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7126,
+  "oracle_implementation": "code_practice/import_batch_189c.py:encryption_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "5344c97b47fd1dde7d6e69725e126a5f3ecd5e015ad0fbe61edf103b4a08454b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4b5dbc04044888fb03d8e87fc9c148cc1ed8328ef8f05f6c3f4c3ddff4b9e336",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3114",
+  "content_sha256": "85d68f71a2858b2214454744da22d74cee92074110e4f05c5daf178999b7f9f1",
+  "source_hash": "e2ccbbc0aa31903a330982303eec9e082095275a48c7822f0951c8b54c5010ab",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses hour tens one even when the fixed ones digit would make an invalid hour.",
+      "failed_cases": [
+        "lc-3114-5",
+        "lc-3114-10"
+      ]
+    },
+    {
+      "reason": "Allows minute tens nine rather than at most five.",
+      "failed_cases": [
+        "lc-3114-1",
+        "lc-3114-3",
+        "lc-3114-4",
+        "lc-3114-5",
+        "lc-3114-7",
+        "lc-3114-9",
+        "lc-3114-10",
+        "lc-3114-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7161,
+  "oracle_implementation": "code_practice/import_batch_189d.py:time_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "cb9dc5a7e34f0db71ea693df1ffcfa558782ed85610956626f255ad242c41971",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "172553f11054d8b5043aaa74ba71b049336d8da88309e0d9eb67dd1442079308",
+  "elapsed_seconds": 0.209,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

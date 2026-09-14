@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3127",
+  "content_sha256": "1c61f819db09c407bd5e826e35ffc801c0acecde92a5a74af6835bf72de59628",
+  "source_hash": "fd022a4026533a6321987de4bdca2fa9b184db6bce034f9a26f06457f20f849f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts only already-all-black blocks and misses one-change cases.",
+      "failed_cases": [
+        "lc-3127-1",
+        "lc-3127-4",
+        "lc-3127-5",
+        "lc-3127-6",
+        "lc-3127-7",
+        "lc-3127-9",
+        "lc-3127-10",
+        "lc-3127-11",
+        "lc-3127-13",
+        "lc-3127-14",
+        "lc-3127-15"
+      ]
+    },
+    {
+      "reason": "Checks only the top row of candidate block positions.",
+      "failed_cases": [
+        "lc-3127-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7174,
+  "oracle_implementation": "code_practice/import_batch_189d.py:square_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "cb9dc5a7e34f0db71ea693df1ffcfa558782ed85610956626f255ad242c41971",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e7392e4670cf8ca9564783ddc2ef6259c58b40c45542157adaa5bbb6b267c03f",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

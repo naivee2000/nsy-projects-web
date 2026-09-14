@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3110",
+  "content_sha256": "bd28df0fbd0a48ade3640327d64878e83f663e0c95eec3573a59c4c15e11201d",
+  "source_hash": "65f3bc76f03ab631b4a306405dfa01a5bc6cb7894d6803b7b475740889b031b1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits absolute value, allowing signed differences to cancel.",
+      "failed_cases": [
+        "lc-3110-1",
+        "lc-3110-2",
+        "lc-3110-4",
+        "lc-3110-6",
+        "lc-3110-8",
+        "lc-3110-10",
+        "lc-3110-11",
+        "lc-3110-13",
+        "lc-3110-14"
+      ]
+    },
+    {
+      "reason": "Pairs each character with one two positions later instead of its neighbor.",
+      "failed_cases": [
+        "lc-3110-1",
+        "lc-3110-2",
+        "lc-3110-4",
+        "lc-3110-5",
+        "lc-3110-8",
+        "lc-3110-9",
+        "lc-3110-10",
+        "lc-3110-11",
+        "lc-3110-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7157,
+  "oracle_implementation": "code_practice/import_batch_189d.py:score_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "cb9dc5a7e34f0db71ea693df1ffcfa558782ed85610956626f255ad242c41971",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7cd25ef3029166426dd36cdf7ff92d8769690ddcb6c3e7f4e42ea270a9478b33",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

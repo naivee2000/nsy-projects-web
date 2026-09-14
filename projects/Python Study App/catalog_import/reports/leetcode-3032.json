@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3032",
+  "content_sha256": "4a103863af1d45b17a14e130ce02975969ef85ca6137b20b8bbc51340ae44b96",
+  "source_hash": "1a924ed1c808c5dc5980180478a9010e897ee9cf7099a57868065d06d4e02712",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts every number because a set can never exceed the string length.",
+      "failed_cases": [
+        "lc-3032-1",
+        "lc-3032-2",
+        "lc-3032-6",
+        "lc-3032-7",
+        "lc-3032-8",
+        "lc-3032-9",
+        "lc-3032-10",
+        "lc-3032-11",
+        "lc-3032-12",
+        "lc-3032-13",
+        "lc-3032-14"
+      ]
+    },
+    {
+      "reason": "Treats the inclusive upper bound as exclusive.",
+      "failed_cases": [
+        "lc-3032-1",
+        "lc-3032-2",
+        "lc-3032-3",
+        "lc-3032-4",
+        "lc-3032-5",
+        "lc-3032-7",
+        "lc-3032-9",
+        "lc-3032-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7079,
+  "oracle_implementation": "code_practice/import_batch_189a.py:unique_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "09e2ee1be9fc9ba6ce78172c9eac6c547ac3eb93f246c2d11cad128985cbdeb9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f6e7fc476feeb4ab97904913abe7713dc450a1a42d6ff1ac73d2b3af4ce6f856",
+  "elapsed_seconds": 0.067,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

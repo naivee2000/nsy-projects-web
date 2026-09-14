@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3095",
+  "content_sha256": "8daabc01f9e675418d31f95c71a28937829801361a854198e9292903a3226012",
+  "source_hash": "315bd11809e06aa281794348b8d5c35f15fa3dcc4e6a25a09bd794206029fe38",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Adds values instead of combining their bits with OR.",
+      "failed_cases": [
+        "lc-3095-15"
+      ]
+    },
+    {
+      "reason": "Requires the OR to be strictly greater than k.",
+      "failed_cases": [
+        "lc-3095-4",
+        "lc-3095-6",
+        "lc-3095-8",
+        "lc-3095-9",
+        "lc-3095-10",
+        "lc-3095-11",
+        "lc-3095-12",
+        "lc-3095-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7142,
+  "oracle_implementation": "code_practice/import_batch_189c.py:shortest_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "5344c97b47fd1dde7d6e69725e126a5f3ecd5e015ad0fbe61edf103b4a08454b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0b42601bc69cf0d3b3f72082114e7de7ed86f326ec271ae001185a7654ffc4d0",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

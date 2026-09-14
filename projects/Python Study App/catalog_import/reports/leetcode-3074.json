@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3074",
+  "content_sha256": "1b6fdd24607fc3c8d105f854333223a930139d242dd76aa5bd6632e075b943e2",
+  "source_hash": "0c7ce5ad80be9e8f43d74ecb1c3cb79b3808e65fa7e3d997e5e5ceebc0bea272",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fills the smallest boxes first, which cannot minimize their count.",
+      "failed_cases": [
+        "lc-3074-1",
+        "lc-3074-8"
+      ]
+    },
+    {
+      "reason": "Requires excess capacity and rejects an exact fit.",
+      "failed_cases": [
+        "lc-3074-2",
+        "lc-3074-3",
+        "lc-3074-5",
+        "lc-3074-6",
+        "lc-3074-7",
+        "lc-3074-9",
+        "lc-3074-10",
+        "lc-3074-13",
+        "lc-3074-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7121,
+  "oracle_implementation": "code_practice/import_batch_189b.py:boxes_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "1599d9497a23b5b31d87afbdb4ad5ed6b005924b1cbc599b415db9ed89a8d1ce",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9853ac9adc13b69b605e15ce1a12004347effdcd3a4a390c2b03b994dee2f126",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

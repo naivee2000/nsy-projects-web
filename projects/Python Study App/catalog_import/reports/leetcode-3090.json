@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3090",
+  "content_sha256": "8c876bb5918df90933c057840713775abd585e98990635718fffee6d80baac12",
+  "source_hash": "d913812d4ff801e17d7fda40eb74bc916e940b9c9ad7162bc00ec634aca2c729",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a third occurrence of a character.",
+      "failed_cases": [
+        "lc-3090-1",
+        "lc-3090-2",
+        "lc-3090-5",
+        "lc-3090-10",
+        "lc-3090-12",
+        "lc-3090-13"
+      ]
+    },
+    {
+      "reason": "Moves the window boundary without removing the departed character from its count.",
+      "failed_cases": [
+        "lc-3090-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7137,
+  "oracle_implementation": "code_practice/import_batch_189c.py:twice_oracle",
+  "validator_implementation_sha256": "c704d8e3cfa1c46c6ff5997dc2541991548f02454525708a55c5f5b11026f316",
+  "batch_implementation_sha256": "5344c97b47fd1dde7d6e69725e126a5f3ecd5e015ad0fbe61edf103b4a08454b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4877c84e20d17b8f44afc92486fe9e029e5b3a88bd84d96eb7a74ed187fa1480",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
