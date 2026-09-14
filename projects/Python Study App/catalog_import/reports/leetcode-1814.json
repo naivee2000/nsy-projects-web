@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1814",
+  "content_sha256": "c85f2d770c90fbd9d2e18eefbdae183d90e50e50c4e759e29865f95d0346d22b",
+  "source_hash": "e34a492daccc5276034052cfd3163ca576ca59f35d1b80d33b2477043a33c4c9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Groups by value plus reverse instead of their difference.",
+      "failed_cases": [
+        "lc-1814-1",
+        "lc-1814-2",
+        "lc-1814-6",
+        "lc-1814-9",
+        "lc-1814-12"
+      ]
+    },
+    {
+      "reason": "Counts every element instead of only earlier matching transformed values.",
+      "failed_cases": [
+        "lc-1814-1",
+        "lc-1814-2",
+        "lc-1814-3",
+        "lc-1814-4",
+        "lc-1814-5",
+        "lc-1814-6",
+        "lc-1814-7",
+        "lc-1814-8",
+        "lc-1814-9",
+        "lc-1814-11",
+        "lc-1814-12",
+        "lc-1814-13",
+        "lc-1814-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5861,
+  "oracle_implementation": "code_practice/import_batch_106d.py:nice_o",
+  "validator_implementation_sha256": "68f92d468026e337965ae7bea95487ea138620fde18e5580142b906f5770959e",
+  "batch_implementation_sha256": "bafb9ebd52a8e202d3a3aaf71aabe624cad5060f5c37b7fe91fe5234a1fcde60",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "50716d4a2f00b0e8afc592880b77a5bbf3dd069c381904ae5a237a9bf66a1ffa",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

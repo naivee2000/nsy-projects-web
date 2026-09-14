@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1817",
+  "content_sha256": "881cd3d5d467830848c40b2d61dc2623f80a10ec8643c7579d3f3ff27aae46d6",
+  "source_hash": "f31de7d08e89759c82d397cb61bc8d6628fba4aa319f9ef4cd97c7a67b4fcd98",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts duplicate actions rather than distinct active minutes.",
+      "failed_cases": [
+        "lc-1817-1",
+        "lc-1817-4",
+        "lc-1817-10",
+        "lc-1817-14"
+      ]
+    },
+    {
+      "reason": "Writes each user into the next bucket, causing an index shift.",
+      "failed_cases": [
+        "lc-1817-1",
+        "lc-1817-2",
+        "lc-1817-4",
+        "lc-1817-6",
+        "lc-1817-7",
+        "lc-1817-8",
+        "lc-1817-9",
+        "lc-1817-10",
+        "lc-1817-11",
+        "lc-1817-13",
+        "lc-1817-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5864,
+  "oracle_implementation": "code_practice/import_batch_106d.py:active_o",
+  "validator_implementation_sha256": "68f92d468026e337965ae7bea95487ea138620fde18e5580142b906f5770959e",
+  "batch_implementation_sha256": "bafb9ebd52a8e202d3a3aaf71aabe624cad5060f5c37b7fe91fe5234a1fcde60",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "da54834206b3198f6485e2554c078341548b56bd52d6c0ee6f4de95ac412e04c",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
