@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2680",
+  "content_sha256": "f4c39e084979ad6a20820efdbdda7b0290c93b76d1c0c5ecb6f0f80df444b16e",
+  "source_hash": "5c39c371a930592918c96b37cf6ef4ed9a3e70d8ec8c2ea3ffa8fcc51ca12707",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Applies only k-1 doublings to the selected value.",
+      "failed_cases": [
+        "lc-2680-1",
+        "lc-2680-2",
+        "lc-2680-5",
+        "lc-2680-6",
+        "lc-2680-7",
+        "lc-2680-8",
+        "lc-2680-9",
+        "lc-2680-10",
+        "lc-2680-12",
+        "lc-2680-13",
+        "lc-2680-14"
+      ]
+    },
+    {
+      "reason": "Forgets earlier prefix values instead of accumulating their OR.",
+      "failed_cases": [
+        "lc-2680-8",
+        "lc-2680-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6727,
+  "oracle_implementation": "code_practice/import_batch_171.py:maximum_oracle",
+  "validator_implementation_sha256": "b9ba8a93bb22ed3599659aa82272c93cab3bba4734238a25c94e06fe6fa8672d",
+  "batch_implementation_sha256": "9717b70948d034cdbbe4e0802bdcdcc86472b67d25dfe22422358b302feaaf06",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "098b1ef1881be41f9b59e0d2f8b2a6b16fb008503a8c01ed3ba195c646108cb0",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

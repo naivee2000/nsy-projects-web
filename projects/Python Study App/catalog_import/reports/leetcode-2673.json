@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2673",
+  "content_sha256": "efee9a7b429dd9736286eb40f83f2de07e1e84b7590e330edcc1dd6877297caf",
+  "source_hash": "d9424a05e8005434e706d5d6a51ff68fc0143d06c95d6554c0cd231e8abe6b89",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds a signed imbalance, allowing negative operation counts.",
+      "failed_cases": [
+        "lc-2673-1",
+        "lc-2673-5",
+        "lc-2673-7",
+        "lc-2673-8",
+        "lc-2673-9",
+        "lc-2673-10",
+        "lc-2673-11"
+      ]
+    },
+    {
+      "reason": "Propagates the cheaper child path upward instead of the balanced maximum.",
+      "failed_cases": [
+        "lc-2673-1",
+        "lc-2673-11",
+        "lc-2673-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6720,
+  "oracle_implementation": "code_practice/import_batch_171.py:tree_cost_oracle",
+  "validator_implementation_sha256": "b9ba8a93bb22ed3599659aa82272c93cab3bba4734238a25c94e06fe6fa8672d",
+  "batch_implementation_sha256": "9717b70948d034cdbbe4e0802bdcdcc86472b67d25dfe22422358b302feaaf06",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6e34543d59a52480be9c9be2d5724d6ba12a715b777d4476d8fb9d08f97cb59f",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2672",
+  "content_sha256": "4d8d9d3ec4087e876864f6e35e8fc0ac7f4317946801061a42d81d1a6e352fc1",
+  "source_hash": "d8c7fa63395e6f631fee13907b363afcda74cc323abe4b8ccad189a362e38545",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats two initial zero colors as a removable colored pair.",
+      "failed_cases": [
+        "lc-2672-1",
+        "lc-2672-4",
+        "lc-2672-5",
+        "lc-2672-6",
+        "lc-2672-7",
+        "lc-2672-8",
+        "lc-2672-9",
+        "lc-2672-10",
+        "lc-2672-11",
+        "lc-2672-12",
+        "lc-2672-13",
+        "lc-2672-14",
+        "lc-2672-15"
+      ]
+    },
+    {
+      "reason": "Adds obsolete matching pairs instead of removing them before recoloring.",
+      "failed_cases": [
+        "lc-2672-1",
+        "lc-2672-7",
+        "lc-2672-8",
+        "lc-2672-11",
+        "lc-2672-13",
+        "lc-2672-14",
+        "lc-2672-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6719,
+  "oracle_implementation": "code_practice/import_batch_171.py:colors_oracle",
+  "validator_implementation_sha256": "b9ba8a93bb22ed3599659aa82272c93cab3bba4734238a25c94e06fe6fa8672d",
+  "batch_implementation_sha256": "9717b70948d034cdbbe4e0802bdcdcc86472b67d25dfe22422358b302feaaf06",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "986a79b900b27f7bff529cfa73717e5ac717de4cefc67ba77f281f6f290fdc15",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
