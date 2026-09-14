@@ -1,0 +1,45 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-2195",
+  "content_sha256": "59645a024382ea2a216e6684e852e8009db5e0d3630a56d30f21d9734bfe794a",
+  "source_hash": "90c6d43f7646ed1fa9921acc215d1ece9dcdc691aa3909f6dd5a46670803e9dc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stops at a duplicate or previously passed forbidden value and treats later forbidden values as available.",
+      "failed_cases": []
+    },
+    {
+      "reason": "Fails to advance past a forbidden value after processing its gap.",
+      "failed_cases": [
+        "lc-2195-1",
+        "lc-2195-2",
+        "lc-2195-3",
+        "lc-2195-5",
+        "lc-2195-6",
+        "lc-2195-8",
+        "lc-2195-10",
+        "lc-2195-12",
+        "lc-2195-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6242,
+  "oracle_implementation": "code_practice/import_batch_122c.py:append_oracle",
+  "validator_implementation_sha256": "7d1656ea82a3a8f65673728713f373b259351528508786d28f41c56a6e0672e3",
+  "batch_implementation_sha256": "d8dfb88a3067ef9267d72d4feebcc4b96540d12a9fc8700acbd2142d75751519",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2b6676b2f44e12771cf8f10435321cc1628fcffad80f83e485965a0c47e7e0a4",
+  "elapsed_seconds": 0.026,
+  "failures": [
+    {
+      "phase": "known_wrong",
+      "index": 0
+    }
+  ],
+  "workbook_sample": "preserved and independently verified"
+}

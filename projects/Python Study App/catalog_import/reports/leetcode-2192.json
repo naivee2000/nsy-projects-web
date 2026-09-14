@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2192",
+  "content_sha256": "d8f064ac11dd8b6b8fc6634ecbd2b88ccd2507f7049918ec94712ab83f511a52",
+  "source_hash": "8e96420a3a8432c973f9f5578c1ccef25d5810e04822209ee1d7bdfbd974eafc",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Records only direct parents and omits transitive ancestors.",
+      "failed_cases": [
+        "lc-2192-1",
+        "lc-2192-2",
+        "lc-2192-6",
+        "lc-2192-8",
+        "lc-2192-11",
+        "lc-2192-13",
+        "lc-2192-14",
+        "lc-2192-15"
+      ]
+    },
+    {
+      "reason": "Returns ancestor lists in decreasing rather than increasing order.",
+      "failed_cases": [
+        "lc-2192-1",
+        "lc-2192-2",
+        "lc-2192-6",
+        "lc-2192-7",
+        "lc-2192-8",
+        "lc-2192-9",
+        "lc-2192-10",
+        "lc-2192-11",
+        "lc-2192-13",
+        "lc-2192-14",
+        "lc-2192-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6239,
+  "oracle_implementation": "code_practice/import_batch_122c.py:ancestors_oracle",
+  "validator_implementation_sha256": "7d1656ea82a3a8f65673728713f373b259351528508786d28f41c56a6e0672e3",
+  "batch_implementation_sha256": "d8dfb88a3067ef9267d72d4feebcc4b96540d12a9fc8700acbd2142d75751519",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "797645e7c6d49a89f65d740a1c2767f33005b0cdf98c645067bbaaa44bcdd63f",
+  "elapsed_seconds": 0.059,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

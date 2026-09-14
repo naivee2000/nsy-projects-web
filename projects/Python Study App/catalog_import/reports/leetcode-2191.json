@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2191",
+  "content_sha256": "40d5762ca6dc121140fa0b914cdff8e92c06e98d74c75a745f1db8bba8628e03",
+  "source_hash": "4b01966d72cc8485f35afd4b7a2f1668c98a612fdf9435bfb5559e13613f26a2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts by original values rather than mapped values.",
+      "failed_cases": [
+        "lc-2191-1",
+        "lc-2191-4",
+        "lc-2191-8",
+        "lc-2191-9",
+        "lc-2191-14"
+      ]
+    },
+    {
+      "reason": "Treats zero as having no digits instead of applying mapping[0].",
+      "failed_cases": [
+        "lc-2191-4",
+        "lc-2191-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6238,
+  "oracle_implementation": "code_practice/import_batch_122c.py:jumbled_oracle",
+  "validator_implementation_sha256": "7d1656ea82a3a8f65673728713f373b259351528508786d28f41c56a6e0672e3",
+  "batch_implementation_sha256": "d8dfb88a3067ef9267d72d4feebcc4b96540d12a9fc8700acbd2142d75751519",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e9a99b681ae688294a09608ffe1d77f6aca418c020ccbfb7b809a6bfaec6b65d",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
