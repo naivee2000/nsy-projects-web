@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1976,
+  "count": 1996,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -35246,6 +35246,361 @@
       "path": "problems/leetcode-2808.json",
       "content_sha256": "9a750e6bc8784a504982661945597c70f1e039f3230cd7c727a8f9d11714ac41",
       "source_id": 2808
+    },
+    {
+      "id": "leetcode-2810",
+      "version": 1,
+      "status": "approved",
+      "title": "Faulty Keyboard",
+      "summary": "Given a string s, simulate typing each character on a keyboard that reverses the string whenever an 'i' is typed.",
+      "topics": [
+        "strings",
+        "simulation",
+        "deques"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2810.json",
+      "content_sha256": "0dad743c54040afcfe0e81f0900a5f553238a322738cfb0768407e39e6952561",
+      "source_id": 2810
+    },
+    {
+      "id": "leetcode-2815",
+      "version": 1,
+      "status": "approved",
+      "title": "Max Pair Sum in an Array",
+      "summary": "Given an integer array, identify the highest sum of any two numbers where the largest digit in both numbers matches.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2815.json",
+      "content_sha256": "11f1c438e9121b73fe62cfa4e9b27ad09b704f8da9f13f40c6e76b6b39626a5f",
+      "source_id": 2815
+    },
+    {
+      "id": "leetcode-2824",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Pairs Whose Sum is Less than Target",
+      "summary": "Given an array of integers indexed from 0 to n-1 and a target integer, count the number of unique pairs (i, j) such that i is less than j and the sum of the elements at these indices is less than the target.",
+      "topics": [
+        "arrays",
+        "two pointers",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2824.json",
+      "content_sha256": "361410b23b31416db528cc184ed2129133f88927cf38d9357a4e1943daa840c5",
+      "source_id": 2824
+    },
+    {
+      "id": "leetcode-2828",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if a String Is an Acronym of Words",
+      "summary": "Given an array of strings words and a string s, check if s matches the sequence of first characters from each word in words.",
+      "topics": [
+        "arrays",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2828.json",
+      "content_sha256": "cd60753789cab08a03724f3c81798aea97aec8ca2bf7da6e11f4ddeedcc803ae",
+      "source_id": 2828
+    },
+    {
+      "id": "leetcode-2833",
+      "version": 1,
+      "status": "approved",
+      "title": "Furthest Point From Origin",
+      "summary": "Given a string of length n consisting of 'L', 'R', and '_', representing movements on a number line starting from 0, where 'L' or '_' means move left, and 'R' or '_' means move right, return the distance from the origin of the furthest point reachable after n moves.",
+      "topics": [
+        "strings",
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2833.json",
+      "content_sha256": "4b988f0e3d3944cebd43ed54e66a7f9ccaa6245123f64b9805badd165ed8e479",
+      "source_id": 2833
+    },
+    {
+      "id": "leetcode-2839",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Strings Can be Made Equal With Operations I",
+      "summary": "Given two strings s1 and s2, both of length 4 and consisting of lowercase English letters, you can perform the following operation any number of times: - Choose any two indices i and j such that j - i = 2, and swap the characters at these indices in either string.",
+      "topics": [
+        "strings",
+        "sorting",
+        "parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2839.json",
+      "content_sha256": "5a201d1626aeb7881eb87f0b3f5796531f4dcced589df305cab1cd5e30a50451",
+      "source_id": 2839
+    },
+    {
+      "id": "leetcode-2843",
+      "version": 1,
+      "status": "approved",
+      "title": "  Count Symmetric Integers",
+      "summary": "Given two positive integers low and high, count the number of symmetric integers within the range [low, high].",
+      "topics": [
+        "math",
+        "digits",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2843.json",
+      "content_sha256": "fb1536b4e3e2b5507345a6c5b8d2498124b2612c17e1a14c73dabbfd2a38bef7",
+      "source_id": 2843
+    },
+    {
+      "id": "leetcode-2848",
+      "version": 1,
+      "status": "approved",
+      "title": "Points That Intersect With Cars",
+      "summary": "Given a 0-indexed 2D integer array nums where each element is a car's start and end coordinates, return the count of unique integer points on the line that are covered by any car.",
+      "topics": [
+        "arrays",
+        "intervals",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2848.json",
+      "content_sha256": "4812e509bc59e93f9c6c0ab15b63870203a774b046ee1f7d07e889f26c750dc0",
+      "source_id": 2848
+    },
+    {
+      "id": "leetcode-2855",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Right Shifts to Sort the Array",
+      "summary": "Given a 0-indexed array of distinct positive integers, determine the least number of right shifts needed to sort the array, or return -1 if sorting is impossible.",
+      "topics": [
+        "arrays",
+        "circular arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2855.json",
+      "content_sha256": "3138588ce7f45fb71989d366c00708ca21bbc18db1c370911b7b555a4b752621",
+      "source_id": 2855
+    },
+    {
+      "id": "leetcode-2859",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Values at Indices With K Set Bits",
+      "summary": "Given a 0-indexed integer array nums and an integer k, return the sum of elements in nums where the indices have exactly k set bits in their binary representation.",
+      "topics": [
+        "arrays",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2859.json",
+      "content_sha256": "f7f86251b4dfa758fd06c35aaa69f949299bb11887624d2331f8a58bce5a71a5",
+      "source_id": 2859
+    },
+    {
+      "id": "leetcode-2864",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Odd Binary Number",
+      "summary": "Given a binary string s with at least one '1', rearrange the bits to form the largest possible odd binary number.",
+      "topics": [
+        "strings",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2864.json",
+      "content_sha256": "949a64e832ff3dcbb59ba18826a2218db13364863d45cf3f81df1b2a2285b46e",
+      "source_id": 2864
+    },
+    {
+      "id": "leetcode-2869",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Collect Elements",
+      "summary": "Given an array of positive integers and an integer k, determine the least number of operations required to collect elements 1 through k by removing the last element of the array in each operation.",
+      "topics": [
+        "arrays",
+        "sets",
+        "reverse traversal"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2869.json",
+      "content_sha256": "ff9bd1dba8643e3c3005df3d6a9b3e4f52afc557d9b4544f32fe6cad53b5fb26",
+      "source_id": 2869
+    },
+    {
+      "id": "leetcode-2873",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Value of an Ordered Triplet I",
+      "summary": "Given an integer array nums, find the maximum value of (nums[i] - nums[j]) * nums[k] for all indices i < j < k.",
+      "topics": [
+        "arrays",
+        "prefix maxima",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2873.json",
+      "content_sha256": "3161f28932cc7258f6ac9841abac2f7686c8fc018028839e5dccad6c7016a34e",
+      "source_id": 2873
+    },
+    {
+      "id": "leetcode-2894",
+      "version": 1,
+      "status": "approved",
+      "title": "Divisible and Non-divisible Sums Difference",
+      "summary": "Given positive integers n and m, calculate the difference between the sum of integers from 1 to n that are not divisible by m and the sum of integers from 1 to n that are divisible by m.",
+      "topics": [
+        "math",
+        "arithmetic series"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2894.json",
+      "content_sha256": "26c5e18e06cb00a51435caee4b4ebff21679e748c5381f8a1e9518e63fff1d88",
+      "source_id": 2894
+    },
+    {
+      "id": "leetcode-2899",
+      "version": 1,
+      "status": "approved",
+      "title": "Last Visited Integers",
+      "summary": "Given an integer array nums, where each element is either a positive integer or -1.",
+      "topics": [
+        "arrays",
+        "simulation",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2899.json",
+      "content_sha256": "28318295551d707bf42d8d6bf0360537407e033b4972e4a59d160738b48b5008",
+      "source_id": 2899
+    },
+    {
+      "id": "leetcode-2900",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Unequal Adjacent Groups Subsequence I",
+      "summary": "Given a string array words and a binary array groups of equal length, find the longest subsequence of words where the corresponding elements in groups are alternating (i.e., no two consecutive elements are the same).",
+      "topics": [
+        "arrays",
+        "greedy",
+        "subsequences"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2900.json",
+      "content_sha256": "62649aaa67f1d4ba6700c1139b96cb1d4cd26a90100e9a87ca0508cbcf6e444d",
+      "source_id": 2900
+    },
+    {
+      "id": "leetcode-2903",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Indices With Index and Value Difference I",
+      "summary": "Given a 0-indexed integer array nums of length n, an integer indexDifference, and an integer valueDifference, find two indices i and j such that the absolute difference between i and j is at least indexDifference, and the absolute difference between nums[i] and nums[j] is at least valueDifference.",
+      "topics": [
+        "arrays",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2903.json",
+      "content_sha256": "ae3a5ffc7ef1852d8a3e846d7e8a4660bab18a87a8fd054af85ffd69730663e6",
+      "source_id": 2903
+    },
+    {
+      "id": "leetcode-2908",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Sum of Mountain Triplets I",
+      "summary": "Given an array nums, find the minimum sum of indices (i, j, k) where i < j < k, and nums[i] < nums[j] < nums[k].",
+      "topics": [
+        "arrays",
+        "prefix minima",
+        "suffix minima"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2908.json",
+      "content_sha256": "4d1c2ff8d9398e54c0db34d308dfb7633d32f619714ee8f66b67e69ba2298866",
+      "source_id": 2908
+    },
+    {
+      "id": "leetcode-2913",
+      "version": 1,
+      "status": "approved",
+      "title": "Subarrays Distinct Element Sum of Squares I",
+      "summary": "Given an integer array nums, calculate the sum of the squares of the distinct counts for every possible subarray.",
+      "topics": [
+        "arrays",
+        "sets",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2913.json",
+      "content_sha256": "206160cf7b24b381a48b59e30a944ce31a9417ae3da79b9c93c5810f1d8b9938",
+      "source_id": 2913
+    },
+    {
+      "id": "leetcode-2917",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the K-or of an Array",
+      "summary": "Given an integer array nums and an integer k, compute the K-or value.",
+      "topics": [
+        "arrays",
+        "bit manipulation",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2917.json",
+      "content_sha256": "ac2a25ebce54674a730be25db8142d726bc7e5bb13f03a8ade48b320509d3c6a",
+      "source_id": 2917
     }
   ]
 }

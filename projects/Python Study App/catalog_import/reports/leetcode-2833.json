@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2833",
+  "content_sha256": "4b988f0e3d3944cebd43ed54e66a7f9ccaa6245123f64b9805badd165ed8e479",
+  "source_hash": "bcb6cc7d3ff7463599dee37f129fca818aac3d89117a3b7096a07bcf3398edbd",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to take absolute value when fixed moves lean left.",
+      "failed_cases": [
+        "lc-2833-2",
+        "lc-2833-3",
+        "lc-2833-9",
+        "lc-2833-13"
+      ]
+    },
+    {
+      "reason": "Moves wildcards toward the origin instead of away from the fixed displacement.",
+      "failed_cases": [
+        "lc-2833-1",
+        "lc-2833-2",
+        "lc-2833-5",
+        "lc-2833-8",
+        "lc-2833-9",
+        "lc-2833-10",
+        "lc-2833-11",
+        "lc-2833-15",
+        "lc-2833-16",
+        "lc-2833-17",
+        "lc-2833-18"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6880,
+  "oracle_implementation": "code_practice/import_batch_187a.py:origin_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "7a751ef4684cd93dfe011ba9a703fc0c3511956e5aceb86a67d2f8fcfdf93cb5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a930b7d76a47c84d92b0a583f2c407d2938e9598cbac35996a418d4be0a50384",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

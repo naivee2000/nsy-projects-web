@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2917",
+  "content_sha256": "ac2a25ebce54674a730be25db8142d726bc7e5bb13f03a8ade48b320509d3c6a",
+  "source_hash": "b1a458cca520bc54fa443991b5e6540c31e5b10506c123853e53f3751db05656",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires more than k occurrences instead of at least k.",
+      "failed_cases": [
+        "lc-2917-1",
+        "lc-2917-4",
+        "lc-2917-5",
+        "lc-2917-7",
+        "lc-2917-9",
+        "lc-2917-10",
+        "lc-2917-12",
+        "lc-2917-13",
+        "lc-2917-14"
+      ]
+    },
+    {
+      "reason": "Adds the bit index rather than setting its positional value.",
+      "failed_cases": [
+        "lc-2917-1",
+        "lc-2917-4",
+        "lc-2917-5",
+        "lc-2917-7",
+        "lc-2917-9",
+        "lc-2917-10",
+        "lc-2917-12",
+        "lc-2917-13",
+        "lc-2917-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6964,
+  "oracle_implementation": "code_practice/import_batch_187d.py:kor_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "3846b7f88d9ba50707ca6410b5774b11cfdb6b7dd68e4d6f64e733816c257fea",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "217d0d8bd43520da4072d52799d0a5325ee55c36af5f5c66359f79b1b29feae5",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

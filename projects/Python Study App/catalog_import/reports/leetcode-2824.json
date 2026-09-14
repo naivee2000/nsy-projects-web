@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2824",
+  "content_sha256": "361410b23b31416db528cc184ed2129133f88927cf38d9357a4e1943daa840c5",
+  "source_hash": "921e98b68c6b119996f725c0adefcc713506d6483f3a1d9ad5ecac8dfdde0ac2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts pairs equal to the target even though the inequality is strict.",
+      "failed_cases": [
+        "lc-2824-1",
+        "lc-2824-2",
+        "lc-2824-5",
+        "lc-2824-7",
+        "lc-2824-11",
+        "lc-2824-13",
+        "lc-2824-15"
+      ]
+    },
+    {
+      "reason": "Counts only one partner when a small left value qualifies with every index through right.",
+      "failed_cases": [
+        "lc-2824-1",
+        "lc-2824-2",
+        "lc-2824-6",
+        "lc-2824-8",
+        "lc-2824-10",
+        "lc-2824-12",
+        "lc-2824-13",
+        "lc-2824-14",
+        "lc-2824-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6871,
+  "oracle_implementation": "code_practice/import_batch_187a.py:less_pair_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "7a751ef4684cd93dfe011ba9a703fc0c3511956e5aceb86a67d2f8fcfdf93cb5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aebe1602ef9fc1e5b188e621fd9ed92be4feb051ae3d8c9c148239ebd9a3a5f1",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

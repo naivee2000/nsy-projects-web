@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2848",
+  "content_sha256": "4812e509bc59e93f9c6c0ab15b63870203a774b046ee1f7d07e889f26c750dc0",
+  "source_hash": "d4083574a8fad2368db5e824e11f913c8eb9ad7eb1a2af357f5172f52ed73257",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats closed interval endpoints as excluded.",
+      "failed_cases": [
+        "lc-2848-1",
+        "lc-2848-2",
+        "lc-2848-3",
+        "lc-2848-4",
+        "lc-2848-5",
+        "lc-2848-6",
+        "lc-2848-7",
+        "lc-2848-8",
+        "lc-2848-9",
+        "lc-2848-10",
+        "lc-2848-11",
+        "lc-2848-12",
+        "lc-2848-13",
+        "lc-2848-14"
+      ]
+    },
+    {
+      "reason": "Adds interval lengths without removing overlap duplicates.",
+      "failed_cases": [
+        "lc-2848-1",
+        "lc-2848-5",
+        "lc-2848-6",
+        "lc-2848-11",
+        "lc-2848-12",
+        "lc-2848-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6895,
+  "oracle_implementation": "code_practice/import_batch_187b.py:points_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "2065add7222863b926f8fe8bd76e0c6180d7ad6a53faf7d39588df8ffc34de7d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3a6bbd98dc3a75028e5fa0b3a92f50b6a7c4c7891e76b20a805efb3488ec0da6",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

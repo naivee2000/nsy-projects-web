@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2894",
+  "content_sha256": "26c5e18e06cb00a51435caee4b4ebff21679e748c5381f8a1e9518e63fff1d88",
+  "source_hash": "c5c45508e145bc6a5ff721f09cda870f757a6b43d7680e8f7bfe1675e6fa83ac",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts divisible values only once even though they must move from the total into the negative group.",
+      "failed_cases": [
+        "lc-2894-1",
+        "lc-2894-3",
+        "lc-2894-5",
+        "lc-2894-6",
+        "lc-2894-7",
+        "lc-2894-8",
+        "lc-2894-10",
+        "lc-2894-11",
+        "lc-2894-12",
+        "lc-2894-14"
+      ]
+    },
+    {
+      "reason": "Omits n itself when n is divisible by m.",
+      "failed_cases": [
+        "lc-2894-3",
+        "lc-2894-5",
+        "lc-2894-7",
+        "lc-2894-8",
+        "lc-2894-11",
+        "lc-2894-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6941,
+  "oracle_implementation": "code_practice/import_batch_187c.py:difference_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "f44ce664d4334cb746cf864f6c0eba4ce2de720cb1c4389a8e193ee58b04404d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c04eb0a34d8ebf6d8fe0916dd8bc8c4242a4268e05e0218ce8f700bbac731f84",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

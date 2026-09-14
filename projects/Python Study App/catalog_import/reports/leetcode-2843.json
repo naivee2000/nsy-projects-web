@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2843",
+  "content_sha256": "fb1536b4e3e2b5507345a6c5b8d2498124b2612c17e1a14c73dabbfd2a38bef7",
+  "source_hash": "ead59a8e8b1786e7dae83f6d49073529555be2bff65132569650628c1043de72",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly permits odd digit lengths.",
+      "failed_cases": [
+        "lc-2843-9",
+        "lc-2843-13",
+        "lc-2843-16"
+      ]
+    },
+    {
+      "reason": "Counts unequal half sums instead of equal ones.",
+      "failed_cases": [
+        "lc-2843-1",
+        "lc-2843-2",
+        "lc-2843-4",
+        "lc-2843-5",
+        "lc-2843-6",
+        "lc-2843-8",
+        "lc-2843-10",
+        "lc-2843-11",
+        "lc-2843-12",
+        "lc-2843-14",
+        "lc-2843-15",
+        "lc-2843-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6890,
+  "oracle_implementation": "code_practice/import_batch_187b.py:symmetric_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "2065add7222863b926f8fe8bd76e0c6180d7ad6a53faf7d39588df8ffc34de7d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "13512407843278eb6c9303951595d0ed5782f02e57db68b9d14386248efc893a",
+  "elapsed_seconds": 0.117,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

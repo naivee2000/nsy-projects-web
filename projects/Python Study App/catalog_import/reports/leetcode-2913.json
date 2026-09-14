@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2913",
+  "content_sha256": "206160cf7b24b381a48b59e30a944ce31a9417ae3da79b9c93c5810f1d8b9938",
+  "source_hash": "ef667c2e05f254e282a5d7c3567774c0f9bb818dc6d0f36231664bbe338c3057",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds distinct counts without squaring them.",
+      "failed_cases": [
+        "lc-2913-1",
+        "lc-2913-4",
+        "lc-2913-5",
+        "lc-2913-6",
+        "lc-2913-8",
+        "lc-2913-9",
+        "lc-2913-10",
+        "lc-2913-11",
+        "lc-2913-12",
+        "lc-2913-13",
+        "lc-2913-14"
+      ]
+    },
+    {
+      "reason": "Forgets values seen earlier in the current subarray.",
+      "failed_cases": [
+        "lc-2913-1",
+        "lc-2913-4",
+        "lc-2913-5",
+        "lc-2913-6",
+        "lc-2913-8",
+        "lc-2913-9",
+        "lc-2913-10",
+        "lc-2913-11",
+        "lc-2913-12",
+        "lc-2913-13",
+        "lc-2913-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6960,
+  "oracle_implementation": "code_practice/import_batch_187d.py:distinct_square_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "3846b7f88d9ba50707ca6410b5774b11cfdb6b7dd68e4d6f64e733816c257fea",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "84f8e6fbb03beb42614248444b590cf5a08230443c8e494429e8823c2bcd2fd9",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

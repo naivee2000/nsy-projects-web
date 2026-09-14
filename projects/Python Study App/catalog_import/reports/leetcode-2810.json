@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2810",
+  "content_sha256": "0dad743c54040afcfe0e81f0900a5f553238a322738cfb0768407e39e6952561",
+  "source_hash": "15f91642a53d3fa98d415d0b4438114cc68633cf9e0fff671e711e4280943e76",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats every i after the first as leaving the orientation reversed.",
+      "failed_cases": [
+        "lc-2810-2",
+        "lc-2810-16"
+      ]
+    },
+    {
+      "reason": "Appends in the wrong deque direction while the screen is logically reversed.",
+      "failed_cases": [
+        "lc-2810-1",
+        "lc-2810-9",
+        "lc-2810-14",
+        "lc-2810-15",
+        "lc-2810-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6857,
+  "oracle_implementation": "code_practice/import_batch_187a.py:faulty_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "7a751ef4684cd93dfe011ba9a703fc0c3511956e5aceb86a67d2f8fcfdf93cb5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "97eefff096e1ddcb3e6453746463dd90ae9d866afb0602949542d3023ee71eff",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2839",
+  "content_sha256": "5a201d1626aeb7881eb87f0b3f5796531f4dcced589df305cab1cd5e30a50451",
+  "source_hash": "6f9d5a1dcffbce4237b95035991044987f9dd615a4aabac56f0568c7dc4bafeb",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts when only one parity group matches.",
+      "failed_cases": [
+        "lc-2839-17"
+      ]
+    },
+    {
+      "reason": "Compares the odd-position characters against the wrong target group.",
+      "failed_cases": [
+        "lc-2839-1",
+        "lc-2839-3",
+        "lc-2839-4",
+        "lc-2839-5",
+        "lc-2839-8",
+        "lc-2839-9",
+        "lc-2839-11",
+        "lc-2839-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6886,
+  "oracle_implementation": "code_practice/import_batch_187b.py:parity_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "2065add7222863b926f8fe8bd76e0c6180d7ad6a53faf7d39588df8ffc34de7d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "299f05a18d6bd172f32238d35aec566bf3e72ce83e95e8440fb6f1f8cb6eaee4",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

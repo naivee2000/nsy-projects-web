@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2859",
+  "content_sha256": "f7f86251b4dfa758fd06c35aaa69f949299bb11887624d2331f8a58bce5a71a5",
+  "source_hash": "29ab2249a71aaf61a3fd6bc1c9581b1f39d21642ce27ca5b615530bd53f12cbc",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts set bits in each value instead of its index.",
+      "failed_cases": [
+        "lc-2859-1",
+        "lc-2859-2",
+        "lc-2859-3",
+        "lc-2859-5",
+        "lc-2859-6",
+        "lc-2859-7",
+        "lc-2859-8",
+        "lc-2859-10",
+        "lc-2859-11",
+        "lc-2859-14",
+        "lc-2859-15",
+        "lc-2859-16"
+      ]
+    },
+    {
+      "reason": "Includes indices with fewer than k set bits.",
+      "failed_cases": [
+        "lc-2859-1",
+        "lc-2859-2",
+        "lc-2859-4",
+        "lc-2859-6",
+        "lc-2859-7",
+        "lc-2859-8",
+        "lc-2859-10",
+        "lc-2859-11",
+        "lc-2859-12",
+        "lc-2859-13",
+        "lc-2859-15",
+        "lc-2859-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6906,
+  "oracle_implementation": "code_practice/import_batch_187b.py:bit_index_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "2065add7222863b926f8fe8bd76e0c6180d7ad6a53faf7d39588df8ffc34de7d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e3e7cb30be2b3e27aeabe9daa3b9ab0dcd88cc3788864c70021069f3cb1926d1",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

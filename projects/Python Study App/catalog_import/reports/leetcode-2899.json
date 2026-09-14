@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2899",
+  "content_sha256": "28318295551d707bf42d8d6bf0360537407e033b4972e4a59d160738b48b5008",
+  "source_hash": "bef2d8edaf0c5925fe91601d021d6cfd0f5b58d43dde88328d18d4cc260e684f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Starts the query offset incorrectly.",
+      "failed_cases": [
+        "lc-2899-1",
+        "lc-2899-2",
+        "lc-2899-5",
+        "lc-2899-6",
+        "lc-2899-7",
+        "lc-2899-8",
+        "lc-2899-9",
+        "lc-2899-10",
+        "lc-2899-11",
+        "lc-2899-12",
+        "lc-2899-13",
+        "lc-2899-14",
+        "lc-2899-15",
+        "lc-2899-16"
+      ]
+    },
+    {
+      "reason": "Indexes from the front instead of counting backward from the newest visit.",
+      "failed_cases": [
+        "lc-2899-10",
+        "lc-2899-13",
+        "lc-2899-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6946,
+  "oracle_implementation": "code_practice/import_batch_187c.py:visited_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "f44ce664d4334cb746cf864f6c0eba4ce2de720cb1c4389a8e193ee58b04404d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6cf14208dc146442a2a39556ba5cc1b6e2445419d2100996a24a20ead91f833d",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

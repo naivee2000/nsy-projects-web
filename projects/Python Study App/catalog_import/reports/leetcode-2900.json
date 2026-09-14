@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2900",
+  "content_sha256": "62649aaa67f1d4ba6700c1139b96cb1d4cd26a90100e9a87ca0508cbcf6e444d",
+  "source_hash": "431627f01d2f617161831a09601eaa095026d6a303bc544125a9857301c16ad0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Selects repeated groups instead of transitions.",
+      "failed_cases": [
+        "lc-2900-1",
+        "lc-2900-2",
+        "lc-2900-4",
+        "lc-2900-5",
+        "lc-2900-6",
+        "lc-2900-7",
+        "lc-2900-8",
+        "lc-2900-9",
+        "lc-2900-10",
+        "lc-2900-11",
+        "lc-2900-12",
+        "lc-2900-13",
+        "lc-2900-14",
+        "lc-2900-15",
+        "lc-2900-16"
+      ]
+    },
+    {
+      "reason": "Never updates the last chosen group, missing later valid transitions.",
+      "failed_cases": [
+        "lc-2900-2",
+        "lc-2900-6",
+        "lc-2900-8",
+        "lc-2900-9",
+        "lc-2900-10",
+        "lc-2900-11",
+        "lc-2900-13",
+        "lc-2900-14",
+        "lc-2900-15",
+        "lc-2900-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6947,
+  "oracle_implementation": "code_practice/import_batch_187d.py:groups_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "3846b7f88d9ba50707ca6410b5774b11cfdb6b7dd68e4d6f64e733816c257fea",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9922094d08f4469ed98956fa8f65d0b671aebc5119a1196faa68f7d54df8141d",
+  "elapsed_seconds": 0.093,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

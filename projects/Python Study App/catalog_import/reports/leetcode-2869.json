@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2869",
+  "content_sha256": "ff9bd1dba8643e3c3005df3d6a9b3e4f52afc557d9b4544f32fe6cad53b5fb26",
+  "source_hash": "42a42c6cf51c5f88e330d848a6f6e0d225fdab492703f877529d63b951c4f9a5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Scans from the front rather than removing from the end.",
+      "failed_cases": [
+        "lc-2869-1",
+        "lc-2869-4",
+        "lc-2869-6",
+        "lc-2869-9",
+        "lc-2869-10",
+        "lc-2869-12",
+        "lc-2869-13",
+        "lc-2869-15",
+        "lc-2869-16"
+      ]
+    },
+    {
+      "reason": "The altered control is paired with a stopping defect below.",
+      "failed_cases": [
+        "lc-2869-1",
+        "lc-2869-2",
+        "lc-2869-4",
+        "lc-2869-5",
+        "lc-2869-7",
+        "lc-2869-9",
+        "lc-2869-10",
+        "lc-2869-11",
+        "lc-2869-12",
+        "lc-2869-13",
+        "lc-2869-14",
+        "lc-2869-15",
+        "lc-2869-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6916,
+  "oracle_implementation": "code_practice/import_batch_187c.py:collect_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "f44ce664d4334cb746cf864f6c0eba4ce2de720cb1c4389a8e193ee58b04404d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "66ee58971418885546dc336e59cdffd76746e2c3be611c3a46150f1f2d58d2e1",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

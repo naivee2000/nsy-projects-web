@@ -1,0 +1,64 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2864",
+  "content_sha256": "949a64e832ff3dcbb59ba18826a2218db13364863d45cf3f81df1b2a2285b46e",
+  "source_hash": "f7c83100660efd210806acaefd43380332305339924c6801f2cb84b17e0103d0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses every one in the prefix and therefore changes the output length/counts.",
+      "failed_cases": [
+        "lc-2864-1",
+        "lc-2864-2",
+        "lc-2864-3",
+        "lc-2864-4",
+        "lc-2864-5",
+        "lc-2864-6",
+        "lc-2864-7",
+        "lc-2864-8",
+        "lc-2864-9",
+        "lc-2864-10",
+        "lc-2864-11",
+        "lc-2864-12",
+        "lc-2864-13",
+        "lc-2864-14",
+        "lc-2864-15",
+        "lc-2864-16"
+      ]
+    },
+    {
+      "reason": "Places zero at the end, producing an even number.",
+      "failed_cases": [
+        "lc-2864-1",
+        "lc-2864-2",
+        "lc-2864-3",
+        "lc-2864-4",
+        "lc-2864-5",
+        "lc-2864-6",
+        "lc-2864-7",
+        "lc-2864-8",
+        "lc-2864-9",
+        "lc-2864-10",
+        "lc-2864-11",
+        "lc-2864-12",
+        "lc-2864-13",
+        "lc-2864-14",
+        "lc-2864-15",
+        "lc-2864-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6911,
+  "oracle_implementation": "code_practice/import_batch_187c.py:odd_binary_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "f44ce664d4334cb746cf864f6c0eba4ce2de720cb1c4389a8e193ee58b04404d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d07d1143a7195ba2c83bbc7fda2aeecaa2e93654ffad908dee953ff35bfacb7e",
+  "elapsed_seconds": 0.138,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

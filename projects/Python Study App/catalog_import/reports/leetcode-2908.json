@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2908",
+  "content_sha256": "4d1c2ff8d9398e54c0db34d308dfb7633d32f619714ee8f66b67e69ba2298866",
+  "source_hash": "928a6166b3b11ea7abe71537bd6ab3ac00fd1c1753d1d30a2c332fae7ec31c72",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows an equal left endpoint despite the strict mountain inequality.",
+      "failed_cases": [
+        "lc-2908-15"
+      ]
+    },
+    {
+      "reason": "Requires the right endpoint to be larger than the peak.",
+      "failed_cases": [
+        "lc-2908-1",
+        "lc-2908-2",
+        "lc-2908-3",
+        "lc-2908-5",
+        "lc-2908-6",
+        "lc-2908-8",
+        "lc-2908-10",
+        "lc-2908-11",
+        "lc-2908-12",
+        "lc-2908-13",
+        "lc-2908-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6955,
+  "oracle_implementation": "code_practice/import_batch_187d.py:mountain_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "3846b7f88d9ba50707ca6410b5774b11cfdb6b7dd68e4d6f64e733816c257fea",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7ae037e400ca93df6189248599434b7dcc36100a7282526dc2b88852626931ce",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

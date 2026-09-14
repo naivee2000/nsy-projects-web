@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2903",
+  "content_sha256": "ae3a5ffc7ef1852d8a3e846d7e8a4660bab18a87a8fd054af85ffd69730663e6",
+  "source_hash": "7e1464430b244ad1c4a65c6d7d607f57d52bbdd47e28cd183e2754fa6b222a95",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires the index distance to be strictly greater instead of at least.",
+      "failed_cases": [
+        "lc-2903-3",
+        "lc-2903-5",
+        "lc-2903-7",
+        "lc-2903-9",
+        "lc-2903-10",
+        "lc-2903-11",
+        "lc-2903-13",
+        "lc-2903-15"
+      ]
+    },
+    {
+      "reason": "Requires the value difference to be strictly greater instead of at least.",
+      "failed_cases": [
+        "lc-2903-1",
+        "lc-2903-3",
+        "lc-2903-5",
+        "lc-2903-7",
+        "lc-2903-9",
+        "lc-2903-10",
+        "lc-2903-11",
+        "lc-2903-13",
+        "lc-2903-14",
+        "lc-2903-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6950,
+  "oracle_implementation": "code_practice/import_batch_187d.py:indices_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "3846b7f88d9ba50707ca6410b5774b11cfdb6b7dd68e4d6f64e733816c257fea",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "92fb68fedfd514039b3bda23280000aa5d5b98ba40eabe5697ac655362001e54",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

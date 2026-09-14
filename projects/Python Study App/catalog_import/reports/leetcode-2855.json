@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2855",
+  "content_sha256": "3138588ce7f45fb71989d366c00708ca21bbc18db1c370911b7b555a4b752621",
+  "source_hash": "cd93406c73b08dab601295e6e9bfbada15b150e56ce46a12f96e18d9f1ca346d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects every rotated sorted array containing its one circular drop.",
+      "failed_cases": [
+        "lc-2855-1",
+        "lc-2855-4",
+        "lc-2855-5",
+        "lc-2855-7",
+        "lc-2855-9",
+        "lc-2855-10",
+        "lc-2855-11",
+        "lc-2855-14"
+      ]
+    },
+    {
+      "reason": "Returns the left-rotation distance rather than the requested right-shift count.",
+      "failed_cases": [
+        "lc-2855-1",
+        "lc-2855-4",
+        "lc-2855-7",
+        "lc-2855-10",
+        "lc-2855-11",
+        "lc-2855-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6902,
+  "oracle_implementation": "code_practice/import_batch_187b.py:shifts_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "2065add7222863b926f8fe8bd76e0c6180d7ad6a53faf7d39588df8ffc34de7d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c5335852fa8df40335020179e7d240bdd9553fcd13362b7dcf62a67b74d7c39f",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

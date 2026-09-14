@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2815",
+  "content_sha256": "11f1c438e9121b73fe62cfa4e9b27ad09b704f8da9f13f40c6e76b6b39626a5f",
+  "source_hash": "304073a96f455923077e26b1ba0c4abdf18a7f213c0df01e9401c0ed8f001614",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Groups by the first digit rather than the largest digit.",
+      "failed_cases": [
+        "lc-2815-1",
+        "lc-2815-2",
+        "lc-2815-6",
+        "lc-2815-8",
+        "lc-2815-9",
+        "lc-2815-12",
+        "lc-2815-14",
+        "lc-2815-16"
+      ]
+    },
+    {
+      "reason": "Adds a digit label instead of the best earlier number in its group.",
+      "failed_cases": [
+        "lc-2815-2",
+        "lc-2815-4",
+        "lc-2815-5",
+        "lc-2815-6",
+        "lc-2815-8",
+        "lc-2815-9",
+        "lc-2815-10",
+        "lc-2815-11",
+        "lc-2815-12",
+        "lc-2815-13",
+        "lc-2815-14",
+        "lc-2815-15",
+        "lc-2815-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6862,
+  "oracle_implementation": "code_practice/import_batch_187a.py:digit_pair_oracle",
+  "validator_implementation_sha256": "655d9f85e1a349cafc23b95bbd9ec5d354407870ccd100fabaa540590c218dd6",
+  "batch_implementation_sha256": "7a751ef4684cd93dfe011ba9a703fc0c3511956e5aceb86a67d2f8fcfdf93cb5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5400ecef761a29f07f35c832e5febc0d6125ac0ca1edcd9353faa782755558e8",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
