@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1503",
+  "content_sha256": "9a8974fd281f73b79c38b1cbc3b0176085d91fc824b5678ad016f75f171025b4",
+  "source_hash": "53b188107e3b201d133ad9f66b40055248343020c8e0f332cf64be129b924481",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses starting position instead of distance to the right edge.",
+      "failed_cases": [
+        "lc-1503-4",
+        "lc-1503-7",
+        "lc-1503-10",
+        "lc-1503-12"
+      ]
+    },
+    {
+      "reason": "Ignores every left-moving ant.",
+      "failed_cases": [
+        "lc-1503-5",
+        "lc-1503-8",
+        "lc-1503-11",
+        "lc-1503-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5550,
+  "oracle_implementation": "code_practice/import_batch_096.py:ants_o",
+  "validator_implementation_sha256": "61be597868e7ec67ac8a49e5fc69e5f5b9c03a69be418fabbbed8cad8f1a2f65",
+  "batch_implementation_sha256": "4216b4d22bb866e15313606398c1c3568b23bc35e708ffc5b9636d7407be9364",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bd5bc5d543a912e4b6415b3d582c1b0d1b5ac337450af13286682b3e6fc2898c",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

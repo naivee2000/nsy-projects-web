@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1019,
+  "count": 1029,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -18034,6 +18034,180 @@
       "path": "problems/leetcode-1487.json",
       "content_sha256": "320c31cb07b75dee2134a3852dcd092131b02079eeb6a32a1f1d34571b7da7de",
       "source_id": 1487
+    },
+    {
+      "id": "leetcode-1491",
+      "version": 1,
+      "status": "approved",
+      "title": "Average Salary Excluding the Minimum and Maximum Salary",
+      "summary": "Given an array of distinct integers representing employee salaries, calculate the average salary excluding the highest and lowest values.",
+      "topics": [
+        "arrays",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1491.json",
+      "content_sha256": "9fb4502348dbde3853aa0542b5e3b013445760c7d248d644681a5a184ff83bba",
+      "source_id": 1491
+    },
+    {
+      "id": "leetcode-1492",
+      "version": 1,
+      "status": "approved",
+      "title": "The kth Factor of n",
+      "summary": "Given positive integers n and k, find the kth factor of n in ascending order, or return -1 if n has fewer than k factors.",
+      "topics": [
+        "math",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1492.json",
+      "content_sha256": "8a91ce174544aca28178e07daa5202ad24cdb50633359424c8ac0b26bb0a9d64",
+      "source_id": 1492
+    },
+    {
+      "id": "leetcode-1493",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Subarray of 1's After Deleting One Element",
+      "summary": "Given a binary array, remove one element to maximize the length of consecutive 1's.",
+      "topics": [
+        "sliding-window",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1493.json",
+      "content_sha256": "bf42b6aa18af5af2595f377ad018f1a48ad743117f3c04328d20320136195d6d",
+      "source_id": 1493
+    },
+    {
+      "id": "leetcode-1494",
+      "version": 1,
+      "status": "approved",
+      "title": "Parallel Courses II",
+      "summary": "Given an integer n representing course labels from 1 to n, and an array relations that specifies prerequisite relationships between courses, where relations[i] = [prevCoursei, nextCoursei] indicates prevCoursei must be taken before nextCoursei, along with an integer k representing the maximum number of courses that can be taken in one semester, determine the minimum number of semesters needed to complete all courses, ensuring all prerequisites are satisfied before a course is taken.",
+      "topics": [
+        "dynamic-programming",
+        "bit-masks"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1494.json",
+      "content_sha256": "ff7db56ab9ec65469542f31ce2e3a45994e0b962ccc0c5d84cc3aab261a85374",
+      "source_id": 1494
+    },
+    {
+      "id": "leetcode-1496",
+      "version": 1,
+      "status": "approved",
+      "title": "Path Crossing",
+      "summary": "Given a string path consisting of 'N', 'S', 'E', or 'W', indicating movement north, south, east, or west by one unit each, starting from the origin (0, 0) on a 2D plane.",
+      "topics": [
+        "hash-maps",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1496.json",
+      "content_sha256": "1c983005babb2b88db6f436b5e808278085ec2b188d9bf81705c0f177612e86e",
+      "source_id": 1496
+    },
+    {
+      "id": "leetcode-1497",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If Array Pairs Are Divisible by k",
+      "summary": "Given an array of integers of even length, determine if it's possible to form exactly half the length in pairs where the sum of each pair is divisible by a given integer k.",
+      "topics": [
+        "counting",
+        "modular-arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1497.json",
+      "content_sha256": "8bf574d49b7db164737f731cdda8306ab3953f4be66fb56f2dbea75de8a07cbf",
+      "source_id": 1497
+    },
+    {
+      "id": "leetcode-1498",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Subsequences That Satisfy the Given Sum Condition",
+      "summary": "Given an array of integers and a target sum, count the number of non-empty subsequences where the sum of the minimum and maximum elements is less than or equal to the target.",
+      "topics": [
+        "two-pointers",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1498.json",
+      "content_sha256": "5c3637e35ad839fed505866a79d6679650acff1c05cdbb81faf3a1b946e34cbf",
+      "source_id": 1498
+    },
+    {
+      "id": "leetcode-1499",
+      "version": 1,
+      "status": "approved",
+      "title": "Max Value of Equation",
+      "summary": "Given an array of points sorted by x-values and an integer k, find the maximum value of yi + yj + |xi - xj| for points (xi, yi) and (xj, yj) where |xi - xj| <= k and i < j.",
+      "topics": [
+        "monotonic-queue",
+        "geometry"
+      ],
+      "prerequisites": [
+        "monotonic-queue"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1499.json",
+      "content_sha256": "4198c8d2c029892b2859b762eb763ff8b02c1c4c6b32ec883edc88fd4a520d31",
+      "source_id": 1499
+    },
+    {
+      "id": "leetcode-1502",
+      "version": 1,
+      "status": "approved",
+      "title": "Can Make Arithmetic Progression From Sequence",
+      "summary": "An arithmetic progression is defined by a constant difference between consecutive elements.",
+      "topics": [
+        "sorting",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1502.json",
+      "content_sha256": "8686994a6f72df5edb2b2b3640ad458094883bb0d2d89e37449311d9701a3aa5",
+      "source_id": 1502
+    },
+    {
+      "id": "leetcode-1503",
+      "version": 1,
+      "status": "approved",
+      "title": "Last Moment Before All Ants Fall Out of a Plank",
+      "summary": "Consider a plank of length n units with ants moving at 1 unit per second, some to the left and some to the right.",
+      "topics": [
+        "math",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1503.json",
+      "content_sha256": "9a8974fd281f73b79c38b1cbc3b0176085d91fc824b5678ad016f75f171025b4",
+      "source_id": 1503
     }
   ]
 }

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1492",
+  "content_sha256": "8a91ce174544aca28178e07daa5202ad24cdb50633359424c8ac0b26bb0a9d64",
+  "source_hash": "c1aa9fc59de68ea6a80b0e7fc9c67397b8f771e2fc0b017c7ff857ce7ad682ab",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips factor one.",
+      "failed_cases": [
+        "lc-1492-1",
+        "lc-1492-2",
+        "lc-1492-3",
+        "lc-1492-5",
+        "lc-1492-6",
+        "lc-1492-7",
+        "lc-1492-9",
+        "lc-1492-10",
+        "lc-1492-11",
+        "lc-1492-12",
+        "lc-1492-13",
+        "lc-1492-14"
+      ]
+    },
+    {
+      "reason": "Advances the rank twice per factor.",
+      "failed_cases": [
+        "lc-1492-1",
+        "lc-1492-2",
+        "lc-1492-3",
+        "lc-1492-4",
+        "lc-1492-5",
+        "lc-1492-6",
+        "lc-1492-7",
+        "lc-1492-9",
+        "lc-1492-10",
+        "lc-1492-11",
+        "lc-1492-12",
+        "lc-1492-13",
+        "lc-1492-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5539,
+  "oracle_implementation": "code_practice/import_batch_096.py:factor_o",
+  "validator_implementation_sha256": "61be597868e7ec67ac8a49e5fc69e5f5b9c03a69be418fabbbed8cad8f1a2f65",
+  "batch_implementation_sha256": "4216b4d22bb866e15313606398c1c3568b23bc35e708ffc5b9636d7407be9364",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "851cde49c2ce23f48958b3bed8d9861a9a0044cb5f46e3867a430cc714d3e35a",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

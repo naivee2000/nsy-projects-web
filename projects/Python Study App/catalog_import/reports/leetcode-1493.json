@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1493",
+  "content_sha256": "bf42b6aa18af5af2595f377ad018f1a48ad743117f3c04328d20320136195d6d",
+  "source_hash": "5d619a21337d84c93146a0fe5e8e3c2c4cc4cd91ed78b16b29f2589e37951a16",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows no zero in the maintained window.",
+      "failed_cases": [
+        "lc-1493-1",
+        "lc-1493-7",
+        "lc-1493-8",
+        "lc-1493-9",
+        "lc-1493-10",
+        "lc-1493-11",
+        "lc-1493-12",
+        "lc-1493-13",
+        "lc-1493-14"
+      ]
+    },
+    {
+      "reason": "Forgets that one element must be deleted from the window.",
+      "failed_cases": [
+        "lc-1493-1",
+        "lc-1493-2",
+        "lc-1493-3",
+        "lc-1493-4",
+        "lc-1493-5",
+        "lc-1493-6",
+        "lc-1493-7",
+        "lc-1493-8",
+        "lc-1493-9",
+        "lc-1493-10",
+        "lc-1493-11",
+        "lc-1493-12",
+        "lc-1493-13",
+        "lc-1493-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5540,
+  "oracle_implementation": "code_practice/import_batch_096.py:ones_o",
+  "validator_implementation_sha256": "61be597868e7ec67ac8a49e5fc69e5f5b9c03a69be418fabbbed8cad8f1a2f65",
+  "batch_implementation_sha256": "4216b4d22bb866e15313606398c1c3568b23bc35e708ffc5b9636d7407be9364",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "314ef2d380d5d5a1c17de44492b2309d1a59bdf1685678dc8c7af29649556730",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

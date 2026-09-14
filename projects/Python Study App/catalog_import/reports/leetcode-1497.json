@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1497",
+  "content_sha256": "8bf574d49b7db164737f731cdda8306ab3953f4be66fb56f2dbea75de8a07cbf",
+  "source_hash": "d0befdaef2054c648128f8ee7bf4a67f5c3ef753802c235437e9e810a4966805",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not require zero-remainder occurrences to pair evenly.",
+      "failed_cases": [
+        "lc-1497-4"
+      ]
+    },
+    {
+      "reason": "Compares each remainder count with itself.",
+      "failed_cases": [
+        "lc-1497-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5544,
+  "oracle_implementation": "code_practice/import_batch_096.py:pairs_o",
+  "validator_implementation_sha256": "61be597868e7ec67ac8a49e5fc69e5f5b9c03a69be418fabbbed8cad8f1a2f65",
+  "batch_implementation_sha256": "4216b4d22bb866e15313606398c1c3568b23bc35e708ffc5b9636d7407be9364",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d7453ab109b9fdcb94d065fbf59aacb3da19f09e4f3db86761703a09d5ca84fa",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

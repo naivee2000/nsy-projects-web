@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1494",
+  "content_sha256": "ff7db56ab9ec65469542f31ce2e3a45994e0b962ccc0c5d84cc3aab261a85374",
+  "source_hash": "4c26c2272c7931c70536a0ff6e417222827590f47aebadfaa467ea23772acf75",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Refuses to take exactly k courses in a semester.",
+      "failed_cases": [
+        "lc-1494-1",
+        "lc-1494-2",
+        "lc-1494-5",
+        "lc-1494-8",
+        "lc-1494-9",
+        "lc-1494-11",
+        "lc-1494-12",
+        "lc-1494-14"
+      ]
+    },
+    {
+      "reason": "Ignores prerequisite relations and batches courses only by count.",
+      "failed_cases": [
+        "lc-1494-1",
+        "lc-1494-2",
+        "lc-1494-6",
+        "lc-1494-9",
+        "lc-1494-13",
+        "lc-1494-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5541,
+  "oracle_implementation": "code_practice/import_batch_096.py:courses_o",
+  "validator_implementation_sha256": "61be597868e7ec67ac8a49e5fc69e5f5b9c03a69be418fabbbed8cad8f1a2f65",
+  "batch_implementation_sha256": "4216b4d22bb866e15313606398c1c3568b23bc35e708ffc5b9636d7407be9364",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "45cee07c5614426c061e2a688cb3fc8b01037ad878059c36373372e9f2d1aa9b",
+  "elapsed_seconds": 0.115,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1496",
+  "content_sha256": "1c983005babb2b88db6f436b5e808278085ec2b188d9bf81705c0f177612e86e",
+  "source_hash": "8aaa47d3ad04d8b2018d01e8d45398167f463e11f36194cacfe2e8cd00711e77",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reports a crossing at every new coordinate.",
+      "failed_cases": [
+        "lc-1496-1",
+        "lc-1496-3",
+        "lc-1496-6",
+        "lc-1496-9",
+        "lc-1496-10"
+      ]
+    },
+    {
+      "reason": "Never records positions after the origin.",
+      "failed_cases": [
+        "lc-1496-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5543,
+  "oracle_implementation": "code_practice/import_batch_096.py:cross_o",
+  "validator_implementation_sha256": "61be597868e7ec67ac8a49e5fc69e5f5b9c03a69be418fabbbed8cad8f1a2f65",
+  "batch_implementation_sha256": "4216b4d22bb866e15313606398c1c3568b23bc35e708ffc5b9636d7407be9364",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d67887d1925e494fce3be035ed378483ec62ce142087b66fed280c7e4cd4ac27",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
