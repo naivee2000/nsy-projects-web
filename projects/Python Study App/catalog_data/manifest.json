@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1816,
+  "count": 1821,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -32155,6 +32155,24 @@
       "source_id": 2547
     },
     {
+      "id": "leetcode-2548",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Price to Fill a Bag",
+      "summary": "Given a 2D integer array items where each item is represented as [pricei, weighti], and a positive integer capacity, you can divide each item into two parts with any ratio such that the sum of the parts equals 1.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2548.json",
+      "content_sha256": "7fddc9e9fb72a4acac69a8450876da8bda678d256ac9eb9aa3a7fab3a786af46",
+      "source_id": 2548
+    },
+    {
       "id": "leetcode-2549",
       "version": 1,
       "status": "approved",
@@ -32172,6 +32190,64 @@
       "source_id": 2549
     },
     {
+      "id": "leetcode-2550",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Collisions of Monkeys on a Polygon",
+      "summary": "Given a regular convex polygon with n vertices, each labeled from 0 to n-1 in a clockwise direction, and one monkey at each vertex, determine the number of ways the monkeys can move to an adjacent vertex such that at least one collision occurs.",
+      "topics": [
+        "recursion",
+        "math",
+        "modular exponentiation"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2550.json",
+      "content_sha256": "5c8519c2348b7bbcd62f8925a7f2d7858a5f88bb499dbbb1b09cb090ce4bf2b7",
+      "source_id": 2550
+    },
+    {
+      "id": "leetcode-2551",
+      "version": 1,
+      "status": "approved",
+      "title": "Put Marbles in Bags",
+      "summary": "Given k bags and an array of marble weights, distribute the marbles such that no bag is empty, and if marbles i and j are in a bag, all marbles between i and j must also be in the same bag.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2551.json",
+      "content_sha256": "5693ba2a165f59a45896a04d7d45b37773e554b64fd74c8fa706795f96234b0f",
+      "source_id": 2551
+    },
+    {
+      "id": "leetcode-2552",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Increasing Quadruplets",
+      "summary": "Given an array nums of size n with elements from 1 to n, count the number of quadruplets (i, j, k, l) such that 0 <= i < j < k < l < n and nums[i] < nums[k] < nums[j] < nums[l].",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "prefix counting"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2552.json",
+      "content_sha256": "c41bce00a809c5636ab76a1a7f5590d9675dff487cda93a39b91a13cec99d118",
+      "source_id": 2552
+    },
+    {
       "id": "leetcode-2553",
       "version": 1,
       "status": "approved",
@@ -32187,6 +32263,24 @@
       "path": "problems/leetcode-2553.json",
       "content_sha256": "01058474e12ad94ec60e4cb0d3b3a5f9ba64c0a0c1e3b3f2610bf9c2e15da384",
       "source_id": 2553
+    },
+    {
+      "id": "leetcode-2554",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Integers to Choose From a Range I",
+      "summary": "Given an integer array of banned numbers, an integer n , and a maximum sum limit maxSum , determine the greatest number of integers you can select from the range [1, n ] such that none of the selected integers are in the banned list and the sum of the selected integers does not exceed maxSum .",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2554.json",
+      "content_sha256": "7d92c824ec85f13112f70587c857ef51447a98fb066117c95674621778fcff26",
+      "source_id": 2554
     },
     {
       "id": "leetcode-2558",

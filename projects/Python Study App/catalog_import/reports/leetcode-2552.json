@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2552",
+  "content_sha256": "c41bce00a809c5636ab76a1a7f5590d9675dff487cda93a39b91a13cec99d118",
+  "source_hash": "d9fc604f0c22d45b144ed0965ec9496a125b26b64ad14f0f09dc50a136de80a3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts left endpoints below nums[j] instead of the smaller nums[k].",
+      "failed_cases": [
+        "lc-2552-11",
+        "lc-2552-12",
+        "lc-2552-13",
+        "lc-2552-16"
+      ]
+    },
+    {
+      "reason": "Counts right endpoints above nums[k] rather than above the larger nums[j].",
+      "failed_cases": [
+        "lc-2552-5",
+        "lc-2552-8",
+        "lc-2552-10",
+        "lc-2552-11",
+        "lc-2552-12",
+        "lc-2552-13",
+        "lc-2552-14",
+        "lc-2552-15",
+        "lc-2552-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6599,
+  "oracle_implementation": "code_practice/import_batch_155.py:quadruplets_oracle",
+  "validator_implementation_sha256": "919b61187ed2f882f2a0c0bfce8b40544cfe5f709ade6ce91edb6caad3d301f3",
+  "batch_implementation_sha256": "7e38265ee2848027851ac3f75b6b4079dc3468a562c238e997ab1187805f364c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "34054447400281ed61d6cc07463de5353df3fb77f9806b232efe3c84ef9e9c14",
+  "elapsed_seconds": 0.071,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

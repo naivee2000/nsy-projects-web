@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2554",
+  "content_sha256": "7d92c824ec85f13112f70587c857ef51447a98fb066117c95674621778fcff26",
+  "source_hash": "9c2e207a3ea0cbba003149b57a45e0708bb6ed8c5955b4539c90c80d20bedfb4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Never considers the allowed endpoint n.",
+      "failed_cases": [
+        "lc-2554-3",
+        "lc-2554-7",
+        "lc-2554-8",
+        "lc-2554-15"
+      ]
+    },
+    {
+      "reason": "Selects only banned values instead of excluding them.",
+      "failed_cases": [
+        "lc-2554-2",
+        "lc-2554-3",
+        "lc-2554-4",
+        "lc-2554-5",
+        "lc-2554-6",
+        "lc-2554-7",
+        "lc-2554-8",
+        "lc-2554-9",
+        "lc-2554-10",
+        "lc-2554-11",
+        "lc-2554-12",
+        "lc-2554-13",
+        "lc-2554-14",
+        "lc-2554-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6601,
+  "oracle_implementation": "code_practice/import_batch_155.py:range_oracle",
+  "validator_implementation_sha256": "919b61187ed2f882f2a0c0bfce8b40544cfe5f709ade6ce91edb6caad3d301f3",
+  "batch_implementation_sha256": "7e38265ee2848027851ac3f75b6b4079dc3468a562c238e997ab1187805f364c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e32894f809a21b0f0222aabe96d6e0ff857a0ccd19310ebf9b4360a1792908d7",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
