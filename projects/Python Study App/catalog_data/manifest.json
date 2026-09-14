@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1488,
+  "count": 1493,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -26435,6 +26435,26 @@
       "source_id": 2121
     },
     {
+      "id": "leetcode-2123",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Remove Adjacent Ones in Matrix",
+      "summary": "Given a binary matrix, determine the least number of operations needed to convert it into a well-isolated matrix by flipping any 1 to 0.",
+      "topics": [
+        "matrices",
+        "graphs",
+        "bipartite matching"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2123.json",
+      "content_sha256": "8166db4df2357a721e0d1f667bbbe42c80267c10adfa54410ba566d028b1a524",
+      "source_id": 2123
+    },
+    {
       "id": "leetcode-2124",
       "version": 1,
       "status": "approved",
@@ -26450,6 +26470,79 @@
       "path": "problems/leetcode-2124.json",
       "content_sha256": "2bdef22520aaeb04c39249976e352bf4b1db35a87af4d436f8bc2913d2249e4d",
       "source_id": 2124
+    },
+    {
+      "id": "leetcode-2125",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Laser Beams in a Bank",
+      "summary": "Given a 0-indexed binary string array representing the floor plan of a bank, where each row is a binary string and '1' indicates a security device, calculate the total number of laser beams that can be formed between security devices on different rows, with the condition that no security devices are present in the rows strictly between the two rows forming a beam.",
+      "topics": [
+        "matrices",
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2125.json",
+      "content_sha256": "621d30411074e3388676c556a7dce47f4b45ea6f0270f66416ff03f5fb716991",
+      "source_id": 2125
+    },
+    {
+      "id": "leetcode-2126",
+      "version": 1,
+      "status": "approved",
+      "title": "Destroying Asteroids",
+      "summary": "Given a planet's mass and an array of asteroid masses, determine if the planet can collide with and destroy all asteroids by gaining their mass if its mass is at least equal to the asteroid's mass; otherwise, the planet is destroyed.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2126.json",
+      "content_sha256": "88e1d39d129bdce19e4bfd79fc2be02e8b2a376dcfa082516c4f1bc85b89aa2d",
+      "source_id": 2126
+    },
+    {
+      "id": "leetcode-2127",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Employees to Be Invited to a Meeting",
+      "summary": "A company plans a meeting with a circular table that can seat any number of employees.",
+      "topics": [
+        "graphs",
+        "topological sorting",
+        "cycles"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2127.json",
+      "content_sha256": "79bb61e97836eb8ceb243bc1aa3916ef2ee17f965e5e74117a01b56fd896060e",
+      "source_id": 2127
+    },
+    {
+      "id": "leetcode-2128",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove All Ones With Row and Column Flips",
+      "summary": "Given an m x n binary matrix grid, determine if it is possible to remove all 1's by flipping any number of rows or columns.",
+      "topics": [
+        "matrices",
+        "bit patterns"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2128.json",
+      "content_sha256": "038f515bf514943edf344ca0efa47042a142844b278bfe3eca21fc135c605c86",
+      "source_id": 2128
     }
   ]
 }

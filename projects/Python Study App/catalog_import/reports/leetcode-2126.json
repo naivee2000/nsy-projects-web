@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2126",
+  "content_sha256": "88e1d39d129bdce19e4bfd79fc2be02e8b2a376dcfa082516c4f1bc85b89aa2d",
+  "source_hash": "aaf5267d2b42485b79144ca0a00d42db82ba0a81de00efe7013baaa226cc16ef",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Attempts the largest asteroid first and may fail despite a valid increasing order.",
+      "failed_cases": [
+        "lc-2126-1",
+        "lc-2126-6",
+        "lc-2126-8",
+        "lc-2126-12",
+        "lc-2126-13",
+        "lc-2126-14",
+        "lc-2126-16"
+      ]
+    },
+    {
+      "reason": "Rejects an asteroid whose mass exactly equals the planet mass.",
+      "failed_cases": [
+        "lc-2126-3",
+        "lc-2126-5",
+        "lc-2126-6",
+        "lc-2126-8",
+        "lc-2126-12",
+        "lc-2126-13",
+        "lc-2126-14",
+        "lc-2126-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6173,
+  "oracle_implementation": "code_practice/import_batch_119c.py:asteroids_o",
+  "validator_implementation_sha256": "df47fb92b20738fe297c8da8441f2960362882339afcf9bcbefa8ad9c252b392",
+  "batch_implementation_sha256": "46add72f020afe7810bd6e00e4d3c9dbd06c36d84157f3efc00a3b49684ae7ea",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ed624d27a3139c0234df623b74a03cb9c4dd6ac44b750d2918b9daf6e57134ad",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

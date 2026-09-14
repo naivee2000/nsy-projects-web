@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2123",
+  "content_sha256": "8166db4df2357a721e0d1f667bbbe42c80267c10adfa54410ba566d028b1a524",
+  "source_hash": "f37c2ace745d30c98a5157ccb23844739c140cb13048af2822bf8986a2239069",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats diagonal occupied cells as adjacent instead of the required four directions.",
+      "failed_cases": [
+        "lc-2123-1",
+        "lc-2123-5",
+        "lc-2123-6",
+        "lc-2123-9",
+        "lc-2123-10",
+        "lc-2123-11",
+        "lc-2123-12",
+        "lc-2123-16"
+      ]
+    },
+    {
+      "reason": "Counts all occupied partition nodes instead of a minimum vertex cover.",
+      "failed_cases": [
+        "lc-2123-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6170,
+  "oracle_implementation": "code_practice/import_batch_119c.py:isolated_o",
+  "validator_implementation_sha256": "df47fb92b20738fe297c8da8441f2960362882339afcf9bcbefa8ad9c252b392",
+  "batch_implementation_sha256": "46add72f020afe7810bd6e00e4d3c9dbd06c36d84157f3efc00a3b49684ae7ea",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a07ba0575b99de4b6042ab5c0c291e9cd434ea2f8c981b7dfb79229100d12564",
+  "elapsed_seconds": 0.077,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
