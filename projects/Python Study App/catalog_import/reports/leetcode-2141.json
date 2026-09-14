@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2141",
+  "content_sha256": "097e822122518b2dc06214dad45b458a19a8017ed07f445fc346472d31db5891",
+  "source_hash": "7a65c5d828c4666a552de39c6b35b0437683b5f9d80609ca8a286c7ec55e7609",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Lets one oversized battery contribute more than the candidate time to multiple computers.",
+      "failed_cases": [
+        "lc-2141-7",
+        "lc-2141-8",
+        "lc-2141-11",
+        "lc-2141-12",
+        "lc-2141-14",
+        "lc-2141-15"
+      ]
+    },
+    {
+      "reason": "Rejects exact-capacity schedules that use all available charge.",
+      "failed_cases": [
+        "lc-2141-2",
+        "lc-2141-3",
+        "lc-2141-4",
+        "lc-2141-5",
+        "lc-2141-6",
+        "lc-2141-7",
+        "lc-2141-8",
+        "lc-2141-9",
+        "lc-2141-10",
+        "lc-2141-11",
+        "lc-2141-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6188,
+  "oracle_implementation": "code_practice/import_batch_120b.py:runtime_o",
+  "validator_implementation_sha256": "6332d038af74637316a8533447617ad4509423419fd6e1bffea35003579b12fc",
+  "batch_implementation_sha256": "7a070ed8ce106909e5a57a947d517fd22f55d0fcedbba10bcf90542798190980",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7e47d3cf64a6cb6111fdca389e713ac455423843f6d092183da51a4e5f5159c1",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

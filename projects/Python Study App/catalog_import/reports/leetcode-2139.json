@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2139",
+  "content_sha256": "b6cf9cc1fe35b7b9428c00a634d8bebe49ce6c63093d14bc77cdf560f5e37d95",
+  "source_hash": "8dcdb56141549e904b9f66cca0248c7f815722cead8760b42c45a79400940ce6",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Decrements even targets and halves odd targets, reversing the optimal parity rule.",
+      "failed_cases": [
+        "lc-2139-2",
+        "lc-2139-7",
+        "lc-2139-10",
+        "lc-2139-14"
+      ]
+    },
+    {
+      "reason": "Adds one unnecessary final increment.",
+      "failed_cases": [
+        "lc-2139-1",
+        "lc-2139-2",
+        "lc-2139-3",
+        "lc-2139-4",
+        "lc-2139-5",
+        "lc-2139-6",
+        "lc-2139-7",
+        "lc-2139-8",
+        "lc-2139-9",
+        "lc-2139-10",
+        "lc-2139-11",
+        "lc-2139-12",
+        "lc-2139-13",
+        "lc-2139-14",
+        "lc-2139-15",
+        "lc-2139-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6186,
+  "oracle_implementation": "code_practice/import_batch_120b.py:moves_o",
+  "validator_implementation_sha256": "6332d038af74637316a8533447617ad4509423419fd6e1bffea35003579b12fc",
+  "batch_implementation_sha256": "7a070ed8ce106909e5a57a947d517fd22f55d0fcedbba10bcf90542798190980",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f8a0f17b73c6444da4cf43aa5cc3057820712b6b6f506a90ca9e189c7dc6f4d8",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

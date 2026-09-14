@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2140",
+  "content_sha256": "d50818ee36cf69b9f4a605b25e2282aea544137e91f94529532fc49a61f49ac9",
+  "source_hash": "623d1e10b6cb947797851f6a9898ef248592b356cecb1b84b0eec0f2d55bde00",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Skips one fewer question after solving.",
+      "failed_cases": [
+        "lc-2140-1",
+        "lc-2140-2",
+        "lc-2140-4",
+        "lc-2140-6",
+        "lc-2140-8",
+        "lc-2140-9",
+        "lc-2140-10",
+        "lc-2140-11",
+        "lc-2140-12",
+        "lc-2140-14",
+        "lc-2140-15"
+      ]
+    },
+    {
+      "reason": "Compares against the current uncomputed state instead of the value from skipping.",
+      "failed_cases": [
+        "lc-2140-2",
+        "lc-2140-4",
+        "lc-2140-8",
+        "lc-2140-10",
+        "lc-2140-11",
+        "lc-2140-12",
+        "lc-2140-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6187,
+  "oracle_implementation": "code_practice/import_batch_120b.py:questions_o",
+  "validator_implementation_sha256": "6332d038af74637316a8533447617ad4509423419fd6e1bffea35003579b12fc",
+  "batch_implementation_sha256": "7a070ed8ce106909e5a57a947d517fd22f55d0fcedbba10bcf90542798190980",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d10625ae9637ee3c68c8a62c73dd84853d24032020aecbe9d7d3fc2667804dc3",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

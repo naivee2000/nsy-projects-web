@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2144",
+  "content_sha256": "bb079516d6541942a3b412cf2a2bad9e71508bfa372ff27f8439fedb5f83b2e4",
+  "source_hash": "4decadd1909f0d276426e8013b471f63c7b9ad1f523e371af0f0797da1035721",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts ascending and gives away candies that are too expensive relative to the paid pair.",
+      "failed_cases": [
+        "lc-2144-1",
+        "lc-2144-2",
+        "lc-2144-6",
+        "lc-2144-8",
+        "lc-2144-9",
+        "lc-2144-10",
+        "lc-2144-11",
+        "lc-2144-13",
+        "lc-2144-14"
+      ]
+    },
+    {
+      "reason": "Makes every second candy free rather than every third candy.",
+      "failed_cases": [
+        "lc-2144-1",
+        "lc-2144-2",
+        "lc-2144-4",
+        "lc-2144-6",
+        "lc-2144-7",
+        "lc-2144-8",
+        "lc-2144-10",
+        "lc-2144-11",
+        "lc-2144-12",
+        "lc-2144-13",
+        "lc-2144-14",
+        "lc-2144-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6191,
+  "oracle_implementation": "code_practice/import_batch_120b.py:candy_o",
+  "validator_implementation_sha256": "6332d038af74637316a8533447617ad4509423419fd6e1bffea35003579b12fc",
+  "batch_implementation_sha256": "7a070ed8ce106909e5a57a947d517fd22f55d0fcedbba10bcf90542798190980",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "264210d1230a7f47b7c138a594c204f785409a730b7a7371f1c98c884d685cd6",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2143",
+  "content_sha256": "b01dee79a9e5b7322ba01a0a4ebb1e628b1337652b767c9d7487f873ce561881",
+  "source_hash": "903ea065da6a03d70499a5cdf90b9cee5c7c02858ab8c9db0695bfba92c6b0f1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps ranges from earlier endpoints alive and extends noncontiguous choices.",
+      "failed_cases": [
+        "lc-2143-8"
+      ]
+    },
+    {
+      "reason": "Divides balanced counts by two and undercounts distinct choices.",
+      "failed_cases": [
+        "lc-2143-1",
+        "lc-2143-2",
+        "lc-2143-5",
+        "lc-2143-6",
+        "lc-2143-7",
+        "lc-2143-10",
+        "lc-2143-11",
+        "lc-2143-12",
+        "lc-2143-13",
+        "lc-2143-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6190,
+  "oracle_implementation": "code_practice/import_batch_120b.py:ranges_o",
+  "validator_implementation_sha256": "6332d038af74637316a8533447617ad4509423419fd6e1bffea35003579b12fc",
+  "batch_implementation_sha256": "7a070ed8ce106909e5a57a947d517fd22f55d0fcedbba10bcf90542798190980",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "77be1c0ea468c99fc9d5b0b4bc42646e650d802d542d459fd445624e0031e042",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
