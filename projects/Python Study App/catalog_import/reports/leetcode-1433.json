@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1433",
+  "content_sha256": "f664e1f7347e0859a9a2f51c60b49d4f939819b1bb26f5d351c66ae0c4882b88",
+  "source_hash": "ac5fcee5bba15db72de24206e69160ba4767c25cd3e180c2ea0ca2f65ad85f79",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires both opposite componentwise directions simultaneously.",
+      "failed_cases": [
+        "lc-1433-1",
+        "lc-1433-4",
+        "lc-1433-5",
+        "lc-1433-6",
+        "lc-1433-9",
+        "lc-1433-12",
+        "lc-1433-13",
+        "lc-1433-14"
+      ]
+    },
+    {
+      "reason": "Compares original positions without allowing permutations.",
+      "failed_cases": [
+        "lc-1433-1",
+        "lc-1433-5",
+        "lc-1433-7",
+        "lc-1433-10",
+        "lc-1433-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5480,
+  "oracle_implementation": "code_practice/import_batch_093b.py:break_o",
+  "validator_implementation_sha256": "5c906ca719858d2c4f450ba5aa3134810cef5962a1235cc8c86f9f2585c2fec1",
+  "batch_implementation_sha256": "9866727ec21e0694b489dc96c58bfdf05af8fd4bcdbe212a6005e209b7706a70",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9865b32e0a250d9d6f61f67a51cbcb46ad73b2dde6a9483c35c1004b9a2514dd",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

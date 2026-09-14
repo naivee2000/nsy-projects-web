@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1426",
+  "content_sha256": "02281b1b02c5febbee2739166d83148956b21736474234bbfd23433223e90a76",
+  "source_hash": "9bec37350a5a1dae4033116aefc73c1dda400955ae9309a3f74bd4a615e5ba44",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Looks for a predecessor instead of a successor.",
+      "failed_cases": [
+        "lc-1426-6",
+        "lc-1426-12"
+      ]
+    },
+    {
+      "reason": "Counts distinct values rather than array occurrences.",
+      "failed_cases": [
+        "lc-1426-6",
+        "lc-1426-7",
+        "lc-1426-8",
+        "lc-1426-12",
+        "lc-1426-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5473,
+  "oracle_implementation": "code_practice/import_batch_093b.py:elements_o",
+  "validator_implementation_sha256": "5c906ca719858d2c4f450ba5aa3134810cef5962a1235cc8c86f9f2585c2fec1",
+  "batch_implementation_sha256": "9866727ec21e0694b489dc96c58bfdf05af8fd4bcdbe212a6005e209b7706a70",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d08fdcb82c8533d6cf42d35a607c70be45d56dd5581a9274ee4d477b4912eb1d",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

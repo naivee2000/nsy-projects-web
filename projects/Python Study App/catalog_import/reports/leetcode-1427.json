@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1427",
+  "content_sha256": "c627becc5b0c9e5e506bd191033aa6add30c9aca6ddd559dd701a4e6b0486d66",
+  "source_hash": "c91599c26c14dc36d7c3d173e971f16a82e8965af282626db1a6bba1cb8d7c0a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the meanings of left and right.",
+      "failed_cases": [
+        "lc-1427-1",
+        "lc-1427-2",
+        "lc-1427-7",
+        "lc-1427-8",
+        "lc-1427-11",
+        "lc-1427-12"
+      ]
+    },
+    {
+      "reason": "Fails to reduce large net shifts modulo string length.",
+      "failed_cases": [
+        "lc-1427-7",
+        "lc-1427-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5474,
+  "oracle_implementation": "code_practice/import_batch_093b.py:shifts_o",
+  "validator_implementation_sha256": "5c906ca719858d2c4f450ba5aa3134810cef5962a1235cc8c86f9f2585c2fec1",
+  "batch_implementation_sha256": "9866727ec21e0694b489dc96c58bfdf05af8fd4bcdbe212a6005e209b7706a70",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4a30a79e1b2f0317450ca49e4f16e22b4771eb1ae4e06f3c03c77bd9db9ef813",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

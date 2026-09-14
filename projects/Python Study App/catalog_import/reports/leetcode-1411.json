@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1411",
+  "content_sha256": "66556994fd2125ec0b632f690fc13151b7bfda3fd7c4fa27f2471c978f66be61",
+  "source_hash": "400e4536bdc8822a8acbba8998e492938ea955ed4cc372b84c7b6f99bc3de853",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts with half of the valid one-row patterns.",
+      "failed_cases": [
+        "lc-1411-1",
+        "lc-1411-2",
+        "lc-1411-3",
+        "lc-1411-4",
+        "lc-1411-5",
+        "lc-1411-6",
+        "lc-1411-7",
+        "lc-1411-8",
+        "lc-1411-9",
+        "lc-1411-10",
+        "lc-1411-11",
+        "lc-1411-12",
+        "lc-1411-13",
+        "lc-1411-14"
+      ]
+    },
+    {
+      "reason": "Uses the wrong transition count for two-color ABA row patterns.",
+      "failed_cases": [
+        "lc-1411-2",
+        "lc-1411-3",
+        "lc-1411-4",
+        "lc-1411-5",
+        "lc-1411-6",
+        "lc-1411-7",
+        "lc-1411-8",
+        "lc-1411-9",
+        "lc-1411-10",
+        "lc-1411-11",
+        "lc-1411-12",
+        "lc-1411-13",
+        "lc-1411-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5458,
+  "oracle_implementation": "code_practice/import_batch_093.py:paint_o",
+  "validator_implementation_sha256": "efa63a9abef0516685a548f97b634bdb1c91588549f363e54ff30320a9920ab5",
+  "batch_implementation_sha256": "b1b2b0e4bd1bdccd8d4725d90ae87a1eb7ea376eac5505de19bbdb90ca4b4c85",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2cd3d0dbfef1eaae289cb3f4b643002c0cec38c0b1f3642c3fd7af4ab8879dc6",
+  "elapsed_seconds": 0.067,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

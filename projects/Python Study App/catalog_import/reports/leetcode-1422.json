@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1422",
+  "content_sha256": "ae66db4fbd207ef6a9f1c992f545d6faccdd1a082b9a4d29e0b74cc3e7f0e12b",
+  "source_hash": "29af794d8e8c7564abf6af73cd3cfcf4a2083f6f4378b88de005ebe6c88d508c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Also considers an invalid empty right part.",
+      "failed_cases": [
+        "lc-1422-4",
+        "lc-1422-5",
+        "lc-1422-8",
+        "lc-1422-11"
+      ]
+    },
+    {
+      "reason": "Never removes ones that move from right to left.",
+      "failed_cases": [
+        "lc-1422-1",
+        "lc-1422-2",
+        "lc-1422-4",
+        "lc-1422-6",
+        "lc-1422-9",
+        "lc-1422-10",
+        "lc-1422-11",
+        "lc-1422-12",
+        "lc-1422-13",
+        "lc-1422-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5469,
+  "oracle_implementation": "code_practice/import_batch_093b.py:split_o",
+  "validator_implementation_sha256": "5c906ca719858d2c4f450ba5aa3134810cef5962a1235cc8c86f9f2585c2fec1",
+  "batch_implementation_sha256": "9866727ec21e0694b489dc96c58bfdf05af8fd4bcdbe212a6005e209b7706a70",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "975c1d03a43c3d67ad074c6e1d2d7a891bcd5eae68ac58bc311ffe926ed57f2b",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

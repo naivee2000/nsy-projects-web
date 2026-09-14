@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1419",
+  "content_sha256": "2cb8cbbee6340b96c3f4cff166836b275a3d8ada6231b1a31fde719ee5059725",
+  "source_hash": "6fff93ad4b8b4f2668d28f23e64774b7a07f801d731923183c3c73cbdd19b6dc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never counts newly active frogs.",
+      "failed_cases": [
+        "lc-1419-1",
+        "lc-1419-2",
+        "lc-1419-3",
+        "lc-1419-6",
+        "lc-1419-7",
+        "lc-1419-8",
+        "lc-1419-14"
+      ]
+    },
+    {
+      "reason": "Accepts unfinished croaks at the end.",
+      "failed_cases": [
+        "lc-1419-5",
+        "lc-1419-6",
+        "lc-1419-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5466,
+  "oracle_implementation": "code_practice/import_batch_093b.py:frogs_o",
+  "validator_implementation_sha256": "5c906ca719858d2c4f450ba5aa3134810cef5962a1235cc8c86f9f2585c2fec1",
+  "batch_implementation_sha256": "9866727ec21e0694b489dc96c58bfdf05af8fd4bcdbe212a6005e209b7706a70",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8fd08e471d2e72b59ecdc6f69a1f8595f1bd38e07e81360debbd1ba96c07cb3d",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

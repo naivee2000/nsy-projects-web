@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1415",
+  "content_sha256": "8ac100eb3039bed2763bd842f772d1332dfec0febc967da3c9a6abb701f1ea35",
+  "source_hash": "a718826da97b3102ace130d14e79a8d9ad7474a17d6fa31ccf961c2a2f2d57af",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Generates valid strings in reverse lexicographic order.",
+      "failed_cases": [
+        "lc-1415-1",
+        "lc-1415-2",
+        "lc-1415-3",
+        "lc-1415-5",
+        "lc-1415-6",
+        "lc-1415-8",
+        "lc-1415-9",
+        "lc-1415-11",
+        "lc-1415-12",
+        "lc-1415-13",
+        "lc-1415-14"
+      ]
+    },
+    {
+      "reason": "Allows only repeated adjacent characters instead of forbidding them.",
+      "failed_cases": [
+        "lc-1415-2",
+        "lc-1415-5",
+        "lc-1415-6",
+        "lc-1415-8",
+        "lc-1415-9",
+        "lc-1415-11",
+        "lc-1415-12",
+        "lc-1415-13",
+        "lc-1415-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5462,
+  "oracle_implementation": "code_practice/import_batch_093.py:happy_o",
+  "validator_implementation_sha256": "efa63a9abef0516685a548f97b634bdb1c91588549f363e54ff30320a9920ab5",
+  "batch_implementation_sha256": "b1b2b0e4bd1bdccd8d4725d90ae87a1eb7ea376eac5505de19bbdb90ca4b4c85",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "32cd0c077b7aa0ff5a557f6f5c55ce0b53ca92a5072de2997c24db4928186ffd",
+  "elapsed_seconds": 0.199,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

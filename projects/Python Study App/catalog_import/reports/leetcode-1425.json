@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1425",
+  "content_sha256": "808b1d1bb3ef6ea11c98ad82235be3d4262f26415fbd9e752fe3e303ee9cb7a8",
+  "source_hash": "2ea5aec5da12750071151c7a0beb72cf7dce3dda3f6d2c0e27ebd57b3660287a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Expires an index exactly k away even though it remains valid.",
+      "failed_cases": [
+        "lc-1425-1",
+        "lc-1425-5",
+        "lc-1425-7",
+        "lc-1425-10",
+        "lc-1425-14"
+      ]
+    },
+    {
+      "reason": "Forces extension of a negative prior sum instead of starting anew.",
+      "failed_cases": [
+        "lc-1425-1",
+        "lc-1425-2",
+        "lc-1425-3",
+        "lc-1425-4",
+        "lc-1425-5",
+        "lc-1425-6",
+        "lc-1425-7",
+        "lc-1425-8",
+        "lc-1425-11",
+        "lc-1425-12",
+        "lc-1425-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5472,
+  "oracle_implementation": "code_practice/import_batch_093b.py:constrained_o",
+  "validator_implementation_sha256": "5c906ca719858d2c4f450ba5aa3134810cef5962a1235cc8c86f9f2585c2fec1",
+  "batch_implementation_sha256": "9866727ec21e0694b489dc96c58bfdf05af8fd4bcdbe212a6005e209b7706a70",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0ef0ef5d5f5fe3c0b750d6bc685c0db18afc9f2db23dcf1e16157068cfc645ef",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

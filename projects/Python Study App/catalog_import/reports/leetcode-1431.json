@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1431",
+  "content_sha256": "7ff606482fceb7c1c48fb9a7a9f4805f6a5cd865ec38092ea569ad4c2aeddffd",
+  "source_hash": "78507f2c23ed7ac26de4bad76f361411addff02b1d37e1bf1f1be9ce0b0e1f61",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires strictly more than the current maximum instead of allowing a tie.",
+      "failed_cases": [
+        "lc-1431-1",
+        "lc-1431-3",
+        "lc-1431-6",
+        "lc-1431-7",
+        "lc-1431-8",
+        "lc-1431-9",
+        "lc-1431-11",
+        "lc-1431-12",
+        "lc-1431-14"
+      ]
+    },
+    {
+      "reason": "Compares against the current minimum.",
+      "failed_cases": [
+        "lc-1431-1",
+        "lc-1431-2",
+        "lc-1431-5",
+        "lc-1431-9",
+        "lc-1431-10",
+        "lc-1431-12",
+        "lc-1431-13",
+        "lc-1431-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5478,
+  "oracle_implementation": "code_practice/import_batch_093b.py:candies_o",
+  "validator_implementation_sha256": "5c906ca719858d2c4f450ba5aa3134810cef5962a1235cc8c86f9f2585c2fec1",
+  "batch_implementation_sha256": "9866727ec21e0694b489dc96c58bfdf05af8fd4bcdbe212a6005e209b7706a70",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b18b1ac27e4d2adf47b43bf342531745483ab1674afbbed0bf9d3c7f84b0f4fc",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

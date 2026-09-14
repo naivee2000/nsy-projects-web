@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1414",
+  "content_sha256": "8adff7af411e8e8b78abdef06490ad60d903fb994460523c0b0bb963c06546c8",
+  "source_hash": "faf3eed62e87e6f21a8353328fd9637a30576446022ff3288a6dbe04185acdb6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Greedily tries smallest Fibonacci numbers first.",
+      "failed_cases": [
+        "lc-1414-1",
+        "lc-1414-2",
+        "lc-1414-5",
+        "lc-1414-7",
+        "lc-1414-8",
+        "lc-1414-9",
+        "lc-1414-10",
+        "lc-1414-11",
+        "lc-1414-12",
+        "lc-1414-13",
+        "lc-1414-14"
+      ]
+    },
+    {
+      "reason": "Counts every selected Fibonacci number twice.",
+      "failed_cases": [
+        "lc-1414-1",
+        "lc-1414-2",
+        "lc-1414-3",
+        "lc-1414-4",
+        "lc-1414-5",
+        "lc-1414-6",
+        "lc-1414-7",
+        "lc-1414-8",
+        "lc-1414-9",
+        "lc-1414-10",
+        "lc-1414-11",
+        "lc-1414-12",
+        "lc-1414-13",
+        "lc-1414-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5461,
+  "oracle_implementation": "code_practice/import_batch_093.py:fib_o",
+  "validator_implementation_sha256": "efa63a9abef0516685a548f97b634bdb1c91588549f363e54ff30320a9920ab5",
+  "batch_implementation_sha256": "b1b2b0e4bd1bdccd8d4725d90ae87a1eb7ea376eac5505de19bbdb90ca4b4c85",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "20fceb83863a0ee8f1be471a456981a405b062063cb7c513f1e96196cb693d09",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

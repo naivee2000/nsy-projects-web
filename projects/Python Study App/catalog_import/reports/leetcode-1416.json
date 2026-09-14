@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1416",
+  "content_sha256": "3fd8c3a4082c9be3d42307515efa98116372a1f3c125f851d63a8b4e7bc8bd8c",
+  "source_hash": "3be78500f296cb793dc49b3653900385efda0c23d3a7c4a24fed3bd91247652e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows pieces with leading zeroes.",
+      "failed_cases": [
+        "lc-1416-1",
+        "lc-1416-2",
+        "lc-1416-4",
+        "lc-1416-5",
+        "lc-1416-6",
+        "lc-1416-8",
+        "lc-1416-12"
+      ]
+    },
+    {
+      "reason": "Rejects pieces exactly equal to k.",
+      "failed_cases": [
+        "lc-1416-3",
+        "lc-1416-5",
+        "lc-1416-9",
+        "lc-1416-11",
+        "lc-1416-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5463,
+  "oracle_implementation": "code_practice/import_batch_093.py:restore_o",
+  "validator_implementation_sha256": "efa63a9abef0516685a548f97b634bdb1c91588549f363e54ff30320a9920ab5",
+  "batch_implementation_sha256": "b1b2b0e4bd1bdccd8d4725d90ae87a1eb7ea376eac5505de19bbdb90ca4b4c85",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4a944d586f043d359546a1ca825ded006274e84470c0b0191ee0bebb9a194f75",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 959,
+  "count": 979,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -16972,6 +16972,25 @@
       "source_id": 1404
     },
     {
+      "id": "leetcode-1406",
+      "version": 1,
+      "status": "approved",
+      "title": "Stone Game III",
+      "summary": "Alice and Bob play a game with stones.",
+      "topics": [
+        "dynamic-programming",
+        "games"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1406.json",
+      "content_sha256": "e50717a2ef1b9cdbb72c7bd65506f821117569b50df31b09e8d8373f5c7c812b",
+      "source_id": 1406
+    },
+    {
       "id": "leetcode-1408",
       "version": 1,
       "status": "approved",
@@ -16987,6 +17006,337 @@
       "path": "problems/leetcode-1408.json",
       "content_sha256": "fac36db30e73b81dd4764df6e7c6c0f2708b44e7b3a6e46437a8a633ba67dfd5",
       "source_id": 1408
+    },
+    {
+      "id": "leetcode-1409",
+      "version": 1,
+      "status": "approved",
+      "title": "Queries on a Permutation With Key",
+      "summary": "Process each query in the array by finding its position in the initial permutation P=[1,2,3,...,m], then move this element to the start of P, and record the position as the result for that query.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1409.json",
+      "content_sha256": "ef82bb9143041cf75c5cf5efed041b99c13aa7a4a6259c4c5a40d899f913410f",
+      "source_id": 1409
+    },
+    {
+      "id": "leetcode-1410",
+      "version": 1,
+      "status": "approved",
+      "title": "HTML Entity Parser",
+      "summary": "Implement an HTML entity parser that converts special character entities in an input string to their corresponding symbols.",
+      "topics": [
+        "strings",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1410.json",
+      "content_sha256": "d7d3aefb64a3ffd71629227a8fa00d039a181bbdbea139890ae9a60cb2a19a25",
+      "source_id": 1410
+    },
+    {
+      "id": "leetcode-1411",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Paint N × 3 Grid",
+      "summary": "Given the number of rows n for a grid of size n × 3 , determine the total number of ways to paint each cell with one of three colors (Red, Yellow, Green) such that no two adjacent cells share the same color.",
+      "topics": [
+        "dynamic-programming",
+        "counting"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1411.json",
+      "content_sha256": "66556994fd2125ec0b632f690fc13151b7bfda3fd7c4fa27f2471c978f66be61",
+      "source_id": 1411
+    },
+    {
+      "id": "leetcode-1413",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Value to Get Positive Step by Step Sum",
+      "summary": "Given an array of integers, determine the smallest positive initial value such that the cumulative sum, starting from this value and adding each array element in sequence, never falls below 1.",
+      "topics": [
+        "arrays",
+        "prefix-sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1413.json",
+      "content_sha256": "0b54b428e7bebf62265c159d020b940b88cb3c6eba2fc7e604943f2f42178b3c",
+      "source_id": 1413
+    },
+    {
+      "id": "leetcode-1414",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Minimum Number of Fibonacci Numbers Whose Sum Is K",
+      "summary": "For a given integer k, determine the least count of Fibonacci numbers that add up to k, allowing repetition of any Fibonacci number.",
+      "topics": [
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1414.json",
+      "content_sha256": "8adff7af411e8e8b78abdef06490ad60d903fb994460523c0b0bb963c06546c8",
+      "source_id": 1414
+    },
+    {
+      "id": "leetcode-1415",
+      "version": 1,
+      "status": "approved",
+      "title": "The k-th Lexicographical String of All Happy Strings of Length n",
+      "summary": "A happy string is formed by letters 'a', 'b', and 'c' with no consecutive identical characters.",
+      "topics": [
+        "backtracking",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1415.json",
+      "content_sha256": "8ac100eb3039bed2763bd842f772d1332dfec0febc967da3c9a6abb701f1ea35",
+      "source_id": 1415
+    },
+    {
+      "id": "leetcode-1416",
+      "version": 1,
+      "status": "approved",
+      "title": "Restore The Array",
+      "summary": "Given a string s representing a sequence of digits and an integer k, determine the number of possible integer arrays that can be formed where each integer is in the range [1, k] and there are no leading zeros.",
+      "topics": [
+        "dynamic-programming",
+        "strings"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1416.json",
+      "content_sha256": "3fd8c3a4082c9be3d42307515efa98116372a1f3c125f851d63a8b4e7bc8bd8c",
+      "source_id": 1416
+    },
+    {
+      "id": "leetcode-1418",
+      "version": 1,
+      "status": "approved",
+      "title": "Display Table of Food Orders in a Restaurant",
+      "summary": "Given an array of orders, where each order includes a customer's name, table number, and food item, return a display table showing the count of each food item per table.",
+      "topics": [
+        "counting",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1418.json",
+      "content_sha256": "f9c16b03a2ed8991085474d7f80b7d833a582ee1f83948e0379b7644b6651c21",
+      "source_id": 1418
+    },
+    {
+      "id": "leetcode-1419",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Frogs Croaking",
+      "summary": "Given a string representing a mix of 'croak' sounds from multiple frogs, determine the least number of frogs needed to produce the entire string.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1419.json",
+      "content_sha256": "2cb8cbbee6340b96c3f4cff166836b275a3d8ada6231b1a31fde719ee5059725",
+      "source_id": 1419
+    },
+    {
+      "id": "leetcode-1420",
+      "version": 1,
+      "status": "approved",
+      "title": "Build Array Where You Can Find The Maximum Exactly K Comparisons",
+      "summary": "Given integers n, m, and k, construct an array arr with n elements, each between 1 and m, inclusive, such that the algorithm to find the maximum element requires exactly k comparisons.",
+      "topics": [
+        "dynamic-programming",
+        "counting"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1420.json",
+      "content_sha256": "1616831d6971345cfb91fcc9eb8dae17447c0d8a445e7a679f852fdb20930263",
+      "source_id": 1420
+    },
+    {
+      "id": "leetcode-1422",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Score After Splitting a String",
+      "summary": "For a binary string s, calculate the highest score by dividing it into two non-empty parts, where the score is the count of zeros in the first part plus the count of ones in the second part.",
+      "topics": [
+        "strings",
+        "prefix-sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1422.json",
+      "content_sha256": "ae66db4fbd207ef6a9f1c992f545d6faccdd1a082b9a4d29e0b74cc3e7f0e12b",
+      "source_id": 1422
+    },
+    {
+      "id": "leetcode-1423",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Points You Can Obtain from Cards",
+      "summary": "Given an array of card points and an integer k, select exactly k cards from either end of the array to maximize the sum of the points.",
+      "topics": [
+        "sliding-window",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1423.json",
+      "content_sha256": "ebaaa06a0ee58d294e370ad75001194f3ce6d623ae611255bb6b55d8ca3c055d",
+      "source_id": 1423
+    },
+    {
+      "id": "leetcode-1424",
+      "version": 1,
+      "status": "approved",
+      "title": "Diagonal Traverse II",
+      "summary": "Given a two-dimensional integer array named nums, provide all its elements in a diagonal sequence as illustrated in the provided images.",
+      "topics": [
+        "arrays",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1424.json",
+      "content_sha256": "18455308a9c7c904113d9d7017c396ac15f1d19b947532802b42ce10f145ff0f",
+      "source_id": 1424
+    },
+    {
+      "id": "leetcode-1425",
+      "version": 1,
+      "status": "approved",
+      "title": "Constrained Subsequence Sum",
+      "summary": "Given an integer array nums and an integer k, find the maximum sum of a non-empty subsequence where the difference between the indices of any two consecutive elements is at most k.",
+      "topics": [
+        "dynamic-programming",
+        "monotonic-queue"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1425.json",
+      "content_sha256": "808b1d1bb3ef6ea11c98ad82235be3d4262f26415fbd9e752fe3e303ee9cb7a8",
+      "source_id": 1425
+    },
+    {
+      "id": "leetcode-1426",
+      "version": 1,
+      "status": "approved",
+      "title": "Counting Elements",
+      "summary": "For an integer array arr, determine the number of elements x where x + 1 also exists in arr, considering each duplicate element separately.",
+      "topics": [
+        "arrays",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1426.json",
+      "content_sha256": "02281b1b02c5febbee2739166d83148956b21736474234bbfd23433223e90a76",
+      "source_id": 1426
+    },
+    {
+      "id": "leetcode-1427",
+      "version": 1,
+      "status": "approved",
+      "title": "Perform String Shifts",
+      "summary": "Given a string s consisting of lowercase English letters and a matrix of shift operations, where each operation is defined by a direction (0 for a left shift and 1 for a right shift) and an amount, apply the specified shifts to s .",
+      "topics": [
+        "strings",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1427.json",
+      "content_sha256": "c627becc5b0c9e5e506bd191033aa6add30c9aca6ddd559dd701a4e6b0486d66",
+      "source_id": 1427
+    },
+    {
+      "id": "leetcode-1431",
+      "version": 1,
+      "status": "approved",
+      "title": "Kids With the Greatest Number of Candies",
+      "summary": "Given an array of kids' candies and extra candies, determine if each kid can have the most candies after receiving all extra candies.",
+      "topics": [
+        "arrays",
+        "comparison"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1431.json",
+      "content_sha256": "7ff606482fceb7c1c48fb9a7a9f4805f6a5cd865ec38092ea569ad4c2aeddffd",
+      "source_id": 1431
+    },
+    {
+      "id": "leetcode-1432",
+      "version": 1,
+      "status": "approved",
+      "title": "Max Difference You Can Get From Changing an Integer",
+      "summary": "Given an integer, apply a digit replacement operation twice to create two new numbers.",
+      "topics": [
+        "greedy",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1432.json",
+      "content_sha256": "e2598199459964e37d2990536b2edb748a795c480ee4d1e19768da8429f86955",
+      "source_id": 1432
+    },
+    {
+      "id": "leetcode-1433",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If a String Can Break Another String",
+      "summary": "Determine if one permutation of string s1 can be at least as large as every character in a permutation of string s2, and vice versa, by comparing corresponding characters in both strings.",
+      "topics": [
+        "strings",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1433.json",
+      "content_sha256": "f664e1f7347e0859a9a2f51c60b49d4f939819b1bb26f5d351c66ae0c4882b88",
+      "source_id": 1433
     }
   ]
 }
