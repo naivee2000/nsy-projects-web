@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1583",
+  "content_sha256": "b8fac21013ec01398b6575fc70b0853789aa65c12e9e7b643b4b94b37dd79341",
+  "source_hash": "4ebd421d33cc0addbfae54e7c4f3f09935b94adc02cba0b8b284edf139862f36",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Examines friends ranked below the current partner too.",
+      "failed_cases": [
+        "lc-1583-1",
+        "lc-1583-9",
+        "lc-1583-12"
+      ]
+    },
+    {
+      "reason": "Reverses whether the alternative friend prefers x over their partner.",
+      "failed_cases": [
+        "lc-1583-1",
+        "lc-1583-5",
+        "lc-1583-6",
+        "lc-1583-9",
+        "lc-1583-10",
+        "lc-1583-11",
+        "lc-1583-12",
+        "lc-1583-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5630,
+  "oracle_implementation": "code_practice/import_batch_099b.py:unhappy_o",
+  "validator_implementation_sha256": "e80d6e7f69d3363333a4b572d436e25fcd1053da86b459173d4030c1ce4a3936",
+  "batch_implementation_sha256": "c78194dc88ab36f721b21c7fce1b967f58c2af5947ff4bc174bea05f4c701a86",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bcfa670dfe350ec3a56274764f7238ba9ee80e0f72cf2d9109e96c5799c56a59",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

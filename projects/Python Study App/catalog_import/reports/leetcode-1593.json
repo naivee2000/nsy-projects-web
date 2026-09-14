@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1593",
+  "content_sha256": "047841021282d83907730a5c2e94ed243c3474615517cb2244dd8d8f0357689e",
+  "source_hash": "c6350d79dd01ec49b48a3dba9b30d521f6131d5778bfb6ac4a8a91bfbb1f528f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses only substrings already used, so no first part is possible.",
+      "failed_cases": [
+        "lc-1593-1",
+        "lc-1593-2",
+        "lc-1593-3",
+        "lc-1593-4",
+        "lc-1593-5",
+        "lc-1593-6",
+        "lc-1593-7",
+        "lc-1593-8",
+        "lc-1593-9",
+        "lc-1593-10",
+        "lc-1593-11",
+        "lc-1593-12",
+        "lc-1593-13",
+        "lc-1593-14"
+      ]
+    },
+    {
+      "reason": "Never removes a substring while backtracking, leaking choices across branches.",
+      "failed_cases": [
+        "lc-1593-1",
+        "lc-1593-2",
+        "lc-1593-4",
+        "lc-1593-5",
+        "lc-1593-6",
+        "lc-1593-7",
+        "lc-1593-8",
+        "lc-1593-9",
+        "lc-1593-10",
+        "lc-1593-11",
+        "lc-1593-12",
+        "lc-1593-13",
+        "lc-1593-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5640,
+  "oracle_implementation": "code_practice/import_batch_099b.py:unique_o",
+  "validator_implementation_sha256": "e80d6e7f69d3363333a4b572d436e25fcd1053da86b459173d4030c1ce4a3936",
+  "batch_implementation_sha256": "c78194dc88ab36f721b21c7fce1b967f58c2af5947ff4bc174bea05f4c701a86",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6de4d501f011bc06f301edc8e4ad147db38708cb80e02458aca34de0da44fd0b",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

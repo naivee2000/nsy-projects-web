@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1590",
+  "content_sha256": "2d76d235380aef5313c9aa2ab87db9c09a7171e8b3b4088bac93aff0bc3eb816",
+  "source_hash": "57136f7aeb5a562953084a7c6028894c8eef2bb944c1a2fafc7db48d886b5d5d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the earliest prefix index instead of the latest, producing longer removals.",
+      "failed_cases": [
+        "lc-1590-2",
+        "lc-1590-13"
+      ]
+    },
+    {
+      "reason": "Allows removing the entire array.",
+      "failed_cases": [
+        "lc-1590-4",
+        "lc-1590-6",
+        "lc-1590-8",
+        "lc-1590-9",
+        "lc-1590-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5637,
+  "oracle_implementation": "code_practice/import_batch_099b.py:divisible_o",
+  "validator_implementation_sha256": "e80d6e7f69d3363333a4b572d436e25fcd1053da86b459173d4030c1ce4a3936",
+  "batch_implementation_sha256": "c78194dc88ab36f721b21c7fce1b967f58c2af5947ff4bc174bea05f4c701a86",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c3bfa22b9cba9b746e3b2a6e5b2c85399098a518311e8d86e806a0d0480d3c9e",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

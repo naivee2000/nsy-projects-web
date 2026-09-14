@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1591",
+  "content_sha256": "1496b3fadc765fad1b551822027632cdfb7b83320db268c1cd4cecfe55a206f6",
+  "source_hash": "469e450b68a0690b0d3a37f40505c8896d6274cc24e1e2a9fb3b99e7f848b781",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires every bounding-rectangle cell to have already removed color, including the candidate’s own cells.",
+      "failed_cases": [
+        "lc-1591-1",
+        "lc-1591-3",
+        "lc-1591-4",
+        "lc-1591-5",
+        "lc-1591-6",
+        "lc-1591-7",
+        "lc-1591-8",
+        "lc-1591-9",
+        "lc-1591-10",
+        "lc-1591-11",
+        "lc-1591-12",
+        "lc-1591-13"
+      ]
+    },
+    {
+      "reason": "Accepts cyclic color dependencies when no color can be removed.",
+      "failed_cases": [
+        "lc-1591-2",
+        "lc-1591-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5638,
+  "oracle_implementation": "code_practice/import_batch_099b.py:printer_o",
+  "validator_implementation_sha256": "e80d6e7f69d3363333a4b572d436e25fcd1053da86b459173d4030c1ce4a3936",
+  "batch_implementation_sha256": "c78194dc88ab36f721b21c7fce1b967f58c2af5947ff4bc174bea05f4c701a86",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d769ef0faec4f6275211b8b7be59cd55429b1e9be9fd85abd0747c1740d7f9e1",
+  "elapsed_seconds": 0.105,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

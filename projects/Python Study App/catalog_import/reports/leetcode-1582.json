@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1582",
+  "content_sha256": "5b47a05f26290d76ecff116009af6688cd59e6a76ec2ef43ee4c377168b9f059",
+  "source_hash": "503a3ef9727de24fbc2077f2a49e6d316f3ab3c994d46b79663f0c92da98e85e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks row uniqueness but ignores another one in the same column.",
+      "failed_cases": [
+        "lc-1582-1",
+        "lc-1582-8"
+      ]
+    },
+    {
+      "reason": "Requires multiple ones in the row instead of exactly one.",
+      "failed_cases": [
+        "lc-1582-1",
+        "lc-1582-2",
+        "lc-1582-3",
+        "lc-1582-5",
+        "lc-1582-6",
+        "lc-1582-7",
+        "lc-1582-10",
+        "lc-1582-11",
+        "lc-1582-12",
+        "lc-1582-13",
+        "lc-1582-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5629,
+  "oracle_implementation": "code_practice/import_batch_099b.py:special_o",
+  "validator_implementation_sha256": "e80d6e7f69d3363333a4b572d436e25fcd1053da86b459173d4030c1ce4a3936",
+  "batch_implementation_sha256": "c78194dc88ab36f721b21c7fce1b967f58c2af5947ff4bc174bea05f4c701a86",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1b680740fef55a32055f53fa1105d447d7483e75b90ba48f06c71fe964c98467",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

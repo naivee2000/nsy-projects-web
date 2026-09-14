@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1089,
+  "count": 1099,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -19259,6 +19259,180 @@
       "path": "problems/leetcode-1580.json",
       "content_sha256": "9f1e5d14bb5cbaa93820f3323138143b3d162a64cc6c478ea689e464c59aa0f7",
       "source_id": 1580
+    },
+    {
+      "id": "leetcode-1582",
+      "version": 1,
+      "status": "approved",
+      "title": "Special Positions in a Binary Matrix",
+      "summary": "Determine the count of special positions in a binary matrix.",
+      "topics": [
+        "matrices",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1582.json",
+      "content_sha256": "5b47a05f26290d76ecff116009af6688cd59e6a76ec2ef43ee4c377168b9f059",
+      "source_id": 1582
+    },
+    {
+      "id": "leetcode-1583",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Unhappy Friends",
+      "summary": "Given a list of preferences for an even number of friends, where each friend's preferences are listed in order of preference, and a list of pairings, count the number of friends who are unhappy.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1583.json",
+      "content_sha256": "b8fac21013ec01398b6575fc70b0853789aa65c12e9e7b643b4b94b37dd79341",
+      "source_id": 1583
+    },
+    {
+      "id": "leetcode-1584",
+      "version": 1,
+      "status": "approved",
+      "title": "Min Cost to Connect All Points",
+      "summary": "Given an array of points with integer coordinates on a 2D-plane, calculate the minimum cost to connect all points using the Manhattan distance.",
+      "topics": [
+        "graphs",
+        "minimum-spanning-tree"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1584.json",
+      "content_sha256": "8eb6fb27552cbb57719ad3075c934d2a7592d5b0f3902fa74605f82c8775a31a",
+      "source_id": 1584
+    },
+    {
+      "id": "leetcode-1585",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If String Is Transformable With Substring Sort Operations",
+      "summary": "Determine if string s can be transformed into string t by sorting any non-empty substring of s in place.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1585.json",
+      "content_sha256": "72b026db104cae04cd195fac44ff373f203888ea427bf851f305c3f5ae1d6b6e",
+      "source_id": 1585
+    },
+    {
+      "id": "leetcode-1588",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of All Odd Length Subarrays",
+      "summary": "Given an array of positive integers, calculate the total sum of all subarrays that have an odd length.",
+      "topics": [
+        "arrays",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1588.json",
+      "content_sha256": "8836e57be5380820bbafcc09ac696ebf9a5609cdbe55f51329e17dcd1373a2c2",
+      "source_id": 1588
+    },
+    {
+      "id": "leetcode-1589",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Sum Obtained of Any Permutation",
+      "summary": "Given an array of integers and an array of range requests, find the maximum sum of all requests for any permutation of the array.",
+      "topics": [
+        "prefix-sums",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1589.json",
+      "content_sha256": "14e5033e70acc6197641a44993137f1d576397781ac5a9f7a50506d27d1f6534",
+      "source_id": 1589
+    },
+    {
+      "id": "leetcode-1590",
+      "version": 1,
+      "status": "approved",
+      "title": "Make Sum Divisible by P",
+      "summary": "Given an array of positive integers, identify and remove the shortest contiguous segment whose removal results in the sum of the remaining elements being divisible by a specified integer p.",
+      "topics": [
+        "prefix-sums",
+        "modular-arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1590.json",
+      "content_sha256": "2d76d235380aef5313c9aa2ab87db9c09a7171e8b3b4088bac93aff0bc3eb816",
+      "source_id": 1590
+    },
+    {
+      "id": "leetcode-1591",
+      "version": 1,
+      "status": "approved",
+      "title": "Strange Printer II",
+      "summary": "The printer can only print a solid rectangular area of a single color at a time, and once a color is used, it cannot be used again.",
+      "topics": [
+        "graphs",
+        "topological-sort"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1591.json",
+      "content_sha256": "1496b3fadc765fad1b551822027632cdfb7b83320db268c1cd4cecfe55a206f6",
+      "source_id": 1591
+    },
+    {
+      "id": "leetcode-1592",
+      "version": 1,
+      "status": "approved",
+      "title": "Rearrange Spaces Between Words",
+      "summary": "Given a string text containing words separated by spaces, rearrange the spaces so that there is an equal number of spaces between every pair of adjacent words, with the number of spaces being maximized.",
+      "topics": [
+        "strings",
+        "formatting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1592.json",
+      "content_sha256": "5d8f4b5a3ae5c56ced1f6280fc2d08a800b73062d5f71a7ffb89b1c27f80c6d9",
+      "source_id": 1592
+    },
+    {
+      "id": "leetcode-1593",
+      "version": 1,
+      "status": "approved",
+      "title": "Split a String Into the Max Number of Unique Substrings",
+      "summary": "Given a string s, determine the greatest number of distinct substrings it can be divided into, ensuring each substring is unique and their concatenation forms the original string.",
+      "topics": [
+        "backtracking",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1593.json",
+      "content_sha256": "047841021282d83907730a5c2e94ed243c3474615517cb2244dd8d8f0357689e",
+      "source_id": 1593
     }
   ]
 }

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1584",
+  "content_sha256": "8eb6fb27552cbb57719ad3075c934d2a7592d5b0f3902fa74605f82c8775a31a",
+  "source_hash": "8c37e3c126c5a9dabd6a2a5d293ac01c24f446eed9d76646343965dfa6ddf73f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never adds selected edge costs to the total.",
+      "failed_cases": [
+        "lc-1584-1",
+        "lc-1584-2",
+        "lc-1584-4",
+        "lc-1584-5",
+        "lc-1584-7",
+        "lc-1584-8",
+        "lc-1584-9",
+        "lc-1584-10",
+        "lc-1584-11",
+        "lc-1584-12",
+        "lc-1584-13",
+        "lc-1584-14"
+      ]
+    },
+    {
+      "reason": "Keeps the greatest known connection cost instead of the cheapest.",
+      "failed_cases": [
+        "lc-1584-1",
+        "lc-1584-2",
+        "lc-1584-4",
+        "lc-1584-5",
+        "lc-1584-6",
+        "lc-1584-7",
+        "lc-1584-8",
+        "lc-1584-9",
+        "lc-1584-10",
+        "lc-1584-11",
+        "lc-1584-12",
+        "lc-1584-13",
+        "lc-1584-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5631,
+  "oracle_implementation": "code_practice/import_batch_099b.py:mst_o",
+  "validator_implementation_sha256": "e80d6e7f69d3363333a4b572d436e25fcd1053da86b459173d4030c1ce4a3936",
+  "batch_implementation_sha256": "c78194dc88ab36f721b21c7fce1b967f58c2af5947ff4bc174bea05f4c701a86",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a4c94190c15b5fd4e3460411924ab2726671d202be14693da1bb6592d2b21a0b",
+  "elapsed_seconds": 0.316,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

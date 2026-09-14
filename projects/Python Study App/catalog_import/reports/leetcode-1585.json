@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1585",
+  "content_sha256": "72b026db104cae04cd195fac44ff373f203888ea427bf851f305c3f5ae1d6b6e",
+  "source_hash": "221ee5fe154aff5af100e4368095a647d8eb35ba0a4f5d3c62028859cacddefd",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Checks larger blockers instead of smaller digits that cannot be crossed.",
+      "failed_cases": [
+        "lc-1585-1",
+        "lc-1585-2",
+        "lc-1585-6",
+        "lc-1585-8",
+        "lc-1585-9",
+        "lc-1585-10",
+        "lc-1585-11",
+        "lc-1585-13",
+        "lc-1585-14",
+        "lc-1585-15"
+      ]
+    },
+    {
+      "reason": "Consumes the latest occurrence of each requested digit instead of the earliest.",
+      "failed_cases": [
+        "lc-1585-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5632,
+  "oracle_implementation": "code_practice/import_batch_099b.py:transform_o",
+  "validator_implementation_sha256": "e80d6e7f69d3363333a4b572d436e25fcd1053da86b459173d4030c1ce4a3936",
+  "batch_implementation_sha256": "c78194dc88ab36f721b21c7fce1b967f58c2af5947ff4bc174bea05f4c701a86",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d43cc658425d5062112951352cc0c641308ef0f4a364a334febca1502f7efafc",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
