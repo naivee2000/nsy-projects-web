@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2135",
+  "content_sha256": "386b3ce9910269cea059bb04465ffa4efe629dd6b1b134abe389cbacdd193dc2",
+  "source_hash": "693130294cf8ae5c7ac05b9b558fe48be934dd1dbcbde618ac66a58418e516f0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds a bit instead of removing the tested target letter.",
+      "failed_cases": [
+        "lc-2135-2",
+        "lc-2135-3",
+        "lc-2135-4",
+        "lc-2135-5",
+        "lc-2135-7",
+        "lc-2135-8",
+        "lc-2135-9",
+        "lc-2135-10",
+        "lc-2135-11",
+        "lc-2135-13",
+        "lc-2135-14",
+        "lc-2135-15",
+        "lc-2135-16"
+      ]
+    },
+    {
+      "reason": "Tests every target letter except the last one and misses valid removals there.",
+      "failed_cases": [
+        "lc-2135-1",
+        "lc-2135-2",
+        "lc-2135-3",
+        "lc-2135-4",
+        "lc-2135-5",
+        "lc-2135-6",
+        "lc-2135-7",
+        "lc-2135-8",
+        "lc-2135-9",
+        "lc-2135-10",
+        "lc-2135-11",
+        "lc-2135-13",
+        "lc-2135-14",
+        "lc-2135-15",
+        "lc-2135-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6182,
+  "oracle_implementation": "code_practice/import_batch_120.py:words_o",
+  "validator_implementation_sha256": "515dbce9b622e47ef125dc8ef9f8ba70c84f8bb74d4e08bfeaaf0cc3b71aaf72",
+  "batch_implementation_sha256": "6fea346e0d05e245c11356e14764422c8b223e30848cbb046b885ea48d44afd0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c93e0ea8930cf25b2b3f54e1d414d97ab4772df50954c9f226ed032ec09f6dba",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

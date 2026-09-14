@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2138",
+  "content_sha256": "96de32c97f1cce9cd645ede574e6742363a77dec778988abdf36b8e4cccce42a",
+  "source_hash": "e36b0b1ac9aeefe789d0969bfec02ae26b42ab9cc80b7dfd8492927c6676d4e1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Pads the final group on the left instead of the right.",
+      "failed_cases": [
+        "lc-2138-2",
+        "lc-2138-4",
+        "lc-2138-5",
+        "lc-2138-8",
+        "lc-2138-9",
+        "lc-2138-10",
+        "lc-2138-11",
+        "lc-2138-12",
+        "lc-2138-14",
+        "lc-2138-15",
+        "lc-2138-16"
+      ]
+    },
+    {
+      "reason": "Stops before the final group and omits it.",
+      "failed_cases": [
+        "lc-2138-1",
+        "lc-2138-2",
+        "lc-2138-3",
+        "lc-2138-4",
+        "lc-2138-5",
+        "lc-2138-6",
+        "lc-2138-7",
+        "lc-2138-8",
+        "lc-2138-9",
+        "lc-2138-10",
+        "lc-2138-11",
+        "lc-2138-12",
+        "lc-2138-13",
+        "lc-2138-14",
+        "lc-2138-15",
+        "lc-2138-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6185,
+  "oracle_implementation": "code_practice/import_batch_120.py:divide_o",
+  "validator_implementation_sha256": "515dbce9b622e47ef125dc8ef9f8ba70c84f8bb74d4e08bfeaaf0cc3b71aaf72",
+  "batch_implementation_sha256": "6fea346e0d05e245c11356e14764422c8b223e30848cbb046b885ea48d44afd0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "285b07c584846a13a68a7b2bd6773fee281540222b7c4f52150ac31f00f8907f",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2136",
+  "content_sha256": "6fb10c2903e5be6fe03ae002ee43342ecae79989e21bf53abb352ef38c0f68ec",
+  "source_hash": "97da06039321f4859e00905700c70fe74ebc39dfa8ca55faefdcf77b34b6c4e0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Plants shortest grow-time seeds first and delays urgent long growth.",
+      "failed_cases": [
+        "lc-2136-1",
+        "lc-2136-2",
+        "lc-2136-6",
+        "lc-2136-7",
+        "lc-2136-8",
+        "lc-2136-9",
+        "lc-2136-10",
+        "lc-2136-11",
+        "lc-2136-12",
+        "lc-2136-13",
+        "lc-2136-14",
+        "lc-2136-15",
+        "lc-2136-16"
+      ]
+    },
+    {
+      "reason": "Adds grow time to the planting schedule instead of plant time.",
+      "failed_cases": [
+        "lc-2136-1",
+        "lc-2136-2",
+        "lc-2136-4",
+        "lc-2136-6",
+        "lc-2136-7",
+        "lc-2136-10",
+        "lc-2136-12",
+        "lc-2136-14",
+        "lc-2136-15",
+        "lc-2136-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6183,
+  "oracle_implementation": "code_practice/import_batch_120.py:bloom_o",
+  "validator_implementation_sha256": "515dbce9b622e47ef125dc8ef9f8ba70c84f8bb74d4e08bfeaaf0cc3b71aaf72",
+  "batch_implementation_sha256": "6fea346e0d05e245c11356e14764422c8b223e30848cbb046b885ea48d44afd0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "be302b9fbf36043bd7c8643dfff40d909e9cf35b808c59f0f9560535871613f2",
+  "elapsed_seconds": 0.133,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

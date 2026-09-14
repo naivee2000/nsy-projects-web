@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2134",
+  "content_sha256": "45e2d8a1da39d2c8e3f9ecc7f15709d19812a612e7f425e7359adb858e7e7cad",
+  "source_hash": "07b7403db4eac44b820ef9d3251deb3b75406be4e8bdbc0599142b024772531f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the entire array as the target window instead of the number of ones.",
+      "failed_cases": [
+        "lc-2134-1",
+        "lc-2134-2",
+        "lc-2134-3",
+        "lc-2134-5",
+        "lc-2134-7",
+        "lc-2134-8",
+        "lc-2134-9",
+        "lc-2134-10",
+        "lc-2134-11",
+        "lc-2134-12",
+        "lc-2134-13",
+        "lc-2134-14",
+        "lc-2134-15",
+        "lc-2134-16"
+      ]
+    },
+    {
+      "reason": "Ignores windows that wrap across the circular boundary.",
+      "failed_cases": [
+        "lc-2134-2",
+        "lc-2134-9",
+        "lc-2134-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6181,
+  "oracle_implementation": "code_practice/import_batch_120.py:swaps_o",
+  "validator_implementation_sha256": "515dbce9b622e47ef125dc8ef9f8ba70c84f8bb74d4e08bfeaaf0cc3b71aaf72",
+  "batch_implementation_sha256": "6fea346e0d05e245c11356e14764422c8b223e30848cbb046b885ea48d44afd0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "218a77f7dd6752779adc4838e13c335d7746672dfcc41085173fd634c293dd3c",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
