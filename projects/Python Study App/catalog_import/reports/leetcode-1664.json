@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1664",
+  "content_sha256": "d8cbad8d8bbc8eb53692d7e45371e16a5215638e42d8904b72605ea0c6e1f7e3",
+  "source_hash": "e2c66e03a86964cee71052bea594aba11be467b5f1210ff133681c4bbb59c606",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to swap the parity of the suffix after removal.",
+      "failed_cases": [
+        "lc-1664-1",
+        "lc-1664-2",
+        "lc-1664-10",
+        "lc-1664-12",
+        "lc-1664-13"
+      ]
+    },
+    {
+      "reason": "Subtracts an even-index removal from the odd suffix total.",
+      "failed_cases": [
+        "lc-1664-1",
+        "lc-1664-2",
+        "lc-1664-4",
+        "lc-1664-8",
+        "lc-1664-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5711,
+  "oracle_implementation": "code_practice/import_batch_101b.py:fair_o",
+  "validator_implementation_sha256": "9c5adbe3004c885f6114e59f88a98859a0271bc0662c8ebd631585b8deda1193",
+  "batch_implementation_sha256": "13111797196a7008de105cc1b25cb3a885bc9eb170e4b173b97f315e617310b8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "46608cdcbfc85bccb12337616088da37f42d11560c413ed2f0fc25ab7ef382dd",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

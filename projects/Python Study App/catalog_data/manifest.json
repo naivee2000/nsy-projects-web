@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1124,
+  "count": 1139,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -19865,6 +19865,265 @@
       "path": "problems/leetcode-1647.json",
       "content_sha256": "ab829fe202456f2e3d6f0011110ad27da49bcf0dfafdf29e229ff699e9b2ffb8",
       "source_id": 1647
+    },
+    {
+      "id": "leetcode-1648",
+      "version": 1,
+      "status": "approved",
+      "title": "Sell Diminishing-Valued Colored Balls",
+      "summary": "You have an inventory of balls in different colors, and a customer wants to buy any number of these balls.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1648.json",
+      "content_sha256": "c65928e28af6c62e0dcc4dc4d269f1d9280525a32874717a378fe81d8283b935",
+      "source_id": 1648
+    },
+    {
+      "id": "leetcode-1649",
+      "version": 1,
+      "status": "approved",
+      "title": "Create Sorted Array through Instructions",
+      "summary": "Given an integer array instructions, construct a sorted array by inserting each element from left to right.",
+      "topics": [
+        "fenwick-trees",
+        "sorting"
+      ],
+      "prerequisites": [
+        "fenwick-trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1649.json",
+      "content_sha256": "dd0e1f4900f5f2c8f60360e171fd4a97b4b5a0f4d37b608127ee08b61f729bd7",
+      "source_id": 1649
+    },
+    {
+      "id": "leetcode-1652",
+      "version": 1,
+      "status": "approved",
+      "title": "Defuse the Bomb",
+      "summary": "Given a circular array code of length n and an integer key k, replace each number in the array according to the following rules: if k > 0, replace the ith number with the sum of the next k numbers; if k < 0, replace the ith number with the sum of the previous -k numbers; if k == 0, replace the ith number with 0.",
+      "topics": [
+        "arrays",
+        "sliding-windows"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1652.json",
+      "content_sha256": "76f9bc3ec7e3bae09e5d1ed3dfbed52f91e86bf8ae1eeaa413a69bf2f47947cf",
+      "source_id": 1652
+    },
+    {
+      "id": "leetcode-1653",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Deletions to Make String Balanced",
+      "summary": "Given a string s made up of 'a' and 'b', determine the least deletions required to ensure no 'b' precedes an 'a'.",
+      "topics": [
+        "strings",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1653.json",
+      "content_sha256": "1e8f219da7a5f3ddc8dd30ae4aa4267a5a01d5f4f6a397f9c66326abb5182fb8",
+      "source_id": 1653
+    },
+    {
+      "id": "leetcode-1654",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Jumps to Reach Home",
+      "summary": "A bug starts at position 0 and aims to reach position x on the x-axis.",
+      "topics": [
+        "graphs",
+        "breadth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1654.json",
+      "content_sha256": "4fff85455237009dffd2573de398a99a76638098daa857070d0483cd8a314bac",
+      "source_id": 1654
+    },
+    {
+      "id": "leetcode-1657",
+      "version": 1,
+      "status": "approved",
+      "title": "Determine if Two Strings Are Close",
+      "summary": "Two strings are considered close if one can be transformed into the other by swapping any two of its characters or by replacing all occurrences of one character with another character and vice versa.",
+      "topics": [
+        "strings",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1657.json",
+      "content_sha256": "290f1c4df3d21d81ea1b309b09b51b71591893468f88770e921c841fecfed262",
+      "source_id": 1657
+    },
+    {
+      "id": "leetcode-1658",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Reduce X to Zero",
+      "summary": "Given an integer array nums and an integer x, you can perform operations where each operation consists of removing either the leftmost or the rightmost element from nums and subtracting its value from x.",
+      "topics": [
+        "sliding-windows",
+        "prefix-sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1658.json",
+      "content_sha256": "c3f32f5ab6b5edccc7d9c6df53c49c905ef9684db7beb8390c93b87051c8dbe6",
+      "source_id": 1658
+    },
+    {
+      "id": "leetcode-1662",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If Two String Arrays are Equivalent",
+      "summary": "Determine if two string arrays are equivalent by concatenating their elements in order to form strings and comparing them.",
+      "topics": [
+        "strings",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1662.json",
+      "content_sha256": "6724b0ca1c086a5bc8b2056f26303934435c8f0fed7ee83d02d8f27ed3e24936",
+      "source_id": 1662
+    },
+    {
+      "id": "leetcode-1663",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest String With A Given Numeric Value",
+      "summary": "The numeric value of a lowercase character is its position in the alphabet (1-indexed).",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1663.json",
+      "content_sha256": "1641f6d5fd3fbbc40858051038650362ed8a10883bb291d75b2f0fc3a96be0c4",
+      "source_id": 1663
+    },
+    {
+      "id": "leetcode-1664",
+      "version": 1,
+      "status": "approved",
+      "title": "Ways to Make a Fair Array",
+      "summary": "Given an integer array nums, you need to determine how many indices you can remove an element from such that the resulting array is fair.",
+      "topics": [
+        "prefix-sums",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1664.json",
+      "content_sha256": "d8cbad8d8bbc8eb53692d7e45371e16a5215638e42d8904b72605ea0c6e1f7e3",
+      "source_id": 1664
+    },
+    {
+      "id": "leetcode-1665",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Initial Energy to Finish Tasks",
+      "summary": "Given an array tasks where each element is [actuali, minimumi], actuali is the energy spent on the i^th task, and minimumi is the minimum energy required to start the i^th task.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [
+        "greedy"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1665.json",
+      "content_sha256": "b37cc4bab283892d16754fb920401dfd9dbc843a1b8bce62da2dec122c5f3192",
+      "source_id": 1665
+    },
+    {
+      "id": "leetcode-1668",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Repeating Substring",
+      "summary": "Determine the highest integer k for which the string word, when repeated k times, forms a substring within the string sequence.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1668.json",
+      "content_sha256": "56d2f478bc43a5e6d796c162450b7c3f6c172c4a989fa496769ce17b1a693f04",
+      "source_id": 1668
+    },
+    {
+      "id": "leetcode-1672",
+      "version": 1,
+      "status": "approved",
+      "title": "Richest Customer Wealth",
+      "summary": "Given an m x n grid of account balances, determine the maximum total balance a single customer possesses across all their accounts.",
+      "topics": [
+        "matrices",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1672.json",
+      "content_sha256": "fed1e44b51796179307882a74615d3c2bc933f6003bdff7efb3ae763908ea46f",
+      "source_id": 1672
+    },
+    {
+      "id": "leetcode-1673",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Most Competitive Subsequence",
+      "summary": "Given an integer array and a positive integer k, return a subsequence of size k that is the most competitive.",
+      "topics": [
+        "stacks",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1673.json",
+      "content_sha256": "2134a3bf13042b6f2d78ad484f6add371399b684f3b184807b2bd8b382e9aee6",
+      "source_id": 1673
+    },
+    {
+      "id": "leetcode-1678",
+      "version": 1,
+      "status": "approved",
+      "title": "Goal Parser Interpretation",
+      "summary": "Interpret a string command using a Goal Parser.",
+      "topics": [
+        "strings",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1678.json",
+      "content_sha256": "f93fb0548b37acd05f121d252879682c3ecc940e30f4d417239a10377a17bf8e",
+      "source_id": 1678
     }
   ]
 }

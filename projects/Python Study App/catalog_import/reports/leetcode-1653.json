@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1653",
+  "content_sha256": "1e8f219da7a5f3ddc8dd30ae4aa4267a5a01d5f4f6a397f9c66326abb5182fb8",
+  "source_hash": "e4c3a2064838a1fc731746204f60d5833afeeb4c9fed800da071572cb999abed",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always deletes an out-of-order a instead of optionally deleting all preceding b characters.",
+      "failed_cases": [
+        "lc-1653-1",
+        "lc-1653-2",
+        "lc-1653-3",
+        "lc-1653-5",
+        "lc-1653-7",
+        "lc-1653-9",
+        "lc-1653-11",
+        "lc-1653-13",
+        "lc-1653-14"
+      ]
+    },
+    {
+      "reason": "Forgets how many b characters have appeared.",
+      "failed_cases": [
+        "lc-1653-1",
+        "lc-1653-2",
+        "lc-1653-10",
+        "lc-1653-12",
+        "lc-1653-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5700,
+  "oracle_implementation": "code_practice/import_batch_101b.py:balanced_o",
+  "validator_implementation_sha256": "9c5adbe3004c885f6114e59f88a98859a0271bc0662c8ebd631585b8deda1193",
+  "batch_implementation_sha256": "13111797196a7008de105cc1b25cb3a885bc9eb170e4b173b97f315e617310b8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c01d4b6f93bdc619dd7765b5126e10970530fa72055e7cefa56b856f7ef7a771",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

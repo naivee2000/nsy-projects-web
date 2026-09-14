@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1658",
+  "content_sha256": "c3f32f5ab6b5edccc7d9c6df53c49c905ef9684db7beb8390c93b87051c8dbe6",
+  "source_hash": "06fa5c9f3062e0371d97cace9f9524efdb2bd7db37699d8c811102343bd44975",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps a middle window summing to x instead of total minus x.",
+      "failed_cases": [
+        "lc-1658-1",
+        "lc-1658-3",
+        "lc-1658-4",
+        "lc-1658-6",
+        "lc-1658-8",
+        "lc-1658-9",
+        "lc-1658-10",
+        "lc-1658-11",
+        "lc-1658-12",
+        "lc-1658-13"
+      ]
+    },
+    {
+      "reason": "Returns the kept-window length instead of the number removed.",
+      "failed_cases": [
+        "lc-1658-1",
+        "lc-1658-3",
+        "lc-1658-4",
+        "lc-1658-6",
+        "lc-1658-7",
+        "lc-1658-8",
+        "lc-1658-9",
+        "lc-1658-10",
+        "lc-1658-11",
+        "lc-1658-12",
+        "lc-1658-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5705,
+  "oracle_implementation": "code_practice/import_batch_101b.py:reduce_o",
+  "validator_implementation_sha256": "9c5adbe3004c885f6114e59f88a98859a0271bc0662c8ebd631585b8deda1193",
+  "batch_implementation_sha256": "13111797196a7008de105cc1b25cb3a885bc9eb170e4b173b97f315e617310b8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "221d2e5b019a534807d385598de6d481eb6b7ab48abefd302fe25caa5606fd3a",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

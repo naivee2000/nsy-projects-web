@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1649",
+  "content_sha256": "dd0e1f4900f5f2c8f60360e171fd4a97b4b5a0f4d37b608127ee08b61f729bd7",
+  "source_hash": "2b416dc8801b6d1c1e433395385e34d00ad4f7da3b2e5cd3c8f41f97db33dd12",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal values as strictly smaller.",
+      "failed_cases": [
+        "lc-1649-9",
+        "lc-1649-11",
+        "lc-1649-12",
+        "lc-1649-14"
+      ]
+    },
+    {
+      "reason": "Counts equal values as strictly greater.",
+      "failed_cases": [
+        "lc-1649-9",
+        "lc-1649-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5696,
+  "oracle_implementation": "code_practice/import_batch_101b.py:cost_o",
+  "validator_implementation_sha256": "9c5adbe3004c885f6114e59f88a98859a0271bc0662c8ebd631585b8deda1193",
+  "batch_implementation_sha256": "13111797196a7008de105cc1b25cb3a885bc9eb170e4b173b97f315e617310b8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b4e32364f73cf3578ab151c7ac784d624b652aa0bf2f021c508678bc80a6773a",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

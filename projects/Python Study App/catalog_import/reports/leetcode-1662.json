@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1662",
+  "content_sha256": "6724b0ca1c086a5bc8b2056f26303934435c8f0fed7ee83d02d8f27ed3e24936",
+  "source_hash": "9bdd591c6f21a875c4b96975c3b394af39c56e7f843abc490ed8ee043c08ca38",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the order of the second array’s pieces.",
+      "failed_cases": [
+        "lc-1662-1",
+        "lc-1662-5",
+        "lc-1662-7",
+        "lc-1662-8",
+        "lc-1662-9",
+        "lc-1662-10",
+        "lc-1662-12",
+        "lc-1662-14"
+      ]
+    },
+    {
+      "reason": "Reverses the order of the first array’s pieces.",
+      "failed_cases": [
+        "lc-1662-1",
+        "lc-1662-4",
+        "lc-1662-7",
+        "lc-1662-8",
+        "lc-1662-9",
+        "lc-1662-10",
+        "lc-1662-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5709,
+  "oracle_implementation": "code_practice/import_batch_101b.py:arrays_o",
+  "validator_implementation_sha256": "9c5adbe3004c885f6114e59f88a98859a0271bc0662c8ebd631585b8deda1193",
+  "batch_implementation_sha256": "13111797196a7008de105cc1b25cb3a885bc9eb170e4b173b97f315e617310b8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "209abbeaf4e97be66c1234fd3298439486d88d6fb87a547dc2ac49414c462c5f",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

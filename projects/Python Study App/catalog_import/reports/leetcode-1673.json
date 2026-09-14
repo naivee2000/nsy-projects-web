@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1673",
+  "content_sha256": "2134a3bf13042b6f2d78ad484f6add371399b684f3b184807b2bd8b382e9aee6",
+  "source_hash": "79edc5d61d47339cd57479fcc2f17e81929ac88798a27bf0dfe9a82d5d7717e3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pops equal values and may keep a later occurrence needed for feasibility.",
+      "failed_cases": [
+        "lc-1673-2"
+      ]
+    },
+    {
+      "reason": "Requires one extra future slot before popping, leaving an avoidably large prefix.",
+      "failed_cases": [
+        "lc-1673-1",
+        "lc-1673-4",
+        "lc-1673-6",
+        "lc-1673-8",
+        "lc-1673-9",
+        "lc-1673-10",
+        "lc-1673-11",
+        "lc-1673-12",
+        "lc-1673-13",
+        "lc-1673-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5720,
+  "oracle_implementation": "code_practice/import_batch_101c.py:competitive_o",
+  "validator_implementation_sha256": "66b2ddb4f9b86119fc34cd2f227313911b8b6abc642be92ea9bcf960134e99e9",
+  "batch_implementation_sha256": "63d399b329f552476c3ec622f1bc5c81c976fdd1f452f752d26c9128377d15b6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cb255e55b7f9e50928e53a4f96169576a04830c1d10d4394fe4020e76cb50e45",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

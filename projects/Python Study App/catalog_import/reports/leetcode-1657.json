@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1657",
+  "content_sha256": "290f1c4df3d21d81ea1b309b09b51b71591893468f88770e921c841fecfed262",
+  "source_hash": "1752f3e55e6d8d91686aa7258feff624c7e1e9f90bca6dcc1f6e6a82071ebe88",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only the number of distinct characters and allows introducing unavailable characters.",
+      "failed_cases": [
+        "lc-1657-7",
+        "lc-1657-14"
+      ]
+    },
+    {
+      "reason": "Compares frequency iteration order instead of frequency multisets.",
+      "failed_cases": [
+        "lc-1657-1",
+        "lc-1657-3",
+        "lc-1657-5",
+        "lc-1657-6",
+        "lc-1657-8",
+        "lc-1657-9",
+        "lc-1657-10",
+        "lc-1657-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5704,
+  "oracle_implementation": "code_practice/import_batch_101b.py:close_o",
+  "validator_implementation_sha256": "9c5adbe3004c885f6114e59f88a98859a0271bc0662c8ebd631585b8deda1193",
+  "batch_implementation_sha256": "13111797196a7008de105cc1b25cb3a885bc9eb170e4b173b97f315e617310b8",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4441a5817b02c0a3674bb9a3be59b4889321993b9a33fd896817add8d11fb0aa",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
