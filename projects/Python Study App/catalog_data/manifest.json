@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2086,
+  "count": 2106,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -37175,6 +37175,356 @@
       "path": "problems/leetcode-3417.json",
       "content_sha256": "dd78a4e65d358bc04662d869b8b57bf1302f25fc06936c029f494c1a5cc0bacf",
       "source_id": 3417
+    },
+    {
+      "id": "leetcode-3423",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Difference Between Adjacent Elements in a Circular Array",
+      "summary": "Determine the greatest absolute difference between consecutive elements in a circular array where the first and last elements are considered adjacent.",
+      "topics": [
+        "arrays",
+        "circular arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3423.json",
+      "content_sha256": "951066daeb772e4a25e53dda485d03c6e1d8c5ba04f6cf590db1fd436e526b86",
+      "source_id": 3423
+    },
+    {
+      "id": "leetcode-3427",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Variable Length Subarrays",
+      "summary": "Given an integer array nums of size n, for each index i, calculate the subarray starting at max(0, i - nums[i]) and ending at i.",
+      "topics": [
+        "arrays",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3427.json",
+      "content_sha256": "4de4b20d9d2fe0f62069ac440dea66e6c430b3ffb98bc55812ff7e14581d5df9",
+      "source_id": 3427
+    },
+    {
+      "id": "leetcode-3432",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Partitions with Even Sum Difference",
+      "summary": "Given an integer array of length n, count the partitions at index i (0 <= i < n - 1) where the difference between the sum of the left subarray (indices [0, i]) and the right subarray (indices [i + 1, n - 1]) is even.",
+      "topics": [
+        "arrays",
+        "math",
+        "parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3432.json",
+      "content_sha256": "7ad83233f9b78015bd01820303de873ac5f4075744874e4a73e7ba3fb5e5af6e",
+      "source_id": 3432
+    },
+    {
+      "id": "leetcode-3438",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Valid Pair of Adjacent Digits in String",
+      "summary": "Given a string s consisting solely of digits, find the first pair of adjacent digits where the first digit is not equal to the second, and the count of each digit in the pair matches its numeric value.",
+      "topics": [
+        "strings",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3438.json",
+      "content_sha256": "f9ce37c9ae6cca8f57641eac4ad02e64ae10c30de1f560bfac83cd31dd43a705",
+      "source_id": 3438
+    },
+    {
+      "id": "leetcode-3442",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Difference Between Even and Odd Frequency I",
+      "summary": "Given a string of lowercase English letters, determine the greatest difference between the frequency of an odd-count character and an even-count character.",
+      "topics": [
+        "strings",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3442.json",
+      "content_sha256": "8be6b9484991eec4ad8dbf2dbfd254d62ef82cf66f6e294ff138a8bcf28cca33",
+      "source_id": 3442
+    },
+    {
+      "id": "leetcode-3450",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Students on a Single Bench",
+      "summary": "Given a 2D integer array of student data, where each entry is [student_id, bench_id], return the highest count of unique students on any single bench.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3450.json",
+      "content_sha256": "e0318ebcb30d5bcddec673f53185ba9a8587038615f40e7a3f9160f287690af6",
+      "source_id": 3450
+    },
+    {
+      "id": "leetcode-3452",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Good Numbers",
+      "summary": "Given an array of integers nums and an integer k, identify elements that are strictly greater than their kth preceding and kth succeeding elements (if they exist).",
+      "topics": [
+        "arrays",
+        "local comparisons"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3452.json",
+      "content_sha256": "3b31edeacb5d48b8fd4d3b2cf0eaa949279af44913a353fe3f7109b4cc35793c",
+      "source_id": 3452
+    },
+    {
+      "id": "leetcode-3456",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Special Substring of Length K",
+      "summary": "Given a string s and an integer k , determine if there exists a substring of length exactly k in s such that: - The substring consists of only one distinct character.",
+      "topics": [
+        "strings",
+        "runs"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3456.json",
+      "content_sha256": "5a97a36e0078d591588dbb90fd6c3668ce8977da2489e7fb00cf56e93853d281",
+      "source_id": 3456
+    },
+    {
+      "id": "leetcode-3461",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If Digits Are Equal in String After Operations I",
+      "summary": "Given a string s consisting of digits, repeatedly perform the following operation: for each pair of consecutive digits in s , calculate a new digit as the sum of the two digits modulo 10, and replace s with the sequence of these new digits, maintaining their order.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3461.json",
+      "content_sha256": "fb40fde5ea659e6a0542c8f8e01a939d925e6fe861a061c3865c9f64ba594f54",
+      "source_id": 3461
+    },
+    {
+      "id": "leetcode-3467",
+      "version": 1,
+      "status": "approved",
+      "title": "Transform Array by Parity",
+      "summary": "Given an integer array nums, replace each even number with 0 and each odd number with 1.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3467.json",
+      "content_sha256": "da49162eca56f6e01a4876787e9dbed8b0af7c674f19aadc7fe56506375ba51c",
+      "source_id": 3467
+    },
+    {
+      "id": "leetcode-3471",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Largest Almost Missing Integer",
+      "summary": "Given an integer array and a size k, identify the largest integer that appears in exactly one subarray of size k.",
+      "topics": [
+        "arrays",
+        "sliding windows",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3471.json",
+      "content_sha256": "00b417b2ddee1162b4e9eeac1441fa144591a11ab2ba68df6d43fd7dc04d605a",
+      "source_id": 3471
+    },
+    {
+      "id": "leetcode-3477",
+      "version": 1,
+      "status": "approved",
+      "title": "Fruits Into Baskets II",
+      "summary": "Given two arrays, fruits and baskets, each of length n, place each fruit type in the leftmost available basket with sufficient capacity, ensuring each basket holds only one type of fruit.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3477.json",
+      "content_sha256": "265ae84d607bee05a29032a3587e346ab79f7d566290a325ed8a63c68d2627c9",
+      "source_id": 3477
+    },
+    {
+      "id": "leetcode-3483",
+      "version": 1,
+      "status": "approved",
+      "title": "Unique 3-Digit Even Numbers",
+      "summary": "Given an array of digits, calculate the count of unique three-digit even numbers that can be formed without repeating any digit within a number and ensuring no leading zeros.",
+      "topics": [
+        "arrays",
+        "enumeration",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3483.json",
+      "content_sha256": "419deed65f5ec8ba414afb34c0be335311e0652704a422ca90bdaa04db886c2a",
+      "source_id": 3483
+    },
+    {
+      "id": "leetcode-3487",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Unique Subarray Sum After Deletion",
+      "summary": "Given an integer array, you can remove any elements to form a non-empty array.",
+      "topics": [
+        "arrays",
+        "sets",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3487.json",
+      "content_sha256": "68cb24fbf6a091d3b01fcf557db84bf8e5dc269f270bd57c287990caa138509f",
+      "source_id": 3487
+    },
+    {
+      "id": "leetcode-3491",
+      "version": 1,
+      "status": "approved",
+      "title": "Phone Number Prefix",
+      "summary": "Given an array of strings representing phone numbers, determine if any phone number is a prefix of another; return true if not, otherwise false.",
+      "topics": [
+        "strings",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3491.json",
+      "content_sha256": "aca8c12f6c0a8afa98d410eafc48820278c40cfe317d522794e9f0770c5dc0a8",
+      "source_id": 3491
+    },
+    {
+      "id": "leetcode-3492",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Containers on a Ship",
+      "summary": "Given an n x n cargo deck where each cell can hold one container with a weight of exactly w, determine the maximum number of containers that can be loaded onto the ship without exceeding its maximum weight capacity, maxWeight.",
+      "topics": [
+        "math",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3492.json",
+      "content_sha256": "a5d94e11a8cd760bee458184ff7cc5bcecbda639e33a38d77ea53ca706cd30f9",
+      "source_id": 3492
+    },
+    {
+      "id": "leetcode-3498",
+      "version": 1,
+      "status": "approved",
+      "title": "Reverse Degree of a String",
+      "summary": "Determine the reverse degree of a string by multiplying each character's position in the reversed alphabet with its position in the string, then summing these products.",
+      "topics": [
+        "strings",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3498.json",
+      "content_sha256": "1efeb9963519bbd46bf24902b4a847f41cc0c82d0b491b60036e10ebe14f7474",
+      "source_id": 3498
+    },
+    {
+      "id": "leetcode-3502",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Reach Every Position",
+      "summary": "Given an integer array cost of size n, where cost[i] represents the fee to swap places with person i, you are at position n in a line of n + 1 people.",
+      "topics": [
+        "arrays",
+        "prefix minima"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3502.json",
+      "content_sha256": "d148f3fef3b9ea035d9cc554bab892593d008518859749ba0dd1c6b16a27f94b",
+      "source_id": 3502
+    },
+    {
+      "id": "leetcode-3507",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Pair Removal to Sort Array I",
+      "summary": "Given an array nums, repeatedly replace the leftmost adjacent pair with the minimum sum until the array becomes non-decreasing.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3507.json",
+      "content_sha256": "e97e34ac99cd16efa190b1217bf1bc1b02da3bfae552fe6a165d981f1fb43f81",
+      "source_id": 3507
+    },
+    {
+      "id": "leetcode-3512",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make Array Sum Divisible by K",
+      "summary": "Given an integer array nums and an integer k, you can decrease any element by one any number of times.",
+      "topics": [
+        "arrays",
+        "math",
+        "modular arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3512.json",
+      "content_sha256": "dd547ddf2264f3f4250c691eb2c815d9f46b47c312761e2b723e46e34b806526",
+      "source_id": 3512
     }
   ]
 }

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3471",
+  "content_sha256": "00b417b2ddee1162b4e9eeac1441fa144591a11ab2ba68df6d43fd7dc04d605a",
+  "source_hash": "fa383ddc9a8559337036f27db5b8a5c74fcbdd1525c6471287b84acf2c104a20",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts repeated occurrences within one window more than once.",
+      "failed_cases": [
+        "lc-3471-10"
+      ]
+    },
+    {
+      "reason": "Selects values appearing in two windows rather than exactly one.",
+      "failed_cases": [
+        "lc-3471-1",
+        "lc-3471-2",
+        "lc-3471-3",
+        "lc-3471-4",
+        "lc-3471-5",
+        "lc-3471-6",
+        "lc-3471-7",
+        "lc-3471-8",
+        "lc-3471-9",
+        "lc-3471-10",
+        "lc-3471-11",
+        "lc-3471-12",
+        "lc-3471-13",
+        "lc-3471-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7518,
+  "oracle_implementation": "code_practice/import_batch_193c.py:missing_oracle",
+  "validator_implementation_sha256": "b5f03ec0f8a3d87034524b8cdc4a4528163fe2b45874a6059994c7efa9b9f722",
+  "batch_implementation_sha256": "5dcfcc4363bb50bfbed1189b502d599ed1751bfc20e2fb81119455f7eeaf4a5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1e4fefca85c847373e48cc98be1575528f43c08c737dfe2440ff7c9644aac29c",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

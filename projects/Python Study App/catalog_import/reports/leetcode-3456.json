@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3456",
+  "content_sha256": "5a97a36e0078d591588dbb90fd6c3668ce8977da2489e7fb00cf56e93853d281",
+  "source_hash": "9f79fb6de63e0a7632b5deb03e22f59ba2bd329e1986f72f85c6fd9be3d2f921",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a longer run as containing a special length-k substring.",
+      "failed_cases": [
+        "lc-3456-2",
+        "lc-3456-5"
+      ]
+    },
+    {
+      "reason": "Advances within a run and can treat a nonmaximal suffix as a run.",
+      "failed_cases": [
+        "lc-3456-2",
+        "lc-3456-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7503,
+  "oracle_implementation": "code_practice/import_batch_193b.py:special_oracle",
+  "validator_implementation_sha256": "b5f03ec0f8a3d87034524b8cdc4a4528163fe2b45874a6059994c7efa9b9f722",
+  "batch_implementation_sha256": "2ae79547a9f5c732acd7dafdfae94c73a1adb3b7999730a8f076dbc63648e681",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a7776e8821f3e106992f1ed5b96d1a0baea6f445267c6d76a35d95f2a8ae9e93",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

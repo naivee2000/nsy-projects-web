@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3512",
+  "content_sha256": "dd547ddf2264f3f4250c691eb2c815d9f46b47c312761e2b723e46e34b806526",
+  "source_hash": "fdcdc70b551df08e8b831d045fede8cb174d21ae632aec8fde143061887c4f1a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses quotient instead of remainder.",
+      "failed_cases": [
+        "lc-3512-1",
+        "lc-3512-2",
+        "lc-3512-3",
+        "lc-3512-4",
+        "lc-3512-6",
+        "lc-3512-7",
+        "lc-3512-8",
+        "lc-3512-9",
+        "lc-3512-10",
+        "lc-3512-11",
+        "lc-3512-12",
+        "lc-3512-13",
+        "lc-3512-14"
+      ]
+    },
+    {
+      "reason": "Adds one to the total before measuring the remainder.",
+      "failed_cases": [
+        "lc-3512-1",
+        "lc-3512-2",
+        "lc-3512-3",
+        "lc-3512-4",
+        "lc-3512-5",
+        "lc-3512-6",
+        "lc-3512-7",
+        "lc-3512-8",
+        "lc-3512-9",
+        "lc-3512-10",
+        "lc-3512-11",
+        "lc-3512-12",
+        "lc-3512-13",
+        "lc-3512-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7559,
+  "oracle_implementation": "code_practice/import_batch_193d.py:divisible_oracle",
+  "validator_implementation_sha256": "b5f03ec0f8a3d87034524b8cdc4a4528163fe2b45874a6059994c7efa9b9f722",
+  "batch_implementation_sha256": "21becb9701af31114dcca7808ae98e44794030658cd97fccbe5f4aa84bbb287f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "55dbc135ef0638bdfd7c62ec83e6bdd12f6fb197415e7cdb9e120fcca6e5e121",
+  "elapsed_seconds": 0.011,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

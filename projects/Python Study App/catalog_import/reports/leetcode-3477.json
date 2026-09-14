@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3477",
+  "content_sha256": "265ae84d607bee05a29032a3587e346ab79f7d566290a325ed8a63c68d2627c9",
+  "source_hash": "7c9800bf8ead94bf3bd877a7a385b64151ad969ab95cc66adb01dfe14772993e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects exact-capacity fits.",
+      "failed_cases": [
+        "lc-3477-3",
+        "lc-3477-5",
+        "lc-3477-6",
+        "lc-3477-7",
+        "lc-3477-8",
+        "lc-3477-9",
+        "lc-3477-10",
+        "lc-3477-11",
+        "lc-3477-12"
+      ]
+    },
+    {
+      "reason": "Searches baskets from the right instead of choosing the leftmost fit.",
+      "failed_cases": [
+        "lc-3477-7",
+        "lc-3477-11",
+        "lc-3477-12",
+        "lc-3477-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7524,
+  "oracle_implementation": "code_practice/import_batch_193c.py:fruits_oracle",
+  "validator_implementation_sha256": "b5f03ec0f8a3d87034524b8cdc4a4528163fe2b45874a6059994c7efa9b9f722",
+  "batch_implementation_sha256": "5dcfcc4363bb50bfbed1189b502d599ed1751bfc20e2fb81119455f7eeaf4a5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "440e02cc71bf6972395192c60aac4a627cd91fc675eabf0c6f6000e3c2de09f8",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

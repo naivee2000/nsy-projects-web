@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3442",
+  "content_sha256": "8be6b9484991eec4ad8dbf2dbfd254d62ef82cf66f6e294ff138a8bcf28cca33",
+  "source_hash": "d0ffa3c98556a3347ebf10ed8b4965175c1ae1acc79267a3c1bb063b0eb84f8b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the smallest odd frequency.",
+      "failed_cases": [
+        "lc-3442-1",
+        "lc-3442-6",
+        "lc-3442-13"
+      ]
+    },
+    {
+      "reason": "Subtracts the largest even frequency instead of the smallest.",
+      "failed_cases": [
+        "lc-3442-7",
+        "lc-3442-9",
+        "lc-3442-10",
+        "lc-3442-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7489,
+  "oracle_implementation": "code_practice/import_batch_193a.py:frequency_oracle",
+  "validator_implementation_sha256": "b5f03ec0f8a3d87034524b8cdc4a4528163fe2b45874a6059994c7efa9b9f722",
+  "batch_implementation_sha256": "c0c58cd6bef95bf52647a00f42849249fa5183b0060945fba38940d6edf73f8a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "30e4316319f9a6fb8ba13d629ab5cf4cb2371713a472c54b9c9e9835683418dd",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

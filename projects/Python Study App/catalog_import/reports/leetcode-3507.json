@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3507",
+  "content_sha256": "e97e34ac99cd16efa190b1217bf1bc1b02da3bfae552fe6a165d981f1fb43f81",
+  "source_hash": "6bf79d7f7489cbd16ceeb61b25f549cb2c4abd9b35c616e3e59d4cc58178ef3e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Selects the maximum-sum adjacent pair.",
+      "failed_cases": [
+        "lc-3507-1",
+        "lc-3507-6",
+        "lc-3507-8",
+        "lc-3507-9",
+        "lc-3507-10",
+        "lc-3507-12",
+        "lc-3507-13",
+        "lc-3507-14"
+      ]
+    },
+    {
+      "reason": "Treats equal neighbors as an ordering violation.",
+      "failed_cases": [
+        "lc-3507-6",
+        "lc-3507-7",
+        "lc-3507-9",
+        "lc-3507-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7554,
+  "oracle_implementation": "code_practice/import_batch_193d.py:removal_oracle",
+  "validator_implementation_sha256": "b5f03ec0f8a3d87034524b8cdc4a4528163fe2b45874a6059994c7efa9b9f722",
+  "batch_implementation_sha256": "21becb9701af31114dcca7808ae98e44794030658cd97fccbe5f4aa84bbb287f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "332e99c3c328bf72072b3a75de8bf55e99db1d93ad2e815742145f3f572c18c8",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

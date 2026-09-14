@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3483",
+  "content_sha256": "419deed65f5ec8ba414afb34c0be335311e0652704a422ca90bdaa04db886c2a",
+  "source_hash": "37c7abaa25230bd91bf062f523acf01eb1e3eb3a5edf4b535fc767d490ccaef9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reuses an input position.",
+      "failed_cases": [
+        "lc-3483-1",
+        "lc-3483-2",
+        "lc-3483-3",
+        "lc-3483-4",
+        "lc-3483-5",
+        "lc-3483-7",
+        "lc-3483-8",
+        "lc-3483-9",
+        "lc-3483-10",
+        "lc-3483-11",
+        "lc-3483-12",
+        "lc-3483-13",
+        "lc-3483-14"
+      ]
+    },
+    {
+      "reason": "Allows a leading zero.",
+      "failed_cases": [
+        "lc-3483-2",
+        "lc-3483-5",
+        "lc-3483-7",
+        "lc-3483-10",
+        "lc-3483-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7530,
+  "oracle_implementation": "code_practice/import_batch_193c.py:even_oracle",
+  "validator_implementation_sha256": "b5f03ec0f8a3d87034524b8cdc4a4528163fe2b45874a6059994c7efa9b9f722",
+  "batch_implementation_sha256": "5dcfcc4363bb50bfbed1189b502d599ed1751bfc20e2fb81119455f7eeaf4a5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6027762d1f69389dd4829a5634ab79670010c6cd34362e2d414e69dbe65e13bb",
+  "elapsed_seconds": 0.064,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3423",
+  "content_sha256": "951066daeb772e4a25e53dda485d03c6e1d8c5ba04f6cf590db1fd436e526b86",
+  "source_hash": "9eedccac8096da198f67c43c939ef725732a94b9f1343a07a9268cf1b8498600",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to wrap the last element to the first.",
+      "failed_cases": [
+        "lc-3423-1",
+        "lc-3423-6",
+        "lc-3423-10"
+      ]
+    },
+    {
+      "reason": "Uses signed rather than absolute differences.",
+      "failed_cases": [
+        "lc-3423-9",
+        "lc-3423-13",
+        "lc-3423-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7470,
+  "oracle_implementation": "code_practice/import_batch_193a.py:circular_oracle",
+  "validator_implementation_sha256": "b5f03ec0f8a3d87034524b8cdc4a4528163fe2b45874a6059994c7efa9b9f722",
+  "batch_implementation_sha256": "c0c58cd6bef95bf52647a00f42849249fa5183b0060945fba38940d6edf73f8a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fcc5c699e487e967e9d64f5d158cb9955e3e4f47236db03e163f4f7edfb9825d",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

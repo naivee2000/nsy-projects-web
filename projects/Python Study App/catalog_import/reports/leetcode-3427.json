@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3427",
+  "content_sha256": "4de4b20d9d2fe0f62069ac440dea66e6c430b3ffb98bc55812ff7e14581d5df9",
+  "source_hash": "2496cbda91902a60f7ed25dbd1f754dacde6276b2efacace37e4a3e355a0a779",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts every variable window one position too late.",
+      "failed_cases": [
+        "lc-3427-1",
+        "lc-3427-7",
+        "lc-3427-8",
+        "lc-3427-11",
+        "lc-3427-12",
+        "lc-3427-13"
+      ]
+    },
+    {
+      "reason": "Excludes the value at the ending index.",
+      "failed_cases": [
+        "lc-3427-1",
+        "lc-3427-2",
+        "lc-3427-4",
+        "lc-3427-5",
+        "lc-3427-7",
+        "lc-3427-8",
+        "lc-3427-9",
+        "lc-3427-10",
+        "lc-3427-11",
+        "lc-3427-12",
+        "lc-3427-13",
+        "lc-3427-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7474,
+  "oracle_implementation": "code_practice/import_batch_193a.py:variable_oracle",
+  "validator_implementation_sha256": "b5f03ec0f8a3d87034524b8cdc4a4528163fe2b45874a6059994c7efa9b9f722",
+  "batch_implementation_sha256": "c0c58cd6bef95bf52647a00f42849249fa5183b0060945fba38940d6edf73f8a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "345248ed7c1626f53fcd15f9d9dafd5e2c889692d50bf560204e4895427e50ce",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

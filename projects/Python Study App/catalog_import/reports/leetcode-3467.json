@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3467",
+  "content_sha256": "da49162eca56f6e01a4876787e9dbed8b0af7c674f19aadc7fe56506375ba51c",
+  "source_hash": "7ebe23426812cc35d6f1a94b48e293bfd54ad50577b5a2f02eed061bf7b2fb12",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts odd values as zeros.",
+      "failed_cases": [
+        "lc-3467-2",
+        "lc-3467-3",
+        "lc-3467-4",
+        "lc-3467-5",
+        "lc-3467-7",
+        "lc-3467-9",
+        "lc-3467-12",
+        "lc-3467-14"
+      ]
+    },
+    {
+      "reason": "Returns the transformed values in descending rather than nondecreasing order.",
+      "failed_cases": [
+        "lc-3467-1",
+        "lc-3467-6",
+        "lc-3467-8",
+        "lc-3467-9",
+        "lc-3467-10",
+        "lc-3467-11",
+        "lc-3467-12",
+        "lc-3467-13",
+        "lc-3467-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7514,
+  "oracle_implementation": "code_practice/import_batch_193b.py:parity_oracle",
+  "validator_implementation_sha256": "b5f03ec0f8a3d87034524b8cdc4a4528163fe2b45874a6059994c7efa9b9f722",
+  "batch_implementation_sha256": "2ae79547a9f5c732acd7dafdfae94c73a1adb3b7999730a8f076dbc63648e681",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eecec09b008d90570e21532b354d65a9b78386bf4c987a5619fd2ab5d655de33",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
