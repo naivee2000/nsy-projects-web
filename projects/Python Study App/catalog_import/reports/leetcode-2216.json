@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2216",
+  "content_sha256": "cec11a2dd9e2048e2941ff82f07d73f8fde1b67da0c13ac5a8b14fa3946ded00",
+  "source_hash": "c7e47fd11f1bfab70ffde1dfaad7b5ccf2990136467e629a276ee8aec72fb39a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Deletes a different value that would complete a valid pair and keeps equal invalid partners.",
+      "failed_cases": [
+        "lc-2216-1",
+        "lc-2216-2",
+        "lc-2216-4",
+        "lc-2216-5",
+        "lc-2216-7",
+        "lc-2216-8",
+        "lc-2216-9",
+        "lc-2216-10",
+        "lc-2216-11",
+        "lc-2216-13"
+      ]
+    },
+    {
+      "reason": "Leaves an odd final length instead of deleting its unmatched last value.",
+      "failed_cases": [
+        "lc-2216-2",
+        "lc-2216-3",
+        "lc-2216-4",
+        "lc-2216-7",
+        "lc-2216-9",
+        "lc-2216-11",
+        "lc-2216-12",
+        "lc-2216-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6263,
+  "oracle_implementation": "code_practice/import_batch_123c.py:deletion_oracle",
+  "validator_implementation_sha256": "2779f081ecbc77db8c09d7960e4e76620a975de4660d48b4ed034296dc13723a",
+  "batch_implementation_sha256": "b36c1e69aacfabc7d5079cef87b52462b3894c34d4ec3f11bb24bac6312e941e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "636adc5a737f3a4f2399d7983bd52ff2083b80ba1b6d97601ab0e6c1ef9a3068",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

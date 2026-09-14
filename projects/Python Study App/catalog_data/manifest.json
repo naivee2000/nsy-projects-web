@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1566,
+  "count": 1571,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -27866,6 +27866,96 @@
       "path": "problems/leetcode-2214.json",
       "content_sha256": "f6aa7d6848f72e079755c448d645ab53d9430f1aac84643ec21387806c19d369",
       "source_id": 2214
+    },
+    {
+      "id": "leetcode-2215",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Difference of Two Arrays",
+      "summary": "Given two 0-indexed integer arrays nums1 and nums2, return a list answer of size 2, where: - answer[0] is a list of all distinct integers in nums1 that are not present in nums2.",
+      "topics": [
+        "arrays",
+        "hash sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2215.json",
+      "content_sha256": "5cd0c678f4023dd717ad30e650ebdf6c80a6e52e21b41bcd0f31de771de50634",
+      "source_id": 2215
+    },
+    {
+      "id": "leetcode-2216",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Deletions to Make Array Beautiful",
+      "summary": "Given a 0-indexed integer array nums, determine the least number of deletions required to make the array beautiful.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2216.json",
+      "content_sha256": "cec11a2dd9e2048e2941ff82f07d73f8fde1b67da0c13ac5a8b14fa3946ded00",
+      "source_id": 2216
+    },
+    {
+      "id": "leetcode-2217",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Palindrome With Fixed Length",
+      "summary": "Given an integer array queries and a positive integer intLength, generate an array answer where each element is either the queries[i]-th smallest positive palindrome of length intLength or -1 if no such palindrome exists.",
+      "topics": [
+        "arrays",
+        "math",
+        "palindromes"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2217.json",
+      "content_sha256": "9298a0ede7ea832a97e352f9cb579e9ad21d9d22454a9f4cb232fd4aee804d17",
+      "source_id": 2217
+    },
+    {
+      "id": "leetcode-2218",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Value of K Coins From Piles",
+      "summary": "Given n piles of coins, where each pile is represented by a list of integers indicating the values of the coins from the top to the bottom, and a positive integer k, determine the maximum total value of k coins that can be selected by picking exactly one coin from any pile in an optimal manner.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "prefix sums"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2218.json",
+      "content_sha256": "7485121ff866325bb3a31c1896a3343b7a8d214950947de9b78bf0dde39986f0",
+      "source_id": 2218
+    },
+    {
+      "id": "leetcode-2219",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Sum Score of Array",
+      "summary": "Given an integer array nums of length n, find the index where the maximum of the sum of the first i+1 elements and the sum of the last n-i elements is achieved.",
+      "topics": [
+        "arrays",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2219.json",
+      "content_sha256": "0d783a310a374c2c962c9c7c84437a48fda69b9483ad2c94de6f6e1d3c273102",
+      "source_id": 2219
     }
   ]
 }

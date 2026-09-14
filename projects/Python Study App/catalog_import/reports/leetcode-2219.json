@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2219",
+  "content_sha256": "0d783a310a374c2c962c9c7c84437a48fda69b9483ad2c94de6f6e1d3c273102",
+  "source_hash": "e631f82905cb37b9686d5edc5f39c714d859af15e64d043d75e7ae90f1e0755c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits nums[i] from the inclusive suffix sum.",
+      "failed_cases": [
+        "lc-2219-2",
+        "lc-2219-4",
+        "lc-2219-9"
+      ]
+    },
+    {
+      "reason": "Allows an invalid empty score of zero for all-negative arrays.",
+      "failed_cases": [
+        "lc-2219-2",
+        "lc-2219-4",
+        "lc-2219-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6266,
+  "oracle_implementation": "code_practice/import_batch_123c.py:score_oracle",
+  "validator_implementation_sha256": "2779f081ecbc77db8c09d7960e4e76620a975de4660d48b4ed034296dc13723a",
+  "batch_implementation_sha256": "b36c1e69aacfabc7d5079cef87b52462b3894c34d4ec3f11bb24bac6312e941e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b1e6119eda763044904821bcd60022fa169f87344ffb1e8c5462422088918a37",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
