@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2786",
+  "content_sha256": "2cef156418bfbf2d6a526f09b0894163de6128b69e09845117ebb057d0819854",
+  "source_hash": "5e4b71e363d5e98f54d9b83f4d313521a8fd5397e35afee20ae6a3676bcb0ce7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the parity-change penalty instead of subtracting it.",
+      "failed_cases": [
+        "lc-2786-1",
+        "lc-2786-5",
+        "lc-2786-6",
+        "lc-2786-8",
+        "lc-2786-9",
+        "lc-2786-10",
+        "lc-2786-11",
+        "lc-2786-12",
+        "lc-2786-13",
+        "lc-2786-14"
+      ]
+    },
+    {
+      "reason": "Pretends the required first value can end with either parity.",
+      "failed_cases": [
+        "lc-2786-1",
+        "lc-2786-5",
+        "lc-2786-8",
+        "lc-2786-11",
+        "lc-2786-12",
+        "lc-2786-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6833,
+  "oracle_implementation": "code_practice/import_batch_184.py:score_oracle",
+  "validator_implementation_sha256": "804d5ce64289b227a68754edcd215a8a7ba566964ccd6ea8a24c3b190c57f9a5",
+  "batch_implementation_sha256": "1b9cb13871dcc35ad13fc21338f0474838f24ff9217fa86207575cae52b345bf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "14eb43756865e5122a4b7becb843898ee6ce0067c7ddb7fbfbc3e5574e34d2cd",
+  "elapsed_seconds": 0.125,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2785",
+  "content_sha256": "fc202cb27aef4879f560cffb62ea2ad534ec162f711c3f2760baa4aeab63d01e",
+  "source_hash": "7b516b08851a675679344e5fc780174534d896e9354eb1a7dd603be6638cd8fe",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts vowel character codes in descending order.",
+      "failed_cases": [
+        "lc-2785-1",
+        "lc-2785-5",
+        "lc-2785-6",
+        "lc-2785-7",
+        "lc-2785-8",
+        "lc-2785-9",
+        "lc-2785-10",
+        "lc-2785-11",
+        "lc-2785-12",
+        "lc-2785-13",
+        "lc-2785-14"
+      ]
+    },
+    {
+      "reason": "Recognizes lowercase vowels only.",
+      "failed_cases": [
+        "lc-2785-1",
+        "lc-2785-8",
+        "lc-2785-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6832,
+  "oracle_implementation": "code_practice/import_batch_184.py:vowels_oracle",
+  "validator_implementation_sha256": "804d5ce64289b227a68754edcd215a8a7ba566964ccd6ea8a24c3b190c57f9a5",
+  "batch_implementation_sha256": "1b9cb13871dcc35ad13fc21338f0474838f24ff9217fa86207575cae52b345bf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0507237cdf23eb707e7ecfc552828984a0d10854bf50f0f125ea0cc81869b519",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

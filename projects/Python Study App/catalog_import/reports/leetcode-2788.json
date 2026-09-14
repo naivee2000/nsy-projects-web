@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2788",
+  "content_sha256": "0f8746173f2da592652d8faf4e58992421e5166a71933d2cb5f9e0e092e34003",
+  "source_hash": "b9d6af78c5b6829473b0d2be8f1120d604c99633acd59fb362d405fe8094e6ee",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps empty pieces.",
+      "failed_cases": [
+        "lc-2788-2",
+        "lc-2788-5",
+        "lc-2788-6",
+        "lc-2788-8",
+        "lc-2788-9",
+        "lc-2788-13",
+        "lc-2788-14"
+      ]
+    },
+    {
+      "reason": "Splits the separator by each word rather than each word by the separator.",
+      "failed_cases": [
+        "lc-2788-1",
+        "lc-2788-2",
+        "lc-2788-3",
+        "lc-2788-4",
+        "lc-2788-5",
+        "lc-2788-6",
+        "lc-2788-7",
+        "lc-2788-8",
+        "lc-2788-9",
+        "lc-2788-10",
+        "lc-2788-11",
+        "lc-2788-12",
+        "lc-2788-13",
+        "lc-2788-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6835,
+  "oracle_implementation": "code_practice/import_batch_184.py:split_oracle",
+  "validator_implementation_sha256": "804d5ce64289b227a68754edcd215a8a7ba566964ccd6ea8a24c3b190c57f9a5",
+  "batch_implementation_sha256": "1b9cb13871dcc35ad13fc21338f0474838f24ff9217fa86207575cae52b345bf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "20fc5036df56d005de4786668509a7313381c5807393aeb7e9db6e908245258d",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
