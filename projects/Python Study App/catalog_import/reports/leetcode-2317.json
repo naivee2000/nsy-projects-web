@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2317",
+  "content_sha256": "a34330528f69248716087956e35e3b54407fe785bead414da9d94ae17701fe95",
+  "source_hash": "224abb50bd9ce4e2cae4c59a5915a1a094f1d325d76c0bb3e24ef8300652abf2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Computes the current XOR without using operations to clear conflicting bits.",
+      "failed_cases": [
+        "lc-2317-1",
+        "lc-2317-5",
+        "lc-2317-7",
+        "lc-2317-10",
+        "lc-2317-12",
+        "lc-2317-14",
+        "lc-2317-15"
+      ]
+    },
+    {
+      "reason": "Clears one achievable bit even though operations are optional.",
+      "failed_cases": [
+        "lc-2317-1",
+        "lc-2317-2",
+        "lc-2317-4",
+        "lc-2317-5",
+        "lc-2317-6",
+        "lc-2317-7",
+        "lc-2317-8",
+        "lc-2317-9",
+        "lc-2317-10",
+        "lc-2317-11",
+        "lc-2317-12",
+        "lc-2317-13",
+        "lc-2317-14",
+        "lc-2317-15",
+        "lc-2317-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6364,
+  "oracle_implementation": "code_practice/import_batch_128.py:xor_oracle",
+  "validator_implementation_sha256": "22498d44261b56f4da5b054af2684fea6d3b9217122a4c16d743d8525a4a6b77",
+  "batch_implementation_sha256": "262fdf0b63b18b3433eff87afbe5b8bc01881c8434ea0a55ec95e7931986551c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1462e31acf91ff501fbae7020efcd135f2901ba03edbca37e4004aaa5b9752e0",
+  "elapsed_seconds": 0.312,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

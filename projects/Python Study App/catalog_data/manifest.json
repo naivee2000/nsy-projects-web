@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1646,
+  "count": 1651,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -29297,6 +29297,94 @@
       "path": "problems/leetcode-2316.json",
       "content_sha256": "a1f5ab0d99dec5c1aa2c56d68ae9db5ce4b301cddcf31317b2d697a442f11a94",
       "source_id": 2316
+    },
+    {
+      "id": "leetcode-2317",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum XOR After Operations ",
+      "summary": "Given an array of integers, perform any number of operations where each operation selects a non-negative integer x and an index i, then updates nums[i] to nums[i] AND (nums[i] XOR x).",
+      "topics": [
+        "arrays",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2317.json",
+      "content_sha256": "a34330528f69248716087956e35e3b54407fe785bead414da9d94ae17701fe95",
+      "source_id": 2317
+    },
+    {
+      "id": "leetcode-2319",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Matrix Is X-Matrix",
+      "summary": "Determine if a square matrix is an X-Matrix by ensuring all diagonal elements are non-zero and all non-diagonal elements are zero.",
+      "topics": [
+        "matrices",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2319.json",
+      "content_sha256": "36edc0833adcc1afe69d7fabbf27ab397fc64c6dd5409a85d99d95d78de53c9a",
+      "source_id": 2319
+    },
+    {
+      "id": "leetcode-2320",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Number of Ways to Place Houses",
+      "summary": "Given a street with n plots on each side, calculate the number of ways to place houses such that no two houses are adjacent on the same side, modulo 10^9 + 7.",
+      "topics": [
+        "dynamic programming",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2320.json",
+      "content_sha256": "5fa77a64c12496d6ec8c6d72b79e12eaf5f8e24622a4cc161cd38bd4561f8df7",
+      "source_id": 2320
+    },
+    {
+      "id": "leetcode-2321",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Score Of Spliced Array",
+      "summary": "Given two 0-indexed integer arrays nums1 and nums2, both of the same length, you can choose two integers left and right such that 0 <= left <= right < n and swap the subarray nums1[left...right] with the subarray nums2[left...right].",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "maximum subarray"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2321.json",
+      "content_sha256": "2e20d12faaf9f3f34ce0846897f76bc26a47c4b04734a74d666b0cf1850b5c4c",
+      "source_id": 2321
+    },
+    {
+      "id": "leetcode-2325",
+      "version": 1,
+      "status": "approved",
+      "title": "Decode the Message",
+      "summary": "Given a cipher key and a message, construct a substitution table using the first appearance of each letter in the key, aligning it with the standard English alphabet.",
+      "topics": [
+        "strings",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2325.json",
+      "content_sha256": "70967a4579db787130e3a3764d1e104ae391e36a8a40debde53a3ca72c95839a",
+      "source_id": 2325
     }
   ]
 }
