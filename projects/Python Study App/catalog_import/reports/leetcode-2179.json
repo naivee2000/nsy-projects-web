@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2179",
+  "content_sha256": "19186d493f9d765d0866beb8870a36359aedbb1f1fa1b031c4e76b5824c5d0ac",
+  "source_hash": "e78b9dbcccd4d70fc02d87c8385f559b824eb2c0c19b734ecbd086d64c5474bf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the immediately smaller rank from the left-side Fenwick prefix.",
+      "failed_cases": [
+        "lc-2179-1",
+        "lc-2179-2",
+        "lc-2179-3",
+        "lc-2179-5",
+        "lc-2179-7",
+        "lc-2179-8",
+        "lc-2179-9",
+        "lc-2179-11",
+        "lc-2179-13",
+        "lc-2179-14"
+      ]
+    },
+    {
+      "reason": "Overcounts the number of elements to the right by one.",
+      "failed_cases": [
+        "lc-2179-1",
+        "lc-2179-2",
+        "lc-2179-3",
+        "lc-2179-5",
+        "lc-2179-7",
+        "lc-2179-8",
+        "lc-2179-9",
+        "lc-2179-11",
+        "lc-2179-13",
+        "lc-2179-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6226,
+  "oracle_implementation": "code_practice/import_batch_121d.py:triplets_oracle",
+  "validator_implementation_sha256": "a340320fc7f7ff2e459d9d3ff017c01c86afde591583636f1a426df479987843",
+  "batch_implementation_sha256": "6a6db4f232de02129c2a5c1f84339cde90d9b838f03a1e0b2935af0731a6ab2a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "383995e065dd99adbd4bb350113afb1b7c419a72001d6fe6eafd4ef25b8f9f7d",
+  "elapsed_seconds": 0.072,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

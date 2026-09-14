@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2177",
+  "content_sha256": "0f9c3c01e9cff4ef2e8600d2f4fe4fa8ab3fb115566938cc5b170da8f9fb5668",
+  "source_hash": "2759b1f5ad86dd580be016f558be509b3f44a3e7a51a04207f9f4f388a454aed",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Tests divisibility by two rather than three.",
+      "failed_cases": [
+        "lc-2177-1",
+        "lc-2177-2",
+        "lc-2177-3",
+        "lc-2177-4",
+        "lc-2177-5",
+        "lc-2177-6",
+        "lc-2177-10",
+        "lc-2177-11",
+        "lc-2177-13",
+        "lc-2177-14",
+        "lc-2177-15"
+      ]
+    },
+    {
+      "reason": "Returns three consecutive values whose middle is shifted upward.",
+      "failed_cases": [
+        "lc-2177-1",
+        "lc-2177-4",
+        "lc-2177-5",
+        "lc-2177-8",
+        "lc-2177-11",
+        "lc-2177-12",
+        "lc-2177-13",
+        "lc-2177-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6224,
+  "oracle_implementation": "code_practice/import_batch_121d.py:three_oracle",
+  "validator_implementation_sha256": "a340320fc7f7ff2e459d9d3ff017c01c86afde591583636f1a426df479987843",
+  "batch_implementation_sha256": "6a6db4f232de02129c2a5c1f84339cde90d9b838f03a1e0b2935af0731a6ab2a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5d280c875cb9edaad7c84c4e051f649ade4d179e5cccd3f734d9e86e1132e1d3",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

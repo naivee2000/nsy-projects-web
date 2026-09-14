@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2174",
+  "content_sha256": "221eb250fab1285b59eb6d81eddbbbaa222b40c671e17408f923f4a2d6f328c3",
+  "source_hash": "754c78f478bb94de9369b189a5d381b1a07ba095b7ad86e1309d5f6212d0381a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never considers choosing a one from the final row.",
+      "failed_cases": [
+        "lc-2174-5",
+        "lc-2174-7",
+        "lc-2174-8",
+        "lc-2174-10",
+        "lc-2174-11",
+        "lc-2174-12",
+        "lc-2174-13"
+      ]
+    },
+    {
+      "reason": "Clears the selected row but never clears its selected column.",
+      "failed_cases": [
+        "lc-2174-1",
+        "lc-2174-6",
+        "lc-2174-9",
+        "lc-2174-10",
+        "lc-2174-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6221,
+  "oracle_implementation": "code_practice/import_batch_121d.py:remove_oracle",
+  "validator_implementation_sha256": "a340320fc7f7ff2e459d9d3ff017c01c86afde591583636f1a426df479987843",
+  "batch_implementation_sha256": "6a6db4f232de02129c2a5c1f84339cde90d9b838f03a1e0b2935af0731a6ab2a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8405eb807cf7f05faa5eb8e7378e0d3e994b2ec510159edb95adb7d8126b81bf",
+  "elapsed_seconds": 0.074,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
