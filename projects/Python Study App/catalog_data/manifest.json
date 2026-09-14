@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1528,
+  "count": 1533,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -27180,6 +27180,96 @@
       "path": "problems/leetcode-2167.json",
       "content_sha256": "1ed57c542e310be32d9dcdf03cd2235eea76f3d5cccbbc9c2b09da5f3a55fb9d",
       "source_id": 2167
+    },
+    {
+      "id": "leetcode-2168",
+      "version": 1,
+      "status": "approved",
+      "title": "Unique Substrings With Equal Digit Frequency",
+      "summary": "For a given digit string s, calculate the count of distinct substrings where each digit's frequency is identical.",
+      "topics": [
+        "strings",
+        "counting",
+        "tries"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2168.json",
+      "content_sha256": "ba7a758ae8d174288dc3675725ac3ad4b95a916c31b0304d2f36602be41b5c9f",
+      "source_id": 2168
+    },
+    {
+      "id": "leetcode-2169",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Operations to Obtain Zero",
+      "summary": "Given two non-negative integers, repeatedly subtract the smaller number from the larger in one operation until one of the numbers becomes zero.",
+      "topics": [
+        "math",
+        "euclidean algorithm"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2169.json",
+      "content_sha256": "d57d2b47c270bebafb2643ce3dea6daec20bd5344fa4147b6b256270d808ca27",
+      "source_id": 2169
+    },
+    {
+      "id": "leetcode-2170",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make the Array Alternating",
+      "summary": "Given a 0-indexed array nums consisting of n positive integers, determine the minimum number of operations required to make the array alternating.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2170.json",
+      "content_sha256": "1db1c22a71f81559d0b2b04e95a4290d3d408e868cbeed9db9dac6a8d4bd82cd",
+      "source_id": 2170
+    },
+    {
+      "id": "leetcode-2171",
+      "version": 1,
+      "status": "approved",
+      "title": "Removing Minimum Number of Magic Beans",
+      "summary": "Given an array of positive integers representing the number of magic beans in each bag, remove the minimum number of beans such that all non-empty bags contain an equal number of beans.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2171.json",
+      "content_sha256": "69e7d7264c744a4f2dad65bea0f06e2cd688885cc25587063f8ae07429ca5653",
+      "source_id": 2171
+    },
+    {
+      "id": "leetcode-2172",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum AND Sum of Array",
+      "summary": "Given an integer array nums and an integer numSlots where 2 * numSlots >= length of nums, place all nums into numSlots slots numbered 1 to numSlots such that each slot contains at most two numbers.",
+      "topics": [
+        "bit manipulation",
+        "bitmask dynamic programming"
+      ],
+      "prerequisites": [
+        "bit manipulation"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2172.json",
+      "content_sha256": "4d4cbe1ffcabdd0234841ff241737b8cc214ca70454949ad0798375d30f33de9",
+      "source_id": 2172
     }
   ]
 }

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2171",
+  "content_sha256": "69e7d7264c744a4f2dad65bea0f06e2cd688885cc25587063f8ae07429ca5653",
+  "source_hash": "fd7e72de70fe8cd99d8ab63b78efb8f123af3070eb269d20a1db0da935c42303",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the wrong side of the sorted list when evaluating a target.",
+      "failed_cases": [
+        "lc-2171-1",
+        "lc-2171-2",
+        "lc-2171-3",
+        "lc-2171-4",
+        "lc-2171-6",
+        "lc-2171-7",
+        "lc-2171-8",
+        "lc-2171-10",
+        "lc-2171-11",
+        "lc-2171-13",
+        "lc-2171-14",
+        "lc-2171-15"
+      ]
+    },
+    {
+      "reason": "Returns the beans kept rather than the beans removed.",
+      "failed_cases": [
+        "lc-2171-2",
+        "lc-2171-3",
+        "lc-2171-4",
+        "lc-2171-5",
+        "lc-2171-6",
+        "lc-2171-7",
+        "lc-2171-8",
+        "lc-2171-9",
+        "lc-2171-11",
+        "lc-2171-12",
+        "lc-2171-13",
+        "lc-2171-14",
+        "lc-2171-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6218,
+  "oracle_implementation": "code_practice/import_batch_121c.py:beans_oracle",
+  "validator_implementation_sha256": "28c7c3d3ddda79b2564fb028cfdac035f3dc47733be2af7a79dc1c025256af2c",
+  "batch_implementation_sha256": "c02d53d16f4fbe080c38a689c72813d69f508c58e68e6c17f1ad7bbaa651fe20",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "732afdfc44b1ac9a00c37ffe602fc832c6000dde395c313175fd095aff8ef63b",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

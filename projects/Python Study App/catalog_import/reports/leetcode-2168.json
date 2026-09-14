@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2168",
+  "content_sha256": "ba7a758ae8d174288dc3675725ac3ad4b95a916c31b0304d2f36602be41b5c9f",
+  "source_hash": "fbfb29f3ef3f6c0ab97b77efeb06d8d77121aa8c9b5acafc6983d9c0d9979e1c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only a frequency value as identity, merging different substring contents.",
+      "failed_cases": [
+        "lc-2168-1",
+        "lc-2168-2",
+        "lc-2168-5",
+        "lc-2168-6",
+        "lc-2168-8",
+        "lc-2168-9",
+        "lc-2168-10",
+        "lc-2168-11",
+        "lc-2168-12",
+        "lc-2168-13",
+        "lc-2168-14",
+        "lc-2168-15"
+      ]
+    },
+    {
+      "reason": "Accepts only substrings containing one distinct digit.",
+      "failed_cases": [
+        "lc-2168-1",
+        "lc-2168-2",
+        "lc-2168-5",
+        "lc-2168-6",
+        "lc-2168-8",
+        "lc-2168-9",
+        "lc-2168-10",
+        "lc-2168-11",
+        "lc-2168-12",
+        "lc-2168-13",
+        "lc-2168-14",
+        "lc-2168-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6215,
+  "oracle_implementation": "code_practice/import_batch_121c.py:frequency_oracle",
+  "validator_implementation_sha256": "28c7c3d3ddda79b2564fb028cfdac035f3dc47733be2af7a79dc1c025256af2c",
+  "batch_implementation_sha256": "c02d53d16f4fbe080c38a689c72813d69f508c58e68e6c17f1ad7bbaa651fe20",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "439caca291c583986079490c65f94466c55319b322ad8188d308d6e65c743e5a",
+  "elapsed_seconds": 0.074,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
