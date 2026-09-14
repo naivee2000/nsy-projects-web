@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2111",
+  "content_sha256": "f5648cc22d2efd41c0a21223e070453f8101d92655ffaa9e90f194ed503a06d0",
+  "source_hash": "86d462baffcaba7e96ec7ae3f8336f58da38b68ec263524cf6062bba82ae5034",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Computes a strictly increasing subsequence and rejects allowed equal values.",
+      "failed_cases": [
+        "lc-2111-2",
+        "lc-2111-6",
+        "lc-2111-12",
+        "lc-2111-13"
+      ]
+    },
+    {
+      "reason": "Skips the first value of every residue-class subsequence.",
+      "failed_cases": [
+        "lc-2111-1",
+        "lc-2111-5",
+        "lc-2111-7",
+        "lc-2111-9",
+        "lc-2111-13",
+        "lc-2111-14",
+        "lc-2111-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6158,
+  "oracle_implementation": "code_practice/import_batch_119.py:increasing_o",
+  "validator_implementation_sha256": "597258170bf1caf15a992587c12d72bec912579293d7d85455b346bc36ccc219",
+  "batch_implementation_sha256": "221f46d53d7ec26a059a0df331ac00f83fc48acb26c538eca503157d3429f0f4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ac038941263ed59bc1df709b293840f2e04f6712fc346fa8c875c9028db6906",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
