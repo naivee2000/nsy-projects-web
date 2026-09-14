@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1938",
+  "content_sha256": "ca99ae809c2ac82a304dc7182ab46bdba8c2c0f6cd9712e92b89e322afba36d0",
+  "source_hash": "16fd42b588e8bc3c3d4d64938bea8498b4118674fb7911724a0e81de0a2c9405",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only the queried node and misses better ancestors.",
+      "failed_cases": [
+        "lc-1938-1",
+        "lc-1938-2",
+        "lc-1938-5",
+        "lc-1938-6",
+        "lc-1938-7",
+        "lc-1938-8",
+        "lc-1938-9",
+        "lc-1938-10",
+        "lc-1938-12",
+        "lc-1938-13",
+        "lc-1938-14",
+        "lc-1938-16"
+      ]
+    },
+    {
+      "reason": "Uses nodes outside the queried root path.",
+      "failed_cases": [
+        "lc-1938-1",
+        "lc-1938-2",
+        "lc-1938-3",
+        "lc-1938-6",
+        "lc-1938-9",
+        "lc-1938-10",
+        "lc-1938-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5985,
+  "oracle_implementation": "code_practice/import_batch_112.py:genetic_oracle",
+  "validator_implementation_sha256": "e77961cf3d6d87547e4717374e6bc4bbeaf66319704335a9d0d946147554ad41",
+  "batch_implementation_sha256": "d5d2418b09ac6b4c35cae19f447f938aa154575e43013a3d5a245ef334ace574",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "738e902943b7492db5925edcd45c38c863edc510b18302765a263b59fd871275",
+  "elapsed_seconds": 0.158,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

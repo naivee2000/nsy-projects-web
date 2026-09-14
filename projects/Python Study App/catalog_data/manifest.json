@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1338,
+  "count": 1343,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -23732,6 +23732,97 @@
       "path": "problems/leetcode-1935.json",
       "content_sha256": "363fcb515713351c6c91eb5c0a9c0bc1e328b35746a577be832bebe37a6dae3c",
       "source_id": 1935
+    },
+    {
+      "id": "leetcode-1936",
+      "version": 1,
+      "status": "approved",
+      "title": "Add Minimum Number of Rungs",
+      "summary": "Given a strictly increasing integer array representing ladder rung heights, starting from the floor at height 0, you must reach the last rung.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1936.json",
+      "content_sha256": "c4176bdab50967c912990ce8fa11537834c7babad6228399e7f9582bcae682ec",
+      "source_id": 1936
+    },
+    {
+      "id": "leetcode-1937",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Points with Cost",
+      "summary": "Given an m x n matrix of integers, determine the maximum score by selecting one cell per row.",
+      "topics": [
+        "dynamic programming",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1937.json",
+      "content_sha256": "8b17d7cd3500413259d21aefc6737aae4dc3fd8f73958269aea9903973c3de0b",
+      "source_id": 1937
+    },
+    {
+      "id": "leetcode-1938",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Genetic Difference Query",
+      "summary": "Given a rooted tree with nodes numbered 0 to n-1, where each node's number represents its genetic value, and an array of parent pointers, for each query, find the maximum bitwise-XOR between the query value and any node's genetic value on the path from the queried node to the root.",
+      "topics": [
+        "trees",
+        "tries",
+        "bit manipulation",
+        "depth-first search"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1938.json",
+      "content_sha256": "ca99ae809c2ac82a304dc7182ab46bdba8c2c0f6cd9712e92b89e322afba36d0",
+      "source_id": 1938
+    },
+    {
+      "id": "leetcode-1940",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Common Subsequence Between Sorted Arrays",
+      "summary": "Given an array of integer arrays, each sorted in strictly increasing order, find and return an integer array that represents the longest common subsequence shared by all the arrays.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1940.json",
+      "content_sha256": "efcc4a915f2785d9419c66d8b13ec794bb68a5095a320e3b9fdcb9f867e8fcc0",
+      "source_id": 1940
+    },
+    {
+      "id": "leetcode-1941",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if All Characters Have Equal Number of Occurrences",
+      "summary": "Determine if a string is good by checking if all characters have the same frequency of occurrences.",
+      "topics": [
+        "strings",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1941.json",
+      "content_sha256": "8995dc3c68b1c6626df84c23474e8b1caad4d332e243c2534c61c821bec8517b",
+      "source_id": 1941
     }
   ]
 }

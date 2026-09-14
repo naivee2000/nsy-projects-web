@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1941",
+  "content_sha256": "8995dc3c68b1c6626df84c23474e8b1caad4d332e243c2534c61c821bec8517b",
+  "source_hash": "c1aea6dd59c00de9d6b3a10b0140f033b6b8bbe9db894c85d6df341edd864a43",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Allows two different frequencies instead of requiring one.",
+      "failed_cases": [
+        "lc-1941-2",
+        "lc-1941-8",
+        "lc-1941-15"
+      ]
+    },
+    {
+      "reason": "Compares the distinct character keys rather than their occurrence counts.",
+      "failed_cases": [
+        "lc-1941-1",
+        "lc-1941-5",
+        "lc-1941-6",
+        "lc-1941-7",
+        "lc-1941-10",
+        "lc-1941-11",
+        "lc-1941-13",
+        "lc-1941-16",
+        "lc-1941-17"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5988,
+  "oracle_implementation": "code_practice/import_batch_112.py:frequency_oracle",
+  "validator_implementation_sha256": "e77961cf3d6d87547e4717374e6bc4bbeaf66319704335a9d0d946147554ad41",
+  "batch_implementation_sha256": "d5d2418b09ac6b4c35cae19f447f938aa154575e43013a3d5a245ef334ace574",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ed8c696f295fa342359c87f2d7e0e41c9b03ddd0eba3601293238f85f91bc9c2",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

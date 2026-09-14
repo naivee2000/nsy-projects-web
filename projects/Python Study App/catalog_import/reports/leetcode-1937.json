@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1937",
+  "content_sha256": "8b17d7cd3500413259d21aefc6737aae4dc3fd8f73958269aea9903973c3de0b",
+  "source_hash": "7dc45d09d3ba3d8a6d570d5339a43843d1c58ac181d3efff6f7baba7605ca374",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses each row maximum independently and never subtracts movement cost.",
+      "failed_cases": [
+        "lc-1937-1",
+        "lc-1937-2",
+        "lc-1937-8",
+        "lc-1937-9",
+        "lc-1937-10",
+        "lc-1937-11",
+        "lc-1937-12",
+        "lc-1937-14",
+        "lc-1937-15"
+      ]
+    },
+    {
+      "reason": "Forbids column changes entirely even when moving produces a higher score after its cost.",
+      "failed_cases": [
+        "lc-1937-1",
+        "lc-1937-2",
+        "lc-1937-8",
+        "lc-1937-9",
+        "lc-1937-10",
+        "lc-1937-12",
+        "lc-1937-14",
+        "lc-1937-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5984,
+  "oracle_implementation": "code_practice/import_batch_112.py:points_oracle",
+  "validator_implementation_sha256": "e77961cf3d6d87547e4717374e6bc4bbeaf66319704335a9d0d946147554ad41",
+  "batch_implementation_sha256": "d5d2418b09ac6b4c35cae19f447f938aa154575e43013a3d5a245ef334ace574",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "58fb43128bc1c4c1d06e899b9dbd7bad9f78a38f369dc56f9988e9de54f08cdc",
+  "elapsed_seconds": 0.118,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
