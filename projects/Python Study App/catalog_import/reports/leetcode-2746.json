@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2746",
+  "content_sha256": "1ed10904cbb67d121f1b4a8413468772ee8a25a8432bb157899423a344da1c45",
+  "source_hash": "b592c310b0b0635f4cbb40f5b27e63598e4834ee499da0bd535130a9eecc8163",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never overlaps when appending on the right.",
+      "failed_cases": [
+        "lc-2746-1",
+        "lc-2746-2",
+        "lc-2746-7",
+        "lc-2746-10",
+        "lc-2746-12",
+        "lc-2746-13",
+        "lc-2746-14"
+      ]
+    },
+    {
+      "reason": "Concatenates full words and misses overlaps at both endpoints.",
+      "failed_cases": [
+        "lc-2746-1",
+        "lc-2746-2",
+        "lc-2746-4",
+        "lc-2746-6",
+        "lc-2746-7",
+        "lc-2746-9",
+        "lc-2746-10",
+        "lc-2746-11",
+        "lc-2746-12",
+        "lc-2746-13",
+        "lc-2746-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6793,
+  "oracle_implementation": "code_practice/import_batch_180.py:concat_oracle",
+  "validator_implementation_sha256": "b63f013a45119381abc33b51866c200ffae4d804f02c9f09c019e85f24dbd47c",
+  "batch_implementation_sha256": "3ec96df28a74e8e84fb787c7ca0d9dde507e1de6fea425968808879803710ef0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "484ada7abbc9fad341bd1e4d35cb5397c03f14f4b51d7838646897587b7b2f21",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

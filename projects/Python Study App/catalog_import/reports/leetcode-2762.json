@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2762",
+  "content_sha256": "4d806bae5773aa6014778c2837faa2e78355ce2f299771b02eaee8a604f774da",
+  "source_hash": "b9e5774b7e4896aaf6883250fd648c9fc62fe0102ad90ff0c95530e7b8130042",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires range strictly below two rather than at most two.",
+      "failed_cases": [
+        "lc-2762-1",
+        "lc-2762-6",
+        "lc-2762-7",
+        "lc-2762-8",
+        "lc-2762-9",
+        "lc-2762-10",
+        "lc-2762-12",
+        "lc-2762-13",
+        "lc-2762-14"
+      ]
+    },
+    {
+      "reason": "Omits the one-character substring beginning at left for every endpoint.",
+      "failed_cases": [
+        "lc-2762-1",
+        "lc-2762-2",
+        "lc-2762-3",
+        "lc-2762-4",
+        "lc-2762-5",
+        "lc-2762-6",
+        "lc-2762-7",
+        "lc-2762-8",
+        "lc-2762-9",
+        "lc-2762-10",
+        "lc-2762-11",
+        "lc-2762-12",
+        "lc-2762-13",
+        "lc-2762-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6809,
+  "oracle_implementation": "code_practice/import_batch_180.py:continuous_oracle",
+  "validator_implementation_sha256": "b63f013a45119381abc33b51866c200ffae4d804f02c9f09c019e85f24dbd47c",
+  "batch_implementation_sha256": "3ec96df28a74e8e84fb787c7ca0d9dde507e1de6fea425968808879803710ef0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cbeafe3d1bca86f77d92b3cc67e4e400655ef66e17e9c17a7dcdbe95d92721e1",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

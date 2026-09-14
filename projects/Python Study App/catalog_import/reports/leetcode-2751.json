@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2751",
+  "content_sha256": "ac9997ae3b5603908b013143be5146a74583d864ed91100fef509a3b0a79ab74",
+  "source_hash": "7a9ce9d96e36630f8ceed937d0d532790e57878e07ec714ea5d2b86932250d72",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Decreases the destroyed left-moving robot instead of the surviving right-moving robot.",
+      "failed_cases": [
+        "lc-2751-2",
+        "lc-2751-5",
+        "lc-2751-7",
+        "lc-2751-10",
+        "lc-2751-12"
+      ]
+    },
+    {
+      "reason": "Lets the right-moving robot survive an equal-health collision.",
+      "failed_cases": [
+        "lc-2751-2",
+        "lc-2751-4",
+        "lc-2751-9",
+        "lc-2751-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6798,
+  "oracle_implementation": "code_practice/import_batch_180.py:collisions_oracle",
+  "validator_implementation_sha256": "b63f013a45119381abc33b51866c200ffae4d804f02c9f09c019e85f24dbd47c",
+  "batch_implementation_sha256": "3ec96df28a74e8e84fb787c7ca0d9dde507e1de6fea425968808879803710ef0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "524bde2b8c3023e28cf64e6e1d0e9d29939ef71a2dfcf22468ec712429a62492",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

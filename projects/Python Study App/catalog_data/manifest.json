@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1941,
+  "count": 1946,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -34540,6 +34540,25 @@
       "source_id": 2745
     },
     {
+      "id": "leetcode-2746",
+      "version": 1,
+      "status": "approved",
+      "title": "Decremental String Concatenation",
+      "summary": "Given an array of strings, perform n-1 join operations where each operation concatenates two strings with an optional deletion of a matching character at the end of one string and the start of the next.",
+      "topics": [
+        "strings",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2746.json",
+      "content_sha256": "1ed10904cbb67d121f1b4a8413468772ee8a25a8432bb157899423a344da1c45",
+      "source_id": 2746
+    },
+    {
       "id": "leetcode-2747",
       "version": 1,
       "status": "approved",
@@ -34613,6 +34632,79 @@
       "path": "problems/leetcode-2750.json",
       "content_sha256": "933eb4b0941bd1f5bdf1dc475b950e9c2892c4db372ba7c234c45e0683803992",
       "source_id": 2750
+    },
+    {
+      "id": "leetcode-2751",
+      "version": 1,
+      "status": "approved",
+      "title": "Robot Collisions",
+      "summary": "Given n robots with unique positions, healths, and directions ('L' or 'R'), determine the health of the surviving robots after all possible collisions.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "stacks",
+        "simulation"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2751.json",
+      "content_sha256": "ac9997ae3b5603908b013143be5146a74583d864ed91100fef509a3b0a79ab74",
+      "source_id": 2751
+    },
+    {
+      "id": "leetcode-2760",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Even Odd Subarray With Threshold",
+      "summary": "Given an integer array nums and a threshold, find the longest subarray starting at any index where the first element is even, each consecutive pair of elements alternates between even and odd, and all elements are less than or equal to the threshold.",
+      "topics": [
+        "arrays",
+        "sliding window"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2760.json",
+      "content_sha256": "9a462fee1dcce252caaf9ffc89306c97a5221d4666d0a55be7057a4a57dbf276",
+      "source_id": 2760
+    },
+    {
+      "id": "leetcode-2761",
+      "version": 1,
+      "status": "approved",
+      "title": "Prime Pairs With Target Sum",
+      "summary": "Given an integer n, find all pairs of prime numbers (x, y) such that x + y = n and x <= y <= n.",
+      "topics": [
+        "math",
+        "sieve"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2761.json",
+      "content_sha256": "d3e47aa537d9b297764b62269a118253f824d8f4d4a7d668daceae098070140e",
+      "source_id": 2761
+    },
+    {
+      "id": "leetcode-2762",
+      "version": 1,
+      "status": "approved",
+      "title": "Continuous Subarrays",
+      "summary": "Given an integer array nums, count the number of subarrays where the absolute difference between any two elements is at most 2.",
+      "topics": [
+        "arrays",
+        "sliding window",
+        "monotonic queues"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2762.json",
+      "content_sha256": "4d806bae5773aa6014778c2837faa2e78355ce2f299771b02eaee8a604f774da",
+      "source_id": 2762
     }
   ]
 }

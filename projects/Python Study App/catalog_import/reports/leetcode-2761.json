@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2761",
+  "content_sha256": "d3e47aa537d9b297764b62269a118253f824d8f4d4a7d668daceae098070140e",
+  "source_hash": "9dcd7210d35b7f2c61c09eef7ae4209dfca67191be5f2c4125785fca1f77028b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the equal pair n/2+n/2.",
+      "failed_cases": [
+        "lc-2761-1",
+        "lc-2761-4",
+        "lc-2761-5",
+        "lc-2761-6"
+      ]
+    },
+    {
+      "reason": "Never crosses out composite numbers in the sieve.",
+      "failed_cases": [
+        "lc-2761-1",
+        "lc-2761-6",
+        "lc-2761-7",
+        "lc-2761-8",
+        "lc-2761-9",
+        "lc-2761-10",
+        "lc-2761-11",
+        "lc-2761-12",
+        "lc-2761-13",
+        "lc-2761-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6808,
+  "oracle_implementation": "code_practice/import_batch_180.py:prime_oracle",
+  "validator_implementation_sha256": "b63f013a45119381abc33b51866c200ffae4d804f02c9f09c019e85f24dbd47c",
+  "batch_implementation_sha256": "3ec96df28a74e8e84fb787c7ca0d9dde507e1de6fea425968808879803710ef0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "371a12840acf0c82286edc9f1a602281b0b48a1f96817dcb9c3f97f339a884d4",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
