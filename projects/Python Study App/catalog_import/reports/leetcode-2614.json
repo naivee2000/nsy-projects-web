@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2614",
+  "content_sha256": "bab30864e533e934ef6286d531a8c9d07ccb0216c17a3d9df59a7e433c4d952e",
+  "source_hash": "6f38ca937c5c1a4bef103b335fb959570b7c1cb9eb2bcb2c6f9ae08246e51b03",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats one as prime.",
+      "failed_cases": [
+        "lc-2614-2",
+        "lc-2614-4",
+        "lc-2614-16"
+      ]
+    },
+    {
+      "reason": "Checks the main diagonal twice and ignores the anti-diagonal.",
+      "failed_cases": [
+        "lc-2614-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6661,
+  "oracle_implementation": "code_practice/import_batch_166.py:diagonal_oracle",
+  "validator_implementation_sha256": "aa9cfee6c2991913e31dae6c021fa603aa987dffd16bf6b969a38eb8d505d426",
+  "batch_implementation_sha256": "554aadf07eebe78cb47b52075b9155511515b47211f849157c1c62a43115ec83",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "72f18fbf1ae6efd2f64ec893320b09c0b0cecfe99e85b6c25f3e655bb1dc7f92",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2617",
+  "content_sha256": "00eed2fa03277706cbc94b9082954733c72e9d139b912b485556db6cbd284bbd",
+  "source_hash": "1a80c2bdc67216fc09af1376a5b445d9c84491adeb83e6f1412760b07e9ccf4c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Expires row jumps one column too early.",
+      "failed_cases": [
+        "lc-2617-4",
+        "lc-2617-8",
+        "lc-2617-11",
+        "lc-2617-12",
+        "lc-2617-14",
+        "lc-2617-15"
+      ]
+    },
+    {
+      "reason": "Counts moves rather than visited cells by assigning the start distance zero.",
+      "failed_cases": [
+        "lc-2617-1",
+        "lc-2617-3",
+        "lc-2617-4",
+        "lc-2617-6",
+        "lc-2617-8",
+        "lc-2617-11",
+        "lc-2617-12",
+        "lc-2617-13",
+        "lc-2617-14",
+        "lc-2617-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6664,
+  "oracle_implementation": "code_practice/import_batch_166.py:cells_oracle",
+  "validator_implementation_sha256": "aa9cfee6c2991913e31dae6c021fa603aa987dffd16bf6b969a38eb8d505d426",
+  "batch_implementation_sha256": "554aadf07eebe78cb47b52075b9155511515b47211f849157c1c62a43115ec83",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d2ca4de1d10bad79a93407221ea3d26dd93b0f9146317a7504159e0ef11eb9d5",
+  "elapsed_seconds": 0.087,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

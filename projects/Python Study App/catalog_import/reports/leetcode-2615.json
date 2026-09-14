@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2615",
+  "content_sha256": "71b78e8434390fb6f8af43af3601f53ec7bba0bf83431b06e98ca0b468cff3d2",
+  "source_hash": "ae19428139d28f0a6798de8ef911085f3a4fd5a3564a59dc661993cf7d04dbbb",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the current index once on the left side.",
+      "failed_cases": [
+        "lc-2615-1",
+        "lc-2615-2",
+        "lc-2615-4",
+        "lc-2615-5",
+        "lc-2615-6",
+        "lc-2615-7",
+        "lc-2615-8",
+        "lc-2615-9",
+        "lc-2615-10",
+        "lc-2615-11",
+        "lc-2615-12",
+        "lc-2615-13",
+        "lc-2615-14",
+        "lc-2615-15",
+        "lc-2615-16"
+      ]
+    },
+    {
+      "reason": "Groups positions by index instead of by equal value.",
+      "failed_cases": [
+        "lc-2615-1",
+        "lc-2615-4",
+        "lc-2615-6",
+        "lc-2615-7",
+        "lc-2615-8",
+        "lc-2615-9",
+        "lc-2615-10",
+        "lc-2615-12",
+        "lc-2615-13",
+        "lc-2615-14",
+        "lc-2615-15",
+        "lc-2615-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6662,
+  "oracle_implementation": "code_practice/import_batch_166.py:distances_oracle",
+  "validator_implementation_sha256": "aa9cfee6c2991913e31dae6c021fa603aa987dffd16bf6b969a38eb8d505d426",
+  "batch_implementation_sha256": "554aadf07eebe78cb47b52075b9155511515b47211f849157c1c62a43115ec83",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "88a5abd7ced3ebab184bce38d75d34e4e599dc46b2233c6a4d123ba73a8594ea",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

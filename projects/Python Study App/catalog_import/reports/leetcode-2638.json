@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2638",
+  "content_sha256": "3cd09fbfa9ab6e0e0b0d0af706501bbff303c81ada20b76d25f07c72af6e4b91",
+  "source_hash": "d5bf4ec6f676e1116b5412481d22fe58ac45ca663da93fa6d861558648bed59b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "When consecutive group values conflict, permits taking both through the prior take state.",
+      "failed_cases": [
+        "lc-2638-1",
+        "lc-2638-7",
+        "lc-2638-9",
+        "lc-2638-11",
+        "lc-2638-12",
+        "lc-2638-15",
+        "lc-2638-16"
+      ]
+    },
+    {
+      "reason": "Counts only group solutions that omit the final value.",
+      "failed_cases": [
+        "lc-2638-1",
+        "lc-2638-2",
+        "lc-2638-3",
+        "lc-2638-4",
+        "lc-2638-5",
+        "lc-2638-6",
+        "lc-2638-7",
+        "lc-2638-8",
+        "lc-2638-9",
+        "lc-2638-10",
+        "lc-2638-11",
+        "lc-2638-12",
+        "lc-2638-13",
+        "lc-2638-14",
+        "lc-2638-15",
+        "lc-2638-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6685,
+  "oracle_implementation": "code_practice/import_batch_166.py:subsets_oracle",
+  "validator_implementation_sha256": "aa9cfee6c2991913e31dae6c021fa603aa987dffd16bf6b969a38eb8d505d426",
+  "batch_implementation_sha256": "554aadf07eebe78cb47b52075b9155511515b47211f849157c1c62a43115ec83",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f2523b5a83837a11ed600a22a60e74ac048c2746bad19aa58071cc9a26c1a8fe",
+  "elapsed_seconds": 3.397,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

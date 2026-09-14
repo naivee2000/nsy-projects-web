@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1871,
+  "count": 1876,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -33344,6 +33344,101 @@
       "path": "problems/leetcode-2613.json",
       "content_sha256": "a7e721b204b7b38fdb7fe7c6e5975fad184d80cd9fddd918e3f909c65b01a5b7",
       "source_id": 2613
+    },
+    {
+      "id": "leetcode-2614",
+      "version": 1,
+      "status": "approved",
+      "title": "Prime In Diagonal",
+      "summary": "Given a 0-indexed two-dimensional integer array nums, identify the largest prime number that appears on any of its diagonals.",
+      "topics": [
+        "matrices",
+        "math",
+        "number theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2614.json",
+      "content_sha256": "bab30864e533e934ef6286d531a8c9d07ccb0216c17a3d9df59a7e433c4d952e",
+      "source_id": 2614
+    },
+    {
+      "id": "leetcode-2615",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Distances",
+      "summary": "Given an integer array nums, create an array arr of the same length where arr[i] represents the sum of absolute differences |i - j| for all j where nums[j] equals nums[i] and j is not equal to i.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2615.json",
+      "content_sha256": "71b78e8434390fb6f8af43af3601f53ec7bba0bf83431b06e98ca0b468cff3d2",
+      "source_id": 2615
+    },
+    {
+      "id": "leetcode-2616",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize the Maximum Difference of Pairs",
+      "summary": "Given an integer array nums and an integer p, select p pairs of indices such that the maximum difference between any pair is minimized, with no index repeated.",
+      "topics": [
+        "arrays",
+        "binary search",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2616.json",
+      "content_sha256": "09a25884688d6d7814dfc18256493799b8267a6b56e0565b4f4970cceabb5ea9",
+      "source_id": 2616
+    },
+    {
+      "id": "leetcode-2617",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Visited Cells in a Grid",
+      "summary": "Given an m x n grid starting at (0, 0), you can move rightward to (i, k) where j < k ≤ grid[i][j] + j or downward to (k, j) where i < k ≤ grid[i][j] + i.",
+      "topics": [
+        "matrices",
+        "breadth-first search",
+        "heaps",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2617.json",
+      "content_sha256": "00eed2fa03277706cbc94b9082954733c72e9d139b912b485556db6cbd284bbd",
+      "source_id": 2617
+    },
+    {
+      "id": "leetcode-2638",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of K-Free Subsets",
+      "summary": "Given an array of distinct integers and an integer k, count the number of subsets where no two elements have an absolute difference of k.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "math",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2638.json",
+      "content_sha256": "3cd09fbfa9ab6e0e0b0d0af706501bbff303c81ada20b76d25f07c72af6e4b91",
+      "source_id": 2638
     }
   ]
 }

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2616",
+  "content_sha256": "09a25884688d6d7814dfc18256493799b8267a6b56e0565b4f4970cceabb5ea9",
+  "source_hash": "5a9f6b78d4eab869b12212aa06e9f319503ccda8798e712014945eca693f0093",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires one more feasible pair than requested.",
+      "failed_cases": [
+        "lc-2616-1",
+        "lc-2616-2",
+        "lc-2616-3",
+        "lc-2616-6",
+        "lc-2616-7",
+        "lc-2616-8",
+        "lc-2616-9",
+        "lc-2616-11",
+        "lc-2616-12",
+        "lc-2616-13",
+        "lc-2616-14",
+        "lc-2616-15",
+        "lc-2616-16"
+      ]
+    },
+    {
+      "reason": "Reuses an index by advancing only one position after forming a pair.",
+      "failed_cases": [
+        "lc-2616-12",
+        "lc-2616-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6663,
+  "oracle_implementation": "code_practice/import_batch_166.py:pairs_oracle",
+  "validator_implementation_sha256": "aa9cfee6c2991913e31dae6c021fa603aa987dffd16bf6b969a38eb8d505d426",
+  "batch_implementation_sha256": "554aadf07eebe78cb47b52075b9155511515b47211f849157c1c62a43115ec83",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "00924954b6a7a4d4f7839c9ca51284dff518c94eeaf4c53978e464815031fe83",
+  "elapsed_seconds": 0.086,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
