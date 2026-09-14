@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2544",
+  "content_sha256": "4d91ea27a71c93122e2fa25ccd2c85a9c2a137a9b9523c3f105a99e9a4a07f2e",
+  "source_hash": "7cf14c3a0f66d397205a749b0067a9ddef1798020dea97297650a91546f62096",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Starts with a negative sign instead of a positive sign.",
+      "failed_cases": [
+        "lc-2544-1",
+        "lc-2544-2",
+        "lc-2544-3",
+        "lc-2544-4",
+        "lc-2544-5",
+        "lc-2544-7",
+        "lc-2544-9",
+        "lc-2544-10",
+        "lc-2544-11",
+        "lc-2544-12",
+        "lc-2544-13",
+        "lc-2544-14",
+        "lc-2544-15",
+        "lc-2544-16"
+      ]
+    },
+    {
+      "reason": "Adds every digit and ignores alternating signs.",
+      "failed_cases": [
+        "lc-2544-1",
+        "lc-2544-2",
+        "lc-2544-6",
+        "lc-2544-7",
+        "lc-2544-8",
+        "lc-2544-11",
+        "lc-2544-12",
+        "lc-2544-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6591,
+  "oracle_implementation": "code_practice/import_batch_135.py:alternating_oracle",
+  "validator_implementation_sha256": "e88aa4b4580da63655b1701147b09c0c4877fd83d49a2fe27dd2401be5b714bd",
+  "batch_implementation_sha256": "b11bd620e820ad3f6a6091a8e448c5ec721a9ae674672de290d6bf53376ed4c7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9b335c9c3aaa1e3d04c6d020b459a65ebac0760f87a3dcc5eb812758ad21dac2",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

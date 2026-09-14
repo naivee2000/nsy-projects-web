@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2562",
+  "content_sha256": "35a36ebc5efb03dc663e45f9a43bf51fe31551a15ed4dae2ea580686196f6aa9",
+  "source_hash": "83739570cc74c4d0e071a1f0c062008aaef294cfb3da80af1cfa743fb2eeba83",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Concatenates the last value before the first value.",
+      "failed_cases": [
+        "lc-2562-1",
+        "lc-2562-2",
+        "lc-2562-4",
+        "lc-2562-5",
+        "lc-2562-6",
+        "lc-2562-7",
+        "lc-2562-8",
+        "lc-2562-9",
+        "lc-2562-10",
+        "lc-2562-12",
+        "lc-2562-13",
+        "lc-2562-14",
+        "lc-2562-15",
+        "lc-2562-16"
+      ]
+    },
+    {
+      "reason": "Duplicates the unpaired middle number instead of adding it once.",
+      "failed_cases": [
+        "lc-2562-2",
+        "lc-2562-3",
+        "lc-2562-6",
+        "lc-2562-8",
+        "lc-2562-12",
+        "lc-2562-14",
+        "lc-2562-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6609,
+  "oracle_implementation": "code_practice/import_batch_135.py:concatenate_oracle",
+  "validator_implementation_sha256": "e88aa4b4580da63655b1701147b09c0c4877fd83d49a2fe27dd2401be5b714bd",
+  "batch_implementation_sha256": "b11bd620e820ad3f6a6091a8e448c5ec721a9ae674672de290d6bf53376ed4c7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5866f0a32278163e9cf0bcd7c7fc1d733ed406fbe46128d19d6f5bb93df12327",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

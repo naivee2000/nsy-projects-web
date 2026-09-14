@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2558",
+  "content_sha256": "cd07d17b743b4d2aaf44712efc6ae7f1b1bde3678d227bbfb94e76ca80656cd1",
+  "source_hash": "cbe0facfb6d4544d1e3256ffe0372f997f9097fde9a9e673c8dfabe0d2f55230",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Halves the selected pile instead of replacing it by floor of its square root.",
+      "failed_cases": [
+        "lc-2558-1",
+        "lc-2558-2",
+        "lc-2558-5",
+        "lc-2558-6",
+        "lc-2558-7",
+        "lc-2558-9",
+        "lc-2558-10",
+        "lc-2558-11",
+        "lc-2558-12",
+        "lc-2558-13",
+        "lc-2558-14",
+        "lc-2558-16"
+      ]
+    },
+    {
+      "reason": "Removes the end of the heap list rather than the heap maximum.",
+      "failed_cases": [
+        "lc-2558-1",
+        "lc-2558-5",
+        "lc-2558-6",
+        "lc-2558-7",
+        "lc-2558-8",
+        "lc-2558-10",
+        "lc-2558-12",
+        "lc-2558-13",
+        "lc-2558-14",
+        "lc-2558-15",
+        "lc-2558-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6605,
+  "oracle_implementation": "code_practice/import_batch_135.py:gifts_oracle",
+  "validator_implementation_sha256": "e88aa4b4580da63655b1701147b09c0c4877fd83d49a2fe27dd2401be5b714bd",
+  "batch_implementation_sha256": "b11bd620e820ad3f6a6091a8e448c5ec721a9ae674672de290d6bf53376ed4c7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "976282a4725f4f818e4ee9a0f5c756b25566888a89bac42774b200c3d3dfc42c",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
