@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2427",
+  "content_sha256": "d9402d20328b16ac652022633864332ecd9f4e8fef11e9011c40987ecbb17977",
+  "source_hash": "30a2656c7fd82c3fce8d673ad0c7f95c79ec54f23ac45fff389f586248293345",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Stops before testing the gcd itself, omitting one guaranteed common factor.",
+      "failed_cases": [
+        "lc-2427-1",
+        "lc-2427-2",
+        "lc-2427-3",
+        "lc-2427-4",
+        "lc-2427-5",
+        "lc-2427-6",
+        "lc-2427-7",
+        "lc-2427-8",
+        "lc-2427-9",
+        "lc-2427-10",
+        "lc-2427-11",
+        "lc-2427-12",
+        "lc-2427-13",
+        "lc-2427-14",
+        "lc-2427-15",
+        "lc-2427-16"
+      ]
+    },
+    {
+      "reason": "Counts every divisor of the smaller input even when it does not divide the other input.",
+      "failed_cases": [
+        "lc-2427-2",
+        "lc-2427-7",
+        "lc-2427-8",
+        "lc-2427-9",
+        "lc-2427-12",
+        "lc-2427-14",
+        "lc-2427-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6474,
+  "oracle_implementation": "code_practice/import_batch_131.py:factors_oracle",
+  "validator_implementation_sha256": "b27ef84f7c97125fe49ed5b57689abe41c331b9901ab6b08ca7f7336ae2876c3",
+  "batch_implementation_sha256": "367c67f9cbdd0dd499b1e8aaa1cf339a9291e24fc20daa233c975d9255a19139",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "45466c9d3e079d4f139685b7fe679be7f7a19778757291be06ece77b202abe42",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

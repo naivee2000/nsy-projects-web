@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2423",
+  "content_sha256": "9f42beced7f0736c9565ed3501f408dfc6f58788c7b6b79cb326746a6679d376",
+  "source_hash": "0a64eb0709defa4d39f0a88ac553e6258b752fd616c4662af9fa38c81017a222",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the removed letter’s zero frequency in the comparison.",
+      "failed_cases": [
+        "lc-2423-4",
+        "lc-2423-8",
+        "lc-2423-10"
+      ]
+    },
+    {
+      "reason": "Tries removing only the first distinct letter instead of every possible frequency group.",
+      "failed_cases": [
+        "lc-2423-1",
+        "lc-2423-10",
+        "lc-2423-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6470,
+  "oracle_implementation": "code_practice/import_batch_131.py:equal_frequency_oracle",
+  "validator_implementation_sha256": "b27ef84f7c97125fe49ed5b57689abe41c331b9901ab6b08ca7f7336ae2876c3",
+  "batch_implementation_sha256": "367c67f9cbdd0dd499b1e8aaa1cf339a9291e24fc20daa233c975d9255a19139",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "22205daaabc4ac7f2c8fc763f7232859448c092853c62ea8a858940e0fdbd864",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

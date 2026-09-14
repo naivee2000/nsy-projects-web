@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2441",
+  "content_sha256": "e71f7698b9f0d95d6b87f5f19d4dbf03a203263be68e52279ade993866833282",
+  "source_hash": "03bd4089794d722193cf94eca989ebdaca0b73e1084914a34ef71b1e0421fabd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows zero to qualify when both occurrences are the same numeric value.",
+      "failed_cases": [
+        "lc-2441-7"
+      ]
+    },
+    {
+      "reason": "Returns the smallest qualifying positive value instead of the largest.",
+      "failed_cases": [
+        "lc-2441-2",
+        "lc-2441-6",
+        "lc-2441-9",
+        "lc-2441-13",
+        "lc-2441-15",
+        "lc-2441-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6488,
+  "oracle_implementation": "code_practice/import_batch_131.py:positive_oracle",
+  "validator_implementation_sha256": "b27ef84f7c97125fe49ed5b57689abe41c331b9901ab6b08ca7f7336ae2876c3",
+  "batch_implementation_sha256": "367c67f9cbdd0dd499b1e8aaa1cf339a9291e24fc20daa233c975d9255a19139",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "087a9de8f2e646333b32cf4dbc414cdf77fcfca31d79d07fbc5a3ef353350ffe",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

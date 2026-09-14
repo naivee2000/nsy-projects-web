@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2437",
+  "content_sha256": "9f4ae601a05761e7cbd85931dd4755899ba838b0ccda5997c84e02ae19ce4e4d",
+  "source_hash": "d01783b4907056aaa90ea515d589275d4f6a6ebfb753bcd83c58639938a0f936",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits hour 23 from enumeration.",
+      "failed_cases": [
+        "lc-2437-3",
+        "lc-2437-5",
+        "lc-2437-9",
+        "lc-2437-10",
+        "lc-2437-12",
+        "lc-2437-14"
+      ]
+    },
+    {
+      "reason": "Omits minute 59 from enumeration.",
+      "failed_cases": [
+        "lc-2437-3",
+        "lc-2437-5",
+        "lc-2437-10",
+        "lc-2437-11",
+        "lc-2437-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6484,
+  "oracle_implementation": "code_practice/import_batch_131.py:clock_oracle",
+  "validator_implementation_sha256": "b27ef84f7c97125fe49ed5b57689abe41c331b9901ab6b08ca7f7336ae2876c3",
+  "batch_implementation_sha256": "367c67f9cbdd0dd499b1e8aaa1cf339a9291e24fc20daa233c975d9255a19139",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8e3d11565efea90c2ea6cb49971699bd63bb07e5bcd0c3886347fde11d0eb750",
+  "elapsed_seconds": 0.768,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
