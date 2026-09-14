@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2523",
+  "content_sha256": "ab4b5f326891a43dfff45f7320fca59b3b2b8d92403fb8c0829eff75729d53ea",
+  "source_hash": "6754c51ed11ca802ebb6f32beb0adb8149269330397b1fc6a4f9f48483c13405",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats one as prime because the sieve marks only composites.",
+      "failed_cases": [
+        "lc-2523-3",
+        "lc-2523-4",
+        "lc-2523-14"
+      ]
+    },
+    {
+      "reason": "Replaces an earlier closest pair when a later pair merely ties it.",
+      "failed_cases": [
+        "lc-2523-1",
+        "lc-2523-9",
+        "lc-2523-12",
+        "lc-2523-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6570,
+  "oracle_implementation": "code_practice/import_batch_151.py:closest_oracle",
+  "validator_implementation_sha256": "723e6461b898eaabd561b71230416c3791d5a2ed50dec44d99c6a93dbb9376a0",
+  "batch_implementation_sha256": "eec8b9214074821c03ee4eada9bfedf93c68f6b0d0045a095a6639f3fc6f7418",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aabb0d03483b6b19dc1fe276088dd267562be2e474eac1da5bffa0393831addb",
+  "elapsed_seconds": 0.078,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

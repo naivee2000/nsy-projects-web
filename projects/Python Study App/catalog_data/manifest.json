@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1796,
+  "count": 1801,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -31693,6 +31693,63 @@
       "source_id": 2521
     },
     {
+      "id": "leetcode-2522",
+      "version": 1,
+      "status": "approved",
+      "title": "Partition String Into Substrings With Values at Most K",
+      "summary": "Given a string s made of digits 1-9 and an integer k, find the minimum number of substrings in a partition where each digit is in exactly one substring and the value of each substring is ≤ k.",
+      "topics": [
+        "strings",
+        "greedy",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2522.json",
+      "content_sha256": "03f0a4b631b216cfc00ed16b873663b8f52d8fa337f184deb61fd273a2860173",
+      "source_id": 2522
+    },
+    {
+      "id": "leetcode-2523",
+      "version": 1,
+      "status": "approved",
+      "title": "Closest Prime Numbers in Range",
+      "summary": "For two positive integers left and right, identify the prime numbers num1 and num2 within the range such that left <= num1 < num2 <= right, where num2 - num1 is the smallest difference among all valid pairs.",
+      "topics": [
+        "number theory",
+        "sieve",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2523.json",
+      "content_sha256": "ab4b5f326891a43dfff45f7320fca59b3b2b8d92403fb8c0829eff75729d53ea",
+      "source_id": 2523
+    },
+    {
+      "id": "leetcode-2524",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Frequency Score of a Subarray",
+      "summary": "Given an integer array nums and a positive integer k, calculate the maximum frequency score of any subarray of size k.",
+      "topics": [
+        "arrays",
+        "sliding window",
+        "hash maps",
+        "modular arithmetic"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2524.json",
+      "content_sha256": "ca964665c0982cec057ff75954aa02fda3521f37f346c95ff4e115ad9b3cb434",
+      "source_id": 2524
+    },
+    {
       "id": "leetcode-2525",
       "version": 1,
       "status": "approved",
@@ -31708,6 +31765,45 @@
       "path": "problems/leetcode-2525.json",
       "content_sha256": "dea29c992d4fcbbfc5c8f1e3fc5f6e8d21291299f2c91839fb0f4b6f5d147e4b",
       "source_id": 2525
+    },
+    {
+      "id": "leetcode-2527",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Xor-Beauty of Array",
+      "summary": "Given an array of integers, calculate the XOR of the effective values for all possible triplets (i, j, k) where the effective value is defined as ((nums[i] | nums[j]) & nums[k]).",
+      "topics": [
+        "arrays",
+        "bit manipulation",
+        "algebra"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2527.json",
+      "content_sha256": "82881f97d87e616f5a09a58c28679246261bcd0d276150d7749fb085a63d3698",
+      "source_id": 2527
+    },
+    {
+      "id": "leetcode-2528",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize the Minimum Powered City",
+      "summary": "Given an array of power stations in each city and the range of their power supply, you must determine the maximum minimum power a city can receive by optimally placing k additional power stations.",
+      "topics": [
+        "arrays",
+        "binary search",
+        "greedy",
+        "prefix sums"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2528.json",
+      "content_sha256": "9c1df9f16b7964bee8c53a4694a9d120bf61460707d4651b48b8777cf963e7b9",
+      "source_id": 2528
     },
     {
       "id": "leetcode-2529",

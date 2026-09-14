@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2527",
+  "content_sha256": "82881f97d87e616f5a09a58c28679246261bcd0d276150d7749fb085a63d3698",
+  "source_hash": "26fee163328aea9c970afe69623982ed15ae8c8f1e9f4c7280cfc21bb1bb6ffd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Combines array values with OR instead of XOR after the cancellations.",
+      "failed_cases": [
+        "lc-2527-2",
+        "lc-2527-5",
+        "lc-2527-7",
+        "lc-2527-9",
+        "lc-2527-11",
+        "lc-2527-12",
+        "lc-2527-13",
+        "lc-2527-14",
+        "lc-2527-15",
+        "lc-2527-16"
+      ]
+    },
+    {
+      "reason": "Combines values with AND from an initial zero, always producing zero.",
+      "failed_cases": [
+        "lc-2527-1",
+        "lc-2527-2",
+        "lc-2527-3",
+        "lc-2527-4",
+        "lc-2527-6",
+        "lc-2527-7",
+        "lc-2527-8",
+        "lc-2527-10",
+        "lc-2527-11",
+        "lc-2527-13",
+        "lc-2527-15",
+        "lc-2527-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6574,
+  "oracle_implementation": "code_practice/import_batch_151.py:beauty_oracle",
+  "validator_implementation_sha256": "723e6461b898eaabd561b71230416c3791d5a2ed50dec44d99c6a93dbb9376a0",
+  "batch_implementation_sha256": "eec8b9214074821c03ee4eada9bfedf93c68f6b0d0045a095a6639f3fc6f7418",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a775f59720e5e7b2ecff2a39f76c3b9a007282b7e4f99d98463a32803a9f8cc9",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
