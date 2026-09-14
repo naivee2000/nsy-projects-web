@@ -3,10 +3,13 @@ from pathlib import Path
 
 from code_practice.catalog import get_catalog
 from code_practice.import_batch_114 import BATCH
+from code_practice.import_batch_114b import BATCH as BATCH_B
 
 
 ROOT = Path(__file__).resolve().parents[1]
 IDS = (1986, 1987, 1989, 1991, 1992)
+IDS += (1995, 1996, 1997, 2000, 2001)
+SPECS = {**BATCH, **BATCH_B}
 
 
 def test_batch_114_first_slice_is_complete_and_verified():
@@ -24,7 +27,7 @@ def test_batch_114_first_slice_is_complete_and_verified():
 
 def test_batch_114_first_slice_inputs_are_distinct():
     for source_id in IDS:
-        spec = BATCH[source_id]
+        spec = SPECS[source_id]
         inputs = [arguments for arguments, _ in spec["examples"]] + spec["boundaries"]
         encoded = [json.dumps(arguments, sort_keys=True) for arguments in inputs]
         assert len(encoded) == len(set(encoded))

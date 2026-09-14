@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1995",
+  "content_sha256": "b2b530eb56d1466787d84b92a55351fbe359f352f6e49fdc3a2674917183de86",
+  "source_hash": "76690bef3b822e41e1c453af91312d2615d68a1f8664b3af609e193f495419fc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the same index to serve as both a and b.",
+      "failed_cases": [
+        "lc-1995-3",
+        "lc-1995-5",
+        "lc-1995-10",
+        "lc-1995-13",
+        "lc-1995-14"
+      ]
+    },
+    {
+      "reason": "Stores a sum instead of the required d-minus-c difference.",
+      "failed_cases": [
+        "lc-1995-1",
+        "lc-1995-2",
+        "lc-1995-3",
+        "lc-1995-4",
+        "lc-1995-5",
+        "lc-1995-6",
+        "lc-1995-7",
+        "lc-1995-8",
+        "lc-1995-9",
+        "lc-1995-10",
+        "lc-1995-11",
+        "lc-1995-13",
+        "lc-1995-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6042,
+  "oracle_implementation": "code_practice/import_batch_114b.py:quad_o",
+  "validator_implementation_sha256": "de7eefdf65240725ef1f85666766cb8df297c362b9cd7175931183ba18ba3e6e",
+  "batch_implementation_sha256": "019f2c5240bfd3c5ad38df3e9c71a1232112e3497aa627ca7f9238a3d888a531",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fdb9c31ca32a005945dbe4590785469ec768d488d980faac14e01e6dfc375cbc",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

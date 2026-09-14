@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2000",
+  "content_sha256": "0b97655344ec6aada8a07712236377a1b3dc6c2692f5180f242a3c83248f2e90",
+  "source_hash": "a58a6f9de970f57dc51d11e2cd7065c43a87f358a3443e3e04295002a1ed9c24",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the final occurrence instead of the first occurrence.",
+      "failed_cases": [
+        "lc-2000-1",
+        "lc-2000-7",
+        "lc-2000-9",
+        "lc-2000-14"
+      ]
+    },
+    {
+      "reason": "Excludes ch itself from the reversed prefix.",
+      "failed_cases": [
+        "lc-2000-1",
+        "lc-2000-2",
+        "lc-2000-3",
+        "lc-2000-5",
+        "lc-2000-6",
+        "lc-2000-7",
+        "lc-2000-8",
+        "lc-2000-9",
+        "lc-2000-10",
+        "lc-2000-11",
+        "lc-2000-12",
+        "lc-2000-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6047,
+  "oracle_implementation": "code_practice/import_batch_114b.py:prefix_o",
+  "validator_implementation_sha256": "de7eefdf65240725ef1f85666766cb8df297c362b9cd7175931183ba18ba3e6e",
+  "batch_implementation_sha256": "019f2c5240bfd3c5ad38df3e9c71a1232112e3497aa627ca7f9238a3d888a531",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ddb486420fea6ff514450ea250b7fd329c0856503a2a95936cff59a3d1ca559b",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

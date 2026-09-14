@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1996",
+  "content_sha256": "ee34137e5a612ebd989462dd4af1200dc6942d5cfc76ae7dc82aae768c65aeb3",
+  "source_hash": "d604e4f0b74ed4c9d7018d96f962dad0caa2fa14bbe9a3e06a74e8eb0b48cfcf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Processes equal-attack defenses high-first and incorrectly lets them dominate each other.",
+      "failed_cases": [
+        "lc-1996-5"
+      ]
+    },
+    {
+      "reason": "Treats equal defense as strictly greater defense.",
+      "failed_cases": [
+        "lc-1996-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6043,
+  "oracle_implementation": "code_practice/import_batch_114b.py:weak_o",
+  "validator_implementation_sha256": "de7eefdf65240725ef1f85666766cb8df297c362b9cd7175931183ba18ba3e6e",
+  "batch_implementation_sha256": "019f2c5240bfd3c5ad38df3e9c71a1232112e3497aa627ca7f9238a3d888a531",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1c443080586d0c1648b21304033aac8d1877b454da7c5489f171ceca0530743c",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

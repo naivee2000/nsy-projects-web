@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2001",
+  "content_sha256": "ad675e5afdebed6aa8ae7a74f306f86bd9d556425225425d99e5d8905d3d26ab",
+  "source_hash": "2b68e30041edcb99c7b17cad1422c6f3441d523d848c530ad39aff52475769b2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses raw dimensions as keys and misses scaled rectangles with equal ratios.",
+      "failed_cases": [
+        "lc-2001-1",
+        "lc-2001-5",
+        "lc-2001-6",
+        "lc-2001-8",
+        "lc-2001-9",
+        "lc-2001-11",
+        "lc-2001-12",
+        "lc-2001-13",
+        "lc-2001-14"
+      ]
+    },
+    {
+      "reason": "Counts only one match per ratio instead of all earlier matching rectangles.",
+      "failed_cases": [
+        "lc-2001-1",
+        "lc-2001-5",
+        "lc-2001-8",
+        "lc-2001-9",
+        "lc-2001-11",
+        "lc-2001-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6048,
+  "oracle_implementation": "code_practice/import_batch_114b.py:rectangles_o",
+  "validator_implementation_sha256": "de7eefdf65240725ef1f85666766cb8df297c362b9cd7175931183ba18ba3e6e",
+  "batch_implementation_sha256": "019f2c5240bfd3c5ad38df3e9c71a1232112e3497aa627ca7f9238a3d888a531",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f666fa8cccfce42540dfd2de7ea815020ee6c67aeeb190f9031a3384e706158e",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

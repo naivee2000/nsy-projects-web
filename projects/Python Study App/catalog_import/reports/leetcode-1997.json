@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1997",
+  "content_sha256": "4f71506d173eb61ccdb2a949831ade8bc2691c030e5c1896332f78451a32bcbd",
+  "source_hash": "eb2bff0caddbdfeb66e44695df2ef8e8f7a122f8e743d28f37e5759b1d64c320",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only one of the two transitions needed before advancing to the next room.",
+      "failed_cases": [
+        "lc-1997-1",
+        "lc-1997-2",
+        "lc-1997-3",
+        "lc-1997-4",
+        "lc-1997-5",
+        "lc-1997-6",
+        "lc-1997-7",
+        "lc-1997-8",
+        "lc-1997-9",
+        "lc-1997-10",
+        "lc-1997-11",
+        "lc-1997-12",
+        "lc-1997-13",
+        "lc-1997-14",
+        "lc-1997-15"
+      ]
+    },
+    {
+      "reason": "Subtracts a room index instead of that room’s first-visit day.",
+      "failed_cases": [
+        "lc-1997-5",
+        "lc-1997-7",
+        "lc-1997-8",
+        "lc-1997-9",
+        "lc-1997-11",
+        "lc-1997-12",
+        "lc-1997-13",
+        "lc-1997-14",
+        "lc-1997-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6044,
+  "oracle_implementation": "code_practice/import_batch_114b.py:rooms_o",
+  "validator_implementation_sha256": "de7eefdf65240725ef1f85666766cb8df297c362b9cd7175931183ba18ba3e6e",
+  "batch_implementation_sha256": "019f2c5240bfd3c5ad38df3e9c71a1232112e3497aa627ca7f9238a3d888a531",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5bdf8e3e37d3983889c7df0ccd629a12d571ce02000ccedd5ebf4856d6050a59",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
