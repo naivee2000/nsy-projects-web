@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3803",
+  "content_sha256": "595a9a13a07e88fd712bba3c0b528494e95f2989c0e8812222bdc9ffabf286a1",
+  "source_hash": "5fe9c1522c8f5cefe24ed5ec90bf8aa0f72e6d42b39f051cd909c5179be669ac",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses modulo two instead of modulo three.",
+      "failed_cases": [
+        "lc-3803-1",
+        "lc-3803-5",
+        "lc-3803-6",
+        "lc-3803-7",
+        "lc-3803-8",
+        "lc-3803-9",
+        "lc-3803-10",
+        "lc-3803-12",
+        "lc-3803-13",
+        "lc-3803-14"
+      ]
+    },
+    {
+      "reason": "Forgets all distinct characters before the current position.",
+      "failed_cases": [
+        "lc-3803-1",
+        "lc-3803-5",
+        "lc-3803-11",
+        "lc-3803-12",
+        "lc-3803-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7850,
+  "oracle_implementation": "code_practice/import_batch_196a.py:residue_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "ceeed595ea8a78edafc85fb33cba2251c08d8fec2c92eca8a4cec411292920a9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2eb80e1fe869aac0474c0c655904342a5e84eb4a11307ef97a935416f1f0936f",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

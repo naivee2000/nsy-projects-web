@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3880",
+  "content_sha256": "fc9027b8bb9254948285bbd2f884c70d4fedfe1b78b83407099d8786d494d66e",
+  "source_hash": "9765d47f40ad639c6cc297b62047179659d645bc7d68b2652b77d2e210c14545",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the greatest later distance after initialization.",
+      "failed_cases": [
+        "lc-3880-1"
+      ]
+    },
+    {
+      "reason": "Adds one to distances measured from a preceding one.",
+      "failed_cases": [
+        "lc-3880-6",
+        "lc-3880-8",
+        "lc-3880-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7927,
+  "oracle_implementation": "code_practice/import_batch_196c.py:distance_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "f39dda734e8d000f0381dfc3fbaebc1c98d7ae69b4d56fbfd07a21943a6ca235",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a48e383686074e659c648d34491e209701353ad8a2ad59c63e21fe87e646b683",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3898",
+  "content_sha256": "e76a3bc3b4708afd78c871012a80d65a4c12c444f11e7e941a4c3f2d733ef0cb",
+  "source_hash": "303a0ac3e9b6cb74dbbccb7ad9edc7cd473f2c452d47c0a4337f60a81bf7030b",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Halves each vertex degree.",
+      "failed_cases": [
+        "lc-3898-1",
+        "lc-3898-4",
+        "lc-3898-5",
+        "lc-3898-6",
+        "lc-3898-7",
+        "lc-3898-8",
+        "lc-3898-10",
+        "lc-3898-11",
+        "lc-3898-12",
+        "lc-3898-13",
+        "lc-3898-14",
+        "lc-3898-15"
+      ]
+    },
+    {
+      "reason": "Ignores every edge represented in the first matrix column.",
+      "failed_cases": [
+        "lc-3898-1",
+        "lc-3898-4",
+        "lc-3898-5",
+        "lc-3898-6",
+        "lc-3898-7",
+        "lc-3898-8",
+        "lc-3898-10",
+        "lc-3898-11",
+        "lc-3898-12",
+        "lc-3898-13",
+        "lc-3898-14",
+        "lc-3898-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7945,
+  "oracle_implementation": "code_practice/import_batch_196d.py:degree_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "7c6cd13cd848fdddfdc8a1bf9657dd3334d24e273208035a9aa613cb03d3661d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "21bbb6d93db975a340958899094d2ea4add8a8d31e6e26f73eef8bdf9ec58aeb",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

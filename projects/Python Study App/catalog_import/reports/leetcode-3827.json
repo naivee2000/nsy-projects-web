@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3827",
+  "content_sha256": "c9e3b40b0a00f0b12c5a0f3b455f37c6c2b7891121a094d276ace575c2d564c4",
+  "source_hash": "0c4a3ff4fe1199859957be4af5f09167a0901195f02826e32d36b5f92efde54c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Omits zero from the count.",
+      "failed_cases": [
+        "lc-3827-1",
+        "lc-3827-2",
+        "lc-3827-3",
+        "lc-3827-4",
+        "lc-3827-5",
+        "lc-3827-6",
+        "lc-3827-7",
+        "lc-3827-8",
+        "lc-3827-9",
+        "lc-3827-10",
+        "lc-3827-11",
+        "lc-3827-12",
+        "lc-3827-13",
+        "lc-3827-14",
+        "lc-3827-15"
+      ]
+    },
+    {
+      "reason": "Counts powers of two rather than all-one bit masks.",
+      "failed_cases": [
+        "lc-3827-4",
+        "lc-3827-6",
+        "lc-3827-7",
+        "lc-3827-8",
+        "lc-3827-9",
+        "lc-3827-11",
+        "lc-3827-13",
+        "lc-3827-14",
+        "lc-3827-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7874,
+  "oracle_implementation": "code_practice/import_batch_196b.py:monobit_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "ffb23cbc74cc447ea04b720028950381cb2f05520ac2a40cd8bb82884bd05700",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bd13160053641277d12694c21c4366aefcfbdff5f9a616ade96548c17ee02ab7",
+  "elapsed_seconds": 5.373,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

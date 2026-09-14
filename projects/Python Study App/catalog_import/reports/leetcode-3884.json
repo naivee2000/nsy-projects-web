@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3884",
+  "content_sha256": "0d126febaf5778a7569748903d195922f54cba86018d467b80061cc3d54d438d",
+  "source_hash": "8eee9df2830fe0d8705dcefcae4bf62dc40355af75c9f1520d35414972e91596",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the first mirrored mismatch.",
+      "failed_cases": [
+        "lc-3884-1",
+        "lc-3884-2",
+        "lc-3884-3",
+        "lc-3884-4",
+        "lc-3884-5",
+        "lc-3884-6",
+        "lc-3884-7",
+        "lc-3884-8",
+        "lc-3884-9",
+        "lc-3884-10",
+        "lc-3884-11",
+        "lc-3884-12",
+        "lc-3884-13",
+        "lc-3884-14"
+      ]
+    },
+    {
+      "reason": "Returns the opposite index instead of the smallest matching index.",
+      "failed_cases": [
+        "lc-3884-1",
+        "lc-3884-4",
+        "lc-3884-6",
+        "lc-3884-8",
+        "lc-3884-9",
+        "lc-3884-11",
+        "lc-3884-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7931,
+  "oracle_implementation": "code_practice/import_batch_196d.py:mirror_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "7c6cd13cd848fdddfdc8a1bf9657dd3334d24e273208035a9aa613cb03d3661d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c6e0549f869b59efcf5aa97256fbe64aec6ffab62f4d8484b1c8b311184d66e9",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

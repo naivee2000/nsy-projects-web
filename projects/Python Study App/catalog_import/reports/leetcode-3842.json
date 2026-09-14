@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3842",
+  "content_sha256": "99543822ab95c97421f7c2c0067af954a2954cc721f311a5cf137f7f991e63eb",
+  "source_hash": "41719b44606c68a56c4e720d079f7a7ef93990899705555f31cd1947af7b6cca",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never turns an already-on bulb off.",
+      "failed_cases": [
+        "lc-3842-1",
+        "lc-3842-2",
+        "lc-3842-7",
+        "lc-3842-8",
+        "lc-3842-9",
+        "lc-3842-10",
+        "lc-3842-11",
+        "lc-3842-12",
+        "lc-3842-13",
+        "lc-3842-14"
+      ]
+    },
+    {
+      "reason": "Returns bulbs in descending order.",
+      "failed_cases": [
+        "lc-3842-1",
+        "lc-3842-4",
+        "lc-3842-6",
+        "lc-3842-10",
+        "lc-3842-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7889,
+  "oracle_implementation": "code_practice/import_batch_196b.py:bulbs_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "ffb23cbc74cc447ea04b720028950381cb2f05520ac2a40cd8bb82884bd05700",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1f272e3014c082b5a0189b4780f9ef7e96ad321df23f6ae93c786448dab26733",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

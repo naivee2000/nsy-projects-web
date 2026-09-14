@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3870",
+  "content_sha256": "6b234eec0b69ce29c69de5d8367f697e5c7abece066a6b1f3d49fad5feac566e",
+  "source_hash": "575b59260273d86f9b09157d04b4216d9ba8e932228ac57cd4cda808f2b31385",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the threshold value itself at every comma level.",
+      "failed_cases": [
+        "lc-3870-1",
+        "lc-3870-5",
+        "lc-3870-6",
+        "lc-3870-7",
+        "lc-3870-8",
+        "lc-3870-9",
+        "lc-3870-10",
+        "lc-3870-11",
+        "lc-3870-12",
+        "lc-3870-13",
+        "lc-3870-14"
+      ]
+    },
+    {
+      "reason": "Introduces new comma levels every two digits.",
+      "failed_cases": [
+        "lc-3870-10",
+        "lc-3870-11",
+        "lc-3870-12",
+        "lc-3870-13",
+        "lc-3870-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7917,
+  "oracle_implementation": "code_practice/import_batch_196c.py:commas_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "f39dda734e8d000f0381dfc3fbaebc1c98d7ae69b4d56fbfd07a21943a6ca235",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6fa896640278b914e74158bdffcb2e733f09318b93e767b180f0ca946c348065",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

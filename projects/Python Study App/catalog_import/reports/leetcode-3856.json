@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3856",
+  "content_sha256": "343884377d76a2b39e4f61facfbcfd8b8e0890dfbd99ba686247760fe0ea3f43",
+  "source_hash": "43c64f5c4e02e06b6c950be63ee76a9d990449e37673b8f533666ce10c938278",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes leading rather than trailing vowels.",
+      "failed_cases": [
+        "lc-3856-1",
+        "lc-3856-2",
+        "lc-3856-6",
+        "lc-3856-8",
+        "lc-3856-9",
+        "lc-3856-10",
+        "lc-3856-12",
+        "lc-3856-13",
+        "lc-3856-14"
+      ]
+    },
+    {
+      "reason": "Fails to remove trailing u.",
+      "failed_cases": [
+        "lc-3856-5",
+        "lc-3856-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7903,
+  "oracle_implementation": "code_practice/import_batch_196b.py:trim_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "ffb23cbc74cc447ea04b720028950381cb2f05520ac2a40cd8bb82884bd05700",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9cdb122bb630fa4ecfcc8d2dfd06eb56e0367ffba1b21351d944d03efbb6c386",
+  "elapsed_seconds": 0.011,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

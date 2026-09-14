@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3894",
+  "content_sha256": "26d885d87aa59dbabc137eb55d28605f53d20155616730e11642207671e4e8bc",
+  "source_hash": "98583a15d09d696357a4db6eec316685f63af903d7fc64f46a5e8c20d00d3f06",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Labels other low timer values Orange.",
+      "failed_cases": [
+        "lc-3894-3",
+        "lc-3894-5",
+        "lc-3894-6",
+        "lc-3894-12"
+      ]
+    },
+    {
+      "reason": "Excludes both endpoints of the Red interval.",
+      "failed_cases": [
+        "lc-3894-7",
+        "lc-3894-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7941,
+  "oracle_implementation": "code_practice/import_batch_196d.py:signal_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "7c6cd13cd848fdddfdc8a1bf9657dd3334d24e273208035a9aa613cb03d3661d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "25a0c6e92677cf2683d3071eeffa960556a68263a416bb4934c10c9eeb68ad91",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

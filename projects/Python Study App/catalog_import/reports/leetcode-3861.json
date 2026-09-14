@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3861",
+  "content_sha256": "e664d9670fe833470e284577c02c335ab6cbc77b74b39af2bd81d457e4188494",
+  "source_hash": "6d278475985b6cfd5edc132f9fe2dc7e22a2f4a9332e0d5fc0b3f037eb4f24a5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects an exact-capacity fit.",
+      "failed_cases": [
+        "lc-3861-1",
+        "lc-3861-2",
+        "lc-3861-3",
+        "lc-3861-6",
+        "lc-3861-8",
+        "lc-3861-9",
+        "lc-3861-12",
+        "lc-3861-13"
+      ]
+    },
+    {
+      "reason": "Minimizes index before capacity.",
+      "failed_cases": [
+        "lc-3861-1",
+        "lc-3861-5",
+        "lc-3861-6",
+        "lc-3861-10",
+        "lc-3861-12",
+        "lc-3861-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7908,
+  "oracle_implementation": "code_practice/import_batch_196c.py:box_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "f39dda734e8d000f0381dfc3fbaebc1c98d7ae69b4d56fbfd07a21943a6ca235",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e327c239ff87cb298c3dfc3d67bb9edbc2a55e3d5cdc62b0131e3052577e5bcd",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

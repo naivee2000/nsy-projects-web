@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3875",
+  "content_sha256": "727a53477aeea7d2404ed7fc1760fecb9cee6d720f74d0e240dc2c6774cc6a8c",
+  "source_hash": "632dd34c3b48ad155e79a660614d14cd6311b25364af8025dd1762f37b03d7b1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows only already-uniform inputs.",
+      "failed_cases": [
+        "lc-3875-1",
+        "lc-3875-6",
+        "lc-3875-7",
+        "lc-3875-8",
+        "lc-3875-9",
+        "lc-3875-10",
+        "lc-3875-11",
+        "lc-3875-12",
+        "lc-3875-13",
+        "lc-3875-14"
+      ]
+    },
+    {
+      "reason": "Claims only single-element arrays are constructible.",
+      "failed_cases": [
+        "lc-3875-1",
+        "lc-3875-2",
+        "lc-3875-5",
+        "lc-3875-6",
+        "lc-3875-7",
+        "lc-3875-8",
+        "lc-3875-9",
+        "lc-3875-10",
+        "lc-3875-11",
+        "lc-3875-12",
+        "lc-3875-13",
+        "lc-3875-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7922,
+  "oracle_implementation": "code_practice/import_batch_196c.py:parity_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "f39dda734e8d000f0381dfc3fbaebc1c98d7ae69b4d56fbfd07a21943a6ca235",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ec505a2800562a021b2710cd02efc935609ba50e8f9fd3506d4ba5beea7d6b29",
+  "elapsed_seconds": 0.011,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

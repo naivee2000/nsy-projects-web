@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3852",
+  "content_sha256": "5fc32d21dec874da09586c0313ceec115ad196c64e7aa1207b813bb60bfac37f",
+  "source_hash": "a8eb9657974ecd3ef5303ccb3a4f6eb25ac60b18b52744764c6a05be771ff80f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Maximizes values instead of returning the smallest pair.",
+      "failed_cases": [
+        "lc-3852-1",
+        "lc-3852-5",
+        "lc-3852-6",
+        "lc-3852-7",
+        "lc-3852-8",
+        "lc-3852-10",
+        "lc-3852-11",
+        "lc-3852-12",
+        "lc-3852-13",
+        "lc-3852-14"
+      ]
+    },
+    {
+      "reason": "Chooses equal-frequency values.",
+      "failed_cases": [
+        "lc-3852-1",
+        "lc-3852-2",
+        "lc-3852-3",
+        "lc-3852-5",
+        "lc-3852-6",
+        "lc-3852-7",
+        "lc-3852-8",
+        "lc-3852-9",
+        "lc-3852-10",
+        "lc-3852-11",
+        "lc-3852-12",
+        "lc-3852-13",
+        "lc-3852-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7899,
+  "oracle_implementation": "code_practice/import_batch_196b.py:pair_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "ffb23cbc74cc447ea04b720028950381cb2f05520ac2a40cd8bb82884bd05700",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b36d4dea068977675cff02f07ee6e7fa0eaddedb49027c964e4da4477ea1befa",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

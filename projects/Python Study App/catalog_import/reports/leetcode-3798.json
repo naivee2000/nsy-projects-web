@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3798",
+  "content_sha256": "c653e9ec4d165dff9da3ae96854d3c207b36288ea34d2a6be7e637c429f0ff9b",
+  "source_hash": "09027061643f2449557349ea9a3f3fe8b319c61f222187a523453b58d33fde1d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stops at the first two instead of the last, losing useful leading digits.",
+      "failed_cases": [
+        "lc-3798-8",
+        "lc-3798-10",
+        "lc-3798-12",
+        "lc-3798-13",
+        "lc-3798-14"
+      ]
+    },
+    {
+      "reason": "Returns an odd string when no two exists.",
+      "failed_cases": [
+        "lc-3798-3",
+        "lc-3798-5",
+        "lc-3798-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7845,
+  "oracle_implementation": "code_practice/import_batch_196a.py:largest_even_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "ceeed595ea8a78edafc85fb33cba2251c08d8fec2c92eca8a4cec411292920a9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f00b56b196396a9f694880af17d366500c4b8735f45892fea6859048c55a48d0",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3833",
+  "content_sha256": "957def7dc5bcd26a98a66bef995b3a75f940cfd9aef22cffe091f24ce3168f27",
+  "source_hash": "64d0a8fb63488e2a865214610f0e3c0ed4bc86698373e464e91458fe017ad40d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses greater-than-or-equal instead of strict greater-than.",
+      "failed_cases": [
+        "lc-3833-3",
+        "lc-3833-6",
+        "lc-3833-8",
+        "lc-3833-9"
+      ]
+    },
+    {
+      "reason": "Never checks the penultimate index.",
+      "failed_cases": [
+        "lc-3833-1",
+        "lc-3833-4",
+        "lc-3833-7",
+        "lc-3833-9",
+        "lc-3833-10",
+        "lc-3833-11",
+        "lc-3833-12",
+        "lc-3833-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7880,
+  "oracle_implementation": "code_practice/import_batch_196b.py:dominant_oracle",
+  "validator_implementation_sha256": "73687f00f13ca14b047b055bb3b65d3afa88e564ea637da2ba3a404db685d376",
+  "batch_implementation_sha256": "ffb23cbc74cc447ea04b720028950381cb2f05520ac2a40cd8bb82884bd05700",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c282bad411e244fdd00438193661deabadbbdbaba8a2b3939d33f67161305120",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

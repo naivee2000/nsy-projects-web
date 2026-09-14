@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2146,
+  "count": 2166,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -38227,6 +38227,352 @@
       "path": "problems/leetcode-3783.json",
       "content_sha256": "dcad77422d9a4d67d89095bcc629df6ea7f33f892c671c1fcb43b23823a3a05b",
       "source_id": 3783
+    },
+    {
+      "id": "leetcode-3794",
+      "version": 1,
+      "status": "approved",
+      "title": "Reverse String Prefix",
+      "summary": "Given a string s and an integer k, reverse the first k characters of s and provide the modified string.",
+      "topics": [
+        "strings",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3794.json",
+      "content_sha256": "34777f8633d76a4df3aa31a7cf9d00db6fa4016f33cb4d711dec2a0da7311990",
+      "source_id": 3794
+    },
+    {
+      "id": "leetcode-3798",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Even Number",
+      "summary": "Given a string s made up of '1' and '2', remove any characters to form the largest even number possible.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3798.json",
+      "content_sha256": "c653e9ec4d165dff9da3ae96854d3c207b36288ea34d2a6be7e637c429f0ff9b",
+      "source_id": 3798
+    },
+    {
+      "id": "leetcode-3803",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Residue Prefixes",
+      "summary": "Given a string s made of lowercase English letters, count how many of its prefixes have a distinct character count that matches the prefix length modulo 3.",
+      "topics": [
+        "strings",
+        "sets",
+        "prefixes"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3803.json",
+      "content_sha256": "595a9a13a07e88fd712bba3c0b528494e95f2989c0e8812222bdc9ffabf286a1",
+      "source_id": 3803
+    },
+    {
+      "id": "leetcode-3813",
+      "version": 1,
+      "status": "approved",
+      "title": "Vowel-Consonant Score",
+      "summary": "Given a string s made of lowercase English letters, spaces, and digits, count the vowels and consonants.",
+      "topics": [
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3813.json",
+      "content_sha256": "8cf4197757a2b84f76c16589b811f50934a9513c3bc4a5ad76b1dbc7f67dad20",
+      "source_id": 3813
+    },
+    {
+      "id": "leetcode-3823",
+      "version": 1,
+      "status": "approved",
+      "title": "Reverse Letters Then Special Characters in a String",
+      "summary": "Given a string with lowercase letters and special characters, reverse the letters in their original positions and reverse the special characters in their original positions, then return the modified string.",
+      "topics": [
+        "strings",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3823.json",
+      "content_sha256": "e50c9766a0630d5b12d00d7a8b71c57e00b839ac590681b38cf97bdd695a8ab1",
+      "source_id": 3823
+    },
+    {
+      "id": "leetcode-3827",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Monobit Integers",
+      "summary": "Given an integer n, count how many integers in the range from 0 to n have all bits in their binary representation the same.",
+      "topics": [
+        "math",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3827.json",
+      "content_sha256": "c9e3b40b0a00f0b12c5a0f3b455f37c6c2b7891121a094d276ace575c2d564c4",
+      "source_id": 3827
+    },
+    {
+      "id": "leetcode-3833",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Dominant Indices",
+      "summary": "Given an integer array nums of length n, count the indices i where nums[i] exceeds the average of the subsequent elements.",
+      "topics": [
+        "arrays",
+        "suffix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3833.json",
+      "content_sha256": "957def7dc5bcd26a98a66bef995b3a75f940cfd9aef22cffe091f24ce3168f27",
+      "source_id": 3833
+    },
+    {
+      "id": "leetcode-3842",
+      "version": 1,
+      "status": "approved",
+      "title": "Toggle Light Bulbs",
+      "summary": "Given an array of integers between 1 and 100, each representing a light bulb's state, toggle the state of each bulb as specified.",
+      "topics": [
+        "arrays",
+        "sets",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3842.json",
+      "content_sha256": "99543822ab95c97421f7c2c0067af954a2954cc721f311a5cf137f7f991e63eb",
+      "source_id": 3842
+    },
+    {
+      "id": "leetcode-3852",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Pair With Different Frequencies",
+      "summary": "Given an integer array, find the pair of distinct values where the first value is the smallest and the second value has a different frequency than the first.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3852.json",
+      "content_sha256": "5fc32d21dec874da09586c0313ceec115ad196c64e7aa1207b813bb60bfac37f",
+      "source_id": 3852
+    },
+    {
+      "id": "leetcode-3856",
+      "version": 1,
+      "status": "approved",
+      "title": "Trim Trailing Vowels",
+      "summary": "Given a string s made of lowercase English letters, remove all vowels ('a', 'e', 'i', 'o', 'u') from the end of the string and return the modified string.",
+      "topics": [
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3856.json",
+      "content_sha256": "343884377d76a2b39e4f61facfbcfd8b8e0890dfbd99ba686247760fe0ea3f43",
+      "source_id": 3856
+    },
+    {
+      "id": "leetcode-3861",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Capacity Box",
+      "summary": "Given an array of box capacities and an item size, find the index of the box with the smallest capacity that can hold the item.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3861.json",
+      "content_sha256": "e664d9670fe833470e284577c02c335ab6cbc77b74b39af2bd81d457e4188494",
+      "source_id": 3861
+    },
+    {
+      "id": "leetcode-3866",
+      "version": 1,
+      "status": "approved",
+      "title": "First Unique Even Element",
+      "summary": "Given an integer array, identify the first even number that occurs exactly once.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3866.json",
+      "content_sha256": "4ab856d00fdfebf5c7979ef73da90f74c3956d9d7fb9cc969acf18edff45248a",
+      "source_id": 3866
+    },
+    {
+      "id": "leetcode-3870",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Commas in Range",
+      "summary": "Given an integer n, calculate the total number of commas used in the standard number formatting of all integers from 1 to n, where commas are placed after every three digits from the right, and no commas are used in numbers with fewer than four digits.",
+      "topics": [
+        "math",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3870.json",
+      "content_sha256": "6b234eec0b69ce29c69de5d8367f697e5c7abece066a6b1f3d49fad5feac566e",
+      "source_id": 3870
+    },
+    {
+      "id": "leetcode-3875",
+      "version": 1,
+      "status": "approved",
+      "title": "Construct Uniform Parity Array I",
+      "summary": "Given an array nums1 of n distinct integers, determine if it is possible to construct another array nums2 of the same length such that all elements in nums2 are either all odd or all even.",
+      "topics": [
+        "arrays",
+        "parity",
+        "constructive"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3875.json",
+      "content_sha256": "727a53477aeea7d2404ed7fc1760fecb9cee6d720f74d0e240dc2c6774cc6a8c",
+      "source_id": 3875
+    },
+    {
+      "id": "leetcode-3880",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Absolute Difference Between Two Values",
+      "summary": "Given an array of integers consisting solely of 0, 1, and 2, find the minimum absolute difference between indices where the value is 1 and the value is 2.",
+      "topics": [
+        "arrays",
+        "indices"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3880.json",
+      "content_sha256": "fc9027b8bb9254948285bbd2f884c70d4fedfe1b78b83407099d8786d494d66e",
+      "source_id": 3880
+    },
+    {
+      "id": "leetcode-3884",
+      "version": 1,
+      "status": "approved",
+      "title": "First Matching Character From Both Ends",
+      "summary": "Given a string s of lowercase English letters, find the smallest index i where the character at s[i] matches the character at s[n - i - 1].",
+      "topics": [
+        "strings",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3884.json",
+      "content_sha256": "0d126febaf5778a7569748903d195922f54cba86018d467b80061cc3d54d438d",
+      "source_id": 3884
+    },
+    {
+      "id": "leetcode-3894",
+      "version": 1,
+      "status": "approved",
+      "title": "Traffic Signal Color",
+      "summary": "Given an integer timer indicating the remaining time on a traffic signal, determine its state based on specific time intervals: 'Green' if timer is 0, 'Orange' if timer is 30, 'Red' if timer is between 31 and 90 inclusive, and 'Invalid' for all other values.",
+      "topics": [
+        "conditionals",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3894.json",
+      "content_sha256": "26d885d87aa59dbabc137eb55d28605f53d20155616730e11642207671e4e8bc",
+      "source_id": 3894
+    },
+    {
+      "id": "leetcode-3898",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Degree of Each Vertex",
+      "summary": "Given an n x n adjacency matrix for an undirected graph, calculate the degree of each vertex by counting the number of edges connected to it, and return an array where each element represents the degree of the corresponding vertex.",
+      "topics": [
+        "graphs",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3898.json",
+      "content_sha256": "e76a3bc3b4708afd78c871012a80d65a4c12c444f11e7e941a4c3f2d733ef0cb",
+      "source_id": 3898
+    },
+    {
+      "id": "leetcode-3903",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Stable Index I",
+      "summary": "Given an integer array nums and an integer k, find the smallest index i where the difference between the maximum value in nums[0..i] and the minimum value in nums[i..n-1] is less than or equal to k.",
+      "topics": [
+        "arrays",
+        "prefix maxima",
+        "suffix minima"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3903.json",
+      "content_sha256": "aa747fc6c783f2b7607f89be428d1303aa419ebc87e7e5c562d0b2273b72a9d8",
+      "source_id": 3903
+    },
+    {
+      "id": "leetcode-3908",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Digit Number",
+      "summary": "Given an integer n and a digit x, determine if n contains at least one x but does not start with x.",
+      "topics": [
+        "math",
+        "digits",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3908.json",
+      "content_sha256": "0c8767ee2867f6b6fc42558299a32cdb2973b1e690ebd767d6b18dc6d8d97979",
+      "source_id": 3908
     }
   ]
 }
