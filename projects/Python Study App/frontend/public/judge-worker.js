@@ -83,7 +83,16 @@ def make_treenode(values, node_type=TreeNode):
         index += 1
     return root
 
+def make_treenode_list(values, node_type=TreeNode):
+    if not isinstance(values, list):
+        raise ValueError("TreeNode-list input must be a list of level-order trees")
+    return [make_treenode(tree, node_type) for tree in values]
+
 def serialize(value, adapter, strict_tree_values=False):
+    if adapter == "treenode_list":
+        if not isinstance(value, list):
+            raise ValueError("TreeNode-list value must remain a list")
+        return [serialize(root, "treenode", strict_tree_values) for root in value]
     if adapter == "treenode_value":
         if value is None:
             return None
@@ -334,6 +343,8 @@ else:
                     value, listnode_references[index] = make_listnode_reference(value, namespace.get("ListNode", ListNode))
                 elif parameter.get("adapter") == "treenode":
                     value = make_treenode(value, namespace.get("TreeNode", TreeNode))
+                elif parameter.get("adapter") == "treenode_list":
+                    value = make_treenode_list(value, namespace.get("TreeNode", TreeNode))
                 elif parameter.get("adapter") == "treenode_ref":
                     value = tree_node_by_value(arguments[parameter["source_parameter"]], value)
                 arguments.append(value)
@@ -353,7 +364,14 @@ else:
                                 else job["signature"]["parameters"][job["signature"]["mutated_parameter"]].get("adapter", "raw"))
             if job["signature"].get("node_policy") == "reuse_input_nodes":
                 for index, (argument, parameter) in enumerate(zip(arguments, job["signature"]["parameters"])):
-                    if parameter.get("adapter") == observed_adapter and (mode == "return" or index == job["signature"]["mutated_parameter"]):
+                    if (parameter.get("adapter") == "treenode_list" and observed_adapter == "treenode"
+                            and (mode == "return" or index == job["signature"]["mutated_parameter"])):
+                        for root in argument:
+                            snapshot = node_snapshot(root, "treenode")
+                            if set(original_nodes).intersection(snapshot):
+                                raise ValueError("Input trees must not share nodes")
+                            original_nodes.update(snapshot)
+                    elif parameter.get("adapter") == observed_adapter and (mode == "return" or index == job["signature"]["mutated_parameter"]):
                         original_nodes.update(node_snapshot(argument, parameter["adapter"]))
             elif job["signature"].get("node_policy") == "return_input_node":
                 for argument, parameter in zip(arguments, job["signature"]["parameters"]):

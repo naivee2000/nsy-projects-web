@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1333,
+  "count": 1338,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -23642,6 +23642,96 @@
       "path": "problems/leetcode-1929.json",
       "content_sha256": "59b579dd787b0c48cd205a6ff1d6297de80ec29af1ce1509fdb3f2fb046ccc8f",
       "source_id": 1929
+    },
+    {
+      "id": "leetcode-1930",
+      "version": 1,
+      "status": "approved",
+      "title": "Unique Length-3 Palindromic Subsequences",
+      "summary": "Given a string, count the distinct length-three palindromic subsequences that can be derived from it, considering each distinct subsequence only once.",
+      "topics": [
+        "strings",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1930.json",
+      "content_sha256": "a631daf3421a847aba3b4cc8c7a062ed91653703e09ad7de060cad00fac89905",
+      "source_id": 1930
+    },
+    {
+      "id": "leetcode-1931",
+      "version": 1,
+      "status": "approved",
+      "title": "Painting a Grid With Three Different Colors",
+      "summary": "Given integers m and n, determine the number of ways to paint an m x n grid with red, green, or blue such that no two adjacent cells share the same color, modulo 10^9 + 7.",
+      "topics": [
+        "dynamic programming",
+        "bitmasking"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1931.json",
+      "content_sha256": "85fae4eded26eb8c895a3ee96f9db5325ee38a6533be79149828287a0663c833",
+      "source_id": 1931
+    },
+    {
+      "id": "leetcode-1932",
+      "version": 1,
+      "status": "approved",
+      "title": "Merge BSTs to Create Single BST",
+      "summary": "Given an array of n BST root nodes, each with at most 3 nodes, you can merge two distinct BSTs by replacing a leaf node in one BST with another BST.",
+      "topics": [
+        "trees",
+        "binary search trees",
+        "depth-first search"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1932.json",
+      "content_sha256": "3e200c38d62c1b18875548cfd2d707950e12623fe8a1cec3b4a7089da271fa0a",
+      "source_id": 1932
+    },
+    {
+      "id": "leetcode-1933",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if String Is Decomposable Into Value-Equal Substrings",
+      "summary": "Determine if a digit string can be divided into value-equal substrings, with exactly one substring of length 2 and the rest of length 3, where a value-equal string consists of identical characters.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1933.json",
+      "content_sha256": "95e361c6f086b4544b7d0942a47f9185e09cbffda79d46c8aea9f88182a742e1",
+      "source_id": 1933
+    },
+    {
+      "id": "leetcode-1935",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Words You Can Type",
+      "summary": "Determine the count of words in a text that can be fully typed on a keyboard with certain broken letter keys.",
+      "topics": [
+        "strings",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1935.json",
+      "content_sha256": "363fcb515713351c6c91eb5c0a9c0bc1e328b35746a577be832bebe37a6dae3c",
+      "source_id": 1935
     }
   ]
 }

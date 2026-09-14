@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1931",
+  "content_sha256": "85fae4eded26eb8c895a3ee96f9db5325ee38a6533be79149828287a0663c833",
+  "source_hash": "d7c15553a147a907e14d435dfa10be46db888eef0298981db986287de5fb9dd4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats all individually valid adjacent columns as compatible even when horizontal neighbors match.",
+      "failed_cases": [
+        "lc-1931-2",
+        "lc-1931-4",
+        "lc-1931-5",
+        "lc-1931-7",
+        "lc-1931-8",
+        "lc-1931-9",
+        "lc-1931-10",
+        "lc-1931-11",
+        "lc-1931-12",
+        "lc-1931-13",
+        "lc-1931-14",
+        "lc-1931-15",
+        "lc-1931-16"
+      ]
+    },
+    {
+      "reason": "Enumerates only two colors, omitting valid paintings that use the third.",
+      "failed_cases": [
+        "lc-1931-1",
+        "lc-1931-2",
+        "lc-1931-3",
+        "lc-1931-4",
+        "lc-1931-5",
+        "lc-1931-6",
+        "lc-1931-7",
+        "lc-1931-8",
+        "lc-1931-9",
+        "lc-1931-10",
+        "lc-1931-11",
+        "lc-1931-12",
+        "lc-1931-13",
+        "lc-1931-14",
+        "lc-1931-15",
+        "lc-1931-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5978,
+  "oracle_implementation": "code_practice/import_batch_111d.py:painting_oracle",
+  "validator_implementation_sha256": "b1ee8a137f9062503c7aaf061f896e9b99fdc81fe616eb0e13cdfa96450cb9a0",
+  "batch_implementation_sha256": "c2f9d2ca24600f3bbdf111d4c8a93c090de507f53e9e5cc72e5e76538fda3dbf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0bf5cd6c07390e84db05035c20f19ff75b263197213377f59806436c5aa11fbc",
+  "elapsed_seconds": 0.251,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -83,7 +83,17 @@ def _treenode(values: list[int | None] | None, node_type: type = TreeNode) -> An
     return root
 
 
+def _treenode_list(values: list[list[int | None]], node_type: type = TreeNode) -> list[Any]:
+    if not isinstance(values, list):
+        raise ValueError("TreeNode-list input must be a list of level-order trees")
+    return [_treenode(tree, node_type) for tree in values]
+
+
 def _serialize(value: Any, adapter: str, strict_tree_values: bool = False) -> Any:
+    if adapter == "treenode_list":
+        if not isinstance(value, list):
+            raise ValueError("TreeNode-list value must remain a list")
+        return [_serialize(root, "treenode", strict_tree_values) for root in value]
     if adapter == "treenode_value":
         if value is None:
             return None
@@ -188,6 +198,17 @@ def _node_snapshot(value: Any, adapter: str) -> dict:
     return nodes
 
 
+def _forest_node_snapshot(roots: list[Any]) -> dict:
+    nodes = {}
+    for root in roots:
+        snapshot = _node_snapshot(root, "treenode")
+        overlap = set(nodes).intersection(snapshot)
+        if overlap:
+            raise ValueError("Input trees must not share nodes")
+        nodes.update(snapshot)
+    return nodes
+
+
 def _tree_identity_snapshot(root: Any) -> dict:
     """Capture every node's value and exact child links without recursion."""
     result, stack = {}, [root]
@@ -240,6 +261,8 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
                 )
             elif parameter.adapter == "treenode":
                 value = _treenode(value, namespace.get("TreeNode", TreeNode))
+            elif parameter.adapter == "treenode_list":
+                value = _treenode_list(value, namespace.get("TreeNode", TreeNode))
             elif parameter.adapter == "treenode_ref":
                 value = _tree_node_by_value(arguments[parameter.source_parameter], value)
             arguments.append(value)
@@ -259,7 +282,10 @@ def run_source(source: str, problem: ProblemDefinition, test: TestCase) -> tuple
                             else problem.signature.parameters[problem.signature.mutated_parameter].adapter)
         if problem.signature.node_policy == "reuse_input_nodes":
             for index, (argument, parameter) in enumerate(zip(arguments, problem.signature.parameters)):
-                if parameter.adapter == observed_adapter and (mode == "return" or index == problem.signature.mutated_parameter):
+                if (parameter.adapter == "treenode_list" and observed_adapter == "treenode"
+                        and (mode == "return" or index == problem.signature.mutated_parameter)):
+                    original_nodes.update(_forest_node_snapshot(argument))
+                elif parameter.adapter == observed_adapter and (mode == "return" or index == problem.signature.mutated_parameter):
                     original_nodes.update(_node_snapshot(argument, parameter.adapter))
         elif problem.signature.node_policy == "return_input_node":
             for argument, parameter in zip(arguments, problem.signature.parameters):

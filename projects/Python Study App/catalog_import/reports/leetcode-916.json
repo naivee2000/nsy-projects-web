@@ -1,11 +1,39 @@
 {
   "valid": false,
   "problem_id": "leetcode-916",
+  "content_sha256": "85dd9fc3aeea83acc6d870545870dedbb8e76b9d5033af57a1205c71c4783d99",
   "source_hash": "4fc8b17f481b63cdb54e291976d9decb081fbdcdaeb0d7f8b75a74849017cfda",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds requirements instead of taking their maximum multiplicity.",
+      "failed_cases": []
+    },
+    {
+      "reason": "Ignores repeated required letters.",
+      "failed_cases": [
+        "lc-916-2",
+        "lc-916-7",
+        "lc-916-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4963,
+  "oracle_implementation": "code_practice/import_batch_076.py:subsets_oracle",
+  "validator_implementation_sha256": "b1ee8a137f9062503c7aaf061f896e9b99fdc81fe616eb0e13cdfa96450cb9a0",
+  "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7861350a486ca4c4a10f73287ea55e1336ffd1d467a5bddf5d0f8fdca69dbbea",
+  "elapsed_seconds": 0.038,
   "failures": [
     {
-      "phase": "build",
-      "error": "ValidationError: 16 validation errors for ProblemDefinition\ntests.0.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.1.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.2.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.3.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.4.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.5.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.6.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.7.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.8.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.9.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.10.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.11.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.12.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.13.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.14.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error\ntests.15.comparator\n  Input should be 'exact', 'float', 'float_list', 'unordered', 'unordered_nested', 'unordered_rows', 'balanced_bst', 'bst_delete', 'wiggle', 'strict_wiggle' or 'shortest_encoding' [type=literal_error, input_value='ordered', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/literal_error"
+      "phase": "known_wrong",
+      "index": 0
     }
-  ]
+  ],
+  "workbook_sample": "preserved and independently verified"
 }

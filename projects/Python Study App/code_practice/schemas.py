@@ -9,7 +9,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 Comparator = Literal["exact", "float", "float_list", "unordered", "unordered_nested", "unordered_rows", "balanced_bst", "bst_delete", "wiggle", "strict_wiggle", "shortest_encoding"]
-ParameterAdapter = Literal["raw", "listnode", "listnode_ref", "treenode", "treenode_ref"]
+ParameterAdapter = Literal["raw", "listnode", "listnode_ref", "treenode", "treenode_ref", "treenode_list"]
 ReturnAdapter = Literal["raw", "listnode", "treenode", "treenode_value"]
 AttemptResult = Literal["accepted", "wrong_answer", "syntax_error", "runtime_error", "timeout"]
 
@@ -161,7 +161,8 @@ class FunctionSignature(BaseModel):
             adapter = (self.return_adapter if self.result_mode == "return"
                        else self.parameters[self.mutated_parameter].adapter)
             if (self.result_mode == "returned_prefix" or adapter not in ("listnode", "treenode")
-                    or not any(p.adapter == adapter for p in self.parameters)):
+                    or not any(p.adapter == adapter or (adapter == "treenode" and p.adapter == "treenode_list")
+                               for p in self.parameters)):
                 raise ValueError("Node reuse requires matching linked-list or tree inputs and observed output")
         elif self.node_policy == "return_input_node":
             if (self.result_mode != "return" or self.return_adapter != "treenode_value"

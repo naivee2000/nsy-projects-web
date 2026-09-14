@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1933",
+  "content_sha256": "95e361c6f086b4544b7d0942a47f9185e09cbffda79d46c8aea9f88182a742e1",
+  "source_hash": "652e28968652d52509f171189e0331390996abc73a3736aab6173fd15478f855",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows zero length-two groups although the contract requires exactly one.",
+      "failed_cases": [
+        "lc-1933-1",
+        "lc-1933-4"
+      ]
+    },
+    {
+      "reason": "Accepts runs whose length leaves an unusable remainder of one.",
+      "failed_cases": [
+        "lc-1933-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5980,
+  "oracle_implementation": "code_practice/import_batch_111d.py:decomposable_oracle",
+  "validator_implementation_sha256": "b1ee8a137f9062503c7aaf061f896e9b99fdc81fe616eb0e13cdfa96450cb9a0",
+  "batch_implementation_sha256": "c2f9d2ca24600f3bbdf111d4c8a93c090de507f53e9e5cc72e5e76538fda3dbf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ff9e316cd2b255671239147b506623ee10b6048e133c3c16471a4a20dee07df5",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

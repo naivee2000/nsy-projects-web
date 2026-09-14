@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1935",
+  "content_sha256": "363fcb515713351c6c91eb5c0a9c0bc1e328b35746a577be832bebe37a6dae3c",
+  "source_hash": "32402cf97aa58cf67edb862ab7cea22a275c78f24cf88eade8dd5e6805848e36",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts words that contain a broken letter instead of words that avoid all broken letters.",
+      "failed_cases": [
+        "lc-1935-1",
+        "lc-1935-2",
+        "lc-1935-3",
+        "lc-1935-4",
+        "lc-1935-5",
+        "lc-1935-7",
+        "lc-1935-8",
+        "lc-1935-11",
+        "lc-1935-12"
+      ]
+    },
+    {
+      "reason": "Checks only the first character and misses broken letters later in a word.",
+      "failed_cases": [
+        "lc-1935-1",
+        "lc-1935-7",
+        "lc-1935-11",
+        "lc-1935-12",
+        "lc-1935-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5982,
+  "oracle_implementation": "code_practice/import_batch_111d.py:typing_oracle",
+  "validator_implementation_sha256": "b1ee8a137f9062503c7aaf061f896e9b99fdc81fe616eb0e13cdfa96450cb9a0",
+  "batch_implementation_sha256": "c2f9d2ca24600f3bbdf111d4c8a93c090de507f53e9e5cc72e5e76538fda3dbf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cca09beb67c66ab0d8dfa5cabf0caa323348257fe17bbee2bce95bea99697601",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

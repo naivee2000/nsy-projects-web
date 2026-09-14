@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1932",
+  "content_sha256": "3e200c38d62c1b18875548cfd2d707950e12623fe8a1cec3b4a7089da271fa0a",
+  "source_hash": "fc82e2002250952517b4ad0e77a021f3d5dbbc22694cac8819f8eabd6077d04b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns a locally valid component without requiring every supplied tree to be merged.",
+      "failed_cases": [
+        "lc-1932-16"
+      ]
+    },
+    {
+      "reason": "Grafts matching roots without enforcing the global BST bounds inherited from ancestors.",
+      "failed_cases": [
+        "lc-1932-2",
+        "lc-1932-12",
+        "lc-1932-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5979,
+  "oracle_implementation": "code_practice/import_batch_111d.py:merge_bsts_oracle",
+  "validator_implementation_sha256": "b1ee8a137f9062503c7aaf061f896e9b99fdc81fe616eb0e13cdfa96450cb9a0",
+  "batch_implementation_sha256": "c2f9d2ca24600f3bbdf111d4c8a93c090de507f53e9e5cc72e5e76538fda3dbf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e01fafac12589cd5756aa83255b346ef51cdcf75e06567976c3b6b7ea1edf521",
+  "elapsed_seconds": 0.08,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

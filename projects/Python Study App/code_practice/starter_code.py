@@ -30,7 +30,7 @@ def with_support_classes(source: str, adapters: Iterable[str]) -> str:
     definitions: list[str] = []
     if adapter_set.intersection({"listnode", "listnode_ref"}) and not re.search(r"^class\s+ListNode\b", source, re.MULTILINE):
         definitions.append(LIST_NODE_DEFINITION)
-    if adapter_set.intersection({"treenode", "treenode_ref", "treenode_value"}) and not re.search(r"^class\s+TreeNode\b", source, re.MULTILINE):
+    if adapter_set.intersection({"treenode", "treenode_ref", "treenode_value", "treenode_list"}) and not re.search(r"^class\s+TreeNode\b", source, re.MULTILINE):
         definitions.append(TREE_NODE_DEFINITION)
     if not definitions:
         return source
