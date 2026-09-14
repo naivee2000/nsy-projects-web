@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1264,
+  "count": 1269,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -22306,6 +22306,27 @@
       "source_id": 1846
     },
     {
+      "id": "leetcode-1847",
+      "version": 1,
+      "status": "approved",
+      "title": "Closest Room",
+      "summary": "Given a hotel with unique numbered rooms and their sizes, and a set of k queries each specifying a preferred room number and a minimum size requirement, find the room number that meets the size requirement and has the smallest absolute difference with the preferred room number.",
+      "topics": [
+        "arrays",
+        "binary-search",
+        "sorting",
+        "fenwick-trees"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1847.json",
+      "content_sha256": "20974d33289c86d85b52f083330193717525504e21b0f8c72f29070edb1d6734",
+      "source_id": 1847
+    },
+    {
       "id": "leetcode-1848",
       "version": 1,
       "status": "approved",
@@ -22357,6 +22378,81 @@
       "path": "problems/leetcode-1850.json",
       "content_sha256": "91a7de253ac6b3b3e3abb660914fde5352caa34c66b6b040c501630ec614f59e",
       "source_id": 1850
+    },
+    {
+      "id": "leetcode-1851",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Interval to Include Each Query",
+      "summary": "Given intervals defined by their start and end points, determine the size of the smallest interval that includes each query value.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "heaps",
+        "sweep-line"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1851.json",
+      "content_sha256": "35cc03f6773a9df693bb7e9e27458da6c50f0e45e065f9764423963097cb35d7",
+      "source_id": 1851
+    },
+    {
+      "id": "leetcode-1852",
+      "version": 1,
+      "status": "approved",
+      "title": "Distinct Numbers in Each Subarray",
+      "summary": "Given an integer array nums and an integer k, determine the count of distinct elements in each subarray of size k.",
+      "topics": [
+        "arrays",
+        "hash-maps",
+        "sliding-window"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1852.json",
+      "content_sha256": "eb56b1ed5bbfaca6347f1c83253e305d9851c2023f96cc32af279c7c300b2eff",
+      "source_id": 1852
+    },
+    {
+      "id": "leetcode-1854",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Population Year",
+      "summary": "Given a 2D integer array logs with each entry [birth, death] representing the birth and death years of an individual, determine the earliest year with the highest population.",
+      "topics": [
+        "arrays",
+        "prefix-sums",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1854.json",
+      "content_sha256": "44a847a9f08a61882a23a5125a2ce06530b454934d46613580997b68af90fa06",
+      "source_id": 1854
+    },
+    {
+      "id": "leetcode-1855",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Distance Between a Pair of Values",
+      "summary": "Given two non-increasing integer arrays nums1 and nums2, find the maximum distance of a valid pair (i, j) where i <= j and nums1[i] <= nums2[j].",
+      "topics": [
+        "arrays",
+        "two-pointers",
+        "binary-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1855.json",
+      "content_sha256": "1ef940216ee1de52f86e43cefbc8bf8bdfb1605f1adfb100725d477cf37e45ec",
+      "source_id": 1855
     }
   ]
 }

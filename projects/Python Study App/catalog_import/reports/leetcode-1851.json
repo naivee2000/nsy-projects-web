@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1851",
+  "content_sha256": "35cc03f6773a9df693bb7e9e27458da6c50f0e45e065f9764423963097cb35d7",
+  "source_hash": "b4ed2342b3d53707771f30fde210c12459e88d99908235fa1ef725768e319de6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses endpoint difference instead of inclusive interval size.",
+      "failed_cases": [
+        "lc-1851-1",
+        "lc-1851-2",
+        "lc-1851-3",
+        "lc-1851-5",
+        "lc-1851-6",
+        "lc-1851-8",
+        "lc-1851-9",
+        "lc-1851-10",
+        "lc-1851-11",
+        "lc-1851-12",
+        "lc-1851-13",
+        "lc-1851-14"
+      ]
+    },
+    {
+      "reason": "Excludes intervals beginning exactly at the query.",
+      "failed_cases": [
+        "lc-1851-1",
+        "lc-1851-2",
+        "lc-1851-3",
+        "lc-1851-5",
+        "lc-1851-6",
+        "lc-1851-10",
+        "lc-1851-11",
+        "lc-1851-12",
+        "lc-1851-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5898,
+  "oracle_implementation": "code_practice/import_batch_108c.py:interval_o",
+  "validator_implementation_sha256": "7a63496c83e6a19c0ef0dd0ee95901fb7d90eca967e5bd30a5a6889f4b407217",
+  "batch_implementation_sha256": "e06275511a8d78faa2fab47cf171ba74da3bc2c5bea43870671f6dd07e17642c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d6d5df7c47d01f3d4d0687e74bd7a998a7a4ea2919e851c917313f37e7106371",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

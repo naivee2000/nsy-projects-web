@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1847",
+  "content_sha256": "20974d33289c86d85b52f083330193717525504e21b0f8c72f29070edb1d6734",
+  "source_hash": "c6f22c5e2b56c444993fb8ce1a26f8092633fe283e52698571678c650c464a7f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks equal-distance ties toward the larger room ID.",
+      "failed_cases": [
+        "lc-1847-2",
+        "lc-1847-5",
+        "lc-1847-10",
+        "lc-1847-14"
+      ]
+    },
+    {
+      "reason": "Rejects rooms whose size exactly equals the requirement.",
+      "failed_cases": [
+        "lc-1847-1",
+        "lc-1847-2",
+        "lc-1847-3",
+        "lc-1847-5",
+        "lc-1847-9",
+        "lc-1847-12",
+        "lc-1847-13",
+        "lc-1847-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5894,
+  "oracle_implementation": "code_practice/import_batch_108c.py:room_o",
+  "validator_implementation_sha256": "7a63496c83e6a19c0ef0dd0ee95901fb7d90eca967e5bd30a5a6889f4b407217",
+  "batch_implementation_sha256": "e06275511a8d78faa2fab47cf171ba74da3bc2c5bea43870671f6dd07e17642c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9581e62e151bfd380b69b32468c117d5bc00eb11716662ae714f0270a7917cc0",
+  "elapsed_seconds": 0.135,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

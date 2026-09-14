@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1854",
+  "content_sha256": "44a847a9f08a61882a23a5125a2ce06530b454934d46613580997b68af90fa06",
+  "source_hash": "ce2089076ffef870a7cda176f89b11b94624ca94be19ea959779ce227f1e5d25",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts people during their death year.",
+      "failed_cases": [
+        "lc-1854-7",
+        "lc-1854-11",
+        "lc-1854-12"
+      ]
+    },
+    {
+      "reason": "Replaces an earlier tied year with a later one.",
+      "failed_cases": [
+        "lc-1854-1",
+        "lc-1854-2",
+        "lc-1854-4",
+        "lc-1854-5",
+        "lc-1854-6",
+        "lc-1854-7",
+        "lc-1854-8",
+        "lc-1854-10",
+        "lc-1854-11",
+        "lc-1854-12",
+        "lc-1854-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5901,
+  "oracle_implementation": "code_practice/import_batch_108c.py:population_o",
+  "validator_implementation_sha256": "7a63496c83e6a19c0ef0dd0ee95901fb7d90eca967e5bd30a5a6889f4b407217",
+  "batch_implementation_sha256": "e06275511a8d78faa2fab47cf171ba74da3bc2c5bea43870671f6dd07e17642c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "612059a55b2f83e40819113677943c76be94866958e9c2f82c28fe24ae3d558d",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

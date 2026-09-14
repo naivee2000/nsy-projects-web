@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1855",
+  "content_sha256": "1ef940216ee1de52f86e43cefbc8bf8bdfb1605f1adfb100725d477cf37e45ec",
+  "source_hash": "758eaa2e439c3b26783734c3401aa2e440ab621721f661389371be4d2b8deab9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects equal values even though the inequality is inclusive.",
+      "failed_cases": [
+        "lc-1855-1",
+        "lc-1855-6",
+        "lc-1855-8",
+        "lc-1855-12",
+        "lc-1855-13"
+      ]
+    },
+    {
+      "reason": "Computes the distance with reversed subtraction.",
+      "failed_cases": [
+        "lc-1855-1",
+        "lc-1855-2",
+        "lc-1855-5",
+        "lc-1855-6",
+        "lc-1855-8",
+        "lc-1855-10",
+        "lc-1855-12",
+        "lc-1855-13",
+        "lc-1855-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5902,
+  "oracle_implementation": "code_practice/import_batch_108c.py:distance_o",
+  "validator_implementation_sha256": "7a63496c83e6a19c0ef0dd0ee95901fb7d90eca967e5bd30a5a6889f4b407217",
+  "batch_implementation_sha256": "e06275511a8d78faa2fab47cf171ba74da3bc2c5bea43870671f6dd07e17642c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3272544945d8720a7130cb35f0c28cc077364784a8e6a2eacfd7dbb442c9fbbc",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
