@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2497",
+  "content_sha256": "c7fd7cf1c2c87c37e2c5868333c5863824e3aa53f73a43b045de5c1c5b4eb295",
+  "source_hash": "0ea011c4359ec6e5787b5228c6169d842ff84f8a2ed925c206b40391fc99aff3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Includes negative neighbors even though selecting fewer than k edges is allowed.",
+      "failed_cases": [
+        "lc-2497-2",
+        "lc-2497-6",
+        "lc-2497-11"
+      ]
+    },
+    {
+      "reason": "Chooses the smallest neighbor values rather than the largest positive values.",
+      "failed_cases": [
+        "lc-2497-4",
+        "lc-2497-10",
+        "lc-2497-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6544,
+  "oracle_implementation": "code_practice/import_batch_148.py:star_oracle",
+  "validator_implementation_sha256": "5d4feaddd9e29d4b3d3a1d8c7040cd20e7d9e209bff582173eff3f068fef2a3b",
+  "batch_implementation_sha256": "8aa88ad67914ae1ebdaf42ba75226ddaf6f800294e8de91e4c5400c0326b0386",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f4512286ee32f49f8afd114e7ded2c1e899c2d951b7a8ad6befed0fc7b31e5ec",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

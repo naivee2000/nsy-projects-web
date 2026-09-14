@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2498",
+  "content_sha256": "41abc2df100605fa3482a91128bea147a2854beb2081214a8fffd702ad8894aa",
+  "source_hash": "872d7a4fa4f036139f5064e8f6928342cd7f8e78bae2baa2a4caf6c83e72bb56",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only adjacent gaps and ignores jumps that must skip an already used stone.",
+      "failed_cases": [
+        "lc-2498-1",
+        "lc-2498-2",
+        "lc-2498-5",
+        "lc-2498-6",
+        "lc-2498-7",
+        "lc-2498-8",
+        "lc-2498-9",
+        "lc-2498-10",
+        "lc-2498-11",
+        "lc-2498-12",
+        "lc-2498-13",
+        "lc-2498-14",
+        "lc-2498-15"
+      ]
+    },
+    {
+      "reason": "Minimizes across required jumps instead of tracking the maximum cost.",
+      "failed_cases": [
+        "lc-2498-1",
+        "lc-2498-2",
+        "lc-2498-5",
+        "lc-2498-6",
+        "lc-2498-7",
+        "lc-2498-8",
+        "lc-2498-9",
+        "lc-2498-10",
+        "lc-2498-11",
+        "lc-2498-12",
+        "lc-2498-13",
+        "lc-2498-14",
+        "lc-2498-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6545,
+  "oracle_implementation": "code_practice/import_batch_148.py:frog_oracle",
+  "validator_implementation_sha256": "5d4feaddd9e29d4b3d3a1d8c7040cd20e7d9e209bff582173eff3f068fef2a3b",
+  "batch_implementation_sha256": "8aa88ad67914ae1ebdaf42ba75226ddaf6f800294e8de91e4c5400c0326b0386",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7589006438283be06ae45621109d8a6cd04edd332ee693ca6b87f5bd6fef1015",
+  "elapsed_seconds": 0.192,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

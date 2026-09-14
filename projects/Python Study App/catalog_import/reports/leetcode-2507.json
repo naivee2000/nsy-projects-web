@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2507",
+  "content_sha256": "45b92f2e9340b8699e33ce9180e4eac7938252eb8f7e07e81d708c2247cb14ce",
+  "source_hash": "498dcea88bd550f4bd9c14e8dc510650fb71dcddfbf30e228a79ee3d067ec1a7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts each distinct prime at most once rather than using multiplicity.",
+      "failed_cases": [
+        "lc-2507-10",
+        "lc-2507-11",
+        "lc-2507-14"
+      ]
+    },
+    {
+      "reason": "Adds one per factor occurrence instead of the prime factor value.",
+      "failed_cases": [
+        "lc-2507-1",
+        "lc-2507-2",
+        "lc-2507-6",
+        "lc-2507-7",
+        "lc-2507-8",
+        "lc-2507-9",
+        "lc-2507-10",
+        "lc-2507-11",
+        "lc-2507-12",
+        "lc-2507-13",
+        "lc-2507-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6554,
+  "oracle_implementation": "code_practice/import_batch_148.py:factor_oracle",
+  "validator_implementation_sha256": "5d4feaddd9e29d4b3d3a1d8c7040cd20e7d9e209bff582173eff3f068fef2a3b",
+  "batch_implementation_sha256": "8aa88ad67914ae1ebdaf42ba75226ddaf6f800294e8de91e4c5400c0326b0386",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "de4211d7aa61493eade8283c038927a7a50e569a980b12f73da1a55abd0dd6fb",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

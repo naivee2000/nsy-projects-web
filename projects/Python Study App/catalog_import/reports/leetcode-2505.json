@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2505",
+  "content_sha256": "7ee3dbe946b9b9e35ee2153f1d98f82a9899ef62531e09d18a7c7dbb38acf652",
+  "source_hash": "42bcd0fd9b9205399232004dc456a918a17c0912d09cebdb7993c2b88554ae3c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Carries groups of three set bits instead of binary pairs.",
+      "failed_cases": [
+        "lc-2505-1",
+        "lc-2505-2",
+        "lc-2505-6",
+        "lc-2505-7",
+        "lc-2505-8",
+        "lc-2505-11",
+        "lc-2505-14",
+        "lc-2505-15"
+      ]
+    },
+    {
+      "reason": "Omits bits achievable by a single chosen value.",
+      "failed_cases": [
+        "lc-2505-1",
+        "lc-2505-2",
+        "lc-2505-4",
+        "lc-2505-5",
+        "lc-2505-6",
+        "lc-2505-7",
+        "lc-2505-8",
+        "lc-2505-10",
+        "lc-2505-11",
+        "lc-2505-12",
+        "lc-2505-13",
+        "lc-2505-14",
+        "lc-2505-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6552,
+  "oracle_implementation": "code_practice/import_batch_148.py:sum_or_oracle",
+  "validator_implementation_sha256": "5d4feaddd9e29d4b3d3a1d8c7040cd20e7d9e209bff582173eff3f068fef2a3b",
+  "batch_implementation_sha256": "8aa88ad67914ae1ebdaf42ba75226ddaf6f800294e8de91e4c5400c0326b0386",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5be90c0a10e7602f69162cf53a3596d86d68ab219392a36bb693bc26fe4704ad",
+  "elapsed_seconds": 0.816,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

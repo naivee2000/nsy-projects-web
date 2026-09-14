@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2501",
+  "content_sha256": "21d881d0e5b8bbb7707451ced58ab0f79239091d85ccff17f5b7db8f51dc559b",
+  "source_hash": "52c467e2ab887264198417daa79df61cc7a926a370fb27b5d1ce73b6a526af95",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Doubles each value instead of squaring it.",
+      "failed_cases": [
+        "lc-2501-1",
+        "lc-2501-2",
+        "lc-2501-6",
+        "lc-2501-7",
+        "lc-2501-8",
+        "lc-2501-9",
+        "lc-2501-11",
+        "lc-2501-12",
+        "lc-2501-14",
+        "lc-2501-15",
+        "lc-2501-16"
+      ]
+    },
+    {
+      "reason": "Accepts a one-value sequence instead of requiring at least two.",
+      "failed_cases": [
+        "lc-2501-2",
+        "lc-2501-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6548,
+  "oracle_implementation": "code_practice/import_batch_148.py:streak_oracle",
+  "validator_implementation_sha256": "5d4feaddd9e29d4b3d3a1d8c7040cd20e7d9e209bff582173eff3f068fef2a3b",
+  "batch_implementation_sha256": "8aa88ad67914ae1ebdaf42ba75226ddaf6f800294e8de91e4c5400c0326b0386",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7f6f0136f06cc18590986371ef859271cf3a1dd2b8b4f10901870ee006cbbf9f",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
