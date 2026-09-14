@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1862",
+  "content_sha256": "06b20445eefb8061d6ae6683d95547f3871b7e7af294104cd5b019e5f0fa1516",
+  "source_hash": "a1fb100af6083459392c5f9d075e3c99d6d48048de4306ec89bacb1485918a25",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts each distinct denominator only once instead of once per occurrence.",
+      "failed_cases": [
+        "lc-1862-2",
+        "lc-1862-4",
+        "lc-1862-7",
+        "lc-1862-10",
+        "lc-1862-14"
+      ]
+    },
+    {
+      "reason": "Includes the next quotient bucket's first multiple in the current bucket.",
+      "failed_cases": [
+        "lc-1862-5",
+        "lc-1862-6",
+        "lc-1862-7",
+        "lc-1862-8",
+        "lc-1862-9",
+        "lc-1862-10",
+        "lc-1862-12",
+        "lc-1862-13",
+        "lc-1862-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5909,
+  "oracle_implementation": "code_practice/import_batch_108e.py:floored_pairs_oracle",
+  "validator_implementation_sha256": "d9e570dc6ebf4f935ef0da0b5a0c29c0dafe52fdb626674e5f29b6debc4132b1",
+  "batch_implementation_sha256": "1fc815597d4f7d63e40cc45d2ef47083e9f12e2d1af4161dda45f21b0afa2eb9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ce145223140cfa5e24bfd9400836a34e00b4d3467614aee8a9d9bd93ce4dbbfb",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

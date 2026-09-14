@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1861",
+  "content_sha256": "9c4c314b81ae5d9c615cc11ae86392fae74251a06367052d80d20a075c8a44d2",
+  "source_hash": "1d005eebc3de2c94dcfdbf3a43b9a80878b27dd0e0b7823cb1e1d0fe7f067b75",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Lets stones cross obstacles by resetting the landing slot incorrectly.",
+      "failed_cases": [
+        "lc-1861-2",
+        "lc-1861-8",
+        "lc-1861-12",
+        "lc-1861-13",
+        "lc-1861-14",
+        "lc-1861-15"
+      ]
+    },
+    {
+      "reason": "Copies stones to their landing cells without emptying their previous cells.",
+      "failed_cases": [
+        "lc-1861-1",
+        "lc-1861-2",
+        "lc-1861-6",
+        "lc-1861-9",
+        "lc-1861-10",
+        "lc-1861-11",
+        "lc-1861-12",
+        "lc-1861-15",
+        "lc-1861-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5908,
+  "oracle_implementation": "code_practice/import_batch_108e.py:rotating_box_oracle",
+  "validator_implementation_sha256": "d9e570dc6ebf4f935ef0da0b5a0c29c0dafe52fdb626674e5f29b6debc4132b1",
+  "batch_implementation_sha256": "1fc815597d4f7d63e40cc45d2ef47083e9f12e2d1af4161dda45f21b0afa2eb9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cf5c43607318bdef8f736b5658e523df4086946e51340e5876180e13be1730cd",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
