@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1820",
+  "content_sha256": "ae616273da6be40cafedd867f10fdbed09fd7ddd059ff97b4d5e5a265465a5c6",
+  "source_hash": "fdeb18a6ffb43227deabbf2346a725a494bcacbffe54ec506817ec85b0f2192c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Refuses to reassign an already matched girl through an augmenting path.",
+      "failed_cases": [
+        "lc-1820-1",
+        "lc-1820-2",
+        "lc-1820-3",
+        "lc-1820-5",
+        "lc-1820-6",
+        "lc-1820-7",
+        "lc-1820-8",
+        "lc-1820-9",
+        "lc-1820-11",
+        "lc-1820-12",
+        "lc-1820-13",
+        "lc-1820-14"
+      ]
+    },
+    {
+      "reason": "Returns whether any one boy can match rather than the total matches.",
+      "failed_cases": [
+        "lc-1820-1",
+        "lc-1820-2",
+        "lc-1820-7",
+        "lc-1820-8",
+        "lc-1820-9",
+        "lc-1820-11",
+        "lc-1820-12",
+        "lc-1820-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5867,
+  "oracle_implementation": "code_practice/import_batch_107.py:invitations_o",
+  "validator_implementation_sha256": "5af114dfdae9f71ac3fb93d5d6d393a9c4ec342a164b76429bd57a450d806c6b",
+  "batch_implementation_sha256": "5c6cda876f6bec4b7a387fa2e9c61382d4a2f45896d9d8b1e5fb881b80e96874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ce46c820a38b553270a74f9ee2548eb805559e858f9f6a786bddf69d420423f8",
+  "elapsed_seconds": 0.144,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

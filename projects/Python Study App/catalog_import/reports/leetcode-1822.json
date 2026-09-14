@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1822",
+  "content_sha256": "001195705237a9c9118fc4ce98d966adbf01db1e861826d79220949d1157abab",
+  "source_hash": "54e5c8a395305785316371754b62305027d740ba6640a6ec88076642f2e5931a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats a zero product as positive.",
+      "failed_cases": [
+        "lc-1822-2",
+        "lc-1822-5",
+        "lc-1822-9",
+        "lc-1822-10"
+      ]
+    },
+    {
+      "reason": "Ignores negative factors.",
+      "failed_cases": [
+        "lc-1822-4",
+        "lc-1822-7",
+        "lc-1822-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5869,
+  "oracle_implementation": "code_practice/import_batch_107.py:sign_o",
+  "validator_implementation_sha256": "5af114dfdae9f71ac3fb93d5d6d393a9c4ec342a164b76429bd57a450d806c6b",
+  "batch_implementation_sha256": "5c6cda876f6bec4b7a387fa2e9c61382d4a2f45896d9d8b1e5fb881b80e96874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3f99ab30b7e5a1852dfe1cd150d9a77ee5622b018f05775c897e8ddab53a24a3",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

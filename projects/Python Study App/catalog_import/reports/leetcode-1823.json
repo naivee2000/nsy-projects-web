@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1823",
+  "content_sha256": "a59d712140fc0f0a9c40ef4c8b801517f8042bb10dea478d7d49a6c4acae4e02",
+  "source_hash": "5980b652e4dd31adc2a44544364193fd6fea5035e5670de9fb0a7f57c7b28449",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the wrong rotation offset in the recurrence.",
+      "failed_cases": [
+        "lc-1823-1",
+        "lc-1823-2",
+        "lc-1823-4",
+        "lc-1823-5",
+        "lc-1823-7",
+        "lc-1823-8",
+        "lc-1823-9",
+        "lc-1823-10",
+        "lc-1823-11",
+        "lc-1823-12",
+        "lc-1823-13",
+        "lc-1823-14"
+      ]
+    },
+    {
+      "reason": "Returns the internal zero-based label.",
+      "failed_cases": [
+        "lc-1823-1",
+        "lc-1823-2",
+        "lc-1823-3",
+        "lc-1823-4",
+        "lc-1823-5",
+        "lc-1823-6",
+        "lc-1823-7",
+        "lc-1823-8",
+        "lc-1823-9",
+        "lc-1823-10",
+        "lc-1823-11",
+        "lc-1823-12",
+        "lc-1823-13",
+        "lc-1823-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5870,
+  "oracle_implementation": "code_practice/import_batch_107.py:winner_o",
+  "validator_implementation_sha256": "5af114dfdae9f71ac3fb93d5d6d393a9c4ec342a164b76429bd57a450d806c6b",
+  "batch_implementation_sha256": "5c6cda876f6bec4b7a387fa2e9c61382d4a2f45896d9d8b1e5fb881b80e96874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5a16b58bb42bd9033b3d63d2ba825c6ca16256b5d3893b0d49122c2e429f42b0",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

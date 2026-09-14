@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1818",
+  "content_sha256": "ea644338180f740a7caaa2884b790ced7c3ef62fdc629a6e39ecc47ded766229",
+  "source_hash": "bc6a65883ae07a5ad32efb8d81464c9744ab4bd504f6df625ed25bd0a40887bb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks the smallest saving rather than the largest.",
+      "failed_cases": [
+        "lc-1818-1",
+        "lc-1818-5",
+        "lc-1818-6",
+        "lc-1818-7",
+        "lc-1818-9",
+        "lc-1818-12",
+        "lc-1818-14"
+      ]
+    },
+    {
+      "reason": "Chooses replacement values from nums2, which the operation forbids.",
+      "failed_cases": [
+        "lc-1818-1",
+        "lc-1818-3",
+        "lc-1818-5",
+        "lc-1818-7",
+        "lc-1818-8",
+        "lc-1818-10",
+        "lc-1818-11",
+        "lc-1818-12",
+        "lc-1818-13",
+        "lc-1818-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5865,
+  "oracle_implementation": "code_practice/import_batch_107.py:difference_o",
+  "validator_implementation_sha256": "5af114dfdae9f71ac3fb93d5d6d393a9c4ec342a164b76429bd57a450d806c6b",
+  "batch_implementation_sha256": "5c6cda876f6bec4b7a387fa2e9c61382d4a2f45896d9d8b1e5fb881b80e96874",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fc82faa24676e3ca7c7dece481ab8cb28c4af4d0b1ae6b8da249aa52c6bb772d",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
