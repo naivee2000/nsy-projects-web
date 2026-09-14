@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1228,
+  "count": 1233,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -21702,6 +21702,100 @@
       "path": "problems/leetcode-1802.json",
       "content_sha256": "6ff06c3be311ca54a0a10e28cce289b62e62ce22645785c85abfd6a4bfa9b01e",
       "source_id": 1802
+    },
+    {
+      "id": "leetcode-1803",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Pairs With XOR in a Range",
+      "summary": "Determine the count of pairs (i, j) in an array where the bitwise XOR of nums[i] and nums[j] falls within a specified range [low, high], with i < j.",
+      "topics": [
+        "arrays",
+        "bit-manipulation",
+        "tries"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1803.json",
+      "content_sha256": "3056e0656d6d3c32c4654a452c67f15d3203899a58aa1f9db3d50e8abb8fc449",
+      "source_id": 1803
+    },
+    {
+      "id": "leetcode-1805",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Different Integers in a String",
+      "summary": "Given a string that includes digits and lowercase English letters, replace every non-digit character with a space.",
+      "topics": [
+        "strings",
+        "hash-maps",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1805.json",
+      "content_sha256": "3c6df473bbc8bbe9dbf3a4a4e1ad6bb686b3126f27da7aa1be8edb603aa4a95f",
+      "source_id": 1805
+    },
+    {
+      "id": "leetcode-1806",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Operations to Reinitialize a Permutation",
+      "summary": "Given an even integer n, you start with a permutation perm where perm[i] equals i.",
+      "topics": [
+        "arrays",
+        "math",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1806.json",
+      "content_sha256": "903c04f0162fd3182cbe3222ec704c05c84893dc33b6dff7ee842562aca6c8fa",
+      "source_id": 1806
+    },
+    {
+      "id": "leetcode-1807",
+      "version": 1,
+      "status": "approved",
+      "title": "Evaluate the Bracket Pairs of a String",
+      "summary": "Given a string containing bracket pairs with keys and a 2D array of known key-value pairs, replace each key within a bracket pair with its corresponding value if the key is known.",
+      "topics": [
+        "strings",
+        "hash-maps",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1807.json",
+      "content_sha256": "43b58a4d03805ac521a6d6ae8885205990ca113199f97845c86b21b7b5834635",
+      "source_id": 1807
+    },
+    {
+      "id": "leetcode-1808",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Number of Nice Divisors",
+      "summary": "Given a positive integer primeFactors, construct a positive integer n such that the number of prime factors of n (not necessarily distinct) is at most primeFactors.",
+      "topics": [
+        "math",
+        "number-theory",
+        "recursion"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1808.json",
+      "content_sha256": "58b3d61cf012b240232066f5a536f5a943845375d2b102c85061bd88f6631f91",
+      "source_id": 1808
     }
   ]
 }

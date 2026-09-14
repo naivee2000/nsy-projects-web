@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1803",
+  "content_sha256": "3056e0656d6d3c32c4654a452c67f15d3203899a58aa1f9db3d50e8abb8fc449",
+  "source_hash": "81457820e2d6755c960c9790892c36af1db6c682d853faeca7d001c93ab1f77a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the inclusive upper bound as exclusive.",
+      "failed_cases": [
+        "lc-1803-1",
+        "lc-1803-4",
+        "lc-1803-7",
+        "lc-1803-8",
+        "lc-1803-12",
+        "lc-1803-13",
+        "lc-1803-14"
+      ]
+    },
+    {
+      "reason": "Treats the inclusive lower bound as exclusive.",
+      "failed_cases": [
+        "lc-1803-2",
+        "lc-1803-7",
+        "lc-1803-8",
+        "lc-1803-10",
+        "lc-1803-12",
+        "lc-1803-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5850,
+  "oracle_implementation": "code_practice/import_batch_106c.py:xor_pairs_o",
+  "validator_implementation_sha256": "ef4097ee6fdda856a2e73241872b7507fe2573bcca004c704019d0b2b083da2e",
+  "batch_implementation_sha256": "13ed4112b99d92b2e23c10520fe82a1db8a9dd505efb80985c026418caaacd4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d6d0fd6ef252f9351c9d9e3a772e6d10d64f386d43508b931917c42ce4dd3180",
+  "elapsed_seconds": 0.082,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

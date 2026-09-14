@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1806",
+  "content_sha256": "903c04f0162fd3182cbe3222ec704c05c84893dc33b6dff7ee842562aca6c8fa",
+  "source_hash": "35de45c2e708e369e9be8f3a1823b8ff8354cb97898560acc25c0a0e4b3a159d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds an extra operation after the permutation has already returned.",
+      "failed_cases": [
+        "lc-1806-1",
+        "lc-1806-2",
+        "lc-1806-3",
+        "lc-1806-4",
+        "lc-1806-5",
+        "lc-1806-6",
+        "lc-1806-7",
+        "lc-1806-8",
+        "lc-1806-9",
+        "lc-1806-10",
+        "lc-1806-11",
+        "lc-1806-12",
+        "lc-1806-13",
+        "lc-1806-14"
+      ]
+    },
+    {
+      "reason": "Stops one operation before the permutation actually returns.",
+      "failed_cases": [
+        "lc-1806-1",
+        "lc-1806-2",
+        "lc-1806-3",
+        "lc-1806-4",
+        "lc-1806-5",
+        "lc-1806-6",
+        "lc-1806-7",
+        "lc-1806-8",
+        "lc-1806-9",
+        "lc-1806-10",
+        "lc-1806-11",
+        "lc-1806-12",
+        "lc-1806-13",
+        "lc-1806-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5853,
+  "oracle_implementation": "code_practice/import_batch_106c.py:permutation_o",
+  "validator_implementation_sha256": "ef4097ee6fdda856a2e73241872b7507fe2573bcca004c704019d0b2b083da2e",
+  "batch_implementation_sha256": "13ed4112b99d92b2e23c10520fe82a1db8a9dd505efb80985c026418caaacd4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c1bb4e185b97e5c6452ff76ae460dd64c80defb2e7c42230ffdf41f4f30fba5b",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

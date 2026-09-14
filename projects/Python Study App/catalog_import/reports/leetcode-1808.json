@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1808",
+  "content_sha256": "58b3d61cf012b240232066f5a536f5a943845375d2b102c85061bd88f6631f91",
+  "source_hash": "a288e46e8894f061c5a387be29c4c4730c26942dcce8fdc33d5dde166a8f29b8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Applies the four-times correction to remainder two instead of remainder one.",
+      "failed_cases": [
+        "lc-1808-1",
+        "lc-1808-2",
+        "lc-1808-6",
+        "lc-1808-8",
+        "lc-1808-10",
+        "lc-1808-11",
+        "lc-1808-13",
+        "lc-1808-14"
+      ]
+    },
+    {
+      "reason": "Uses an extra factor of three for remainder one.",
+      "failed_cases": [
+        "lc-1808-6",
+        "lc-1808-8",
+        "lc-1808-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5855,
+  "oracle_implementation": "code_practice/import_batch_106c.py:divisors_o",
+  "validator_implementation_sha256": "ef4097ee6fdda856a2e73241872b7507fe2573bcca004c704019d0b2b083da2e",
+  "batch_implementation_sha256": "13ed4112b99d92b2e23c10520fe82a1db8a9dd505efb80985c026418caaacd4f",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a3dc3822c5d377bcd16270a6dee48d6376b29cc08bc14ac15a6921092b28718c",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
