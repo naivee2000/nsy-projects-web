@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1944",
+  "content_sha256": "8ce4ab5fcdb62b343f6a1a94268729b9defa3c8b62eb15f7b0e873345012bb53",
+  "source_hash": "8b7a666e8ea1fd50dea9a7a4ebee1668083663d18ac64218d9f1d56f386e41aa",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts shorter people popped from the stack but omits the first taller blocking person.",
+      "failed_cases": [
+        "lc-1944-1",
+        "lc-1944-2",
+        "lc-1944-4",
+        "lc-1944-6",
+        "lc-1944-9",
+        "lc-1944-10",
+        "lc-1944-11",
+        "lc-1944-12",
+        "lc-1944-13",
+        "lc-1944-14"
+      ]
+    },
+    {
+      "reason": "Pops in the wrong height direction.",
+      "failed_cases": [
+        "lc-1944-1",
+        "lc-1944-2",
+        "lc-1944-9",
+        "lc-1944-10",
+        "lc-1944-11",
+        "lc-1944-12",
+        "lc-1944-13",
+        "lc-1944-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5991,
+  "oracle_implementation": "code_practice/import_batch_112b.py:visible_oracle",
+  "validator_implementation_sha256": "be6d9c3f11c1600436dcd7c91149040c4a24947ed4b581ed1f1c837488d41462",
+  "batch_implementation_sha256": "1e67ef766af2bc907d653958a03b7903994ddfd6c14c746529055e6bf7c3d9e8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2177d4619aa0c24c3917aa3a6ce9eee79ba298a1bed859ab2fa9bae6a9619b03",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1945",
+  "content_sha256": "ff6b22d829bd04389d59d6efbfe243bf052e9376a376a444cb93902b67a796e0",
+  "source_hash": "4b84be28eb08f474abe0f97d69ec28c4a5a881ec4a0aec33976086d7c6e5875e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses zero-based alphabet positions.",
+      "failed_cases": [
+        "lc-1945-1",
+        "lc-1945-2",
+        "lc-1945-3",
+        "lc-1945-4",
+        "lc-1945-5",
+        "lc-1945-6",
+        "lc-1945-7",
+        "lc-1945-8",
+        "lc-1945-9",
+        "lc-1945-10",
+        "lc-1945-11",
+        "lc-1945-13",
+        "lc-1945-14",
+        "lc-1945-15",
+        "lc-1945-16"
+      ]
+    },
+    {
+      "reason": "Performs one fewer digit-sum transformation than requested.",
+      "failed_cases": [
+        "lc-1945-1",
+        "lc-1945-2",
+        "lc-1945-4",
+        "lc-1945-6",
+        "lc-1945-8",
+        "lc-1945-9",
+        "lc-1945-10",
+        "lc-1945-12",
+        "lc-1945-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5992,
+  "oracle_implementation": "code_practice/import_batch_112b.py:digit_sum_oracle",
+  "validator_implementation_sha256": "be6d9c3f11c1600436dcd7c91149040c4a24947ed4b581ed1f1c837488d41462",
+  "batch_implementation_sha256": "1e67ef766af2bc907d653958a03b7903994ddfd6c14c746529055e6bf7c3d9e8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aa89628d45b84e636fbfb24651f9f002400a57f89d39b138748aa893fc45fb67",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

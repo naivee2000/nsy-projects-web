@@ -3,10 +3,12 @@ from pathlib import Path
 
 from code_practice.catalog import get_catalog
 from code_practice.import_batch_112 import BATCH
+from code_practice.import_batch_112b import BATCH as BATCH_B
 
 
 ROOT = Path(__file__).resolve().parents[1]
-IDS = (1936, 1937, 1938, 1940, 1941)
+IDS = (1936, 1937, 1938, 1940, 1941, 1942, 1943, 1944, 1945, 1946)
+SPECS = {**BATCH, **BATCH_B}
 
 
 def test_first_batch_112_slice_is_complete_and_verified():
@@ -24,7 +26,7 @@ def test_first_batch_112_slice_is_complete_and_verified():
 
 def test_first_batch_112_deterministic_inputs_are_distinct():
     for source_id in IDS:
-        spec = BATCH[source_id]
+        spec = SPECS[source_id]
         inputs = [arguments for arguments, _ in spec["examples"]] + spec["boundaries"]
         encoded = [json.dumps(arguments, sort_keys=True) for arguments in inputs]
         assert len(encoded) == len(set(encoded))

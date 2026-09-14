@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1946",
+  "content_sha256": "eab161f8c77891e0f35a37671d270799a5750f4867f082a8a8cf22ef39e53433",
+  "source_hash": "064e603e05ae394078d1b95cfe1a205c0b45a22e6eba3dfe2e9672e1d5a87d81",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Mutates profitable digits in multiple separated regions, violating the single-substring rule.",
+      "failed_cases": [
+        "lc-1946-1",
+        "lc-1946-11"
+      ]
+    },
+    {
+      "reason": "Stops across equal replacements even though including them keeps the number unchanged and may reach later improvements.",
+      "failed_cases": [
+        "lc-1946-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5993,
+  "oracle_implementation": "code_practice/import_batch_112b.py:mutation_oracle",
+  "validator_implementation_sha256": "be6d9c3f11c1600436dcd7c91149040c4a24947ed4b581ed1f1c837488d41462",
+  "batch_implementation_sha256": "1e67ef766af2bc907d653958a03b7903994ddfd6c14c746529055e6bf7c3d9e8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b5f3e57459c21c43819337b2e3ccc1893cee2412164a1951aff582fddfd0b4e7",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

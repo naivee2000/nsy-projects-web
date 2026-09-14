@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1942",
+  "content_sha256": "36df94af453ec1d7d56d1523e9ac61e22e091d2b06d4e162e762a777d9ce9a02",
+  "source_hash": "2f85a53c9ba45f1aa282d8e8887c8943b2b51125fa7dce229f6593d412a35642",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to reuse a chair when its friend leaves exactly at the next arrival time.",
+      "failed_cases": [
+        "lc-1942-3",
+        "lc-1942-4",
+        "lc-1942-8",
+        "lc-1942-11",
+        "lc-1942-13"
+      ]
+    },
+    {
+      "reason": "Numbers chairs from one rather than zero.",
+      "failed_cases": [
+        "lc-1942-1",
+        "lc-1942-2",
+        "lc-1942-3",
+        "lc-1942-4",
+        "lc-1942-5",
+        "lc-1942-6",
+        "lc-1942-7",
+        "lc-1942-8",
+        "lc-1942-9",
+        "lc-1942-10",
+        "lc-1942-11",
+        "lc-1942-12",
+        "lc-1942-13",
+        "lc-1942-14",
+        "lc-1942-15",
+        "lc-1942-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5989,
+  "oracle_implementation": "code_practice/import_batch_112b.py:chair_oracle",
+  "validator_implementation_sha256": "be6d9c3f11c1600436dcd7c91149040c4a24947ed4b581ed1f1c837488d41462",
+  "batch_implementation_sha256": "1e67ef766af2bc907d653958a03b7903994ddfd6c14c746529055e6bf7c3d9e8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "07fcbfa85b5f62368b0633c02b60419fff6810eebbcb5c9d714c65fe3429ba12",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

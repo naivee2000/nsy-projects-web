@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1943",
+  "content_sha256": "0f219855f6e566c9d944656395abc0ee1b1f0a0fa3c0fbd4330c767493fb30c1",
+  "source_hash": "a99602ddd3d2cd75d20b22512bb8d396a6f662722df7153567fc49243dedc22e",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Adds color at both endpoints, so colors never stop contributing.",
+      "failed_cases": [
+        "lc-1943-1",
+        "lc-1943-2",
+        "lc-1943-4",
+        "lc-1943-5",
+        "lc-1943-7",
+        "lc-1943-8",
+        "lc-1943-9",
+        "lc-1943-10",
+        "lc-1943-11",
+        "lc-1943-12",
+        "lc-1943-14",
+        "lc-1943-15"
+      ]
+    },
+    {
+      "reason": "Emits intervals across unpainted gaps with color sum zero.",
+      "failed_cases": [
+        "lc-1943-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5990,
+  "oracle_implementation": "code_practice/import_batch_112b.py:painting_oracle",
+  "validator_implementation_sha256": "be6d9c3f11c1600436dcd7c91149040c4a24947ed4b581ed1f1c837488d41462",
+  "batch_implementation_sha256": "1e67ef766af2bc907d653958a03b7903994ddfd6c14c746529055e6bf7c3d9e8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "67e3771056a9d47bd24c0f2c92cd6478b909b977f29725d31779fbd3c893639c",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
