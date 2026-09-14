@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1680",
+  "content_sha256": "bb9ef7bf9092361d9ddd63af9b58a47f75b1ddf612f56bf3b43b44586615b81a",
+  "source_hash": "cac4959e1461f3d7b491742b818a422f008fe2028664626f63451bf4cbcf7561",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Increases the bit width at non-powers of two instead of powers of two.",
+      "failed_cases": [
+        "lc-1680-2",
+        "lc-1680-3",
+        "lc-1680-4",
+        "lc-1680-5",
+        "lc-1680-6",
+        "lc-1680-7",
+        "lc-1680-8",
+        "lc-1680-9",
+        "lc-1680-10",
+        "lc-1680-11",
+        "lc-1680-12",
+        "lc-1680-13",
+        "lc-1680-14"
+      ]
+    },
+    {
+      "reason": "Appends each value minus one.",
+      "failed_cases": [
+        "lc-1680-1",
+        "lc-1680-2",
+        "lc-1680-3",
+        "lc-1680-4",
+        "lc-1680-5",
+        "lc-1680-6",
+        "lc-1680-7",
+        "lc-1680-8",
+        "lc-1680-9",
+        "lc-1680-10",
+        "lc-1680-11",
+        "lc-1680-12",
+        "lc-1680-13",
+        "lc-1680-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5727,
+  "oracle_implementation": "code_practice/import_batch_102.py:binary_o",
+  "validator_implementation_sha256": "bd22667c6fe03dfd80a336b821f5a6b7c588ada2dabc301b0adca024160785c4",
+  "batch_implementation_sha256": "066198cbda6ba22a2e88d4bdb5ac0fdf198bd245685893eafa2fbcfd977a5781",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f5f055a56c2cfc4754b1db9b2797e28dfbe0a40bcd4572a5ce252d0545c24e72",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

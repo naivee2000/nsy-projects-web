@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1690",
+  "content_sha256": "af238732d5e88e91994b00a683fbe5e013a159092cdad42a79a7bcb018de96e8",
+  "source_hash": "70edae8654bd12628fb80124d81ffb05a4de89c4622807ae84f95458be71bf14",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Minimizes the current player’s advantage instead of maximizing it.",
+      "failed_cases": [
+        "lc-1690-1",
+        "lc-1690-2",
+        "lc-1690-3",
+        "lc-1690-8",
+        "lc-1690-9",
+        "lc-1690-10",
+        "lc-1690-11",
+        "lc-1690-12",
+        "lc-1690-13"
+      ]
+    },
+    {
+      "reason": "Adds the opponent’s future advantage rather than subtracting it.",
+      "failed_cases": [
+        "lc-1690-1",
+        "lc-1690-2",
+        "lc-1690-5",
+        "lc-1690-6",
+        "lc-1690-7",
+        "lc-1690-8",
+        "lc-1690-9",
+        "lc-1690-10",
+        "lc-1690-11",
+        "lc-1690-12",
+        "lc-1690-13",
+        "lc-1690-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5737,
+  "oracle_implementation": "code_practice/import_batch_102b.py:game_seven_o",
+  "validator_implementation_sha256": "8c9e5441109254820dc4eff5c8745e1e5e5395fa4214e800b9aa62a00226dd8a",
+  "batch_implementation_sha256": "0f8ca3ef3e88ff57b5b318738a2dcbccff055f3d5acefb4503f0b1eec9a1dc2a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "762221f0f3bbb852f1ff645dfc5cb004fa248042aff420698ea5a3ce84b84935",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

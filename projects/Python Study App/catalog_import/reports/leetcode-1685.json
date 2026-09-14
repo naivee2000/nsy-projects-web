@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1685",
+  "content_sha256": "e1cc114f5ebc69170ac52470634e203ae3c855366aacc7b811e609d11a6ffcd5",
+  "source_hash": "eb5ae6c6cfbf635c39a0d03bcd446de4c8f3be02bd0c4c02b440fc9ea785dfe8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the sign of every left-side contribution.",
+      "failed_cases": [
+        "lc-1685-1",
+        "lc-1685-2",
+        "lc-1685-5",
+        "lc-1685-6",
+        "lc-1685-8",
+        "lc-1685-9",
+        "lc-1685-10",
+        "lc-1685-11",
+        "lc-1685-12",
+        "lc-1685-13",
+        "lc-1685-14"
+      ]
+    },
+    {
+      "reason": "Counts the current value as part of the right-side width.",
+      "failed_cases": [
+        "lc-1685-1",
+        "lc-1685-2",
+        "lc-1685-3",
+        "lc-1685-4",
+        "lc-1685-5",
+        "lc-1685-6",
+        "lc-1685-8",
+        "lc-1685-9",
+        "lc-1685-10",
+        "lc-1685-11",
+        "lc-1685-12",
+        "lc-1685-13",
+        "lc-1685-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5732,
+  "oracle_implementation": "code_practice/import_batch_102.py:differences_o",
+  "validator_implementation_sha256": "bd22667c6fe03dfd80a336b821f5a6b7c588ada2dabc301b0adca024160785c4",
+  "batch_implementation_sha256": "066198cbda6ba22a2e88d4bdb5ac0fdf198bd245685893eafa2fbcfd977a5781",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1fffa467be04ed4c425fc78089f758b58bef2c2900a3f2f554db3d03798ac45e",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

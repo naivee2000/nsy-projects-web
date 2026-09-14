@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1694",
+  "content_sha256": "eac4adc5deabf508e3cb8e4ca024f43e10ce5fc759c92ddb34226374324fb071",
+  "source_hash": "95b7a5d9e5a6e23e5e3173dca35853c61d8857e37d314d21b548e2d7928a6a2c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Takes a three-digit block when exactly four remain, leaving a forbidden one-digit block.",
+      "failed_cases": [
+        "lc-1694-2",
+        "lc-1694-6",
+        "lc-1694-9",
+        "lc-1694-11",
+        "lc-1694-13"
+      ]
+    },
+    {
+      "reason": "Leaves the final four digits in one oversized block.",
+      "failed_cases": [
+        "lc-1694-2",
+        "lc-1694-6",
+        "lc-1694-9",
+        "lc-1694-11",
+        "lc-1694-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5741,
+  "oracle_implementation": "code_practice/import_batch_102b.py:phone_o",
+  "validator_implementation_sha256": "8c9e5441109254820dc4eff5c8745e1e5e5395fa4214e800b9aa62a00226dd8a",
+  "batch_implementation_sha256": "0f8ca3ef3e88ff57b5b318738a2dcbccff055f3d5acefb4503f0b1eec9a1dc2a",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "daa4a7a9163879c4ebaa5df6a44489ba6e2c9ae9a5a51018a944de3aa990677f",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
