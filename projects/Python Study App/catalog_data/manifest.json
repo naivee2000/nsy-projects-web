@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1586,
+  "count": 1591,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -28218,6 +28218,98 @@
       "path": "problems/leetcode-2242.json",
       "content_sha256": "395f322feb1944528194684243561bd464c9105a94cead68f86edfb99197bf02",
       "source_id": 2242
+    },
+    {
+      "id": "leetcode-2243",
+      "version": 1,
+      "status": "approved",
+      "title": "Calculate Digit Sum of a String",
+      "summary": "Given a string s of digits and an integer k, repeatedly divide s into groups of k digits, sum the digits in each group, and replace the group with the sum.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2243.json",
+      "content_sha256": "b06145cb76ce67466d3b84a83ab269fd19162bcc7439f2866ba018557af47a81",
+      "source_id": 2243
+    },
+    {
+      "id": "leetcode-2244",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Rounds to Complete All Tasks",
+      "summary": "Given an array of task difficulties, determine the minimum rounds needed to complete all tasks by doing either two or three tasks of the same difficulty per round.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2244.json",
+      "content_sha256": "fd48664e8713eb9f5f7fc4199db643f5244a3d9458282b6ae5ffcbf28aac770c",
+      "source_id": 2244
+    },
+    {
+      "id": "leetcode-2245",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Trailing Zeros in a Cornered Path",
+      "summary": "Given a 2D grid of positive integers, find the maximum number of trailing zeros in the product of any cornered path.",
+      "topics": [
+        "matrices",
+        "prefix sums",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2245.json",
+      "content_sha256": "a0c0884c344fda0de100965115c875a8076ec5fbc1ff3e910b22d63c214610a6",
+      "source_id": 2245
+    },
+    {
+      "id": "leetcode-2246",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Path With Different Adjacent Characters",
+      "summary": "Given a tree with nodes numbered from 0 to n-1, where each node has a character assigned, find the longest path where no two adjacent nodes have the same character.",
+      "topics": [
+        "trees",
+        "depth first search",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2246.json",
+      "content_sha256": "88902d67e453bb95c021ab4815016362816c59b0f7268bc0a816f8110deb0156",
+      "source_id": 2246
+    },
+    {
+      "id": "leetcode-2247",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Cost of Trip With K Highways",
+      "summary": "Given a network of n cities connected by highways, where each highway has a toll cost, find the maximum cost of a trip that crosses exactly k highways.",
+      "topics": [
+        "graphs",
+        "bitmask dynamic programming"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2247.json",
+      "content_sha256": "ea3a75f6425b0180dcbaee9f135ead2f17bf97167b2e040464cda75b3d2de780",
+      "source_id": 2247
     }
   ]
 }

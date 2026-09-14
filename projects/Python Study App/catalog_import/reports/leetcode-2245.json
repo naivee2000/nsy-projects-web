@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2245",
+  "content_sha256": "a0c0884c344fda0de100965115c875a8076ec5fbc1ff3e910b22d63c214610a6",
+  "source_hash": "56239369c1b620776b0e2d2c4c41d94b5163fcaadc13f47e60745bb7ffc56522",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the turning cell twice in both factor totals.",
+      "failed_cases": [
+        "lc-2245-1",
+        "lc-2245-2",
+        "lc-2245-4",
+        "lc-2245-7",
+        "lc-2245-8",
+        "lc-2245-9",
+        "lc-2245-10",
+        "lc-2245-12",
+        "lc-2245-13",
+        "lc-2245-15"
+      ]
+    },
+    {
+      "reason": "Uses the larger prime-factor total instead of the matched minimum that forms powers of ten.",
+      "failed_cases": [
+        "lc-2245-1",
+        "lc-2245-2",
+        "lc-2245-7",
+        "lc-2245-10",
+        "lc-2245-11",
+        "lc-2245-12",
+        "lc-2245-13",
+        "lc-2245-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6292,
+  "oracle_implementation": "code_practice/import_batch_124d.py:zeros_oracle",
+  "validator_implementation_sha256": "d294a5b73f0c0c4dce0dba00947b52bdcf78df3828b7ec0827061fe43b713ad3",
+  "batch_implementation_sha256": "1d5d13437b9d9fb1f693dc3293e7dc8c156585efda0e4bdbd1baea693aa09631",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "614214824e7bfd40f2ea6997c0627e2b28cabc464f184536ac14439e25e27547",
+  "elapsed_seconds": 0.192,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2247",
+  "content_sha256": "ea3a75f6425b0180dcbaee9f135ead2f17bf97167b2e040464cda75b3d2de780",
+  "source_hash": "5caffe41bf76146024cc6943242fc0e0e82c333d8d5c4860a07c76637c0127f7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Builds trips with only k-1 highways.",
+      "failed_cases": [
+        "lc-2247-1",
+        "lc-2247-2",
+        "lc-2247-4",
+        "lc-2247-5",
+        "lc-2247-6",
+        "lc-2247-7",
+        "lc-2247-8",
+        "lc-2247-9",
+        "lc-2247-10",
+        "lc-2247-11",
+        "lc-2247-12",
+        "lc-2247-13",
+        "lc-2247-14"
+      ]
+    },
+    {
+      "reason": "Allows revisiting cities and can score an invalid cyclic walk.",
+      "failed_cases": [
+        "lc-2247-1",
+        "lc-2247-2",
+        "lc-2247-5",
+        "lc-2247-6",
+        "lc-2247-7",
+        "lc-2247-8",
+        "lc-2247-9",
+        "lc-2247-12",
+        "lc-2247-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6294,
+  "oracle_implementation": "code_practice/import_batch_124d.py:trip_oracle",
+  "validator_implementation_sha256": "d294a5b73f0c0c4dce0dba00947b52bdcf78df3828b7ec0827061fe43b713ad3",
+  "batch_implementation_sha256": "1d5d13437b9d9fb1f693dc3293e7dc8c156585efda0e4bdbd1baea693aa09631",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a4da754875f1b0fa4cded82994dc4aed12cf1326f16bf0a56f51df25a527d398",
+  "elapsed_seconds": 0.357,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

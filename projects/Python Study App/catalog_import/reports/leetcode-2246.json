@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2246",
+  "content_sha256": "88902d67e453bb95c021ab4815016362816c59b0f7268bc0a816f8110deb0156",
+  "source_hash": "b9d4932d6637616a2abc68580990f7e6f030220e284b1c82dba3f62a62d2fce1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps only one descending branch and misses paths joining two children.",
+      "failed_cases": [
+        "lc-2246-2",
+        "lc-2246-9",
+        "lc-2246-10",
+        "lc-2246-12",
+        "lc-2246-14"
+      ]
+    },
+    {
+      "reason": "Skips children with different characters and retains invalid equal-character edges.",
+      "failed_cases": [
+        "lc-2246-1",
+        "lc-2246-2",
+        "lc-2246-4",
+        "lc-2246-5",
+        "lc-2246-6",
+        "lc-2246-7",
+        "lc-2246-8",
+        "lc-2246-9",
+        "lc-2246-10",
+        "lc-2246-11",
+        "lc-2246-12",
+        "lc-2246-13",
+        "lc-2246-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6293,
+  "oracle_implementation": "code_practice/import_batch_124d.py:path_oracle",
+  "validator_implementation_sha256": "d294a5b73f0c0c4dce0dba00947b52bdcf78df3828b7ec0827061fe43b713ad3",
+  "batch_implementation_sha256": "1d5d13437b9d9fb1f693dc3293e7dc8c156585efda0e4bdbd1baea693aa09631",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b8b1a8e17cf4f19eb87a560fb42011b85e20ab8806216cd34caf5b2730b203f4",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
