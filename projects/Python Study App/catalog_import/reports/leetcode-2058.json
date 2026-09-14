@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2058",
+  "content_sha256": "2fe35910c7b464efd4929ceb106a2d99f206e1100fb7ddaf6371b89b5bad768c",
+  "source_hash": "318d056b8ce04656c4bdf24fbe5dc92dd081c23956ae93e43544d378d1e2fc5f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats flat equal-neighbor positions as strict extrema.",
+      "failed_cases": [
+        "lc-2058-8",
+        "lc-2058-13"
+      ]
+    },
+    {
+      "reason": "Uses the second-to-last critical point when computing maximum distance.",
+      "failed_cases": [
+        "lc-2058-2",
+        "lc-2058-7",
+        "lc-2058-9",
+        "lc-2058-10",
+        "lc-2058-11",
+        "lc-2058-12",
+        "lc-2058-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6105,
+  "oracle_implementation": "code_practice/import_batch_116d.py:critical_o",
+  "validator_implementation_sha256": "862a2a1a766d4ba284e6da785f4fabc751fbe919c685280392948481a35027e6",
+  "batch_implementation_sha256": "974198f89c5f2377f4c48a08b9ef223c12869c1419aa4abaf0011f7aa5fab4ad",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e53e18b8cbfd393bb77351ec3cbb496d48afc7c9ef182eac55f2cd3aa56c2ce3",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

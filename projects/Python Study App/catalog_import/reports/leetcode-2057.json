@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2057",
+  "content_sha256": "61a82535fb1a9116d50ce4c00fe706995406d1ba704f94627efedf616242a4af",
+  "source_hash": "e16622c4e09af17a806245090f9ca010e420625eae37ee1af6bad242f1641f4a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Compares the full index and misses valid indices ten or greater.",
+      "failed_cases": [
+        "lc-2057-10"
+      ]
+    },
+    {
+      "reason": "Returns a one-based index instead of the required zero-based position.",
+      "failed_cases": [
+        "lc-2057-1",
+        "lc-2057-2",
+        "lc-2057-3",
+        "lc-2057-6",
+        "lc-2057-7",
+        "lc-2057-8",
+        "lc-2057-10",
+        "lc-2057-11",
+        "lc-2057-12",
+        "lc-2057-13",
+        "lc-2057-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6104,
+  "oracle_implementation": "code_practice/import_batch_116d.py:index_o",
+  "validator_implementation_sha256": "862a2a1a766d4ba284e6da785f4fabc751fbe919c685280392948481a35027e6",
+  "batch_implementation_sha256": "974198f89c5f2377f4c48a08b9ef223c12869c1419aa4abaf0011f7aa5fab4ad",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a19e991922f6b8ca2fc22534fa8a1184523cfbc963ba4b32643ce3657d6edb68",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

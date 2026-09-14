@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2059",
+  "content_sha256": "be73e44fefaebf4ade61dc7d9c85566c6fa58d5496d929e9a39c8847c6985fb8",
+  "source_hash": "941cd255c8265cfd5f3b657ae4f7a6bbb6f99dcdfc253558d614bb6c255f08be",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a valid final operation when the goal lies outside 0..1000.",
+      "failed_cases": [
+        "lc-2059-2",
+        "lc-2059-7",
+        "lc-2059-8",
+        "lc-2059-11",
+        "lc-2059-13"
+      ]
+    },
+    {
+      "reason": "Uses bitwise OR instead of the required XOR operation.",
+      "failed_cases": [
+        "lc-2059-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6106,
+  "oracle_implementation": "code_practice/import_batch_116d.py:operations_o",
+  "validator_implementation_sha256": "862a2a1a766d4ba284e6da785f4fabc751fbe919c685280392948481a35027e6",
+  "batch_implementation_sha256": "974198f89c5f2377f4c48a08b9ef223c12869c1419aa4abaf0011f7aa5fab4ad",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4a04b07c7eb91a18d280e91b53714efd686358cd0912a3e6f7b590eaab87b256",
+  "elapsed_seconds": 0.372,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

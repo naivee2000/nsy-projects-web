@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2061",
+  "content_sha256": "3736da519e2e18e46744ddf07526a9c02a54683028d08752c5a243c5515991b7",
+  "source_hash": "4da574a34c553ba47fec13d23369adda199df4cdec6afec153d563989a89b202",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stops when revisiting a cell from a new direction even though future behavior differs.",
+      "failed_cases": [
+        "lc-2061-1",
+        "lc-2061-4",
+        "lc-2061-5",
+        "lc-2061-6",
+        "lc-2061-7",
+        "lc-2061-8",
+        "lc-2061-9",
+        "lc-2061-10",
+        "lc-2061-11",
+        "lc-2061-13",
+        "lc-2061-14"
+      ]
+    },
+    {
+      "reason": "Turns counterclockwise instead of clockwise at obstacles.",
+      "failed_cases": [
+        "lc-2061-1",
+        "lc-2061-6",
+        "lc-2061-7",
+        "lc-2061-8",
+        "lc-2061-10",
+        "lc-2061-11",
+        "lc-2061-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6108,
+  "oracle_implementation": "code_practice/import_batch_116d.py:robot_o",
+  "validator_implementation_sha256": "862a2a1a766d4ba284e6da785f4fabc751fbe919c685280392948481a35027e6",
+  "batch_implementation_sha256": "974198f89c5f2377f4c48a08b9ef223c12869c1419aa4abaf0011f7aa5fab4ad",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f9755c2707007bdb909385d22a9b56193dc6bba2d56a8929b3e9927ec1b52753",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

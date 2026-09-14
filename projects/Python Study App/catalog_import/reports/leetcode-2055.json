@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2055",
+  "content_sha256": "368ee2faaec4fb364d4e8ec77de9652638f3b834f10f73a9c06d150651ceb1a7",
+  "source_hash": "7f41077ebce8b512a30f6e211d1d837b1cbdead31f5306cc4494ed5ad87f32a9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the nearest candle to the left of the query start instead of the first candle at or after it.",
+      "failed_cases": [
+        "lc-2055-7",
+        "lc-2055-10"
+      ]
+    },
+    {
+      "reason": "Subtracts one extra plate from every nonempty enclosed region.",
+      "failed_cases": [
+        "lc-2055-1",
+        "lc-2055-3",
+        "lc-2055-4",
+        "lc-2055-6",
+        "lc-2055-7",
+        "lc-2055-9",
+        "lc-2055-10",
+        "lc-2055-12",
+        "lc-2055-13",
+        "lc-2055-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6102,
+  "oracle_implementation": "code_practice/import_batch_116d.py:plates_o",
+  "validator_implementation_sha256": "862a2a1a766d4ba284e6da785f4fabc751fbe919c685280392948481a35027e6",
+  "batch_implementation_sha256": "974198f89c5f2377f4c48a08b9ef223c12869c1419aa4abaf0011f7aa5fab4ad",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e6676bb2d7833e0a4e46de8de07ea9f0e9c34f563598d5308b12019c1a5d2479",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
