@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1806,
+  "count": 1811,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -31934,6 +31934,80 @@
       "source_id": 2535
     },
     {
+      "id": "leetcode-2536",
+      "version": 1,
+      "status": "approved",
+      "title": "Increment Submatrices by One",
+      "summary": "Given a positive integer n , initialize an n × n matrix mat with all elements set to zero.",
+      "topics": [
+        "matrices",
+        "prefix sums",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2536.json",
+      "content_sha256": "1a29261b54b81e58323ea5ec615ee1169286611a482bb1e438867077d93aca17",
+      "source_id": 2536
+    },
+    {
+      "id": "leetcode-2537",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Good Subarrays",
+      "summary": "Determine the count of subarrays in an integer array where at least k pairs of identical elements exist at different indices.",
+      "topics": [
+        "arrays",
+        "sliding window",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2537.json",
+      "content_sha256": "2d2425e7f5db445ba187d907c02890b4c810d00fcded9c6660b92f81b0323298",
+      "source_id": 2537
+    },
+    {
+      "id": "leetcode-2538",
+      "version": 1,
+      "status": "approved",
+      "title": "Difference Between Maximum and Minimum Price Sum",
+      "summary": "Given an undirected tree with n nodes indexed from 0 to n-1 , and an integer array price where price[i] is the price of the i -th node, you need to determine the maximum possible cost.",
+      "topics": [
+        "trees",
+        "recursion",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2538.json",
+      "content_sha256": "a3f4349612c8d2ed164316b96f6836168f37985a869dbd280411bd15b6539a4a",
+      "source_id": 2538
+    },
+    {
+      "id": "leetcode-2539",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Good Subsequences",
+      "summary": "Determine the count of subsequences in a given string where each character's frequency is identical, excluding the empty subsequence, and return the count modulo 10^9 + 7.",
+      "topics": [
+        "strings",
+        "combinatorics",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2539.json",
+      "content_sha256": "e7f4e80d30277deb21ec1b9dbf66b4bf4ec690d580caf80c08f39b6d19770eae",
+      "source_id": 2539
+    },
+    {
       "id": "leetcode-2540",
       "version": 1,
       "status": "approved",
@@ -31949,6 +32023,24 @@
       "path": "problems/leetcode-2540.json",
       "content_sha256": "5bddb36dbe7aaaee0d086aa2ed772b90f735960f87f20b162fb5bee560dfcdb0",
       "source_id": 2540
+    },
+    {
+      "id": "leetcode-2541",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make Array Equal II",
+      "summary": "Given two integer arrays nums1 and nums2 of the same length n, and an integer k, you can increment an element in nums1 by k and decrement another by k.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2541.json",
+      "content_sha256": "043fdd9466f529d70ded6ab95cec175e2875f4faf7411557f04f2cafb74be71f",
+      "source_id": 2541
     },
     {
       "id": "leetcode-2544",

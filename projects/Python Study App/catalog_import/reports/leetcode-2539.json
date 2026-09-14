@@ -1,0 +1,64 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2539",
+  "content_sha256": "e7f4e80d30277deb21ec1b9dbf66b4bf4ec690d580caf80c08f39b6d19770eae",
+  "source_hash": "ff65a983e73f2c240ddcb1136006c609eb67efe5c2e17a879f89531c36b9f6d7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forces every available character to be selected instead of allowing it to be absent.",
+      "failed_cases": [
+        "lc-2539-1",
+        "lc-2539-2",
+        "lc-2539-3",
+        "lc-2539-4",
+        "lc-2539-5",
+        "lc-2539-6",
+        "lc-2539-7",
+        "lc-2539-8",
+        "lc-2539-9",
+        "lc-2539-10",
+        "lc-2539-11",
+        "lc-2539-12",
+        "lc-2539-13",
+        "lc-2539-14",
+        "lc-2539-15",
+        "lc-2539-16"
+      ]
+    },
+    {
+      "reason": "Includes the empty selection once at every candidate frequency.",
+      "failed_cases": [
+        "lc-2539-1",
+        "lc-2539-2",
+        "lc-2539-3",
+        "lc-2539-4",
+        "lc-2539-5",
+        "lc-2539-6",
+        "lc-2539-7",
+        "lc-2539-8",
+        "lc-2539-9",
+        "lc-2539-10",
+        "lc-2539-11",
+        "lc-2539-12",
+        "lc-2539-13",
+        "lc-2539-14",
+        "lc-2539-15",
+        "lc-2539-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6586,
+  "oracle_implementation": "code_practice/import_batch_153.py:subsequences_oracle",
+  "validator_implementation_sha256": "d8d6b126eb5d8e7f3f80cef49ae33b3e1ad3fcbae9a679baeadfde872ad8623d",
+  "batch_implementation_sha256": "31071d6c0b9393fa10ee1e8b84fa487e65a73b750fefa78d37c3380e76831cd2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b1165e1e9657f4f4c8d64872eba949f1812fe00ea6282dcf241453a4103f4348",
+  "elapsed_seconds": 1.606,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
