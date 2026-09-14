@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2533",
+  "content_sha256": "17742dd113b99079333128d6d668fa689854dadd188a3d92af15d10e61c61875",
+  "source_hash": "ca196d9d0c232d773a21b4fa86d62e3dc6695c761cf881391a952837ba07ede9",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Misses strings consisting of exactly one one-block.",
+      "failed_cases": [
+        "lc-2533-1",
+        "lc-2533-2",
+        "lc-2533-3",
+        "lc-2533-4",
+        "lc-2533-5",
+        "lc-2533-6",
+        "lc-2533-7",
+        "lc-2533-8",
+        "lc-2533-9",
+        "lc-2533-10",
+        "lc-2533-11",
+        "lc-2533-12",
+        "lc-2533-13",
+        "lc-2533-14",
+        "lc-2533-15",
+        "lc-2533-16"
+      ]
+    },
+    {
+      "reason": "Excludes constructible strings of exactly max_length.",
+      "failed_cases": [
+        "lc-2533-1",
+        "lc-2533-2",
+        "lc-2533-3",
+        "lc-2533-4",
+        "lc-2533-5",
+        "lc-2533-6",
+        "lc-2533-7",
+        "lc-2533-8",
+        "lc-2533-10",
+        "lc-2533-11",
+        "lc-2533-12",
+        "lc-2533-14",
+        "lc-2533-15",
+        "lc-2533-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6580,
+  "oracle_implementation": "code_practice/import_batch_152.py:good_oracle",
+  "validator_implementation_sha256": "1ce9d9789e637cafdd0badb01ce9aa1284f98a7d94f23deca19e0cd12c720512",
+  "batch_implementation_sha256": "01eed242858a5f9a5e9e63663e3fdb48bcf0a8acf0d4a48f94d4bc9f65943aec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c2ed04dc01b3ac1a305b53a4da5102152898f117f015d6396fca3333ba37a85f",
+  "elapsed_seconds": 0.23,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2534",
+  "content_sha256": "6031b2c5e03f35cf399e14dceebf90937ea2c881437eef073956539a1d4f3c72",
+  "source_hash": "3fc7608d6646f7175d06e234ec0d31eab4eb22becd242da6165f8e85037db160",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "After idle time, incorrectly gives entering people priority.",
+      "failed_cases": [
+        "lc-2534-2",
+        "lc-2534-6",
+        "lc-2534-7",
+        "lc-2534-10",
+        "lc-2534-12",
+        "lc-2534-13",
+        "lc-2534-15",
+        "lc-2534-16"
+      ]
+    },
+    {
+      "reason": "Always prefers the opposite of the direction used previously.",
+      "failed_cases": [
+        "lc-2534-1",
+        "lc-2534-2",
+        "lc-2534-6",
+        "lc-2534-7",
+        "lc-2534-10",
+        "lc-2534-11",
+        "lc-2534-12",
+        "lc-2534-13",
+        "lc-2534-15",
+        "lc-2534-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6581,
+  "oracle_implementation": "code_practice/import_batch_152.py:door_oracle",
+  "validator_implementation_sha256": "1ce9d9789e637cafdd0badb01ce9aa1284f98a7d94f23deca19e0cd12c720512",
+  "batch_implementation_sha256": "01eed242858a5f9a5e9e63663e3fdb48bcf0a8acf0d4a48f94d4bc9f65943aec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "96ba169d258c8401361825f545f6df4e37f235c965e2079294e92206969e2a2d",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

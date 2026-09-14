@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2531",
+  "content_sha256": "c127b9905116776bcb0056317e7417b94155dd170b7125f55dec4df434457eaf",
+  "source_hash": "907576a8694d35812b21078fa3c312488bb80fb5d824474bd27072511fa46f65",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the unchanged-count shortcut for different swapped characters.",
+      "failed_cases": [
+        "lc-2531-6",
+        "lc-2531-10",
+        "lc-2531-12",
+        "lc-2531-16"
+      ]
+    },
+    {
+      "reason": "Removes a distinct character when multiple copies remain.",
+      "failed_cases": [
+        "lc-2531-4",
+        "lc-2531-5",
+        "lc-2531-6",
+        "lc-2531-8",
+        "lc-2531-9",
+        "lc-2531-10",
+        "lc-2531-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6578,
+  "oracle_implementation": "code_practice/import_batch_152.py:swap_oracle",
+  "validator_implementation_sha256": "1ce9d9789e637cafdd0badb01ce9aa1284f98a7d94f23deca19e0cd12c720512",
+  "batch_implementation_sha256": "01eed242858a5f9a5e9e63663e3fdb48bcf0a8acf0d4a48f94d4bc9f65943aec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "97afea2730f7d09c9d8ef3d355c8e6b6e67209d3e1c40db25ef2b87b514e650c",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
