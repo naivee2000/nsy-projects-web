@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2600",
+  "content_sha256": "4ce71400ff9a67508bbb4ef1f13bff34425b3c57bf6c37532197d445a414a832",
+  "source_hash": "b964222bcbe91bf6ed0d67bab8d80c960f56c155cb90ab54e6de778dc4652935",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Selects zero-valued items before ones.",
+      "failed_cases": [
+        "lc-2600-2",
+        "lc-2600-3",
+        "lc-2600-4",
+        "lc-2600-6",
+        "lc-2600-7",
+        "lc-2600-8",
+        "lc-2600-9",
+        "lc-2600-11",
+        "lc-2600-12",
+        "lc-2600-13",
+        "lc-2600-16"
+      ]
+    },
+    {
+      "reason": "Adds required negative-one items instead of subtracting them.",
+      "failed_cases": [
+        "lc-2600-5",
+        "lc-2600-6",
+        "lc-2600-7",
+        "lc-2600-8",
+        "lc-2600-10",
+        "lc-2600-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6647,
+  "oracle_implementation": "code_practice/import_batch_163.py:items_oracle",
+  "validator_implementation_sha256": "e06e7d4cd4517a7ab4d2c05a0bedb493ad9dbac7a914605369379e5cef00f8ef",
+  "batch_implementation_sha256": "ea5defa6c5035c891dd14eb8279963acf79b830707d5039ba67d2a6652c689ef",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cf491d236e9a949950623bf413166d46307a7e57a299c1090f9db49a17eb913e",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

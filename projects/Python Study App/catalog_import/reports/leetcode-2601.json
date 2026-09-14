@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2601",
+  "content_sha256": "11b3f746bdfb962d6804724c2d3446c87ea196dc1d6596d3d3462c3496910ced",
+  "source_hash": "dd7fd7e0b837d6d3a16fe346c02ea140fc5567685a35a2e83fce120dd259c915",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the smallest usable prime instead of minimizing the current resulting value.",
+      "failed_cases": [
+        "lc-2601-1",
+        "lc-2601-11",
+        "lc-2601-13",
+        "lc-2601-14",
+        "lc-2601-15"
+      ]
+    },
+    {
+      "reason": "Allows equal adjacent values rather than requiring strict increase.",
+      "failed_cases": [
+        "lc-2601-1",
+        "lc-2601-7",
+        "lc-2601-8",
+        "lc-2601-9",
+        "lc-2601-10",
+        "lc-2601-11",
+        "lc-2601-13",
+        "lc-2601-14",
+        "lc-2601-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6648,
+  "oracle_implementation": "code_practice/import_batch_163.py:prime_oracle",
+  "validator_implementation_sha256": "e06e7d4cd4517a7ab4d2c05a0bedb493ad9dbac7a914605369379e5cef00f8ef",
+  "batch_implementation_sha256": "ea5defa6c5035c891dd14eb8279963acf79b830707d5039ba67d2a6652c689ef",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8ff35860e181e1decc8330955b67158a930a3755ed51265cd877e526ece4a60f",
+  "elapsed_seconds": 1.748,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

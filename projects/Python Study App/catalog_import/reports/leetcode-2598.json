@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2598",
+  "content_sha256": "d74143c3e12eb2ba525478971742a01b1e8bc06df8ec657e1f64ab4503062832",
+  "source_hash": "695138de17fdefb952eb3f4cfc528ce63870ee18f7084d2802f4faf786bb00ab",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores negative input values even though operations can move them into the non-negative range.",
+      "failed_cases": [
+        "lc-2598-1"
+      ]
+    },
+    {
+      "reason": "Checks the next residue instead of the current candidate's residue.",
+      "failed_cases": [
+        "lc-2598-1",
+        "lc-2598-2",
+        "lc-2598-4",
+        "lc-2598-7",
+        "lc-2598-8",
+        "lc-2598-9",
+        "lc-2598-10",
+        "lc-2598-11",
+        "lc-2598-12",
+        "lc-2598-13",
+        "lc-2598-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6645,
+  "oracle_implementation": "code_practice/import_batch_163.py:mex_oracle",
+  "validator_implementation_sha256": "e06e7d4cd4517a7ab4d2c05a0bedb493ad9dbac7a914605369379e5cef00f8ef",
+  "batch_implementation_sha256": "ea5defa6c5035c891dd14eb8279963acf79b830707d5039ba67d2a6652c689ef",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e82dd829dc8a5108b61f49b65064773f7c2c2deb2ee1fc5e8369ed30211bea70",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
