@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2397",
+  "content_sha256": "efc04436167c3338fe8a4b1242a9309173af6cefe89ae47360141265aaec68a5",
+  "source_hash": "02f7bfd24cbf68ed8c8aca1f2406dd60e1ae412c65c43ac28f8dcaea701e4e58",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows fewer than the required number of selected columns.",
+      "failed_cases": [
+        "lc-2397-1",
+        "lc-2397-2",
+        "lc-2397-5",
+        "lc-2397-8",
+        "lc-2397-11",
+        "lc-2397-12",
+        "lc-2397-13",
+        "lc-2397-14",
+        "lc-2397-16"
+      ]
+    },
+    {
+      "reason": "Counts a row when any one is selected instead of requiring all its ones.",
+      "failed_cases": [
+        "lc-2397-3",
+        "lc-2397-6",
+        "lc-2397-8",
+        "lc-2397-12",
+        "lc-2397-13",
+        "lc-2397-14",
+        "lc-2397-15",
+        "lc-2397-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6444,
+  "oracle_implementation": "code_practice/import_batch_141.py:rows_oracle",
+  "validator_implementation_sha256": "e896d100652d4936e79940173806f1b55dd8e55adf770bd1e3005a843ead5253",
+  "batch_implementation_sha256": "eb7f441cfa2c18b73be2f849b493479941e8511223482d760df21cf671267908",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "175f465079d69d88042c6e63ea03abdbcf6320f2889e592bfd1cbf52e9862d56",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

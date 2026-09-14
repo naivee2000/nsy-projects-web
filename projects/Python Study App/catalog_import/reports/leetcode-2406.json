@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2406",
+  "content_sha256": "4f27dd6ece308a63b9ebadde791160aeca6509ddbecda9d1ac8270a86039e5e9",
+  "source_hash": "7b430da9bc4e7b8a4476e740bd974f8059d5fd766d183cf0cddeb9da3e5c8070",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats touching inclusive intervals as non-overlapping.",
+      "failed_cases": [
+        "lc-2406-4",
+        "lc-2406-7",
+        "lc-2406-9",
+        "lc-2406-15"
+      ]
+    },
+    {
+      "reason": "Processes intervals in input order, so heap reuse is not chronological.",
+      "failed_cases": [
+        "lc-2406-1",
+        "lc-2406-10",
+        "lc-2406-12",
+        "lc-2406-14",
+        "lc-2406-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6453,
+  "oracle_implementation": "code_practice/import_batch_141.py:groups_oracle",
+  "validator_implementation_sha256": "e896d100652d4936e79940173806f1b55dd8e55adf770bd1e3005a843ead5253",
+  "batch_implementation_sha256": "eb7f441cfa2c18b73be2f849b493479941e8511223482d760df21cf671267908",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5dd7f2749687d5444ec6b3928a86af6969a9fb05f746560bd4e43d24364f78f8",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

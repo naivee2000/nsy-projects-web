@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2411",
+  "content_sha256": "663e02f7f3d872d34fd9cc0c08b6fb052cb798aacdce04c28a136e5865999805",
+  "source_hash": "d9ccd49d3b9d052490ee34082123b488e98cf80451080e9bf13288c9cdcd92e3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Never tracks bit 31 and fails for values using that bit.",
+      "failed_cases": [
+        "lc-2411-15"
+      ]
+    },
+    {
+      "reason": "Takes the nearest required bit position instead of the farthest one.",
+      "failed_cases": [
+        "lc-2411-1",
+        "lc-2411-5",
+        "lc-2411-6",
+        "lc-2411-8",
+        "lc-2411-9",
+        "lc-2411-10",
+        "lc-2411-12",
+        "lc-2411-13",
+        "lc-2411-14",
+        "lc-2411-15",
+        "lc-2411-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6458,
+  "oracle_implementation": "code_practice/import_batch_141.py:subarrays_oracle",
+  "validator_implementation_sha256": "e896d100652d4936e79940173806f1b55dd8e55adf770bd1e3005a843ead5253",
+  "batch_implementation_sha256": "eb7f441cfa2c18b73be2f849b493479941e8511223482d760df21cf671267908",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0a952dd98f131edd909e223cdef21a079e620a519d139e06790f382980559a40",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

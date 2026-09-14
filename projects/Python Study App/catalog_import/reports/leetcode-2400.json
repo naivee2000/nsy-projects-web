@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2400",
+  "content_sha256": "0ea3659c79b1ec477e683c455ab340660e28fc16be320b5e27b5bf5138728dd8",
+  "source_hash": "86f964a9add1a11b7ad4e8a0a6db94b09b8fbde26c8aa80d1aa4d5b7cf65e263",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the opposite parity condition.",
+      "failed_cases": [
+        "lc-2400-1",
+        "lc-2400-2",
+        "lc-2400-3",
+        "lc-2400-5",
+        "lc-2400-6",
+        "lc-2400-7",
+        "lc-2400-8",
+        "lc-2400-9",
+        "lc-2400-10",
+        "lc-2400-11",
+        "lc-2400-13",
+        "lc-2400-14",
+        "lc-2400-15",
+        "lc-2400-16"
+      ]
+    },
+    {
+      "reason": "Chooses one too many right steps in the binomial coefficient.",
+      "failed_cases": [
+        "lc-2400-1",
+        "lc-2400-3",
+        "lc-2400-5",
+        "lc-2400-6",
+        "lc-2400-7",
+        "lc-2400-9",
+        "lc-2400-10",
+        "lc-2400-11",
+        "lc-2400-13",
+        "lc-2400-14",
+        "lc-2400-15",
+        "lc-2400-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6447,
+  "oracle_implementation": "code_practice/import_batch_141.py:ways_oracle",
+  "validator_implementation_sha256": "e896d100652d4936e79940173806f1b55dd8e55adf770bd1e3005a843ead5253",
+  "batch_implementation_sha256": "eb7f441cfa2c18b73be2f849b493479941e8511223482d760df21cf671267908",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e9bb474146e51faadf478709e471cf0839e74d3885f2f7564361fb9faefac3fa",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
