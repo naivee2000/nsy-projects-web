@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2092",
+  "content_sha256": "32d3388e45ac0c3c2a4e5c0eacfc182b2e618913e1db11264568ff12f639f8c9",
+  "source_hash": "22d0fdb8ec3924d25d807f8ab6d3d2c21b77003eca498f06172386059ce11b48",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Starts propagation from only one meeting endpoint and misses another informed component at the same time.",
+      "failed_cases": [
+        "lc-2092-5",
+        "lc-2092-10"
+      ]
+    },
+    {
+      "reason": "Clears knowledge while traversing instead of recording newly informed people.",
+      "failed_cases": [
+        "lc-2092-1",
+        "lc-2092-2",
+        "lc-2092-3",
+        "lc-2092-4",
+        "lc-2092-5",
+        "lc-2092-6",
+        "lc-2092-7",
+        "lc-2092-8",
+        "lc-2092-9",
+        "lc-2092-10",
+        "lc-2092-11",
+        "lc-2092-12",
+        "lc-2092-13",
+        "lc-2092-14",
+        "lc-2092-15",
+        "lc-2092-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6139,
+  "oracle_implementation": "code_practice/import_batch_118.py:secret_o",
+  "validator_implementation_sha256": "9c08c376c7f228b2ab206f272ea0f566d824cf6695121e780bea799efc5f7790",
+  "batch_implementation_sha256": "e749d591ebbb644fa4047f65fd7536cc9f20f58cdb436c807450fb5430ab81df",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "83fff09a48320935c4ca1037727b87d5d919a3ea64211d0a721e576b28a13f7e",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

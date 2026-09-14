@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2089",
+  "content_sha256": "f76b8b5dec2288d4a49718b010b69e64ef97e990c065ba27c2e8cfe5f6bdc34d",
+  "source_hash": "2c219641f915d87eed931180161f4bcf3844545c72a0a58e90b1880348a260b3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts target values as smaller and shifts the output interval right.",
+      "failed_cases": [
+        "lc-2089-1",
+        "lc-2089-3",
+        "lc-2089-5",
+        "lc-2089-6",
+        "lc-2089-7",
+        "lc-2089-8",
+        "lc-2089-9",
+        "lc-2089-12",
+        "lc-2089-13",
+        "lc-2089-14",
+        "lc-2089-15",
+        "lc-2089-16"
+      ]
+    },
+    {
+      "reason": "Drops the final matching index with an exclusive-end off-by-one error.",
+      "failed_cases": [
+        "lc-2089-1",
+        "lc-2089-3",
+        "lc-2089-5",
+        "lc-2089-6",
+        "lc-2089-7",
+        "lc-2089-8",
+        "lc-2089-9",
+        "lc-2089-12",
+        "lc-2089-13",
+        "lc-2089-14",
+        "lc-2089-15",
+        "lc-2089-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6136,
+  "oracle_implementation": "code_practice/import_batch_118.py:indices_o",
+  "validator_implementation_sha256": "9c08c376c7f228b2ab206f272ea0f566d824cf6695121e780bea799efc5f7790",
+  "batch_implementation_sha256": "e749d591ebbb644fa4047f65fd7536cc9f20f58cdb436c807450fb5430ab81df",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1593ac13a8da3f3f05fc85cea4c520fc8dac76072534b537773c5fde6e00dbe6",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

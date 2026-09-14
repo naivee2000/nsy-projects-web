@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2088",
+  "content_sha256": "124f47b1f31eead1843b1ba42d418da1ee0c533fb72bf3a1873aec122ef86974",
+  "source_hash": "55519e6adea2729071905896a0e48ed20ba8c69e77b8a8ace28180d3a820a950",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts height-one cells as pyramids.",
+      "failed_cases": [
+        "lc-2088-1",
+        "lc-2088-2",
+        "lc-2088-3",
+        "lc-2088-5",
+        "lc-2088-6",
+        "lc-2088-7",
+        "lc-2088-8",
+        "lc-2088-9",
+        "lc-2088-10",
+        "lc-2088-11",
+        "lc-2088-12",
+        "lc-2088-13",
+        "lc-2088-14",
+        "lc-2088-15",
+        "lc-2088-16"
+      ]
+    },
+    {
+      "reason": "Uses the strongest parent arm rather than requiring all three cells of the prior layer.",
+      "failed_cases": [
+        "lc-2088-1",
+        "lc-2088-2",
+        "lc-2088-7",
+        "lc-2088-9",
+        "lc-2088-12",
+        "lc-2088-13",
+        "lc-2088-14",
+        "lc-2088-15",
+        "lc-2088-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6135,
+  "oracle_implementation": "code_practice/import_batch_118.py:pyramids_o",
+  "validator_implementation_sha256": "9c08c376c7f228b2ab206f272ea0f566d824cf6695121e780bea799efc5f7790",
+  "batch_implementation_sha256": "279014fd625e67b01a433739a44aa26b7b74763e7e842730dc8331948b6aeab4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c0fe47024a305688da9c8e30fc4fbef78806d3ef20cc575e82888614a2231403",
+  "elapsed_seconds": 0.076,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2091",
+  "content_sha256": "2cbcc2d0e41a5813cf9521efdb5365a8555f405faec2a332f66aa586f4627abb",
+  "source_hash": "1e84f97d97bd3c00699b210ac92c4e4e672dffdc73fc08ab1be456f8e2320496",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the earlier extreme for a front-only strategy and may leave the later extreme.",
+      "failed_cases": [
+        "lc-2091-1",
+        "lc-2091-2",
+        "lc-2091-4",
+        "lc-2091-5",
+        "lc-2091-6",
+        "lc-2091-7",
+        "lc-2091-9",
+        "lc-2091-10",
+        "lc-2091-11",
+        "lc-2091-12",
+        "lc-2091-13",
+        "lc-2091-14",
+        "lc-2091-15"
+      ]
+    },
+    {
+      "reason": "Misses one deletion when removing from both ends.",
+      "failed_cases": [
+        "lc-2091-1",
+        "lc-2091-4",
+        "lc-2091-5",
+        "lc-2091-6",
+        "lc-2091-7",
+        "lc-2091-12",
+        "lc-2091-13",
+        "lc-2091-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6138,
+  "oracle_implementation": "code_practice/import_batch_118.py:delete_o",
+  "validator_implementation_sha256": "9c08c376c7f228b2ab206f272ea0f566d824cf6695121e780bea799efc5f7790",
+  "batch_implementation_sha256": "e749d591ebbb644fa4047f65fd7536cc9f20f58cdb436c807450fb5430ab81df",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "accd5a2f54d7f01eb7be2a31f2838918817883b4a580f3f96eea38f8b0ea2bbe",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2090",
+  "content_sha256": "e0d37d49165bb7a6529891a178bd59f1b0c92c469c318fa60e6fafae7b6db8ad",
+  "source_hash": "fe12611325b64b4f019cee6d9d3cc16356dd9c29d763e0437bc407121a124b80",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a window of 2*k instead of including both endpoints and the center.",
+      "failed_cases": [
+        "lc-2090-1",
+        "lc-2090-4",
+        "lc-2090-10",
+        "lc-2090-11",
+        "lc-2090-13",
+        "lc-2090-14",
+        "lc-2090-15"
+      ]
+    },
+    {
+      "reason": "Writes each completed window average to the preceding center.",
+      "failed_cases": [
+        "lc-2090-1",
+        "lc-2090-6",
+        "lc-2090-9",
+        "lc-2090-11",
+        "lc-2090-12",
+        "lc-2090-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6137,
+  "oracle_implementation": "code_practice/import_batch_118.py:averages_o",
+  "validator_implementation_sha256": "9c08c376c7f228b2ab206f272ea0f566d824cf6695121e780bea799efc5f7790",
+  "batch_implementation_sha256": "e749d591ebbb644fa4047f65fd7536cc9f20f58cdb436c807450fb5430ab81df",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "971d44aa0dfe4642eff75b956f5429a274b9e6c2e668c438c5abaf583f9e9545",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
