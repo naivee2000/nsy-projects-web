@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2450",
+  "content_sha256": "ed44d35a1d12836abbc687b28c687b1231eb0ac18bc7852fe2853fda28fc5b77",
+  "source_hash": "2798ca253450355f06b89126596a3f76ea86456576c35bf86144814730bc5cbc",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets one of the n-k+1 possible windows.",
+      "failed_cases": [
+        "lc-2450-1",
+        "lc-2450-2",
+        "lc-2450-3",
+        "lc-2450-4",
+        "lc-2450-5",
+        "lc-2450-6",
+        "lc-2450-7",
+        "lc-2450-8",
+        "lc-2450-9",
+        "lc-2450-10",
+        "lc-2450-11",
+        "lc-2450-12",
+        "lc-2450-13",
+        "lc-2450-14",
+        "lc-2450-15"
+      ]
+    },
+    {
+      "reason": "Incorrectly gives each binary flip window three choices.",
+      "failed_cases": [
+        "lc-2450-1",
+        "lc-2450-2",
+        "lc-2450-3",
+        "lc-2450-4",
+        "lc-2450-5",
+        "lc-2450-6",
+        "lc-2450-7",
+        "lc-2450-8",
+        "lc-2450-9",
+        "lc-2450-10",
+        "lc-2450-11",
+        "lc-2450-12",
+        "lc-2450-13",
+        "lc-2450-14",
+        "lc-2450-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6497,
+  "oracle_implementation": "code_practice/import_batch_143.py:binary_oracle",
+  "validator_implementation_sha256": "06f3feed01fe6ff4274978382feb6a1707a2873a2fb1f99ad56bceeb9d55280b",
+  "batch_implementation_sha256": "08f8032a383b817393ccd83fa688a3e3231bb2e3e991876479ce33508f5fd6d9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "943e09d06f18cd08e9c4351adb879559e0c91c65b59583d1180b963dfa0e4f31",
+  "elapsed_seconds": 0.125,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

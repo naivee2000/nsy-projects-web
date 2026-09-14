@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2447",
+  "content_sha256": "96015bfd2101168b17189f8a809e473e77b63b6b1595d4ea185c3e8ec8055ca9",
+  "source_hash": "7955f7295ebc798edb66a2c1d823452144f7c1dd6b1d637b5f968c2b76c44304",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits single-element subarrays from the state.",
+      "failed_cases": [
+        "lc-2447-1",
+        "lc-2447-2",
+        "lc-2447-3",
+        "lc-2447-5",
+        "lc-2447-6",
+        "lc-2447-7",
+        "lc-2447-8",
+        "lc-2447-9",
+        "lc-2447-10",
+        "lc-2447-11",
+        "lc-2447-12",
+        "lc-2447-13",
+        "lc-2447-14",
+        "lc-2447-15",
+        "lc-2447-16"
+      ]
+    },
+    {
+      "reason": "Counts GCD k+1 instead of exactly k.",
+      "failed_cases": [
+        "lc-2447-1",
+        "lc-2447-2",
+        "lc-2447-3",
+        "lc-2447-4",
+        "lc-2447-5",
+        "lc-2447-6",
+        "lc-2447-7",
+        "lc-2447-9",
+        "lc-2447-10",
+        "lc-2447-11",
+        "lc-2447-12",
+        "lc-2447-13",
+        "lc-2447-14",
+        "lc-2447-15",
+        "lc-2447-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6494,
+  "oracle_implementation": "code_practice/import_batch_143.py:gcd_oracle",
+  "validator_implementation_sha256": "06f3feed01fe6ff4274978382feb6a1707a2873a2fb1f99ad56bceeb9d55280b",
+  "batch_implementation_sha256": "08f8032a383b817393ccd83fa688a3e3231bb2e3e991876479ce33508f5fd6d9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ad869cfb806d270b932c7be0aa719f4883c59ab49f7bd81f07624f8a11c351a6",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2445",
+  "content_sha256": "353b112d88fb40b3a6917ffab9875dfef78a8756a1326d3735419b87893a5970",
+  "source_hash": "d293075589ce596e009374cc46ca5279731f6995edad01a576f3703d5111eb97",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores flip parity inherited from ancestors.",
+      "failed_cases": [
+        "lc-2445-7",
+        "lc-2445-8",
+        "lc-2445-9",
+        "lc-2445-10",
+        "lc-2445-11",
+        "lc-2445-13",
+        "lc-2445-14",
+        "lc-2445-15"
+      ]
+    },
+    {
+      "reason": "Does not cancel duplicate queries, so even repetitions remain active.",
+      "failed_cases": [
+        "lc-2445-2",
+        "lc-2445-4",
+        "lc-2445-12",
+        "lc-2445-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6492,
+  "oracle_implementation": "code_practice/import_batch_143.py:tree_oracle",
+  "validator_implementation_sha256": "06f3feed01fe6ff4274978382feb6a1707a2873a2fb1f99ad56bceeb9d55280b",
+  "batch_implementation_sha256": "08f8032a383b817393ccd83fa688a3e3231bb2e3e991876479ce33508f5fd6d9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2ef36f7f9a4e07cefb406f39108bd1435c279c5ba37d47e25b8d60c7872c5f52",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
