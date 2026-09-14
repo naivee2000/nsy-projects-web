@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1386",
+  "content_sha256": "f729caad8494ff3c8722a98826114bcef3ec8c091acbfc4bb19d03fe22511273",
+  "source_hash": "6f8f5cc4a9d043aa369e4aaa340f358075834f3e8e526d8dd065b81bfe14d8b1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allocates only one family in every completely free row.",
+      "failed_cases": [
+        "lc-1386-1",
+        "lc-1386-3",
+        "lc-1386-4",
+        "lc-1386-5",
+        "lc-1386-11",
+        "lc-1386-12",
+        "lc-1386-13",
+        "lc-1386-14",
+        "lc-1386-16"
+      ]
+    },
+    {
+      "reason": "Counts two families when either outer block alone is free.",
+      "failed_cases": [
+        "lc-1386-1",
+        "lc-1386-2",
+        "lc-1386-6",
+        "lc-1386-7",
+        "lc-1386-8",
+        "lc-1386-9",
+        "lc-1386-12",
+        "lc-1386-13",
+        "lc-1386-15",
+        "lc-1386-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5433,
+  "oracle_implementation": "code_practice/import_batch_092.py:cinema_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "0e88c48ce358e3b733054a8eb5b111d7394082ea1d9136be74e7b112ba1612bb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "722d163e71ca14042ebeefb95da0421b987a3f8047be3eac967457cc3ece7e3c",
+  "elapsed_seconds": 0.089,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

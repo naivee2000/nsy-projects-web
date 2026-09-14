@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1408",
+  "content_sha256": "fac36db30e73b81dd4764df6e7c6c0f2708b44e7b3a6e46437a8a633ba67dfd5",
+  "source_hash": "b8f4002b59d21da928fe0884f1f00bacae5e42b8512d1d4ebd350965d14fe89f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the substring relationship.",
+      "failed_cases": [
+        "lc-1408-1",
+        "lc-1408-2",
+        "lc-1408-4",
+        "lc-1408-5",
+        "lc-1408-7",
+        "lc-1408-8",
+        "lc-1408-9",
+        "lc-1408-10",
+        "lc-1408-11",
+        "lc-1408-12",
+        "lc-1408-14"
+      ]
+    },
+    {
+      "reason": "Allows each word to match itself.",
+      "failed_cases": [
+        "lc-1408-1",
+        "lc-1408-2",
+        "lc-1408-3",
+        "lc-1408-4",
+        "lc-1408-5",
+        "lc-1408-6",
+        "lc-1408-7",
+        "lc-1408-8",
+        "lc-1408-9",
+        "lc-1408-10",
+        "lc-1408-11",
+        "lc-1408-12",
+        "lc-1408-13",
+        "lc-1408-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5455,
+  "oracle_implementation": "code_practice/import_batch_092b.py:matching_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "e19dd82527c2cf7b899987c3cb6539fd8ef0400671456fb49e10b12b7e19b886",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "200c000d393e1b4c4f482fc7f2eded825a37eb0d11323e6b23a2f9032d353378",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

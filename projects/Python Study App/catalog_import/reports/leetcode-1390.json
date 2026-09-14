@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1390",
+  "content_sha256": "29e729fe8dd666cd81529fd797035491c1092a110f6fb23de57aa63c6602855c",
+  "source_hash": "a1a27454909dd151dada3069b5b9318bd61c49539bd2f499796690549ad7788c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Includes numbers with more than four divisors.",
+      "failed_cases": [
+        "lc-1390-9",
+        "lc-1390-12",
+        "lc-1390-16"
+      ]
+    },
+    {
+      "reason": "Skips a square-root divisor and miscounts perfect squares.",
+      "failed_cases": [
+        "lc-1390-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5437,
+  "oracle_implementation": "code_practice/import_batch_092.py:divisors_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "0e88c48ce358e3b733054a8eb5b111d7394082ea1d9136be74e7b112ba1612bb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a57a98c0786e89fef61e98eb242a649b561d221b5fc966ecc893950be1a46044",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1401",
+  "content_sha256": "f634b908eed58bd72d049d731f7a3ce8ee34433128d18515dbcb573cec301f7a",
+  "source_hash": "ce2515e24d8684fe9cd9118d72095260d3101861504fce66375855d8048bf2e9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats boundary contact as non-overlap.",
+      "failed_cases": [
+        "lc-1401-1",
+        "lc-1401-5",
+        "lc-1401-7",
+        "lc-1401-9",
+        "lc-1401-10",
+        "lc-1401-12",
+        "lc-1401-14"
+      ]
+    },
+    {
+      "reason": "Checks only whether the center lies inside the rectangle.",
+      "failed_cases": [
+        "lc-1401-1",
+        "lc-1401-5",
+        "lc-1401-6",
+        "lc-1401-7",
+        "lc-1401-9",
+        "lc-1401-10",
+        "lc-1401-12",
+        "lc-1401-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5448,
+  "oracle_implementation": "code_practice/import_batch_092b.py:overlap_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "e19dd82527c2cf7b899987c3cb6539fd8ef0400671456fb49e10b12b7e19b886",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "461b0c9274a383f9e83e241260d5b0c6623a98a3bc2a49be3a7a5f47ba417c87",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

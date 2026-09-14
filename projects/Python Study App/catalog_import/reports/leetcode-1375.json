@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1375",
+  "content_sha256": "0824d96193c274d4d81b40f2a15d945ae7460cc3b59b1e2e735430212a9bc76d",
+  "source_hash": "d3117706268b69ec796fb7e0a62f6dfa8e43b785baabd24c35c3562de012938b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only flips already made at their own position and misses later gap-closing moments.",
+      "failed_cases": [
+        "lc-1375-2",
+        "lc-1375-5",
+        "lc-1375-6",
+        "lc-1375-8",
+        "lc-1375-9",
+        "lc-1375-12",
+        "lc-1375-13",
+        "lc-1375-14"
+      ]
+    },
+    {
+      "reason": "Tracks only the latest flip instead of the rightmost flipped position.",
+      "failed_cases": [
+        "lc-1375-2",
+        "lc-1375-5",
+        "lc-1375-6",
+        "lc-1375-8",
+        "lc-1375-9",
+        "lc-1375-12",
+        "lc-1375-13",
+        "lc-1375-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5422,
+  "oracle_implementation": "code_practice/import_batch_092.py:aligned_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "0e88c48ce358e3b733054a8eb5b111d7394082ea1d9136be74e7b112ba1612bb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6722ad33a402264b3945220042f135e3696b956a20f8ba5864c38354d93181d5",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

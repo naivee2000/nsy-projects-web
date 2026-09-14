@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1385",
+  "content_sha256": "0de5dad85097c6fe7d04a96ea02d9f417dba865e4066c6cca18b21460d77f806",
+  "source_hash": "b45afad9bfee0c3511c267ecd235722e74e0f18d8307837e003250fb819f363f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats distance equal to d as acceptable.",
+      "failed_cases": [
+        "lc-1385-2",
+        "lc-1385-3",
+        "lc-1385-5",
+        "lc-1385-8",
+        "lc-1385-12",
+        "lc-1385-13",
+        "lc-1385-14"
+      ]
+    },
+    {
+      "reason": "Compares arr1 values against their own array instead of arr2.",
+      "failed_cases": [
+        "lc-1385-1",
+        "lc-1385-2",
+        "lc-1385-4",
+        "lc-1385-6",
+        "lc-1385-7",
+        "lc-1385-9",
+        "lc-1385-10",
+        "lc-1385-11",
+        "lc-1385-13",
+        "lc-1385-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5432,
+  "oracle_implementation": "code_practice/import_batch_092.py:distance_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "0e88c48ce358e3b733054a8eb5b111d7394082ea1d9136be74e7b112ba1612bb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "10c8ec5aec306d9966720330be9f6ea5b29df353517c77c9f9d487ff3b95bf93",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

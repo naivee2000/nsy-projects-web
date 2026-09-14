@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1399",
+  "content_sha256": "ad8650426dffc488097fdce124bd98f6e733856876d37710039950ba585fae46",
+  "source_hash": "adb01d1cf6bc14ea5e0112b0821d525dfef434c98919ee1b363dbcca608e2e42",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes zero and omits n.",
+      "failed_cases": [
+        "lc-1399-1",
+        "lc-1399-6",
+        "lc-1399-7",
+        "lc-1399-9",
+        "lc-1399-10"
+      ]
+    },
+    {
+      "reason": "Also counts groups one below the maximum size.",
+      "failed_cases": [
+        "lc-1399-1",
+        "lc-1399-6",
+        "lc-1399-7",
+        "lc-1399-8",
+        "lc-1399-9",
+        "lc-1399-10",
+        "lc-1399-11",
+        "lc-1399-12",
+        "lc-1399-13",
+        "lc-1399-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5446,
+  "oracle_implementation": "code_practice/import_batch_092b.py:groups_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "e19dd82527c2cf7b899987c3cb6539fd8ef0400671456fb49e10b12b7e19b886",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2bfdae2f1527e3263217d4fe6e41a7da950369aff5b4702bcfe70db840d91f3f",
+  "elapsed_seconds": 0.09,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

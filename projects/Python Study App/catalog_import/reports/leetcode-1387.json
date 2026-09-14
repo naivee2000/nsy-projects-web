@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1387",
+  "content_sha256": "dec7169ab74b36b6a643ab23a385bf280bd90b9771464f9f998a5cbbbeb3aa4f",
+  "source_hash": "eb8ed0741fc8749dba2a0bb1347e7e57b826de077f8dbfbf9aaddf78b57538c0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts only by numeric value and ignores Collatz power.",
+      "failed_cases": [
+        "lc-1387-6",
+        "lc-1387-7",
+        "lc-1387-8",
+        "lc-1387-12",
+        "lc-1387-13",
+        "lc-1387-14",
+        "lc-1387-15",
+        "lc-1387-16"
+      ]
+    },
+    {
+      "reason": "Breaks equal-power ties by larger integer first.",
+      "failed_cases": [
+        "lc-1387-1",
+        "lc-1387-8",
+        "lc-1387-9",
+        "lc-1387-10",
+        "lc-1387-12",
+        "lc-1387-13",
+        "lc-1387-14",
+        "lc-1387-15",
+        "lc-1387-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5434,
+  "oracle_implementation": "code_practice/import_batch_092.py:power_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "0e88c48ce358e3b733054a8eb5b111d7394082ea1d9136be74e7b112ba1612bb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0cf4abc9fe4ce098c7a30dd468b774ad23c807cabec972c162c72f22060a2fe2",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

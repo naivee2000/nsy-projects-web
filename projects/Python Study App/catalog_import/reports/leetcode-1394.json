@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1394",
+  "content_sha256": "57fa1939a47d4bc15730a001c176a286588b01a2278f9fe3a94188f06a1c4577",
+  "source_hash": "6230e380e804f617b8f03a6e1d3c06644d4e2384fa6bb9ad14b6ec6067d20aca",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the smallest lucky value.",
+      "failed_cases": [
+        "lc-1394-2",
+        "lc-1394-9",
+        "lc-1394-12"
+      ]
+    },
+    {
+      "reason": "Accepts values occurring more often than their value.",
+      "failed_cases": [
+        "lc-1394-5",
+        "lc-1394-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5441,
+  "oracle_implementation": "code_practice/import_batch_092b.py:lucky_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "e19dd82527c2cf7b899987c3cb6539fd8ef0400671456fb49e10b12b7e19b886",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ec1d95d6337456ff2640f3a4c1062e693fb9c0c754f636bc97f6853515c541a7",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

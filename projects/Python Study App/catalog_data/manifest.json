@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 939,
+  "count": 959,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -16643,6 +16643,350 @@
       "path": "problems/leetcode-1370.json",
       "content_sha256": "92010a675f4055b6f821942fada9d0f4ef64d79ab6f0a59e18e6ddf005666bf8",
       "source_id": 1370
+    },
+    {
+      "id": "leetcode-1371",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Longest Substring Containing Vowels in Even Counts",
+      "summary": "Determine the length of the longest substring in which the count of each vowel ('a', 'e', 'i', 'o', 'u') is even.",
+      "topics": [
+        "prefix-sums",
+        "bit-manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1371.json",
+      "content_sha256": "9a3842e81ffd7b2800bd67ea638340678d0e7610d753426dacb8939108fadde1",
+      "source_id": 1371
+    },
+    {
+      "id": "leetcode-1375",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Times Binary String Is Prefix-Aligned",
+      "summary": "Given a binary string of length n with all bits initially set to 0, and an array of flips indicating which bits to flip at each step, count how many times the string is prefix-aligned after each flip.",
+      "topics": [
+        "arrays",
+        "prefixes"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1375.json",
+      "content_sha256": "0824d96193c274d4d81b40f2a15d945ae7460cc3b59b1e2e735430212a9bc76d",
+      "source_id": 1375
+    },
+    {
+      "id": "leetcode-1376",
+      "version": 1,
+      "status": "approved",
+      "title": "Time Needed to Inform All Employees",
+      "summary": "A company with n employees, each having a unique ID from 0 to n-1, has a hierarchical structure where the head of the company is identified by headID.",
+      "topics": [
+        "trees",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1376.json",
+      "content_sha256": "23e174600cdc9d4824b54833f2399d11ab09cb5a6b5cbe703c2bfe57da33371a",
+      "source_id": 1376
+    },
+    {
+      "id": "leetcode-1380",
+      "version": 1,
+      "status": "approved",
+      "title": "Lucky Numbers in a Matrix",
+      "summary": "Given an m x n matrix of distinct numbers, identify and return all elements that are the minimum in their respective row and the maximum in their respective column.",
+      "topics": [
+        "matrices",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1380.json",
+      "content_sha256": "6ec029f144717ba92ff41a82b7f6ec34b38cb9b0b840548220fec9be86775f37",
+      "source_id": 1380
+    },
+    {
+      "id": "leetcode-1385",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Distance Value Between Two Arrays",
+      "summary": "Determine the count of elements in arr1 for which no element in arr2 is within d units of distance.",
+      "topics": [
+        "arrays",
+        "binary-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1385.json",
+      "content_sha256": "0de5dad85097c6fe7d04a96ea02d9f417dba865e4066c6cca18b21460d77f806",
+      "source_id": 1385
+    },
+    {
+      "id": "leetcode-1386",
+      "version": 1,
+      "status": "approved",
+      "title": "Cinema Seat Allocation",
+      "summary": "A cinema has n rows of seats, with each row containing 10 seats numbered from 1 to 10.",
+      "topics": [
+        "greedy",
+        "bit-manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1386.json",
+      "content_sha256": "f729caad8494ff3c8722a98826114bcef3ec8c091acbfc4bb19d03fe22511273",
+      "source_id": 1386
+    },
+    {
+      "id": "leetcode-1387",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort Integers by The Power Value",
+      "summary": "Define the power of an integer x as the count of steps required to reduce x to 1 by repeatedly applying the following: if x is even, divide it by 2; if x is odd, multiply it by 3 and add 1.",
+      "topics": [
+        "dynamic-programming",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1387.json",
+      "content_sha256": "dec7169ab74b36b6a643ab23a385bf280bd90b9771464f9f998a5cbbbeb3aa4f",
+      "source_id": 1387
+    },
+    {
+      "id": "leetcode-1389",
+      "version": 1,
+      "status": "approved",
+      "title": "Create Target Array in the Given Order",
+      "summary": "Given two arrays of integers, nums and index, create an empty target array by inserting the value nums[i] at the position index[i] for each i, following these steps until all elements in nums and index are processed.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1389.json",
+      "content_sha256": "425b0e20aed0a82e420aac04ec27e1b1fdb25664ee3003ce606c8ec13b5eaa91",
+      "source_id": 1389
+    },
+    {
+      "id": "leetcode-1390",
+      "version": 1,
+      "status": "approved",
+      "title": "Four Divisors",
+      "summary": "Given an integer array nums, return the sum of the integers in the array that have exactly four divisors.",
+      "topics": [
+        "math",
+        "number-theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1390.json",
+      "content_sha256": "29e729fe8dd666cd81529fd797035491c1092a110f6fb23de57aa63c6602855c",
+      "source_id": 1390
+    },
+    {
+      "id": "leetcode-1391",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if There is a Valid Path in a Grid",
+      "summary": "Given an m x n grid where each cell represents a street with specific connections, determine if a valid path exists from the top-left cell to the bottom-right cell by following the streets without making any changes to them.",
+      "topics": [
+        "graphs",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1391.json",
+      "content_sha256": "d373454575dc9cfa141ab26c6d9e16953b4006c8f82b001544a72b467e673a8c",
+      "source_id": 1391
+    },
+    {
+      "id": "leetcode-1392",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Happy Prefix",
+      "summary": "Identify the longest segment at the start of a string that also matches its ending, excluding the segment itself.",
+      "topics": [
+        "strings",
+        "kmp"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1392.json",
+      "content_sha256": "7662a64f6ea7c17a4db08d8ba0595d42928b0cb9f58805a35ee6a51c14fe1ba0",
+      "source_id": 1392
+    },
+    {
+      "id": "leetcode-1394",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Lucky Integer in an Array",
+      "summary": "Given an array of integers, identify the highest integer whose occurrence matches its value.",
+      "topics": [
+        "arrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1394.json",
+      "content_sha256": "57fa1939a47d4bc15730a001c176a286588b01a2278f9fe3a94188f06a1c4577",
+      "source_id": 1394
+    },
+    {
+      "id": "leetcode-1395",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Number of Teams",
+      "summary": "Given n soldiers with unique ratings, count how many valid teams of three can be formed where the ratings strictly increase or decrease in the order of the team members.",
+      "topics": [
+        "arrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1395.json",
+      "content_sha256": "01b96947acfaa2001ceb0efac6da286193271e53eec219a56bfc2e724da1889a",
+      "source_id": 1395
+    },
+    {
+      "id": "leetcode-1399",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Largest Group",
+      "summary": "Given an integer n, group numbers from 1 to n by the sum of their digits.",
+      "topics": [
+        "counting",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1399.json",
+      "content_sha256": "ad8650426dffc488097fdce124bd98f6e733856876d37710039950ba585fae46",
+      "source_id": 1399
+    },
+    {
+      "id": "leetcode-1400",
+      "version": 1,
+      "status": "approved",
+      "title": "Construct K Palindrome Strings",
+      "summary": "Determine if all characters in a string can be used to form at least one non-empty k palindrome string.",
+      "topics": [
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1400.json",
+      "content_sha256": "f94c6ab296eedd0a009cea257b20578138bc6dff7c86f1b2c325643539ba0387",
+      "source_id": 1400
+    },
+    {
+      "id": "leetcode-1401",
+      "version": 1,
+      "status": "approved",
+      "title": "Circle and Rectangle Overlapping",
+      "summary": "Given a circle defined by its radius and center coordinates, and an axis-aligned rectangle defined by its bottom-left and top-right corners, determine if there is any point that lies within both the circle and the rectangle.",
+      "topics": [
+        "geometry",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1401.json",
+      "content_sha256": "f634b908eed58bd72d049d731f7a3ce8ee34433128d18515dbcb573cec301f7a",
+      "source_id": 1401
+    },
+    {
+      "id": "leetcode-1402",
+      "version": 1,
+      "status": "approved",
+      "title": "Reducing Dishes",
+      "summary": "A chef has recorded the satisfaction levels of n dishes, each taking exactly 1 unit of time to prepare.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [
+        "greedy"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1402.json",
+      "content_sha256": "957acb17fb54d5af5754d4f6b135078803c4a7c325ecb1f62f08fb753fb7765d",
+      "source_id": 1402
+    },
+    {
+      "id": "leetcode-1403",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Subsequence in Non-Increasing Order",
+      "summary": "Given array nums, find a subsequence with a sum greater than the sum of the remaining elements.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1403.json",
+      "content_sha256": "69adc46e97108ae4ef3fd465874dbd5211f2a02bc001e42fdf0be08d9425e232",
+      "source_id": 1403
+    },
+    {
+      "id": "leetcode-1404",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Steps to Reduce a Number in Binary Representation to One",
+      "summary": "For a binary string representing an integer, count the steps needed to reduce it to 1 by either halving it when even or incrementing it by one when odd, ensuring it eventually reaches one.",
+      "topics": [
+        "strings",
+        "bit-manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1404.json",
+      "content_sha256": "e4f289cb22567b22438f78fd436c140712ff4b5b9fb9981cc0eda2c6aec5240a",
+      "source_id": 1404
+    },
+    {
+      "id": "leetcode-1408",
+      "version": 1,
+      "status": "approved",
+      "title": "String Matching in an Array",
+      "summary": "Provide all strings from an array that are found within another string in the same array, in any order.",
+      "topics": [
+        "strings",
+        "search"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1408.json",
+      "content_sha256": "fac36db30e73b81dd4764df6e7c6c0f2708b44e7b3a6e46437a8a633ba67dfd5",
+      "source_id": 1408
     }
   ]
 }

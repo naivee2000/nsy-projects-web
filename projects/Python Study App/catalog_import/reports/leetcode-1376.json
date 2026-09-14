@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1376",
+  "content_sha256": "23e174600cdc9d4824b54833f2399d11ab09cb5a6b5cbe703c2bfe57da33371a",
+  "source_hash": "952a2db107dfe11b880ef00a5ebbf71e6284dabfb9bf5653ee594fd54d9f5c77",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds branch times as if managers informed reports sequentially.",
+      "failed_cases": [
+        "lc-1376-10",
+        "lc-1376-14"
+      ]
+    },
+    {
+      "reason": "Forces the result to be at least the employee count.",
+      "failed_cases": [
+        "lc-1376-1",
+        "lc-1376-2",
+        "lc-1376-3",
+        "lc-1376-4",
+        "lc-1376-6",
+        "lc-1376-8",
+        "lc-1376-10",
+        "lc-1376-11",
+        "lc-1376-13",
+        "lc-1376-14",
+        "lc-1376-15",
+        "lc-1376-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5423,
+  "oracle_implementation": "code_practice/import_batch_092.py:inform_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "0e88c48ce358e3b733054a8eb5b111d7394082ea1d9136be74e7b112ba1612bb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0b497e40e91df95723d7f6220e70ac6b3b4dbac81104dbadf295850633aa71b4",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

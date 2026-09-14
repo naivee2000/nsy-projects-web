@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1389",
+  "content_sha256": "425b0e20aed0a82e420aac04ec27e1b1fdb25664ee3003ce606c8ec13b5eaa91",
+  "source_hash": "ea45331d38eff95b843aba6fffeb1f40cff24d1370a99fb857486dc651cc24f3",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Appends instead of inserting at the requested positions.",
+      "failed_cases": [
+        "lc-1389-1",
+        "lc-1389-2",
+        "lc-1389-4",
+        "lc-1389-6",
+        "lc-1389-7",
+        "lc-1389-9",
+        "lc-1389-11",
+        "lc-1389-12",
+        "lc-1389-13",
+        "lc-1389-14",
+        "lc-1389-15"
+      ]
+    },
+    {
+      "reason": "Swaps the value and insertion-index arrays.",
+      "failed_cases": [
+        "lc-1389-1",
+        "lc-1389-2",
+        "lc-1389-3",
+        "lc-1389-4",
+        "lc-1389-5",
+        "lc-1389-6",
+        "lc-1389-7",
+        "lc-1389-8",
+        "lc-1389-9",
+        "lc-1389-10",
+        "lc-1389-11",
+        "lc-1389-12",
+        "lc-1389-13",
+        "lc-1389-14",
+        "lc-1389-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5436,
+  "oracle_implementation": "code_practice/import_batch_092.py:target_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "0e88c48ce358e3b733054a8eb5b111d7394082ea1d9136be74e7b112ba1612bb",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7ba48246ac4574a6a637d11eba3a00118179fbd1eb0d07af389497df45c5f2f6",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

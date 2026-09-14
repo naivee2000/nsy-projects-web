@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1403",
+  "content_sha256": "69adc46e97108ae4ef3fd465874dbd5211f2a02bc001e42fdf0be08d9425e232",
+  "source_hash": "65e8a9bd0680fb115b7dadf5369d9a495baa55bb984e5edb06ccbb4fcc2b2392",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Selects smallest values first.",
+      "failed_cases": [
+        "lc-1403-1",
+        "lc-1403-2",
+        "lc-1403-5",
+        "lc-1403-6",
+        "lc-1403-8",
+        "lc-1403-9",
+        "lc-1403-10",
+        "lc-1403-11",
+        "lc-1403-12",
+        "lc-1403-13",
+        "lc-1403-14"
+      ]
+    },
+    {
+      "reason": "Accepts equal sums despite the strict requirement.",
+      "failed_cases": [
+        "lc-1403-2",
+        "lc-1403-4",
+        "lc-1403-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5450,
+  "oracle_implementation": "code_practice/import_batch_092b.py:subseq_o",
+  "validator_implementation_sha256": "481f83b117d0c51bd83e6c32e398558ba3d9cab8f9630bef5f1a6ead9740b59c",
+  "batch_implementation_sha256": "e19dd82527c2cf7b899987c3cb6539fd8ef0400671456fb49e10b12b7e19b886",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "25ed8a406ff47c55a2d89b760d1c1d605683006e1b894b2b60fdbff0493a8ee9",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
