@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1378,
+  "count": 1383,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -24457,6 +24457,97 @@
       "path": "problems/leetcode-1985.json",
       "content_sha256": "fe266735d9187335a6656ea2d7ba9910d59b8e5b035c5dda1ac1a21a85ec25a7",
       "source_id": 1985
+    },
+    {
+      "id": "leetcode-1986",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Work Sessions to Finish the Tasks",
+      "summary": "Given an array of task durations and a session time limit, determine the minimum number of work sessions needed to complete all tasks.",
+      "topics": [
+        "backtracking",
+        "bitmask dynamic programming",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1986.json",
+      "content_sha256": "42d48b5ad84b66205fadf8506280e0203e35a537be35737bbec2e2ccc4c942ce",
+      "source_id": 1986
+    },
+    {
+      "id": "leetcode-1987",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Unique Good Subsequences",
+      "summary": "Given a binary string binary, determine the number of unique good subsequences.",
+      "topics": [
+        "strings",
+        "dynamic programming",
+        "subsequences"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1987.json",
+      "content_sha256": "387d88d036a511fe9489d402256a16642c20117bf4cb15e9d5090e4584d3f6c7",
+      "source_id": 1987
+    },
+    {
+      "id": "leetcode-1989",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of People That Can Be Caught in Tag",
+      "summary": "In a game of tag, where players are divided into 'it' and not 'it', you are given an array indicating 'it' and 'not it' players, and a distance.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1989.json",
+      "content_sha256": "7405fda7fefbbfab8379573abcd834d93ebce0f2bd0ebf8f620c570738136eac",
+      "source_id": 1989
+    },
+    {
+      "id": "leetcode-1991",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Middle Index in Array",
+      "summary": "Determine the first index in an array where the sum of elements to the left equals the sum of elements to the right, considering the leftmost index as 0 and the rightmost index as the array's length minus one, returning -1 if no such index exists.",
+      "topics": [
+        "arrays",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1991.json",
+      "content_sha256": "edbf1646c805196e3212bd1baccf73b6fecaac1b214da0e130db0cb65a96e223",
+      "source_id": 1991
+    },
+    {
+      "id": "leetcode-1992",
+      "version": 1,
+      "status": "approved",
+      "title": "Find All Groups of Farmland",
+      "summary": "Given a 0-indexed m x n binary matrix land where 0s represent forested land and 1s represent farmland, identify and return the coordinates of each group of contiguous farmland.",
+      "topics": [
+        "matrices",
+        "greedy",
+        "connected components"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1992.json",
+      "content_sha256": "6dba684f0ca431f2198c0d84bd639949b1e065fbf001c752983adc00e2267151",
+      "source_id": 1992
     }
   ]
 }

@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1986",
+  "content_sha256": "42d48b5ad84b66205fadf8506280e0203e35a537be35737bbec2e2ccc4c942ce",
+  "source_hash": "4d5c306f5a12092f0d8a8d77bd30c6a7014b7dba5d6509febc9beb555bb62962",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a session whose tasks exactly fill the available time.",
+      "failed_cases": [
+        "lc-1986-1",
+        "lc-1986-5",
+        "lc-1986-7",
+        "lc-1986-8",
+        "lc-1986-9",
+        "lc-1986-11",
+        "lc-1986-14"
+      ]
+    },
+    {
+      "reason": "Initializes the upper bound one session too high and can return that value without improvement.",
+      "failed_cases": [
+        "lc-1986-1",
+        "lc-1986-2",
+        "lc-1986-5",
+        "lc-1986-7",
+        "lc-1986-8",
+        "lc-1986-9",
+        "lc-1986-10",
+        "lc-1986-11",
+        "lc-1986-12",
+        "lc-1986-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6033,
+  "oracle_implementation": "code_practice/import_batch_114.py:sessions_oracle",
+  "validator_implementation_sha256": "d41e1f61d0af24a9a81785ede6814d753c16a3d14e3d58a882c7528e08746d52",
+  "batch_implementation_sha256": "5d1c3e49f873ff943f3b2a284d9151a517a5c1fb8f3af3c0e8b2e1dc574d30db",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "89322a2f09ce93154682e06e069b118017c3b2fd95c496beaf0af326332e583f",
+  "elapsed_seconds": 0.131,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

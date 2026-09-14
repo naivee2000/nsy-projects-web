@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1991",
+  "content_sha256": "edbf1646c805196e3212bd1baccf73b6fecaac1b214da0e130db0cb65a96e223",
+  "source_hash": "91cb02c76ffa524b10739bebb5b8644a44bb854b02ef991fb2ad5ab0f66da81b",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the current value to the right total instead of removing it.",
+      "failed_cases": [
+        "lc-1991-1",
+        "lc-1991-2",
+        "lc-1991-4",
+        "lc-1991-5",
+        "lc-1991-8",
+        "lc-1991-10",
+        "lc-1991-14",
+        "lc-1991-15"
+      ]
+    },
+    {
+      "reason": "Returns a one-based position instead of the required zero-based index.",
+      "failed_cases": [
+        "lc-1991-1",
+        "lc-1991-2",
+        "lc-1991-3",
+        "lc-1991-4",
+        "lc-1991-5",
+        "lc-1991-8",
+        "lc-1991-10",
+        "lc-1991-11",
+        "lc-1991-12",
+        "lc-1991-13",
+        "lc-1991-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6038,
+  "oracle_implementation": "code_practice/import_batch_114.py:middle_oracle",
+  "validator_implementation_sha256": "d41e1f61d0af24a9a81785ede6814d753c16a3d14e3d58a882c7528e08746d52",
+  "batch_implementation_sha256": "5d1c3e49f873ff943f3b2a284d9151a517a5c1fb8f3af3c0e8b2e1dc574d30db",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1a2581abb0ca09b84522ec8da0d94dc2ef88ee116b5dd5a37a5d24c5338b0c32",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

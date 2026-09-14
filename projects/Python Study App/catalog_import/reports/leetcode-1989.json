@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1989",
+  "content_sha256": "7405fda7fefbbfab8379573abcd834d93ebce0f2bd0ebf8f620c570738136eac",
+  "source_hash": "d296ffb4c536f7a5482c627490f2522fcd885881e86fe2d2803dec3ddbe14d10",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Disallows matches at exactly the permitted distance.",
+      "failed_cases": [
+        "lc-1989-5",
+        "lc-1989-7",
+        "lc-1989-8",
+        "lc-1989-10",
+        "lc-1989-12",
+        "lc-1989-14"
+      ]
+    },
+    {
+      "reason": "Advances the wrong unmatched pointer and can discard a future feasible match.",
+      "failed_cases": [
+        "lc-1989-7",
+        "lc-1989-8",
+        "lc-1989-12",
+        "lc-1989-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6036,
+  "oracle_implementation": "code_practice/import_batch_114.py:caught_oracle",
+  "validator_implementation_sha256": "d41e1f61d0af24a9a81785ede6814d753c16a3d14e3d58a882c7528e08746d52",
+  "batch_implementation_sha256": "5d1c3e49f873ff943f3b2a284d9151a517a5c1fb8f3af3c0e8b2e1dc574d30db",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "690a6b713116cdc6359c83930d1d2cabdcb594cadff0ccfbf80a1c71a40a8e90",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

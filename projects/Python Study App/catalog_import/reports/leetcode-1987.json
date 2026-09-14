@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1987",
+  "content_sha256": "387d88d036a511fe9489d402256a16642c20117bf4cb15e9d5090e4584d3f6c7",
+  "source_hash": "2f30367e9febf490f6ba6144fdfa9ab6c0531a2bb78054da836388f946761313",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts each zero occurrence rather than the single distinct subsequence \"0\".",
+      "failed_cases": [
+        "lc-1987-1",
+        "lc-1987-5",
+        "lc-1987-9",
+        "lc-1987-11",
+        "lc-1987-12",
+        "lc-1987-13",
+        "lc-1987-14",
+        "lc-1987-15",
+        "lc-1987-16"
+      ]
+    },
+    {
+      "reason": "Never creates the one-character subsequence \"1\" when a one is read.",
+      "failed_cases": [
+        "lc-1987-1",
+        "lc-1987-2",
+        "lc-1987-4",
+        "lc-1987-6",
+        "lc-1987-7",
+        "lc-1987-8",
+        "lc-1987-9",
+        "lc-1987-10",
+        "lc-1987-12",
+        "lc-1987-13",
+        "lc-1987-14",
+        "lc-1987-15",
+        "lc-1987-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6034,
+  "oracle_implementation": "code_practice/import_batch_114.py:subsequences_oracle",
+  "validator_implementation_sha256": "d41e1f61d0af24a9a81785ede6814d753c16a3d14e3d58a882c7528e08746d52",
+  "batch_implementation_sha256": "5d1c3e49f873ff943f3b2a284d9151a517a5c1fb8f3af3c0e8b2e1dc574d30db",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8409fa6b67bd6b9be3a690b9eb59589f0241d53626c009add6c8cf241cfb605c",
+  "elapsed_seconds": 1.475,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
