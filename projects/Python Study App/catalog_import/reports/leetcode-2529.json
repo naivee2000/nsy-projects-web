@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2529",
+  "content_sha256": "8dbf43061140e82de6cefd37db593289cc4c6b2b6b12a5fb3a5f65d319594e63",
+  "source_hash": "bc6e80ed83509ae7dd49adac3652a8341cb8f670258d54656049b868050e7c92",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Includes zeroes in the negative count.",
+      "failed_cases": [
+        "lc-2529-2",
+        "lc-2529-3",
+        "lc-2529-6",
+        "lc-2529-9",
+        "lc-2529-10",
+        "lc-2529-13",
+        "lc-2529-16"
+      ]
+    },
+    {
+      "reason": "Includes zeroes in the positive suffix by starting it at the first zero.",
+      "failed_cases": [
+        "lc-2529-2",
+        "lc-2529-3",
+        "lc-2529-6",
+        "lc-2529-9",
+        "lc-2529-11",
+        "lc-2529-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6576,
+  "oracle_implementation": "code_practice/import_batch_134b.py:sign_count_oracle",
+  "validator_implementation_sha256": "c9cb9926c30f965de10efea3bb21b1e9dddf790113c3566f33ca8cb33d85f66f",
+  "batch_implementation_sha256": "c3e29a4a7fbef3714e66309ce270ec423594071ecec7920525b38b07be09c671",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a3a5386f3d610888c40532fb8e05f018afdf0f30f43088e52c05f1b2fada4540",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

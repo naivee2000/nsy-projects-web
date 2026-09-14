@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2540",
+  "content_sha256": "5bddb36dbe7aaaee0d086aa2ed772b90f735960f87f20b162fb5bee560dfcdb0",
+  "source_hash": "cf16e46e59ddd1ff8d389c43020e5e7d706a140a951edea81ddb6a78eb09c8c5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the final first-array value rather than the matching value.",
+      "failed_cases": [
+        "lc-2540-1",
+        "lc-2540-8",
+        "lc-2540-9",
+        "lc-2540-10",
+        "lc-2540-12",
+        "lc-2540-13",
+        "lc-2540-14",
+        "lc-2540-16"
+      ]
+    },
+    {
+      "reason": "Advances the wrong pointer when the first value is smaller, potentially missing a match.",
+      "failed_cases": [
+        "lc-2540-1",
+        "lc-2540-5",
+        "lc-2540-8",
+        "lc-2540-9",
+        "lc-2540-11",
+        "lc-2540-14",
+        "lc-2540-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6587,
+  "oracle_implementation": "code_practice/import_batch_134b.py:common_oracle",
+  "validator_implementation_sha256": "c9cb9926c30f965de10efea3bb21b1e9dddf790113c3566f33ca8cb33d85f66f",
+  "batch_implementation_sha256": "c3e29a4a7fbef3714e66309ce270ec423594071ecec7920525b38b07be09c671",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c9b49f8f783056a0d1a9de4687c96040b9d737cbf2e77bca6cafbcfb267aa420",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

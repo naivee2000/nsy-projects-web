@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2535",
+  "content_sha256": "a8f2466f065d90a5e56a0354ff08bb96a9a74d7a699a366f646abd39c0e21274",
+  "source_hash": "80a0f41b33d868d879ec2f5ee22862c2c7e5ab28aa011119f3d6eeb08afc4a69",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds element and digit sums instead of taking their difference.",
+      "failed_cases": [
+        "lc-2535-1",
+        "lc-2535-2",
+        "lc-2535-3",
+        "lc-2535-4",
+        "lc-2535-5",
+        "lc-2535-6",
+        "lc-2535-7",
+        "lc-2535-8",
+        "lc-2535-9",
+        "lc-2535-10",
+        "lc-2535-11",
+        "lc-2535-12",
+        "lc-2535-13",
+        "lc-2535-14",
+        "lc-2535-15",
+        "lc-2535-16"
+      ]
+    },
+    {
+      "reason": "Uses the first number’s digits repeatedly for every array element.",
+      "failed_cases": [
+        "lc-2535-1",
+        "lc-2535-2",
+        "lc-2535-6",
+        "lc-2535-7",
+        "lc-2535-8",
+        "lc-2535-9",
+        "lc-2535-10",
+        "lc-2535-11",
+        "lc-2535-13",
+        "lc-2535-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6582,
+  "oracle_implementation": "code_practice/import_batch_134b.py:sum_difference_oracle",
+  "validator_implementation_sha256": "c9cb9926c30f965de10efea3bb21b1e9dddf790113c3566f33ca8cb33d85f66f",
+  "batch_implementation_sha256": "c3e29a4a7fbef3714e66309ce270ec423594071ecec7920525b38b07be09c671",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5dead0072dbc86e7f54a273593b2d8e856ea5ce1db40e2347e6b229b1f5ac750",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
