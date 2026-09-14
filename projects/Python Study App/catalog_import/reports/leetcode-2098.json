@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2098",
+  "content_sha256": "53150570e195d8c84a6ca8c7cec14261cae99ea3c80c1305eadc92e7e927aa60",
+  "source_hash": "d73c225df9df0be25ac3dc2424b7098b169a74c9c9bdbaaee863b61bbf2c19d4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the unconstrained chosen sum when it is odd.",
+      "failed_cases": [
+        "lc-2098-1",
+        "lc-2098-2",
+        "lc-2098-3",
+        "lc-2098-4",
+        "lc-2098-5",
+        "lc-2098-6",
+        "lc-2098-7",
+        "lc-2098-8",
+        "lc-2098-9",
+        "lc-2098-10",
+        "lc-2098-11",
+        "lc-2098-12",
+        "lc-2098-13",
+        "lc-2098-14",
+        "lc-2098-15",
+        "lc-2098-16"
+      ]
+    },
+    {
+      "reason": "Removes the largest chosen odd value instead of the smallest, losing optimality.",
+      "failed_cases": [
+        "lc-2098-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6145,
+  "oracle_implementation": "code_practice/import_batch_118b.py:largest_even_o",
+  "validator_implementation_sha256": "14fa85e12a774cb9bfbfaea0334026aa335daf150df6a6fa7fdfb98e7812caab",
+  "batch_implementation_sha256": "b765a95c8ee15536ad21d02585cdfa02c1683ad4c4eb6ef70dbdbe6beb3d8f6b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "68278a59771a60edb7edf72f0497015bfab3895a51aac28c92ce0db6b2b9d6d3",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

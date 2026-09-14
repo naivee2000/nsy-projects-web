@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2095",
+  "content_sha256": "eee5b9f8eddc75b7bd59c377096729602c275bd94b6d0c8057470dc410032aad",
+  "source_hash": "53e0151b2098282824d2dbfdd4f2f8b2b96051edd932a3f7db0b32849ecd8f7a",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Deletes the first central node for even-length lists.",
+      "failed_cases": [
+        "lc-2095-1",
+        "lc-2095-5",
+        "lc-2095-6",
+        "lc-2095-8",
+        "lc-2095-13",
+        "lc-2095-14"
+      ]
+    },
+    {
+      "reason": "Moves a local pointer instead of unlinking the middle node.",
+      "failed_cases": [
+        "lc-2095-1",
+        "lc-2095-2",
+        "lc-2095-4",
+        "lc-2095-5",
+        "lc-2095-6",
+        "lc-2095-7",
+        "lc-2095-8",
+        "lc-2095-9",
+        "lc-2095-10",
+        "lc-2095-11",
+        "lc-2095-12",
+        "lc-2095-13",
+        "lc-2095-14",
+        "lc-2095-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6142,
+  "oracle_implementation": "code_practice/import_batch_118b.py:middle_o",
+  "validator_implementation_sha256": "14fa85e12a774cb9bfbfaea0334026aa335daf150df6a6fa7fdfb98e7812caab",
+  "batch_implementation_sha256": "b765a95c8ee15536ad21d02585cdfa02c1683ad4c4eb6ef70dbdbe6beb3d8f6b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ad86a83ba143f73240b078cac04c07eb7d053c475afc5941b4c8e7703785db0e",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

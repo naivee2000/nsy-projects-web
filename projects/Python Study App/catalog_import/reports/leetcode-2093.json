@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2093",
+  "content_sha256": "1eb962d13b9a72aee82131198dbfce2ca74526cf2b9159708707644524947377",
+  "source_hash": "7d406421056276040132ed3c239a33d49e9003d6309d421eb8b4acea6a0d982f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rounds discounted odd tolls upward instead of down.",
+      "failed_cases": [
+        "lc-2093-1",
+        "lc-2093-2",
+        "lc-2093-6",
+        "lc-2093-11",
+        "lc-2093-13",
+        "lc-2093-16"
+      ]
+    },
+    {
+      "reason": "Never uses an available discount and therefore overpays on beneficial routes.",
+      "failed_cases": [
+        "lc-2093-1",
+        "lc-2093-2",
+        "lc-2093-5",
+        "lc-2093-6",
+        "lc-2093-8",
+        "lc-2093-9",
+        "lc-2093-10",
+        "lc-2093-11",
+        "lc-2093-12",
+        "lc-2093-13",
+        "lc-2093-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6140,
+  "oracle_implementation": "code_practice/import_batch_118b.py:discount_o",
+  "validator_implementation_sha256": "14fa85e12a774cb9bfbfaea0334026aa335daf150df6a6fa7fdfb98e7812caab",
+  "batch_implementation_sha256": "b765a95c8ee15536ad21d02585cdfa02c1683ad4c4eb6ef70dbdbe6beb3d8f6b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4a720e6fe89874ef255546398fa99f7eba1daed1372ce549daba8c252668717b",
+  "elapsed_seconds": 0.075,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
