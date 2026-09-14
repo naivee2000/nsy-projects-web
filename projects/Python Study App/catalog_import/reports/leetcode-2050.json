@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2050",
+  "content_sha256": "05ceae22d44230bfc7c80537fa6cee67c53e8f302d2382a5075fa4bf3bb3b7d3",
+  "source_hash": "868b1b71e458ed302fff41d5ce641472105c2d0ab0fe3194cd98246cfce8a5e0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites a course finish time with the latest processed prerequisite rather than the slowest prerequisite.",
+      "failed_cases": [
+        "lc-2050-1",
+        "lc-2050-10"
+      ]
+    },
+    {
+      "reason": "Adds all course durations and ignores concurrency.",
+      "failed_cases": [
+        "lc-2050-1",
+        "lc-2050-2",
+        "lc-2050-4",
+        "lc-2050-7",
+        "lc-2050-8",
+        "lc-2050-9",
+        "lc-2050-10",
+        "lc-2050-11",
+        "lc-2050-12",
+        "lc-2050-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6097,
+  "oracle_implementation": "code_practice/import_batch_116c.py:courses_o",
+  "validator_implementation_sha256": "2c4d15d68a0f0022dcdc2a3f50ae698ca7b9bbcc848d90f0466aceb78df0d87c",
+  "batch_implementation_sha256": "94e378f6e03b50a81b9da50ac53ffc41a390d77b74cd79ce2329f2cf5e4ae5e5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4498ce3b75adf0113cb6883b42aa80fa332c815501f67f49b2154442aec1b14e",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

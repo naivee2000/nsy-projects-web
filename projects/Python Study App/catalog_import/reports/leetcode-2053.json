@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2053",
+  "content_sha256": "f77890cf74ff783480a0fafc40e43c5d3b372f4021b11176b11086fe2a40d4bb",
+  "source_hash": "6ec486429ab5f1641761f86e1ad273b539b300c9ca5b36d380cb44271528b311",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats repeated strings as distinct occurrences.",
+      "failed_cases": [
+        "lc-2053-1",
+        "lc-2053-5",
+        "lc-2053-7",
+        "lc-2053-8",
+        "lc-2053-9",
+        "lc-2053-10",
+        "lc-2053-13",
+        "lc-2053-14"
+      ]
+    },
+    {
+      "reason": "Returns the kth raw array entry instead of the kth globally unique string.",
+      "failed_cases": [
+        "lc-2053-2",
+        "lc-2053-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6100,
+  "oracle_implementation": "code_practice/import_batch_116c.py:distinct_o",
+  "validator_implementation_sha256": "2c4d15d68a0f0022dcdc2a3f50ae698ca7b9bbcc848d90f0466aceb78df0d87c",
+  "batch_implementation_sha256": "94e378f6e03b50a81b9da50ac53ffc41a390d77b74cd79ce2329f2cf5e4ae5e5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ee76e101ced360c99d51b6f9ed692bf807b4c89c56cc5f465d0280aac291e07d",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

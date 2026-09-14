@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2049",
+  "content_sha256": "e87bce9771e6b3adce6493f11890760f4376640821c80c593eeb01e32a3731fc",
+  "source_hash": "7a89d74ed22a879f4a072fa5937ba3d9adee538c1d7b3267158f0b5376fa5b0c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Multiplies by a zero-sized parent component at the root.",
+      "failed_cases": [
+        "lc-2049-2",
+        "lc-2049-4",
+        "lc-2049-6",
+        "lc-2049-7",
+        "lc-2049-8",
+        "lc-2049-11",
+        "lc-2049-12",
+        "lc-2049-14"
+      ]
+    },
+    {
+      "reason": "Adds child sizes instead of multiplying independent component sizes.",
+      "failed_cases": [
+        "lc-2049-1",
+        "lc-2049-2",
+        "lc-2049-3",
+        "lc-2049-4",
+        "lc-2049-6",
+        "lc-2049-8",
+        "lc-2049-9",
+        "lc-2049-10",
+        "lc-2049-12",
+        "lc-2049-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6096,
+  "oracle_implementation": "code_practice/import_batch_116c.py:score_o",
+  "validator_implementation_sha256": "2c4d15d68a0f0022dcdc2a3f50ae698ca7b9bbcc848d90f0466aceb78df0d87c",
+  "batch_implementation_sha256": "94e378f6e03b50a81b9da50ac53ffc41a390d77b74cd79ce2329f2cf5e4ae5e5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c0ae878fd328db8fe1200708a56d93d61b1d2e1bb41e5e63efb0db9851b9ca27",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

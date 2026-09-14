@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2054",
+  "content_sha256": "161ea30ff072c516ff870eaab85ddf82496f8d5ed0c8151e919829168f2c8c93",
+  "source_hash": "746269dbe05af6b371abc43d99fced2b8cee6de45afecf1933f858892cb2c27b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows events sharing an inclusive endpoint to be selected together.",
+      "failed_cases": [
+        "lc-2054-1",
+        "lc-2054-5",
+        "lc-2054-11"
+      ]
+    },
+    {
+      "reason": "Forgets to add the current event value to the best compatible prior value.",
+      "failed_cases": [
+        "lc-2054-1",
+        "lc-2054-2",
+        "lc-2054-3",
+        "lc-2054-4",
+        "lc-2054-5",
+        "lc-2054-6",
+        "lc-2054-7",
+        "lc-2054-8",
+        "lc-2054-9",
+        "lc-2054-10",
+        "lc-2054-11",
+        "lc-2054-12",
+        "lc-2054-13",
+        "lc-2054-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6101,
+  "oracle_implementation": "code_practice/import_batch_116c.py:events_o",
+  "validator_implementation_sha256": "2c4d15d68a0f0022dcdc2a3f50ae698ca7b9bbcc848d90f0466aceb78df0d87c",
+  "batch_implementation_sha256": "94e378f6e03b50a81b9da50ac53ffc41a390d77b74cd79ce2329f2cf5e4ae5e5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ccf18becb08839fa1681936be861e74f33c91a6398146a4a0134781ff942f067",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

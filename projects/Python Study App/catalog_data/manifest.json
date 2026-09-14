@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1428,
+  "count": 1433,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -25373,6 +25373,97 @@
       "path": "problems/leetcode-2048.json",
       "content_sha256": "9c725edde0237f5ffb4e475f6b0fa2978923e12b673aec8be74efbc4ef84c2b0",
       "source_id": 2048
+    },
+    {
+      "id": "leetcode-2049",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Nodes With the Highest Score",
+      "summary": "Given a binary tree with nodes labeled from 0 to n-1, where node 0 is the root and parents[i] indicates the parent of node i, calculate the score of each node by removing the node and its edges, then find the number of nodes with the highest score based on the product of the sizes of the resulting subtrees.",
+      "topics": [
+        "trees",
+        "depth-first-search",
+        "subtree sizes"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2049.json",
+      "content_sha256": "e87bce9771e6b3adce6493f11890760f4376640821c80c593eeb01e32a3731fc",
+      "source_id": 2049
+    },
+    {
+      "id": "leetcode-2050",
+      "version": 1,
+      "status": "approved",
+      "title": "Parallel Courses III",
+      "summary": "Given an integer n representing courses labeled 1 to n, and a 2D array relations showing prerequisite courses, along with a time array indicating the months needed for each course.",
+      "topics": [
+        "graphs",
+        "topological sorting",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2050.json",
+      "content_sha256": "05ceae22d44230bfc7c80537fa6cee67c53e8f302d2382a5075fa4bf3bb3b7d3",
+      "source_id": 2050
+    },
+    {
+      "id": "leetcode-2052",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Separate Sentence Into Rows",
+      "summary": "Given a string sentence with words separated by spaces and an integer k, split the sentence into rows such that each row contains at most k characters.",
+      "topics": [
+        "dynamic programming",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2052.json",
+      "content_sha256": "fa671d32958114bb8bddf4d9dfa1c0bffae38a6af656f3d09da7aaf613293e59",
+      "source_id": 2052
+    },
+    {
+      "id": "leetcode-2053",
+      "version": 1,
+      "status": "approved",
+      "title": "Kth Distinct String in an Array",
+      "summary": "Define a distinct string as one appearing exactly once in an array.",
+      "topics": [
+        "hash maps",
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2053.json",
+      "content_sha256": "f77890cf74ff783480a0fafc40e43c5d3b372f4021b11176b11086fe2a40d4bb",
+      "source_id": 2053
+    },
+    {
+      "id": "leetcode-2054",
+      "version": 1,
+      "status": "approved",
+      "title": "Two Best Non-Overlapping Events",
+      "summary": "Given a list of events with start times, end times, and values, select at most two non-overlapping events to maximize the total value.",
+      "topics": [
+        "sorting",
+        "heaps",
+        "intervals"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2054.json",
+      "content_sha256": "161ea30ff072c516ff870eaab85ddf82496f8d5ed0c8151e919829168f2c8c93",
+      "source_id": 2054
     }
   ]
 }
