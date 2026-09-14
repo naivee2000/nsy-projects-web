@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2348",
+  "content_sha256": "07e5349e7172b22b57132c9eb8c9353d80f1c26d203ca7d14824ea1c929627fd",
+  "source_hash": "774fff4489cb8910a41bafd37b822391acea9bc1dcfb7d94e7156ad8db928b60",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only one subarray for each zero position and misses longer endings.",
+      "failed_cases": [
+        "lc-2348-1",
+        "lc-2348-2",
+        "lc-2348-7",
+        "lc-2348-9",
+        "lc-2348-10",
+        "lc-2348-13",
+        "lc-2348-14",
+        "lc-2348-15",
+        "lc-2348-16"
+      ]
+    },
+    {
+      "reason": "Fails to reset the run at nonzero values, joining separated runs.",
+      "failed_cases": [
+        "lc-2348-1",
+        "lc-2348-5",
+        "lc-2348-8",
+        "lc-2348-10",
+        "lc-2348-11",
+        "lc-2348-13",
+        "lc-2348-15",
+        "lc-2348-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6395,
+  "oracle_implementation": "code_practice/import_batch_129.py:zero_oracle",
+  "validator_implementation_sha256": "e5a153d2acbbc8caee19b9eb7dd4750f97eafaa4e8260e8e07f159bd5b8a9803",
+  "batch_implementation_sha256": "ce69862e7060fc07f8a41b67cb607b05b9bb4e5a95e249a6e988ac9c9ff888ee",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a2b180db7304af704686483a2302c9b610bdfc21b6bd38f86664c04b91764553",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

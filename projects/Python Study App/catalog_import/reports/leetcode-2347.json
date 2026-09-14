@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2347",
+  "content_sha256": "562b6caa81c050d183ff48b311ce068ddcf892767668ad28dd0bb5fe8324262e",
+  "source_hash": "7be7146fccabd9cbd18422aaa0eb116ce207b447f859d39e7476040f6dc063ee",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Never checks for a flush before rank-based categories.",
+      "failed_cases": [
+        "lc-2347-1",
+        "lc-2347-8",
+        "lc-2347-14"
+      ]
+    },
+    {
+      "reason": "Rejects four or five equal ranks even though they contain three of a kind.",
+      "failed_cases": [
+        "lc-2347-2",
+        "lc-2347-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6394,
+  "oracle_implementation": "code_practice/import_batch_129.py:poker_oracle",
+  "validator_implementation_sha256": "e5a153d2acbbc8caee19b9eb7dd4750f97eafaa4e8260e8e07f159bd5b8a9803",
+  "batch_implementation_sha256": "ce69862e7060fc07f8a41b67cb607b05b9bb4e5a95e249a6e988ac9c9ff888ee",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "79520a86764da207bd7dfaca06747fc2f33946d043be327d07e2202a1a946924",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2357",
+  "content_sha256": "717d5fa05bd4702f7cad60c7ca61acf1a8c3ab7f8c25d751a83cbc0862548f77",
+  "source_hash": "660277f6e5180ce18a110d0edf6d7b23027c61d8a9dcf469d5c6dfd9442a46c0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts zero as an operation level even though it never needs subtraction.",
+      "failed_cases": [
+        "lc-2357-1",
+        "lc-2357-2",
+        "lc-2357-7",
+        "lc-2357-10",
+        "lc-2357-15"
+      ]
+    },
+    {
+      "reason": "Returns the largest value, confusing unit decrements with allowed bulk subtraction.",
+      "failed_cases": [
+        "lc-2357-1",
+        "lc-2357-6",
+        "lc-2357-8",
+        "lc-2357-9",
+        "lc-2357-11",
+        "lc-2357-12",
+        "lc-2357-13",
+        "lc-2357-15",
+        "lc-2357-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6404,
+  "oracle_implementation": "code_practice/import_batch_129.py:reductions_oracle",
+  "validator_implementation_sha256": "e5a153d2acbbc8caee19b9eb7dd4750f97eafaa4e8260e8e07f159bd5b8a9803",
+  "batch_implementation_sha256": "ce69862e7060fc07f8a41b67cb607b05b9bb4e5a95e249a6e988ac9c9ff888ee",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1fecea91d94abb38f6bc45ef1aa69782ddeebe09ac23ab3cbed85e77e2684a23",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

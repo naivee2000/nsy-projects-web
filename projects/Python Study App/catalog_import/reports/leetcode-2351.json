@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2351",
+  "content_sha256": "bc6ce3685db0fdea63e01359a987485ce50be25ea5e199526564cc1bf4db4725",
+  "source_hash": "54fee6bf6818e656215c0bb0d822ce2374ba5907f31d0f3e56e934a6f863f9c8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts characters and returns an alphabetic duplicate instead of the earliest second occurrence.",
+      "failed_cases": [
+        "lc-2351-1",
+        "lc-2351-10",
+        "lc-2351-16"
+      ]
+    },
+    {
+      "reason": "Returns the smallest previously seen character rather than the character that just repeated.",
+      "failed_cases": [
+        "lc-2351-1",
+        "lc-2351-2",
+        "lc-2351-5",
+        "lc-2351-8",
+        "lc-2351-9",
+        "lc-2351-10",
+        "lc-2351-14",
+        "lc-2351-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6398,
+  "oracle_implementation": "code_practice/import_batch_129.py:repeat_oracle",
+  "validator_implementation_sha256": "e5a153d2acbbc8caee19b9eb7dd4750f97eafaa4e8260e8e07f159bd5b8a9803",
+  "batch_implementation_sha256": "ce69862e7060fc07f8a41b67cb607b05b9bb4e5a95e249a6e988ac9c9ff888ee",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a2374b532a9ac038ec97d07e241cbdcb2f72fe8cc54ec7adf2e97a0a2badb95f",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
