@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2335",
+  "content_sha256": "a832803a188f99507dce99fe532467cf2c356165a3088a0774a2904b084d30c8",
+  "source_hash": "06e1e39744b098ca8ba66b780c30b8808bc322b598b8c3b666bcf841c6466f55",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only the largest pile and ignores the total-work lower bound.",
+      "failed_cases": [
+        "lc-2335-2",
+        "lc-2335-6",
+        "lc-2335-9",
+        "lc-2335-11",
+        "lc-2335-12",
+        "lc-2335-14"
+      ]
+    },
+    {
+      "reason": "Rounds an odd total down even though the final unpaired cup needs another second.",
+      "failed_cases": [
+        "lc-2335-2",
+        "lc-2335-6",
+        "lc-2335-11",
+        "lc-2335-12",
+        "lc-2335-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6382,
+  "oracle_implementation": "code_practice/import_batch_128b.py:cups_oracle",
+  "validator_implementation_sha256": "5c50d826b075d904f60fab1a7d7271387fd45a02355e1a1d0b2b94b12ca901bc",
+  "batch_implementation_sha256": "59a0bbd95090a28de4de21efcc0a1b3b42e1489d2bcfd7c63d6a386e36f72250",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f8361ed233c9b743967444ee3c1c92b383db387e7b98623126120ca9d026ec37",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

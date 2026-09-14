@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2337",
+  "content_sha256": "53698bdd2718548ea6ae8bc91d5c7dea782a199d910110dec90c9cd95e7e1f21",
+  "source_hash": "3f95f165536b861f261f20e1d429dc970e8c4c014b6e0fe696a621f42b40163a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only piece counts, allowing L and R to cross and reorder.",
+      "failed_cases": [
+        "lc-2337-10"
+      ]
+    },
+    {
+      "reason": "Reverses the movement restriction for L pieces.",
+      "failed_cases": [
+        "lc-2337-1",
+        "lc-2337-5",
+        "lc-2337-6",
+        "lc-2337-11",
+        "lc-2337-13",
+        "lc-2337-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6384,
+  "oracle_implementation": "code_practice/import_batch_128b.py:pieces_oracle",
+  "validator_implementation_sha256": "5c50d826b075d904f60fab1a7d7271387fd45a02355e1a1d0b2b94b12ca901bc",
+  "batch_implementation_sha256": "59a0bbd95090a28de4de21efcc0a1b3b42e1489d2bcfd7c63d6a386e36f72250",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a1eb18eb39f8d65e96fae29a731dc74d35f1a2fc98140022c4d5f206b8af6f17",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

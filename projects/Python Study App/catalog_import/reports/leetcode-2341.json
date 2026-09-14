@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2341",
+  "content_sha256": "f410d0d1e93415eef2521e87dbb7fa6de5acdd8dcaaef097583ec7df47ed6f61",
+  "source_hash": "7a0d7ce17bc90ca8e564b48a3f1385571d32c875771ae7f6dcbc36ef27a2fc42",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds parity values instead of the number of complete pairs.",
+      "failed_cases": [
+        "lc-2341-1",
+        "lc-2341-2",
+        "lc-2341-3",
+        "lc-2341-4",
+        "lc-2341-6",
+        "lc-2341-7",
+        "lc-2341-8",
+        "lc-2341-9",
+        "lc-2341-12",
+        "lc-2341-13",
+        "lc-2341-14",
+        "lc-2341-15"
+      ]
+    },
+    {
+      "reason": "Subtracts only one element per pair when computing leftovers.",
+      "failed_cases": [
+        "lc-2341-1",
+        "lc-2341-2",
+        "lc-2341-5",
+        "lc-2341-6",
+        "lc-2341-7",
+        "lc-2341-9",
+        "lc-2341-10",
+        "lc-2341-11",
+        "lc-2341-12",
+        "lc-2341-13",
+        "lc-2341-14",
+        "lc-2341-15",
+        "lc-2341-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6388,
+  "oracle_implementation": "code_practice/import_batch_128b.py:pairs_oracle",
+  "validator_implementation_sha256": "5c50d826b075d904f60fab1a7d7271387fd45a02355e1a1d0b2b94b12ca901bc",
+  "batch_implementation_sha256": "59a0bbd95090a28de4de21efcc0a1b3b42e1489d2bcfd7c63d6a386e36f72250",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1028762685ac6ffb196ed4cfc73c23d59395ac415508ba4e15426ccdddeb0f95",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

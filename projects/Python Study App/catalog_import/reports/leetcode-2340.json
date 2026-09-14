@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2340",
+  "content_sha256": "4887a388761ac1ada6512080f6770c46dfda2c48f9e6d0d50a20c10ea2bc1feb",
+  "source_hash": "9e283064edbce17a1f54b54bd82850173f3834c582d1d20e562e7acb456729af",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Moves the rightmost minimum, wasting swaps compared with the leftmost minimum.",
+      "failed_cases": [
+        "lc-2340-8",
+        "lc-2340-9",
+        "lc-2340-10",
+        "lc-2340-11",
+        "lc-2340-14"
+      ]
+    },
+    {
+      "reason": "Double-counts one crossing swap when the chosen minimum begins right of the chosen maximum.",
+      "failed_cases": [
+        "lc-2340-1",
+        "lc-2340-4",
+        "lc-2340-6",
+        "lc-2340-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6387,
+  "oracle_implementation": "code_practice/import_batch_128b.py:swaps_oracle",
+  "validator_implementation_sha256": "5c50d826b075d904f60fab1a7d7271387fd45a02355e1a1d0b2b94b12ca901bc",
+  "batch_implementation_sha256": "59a0bbd95090a28de4de21efcc0a1b3b42e1489d2bcfd7c63d6a386e36f72250",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5932edfdd7477cb5b717327978fec27fc788b97fa0df5c8b1da5549201bfaf43",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
