@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1523,
+  "count": 1528,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -27088,6 +27088,98 @@
       "path": "problems/leetcode-2161.json",
       "content_sha256": "c08ae7895cf5d7389d72519b89ba02145d81dd66dd42936a79c1f77e4c9606ca",
       "source_id": 2161
+    },
+    {
+      "id": "leetcode-2162",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Set Cooking Time",
+      "summary": "A microwave can set cooking times ranging from 1 second to 99 minutes and 99 seconds by entering at most four digits, which are normalized to four digits by adding leading zeroes.",
+      "topics": [
+        "math",
+        "enumeration",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2162.json",
+      "content_sha256": "4b46bf67963ca677e5bd1d6652f848d999fa4842f7e5696ece088a0b64f01f5b",
+      "source_id": 2162
+    },
+    {
+      "id": "leetcode-2163",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Difference in Sums After Removal of Elements",
+      "summary": "Given a 0-indexed integer array nums consisting of 3 * n elements, you can remove any subsequence of exactly n elements.",
+      "topics": [
+        "arrays",
+        "heaps",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2163.json",
+      "content_sha256": "8819b1c01fb3ae4a69632d2414483b58a3981ab01aa3672bf719451804a095b0",
+      "source_id": 2163
+    },
+    {
+      "id": "leetcode-2164",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort Even and Odd Indices Independently",
+      "summary": "Given an integer array nums, rearrange its elements by sorting the values at odd indices in non-increasing order and the values at even indices in non-decreasing order.",
+      "topics": [
+        "arrays",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2164.json",
+      "content_sha256": "5ae5f7959ff78da86eda860ed67574c9fcbc1e31a32726e7e279a2487d5dc6c6",
+      "source_id": 2164
+    },
+    {
+      "id": "leetcode-2165",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Value of the Rearranged Number",
+      "summary": "Given an integer, rearrange its digits to form the smallest possible number without leading zeros, maintaining the original sign.",
+      "topics": [
+        "math",
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2165.json",
+      "content_sha256": "b28312a88e3ab211d8c07ffb877cb4bb6a528471a153d66019ed040d9609e888",
+      "source_id": 2165
+    },
+    {
+      "id": "leetcode-2167",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Remove All Cars Containing Illegal Goods",
+      "summary": "Given a binary string representing train cars, where '1' indicates cars with illegal goods, determine the minimum time to remove all such cars using three operations: removing a car from the left end in 1 unit of time, removing a car from the right end in 1 unit of time, or removing a car from anywhere in 2 units of time.",
+      "topics": [
+        "strings",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2167.json",
+      "content_sha256": "1ed57c542e310be32d9dcdf03cd2235eea76f3d5cccbbc9c2b09da5f3a55fb9d",
+      "source_id": 2167
     }
   ]
 }

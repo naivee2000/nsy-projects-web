@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2162",
+  "content_sha256": "4b46bf67963ca677e5bd1d6652f848d999fa4842f7e5696ece088a0b64f01f5b",
+  "source_hash": "3406d66e2344f3367a562a47f3ab78cc1cf5813ff112ecbcd24c41d9d7e835e9",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Charges a movement before every press, even when the finger is already on that digit.",
+      "failed_cases": [
+        "lc-2162-1",
+        "lc-2162-4",
+        "lc-2162-5",
+        "lc-2162-6",
+        "lc-2162-7",
+        "lc-2162-9",
+        "lc-2162-10",
+        "lc-2162-11",
+        "lc-2162-12"
+      ]
+    },
+    {
+      "reason": "Checks an invalid alternative representation instead of borrowing one minute into seconds.",
+      "failed_cases": [
+        "lc-2162-2",
+        "lc-2162-7",
+        "lc-2162-8",
+        "lc-2162-9",
+        "lc-2162-11",
+        "lc-2162-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6209,
+  "oracle_implementation": "code_practice/import_batch_121b.py:microwave_oracle",
+  "validator_implementation_sha256": "fbd5ffc248188f676bea06c8aa705e47b294c328bae5b57d920beeec95e27747",
+  "batch_implementation_sha256": "f1b6a71d378ba0ff79ac1beb6c44b44cf90072d09f7ed7479b3f0e5257adcb29",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dbab1add63d32270683144032242e402c0ea18ccb408ac25c701ecca07af8d41",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

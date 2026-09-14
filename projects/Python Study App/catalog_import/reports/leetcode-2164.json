@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2164",
+  "content_sha256": "5ae5f7959ff78da86eda860ed67574c9fcbc1e31a32726e7e279a2487d5dc6c6",
+  "source_hash": "f08a6f1e8521404000d3433f198302871e51e1a9c090706633143ab66ab17be4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts odd-index values ascending instead of descending.",
+      "failed_cases": [
+        "lc-2164-1",
+        "lc-2164-6",
+        "lc-2164-8",
+        "lc-2164-9",
+        "lc-2164-10",
+        "lc-2164-11",
+        "lc-2164-12",
+        "lc-2164-13",
+        "lc-2164-14"
+      ]
+    },
+    {
+      "reason": "Sorts even-index values descending instead of ascending.",
+      "failed_cases": [
+        "lc-2164-1",
+        "lc-2164-4",
+        "lc-2164-5",
+        "lc-2164-6",
+        "lc-2164-8",
+        "lc-2164-9",
+        "lc-2164-10",
+        "lc-2164-11",
+        "lc-2164-12",
+        "lc-2164-13",
+        "lc-2164-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6211,
+  "oracle_implementation": "code_practice/import_batch_121b.py:even_odd_oracle",
+  "validator_implementation_sha256": "fbd5ffc248188f676bea06c8aa705e47b294c328bae5b57d920beeec95e27747",
+  "batch_implementation_sha256": "f1b6a71d378ba0ff79ac1beb6c44b44cf90072d09f7ed7479b3f0e5257adcb29",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1a950cd6e86d43fd15562c1e966a250aa03ce2a7dcc94f686287856d722d746b",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

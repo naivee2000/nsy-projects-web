@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2163",
+  "content_sha256": "8819b1c01fb3ae4a69632d2414483b58a3981ab01aa3672bf719451804a095b0",
+  "source_hash": "ca95ccd5a1d3b0f95bef78bc271f7a96efbe91f83265dece16bac8b27176ba37",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the removed maximum instead of subtracting it from the maintained prefix sum.",
+      "failed_cases": [
+        "lc-2163-1",
+        "lc-2163-2",
+        "lc-2163-9",
+        "lc-2163-11",
+        "lc-2163-12",
+        "lc-2163-13",
+        "lc-2163-14"
+      ]
+    },
+    {
+      "reason": "Adds the removed minimum instead of subtracting it from the maintained suffix sum.",
+      "failed_cases": [
+        "lc-2163-2",
+        "lc-2163-3",
+        "lc-2163-4",
+        "lc-2163-5",
+        "lc-2163-6",
+        "lc-2163-7",
+        "lc-2163-8",
+        "lc-2163-9",
+        "lc-2163-10",
+        "lc-2163-11",
+        "lc-2163-12",
+        "lc-2163-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6210,
+  "oracle_implementation": "code_practice/import_batch_121b.py:difference_oracle",
+  "validator_implementation_sha256": "fbd5ffc248188f676bea06c8aa705e47b294c328bae5b57d920beeec95e27747",
+  "batch_implementation_sha256": "f1b6a71d378ba0ff79ac1beb6c44b44cf90072d09f7ed7479b3f0e5257adcb29",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3016d43869dad915f62dedfa18534b9c0fbe99f97a82ddb9a78fdc68af811681",
+  "elapsed_seconds": 0.115,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

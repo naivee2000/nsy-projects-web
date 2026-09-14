@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2167",
+  "content_sha256": "1ed57c542e310be32d9dcdf03cd2235eea76f3d5cccbbc9c2b09da5f3a55fb9d",
+  "source_hash": "e7e3a20afef84d8a4a19cd072b728320619a7ab8762cf8d036b45ef7297bf9af",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Charges two for clean zero cars kept in the prefix state.",
+      "failed_cases": [
+        "lc-2167-1",
+        "lc-2167-2",
+        "lc-2167-3",
+        "lc-2167-5",
+        "lc-2167-6",
+        "lc-2167-7",
+        "lc-2167-9",
+        "lc-2167-10",
+        "lc-2167-12",
+        "lc-2167-13",
+        "lc-2167-14",
+        "lc-2167-15"
+      ]
+    },
+    {
+      "reason": "Has an off-by-one cost for removing the remaining suffix.",
+      "failed_cases": [
+        "lc-2167-1",
+        "lc-2167-2",
+        "lc-2167-3",
+        "lc-2167-5",
+        "lc-2167-6",
+        "lc-2167-7",
+        "lc-2167-9",
+        "lc-2167-10",
+        "lc-2167-12",
+        "lc-2167-13",
+        "lc-2167-14",
+        "lc-2167-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6214,
+  "oracle_implementation": "code_practice/import_batch_121b.py:cars_oracle",
+  "validator_implementation_sha256": "fbd5ffc248188f676bea06c8aa705e47b294c328bae5b57d920beeec95e27747",
+  "batch_implementation_sha256": "f1b6a71d378ba0ff79ac1beb6c44b44cf90072d09f7ed7479b3f0e5257adcb29",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ecdbd030c013112f2fe9e9147f8d0b2d4013b60419bec882869233d362dee7a6",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
