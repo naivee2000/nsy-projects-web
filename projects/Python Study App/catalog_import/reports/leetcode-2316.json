@@ -1,0 +1,64 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2316",
+  "content_sha256": "a1f5ab0d99dec5c1aa2c56d68ae9db5ce4b301cddcf31317b2d697a442f11a94",
+  "source_hash": "1889b1ed5f26c11db8f0520aef37d8424a112671ab49d193453ac34ce390d633",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts the component twice before counting its cross-component pairs.",
+      "failed_cases": [
+        "lc-2316-1",
+        "lc-2316-2",
+        "lc-2316-3",
+        "lc-2316-4",
+        "lc-2316-5",
+        "lc-2316-6",
+        "lc-2316-7",
+        "lc-2316-8",
+        "lc-2316-9",
+        "lc-2316-10",
+        "lc-2316-11",
+        "lc-2316-12",
+        "lc-2316-13",
+        "lc-2316-14",
+        "lc-2316-15",
+        "lc-2316-16"
+      ]
+    },
+    {
+      "reason": "Counts against nodes that still include the current component, adding reachable and self pairs.",
+      "failed_cases": [
+        "lc-2316-1",
+        "lc-2316-2",
+        "lc-2316-3",
+        "lc-2316-4",
+        "lc-2316-5",
+        "lc-2316-6",
+        "lc-2316-7",
+        "lc-2316-8",
+        "lc-2316-9",
+        "lc-2316-10",
+        "lc-2316-11",
+        "lc-2316-12",
+        "lc-2316-13",
+        "lc-2316-14",
+        "lc-2316-15",
+        "lc-2316-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6363,
+  "oracle_implementation": "code_practice/import_batch_127c.py:unreachable_oracle",
+  "validator_implementation_sha256": "f2b28925f6e11a6819ad9cafd319caff99985e124dbcc3b0f5c5e7d83f73597b",
+  "batch_implementation_sha256": "56ee063940fdc0b8f4895c84ba62d07dd73fdd848a436f8f92cf2d2397ad7b36",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "60ad1d04011ad912e9d113d954485afd6f86f7978c0c0b6b77386041ab75f325",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

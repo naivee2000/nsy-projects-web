@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2311",
+  "content_sha256": "933b943a2d699288e681dd972706b0b7f6635475079e93760f7ddf207fde429e",
+  "source_hash": "cd2b127c014c4d432170f5dd3b0bef63d9ff0f90a67eece2ea397a761ab90c91",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Discards leading zeroes even though they add length without increasing value.",
+      "failed_cases": [
+        "lc-2311-1",
+        "lc-2311-2",
+        "lc-2311-3",
+        "lc-2311-6",
+        "lc-2311-8",
+        "lc-2311-9",
+        "lc-2311-10",
+        "lc-2311-11",
+        "lc-2311-12",
+        "lc-2311-13",
+        "lc-2311-14",
+        "lc-2311-15",
+        "lc-2311-16"
+      ]
+    },
+    {
+      "reason": "Rejects a bit when it makes the value exactly equal to k.",
+      "failed_cases": [
+        "lc-2311-2",
+        "lc-2311-5",
+        "lc-2311-7",
+        "lc-2311-8",
+        "lc-2311-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6358,
+  "oracle_implementation": "code_practice/import_batch_127c.py:binary_subsequence_oracle",
+  "validator_implementation_sha256": "f2b28925f6e11a6819ad9cafd319caff99985e124dbcc3b0f5c5e7d83f73597b",
+  "batch_implementation_sha256": "56ee063940fdc0b8f4895c84ba62d07dd73fdd848a436f8f92cf2d2397ad7b36",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9f6999b11b55541b01ddc2354d4cafb82dfcdb5552abb4f21b41c3d4e55f756c",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

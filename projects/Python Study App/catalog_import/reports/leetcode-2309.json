@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2309",
+  "content_sha256": "2e28eeb884b64ce6158531ba727afb9e0fb4d7575de080a42b5545e8f990747c",
+  "source_hash": "38e19d44a105222a65cb0432ae5e68bbf953b97c296e4de919cbc790c1b2b1ad",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the smallest qualifying letter instead of the greatest.",
+      "failed_cases": [
+        "lc-2309-5",
+        "lc-2309-6",
+        "lc-2309-7",
+        "lc-2309-11",
+        "lc-2309-12",
+        "lc-2309-13",
+        "lc-2309-16"
+      ]
+    },
+    {
+      "reason": "Checks only uppercase presence and ignores the required lowercase form.",
+      "failed_cases": [
+        "lc-2309-1",
+        "lc-2309-2",
+        "lc-2309-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6356,
+  "oracle_implementation": "code_practice/import_batch_127c.py:greatest_letter_oracle",
+  "validator_implementation_sha256": "f2b28925f6e11a6819ad9cafd319caff99985e124dbcc3b0f5c5e7d83f73597b",
+  "batch_implementation_sha256": "56ee063940fdc0b8f4895c84ba62d07dd73fdd848a436f8f92cf2d2397ad7b36",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "61c16dcd6f60b4493e246d3be8e71f009b9d0e8854d82fca18729c4fe99d1e1d",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

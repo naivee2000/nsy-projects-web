@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2310",
+  "content_sha256": "43544f9831daaeb5534a80cfeea34dec95797a38b3cb6e0a5174e827445963ef",
+  "source_hash": "4bd040df33f7fa07e8cafff7dca3931fc349de92c1cbd2a4037299f2db399b53",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Never considers ten chosen values, which is sometimes the first feasible count.",
+      "failed_cases": [
+        "lc-2310-8"
+      ]
+    },
+    {
+      "reason": "Checks only the last digit and may claim a count whose minimum possible sum exceeds num.",
+      "failed_cases": [
+        "lc-2310-17"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6357,
+  "oracle_implementation": "code_practice/import_batch_127c.py:units_oracle",
+  "validator_implementation_sha256": "f2b28925f6e11a6819ad9cafd319caff99985e124dbcc3b0f5c5e7d83f73597b",
+  "batch_implementation_sha256": "56ee063940fdc0b8f4895c84ba62d07dd73fdd848a436f8f92cf2d2397ad7b36",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7484c768d138f5dba9a206a103a11a4e9107cec0ddff3a4f5f3d9a815420fc77",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
