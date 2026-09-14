@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2612",
+  "content_sha256": "74e17b1be2834cda45a71ee6f2261f46ee59b823293bff20e3ed4bb6b957365b",
+  "source_hash": "06be7c4f76773766e890f3ff468e0189df70d167d2cf89103a20b6b57c68ca9a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the smaller lower-bound expression and admits impossible reversal endpoints.",
+      "failed_cases": [
+        "lc-2612-11",
+        "lc-2612-12",
+        "lc-2612-13",
+        "lc-2612-16"
+      ]
+    },
+    {
+      "reason": "Searches the opposite parity class from every reachable range.",
+      "failed_cases": [
+        "lc-2612-1",
+        "lc-2612-2",
+        "lc-2612-5",
+        "lc-2612-6",
+        "lc-2612-7",
+        "lc-2612-8",
+        "lc-2612-9",
+        "lc-2612-10",
+        "lc-2612-11",
+        "lc-2612-13",
+        "lc-2612-14",
+        "lc-2612-15",
+        "lc-2612-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6659,
+  "oracle_implementation": "code_practice/import_batch_165.py:reverse_oracle",
+  "validator_implementation_sha256": "0b8a63913c8dcf3e0604064dd91913913b6a398652370f34602acf27c44eeb75",
+  "batch_implementation_sha256": "da79e345011492367115065daeeb3d9bffea99c8a36f5bad28048dd28edb7dd7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6e9087d0db9c36d17b77ff21474167b4976d418862524b3c1ad49bdaea8fa1c1",
+  "elapsed_seconds": 0.086,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

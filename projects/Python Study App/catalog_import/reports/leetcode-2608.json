@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2608",
+  "content_sha256": "b9ca2a9040ff8a0e9026cf264734b1dbe30f01bd7db42f7d05e94757e4e80ad9",
+  "source_hash": "10ddfb958b4c3eb87f130009cc4fed471f3fffda0e49c17c414110d586b09026",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the neighbor's parent test and mistakes each tree edge for a cycle.",
+      "failed_cases": [
+        "lc-2608-1",
+        "lc-2608-2",
+        "lc-2608-4",
+        "lc-2608-5",
+        "lc-2608-6",
+        "lc-2608-7",
+        "lc-2608-8",
+        "lc-2608-9",
+        "lc-2608-10",
+        "lc-2608-11",
+        "lc-2608-12",
+        "lc-2608-14",
+        "lc-2608-15",
+        "lc-2608-16"
+      ]
+    },
+    {
+      "reason": "Omits the closing edge from every detected cycle length.",
+      "failed_cases": [
+        "lc-2608-1",
+        "lc-2608-5",
+        "lc-2608-6",
+        "lc-2608-7",
+        "lc-2608-9",
+        "lc-2608-11",
+        "lc-2608-12",
+        "lc-2608-14",
+        "lc-2608-15",
+        "lc-2608-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6655,
+  "oracle_implementation": "code_practice/import_batch_165.py:cycle_oracle",
+  "validator_implementation_sha256": "0b8a63913c8dcf3e0604064dd91913913b6a398652370f34602acf27c44eeb75",
+  "batch_implementation_sha256": "da79e345011492367115065daeeb3d9bffea99c8a36f5bad28048dd28edb7dd7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "01c3ef224b5a217d9941c9a8efa8d1fef4b0184cfb3e47a66634ba907328c494",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

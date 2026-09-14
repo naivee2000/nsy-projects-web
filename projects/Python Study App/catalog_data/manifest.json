@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1866,
+  "count": 1871,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -33249,6 +33249,101 @@
       "path": "problems/leetcode-2607.json",
       "content_sha256": "bce2f18a97ec21179188e289015c8b2da92b74d1b1b08a15f0d051ef104b3b5f",
       "source_id": 2607
+    },
+    {
+      "id": "leetcode-2608",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Cycle in a Graph",
+      "summary": "Given a bi-directional graph with n vertices labeled from 0 to n-1 , where the edges are represented by a 2D integer array, determine the length of the shortest cycle in the graph.",
+      "topics": [
+        "graphs",
+        "breadth-first search"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2608.json",
+      "content_sha256": "b9ca2a9040ff8a0e9026cf264734b1dbe30f01bd7db42f7d05e94757e4e80ad9",
+      "source_id": 2608
+    },
+    {
+      "id": "leetcode-2609",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Longest Balanced Substring of a Binary String",
+      "summary": "Given a binary string, find the longest substring where the number of zeroes equals the number of ones, and all zeroes precede all ones.",
+      "topics": [
+        "strings",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2609.json",
+      "content_sha256": "0c8b12c67b354cd83ee1d9efcf928fbfffebde37d6864cb9860372850a9759b9",
+      "source_id": 2609
+    },
+    {
+      "id": "leetcode-2611",
+      "version": 1,
+      "status": "approved",
+      "title": "Mice and Cheese",
+      "summary": "Two mice must each eat exactly one type of cheese from n different types.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2611.json",
+      "content_sha256": "72e45034b20bb22ed4792a5fc1f70b8b4aaae08078ec0d796c6dfbaf128f99c2",
+      "source_id": 2611
+    },
+    {
+      "id": "leetcode-2612",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Reverse Operations",
+      "summary": "Given an array of length n initialized to zeros with a single 1 at position p, and a banned positions array, reverse subarrays of size k to move the single 1 to each position i, recording the minimum operations needed for each position, or -1 if impossible.",
+      "topics": [
+        "arrays",
+        "breadth-first search",
+        "disjoint sets"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2612.json",
+      "content_sha256": "74e17b1be2834cda45a71ee6f2261f46ee59b823293bff20e3ed4bb6b957365b",
+      "source_id": 2612
+    },
+    {
+      "id": "leetcode-2613",
+      "version": 1,
+      "status": "approved",
+      "title": "Beautiful Pairs",
+      "summary": "Given two 0-indexed integer arrays of the same length, find a pair of indices (i, j) where i < j, such that the sum of the absolute differences between the elements at these indices in both arrays is the smallest.",
+      "topics": [
+        "arrays",
+        "divide and conquer",
+        "geometry",
+        "sorting"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2613.json",
+      "content_sha256": "a7e721b204b7b38fdb7fe7c6e5975fad184d80cd9fddd918e3f909c65b01a5b7",
+      "source_id": 2613
     }
   ]
 }

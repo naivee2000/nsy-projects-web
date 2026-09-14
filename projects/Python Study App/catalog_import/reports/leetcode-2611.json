@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2611",
+  "content_sha256": "72e45034b20bb22ed4792a5fc1f70b8b4aaae08078ec0d796c6dfbaf128f99c2",
+  "source_hash": "831352443237135bf1ee376ca10d87afaead55d75e983cfd8edb3bf14d989f8f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the k smallest advantages for mouse one.",
+      "failed_cases": [
+        "lc-2611-1",
+        "lc-2611-5",
+        "lc-2611-8",
+        "lc-2611-9",
+        "lc-2611-11",
+        "lc-2611-12",
+        "lc-2611-13",
+        "lc-2611-14"
+      ]
+    },
+    {
+      "reason": "Uses mouse one's rewards as the baseline before adding its advantage again.",
+      "failed_cases": [
+        "lc-2611-1",
+        "lc-2611-3",
+        "lc-2611-4",
+        "lc-2611-9",
+        "lc-2611-11",
+        "lc-2611-13",
+        "lc-2611-15",
+        "lc-2611-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6658,
+  "oracle_implementation": "code_practice/import_batch_165.py:cheese_oracle",
+  "validator_implementation_sha256": "0b8a63913c8dcf3e0604064dd91913913b6a398652370f34602acf27c44eeb75",
+  "batch_implementation_sha256": "da79e345011492367115065daeeb3d9bffea99c8a36f5bad28048dd28edb7dd7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "41f6b510a39ff82d2090c9fe816095bf32453683f645067683fc19a4c7fd9e97",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

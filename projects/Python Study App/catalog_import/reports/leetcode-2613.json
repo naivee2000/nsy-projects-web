@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2613",
+  "content_sha256": "a7e721b204b7b38fdb7fe7c6e5975fad184d80cd9fddd918e3f909c65b01a5b7",
+  "source_hash": "f50fab08f9d9042c07d48accf86f8f3165baefd48983d77f9211cdc999c4e70d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the farthest candidate rather than the closest one.",
+      "failed_cases": [
+        "lc-2613-1",
+        "lc-2613-2",
+        "lc-2613-3",
+        "lc-2613-4",
+        "lc-2613-5",
+        "lc-2613-6",
+        "lc-2613-7",
+        "lc-2613-8",
+        "lc-2613-9",
+        "lc-2613-10",
+        "lc-2613-11",
+        "lc-2613-12",
+        "lc-2613-13",
+        "lc-2613-14",
+        "lc-2613-15",
+        "lc-2613-16"
+      ]
+    },
+    {
+      "reason": "Fails to normalize pair indices before lexicographic tie-breaking.",
+      "failed_cases": [
+        "lc-2613-14",
+        "lc-2613-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6660,
+  "oracle_implementation": "code_practice/import_batch_165.py:pair_oracle",
+  "validator_implementation_sha256": "0b8a63913c8dcf3e0604064dd91913913b6a398652370f34602acf27c44eeb75",
+  "batch_implementation_sha256": "da79e345011492367115065daeeb3d9bffea99c8a36f5bad28048dd28edb7dd7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eaa599c06eacb5150ac98ab76ae051232da3c02edfb627188cfd4b50a58e08c9",
+  "elapsed_seconds": 0.127,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
