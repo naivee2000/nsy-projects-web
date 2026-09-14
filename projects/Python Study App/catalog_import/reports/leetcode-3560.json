@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3560",
+  "content_sha256": "c2379ddbb278375d192ef6f43bd2b5b3fd707626fc84ca37e8dfcc333fbba771",
+  "source_hash": "814586f7f67a1a0d2f8cff86f6eae4a6bf2bd8ce3629875f1336511d391cfa0b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a balanced cut even when it exceeds the minimum product.",
+      "failed_cases": [
+        "lc-3560-1",
+        "lc-3560-6",
+        "lc-3560-7",
+        "lc-3560-8",
+        "lc-3560-9",
+        "lc-3560-12",
+        "lc-3560-13"
+      ]
+    },
+    {
+      "reason": "Incorrectly treats a log one unit above the limit as fitting.",
+      "failed_cases": [
+        "lc-3560-1",
+        "lc-3560-8",
+        "lc-3560-10",
+        "lc-3560-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7607,
+  "oracle_implementation": "code_practice/import_batch_194b.py:logs_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "79201337e7203ea1826150f1176b4626d664ee62452b82578049670935ffac38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "47f8ced6b93f8317e39890cb45abf9032c781c9e105fdbe0143b9ed1347ae5be",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

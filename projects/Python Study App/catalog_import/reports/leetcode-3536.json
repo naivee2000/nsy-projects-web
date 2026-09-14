@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3536",
+  "content_sha256": "66d7d4756f9631453f1fb53c8de92689f3f6cd173631368ff421c3c50fe2a378",
+  "source_hash": "abcdd2878728fcdc78812c2c5d3048d94a45e81a83e0580cb825ce487e82fe32",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Multiplies the two smallest digits.",
+      "failed_cases": [
+        "lc-3536-8",
+        "lc-3536-9",
+        "lc-3536-10",
+        "lc-3536-11",
+        "lc-3536-13",
+        "lc-3536-14"
+      ]
+    },
+    {
+      "reason": "Reuses the single greatest digit regardless of its multiplicity.",
+      "failed_cases": [
+        "lc-3536-1",
+        "lc-3536-3",
+        "lc-3536-5",
+        "lc-3536-6",
+        "lc-3536-9",
+        "lc-3536-11",
+        "lc-3536-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7583,
+  "oracle_implementation": "code_practice/import_batch_194a.py:product_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "a0258f59fa8af898c4927ffbbf3eb14f34ee0bcdce4668072b5a75edd6b40875",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c4dd0b291917e11fa1cf2314a088625aa6d82d8d22499c78393f679674d226cc",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

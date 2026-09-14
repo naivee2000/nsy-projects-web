@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3606",
+  "content_sha256": "cf49846b103bc5346624bcd328e5a5f90069c7b30717401f530e9de01ef10129",
+  "source_hash": "be1643c946d793a6c46b8270bc755513bffc24e9216f8a17865201518dee0206",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects underscore even though it is allowed.",
+      "failed_cases": [
+        "lc-3606-2",
+        "lc-3606-7",
+        "lc-3606-13"
+      ]
+    },
+    {
+      "reason": "Sorts business categories in reverse priority.",
+      "failed_cases": [
+        "lc-3606-1",
+        "lc-3606-9",
+        "lc-3606-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7653,
+  "oracle_implementation": "code_practice/import_batch_194c.py:coupon_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "a5e33c1f9323b96358a9584789ac52a93bafd1da2a86185c98f7a81d6dbec271",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e5a2b27f65fad8794554295fb61967ed133acf07b3f28efbd1d721a0d3c1065f",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

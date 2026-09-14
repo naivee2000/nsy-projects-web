@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3662",
+  "content_sha256": "e2f8473d577466842024d6c406511b2bda399f5542b006d5232e20e46fe18b7e",
+  "source_hash": "61a244c6f374838c42ea0e7c7b2ba278744d11582af59d83ee2ab2fe56e34c87",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps characters occurring exactly k times.",
+      "failed_cases": [
+        "lc-3662-1",
+        "lc-3662-2",
+        "lc-3662-3",
+        "lc-3662-6",
+        "lc-3662-10",
+        "lc-3662-12"
+      ]
+    },
+    {
+      "reason": "Uses the first character frequency for every position.",
+      "failed_cases": [
+        "lc-3662-1",
+        "lc-3662-8",
+        "lc-3662-9",
+        "lc-3662-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7709,
+  "oracle_implementation": "code_practice/import_batch_194d.py:filter_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "cc1bab528ae806196d341006f29a747042e0fc24123984fe8efcf0448a5c2836",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0967b86d15f391737d9a49dd3317bc46b8f781b3ce486a637cf5f5b0a4ec060a",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3622",
+  "content_sha256": "74953c13580b76e56e14ae97d20c3f4a5b9ab1dd322f2e5f8867c445e70f1abc",
+  "source_hash": "8af0da02fbad7d6214d6edf9cf8c0dedc1475200a100de737b1c475295be9502",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds one to the required divisor.",
+      "failed_cases": [
+        "lc-3622-1",
+        "lc-3622-8"
+      ]
+    },
+    {
+      "reason": "Returns nondivisibility.",
+      "failed_cases": [
+        "lc-3622-1",
+        "lc-3622-2",
+        "lc-3622-3",
+        "lc-3622-4",
+        "lc-3622-5",
+        "lc-3622-6",
+        "lc-3622-7",
+        "lc-3622-8",
+        "lc-3622-9",
+        "lc-3622-10",
+        "lc-3622-11",
+        "lc-3622-12",
+        "lc-3622-13",
+        "lc-3622-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7669,
+  "oracle_implementation": "code_practice/import_batch_194c.py:digit_div_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "a5e33c1f9323b96358a9584789ac52a93bafd1da2a86185c98f7a81d6dbec271",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3211df9217340687208c5d01dbe39260556d2261945d8569aedaed5908d8e557",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

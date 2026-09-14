@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3582",
+  "content_sha256": "3ecc016ad87e9858a74c47f69abeb85cb3df88c8beb9803b31d68878de91dbf5",
+  "source_hash": "7cd567b4300270a4beaa81dfd2f8d0e5cf1d8eb325536471fc57f2c023ca47fc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Capitalizes the first word instead of lowercasing it.",
+      "failed_cases": [
+        "lc-3582-1",
+        "lc-3582-2",
+        "lc-3582-3",
+        "lc-3582-4",
+        "lc-3582-5",
+        "lc-3582-6",
+        "lc-3582-7",
+        "lc-3582-8",
+        "lc-3582-9",
+        "lc-3582-10",
+        "lc-3582-11",
+        "lc-3582-12",
+        "lc-3582-13",
+        "lc-3582-14"
+      ]
+    },
+    {
+      "reason": "Limits the final tag to ninety-nine characters.",
+      "failed_cases": [
+        "lc-3582-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7629,
+  "oracle_implementation": "code_practice/import_batch_194b.py:tag_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "79201337e7203ea1826150f1176b4626d664ee62452b82578049670935ffac38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "538baca61e5385bfedd0dce0f81247692d00d08cdf941b01934577a26bb3bd69",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3663",
+  "content_sha256": "f43e41c6e16a931daf75b02b84713fca27f3ca1b9629a9f30cb8ba85cac1168d",
+  "source_hash": "0b5e94038d87b25ab7a522a86afbe73ef0c35defa89ed3ee3fd391b7ac52d56b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks ties toward the larger digit.",
+      "failed_cases": [
+        "lc-3663-2",
+        "lc-3663-6",
+        "lc-3663-7",
+        "lc-3663-8",
+        "lc-3663-9",
+        "lc-3663-11",
+        "lc-3663-13",
+        "lc-3663-14"
+      ]
+    },
+    {
+      "reason": "Chooses the most frequent digit.",
+      "failed_cases": [
+        "lc-3663-1",
+        "lc-3663-2",
+        "lc-3663-6",
+        "lc-3663-7",
+        "lc-3663-8",
+        "lc-3663-9",
+        "lc-3663-10",
+        "lc-3663-11",
+        "lc-3663-12",
+        "lc-3663-13",
+        "lc-3663-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7710,
+  "oracle_implementation": "code_practice/import_batch_194d.py:least_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "cc1bab528ae806196d341006f29a747042e0fc24123984fe8efcf0448a5c2836",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "55ccd9d8b6e8769f8db4d620935430ccb7677dd04e5a9e36b82c6615757e5f0e",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

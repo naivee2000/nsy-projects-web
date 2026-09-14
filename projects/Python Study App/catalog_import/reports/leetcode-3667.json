@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3667",
+  "content_sha256": "7d1a470ac456cb7b9441008fb0fbf2e8b0cab9ed06b135c4ae93b492ce345f20",
+  "source_hash": "1985386ee3646f78e5b61b0031aef7cb9000f135f4f33e0733689e6d60841648",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts by signed numeric value.",
+      "failed_cases": [
+        "lc-3667-1",
+        "lc-3667-2",
+        "lc-3667-4",
+        "lc-3667-6",
+        "lc-3667-7",
+        "lc-3667-8",
+        "lc-3667-9",
+        "lc-3667-10",
+        "lc-3667-11",
+        "lc-3667-13",
+        "lc-3667-14"
+      ]
+    },
+    {
+      "reason": "Sorts by decreasing absolute value.",
+      "failed_cases": [
+        "lc-3667-1",
+        "lc-3667-2",
+        "lc-3667-5",
+        "lc-3667-6",
+        "lc-3667-7",
+        "lc-3667-8",
+        "lc-3667-9",
+        "lc-3667-10",
+        "lc-3667-11",
+        "lc-3667-12",
+        "lc-3667-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7714,
+  "oracle_implementation": "code_practice/import_batch_194d.py:absolute_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "cc1bab528ae806196d341006f29a747042e0fc24123984fe8efcf0448a5c2836",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b6b9850f1d0c6ff55c94b7f1da392f6be425f8338d6ba1a7daa4d658f9f9ce24",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

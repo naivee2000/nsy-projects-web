@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3591",
+  "content_sha256": "75f8281a9291d7445f402f30c5f8a9dc7e9f65148cc09430df2fe7d6c15a44e7",
+  "source_hash": "1c23eb93775962dd3175ef2b44ac61145afaaef9b3a5f6e9c38dda93d88f5b41",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats frequency one as prime.",
+      "failed_cases": [
+        "lc-3591-2",
+        "lc-3591-3",
+        "lc-3591-10"
+      ]
+    },
+    {
+      "reason": "Requires every distinct frequency to be prime.",
+      "failed_cases": [
+        "lc-3591-1",
+        "lc-3591-8",
+        "lc-3591-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7638,
+  "oracle_implementation": "code_practice/import_batch_194b.py:prime_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "79201337e7203ea1826150f1176b4626d664ee62452b82578049670935ffac38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ef77bcc8d85d925b25fa71b341d339174f857f4439facc72473d36e3ab9a2f70",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3668",
+  "content_sha256": "3146988b6ca45a87c5e25d74aed6c7ba0a0c3eaf5d6aaaa7aa54cfb68221dcbe",
+  "source_hash": "58d00ee4f915bbfb0fa67c43d0502f041ba65df2cebc1cba20d6545f0eb8a6b9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns friends in their ID-list order rather than finish order.",
+      "failed_cases": [
+        "lc-3668-1",
+        "lc-3668-6",
+        "lc-3668-7",
+        "lc-3668-8",
+        "lc-3668-9",
+        "lc-3668-11",
+        "lc-3668-13",
+        "lc-3668-14"
+      ]
+    },
+    {
+      "reason": "Returns nonfriends instead of friends.",
+      "failed_cases": [
+        "lc-3668-1",
+        "lc-3668-2",
+        "lc-3668-3",
+        "lc-3668-4",
+        "lc-3668-5",
+        "lc-3668-6",
+        "lc-3668-7",
+        "lc-3668-8",
+        "lc-3668-9",
+        "lc-3668-10",
+        "lc-3668-11",
+        "lc-3668-12",
+        "lc-3668-13",
+        "lc-3668-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7715,
+  "oracle_implementation": "code_practice/import_batch_194d.py:race_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "cc1bab528ae806196d341006f29a747042e0fc24123984fe8efcf0448a5c2836",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d153ced36768167a2c75431abeca4e58052297bcccf3dea3c852d8d87ef13518",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

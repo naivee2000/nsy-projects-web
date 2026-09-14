@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3550",
+  "content_sha256": "b16a989cee7718b3a00b78210594e70673b4b97e28e55b322c86df03d81235ff",
+  "source_hash": "d10840b3cfb0ca15b23a6fe83380df6892094cb7b69e5ab7bce32e36492c1def",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a mismatching digit sum.",
+      "failed_cases": [
+        "lc-3550-1",
+        "lc-3550-2",
+        "lc-3550-3",
+        "lc-3550-4",
+        "lc-3550-5",
+        "lc-3550-6",
+        "lc-3550-7",
+        "lc-3550-8",
+        "lc-3550-9",
+        "lc-3550-10",
+        "lc-3550-11",
+        "lc-3550-12",
+        "lc-3550-13",
+        "lc-3550-14"
+      ]
+    },
+    {
+      "reason": "Returns the array value rather than its index.",
+      "failed_cases": [
+        "lc-3550-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7597,
+  "oracle_implementation": "code_practice/import_batch_194a.py:index_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "a0258f59fa8af898c4927ffbbf3eb14f34ee0bcdce4668072b5a75edd6b40875",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5e4f127b83431187356a2a950c518531ec37cbd624c5c08768d9bcbe7328b2aa",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

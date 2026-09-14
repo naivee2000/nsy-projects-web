@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3637",
+  "content_sha256": "9cbd12b5696f4d5360c2fd6c2a876cf8c10906d1492dd351848423b867207b8d",
+  "source_hash": "f71b31f4390fab193c934ab5689ee4aa60bb69090dab6f1261de8d04ca9e0f23",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows equality in increasing segments.",
+      "failed_cases": [
+        "lc-3637-6",
+        "lc-3637-11"
+      ]
+    },
+    {
+      "reason": "Accepts one trailing violation after the final rise.",
+      "failed_cases": [
+        "lc-3637-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7684,
+  "oracle_implementation": "code_practice/import_batch_194c.py:trionic_oracle",
+  "validator_implementation_sha256": "c658bceeb1db28beb7b9b94267a629bce052bba283018995067439ffb9665f9b",
+  "batch_implementation_sha256": "a5e33c1f9323b96358a9584789ac52a93bafd1da2a86185c98f7a81d6dbec271",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "33a8132e8bff6890fc6e1ebaf2c86cc3312c5b77dbc05141b71fa5c5bce12f0f",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

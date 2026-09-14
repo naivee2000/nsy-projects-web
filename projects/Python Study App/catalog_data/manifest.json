@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2106,
+  "count": 2126,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -37525,6 +37525,356 @@
       "path": "problems/leetcode-3512.json",
       "content_sha256": "dd547ddf2264f3f4250c691eb2c815d9f46b47c312761e2b723e46e34b806526",
       "source_id": 3512
+    },
+    {
+      "id": "leetcode-3516",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Closest Person",
+      "summary": "Given the positions x, y, and z of three people on a number line, where Person 1 and Person 2 move towards Person 3 at the same speed, determine which person reaches Person 3 first by returning 1 if Person 1 arrives first, 2 if Person 2 arrives first, and 0 if both arrive simultaneously.",
+      "topics": [
+        "math",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3516.json",
+      "content_sha256": "7e1175ea0b6a88ee7248f03406eaa786196a5128e6aacc7db1160a9e7b138a0b",
+      "source_id": 3516
+    },
+    {
+      "id": "leetcode-3536",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Product of Two Digits",
+      "summary": "Given a positive integer n, find the highest product resulting from multiplying any two of its digits, allowing the use of the same digit more than once if present.",
+      "topics": [
+        "math",
+        "digits",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3536.json",
+      "content_sha256": "66d7d4756f9631453f1fb53c8de92689f3f6cd173631368ff421c3c50fe2a378",
+      "source_id": 3536
+    },
+    {
+      "id": "leetcode-3541",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Most Frequent Vowel and Consonant",
+      "summary": "Given a string of lowercase English letters, determine the frequency of the most common vowel and the most common consonant.",
+      "topics": [
+        "strings",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3541.json",
+      "content_sha256": "024dfbddfbea3f3642cd6ccf3e7e2c80ff328551aad42cd7a3f35ea1a5a57ae9",
+      "source_id": 3541
+    },
+    {
+      "id": "leetcode-3545",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Deletions for At Most K Distinct Characters",
+      "summary": "Given a string of lowercase English letters and an integer k, remove the minimum number of characters to ensure the remaining string has at most k distinct characters.",
+      "topics": [
+        "strings",
+        "hash maps",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3545.json",
+      "content_sha256": "aa708c452a62ae2b26934b235cc6e04efaea3194f0eb6b4df80670bafcdf3e2e",
+      "source_id": 3545
+    },
+    {
+      "id": "leetcode-3550",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Index With Digit Sum Equal to Index",
+      "summary": "Given an integer array nums, find the smallest index i where the sum of the digits of nums[i] equals i.",
+      "topics": [
+        "arrays",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3550.json",
+      "content_sha256": "b16a989cee7718b3a00b78210594e70673b4b97e28e55b322c86df03d81235ff",
+      "source_id": 3550
+    },
+    {
+      "id": "leetcode-3560",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Minimum Log Transportation Cost",
+      "summary": "Given the integers n, m, and k, you need to transport two logs of lengths n and m units using three trucks, where each truck can carry a log with a length of at most k units.",
+      "topics": [
+        "math",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3560.json",
+      "content_sha256": "c2379ddbb278375d192ef6f43bd2b5b3fd707626fc84ca37e8dfcc333fbba771",
+      "source_id": 3560
+    },
+    {
+      "id": "leetcode-3581",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Odd Letters from Number",
+      "summary": "Given an integer n, convert each digit to its lowercase English word, concatenate these words maintaining the original order, and return the count of distinct characters that appear an odd number of times.",
+      "topics": [
+        "strings",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3581.json",
+      "content_sha256": "1a6fb1b3ae9eceb4c7aaa9e8f31e5af753eb68a7d775ce14648bd2d39cc4c3ff",
+      "source_id": 3581
+    },
+    {
+      "id": "leetcode-3582",
+      "version": 1,
+      "status": "approved",
+      "title": "Generate Tag for Video Caption",
+      "summary": "Given a video caption as a string, create a valid tag by combining all words into a camelCase format starting with '#'.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3582.json",
+      "content_sha256": "3ecc016ad87e9858a74c47f69abeb85cb3df88c8beb9803b31d68878de91dbf5",
+      "source_id": 3582
+    },
+    {
+      "id": "leetcode-3591",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Any Element Has Prime Frequency",
+      "summary": "Given an integer array, determine if any element's occurrence count is a prime number.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3591.json",
+      "content_sha256": "75f8281a9291d7445f402f30c5f8a9dc7e9f65148cc09430df2fe7d6c15a44e7",
+      "source_id": 3591
+    },
+    {
+      "id": "leetcode-3602",
+      "version": 1,
+      "status": "approved",
+      "title": "Hexadecimal and Hexatrigesimal Conversion",
+      "summary": "Given an integer n , square it and convert the result to hexadecimal.",
+      "topics": [
+        "math",
+        "base conversion",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3602.json",
+      "content_sha256": "0c348cfe4e6aacd4390510ef049adc7fe033db702b3b98f224420811b7e7dbff",
+      "source_id": 3602
+    },
+    {
+      "id": "leetcode-3606",
+      "version": 1,
+      "status": "approved",
+      "title": "Coupon Code Validator",
+      "summary": "Given arrays for n coupons, each with a code, businessLine, and isActive status, return an array of valid coupon codes sorted by businessLine category and then lexicographically within each category.",
+      "topics": [
+        "arrays",
+        "strings",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3606.json",
+      "content_sha256": "cf49846b103bc5346624bcd328e5a5f90069c7b30717401f530e9de01ef10129",
+      "source_id": 3606
+    },
+    {
+      "id": "leetcode-3622",
+      "version": 1,
+      "status": "approved",
+      "title": "Check Divisibility by Digit Sum and Product",
+      "summary": "Given a positive integer n, check if it is divisible by the sum of its digit sum and digit product.",
+      "topics": [
+        "math",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3622.json",
+      "content_sha256": "74953c13580b76e56e14ae97d20c3f4a5b9ab1dd322f2e5f8867c445e70f1abc",
+      "source_id": 3622
+    },
+    {
+      "id": "leetcode-3633",
+      "version": 1,
+      "status": "approved",
+      "title": "Earliest Finish Time for Land and Water Rides I",
+      "summary": "Given the start times and durations for land and water rides, determine the earliest possible time at which a tourist can finish both rides, one from each category.",
+      "topics": [
+        "arrays",
+        "enumeration",
+        "scheduling"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3633.json",
+      "content_sha256": "658e08c056c3a323d6753c2e1e3ecc16d214b506891329a917bfb4eb106dca6c",
+      "source_id": 3633
+    },
+    {
+      "id": "leetcode-3637",
+      "version": 1,
+      "status": "approved",
+      "title": "Trionic Array I",
+      "summary": "Given an integer array of length n, determine if there exist indices 0 < p < q < n - 1 where the array segments nums[0...p], nums[p...q], and nums[q...n-1] are strictly increasing, strictly decreasing, and strictly increasing respectively.",
+      "topics": [
+        "arrays",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3637.json",
+      "content_sha256": "9cbd12b5696f4d5360c2fd6c2a876cf8c10906d1492dd351848423b867207b8d",
+      "source_id": 3637
+    },
+    {
+      "id": "leetcode-3643",
+      "version": 1,
+      "status": "approved",
+      "title": "Flip Square Submatrix Vertically",
+      "summary": "Given an m x n integer matrix grid, along with coordinates (x, y) for the top-left corner of a square submatrix and an integer k for its size, reverse the order of the rows within the submatrix vertically.",
+      "topics": [
+        "matrices",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3643.json",
+      "content_sha256": "db0a8333c752a103e95b7dc21a237ab1beb84cfd7a954063cac6daf713298895",
+      "source_id": 3643
+    },
+    {
+      "id": "leetcode-3658",
+      "version": 1,
+      "status": "approved",
+      "title": "GCD of Odd and Even Sums",
+      "summary": "Given an integer n, calculate the greatest common divisor of the sum of the first n smallest positive odd numbers and the sum of the first n smallest positive even numbers.",
+      "topics": [
+        "math",
+        "number theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3658.json",
+      "content_sha256": "17fb9181757f21c90a0008e87471ff7cbfdc016be0e6aa1e310dd18862e4d28e",
+      "source_id": 3658
+    },
+    {
+      "id": "leetcode-3662",
+      "version": 1,
+      "status": "approved",
+      "title": "Filter Characters by Frequency",
+      "summary": "Given a string s of lowercase English letters and an integer k, create a new string containing only characters that appear fewer than k times in s, maintaining their original order.",
+      "topics": [
+        "strings",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3662.json",
+      "content_sha256": "e2f8473d577466842024d6c406511b2bda399f5542b006d5232e20e46fe18b7e",
+      "source_id": 3662
+    },
+    {
+      "id": "leetcode-3663",
+      "version": 1,
+      "status": "approved",
+      "title": "Find The Least Frequent Digit",
+      "summary": "Given an integer n, determine the digit that appears least frequently in its decimal representation.",
+      "topics": [
+        "math",
+        "digits",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3663.json",
+      "content_sha256": "f43e41c6e16a931daf75b02b84713fca27f3ca1b9629a9f30cb8ba85cac1168d",
+      "source_id": 3663
+    },
+    {
+      "id": "leetcode-3667",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort Array By Absolute Value",
+      "summary": "Given an integer array, rearrange its elements in ascending order based on their absolute values.",
+      "topics": [
+        "arrays",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3667.json",
+      "content_sha256": "7d1a470ac456cb7b9441008fb0fbf2e8b0cab9ed06b135c4ae93b492ce345f20",
+      "source_id": 3667
+    },
+    {
+      "id": "leetcode-3668",
+      "version": 1,
+      "status": "approved",
+      "title": "Restore Finishing Order",
+      "summary": "Given an integer array order of length n representing the finishing order of a race, where each integer from 1 to n appears exactly once, and an integer array friends containing the IDs of your friends sorted in strictly increasing order, return an array containing the IDs of your friends in the order they finished the race.",
+      "topics": [
+        "arrays",
+        "sets",
+        "filtering"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3668.json",
+      "content_sha256": "3146988b6ca45a87c5e25d74aed6c7ba0a0c3eaf5d6aaaa7aa54cfb68221dcbe",
+      "source_id": 3668
     }
   ]
 }
