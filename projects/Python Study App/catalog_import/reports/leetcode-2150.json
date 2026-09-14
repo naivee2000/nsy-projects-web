@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2150",
+  "content_sha256": "45c1cd5ad5ba65ed9ca50c08b78477660ae88b164ab9a0727c82be336b13ffc8",
+  "source_hash": "e698dd3086a0097726dc315570107a2ad590fbaf95ea0e467f5e50092db83268",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows duplicated values to qualify as lonely.",
+      "failed_cases": [
+        "lc-2150-2",
+        "lc-2150-4",
+        "lc-2150-12",
+        "lc-2150-15"
+      ]
+    },
+    {
+      "reason": "Checks distance two on the lower side instead of the adjacent value.",
+      "failed_cases": [
+        "lc-2150-1",
+        "lc-2150-2",
+        "lc-2150-5",
+        "lc-2150-6",
+        "lc-2150-8",
+        "lc-2150-10",
+        "lc-2150-11",
+        "lc-2150-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6197,
+  "oracle_implementation": "code_practice/import_batch_120d.py:lonely_o",
+  "validator_implementation_sha256": "e6e7ee0f5eb31ae939595fff0432fbdfce2e935381b83a33b424464f4bc6ab30",
+  "batch_implementation_sha256": "f47d9b9fda3c13e058678af00c22d84fa6b7a61931e130f580fcf0ca271345d3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ea8183c0f51d6366da8b962bac7d20f45ab3e96ab04f8e3a2d4c88f8847a3547",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

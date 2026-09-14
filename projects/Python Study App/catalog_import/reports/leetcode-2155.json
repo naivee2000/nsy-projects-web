@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2155",
+  "content_sha256": "71c0e29c212728323403a4b57543e4c4c27d324954e0b98f4e63f4c1a056bdf8",
+  "source_hash": "a3fca6c28d683150692665f15043f82d8dad3d1886860da40ce75b5a3c3a59d2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never evaluates the final split after every element has moved left.",
+      "failed_cases": [
+        "lc-2155-1",
+        "lc-2155-2",
+        "lc-2155-3",
+        "lc-2155-6",
+        "lc-2155-7",
+        "lc-2155-11",
+        "lc-2155-13"
+      ]
+    },
+    {
+      "reason": "Counts left-side ones instead of zeros.",
+      "failed_cases": [
+        "lc-2155-1",
+        "lc-2155-2",
+        "lc-2155-3",
+        "lc-2155-4",
+        "lc-2155-5",
+        "lc-2155-6",
+        "lc-2155-7",
+        "lc-2155-8",
+        "lc-2155-9",
+        "lc-2155-10",
+        "lc-2155-11",
+        "lc-2155-12",
+        "lc-2155-13",
+        "lc-2155-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6202,
+  "oracle_implementation": "code_practice/import_batch_120d.py:scores_o",
+  "validator_implementation_sha256": "e6e7ee0f5eb31ae939595fff0432fbdfce2e935381b83a33b424464f4bc6ab30",
+  "batch_implementation_sha256": "f47d9b9fda3c13e058678af00c22d84fa6b7a61931e130f580fcf0ca271345d3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "07526a7972f9a4789f90fdec4122bb0c01c9394ff2a03b2421709f2746d0e286",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

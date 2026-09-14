@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2152",
+  "content_sha256": "f55925df15cd22cd96ebbc9228f1222a524f2887db27a90be46b41ed11427b24",
+  "source_hash": "8c18da86f904e785ab4b6147314981812b58ab7615c0cff5d6f7eb4d7b57f567",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips pairing the first uncovered point with its immediate next point.",
+      "failed_cases": [
+        "lc-2152-4",
+        "lc-2152-9"
+      ]
+    },
+    {
+      "reason": "Adds an unnecessary extra line to every result.",
+      "failed_cases": [
+        "lc-2152-1",
+        "lc-2152-2",
+        "lc-2152-3",
+        "lc-2152-4",
+        "lc-2152-5",
+        "lc-2152-6",
+        "lc-2152-7",
+        "lc-2152-8",
+        "lc-2152-9",
+        "lc-2152-10",
+        "lc-2152-11",
+        "lc-2152-12",
+        "lc-2152-13",
+        "lc-2152-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6199,
+  "oracle_implementation": "code_practice/import_batch_120d.py:lines_o",
+  "validator_implementation_sha256": "e6e7ee0f5eb31ae939595fff0432fbdfce2e935381b83a33b424464f4bc6ab30",
+  "batch_implementation_sha256": "f47d9b9fda3c13e058678af00c22d84fa6b7a61931e130f580fcf0ca271345d3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f96a680995f22298822d65d1b4ce6938773a1a7867e64fda66a6ea4b8489cf10",
+  "elapsed_seconds": 0.135,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

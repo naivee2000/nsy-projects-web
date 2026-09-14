@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2151",
+  "content_sha256": "4eec1a94e1654e9ac7d910fa30f369dff850c46b1b2a0bbdebe4518d64dfd3fb",
+  "source_hash": "ff54bc1a193b8d50736e4a959e43575ee2405c53437c6e331b37f4a319b67729",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks statements made by bad people and ignores the required truthful people.",
+      "failed_cases": [
+        "lc-2151-1",
+        "lc-2151-2",
+        "lc-2151-5",
+        "lc-2151-7",
+        "lc-2151-8",
+        "lc-2151-10",
+        "lc-2151-11",
+        "lc-2151-12",
+        "lc-2151-13"
+      ]
+    },
+    {
+      "reason": "Treats unknown statements as definite constraints while ignoring zero and one claims.",
+      "failed_cases": [
+        "lc-2151-1",
+        "lc-2151-2",
+        "lc-2151-3",
+        "lc-2151-4",
+        "lc-2151-5",
+        "lc-2151-6",
+        "lc-2151-7",
+        "lc-2151-8",
+        "lc-2151-9",
+        "lc-2151-10",
+        "lc-2151-11",
+        "lc-2151-13",
+        "lc-2151-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6198,
+  "oracle_implementation": "code_practice/import_batch_120d.py:good_o",
+  "validator_implementation_sha256": "e6e7ee0f5eb31ae939595fff0432fbdfce2e935381b83a33b424464f4bc6ab30",
+  "batch_implementation_sha256": "f47d9b9fda3c13e058678af00c22d84fa6b7a61931e130f580fcf0ca271345d3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f370786ee13ee9994ac9c6fbd62b9bcdd4a99b631932a10a9b78517e3e4934e1",
+  "elapsed_seconds": 0.08,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
