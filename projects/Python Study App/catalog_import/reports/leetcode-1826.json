@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1826",
+  "content_sha256": "b5b3eb6ab6cee102f21941188d96f52f998a5c77d06ff56db580c0706ae3fd23",
+  "source_hash": "17d29dc1cd326a89c5959b208fd0e3ffe9e5acdafa25f345c11c8fd85759bb4b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reports the opposite sensor for the first decisive mismatch.",
+      "failed_cases": [
+        "lc-1826-1",
+        "lc-1826-5",
+        "lc-1826-6",
+        "lc-1826-8",
+        "lc-1826-10",
+        "lc-1826-13"
+      ]
+    },
+    {
+      "reason": "Claims sensor one even when the result is ambiguous.",
+      "failed_cases": [
+        "lc-1826-2",
+        "lc-1826-3",
+        "lc-1826-11",
+        "lc-1826-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5873,
+  "oracle_implementation": "code_practice/import_batch_107b.py:sensor_o",
+  "validator_implementation_sha256": "f70e556e20d5558d987ec41fe9f63b0fe8ca91ba41f59ba2544c098b8140705b",
+  "batch_implementation_sha256": "d019dbb2f3a29c2e1f5e07d2995f5a4e0e403502ea1bf7871b9eeb9990c0381d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f74b711b7565ccc9f17ee40a4b6575356669a6910b1784edd1706654f0a1072a",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

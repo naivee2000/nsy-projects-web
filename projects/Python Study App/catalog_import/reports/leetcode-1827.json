@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1827",
+  "content_sha256": "a9f527497bbb13e1f64da9d3c75ef7d35be11f10a442a49f15a2a918dcc2614f",
+  "source_hash": "b0bd0777b3cc533224c644f28cc07e16cc11800d3ed0714c8c546544ce2fbe64",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows equal adjacent values instead of strict increase.",
+      "failed_cases": [
+        "lc-1827-1",
+        "lc-1827-2",
+        "lc-1827-4",
+        "lc-1827-6",
+        "lc-1827-8",
+        "lc-1827-9",
+        "lc-1827-10",
+        "lc-1827-11",
+        "lc-1827-12",
+        "lc-1827-13",
+        "lc-1827-14"
+      ]
+    },
+    {
+      "reason": "Forgets increments when establishing the next lower bound.",
+      "failed_cases": [
+        "lc-1827-1",
+        "lc-1827-2",
+        "lc-1827-6",
+        "lc-1827-8",
+        "lc-1827-9",
+        "lc-1827-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5874,
+  "oracle_implementation": "code_practice/import_batch_107b.py:increasing_o",
+  "validator_implementation_sha256": "f70e556e20d5558d987ec41fe9f63b0fe8ca91ba41f59ba2544c098b8140705b",
+  "batch_implementation_sha256": "d019dbb2f3a29c2e1f5e07d2995f5a4e0e403502ea1bf7871b9eeb9990c0381d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "52bfb0a92210cb591f590ca12d3180e1138e01436e501feee365609157d80319",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

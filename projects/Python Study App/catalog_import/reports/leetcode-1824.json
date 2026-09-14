@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1824",
+  "content_sha256": "ee61cbf0f2208e7641eac318fb9d7fafad149593611828ae5005476cb7c12e6e",
+  "source_hash": "81392818c8ac6d53591609497cb31382b79ce8531c43c3a399d867e1eef87ae3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts as though the frog were in lanes one and three.",
+      "failed_cases": [
+        "lc-1824-1",
+        "lc-1824-2",
+        "lc-1824-5",
+        "lc-1824-7",
+        "lc-1824-9",
+        "lc-1824-11",
+        "lc-1824-12",
+        "lc-1824-14"
+      ]
+    },
+    {
+      "reason": "Bases every side jump on the worst rather than best reachable lane.",
+      "failed_cases": [
+        "lc-1824-1",
+        "lc-1824-7",
+        "lc-1824-9",
+        "lc-1824-10",
+        "lc-1824-11",
+        "lc-1824-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5871,
+  "oracle_implementation": "code_practice/import_batch_107b.py:jumps_o",
+  "validator_implementation_sha256": "f70e556e20d5558d987ec41fe9f63b0fe8ca91ba41f59ba2544c098b8140705b",
+  "batch_implementation_sha256": "d019dbb2f3a29c2e1f5e07d2995f5a4e0e403502ea1bf7871b9eeb9990c0381d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "16c4207eca67213dbfc430af0c7daa01bd3f8116ee74b3aa3ad2270ec8c343cf",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

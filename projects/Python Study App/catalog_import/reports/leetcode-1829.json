@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1829",
+  "content_sha256": "26ff8012c123258ab38fdf5eb5b3ad5db749ae32d4b47125ace3701d267eccda",
+  "source_hash": "df8fd7c9b705dc6fa5b3629c07c184e3b1daa3b9dfc1ace8caf7293f8b3f6421",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the current XOR rather than its bit-limited complement.",
+      "failed_cases": [
+        "lc-1829-1",
+        "lc-1829-2",
+        "lc-1829-3",
+        "lc-1829-4",
+        "lc-1829-5",
+        "lc-1829-6",
+        "lc-1829-7",
+        "lc-1829-8",
+        "lc-1829-9",
+        "lc-1829-10",
+        "lc-1829-11",
+        "lc-1829-12",
+        "lc-1829-13",
+        "lc-1829-14"
+      ]
+    },
+    {
+      "reason": "Updates the shrinking aggregate by addition instead of removing an element with XOR.",
+      "failed_cases": [
+        "lc-1829-1",
+        "lc-1829-2",
+        "lc-1829-5",
+        "lc-1829-7",
+        "lc-1829-8",
+        "lc-1829-9",
+        "lc-1829-10",
+        "lc-1829-11",
+        "lc-1829-12",
+        "lc-1829-13",
+        "lc-1829-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5876,
+  "oracle_implementation": "code_practice/import_batch_107b.py:maxxor_o",
+  "validator_implementation_sha256": "f70e556e20d5558d987ec41fe9f63b0fe8ca91ba41f59ba2544c098b8140705b",
+  "batch_implementation_sha256": "d019dbb2f3a29c2e1f5e07d2995f5a4e0e403502ea1bf7871b9eeb9990c0381d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cb23061829306ad8f0cbe0fbde844ebe2c107507ba827ccd747f3a8570abedc6",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
