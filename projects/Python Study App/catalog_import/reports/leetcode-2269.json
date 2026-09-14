@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2269",
+  "content_sha256": "af04e2ad6cde933ebe44dd124c0c94ac9067d9a85188f85e250e0a25ea6b5f5f",
+  "source_hash": "bbd05ca92879ef204210601f239be88e37c5bfa132b7943d3aed9010cb81db84",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts a zero-valued window as a divisor even though zero is explicitly excluded.",
+      "failed_cases": [
+        "lc-2269-2",
+        "lc-2269-4",
+        "lc-2269-5",
+        "lc-2269-6",
+        "lc-2269-11"
+      ]
+    },
+    {
+      "reason": "Omits the final length-k window.",
+      "failed_cases": [
+        "lc-2269-1",
+        "lc-2269-2",
+        "lc-2269-3",
+        "lc-2269-8",
+        "lc-2269-9",
+        "lc-2269-11",
+        "lc-2269-12",
+        "lc-2269-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6316,
+  "oracle_implementation": "code_practice/import_batch_125d.py:beauty_oracle",
+  "validator_implementation_sha256": "c649f8878693a97ab73b8c77f9889799550667104542e70666d8573a53d4e204",
+  "batch_implementation_sha256": "def82f6a83ed59299e1525a75de84c751bd3937a335107a701cf890d98803dd1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e2c80f8a9869ed4fb50036f572a0415570154d1931c8fb2d0e7e7f428a24274d",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2266",
+  "content_sha256": "a45be17e7ac5cbdd24c0466ddb6e5e78a0770ff3f699044244e0194e6fbac582",
+  "source_hash": "b60b436c9ca32169d66dd9a2104a088e9f91f4c3c141e6b0724ecaa9ee638c84",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats digit nine as having only three mapped letters.",
+      "failed_cases": [
+        "lc-2266-10",
+        "lc-2266-11"
+      ]
+    },
+    {
+      "reason": "Every transition reuses only the immediately preceding state instead of the state before its chosen group.",
+      "failed_cases": [
+        "lc-2266-1",
+        "lc-2266-2",
+        "lc-2266-5",
+        "lc-2266-6",
+        "lc-2266-8",
+        "lc-2266-10",
+        "lc-2266-11",
+        "lc-2266-12",
+        "lc-2266-13",
+        "lc-2266-14",
+        "lc-2266-15",
+        "lc-2266-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6313,
+  "oracle_implementation": "code_practice/import_batch_125d.py:texts_oracle",
+  "validator_implementation_sha256": "c649f8878693a97ab73b8c77f9889799550667104542e70666d8573a53d4e204",
+  "batch_implementation_sha256": "def82f6a83ed59299e1525a75de84c751bd3937a335107a701cf890d98803dd1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4ff0bcebbaf93a71a8360885e5eb523d4b37a6fb5dec08b15c3ab66a688fe217",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

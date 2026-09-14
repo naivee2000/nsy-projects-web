@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2267",
+  "content_sha256": "c722e7349a3519f875e93e24254fc6536f9171e27db9bb13db9623a679bc2fd2",
+  "source_hash": "a7fb35a179e94f828ba8f9aeaebf41e58b11192657d05461f711f0e4f50fcbb6",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a path prefix balance of negative one.",
+      "failed_cases": [
+        "lc-2267-15"
+      ]
+    },
+    {
+      "reason": "Rejects even-length paths and accepts the impossible odd path-length parity.",
+      "failed_cases": [
+        "lc-2267-1",
+        "lc-2267-3",
+        "lc-2267-6",
+        "lc-2267-10",
+        "lc-2267-11",
+        "lc-2267-12",
+        "lc-2267-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6314,
+  "oracle_implementation": "code_practice/import_batch_125d.py:parentheses_oracle",
+  "validator_implementation_sha256": "c649f8878693a97ab73b8c77f9889799550667104542e70666d8573a53d4e204",
+  "batch_implementation_sha256": "def82f6a83ed59299e1525a75de84c751bd3937a335107a701cf890d98803dd1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6f0fa035ce075c46dcbf1c3c556b6698c5b35e22b68c3c447c6296a97c4154ee",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

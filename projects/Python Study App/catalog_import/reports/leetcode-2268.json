@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2268",
+  "content_sha256": "a923e76d9789900e47056947cb733784096a13257d67575d0fffeff6462c2b75",
+  "source_hash": "dcb2d280a018431b8932dacdd5b3eac8354cab3bff53d62c223518a057835f9b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only eight slots per press level instead of nine.",
+      "failed_cases": [
+        "lc-2268-2",
+        "lc-2268-4",
+        "lc-2268-5",
+        "lc-2268-6",
+        "lc-2268-9"
+      ]
+    },
+    {
+      "reason": "Assigns the most frequent letters to the most expensive slots.",
+      "failed_cases": [
+        "lc-2268-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6315,
+  "oracle_implementation": "code_practice/import_batch_125d.py:keypress_oracle",
+  "validator_implementation_sha256": "c649f8878693a97ab73b8c77f9889799550667104542e70666d8573a53d4e204",
+  "batch_implementation_sha256": "def82f6a83ed59299e1525a75de84c751bd3937a335107a701cf890d98803dd1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ef860a96c5def60fd2017ebd942ec3899efee7376d3966c695aab6964624a1e0",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

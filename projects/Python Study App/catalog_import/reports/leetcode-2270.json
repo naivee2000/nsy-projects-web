@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2270",
+  "content_sha256": "2f9159d7b9547e2c505483db35933f1bbc0b7d34f50c1a7fa187d914fbb2e1ca",
+  "source_hash": "5de3ebdfae25cec46596622d3cbc73c06c86c287266e66226c359dc4b5ff0a8c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a split after the final element and counts an empty right side.",
+      "failed_cases": [
+        "lc-2270-1",
+        "lc-2270-2",
+        "lc-2270-3",
+        "lc-2270-4",
+        "lc-2270-5",
+        "lc-2270-7",
+        "lc-2270-8",
+        "lc-2270-9",
+        "lc-2270-10",
+        "lc-2270-11",
+        "lc-2270-14"
+      ]
+    },
+    {
+      "reason": "Requires strict inequality and omits equal-sum splits.",
+      "failed_cases": [
+        "lc-2270-3",
+        "lc-2270-6",
+        "lc-2270-9",
+        "lc-2270-13",
+        "lc-2270-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6317,
+  "oracle_implementation": "code_practice/import_batch_125d.py:split_oracle",
+  "validator_implementation_sha256": "c649f8878693a97ab73b8c77f9889799550667104542e70666d8573a53d4e204",
+  "batch_implementation_sha256": "def82f6a83ed59299e1525a75de84c751bd3937a335107a701cf890d98803dd1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8752043b14fd389bf0214c0247f344f1746dac7e8e31835f1d58ddc7891a60fe",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
