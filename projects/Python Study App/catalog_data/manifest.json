@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1218,
+  "count": 1223,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -21520,6 +21520,96 @@
       "path": "problems/leetcode-1790.json",
       "content_sha256": "6838238ec7fe3a4855f8540085a85b3b2e65b79f98c7758a52a6305719a9e0b9",
       "source_id": 1790
+    },
+    {
+      "id": "leetcode-1791",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Center of Star Graph",
+      "summary": "Given an undirected star graph with n nodes numbered 1 to n, where one node is the center and is connected to all other nodes by exactly n - 1 edges, identify the center node from a 2D integer array of edges.",
+      "topics": [
+        "graphs"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1791.json",
+      "content_sha256": "694df944488074c44e1bfcb6eb88d4382aa8bd61f1c8e85cf58fd5d44dd7608a",
+      "source_id": 1791
+    },
+    {
+      "id": "leetcode-1792",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Average Pass Ratio",
+      "summary": "Given a school with classes having varying numbers of students and pass rates, and an additional number of guaranteed-pass students, determine the best assignment of these students to classes to maximize the overall pass rate.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "heaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1792.json",
+      "content_sha256": "95d0f80e07820f60b96293eabf29fc940b454d17a4d2a43c95d2e951ee54757c",
+      "source_id": 1792
+    },
+    {
+      "id": "leetcode-1793",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Score of a Good Subarray",
+      "summary": "Given an array of integers and an integer k, find the maximum score of a subarray where the score is the minimum value in the subarray multiplied by its length, and the subarray must include the k-th element.",
+      "topics": [
+        "arrays",
+        "two-pointers",
+        "greedy",
+        "monotonic-stacks"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1793.json",
+      "content_sha256": "c96be9067f9225cf40c3d80f4c5109ea02c78d5f83d36959347d0762aaf1356a",
+      "source_id": 1793
+    },
+    {
+      "id": "leetcode-1794",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Pairs of Equal Substrings With Minimum Difference",
+      "summary": "Given two strings, count the number of index quadruples (i,j,a,b) where the substring from i to j in the first string matches the substring from a to b in the second string, and the difference between j and a is minimized among all matching substrings.",
+      "topics": [
+        "strings",
+        "hash-maps",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1794.json",
+      "content_sha256": "6c0cbb5dbacccb409d31d049e01c4474423cbfb4ae01d4ab4fae12d658b586fa",
+      "source_id": 1794
+    },
+    {
+      "id": "leetcode-1796",
+      "version": 1,
+      "status": "approved",
+      "title": "Second Largest Digit in a String",
+      "summary": "For an alphanumeric string s, identify the second highest digit present, or return -1 if no second highest digit exists.",
+      "topics": [
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1796.json",
+      "content_sha256": "9d9aa3dcce7dfded5f9340549d1fa8d8bd46290103461f9d5b7e1da6d5f21f9f",
+      "source_id": 1796
     }
   ]
 }

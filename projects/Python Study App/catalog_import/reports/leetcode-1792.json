@@ -1,0 +1,63 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1792",
+  "content_sha256": "95d0f80e07820f60b96293eabf29fc940b454d17a4d2a43c95d2e951ee54757c",
+  "source_hash": "94d1aac2f2b03421bbe3a0fd77bea1370b3960d294bdd3e16572a2a7780d9725",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Does not reliably choose the maximum-gain class from the heap.",
+      "failed_cases": [
+        "lc-1792-1",
+        "lc-1792-2",
+        "lc-1792-6",
+        "lc-1792-7",
+        "lc-1792-8",
+        "lc-1792-9",
+        "lc-1792-10",
+        "lc-1792-11",
+        "lc-1792-12",
+        "lc-1792-13",
+        "lc-1792-14",
+        "lc-1792-15"
+      ]
+    },
+    {
+      "reason": "Prioritizes current pass ratio instead of marginal improvement.",
+      "failed_cases": [
+        "lc-1792-1",
+        "lc-1792-2",
+        "lc-1792-6",
+        "lc-1792-7",
+        "lc-1792-8",
+        "lc-1792-9",
+        "lc-1792-10",
+        "lc-1792-11",
+        "lc-1792-12",
+        "lc-1792-13",
+        "lc-1792-14",
+        "lc-1792-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5839,
+  "oracle_implementation": "code_practice/import_batch_106.py:ratio_o",
+  "validator_implementation_sha256": "22d125423f40746d109fc916eeabd8f2d41db6fa87b8a2a130585c7bce083bf1",
+  "batch_implementation_sha256": "3c43620fb5dcf388e2b81998b7b5aa7e645c75ef046ec1047b65a453f1e600b9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d04e4fe89b693e4566086291955a192e32155b36eb2ca705c9c1fc58ff90ca8b",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "original input preserved; erroneous workbook output explicitly corrected",
+  "sample_correction": {
+    "original_expected": 0.78333,
+    "corrected_expected": 0.7833333333333333,
+    "reason": "The workbook rounds the repeating decimal to five places; the exact ratio is 47/60.",
+    "original_sample": "Input classes = [[1,2],[3,5],[2,2]], extraStudents = 2 → Output 0.78333.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/1700-1799/1792.Maximum%20Average%20Pass%20Ratio/README_EN.md"
+  }
+}

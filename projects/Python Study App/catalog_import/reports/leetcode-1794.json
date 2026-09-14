@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1794",
+  "content_sha256": "6c0cbb5dbacccb409d31d049e01c4474423cbfb4ae01d4ab4fae12d658b586fa",
+  "source_hash": "bfea3d68592a5523ccd3f593e6a78b191bf71d91749f2a05a7bea2bd7620d1a1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stores the first position as zero for every character instead of its latest occurrence.",
+      "failed_cases": [
+        "lc-1794-7"
+      ]
+    },
+    {
+      "reason": "Maximizes the index difference rather than minimizing it.",
+      "failed_cases": [
+        "lc-1794-1",
+        "lc-1794-3",
+        "lc-1794-5",
+        "lc-1794-6",
+        "lc-1794-7",
+        "lc-1794-8",
+        "lc-1794-9",
+        "lc-1794-10",
+        "lc-1794-11",
+        "lc-1794-12",
+        "lc-1794-13",
+        "lc-1794-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5841,
+  "oracle_implementation": "code_practice/import_batch_106.py:quadruples_o",
+  "validator_implementation_sha256": "22d125423f40746d109fc916eeabd8f2d41db6fa87b8a2a130585c7bce083bf1",
+  "batch_implementation_sha256": "3c43620fb5dcf388e2b81998b7b5aa7e645c75ef046ec1047b65a453f1e600b9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1f8bc84461e217adb1174d571a839ff95437a8eef9c5ceab298c02144acdb879",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

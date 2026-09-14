@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1793",
+  "content_sha256": "c96be9067f9225cf40c3d80f4c5109ea02c78d5f83d36959347d0762aaf1356a",
+  "source_hash": "18db70696e4f35ea6402860c1ac3c8ae7fe6bf168e170858a6c2960e00f1c7ba",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Expands toward the smaller boundary and lowers the running minimum prematurely.",
+      "failed_cases": [
+        "lc-1793-1",
+        "lc-1793-6",
+        "lc-1793-7",
+        "lc-1793-9",
+        "lc-1793-10",
+        "lc-1793-13"
+      ]
+    },
+    {
+      "reason": "Omits one element from every subarray length.",
+      "failed_cases": [
+        "lc-1793-1",
+        "lc-1793-2",
+        "lc-1793-5",
+        "lc-1793-6",
+        "lc-1793-7",
+        "lc-1793-8",
+        "lc-1793-9",
+        "lc-1793-10",
+        "lc-1793-11",
+        "lc-1793-13",
+        "lc-1793-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5840,
+  "oracle_implementation": "code_practice/import_batch_106.py:score_o",
+  "validator_implementation_sha256": "22d125423f40746d109fc916eeabd8f2d41db6fa87b8a2a130585c7bce083bf1",
+  "batch_implementation_sha256": "3c43620fb5dcf388e2b81998b7b5aa7e645c75ef046ec1047b65a453f1e600b9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d4a372966b73b9ebc709c72dffe73c4d140520baedd94479e80e5aa1125a8290",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1796",
+  "content_sha256": "9d9aa3dcce7dfded5f9340549d1fa8d8bd46290103461f9d5b7e1da6d5f21f9f",
+  "source_hash": "0c76cd81af6a72b32150fd625f5330db1e551abaebef6eb0dec8d4aaa9f184d3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats a duplicate maximum digit as the second distinct value.",
+      "failed_cases": [
+        "lc-1796-2",
+        "lc-1796-11",
+        "lc-1796-12",
+        "lc-1796-13",
+        "lc-1796-16"
+      ]
+    },
+    {
+      "reason": "Returns the largest digit rather than the second largest.",
+      "failed_cases": [
+        "lc-1796-1",
+        "lc-1796-2",
+        "lc-1796-3",
+        "lc-1796-4",
+        "lc-1796-5",
+        "lc-1796-6",
+        "lc-1796-7",
+        "lc-1796-9",
+        "lc-1796-10",
+        "lc-1796-11",
+        "lc-1796-12",
+        "lc-1796-13",
+        "lc-1796-14",
+        "lc-1796-15",
+        "lc-1796-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5843,
+  "oracle_implementation": "code_practice/import_batch_106.py:digit_o",
+  "validator_implementation_sha256": "22d125423f40746d109fc916eeabd8f2d41db6fa87b8a2a130585c7bce083bf1",
+  "batch_implementation_sha256": "3c43620fb5dcf388e2b81998b7b5aa7e645c75ef046ec1047b65a453f1e600b9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "38b1816efc1e45a581411761c043a17c306fccc159030b3c3c93a74341a89e5f",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

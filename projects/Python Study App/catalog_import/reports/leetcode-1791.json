@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1791",
+  "content_sha256": "694df944488074c44e1bfcb6eb88d4382aa8bd61f1c8e85cf58fd5d44dd7608a",
+  "source_hash": "2f28818687701f351b58083de05c85b2fc9ee48767c3a563ad63f9208921f6c9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Selects the non-shared endpoint.",
+      "failed_cases": [
+        "lc-1791-1",
+        "lc-1791-2",
+        "lc-1791-3",
+        "lc-1791-4",
+        "lc-1791-5",
+        "lc-1791-6",
+        "lc-1791-7",
+        "lc-1791-8",
+        "lc-1791-9",
+        "lc-1791-10",
+        "lc-1791-11",
+        "lc-1791-12",
+        "lc-1791-13",
+        "lc-1791-14"
+      ]
+    },
+    {
+      "reason": "Returns an arbitrary endpoint from the second edge.",
+      "failed_cases": [
+        "lc-1791-3",
+        "lc-1791-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5838,
+  "oracle_implementation": "code_practice/import_batch_106.py:center_o",
+  "validator_implementation_sha256": "22d125423f40746d109fc916eeabd8f2d41db6fa87b8a2a130585c7bce083bf1",
+  "batch_implementation_sha256": "3c43620fb5dcf388e2b81998b7b5aa7e645c75ef046ec1047b65a453f1e600b9",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "49d9d001601aa00c8dcddaa70879127d9580467ad6fd4e4a20cabe686d7baeb5",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
