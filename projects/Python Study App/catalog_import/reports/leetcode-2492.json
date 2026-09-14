@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2492",
+  "content_sha256": "69d5b2fd1ae2ee954cd0e481bbfbf84c48684997e57667617e3b7fbf1f8be1d5",
+  "source_hash": "65745de8da760e2807cf8c3dc206e5385ad050a93afbd58db6254ff93570fa91",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks the largest component edge instead of the smallest.",
+      "failed_cases": [
+        "lc-2492-1",
+        "lc-2492-2",
+        "lc-2492-3",
+        "lc-2492-4",
+        "lc-2492-5",
+        "lc-2492-6",
+        "lc-2492-7",
+        "lc-2492-8",
+        "lc-2492-9",
+        "lc-2492-10",
+        "lc-2492-11",
+        "lc-2492-12",
+        "lc-2492-13",
+        "lc-2492-14",
+        "lc-2492-15",
+        "lc-2492-16"
+      ]
+    },
+    {
+      "reason": "Treats the undirected roads as one-way edges and can miss reachable cities.",
+      "failed_cases": [
+        "lc-2492-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6539,
+  "oracle_implementation": "code_practice/import_batch_147.py:score_oracle",
+  "validator_implementation_sha256": "5113f50805e73b54eeab81dc855c11d7bfabb2679ee18779a85ed0fd7bac0d0e",
+  "batch_implementation_sha256": "3ec8f3c1aa6f7736fad10873bf4f95413b42d1e9672a60086c91e7205705a1bf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3fd09283ac69a652342f6bc3dc9176666a50f57cc63c605ba67ecaa0d93b3f03",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

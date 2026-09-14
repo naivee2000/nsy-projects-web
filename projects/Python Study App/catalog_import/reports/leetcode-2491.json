@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2491",
+  "content_sha256": "4d957641b4cf7c052a9cd1fdf128635cee3b0795b2059f22ddee7bd45d23c9d3",
+  "source_hash": "60f7601e71c2ea6a23efb7deae4fbeeca4f22878cf6c6fe03d51c0999bac72a0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the two smallest skills to define the target instead of opposite extremes.",
+      "failed_cases": [
+        "lc-2491-1",
+        "lc-2491-6",
+        "lc-2491-8",
+        "lc-2491-9",
+        "lc-2491-10",
+        "lc-2491-11",
+        "lc-2491-13",
+        "lc-2491-14",
+        "lc-2491-15",
+        "lc-2491-16"
+      ]
+    },
+    {
+      "reason": "Adds pair skills rather than multiplying them for chemistry.",
+      "failed_cases": [
+        "lc-2491-1",
+        "lc-2491-3",
+        "lc-2491-4",
+        "lc-2491-7",
+        "lc-2491-9",
+        "lc-2491-10",
+        "lc-2491-11",
+        "lc-2491-12",
+        "lc-2491-13",
+        "lc-2491-14",
+        "lc-2491-15",
+        "lc-2491-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6538,
+  "oracle_implementation": "code_practice/import_batch_147.py:players_oracle",
+  "validator_implementation_sha256": "5113f50805e73b54eeab81dc855c11d7bfabb2679ee18779a85ed0fd7bac0d0e",
+  "batch_implementation_sha256": "3ec8f3c1aa6f7736fad10873bf4f95413b42d1e9672a60086c91e7205705a1bf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4c5847e92c0ba75c2b4fb0ef7b6d95b52ac3cbcdf458762ff4b3f1631bf053f5",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
