@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2330",
+  "content_sha256": "fda92e79a0ed9dcaf2290f4a81722fdae9878b0a04e21301ace5b24bf045df1d",
+  "source_hash": "eb1f522b5ee4e2c5e5b1a39cbd938230a85929f4761ed55228d1c68842cc1a90",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows only one mismatched mirrored pair.",
+      "failed_cases": [
+        "lc-2330-9",
+        "lc-2330-10",
+        "lc-2330-13"
+      ]
+    },
+    {
+      "reason": "Incorrectly charges two changes for each mismatched pair.",
+      "failed_cases": [
+        "lc-2330-9",
+        "lc-2330-10",
+        "lc-2330-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6377,
+  "oracle_implementation": "code_practice/import_batch_138.py:palindrome_oracle",
+  "validator_implementation_sha256": "e3555029083d509894750a0854cbc78ba2f5fd2f5616c5b0f16114d3d2533dfe",
+  "batch_implementation_sha256": "26a4774685325e1a0eeae8313a2479205f8ac61402f8f54c7e144125f5adce16",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4f4d7093ea07d461fbc969dd3c27adfc4876dac689034773e7e1b8ffaf92bafd",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

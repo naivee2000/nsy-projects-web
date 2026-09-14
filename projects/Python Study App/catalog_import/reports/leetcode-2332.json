@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2332",
+  "content_sha256": "17dc4083411b645063117879eef7c28afbf696fa9cd3b14f7bb9429821c40e46",
+  "source_hash": "b5b0698cb4f3be9b4128da302883d1ea59312f7e85eb0f9971b6f2d73759c3e3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Always chooses the last bus departure even when later-arriving passengers fill that bus first.",
+      "failed_cases": [
+        "lc-2332-1",
+        "lc-2332-2",
+        "lc-2332-3",
+        "lc-2332-6",
+        "lc-2332-8",
+        "lc-2332-9",
+        "lc-2332-10",
+        "lc-2332-11",
+        "lc-2332-12",
+        "lc-2332-13",
+        "lc-2332-15"
+      ]
+    },
+    {
+      "reason": "Does not move backward past occupied passenger arrival times.",
+      "failed_cases": [
+        "lc-2332-1",
+        "lc-2332-8",
+        "lc-2332-9",
+        "lc-2332-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6379,
+  "oracle_implementation": "code_practice/import_batch_138.py:bus_oracle",
+  "validator_implementation_sha256": "e3555029083d509894750a0854cbc78ba2f5fd2f5616c5b0f16114d3d2533dfe",
+  "batch_implementation_sha256": "26a4774685325e1a0eeae8313a2479205f8ac61402f8f54c7e144125f5adce16",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0be465f77f8e4b5604dc9e20ad880a61727561bd8f6477f6d327d24bf7e89eb9",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

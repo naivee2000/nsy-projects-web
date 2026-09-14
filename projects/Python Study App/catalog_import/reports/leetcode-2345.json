@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2345",
+  "content_sha256": "b894e45d15ad07d6131bedd97e7e2088e1ad02887da1af01277bc326a5776e43",
+  "source_hash": "6e88de2627c512793646e9162998f25cfacebbf82029b8da143a8c4ec4e0d09c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts one copy of an identical duplicated mountain as visible.",
+      "failed_cases": [
+        "lc-2345-2",
+        "lc-2345-9"
+      ]
+    },
+    {
+      "reason": "Treats an equal right boundary as escaping containment.",
+      "failed_cases": [
+        "lc-2345-1",
+        "lc-2345-5",
+        "lc-2345-7",
+        "lc-2345-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6392,
+  "oracle_implementation": "code_practice/import_batch_138.py:mountains_oracle",
+  "validator_implementation_sha256": "e3555029083d509894750a0854cbc78ba2f5fd2f5616c5b0f16114d3d2533dfe",
+  "batch_implementation_sha256": "26a4774685325e1a0eeae8313a2479205f8ac61402f8f54c7e144125f5adce16",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "236d68d864175da11ddfdf44c8b036bc4b20ce3eae82be3d6643b31b19720dc5",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2358",
+  "content_sha256": "759c23deb9074e897596697aed9cbeb74c8dc9307ebb6c548f2ef14a92f48c1f",
+  "source_hash": "426a19dec91ea53a3a8287e3cd8e825262e1226d917b862664fc82d83594b7c5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly requires twice the next group size to remain available.",
+      "failed_cases": [
+        "lc-2358-1",
+        "lc-2358-3",
+        "lc-2358-5",
+        "lc-2358-6",
+        "lc-2358-8",
+        "lc-2358-9",
+        "lc-2358-10",
+        "lc-2358-11",
+        "lc-2358-13",
+        "lc-2358-14",
+        "lc-2358-15",
+        "lc-2358-16"
+      ]
+    },
+    {
+      "reason": "Consumes one extra student per group and underestimates the feasible group count.",
+      "failed_cases": [
+        "lc-2358-1",
+        "lc-2358-5",
+        "lc-2358-6",
+        "lc-2358-8",
+        "lc-2358-9",
+        "lc-2358-10",
+        "lc-2358-11",
+        "lc-2358-13",
+        "lc-2358-14",
+        "lc-2358-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6405,
+  "oracle_implementation": "code_practice/import_batch_138.py:groups_oracle",
+  "validator_implementation_sha256": "e3555029083d509894750a0854cbc78ba2f5fd2f5616c5b0f16114d3d2533dfe",
+  "batch_implementation_sha256": "26a4774685325e1a0eeae8313a2479205f8ac61402f8f54c7e144125f5adce16",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ceb6c2e2611bce8eb89fb1c3d4d7ef042a2b081791690cac0ca6f8cc7c1b1e50",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

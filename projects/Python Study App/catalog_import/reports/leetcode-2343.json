@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2343",
+  "content_sha256": "b19ac566d52c8018f5c860ed6410bf94a971115f890da7c6303374095da1c7ba",
+  "source_hash": "4cddb26ad4e7fc62ca8bc949d8c1ecaf3b625ed51de93370184a1393d31ccac9",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses leading digits instead of the required suffix.",
+      "failed_cases": [
+        "lc-2343-1",
+        "lc-2343-2",
+        "lc-2343-5",
+        "lc-2343-12",
+        "lc-2343-13"
+      ]
+    },
+    {
+      "reason": "Reverses the required original-index tie break.",
+      "failed_cases": [
+        "lc-2343-2",
+        "lc-2343-5",
+        "lc-2343-6",
+        "lc-2343-9",
+        "lc-2343-10",
+        "lc-2343-12",
+        "lc-2343-14",
+        "lc-2343-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6390,
+  "oracle_implementation": "code_practice/import_batch_138.py:trimmed_oracle",
+  "validator_implementation_sha256": "e3555029083d509894750a0854cbc78ba2f5fd2f5616c5b0f16114d3d2533dfe",
+  "batch_implementation_sha256": "26a4774685325e1a0eeae8313a2479205f8ac61402f8f54c7e144125f5adce16",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9855da3331e56077491210372dc8be4d27e7fee38533c0a3d5e6f8d958f2da00",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

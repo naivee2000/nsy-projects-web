@@ -261,6 +261,7 @@ from .import_batch_135 import BATCH as BATCH_135
 from .import_batch_135b import BATCH as BATCH_135B
 from .import_batch_136 import BATCH as BATCH_136
 from .import_batch_137 import BATCH as BATCH_137
+from .import_batch_138 import BATCH as BATCH_138
 from .catalog_evidence import judge_contract_hash
 from .catalog_artifacts import write_json_atomic
 from .schemas import ProblemDefinition, TestCase
@@ -480,6 +481,7 @@ BATCH.update(BATCH_135)
 BATCH.update(BATCH_135B)
 BATCH.update(BATCH_136)
 BATCH.update(BATCH_137)
+BATCH.update(BATCH_138)
 
 
 def digest(payload):
