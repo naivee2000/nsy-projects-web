@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3014",
+  "content_sha256": "61cb38ee477dfcfd8972b20bc2ed83a87170cbb575463f6b47ae332b6158cc25",
+  "source_hash": "41ba5ad7a882a6b26b102bce249f8b56641f5e0223e9564ad1f28e2847c7a2a3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Places nine letters at each push depth despite having only eight keys.",
+      "failed_cases": [
+        "lc-3014-2",
+        "lc-3014-6",
+        "lc-3014-7",
+        "lc-3014-8",
+        "lc-3014-9",
+        "lc-3014-10",
+        "lc-3014-13",
+        "lc-3014-14",
+        "lc-3014-15"
+      ]
+    },
+    {
+      "reason": "Charges every letter one extra push.",
+      "failed_cases": [
+        "lc-3014-1",
+        "lc-3014-2",
+        "lc-3014-3",
+        "lc-3014-4",
+        "lc-3014-5",
+        "lc-3014-6",
+        "lc-3014-7",
+        "lc-3014-8",
+        "lc-3014-9",
+        "lc-3014-10",
+        "lc-3014-11",
+        "lc-3014-12",
+        "lc-3014-13",
+        "lc-3014-14",
+        "lc-3014-15",
+        "lc-3014-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7061,
+  "oracle_implementation": "code_practice/import_batch_188d.py:pushes_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "31efd1138bcbb63352bbfb0442c3d411d6cb868120a3e39ca5e7b8b2dd25b480",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b37965a3b85c4c80358a11dd6b9092428adc1734cdc4b64572b26d035cad7039",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

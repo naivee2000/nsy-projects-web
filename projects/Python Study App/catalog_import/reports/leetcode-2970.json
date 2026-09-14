@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2970",
+  "content_sha256": "1084a593845e1fdbfe79a5353d7a8c6e58e0c8a96fd8b8596961fde74693cd5b",
+  "source_hash": "054138a85a58b424ea3bb854d46ed8184c6cb31cbdd947b41b5a923bfa616bf6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts nondecreasing remainders containing equal adjacent values.",
+      "failed_cases": [
+        "lc-2970-10"
+      ]
+    },
+    {
+      "reason": "Keeps the right endpoint instead of removing the full chosen interval.",
+      "failed_cases": [
+        "lc-2970-2",
+        "lc-2970-5",
+        "lc-2970-6",
+        "lc-2970-8",
+        "lc-2970-9",
+        "lc-2970-10",
+        "lc-2970-11",
+        "lc-2970-12",
+        "lc-2970-13",
+        "lc-2970-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7017,
+  "oracle_implementation": "code_practice/import_batch_188b.py:removable_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "fcb909eb853e80248dd0a8e8b6dca11384d8885817541a1619c8ed6eeb773e6a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6cecbdd6fcc8b9b110c0d52a3ece6b2acb4aabcbc34c96a204fc5c54f6f0e2f8",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

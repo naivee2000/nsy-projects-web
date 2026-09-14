@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3000",
+  "content_sha256": "f80d461613523ad62ce6eff48bea24f9474bdf89ff491e8213ce31c0d7631691",
+  "source_hash": "00c030553d8c07b32c8f4b51dfaba9e66707444136b12aef3d64b02e05672716",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Compares side sums rather than Euclidean diagonal lengths.",
+      "failed_cases": [
+        "lc-3000-5",
+        "lc-3000-6",
+        "lc-3000-8",
+        "lc-3000-11",
+        "lc-3000-13",
+        "lc-3000-14"
+      ]
+    },
+    {
+      "reason": "Chooses the smaller area when diagonals tie.",
+      "failed_cases": [
+        "lc-3000-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7047,
+  "oracle_implementation": "code_practice/import_batch_188c.py:area_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "21fe48d7497a8e7c6bd415db53455dead32c4a1c33789e84b207fb568114078f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "baa97f4d4ab2b21e0f5769751a7f2b4748a1af57f34e4bbb720b7ba8254b7f6b",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

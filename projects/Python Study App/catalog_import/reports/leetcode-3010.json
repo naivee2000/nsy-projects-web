@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3010",
+  "content_sha256": "dd43f2e693aa3acab5bdc31ada287ca24808ba90f7f442e3d9d3847da2114a84",
+  "source_hash": "35ac02840edb882d4973d22527ff86543a5a1ebda51ca4526dfcc0a30a256489",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the fixed first element to serve as another subarray start.",
+      "failed_cases": [
+        "lc-3010-1",
+        "lc-3010-3",
+        "lc-3010-5",
+        "lc-3010-8",
+        "lc-3010-10",
+        "lc-3010-13"
+      ]
+    },
+    {
+      "reason": "Chooses the two largest later starts instead of the smallest.",
+      "failed_cases": [
+        "lc-3010-1",
+        "lc-3010-5",
+        "lc-3010-6",
+        "lc-3010-8",
+        "lc-3010-9",
+        "lc-3010-10",
+        "lc-3010-12",
+        "lc-3010-13",
+        "lc-3010-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7057,
+  "oracle_implementation": "code_practice/import_batch_188d.py:cost_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "31efd1138bcbb63352bbfb0442c3d411d6cb868120a3e39ca5e7b8b2dd25b480",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7da769b9b18acf212b46e59f9455c8ac5814b6a16d66e82900ae3016e04f352a",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

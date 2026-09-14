@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2928",
+  "content_sha256": "38a633071f64ce56a34c7cdd5adacc30300acb5752260cbbb20ad86ab67635ba",
+  "source_hash": "eb96ba07f213494b3aa2743b473667af5796d682d46b62fd719a35b317bdd3b0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Excludes the permitted value limit for the first child.",
+      "failed_cases": [
+        "lc-2928-1",
+        "lc-2928-2",
+        "lc-2928-3",
+        "lc-2928-6",
+        "lc-2928-7",
+        "lc-2928-8",
+        "lc-2928-10",
+        "lc-2928-12",
+        "lc-2928-14"
+      ]
+    },
+    {
+      "reason": "Incorrectly requires the third child to receive at least one candy.",
+      "failed_cases": [
+        "lc-2928-2",
+        "lc-2928-3",
+        "lc-2928-4",
+        "lc-2928-6",
+        "lc-2928-7",
+        "lc-2928-12",
+        "lc-2928-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6975,
+  "oracle_implementation": "code_practice/import_batch_188a.py:candy_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "4aea60a2b0a57a33cef3e47a8f01459f3deb61ef56fbedfff43c51d259537142",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bac7d24daad838f6b9ecaa4b1933748ef40187848a930772823ffd5e15b38614",
+  "elapsed_seconds": 0.402,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

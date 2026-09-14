@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2960",
+  "content_sha256": "8e9c3fd55c3d7c49da3c6abaf11f742fd28d01cc27a58e49006df233dc013918",
+  "source_hash": "502060f88c055c80926060ab6c569ab62f9bccf9f04959511d5ea9848c912908",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tests a device whose effective charge is exactly zero.",
+      "failed_cases": [
+        "lc-2960-1",
+        "lc-2960-2",
+        "lc-2960-3",
+        "lc-2960-5",
+        "lc-2960-6",
+        "lc-2960-8",
+        "lc-2960-9",
+        "lc-2960-11",
+        "lc-2960-12",
+        "lc-2960-14"
+      ]
+    },
+    {
+      "reason": "Adds the battery value instead of one tested device.",
+      "failed_cases": [
+        "lc-2960-2",
+        "lc-2960-7",
+        "lc-2960-8",
+        "lc-2960-9",
+        "lc-2960-10",
+        "lc-2960-11",
+        "lc-2960-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7007,
+  "oracle_implementation": "code_practice/import_batch_188b.py:tested_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "fcb909eb853e80248dd0a8e8b6dca11384d8885817541a1619c8ed6eeb773e6a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fe423e3c7c7c7abaa8241d61769dc4e4325c4443ff6479623bf898187f79ac42",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

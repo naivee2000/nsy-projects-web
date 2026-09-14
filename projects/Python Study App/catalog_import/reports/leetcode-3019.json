@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3019",
+  "content_sha256": "2967f5815511e69d156ebc81367482751d1e014089a407a4822abfbb5770ac59",
+  "source_hash": "dd365f327b05c17056181d7e5dc6f25cd9d989e4b8b8ed823e539d0d502f31d4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats a case-only transition as a key change.",
+      "failed_cases": [
+        "lc-3019-2",
+        "lc-3019-9",
+        "lc-3019-13"
+      ]
+    },
+    {
+      "reason": "Counts unchanged adjacent keys instead of changed ones.",
+      "failed_cases": [
+        "lc-3019-1",
+        "lc-3019-2",
+        "lc-3019-4",
+        "lc-3019-5",
+        "lc-3019-6",
+        "lc-3019-7",
+        "lc-3019-8",
+        "lc-3019-9",
+        "lc-3019-10",
+        "lc-3019-11",
+        "lc-3019-12",
+        "lc-3019-13",
+        "lc-3019-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7066,
+  "oracle_implementation": "code_practice/import_batch_188d.py:changes_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "31efd1138bcbb63352bbfb0442c3d411d6cb868120a3e39ca5e7b8b2dd25b480",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b6f0ad8afb10ba9fc0540b2421c215bd3a42ea5ee8989a9f9ce709e102513434",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

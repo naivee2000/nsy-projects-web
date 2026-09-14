@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2974",
+  "content_sha256": "8fe6069303059ab4f06bf9c8d8d456b672b5c89a17b2e1ef6cbe0ec190322780",
+  "source_hash": "82e131701dda43ea54ed8fb6f32be9447db5bfbfeda10fb3f7a513561afbf864",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Appends Alice before Bob instead of the required reversed order.",
+      "failed_cases": [
+        "lc-2974-1",
+        "lc-2974-2",
+        "lc-2974-3",
+        "lc-2974-4",
+        "lc-2974-6",
+        "lc-2974-7",
+        "lc-2974-9",
+        "lc-2974-11",
+        "lc-2974-13",
+        "lc-2974-14"
+      ]
+    },
+    {
+      "reason": "Pairs values in input order instead of repeatedly taking minima.",
+      "failed_cases": [
+        "lc-2974-1",
+        "lc-2974-4",
+        "lc-2974-7",
+        "lc-2974-8",
+        "lc-2974-9",
+        "lc-2974-11",
+        "lc-2974-12",
+        "lc-2974-13",
+        "lc-2974-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7021,
+  "oracle_implementation": "code_practice/import_batch_188c.py:game_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "21fe48d7497a8e7c6bd415db53455dead32c4a1c33789e84b207fb568114078f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cd128a81b107b5f2ce29102d9af909b82a99b5e501428c061e99a6bc76ffb937",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

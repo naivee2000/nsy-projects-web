@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2932",
+  "content_sha256": "e1a853466a2f0aa61baaa85cc93079872cff369b73ebefe3a2650bb851d13f7b",
+  "source_hash": "47e136909da9b5cb3821ff579713d1d04eb6ec88576b5a8eda9e191117d238ce",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects boundary pairs whose difference equals the smaller value.",
+      "failed_cases": [
+        "lc-2932-4",
+        "lc-2932-10",
+        "lc-2932-11",
+        "lc-2932-13"
+      ]
+    },
+    {
+      "reason": "Uses bitwise OR instead of XOR.",
+      "failed_cases": [
+        "lc-2932-2",
+        "lc-2932-3",
+        "lc-2932-5",
+        "lc-2932-6",
+        "lc-2932-7",
+        "lc-2932-8",
+        "lc-2932-10",
+        "lc-2932-12",
+        "lc-2932-13",
+        "lc-2932-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6979,
+  "oracle_implementation": "code_practice/import_batch_188a.py:strong_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "4aea60a2b0a57a33cef3e47a8f01459f3deb61ef56fbedfff43c51d259537142",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "39cd946f44e795992a86b10690c82ba72223c3d05c08a57b84da7242bc2fef68",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

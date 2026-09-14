@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2937",
+  "content_sha256": "b1ab4b65bb164cd5c99856b461f338eb4540ed409302f609244b128d5b81fc18",
+  "source_hash": "3235275658b08e856ed792d71735916dc4e3d0f5688527be6cb8c6044c01e595",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns a deletion count instead of -1 when the common prefix is empty.",
+      "failed_cases": [
+        "lc-2937-2",
+        "lc-2937-4"
+      ]
+    },
+    {
+      "reason": "Subtracts the kept prefix only once rather than once from each string.",
+      "failed_cases": [
+        "lc-2937-1",
+        "lc-2937-3",
+        "lc-2937-5",
+        "lc-2937-6",
+        "lc-2937-7",
+        "lc-2937-8",
+        "lc-2937-9",
+        "lc-2937-10",
+        "lc-2937-11",
+        "lc-2937-12",
+        "lc-2937-13",
+        "lc-2937-14",
+        "lc-2937-15",
+        "lc-2937-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6984,
+  "oracle_implementation": "code_practice/import_batch_188a.py:equal_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "4aea60a2b0a57a33cef3e47a8f01459f3deb61ef56fbedfff43c51d259537142",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "05f380678eddf1255d44cd042f064fbd07f70cf5d1cf556a43ce15bc78f1cce7",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

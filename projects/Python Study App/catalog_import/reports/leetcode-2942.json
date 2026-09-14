@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2942",
+  "content_sha256": "d6d973cf384f5aa544c93b543d0e03bb424055d704e516116c65e023f9887357",
+  "source_hash": "6e9195c6ad006aea1f64c2ffe40b1ea245ad3af52cd81ad650e39dea16a522a1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only the first character instead of any position.",
+      "failed_cases": [
+        "lc-2942-1",
+        "lc-2942-6",
+        "lc-2942-8",
+        "lc-2942-9",
+        "lc-2942-11",
+        "lc-2942-12",
+        "lc-2942-15"
+      ]
+    },
+    {
+      "reason": "Skips the first word and returns shifted indices.",
+      "failed_cases": [
+        "lc-2942-1",
+        "lc-2942-2",
+        "lc-2942-3",
+        "lc-2942-5",
+        "lc-2942-6",
+        "lc-2942-7",
+        "lc-2942-8",
+        "lc-2942-9",
+        "lc-2942-10",
+        "lc-2942-11",
+        "lc-2942-12",
+        "lc-2942-13",
+        "lc-2942-15",
+        "lc-2942-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6989,
+  "oracle_implementation": "code_practice/import_batch_188a.py:containing_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "4aea60a2b0a57a33cef3e47a8f01459f3deb61ef56fbedfff43c51d259537142",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "660a38a7934c820fe332aba590fcaac765036a72d9c7ae6064856bacbd075750",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

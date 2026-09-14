@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1996,
+  "count": 2016,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -35601,6 +35601,360 @@
       "path": "problems/leetcode-2917.json",
       "content_sha256": "ac2a25ebce54674a730be25db8142d726bc7e5bb13f03a8ade48b320509d3c6a",
       "source_id": 2917
+    },
+    {
+      "id": "leetcode-2923",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Champion I",
+      "summary": "In a tournament with n teams, determine the champion by analyzing a 2D boolean matrix where grid[i][j] indicates team i's strength over team j.",
+      "topics": [
+        "matrices",
+        "graphs",
+        "indegree"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2923.json",
+      "content_sha256": "3969b688f3224215a99c60f74f7e7e7df3d138076357ff0156d3b42e35f62ac8",
+      "source_id": 2923
+    },
+    {
+      "id": "leetcode-2928",
+      "version": 1,
+      "status": "approved",
+      "title": "Distribute Candies Among Children I",
+      "summary": "Given positive integers n and limit, calculate the number of ways to distribute n candies among 3 children with each child receiving no more than limit candies.",
+      "topics": [
+        "enumeration",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2928.json",
+      "content_sha256": "38a633071f64ce56a34c7cdd5adacc30300acb5752260cbbb20ad86ab67635ba",
+      "source_id": 2928
+    },
+    {
+      "id": "leetcode-2932",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Strong Pair XOR I",
+      "summary": "Given an integer array nums, select two integers that form a strong pair (where the absolute difference between them is less than or equal to the smaller of the two numbers) and have the maximum bitwise XOR value among all such pairs.",
+      "topics": [
+        "arrays",
+        "bit manipulation",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2932.json",
+      "content_sha256": "e1a853466a2f0aa61baaa85cc93079872cff369b73ebefe3a2650bb851d13f7b",
+      "source_id": 2932
+    },
+    {
+      "id": "leetcode-2937",
+      "version": 1,
+      "status": "approved",
+      "title": "Make Three Strings Equal",
+      "summary": "Given three strings s1, s2, and s3, you can remove the rightmost character of any string in one operation.",
+      "topics": [
+        "strings",
+        "prefixes"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2937.json",
+      "content_sha256": "b1ab4b65bb164cd5c99856b461f338eb4540ed409302f609244b128d5b81fc18",
+      "source_id": 2937
+    },
+    {
+      "id": "leetcode-2942",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Words Containing Character",
+      "summary": "Given an array of strings and a character, return an array of indices for words containing the specified character, in any order.",
+      "topics": [
+        "arrays",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2942.json",
+      "content_sha256": "d6d973cf384f5aa544c93b543d0e03bb424055d704e516116c65e023f9887357",
+      "source_id": 2942
+    },
+    {
+      "id": "leetcode-2946",
+      "version": 1,
+      "status": "approved",
+      "title": "Matrix Similarity After Cyclic Shifts",
+      "summary": "Given an m x n integer matrix and an integer k, perform k cycles of row shifts: even-indexed rows are shifted left, odd-indexed rows are shifted right.",
+      "topics": [
+        "matrices",
+        "simulation",
+        "modular arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2946.json",
+      "content_sha256": "007237c3719c8581a8659cb961d7e08e96dcd7339930053c05fecff096b836e1",
+      "source_id": 2946
+    },
+    {
+      "id": "leetcode-2951",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Peaks",
+      "summary": "Identify the indices of elements in a 0-indexed array that are strictly greater than their neighboring elements, while excluding the first and last elements of the array.",
+      "topics": [
+        "arrays",
+        "local comparisons"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2951.json",
+      "content_sha256": "b179c16de5144955c569d9bcfc1efc30bf79af7eb90c08e1581006ea6c1f5142",
+      "source_id": 2951
+    },
+    {
+      "id": "leetcode-2956",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Common Elements Between Two Arrays",
+      "summary": "Given two integer arrays nums1 and nums2 of lengths n and m, determine the count of indices i where nums1[i] is found in nums2, and the count of indices i where nums2[i] is found in nums1.",
+      "topics": [
+        "arrays",
+        "sets",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2956.json",
+      "content_sha256": "b975e492542cb99b41d9292bbdf0e558574050e0f29338336d86475d4f3d10d3",
+      "source_id": 2956
+    },
+    {
+      "id": "leetcode-2960",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Tested Devices After Test Operations",
+      "summary": "Given a 0-indexed integer array batteryPercentages of length n, representing the battery percentages of n devices, increment the count of tested devices for each device with a positive battery percentage.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2960.json",
+      "content_sha256": "8e9c3fd55c3d7c49da3c6abaf11f742fd28d01cc27a58e49006df233dc013918",
+      "source_id": 2960
+    },
+    {
+      "id": "leetcode-2970",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Incremovable Subarrays I",
+      "summary": "Given a 0-indexed array of positive integers, count the number of subarrays that, when removed, result in the remaining array being strictly increasing.",
+      "topics": [
+        "arrays",
+        "subarrays",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2970.json",
+      "content_sha256": "1084a593845e1fdbfe79a5353d7a8c6e58e0c8a96fd8b8596961fde74693cd5b",
+      "source_id": 2970
+    },
+    {
+      "id": "leetcode-2974",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number Game",
+      "summary": "Alice and Bob play a game with an even-length integer array nums.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2974.json",
+      "content_sha256": "8fe6069303059ab4f06bf9c8d8d456b672b5c89a17b2e1ef6cbe0ec190322780",
+      "source_id": 2974
+    },
+    {
+      "id": "leetcode-2980",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Bitwise OR Has Trailing Zeros",
+      "summary": "Given an array of positive integers, determine if selecting two or more elements results in a bitwise OR with at least one trailing zero in its binary representation.",
+      "topics": [
+        "arrays",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2980.json",
+      "content_sha256": "57235d15be14a23de165e16210bca848b8195ee942a3e6848bdaa741ada883a7",
+      "source_id": 2980
+    },
+    {
+      "id": "leetcode-2996",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Missing Integer Greater Than Sequential Prefix Sum",
+      "summary": "Given an array of integers, find the smallest integer x not present in the array that is at least as large as the sum of the longest sequential prefix of the array.",
+      "topics": [
+        "arrays",
+        "sets",
+        "prefixes"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2996.json",
+      "content_sha256": "fb97286156f7e24ddd165dfa09cd1db51ba1932a05937dd2d573ddc3b904bd6b",
+      "source_id": 2996
+    },
+    {
+      "id": "leetcode-3000",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Area of Longest Diagonal Rectangle",
+      "summary": "Given a list of rectangles defined by their dimensions, calculate the area of the rectangle with the longest diagonal.",
+      "topics": [
+        "arrays",
+        "geometry",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3000.json",
+      "content_sha256": "f80d461613523ad62ce6eff48bea24f9474bdf89ff491e8213ce31c0d7631691",
+      "source_id": 3000
+    },
+    {
+      "id": "leetcode-3005",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Elements With Maximum Frequency",
+      "summary": "Given an array of positive integers, return the combined frequency of elements that occur most frequently.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3005.json",
+      "content_sha256": "254c6cfcfa1c027fff7f2005063b995a8f71a29e2aed62531b360259e445c325",
+      "source_id": 3005
+    },
+    {
+      "id": "leetcode-3010",
+      "version": 1,
+      "status": "approved",
+      "title": "Divide an Array Into Subarrays With Minimum Cost I",
+      "summary": "Given an integer array nums of length n, divide it into three contiguous subarrays with the minimum total cost, where the cost of an array is defined as its first element.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3010.json",
+      "content_sha256": "dd43f2e693aa3acab5bdc31ada287ca24808ba90f7f442e3d9d3847da2114a84",
+      "source_id": 3010
+    },
+    {
+      "id": "leetcode-3014",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Pushes to Type Word I",
+      "summary": "Given a string containing distinct lowercase English letters, determine the minimum number of key presses required to type the string after remapping the keys numbered 2 to 9 to distinct collections of letters.",
+      "topics": [
+        "strings",
+        "greedy",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3014.json",
+      "content_sha256": "61cb38ee477dfcfd8972b20bc2ed83a87170cbb575463f6b47ae332b6158cc25",
+      "source_id": 3014
+    },
+    {
+      "id": "leetcode-3019",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Changing Keys",
+      "summary": "Given a string s typed by a user, count the number of times the user used a key different from the last used key, excluding changes due to modifiers like shift or caps lock.",
+      "topics": [
+        "strings",
+        "adjacent comparisons"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3019.json",
+      "content_sha256": "2967f5815511e69d156ebc81367482751d1e014089a407a4822abfbb5770ac59",
+      "source_id": 3019
+    },
+    {
+      "id": "leetcode-3024",
+      "version": 1,
+      "status": "approved",
+      "title": "Type of Triangle",
+      "summary": "Given a 0-indexed integer array of size 3, determine whether the sides can form a triangle.",
+      "topics": [
+        "arrays",
+        "geometry",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3024.json",
+      "content_sha256": "0fbf487a81e905ed8886d38ff75735dbcdbeabc7dc3f3629fa65bc24f3235b9b",
+      "source_id": 3024
+    },
+    {
+      "id": "leetcode-3028",
+      "version": 1,
+      "status": "approved",
+      "title": "Ant on the Boundary",
+      "summary": "An ant starts at a boundary and moves left or right based on the values in an array of non-zero integers.",
+      "topics": [
+        "arrays",
+        "prefix sums",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3028.json",
+      "content_sha256": "6dc08cc387bf44e602e3ffb339bedcbf4efa3601c5e40de75cd1ba9754f7bf21",
+      "source_id": 3028
     }
   ]
 }

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2923",
+  "content_sha256": "3969b688f3224215a99c60f74f7e7e7df3d138076357ff0156d3b42e35f62ac8",
+  "source_hash": "99baf10e8257e4f1ccdf757c615c5784596763e41a49b2045c97bb75e30dabf3",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Checks that the team defeats nobody rather than that nobody defeats it.",
+      "failed_cases": [
+        "lc-2923-1",
+        "lc-2923-2",
+        "lc-2923-4",
+        "lc-2923-5",
+        "lc-2923-6",
+        "lc-2923-7",
+        "lc-2923-8",
+        "lc-2923-9",
+        "lc-2923-10",
+        "lc-2923-11",
+        "lc-2923-12",
+        "lc-2923-13",
+        "lc-2923-14",
+        "lc-2923-15"
+      ]
+    },
+    {
+      "reason": "Ignores the final possible opponent.",
+      "failed_cases": [
+        "lc-2923-4",
+        "lc-2923-6",
+        "lc-2923-7",
+        "lc-2923-9",
+        "lc-2923-13",
+        "lc-2923-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6970,
+  "oracle_implementation": "code_practice/import_batch_188a.py:champion_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "4aea60a2b0a57a33cef3e47a8f01459f3deb61ef56fbedfff43c51d259537142",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9e26f3c917253bbbbf4a3c81b18042a9b74a6b09fc557b37b7acb081876ce432",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

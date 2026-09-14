@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2956",
+  "content_sha256": "b975e492542cb99b41d9292bbdf0e558574050e0f29338336d86475d4f3d10d3",
+  "source_hash": "6853248151dc7806762085cc42a7daad4d1ea3669ce24d91eb5bc3366324b22d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts distinct qualifying values rather than qualifying occurrences in nums1.",
+      "failed_cases": [
+        "lc-2956-1",
+        "lc-2956-2",
+        "lc-2956-5",
+        "lc-2956-10",
+        "lc-2956-12"
+      ]
+    },
+    {
+      "reason": "Tests nums2 values against nums2 itself, making the second count always its length.",
+      "failed_cases": [
+        "lc-2956-1",
+        "lc-2956-2",
+        "lc-2956-4",
+        "lc-2956-7",
+        "lc-2956-8",
+        "lc-2956-12",
+        "lc-2956-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7003,
+  "oracle_implementation": "code_practice/import_batch_188b.py:intersection_oracle",
+  "validator_implementation_sha256": "d139b4cf97dd5867dd53cbd2003dc4fd3c17694c4953167c89fbca9e368d59bc",
+  "batch_implementation_sha256": "fcb909eb853e80248dd0a8e8b6dca11384d8885817541a1619c8ed6eeb773e6a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0fed3f51459bcdca91433e0b65ae4a4dbdcd48753145ef368bed3661e7d57796",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
