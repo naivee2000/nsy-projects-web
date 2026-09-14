@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2641",
+  "content_sha256": "70db8424fc1c884ff1cd199a3c607e68948663ad76232c4a6c58d97aabb80b9c",
+  "source_hash": "58b71dafdb58f8f363c042aa12112df75f8caf3f8b031e3a61c7f7f313191aee",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Includes siblings in each node value instead of excluding its parent family.",
+      "failed_cases": [
+        "lc-2641-1",
+        "lc-2641-2",
+        "lc-2641-4",
+        "lc-2641-5",
+        "lc-2641-6",
+        "lc-2641-7",
+        "lc-2641-8",
+        "lc-2641-9",
+        "lc-2641-10",
+        "lc-2641-11",
+        "lc-2641-12",
+        "lc-2641-13",
+        "lc-2641-14",
+        "lc-2641-15",
+        "lc-2641-16"
+      ]
+    },
+    {
+      "reason": "Leaves the root unchanged even though it has no cousins.",
+      "failed_cases": [
+        "lc-2641-1",
+        "lc-2641-2",
+        "lc-2641-3",
+        "lc-2641-4",
+        "lc-2641-5",
+        "lc-2641-6",
+        "lc-2641-7",
+        "lc-2641-8",
+        "lc-2641-9",
+        "lc-2641-11",
+        "lc-2641-12",
+        "lc-2641-13",
+        "lc-2641-14",
+        "lc-2641-15",
+        "lc-2641-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6688,
+  "oracle_implementation": "code_practice/import_batch_167.py:cousins_oracle",
+  "validator_implementation_sha256": "fdc6c7f7055216635abbe4894d50c2af10eae686c9b1a551b825fb720f1d052d",
+  "batch_implementation_sha256": "183b06bda8ae78adadb59bb083560ec5b4b2c14a1c7b57e70768014bf8b21ce8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1af8b8e11e76029e75b3cca436af6ecded3f0e85c3700b22b33d1b8718179c76",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

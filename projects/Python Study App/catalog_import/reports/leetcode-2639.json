@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2639",
+  "content_sha256": "32a38548ec6fefdf0ae80b005f231fcad4330a54dd0a772890fb9146aa526d6a",
+  "source_hash": "61870f71e29a4abda2a1e0522de3cf2a2ca1f377938a828993e4935d39f203fa",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the minus sign of negative values.",
+      "failed_cases": [
+        "lc-2639-2",
+        "lc-2639-5",
+        "lc-2639-7",
+        "lc-2639-10",
+        "lc-2639-11",
+        "lc-2639-13",
+        "lc-2639-15"
+      ]
+    },
+    {
+      "reason": "Writes every width into the first column slot.",
+      "failed_cases": [
+        "lc-2639-2",
+        "lc-2639-8",
+        "lc-2639-10",
+        "lc-2639-11",
+        "lc-2639-12",
+        "lc-2639-13",
+        "lc-2639-14",
+        "lc-2639-15",
+        "lc-2639-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6686,
+  "oracle_implementation": "code_practice/import_batch_167.py:widths_oracle",
+  "validator_implementation_sha256": "fdc6c7f7055216635abbe4894d50c2af10eae686c9b1a551b825fb720f1d052d",
+  "batch_implementation_sha256": "183b06bda8ae78adadb59bb083560ec5b4b2c14a1c7b57e70768014bf8b21ce8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ec66d90127ef63c23aa42544478e2d02797d20a30e2e2a93716229bd6408388c",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
