@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1450",
+  "content_sha256": "cc78ff344004acbaf2cf118e4ea538a4a9c5c91770dd39cd63909e9593806b96",
+  "source_hash": "9191ed99986e45c93f0a6de3a9a5125055310bcd3595c669e4bd750d82ffb6c4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats both interval endpoints as exclusive.",
+      "failed_cases": [
+        "lc-1450-2",
+        "lc-1450-3",
+        "lc-1450-4",
+        "lc-1450-6",
+        "lc-1450-8",
+        "lc-1450-9",
+        "lc-1450-10",
+        "lc-1450-11",
+        "lc-1450-14"
+      ]
+    },
+    {
+      "reason": "Ignores end times and counts every student who has started.",
+      "failed_cases": [
+        "lc-1450-1",
+        "lc-1450-5",
+        "lc-1450-7",
+        "lc-1450-8",
+        "lc-1450-11",
+        "lc-1450-12",
+        "lc-1450-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5497,
+  "oracle_implementation": "code_practice/import_batch_094b.py:students_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "745e900dc5ec672e3bc78f5db42a0bdf05f9581f550a7e1e452e68ed17b648dc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1246a5afcc884de6a6267d4c5919bb2ed0da18b1b0c9a552e208f435c715558f",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

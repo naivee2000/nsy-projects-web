@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1430",
+  "content_sha256": "f49f7a065d0e4022405b0360141e8b0e81794579108463323d33ab0a7d89aa4b",
+  "source_hash": "2e25be4a9ae068d59dd8bf6f567eb2b2d03449354d6667f0ff9181b870eb5816",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a sequence ending at an internal node.",
+      "failed_cases": [
+        "lc-1430-5"
+      ]
+    },
+    {
+      "reason": "Rejects matching node values and follows mismatches.",
+      "failed_cases": [
+        "lc-1430-1",
+        "lc-1430-2",
+        "lc-1430-3",
+        "lc-1430-6",
+        "lc-1430-7",
+        "lc-1430-8",
+        "lc-1430-9",
+        "lc-1430-10",
+        "lc-1430-11",
+        "lc-1430-12",
+        "lc-1430-13",
+        "lc-1430-14",
+        "lc-1430-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5477,
+  "oracle_implementation": "code_practice/import_batch_094.py:sequence_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "af774fa6f7e8d95e7a3714de613fb52e76ebfffd991013727c07fd1a9d84fba2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c17bbed4651579594f511b5b0e3f28074639af713d807f249fac8e3ffd8f0e96",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

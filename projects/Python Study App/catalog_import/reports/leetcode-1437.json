@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1437",
+  "content_sha256": "4feb9be50f67e1731ec2eb461eb8cf284488da7817f7826db4ce972dca18caea",
+  "source_hash": "bc2a1784394c47fc6ebb96edc6e54c4d8deafe9e6d222be0cb088b9907f7659d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a gap with only k-1 zeroes.",
+      "failed_cases": [
+        "lc-1437-2",
+        "lc-1437-6",
+        "lc-1437-12"
+      ]
+    },
+    {
+      "reason": "Treats imaginary positions before the first one as a real prior one.",
+      "failed_cases": [
+        "lc-1437-1",
+        "lc-1437-4",
+        "lc-1437-5",
+        "lc-1437-7",
+        "lc-1437-8",
+        "lc-1437-10",
+        "lc-1437-11",
+        "lc-1437-13",
+        "lc-1437-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5484,
+  "oracle_implementation": "code_practice/import_batch_094.py:apart_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "af774fa6f7e8d95e7a3714de613fb52e76ebfffd991013727c07fd1a9d84fba2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a6941102d697ccfa7fa19d7c7052b35e89a7e4a4935901a09a98dc237ce66517",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

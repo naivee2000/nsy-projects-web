@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1449",
+  "content_sha256": "46bf5b299fe27a91b36d76da3226515df50c58c03df92a5e72a236ad862c2464",
+  "source_hash": "19364e919699479093ad0c38878247375cd40420890e2d2e2cb935b78cdf5f11",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Compares lexicographically without first maximizing digit count.",
+      "failed_cases": [
+        "lc-1449-1",
+        "lc-1449-9",
+        "lc-1449-12"
+      ]
+    },
+    {
+      "reason": "Sorts chosen digits ascending, producing a smaller number.",
+      "failed_cases": [
+        "lc-1449-1",
+        "lc-1449-2",
+        "lc-1449-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5496,
+  "oracle_implementation": "code_practice/import_batch_094b.py:largest_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "745e900dc5ec672e3bc78f5db42a0bdf05f9581f550a7e1e452e68ed17b648dc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "522c0ee4cd637109cf5d19da94f3cbf4bb7e1638e9c12e1cb95051bd3bcf58b4",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

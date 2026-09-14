@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1455",
+  "content_sha256": "cd4d86611c922aa33a722b10244998fe9e4170bfece10533a2f925ae476dff98",
+  "source_hash": "7d854a2e281d6cbd38dcef32f05e525063760a2309a33e7df80e24fa55eb215f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns zero-based word indices.",
+      "failed_cases": [
+        "lc-1455-1",
+        "lc-1455-2",
+        "lc-1455-3",
+        "lc-1455-6",
+        "lc-1455-7",
+        "lc-1455-8",
+        "lc-1455-9",
+        "lc-1455-10",
+        "lc-1455-12",
+        "lc-1455-13",
+        "lc-1455-14"
+      ]
+    },
+    {
+      "reason": "Reverses the prefix relationship.",
+      "failed_cases": [
+        "lc-1455-1",
+        "lc-1455-2",
+        "lc-1455-6",
+        "lc-1455-8",
+        "lc-1455-9",
+        "lc-1455-11",
+        "lc-1455-12",
+        "lc-1455-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5502,
+  "oracle_implementation": "code_practice/import_batch_094b.py:prefix_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "745e900dc5ec672e3bc78f5db42a0bdf05f9581f550a7e1e452e68ed17b648dc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "48a5ff8abb401682f9db4f377553e1728be7f9525b9f81164ab860e036d16dc5",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

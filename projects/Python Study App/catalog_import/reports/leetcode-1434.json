@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1434",
+  "content_sha256": "bc2a3ccc11356a8b52870da5b721af05d9388d51e8f3412b9a3aa3931663bfd2",
+  "source_hash": "1bf7015a10b7a1de44ebc97794955420f3a85abed81a4ad280cd2a61e15465b9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assigns hats only to people already assigned.",
+      "failed_cases": [
+        "lc-1434-1",
+        "lc-1434-2",
+        "lc-1434-3",
+        "lc-1434-5",
+        "lc-1434-6",
+        "lc-1434-7",
+        "lc-1434-8",
+        "lc-1434-9",
+        "lc-1434-10",
+        "lc-1434-11",
+        "lc-1434-13",
+        "lc-1434-14"
+      ]
+    },
+    {
+      "reason": "Forces every considered hat to be worn and cannot skip unused hats.",
+      "failed_cases": [
+        "lc-1434-1",
+        "lc-1434-2",
+        "lc-1434-7",
+        "lc-1434-8",
+        "lc-1434-9",
+        "lc-1434-10",
+        "lc-1434-13",
+        "lc-1434-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5481,
+  "oracle_implementation": "code_practice/import_batch_094.py:hats_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "af774fa6f7e8d95e7a3714de613fb52e76ebfffd991013727c07fd1a9d84fba2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cfc982282107a87dbdfb61bb70113b487b60487b88b3d98033c99f6ed4f9afea",
+  "elapsed_seconds": 0.075,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

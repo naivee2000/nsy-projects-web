@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1456",
+  "content_sha256": "fc2dab251b59ecc8f1bdd00bbf6afdc0a79170396bd41a1e4f822d4b44e64d7a",
+  "source_hash": "648bdf05338da3384e43d0ddf6b73ab988fc58a521c0e55748c6b96650e8ccd9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits u from the vowel set.",
+      "failed_cases": [
+        "lc-1456-9"
+      ]
+    },
+    {
+      "reason": "Removes the wrong outgoing character while sliding.",
+      "failed_cases": [
+        "lc-1456-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5503,
+  "oracle_implementation": "code_practice/import_batch_094b.py:vowels_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "745e900dc5ec672e3bc78f5db42a0bdf05f9581f550a7e1e452e68ed17b648dc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ea6183918b054388bc8a8a415c9f535586fba646691c5cd03c6aecaf4e3bc4c3",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

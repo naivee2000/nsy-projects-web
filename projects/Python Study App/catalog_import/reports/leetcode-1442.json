@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1442",
+  "content_sha256": "61b695a6623d7b1df1f00f073b6ea27ead5e1386bf683204b38b895715e39e83",
+  "source_hash": "b737f4568917e746a6ea70209db881839e4ee7c54104346f525344a72a58269d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts each zero-XOR range once rather than once per internal split.",
+      "failed_cases": [
+        "lc-1442-1",
+        "lc-1442-2",
+        "lc-1442-6",
+        "lc-1442-7",
+        "lc-1442-8",
+        "lc-1442-9",
+        "lc-1442-10",
+        "lc-1442-11",
+        "lc-1442-12",
+        "lc-1442-13",
+        "lc-1442-14"
+      ]
+    },
+    {
+      "reason": "Counts nonzero-XOR ranges, which cannot have equal two-part XORs.",
+      "failed_cases": [
+        "lc-1442-1",
+        "lc-1442-4",
+        "lc-1442-5",
+        "lc-1442-6",
+        "lc-1442-7",
+        "lc-1442-10",
+        "lc-1442-12",
+        "lc-1442-13",
+        "lc-1442-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5489,
+  "oracle_implementation": "code_practice/import_batch_094.py:xor_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "af774fa6f7e8d95e7a3714de613fb52e76ebfffd991013727c07fd1a9d84fba2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4b9024cc098188c8777c9ee19fd9e26ed64f97bd12714c3dbc147fd4e8525f7c",
+  "elapsed_seconds": 0.075,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

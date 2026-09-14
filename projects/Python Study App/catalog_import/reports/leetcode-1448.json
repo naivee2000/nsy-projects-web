@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1448",
+  "content_sha256": "12f345cf189046182bea9468e477b865c1d8fc6fcc9bee47bfaba94af71118fd",
+  "source_hash": "8fc453ee43df1c8c5cba833b622c3fb407aa4ed65fea3ba29869ace1d124b518",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects nodes equal to the prior path maximum.",
+      "failed_cases": [
+        "lc-1448-1",
+        "lc-1448-2",
+        "lc-1448-6",
+        "lc-1448-10"
+      ]
+    },
+    {
+      "reason": "Forgets larger ancestors and compares only with the parent.",
+      "failed_cases": [
+        "lc-1448-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5495,
+  "oracle_implementation": "code_practice/import_batch_094b.py:good_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "745e900dc5ec672e3bc78f5db42a0bdf05f9581f550a7e1e452e68ed17b648dc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6de3f90137cdaf9b1b3158da0b44f4d85b97c0ae0d915e5f79bca8e378ba5507",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

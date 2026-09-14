@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1443",
+  "content_sha256": "ad78b5e73b9547ce9897caf8d21c6e25f455376dfc95cdd7d14067fd4c6db754",
+  "source_hash": "ce1f72ef79a319b3c27fa580c078d2cc079960140e145831709554c5ccc2d760",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Charges only one direction for each required edge.",
+      "failed_cases": [
+        "lc-1443-1",
+        "lc-1443-2",
+        "lc-1443-5",
+        "lc-1443-7",
+        "lc-1443-8",
+        "lc-1443-9",
+        "lc-1443-10",
+        "lc-1443-11",
+        "lc-1443-14",
+        "lc-1443-15"
+      ]
+    },
+    {
+      "reason": "Keeps a branch only when its child root itself has an apple as well as deeper cost.",
+      "failed_cases": [
+        "lc-1443-1",
+        "lc-1443-2",
+        "lc-1443-5",
+        "lc-1443-7",
+        "lc-1443-8",
+        "lc-1443-9",
+        "lc-1443-10",
+        "lc-1443-11",
+        "lc-1443-14",
+        "lc-1443-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5490,
+  "oracle_implementation": "code_practice/import_batch_094.py:apples_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "af774fa6f7e8d95e7a3714de613fb52e76ebfffd991013727c07fd1a9d84fba2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6089f9f9d1538865c58e182cb056c5dc71bd0718871713de72318a9dd30cba8e",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

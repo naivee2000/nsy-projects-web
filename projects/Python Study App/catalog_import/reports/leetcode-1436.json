@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1436",
+  "content_sha256": "fd2a188e8d015110ff8b07d210188e2e57158dbf48716066ea22d0b1c6205d8a",
+  "source_hash": "c791502fd18d135d4ff93d72182dcde31762b2df1ddf657c12b0086a6768272f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns an intermediate destination that is also an origin.",
+      "failed_cases": [
+        "lc-1436-1",
+        "lc-1436-2",
+        "lc-1436-4",
+        "lc-1436-6",
+        "lc-1436-8",
+        "lc-1436-10",
+        "lc-1436-11",
+        "lc-1436-12",
+        "lc-1436-13"
+      ]
+    },
+    {
+      "reason": "Returns the chain origin rather than its terminal destination.",
+      "failed_cases": [
+        "lc-1436-1",
+        "lc-1436-2",
+        "lc-1436-3",
+        "lc-1436-4",
+        "lc-1436-5",
+        "lc-1436-6",
+        "lc-1436-7",
+        "lc-1436-8",
+        "lc-1436-9",
+        "lc-1436-10",
+        "lc-1436-11",
+        "lc-1436-12",
+        "lc-1436-13",
+        "lc-1436-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5483,
+  "oracle_implementation": "code_practice/import_batch_094.py:destination_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "af774fa6f7e8d95e7a3714de613fb52e76ebfffd991013727c07fd1a9d84fba2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bbc12ffcb90fb91ce43b2f9355653b74bb43ed8d41d9ec2012dfbe0c71d3b20e",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

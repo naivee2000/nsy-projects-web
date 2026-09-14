@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1438",
+  "content_sha256": "937cfbae8e3804b63799ca9a94c7e497d3e8977f327e89ed7370a8ed0d18a1e2",
+  "source_hash": "7fb0b38afa27e9a510d2d790fb0accd848b57d2cd791160065d9be269870f3bb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the inclusive difference limit as strict.",
+      "failed_cases": [
+        "lc-1438-2",
+        "lc-1438-3",
+        "lc-1438-4",
+        "lc-1438-5",
+        "lc-1438-6",
+        "lc-1438-7",
+        "lc-1438-8",
+        "lc-1438-9",
+        "lc-1438-10",
+        "lc-1438-13",
+        "lc-1438-14"
+      ]
+    },
+    {
+      "reason": "Checks only adjacent pairs and cannot extend longer windows.",
+      "failed_cases": [
+        "lc-1438-2",
+        "lc-1438-6",
+        "lc-1438-7",
+        "lc-1438-8",
+        "lc-1438-11",
+        "lc-1438-12",
+        "lc-1438-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5485,
+  "oracle_implementation": "code_practice/import_batch_094.py:window_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "af774fa6f7e8d95e7a3714de613fb52e76ebfffd991013727c07fd1a9d84fba2",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a7bcf3016e8a4a1f43e80d5c069ff38527a57aebf18c4fdf47b27a6b80da2e57",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

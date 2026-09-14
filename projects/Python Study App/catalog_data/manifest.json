@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 979,
+  "count": 999,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -17288,6 +17288,23 @@
       "source_id": 1427
     },
     {
+      "id": "leetcode-1430",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If a String Is a Valid Sequence from Root to Leaves Path in a Binary Tree",
+      "summary": "Determine if a string matches a sequence formed by a path from the root to a leaf in a binary tree, where the sequence is derived from an array of integers and node values along the path.",
+      "topics": [
+        "trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1430.json",
+      "content_sha256": "f49f7a065d0e4022405b0360141e8b0e81794579108463323d33ab0a7d89aa4b",
+      "source_id": 1430
+    },
+    {
       "id": "leetcode-1431",
       "version": 1,
       "status": "approved",
@@ -17337,6 +17354,338 @@
       "path": "problems/leetcode-1433.json",
       "content_sha256": "f664e1f7347e0859a9a2f51c60b49d4f939819b1bb26f5d351c66ae0c4882b88",
       "source_id": 1433
+    },
+    {
+      "id": "leetcode-1434",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Wear Different Hats to Each Other",
+      "summary": "Determine the number of ways n individuals can each wear a unique hat from 40 available types, where each person prefers a subset of these hats.",
+      "topics": [
+        "dynamic-programming",
+        "bit-masks"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1434.json",
+      "content_sha256": "bc2a3ccc11356a8b52870da5b721af05d9388d51e8f3412b9a3aa3931663bfd2",
+      "source_id": 1434
+    },
+    {
+      "id": "leetcode-1436",
+      "version": 1,
+      "status": "approved",
+      "title": "Destination City",
+      "summary": "Given the array paths, where each element paths[i] = [cityAi, cityBi] represents a direct path from cityAi to cityBi, identify the destination city that has no outgoing paths.",
+      "topics": [
+        "graphs",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1436.json",
+      "content_sha256": "fd2a188e8d015110ff8b07d210188e2e57158dbf48716066ea22d0b1c6205d8a",
+      "source_id": 1436
+    },
+    {
+      "id": "leetcode-1437",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If All 1's Are at Least Length K Places Away",
+      "summary": "Determine if all 1's in the binary array are at least k positions apart, returning true if so, otherwise false.",
+      "topics": [
+        "arrays",
+        "indices"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1437.json",
+      "content_sha256": "4feb9be50f67e1731ec2eb461eb8cf284488da7817f7826db4ce972dca18caea",
+      "source_id": 1437
+    },
+    {
+      "id": "leetcode-1438",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit",
+      "summary": "Given an array of integers and a limit, find the length of the longest continuous subarray where the absolute difference between any two elements does not exceed the limit.",
+      "topics": [
+        "sliding-window",
+        "monotonic-queue"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1438.json",
+      "content_sha256": "937cfbae8e3804b63799ca9a94c7e497d3e8977f327e89ed7370a8ed0d18a1e2",
+      "source_id": 1438
+    },
+    {
+      "id": "leetcode-1439",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Kth Smallest Sum of a Matrix With Sorted Rows",
+      "summary": "Given an m x n matrix where each row is sorted in non-decreasing order, select exactly one element from each row to form an array.",
+      "topics": [
+        "heaps",
+        "sorting"
+      ],
+      "prerequisites": [
+        "heaps"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1439.json",
+      "content_sha256": "a80aa44b4bc2277254355aaa10572d168787bfbdc2b6a3eaf7892875b1eb424e",
+      "source_id": 1439
+    },
+    {
+      "id": "leetcode-1441",
+      "version": 1,
+      "status": "approved",
+      "title": "Build an Array With Stack Operations",
+      "summary": "Given an integer array target and an integer n, you have an empty stack with push and pop operations.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1441.json",
+      "content_sha256": "30881aa333b19c6ec483ea06fd0d12b31ca4e4d69a5018663def303a8945faa3",
+      "source_id": 1441
+    },
+    {
+      "id": "leetcode-1442",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Triplets That Can Form Two Arrays of Equal XOR",
+      "summary": "Given an array of integers arr, find the number of triplets (i, j, k) where 0 <= i < j <= k < arr.length, such that the bitwise XOR of elements from index i to j-1 equals the bitwise XOR of elements from index j to k.",
+      "topics": [
+        "prefix-xor",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1442.json",
+      "content_sha256": "61b695a6623d7b1df1f00f073b6ea27ead5e1386bf683204b38b895715e39e83",
+      "source_id": 1442
+    },
+    {
+      "id": "leetcode-1443",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Collect All Apples in a Tree",
+      "summary": "Given an undirected tree with vertices numbered from 0 to n-1, where some vertices contain apples, calculate the minimum time required to collect all apples starting and ending at vertex 0.",
+      "topics": [
+        "trees",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1443.json",
+      "content_sha256": "ad78b5e73b9547ce9897caf8d21c6e25f455376dfc95cdd7d14067fd4c6db754",
+      "source_id": 1443
+    },
+    {
+      "id": "leetcode-1444",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways of Cutting a Pizza",
+      "summary": "Given a rectangular pizza with 'A' for apples and '.' for empty cells, and an integer k, determine the number of ways to cut the pizza into k pieces, ensuring each piece has at least one apple.",
+      "topics": [
+        "dynamic-programming",
+        "prefix-sums"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1444.json",
+      "content_sha256": "62409ccc805261bd6ffd575118e026599f57e32a37514bfaa48c77afacb32973",
+      "source_id": 1444
+    },
+    {
+      "id": "leetcode-1446",
+      "version": 1,
+      "status": "approved",
+      "title": "Consecutive Characters",
+      "summary": "Determine the power of a string by finding the longest substring with a single repeating character.",
+      "topics": [
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1446.json",
+      "content_sha256": "7f443a38c883a7de705c155f6ce1bfbbd50eb99658badca2ca8ced45b1b262ed",
+      "source_id": 1446
+    },
+    {
+      "id": "leetcode-1447",
+      "version": 1,
+      "status": "approved",
+      "title": "Simplified Fractions",
+      "summary": "For an integer n, generate a list of simplified fractions between 0 and 1, where the denominator does not exceed n, in any order.",
+      "topics": [
+        "math",
+        "number-theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1447.json",
+      "content_sha256": "c6c34912947c3901bd75c2f2daa40eefc16945487525c4de48eecad292a560ef",
+      "source_id": 1447
+    },
+    {
+      "id": "leetcode-1448",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Good Nodes in Binary Tree",
+      "summary": "Count nodes in a binary tree where no path from the root to the node contains a value greater than the node.",
+      "topics": [
+        "trees",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1448.json",
+      "content_sha256": "12f345cf189046182bea9468e477b865c1d8fc6fcc9bee47bfaba94af71118fd",
+      "source_id": 1448
+    },
+    {
+      "id": "leetcode-1449",
+      "version": 1,
+      "status": "approved",
+      "title": "Form Largest Integer With Digits That Add up to Target",
+      "summary": "Given an array of digit painting costs and a target cost, find the largest possible integer whose digit painting costs sum exactly to the target.",
+      "topics": [
+        "dynamic-programming",
+        "strings"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1449.json",
+      "content_sha256": "46bf5b299fe27a91b36d76da3226515df50c58c03df92a5e72a236ad862c2464",
+      "source_id": 1449
+    },
+    {
+      "id": "leetcode-1450",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Students Doing Homework at a Given Time",
+      "summary": "Given start and end times for each of several students' homework sessions and a specific query time, count how many students are engaged in homework at that exact moment.",
+      "topics": [
+        "arrays",
+        "intervals"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1450.json",
+      "content_sha256": "cc78ff344004acbaf2cf118e4ea538a4a9c5c91770dd39cd63909e9593806b96",
+      "source_id": 1450
+    },
+    {
+      "id": "leetcode-1451",
+      "version": 1,
+      "status": "approved",
+      "title": "Rearrange Words in a Sentence",
+      "summary": "Given a sentence where the first letter is uppercase and words are separated by a single space, rearrange the words in increasing order of their lengths.",
+      "topics": [
+        "strings",
+        "stable-sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1451.json",
+      "content_sha256": "42040bedeb94beabb2d2157f5f8e6591ff6be2052f7f5e68df1588d33cd5ca35",
+      "source_id": 1451
+    },
+    {
+      "id": "leetcode-1452",
+      "version": 1,
+      "status": "approved",
+      "title": "People Whose List of Favorite Companies Is Not a Subset of Another List",
+      "summary": "Given an array where each element is a list of favorite companies for a person, identify and return the indices of people whose list of favorites is not completely included within any other person's list of favorites, in ascending order.",
+      "topics": [
+        "sets",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1452.json",
+      "content_sha256": "8010bdd427a162e9dccc36a3e656a9e115d19895bcc3dfafa46db19e27a8b38e",
+      "source_id": 1452
+    },
+    {
+      "id": "leetcode-1455",
+      "version": 1,
+      "status": "approved",
+      "title": "Check If a Word Occurs As a Prefix of Any Word in a Sentence",
+      "summary": "Given a sentence with words separated by a single space and a searchWord, check if searchWord is a prefix of any word in the sentence.",
+      "topics": [
+        "strings",
+        "search"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1455.json",
+      "content_sha256": "cd4d86611c922aa33a722b10244998fe9e4170bfece10533a2f925ae476dff98",
+      "source_id": 1455
+    },
+    {
+      "id": "leetcode-1456",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Vowels in a Substring of Given Length",
+      "summary": "For a string s and integer k, determine the highest count of vowel characters in any substring of s that is exactly k characters long.",
+      "topics": [
+        "sliding-window",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1456.json",
+      "content_sha256": "fc2dab251b59ecc8f1bdd00bbf6afdc0a79170396bd41a1e4f822d4b44e64d7a",
+      "source_id": 1456
+    },
+    {
+      "id": "leetcode-1457",
+      "version": 1,
+      "status": "approved",
+      "title": "Pseudo-Palindromic Paths in a Binary Tree",
+      "summary": "In a binary tree with node values ranging from 1 to 9, count the paths from the root to leaf nodes where at least one permutation of the node values forms a palindrome.",
+      "topics": [
+        "trees",
+        "recursion",
+        "bit-manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1457.json",
+      "content_sha256": "85847dcb634e4ab7b3e7749d935875e9b7b4df8ac6ac1d046ba97caac2dd271b",
+      "source_id": 1457
     }
   ]
 }

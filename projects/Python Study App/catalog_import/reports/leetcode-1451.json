@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1451",
+  "content_sha256": "42040bedeb94beabb2d2157f5f8e6591ff6be2052f7f5e68df1588d33cd5ca35",
+  "source_hash": "ba9cde7c6b9636599a2139a304e78565aee1b4d25f6e29b9631d807fd6ec45fd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts longest words first.",
+      "failed_cases": [
+        "lc-1451-1",
+        "lc-1451-2",
+        "lc-1451-4",
+        "lc-1451-5",
+        "lc-1451-6",
+        "lc-1451-8",
+        "lc-1451-9",
+        "lc-1451-10",
+        "lc-1451-11",
+        "lc-1451-12",
+        "lc-1451-13"
+      ]
+    },
+    {
+      "reason": "Leaves the original initial uppercase letter attached to its moved word.",
+      "failed_cases": [
+        "lc-1451-1",
+        "lc-1451-2",
+        "lc-1451-5",
+        "lc-1451-10",
+        "lc-1451-11",
+        "lc-1451-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5498,
+  "oracle_implementation": "code_practice/import_batch_094b.py:arrange_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "745e900dc5ec672e3bc78f5db42a0bdf05f9581f550a7e1e452e68ed17b648dc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4bc55cc02007e07c88d0adde7817693ecd48359516cbb6262bb51260b1cb7ac3",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1447",
+  "content_sha256": "c6c34912947c3901bd75c2f2daa40eefc16945487525c4de48eecad292a560ef",
+  "source_hash": "872147df4a9c10e6f488c50bab2a6959c0a6a6136860a4cd9807f153a6ae1886",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes unreduced duplicate-valued fractions.",
+      "failed_cases": [
+        "lc-1447-2",
+        "lc-1447-4",
+        "lc-1447-5",
+        "lc-1447-6",
+        "lc-1447-7",
+        "lc-1447-8",
+        "lc-1447-9",
+        "lc-1447-10",
+        "lc-1447-11",
+        "lc-1447-12",
+        "lc-1447-13",
+        "lc-1447-14"
+      ]
+    },
+    {
+      "reason": "Includes a zero fraction for every denominator.",
+      "failed_cases": [
+        "lc-1447-1",
+        "lc-1447-2",
+        "lc-1447-3",
+        "lc-1447-4",
+        "lc-1447-5",
+        "lc-1447-6",
+        "lc-1447-7",
+        "lc-1447-8",
+        "lc-1447-9",
+        "lc-1447-10",
+        "lc-1447-11",
+        "lc-1447-12",
+        "lc-1447-13",
+        "lc-1447-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5494,
+  "oracle_implementation": "code_practice/import_batch_094b.py:fractions_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "745e900dc5ec672e3bc78f5db42a0bdf05f9581f550a7e1e452e68ed17b648dc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ebc4ab41b9768636a6dace3f24fd95c013fc0c949984a55b468d8f70a53be9bd",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

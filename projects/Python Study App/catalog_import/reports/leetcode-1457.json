@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1457",
+  "content_sha256": "85847dcb634e4ab7b3e7749d935875e9b7b4df8ac6ac1d046ba97caac2dd271b",
+  "source_hash": "e32c78b33b9e5a0d06ea992d91ad4f35d3d5c462556bb03ed69421f6b9b4c93f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts only paths with zero odd counts, rejecting valid odd-length palindromes.",
+      "failed_cases": [
+        "lc-1457-1",
+        "lc-1457-2",
+        "lc-1457-3",
+        "lc-1457-8",
+        "lc-1457-9",
+        "lc-1457-10",
+        "lc-1457-11",
+        "lc-1457-12",
+        "lc-1457-13",
+        "lc-1457-14"
+      ]
+    },
+    {
+      "reason": "Records presence rather than parity, so repeated digits never cancel.",
+      "failed_cases": [
+        "lc-1457-1",
+        "lc-1457-2",
+        "lc-1457-9",
+        "lc-1457-10",
+        "lc-1457-11",
+        "lc-1457-12",
+        "lc-1457-13",
+        "lc-1457-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5504,
+  "oracle_implementation": "code_practice/import_batch_094b.py:paths_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "745e900dc5ec672e3bc78f5db42a0bdf05f9581f550a7e1e452e68ed17b648dc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "00341d032dee2d7e0e82643ec39a572ec623ff2d82fbdbba51f6f32ed8b007c3",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

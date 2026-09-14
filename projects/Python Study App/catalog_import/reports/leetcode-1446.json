@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1446",
+  "content_sha256": "7f443a38c883a7de705c155f6ce1bfbbd50eb99658badca2ca8ced45b1b262ed",
+  "source_hash": "a7ea88740a5c1d806bf883ac09afea64af91d87fb1f1c49acceb13b079f5664b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Extends runs when adjacent characters differ.",
+      "failed_cases": [
+        "lc-1446-1",
+        "lc-1446-4",
+        "lc-1446-5",
+        "lc-1446-6",
+        "lc-1446-7",
+        "lc-1446-8",
+        "lc-1446-10",
+        "lc-1446-11",
+        "lc-1446-12",
+        "lc-1446-13",
+        "lc-1446-14"
+      ]
+    },
+    {
+      "reason": "Retains the shortest rather than longest run.",
+      "failed_cases": [
+        "lc-1446-1",
+        "lc-1446-2",
+        "lc-1446-4",
+        "lc-1446-7",
+        "lc-1446-9",
+        "lc-1446-10",
+        "lc-1446-11",
+        "lc-1446-12",
+        "lc-1446-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5493,
+  "oracle_implementation": "code_practice/import_batch_094b.py:power_o",
+  "validator_implementation_sha256": "320ea8a7702c65c36c66a3a15e180b4cc493ad55a3d86077034b555022ce0772",
+  "batch_implementation_sha256": "745e900dc5ec672e3bc78f5db42a0bdf05f9581f550a7e1e452e68ed17b648dc",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ce655dc1cef2da8c564c200b39148691a4d9f4b1d543340c65646d4a08a1a633",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
