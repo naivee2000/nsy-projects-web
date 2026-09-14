@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2129",
+  "content_sha256": "17db80b23f1f71e9fcf023da11d4b8e2b118f4736dc564a894fba81c29f7907b",
+  "source_hash": "5751a84f6a603ca88673dd2a637853a3485e9c5c4db3ff5f71b8762246653761",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Capitalizes two-letter words instead of lowercasing them.",
+      "failed_cases": [
+        "lc-2129-2",
+        "lc-2129-5",
+        "lc-2129-9",
+        "lc-2129-11",
+        "lc-2129-14",
+        "lc-2129-15",
+        "lc-2129-16"
+      ]
+    },
+    {
+      "reason": "Uppercases every letter in long words instead of only the first.",
+      "failed_cases": [
+        "lc-2129-1",
+        "lc-2129-2",
+        "lc-2129-6",
+        "lc-2129-7",
+        "lc-2129-9",
+        "lc-2129-10",
+        "lc-2129-11",
+        "lc-2129-12",
+        "lc-2129-13",
+        "lc-2129-14",
+        "lc-2129-15",
+        "lc-2129-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6176,
+  "oracle_implementation": "code_practice/import_batch_119d.py:title_o",
+  "validator_implementation_sha256": "f49b2af46a5aa9c98c13f4a8332aaec3b4adf7b4b0842b4539a2803fb1989563",
+  "batch_implementation_sha256": "57a50644cc37d0edb10e23ee2e167bc6b9df72de5a06d3f7ee037df79026dd9b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "47149911b0a87fb553c29ce85829242326a83cae7361ba4750abdb994639bb66",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

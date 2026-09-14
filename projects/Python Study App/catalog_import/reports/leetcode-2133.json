@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2133",
+  "content_sha256": "a778a2893daf54c5f8f9d68d20d039749a4f655d7e760a6b3fa852fc7563efb2",
+  "source_hash": "57ad9615aacd448045fd1d758a9cb7904b14597d566ac0030054f02dac000efe",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a matrix when either rows or columns alone are valid.",
+      "failed_cases": [
+        "lc-2133-5",
+        "lc-2133-6",
+        "lc-2133-9",
+        "lc-2133-16"
+      ]
+    },
+    {
+      "reason": "Requires zero through n-1 instead of one through n.",
+      "failed_cases": [
+        "lc-2133-1",
+        "lc-2133-3",
+        "lc-2133-4",
+        "lc-2133-7",
+        "lc-2133-8",
+        "lc-2133-13",
+        "lc-2133-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6180,
+  "oracle_implementation": "code_practice/import_batch_119d.py:valid_o",
+  "validator_implementation_sha256": "f49b2af46a5aa9c98c13f4a8332aaec3b4adf7b4b0842b4539a2803fb1989563",
+  "batch_implementation_sha256": "57a50644cc37d0edb10e23ee2e167bc6b9df72de5a06d3f7ee037df79026dd9b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e117341ad07750c38b3e9368a4fb47347ac6a8492e2dfbd25ceaea4cd47d7cae",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

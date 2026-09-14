@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2131",
+  "content_sha256": "a60cab27204a678fb4f7fb199f46c5b43d82fe933caf9712c3bd200198fa28e9",
+  "source_hash": "3414a57ee45e4441ad04178576e752891da1d8ec4d14c63ea77161dc883d36c2",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Processes both orientations of every reverse pair and double-counts the same word occurrences.",
+      "failed_cases": [
+        "lc-2131-1",
+        "lc-2131-2",
+        "lc-2131-5",
+        "lc-2131-8",
+        "lc-2131-9",
+        "lc-2131-10",
+        "lc-2131-12",
+        "lc-2131-14",
+        "lc-2131-15"
+      ]
+    },
+    {
+      "reason": "Never reserves an unmatched symmetric word for the center.",
+      "failed_cases": [
+        "lc-2131-1",
+        "lc-2131-3",
+        "lc-2131-7",
+        "lc-2131-8",
+        "lc-2131-11",
+        "lc-2131-12",
+        "lc-2131-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6178,
+  "oracle_implementation": "code_practice/import_batch_119d.py:palindrome_o",
+  "validator_implementation_sha256": "f49b2af46a5aa9c98c13f4a8332aaec3b4adf7b4b0842b4539a2803fb1989563",
+  "batch_implementation_sha256": "57a50644cc37d0edb10e23ee2e167bc6b9df72de5a06d3f7ee037df79026dd9b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dcf465256c2efbc459870e7b429c479b7b78daf01ae837b2dbf958a2e041647f",
+  "elapsed_seconds": 0.531,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

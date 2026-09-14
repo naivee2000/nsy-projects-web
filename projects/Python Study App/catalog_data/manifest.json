@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1493,
+  "count": 1498,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -26543,6 +26543,95 @@
       "path": "problems/leetcode-2128.json",
       "content_sha256": "038f515bf514943edf344ca0efa47042a142844b278bfe3eca21fc135c605c86",
       "source_id": 2128
+    },
+    {
+      "id": "leetcode-2129",
+      "version": 1,
+      "status": "approved",
+      "title": "Capitalize the Title",
+      "summary": "Given a string title with words separated by a space, transform each word by converting the first letter to uppercase and the rest to lowercase if the word length is greater than two.",
+      "topics": [
+        "strings",
+        "normalization"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2129.json",
+      "content_sha256": "17db80b23f1f71e9fcf023da11d4b8e2b118f4736dc564a894fba81c29f7907b",
+      "source_id": 2129
+    },
+    {
+      "id": "leetcode-2130",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Twin Sum of a Linked List",
+      "summary": "Given an even-sized linked list, find the highest twin sum where the twin of the i-th node is the (n-1-i)-th node, and n is the list's size.",
+      "topics": [
+        "linked lists",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2130.json",
+      "content_sha256": "1bcee98b4d5be89f7e825a7136e724e113d5272d2ca4bb8859450d7db3b8d0c2",
+      "source_id": 2130
+    },
+    {
+      "id": "leetcode-2131",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Palindrome by Concatenating Two Letter Words",
+      "summary": "Given an array of strings where each string consists of two lowercase English letters, determine the maximum length of a palindrome that can be formed by concatenating some of these strings, with each string used at most once.",
+      "topics": [
+        "strings",
+        "hash maps",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2131.json",
+      "content_sha256": "a60cab27204a678fb4f7fb199f46c5b43d82fe933caf9712c3bd200198fa28e9",
+      "source_id": 2131
+    },
+    {
+      "id": "leetcode-2132",
+      "version": 1,
+      "status": "approved",
+      "title": "Stamping the Grid",
+      "summary": "Given an m x n binary matrix with empty and occupied cells, determine if it's possible to place stamps of a specified size without covering any occupied cells and ensuring all empty cells are covered, allowing overlaps and without rotating the stamps.",
+      "topics": [
+        "matrices",
+        "prefix sums",
+        "difference arrays"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2132.json",
+      "content_sha256": "a4c262119ac387e45c8c653de35aa2ca72949fc1f54cbf895031a240d8d77d4d",
+      "source_id": 2132
+    },
+    {
+      "id": "leetcode-2133",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Every Row and Column Contains All Numbers",
+      "summary": "Determine if an n x n matrix is valid by checking if each row and column contains all integers from 1 to n exactly once.",
+      "topics": [
+        "matrices",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2133.json",
+      "content_sha256": "a778a2893daf54c5f8f9d68d20d039749a4f655d7e760a6b3fa852fc7563efb2",
+      "source_id": 2133
     }
   ]
 }

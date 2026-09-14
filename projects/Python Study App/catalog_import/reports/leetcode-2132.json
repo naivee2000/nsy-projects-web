@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2132",
+  "content_sha256": "a4c262119ac387e45c8c653de35aa2ca72949fc1f54cbf895031a240d8d77d4d",
+  "source_hash": "5992758e04382e2cdded9dc70b21d7a7594757631fc07fcf04d368d89f3e1dee",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Places stamps only where occupied cells exist.",
+      "failed_cases": [
+        "lc-2132-1",
+        "lc-2132-16"
+      ]
+    },
+    {
+      "reason": "Requires every zero to be covered at least twice instead of once.",
+      "failed_cases": [
+        "lc-2132-1",
+        "lc-2132-3",
+        "lc-2132-5",
+        "lc-2132-6",
+        "lc-2132-7",
+        "lc-2132-8",
+        "lc-2132-10",
+        "lc-2132-13",
+        "lc-2132-15",
+        "lc-2132-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6179,
+  "oracle_implementation": "code_practice/import_batch_119d.py:stamp_o",
+  "validator_implementation_sha256": "f49b2af46a5aa9c98c13f4a8332aaec3b4adf7b4b0842b4539a2803fb1989563",
+  "batch_implementation_sha256": "57a50644cc37d0edb10e23ee2e167bc6b9df72de5a06d3f7ee037df79026dd9b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cd16fe2aa763c65d140756a7654d5e02bc8e1dc5ccf9a31d6f3654a983728dd2",
+  "elapsed_seconds": 0.092,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

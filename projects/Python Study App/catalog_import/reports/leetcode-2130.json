@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2130",
+  "content_sha256": "1bcee98b4d5be89f7e825a7136e724e113d5272d2ca4bb8859450d7db3b8d0c2",
+  "source_hash": "f46c2d32bca14405b005eea1a49d6d7f60e5bd2353b207df78361706bf8de7b9",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Pairs the first node with itself because of a negative-index off-by-one.",
+      "failed_cases": [
+        "lc-2130-1",
+        "lc-2130-2",
+        "lc-2130-4",
+        "lc-2130-5",
+        "lc-2130-6",
+        "lc-2130-8",
+        "lc-2130-9",
+        "lc-2130-11",
+        "lc-2130-12",
+        "lc-2130-13",
+        "lc-2130-15",
+        "lc-2130-16"
+      ]
+    },
+    {
+      "reason": "Skips the final twin pair and may miss the maximum.",
+      "failed_cases": [
+        "lc-2130-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6177,
+  "oracle_implementation": "code_practice/import_batch_119d.py:twin_o",
+  "validator_implementation_sha256": "f49b2af46a5aa9c98c13f4a8332aaec3b4adf7b4b0842b4539a2803fb1989563",
+  "batch_implementation_sha256": "57a50644cc37d0edb10e23ee2e167bc6b9df72de5a06d3f7ee037df79026dd9b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0170ce483f879e4547fd2de593ded2551bcf07e3710b62f38954cf341b1f0a4c",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
