@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1528",
+  "content_sha256": "57e659c7ee4c7cc2e96487b586969bc7cd407bcd40ac1596b17376d91af3c029",
+  "source_hash": "de7090428e8860ce980e06db3c1ee6c72251329543a53e147fe81f85bb1db3c8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reads characters from destination indices instead of moving each source character there.",
+      "failed_cases": [
+        "lc-1528-1",
+        "lc-1528-4",
+        "lc-1528-7",
+        "lc-1528-12",
+        "lc-1528-13"
+      ]
+    },
+    {
+      "reason": "Reverses the destination mapping before placement.",
+      "failed_cases": [
+        "lc-1528-1",
+        "lc-1528-2",
+        "lc-1528-4",
+        "lc-1528-5",
+        "lc-1528-6",
+        "lc-1528-7",
+        "lc-1528-8",
+        "lc-1528-9",
+        "lc-1528-11",
+        "lc-1528-12",
+        "lc-1528-13",
+        "lc-1528-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5575,
+  "oracle_implementation": "code_practice/import_batch_097.py:shuffle_o",
+  "validator_implementation_sha256": "2c6c716d48a8f86ad718a913636f12b681e6cb70d18487babfd1ca95d76b235b",
+  "batch_implementation_sha256": "90085a7231d974aa5c27c73dca845c89dec97f875579b288c08d076318f93bed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bc82e45f60be431440a1c0748b2ed0b33063e29cad366bbc9e0d09fa742bac73",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

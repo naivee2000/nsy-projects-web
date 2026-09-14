@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1524",
+  "content_sha256": "e8f866b7d003f6df86715286ac8353720def5849780591cefeaf3dedbbcc1190",
+  "source_hash": "6944ab0433e3bbdb87688f93170b81571e28953630819ce331d2ba19aff945ed",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pairs odd prefixes with odd prefixes instead of earlier even prefixes.",
+      "failed_cases": [
+        "lc-1524-1",
+        "lc-1524-3",
+        "lc-1524-5",
+        "lc-1524-6",
+        "lc-1524-7",
+        "lc-1524-8",
+        "lc-1524-9",
+        "lc-1524-10",
+        "lc-1524-11",
+        "lc-1524-12",
+        "lc-1524-13",
+        "lc-1524-14"
+      ]
+    },
+    {
+      "reason": "Uses only the current element parity rather than cumulative prefix parity.",
+      "failed_cases": [
+        "lc-1524-1",
+        "lc-1524-9",
+        "lc-1524-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5571,
+  "oracle_implementation": "code_practice/import_batch_097.py:oddsum_o",
+  "validator_implementation_sha256": "2c6c716d48a8f86ad718a913636f12b681e6cb70d18487babfd1ca95d76b235b",
+  "batch_implementation_sha256": "90085a7231d974aa5c27c73dca845c89dec97f875579b288c08d076318f93bed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "be6ecf0eeb93b344b9c74c567ed870085faebe47469905a4a562332bcd566ae3",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

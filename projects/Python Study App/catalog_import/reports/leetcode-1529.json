@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1529",
+  "content_sha256": "ea125cec8eb154cec36378274cbdae29fbcea103f0143e14e0cee10c8e50a844",
+  "source_hash": "1b529e9eb7b873d2129c8f44e1b0972d109e08e08adaa4c069d4cadb5bae1f94",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only transitions into one, missing flips needed to return to zero.",
+      "failed_cases": [
+        "lc-1529-1",
+        "lc-1529-7",
+        "lc-1529-9",
+        "lc-1529-11",
+        "lc-1529-12",
+        "lc-1529-13"
+      ]
+    },
+    {
+      "reason": "Pretends the initial suffix state already equals the first target bit.",
+      "failed_cases": [
+        "lc-1529-1",
+        "lc-1529-4",
+        "lc-1529-7",
+        "lc-1529-8",
+        "lc-1529-10",
+        "lc-1529-12",
+        "lc-1529-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5576,
+  "oracle_implementation": "code_practice/import_batch_097.py:flips_o",
+  "validator_implementation_sha256": "2c6c716d48a8f86ad718a913636f12b681e6cb70d18487babfd1ca95d76b235b",
+  "batch_implementation_sha256": "90085a7231d974aa5c27c73dca845c89dec97f875579b288c08d076318f93bed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4b7cfad4e27e8d397574da85c9f7fa95c905f6c821aa1320ad33b1e245d8226d",
+  "elapsed_seconds": 0.194,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

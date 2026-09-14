@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1525",
+  "content_sha256": "792b217e4b16b1d96eae155de9d0f40c7e2a5eebc5c01fd9af76f7818ec63302",
+  "source_hash": "6453da55197ab4e7e7cf9a121dde695f7dcfba2bf94a1243fd958ab79955882a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts unequal splits whenever the left has fewer distinct characters.",
+      "failed_cases": [
+        "lc-1525-1",
+        "lc-1525-2",
+        "lc-1525-6",
+        "lc-1525-7",
+        "lc-1525-8",
+        "lc-1525-9",
+        "lc-1525-10",
+        "lc-1525-11",
+        "lc-1525-12",
+        "lc-1525-13",
+        "lc-1525-14"
+      ]
+    },
+    {
+      "reason": "Skips the first possible split.",
+      "failed_cases": [
+        "lc-1525-3",
+        "lc-1525-4",
+        "lc-1525-5",
+        "lc-1525-9",
+        "lc-1525-11",
+        "lc-1525-12",
+        "lc-1525-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5572,
+  "oracle_implementation": "code_practice/import_batch_097.py:splits_o",
+  "validator_implementation_sha256": "2c6c716d48a8f86ad718a913636f12b681e6cb70d18487babfd1ca95d76b235b",
+  "batch_implementation_sha256": "90085a7231d974aa5c27c73dca845c89dec97f875579b288c08d076318f93bed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ec0f8773a1c87c67d563fc02f2629c9719634f9d1869d4a5d20bfd9818e45beb",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

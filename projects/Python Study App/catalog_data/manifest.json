@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1039,
+  "count": 1049,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -18382,6 +18382,181 @@
       "path": "problems/leetcode-1519.json",
       "content_sha256": "e5bcb9707a96de52e1ed995fc7371b72d9bd228922746bb73b7e5aaa6b9693c0",
       "source_id": 1519
+    },
+    {
+      "id": "leetcode-1520",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Non-Overlapping Substrings",
+      "summary": "Given a string s consisting of lowercase letters, find the maximum number of non-overlapping substrings such that each substring includes all occurrences of any character it contains.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1520.json",
+      "content_sha256": "7f67f03f49461aa66316c75c4dde0949e5bec2e775fef172bcef4961c0eefefa",
+      "source_id": 1520
+    },
+    {
+      "id": "leetcode-1521",
+      "version": 1,
+      "status": "approved",
+      "title": "Find a Value of a Mysterious Function Closest to Target",
+      "summary": "Determine the closest value of a function applied to an array to a given target.",
+      "topics": [
+        "bit-manipulation",
+        "arrays"
+      ],
+      "prerequisites": [
+        "bit-manipulation"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1521.json",
+      "content_sha256": "fef5fee333be65cb334265473bf3e194672c8a81cac9c1001388f98428ccf9e9",
+      "source_id": 1521
+    },
+    {
+      "id": "leetcode-1522",
+      "version": 1,
+      "status": "approved",
+      "title": "Diameter of N-Ary Tree",
+      "summary": "Given a root node of an N-ary tree, calculate the longest path between any two nodes, which may or may not include the root.",
+      "topics": [
+        "trees",
+        "depth-first-search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1522.json",
+      "content_sha256": "78a7a90897c8ea6c1de4dbd74ed4920d3cd7446158601d80ce90afb320d0f8aa",
+      "source_id": 1522
+    },
+    {
+      "id": "leetcode-1523",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Odd Numbers in an Interval Range",
+      "summary": "Provide the total number of odd integers within the range from a specified lower limit to an upper limit, including both endpoints.",
+      "topics": [
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1523.json",
+      "content_sha256": "bda78700321faacbabbd781ffe70a8ccd7887445c0441d7dd41f116074e9905c",
+      "source_id": 1523
+    },
+    {
+      "id": "leetcode-1524",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Sub-arrays With Odd Sum",
+      "summary": "Provide the count of subarrays in the given integer array whose sum is odd, modulo 10^9 + 7.",
+      "topics": [
+        "prefix-sums",
+        "dynamic-programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1524.json",
+      "content_sha256": "e8f866b7d003f6df86715286ac8353720def5849780591cefeaf3dedbbcc1190",
+      "source_id": 1524
+    },
+    {
+      "id": "leetcode-1525",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Good Ways to Split a String",
+      "summary": "Given a string s, determine the count of ways to split it into two non-empty parts such that the number of unique characters in each part is identical.",
+      "topics": [
+        "strings",
+        "prefix-counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1525.json",
+      "content_sha256": "792b217e4b16b1d96eae155de9d0f40c7e2a5eebc5c01fd9af76f7818ec63302",
+      "source_id": 1525
+    },
+    {
+      "id": "leetcode-1526",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Increments on Subarrays to Form a Target Array",
+      "summary": "Given an integer array target with all elements initially zero, determine the least number of operations needed to transform the initial array into the target array.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1526.json",
+      "content_sha256": "463600933fe1fd00a7da87c6b7157a5a479d060902eb4db8730aaf6f901c0ac7",
+      "source_id": 1526
+    },
+    {
+      "id": "leetcode-1528",
+      "version": 1,
+      "status": "approved",
+      "title": "Shuffle String",
+      "summary": "Given a string and an integer array of the same length, rearrange the string according to the positions specified in the array.",
+      "topics": [
+        "strings",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1528.json",
+      "content_sha256": "57e659c7ee4c7cc2e96487b586969bc7cd407bcd40ac1596b17376d91af3c029",
+      "source_id": 1528
+    },
+    {
+      "id": "leetcode-1529",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Suffix Flips",
+      "summary": "Given a binary string target of length n, you start with a binary string s of the same length, initially filled with zeros.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1529.json",
+      "content_sha256": "ea125cec8eb154cec36378274cbdae29fbcea103f0143e14e0cee10c8e50a844",
+      "source_id": 1529
+    },
+    {
+      "id": "leetcode-1530",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Good Leaf Nodes Pairs",
+      "summary": "Given a binary tree and a distance, count the pairs of distinct leaf nodes whose shortest path length is less than or equal to the specified distance.",
+      "topics": [
+        "trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1530.json",
+      "content_sha256": "ab1f7f7018821f54003eae765994237037f9932754d9f5894cfa9f8e09426e5d",
+      "source_id": 1530
     }
   ]
 }

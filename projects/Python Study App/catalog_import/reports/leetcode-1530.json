@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1530",
+  "content_sha256": "ab1f7f7018821f54003eae765994237037f9932754d9f5894cfa9f8e09426e5d",
+  "source_hash": "7f50326398e8b328b68be6fb71d94e4c61111f0013593d120ff99f2fce2f13e0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a strict distance bound and loses pairs exactly at the limit.",
+      "failed_cases": [
+        "lc-1530-1",
+        "lc-1530-2",
+        "lc-1530-5",
+        "lc-1530-9"
+      ]
+    },
+    {
+      "reason": "Measures each leaf as distance zero from its parent, undercounting every path.",
+      "failed_cases": [
+        "lc-1530-2",
+        "lc-1530-6",
+        "lc-1530-10",
+        "lc-1530-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5577,
+  "oracle_implementation": "code_practice/import_batch_097.py:leaf_o",
+  "validator_implementation_sha256": "2c6c716d48a8f86ad718a913636f12b681e6cb70d18487babfd1ca95d76b235b",
+  "batch_implementation_sha256": "90085a7231d974aa5c27c73dca845c89dec97f875579b288c08d076318f93bed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cafbc4ca6a898cd5dbc78017837128773d02b9873b3e8168b8a43694995c9901",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

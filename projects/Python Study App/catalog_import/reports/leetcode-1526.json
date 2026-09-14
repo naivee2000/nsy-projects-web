@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1526",
+  "content_sha256": "463600933fe1fd00a7da87c6b7157a5a479d060902eb4db8730aaf6f901c0ac7",
+  "source_hash": "472544e028fbcebc5f1231b01923fead377cd616de1f97324e93236c746a7d13",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts every target unit separately and ignores sharing one operation across a subarray.",
+      "failed_cases": [
+        "lc-1526-1",
+        "lc-1526-2",
+        "lc-1526-5",
+        "lc-1526-6",
+        "lc-1526-7",
+        "lc-1526-10",
+        "lc-1526-12",
+        "lc-1526-13",
+        "lc-1526-14"
+      ]
+    },
+    {
+      "reason": "Also charges for downward transitions, though ending active layers costs no operation.",
+      "failed_cases": [
+        "lc-1526-1",
+        "lc-1526-2",
+        "lc-1526-7",
+        "lc-1526-8",
+        "lc-1526-9",
+        "lc-1526-10",
+        "lc-1526-12",
+        "lc-1526-13",
+        "lc-1526-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5573,
+  "oracle_implementation": "code_practice/import_batch_097.py:increments_o",
+  "validator_implementation_sha256": "2c6c716d48a8f86ad718a913636f12b681e6cb70d18487babfd1ca95d76b235b",
+  "batch_implementation_sha256": "90085a7231d974aa5c27c73dca845c89dec97f875579b288c08d076318f93bed",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8871f88c1a8765b032ef5755e041c3fa8a5412d56eb9471597dfc9d25a9effba",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
