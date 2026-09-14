@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2068",
+  "content_sha256": "50cfbfab40558a5fa68142561bc167947baaa7b0362c4a51aff274ba278d60d9",
+  "source_hash": "32f16880e9b5bcf3ffabecef8e05d88544eee43a8c737703c2385e8aa0b4ee75",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a valid pair whose frequency difference is exactly three.",
+      "failed_cases": [
+        "lc-2068-2",
+        "lc-2068-7",
+        "lc-2068-14"
+      ]
+    },
+    {
+      "reason": "Allows a frequency difference of four instead of the stated maximum three.",
+      "failed_cases": [
+        "lc-2068-1",
+        "lc-2068-5",
+        "lc-2068-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6115,
+  "oracle_implementation": "code_practice/import_batch_117b.py:almost_o",
+  "validator_implementation_sha256": "5b40f042284a9216434d590f455acfce3c1977d46f753d65ba7c480032eeaef5",
+  "batch_implementation_sha256": "6468fca2189406ea3a0ee207b5ae4624c44b9a5c83ae75e2274a257881f0d1b1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d168a0c3c5bfc2fd316f40f7e464c82b8bef1219191e84db29129dea8528f7d3",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

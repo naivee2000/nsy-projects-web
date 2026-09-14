@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2074",
+  "content_sha256": "dcaa3e3743e2a61bcf8edf031faef6ca1a72e89bfd90c040ce1b4ff4649a8457",
+  "source_hash": "291b65f7e7ad3c6aacdbea38edafdc16d7f6fff714825f57be764f2ed048beb8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses odd-sized groups rather than even-sized groups.",
+      "failed_cases": [
+        "lc-2074-1",
+        "lc-2074-2",
+        "lc-2074-6",
+        "lc-2074-7",
+        "lc-2074-8",
+        "lc-2074-9",
+        "lc-2074-10",
+        "lc-2074-11",
+        "lc-2074-12",
+        "lc-2074-13",
+        "lc-2074-14",
+        "lc-2074-16"
+      ]
+    },
+    {
+      "reason": "Uses the requested group size, failing when the shortened final group has different parity.",
+      "failed_cases": [
+        "lc-2074-8",
+        "lc-2074-12",
+        "lc-2074-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6121,
+  "oracle_implementation": "code_practice/import_batch_117b.py:groups_o",
+  "validator_implementation_sha256": "5b40f042284a9216434d590f455acfce3c1977d46f753d65ba7c480032eeaef5",
+  "batch_implementation_sha256": "565b366bc8bfdd89056b43616c97f901f5453e5c7cd4fd58bbc44a8602c4ab19",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1275555f16a86e1599b7fa0edfa94d5391a53d7a90f3c151ccd3bb70b09691b4",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

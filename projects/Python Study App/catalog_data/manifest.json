@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1443,
+  "count": 1448,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -25643,6 +25643,97 @@
       "path": "problems/leetcode-2067.json",
       "content_sha256": "e40cdedd2ef84998064691eb9e1b8ba040ed4739143b81c552e8eac27ae5576e",
       "source_id": 2067
+    },
+    {
+      "id": "leetcode-2068",
+      "version": 1,
+      "status": "approved",
+      "title": "Check Whether Two Strings are Almost Equivalent",
+      "summary": "Determine if two strings are almost equivalent by comparing the frequency of each letter from 'a' to 'z' in both strings, allowing a difference of at most 3 for each letter.",
+      "topics": [
+        "hash maps",
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2068.json",
+      "content_sha256": "50cfbfab40558a5fa68142561bc167947baaa7b0362c4a51aff274ba278d60d9",
+      "source_id": 2068
+    },
+    {
+      "id": "leetcode-2070",
+      "version": 1,
+      "status": "approved",
+      "title": "Most Beautiful Item for Each Query",
+      "summary": "Given a list of items with prices and beauties, for each query, find the maximum beauty of an item whose price is less than or equal to the query price.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "offline queries"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2070.json",
+      "content_sha256": "6cbc6c4182616921576f22bce5013c79a4ef1cd6c61496b85cc9b17aeb06e573",
+      "source_id": 2070
+    },
+    {
+      "id": "leetcode-2071",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Tasks You Can Assign",
+      "summary": "Given n tasks and m workers with strength requirements and strengths, respectively, and a limited number of magical pills that can increase worker strength by a fixed amount, determine the maximum number of tasks that can be completed by assigning each task to a worker with sufficient strength, allowing each worker to receive at most one pill.",
+      "topics": [
+        "binary search",
+        "greedy",
+        "monotonic queue"
+      ],
+      "prerequisites": [
+        "binary search"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2071.json",
+      "content_sha256": "e6f5c9676ecda3379fbeedc4bd19308e265991c758c02df0a3fab3e01a3eca88",
+      "source_id": 2071
+    },
+    {
+      "id": "leetcode-2073",
+      "version": 1,
+      "status": "approved",
+      "title": "Time Needed to Buy Tickets",
+      "summary": "Given an array of ticket counts for each person in a line, determine the time taken for the person at position k to finish buying tickets.",
+      "topics": [
+        "arrays",
+        "queue",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2073.json",
+      "content_sha256": "3fa1fec54d75d9bb7a5e3775d2cf6d8f1fb955874f70f353a8873bf64514dfc6",
+      "source_id": 2073
+    },
+    {
+      "id": "leetcode-2074",
+      "version": 1,
+      "status": "approved",
+      "title": "Reverse Nodes in Even Length Groups",
+      "summary": "Given a linked list, nodes are sequentially grouped into lengths following the sequence of natural numbers (1, 2, 3, 4, ...).",
+      "topics": [
+        "linked lists",
+        "in-place reversal"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2074.json",
+      "content_sha256": "dcaa3e3743e2a61bcf8edf031faef6ca1a72e89bfd90c040ce1b4ff4649a8457",
+      "source_id": 2074
     }
   ]
 }

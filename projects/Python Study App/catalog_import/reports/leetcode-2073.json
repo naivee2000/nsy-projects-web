@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2073",
+  "content_sha256": "3fa1fec54d75d9bb7a5e3775d2cf6d8f1fb955874f70f353a8873bf64514dfc6",
+  "source_hash": "37e14374779ce7238f704c535ee7ab0ad75351fe2291daa93ecaa1ce1358e535",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Gives the target person one too few turns.",
+      "failed_cases": [
+        "lc-2073-1",
+        "lc-2073-2",
+        "lc-2073-3",
+        "lc-2073-4",
+        "lc-2073-5",
+        "lc-2073-6",
+        "lc-2073-7",
+        "lc-2073-8",
+        "lc-2073-9",
+        "lc-2073-10",
+        "lc-2073-11",
+        "lc-2073-12",
+        "lc-2073-13",
+        "lc-2073-14",
+        "lc-2073-15",
+        "lc-2073-16"
+      ]
+    },
+    {
+      "reason": "Lets people behind the target buy once after the target has already finished.",
+      "failed_cases": [
+        "lc-2073-5",
+        "lc-2073-10",
+        "lc-2073-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6120,
+  "oracle_implementation": "code_practice/import_batch_117b.py:tickets_o",
+  "validator_implementation_sha256": "5b40f042284a9216434d590f455acfce3c1977d46f753d65ba7c480032eeaef5",
+  "batch_implementation_sha256": "565b366bc8bfdd89056b43616c97f901f5453e5c7cd4fd58bbc44a8602c4ab19",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "708bba83e37a62118762d507076ee13baac79c04d8d898a4ba063496629bd887",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

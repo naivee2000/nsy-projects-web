@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2070",
+  "content_sha256": "6cbc6c4182616921576f22bce5013c79a4ef1cd6c61496b85cc9b17aeb06e573",
+  "source_hash": "dd8e7e0f1e11bf718430257cec02b712ecd139e3a71bab9153c91197fc66c796",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a strict lower threshold and misses items priced exactly at a query.",
+      "failed_cases": [
+        "lc-2070-1",
+        "lc-2070-2",
+        "lc-2070-4",
+        "lc-2070-6",
+        "lc-2070-7",
+        "lc-2070-8",
+        "lc-2070-9",
+        "lc-2070-10",
+        "lc-2070-11",
+        "lc-2070-12",
+        "lc-2070-13",
+        "lc-2070-14",
+        "lc-2070-15",
+        "lc-2070-16"
+      ]
+    },
+    {
+      "reason": "Writes results by scan position instead of restoring each query’s original index.",
+      "failed_cases": [
+        "lc-2070-1",
+        "lc-2070-7",
+        "lc-2070-9",
+        "lc-2070-11",
+        "lc-2070-12",
+        "lc-2070-14",
+        "lc-2070-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6117,
+  "oracle_implementation": "code_practice/import_batch_117b.py:beauty_o",
+  "validator_implementation_sha256": "5b40f042284a9216434d590f455acfce3c1977d46f753d65ba7c480032eeaef5",
+  "batch_implementation_sha256": "6468fca2189406ea3a0ee207b5ae4624c44b9a5c83ae75e2274a257881f0d1b1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cf3c0688bbe2613d9d6c7be1f4950499f91700286bb1386707e58afe1776ad04",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
