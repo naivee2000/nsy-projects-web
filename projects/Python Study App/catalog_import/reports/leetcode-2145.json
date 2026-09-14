@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2145",
+  "content_sha256": "0d054ace956523294078cf1541a7427d9cdf54cd1a2769538e07bdaa216eaaf6",
+  "source_hash": "6d52ff263107cab17931baa53b0b398159a0ae26c17d8accd87ee2c2b0b48124",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits one valid endpoint starting value.",
+      "failed_cases": [
+        "lc-2145-1",
+        "lc-2145-2",
+        "lc-2145-3",
+        "lc-2145-4",
+        "lc-2145-6",
+        "lc-2145-7",
+        "lc-2145-8",
+        "lc-2145-9",
+        "lc-2145-10",
+        "lc-2145-11",
+        "lc-2145-12",
+        "lc-2145-13",
+        "lc-2145-15",
+        "lc-2145-16"
+      ]
+    },
+    {
+      "reason": "Adds the prefix extremes instead of measuring their spread.",
+      "failed_cases": [
+        "lc-2145-1",
+        "lc-2145-2",
+        "lc-2145-6",
+        "lc-2145-10",
+        "lc-2145-11",
+        "lc-2145-15",
+        "lc-2145-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6192,
+  "oracle_implementation": "code_practice/import_batch_120c.py:hidden_o",
+  "validator_implementation_sha256": "270abb508791e2c5fa21a267ba4bd9a05023866578a530fb5b642b880e83733c",
+  "batch_implementation_sha256": "01bb5009ac1cf863856a4f6552e708d421ba6a105e1ecdbf44557675c0e72944",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3b5cf4b4bd01dba99855ddb91fd512ea78d1f8ac09d9da41ceb598e5656ea612",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

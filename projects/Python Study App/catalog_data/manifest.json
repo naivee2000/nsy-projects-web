@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1508,
+  "count": 1513,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -26813,6 +26813,96 @@
       "path": "problems/leetcode-2144.json",
       "content_sha256": "bb079516d6541942a3b412cf2a2bad9e71508bfa372ff27f8439fedb5f83b2e4",
       "source_id": 2144
+    },
+    {
+      "id": "leetcode-2145",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Hidden Sequences",
+      "summary": "Given an array of differences and a range defined by two integers lower and upper, determine the number of possible hidden sequences of length (n + 1) where each element is within the range [lower, upper] and the differences between consecutive elements match the given differences array.",
+      "topics": [
+        "arrays",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2145.json",
+      "content_sha256": "0d054ace956523294078cf1541a7427d9cdf54cd1a2769538e07bdaa216eaaf6",
+      "source_id": 2145
+    },
+    {
+      "id": "leetcode-2146",
+      "version": 1,
+      "status": "approved",
+      "title": "K Highest Ranked Items Within a Price Range",
+      "summary": "You are given a 0-indexed 2D integer array grid of size m x n, representing a shop map.",
+      "topics": [
+        "matrices",
+        "breadth first search",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2146.json",
+      "content_sha256": "584de5c587298b4cf42e3cc107c3be3196fd83efaf25b28a35e8c70484ec155b",
+      "source_id": 2146
+    },
+    {
+      "id": "leetcode-2147",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Divide a Long Corridor",
+      "summary": "Given a corridor represented by a 0-indexed string of length n, where each character is either 'S' (seat) or 'P' (plant), calculate the number of ways to divide the corridor into non-overlapping sections.",
+      "topics": [
+        "strings",
+        "combinatorics",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2147.json",
+      "content_sha256": "da47a08dce08603f79014f5a4dd5b98777322c369271c9266414f18f0000c27f",
+      "source_id": 2147
+    },
+    {
+      "id": "leetcode-2148",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Elements With Strictly Smaller and Greater Elements ",
+      "summary": "Given an integer array nums, count how many elements have both a strictly smaller and a strictly greater element present in nums.",
+      "topics": [
+        "arrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2148.json",
+      "content_sha256": "880026519e303b68984c2f0f9210ff0822196c8d786a7f69451efb2d50abe195",
+      "source_id": 2148
+    },
+    {
+      "id": "leetcode-2149",
+      "version": 1,
+      "status": "approved",
+      "title": "Rearrange Array Elements by Sign",
+      "summary": "Given an even-length array of integers with an equal number of positive and negative values, rearrange the array so that every consecutive pair of integers has opposite signs, maintaining the original order for integers of the same sign, and starting with a positive integer.",
+      "topics": [
+        "arrays",
+        "stable partition",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2149.json",
+      "content_sha256": "f01e695c386f4c11bc705e1f31ef866fecef6b294cbe97c1074f3797ab596b55",
+      "source_id": 2149
     }
   ]
 }

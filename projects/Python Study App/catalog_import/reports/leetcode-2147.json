@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2147",
+  "content_sha256": "da47a08dce08603f79014f5a4dd5b98777322c369271c9266414f18f0000c27f",
+  "source_hash": "a184d5147efc542bc69355ad3f7a6de6abee78778ce00e996e50dbb6e231cac9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks seat divisibility by three instead of requiring an even count.",
+      "failed_cases": [
+        "lc-2147-1",
+        "lc-2147-2",
+        "lc-2147-4",
+        "lc-2147-6",
+        "lc-2147-7",
+        "lc-2147-8",
+        "lc-2147-9",
+        "lc-2147-10",
+        "lc-2147-11",
+        "lc-2147-12"
+      ]
+    },
+    {
+      "reason": "Adds one nonexistent divider position between consecutive seat pairs.",
+      "failed_cases": [
+        "lc-2147-1",
+        "lc-2147-7",
+        "lc-2147-10",
+        "lc-2147-11",
+        "lc-2147-12",
+        "lc-2147-13",
+        "lc-2147-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6194,
+  "oracle_implementation": "code_practice/import_batch_120c.py:corridor_o",
+  "validator_implementation_sha256": "270abb508791e2c5fa21a267ba4bd9a05023866578a530fb5b642b880e83733c",
+  "batch_implementation_sha256": "01bb5009ac1cf863856a4f6552e708d421ba6a105e1ecdbf44557675c0e72944",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "99a4b193544e46437b65058698ff0e67ce66c1db1c823cfcc8cfe39fa57d4b6e",
+  "elapsed_seconds": 0.168,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

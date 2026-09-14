@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2148",
+  "content_sha256": "880026519e303b68984c2f0f9210ff0822196c8d786a7f69451efb2d50abe195",
+  "source_hash": "96ab0e2c4d071a6d9ca9b5f4e9d785cd0efc73cb2dc9284a7151c1e8d82f3f45",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Includes minimum and maximum occurrences by using non-strict comparisons.",
+      "failed_cases": [
+        "lc-2148-1",
+        "lc-2148-2",
+        "lc-2148-3",
+        "lc-2148-4",
+        "lc-2148-5",
+        "lc-2148-6",
+        "lc-2148-7",
+        "lc-2148-8",
+        "lc-2148-9",
+        "lc-2148-10",
+        "lc-2148-11",
+        "lc-2148-12",
+        "lc-2148-13",
+        "lc-2148-14",
+        "lc-2148-15",
+        "lc-2148-16"
+      ]
+    },
+    {
+      "reason": "Assumes the input endpoints are already its extrema.",
+      "failed_cases": [
+        "lc-2148-1",
+        "lc-2148-6",
+        "lc-2148-12",
+        "lc-2148-13",
+        "lc-2148-14",
+        "lc-2148-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6195,
+  "oracle_implementation": "code_practice/import_batch_120c.py:elements_o",
+  "validator_implementation_sha256": "270abb508791e2c5fa21a267ba4bd9a05023866578a530fb5b642b880e83733c",
+  "batch_implementation_sha256": "01bb5009ac1cf863856a4f6552e708d421ba6a105e1ecdbf44557675c0e72944",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9d1936bbfbdd6ebc31b24356a41f91bcdc7eb50432137b3c2fd4cc48c840c1c2",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

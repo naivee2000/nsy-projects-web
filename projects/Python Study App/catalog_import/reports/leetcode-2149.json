@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2149",
+  "content_sha256": "f01e695c386f4c11bc705e1f31ef866fecef6b294cbe97c1074f3797ab596b55",
+  "source_hash": "6c2cd94e246e5610b68049ea565ba5200f6265e6eecbb8c53951399172807a27",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Begins with a negative and reverses the required sign positions.",
+      "failed_cases": [
+        "lc-2149-1",
+        "lc-2149-2",
+        "lc-2149-3",
+        "lc-2149-4",
+        "lc-2149-5",
+        "lc-2149-6",
+        "lc-2149-7",
+        "lc-2149-8",
+        "lc-2149-9",
+        "lc-2149-10",
+        "lc-2149-11",
+        "lc-2149-12",
+        "lc-2149-13",
+        "lc-2149-14",
+        "lc-2149-15"
+      ]
+    },
+    {
+      "reason": "Sorts positive values and breaks their original relative order.",
+      "failed_cases": [
+        "lc-2149-1",
+        "lc-2149-6",
+        "lc-2149-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6196,
+  "oracle_implementation": "code_practice/import_batch_120c.py:signs_o",
+  "validator_implementation_sha256": "270abb508791e2c5fa21a267ba4bd9a05023866578a530fb5b642b880e83733c",
+  "batch_implementation_sha256": "01bb5009ac1cf863856a4f6552e708d421ba6a105e1ecdbf44557675c0e72944",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5b73828c46aea4fb4d33e769ecbe65d1dbefb80555ceb598c98ac7a17787b0a5",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2146",
+  "content_sha256": "584de5c587298b4cf42e3cc107c3be3196fd83efaf25b28a35e8c70484ec155b",
+  "source_hash": "2a97a1acbc5db53d54f2d964b78f72aac95ec582ed05fe66ee7e338599126bd8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts every ranking criterion in descending order.",
+      "failed_cases": [
+        "lc-2146-1",
+        "lc-2146-2",
+        "lc-2146-6",
+        "lc-2146-7",
+        "lc-2146-8",
+        "lc-2146-9",
+        "lc-2146-10",
+        "lc-2146-11",
+        "lc-2146-12",
+        "lc-2146-13",
+        "lc-2146-14",
+        "lc-2146-15",
+        "lc-2146-16"
+      ]
+    },
+    {
+      "reason": "Walks through wall cells and reaches items that should be blocked.",
+      "failed_cases": [
+        "lc-2146-5",
+        "lc-2146-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6193,
+  "oracle_implementation": "code_practice/import_batch_120c.py:ranked_o",
+  "validator_implementation_sha256": "270abb508791e2c5fa21a267ba4bd9a05023866578a530fb5b642b880e83733c",
+  "batch_implementation_sha256": "01bb5009ac1cf863856a4f6552e708d421ba6a105e1ecdbf44557675c0e72944",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8f5629f9948b032fb4a0f4e6e57280f6840c235fa2c31f59c2c3a3a20110223a",
+  "elapsed_seconds": 0.082,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
