@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1998",
+  "content_sha256": "11069bc33f4a13d54bc7ae6c0fdada3eb36feeaa095daa25400eb45593a9c1bf",
+  "source_hash": "c34ef06efd82f78fd7831166a4c0836b68bc3d3aa12eb7f4e6565be958b6a3a3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops a remaining large prime factor after trial division.",
+      "failed_cases": [
+        "lc-1998-1",
+        "lc-1998-4",
+        "lc-1998-10",
+        "lc-1998-11",
+        "lc-1998-14"
+      ]
+    },
+    {
+      "reason": "Tests only even candidate factors after two and misses odd prime connections.",
+      "failed_cases": [
+        "lc-1998-1",
+        "lc-1998-4",
+        "lc-1998-10",
+        "lc-1998-13",
+        "lc-1998-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6045,
+  "oracle_implementation": "code_practice/import_batch_114c.py:gcdsort_o",
+  "validator_implementation_sha256": "1b0560310b48dde3a62665c0514872f29ec71a393ed82d933750587fcbc50959",
+  "batch_implementation_sha256": "45ee560566cf24b6db2870aeb565297bf0da409e7264b906000191efff7460bf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e4b05f9e3c1a804ea0e63459f6fe55d7eb35590a6655d1e6658b4c71ccfd49dc",
+  "elapsed_seconds": 0.071,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

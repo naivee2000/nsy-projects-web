@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2002",
+  "content_sha256": "c82c6e9523b002eae4904f984ce7c7a93bb7d84751bd63582ec2f73c7537e10c",
+  "source_hash": "f03f36a605a9670b5b9a1e5bb91023b1f9b34526814793eea01302de08de3dd0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the second mask to reuse indices from the first subsequence.",
+      "failed_cases": [
+        "lc-2002-2",
+        "lc-2002-3",
+        "lc-2002-5",
+        "lc-2002-7",
+        "lc-2002-9",
+        "lc-2002-13",
+        "lc-2002-14"
+      ]
+    },
+    {
+      "reason": "Compares each subsequence with the reverse of the whole source string.",
+      "failed_cases": [
+        "lc-2002-1",
+        "lc-2002-2",
+        "lc-2002-3",
+        "lc-2002-4",
+        "lc-2002-5",
+        "lc-2002-6",
+        "lc-2002-7",
+        "lc-2002-8",
+        "lc-2002-9",
+        "lc-2002-10",
+        "lc-2002-11",
+        "lc-2002-12",
+        "lc-2002-13",
+        "lc-2002-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6049,
+  "oracle_implementation": "code_practice/import_batch_114c.py:pal_o",
+  "validator_implementation_sha256": "1b0560310b48dde3a62665c0514872f29ec71a393ed82d933750587fcbc50959",
+  "batch_implementation_sha256": "45ee560566cf24b6db2870aeb565297bf0da409e7264b906000191efff7460bf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "833cb35c86804f5e3e89a7df76fe8fdca02f75de56ce753e82233b2ca3c52398",
+  "elapsed_seconds": 1.681,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

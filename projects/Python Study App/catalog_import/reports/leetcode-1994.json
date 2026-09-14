@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1994",
+  "content_sha256": "e37aaa38950b442617b840bf81e4711982691a719960196f43cf271c39ea5ae4",
+  "source_hash": "bbbb1f1e3489e35f63975be930dbb98c8eba7e7a062242700386c9a0adb510f0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts choices of value one linearly instead of multiplying every good subset by 2^count(1).",
+      "failed_cases": [
+        "lc-1994-6",
+        "lc-1994-14"
+      ]
+    },
+    {
+      "reason": "Combines numbers only when they repeat a prime instead of when their prime masks are disjoint.",
+      "failed_cases": [
+        "lc-1994-1",
+        "lc-1994-2",
+        "lc-1994-4",
+        "lc-1994-6",
+        "lc-1994-7",
+        "lc-1994-8",
+        "lc-1994-9",
+        "lc-1994-10",
+        "lc-1994-11",
+        "lc-1994-12",
+        "lc-1994-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6041,
+  "oracle_implementation": "code_practice/import_batch_114c.py:good_o",
+  "validator_implementation_sha256": "1b0560310b48dde3a62665c0514872f29ec71a393ed82d933750587fcbc50959",
+  "batch_implementation_sha256": "45ee560566cf24b6db2870aeb565297bf0da409e7264b906000191efff7460bf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d6f9404dc0f5995ae159d34a6182ba1ec1a4455195fd80f1ad7ed7e467bbf91d",
+  "elapsed_seconds": 0.217,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

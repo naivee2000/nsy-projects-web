@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1388,
+  "count": 1393,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -24550,6 +24550,26 @@
       "source_id": 1992
     },
     {
+      "id": "leetcode-1994",
+      "version": 1,
+      "status": "approved",
+      "title": "The Number of Good Subsets",
+      "summary": "Given an integer array, count the number of distinct subsets whose product is a product of one or more distinct prime numbers, modulo 10^9 + 7.",
+      "topics": [
+        "dynamic programming",
+        "bitmasks",
+        "number theory"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1994.json",
+      "content_sha256": "e37aaa38950b442617b840bf81e4711982691a719960196f43cf271c39ea5ae4",
+      "source_id": 1994
+    },
+    {
       "id": "leetcode-1995",
       "version": 1,
       "status": "approved",
@@ -24604,6 +24624,26 @@
       "source_id": 1997
     },
     {
+      "id": "leetcode-1998",
+      "version": 1,
+      "status": "approved",
+      "title": "GCD Sort of an Array",
+      "summary": "Given an integer array nums, you can swap the positions of any two elements if their greatest common divisor (gcd) is greater than 1.",
+      "topics": [
+        "union-find",
+        "prime factorization",
+        "sorting"
+      ],
+      "prerequisites": [
+        "union-find"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1998.json",
+      "content_sha256": "11069bc33f4a13d54bc7ae6c0fdada3eb36feeaa095daa25400eb45593a9c1bf",
+      "source_id": 1998
+    },
+    {
       "id": "leetcode-2000",
       "version": 1,
       "status": "approved",
@@ -24637,6 +24677,64 @@
       "path": "problems/leetcode-2001.json",
       "content_sha256": "ad675e5afdebed6aa8ae7a74f306f86bd9d556425225425d99e5d8905d3d26ab",
       "source_id": 2001
+    },
+    {
+      "id": "leetcode-2002",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Product of the Length of Two Palindromic Subsequences",
+      "summary": "Given a string, identify two non-overlapping palindromic subsequences whose combined length product is maximized.",
+      "topics": [
+        "bitmasks",
+        "backtracking",
+        "palindromes"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2002.json",
+      "content_sha256": "c82c6e9523b002eae4904f984ce7c7a93bb7d84751bd63582ec2f73c7537e10c",
+      "source_id": 2002
+    },
+    {
+      "id": "leetcode-2003",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Missing Genetic Value in Each Subtree",
+      "summary": "Given a family tree with nodes numbered 0 to n-1, where each node has a unique genetic value in the range [1, 100000], find the smallest genetic value missing in the subtree rooted at each node.",
+      "topics": [
+        "trees",
+        "depth-first-search",
+        "sets"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2003.json",
+      "content_sha256": "776fd9633c886b4236dba56848f37b91a1accd6987b25f98fea4a3ff0b99e623",
+      "source_id": 2003
+    },
+    {
+      "id": "leetcode-2005",
+      "version": 1,
+      "status": "approved",
+      "title": "Subtree Removal Game with Fibonacci Tree",
+      "summary": "A Fibonacci tree is constructed using the order function where order(0) is empty, order(1) is a single node, and order(n) is a root with the left subtree as order(n-2) and the right as order(n-1).",
+      "topics": [
+        "trees",
+        "game theory",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2005.json",
+      "content_sha256": "906945e27792b5485a9a71ae7ce4779c0ba1114691c270fd8db9e58f4981fdfe",
+      "source_id": 2005
     }
   ]
 }

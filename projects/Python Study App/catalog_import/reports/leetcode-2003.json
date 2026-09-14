@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2003",
+  "content_sha256": "776fd9633c886b4236dba56848f37b91a1accd6987b25f98fea4a3ff0b99e623",
+  "source_hash": "664e52d44479fd1213e8088a54d13648e5bdd0f5a89d64f4f51b4ad0fd801933",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Updates only ancestors of the root instead of ancestors of the unique node containing value one.",
+      "failed_cases": [
+        "lc-2003-2",
+        "lc-2003-4",
+        "lc-2003-6",
+        "lc-2003-9",
+        "lc-2003-11",
+        "lc-2003-12",
+        "lc-2003-13",
+        "lc-2003-14"
+      ]
+    },
+    {
+      "reason": "Advances based on the next integer and can report a value already present.",
+      "failed_cases": [
+        "lc-2003-1",
+        "lc-2003-2",
+        "lc-2003-3",
+        "lc-2003-4",
+        "lc-2003-5",
+        "lc-2003-6",
+        "lc-2003-8",
+        "lc-2003-9",
+        "lc-2003-11",
+        "lc-2003-12",
+        "lc-2003-13",
+        "lc-2003-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6050,
+  "oracle_implementation": "code_practice/import_batch_114c.py:gene_o",
+  "validator_implementation_sha256": "1b0560310b48dde3a62665c0514872f29ec71a393ed82d933750587fcbc50959",
+  "batch_implementation_sha256": "45ee560566cf24b6db2870aeb565297bf0da409e7264b906000191efff7460bf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ab437897d3dfa9ad1873544224ddd8bb30c0da19a66120a72a035c91796b71ca",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

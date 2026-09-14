@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2005",
+  "content_sha256": "906945e27792b5485a9a71ae7ce4779c0ba1114691c270fd8db9e58f4981fdfe",
+  "source_hash": "935922d07ec468195621787346a848df6620260614e06a03629c83852bdc516b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses winning and losing positions.",
+      "failed_cases": [
+        "lc-2005-1",
+        "lc-2005-2",
+        "lc-2005-3",
+        "lc-2005-4",
+        "lc-2005-5",
+        "lc-2005-6",
+        "lc-2005-7",
+        "lc-2005-8",
+        "lc-2005-9",
+        "lc-2005-10",
+        "lc-2005-11",
+        "lc-2005-12",
+        "lc-2005-13",
+        "lc-2005-14",
+        "lc-2005-15",
+        "lc-2005-16"
+      ]
+    },
+    {
+      "reason": "Uses a period of three instead of the six-order Grundy cycle.",
+      "failed_cases": [
+        "lc-2005-4",
+        "lc-2005-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6052,
+  "oracle_implementation": "code_practice/import_batch_114c.py:game_o",
+  "validator_implementation_sha256": "1b0560310b48dde3a62665c0514872f29ec71a393ed82d933750587fcbc50959",
+  "batch_implementation_sha256": "45ee560566cf24b6db2870aeb565297bf0da409e7264b906000191efff7460bf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "86b7185bcf24f125405366b7c3b93daf712e402a877680780dbfbc96f547a0a4",
+  "elapsed_seconds": 0.009,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
