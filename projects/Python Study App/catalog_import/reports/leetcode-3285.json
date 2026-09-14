@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3285",
+  "content_sha256": "cd89df46fe3551b6fd18727097816f0eefe50488646799c90b1a2ab7af1d8d0b",
+  "source_hash": "07c116782c87617578fefa81755155c98f7cbffc04f3ea5e9a78b6b534e2a8bb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tests the current mountain rather than its predecessor.",
+      "failed_cases": [
+        "lc-3285-1",
+        "lc-3285-2",
+        "lc-3285-4",
+        "lc-3285-6",
+        "lc-3285-8",
+        "lc-3285-10",
+        "lc-3285-11",
+        "lc-3285-12"
+      ]
+    },
+    {
+      "reason": "Uses an inclusive threshold even though the requirement is strict.",
+      "failed_cases": [
+        "lc-3285-1",
+        "lc-3285-4",
+        "lc-3285-6",
+        "lc-3285-7",
+        "lc-3285-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7332,
+  "oracle_implementation": "code_practice/import_batch_191b.py:stable_oracle",
+  "validator_implementation_sha256": "19d8817b414b65b8e290dcbb890aaebf9c2871416d7a7ae11785670b6bd13f02",
+  "batch_implementation_sha256": "519089163a94322629eb8c1c42ae9c86d04dd8da87377d9bfec9436d32516be7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cb8417a0175f62a60849b1b95c21f9134cb7006aafe690978ebc1994eb082030",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

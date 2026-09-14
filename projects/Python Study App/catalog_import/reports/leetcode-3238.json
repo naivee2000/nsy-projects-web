@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3238",
+  "content_sha256": "64492bb98677ae6af9b053c3ae6743304a16dce5423354418d154d18d8a93a67",
+  "source_hash": "07573ddd2098b0ef70d371e364c818df2c70015475dfa7830bc2f1ae56c1d7a1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses at least i rather than strictly more than i, especially misclassifying player zero without a ball.",
+      "failed_cases": [
+        "lc-3238-1",
+        "lc-3238-2",
+        "lc-3238-6",
+        "lc-3238-10"
+      ]
+    },
+    {
+      "reason": "Counts all colors together under the player ID instead of separately by color.",
+      "failed_cases": [
+        "lc-3238-1",
+        "lc-3238-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7285,
+  "oracle_implementation": "code_practice/import_batch_191a.py:winners_oracle",
+  "validator_implementation_sha256": "19d8817b414b65b8e290dcbb890aaebf9c2871416d7a7ae11785670b6bd13f02",
+  "batch_implementation_sha256": "a12b78914a0daa944007f0ac3feb2dd212dde754beaf0f06d46de9a3164fbb69",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3e73015035cdee8fc873e3415bd58468b6e36481c581f941c359fd26531457ca",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

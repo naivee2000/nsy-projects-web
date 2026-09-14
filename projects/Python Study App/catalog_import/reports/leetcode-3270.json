@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3270",
+  "content_sha256": "38756f07cd1038824036225afcdf5614371342744b930384c815a1821540af95",
+  "source_hash": "122b1633e2d0a15d036d051c2c9f540f749c8dbc68d15f44c8082661278fd6d1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the largest digit in each column.",
+      "failed_cases": [
+        "lc-3270-1",
+        "lc-3270-2",
+        "lc-3270-5",
+        "lc-3270-6",
+        "lc-3270-7",
+        "lc-3270-8",
+        "lc-3270-9",
+        "lc-3270-10",
+        "lc-3270-11",
+        "lc-3270-12",
+        "lc-3270-13",
+        "lc-3270-14"
+      ]
+    },
+    {
+      "reason": "Pads to only three places and misaligns shorter inputs.",
+      "failed_cases": [
+        "lc-3270-1",
+        "lc-3270-6",
+        "lc-3270-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7317,
+  "oracle_implementation": "code_practice/import_batch_191b.py:key_oracle",
+  "validator_implementation_sha256": "19d8817b414b65b8e290dcbb890aaebf9c2871416d7a7ae11785670b6bd13f02",
+  "batch_implementation_sha256": "519089163a94322629eb8c1c42ae9c86d04dd8da87377d9bfec9436d32516be7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "270683195960171b97e92300d8f4477c0ea4b8a104e93a6186d8ed800c3b67c1",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

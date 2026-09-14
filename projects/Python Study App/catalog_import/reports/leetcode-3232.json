@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3232",
+  "content_sha256": "7e0d2e0a9b627ca70f76a0856f4b59c89fd89a707c9180ef90e64d4d22095d56",
+  "source_hash": "4c5e94d2186b72116f93211d1ad36c07d0bf889483952ab169079057427d9394",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only choosing one-digit numbers and misses a winning two-digit group.",
+      "failed_cases": [
+        "lc-3232-4",
+        "lc-3232-6",
+        "lc-3232-9",
+        "lc-3232-11",
+        "lc-3232-12",
+        "lc-3232-13",
+        "lc-3232-14"
+      ]
+    },
+    {
+      "reason": "Incorrectly classifies ten as a one-digit value.",
+      "failed_cases": [
+        "lc-3232-1",
+        "lc-3232-4",
+        "lc-3232-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7279,
+  "oracle_implementation": "code_practice/import_batch_191a.py:digit_game_oracle",
+  "validator_implementation_sha256": "19d8817b414b65b8e290dcbb890aaebf9c2871416d7a7ae11785670b6bd13f02",
+  "batch_implementation_sha256": "a12b78914a0daa944007f0ac3feb2dd212dde754beaf0f06d46de9a3164fbb69",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ce4c9ad41ee12d9843cbddb6ad49d1f32909ad94f1b60afbbc53a4046030f960",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

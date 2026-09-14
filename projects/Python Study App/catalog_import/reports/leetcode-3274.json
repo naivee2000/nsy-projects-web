@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3274",
+  "content_sha256": "eb357cdc65be0865c0b566297582214bc9ccdd60acbd951f3b0b79f1d18912d7",
+  "source_hash": "c1ee6e903e90520db5dcb55a4f20ece5876beecaaa82d02167f9688621892b5d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns different-color equality instead of same-color equality.",
+      "failed_cases": [
+        "lc-3274-1",
+        "lc-3274-2",
+        "lc-3274-3",
+        "lc-3274-4",
+        "lc-3274-5",
+        "lc-3274-6",
+        "lc-3274-7",
+        "lc-3274-8",
+        "lc-3274-9",
+        "lc-3274-10",
+        "lc-3274-11",
+        "lc-3274-12",
+        "lc-3274-13",
+        "lc-3274-14"
+      ]
+    },
+    {
+      "reason": "The altered coordinate offset is paired with an asymmetric defect below.",
+      "failed_cases": [
+        "lc-3274-2",
+        "lc-3274-4",
+        "lc-3274-5",
+        "lc-3274-7",
+        "lc-3274-11",
+        "lc-3274-12",
+        "lc-3274-13",
+        "lc-3274-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7321,
+  "oracle_implementation": "code_practice/import_batch_191b.py:color_oracle",
+  "validator_implementation_sha256": "19d8817b414b65b8e290dcbb890aaebf9c2871416d7a7ae11785670b6bd13f02",
+  "batch_implementation_sha256": "519089163a94322629eb8c1c42ae9c86d04dd8da87377d9bfec9436d32516be7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ae4f92d3b718129e0ff85978f159c158054f04f0ddb603cafa8251a5a00f65b7",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2056,
+  "count": 2066,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -36650,6 +36650,179 @@
       "path": "problems/leetcode-3222.json",
       "content_sha256": "57281b30f81f52bda4c7b5c1d725769969f288ee39fb8e9bdaacd9c783f813f8",
       "source_id": 3222
+    },
+    {
+      "id": "leetcode-3226",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Bit Changes to Make Two Integers Equal",
+      "summary": "Given two positive integers n and k, determine the count of bit changes required to convert n into k by flipping any number of 1s in n to 0s.",
+      "topics": [
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3226.json",
+      "content_sha256": "828b3c4bc8f6262f5c9fc1017069e4f7d6926a14fe79428a0ebe69135bf74712",
+      "source_id": 3226
+    },
+    {
+      "id": "leetcode-3232",
+      "version": 1,
+      "status": "approved",
+      "title": "Find if Digit Game Can Be Won",
+      "summary": "Given an array of positive integers, determine if Alice can select either all single-digit or all double-digit numbers such that their sum exceeds the sum of the remaining numbers.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3232.json",
+      "content_sha256": "7e0d2e0a9b627ca70f76a0856f4b59c89fd89a707c9180ef90e64d4d22095d56",
+      "source_id": 3232
+    },
+    {
+      "id": "leetcode-3238",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Number of Winning Players",
+      "summary": "Given the number of players n and a 2D array pick detailing each player's ball picks, determine how many players win by picking more than their respective index number of balls of the same color.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3238.json",
+      "content_sha256": "64492bb98677ae6af9b053c3ae6743304a16dce5423354418d154d18d8a93a67",
+      "source_id": 3238
+    },
+    {
+      "id": "leetcode-3248",
+      "version": 1,
+      "status": "approved",
+      "title": "Snake in Matrix",
+      "summary": "Given an n x n matrix grid, a snake starts at cell 0 and follows a sequence of commands to move.",
+      "topics": [
+        "matrices",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3248.json",
+      "content_sha256": "5bf2314123d282195fdb98eb75400a4349af2e03346a77b49e3d56b7e2acd13c",
+      "source_id": 3248
+    },
+    {
+      "id": "leetcode-3258",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Substrings That Satisfy K-Constraint I",
+      "summary": "Given a binary string s and an integer k , count the number of substrings of s that satisfy the k-constraint.",
+      "topics": [
+        "strings",
+        "subarrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3258.json",
+      "content_sha256": "6172dcbf88f8528ee029b758f0e5199f2b99a4aab9685e01d1791ce110b5fde1",
+      "source_id": 3258
+    },
+    {
+      "id": "leetcode-3264",
+      "version": 1,
+      "status": "approved",
+      "title": "Final Array State After K Multiplication Operations I",
+      "summary": "Given an integer array nums, an integer k, and a multiplier, perform k operations where each operation finds the minimum value in nums, multiplies it by the multiplier, and replaces the value.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3264.json",
+      "content_sha256": "df888a06a5ecd8852f2a3168a72dc89120291477532ee940aff8f41677c277f0",
+      "source_id": 3264
+    },
+    {
+      "id": "leetcode-3270",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Key of the Numbers",
+      "summary": "Given three positive integers, determine a four-digit key where each digit is the smallest corresponding digit from the given numbers, padded with leading zeros if necessary, and return the key without leading zeros.",
+      "topics": [
+        "strings",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3270.json",
+      "content_sha256": "38756f07cd1038824036225afcdf5614371342744b930384c815a1821540af95",
+      "source_id": 3270
+    },
+    {
+      "id": "leetcode-3274",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if Two Chessboard Squares Have the Same Color",
+      "summary": "Given two coordinates on an 8x8 chessboard, determine if the squares they represent are the same color.",
+      "topics": [
+        "math",
+        "strings",
+        "parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3274.json",
+      "content_sha256": "eb357cdc65be0865c0b566297582214bc9ccdd60acbd951f3b0b79f1d18912d7",
+      "source_id": 3274
+    },
+    {
+      "id": "leetcode-3280",
+      "version": 1,
+      "status": "approved",
+      "title": "Convert Date to Binary",
+      "summary": "Given a date string in yyyy-mm-dd format, convert each component (year, month, day) to binary without leading zeroes, then concatenate them in year-month-day order.",
+      "topics": [
+        "strings",
+        "binary conversion"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3280.json",
+      "content_sha256": "ebf4d26d88cf7f1abc36dde65b34c04ab5c1467c4351cc83fcfcb14e98c321a3",
+      "source_id": 3280
+    },
+    {
+      "id": "leetcode-3285",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Indices of Stable Mountains",
+      "summary": "Given an integer array height where height[i] represents the height of the i-th mountain, and an integer threshold, identify and return the indices of all mountains that are stable.",
+      "topics": [
+        "arrays",
+        "local comparisons"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3285.json",
+      "content_sha256": "cd89df46fe3551b6fd18727097816f0eefe50488646799c90b1a2ab7af1d8d0b",
+      "source_id": 3285
     }
   ]
 }

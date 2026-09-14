@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3258",
+  "content_sha256": "6172dcbf88f8528ee029b758f0e5199f2b99a4aab9685e01d1791ce110b5fde1",
+  "source_hash": "fb4a1d51f0a307f0eae33b8114f9bc87911e6d8f9f9e7d42d3768ead9e023f70",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires both digit counts to be small instead of either one.",
+      "failed_cases": [
+        "lc-3258-1",
+        "lc-3258-2",
+        "lc-3258-3",
+        "lc-3258-4",
+        "lc-3258-5",
+        "lc-3258-6",
+        "lc-3258-7",
+        "lc-3258-8",
+        "lc-3258-9",
+        "lc-3258-10",
+        "lc-3258-13",
+        "lc-3258-14"
+      ]
+    },
+    {
+      "reason": "Uses strict bounds and rejects substrings whose count equals k.",
+      "failed_cases": [
+        "lc-3258-1",
+        "lc-3258-2",
+        "lc-3258-3",
+        "lc-3258-4",
+        "lc-3258-5",
+        "lc-3258-6",
+        "lc-3258-9",
+        "lc-3258-10",
+        "lc-3258-11",
+        "lc-3258-13",
+        "lc-3258-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7305,
+  "oracle_implementation": "code_practice/import_batch_191a.py:constraint_oracle",
+  "validator_implementation_sha256": "19d8817b414b65b8e290dcbb890aaebf9c2871416d7a7ae11785670b6bd13f02",
+  "batch_implementation_sha256": "a12b78914a0daa944007f0ac3feb2dd212dde754beaf0f06d46de9a3164fbb69",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ff9411059e8d014ff60c59433f780c57579dbfd72c40ef085d67de17acdf2c86",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3248",
+  "content_sha256": "5bf2314123d282195fdb98eb75400a4349af2e03346a77b49e3d56b7e2acd13c",
+  "source_hash": "35f5b6709ca4c6589d3385ea43d96b61c67a45878ab74f9501e72ba1eb5e8cf3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Moves UP by one flattened cell instead of one row.",
+      "failed_cases": [
+        "lc-3248-2",
+        "lc-3248-11",
+        "lc-3248-12",
+        "lc-3248-13"
+      ]
+    },
+    {
+      "reason": "Moves RIGHT by an entire row width.",
+      "failed_cases": [
+        "lc-3248-1",
+        "lc-3248-2",
+        "lc-3248-3",
+        "lc-3248-6",
+        "lc-3248-7",
+        "lc-3248-8",
+        "lc-3248-10",
+        "lc-3248-11",
+        "lc-3248-12",
+        "lc-3248-13",
+        "lc-3248-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7295,
+  "oracle_implementation": "code_practice/import_batch_191a.py:snake_oracle",
+  "validator_implementation_sha256": "19d8817b414b65b8e290dcbb890aaebf9c2871416d7a7ae11785670b6bd13f02",
+  "batch_implementation_sha256": "a12b78914a0daa944007f0ac3feb2dd212dde754beaf0f06d46de9a3164fbb69",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "af1dc13e7bac397f6d3d83bba0fe54825b576ae10e6b87fce23518b567d6dc0b",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
