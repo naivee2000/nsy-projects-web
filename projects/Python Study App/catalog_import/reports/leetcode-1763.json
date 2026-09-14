@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1763",
+  "content_sha256": "a1caf6512db67ae27b956b9f66f1ee35fa85e8fbf38fb11ae1b426a6da9decf4",
+  "source_hash": "da47fe2a3cd4bb901cfeaa6ee400d936b684284c08f1ea0610245b178587d026",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects valid two-character pairs such as Bb.",
+      "failed_cases": [
+        "lc-1763-2",
+        "lc-1763-4",
+        "lc-1763-5",
+        "lc-1763-8",
+        "lc-1763-9"
+      ]
+    },
+    {
+      "reason": "Chooses the later substring when equal-length nice candidates tie.",
+      "failed_cases": [
+        "lc-1763-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5810,
+  "oracle_implementation": "code_practice/import_batch_104d.py:nice_o",
+  "validator_implementation_sha256": "772bca87f7e7e0990fa7e8a51477eade8b43d66eea3426c4bf50184c6f0df5f9",
+  "batch_implementation_sha256": "324f3a4767550af8bb7c88159236b1365af0e00395846fc72693b2097beac57d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "144413d62c29734a23c7ab3d96c9ae71a49aec780cadb73bcaaec18014ed9596",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

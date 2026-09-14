@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1761",
+  "content_sha256": "bf21e47eaa9bd27357a4d24a4a856b010fb5fb847a59e5e5af008cc62a182a32",
+  "source_hash": "8db39de1d1aefb236df2db346ede0995dc70e20496f15300aea3e2561618f9a6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts only three internal edge incidences instead of six endpoint incidences.",
+      "failed_cases": [
+        "lc-1761-1",
+        "lc-1761-2",
+        "lc-1761-4",
+        "lc-1761-5",
+        "lc-1761-7",
+        "lc-1761-8",
+        "lc-1761-9",
+        "lc-1761-10",
+        "lc-1761-11",
+        "lc-1761-12",
+        "lc-1761-14"
+      ]
+    },
+    {
+      "reason": "Ignores every trio containing the highest-numbered graph node.",
+      "failed_cases": [
+        "lc-1761-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5808,
+  "oracle_implementation": "code_practice/import_batch_104d.py:trio_o",
+  "validator_implementation_sha256": "772bca87f7e7e0990fa7e8a51477eade8b43d66eea3426c4bf50184c6f0df5f9",
+  "batch_implementation_sha256": "324f3a4767550af8bb7c88159236b1365af0e00395846fc72693b2097beac57d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b1eeb21ec0128709e99e6e6624f664309e6d5c3e7db1d05320f3ff765ac0c415",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

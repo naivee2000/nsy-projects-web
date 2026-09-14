@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1760",
+  "content_sha256": "c045b6c36fcd584a77d75e11331ec5eb7ecbbd3c6176038d43963df33b07f8ae",
+  "source_hash": "cd702eba4f378e61c7d31938c3b28b6380fb84fbc3693fd2fe409c1e64d31d1c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Overcounts splits when a bag size is exactly divisible by the proposed limit.",
+      "failed_cases": [
+        "lc-1760-1",
+        "lc-1760-2",
+        "lc-1760-5",
+        "lc-1760-6",
+        "lc-1760-8",
+        "lc-1760-9",
+        "lc-1760-10",
+        "lc-1760-14"
+      ]
+    },
+    {
+      "reason": "Returns the value above the smallest feasible penalty through an off-by-one mistake.",
+      "failed_cases": [
+        "lc-1760-1",
+        "lc-1760-2",
+        "lc-1760-3",
+        "lc-1760-4",
+        "lc-1760-5",
+        "lc-1760-6",
+        "lc-1760-7",
+        "lc-1760-8",
+        "lc-1760-9",
+        "lc-1760-10",
+        "lc-1760-11",
+        "lc-1760-12",
+        "lc-1760-13",
+        "lc-1760-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5807,
+  "oracle_implementation": "code_practice/import_batch_104d.py:bags_o",
+  "validator_implementation_sha256": "772bca87f7e7e0990fa7e8a51477eade8b43d66eea3426c4bf50184c6f0df5f9",
+  "batch_implementation_sha256": "324f3a4767550af8bb7c88159236b1365af0e00395846fc72693b2097beac57d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6a7f89fc9d24c87d535ee7851b5365223608eda5b7213b09369cd0249d486fae",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

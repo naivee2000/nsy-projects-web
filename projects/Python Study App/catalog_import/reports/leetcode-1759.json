@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1759",
+  "content_sha256": "026c48a5c3e89daf84afd64cb69593021039e9abb44be584145eff5fb067407e",
+  "source_hash": "e1164b56f4f47fa5839b8bdda730b264f8ec0acf2b0d13713476a14dba61d2ac",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only one substring per ending position and misses longer homogeneous suffixes.",
+      "failed_cases": [
+        "lc-1759-1",
+        "lc-1759-4",
+        "lc-1759-5",
+        "lc-1759-8",
+        "lc-1759-9",
+        "lc-1759-11",
+        "lc-1759-12",
+        "lc-1759-14"
+      ]
+    },
+    {
+      "reason": "Extends runs when the character changes instead of when it matches.",
+      "failed_cases": [
+        "lc-1759-1",
+        "lc-1759-2",
+        "lc-1759-4",
+        "lc-1759-5",
+        "lc-1759-6",
+        "lc-1759-7",
+        "lc-1759-8",
+        "lc-1759-9",
+        "lc-1759-10",
+        "lc-1759-11",
+        "lc-1759-12",
+        "lc-1759-13",
+        "lc-1759-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5806,
+  "oracle_implementation": "code_practice/import_batch_104d.py:homogeneous_o",
+  "validator_implementation_sha256": "772bca87f7e7e0990fa7e8a51477eade8b43d66eea3426c4bf50184c6f0df5f9",
+  "batch_implementation_sha256": "324f3a4767550af8bb7c88159236b1365af0e00395846fc72693b2097beac57d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5c5e5f1af24617c82ef0aa8d4b9fcd469fbd0f7306828b5bac648aac0795903b",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1762",
+  "content_sha256": "ea227494cb455fb57a14a4de2b4b197e4bbab6ff4d459a627e20f235cc58d93b",
+  "source_hash": "d972f1ffa8bfa92bc713a8fbabb955cbc85f72f9668b103dea2b7c9bec3da95c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Selects buildings shorter than the current right-side maximum.",
+      "failed_cases": [
+        "lc-1762-1",
+        "lc-1762-2",
+        "lc-1762-3",
+        "lc-1762-4",
+        "lc-1762-5",
+        "lc-1762-6",
+        "lc-1762-7",
+        "lc-1762-8",
+        "lc-1762-9",
+        "lc-1762-10",
+        "lc-1762-11",
+        "lc-1762-12",
+        "lc-1762-13",
+        "lc-1762-14"
+      ]
+    },
+    {
+      "reason": "Returns qualifying indices in decreasing scan order.",
+      "failed_cases": [
+        "lc-1762-1",
+        "lc-1762-2",
+        "lc-1762-5",
+        "lc-1762-7",
+        "lc-1762-8",
+        "lc-1762-9",
+        "lc-1762-10",
+        "lc-1762-11",
+        "lc-1762-12",
+        "lc-1762-13",
+        "lc-1762-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5809,
+  "oracle_implementation": "code_practice/import_batch_104d.py:ocean_o",
+  "validator_implementation_sha256": "772bca87f7e7e0990fa7e8a51477eade8b43d66eea3426c4bf50184c6f0df5f9",
+  "batch_implementation_sha256": "324f3a4767550af8bb7c88159236b1365af0e00395846fc72693b2097beac57d",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4c0d1db91db272d61daed3131e068f989e04825043817515076624b706f40eb3",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
