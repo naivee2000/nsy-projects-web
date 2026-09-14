@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2299",
+  "content_sha256": "acd48fda22cd3e159421d30baf3bf393142a5458fd2237bcc69656b27805eb7f",
+  "source_hash": "f88e9b2b7af7592134921622d77752033004377e83c34ffd9b1850daea5014c2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires more than eight characters and rejects valid length-eight passwords.",
+      "failed_cases": [
+        "lc-2299-10",
+        "lc-2299-14"
+      ]
+    },
+    {
+      "reason": "Requires adjacent characters to be identical instead of different.",
+      "failed_cases": [
+        "lc-2299-1",
+        "lc-2299-10",
+        "lc-2299-12",
+        "lc-2299-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6346,
+  "oracle_implementation": "code_practice/import_batch_127.py:password_oracle",
+  "validator_implementation_sha256": "0107af86cc284f7879e8c1592f3bce4b5556d06ef7698a021ae977dee3635534",
+  "batch_implementation_sha256": "5c89aebc2718d3a9134740a946f21f46d993a58c1975f10f37cb1757557925fb",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8cd594253d472b0bccb9a5c74924468585730b7d86df6b257a5a1b3d637cc4c9",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

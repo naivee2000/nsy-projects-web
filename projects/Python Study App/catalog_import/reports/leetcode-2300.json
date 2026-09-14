@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2300",
+  "content_sha256": "14bbfd56886e4412b36808286356568b9160b971c24bbd7060269ff7324939d5",
+  "source_hash": "b67fdbc373bbb895316a56b6a8243598558bfef59129aa92cdd30b5f9d0248f0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses floor rather than ceiling division and accepts potions whose product is below success.",
+      "failed_cases": [
+        "lc-2300-1",
+        "lc-2300-2",
+        "lc-2300-8",
+        "lc-2300-12",
+        "lc-2300-13"
+      ]
+    },
+    {
+      "reason": "Uses a strict product threshold by searching above the first sufficient potion.",
+      "failed_cases": [
+        "lc-2300-1",
+        "lc-2300-2",
+        "lc-2300-3",
+        "lc-2300-5",
+        "lc-2300-7",
+        "lc-2300-8",
+        "lc-2300-9",
+        "lc-2300-10",
+        "lc-2300-11",
+        "lc-2300-13",
+        "lc-2300-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6347,
+  "oracle_implementation": "code_practice/import_batch_127.py:pairs_oracle",
+  "validator_implementation_sha256": "0107af86cc284f7879e8c1592f3bce4b5556d06ef7698a021ae977dee3635534",
+  "batch_implementation_sha256": "5c89aebc2718d3a9134740a946f21f46d993a58c1975f10f37cb1757557925fb",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "04bf3b0a0c697d0d74ae7a644b33814e7bf4df24cdcb09f4ef1514780d7ea058",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

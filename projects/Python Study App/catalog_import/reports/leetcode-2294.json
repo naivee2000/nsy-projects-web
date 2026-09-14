@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2294",
+  "content_sha256": "44d3733843b9f4bd51032ee676c38fabc4bb5a9bcdbbef18a85d011b363753d7",
+  "source_hash": "ded83b87a5e8860044df4b423f41c716b3bf2f305ad17b25a568667f6338793c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires maximum-minimum to be strictly less than k and splits equality cases.",
+      "failed_cases": [
+        "lc-2294-1",
+        "lc-2294-4",
+        "lc-2294-5",
+        "lc-2294-7",
+        "lc-2294-9",
+        "lc-2294-12",
+        "lc-2294-13"
+      ]
+    },
+    {
+      "reason": "Groups in original order instead of sorting values to minimize ranges.",
+      "failed_cases": [
+        "lc-2294-7",
+        "lc-2294-13",
+        "lc-2294-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6341,
+  "oracle_implementation": "code_practice/import_batch_127.py:partition_oracle",
+  "validator_implementation_sha256": "0107af86cc284f7879e8c1592f3bce4b5556d06ef7698a021ae977dee3635534",
+  "batch_implementation_sha256": "5c89aebc2718d3a9134740a946f21f46d993a58c1975f10f37cb1757557925fb",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b7a18e88b1024761539f33b1f3718d8e4e4ea29be4e96fabb2302768a2b3ffc0",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

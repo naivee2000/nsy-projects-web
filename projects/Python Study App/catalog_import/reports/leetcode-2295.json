@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2295",
+  "content_sha256": "a0893a28bf2f6de5712a357f7682336a67e535f35c4b6e2a213afe9cfa8b7e86",
+  "source_hash": "bf875e0be21830bb35553b1f2e75ebf4b6bee12b4f3ad978110d0cb237e79108",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Records each replacement at the following position, so a chained replacement updates the wrong element.",
+      "failed_cases": [
+        "lc-2295-2",
+        "lc-2295-7"
+      ]
+    },
+    {
+      "reason": "Appends replacement values instead of preserving the original position.",
+      "failed_cases": [
+        "lc-2295-1",
+        "lc-2295-2",
+        "lc-2295-3",
+        "lc-2295-4",
+        "lc-2295-5",
+        "lc-2295-6",
+        "lc-2295-7",
+        "lc-2295-8",
+        "lc-2295-9",
+        "lc-2295-10",
+        "lc-2295-11",
+        "lc-2295-12",
+        "lc-2295-13",
+        "lc-2295-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6342,
+  "oracle_implementation": "code_practice/import_batch_127.py:replace_oracle",
+  "validator_implementation_sha256": "0107af86cc284f7879e8c1592f3bce4b5556d06ef7698a021ae977dee3635534",
+  "batch_implementation_sha256": "5c89aebc2718d3a9134740a946f21f46d993a58c1975f10f37cb1757557925fb",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "66ab3ae22dfa32ae3ed1a57fb69e37c2af0e06cc89eeb25e821d3949ff86f430",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
