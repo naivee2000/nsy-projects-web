@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1368,
+  "count": 1373,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -24278,6 +24278,95 @@
       "path": "problems/leetcode-1970.json",
       "content_sha256": "1a874226df42df0da33051c687d6e05909009603c0598a2fbcf8561a631b176b",
       "source_id": 1970
+    },
+    {
+      "id": "leetcode-1971",
+      "version": 1,
+      "status": "approved",
+      "title": "Find if Path Exists in Graph",
+      "summary": "Given a bi-directional graph with vertices labeled from 0 to n-1 and edges represented as a 2D integer array, where each edge is denoted by [ui, vi] indicating a bi-directional connection between vertex ui and vertex vi, determine if there is a valid path from the source vertex to the destination vertex.",
+      "topics": [
+        "graphs",
+        "depth-first search"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1971.json",
+      "content_sha256": "5a1fc68c52dfc729b0c1038086b8320f6b6e47e291f2698567d7a3b3c277cc49",
+      "source_id": 1971
+    },
+    {
+      "id": "leetcode-1973",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Nodes Equal to Sum of Descendants",
+      "summary": "Given a binary tree's root, count nodes whose value equals the sum of their descendants' values, with descendants defined as nodes on the path from a node to any leaf, and a node with no descendants having a sum of 0.",
+      "topics": [
+        "trees",
+        "recursion",
+        "postorder traversal"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1973.json",
+      "content_sha256": "83d28f886d7d4d0da791f5405086e999afc7b7fc29dd8c0492f9c500fa4d6a3c",
+      "source_id": 1973
+    },
+    {
+      "id": "leetcode-1974",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Type Word Using Special Typewriter",
+      "summary": "Given a string word, you can move a pointer on a circle of lowercase English letters 'a' to 'z' either clockwise or counterclockwise each second, or type the letter the pointer is currently on.",
+      "topics": [
+        "strings",
+        "greedy",
+        "circular distance"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1974.json",
+      "content_sha256": "69da51bf0ca0845523b6da9a99fdb4ec8c4dfe63ba916b6172ecc018a3f74295",
+      "source_id": 1974
+    },
+    {
+      "id": "leetcode-1975",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Matrix Sum",
+      "summary": "Given an n x n integer matrix, you can perform the following operation any number of times: Choose any two adjacent elements of the matrix and multiply each by -1.",
+      "topics": [
+        "matrices",
+        "greedy",
+        "parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1975.json",
+      "content_sha256": "f8ec3d0f3fe3900f9de7d43150d75e3f9b872fe966ac0ec8f8937cfc3ff96d1d",
+      "source_id": 1975
+    },
+    {
+      "id": "leetcode-1976",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Arrive at Destination",
+      "summary": "Given a city with n intersections numbered from 0 to n-1, where each intersection is connected to other intersections via bi-directional roads, and each road has a specified travel time, determine the number of ways to travel from intersection 0 to intersection n-1 in the shortest possible time.",
+      "topics": [
+        "graphs",
+        "Dijkstra",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1976.json",
+      "content_sha256": "3e4524d5b850be62f153ebee50ff89dd844c1d50c06f14ed761dbb921d53f8d7",
+      "source_id": 1976
     }
   ]
 }

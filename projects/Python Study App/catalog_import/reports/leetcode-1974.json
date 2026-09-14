@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1974",
+  "content_sha256": "69da51bf0ca0845523b6da9a99fdb4ec8c4dfe63ba916b6172ecc018a3f74295",
+  "source_hash": "b2714942c8d817b08c6a765744e37a68e8c0c7701379e35d6e0d36343a321719",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Always rotates directly through the alphabet and ignores the shorter wraparound route.",
+      "failed_cases": [
+        "lc-1974-2",
+        "lc-1974-4",
+        "lc-1974-5",
+        "lc-1974-6",
+        "lc-1974-7",
+        "lc-1974-13",
+        "lc-1974-16"
+      ]
+    },
+    {
+      "reason": "Counts movement but omits the one-second cost of typing each letter.",
+      "failed_cases": [
+        "lc-1974-1",
+        "lc-1974-2",
+        "lc-1974-3",
+        "lc-1974-4",
+        "lc-1974-5",
+        "lc-1974-6",
+        "lc-1974-7",
+        "lc-1974-8",
+        "lc-1974-9",
+        "lc-1974-10",
+        "lc-1974-11",
+        "lc-1974-12",
+        "lc-1974-13",
+        "lc-1974-14",
+        "lc-1974-15",
+        "lc-1974-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6021,
+  "oracle_implementation": "code_practice/import_batch_113c.py:typing_oracle",
+  "validator_implementation_sha256": "3abe20b73f3e3a7edbc9de10b22b4b4be7f3b6b0963b2c9879d851a85d670997",
+  "batch_implementation_sha256": "faf0550fa1e76f5a7e12853ea27fc139c75799371c83e090473e26adf30af80d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "81b048d174a7f1c5caa6002c5cea6d9a22d514f37e4ac61e83fccba528669197",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

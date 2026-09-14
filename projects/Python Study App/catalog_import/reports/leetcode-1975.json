@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1975",
+  "content_sha256": "f8ec3d0f3fe3900f9de7d43150d75e3f9b872fe966ac0ec8f8937cfc3ff96d1d",
+  "source_hash": "eca90aaa256f0dbef8dd25f6e4de000cc7a7133a2fa5542ccf57541fee175544",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the parity condition and penalizes even-negative matrices.",
+      "failed_cases": [
+        "lc-1975-1",
+        "lc-1975-2",
+        "lc-1975-4",
+        "lc-1975-5",
+        "lc-1975-6",
+        "lc-1975-7",
+        "lc-1975-9",
+        "lc-1975-11",
+        "lc-1975-12",
+        "lc-1975-13",
+        "lc-1975-14"
+      ]
+    },
+    {
+      "reason": "Subtracts the unavoidable magnitude only once instead of changing it from positive to negative.",
+      "failed_cases": [
+        "lc-1975-2",
+        "lc-1975-5",
+        "lc-1975-9",
+        "lc-1975-12",
+        "lc-1975-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6022,
+  "oracle_implementation": "code_practice/import_batch_113c.py:matrix_oracle",
+  "validator_implementation_sha256": "3abe20b73f3e3a7edbc9de10b22b4b4be7f3b6b0963b2c9879d851a85d670997",
+  "batch_implementation_sha256": "faf0550fa1e76f5a7e12853ea27fc139c75799371c83e090473e26adf30af80d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9b5b30ad2623ed38a63747c84b298882fa20e468594834bfdd5145dce59b34af",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1976",
+  "content_sha256": "3e4524d5b850be62f153ebee50ff89dd844c1d50c06f14ed761dbb921d53f8d7",
+  "source_hash": "e7991d315efbdbcfad6c0eb0b3caa585a85fb972ef040a97a46eefa413eb71ad",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Carries stale route counts when a strictly shorter distance replaces the old one.",
+      "failed_cases": [
+        "lc-1976-8",
+        "lc-1976-10",
+        "lc-1976-13"
+      ]
+    },
+    {
+      "reason": "Treats a longer-or-equal candidate as another shortest route.",
+      "failed_cases": [
+        "lc-1976-1",
+        "lc-1976-5",
+        "lc-1976-7",
+        "lc-1976-9",
+        "lc-1976-11",
+        "lc-1976-14",
+        "lc-1976-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6023,
+  "oracle_implementation": "code_practice/import_batch_113c.py:routes_oracle",
+  "validator_implementation_sha256": "3abe20b73f3e3a7edbc9de10b22b4b4be7f3b6b0963b2c9879d851a85d670997",
+  "batch_implementation_sha256": "faf0550fa1e76f5a7e12853ea27fc139c75799371c83e090473e26adf30af80d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b8b1f1d821dddd26f8970890cbff0c22b1b425d2af06ac7793ff519ce0d1def4",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

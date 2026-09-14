@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1971",
+  "content_sha256": "5a1fc68c52dfc729b0c1038086b8320f6b6e47e291f2698567d7a3b3c277cc49",
+  "source_hash": "12764a34a146f4c03e431efc3f6b1ca33286dbc4d633f3a5a5eb3c485e9c1b5b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats undirected edges as directed and misses paths traversed backward.",
+      "failed_cases": [
+        "lc-1971-8",
+        "lc-1971-10",
+        "lc-1971-15"
+      ]
+    },
+    {
+      "reason": "Reverses the destination test and returns before actually reaching the target.",
+      "failed_cases": [
+        "lc-1971-2",
+        "lc-1971-3",
+        "lc-1971-4",
+        "lc-1971-6",
+        "lc-1971-12",
+        "lc-1971-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6018,
+  "oracle_implementation": "code_practice/import_batch_113c.py:path_oracle",
+  "validator_implementation_sha256": "3abe20b73f3e3a7edbc9de10b22b4b4be7f3b6b0963b2c9879d851a85d670997",
+  "batch_implementation_sha256": "faf0550fa1e76f5a7e12853ea27fc139c75799371c83e090473e26adf30af80d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a25c8b69f37da037f07c75c6b68d08b898d40999da73ba394dfc39b74ac51d4f",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

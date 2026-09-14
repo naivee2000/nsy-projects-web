@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1973",
+  "content_sha256": "83d28f886d7d4d0da791f5405086e999afc7b7fc29dd8c0492f9c500fa4d6a3c",
+  "source_hash": "2d8e6833a403181c7a7a5952a4f67f7e7a8a9578ecce9ee56b86ccb1308af024",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Compares against a sum that includes the node itself.",
+      "failed_cases": [
+        "lc-1973-1",
+        "lc-1973-3",
+        "lc-1973-6",
+        "lc-1973-7",
+        "lc-1973-8",
+        "lc-1973-9",
+        "lc-1973-10",
+        "lc-1973-12",
+        "lc-1973-13",
+        "lc-1973-14"
+      ]
+    },
+    {
+      "reason": "Fails to include child values when returning a subtree sum to the parent.",
+      "failed_cases": [
+        "lc-1973-1",
+        "lc-1973-5",
+        "lc-1973-7",
+        "lc-1973-8",
+        "lc-1973-9",
+        "lc-1973-10",
+        "lc-1973-11",
+        "lc-1973-12",
+        "lc-1973-13",
+        "lc-1973-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6020,
+  "oracle_implementation": "code_practice/import_batch_113c.py:descendants_oracle",
+  "validator_implementation_sha256": "3abe20b73f3e3a7edbc9de10b22b4b4be7f3b6b0963b2c9879d851a85d670997",
+  "batch_implementation_sha256": "faf0550fa1e76f5a7e12853ea27fc139c75799371c83e090473e26adf30af80d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dfee87e1de8c24eba0ef70f741112ab9c32e424056597a8dc729eaaf1eec55af",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
