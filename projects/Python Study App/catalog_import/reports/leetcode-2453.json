@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2453",
+  "content_sha256": "67c5167f9f2d3fd28b0ad08740b1827878b9d6f00904d33214116abcbb810ccb",
+  "source_hash": "fd74b59f7e4460ed755128457543bd1a611d755c5c69055bd7baaeadc5f068b5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Groups targets by quotient instead of their modulo class.",
+      "failed_cases": [
+        "lc-2453-5",
+        "lc-2453-10"
+      ]
+    },
+    {
+      "reason": "Returns the largest seed when several optimal seeds tie.",
+      "failed_cases": [
+        "lc-2453-1",
+        "lc-2453-2",
+        "lc-2453-4",
+        "lc-2453-5",
+        "lc-2453-6",
+        "lc-2453-8",
+        "lc-2453-9",
+        "lc-2453-10",
+        "lc-2453-11",
+        "lc-2453-12",
+        "lc-2453-13",
+        "lc-2453-14",
+        "lc-2453-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6500,
+  "oracle_implementation": "code_practice/import_batch_144.py:targets_oracle",
+  "validator_implementation_sha256": "6d8193baa1f662b0d289b4d252994909ad9af3c1e32acaef3f34726b6bc83819",
+  "batch_implementation_sha256": "eaf27cd68e413d1588d54ce7b3815a88175c28c3d076e2b6e72a54588ab1d5f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fe396c27d9de9386c39d810ba2c94c88652528768933d99d795f4752c06e91a2",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

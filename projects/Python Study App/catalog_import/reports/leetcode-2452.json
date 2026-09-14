@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2452",
+  "content_sha256": "ed3325092121f5ffa9bf47df0aae867510df9e00ac22ba39ffd0dff906308970",
+  "source_hash": "c5240ca5c7dae12094710854e2d5cadd52d39a4580b7f1b2770705ed0eea2962",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows only one edit instead of two.",
+      "failed_cases": [
+        "lc-2452-1",
+        "lc-2452-6",
+        "lc-2452-8",
+        "lc-2452-10",
+        "lc-2452-11",
+        "lc-2452-15",
+        "lc-2452-16"
+      ]
+    },
+    {
+      "reason": "Adds a qualifying query repeatedly when it matches multiple dictionary words.",
+      "failed_cases": [
+        "lc-2452-9",
+        "lc-2452-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6499,
+  "oracle_implementation": "code_practice/import_batch_144.py:edits_oracle",
+  "validator_implementation_sha256": "6d8193baa1f662b0d289b4d252994909ad9af3c1e32acaef3f34726b6bc83819",
+  "batch_implementation_sha256": "eaf27cd68e413d1588d54ce7b3815a88175c28c3d076e2b6e72a54588ab1d5f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4144882db0ff411283d3c66d9a0aeb1ea445649b3ec3e48cb977f1335010ae4b",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

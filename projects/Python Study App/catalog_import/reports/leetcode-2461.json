@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2461",
+  "content_sha256": "b02a8746a8f63973e310ad8428efa09fb138e2dbf011e3f8ceb8a55438227af5",
+  "source_hash": "f9ee9a789da687650bd015e2471a1f8f43f82f4fdb1a05b28630de1f02e2cf28",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Removes the outgoing value one step late, creating oversized windows.",
+      "failed_cases": [
+        "lc-2461-1",
+        "lc-2461-3",
+        "lc-2461-4",
+        "lc-2461-5",
+        "lc-2461-7",
+        "lc-2461-8",
+        "lc-2461-9",
+        "lc-2461-10",
+        "lc-2461-11",
+        "lc-2461-12",
+        "lc-2461-13",
+        "lc-2461-14",
+        "lc-2461-15",
+        "lc-2461-16"
+      ]
+    },
+    {
+      "reason": "Accepts windows containing duplicates because their distinct count is merely at most k.",
+      "failed_cases": [
+        "lc-2461-1",
+        "lc-2461-2",
+        "lc-2461-6",
+        "lc-2461-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6508,
+  "oracle_implementation": "code_practice/import_batch_144.py:window_oracle",
+  "validator_implementation_sha256": "6d8193baa1f662b0d289b4d252994909ad9af3c1e32acaef3f34726b6bc83819",
+  "batch_implementation_sha256": "eaf27cd68e413d1588d54ce7b3815a88175c28c3d076e2b6e72a54588ab1d5f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "55d1c2db38e6779c2776c3515fc865396f9afbc91492c59e546396b67e9fa816",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

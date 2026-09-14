@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2456",
+  "content_sha256": "d960ffd25ccda5afb3a594e798dc3059507f0cb1d71e40c00dec70fb6385af7c",
+  "source_hash": "b92ed827d512867f7748beec9343786122adaeeef8eb8a72ee8261b997731687",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps only the creator’s latest video views instead of summing them.",
+      "failed_cases": [
+        "lc-2456-1",
+        "lc-2456-8",
+        "lc-2456-9",
+        "lc-2456-11",
+        "lc-2456-12",
+        "lc-2456-14",
+        "lc-2456-15",
+        "lc-2456-16"
+      ]
+    },
+    {
+      "reason": "Chooses the lexicographically largest id when a creator’s videos tie.",
+      "failed_cases": [
+        "lc-2456-1",
+        "lc-2456-2",
+        "lc-2456-6",
+        "lc-2456-9",
+        "lc-2456-11",
+        "lc-2456-14",
+        "lc-2456-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6503,
+  "oracle_implementation": "code_practice/import_batch_144.py:creators_oracle",
+  "validator_implementation_sha256": "6d8193baa1f662b0d289b4d252994909ad9af3c1e32acaef3f34726b6bc83819",
+  "batch_implementation_sha256": "eaf27cd68e413d1588d54ce7b3815a88175c28c3d076e2b6e72a54588ab1d5f2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3d061a1bccd02cf3bad3e80fcd5b06910476298f989a1f7be2b1d21c30bd5f0a",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
