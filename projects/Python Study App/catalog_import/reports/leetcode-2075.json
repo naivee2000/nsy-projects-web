@@ -1,0 +1,68 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2075",
+  "content_sha256": "500ced9303ac8488016659980204a8b7e875c07ca6909ef93efc9fe1448d6aab",
+  "source_hash": "4443de3bcc5468ebc34966eff56f91dd049cdd7441a1b223a1254e8c5ea1a94a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Moves two columns per row and skips diagonal cells.",
+      "failed_cases": [
+        "lc-2075-1",
+        "lc-2075-2",
+        "lc-2075-6",
+        "lc-2075-7",
+        "lc-2075-8",
+        "lc-2075-9",
+        "lc-2075-11",
+        "lc-2075-13",
+        "lc-2075-14",
+        "lc-2075-15",
+        "lc-2075-16"
+      ]
+    },
+    {
+      "reason": "Drops the final decoded character through an off-by-one slice.",
+      "failed_cases": [
+        "lc-2075-1",
+        "lc-2075-2",
+        "lc-2075-3",
+        "lc-2075-4",
+        "lc-2075-5",
+        "lc-2075-6",
+        "lc-2075-7",
+        "lc-2075-8",
+        "lc-2075-9",
+        "lc-2075-11",
+        "lc-2075-12",
+        "lc-2075-13",
+        "lc-2075-14",
+        "lc-2075-15",
+        "lc-2075-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6122,
+  "oracle_implementation": "code_practice/import_batch_117c.py:cipher_o",
+  "validator_implementation_sha256": "ec6320451b4cbe45c595700514dd7fa325bf5fdea592b56e714dd56aa1f96cec",
+  "batch_implementation_sha256": "09ad4f4856153e32433d5f78cded2a4f9ce94e274ef65e09f531494945fb813b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6b97366407f2ce5607e76ff099d2c35d111c5b877162282de280b43ffe20aed3",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input encodedText = \"ch ie pr\", rows = 3 → Output \"cipher\".",
+    "arguments": [
+      "ch   ie   pr",
+      3
+    ],
+    "expected": "cipher",
+    "reason": "The workbook display collapsed four matrix-padding spaces; the reviewed adapter restores the 3-by-4 row-major encoded text while preserving its stated decoded result.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README_EN.md"
+  }
+}

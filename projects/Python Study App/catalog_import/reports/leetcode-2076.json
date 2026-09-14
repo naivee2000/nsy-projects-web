@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2076",
+  "content_sha256": "1b5017b43c02fd9e59f418fdcb3ed3246b7653836266637eeb849fb4c4350fbb",
+  "source_hash": "bb87fe57cefcc6c25a93b7d7b2ca14f570087b4663e035df07ab8984dff613b7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Reports every request accepted even when a restriction blocks it.",
+      "failed_cases": [
+        "lc-2076-1",
+        "lc-2076-2",
+        "lc-2076-4",
+        "lc-2076-6",
+        "lc-2076-7",
+        "lc-2076-8",
+        "lc-2076-14",
+        "lc-2076-16"
+      ]
+    },
+    {
+      "reason": "Merges groups even after rejecting a request, corrupting later decisions.",
+      "failed_cases": [
+        "lc-2076-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6123,
+  "oracle_implementation": "code_practice/import_batch_117c.py:friends_o",
+  "validator_implementation_sha256": "ec6320451b4cbe45c595700514dd7fa325bf5fdea592b56e714dd56aa1f96cec",
+  "batch_implementation_sha256": "a678a48a2769057c438752e2bb2233acf630bb565aea1acd190f8edce0dfcf70",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "87e1b6ecc5fdfec7fe6519d52b60f702140dd8482c3aa07f715a70b50168a32f",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

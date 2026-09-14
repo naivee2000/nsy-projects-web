@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2079",
+  "content_sha256": "68794a4c6f38108b00c1529405130910f9f0bac605ef96763630840b72e453a3",
+  "source_hash": "d6f924091f167c0f67747fc47051ab8db54e9dce3e53b585911227f6e62f7081",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds an extra step on every refill trip.",
+      "failed_cases": [
+        "lc-2079-1",
+        "lc-2079-2",
+        "lc-2079-6",
+        "lc-2079-7",
+        "lc-2079-8",
+        "lc-2079-9",
+        "lc-2079-10",
+        "lc-2079-11",
+        "lc-2079-12",
+        "lc-2079-13",
+        "lc-2079-14",
+        "lc-2079-15",
+        "lc-2079-16"
+      ]
+    },
+    {
+      "reason": "Refills unnecessarily when the can contains exactly the needed amount.",
+      "failed_cases": [
+        "lc-2079-5",
+        "lc-2079-10",
+        "lc-2079-11",
+        "lc-2079-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6126,
+  "oracle_implementation": "code_practice/import_batch_117c.py:plants_o",
+  "validator_implementation_sha256": "ec6320451b4cbe45c595700514dd7fa325bf5fdea592b56e714dd56aa1f96cec",
+  "batch_implementation_sha256": "a678a48a2769057c438752e2bb2233acf630bb565aea1acd190f8edce0dfcf70",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d7936021fd254b9cd91b0a718a35eb622c0b558b83c688c9f55c34e2c12ccae6",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
