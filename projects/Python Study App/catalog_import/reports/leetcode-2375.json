@@ -1,0 +1,64 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2375",
+  "content_sha256": "c57f668f3e95599f411bc304768b2bf8f7f706cbbcea1580409a576ccfc7a41d",
+  "source_hash": "904c7ba7f7303ccfe63ef7f67e891860f1931fd529b870c38dcdf94ac061cf78",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Starts with digit 2 and cannot produce the lexicographically smallest number.",
+      "failed_cases": [
+        "lc-2375-1",
+        "lc-2375-2",
+        "lc-2375-3",
+        "lc-2375-4",
+        "lc-2375-5",
+        "lc-2375-6",
+        "lc-2375-7",
+        "lc-2375-8",
+        "lc-2375-9",
+        "lc-2375-10",
+        "lc-2375-11",
+        "lc-2375-12",
+        "lc-2375-13",
+        "lc-2375-14",
+        "lc-2375-15",
+        "lc-2375-16"
+      ]
+    },
+    {
+      "reason": "Flushes runs at decreases rather than increases, reversing the wrong segments.",
+      "failed_cases": [
+        "lc-2375-1",
+        "lc-2375-2",
+        "lc-2375-3",
+        "lc-2375-4",
+        "lc-2375-5",
+        "lc-2375-6",
+        "lc-2375-7",
+        "lc-2375-8",
+        "lc-2375-9",
+        "lc-2375-10",
+        "lc-2375-11",
+        "lc-2375-12",
+        "lc-2375-13",
+        "lc-2375-14",
+        "lc-2375-15",
+        "lc-2375-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6422,
+  "oracle_implementation": "code_practice/import_batch_140.py:pattern_oracle",
+  "validator_implementation_sha256": "57f2724fd2d589ea210834f4b38bb05817d162e32ba4626d63437a94a055a300",
+  "batch_implementation_sha256": "93fed1eed86bd492667cf3efdb6e2f82baeae966405aab3bbf9693671e91aa6c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b6340577a6e2044434cc4908ee9e621be76e3ae6add7fd22dc323e9fb774f078",
+  "elapsed_seconds": 1.266,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

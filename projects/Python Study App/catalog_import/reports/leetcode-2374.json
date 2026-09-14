@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2374",
+  "content_sha256": "4f817a37cddedf32b5dab732508a980041ce6d6aebf6bb9010e86dfcac295055",
+  "source_hash": "b28194be55bdc122bbb014b90c4cdea22830d3d41bb401aee20e9aaaf99278dd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Lets a larger node replace the smaller winner when scores tie.",
+      "failed_cases": [
+        "lc-2374-2",
+        "lc-2374-9"
+      ]
+    },
+    {
+      "reason": "Counts incoming edges instead of summing their source labels.",
+      "failed_cases": [
+        "lc-2374-1",
+        "lc-2374-7",
+        "lc-2374-9",
+        "lc-2374-11",
+        "lc-2374-13",
+        "lc-2374-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6421,
+  "oracle_implementation": "code_practice/import_batch_140.py:edge_oracle",
+  "validator_implementation_sha256": "57f2724fd2d589ea210834f4b38bb05817d162e32ba4626d63437a94a055a300",
+  "batch_implementation_sha256": "93fed1eed86bd492667cf3efdb6e2f82baeae966405aab3bbf9693671e91aa6c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dcb1a10f8bf79cb32b2ce5eb709d7707ef3ba8d6c17a62a4b4a17835aea7566e",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

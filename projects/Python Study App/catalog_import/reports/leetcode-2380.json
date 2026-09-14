@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2380",
+  "content_sha256": "b1d740142607c842cd8b3b1fd2f7ab95bb40a2115d5e8febaec46898d7c58060",
+  "source_hash": "92a7e7069a1e1d2bb3e00371ba8b24fae7c0ee683cc2a5ee73dcffb0f78d62f8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to account for a one waiting behind previously moving ones.",
+      "failed_cases": [
+        "lc-2380-1",
+        "lc-2380-8",
+        "lc-2380-11",
+        "lc-2380-14",
+        "lc-2380-16"
+      ]
+    },
+    {
+      "reason": "Ignores the number of zeroes that a one must cross.",
+      "failed_cases": [
+        "lc-2380-7",
+        "lc-2380-11",
+        "lc-2380-14",
+        "lc-2380-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6427,
+  "oracle_implementation": "code_practice/import_batch_140.py:seconds_oracle",
+  "validator_implementation_sha256": "57f2724fd2d589ea210834f4b38bb05817d162e32ba4626d63437a94a055a300",
+  "batch_implementation_sha256": "93fed1eed86bd492667cf3efdb6e2f82baeae966405aab3bbf9693671e91aa6c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4b189513d833a371a595e7415523471cf3961db350c8897025c5925253b276fa",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

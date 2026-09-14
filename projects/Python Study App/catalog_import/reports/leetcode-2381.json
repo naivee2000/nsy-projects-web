@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2381",
+  "content_sha256": "29cf26f39f38b2d6ab17cad516251c422c507838cee24dc4402e98a12f269190",
+  "source_hash": "dff0fda573a891574110a164dee13f963496639961f16f8489e4fe39555e0e63",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses forward and backward operations.",
+      "failed_cases": [
+        "lc-2381-1",
+        "lc-2381-2",
+        "lc-2381-4",
+        "lc-2381-5",
+        "lc-2381-6",
+        "lc-2381-7",
+        "lc-2381-8",
+        "lc-2381-9",
+        "lc-2381-10",
+        "lc-2381-12",
+        "lc-2381-13",
+        "lc-2381-14",
+        "lc-2381-15",
+        "lc-2381-16"
+      ]
+    },
+    {
+      "reason": "Ends each range one index too early.",
+      "failed_cases": [
+        "lc-2381-1",
+        "lc-2381-2",
+        "lc-2381-4",
+        "lc-2381-5",
+        "lc-2381-6",
+        "lc-2381-7",
+        "lc-2381-8",
+        "lc-2381-9",
+        "lc-2381-10",
+        "lc-2381-12",
+        "lc-2381-13",
+        "lc-2381-14",
+        "lc-2381-15",
+        "lc-2381-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6428,
+  "oracle_implementation": "code_practice/import_batch_140.py:shifts_oracle",
+  "validator_implementation_sha256": "57f2724fd2d589ea210834f4b38bb05817d162e32ba4626d63437a94a055a300",
+  "batch_implementation_sha256": "93fed1eed86bd492667cf3efdb6e2f82baeae966405aab3bbf9693671e91aa6c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9438faa6bf0df1d875fc5263fe133af6327c9ac852ead263cfdfb201504c7756",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

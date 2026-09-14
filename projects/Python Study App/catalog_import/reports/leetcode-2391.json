@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2391",
+  "content_sha256": "7ea72fb0e0ee6955f80526a3e1623e5190c2fc2bad317876a16fae7f634f37c3",
+  "source_hash": "2dd712900fb69df4d0ec33ca13ef2de23ee84c7cc83d87226cd3a1a45227306c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Makes all three trucks travel to the final house even when they can stop earlier.",
+      "failed_cases": [
+        "lc-2391-1",
+        "lc-2391-2",
+        "lc-2391-4",
+        "lc-2391-5",
+        "lc-2391-6",
+        "lc-2391-7",
+        "lc-2391-8",
+        "lc-2391-9",
+        "lc-2391-10",
+        "lc-2391-11",
+        "lc-2391-12",
+        "lc-2391-13",
+        "lc-2391-14",
+        "lc-2391-16"
+      ]
+    },
+    {
+      "reason": "Omits the one-minute cost of collecting each piece.",
+      "failed_cases": [
+        "lc-2391-1",
+        "lc-2391-2",
+        "lc-2391-3",
+        "lc-2391-4",
+        "lc-2391-5",
+        "lc-2391-6",
+        "lc-2391-7",
+        "lc-2391-8",
+        "lc-2391-9",
+        "lc-2391-10",
+        "lc-2391-11",
+        "lc-2391-12",
+        "lc-2391-13",
+        "lc-2391-14",
+        "lc-2391-15",
+        "lc-2391-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6438,
+  "oracle_implementation": "code_practice/import_batch_140.py:garbage_oracle",
+  "validator_implementation_sha256": "57f2724fd2d589ea210834f4b38bb05817d162e32ba4626d63437a94a055a300",
+  "batch_implementation_sha256": "93fed1eed86bd492667cf3efdb6e2f82baeae966405aab3bbf9693671e91aa6c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "42a2f344fb5169665f6d0e311ada9b3c9186ec4b69517c52095340e5d605155c",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
