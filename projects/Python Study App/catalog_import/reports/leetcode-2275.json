@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2275",
+  "content_sha256": "cc947660ed739cff896571583d3423c5e9d98cbc0a2b9f780cfbbc2a49bdcadc",
+  "source_hash": "2ce97d02cb99b50b22b23cc47920cd5314a8fb9094049a1722597ec2e9a83278",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the least-populated set bit instead of the most-populated one.",
+      "failed_cases": [
+        "lc-2275-1",
+        "lc-2275-2",
+        "lc-2275-6",
+        "lc-2275-7",
+        "lc-2275-8",
+        "lc-2275-12",
+        "lc-2275-13"
+      ]
+    },
+    {
+      "reason": "Compares the shifted value to one without masking, missing values with higher bits also set.",
+      "failed_cases": [
+        "lc-2275-1",
+        "lc-2275-6",
+        "lc-2275-8",
+        "lc-2275-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6322,
+  "oracle_implementation": "code_practice/import_batch_126.py:and_oracle",
+  "validator_implementation_sha256": "870c0c141897ff5a173b154827ea86c21597ed184e9c1a6ef6937fab3b1faaec",
+  "batch_implementation_sha256": "56254e1d8d5a48ff9fd03ceef7494c8a967ef75ecee317aaa00d477afb01fc9c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2b313724ca019d54f11a01c6d01ea18f100d94ba585821319241b98e7fd07a19",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2272",
+  "content_sha256": "9cd754c508f42332c3ed55e717e21c66c3951f2f0c1caabbc32a95d2e8a3b0bf",
+  "source_hash": "3b2aab8b02e04c55cfa9ede6ca4dd373dc89912af9b59cc61aebd34da3b741b2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a substring with no minor character, which is not a valid two-character variance.",
+      "failed_cases": [
+        "lc-2272-2",
+        "lc-2272-4",
+        "lc-2272-8",
+        "lc-2272-10",
+        "lc-2272-11",
+        "lc-2272-13",
+        "lc-2272-14"
+      ]
+    },
+    {
+      "reason": "Resets after the final minor occurrence and can discard the only valid suffix candidate.",
+      "failed_cases": [
+        "lc-2272-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6319,
+  "oracle_implementation": "code_practice/import_batch_126.py:variance_oracle",
+  "validator_implementation_sha256": "870c0c141897ff5a173b154827ea86c21597ed184e9c1a6ef6937fab3b1faaec",
+  "batch_implementation_sha256": "56254e1d8d5a48ff9fd03ceef7494c8a967ef75ecee317aaa00d477afb01fc9c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "79e936d65a304dbeddbbdce2a72d6c652ab849da6c1758a74955528154abd5b3",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
