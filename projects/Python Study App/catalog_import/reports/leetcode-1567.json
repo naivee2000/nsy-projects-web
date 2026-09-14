@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1567",
+  "content_sha256": "61dd368376626995b36650f50fc772db2030e6863b1303e32e07ae50f11e29cd",
+  "source_hash": "ab5f9c597580f7784e2357b3b14ea2c2af2782405ff023605d03ae79136144e2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "After a negative value, discards a prior negative suffix that should become positive.",
+      "failed_cases": [
+        "lc-1567-1",
+        "lc-1567-2",
+        "lc-1567-6",
+        "lc-1567-7",
+        "lc-1567-10",
+        "lc-1567-11",
+        "lc-1567-12",
+        "lc-1567-13",
+        "lc-1567-14"
+      ]
+    },
+    {
+      "reason": "Treats zero as a positive-product subarray of length one.",
+      "failed_cases": [
+        "lc-1567-2",
+        "lc-1567-5",
+        "lc-1567-9",
+        "lc-1567-10",
+        "lc-1567-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5614,
+  "oracle_implementation": "code_practice/import_batch_098b.py:positive_o",
+  "validator_implementation_sha256": "9db212ecdc3a5cbb23f89b2e7a91b68d112b56f06691242c04eec32d9323d013",
+  "batch_implementation_sha256": "d1eab5891020927981a05f84f88c5b86df3c2acecccf355bdb252ca38450e5c5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "23b19dcddcea4cb892b02439ec0ed3cc29859c10552c71cda996550b873443cf",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

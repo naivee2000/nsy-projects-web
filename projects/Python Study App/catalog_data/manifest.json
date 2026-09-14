@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1069,
+  "count": 1079,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -18909,6 +18909,178 @@
       "path": "problems/leetcode-1556.json",
       "content_sha256": "a16412d12e17f8005c703ebf731a531317cae4a6e3a4073c4629fa6935b22c56",
       "source_id": 1556
+    },
+    {
+      "id": "leetcode-1557",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Vertices to Reach All Nodes",
+      "summary": "Given a directed acyclic graph with nodes numbered 0 to n-1 and edges defined by an array, identify the minimum set of nodes from which all other nodes are reachable.",
+      "topics": [
+        "graphs",
+        "directed-acyclic-graphs"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1557.json",
+      "content_sha256": "047d540cb589fc93d25af7683c90d412a2367da17e1fcca435c9e49663007fa9",
+      "source_id": 1557
+    },
+    {
+      "id": "leetcode-1558",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Numbers of Function Calls to Make Target Array",
+      "summary": "Given an integer array nums, determine the least number of calls needed to transform an initially zeroed array arr into nums using a specified modify function.",
+      "topics": [
+        "bit-manipulation",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1558.json",
+      "content_sha256": "47c5079a7fcae75e2856a10879154d6367bf9a5b2435778fb698c0b340826128",
+      "source_id": 1558
+    },
+    {
+      "id": "leetcode-1559",
+      "version": 1,
+      "status": "approved",
+      "title": "Detect Cycles in 2D Grid",
+      "summary": "In a grid of characters, determine if there is a cycle of the same value where a cycle is defined as a path of at least four cells starting and ending at the same cell, moving only to adjacent cells with the same value, and not revisiting the last cell immediately.",
+      "topics": [
+        "recursion",
+        "grids"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1559.json",
+      "content_sha256": "2872ac79737e1e2a8ffff2b126d990ca9148787c51dc8ecf8625b87ef503d2e9",
+      "source_id": 1559
+    },
+    {
+      "id": "leetcode-1560",
+      "version": 1,
+      "status": "approved",
+      "title": "Most Visited Sector in  a Circular Track",
+      "summary": "Given an integer n and an integer array rounds , consider a circular track divided into n sectors labeled from 1 to n .",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1560.json",
+      "content_sha256": "16195c9bb45564fb5f6f2bc95ef2dbf7642aa704879ea130576ce4a1e7816ff9",
+      "source_id": 1560
+    },
+    {
+      "id": "leetcode-1561",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Coins You Can Get",
+      "summary": "Given an array of pile sizes, players take turns picking piles in a specific order: Alice picks the largest, then you pick the next largest, and Bob takes the remaining pile.",
+      "topics": [
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1561.json",
+      "content_sha256": "4bdda9f97b179ae56bfddfd82c02e85ca1214708312a4ee39ac132eb35160efd",
+      "source_id": 1561
+    },
+    {
+      "id": "leetcode-1562",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Latest Group of Size M",
+      "summary": "Given an array representing a permutation of numbers from 1 to n, and a binary string of size n initially set to all zeros, set the bit at position arr[i] to 1 for each step i from 1 to n.",
+      "topics": [
+        "arrays",
+        "intervals"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1562.json",
+      "content_sha256": "4fe2c819e3fd2c48a317b342211f62cc7301339c83112237730af58d6c6cb801",
+      "source_id": 1562
+    },
+    {
+      "id": "leetcode-1563",
+      "version": 1,
+      "status": "approved",
+      "title": "Stone Game V",
+      "summary": "Alice arranges stones in a row with values in stoneValue.",
+      "topics": [
+        "dynamic-programming",
+        "recursion"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1563.json",
+      "content_sha256": "5744370839d337a785e7f250c28da62f328ec951f619dec4bb8919d705808222",
+      "source_id": 1563
+    },
+    {
+      "id": "leetcode-1564",
+      "version": 1,
+      "status": "approved",
+      "title": "Put Boxes Into the Warehouse I",
+      "summary": "Given two arrays, boxes and warehouse, representing the heights of boxes and rooms in a warehouse, respectively, you must determine the maximum number of boxes that can be placed in the warehouse following these rules: boxes cannot be stacked, their order can be rearranged, they can only be inserted from left to right, and if a room's height is less than a box's height, no more boxes can be inserted beyond that room.",
+      "topics": [
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1564.json",
+      "content_sha256": "23cbe97c1a75c56e78435281c27076f888b0f1da3950cb5fce7d6dd44877d093",
+      "source_id": 1564
+    },
+    {
+      "id": "leetcode-1566",
+      "version": 1,
+      "status": "approved",
+      "title": "Detect Pattern of Length M Repeated K or More Times",
+      "summary": "Given an array of positive integers, determine if a subarray of length m is repeated at least k times consecutively without overlap.",
+      "topics": [
+        "arrays",
+        "patterns"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1566.json",
+      "content_sha256": "f3fdaff0493c6a468e4fd7dbd548bb1ee7c4a3b4945698f818b88ea4f6466272",
+      "source_id": 1566
+    },
+    {
+      "id": "leetcode-1567",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Length of Subarray With Positive Product",
+      "summary": "Given an array of integers, determine the longest continuous segment where the product of the elements is positive.",
+      "topics": [
+        "dynamic-programming",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1567.json",
+      "content_sha256": "61dd368376626995b36650f50fc772db2030e6863b1303e32e07ae50f11e29cd",
+      "source_id": 1567
     }
   ]
 }

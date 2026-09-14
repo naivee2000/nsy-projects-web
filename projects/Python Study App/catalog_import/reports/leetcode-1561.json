@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1561",
+  "content_sha256": "4bdda9f97b179ae56bfddfd82c02e85ca1214708312a4ee39ac132eb35160efd",
+  "source_hash": "e551cb71863069d15e2ab2078247166b67c61a8ee497f68a56eb7810a945e7de",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Lets you take Alice’s largest pile from each triple.",
+      "failed_cases": [
+        "lc-1561-1",
+        "lc-1561-2",
+        "lc-1561-3",
+        "lc-1561-4",
+        "lc-1561-6",
+        "lc-1561-7",
+        "lc-1561-8",
+        "lc-1561-9",
+        "lc-1561-10",
+        "lc-1561-12",
+        "lc-1561-13",
+        "lc-1561-14"
+      ]
+    },
+    {
+      "reason": "Reverses sorting while retaining indices designed for ascending order.",
+      "failed_cases": [
+        "lc-1561-1",
+        "lc-1561-4",
+        "lc-1561-8",
+        "lc-1561-9",
+        "lc-1561-12",
+        "lc-1561-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5608,
+  "oracle_implementation": "code_practice/import_batch_098b.py:coins_o",
+  "validator_implementation_sha256": "9db212ecdc3a5cbb23f89b2e7a91b68d112b56f06691242c04eec32d9323d013",
+  "batch_implementation_sha256": "d1eab5891020927981a05f84f88c5b86df3c2acecccf355bdb252ca38450e5c5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ad99fd5d6ac39455a21c9afbc90465d15d3a790f2b9f6fe24f5bd610ab0a9257",
+  "elapsed_seconds": 0.239,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

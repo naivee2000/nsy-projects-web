@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1563",
+  "content_sha256": "5744370839d337a785e7f250c28da62f328ec951f619dec4bb8919d705808222",
+  "source_hash": "f551c50385be14b54f94bcc5237de8fe75544018addac5d9c2262d16ea71e78d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns only half of the achievable optimal score.",
+      "failed_cases": [
+        "lc-1563-1",
+        "lc-1563-2",
+        "lc-1563-4",
+        "lc-1563-5",
+        "lc-1563-6",
+        "lc-1563-7",
+        "lc-1563-8",
+        "lc-1563-9",
+        "lc-1563-10",
+        "lc-1563-11",
+        "lc-1563-12",
+        "lc-1563-13",
+        "lc-1563-14"
+      ]
+    },
+    {
+      "reason": "Stops the game after scoring a left part instead of recursing into it.",
+      "failed_cases": [
+        "lc-1563-1",
+        "lc-1563-10",
+        "lc-1563-11",
+        "lc-1563-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5610,
+  "oracle_implementation": "code_practice/import_batch_098b.py:stone_o",
+  "validator_implementation_sha256": "9db212ecdc3a5cbb23f89b2e7a91b68d112b56f06691242c04eec32d9323d013",
+  "batch_implementation_sha256": "d1eab5891020927981a05f84f88c5b86df3c2acecccf355bdb252ca38450e5c5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "38e3d00e5e72a96e65eb97f98467c34230e6957ef997707783f6069f4be36f8f",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

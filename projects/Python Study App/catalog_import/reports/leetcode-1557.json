@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1557",
+  "content_sha256": "047d540cb589fc93d25af7683c90d412a2367da17e1fcca435c9e49663007fa9",
+  "source_hash": "f184da6974ef0bee6ef4918dbd1486002aa4218d7f7e1fca86aa3e05aff6ee15",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Marks edge sources rather than targets as having incoming edges.",
+      "failed_cases": [
+        "lc-1557-1",
+        "lc-1557-2",
+        "lc-1557-5",
+        "lc-1557-6",
+        "lc-1557-7",
+        "lc-1557-8",
+        "lc-1557-10",
+        "lc-1557-11",
+        "lc-1557-12",
+        "lc-1557-13",
+        "lc-1557-14"
+      ]
+    },
+    {
+      "reason": "Returns non-source nodes instead of the required sources.",
+      "failed_cases": [
+        "lc-1557-1",
+        "lc-1557-2",
+        "lc-1557-3",
+        "lc-1557-4",
+        "lc-1557-5",
+        "lc-1557-6",
+        "lc-1557-7",
+        "lc-1557-8",
+        "lc-1557-9",
+        "lc-1557-10",
+        "lc-1557-11",
+        "lc-1557-12",
+        "lc-1557-13",
+        "lc-1557-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5604,
+  "oracle_implementation": "code_practice/import_batch_098b.py:vertices_o",
+  "validator_implementation_sha256": "9db212ecdc3a5cbb23f89b2e7a91b68d112b56f06691242c04eec32d9323d013",
+  "batch_implementation_sha256": "d1eab5891020927981a05f84f88c5b86df3c2acecccf355bdb252ca38450e5c5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a66d46e450d3099aca5e8049d12dd557e33764d69e9b8a99736cd920b1b88a16",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

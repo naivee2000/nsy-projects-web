@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1559",
+  "content_sha256": "2872ac79737e1e2a8ffff2b126d990ca9148787c51dc8ecf8625b87ef503d2e9",
+  "source_hash": "b4f2f596c64f810de328accfc068e3f7b4b37c49cba169a7ba73fcfc1c7d71b8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the immediate parent edge as a two-cell cycle.",
+      "failed_cases": [
+        "lc-1559-2",
+        "lc-1559-4",
+        "lc-1559-9",
+        "lc-1559-10",
+        "lc-1559-12",
+        "lc-1559-13"
+      ]
+    },
+    {
+      "reason": "Traverses components but never reports a closing edge.",
+      "failed_cases": [
+        "lc-1559-1",
+        "lc-1559-5",
+        "lc-1559-7",
+        "lc-1559-8",
+        "lc-1559-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5606,
+  "oracle_implementation": "code_practice/import_batch_098b.py:cycle_o",
+  "validator_implementation_sha256": "9db212ecdc3a5cbb23f89b2e7a91b68d112b56f06691242c04eec32d9323d013",
+  "batch_implementation_sha256": "d1eab5891020927981a05f84f88c5b86df3c2acecccf355bdb252ca38450e5c5",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c6795b92f9611c645d5ae9f3793f400d2b4f3f4c325f3f141bffc2b3cf680229",
+  "elapsed_seconds": 0.068,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
