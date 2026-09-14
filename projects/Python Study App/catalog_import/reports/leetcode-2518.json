@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2518",
+  "content_sha256": "9b3d059a6a8bccafd6ca08bf7e86c28643039f07ddd5ab883914d38a5c2b2f9c",
+  "source_hash": "b8d3a74c11513389fbb6914c0ad5277f87e9f60a69caa7bf06c89a3a4c9ddd68",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects the valid boundary where total sum equals exactly twice k.",
+      "failed_cases": [
+        "lc-2518-5",
+        "lc-2518-6",
+        "lc-2518-7",
+        "lc-2518-11"
+      ]
+    },
+    {
+      "reason": "Subtracts bad assignments for only one of the two labeled groups.",
+      "failed_cases": [
+        "lc-2518-1",
+        "lc-2518-2",
+        "lc-2518-3",
+        "lc-2518-5",
+        "lc-2518-6",
+        "lc-2518-7",
+        "lc-2518-8",
+        "lc-2518-9",
+        "lc-2518-10",
+        "lc-2518-11",
+        "lc-2518-12",
+        "lc-2518-13",
+        "lc-2518-14",
+        "lc-2518-15",
+        "lc-2518-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6565,
+  "oracle_implementation": "code_practice/import_batch_150.py:partitions_oracle",
+  "validator_implementation_sha256": "2d54ce275f998c6a5ffeeec0f1e625b4115ec00c60fdbc136885230a24cb4906",
+  "batch_implementation_sha256": "a958b8ee59b827966e86f338ef79a35a3d78b7649e8658dd28ab22d66c511c3b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1617f305c13a72bbb9dd2fc54fbd71a01d009e380ccb05fb0df3233c75de86c2",
+  "elapsed_seconds": 0.24,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

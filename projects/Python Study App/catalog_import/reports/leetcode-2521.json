@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2521",
+  "content_sha256": "ad57f8c4954bf6a57815ee1b3c97e706fde22e8c7981230676b26cd20aac8fde",
+  "source_hash": "78c1c42de99784d40d543357aec60cc510791821db391dfd46d0bb5b5cb69cd0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Loses a prime factor that remains after trial division reaches its square root.",
+      "failed_cases": [
+        "lc-2521-1",
+        "lc-2521-3",
+        "lc-2521-4",
+        "lc-2521-6",
+        "lc-2521-8",
+        "lc-2521-9",
+        "lc-2521-10",
+        "lc-2521-12",
+        "lc-2521-14",
+        "lc-2521-15",
+        "lc-2521-16"
+      ]
+    },
+    {
+      "reason": "Records the shrinking composite value instead of the prime divisor that was found.",
+      "failed_cases": [
+        "lc-2521-1",
+        "lc-2521-2",
+        "lc-2521-10",
+        "lc-2521-11",
+        "lc-2521-15",
+        "lc-2521-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6568,
+  "oracle_implementation": "code_practice/import_batch_150.py:prime_oracle",
+  "validator_implementation_sha256": "2d54ce275f998c6a5ffeeec0f1e625b4115ec00c60fdbc136885230a24cb4906",
+  "batch_implementation_sha256": "a958b8ee59b827966e86f338ef79a35a3d78b7649e8658dd28ab22d66c511c3b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "201fa015b337fe1339d0cbeb04c6b5750f7081bc891f7bb3b8e58e53e9c8d702",
+  "elapsed_seconds": 0.167,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2517",
+  "content_sha256": "a298b9a4b85d36a4e46f576aa1d5bd8d3448a79a013105204573c9fc270b8db0",
+  "source_hash": "f23ca51e60b2ce18aeac691e12f9868a2f76563d531d2826ff3cc0ce62becf6e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects selections whose minimum difference equals the tested gap.",
+      "failed_cases": [
+        "lc-2517-1",
+        "lc-2517-2",
+        "lc-2517-4",
+        "lc-2517-5",
+        "lc-2517-6",
+        "lc-2517-8",
+        "lc-2517-9",
+        "lc-2517-10",
+        "lc-2517-11",
+        "lc-2517-12",
+        "lc-2517-13",
+        "lc-2517-14",
+        "lc-2517-15",
+        "lc-2517-16"
+      ]
+    },
+    {
+      "reason": "Forgets that the cheapest candy is already selected by the greedy feasibility check.",
+      "failed_cases": [
+        "lc-2517-1",
+        "lc-2517-2",
+        "lc-2517-4",
+        "lc-2517-5",
+        "lc-2517-6",
+        "lc-2517-8",
+        "lc-2517-9",
+        "lc-2517-10",
+        "lc-2517-11",
+        "lc-2517-12",
+        "lc-2517-13",
+        "lc-2517-14",
+        "lc-2517-15",
+        "lc-2517-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6564,
+  "oracle_implementation": "code_practice/import_batch_150.py:tastiness_oracle",
+  "validator_implementation_sha256": "2d54ce275f998c6a5ffeeec0f1e625b4115ec00c60fdbc136885230a24cb4906",
+  "batch_implementation_sha256": "a958b8ee59b827966e86f338ef79a35a3d78b7649e8658dd28ab22d66c511c3b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "69c4f92cdf89e44af3240966f369050ca2c7df44e11c40e5c1d1c177572cf142",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
