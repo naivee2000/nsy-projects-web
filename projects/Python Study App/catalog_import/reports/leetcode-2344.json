@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2344",
+  "content_sha256": "097c286d68f928070da811fed7e7d20f73dd45df8ed5f26371ea727f4c753b87",
+  "source_hash": "5298dec56ebecc20c617aa9d6fa96de146d664594431d74e7cb36fe9c8667e4a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Scans unsorted input and returns deletions before a candidate rather than the minimum possible count.",
+      "failed_cases": [
+        "lc-2344-1",
+        "lc-2344-11",
+        "lc-2344-15"
+      ]
+    },
+    {
+      "reason": "Reverses divisibility and tests whether the candidate is divisible by the target gcd.",
+      "failed_cases": [
+        "lc-2344-2",
+        "lc-2344-6",
+        "lc-2344-7",
+        "lc-2344-8",
+        "lc-2344-9",
+        "lc-2344-10",
+        "lc-2344-11",
+        "lc-2344-13",
+        "lc-2344-14",
+        "lc-2344-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6391,
+  "oracle_implementation": "code_practice/import_batch_137.py:deletion_oracle",
+  "validator_implementation_sha256": "aaacb333d7d21eed1023fa70910b0d5e8fb44aa775cea7578bed78068c1657ea",
+  "batch_implementation_sha256": "cc04dfc891624ef7ede3047fdc9cc0868116dfb1e877a7f4c08fe116f690ca21",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4e331d23d376b6fab919d8128f84b061f8cd68f8faa122cb8d8a8b1c3595f833",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

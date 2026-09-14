@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2354",
+  "content_sha256": "118e3287a38a8d745be4d82af7c367b2e3246ab50dfcc81043cddc2f42fffbfc",
+  "source_hash": "b3f42c98a0fea9d2fc8cad13f97ba08f915cb3c3d47a2438f00b5ea642c31b2b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts duplicate occurrences as distinct pair values despite required deduplication.",
+      "failed_cases": [
+        "lc-2354-1",
+        "lc-2354-7",
+        "lc-2354-9",
+        "lc-2354-14"
+      ]
+    },
+    {
+      "reason": "Uses a strict threshold and rejects pairs whose combined bit count equals k.",
+      "failed_cases": [
+        "lc-2354-1",
+        "lc-2354-4",
+        "lc-2354-5",
+        "lc-2354-7",
+        "lc-2354-8",
+        "lc-2354-11",
+        "lc-2354-12",
+        "lc-2354-13",
+        "lc-2354-14",
+        "lc-2354-15",
+        "lc-2354-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6401,
+  "oracle_implementation": "code_practice/import_batch_137.py:excellent_oracle",
+  "validator_implementation_sha256": "aaacb333d7d21eed1023fa70910b0d5e8fb44aa775cea7578bed78068c1657ea",
+  "batch_implementation_sha256": "cc04dfc891624ef7ede3047fdc9cc0868116dfb1e877a7f4c08fe116f690ca21",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c69d8dc345ceacbee11ee426843bb22b1f91427ebf3fc28c514e20c7d4ab24ba",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

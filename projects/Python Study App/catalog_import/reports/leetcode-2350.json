@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2350",
+  "content_sha256": "27ccdd7bba61eea14c7a75126913bf4848b251e3674d96141a120314c5dcddcc",
+  "source_hash": "339612abb1fe0a691c45b95cb67026f18fb54631e53113a6bd933aa74e30c0e1",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the number of completed full-face blocks instead of one more.",
+      "failed_cases": [
+        "lc-2350-1",
+        "lc-2350-2",
+        "lc-2350-3",
+        "lc-2350-4",
+        "lc-2350-5",
+        "lc-2350-6",
+        "lc-2350-7",
+        "lc-2350-8",
+        "lc-2350-9",
+        "lc-2350-10",
+        "lc-2350-11",
+        "lc-2350-12",
+        "lc-2350-13",
+        "lc-2350-14",
+        "lc-2350-15"
+      ]
+    },
+    {
+      "reason": "Keeps the completing face in the next block even though one roll occurrence cannot serve twice.",
+      "failed_cases": [
+        "lc-2350-6",
+        "lc-2350-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6397,
+  "oracle_implementation": "code_practice/import_batch_137.py:impossible_oracle",
+  "validator_implementation_sha256": "aaacb333d7d21eed1023fa70910b0d5e8fb44aa775cea7578bed78068c1657ea",
+  "batch_implementation_sha256": "cc04dfc891624ef7ede3047fdc9cc0868116dfb1e877a7f4c08fe116f690ca21",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "710eb0cbdb144fa1aabf176575acaa18df571c29043481eb8c9b590c88f905f4",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
