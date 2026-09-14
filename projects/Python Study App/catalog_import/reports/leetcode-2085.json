@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2085",
+  "content_sha256": "ceb3b1a59ca1f5d4b21393a9d24fced7e1104dab80fe7a349e061f4a35f81f6b",
+  "source_hash": "2c3d3239423985c271683ff85f2bda33bfdd01f977b1252373a6bdd877cf4060",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows words repeated in the first array.",
+      "failed_cases": [
+        "lc-2085-1",
+        "lc-2085-5",
+        "lc-2085-8"
+      ]
+    },
+    {
+      "reason": "Allows words repeated in the second array.",
+      "failed_cases": [
+        "lc-2085-6",
+        "lc-2085-12",
+        "lc-2085-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6132,
+  "oracle_implementation": "code_practice/import_batch_117d.py:common_o",
+  "validator_implementation_sha256": "3af1b5a2f8265fac31cecda4aa9b893febe433a62d090fe61c932222f7525310",
+  "batch_implementation_sha256": "f36448982c6c21a1284466e763f7d793a02a0295b11e98bdd07ac49593215498",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ee00d999e3db3d57a8c0196aea24d6fbb523f5a8ed25d6f7775a1a5f44276e90",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

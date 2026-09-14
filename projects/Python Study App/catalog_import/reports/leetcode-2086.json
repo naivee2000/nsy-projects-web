@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2086",
+  "content_sha256": "d1ed606361434addd25351d7bc2caa067c6a40bf6ccb4f9b7224e0a09a4114c4",
+  "source_hash": "28f075cf7bf1ed52301d5ed6066b4949fcbb3436b6258cac5014765df03688fb",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Mistakes any empty left position for an already placed bucket and undercounts.",
+      "failed_cases": [
+        "lc-2086-1",
+        "lc-2086-2",
+        "lc-2086-7",
+        "lc-2086-8",
+        "lc-2086-9",
+        "lc-2086-12",
+        "lc-2086-14",
+        "lc-2086-15"
+      ]
+    },
+    {
+      "reason": "Requires two positions to the right and misses a usable final empty position.",
+      "failed_cases": [
+        "lc-2086-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6133,
+  "oracle_implementation": "code_practice/import_batch_117d.py:buckets_o",
+  "validator_implementation_sha256": "3af1b5a2f8265fac31cecda4aa9b893febe433a62d090fe61c932222f7525310",
+  "batch_implementation_sha256": "35625055977708718393ad100a7d7d2812eab710d5b7b1da29a2ffaa0fc0d7f5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "58d9f3acccff84025f5c97043749e306931ecc4f48e16ff58afe9bf7191b4ba7",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2081",
+  "content_sha256": "4fa39e9e468b58c97563d9e9c657446cae391e72ff779685f36544c411d09026",
+  "source_hash": "5b07b556e0f4882a9e3d21b77ed620e39e0431a51072f91fe106106627b4bfac",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Tests whether base-k digits are sorted rather than palindromic.",
+      "failed_cases": [
+        "lc-2081-1",
+        "lc-2081-2",
+        "lc-2081-4",
+        "lc-2081-5",
+        "lc-2081-6",
+        "lc-2081-7",
+        "lc-2081-10",
+        "lc-2081-11",
+        "lc-2081-12"
+      ]
+    },
+    {
+      "reason": "Generates decimal values with leading-zero halves and duplicates shorter palindromes.",
+      "failed_cases": [
+        "lc-2081-1",
+        "lc-2081-2",
+        "lc-2081-3",
+        "lc-2081-4",
+        "lc-2081-5",
+        "lc-2081-6",
+        "lc-2081-7",
+        "lc-2081-8",
+        "lc-2081-9",
+        "lc-2081-10",
+        "lc-2081-11",
+        "lc-2081-12",
+        "lc-2081-13",
+        "lc-2081-14",
+        "lc-2081-15",
+        "lc-2081-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6128,
+  "oracle_implementation": "code_practice/import_batch_117d.py:mirror_o",
+  "validator_implementation_sha256": "3af1b5a2f8265fac31cecda4aa9b893febe433a62d090fe61c932222f7525310",
+  "batch_implementation_sha256": "f36448982c6c21a1284466e763f7d793a02a0295b11e98bdd07ac49593215498",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2f69c6bed3b91e41590245d02274b27079fcc29241e1b7ea876822b6209e4b93",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
