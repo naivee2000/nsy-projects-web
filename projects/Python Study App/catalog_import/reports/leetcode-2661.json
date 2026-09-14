@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2661",
+  "content_sha256": "673cade9f912eb87b60c737408ea546c6632e76e699de424d97fe689a85f1757",
+  "source_hash": "9713c4169828286ca9d4b843a3ffc135306ddcafedf9854baf244d6758841c51",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires the newly painted row and column to complete simultaneously.",
+      "failed_cases": [
+        "lc-2661-2",
+        "lc-2661-4",
+        "lc-2661-5",
+        "lc-2661-6",
+        "lc-2661-7",
+        "lc-2661-8",
+        "lc-2661-9",
+        "lc-2661-10",
+        "lc-2661-13",
+        "lc-2661-14",
+        "lc-2661-15",
+        "lc-2661-16"
+      ]
+    },
+    {
+      "reason": "Returns a one-based step instead of the required zero-based index.",
+      "failed_cases": [
+        "lc-2661-1",
+        "lc-2661-2",
+        "lc-2661-3",
+        "lc-2661-4",
+        "lc-2661-5",
+        "lc-2661-6",
+        "lc-2661-7",
+        "lc-2661-8",
+        "lc-2661-9",
+        "lc-2661-10",
+        "lc-2661-11",
+        "lc-2661-12",
+        "lc-2661-13",
+        "lc-2661-14",
+        "lc-2661-15",
+        "lc-2661-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6708,
+  "oracle_implementation": "code_practice/import_batch_170.py:paint_oracle",
+  "validator_implementation_sha256": "124549c53ba22eddacffc5d0b0373dca42692ad3f5b52039d3391c7e6e2f5a18",
+  "batch_implementation_sha256": "b171578e597634ffb62cb1bcf97eabfd5d9d9a5255a36ab05c9165c2d8c77db1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "186b99a8bf1e4620631cd85c3ec7c83fbceca458ccf7bda3da9bb656d3072b9c",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

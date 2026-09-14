@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2670",
+  "content_sha256": "819cc6fb100f6d3b0a6edc18b18b2d5a9dda7023a2fa79665237dd2c91df3b4f",
+  "source_hash": "da79f01ff4f95414f8a0b57b27b7f71940fd4065a2c428a29ccaa68ee2743e2f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts prefix distinct count from suffix distinct count in the wrong order.",
+      "failed_cases": [
+        "lc-2670-1",
+        "lc-2670-2",
+        "lc-2670-3",
+        "lc-2670-4",
+        "lc-2670-5",
+        "lc-2670-6",
+        "lc-2670-7",
+        "lc-2670-8",
+        "lc-2670-9",
+        "lc-2670-10",
+        "lc-2670-11",
+        "lc-2670-12",
+        "lc-2670-13",
+        "lc-2670-14",
+        "lc-2670-15"
+      ]
+    },
+    {
+      "reason": "Includes nums[i] in both the prefix and suffix counts.",
+      "failed_cases": [
+        "lc-2670-1",
+        "lc-2670-2",
+        "lc-2670-3",
+        "lc-2670-4",
+        "lc-2670-5",
+        "lc-2670-6",
+        "lc-2670-7",
+        "lc-2670-8",
+        "lc-2670-9",
+        "lc-2670-10",
+        "lc-2670-11",
+        "lc-2670-12",
+        "lc-2670-13",
+        "lc-2670-14",
+        "lc-2670-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6717,
+  "oracle_implementation": "code_practice/import_batch_170.py:distinct_oracle",
+  "validator_implementation_sha256": "124549c53ba22eddacffc5d0b0373dca42692ad3f5b52039d3391c7e6e2f5a18",
+  "batch_implementation_sha256": "b171578e597634ffb62cb1bcf97eabfd5d9d9a5255a36ab05c9165c2d8c77db1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d4627bc3025a5237bba32ad6b0ddaedde87ff5e6eaf9dbdfde4b46b8aa4e0a90",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

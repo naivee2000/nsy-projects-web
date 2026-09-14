@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2662",
+  "content_sha256": "57b5e6e7f1e521e4e079c9c2e8c91b2bb9059c2f1f3caa6ff0299ebba58b44d0",
+  "source_hash": "688d1b48c64874d29774f2bbd5be7d44c20810adaa6b70fd086961c00211eb99",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats every special road as free after reaching its start.",
+      "failed_cases": [
+        "lc-2662-1",
+        "lc-2662-2",
+        "lc-2662-5",
+        "lc-2662-7",
+        "lc-2662-8",
+        "lc-2662-9",
+        "lc-2662-10",
+        "lc-2662-11",
+        "lc-2662-12",
+        "lc-2662-13",
+        "lc-2662-14",
+        "lc-2662-15"
+      ]
+    },
+    {
+      "reason": "Charges ordinary travel to the road endpoint rather than its start.",
+      "failed_cases": [
+        "lc-2662-1",
+        "lc-2662-2",
+        "lc-2662-5",
+        "lc-2662-7",
+        "lc-2662-8",
+        "lc-2662-9",
+        "lc-2662-10",
+        "lc-2662-11",
+        "lc-2662-12",
+        "lc-2662-13",
+        "lc-2662-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6709,
+  "oracle_implementation": "code_practice/import_batch_170.py:roads_oracle",
+  "validator_implementation_sha256": "124549c53ba22eddacffc5d0b0373dca42692ad3f5b52039d3391c7e6e2f5a18",
+  "batch_implementation_sha256": "b171578e597634ffb62cb1bcf97eabfd5d9d9a5255a36ab05c9165c2d8c77db1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "39c4f9436390660584d09292e84f7dc23bac6c6bfac71187caec3c0baa121c23",
+  "elapsed_seconds": 0.1,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

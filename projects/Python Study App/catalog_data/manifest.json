@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1891,
+  "count": 1896,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -33703,6 +33703,98 @@
       "path": "problems/leetcode-2658.json",
       "content_sha256": "e501f7519011c08ae889127097d4d965faeb493b6b3232978866723e02d8641e",
       "source_id": 2658
+    },
+    {
+      "id": "leetcode-2659",
+      "version": 1,
+      "status": "approved",
+      "title": "Make Array Empty",
+      "summary": "Given an array of distinct integers, repeatedly remove the smallest element or move the first element to the end until the array is empty.",
+      "topics": [
+        "arrays",
+        "fenwick trees",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2659.json",
+      "content_sha256": "76804a2daf323b11ea7c99919fb3728e9840473b39254eaa07a3d983fe9fe642",
+      "source_id": 2659
+    },
+    {
+      "id": "leetcode-2660",
+      "version": 1,
+      "status": "approved",
+      "title": "Determine the Winner of a Bowling Game",
+      "summary": "Given two arrays, player1 and player2, representing the number of pins hit by each player in a bowling game where each turn involves hitting exactly 10 pins over n turns, calculate the score for each player.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2660.json",
+      "content_sha256": "064c8c712a4193a69bf1ae3f409e46a18fa76b9721877757cf2aaf310353fac6",
+      "source_id": 2660
+    },
+    {
+      "id": "leetcode-2661",
+      "version": 1,
+      "status": "approved",
+      "title": "First Completely Painted Row or Column",
+      "summary": "Given an integer array arr and an m x n matrix mat, both containing integers from 1 to m * n, paint cells in mat according to arr.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2661.json",
+      "content_sha256": "673cade9f912eb87b60c737408ea546c6632e76e699de424d97fe689a85f1757",
+      "source_id": 2661
+    },
+    {
+      "id": "leetcode-2662",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost of a Path With Special Roads",
+      "summary": "Given an initial position and a target position in a 2D space, along with the cost of moving between any two points and a set of special roads with their own costs, determine the minimum cost to reach the target using any number of special roads.",
+      "topics": [
+        "graphs",
+        "shortest paths",
+        "heaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2662.json",
+      "content_sha256": "57b5e6e7f1e521e4e079c9c2e8c91b2bb9059c2f1f3caa6ff0299ebba58b44d0",
+      "source_id": 2662
+    },
+    {
+      "id": "leetcode-2670",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Distinct Difference Array",
+      "summary": "Given an array nums of length n, compute the distinct difference array diff where diff[i] is the difference between the count of distinct elements in the suffix starting from i+1 to n-1 and the count of distinct elements in the prefix ending at i.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2670.json",
+      "content_sha256": "819cc6fb100f6d3b0a6edc18b18b2d5a9dda7023a2fa79665237dd2c91df3b4f",
+      "source_id": 2670
     }
   ]
 }

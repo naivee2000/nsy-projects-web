@@ -1,0 +1,65 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2659",
+  "content_sha256": "76804a2daf323b11ea7c99919fb3728e9840473b39254eaa07a3d983fe9fe642",
+  "source_hash": "80839b82594f3fd92f13f275115fa29efcdf3d5acc53be41492d9882493e9827",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the wrapped prefix cost when the next smallest value lies before the current position.",
+      "failed_cases": [
+        "lc-2659-6",
+        "lc-2659-8",
+        "lc-2659-10",
+        "lc-2659-11",
+        "lc-2659-12",
+        "lc-2659-14",
+        "lc-2659-15"
+      ]
+    },
+    {
+      "reason": "Removes the scan-start position rather than the selected smallest value.",
+      "failed_cases": [
+        "lc-2659-1",
+        "lc-2659-2",
+        "lc-2659-4",
+        "lc-2659-6",
+        "lc-2659-7",
+        "lc-2659-8",
+        "lc-2659-9",
+        "lc-2659-10",
+        "lc-2659-11",
+        "lc-2659-12",
+        "lc-2659-13",
+        "lc-2659-14",
+        "lc-2659-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6706,
+  "oracle_implementation": "code_practice/import_batch_170.py:empty_oracle",
+  "validator_implementation_sha256": "124549c53ba22eddacffc5d0b0373dca42692ad3f5b52039d3391c7e6e2f5a18",
+  "batch_implementation_sha256": "b171578e597634ffb62cb1bcf97eabfd5d9d9a5255a36ab05c9165c2d8c77db1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "afaac42ff518faac1ad3c82613c9bba27966c7538c3761ded3219004ddcd31e1",
+  "elapsed_seconds": 0.086,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input nums = [3,4,-1] → Output 5 Operation Array 1 [4, -1, 3] 2 [-1, 3, 4] 3 [3, 4] 4 [4] 5 [].",
+    "arguments": [
+      [
+        3,
+        4,
+        -1
+      ]
+    ],
+    "expected": 5,
+    "reason": "The workbook appends the operation trace to the output literal; this adapter preserves its input and stated result while separating that explanatory trace.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/2600-2699/2659.Make%20Array%20Empty/README_EN.md"
+  }
+}
