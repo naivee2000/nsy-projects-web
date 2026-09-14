@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2242",
+  "content_sha256": "395f322feb1944528194684243561bd464c9105a94cead68f86edfb99197bf02",
+  "source_hash": "b74d137fa9c5f4bcc4b7c08c722161ebd792df6cedd722b4b63fb86da4d04579",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps only two neighbors per middle node and may discard the best non-conflicting outer choice.",
+      "failed_cases": [
+        "lc-2242-15"
+      ]
+    },
+    {
+      "reason": "Allows an outer node to repeat and counts sequences with only three distinct nodes.",
+      "failed_cases": [
+        "lc-2242-1",
+        "lc-2242-2",
+        "lc-2242-3",
+        "lc-2242-7",
+        "lc-2242-8",
+        "lc-2242-9",
+        "lc-2242-10",
+        "lc-2242-11",
+        "lc-2242-12",
+        "lc-2242-13",
+        "lc-2242-14",
+        "lc-2242-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6289,
+  "oracle_implementation": "code_practice/import_batch_124c.py:sequence_oracle",
+  "validator_implementation_sha256": "43397ed27550592247ee9c43f845e4ae31da6a8415e26990e7d1bda8b4238d71",
+  "batch_implementation_sha256": "3dbf75bbb06dc55f125c850293a2d7238bc570ffe2385e6f899456d33b7180d4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "08c638d79226ad32f939446baa631c68b204ba49d5ca848d4f5eab9f531555cf",
+  "elapsed_seconds": 0.14,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

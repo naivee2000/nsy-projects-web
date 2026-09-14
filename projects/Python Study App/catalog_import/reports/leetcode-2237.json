@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2237",
+  "content_sha256": "50e2d82baa4131e49a5385a60b03eb63ac805593a380fabe0ba493964a83d8af",
+  "source_hash": "eb7b2989da420dc3c5303d6cd848cc0d74e96d8e6565b1a6b89f81a2082429d3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ends each illumination interval one position too early.",
+      "failed_cases": [
+        "lc-2237-1",
+        "lc-2237-4",
+        "lc-2237-5",
+        "lc-2237-6",
+        "lc-2237-7",
+        "lc-2237-8",
+        "lc-2237-9",
+        "lc-2237-10",
+        "lc-2237-11",
+        "lc-2237-12",
+        "lc-2237-13",
+        "lc-2237-14"
+      ]
+    },
+    {
+      "reason": "Requires brightness to be strictly greater instead of allowing equality.",
+      "failed_cases": [
+        "lc-2237-1",
+        "lc-2237-2",
+        "lc-2237-3",
+        "lc-2237-4",
+        "lc-2237-5",
+        "lc-2237-6",
+        "lc-2237-7",
+        "lc-2237-8",
+        "lc-2237-9",
+        "lc-2237-10",
+        "lc-2237-11",
+        "lc-2237-12",
+        "lc-2237-13",
+        "lc-2237-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6284,
+  "oracle_implementation": "code_practice/import_batch_124c.py:brightness_oracle",
+  "validator_implementation_sha256": "43397ed27550592247ee9c43f845e4ae31da6a8415e26990e7d1bda8b4238d71",
+  "batch_implementation_sha256": "3dbf75bbb06dc55f125c850293a2d7238bc570ffe2385e6f899456d33b7180d4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "177b938987b396f665edbbd87006aa5a31b670f0662ed842d1829c809c7d4a31",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2239",
+  "content_sha256": "56b0d91c81734fdf2f177d2b9286fe79a7ab8202909f0f92037d9923b0635e32",
+  "source_hash": "972cbe1baa680a1abf6430251876e3d1300f2a3e333b2a70009fd8b069397311",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks equal-distance ties toward the negative value.",
+      "failed_cases": [
+        "lc-2239-2",
+        "lc-2239-8",
+        "lc-2239-13"
+      ]
+    },
+    {
+      "reason": "Minimizes the signed value instead of distance from zero.",
+      "failed_cases": [
+        "lc-2239-1",
+        "lc-2239-2",
+        "lc-2239-6",
+        "lc-2239-8",
+        "lc-2239-9",
+        "lc-2239-10",
+        "lc-2239-12",
+        "lc-2239-13",
+        "lc-2239-14",
+        "lc-2239-15",
+        "lc-2239-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6286,
+  "oracle_implementation": "code_practice/import_batch_124c.py:closest_oracle",
+  "validator_implementation_sha256": "43397ed27550592247ee9c43f845e4ae31da6a8415e26990e7d1bda8b4238d71",
+  "batch_implementation_sha256": "3dbf75bbb06dc55f125c850293a2d7238bc570ffe2385e6f899456d33b7180d4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4cd06aee8722984894f7b98b910cd1cf4c5f0f7c4b55907ad617729f6789a7d0",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
