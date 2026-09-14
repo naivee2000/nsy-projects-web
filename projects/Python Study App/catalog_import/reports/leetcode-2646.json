@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2646",
+  "content_sha256": "77aa49f0b61d08cf665ee90f8c5e5467b2229c4e32738df3890635bf7cc4cbf1",
+  "source_hash": "a2769caa9a81f5c360f8b4d40021b246c84e8b16fa80531ffc661a6443b3c2d6",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows adjacent parent and child nodes to both use halved prices.",
+      "failed_cases": [
+        "lc-2646-1",
+        "lc-2646-4",
+        "lc-2646-5",
+        "lc-2646-6",
+        "lc-2646-7",
+        "lc-2646-8",
+        "lc-2646-9",
+        "lc-2646-10",
+        "lc-2646-11",
+        "lc-2646-12",
+        "lc-2646-13",
+        "lc-2646-15",
+        "lc-2646-16"
+      ]
+    },
+    {
+      "reason": "Never actually halves a selected node price.",
+      "failed_cases": [
+        "lc-2646-1",
+        "lc-2646-2",
+        "lc-2646-3",
+        "lc-2646-4",
+        "lc-2646-5",
+        "lc-2646-6",
+        "lc-2646-7",
+        "lc-2646-8",
+        "lc-2646-9",
+        "lc-2646-10",
+        "lc-2646-11",
+        "lc-2646-12",
+        "lc-2646-13",
+        "lc-2646-14",
+        "lc-2646-15",
+        "lc-2646-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6693,
+  "oracle_implementation": "code_practice/import_batch_168.py:price_oracle",
+  "validator_implementation_sha256": "dea7661afe1b28060aee3e1082acdcf40a7b49263df68d38e1f1843e9c454058",
+  "batch_implementation_sha256": "d30d1dbdae78ba6937662b6862fa648c5c5412127a2631d48f6dd42bba49ffc1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3bc58c8b2f3e204d8f847a9cc84a2f6b395a24eea4b0f8aab2b5f9ab56623076",
+  "elapsed_seconds": 0.105,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

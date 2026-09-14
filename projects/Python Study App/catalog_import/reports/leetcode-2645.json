@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2645",
+  "content_sha256": "13f04c2605170ca381c0c39d872a9180f10f1d497cfa9b73b91f393859ba4eba",
+  "source_hash": "9f78aa62ddc7b01a40324ff9bfe6470181bd2fba39fc209a76cf4125f6474796",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses absolute alphabet distance and mishandles wraparound between abc blocks.",
+      "failed_cases": [
+        "lc-2645-2",
+        "lc-2645-9",
+        "lc-2645-11",
+        "lc-2645-12",
+        "lc-2645-15"
+      ]
+    },
+    {
+      "reason": "Adds three trailing characters even when a complete block already ends at c.",
+      "failed_cases": [
+        "lc-2645-4",
+        "lc-2645-5",
+        "lc-2645-7",
+        "lc-2645-8",
+        "lc-2645-10",
+        "lc-2645-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6692,
+  "oracle_implementation": "code_practice/import_batch_168.py:additions_oracle",
+  "validator_implementation_sha256": "dea7661afe1b28060aee3e1082acdcf40a7b49263df68d38e1f1843e9c454058",
+  "batch_implementation_sha256": "d30d1dbdae78ba6937662b6862fa648c5c5412127a2631d48f6dd42bba49ffc1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ee63086d729f17ac75f27b24a7834b8103e28884b6c94bbaeb43616732441521",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

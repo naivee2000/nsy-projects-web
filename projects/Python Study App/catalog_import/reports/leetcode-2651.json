@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2651",
+  "content_sha256": "0ad529ece03a74128c3267857f3a4aeac69a2d0a93dca7eaf8af318b8365ca50",
+  "source_hash": "fd425fe5e04360be9d954c39e63b1a2669c277f4cf7045f69561afb350444fb3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Wraps on a 23-hour cycle.",
+      "failed_cases": [
+        "lc-2651-2",
+        "lc-2651-4",
+        "lc-2651-5",
+        "lc-2651-6",
+        "lc-2651-7",
+        "lc-2651-8",
+        "lc-2651-10",
+        "lc-2651-11",
+        "lc-2651-12",
+        "lc-2651-14",
+        "lc-2651-16"
+      ]
+    },
+    {
+      "reason": "Subtracts the delay instead of adding it.",
+      "failed_cases": [
+        "lc-2651-1",
+        "lc-2651-2",
+        "lc-2651-3",
+        "lc-2651-5",
+        "lc-2651-8",
+        "lc-2651-9",
+        "lc-2651-10",
+        "lc-2651-11",
+        "lc-2651-12",
+        "lc-2651-13",
+        "lc-2651-14",
+        "lc-2651-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6698,
+  "oracle_implementation": "code_practice/import_batch_168.py:arrival_oracle",
+  "validator_implementation_sha256": "dea7661afe1b28060aee3e1082acdcf40a7b49263df68d38e1f1843e9c454058",
+  "batch_implementation_sha256": "d30d1dbdae78ba6937662b6862fa648c5c5412127a2631d48f6dd42bba49ffc1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2b6ff4aa5c114243bd7fbe6fdeca511c4470b8f56896b56a5c86585130bebc29",
+  "elapsed_seconds": 0.01,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

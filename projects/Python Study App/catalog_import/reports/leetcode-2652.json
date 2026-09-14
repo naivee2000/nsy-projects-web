@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2652",
+  "content_sha256": "e21a3c1e48ae1cbcfb9cc522779169edbe1e44bb3a75821e529a5c160346dc49",
+  "source_hash": "7eacb12568a22be1327eb612881062dbb351b2b6e66a8b57b0190b8267b81846",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to subtract values divisible by both five and seven.",
+      "failed_cases": [
+        "lc-2652-14",
+        "lc-2652-15",
+        "lc-2652-16"
+      ]
+    },
+    {
+      "reason": "Subtracts the triple intersection instead of restoring it.",
+      "failed_cases": [
+        "lc-2652-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6699,
+  "oracle_implementation": "code_practice/import_batch_168.py:multiples_oracle",
+  "validator_implementation_sha256": "dea7661afe1b28060aee3e1082acdcf40a7b49263df68d38e1f1843e9c454058",
+  "batch_implementation_sha256": "d30d1dbdae78ba6937662b6862fa648c5c5412127a2631d48f6dd42bba49ffc1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "919cb03c76e742dde8bee5603aca4a007417d1aeb07185dce47cd7c03c30af1c",
+  "elapsed_seconds": 0.067,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
