@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1303,
+  "count": 1308,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -23084,6 +23084,101 @@
       "path": "problems/leetcode-1895.json",
       "content_sha256": "72694ed8f62a24cbf31924fead5f8f6b34528108ba3650a8bb224569319c0c42",
       "source_id": 1895
+    },
+    {
+      "id": "leetcode-1896",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Change the Final Value of Expression",
+      "summary": "Given a valid boolean expression as a string, consisting of '1', '0', '&', '|', '(', and ')', determine the minimum cost required to change its final value to 0.",
+      "topics": [
+        "strings",
+        "stacks",
+        "dynamic-programming",
+        "parsing"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1896.json",
+      "content_sha256": "dd52b4eec5d5c10913d1be252142b31150e286e031efd0e8c94e8b5ea0a6163c",
+      "source_id": 1896
+    },
+    {
+      "id": "leetcode-1897",
+      "version": 1,
+      "status": "approved",
+      "title": "Redistribute Characters to Make All Strings Equal",
+      "summary": "Given an array of strings words, determine if it is possible to make all strings in the array identical by performing any number of operations.",
+      "topics": [
+        "strings",
+        "hash-maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1897.json",
+      "content_sha256": "f4bbea76537ac4707326d4a86ab06f66685a82620aa67e4d8fae2343c1289d67",
+      "source_id": 1897
+    },
+    {
+      "id": "leetcode-1898",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Removable Characters",
+      "summary": "Given two strings, s and p, where p is a subsequence of s, and an array of distinct indices from s, determine the maximum number of indices you can remove from s using the first k indices in the array, such that p still remains a subsequence of the modified s.",
+      "topics": [
+        "strings",
+        "binary-search",
+        "two-pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1898.json",
+      "content_sha256": "7adedff473c8663e2cb74a0f25ea6cb5b0f3d7b4dd052db58454cbd4c8b3c25b",
+      "source_id": 1898
+    },
+    {
+      "id": "leetcode-1899",
+      "version": 1,
+      "status": "approved",
+      "title": "Merge Triplets to Form Target Triplet",
+      "summary": "A triplet consists of three integers.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1899.json",
+      "content_sha256": "1113235920e6db6be31f44f3264a681b3d3e12a09e77f9cd0f19eed3096b62ef",
+      "source_id": 1899
+    },
+    {
+      "id": "leetcode-1900",
+      "version": 1,
+      "status": "approved",
+      "title": "The Earliest and Latest Rounds Where Players Compete",
+      "summary": "In a tournament with n players numbered from 1 to n, players compete in rounds where the i-th player from the front competes with the i-th player from the end.",
+      "topics": [
+        "dynamic-programming",
+        "memoization",
+        "combinatorics",
+        "recursion"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1900.json",
+      "content_sha256": "378f26d769bf27828c48983d55a790fbcb94eddeb15a5da37fcad606847e7052",
+      "source_id": 1900
     }
   ]
 }

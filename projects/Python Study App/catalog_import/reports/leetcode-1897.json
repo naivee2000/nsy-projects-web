@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1897",
+  "content_sha256": "f4bbea76537ac4707326d4a86ab06f66685a82620aa67e4d8fae2343c1289d67",
+  "source_hash": "8395766ea9d7ae829c96856d43610e8e7df9b7d714c4685c9e7b0ff265bf7fc9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only total length divisibility and ignores whether each character count divides evenly.",
+      "failed_cases": [
+        "lc-1897-8"
+      ]
+    },
+    {
+      "reason": "Checks current word lengths even though characters may be redistributed between words.",
+      "failed_cases": [
+        "lc-1897-1",
+        "lc-1897-8",
+        "lc-1897-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5944,
+  "oracle_implementation": "code_practice/import_batch_110b.py:redistribution_oracle",
+  "validator_implementation_sha256": "ed4a0ea85bdf0781dbe8cc2b5c4ef6c92828b7cde0fbe385f73bb8fad85b53f5",
+  "batch_implementation_sha256": "2cfa1c627d8b6ccbe0537c159ed243fae017163340a2f58d0fb5848c86d252a1",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "334651f96f4f40fc109aca0cd117ed22ff02eba1cfc1ed202b20aa3f39137185",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

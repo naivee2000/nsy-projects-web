@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1898",
+  "content_sha256": "7adedff473c8663e2cb74a0f25ea6cb5b0f3d7b4dd052db58454cbd4c8b3c25b",
+  "source_hash": "18fa984b7f681a5e1db6b9386d52a65e3a2bc7ad883d7421d0eadd3bdae959c4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes the last k listed indices instead of the required first k.",
+      "failed_cases": [
+        "lc-1898-2",
+        "lc-1898-10"
+      ]
+    },
+    {
+      "reason": "Returns the first failing count rather than the largest passing count.",
+      "failed_cases": [
+        "lc-1898-1",
+        "lc-1898-2",
+        "lc-1898-5",
+        "lc-1898-6",
+        "lc-1898-10",
+        "lc-1898-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5945,
+  "oracle_implementation": "code_practice/import_batch_110b.py:removals_oracle",
+  "validator_implementation_sha256": "ed4a0ea85bdf0781dbe8cc2b5c4ef6c92828b7cde0fbe385f73bb8fad85b53f5",
+  "batch_implementation_sha256": "2cfa1c627d8b6ccbe0537c159ed243fae017163340a2f58d0fb5848c86d252a1",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fd701ca3692b0d463125bc747b12ac441f50a0a213bf43c9c2cf12673645b582",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

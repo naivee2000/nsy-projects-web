@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1896",
+  "content_sha256": "dd52b4eec5d5c10913d1be252142b31150e286e031efd0e8c94e8b5ea0a6163c",
+  "source_hash": "a99966c8ef4dca99a1b5b0289731b6a9cbec633d4e5f4007be916b9f021d9d91",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows digit flips but never considers changing an operator.",
+      "failed_cases": [
+        "lc-1896-8"
+      ]
+    },
+    {
+      "reason": "Assumes one edit always suffices, missing expressions such as 1|1 that require two changes.",
+      "failed_cases": [
+        "lc-1896-2",
+        "lc-1896-7",
+        "lc-1896-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5943,
+  "oracle_implementation": "code_practice/import_batch_110b.py:expression_oracle",
+  "validator_implementation_sha256": "ed4a0ea85bdf0781dbe8cc2b5c4ef6c92828b7cde0fbe385f73bb8fad85b53f5",
+  "batch_implementation_sha256": "2cfa1c627d8b6ccbe0537c159ed243fae017163340a2f58d0fb5848c86d252a1",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "77765b5191ac91f7b6b285c0cf72443f950f4e8ba6822bbf49d00ae1d8f3860f",
+  "elapsed_seconds": 0.087,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
