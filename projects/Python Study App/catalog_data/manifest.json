@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1173,
+  "count": 1178,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -20700,6 +20700,23 @@
       "source_id": 1732
     },
     {
+      "id": "leetcode-1733",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of People to Teach",
+      "summary": "Given a social network with m users and n languages numbered 1 through n, where each user knows a subset of these languages and there are friendships between some users, determine the minimum number of users to teach a specific language so that all friends can communicate.",
+      "topics": [
+        "sets",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1733.json",
+      "content_sha256": "a938493cf6ffd8caba8471cd3eaed2db642433e709d01aaa2aa1818dba9c0e94",
+      "source_id": 1733
+    },
+    {
       "id": "leetcode-1734",
       "version": 1,
       "status": "approved",
@@ -20715,6 +20732,77 @@
       "path": "problems/leetcode-1734.json",
       "content_sha256": "d648187f799450d9abe5dab832a3b759141c5cd053e2e0c7c23b182c272cf49b",
       "source_id": 1734
+    },
+    {
+      "id": "leetcode-1735",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Ways to Make Array With Product",
+      "summary": "For each query, determine the count of distinct ways to fill an array of a specified size with positive integers whose product equals a given value, modulo 10^9 + 7.",
+      "topics": [
+        "math",
+        "combinatorics"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1735.json",
+      "content_sha256": "0aff240be5620925898cd79e23038c669878b5fe8309f8b6335d8ba3f3393db0",
+      "source_id": 1735
+    },
+    {
+      "id": "leetcode-1736",
+      "version": 1,
+      "status": "approved",
+      "title": "Latest Time by Replacing Hidden Digits",
+      "summary": "Given a time string in hh:mm format with some digits as ?, find the latest valid time between 00:00 and 23:59 by replacing the hidden digits.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1736.json",
+      "content_sha256": "538c4b7567d646f568861c813a17913e66f7b557d393af8f6626257b35962253",
+      "source_id": 1736
+    },
+    {
+      "id": "leetcode-1737",
+      "version": 1,
+      "status": "approved",
+      "title": "Change Minimum Characters to Satisfy One of Three Conditions",
+      "summary": "Given two strings a and b consisting of lowercase letters, you can change any character in a or b to any lowercase letter.",
+      "topics": [
+        "strings",
+        "prefix-counts"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1737.json",
+      "content_sha256": "ab51c0a30d2b5e094992a8d30128ebcafc745d2404deac46fce84af33939274e",
+      "source_id": 1737
+    },
+    {
+      "id": "leetcode-1738",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Kth Largest XOR Coordinate Value",
+      "summary": "Given a m x n matrix with non-negative integers, find the k^th largest XOR value of all coordinates (a, b) where the XOR is calculated over all elements in the submatrix from (0,0) to (a,b).",
+      "topics": [
+        "matrices",
+        "prefix-xor",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1738.json",
+      "content_sha256": "5ae7cd1214094dc0d641240b7466aece4a86289d2469a74dd291874173eb05c4",
+      "source_id": 1738
     }
   ]
 }

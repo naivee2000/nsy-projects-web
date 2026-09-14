@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1737",
+  "content_sha256": "ab51c0a30d2b5e094992a8d30128ebcafc745d2404deac46fce84af33939274e",
+  "source_hash": "3a7b1e2bb34670cbbd945fb5ad720c5a9bca633c503547d38eda5cb59ae92c2b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips the a/b alphabet boundary, missing already ordered strings such as a and b.",
+      "failed_cases": [
+        "lc-1737-3",
+        "lc-1737-4",
+        "lc-1737-11"
+      ]
+    },
+    {
+      "reason": "Subtracts one from the computed replacement count through an off-by-one mistake.",
+      "failed_cases": [
+        "lc-1737-1",
+        "lc-1737-2",
+        "lc-1737-6",
+        "lc-1737-10",
+        "lc-1737-13",
+        "lc-1737-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5784,
+  "oracle_implementation": "code_practice/import_batch_103d.py:changes_o",
+  "validator_implementation_sha256": "cbc87b9875b53530464c0c902f3759b3e97b0b46150bef6af48a28847ce3b3d1",
+  "batch_implementation_sha256": "bb001691f99f178580f0765e7adfaaa608f08f22e75507f55e7d4c9cdc6657df",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "926300984df0c2bf57a5ae40c13f283d5d96cdf35c27c743be2f73a30b228a5b",
+  "elapsed_seconds": 0.164,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

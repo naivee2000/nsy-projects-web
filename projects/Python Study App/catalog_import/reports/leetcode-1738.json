@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1738",
+  "content_sha256": "5ae7cd1214094dc0d641240b7466aece4a86289d2469a74dd291874173eb05c4",
+  "source_hash": "72fa2d1232060a72d7d84c937a7f756b1bcacc2313926bb142c11257b54f9849",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the overlapping prefix term required by XOR inclusion-exclusion.",
+      "failed_cases": [
+        "lc-1738-2",
+        "lc-1738-13",
+        "lc-1738-14"
+      ]
+    },
+    {
+      "reason": "Uses k as a zero-based index and returns the next smaller value.",
+      "failed_cases": [
+        "lc-1738-1",
+        "lc-1738-5",
+        "lc-1738-9",
+        "lc-1738-10",
+        "lc-1738-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5785,
+  "oracle_implementation": "code_practice/import_batch_103d.py:xorvalue_o",
+  "validator_implementation_sha256": "cbc87b9875b53530464c0c902f3759b3e97b0b46150bef6af48a28847ce3b3d1",
+  "batch_implementation_sha256": "bb001691f99f178580f0765e7adfaaa608f08f22e75507f55e7d4c9cdc6657df",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1acdff2567f9be8cc37074ef8582294d7ccc391607ddab65d02794b98ccb006e",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

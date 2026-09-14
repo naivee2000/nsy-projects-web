@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1736",
+  "content_sha256": "538c4b7567d646f568861c813a17913e66f7b557d393af8f6626257b35962253",
+  "source_hash": "0f1a17b23db6cda2d508476dbbc37ebb57cb1091b44a53d1159b62a00e728baf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Produces an invalid minute-tens digit six.",
+      "failed_cases": [
+        "lc-1736-1",
+        "lc-1736-3",
+        "lc-1736-4",
+        "lc-1736-5",
+        "lc-1736-6",
+        "lc-1736-12",
+        "lc-1736-14"
+      ]
+    },
+    {
+      "reason": "Allows hour 29 when the first digit is two.",
+      "failed_cases": [
+        "lc-1736-1",
+        "lc-1736-3",
+        "lc-1736-9",
+        "lc-1736-10",
+        "lc-1736-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5783,
+  "oracle_implementation": "code_practice/import_batch_103d.py:time_o",
+  "validator_implementation_sha256": "cbc87b9875b53530464c0c902f3759b3e97b0b46150bef6af48a28847ce3b3d1",
+  "batch_implementation_sha256": "bb001691f99f178580f0765e7adfaaa608f08f22e75507f55e7d4c9cdc6657df",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "19ea4421fe0ca62e82b3a22092a836379f08d597b6fb1f303c498af6b8d7b340",
+  "elapsed_seconds": 0.429,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
