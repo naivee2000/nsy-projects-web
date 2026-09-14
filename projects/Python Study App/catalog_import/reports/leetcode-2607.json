@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2607",
+  "content_sha256": "bce2f18a97ec21179188e289015c8b2da92b74d1b1b08a15f0d051ef104b3b5f",
+  "source_hash": "e153441c343eb6be00c987d3f0fb7e74f7a8a8f3ea002d7b73295edd560ea471",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats k itself as the number of independent index cycles.",
+      "failed_cases": [
+        "lc-2607-13",
+        "lc-2607-14",
+        "lc-2607-16"
+      ]
+    },
+    {
+      "reason": "Moves every cycle to its minimum rather than a median.",
+      "failed_cases": [
+        "lc-2607-2",
+        "lc-2607-6",
+        "lc-2607-7",
+        "lc-2607-11",
+        "lc-2607-13",
+        "lc-2607-14",
+        "lc-2607-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6654,
+  "oracle_implementation": "code_practice/import_batch_164.py:circular_oracle",
+  "validator_implementation_sha256": "2be7698fb7e99f41cbc52b7d5ece9398703c51914118c232ee5e83b77cd29ad1",
+  "batch_implementation_sha256": "414bf09022b0e4da6ba679704357f36cd3753a022758de8fc394b3a397915fca",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3a2e0ea1e5e2300c9dfd3941cba4245a2d30f37a8205e24fa0ee84477a881a0a",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

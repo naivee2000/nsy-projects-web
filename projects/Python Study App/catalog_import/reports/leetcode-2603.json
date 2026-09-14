@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2603",
+  "content_sha256": "fd78954a1ae2a24d5386a49e0a46d09d7e575e354818a73c035ada76a8254e96",
+  "source_hash": "14b25126139e556c7b7bf48f72269c47a26d5895efd62bd6b4afc5a2e8e34989",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Removes only one of the two layers whose coins can be collected without entering them.",
+      "failed_cases": [
+        "lc-2603-1",
+        "lc-2603-2",
+        "lc-2603-7",
+        "lc-2603-8",
+        "lc-2603-11",
+        "lc-2603-13",
+        "lc-2603-14",
+        "lc-2603-15"
+      ]
+    },
+    {
+      "reason": "Prunes coin-bearing leaves as though they were irrelevant empty leaves.",
+      "failed_cases": [
+        "lc-2603-1",
+        "lc-2603-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6650,
+  "oracle_implementation": "code_practice/import_batch_164.py:coins_oracle",
+  "validator_implementation_sha256": "2be7698fb7e99f41cbc52b7d5ece9398703c51914118c232ee5e83b77cd29ad1",
+  "batch_implementation_sha256": "414bf09022b0e4da6ba679704357f36cd3753a022758de8fc394b3a397915fca",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ae0889fcd359b7cdedf129e8a681402114e23b0567f51d3773d35b89717ba920",
+  "elapsed_seconds": 0.083,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

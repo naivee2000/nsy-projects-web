@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2606",
+  "content_sha256": "d29d07774e5e5d2f4e6ca667b6dec1503af18ef3ff6a2fa964cf9f798b23faf6",
+  "source_hash": "890826063d2938e835f2e923d83bf0ccfff8bb71e1589fe1a655554d87d6313d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats negative custom character costs as positive.",
+      "failed_cases": [
+        "lc-2606-1",
+        "lc-2606-2",
+        "lc-2606-4",
+        "lc-2606-6",
+        "lc-2606-7",
+        "lc-2606-8",
+        "lc-2606-9",
+        "lc-2606-10",
+        "lc-2606-11",
+        "lc-2606-12",
+        "lc-2606-14",
+        "lc-2606-15",
+        "lc-2606-16"
+      ]
+    },
+    {
+      "reason": "Uses zero-based default alphabet values.",
+      "failed_cases": [
+        "lc-2606-1",
+        "lc-2606-3",
+        "lc-2606-5",
+        "lc-2606-7",
+        "lc-2606-9",
+        "lc-2606-11",
+        "lc-2606-12",
+        "lc-2606-13",
+        "lc-2606-14",
+        "lc-2606-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6653,
+  "oracle_implementation": "code_practice/import_batch_164.py:substring_oracle",
+  "validator_implementation_sha256": "2be7698fb7e99f41cbc52b7d5ece9398703c51914118c232ee5e83b77cd29ad1",
+  "batch_implementation_sha256": "414bf09022b0e4da6ba679704357f36cd3753a022758de8fc394b3a397915fca",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d87133c60b679243ba0acd7ff23adba6ac5f8a3ed6647e9fdf46597137cf4428",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

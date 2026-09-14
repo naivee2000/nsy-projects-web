@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2604",
+  "content_sha256": "3a5522dcf288e1702a05d987fd6afc0e3d963827bbac308745f0e04db8c38bfb",
+  "source_hash": "2f4c07b4ae9e68f32a655b123ae2c11cab133e492367deec46466beda5b72764",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only the route that visits the left side before going right.",
+      "failed_cases": [
+        "lc-2604-7",
+        "lc-2604-11",
+        "lc-2604-15"
+      ]
+    },
+    {
+      "reason": "Rejects a leftmost grain reachable at exactly the time limit.",
+      "failed_cases": [
+        "lc-2604-1",
+        "lc-2604-7",
+        "lc-2604-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6651,
+  "oracle_implementation": "code_practice/import_batch_164.py:grains_oracle",
+  "validator_implementation_sha256": "2be7698fb7e99f41cbc52b7d5ece9398703c51914118c232ee5e83b77cd29ad1",
+  "batch_implementation_sha256": "414bf09022b0e4da6ba679704357f36cd3753a022758de8fc394b3a397915fca",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7eac25840aa41a1c985c7e6a3314d32847e93b613dd7161df64ca26c4c7800d6",
+  "elapsed_seconds": 0.07,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

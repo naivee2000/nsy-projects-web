@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 1,766 runnable problems (101 original exercises plus 1,665 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 1,866 runnable problems (101 original exercises plus 1,765 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 1,766-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 1,866-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,8 +68,8 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 83 existing equivalents, 1,665 verified imports, 156 documented
-design/interactive exclusions, 18 quarantined records, and 1,707 pending records. Ordinary tree and
+Current status: 83 existing equivalents, 1,765 verified imports, 156 documented
+design/interactive exclusions, 18 quarantined records, and 1,607 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
@@ -644,13 +644,13 @@ browser and benchmark driver. Install dependencies and build the frontend first.
 Its report is `catalog_import/benchmarks/current.json`; until all imports finish,
 this is an interim measurement, not the final full-catalog performance gate.
 
-At the 1,665-import checkpoint, 984 backend tests and 19 frontend tests passed,
+At the 1,765-import checkpoint, 1,024 backend tests and 19 frontend tests passed,
 and the production frontend built successfully. Chrome/Pyodide validated all
-1,671 eligible approved reference suites across at least 2,050 isolated judge runs,
+1,771 eligible approved reference suites across at least 2,150 isolated judge runs,
 including wrong-answer rejection, timeout recovery, restart persistence, and
 offline assets. On the recorded Apple M3 Pro/18 GiB development machine, backend
-startup took 242 ms and peak RSS was 273.391 MiB. Warm p95 latency over 100
-requests per route ranged from 1.094 ms to 1.500 ms for library search/filtering,
+startup took 350 ms and peak RSS was 273.938 MiB. Warm p95 latency over 100
+requests per route ranged from 1.117 ms to 1.632 ms for library search/filtering,
 problem details, and the dashboard, below the interim 300/500 ms targets. Exact
 route measurements and hardware metadata are retained in
 `catalog_import/benchmarks/current.json`.

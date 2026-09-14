@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2605",
+  "content_sha256": "e822aeecdc3e3c34b1b8a75efd9c49e321a066ba9152d8278a2215a824847fa4",
+  "source_hash": "ec81d86283f8001b57409c7921d50857d9b6960f522706d2194bfdf0692d6cf0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the first set's minimum even when that digit is not shared.",
+      "failed_cases": [
+        "lc-2605-2",
+        "lc-2605-10",
+        "lc-2605-13"
+      ]
+    },
+    {
+      "reason": "Always places the first array's digit in the tens place.",
+      "failed_cases": [
+        "lc-2605-5",
+        "lc-2605-9",
+        "lc-2605-11",
+        "lc-2605-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6652,
+  "oracle_implementation": "code_practice/import_batch_164.py:digits_oracle",
+  "validator_implementation_sha256": "2be7698fb7e99f41cbc52b7d5ece9398703c51914118c232ee5e83b77cd29ad1",
+  "batch_implementation_sha256": "414bf09022b0e4da6ba679704357f36cd3753a022758de8fc394b3a397915fca",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f41a7bf64141eacf0b84f1b6b2c012feca327ae791f73c76cb97d2d93c977096",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
