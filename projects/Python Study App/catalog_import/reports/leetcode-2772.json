@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2772",
+  "content_sha256": "35d0f7a3c5bd783fc45c23b4e92eb081c013c65ea2259772dfb470be70db4b34",
+  "source_hash": "34a39ac655a65a10f846eb999ee8aa4f5251971fe81f337746ce4e54845bd5ca",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a position that already reaches exactly zero.",
+      "failed_cases": [
+        "lc-2772-1",
+        "lc-2772-3",
+        "lc-2772-5",
+        "lc-2772-8",
+        "lc-2772-9",
+        "lc-2772-10",
+        "lc-2772-11",
+        "lc-2772-12",
+        "lc-2772-13",
+        "lc-2772-14"
+      ]
+    },
+    {
+      "reason": "Rejects a valid final window ending exactly at the array boundary.",
+      "failed_cases": [
+        "lc-2772-4",
+        "lc-2772-5",
+        "lc-2772-8",
+        "lc-2772-9",
+        "lc-2772-12",
+        "lc-2772-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6819,
+  "oracle_implementation": "code_practice/import_batch_182.py:zero_oracle",
+  "validator_implementation_sha256": "3c0e02eaa074c82dbd409025d7a3440666c64f0534918ee24928626acab3b20d",
+  "batch_implementation_sha256": "83c5bebe9b758d0c7af34e77002d9d471dbeceb8875ab3e988c425c5d8956b1f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e06b4f9df1ea4244e493d5c15f22b03a7c90b1b06100bbe8908d5bf6a6a12689",
+  "elapsed_seconds": 0.094,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

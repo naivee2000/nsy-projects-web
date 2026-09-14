@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1951,
+  "count": 1956,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -34707,6 +34707,26 @@
       "source_id": 2762
     },
     {
+      "id": "leetcode-2763",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Imbalance Numbers of All Subarrays",
+      "summary": "Calculate the sum of imbalance numbers for all subarrays in a given integer array.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "enumeration"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2763.json",
+      "content_sha256": "769bc2c8fe7da18801f9b7e1cfbdc5af60974e175987e9c7aa9b0ad05b7b75e3",
+      "source_id": 2763
+    },
+    {
       "id": "leetcode-2764",
       "version": 1,
       "status": "approved",
@@ -34796,6 +34816,74 @@
       "path": "problems/leetcode-2768.json",
       "content_sha256": "4aa5d455930512aa0b61008f264890aa67bff2c0043c018a30cdc6860b4bb072",
       "source_id": 2768
+    },
+    {
+      "id": "leetcode-2769",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Maximum Achievable Number",
+      "summary": "Given two integers, num and t, find the maximum achievable value of x such that x can become equal to num after performing the operation of either increasing or decreasing x and num by 1 at most t times.",
+      "topics": [
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2769.json",
+      "content_sha256": "0d7a2097050cdd92502daedd0df149a40e056f39785f2ee67efcfce0317fc4d2",
+      "source_id": 2769
+    },
+    {
+      "id": "leetcode-2770",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Jumps to Reach the Last Index",
+      "summary": "Given an array nums and a target value, starting from index 0, you can jump to any index j where 0 <= i < j < n and -target <= nums[j] - nums[i] <= target.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2770.json",
+      "content_sha256": "b452f72b4b1beb27ff624c8c142b72b8e40c62013c5a05b3993e1d3b708f830c",
+      "source_id": 2770
+    },
+    {
+      "id": "leetcode-2771",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Non-decreasing Subarray From Two Arrays",
+      "summary": "Given two integer arrays nums1 and nums2 of equal length, create a new array nums3 by choosing elements from either nums1 or nums2 at each index to maximize the length of the longest non-decreasing subarray in nums3.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2771.json",
+      "content_sha256": "130d67ac4a97089dee004c43524d0a1c7cf23341647854eb460432e22a2dc10e",
+      "source_id": 2771
+    },
+    {
+      "id": "leetcode-2772",
+      "version": 1,
+      "status": "approved",
+      "title": "Apply Operations to Make All Array Elements Equal to Zero",
+      "summary": "Given a 0-indexed integer array nums and a positive integer k, you can perform the following operation any number of times: - Choose any subarray of size k from the array and decrease each of its elements by 1.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "difference arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2772.json",
+      "content_sha256": "35d0f7a3c5bd783fc45c23b4e92eb081c013c65ea2259772dfb470be70db4b34",
+      "source_id": 2772
     }
   ]
 }

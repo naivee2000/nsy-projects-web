@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2770",
+  "content_sha256": "b452f72b4b1beb27ff624c8c142b72b8e40c62013c5a05b3993e1d3b708f830c",
+  "source_hash": "9b7890a7ae5c02456c2f1545b2f06450b4fc56cec7f18b2ca14834883742c95c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the allowed difference equal to target as invalid.",
+      "failed_cases": [
+        "lc-2770-1",
+        "lc-2770-3",
+        "lc-2770-5",
+        "lc-2770-7",
+        "lc-2770-8",
+        "lc-2770-9",
+        "lc-2770-11",
+        "lc-2770-12",
+        "lc-2770-13"
+      ]
+    },
+    {
+      "reason": "Minimizes transitions from an unreachable sentinel rather than maximizing jumps.",
+      "failed_cases": [
+        "lc-2770-1",
+        "lc-2770-3",
+        "lc-2770-5",
+        "lc-2770-6",
+        "lc-2770-7",
+        "lc-2770-8",
+        "lc-2770-9",
+        "lc-2770-10",
+        "lc-2770-11",
+        "lc-2770-12",
+        "lc-2770-13",
+        "lc-2770-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6817,
+  "oracle_implementation": "code_practice/import_batch_182.py:jumps_oracle",
+  "validator_implementation_sha256": "3c0e02eaa074c82dbd409025d7a3440666c64f0534918ee24928626acab3b20d",
+  "batch_implementation_sha256": "83c5bebe9b758d0c7af34e77002d9d471dbeceb8875ab3e988c425c5d8956b1f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ddcddddc92070cccf875fa7f995dbe349b703068226c9fdff8f5feaa98b1239",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

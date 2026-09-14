@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2769",
+  "content_sha256": "0d7a2097050cdd92502daedd0df149a40e056f39785f2ee67efcfce0317fc4d2",
+  "source_hash": "a5a601e2f281cbd5ac02b03b13324db457d19f7e3f69910e7010da79869d734e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accounts for only one side of each operation’s two-unit closing change.",
+      "failed_cases": [
+        "lc-2769-1",
+        "lc-2769-2",
+        "lc-2769-4",
+        "lc-2769-5",
+        "lc-2769-7",
+        "lc-2769-8",
+        "lc-2769-9",
+        "lc-2769-10",
+        "lc-2769-11",
+        "lc-2769-12",
+        "lc-2769-13",
+        "lc-2769-14"
+      ]
+    },
+    {
+      "reason": "Returns the minimum symmetric achievable value instead of the maximum.",
+      "failed_cases": [
+        "lc-2769-1",
+        "lc-2769-2",
+        "lc-2769-4",
+        "lc-2769-5",
+        "lc-2769-7",
+        "lc-2769-8",
+        "lc-2769-9",
+        "lc-2769-10",
+        "lc-2769-11",
+        "lc-2769-12",
+        "lc-2769-13",
+        "lc-2769-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6816,
+  "oracle_implementation": "code_practice/import_batch_182.py:achievable_oracle",
+  "validator_implementation_sha256": "3c0e02eaa074c82dbd409025d7a3440666c64f0534918ee24928626acab3b20d",
+  "batch_implementation_sha256": "83c5bebe9b758d0c7af34e77002d9d471dbeceb8875ab3e988c425c5d8956b1f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e4041226d2b8cd0588a21996c16c28fa0161f92aeb0ce2356b0db0fb4cc8d594",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
