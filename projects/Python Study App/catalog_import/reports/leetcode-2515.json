@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2515",
+  "content_sha256": "49b2974dda64c2991bd2ff81685558256dd1105fb992e6126b05d082855c99ac",
+  "source_hash": "0cf47674b12beaf13cdfd4a7f40f4e6203b5afa496d33ee4718faa234f2847f3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only direct linear distance and ignores the shorter wraparound route.",
+      "failed_cases": [
+        "lc-2515-7",
+        "lc-2515-11",
+        "lc-2515-12"
+      ]
+    },
+    {
+      "reason": "Returns an out-of-range sentinel instead of -1 when the target is absent.",
+      "failed_cases": [
+        "lc-2515-2",
+        "lc-2515-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6562,
+  "oracle_implementation": "code_practice/import_batch_134.py:circular_distance_oracle",
+  "validator_implementation_sha256": "09b2280231f0b1a545ac193320df701c05f5b4b3e8d723d99dc0eb24dc6cf4e4",
+  "batch_implementation_sha256": "010b286fff3ed8cdc8bea47b3180ce8e7b59acfeb6b56bfc43de010cf678aa5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8b3ca78b4124ebebe9b242e6a410e86eaf6279faab2fa3720887410b3eab88b1",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

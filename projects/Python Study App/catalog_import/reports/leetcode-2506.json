@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2506",
+  "content_sha256": "4e030c0508d07057c3ae05206025a167776fdead09727d4a18030b6055f0fa9c",
+  "source_hash": "aaf158b45320794b56f22b81f15fa80f86b9f9ea95b5699e6017911ccf98837b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the exact character sequence, so order and multiplicity incorrectly matter.",
+      "failed_cases": [
+        "lc-2506-1",
+        "lc-2506-2",
+        "lc-2506-6",
+        "lc-2506-7",
+        "lc-2506-8",
+        "lc-2506-9",
+        "lc-2506-11",
+        "lc-2506-13",
+        "lc-2506-14",
+        "lc-2506-15"
+      ]
+    },
+    {
+      "reason": "Counts only one pair for a new match instead of all prior strings with the same signature.",
+      "failed_cases": [
+        "lc-2506-2",
+        "lc-2506-7",
+        "lc-2506-11",
+        "lc-2506-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6553,
+  "oracle_implementation": "code_practice/import_batch_134.py:similar_oracle",
+  "validator_implementation_sha256": "09b2280231f0b1a545ac193320df701c05f5b4b3e8d723d99dc0eb24dc6cf4e4",
+  "batch_implementation_sha256": "010b286fff3ed8cdc8bea47b3180ce8e7b59acfeb6b56bfc43de010cf678aa5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "19b1f7a287a5223ed7117337e89b37f703fe679fa9a3ac0837e0b401acafeb5c",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

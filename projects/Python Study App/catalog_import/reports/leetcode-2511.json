@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2511",
+  "content_sha256": "c6e8f23524d1b47c1a987ee7c76e693dd534e7265742f13abbbfffa718f3987e",
+  "source_hash": "f042bc89389d2cd593ec17d5c8acb238bc1d3bdca0d4b223050a45c251d2180a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Measures gaps between forts of the same side instead of opposite sides.",
+      "failed_cases": [
+        "lc-2511-1",
+        "lc-2511-5",
+        "lc-2511-6",
+        "lc-2511-7",
+        "lc-2511-8",
+        "lc-2511-9",
+        "lc-2511-11",
+        "lc-2511-12",
+        "lc-2511-13",
+        "lc-2511-14",
+        "lc-2511-16"
+      ]
+    },
+    {
+      "reason": "Counts a boundary fort as captured in addition to the empty positions.",
+      "failed_cases": [
+        "lc-2511-1",
+        "lc-2511-2",
+        "lc-2511-3",
+        "lc-2511-4",
+        "lc-2511-5",
+        "lc-2511-8",
+        "lc-2511-9",
+        "lc-2511-11",
+        "lc-2511-12",
+        "lc-2511-13",
+        "lc-2511-14",
+        "lc-2511-15",
+        "lc-2511-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6558,
+  "oracle_implementation": "code_practice/import_batch_134.py:forts_oracle",
+  "validator_implementation_sha256": "09b2280231f0b1a545ac193320df701c05f5b4b3e8d723d99dc0eb24dc6cf4e4",
+  "batch_implementation_sha256": "010b286fff3ed8cdc8bea47b3180ce8e7b59acfeb6b56bfc43de010cf678aa5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "711c6269b1d3c425b5daa3f219405ece27fd6e27f96f792d9fbf43b5c8f9fb53",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

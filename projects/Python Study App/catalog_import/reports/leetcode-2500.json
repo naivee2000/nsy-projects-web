@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2500",
+  "content_sha256": "afd6f8b969cf2d12a355bb272d5dda0f12b3ad8e27dece9f13894422b36d6c55",
+  "source_hash": "5b0244b8e6e4197ca19b097b9c5c0ce387379a3366071680afa98b578ce91c04",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds each row maximum once and ignores all later deletion rounds.",
+      "failed_cases": [
+        "lc-2500-1",
+        "lc-2500-3",
+        "lc-2500-4",
+        "lc-2500-5",
+        "lc-2500-6",
+        "lc-2500-8",
+        "lc-2500-9",
+        "lc-2500-10",
+        "lc-2500-11",
+        "lc-2500-12",
+        "lc-2500-13",
+        "lc-2500-14",
+        "lc-2500-15"
+      ]
+    },
+    {
+      "reason": "Adds the smallest removed value from each round instead of the greatest.",
+      "failed_cases": [
+        "lc-2500-1",
+        "lc-2500-3",
+        "lc-2500-5",
+        "lc-2500-6",
+        "lc-2500-8",
+        "lc-2500-9",
+        "lc-2500-10",
+        "lc-2500-11",
+        "lc-2500-12",
+        "lc-2500-13",
+        "lc-2500-14",
+        "lc-2500-15",
+        "lc-2500-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6547,
+  "oracle_implementation": "code_practice/import_batch_134.py:delete_oracle",
+  "validator_implementation_sha256": "09b2280231f0b1a545ac193320df701c05f5b4b3e8d723d99dc0eb24dc6cf4e4",
+  "batch_implementation_sha256": "010b286fff3ed8cdc8bea47b3180ce8e7b59acfeb6b56bfc43de010cf678aa5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b6f36caf96ce22006252514588d29cd7e21b555dfde5d1d054db29ee396231c3",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
