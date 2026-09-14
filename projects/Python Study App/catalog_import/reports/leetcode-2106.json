@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2106",
+  "content_sha256": "08f79c095ebeb16acd4167b3333bbd1be4e452f54b88567a4081aa6bfb1a704a",
+  "source_hash": "333f21754efa90170335e4db6878134e248269962566f2d331422e9a97215cba",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Charges the farther approach in addition to the full interval and rejects feasible turn-once routes.",
+      "failed_cases": [
+        "lc-2106-1",
+        "lc-2106-2",
+        "lc-2106-9",
+        "lc-2106-10",
+        "lc-2106-11",
+        "lc-2106-16"
+      ]
+    },
+    {
+      "reason": "Requires strictly fewer than k steps and rejects routes using the full budget.",
+      "failed_cases": [
+        "lc-2106-2",
+        "lc-2106-3",
+        "lc-2106-5",
+        "lc-2106-6",
+        "lc-2106-8",
+        "lc-2106-9",
+        "lc-2106-10",
+        "lc-2106-11",
+        "lc-2106-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6153,
+  "oracle_implementation": "code_practice/import_batch_118d.py:fruits_o",
+  "validator_implementation_sha256": "11374082f74bd43021abb6cff8f387970fd2ccd814cdc0e1596f7a28a91b30aa",
+  "batch_implementation_sha256": "d3ab466f0220c3a1a1028638eddd338e7fe80c0cd9b34bc10f48b327dd426de8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a6098ef8b7d77e4bb03bf6eddcae48b883c628fbf3e3a7447cbe75489ecd2392",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
