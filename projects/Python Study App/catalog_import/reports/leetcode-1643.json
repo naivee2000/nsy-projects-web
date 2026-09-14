@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1643",
+  "content_sha256": "1df0b164c06674b712ad9b9b2cfeb5b567eeefed2ae8296eef33bac919f2953e",
+  "source_hash": "9c652a9ee31993977ce61e3b68b1f42f73151e42337fdaca8f728554bf41fc52",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a zero-indexed boundary when deciding whether the kth path begins with H.",
+      "failed_cases": [
+        "lc-1643-1",
+        "lc-1643-2",
+        "lc-1643-3",
+        "lc-1643-4",
+        "lc-1643-5",
+        "lc-1643-7",
+        "lc-1643-8",
+        "lc-1643-9",
+        "lc-1643-10",
+        "lc-1643-11",
+        "lc-1643-12",
+        "lc-1643-14"
+      ]
+    },
+    {
+      "reason": "Emits V while consuming a horizontal move.",
+      "failed_cases": [
+        "lc-1643-1",
+        "lc-1643-2",
+        "lc-1643-3",
+        "lc-1643-4",
+        "lc-1643-5",
+        "lc-1643-6",
+        "lc-1643-7",
+        "lc-1643-8",
+        "lc-1643-9",
+        "lc-1643-10",
+        "lc-1643-11",
+        "lc-1643-12",
+        "lc-1643-13",
+        "lc-1643-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5690,
+  "oracle_implementation": "code_practice/import_batch_101.py:path_oracle",
+  "validator_implementation_sha256": "5687dec2c4bda8c79e4a8b433599da4569ab4090abcf6e1be9bf5dabb3a29a8e",
+  "batch_implementation_sha256": "79ebd208296e1dfe6a95b87eb81b353da5d0bf9dba654e81f2ecfe3ff758f824",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ff8a42c72a4aa1c8a89d6c45a88e86c752405e9592e48a7a6c69d65a37a22931",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

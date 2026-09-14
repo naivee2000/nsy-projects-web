@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1641",
+  "content_sha256": "cdfd1182a0fe44065e8d7b88c9f251f34bd750ae6b37bcad5191e18c2af6a52b",
+  "source_hash": "27abc3bff1719ecb7cebcb1c6620089a1640d65447da5a7304ecad50e2fe5fd7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Performs one extra length-extension step.",
+      "failed_cases": [
+        "lc-1641-1",
+        "lc-1641-2",
+        "lc-1641-3",
+        "lc-1641-4",
+        "lc-1641-5",
+        "lc-1641-6",
+        "lc-1641-7",
+        "lc-1641-8",
+        "lc-1641-9",
+        "lc-1641-10",
+        "lc-1641-11",
+        "lc-1641-12",
+        "lc-1641-13",
+        "lc-1641-14"
+      ]
+    },
+    {
+      "reason": "Drops one valid string from every result.",
+      "failed_cases": [
+        "lc-1641-1",
+        "lc-1641-2",
+        "lc-1641-3",
+        "lc-1641-4",
+        "lc-1641-5",
+        "lc-1641-6",
+        "lc-1641-7",
+        "lc-1641-8",
+        "lc-1641-9",
+        "lc-1641-10",
+        "lc-1641-11",
+        "lc-1641-12",
+        "lc-1641-13",
+        "lc-1641-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5688,
+  "oracle_implementation": "code_practice/import_batch_101.py:vowel_oracle",
+  "validator_implementation_sha256": "5687dec2c4bda8c79e4a8b433599da4569ab4090abcf6e1be9bf5dabb3a29a8e",
+  "batch_implementation_sha256": "79ebd208296e1dfe6a95b87eb81b353da5d0bf9dba654e81f2ecfe3ff758f824",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "619ef8869e865272b50ab3b397c5df6e25655c4f3e945731b6cab38fdf0a7165",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

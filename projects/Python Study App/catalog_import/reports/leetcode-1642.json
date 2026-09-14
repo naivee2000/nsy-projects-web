@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1642",
+  "content_sha256": "4c905a08c1ffe5b3665437bd9cf27035c5789d9f6506b38a83d7d375b6261276",
+  "source_hash": "66af43bbf6aca3174648c4d7de82bf2c78d95c24c718b6f3c346d3f637f9482f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Spends bricks on the largest climb instead of the smallest ladder candidate.",
+      "failed_cases": [
+        "lc-1642-2",
+        "lc-1642-7",
+        "lc-1642-11",
+        "lc-1642-13",
+        "lc-1642-14"
+      ]
+    },
+    {
+      "reason": "Stops when bricks reach exactly zero even though that climb is affordable.",
+      "failed_cases": [
+        "lc-1642-4",
+        "lc-1642-7",
+        "lc-1642-9",
+        "lc-1642-11",
+        "lc-1642-13",
+        "lc-1642-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5689,
+  "oracle_implementation": "code_practice/import_batch_101.py:building_oracle",
+  "validator_implementation_sha256": "5687dec2c4bda8c79e4a8b433599da4569ab4090abcf6e1be9bf5dabb3a29a8e",
+  "batch_implementation_sha256": "79ebd208296e1dfe6a95b87eb81b353da5d0bf9dba654e81f2ecfe3ff758f824",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ffdfdca3b4b866c7bae0a24fd5a3e345f8437b0d9f884f616c9b8cc7400e8cd9",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
