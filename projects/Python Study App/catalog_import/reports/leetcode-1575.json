@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1575",
+  "content_sha256": "d4f82b4c5aa444d8f1de8273d4f384226a4a1b197ab7db5b725eb41c063531b2",
+  "source_hash": "7c7669fe91114c27918eaeafe8bb62d555a72bf3f09a8c4801cf07a60954e2c6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to count a route each time it arrives at the finish city.",
+      "failed_cases": [
+        "lc-1575-1",
+        "lc-1575-2",
+        "lc-1575-5",
+        "lc-1575-6",
+        "lc-1575-8",
+        "lc-1575-9",
+        "lc-1575-10",
+        "lc-1575-11",
+        "lc-1575-12",
+        "lc-1575-13",
+        "lc-1575-14"
+      ]
+    },
+    {
+      "reason": "Rejects moves that use exactly all remaining fuel.",
+      "failed_cases": [
+        "lc-1575-1",
+        "lc-1575-6",
+        "lc-1575-8",
+        "lc-1575-10",
+        "lc-1575-13",
+        "lc-1575-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5622,
+  "oracle_implementation": "code_practice/import_batch_099.py:routes_o",
+  "validator_implementation_sha256": "717326365b191c706083902a3218a9b34921a2452e1ab693792a2a713eff7056",
+  "batch_implementation_sha256": "b466b8e2da72f71c28d31ab2a87360f6695625919401ce9224d587157a23a0c6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "40fca15be0c40abda28e99737c02d0d7d7f51b6649fac14b8d6dc7e8421a744c",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

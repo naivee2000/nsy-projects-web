@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1577",
+  "content_sha256": "36e74e8bbcd15ad9fcf958d56f55d03941e998e467c984c3c3cf87b82c5b9271",
+  "source_hash": "d5b7d472b56e07d9341d9ce73f2dcbdb484ed4ddf9855e6af597e32983ca25a3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts each unordered factor pair in both orders.",
+      "failed_cases": [
+        "lc-1577-1",
+        "lc-1577-2",
+        "lc-1577-3",
+        "lc-1577-4",
+        "lc-1577-5",
+        "lc-1577-6",
+        "lc-1577-7",
+        "lc-1577-8",
+        "lc-1577-9",
+        "lc-1577-10",
+        "lc-1577-11",
+        "lc-1577-12",
+        "lc-1577-13",
+        "lc-1577-14"
+      ]
+    },
+    {
+      "reason": "Allows the same index to supply both equal factors.",
+      "failed_cases": [
+        "lc-1577-2",
+        "lc-1577-3",
+        "lc-1577-6",
+        "lc-1577-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5624,
+  "oracle_implementation": "code_practice/import_batch_099.py:triplets_o",
+  "validator_implementation_sha256": "717326365b191c706083902a3218a9b34921a2452e1ab693792a2a713eff7056",
+  "batch_implementation_sha256": "b466b8e2da72f71c28d31ab2a87360f6695625919401ce9224d587157a23a0c6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bd0913ad4d6cbb3b0641feb5ed2cd891140fafe1f29aba86bcb014ae1290692d",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

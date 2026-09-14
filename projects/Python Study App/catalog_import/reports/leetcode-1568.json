@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1568",
+  "content_sha256": "699be2ee2bccbeb2c9697e310dfe4627eb1bfb50d7793f461d7f5aad05b2e908",
+  "source_hash": "b5827f0c543630b87e0bdee427028b763334d09217155bf8c2dad2ab297ecdcc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Charges two days even when one articulation cell disconnects the island.",
+      "failed_cases": [
+        "lc-1568-4",
+        "lc-1568-6",
+        "lc-1568-7",
+        "lc-1568-9",
+        "lc-1568-11",
+        "lc-1568-12"
+      ]
+    },
+    {
+      "reason": "Treats an empty all-water grid as connected.",
+      "failed_cases": [
+        "lc-1568-3",
+        "lc-1568-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5615,
+  "oracle_implementation": "code_practice/import_batch_099.py:disconnect_o",
+  "validator_implementation_sha256": "717326365b191c706083902a3218a9b34921a2452e1ab693792a2a713eff7056",
+  "batch_implementation_sha256": "b466b8e2da72f71c28d31ab2a87360f6695625919401ce9224d587157a23a0c6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "69f8b429348eff40ae8d90f31800844e8cc04417968a81bd58815fd342f566e0",
+  "elapsed_seconds": 0.081,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

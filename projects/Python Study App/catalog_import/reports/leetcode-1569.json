@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1569",
+  "content_sha256": "0e8851e8a81538bef62c6e2fef76b6f1a9895bdc427d89fefdecd5077849c21e",
+  "source_hash": "cc6214122092dddd4fab2696020ead9a982d959737b7364b6de09e133ad6c0ea",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not count interleavings of left- and right-subtree insertion orders.",
+      "failed_cases": [
+        "lc-1569-1",
+        "lc-1569-2",
+        "lc-1569-5",
+        "lc-1569-8",
+        "lc-1569-9",
+        "lc-1569-10",
+        "lc-1569-11",
+        "lc-1569-13",
+        "lc-1569-14"
+      ]
+    },
+    {
+      "reason": "Includes the original ordering instead of excluding it.",
+      "failed_cases": [
+        "lc-1569-1",
+        "lc-1569-2",
+        "lc-1569-3",
+        "lc-1569-4",
+        "lc-1569-5",
+        "lc-1569-6",
+        "lc-1569-7",
+        "lc-1569-8",
+        "lc-1569-9",
+        "lc-1569-10",
+        "lc-1569-11",
+        "lc-1569-12",
+        "lc-1569-13",
+        "lc-1569-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5616,
+  "oracle_implementation": "code_practice/import_batch_099.py:reorder_o",
+  "validator_implementation_sha256": "717326365b191c706083902a3218a9b34921a2452e1ab693792a2a713eff7056",
+  "batch_implementation_sha256": "b466b8e2da72f71c28d31ab2a87360f6695625919401ce9224d587157a23a0c6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "62b992b278d852501a04a7193256d434274e9bc39f915fde85b803c834c61b00",
+  "elapsed_seconds": 0.626,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

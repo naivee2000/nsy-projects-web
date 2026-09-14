@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1578",
+  "content_sha256": "6a65c09fe2f7ea38c3c4006729b9f4cbf2187dc3cc4258f39ac46bd5aa3e0e97",
+  "source_hash": "828d5707423bfaffa15ef1f3df576184a21edb211528554bd034f70872c1c1b8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes every balloon in a repeated run, including the one that should remain.",
+      "failed_cases": [
+        "lc-1578-1",
+        "lc-1578-2",
+        "lc-1578-3",
+        "lc-1578-4",
+        "lc-1578-5",
+        "lc-1578-6",
+        "lc-1578-7",
+        "lc-1578-8",
+        "lc-1578-9",
+        "lc-1578-10",
+        "lc-1578-11",
+        "lc-1578-12",
+        "lc-1578-13",
+        "lc-1578-14"
+      ]
+    },
+    {
+      "reason": "Keeps the cheapest rather than the most expensive balloon in each run.",
+      "failed_cases": [
+        "lc-1578-1",
+        "lc-1578-4",
+        "lc-1578-5",
+        "lc-1578-6",
+        "lc-1578-7",
+        "lc-1578-8",
+        "lc-1578-9",
+        "lc-1578-11",
+        "lc-1578-12",
+        "lc-1578-13",
+        "lc-1578-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5625,
+  "oracle_implementation": "code_practice/import_batch_099.py:rope_o",
+  "validator_implementation_sha256": "717326365b191c706083902a3218a9b34921a2452e1ab693792a2a713eff7056",
+  "batch_implementation_sha256": "b466b8e2da72f71c28d31ab2a87360f6695625919401ce9224d587157a23a0c6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e2c6fa0db87a29838187f0e9723b6b87dde7ebc6d976615828b97340aeebb6ec",
+  "elapsed_seconds": 0.11,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

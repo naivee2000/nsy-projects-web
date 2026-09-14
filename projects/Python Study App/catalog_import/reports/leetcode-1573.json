@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1573",
+  "content_sha256": "87ea1ddfd2871ac2c234982a1f942292e04019f61522f6ffb3e950f87f7703a2",
+  "source_hash": "3e04e3f5c894c66eca3308b2876d9d2e2c2fb03227a824b80e768f29eb836065",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only adjacent boundary placements when there are no ones.",
+      "failed_cases": [
+        "lc-1573-2",
+        "lc-1573-11"
+      ]
+    },
+    {
+      "reason": "Counts positions beyond the second one-third boundary.",
+      "failed_cases": [
+        "lc-1573-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5620,
+  "oracle_implementation": "code_practice/import_batch_099.py:split_o",
+  "validator_implementation_sha256": "717326365b191c706083902a3218a9b34921a2452e1ab693792a2a713eff7056",
+  "batch_implementation_sha256": "b466b8e2da72f71c28d31ab2a87360f6695625919401ce9224d587157a23a0c6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0d94c96dd536c69f7bf0cdb927a022232d8b3c1b46062355a5eaaa1ed3216ace",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

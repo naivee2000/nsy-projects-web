@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1079,
+  "count": 1089,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -19081,6 +19081,184 @@
       "path": "problems/leetcode-1567.json",
       "content_sha256": "61dd368376626995b36650f50fc772db2030e6863b1303e32e07ae50f11e29cd",
       "source_id": 1567
+    },
+    {
+      "id": "leetcode-1568",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Days to Disconnect Island",
+      "summary": "Given an m x n binary grid where 1 represents land and 0 represents water, an island is defined as a maximal group of 1's that are connected either horizontally or vertically.",
+      "topics": [
+        "recursion",
+        "grids"
+      ],
+      "prerequisites": [
+        "recursion"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1568.json",
+      "content_sha256": "699be2ee2bccbeb2c9697e310dfe4627eb1bfb50d7793f461d7f5aad05b2e908",
+      "source_id": 1568
+    },
+    {
+      "id": "leetcode-1569",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Reorder Array to Get Same BST",
+      "summary": "Given an array representing a permutation of integers from 1 to n, find the number of ways to reorder the array so that constructing a BST by inserting elements in order results in a tree identical to the BST formed from the original array.",
+      "topics": [
+        "trees",
+        "combinatorics"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1569.json",
+      "content_sha256": "0e8851e8a81538bef62c6e2fef76b6f1a9895bdc427d89fefdecd5077849c21e",
+      "source_id": 1569
+    },
+    {
+      "id": "leetcode-1573",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Split a String",
+      "summary": "For a binary string s, determine the count of ways to divide it into three non-empty parts s1, s2, and s3, ensuring each part contains an equal number of ones.",
+      "topics": [
+        "strings",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1573.json",
+      "content_sha256": "87ea1ddfd2871ac2c234982a1f942292e04019f61522f6ffb3e950f87f7703a2",
+      "source_id": 1573
+    },
+    {
+      "id": "leetcode-1574",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Subarray to be Removed to Make Array Sorted",
+      "summary": "Given an integer array, identify the shortest contiguous subarray that can be removed to ensure the remaining elements are in non-decreasing order.",
+      "topics": [
+        "two-pointers",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1574.json",
+      "content_sha256": "ad40ca256a77279ddd6eb6a8dd395098e82f9600af7af753b43b793f4b92299f",
+      "source_id": 1574
+    },
+    {
+      "id": "leetcode-1575",
+      "version": 1,
+      "status": "approved",
+      "title": "Count All Possible Routes",
+      "summary": "Given an array of distinct positive integers representing the positions of cities, and an initial amount of fuel, count the total number of possible routes from the starting city to the finishing city.",
+      "topics": [
+        "recursion",
+        "dynamic-programming"
+      ],
+      "prerequisites": [
+        "recursion"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1575.json",
+      "content_sha256": "d4f82b4c5aa444d8f1de8273d4f384226a4a1b197ab7db5b725eb41c063531b2",
+      "source_id": 1575
+    },
+    {
+      "id": "leetcode-1576",
+      "version": 1,
+      "status": "approved",
+      "title": "Replace All ?'s to Avoid Consecutive Repeating Characters",
+      "summary": "Given a string s with lowercase letters and '?' characters, replace each '?' with a lowercase letter to ensure no two consecutive characters are the same.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1576.json",
+      "content_sha256": "2f25c1972daaa58a14c32cfef28d2dfc9ef905c79ae0eaa694190485430919c9",
+      "source_id": 1576
+    },
+    {
+      "id": "leetcode-1577",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways Where Square of Number Is Equal to Product of Two Numbers",
+      "summary": "For arrays nums1 and nums2, count triplets of types where the square of an element from nums1 equals the product of two elements from nums2, and vice versa, with indices following the specified constraints.",
+      "topics": [
+        "hash-maps",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1577.json",
+      "content_sha256": "36e74e8bbcd15ad9fcf958d56f55d03941e998e467c984c3c3cf87b82c5b9271",
+      "source_id": 1577
+    },
+    {
+      "id": "leetcode-1578",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Make Rope Colorful",
+      "summary": "Alice has a sequence of balloons colored by a string.",
+      "topics": [
+        "greedy",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1578.json",
+      "content_sha256": "6a65c09fe2f7ea38c3c4006729b9f4cbf2187dc3cc4258f39ac46bd5aa3e0e97",
+      "source_id": 1578
+    },
+    {
+      "id": "leetcode-1579",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Max Number of Edges to Keep Graph Fully Traversable",
+      "summary": "Alice and Bob have an undirected graph with n nodes and three types of bidirectional edges: Type 1 can be traversed by Alice only, Type 2 by Bob only, and Type 3 by both.",
+      "topics": [
+        "graphs",
+        "union-find"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1579.json",
+      "content_sha256": "90964f5c7a7ad60964f0371408806d81ee4923f3e6fdc83da61f165a12b04cd8",
+      "source_id": 1579
+    },
+    {
+      "id": "leetcode-1580",
+      "version": 1,
+      "status": "approved",
+      "title": "Put Boxes Into the Warehouse II",
+      "summary": "Given two arrays, boxes and warehouse, representing the heights of boxes and rooms in a warehouse, respectively, you must determine the maximum number of boxes that can be placed in the warehouse.",
+      "topics": [
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1580.json",
+      "content_sha256": "9f1e5d14bb5cbaa93820f3323138143b3d162a64cc6c478ea689e464c59aa0f7",
+      "source_id": 1580
     }
   ]
 }

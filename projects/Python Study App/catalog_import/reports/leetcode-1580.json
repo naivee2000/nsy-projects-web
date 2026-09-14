@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1580",
+  "content_sha256": "9f1e5d14bb5cbaa93820f3323138143b3d162a64cc6c478ea689e464c59aa0f7",
+  "source_hash": "ca5f27201c39136c384829b8d11b8c104bc533e927e256abcb82a2181f7d020b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Considers entry from the left only instead of the better of both entrances.",
+      "failed_cases": [
+        "lc-1580-1",
+        "lc-1580-2",
+        "lc-1580-6",
+        "lc-1580-12",
+        "lc-1580-13"
+      ]
+    },
+    {
+      "reason": "Matches shortest boxes against largest capacities first and wastes constrained rooms.",
+      "failed_cases": [
+        "lc-1580-1",
+        "lc-1580-2",
+        "lc-1580-10",
+        "lc-1580-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5627,
+  "oracle_implementation": "code_practice/import_batch_099.py:boxes_o",
+  "validator_implementation_sha256": "717326365b191c706083902a3218a9b34921a2452e1ab693792a2a713eff7056",
+  "batch_implementation_sha256": "b466b8e2da72f71c28d31ab2a87360f6695625919401ce9224d587157a23a0c6",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0590da8ef01db37166e8dd5bea12ccd7996fb1e5d51c494efcbcacf61bfa118b",
+  "elapsed_seconds": 0.587,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
