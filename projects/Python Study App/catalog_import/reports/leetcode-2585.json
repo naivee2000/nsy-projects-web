@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2585",
+  "content_sha256": "817b746041b7d70d92a17a399e21b88543eac4aced3d8674d7da3658173454b8",
+  "source_hash": "7fbaa146b9ebb2156c015075cf79e8806d9b5779891919b80d63398b46b80238",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Never allows using the full available count of a question type.",
+      "failed_cases": [
+        "lc-2585-1",
+        "lc-2585-2",
+        "lc-2585-4",
+        "lc-2585-6",
+        "lc-2585-7",
+        "lc-2585-8",
+        "lc-2585-9",
+        "lc-2585-11",
+        "lc-2585-12",
+        "lc-2585-13",
+        "lc-2585-14",
+        "lc-2585-15",
+        "lc-2585-16"
+      ]
+    },
+    {
+      "reason": "Removes the single empty construction that seeds every valid score combination.",
+      "failed_cases": [
+        "lc-2585-1",
+        "lc-2585-2",
+        "lc-2585-3",
+        "lc-2585-4",
+        "lc-2585-6",
+        "lc-2585-7",
+        "lc-2585-8",
+        "lc-2585-9",
+        "lc-2585-10",
+        "lc-2585-11",
+        "lc-2585-12",
+        "lc-2585-13",
+        "lc-2585-14",
+        "lc-2585-15",
+        "lc-2585-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6632,
+  "oracle_implementation": "code_practice/import_batch_160.py:points_oracle",
+  "validator_implementation_sha256": "ce0dc205ef948066ddbcfb3e9ed4fad3d665add8cd7c832d650dd36b4469b3d6",
+  "batch_implementation_sha256": "920ad69b1ca8a1112b952233757dedf26563356c1822cfd1679b6b1588037182",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7a90fe56a341a177049880cd38d6ebb9489f822e61dc308b5d0a44a4b1fce2e4",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

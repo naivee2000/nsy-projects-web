@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1841,
+  "count": 1846,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -32765,6 +32765,27 @@
       "source_id": 2580
     },
     {
+      "id": "leetcode-2581",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Number of Possible Root Nodes",
+      "summary": "Alice owns an undirected tree with n nodes numbered from 0 to n-1.",
+      "topics": [
+        "trees",
+        "recursion",
+        "rerooting",
+        "hash maps"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2581.json",
+      "content_sha256": "86c5a74730d211541099bad5f3414cde6fc437dcf5d2d453cad0bcfd98095a8f",
+      "source_id": 2581
+    },
+    {
       "id": "leetcode-2582",
       "version": 1,
       "status": "approved",
@@ -32780,6 +32801,82 @@
       "path": "problems/leetcode-2582.json",
       "content_sha256": "a5aacef64cf5c9a0f7968637366370f90ba7317cceb268a11dbc0641ad8a2c45",
       "source_id": 2582
+    },
+    {
+      "id": "leetcode-2583",
+      "version": 1,
+      "status": "approved",
+      "title": "Kth Largest Sum in a Binary Tree",
+      "summary": "Given a binary tree and a positive integer k, find the kth largest sum of node values at the same level.",
+      "topics": [
+        "trees",
+        "breadth-first search",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2583.json",
+      "content_sha256": "3ea06811c63d8dabae9a10d3a0866b626359bc9d4a0dcdfc5d357031573d2245",
+      "source_id": 2583
+    },
+    {
+      "id": "leetcode-2584",
+      "version": 1,
+      "status": "approved",
+      "title": "Split the Array to Make Coprime Products",
+      "summary": "Given an integer array nums, determine the smallest index i where the product of the first i+1 elements and the product of the remaining elements are coprime.",
+      "topics": [
+        "arrays",
+        "prime factorization",
+        "greedy"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2584.json",
+      "content_sha256": "6f32ef336db22f0cd2f444cd72b2f5df2e4f0809ec56bd859b49e23888d46e8b",
+      "source_id": 2584
+    },
+    {
+      "id": "leetcode-2585",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Earn Points",
+      "summary": "Given a test with n types of questions, where each type has a specific count and point value, calculate the number of ways to score exactly a target number of points.",
+      "topics": [
+        "dynamic programming",
+        "bounded knapsack",
+        "counting"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2585.json",
+      "content_sha256": "817b746041b7d70d92a17a399e21b88543eac4aced3d8674d7da3658173454b8",
+      "source_id": 2585
+    },
+    {
+      "id": "leetcode-2586",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Vowel Strings in Range",
+      "summary": "Given an array of strings and two indices, count how many strings within the specified range start and end with a vowel.",
+      "topics": [
+        "arrays",
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2586.json",
+      "content_sha256": "1f9548eda47e7357e85a116b8140bef60605c06c9ed8dbad65e7d5b55c4fda68",
+      "source_id": 2586
     }
   ]
 }

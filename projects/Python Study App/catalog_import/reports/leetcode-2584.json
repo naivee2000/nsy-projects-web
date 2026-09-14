@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2584",
+  "content_sha256": "6f32ef336db22f0cd2f444cd72b2f5df2e4f0809ec56bd859b49e23888d46e8b",
+  "source_hash": "b40f62f63f047f72706b23076ecf864d2d4496357340e3dbf0375ea7e00f786c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses an off-by-one boundary when deciding that all active prime intervals have closed.",
+      "failed_cases": [
+        "lc-2584-1",
+        "lc-2584-2",
+        "lc-2584-3",
+        "lc-2584-4",
+        "lc-2584-5",
+        "lc-2584-6",
+        "lc-2584-7",
+        "lc-2584-8",
+        "lc-2584-9",
+        "lc-2584-10",
+        "lc-2584-11",
+        "lc-2584-12",
+        "lc-2584-13",
+        "lc-2584-14",
+        "lc-2584-15",
+        "lc-2584-16"
+      ]
+    },
+    {
+      "reason": "Stores the first prime occurrence instead of its last occurrence.",
+      "failed_cases": [
+        "lc-2584-1",
+        "lc-2584-2",
+        "lc-2584-7",
+        "lc-2584-9",
+        "lc-2584-10",
+        "lc-2584-13",
+        "lc-2584-14",
+        "lc-2584-15",
+        "lc-2584-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6631,
+  "oracle_implementation": "code_practice/import_batch_160.py:split_oracle",
+  "validator_implementation_sha256": "ce0dc205ef948066ddbcfb3e9ed4fad3d665add8cd7c832d650dd36b4469b3d6",
+  "batch_implementation_sha256": "920ad69b1ca8a1112b952233757dedf26563356c1822cfd1679b6b1588037182",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f2d280cebe5832a2cbb2b9f27bf899d522d224fe8fe6f6525b7587df2f3cdfee",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

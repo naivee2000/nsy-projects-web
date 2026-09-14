@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2586",
+  "content_sha256": "1f9548eda47e7357e85a116b8140bef60605c06c9ed8dbad65e7d5b55c4fda68",
+  "source_hash": "bdef390037905774a92a6ea3c61419b2e783ec3cb6b42c5daf34c374d4576be2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts words ending with consonants instead of vowels.",
+      "failed_cases": [
+        "lc-2586-1",
+        "lc-2586-2",
+        "lc-2586-3",
+        "lc-2586-5",
+        "lc-2586-6",
+        "lc-2586-7",
+        "lc-2586-8",
+        "lc-2586-9",
+        "lc-2586-10",
+        "lc-2586-11",
+        "lc-2586-12",
+        "lc-2586-14"
+      ]
+    },
+    {
+      "reason": "Treats the inclusive right endpoint as exclusive.",
+      "failed_cases": [
+        "lc-2586-1",
+        "lc-2586-2",
+        "lc-2586-3",
+        "lc-2586-7",
+        "lc-2586-8",
+        "lc-2586-9",
+        "lc-2586-10",
+        "lc-2586-12",
+        "lc-2586-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6633,
+  "oracle_implementation": "code_practice/import_batch_160.py:vowel_oracle",
+  "validator_implementation_sha256": "ce0dc205ef948066ddbcfb3e9ed4fad3d665add8cd7c832d650dd36b4469b3d6",
+  "batch_implementation_sha256": "920ad69b1ca8a1112b952233757dedf26563356c1822cfd1679b6b1588037182",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "df0b61a70cb1b27096b7b4e3431bcc20bc56014b799defdde5374dd3366eee22",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

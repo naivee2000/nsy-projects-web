@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2583",
+  "content_sha256": "3ea06811c63d8dabae9a10d3a0866b626359bc9d4a0dcdfc5d357031573d2245",
+  "source_hash": "2efa5f5e7f4126ff16f943991c3c361512c9cdc1b50bcf90df783d1e5ac7be9f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts level sums ascending instead of descending.",
+      "failed_cases": [
+        "lc-2583-1",
+        "lc-2583-4",
+        "lc-2583-5",
+        "lc-2583-6",
+        "lc-2583-7",
+        "lc-2583-9",
+        "lc-2583-13",
+        "lc-2583-15",
+        "lc-2583-16"
+      ]
+    },
+    {
+      "reason": "Rejects the valid boundary where k equals the number of levels.",
+      "failed_cases": [
+        "lc-2583-2",
+        "lc-2583-5",
+        "lc-2583-6",
+        "lc-2583-7",
+        "lc-2583-9",
+        "lc-2583-13",
+        "lc-2583-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6630,
+  "oracle_implementation": "code_practice/import_batch_160.py:levels_oracle",
+  "validator_implementation_sha256": "ce0dc205ef948066ddbcfb3e9ed4fad3d665add8cd7c832d650dd36b4469b3d6",
+  "batch_implementation_sha256": "920ad69b1ca8a1112b952233757dedf26563356c1822cfd1679b6b1588037182",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f2ba3ee89352b85bbdb3e21621818993c02a21fe2552aac7d35facdd5050dbe4",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
