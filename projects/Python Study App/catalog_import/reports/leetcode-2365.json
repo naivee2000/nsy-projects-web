@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2365",
+  "content_sha256": "9f764ab5c096756551c4c730f91a3ff8f284fd6788944fe54218668bfe1ad431",
+  "source_hash": "e86b8ce4618c3b1a84f44dc891c5fc80b5d14a9adc6c9db3d46fc189d39eb388",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows only space-1 complete rest days between equal tasks.",
+      "failed_cases": [
+        "lc-2365-1",
+        "lc-2365-2",
+        "lc-2365-4",
+        "lc-2365-5",
+        "lc-2365-8",
+        "lc-2365-9",
+        "lc-2365-11",
+        "lc-2365-12",
+        "lc-2365-13",
+        "lc-2365-14",
+        "lc-2365-15",
+        "lc-2365-16"
+      ]
+    },
+    {
+      "reason": "Can schedule consecutive different tasks on the same day.",
+      "failed_cases": [
+        "lc-2365-2",
+        "lc-2365-6",
+        "lc-2365-10",
+        "lc-2365-12",
+        "lc-2365-13",
+        "lc-2365-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6412,
+  "oracle_implementation": "code_practice/import_batch_139.py:scheduler_oracle",
+  "validator_implementation_sha256": "65648c87777f3fb4437d862ec527b2aebee5323c2b05305ec782f3683ace6011",
+  "batch_implementation_sha256": "02e0806fc5a192f8935a0ef2e1723d1c9c40d3ed9d74539e0e354f48bdfbe4e7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b17a38326dc44b12b9d9e2fe35b3160d83997f924eec267dc239e53dc19d1783",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

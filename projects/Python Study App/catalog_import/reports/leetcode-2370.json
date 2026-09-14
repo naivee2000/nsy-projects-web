@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2370",
+  "content_sha256": "7f5bca8e337b83414aa928b6e26be9b57358187b145eb878d56b9b0d08c77ef4",
+  "source_hash": "5bea291594cf167ff0332eac960e2fd7e987cf96ddcc9d0a7cde53f945e13474",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Excludes letters exactly k positions above the current letter.",
+      "failed_cases": [
+        "lc-2370-4",
+        "lc-2370-12",
+        "lc-2370-13",
+        "lc-2370-15"
+      ]
+    },
+    {
+      "reason": "Excludes letters exactly k positions below the current letter.",
+      "failed_cases": [
+        "lc-2370-1",
+        "lc-2370-4",
+        "lc-2370-5",
+        "lc-2370-6",
+        "lc-2370-8",
+        "lc-2370-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6417,
+  "oracle_implementation": "code_practice/import_batch_139.py:ideal_oracle",
+  "validator_implementation_sha256": "65648c87777f3fb4437d862ec527b2aebee5323c2b05305ec782f3683ace6011",
+  "batch_implementation_sha256": "02e0806fc5a192f8935a0ef2e1723d1c9c40d3ed9d74539e0e354f48bdfbe4e7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3ff760f351062109563a6cdb127099a7b6f9b0b09e67d481563e07e62f35f909",
+  "elapsed_seconds": 0.272,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

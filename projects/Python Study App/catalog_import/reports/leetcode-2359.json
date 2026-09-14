@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2359",
+  "content_sha256": "e7156b77fa10757e0d66696ddc0fdd77977bc029bb097ffda3d6562f94135629",
+  "source_hash": "df8337c5a854a7b630625e593873d8688c35a47f786037b5ccc021eebb51c01d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites an equal-quality answer with a larger index.",
+      "failed_cases": [
+        "lc-2359-5"
+      ]
+    },
+    {
+      "reason": "Minimizes the sum of distances instead of the required maximum.",
+      "failed_cases": [
+        "lc-2359-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6406,
+  "oracle_implementation": "code_practice/import_batch_139.py:meeting_oracle",
+  "validator_implementation_sha256": "65648c87777f3fb4437d862ec527b2aebee5323c2b05305ec782f3683ace6011",
+  "batch_implementation_sha256": "02e0806fc5a192f8935a0ef2e1723d1c9c40d3ed9d74539e0e354f48bdfbe4e7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "98ebb0896c8c07c2c7d1f255819e6e2f804a32c2a2ad57494f15ffaff6acb95b",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2369",
+  "content_sha256": "c334558ba8b5dc243f3615b2aaa3740245a28dfc4e30bc3189fb88fb67deb38a",
+  "source_hash": "dd8111e50a2fa1d063722c202df381f0c4ecc5fe07573394d7ab7defccfc0cc8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly accepts any nondecreasing pair instead of two equal values.",
+      "failed_cases": [
+        "lc-2369-2",
+        "lc-2369-4",
+        "lc-2369-16"
+      ]
+    },
+    {
+      "reason": "Omits the allowed three-consecutive-values group.",
+      "failed_cases": [
+        "lc-2369-1",
+        "lc-2369-6",
+        "lc-2369-9",
+        "lc-2369-11",
+        "lc-2369-12",
+        "lc-2369-14",
+        "lc-2369-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6416,
+  "oracle_implementation": "code_practice/import_batch_139.py:partition_oracle",
+  "validator_implementation_sha256": "65648c87777f3fb4437d862ec527b2aebee5323c2b05305ec782f3683ace6011",
+  "batch_implementation_sha256": "02e0806fc5a192f8935a0ef2e1723d1c9c40d3ed9d74539e0e354f48bdfbe4e7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "547e5d7363b188dfebf7445b02cd27fbb70a9a936b12b25c709f9d6ce30cd392",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
