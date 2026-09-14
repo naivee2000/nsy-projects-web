@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2383",
+  "content_sha256": "c045d11aeed79dbb5b67fb4c390e9f9c5bb970e01ab41d11f05d77bd46273973",
+  "source_hash": "3e81fee4a728825c21dfba0e1c4d7338638108cad49f5a9f76b9f74f6d829519",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows energy to equal the total cost even though energy must stay strictly positive before the final fight.",
+      "failed_cases": [
+        "lc-2383-1",
+        "lc-2383-3",
+        "lc-2383-6",
+        "lc-2383-8",
+        "lc-2383-10",
+        "lc-2383-13",
+        "lc-2383-14",
+        "lc-2383-15"
+      ]
+    },
+    {
+      "reason": "Allows equal experience despite the strict greater-than requirement.",
+      "failed_cases": [
+        "lc-2383-3",
+        "lc-2383-4",
+        "lc-2383-5",
+        "lc-2383-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6430,
+  "oracle_implementation": "code_practice/import_batch_130.py:training_oracle",
+  "validator_implementation_sha256": "ab7852f4726a0df45b10cd0a356ccc8684830a9b6efe2f5ed8a0b79a239ecbdf",
+  "batch_implementation_sha256": "7f8a47b92ca1b6f89856ba391eef86378974f40659538b360b48be83d40116fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d60a9b6d653b0d2a6476b27ea43f07dd3d800909ccb7c48c17333efaef9e795c",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

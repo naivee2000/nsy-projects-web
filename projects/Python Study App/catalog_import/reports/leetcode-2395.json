@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2395",
+  "content_sha256": "e7548d1decf890a561fc6832d738048314da66db6109bafb2a0abfea91857442",
+  "source_hash": "edd9cfb0a25cd78372f4e89645f421e5dca9b9863f9253170e813790cbab97fd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Compares adjacent differences instead of adjacent sums.",
+      "failed_cases": [
+        "lc-2395-1",
+        "lc-2395-2",
+        "lc-2395-5",
+        "lc-2395-6",
+        "lc-2395-9",
+        "lc-2395-11",
+        "lc-2395-12",
+        "lc-2395-13",
+        "lc-2395-14",
+        "lc-2395-15"
+      ]
+    },
+    {
+      "reason": "Skips the final adjacent pair, which may create the first duplicate sum.",
+      "failed_cases": [
+        "lc-2395-1",
+        "lc-2395-4",
+        "lc-2395-5",
+        "lc-2395-7",
+        "lc-2395-8",
+        "lc-2395-9",
+        "lc-2395-11",
+        "lc-2395-12",
+        "lc-2395-13",
+        "lc-2395-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6442,
+  "oracle_implementation": "code_practice/import_batch_130.py:equal_sum_oracle",
+  "validator_implementation_sha256": "ab7852f4726a0df45b10cd0a356ccc8684830a9b6efe2f5ed8a0b79a239ecbdf",
+  "batch_implementation_sha256": "7f8a47b92ca1b6f89856ba391eef86378974f40659538b360b48be83d40116fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bf45c59465b3fcd70b429691c8db78f7f1d17a10aa87342fd3947c8779c78389",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

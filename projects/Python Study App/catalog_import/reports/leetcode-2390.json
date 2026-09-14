@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2390",
+  "content_sha256": "a5f2ba28241ad6ffd9ff4f83083e4c2016461432103ab6b1491841dcfb05c952",
+  "source_hash": "0159561cf8b7cf045f9199977b8f22288a2dddea408e90f57b1edb80328bbf45",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Removes the earliest retained character instead of the closest one.",
+      "failed_cases": [
+        "lc-2390-1",
+        "lc-2390-5",
+        "lc-2390-7",
+        "lc-2390-8",
+        "lc-2390-11",
+        "lc-2390-12",
+        "lc-2390-14",
+        "lc-2390-15"
+      ]
+    },
+    {
+      "reason": "Deletes each star but leaves the character that the star must also remove.",
+      "failed_cases": [
+        "lc-2390-1",
+        "lc-2390-2",
+        "lc-2390-4",
+        "lc-2390-5",
+        "lc-2390-6",
+        "lc-2390-7",
+        "lc-2390-8",
+        "lc-2390-9",
+        "lc-2390-10",
+        "lc-2390-11",
+        "lc-2390-12",
+        "lc-2390-13",
+        "lc-2390-14",
+        "lc-2390-15",
+        "lc-2390-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6437,
+  "oracle_implementation": "code_practice/import_batch_130.py:stars_oracle",
+  "validator_implementation_sha256": "ab7852f4726a0df45b10cd0a356ccc8684830a9b6efe2f5ed8a0b79a239ecbdf",
+  "batch_implementation_sha256": "7f8a47b92ca1b6f89856ba391eef86378974f40659538b360b48be83d40116fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0b46e9ff3b11ddd569b90ec0e357f45315e6ae7975648ae6c1dcd4cb1f81aaba",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2393",
+  "content_sha256": "2111693a139e73b75b52371b805418d953e1bc1c87326c97e0b953b08e676a09",
+  "source_hash": "1132aaa31f9d3cf4f0d95eae6632faea94a2dbe1c51bc76b1461d5eee2bdc305",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats equal adjacent values as strictly increasing.",
+      "failed_cases": [
+        "lc-2393-1",
+        "lc-2393-4",
+        "lc-2393-11",
+        "lc-2393-16"
+      ]
+    },
+    {
+      "reason": "Counts only singleton endings and omits longer increasing subarrays.",
+      "failed_cases": [
+        "lc-2393-1",
+        "lc-2393-2",
+        "lc-2393-5",
+        "lc-2393-7",
+        "lc-2393-9",
+        "lc-2393-10",
+        "lc-2393-11",
+        "lc-2393-12",
+        "lc-2393-13",
+        "lc-2393-15",
+        "lc-2393-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6440,
+  "oracle_implementation": "code_practice/import_batch_130.py:increasing_oracle",
+  "validator_implementation_sha256": "ab7852f4726a0df45b10cd0a356ccc8684830a9b6efe2f5ed8a0b79a239ecbdf",
+  "batch_implementation_sha256": "7f8a47b92ca1b6f89856ba391eef86378974f40659538b360b48be83d40116fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9443d4b5f0e5647ebd13ac14e34c2ee5831e17145befeefcb98dc0ac8ddc06d7",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

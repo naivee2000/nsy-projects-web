@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2389",
+  "content_sha256": "2a0c68fcefcb2d074b5e347510c0087214eb791cb3b3cacaa29471d411263632",
+  "source_hash": "d844e1fd09d51de5e880afa6e55733268b896364a4cebdfedce648fa8567ee10",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Builds prefix sums in input order instead of selecting the cheapest values.",
+      "failed_cases": [
+        "lc-2389-1",
+        "lc-2389-14",
+        "lc-2389-15",
+        "lc-2389-16"
+      ]
+    },
+    {
+      "reason": "Uses a left insertion point and rejects a prefix whose sum equals the query.",
+      "failed_cases": [
+        "lc-2389-1",
+        "lc-2389-4",
+        "lc-2389-6",
+        "lc-2389-9",
+        "lc-2389-14",
+        "lc-2389-15",
+        "lc-2389-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6436,
+  "oracle_implementation": "code_practice/import_batch_130.py:limited_oracle",
+  "validator_implementation_sha256": "ab7852f4726a0df45b10cd0a356ccc8684830a9b6efe2f5ed8a0b79a239ecbdf",
+  "batch_implementation_sha256": "7f8a47b92ca1b6f89856ba391eef86378974f40659538b360b48be83d40116fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0f06bc720e805189211157fd7313252d18c01072d24ca32e70dca0ef1c8339c4",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
