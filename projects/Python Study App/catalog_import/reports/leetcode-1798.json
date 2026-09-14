@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1798",
+  "content_sha256": "10cf73724bab9b2dd98f099030d518316ec2071410e3ee94671f33618a01e11d",
+  "source_hash": "08b41264d3123f1077d958f20b7169ec3e4f907e2992b631d774efc0a07f9a9a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Stops when a coin exactly bridges the next missing value.",
+      "failed_cases": [
+        "lc-1798-1",
+        "lc-1798-2",
+        "lc-1798-3",
+        "lc-1798-5",
+        "lc-1798-6",
+        "lc-1798-7",
+        "lc-1798-9",
+        "lc-1798-10",
+        "lc-1798-11",
+        "lc-1798-12",
+        "lc-1798-13",
+        "lc-1798-14",
+        "lc-1798-15"
+      ]
+    },
+    {
+      "reason": "Adds one rather than extending reach by the coin value.",
+      "failed_cases": [
+        "lc-1798-2",
+        "lc-1798-5",
+        "lc-1798-7",
+        "lc-1798-9",
+        "lc-1798-10",
+        "lc-1798-12",
+        "lc-1798-14",
+        "lc-1798-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5845,
+  "oracle_implementation": "code_practice/import_batch_106b.py:coins_o",
+  "validator_implementation_sha256": "c460dc40b7691dd41cb4e4a50b86703c1c9a81ce729640bd2421f7238293439b",
+  "batch_implementation_sha256": "98e654dcb8c275ba97545ec46a5f401c8401ec69377aeec965d15c1d271d2c7c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "94b21d0c62b4ce6e40f1b7ed480fd316e19f3309584f83bbffb6f2394c4d866d",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

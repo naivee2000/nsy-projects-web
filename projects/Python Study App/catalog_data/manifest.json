@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1223,
+  "count": 1228,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -21610,6 +21610,98 @@
       "path": "problems/leetcode-1796.json",
       "content_sha256": "9d9aa3dcce7dfded5f9340549d1fa8d8bd46290103461f9d5b7e1da6d5f21f9f",
       "source_id": 1796
+    },
+    {
+      "id": "leetcode-1798",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Consecutive Values You Can Make",
+      "summary": "Given an array of coin values, determine the longest sequence of consecutive integer values that can be formed by summing any subset of these coins, starting from 0.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1798.json",
+      "content_sha256": "10cf73724bab9b2dd98f099030d518316ec2071410e3ee94671f33618a01e11d",
+      "source_id": 1798
+    },
+    {
+      "id": "leetcode-1799",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Score After N Operations",
+      "summary": "Given an array nums of size 2 * n, perform n operations where in the i-th operation, choose two elements x and y, score i * gcd(x, y), and remove x and y.",
+      "topics": [
+        "arrays",
+        "bitmask",
+        "dynamic-programming",
+        "backtracking",
+        "number-theory"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1799.json",
+      "content_sha256": "13f1481ffd44b9564c30040ff8ac132452c5072172759eecb181a0a35ea07127",
+      "source_id": 1799
+    },
+    {
+      "id": "leetcode-1800",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Ascending Subarray Sum",
+      "summary": "Given an array of positive integers, find the highest sum of a strictly increasing subarray.",
+      "topics": [
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1800.json",
+      "content_sha256": "1341fa865a3c605eca3c15b9bf7f8255e6a3366bdf816ff7228dd565ecb94109",
+      "source_id": 1800
+    },
+    {
+      "id": "leetcode-1801",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Orders in the Backlog",
+      "summary": "Given a 2D integer array representing orders with price, amount, and type, where type 0 is a buy order and type 1 is a sell order, calculate the total number of orders remaining in the backlog after processing all orders.",
+      "topics": [
+        "arrays",
+        "simulation",
+        "heaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1801.json",
+      "content_sha256": "521280feaa29f9d6f4020c6f16577418e6637bc84294ee8343b23552219c096b",
+      "source_id": 1801
+    },
+    {
+      "id": "leetcode-1802",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Value at a Given Index in a Bounded Array",
+      "summary": "Given n, index, and maxSum, construct an array nums where each element is a positive integer, the difference between consecutive elements is at most 1, the total sum does not exceed maxSum, and the element at the specified index is maximized.",
+      "topics": [
+        "binary-search",
+        "math",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1802.json",
+      "content_sha256": "6ff06c3be311ca54a0a10e28cce289b62e62ce22645785c85abfd6a4bfa9b01e",
+      "source_id": 1802
     }
   ]
 }

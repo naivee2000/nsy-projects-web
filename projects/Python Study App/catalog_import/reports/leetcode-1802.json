@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1802",
+  "content_sha256": "6ff06c3be311ca54a0a10e28cce289b62e62ce22645785c85abfd6a4bfa9b01e",
+  "source_hash": "3f86c6502aacc451229e11dd1bacf695a16ba193c1e3e4e4185e5efe383e4177",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects peaks whose minimum required sum exactly equals max_sum.",
+      "failed_cases": [
+        "lc-1802-2",
+        "lc-1802-4",
+        "lc-1802-6",
+        "lc-1802-9",
+        "lc-1802-10"
+      ]
+    },
+    {
+      "reason": "Makes each side start at the peak rather than peak minus one, overestimating required sum.",
+      "failed_cases": [
+        "lc-1802-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5849,
+  "oracle_implementation": "code_practice/import_batch_106b.py:bounded_o",
+  "validator_implementation_sha256": "c460dc40b7691dd41cb4e4a50b86703c1c9a81ce729640bd2421f7238293439b",
+  "batch_implementation_sha256": "98e654dcb8c275ba97545ec46a5f401c8401ec69377aeec965d15c1d271d2c7c",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "438ebd2ace3b2dff27707967c7bcb14ab5a3d497f520320462099af02eb67db2",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
