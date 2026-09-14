@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1784",
+  "content_sha256": "7a1e4e156399f19eceabd38a66a085aca1ff21ac388e6346afd69198fd30908c",
+  "source_hash": "8c2c052ed870d9ba52e7e6a603fff1798de45307198de329f4dcc9abb54d98a8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a one-to-zero transition even though ending the only segment is allowed.",
+      "failed_cases": [
+        "lc-1784-2",
+        "lc-1784-7",
+        "lc-1784-8",
+        "lc-1784-10",
+        "lc-1784-11"
+      ]
+    },
+    {
+      "reason": "Returns true when a second one segment is explicitly detected.",
+      "failed_cases": [
+        "lc-1784-1",
+        "lc-1784-2",
+        "lc-1784-3",
+        "lc-1784-4",
+        "lc-1784-5",
+        "lc-1784-6",
+        "lc-1784-7",
+        "lc-1784-8",
+        "lc-1784-9",
+        "lc-1784-10",
+        "lc-1784-11",
+        "lc-1784-12",
+        "lc-1784-13",
+        "lc-1784-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5831,
+  "oracle_implementation": "code_practice/import_batch_105c.py:segment_o",
+  "validator_implementation_sha256": "2f5fc1b51da1cf1107c590085e51de75096deb864411680b3e9d9b3630bbb672",
+  "batch_implementation_sha256": "7f882090a319359a43228ac9d56e2089feb604ead08ed305d3b398a2ce837ad7",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cbf38b4f2c318ade38fc2c88778342da272b31016d8aedfef5cb251a975131d6",
+  "elapsed_seconds": 0.01,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

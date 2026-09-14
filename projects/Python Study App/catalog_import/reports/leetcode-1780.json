@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1780",
+  "content_sha256": "743dfb5cbe843a657767507fbb728319dffce6bb384f958caf5b31059d213745",
+  "source_hash": "34a03b8c047b51dce56f21871b16099d794dece6d4f5531d60bbb24bb819685b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects required base-three digit one instead of forbidden digit two.",
+      "failed_cases": [
+        "lc-1780-1",
+        "lc-1780-3",
+        "lc-1780-4",
+        "lc-1780-5",
+        "lc-1780-6",
+        "lc-1780-8",
+        "lc-1780-9",
+        "lc-1780-10",
+        "lc-1780-11",
+        "lc-1780-12",
+        "lc-1780-13"
+      ]
+    },
+    {
+      "reason": "Examines binary digits rather than base-three digits.",
+      "failed_cases": [
+        "lc-1780-6",
+        "lc-1780-8",
+        "lc-1780-9",
+        "lc-1780-11",
+        "lc-1780-12",
+        "lc-1780-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5827,
+  "oracle_implementation": "code_practice/import_batch_105c.py:powers_o",
+  "validator_implementation_sha256": "2f5fc1b51da1cf1107c590085e51de75096deb864411680b3e9d9b3630bbb672",
+  "batch_implementation_sha256": "7f882090a319359a43228ac9d56e2089feb604ead08ed305d3b398a2ce837ad7",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3572eba76e69f08d5e19678c95c91fd57cdb142d68ab7dacc5860d0a8f2d5ffe",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
