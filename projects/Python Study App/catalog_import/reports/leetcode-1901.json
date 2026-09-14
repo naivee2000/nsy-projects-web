@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1901",
+  "content_sha256": "7bdab77cb001870d7e86c38b3281acf4547d77aca12ffe311999b20d2004ddba",
+  "source_hash": "0b377522715e1d1c1ead94821fbc95f8442139940f62db43f0eb412d15662f0a",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Always chooses the first row's maximum without checking vertical neighbors.",
+      "failed_cases": [
+        "lc-1901-2",
+        "lc-1901-6",
+        "lc-1901-9",
+        "lc-1901-11",
+        "lc-1901-13",
+        "lc-1901-15"
+      ]
+    },
+    {
+      "reason": "Moves the row binary search away from the larger vertical neighbor.",
+      "failed_cases": [
+        "lc-1901-1",
+        "lc-1901-2",
+        "lc-1901-6",
+        "lc-1901-7",
+        "lc-1901-8",
+        "lc-1901-9",
+        "lc-1901-10",
+        "lc-1901-11",
+        "lc-1901-12",
+        "lc-1901-13",
+        "lc-1901-14",
+        "lc-1901-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5948,
+  "oracle_implementation": "code_practice/import_batch_110c.py:peak_oracle",
+  "validator_implementation_sha256": "180e9a8afa0d8e68fdf3f1d327d62bc44f03be31ffe3d350eb9669fa1d1ba206",
+  "batch_implementation_sha256": "033ce338dd94340f4029024d80513dbf30077dd606927f507553f61a67ae9183",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "48b7faf70542591d9c8bbc1429826c8c8cf0059a396554a4d3d50ec93f8c40ba",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

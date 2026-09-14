@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1905",
+  "content_sha256": "1a1bbbf03a59959d7ca6251352af632b6d028e93d6e955daf1d29a7f7333b656",
+  "source_hash": "22686d32356f0b55a5f2790a417af19608d9a5f8a44c342d4a78a52ab7a5aa74",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a grid2 island when any one of its cells overlaps grid1 land instead of requiring every cell.",
+      "failed_cases": [
+        "lc-1905-1",
+        "lc-1905-2",
+        "lc-1905-9",
+        "lc-1905-12",
+        "lc-1905-15"
+      ]
+    },
+    {
+      "reason": "Counts islands in grid1 itself and ignores the component structure and containment of grid2.",
+      "failed_cases": [
+        "lc-1905-2",
+        "lc-1905-6",
+        "lc-1905-9",
+        "lc-1905-11",
+        "lc-1905-12",
+        "lc-1905-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5952,
+  "oracle_implementation": "code_practice/import_batch_110c.py:sub_islands_oracle",
+  "validator_implementation_sha256": "180e9a8afa0d8e68fdf3f1d327d62bc44f03be31ffe3d350eb9669fa1d1ba206",
+  "batch_implementation_sha256": "033ce338dd94340f4029024d80513dbf30077dd606927f507553f61a67ae9183",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b0d0e493887e7fac322aca141787c702c0897de6f415882741b351c755be6d45",
+  "elapsed_seconds": 0.072,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

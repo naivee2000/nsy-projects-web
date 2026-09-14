@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1903",
+  "content_sha256": "6bb61178d2835311c70c8a86557b1a29cfc781b6a71f95a45173cae82bb46b73",
+  "source_hash": "fbecd0c3df7986437ed8d97b63ee1ea17ed1922fa96a81c8d83cb3ebe1ed1e13",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stops at the first odd digit from the left, producing a shorter and therefore smaller positive substring.",
+      "failed_cases": [
+        "lc-1903-2",
+        "lc-1903-6",
+        "lc-1903-9",
+        "lc-1903-10",
+        "lc-1903-11",
+        "lc-1903-14"
+      ]
+    },
+    {
+      "reason": "Returns only the final odd digit rather than the full maximal prefix ending there.",
+      "failed_cases": [
+        "lc-1903-2",
+        "lc-1903-6",
+        "lc-1903-9",
+        "lc-1903-10",
+        "lc-1903-11",
+        "lc-1903-12",
+        "lc-1903-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5950,
+  "oracle_implementation": "code_practice/import_batch_110c.py:odd_oracle",
+  "validator_implementation_sha256": "180e9a8afa0d8e68fdf3f1d327d62bc44f03be31ffe3d350eb9669fa1d1ba206",
+  "batch_implementation_sha256": "033ce338dd94340f4029024d80513dbf30077dd606927f507553f61a67ae9183",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "88bee77ec9638fa8e067442e7013866cb1c05325924f37cf65131612826a0427",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

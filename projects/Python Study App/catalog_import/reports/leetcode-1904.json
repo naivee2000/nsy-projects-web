@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1904",
+  "content_sha256": "c6cebe0d83dcfe1a35f6da6adbe5185e92ee3affaa11e9ad83739b8bc8bc9adf",
+  "source_hash": "2b90de17c516516749a96f8e21de6854cb4bb8784b234d9741ec444155c54a02",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats an overnight logout as earlier on the same day and loses all cross-midnight rounds.",
+      "failed_cases": [
+        "lc-1904-2",
+        "lc-1904-7",
+        "lc-1904-8",
+        "lc-1904-13"
+      ]
+    },
+    {
+      "reason": "Rounds login down to a start before the user arrived, counting a partial opening round.",
+      "failed_cases": [
+        "lc-1904-1",
+        "lc-1904-6",
+        "lc-1904-7",
+        "lc-1904-10",
+        "lc-1904-11",
+        "lc-1904-12",
+        "lc-1904-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5951,
+  "oracle_implementation": "code_practice/import_batch_110c.py:rounds_oracle",
+  "validator_implementation_sha256": "180e9a8afa0d8e68fdf3f1d327d62bc44f03be31ffe3d350eb9669fa1d1ba206",
+  "batch_implementation_sha256": "033ce338dd94340f4029024d80513dbf30077dd606927f507553f61a67ae9183",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "57cc673ccecadf4900663516dcb50495edad52d7c3ab3e371a4d2d3066297d29",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
