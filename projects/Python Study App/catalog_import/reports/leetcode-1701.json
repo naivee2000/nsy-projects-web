@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1701",
+  "content_sha256": "0842e8dd2dd20337c8994f81a0a48bf17319ec942ebd94c906f43eb5af2ee238",
+  "source_hash": "57cadb4b8a7fb4391fd85014f4b40f7ec3068afd209096b99a3742332bc61f3c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never lets an idle chef advance to a later arrival time.",
+      "failed_cases": [
+        "lc-1701-1",
+        "lc-1701-2",
+        "lc-1701-3",
+        "lc-1701-4",
+        "lc-1701-5",
+        "lc-1701-6",
+        "lc-1701-8",
+        "lc-1701-9",
+        "lc-1701-10",
+        "lc-1701-11",
+        "lc-1701-13",
+        "lc-1701-14"
+      ]
+    },
+    {
+      "reason": "Averages absolute completion times rather than customer waiting times.",
+      "failed_cases": [
+        "lc-1701-1",
+        "lc-1701-2",
+        "lc-1701-3",
+        "lc-1701-4",
+        "lc-1701-5",
+        "lc-1701-6",
+        "lc-1701-7",
+        "lc-1701-8",
+        "lc-1701-9",
+        "lc-1701-10",
+        "lc-1701-11",
+        "lc-1701-12",
+        "lc-1701-13",
+        "lc-1701-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5748,
+  "oracle_implementation": "code_practice/import_batch_102c.py:waiting_o",
+  "validator_implementation_sha256": "fd35505998f7bfd1c6aeba6b5913fd7a9f3bed267dbfedcd779d463d8099b340",
+  "batch_implementation_sha256": "bcbd85b62b4c6f0ee4d2b91af1202412413ffafa25e8b9bfc1d876d8df60767e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7c5e4509b5880754c174a41b6b4d818d806556b6949068c15f102f0534512098",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

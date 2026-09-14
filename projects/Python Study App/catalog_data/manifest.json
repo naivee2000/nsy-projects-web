@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 1149,
+  "count": 1159,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -20294,6 +20294,178 @@
       "path": "problems/leetcode-1695.json",
       "content_sha256": "d055d74e4c2a99f330de98adfc134d548cba94cc8e12ef08b7294eebe5562668",
       "source_id": 1695
+    },
+    {
+      "id": "leetcode-1696",
+      "version": 1,
+      "status": "approved",
+      "title": "Jump Game VI",
+      "summary": "Given a 0-indexed integer array nums and an integer k, you start at index 0.",
+      "topics": [
+        "dynamic-programming",
+        "monotonic-queues"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1696.json",
+      "content_sha256": "68f23fcf6b339ce964fb90da0be081f6a43aeca96a50ed988981b66c41efaa92",
+      "source_id": 1696
+    },
+    {
+      "id": "leetcode-1697",
+      "version": 1,
+      "status": "approved",
+      "title": "Checking Existence of Edge Length Limited Paths",
+      "summary": "Given an undirected graph with nodes connected by edges of specific distances, determine for each query if there exists a path between two specified nodes where all edges have distances strictly less than a given limit.",
+      "topics": [
+        "graphs",
+        "union-find"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1697.json",
+      "content_sha256": "036f68d834ab2080c93e0e13b14914d32391144694c8a0196a76bb41a6d3a0d0",
+      "source_id": 1697
+    },
+    {
+      "id": "leetcode-1700",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Students Unable to Eat Lunch",
+      "summary": "The cafeteria serves sandwiches in a stack, with students in a queue preferring either circular (0) or square (1) sandwiches.",
+      "topics": [
+        "queues",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1700.json",
+      "content_sha256": "2183ab5fedfa709e882e700196384be930e934c130ad8961ce79d541a96bdab0",
+      "source_id": 1700
+    },
+    {
+      "id": "leetcode-1701",
+      "version": 1,
+      "status": "approved",
+      "title": "Average Waiting Time",
+      "summary": "A restaurant has one chef.",
+      "topics": [
+        "simulation",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1701.json",
+      "content_sha256": "0842e8dd2dd20337c8994f81a0a48bf17319ec942ebd94c906f43eb5af2ee238",
+      "source_id": 1701
+    },
+    {
+      "id": "leetcode-1702",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Binary String After Change",
+      "summary": "Given a binary string, you can perform operations to replace '00' with '10' or '10' with '01'.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1702.json",
+      "content_sha256": "58575e5c4d143d416c7fa9d5cc2f2ceb67cb2d5bf4cd608362076a467280fc93",
+      "source_id": 1702
+    },
+    {
+      "id": "leetcode-1704",
+      "version": 1,
+      "status": "approved",
+      "title": "Determine if String Halves Are Alike",
+      "summary": "Given an even-length string s, divide it into two halves.",
+      "topics": [
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1704.json",
+      "content_sha256": "094d9e9a103e12cdb000ae22262aa9b73ee616e7ce817f8a473cc2e0c41997a6",
+      "source_id": 1704
+    },
+    {
+      "id": "leetcode-1706",
+      "version": 1,
+      "status": "approved",
+      "title": "Where Will the Ball Fall",
+      "summary": "Consider a grid of size m x n representing a box with n balls, where each cell contains a diagonal board that can redirect a ball to the right (1) or left (-1).",
+      "topics": [
+        "matrices",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1706.json",
+      "content_sha256": "3822dde9ac65957ee5161c1e7c4085ec702407d181435b6b957fd55cfe894735",
+      "source_id": 1706
+    },
+    {
+      "id": "leetcode-1708",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Subarray Length K",
+      "summary": "Given an array of distinct integers, determine the largest subarray of length k, where 'largest' is defined by comparing the first differing element in the subarrays.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1708.json",
+      "content_sha256": "5abd2cb1f697cc6010a770fcdf8d4614b049188bfe93c56cf62156fc7ed71a5b",
+      "source_id": 1708
+    },
+    {
+      "id": "leetcode-1710",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Units on a Truck",
+      "summary": "Given a 2D array boxTypes where each element boxTypes[i] contains the number of boxes of type i and the number of units in each box of type i, and an integer truckSize representing the maximum number of boxes that can be loaded onto the truck, select the boxes to maximize the total number of units loaded, ensuring that the total number of boxes does not exceed truckSize.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-1710.json",
+      "content_sha256": "8c50f76c4ac72b76217c163df4245f3a5dca9a15b459d140c8f76f3b4c0aae75",
+      "source_id": 1710
+    },
+    {
+      "id": "leetcode-1711",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Good Meals",
+      "summary": "Given an array of integers representing the deliciousness of each food item, count the number of unique pairs of different foods where the sum of their deliciousness values is a power of two.",
+      "topics": [
+        "hash-maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1711.json",
+      "content_sha256": "385c45720dc5e6c31b43329dd85a73f3cac4d40f0b6e3c7eed4ac40ca36da4cd",
+      "source_id": 1711
     }
   ]
 }

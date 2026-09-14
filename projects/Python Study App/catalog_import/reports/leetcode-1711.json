@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1711",
+  "content_sha256": "385c45720dc5e6c31b43329dd85a73f3cac4d40f0b6e3c7eed4ac40ca36da4cd",
+  "source_hash": "51114133179198fd7ffcaca9bb3231d38cda8e3d8b212cb0f389398326c35136",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the valid power-of-two target one.",
+      "failed_cases": [
+        "lc-1711-4"
+      ]
+    },
+    {
+      "reason": "Stores presence rather than multiplicity of prior values.",
+      "failed_cases": [
+        "lc-1711-2",
+        "lc-1711-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5758,
+  "oracle_implementation": "code_practice/import_batch_102c.py:meals_o",
+  "validator_implementation_sha256": "fd35505998f7bfd1c6aeba6b5913fd7a9f3bed267dbfedcd779d463d8099b340",
+  "batch_implementation_sha256": "bcbd85b62b4c6f0ee4d2b91af1202412413ffafa25e8b9bfc1d876d8df60767e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "54a315376d289e05a4c2703f03c524651f3f432223c5c36fd6a338f1ad0801a4",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

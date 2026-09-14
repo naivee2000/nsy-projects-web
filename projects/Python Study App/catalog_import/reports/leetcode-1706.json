@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1706",
+  "content_sha256": "3822dde9ac65957ee5161c1e7c4085ec702407d181435b6b957fd55cfe894735",
+  "source_hash": "725a078e7c04f48045a87f72102f3473e0f86b516be3537916669894bf334208",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats matching adjacent slopes as a V-shaped trap.",
+      "failed_cases": [
+        "lc-1706-1",
+        "lc-1706-4",
+        "lc-1706-5",
+        "lc-1706-6",
+        "lc-1706-7",
+        "lc-1706-8",
+        "lc-1706-9",
+        "lc-1706-10",
+        "lc-1706-14"
+      ]
+    },
+    {
+      "reason": "Resets each row to the starting column instead of following the ball’s path.",
+      "failed_cases": [
+        "lc-1706-1",
+        "lc-1706-4",
+        "lc-1706-6",
+        "lc-1706-7",
+        "lc-1706-8",
+        "lc-1706-10",
+        "lc-1706-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5753,
+  "oracle_implementation": "code_practice/import_batch_102c.py:balls_o",
+  "validator_implementation_sha256": "fd35505998f7bfd1c6aeba6b5913fd7a9f3bed267dbfedcd779d463d8099b340",
+  "batch_implementation_sha256": "bcbd85b62b4c6f0ee4d2b91af1202412413ffafa25e8b9bfc1d876d8df60767e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "87ff08724753402e992d3a05e54ca4022ea86249ef06ca1fa0a09805d6714a3e",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

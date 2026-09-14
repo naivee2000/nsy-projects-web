@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1696",
+  "content_sha256": "68f23fcf6b339ce964fb90da0be081f6a43aeca96a50ed988981b66c41efaa92",
+  "source_hash": "b9c27241d901e8d06528012ee76b2b1331c630f05b21fefb7d5249163b30bece",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Expires the predecessor exactly k positions away even though that jump is allowed.",
+      "failed_cases": [
+        "lc-1696-1",
+        "lc-1696-2",
+        "lc-1696-5",
+        "lc-1696-7",
+        "lc-1696-11",
+        "lc-1696-14"
+      ]
+    },
+    {
+      "reason": "Maintains an increasing queue and selects the smallest prior score.",
+      "failed_cases": [
+        "lc-1696-1",
+        "lc-1696-2",
+        "lc-1696-5",
+        "lc-1696-7",
+        "lc-1696-8",
+        "lc-1696-9",
+        "lc-1696-11",
+        "lc-1696-12",
+        "lc-1696-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5743,
+  "oracle_implementation": "code_practice/import_batch_102c.py:jump_o",
+  "validator_implementation_sha256": "fd35505998f7bfd1c6aeba6b5913fd7a9f3bed267dbfedcd779d463d8099b340",
+  "batch_implementation_sha256": "bcbd85b62b4c6f0ee4d2b91af1202412413ffafa25e8b9bfc1d876d8df60767e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1de49c1e407638af9aea1ecdd0758ea4f120eb10802d1d1c5a00e2bbccb6eb44",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

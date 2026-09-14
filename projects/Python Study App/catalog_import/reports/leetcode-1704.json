@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1704",
+  "content_sha256": "094d9e9a103e12cdb000ae22262aa9b73ee616e7ce817f8a473cc2e0c41997a6",
+  "source_hash": "2bd88a5bcd012494f8360c15ee0ee0b3a27c3a9817f5c4ced949ae6ff1a5363a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores uppercase vowels.",
+      "failed_cases": [
+        "lc-1704-7",
+        "lc-1704-9"
+      ]
+    },
+    {
+      "reason": "Returns true when the vowel counts differ.",
+      "failed_cases": [
+        "lc-1704-1",
+        "lc-1704-2",
+        "lc-1704-3",
+        "lc-1704-4",
+        "lc-1704-5",
+        "lc-1704-6",
+        "lc-1704-7",
+        "lc-1704-8",
+        "lc-1704-9",
+        "lc-1704-10",
+        "lc-1704-11",
+        "lc-1704-12",
+        "lc-1704-13",
+        "lc-1704-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5751,
+  "oracle_implementation": "code_practice/import_batch_102c.py:halves_o",
+  "validator_implementation_sha256": "fd35505998f7bfd1c6aeba6b5913fd7a9f3bed267dbfedcd779d463d8099b340",
+  "batch_implementation_sha256": "bcbd85b62b4c6f0ee4d2b91af1202412413ffafa25e8b9bfc1d876d8df60767e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e16e56b1421d03702afc48ef38fc067ec0f16b93da3a17e74fbdad1a016b6a43",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

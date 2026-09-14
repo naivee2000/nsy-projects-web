@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1702",
+  "content_sha256": "58575e5c4d143d416c7fa9d5cc2f2ceb67cb2d5bf4cd608362076a467280fc93",
+  "source_hash": "f0df6382f71d1706d5ae2e0b9fea4c5c9c6c8ad5cad622376961015747df9b7c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Leaves a two-zero string unchanged even though it can improve.",
+      "failed_cases": [
+        "lc-1702-5",
+        "lc-1702-11"
+      ]
+    },
+    {
+      "reason": "Places the sole remaining zero at the first original zero instead of shifting it right for every additional zero.",
+      "failed_cases": [
+        "lc-1702-1",
+        "lc-1702-5",
+        "lc-1702-8",
+        "lc-1702-9",
+        "lc-1702-10",
+        "lc-1702-11",
+        "lc-1702-12",
+        "lc-1702-13",
+        "lc-1702-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5749,
+  "oracle_implementation": "code_practice/import_batch_102c.py:binary_o",
+  "validator_implementation_sha256": "fd35505998f7bfd1c6aeba6b5913fd7a9f3bed267dbfedcd779d463d8099b340",
+  "batch_implementation_sha256": "bcbd85b62b4c6f0ee4d2b91af1202412413ffafa25e8b9bfc1d876d8df60767e",
+  "judge_contract_sha256": "089182d92eab86834ed3e567079bdf60970978b954795ec5d752f006669152dd",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5fd87dca81970119923ac4d85dcd4659ba453c2f876fd32ecfe4ae002f9e1cd8",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
