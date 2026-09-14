@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3375",
+  "content_sha256": "fb1cd58dcf9fcf9a6841d89203108bf4a83d30bc73f919ae91704fb3809a9fb1",
+  "source_hash": "259095d4ac2fd6db1c5585007efc5ee7efad84aa95d512daafff77094d7e7be0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly rejects arrays that already contain the target k.",
+      "failed_cases": [
+        "lc-3375-1",
+        "lc-3375-3",
+        "lc-3375-6",
+        "lc-3375-7",
+        "lc-3375-10",
+        "lc-3375-12",
+        "lc-3375-13",
+        "lc-3375-14"
+      ]
+    },
+    {
+      "reason": "Counts k itself as an operation level.",
+      "failed_cases": [
+        "lc-3375-1",
+        "lc-3375-3",
+        "lc-3375-6",
+        "lc-3375-7",
+        "lc-3375-10",
+        "lc-3375-12",
+        "lc-3375-13",
+        "lc-3375-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7422,
+  "oracle_implementation": "code_practice/import_batch_192c.py:equal_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "493dddda295e96eeade074c951a2eefbac1521ff0d557eb281243f775d03693a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e0a985fa716920add24ba992cd943cc81d7379242dd225d964767229a2c6a479",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

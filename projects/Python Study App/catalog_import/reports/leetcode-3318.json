@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3318",
+  "content_sha256": "ce1c6b7332d67d944deb06bc3e2b9c79d46d02dbe4223adf6186fa2fef623dc9",
+  "source_hash": "887522f38a6cb4709d75035f2594e724b6ec53a0b70e1cf459b8d634ecdb62a3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks equal-frequency ties toward the smaller value.",
+      "failed_cases": [
+        "lc-3318-1",
+        "lc-3318-5",
+        "lc-3318-7",
+        "lc-3318-10",
+        "lc-3318-11",
+        "lc-3318-12",
+        "lc-3318-13",
+        "lc-3318-15",
+        "lc-3318-16"
+      ]
+    },
+    {
+      "reason": "Always keeps one distinct value instead of x values.",
+      "failed_cases": [
+        "lc-3318-1",
+        "lc-3318-2",
+        "lc-3318-7",
+        "lc-3318-10",
+        "lc-3318-13",
+        "lc-3318-14",
+        "lc-3318-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7365,
+  "oracle_implementation": "code_practice/import_batch_192a.py:xsum_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "429077ba832ccda06a6bcc88358635212642b3d8c49d7204f5b038beeb63758f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1d359be55770d81ccb80d0555bb9c04383a975326889de6665231f9190577818",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3396",
+  "content_sha256": "b61c9fca10eac8801d850846682c3f05c7ed3736eca923064a9229bfdfb7af4d",
+  "source_hash": "0f06bcc1a59761d7a06d1d590847feb97cfd0910c6fd90d3cb38d5ad9aa7bf59",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes only two elements per operation.",
+      "failed_cases": [
+        "lc-3396-1",
+        "lc-3396-10"
+      ]
+    },
+    {
+      "reason": "Counts each required operation twice.",
+      "failed_cases": [
+        "lc-3396-4",
+        "lc-3396-7",
+        "lc-3396-8",
+        "lc-3396-9",
+        "lc-3396-11",
+        "lc-3396-13",
+        "lc-3396-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7443,
+  "oracle_implementation": "code_practice/import_batch_192d.py:distinct_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "2ddf5ff5668321c04378acf12766741486c8f18edfd2d636f8985d4b27a604cf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "94e2b6605777c7d88378c737e61dc74ebac2d261bcc3c1b92ab3385a6723b989",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

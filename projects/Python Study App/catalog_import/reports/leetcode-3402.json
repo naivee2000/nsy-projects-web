@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3402",
+  "content_sha256": "88698b0b007d1fc7912cd50b6f04bee7ad1a386cf7542b97fca9f45738d05377",
+  "source_hash": "abd94f301a1e4302145b65c2a2adb98ae9946b076d1fc37d96d8a1791f81095f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Makes columns merely nondecreasing instead of strictly increasing.",
+      "failed_cases": [
+        "lc-3402-1",
+        "lc-3402-4",
+        "lc-3402-6",
+        "lc-3402-7",
+        "lc-3402-8",
+        "lc-3402-9",
+        "lc-3402-10",
+        "lc-3402-12",
+        "lc-3402-13",
+        "lc-3402-14"
+      ]
+    },
+    {
+      "reason": "Reads column zero while adjusting every column.",
+      "failed_cases": [
+        "lc-3402-1",
+        "lc-3402-2",
+        "lc-3402-8",
+        "lc-3402-12",
+        "lc-3402-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7449,
+  "oracle_implementation": "code_practice/import_batch_192d.py:columns_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "2ddf5ff5668321c04378acf12766741486c8f18edfd2d636f8985d4b27a604cf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f7009bdc20f8d5815e6c6944e1a917df4f408f1d4b7701a047a0f5ef540cf63b",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

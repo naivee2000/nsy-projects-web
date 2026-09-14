@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3345",
+  "content_sha256": "a02af4e63e214ef2988c168622a94f02e5a83a4c9edf220ff7424d1b194f3c7d",
+  "source_hash": "98606803f2bc698af89d3b54f2789297a6de553368b1384cf4461441bb9f08e8",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Tests equality with t rather than divisibility by t.",
+      "failed_cases": [
+        "lc-3345-2",
+        "lc-3345-3",
+        "lc-3345-4",
+        "lc-3345-5",
+        "lc-3345-6",
+        "lc-3345-7",
+        "lc-3345-8",
+        "lc-3345-9",
+        "lc-3345-10",
+        "lc-3345-11",
+        "lc-3345-12",
+        "lc-3345-13",
+        "lc-3345-15"
+      ]
+    },
+    {
+      "reason": "Skips every other candidate and can miss the minimum.",
+      "failed_cases": [
+        "lc-3345-2",
+        "lc-3345-4",
+        "lc-3345-5",
+        "lc-3345-6",
+        "lc-3345-7",
+        "lc-3345-8",
+        "lc-3345-9",
+        "lc-3345-11",
+        "lc-3345-12",
+        "lc-3345-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7392,
+  "oracle_implementation": "code_practice/import_batch_192b.py:divisible_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "e4184ac5181099816728e2e85cefaa0ffa4274f6f322e9a60c82f0d577a15cf8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ada30a731fa13e2d6ce1dc7f7b27de68c003c31909ed60c9f3bf4e8d4c0042cb",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

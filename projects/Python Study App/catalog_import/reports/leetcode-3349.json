@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3349",
+  "content_sha256": "31018736dda33b9bac3b1635ec618862b26e7171f62300079395861c85dd871d",
+  "source_hash": "8e65077515e1bad34d60db66886723d9a46c5de77402ff26293d4fe1728dfc9f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Starts the second window one position too late.",
+      "failed_cases": [
+        "lc-3349-3",
+        "lc-3349-4",
+        "lc-3349-5",
+        "lc-3349-6",
+        "lc-3349-8",
+        "lc-3349-9",
+        "lc-3349-12",
+        "lc-3349-13",
+        "lc-3349-15"
+      ]
+    },
+    {
+      "reason": "Allows equal neighbors despite strict increase.",
+      "failed_cases": [
+        "lc-3349-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7396,
+  "oracle_implementation": "code_practice/import_batch_192b.py:adjacent_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "e4184ac5181099816728e2e85cefaa0ffa4274f6f322e9a60c82f0d577a15cf8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3bec5b73ec98a4ec0097a8a77d5637fe430148abca055e8f26e820a06de9ea97",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

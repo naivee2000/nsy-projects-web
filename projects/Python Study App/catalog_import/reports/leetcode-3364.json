@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3364",
+  "content_sha256": "d232ba4b05cf228c2eeb051841e2bf6247673009806189b3df9fe5af7c54c371",
+  "source_hash": "53c16937cffb62c870ddc81859d88e00a34980bcad2e7d131f5138f2a62c1ec0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats zero sums as positive.",
+      "failed_cases": [
+        "lc-3364-2",
+        "lc-3364-8",
+        "lc-3364-10",
+        "lc-3364-12",
+        "lc-3364-14"
+      ]
+    },
+    {
+      "reason": "Omits subarrays of the maximum allowed length r.",
+      "failed_cases": [
+        "lc-3364-3",
+        "lc-3364-6",
+        "lc-3364-10",
+        "lc-3364-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7411,
+  "oracle_implementation": "code_practice/import_batch_192c.py:positive_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "493dddda295e96eeade074c951a2eefbac1521ff0d557eb281243f775d03693a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "61941647bc1810dc8f9a1016ed6a0112d2788b1deaf4e2d2047b1acbad161c3e",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

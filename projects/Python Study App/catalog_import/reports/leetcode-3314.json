@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3314",
+  "content_sha256": "d955f6eadebe58e35ca4ec01b8a9387ccad35ec548e0e58313a22c108c6473f5",
+  "source_hash": "1425d941e05120ddcac8792c1e435c113039eb70e30fefaaf77cdf08f9598591",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Always clears the lowest bit instead of the highest bit in the trailing-one run.",
+      "failed_cases": [
+        "lc-3314-1",
+        "lc-3314-2",
+        "lc-3314-4",
+        "lc-3314-6",
+        "lc-3314-7",
+        "lc-3314-10",
+        "lc-3314-11",
+        "lc-3314-13",
+        "lc-3314-14",
+        "lc-3314-15",
+        "lc-3314-16"
+      ]
+    },
+    {
+      "reason": "Treats three as impossible and mishandles two.",
+      "failed_cases": [
+        "lc-3314-1",
+        "lc-3314-3",
+        "lc-3314-4",
+        "lc-3314-14",
+        "lc-3314-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7361,
+  "oracle_implementation": "code_practice/import_batch_192a.py:bit_array_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "429077ba832ccda06a6bcc88358635212642b3d8c49d7204f5b038beeb63758f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f29288c9f23bfdf4af40c64035de85c110d1e4f374dc8b77114819584a5da317",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

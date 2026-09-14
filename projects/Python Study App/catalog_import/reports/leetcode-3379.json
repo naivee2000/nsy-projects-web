@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3379",
+  "content_sha256": "9eae2fecb391ea5564dd98d98bf866f0a16d24c3b7626d825395ba1aea43fff5",
+  "source_hash": "b13b000e510c3d35da04e5dc9c4d12b634aa6b73b15a4844024e940190f2898b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses each movement as an absolute index rather than an offset from i.",
+      "failed_cases": [
+        "lc-3379-1",
+        "lc-3379-2",
+        "lc-3379-4",
+        "lc-3379-5",
+        "lc-3379-7",
+        "lc-3379-8",
+        "lc-3379-10",
+        "lc-3379-11",
+        "lc-3379-12",
+        "lc-3379-14"
+      ]
+    },
+    {
+      "reason": "Reverses left and right movement.",
+      "failed_cases": [
+        "lc-3379-1",
+        "lc-3379-2",
+        "lc-3379-8",
+        "lc-3379-10",
+        "lc-3379-11",
+        "lc-3379-12",
+        "lc-3379-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7426,
+  "oracle_implementation": "code_practice/import_batch_192c.py:transform_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "493dddda295e96eeade074c951a2eefbac1521ff0d557eb281243f775d03693a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c1a94854ffd1f6faad9850c0a2e88245f2639626a1ca823ed6388c13901e2a94",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

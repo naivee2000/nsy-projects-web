@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3392",
+  "content_sha256": "3bceaf3a83372a752d737969ae29057f97fedf488dc5d87aa26651157b107882",
+  "source_hash": "4a7b24abd8c2ab0c2e8f99cf9a9c5a4b7143e432c29a31952010d0735dd70a24",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets to double the endpoint sum.",
+      "failed_cases": [
+        "lc-3392-4",
+        "lc-3392-5",
+        "lc-3392-6",
+        "lc-3392-7",
+        "lc-3392-8",
+        "lc-3392-10",
+        "lc-3392-13",
+        "lc-3392-14"
+      ]
+    },
+    {
+      "reason": "Counts nonqualifying triples.",
+      "failed_cases": [
+        "lc-3392-1",
+        "lc-3392-2",
+        "lc-3392-3",
+        "lc-3392-4",
+        "lc-3392-5",
+        "lc-3392-6",
+        "lc-3392-7",
+        "lc-3392-8",
+        "lc-3392-9",
+        "lc-3392-11",
+        "lc-3392-12",
+        "lc-3392-13",
+        "lc-3392-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7439,
+  "oracle_implementation": "code_practice/import_batch_192d.py:triple_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "2ddf5ff5668321c04378acf12766741486c8f18edfd2d636f8985d4b27a604cf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d23917860b083349e38d1e4da8c78e1b099cd488eca6c4fd75e1dfe9eb994949",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3304",
+  "content_sha256": "0171e912f74ae4ce4e492e5a46ba78c876246f8617a1ebd879814757f680b872",
+  "source_hash": "1f429b3f5f8f364166787fc395bfde13dbc2da6e2fddd73fc3e72c1e908484b9",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts set bits in k rather than the zero-based position.",
+      "failed_cases": [
+        "lc-3304-1",
+        "lc-3304-2",
+        "lc-3304-4",
+        "lc-3304-5",
+        "lc-3304-7",
+        "lc-3304-8",
+        "lc-3304-9",
+        "lc-3304-11",
+        "lc-3304-12",
+        "lc-3304-13",
+        "lc-3304-14",
+        "lc-3304-15",
+        "lc-3304-16"
+      ]
+    },
+    {
+      "reason": "Advances every answer by one extra alphabet step.",
+      "failed_cases": [
+        "lc-3304-1",
+        "lc-3304-2",
+        "lc-3304-3",
+        "lc-3304-4",
+        "lc-3304-5",
+        "lc-3304-6",
+        "lc-3304-7",
+        "lc-3304-8",
+        "lc-3304-9",
+        "lc-3304-10",
+        "lc-3304-11",
+        "lc-3304-12",
+        "lc-3304-13",
+        "lc-3304-14",
+        "lc-3304-15",
+        "lc-3304-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7351,
+  "oracle_implementation": "code_practice/import_batch_192a.py:kth_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "429077ba832ccda06a6bcc88358635212642b3d8c49d7204f5b038beeb63758f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "83ccfb934927d4e32792787c5e05c6fa843cf73e9bf9b472c301ee50a348dffc",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

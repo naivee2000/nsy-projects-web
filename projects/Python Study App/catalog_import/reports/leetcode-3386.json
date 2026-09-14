@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3386",
+  "content_sha256": "2f6e53c2d1ca567e26ac22be9849d1a7f385f16ca4ab48caafbcb9d522a3137c",
+  "source_hash": "598801dd2dca11c2ebf60f27d19d93c4cc7bfd1186a824719577cec084d280e3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses cumulative timestamps as durations.",
+      "failed_cases": [
+        "lc-3386-5",
+        "lc-3386-9",
+        "lc-3386-11",
+        "lc-3386-12",
+        "lc-3386-14"
+      ]
+    },
+    {
+      "reason": "Breaks equal-duration ties toward the larger button index.",
+      "failed_cases": [
+        "lc-3386-2",
+        "lc-3386-6",
+        "lc-3386-10",
+        "lc-3386-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7433,
+  "oracle_implementation": "code_practice/import_batch_192d.py:button_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "2ddf5ff5668321c04378acf12766741486c8f18edfd2d636f8985d4b27a604cf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "68e530bff3aa4b7a2597341e5da8c922c91e1b428a3d4e93427bf76b978b01af",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

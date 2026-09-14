@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2066,
+  "count": 2086,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -36823,6 +36823,358 @@
       "path": "problems/leetcode-3285.json",
       "content_sha256": "cd89df46fe3551b6fd18727097816f0eefe50488646799c90b1a2ab7af1d8d0b",
       "source_id": 3285
+    },
+    {
+      "id": "leetcode-3289",
+      "version": 1,
+      "status": "approved",
+      "title": "The Two Sneaky Numbers of Digitville",
+      "summary": "In Digitville, there is a list of numbers ranging from 0 to n-1, with each number intended to appear exactly once.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3289.json",
+      "content_sha256": "b9af4c9072cab05e66c165944baa0fb05c2ad58860bd6a68a2faf8112ccf796a",
+      "source_id": 3289
+    },
+    {
+      "id": "leetcode-3300",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Element After Replacement With Digit Sum",
+      "summary": "Given an integer array, replace each element with the sum of its digits, then return the smallest element in the modified array.",
+      "topics": [
+        "arrays",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3300.json",
+      "content_sha256": "33fc52c9dcf257e4bd17abbc586beaf1bbc2a049d6aa3091e0dc01257553c345",
+      "source_id": 3300
+    },
+    {
+      "id": "leetcode-3304",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the K-th Character in String Game I",
+      "summary": "Alice begins with the string \"a\".",
+      "topics": [
+        "strings",
+        "bit manipulation",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3304.json",
+      "content_sha256": "0171e912f74ae4ce4e492e5a46ba78c876246f8617a1ebd879814757f680b872",
+      "source_id": 3304
+    },
+    {
+      "id": "leetcode-3314",
+      "version": 1,
+      "status": "approved",
+      "title": "Construct the Minimum Bitwise Array I",
+      "summary": "Given an array of n prime numbers, construct an array ans of length n where for each index i, the bitwise OR of ans[i] and ans[i] + 1 equals the corresponding prime number in the input array.",
+      "topics": [
+        "arrays",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3314.json",
+      "content_sha256": "d955f6eadebe58e35ca4ec01b8a9387ccad35ec548e0e58313a22c108c6473f5",
+      "source_id": 3314
+    },
+    {
+      "id": "leetcode-3318",
+      "version": 1,
+      "status": "approved",
+      "title": "Find X-Sum of All K-Long Subarrays I",
+      "summary": "Given an array of integers nums, two integers k and x, calculate the x-sum for each k-long subarray.",
+      "topics": [
+        "arrays",
+        "sliding windows",
+        "hash maps",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3318.json",
+      "content_sha256": "ce1c6b7332d67d944deb06bc3e2b9c79d46d02dbe4223adf6186fa2fef623dc9",
+      "source_id": 3318
+    },
+    {
+      "id": "leetcode-3330",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Original Typed String I",
+      "summary": "Given a string representing the final output, determine the number of possible original strings Alice could have intended to type, considering she might have pressed a key multiple times at most once.",
+      "topics": [
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3330.json",
+      "content_sha256": "57192ca8af4b01917189a7e08f8fa9eb4cd09ad32874ef74536c2bfa8310a9da",
+      "source_id": 3330
+    },
+    {
+      "id": "leetcode-3340",
+      "version": 1,
+      "status": "approved",
+      "title": "Check Balanced String",
+      "summary": "Given a string of digits, determine if the sum of digits at even indices equals the sum of digits at odd indices.",
+      "topics": [
+        "strings",
+        "sums",
+        "parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3340.json",
+      "content_sha256": "df4f93e2c6102442fc38ed0176dfc69fc35aee11220b8f18ce71f36820e34ed4",
+      "source_id": 3340
+    },
+    {
+      "id": "leetcode-3345",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Divisible Digit Product I",
+      "summary": "Given integers n and t, find the least number not less than n where the multiplication of its digits is a multiple of t.",
+      "topics": [
+        "math",
+        "digits",
+        "brute force"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3345.json",
+      "content_sha256": "a02af4e63e214ef2988c168622a94f02e5a83a4c9edf220ff7424d1b194f3c7d",
+      "source_id": 3345
+    },
+    {
+      "id": "leetcode-3349",
+      "version": 1,
+      "status": "approved",
+      "title": "Adjacent Increasing Subarrays Detection I",
+      "summary": "Given an array of integers nums and an integer k, check if there are two adjacent subarrays of length k that are strictly increasing.",
+      "topics": [
+        "arrays",
+        "subarrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3349.json",
+      "content_sha256": "31018736dda33b9bac3b1635ec618862b26e7171f62300079395861c85dd871d",
+      "source_id": 3349
+    },
+    {
+      "id": "leetcode-3360",
+      "version": 1,
+      "status": "approved",
+      "title": "Stone Removal Game",
+      "summary": "Alice and Bob play a game where Alice starts by removing exactly 10 stones.",
+      "topics": [
+        "math",
+        "simulation",
+        "games"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3360.json",
+      "content_sha256": "4535f9876857b373c5eb49eb1f366011986e6650f2307ab77371ee1ac69caff1",
+      "source_id": 3360
+    },
+    {
+      "id": "leetcode-3364",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Positive Sum Subarray ",
+      "summary": "Given an integer array nums and two integers l and r, find the smallest sum of a contiguous subarray whose length is between l and r (inclusive) and whose sum is positive.",
+      "topics": [
+        "arrays",
+        "sliding windows",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3364.json",
+      "content_sha256": "d232ba4b05cf228c2eeb051841e2bf6247673009806189b3df9fe5af7c54c371",
+      "source_id": 3364
+    },
+    {
+      "id": "leetcode-3370",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Number With All Set Bits",
+      "summary": "Given a positive integer n, find the smallest integer x ≥ n whose binary representation consists solely of 1s.",
+      "topics": [
+        "bit manipulation",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3370.json",
+      "content_sha256": "b7cc679f77880c70d1c725c2e574d58c5acb4ae00f139d07e127b89f8f3a491a",
+      "source_id": 3370
+    },
+    {
+      "id": "leetcode-3375",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make Array Values Equal to K",
+      "summary": "Given an integer array nums and an integer k, find the minimum operations needed to make all elements equal to k.",
+      "topics": [
+        "arrays",
+        "sets",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3375.json",
+      "content_sha256": "fb1cd58dcf9fcf9a6841d89203108bf4a83d30bc73f919ae91704fb3809a9fb1",
+      "source_id": 3375
+    },
+    {
+      "id": "leetcode-3379",
+      "version": 1,
+      "status": "approved",
+      "title": "Transformed Array",
+      "summary": "Given an integer array nums representing a circular array, generate a new array result of the same size.",
+      "topics": [
+        "arrays",
+        "modular arithmetic",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3379.json",
+      "content_sha256": "9eae2fecb391ea5564dd98d98bf866f0a16d24c3b7626d825395ba1aea43fff5",
+      "source_id": 3379
+    },
+    {
+      "id": "leetcode-3386",
+      "version": 1,
+      "status": "approved",
+      "title": "Button with Longest Push Time",
+      "summary": "Given a 2D array events representing button presses, where each event[i] = [index, time] shows a button at index was pressed at time.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3386.json",
+      "content_sha256": "2f6e53c2d1ca567e26ac22be9849d1a7f385f16ca4ab48caafbcb9d522a3137c",
+      "source_id": 3386
+    },
+    {
+      "id": "leetcode-3392",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Subarrays of Length Three With a Condition",
+      "summary": "Given an integer array nums, return the count of subarrays of length 3 where the sum of the first and third elements is exactly half of the second element.",
+      "topics": [
+        "arrays",
+        "subarrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3392.json",
+      "content_sha256": "3bceaf3a83372a752d737969ae29057f97fedf488dc5d87aa26651157b107882",
+      "source_id": 3392
+    },
+    {
+      "id": "leetcode-3396",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Operations to Make Elements in Array Distinct",
+      "summary": "Given an integer array nums, you must make all elements distinct by removing up to three elements at a time from the start of the array.",
+      "topics": [
+        "arrays",
+        "sets",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3396.json",
+      "content_sha256": "b61c9fca10eac8801d850846682c3f05c7ed3736eca923064a9229bfdfb7af4d",
+      "source_id": 3396
+    },
+    {
+      "id": "leetcode-3402",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make Columns Strictly Increasing",
+      "summary": "Given a m x n matrix grid consisting of non-negative integers, determine the minimum number of operations required to make each column strictly increasing.",
+      "topics": [
+        "matrices",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3402.json",
+      "content_sha256": "88698b0b007d1fc7912cd50b6f04bee7ad1a386cf7542b97fca9f45738d05377",
+      "source_id": 3402
+    },
+    {
+      "id": "leetcode-3407",
+      "version": 1,
+      "status": "approved",
+      "title": "Substring Matching Pattern",
+      "summary": "Given a string s and a pattern string p that contains exactly one '*', determine if replacing the '*' with any sequence of characters can make p a substring of s .",
+      "topics": [
+        "strings",
+        "pattern matching"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3407.json",
+      "content_sha256": "1fd056485494ef1d78c0457b5067a366d2bb33b17a29c7d35083039519e2ce42",
+      "source_id": 3407
+    },
+    {
+      "id": "leetcode-3417",
+      "version": 1,
+      "status": "approved",
+      "title": "Zigzag Grid Traversal With Skip",
+      "summary": "Given an m x n 2D array of positive integers, traverse it in a zigzag pattern, skipping every alternate cell.",
+      "topics": [
+        "arrays",
+        "matrices",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3417.json",
+      "content_sha256": "dd78a4e65d358bc04662d869b8b57bf1302f25fc06936c029f494c1a5cc0bacf",
+      "source_id": 3417
     }
   ]
 }

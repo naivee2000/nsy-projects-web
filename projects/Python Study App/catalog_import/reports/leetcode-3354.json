@@ -1,0 +1,47 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-3354",
+  "content_sha256": "009a1a3dcb52f77a72a041d1b7b984ad098915358775302c066e77265e98d4b8",
+  "source_hash": "d4f42b396122bf8f12a6a0acd40ed2814ed26b93e9adb097eeeba8cb5dffdc8f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Awards two directions for an off-by-one imbalance.",
+      "failed_cases": [
+        "lc-3354-1",
+        "lc-3354-3",
+        "lc-3354-5",
+        "lc-3354-6",
+        "lc-3354-8",
+        "lc-3354-9",
+        "lc-3354-11",
+        "lc-3354-12",
+        "lc-3354-13",
+        "lc-3354-14",
+        "lc-3354-15"
+      ]
+    },
+    {
+      "reason": "Accepts side sums that differ by two.",
+      "failed_cases": []
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7401,
+  "oracle_implementation": "code_practice/import_batch_192b.py:zero_walk_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "e4184ac5181099816728e2e85cefaa0ffa4274f6f322e9a60c82f0d577a15cf8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c08f48676cf152557e6cf5fea7246c3bb89da3b533de767fad10ce31ec97abb5",
+  "elapsed_seconds": 0.028,
+  "failures": [
+    {
+      "phase": "known_wrong",
+      "index": 1
+    }
+  ],
+  "workbook_sample": "preserved and independently verified"
+}

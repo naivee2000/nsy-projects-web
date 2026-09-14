@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3300",
+  "content_sha256": "33fc52c9dcf257e4bd17abbc586beaf1bbc2a049d6aa3091e0dc01257553c345",
+  "source_hash": "84654a254d972979892de0faa0be852818e5875dde5c3d07603adc75708723ff",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the largest transformed value.",
+      "failed_cases": [
+        "lc-3300-1",
+        "lc-3300-2",
+        "lc-3300-7",
+        "lc-3300-8",
+        "lc-3300-9",
+        "lc-3300-11",
+        "lc-3300-12",
+        "lc-3300-13",
+        "lc-3300-14",
+        "lc-3300-16"
+      ]
+    },
+    {
+      "reason": "Uses the first number’s digits for every element.",
+      "failed_cases": [
+        "lc-3300-2",
+        "lc-3300-7",
+        "lc-3300-9",
+        "lc-3300-13",
+        "lc-3300-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7347,
+  "oracle_implementation": "code_practice/import_batch_192a.py:digit_sum_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "429077ba832ccda06a6bcc88358635212642b3d8c49d7204f5b038beeb63758f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eb5b60f68a7cd5cd69aa8873ce7f8fa6741ba9774b19556ac700f05e3a09a4bb",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

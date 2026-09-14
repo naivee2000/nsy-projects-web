@@ -1,0 +1,62 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3330",
+  "content_sha256": "57192ca8af4b01917189a7e08f8fa9eb4cd09ad32874ef74536c2bfa8310a9da",
+  "source_hash": "c4093a86bc6559ad5678b2ca9441ab2e66a2fb5bd7e84855a9372739f243746b",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the unchanged original word.",
+      "failed_cases": [
+        "lc-3330-1",
+        "lc-3330-2",
+        "lc-3330-3",
+        "lc-3330-4",
+        "lc-3330-5",
+        "lc-3330-6",
+        "lc-3330-7",
+        "lc-3330-8",
+        "lc-3330-9",
+        "lc-3330-10",
+        "lc-3330-11",
+        "lc-3330-12",
+        "lc-3330-13",
+        "lc-3330-14",
+        "lc-3330-15",
+        "lc-3330-16",
+        "lc-3330-17"
+      ]
+    },
+    {
+      "reason": "Counts changes between runs instead of removable repeated characters.",
+      "failed_cases": [
+        "lc-3330-1",
+        "lc-3330-2",
+        "lc-3330-4",
+        "lc-3330-5",
+        "lc-3330-6",
+        "lc-3330-9",
+        "lc-3330-10",
+        "lc-3330-11",
+        "lc-3330-12",
+        "lc-3330-13",
+        "lc-3330-14",
+        "lc-3330-15",
+        "lc-3330-17"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7377,
+  "oracle_implementation": "code_practice/import_batch_192b.py:typed_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "e4184ac5181099816728e2e85cefaa0ffa4274f6f322e9a60c82f0d577a15cf8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "65d2fe785b71e6b9cf2acaca15c4c045b29a2d9cbbbf35e789af7fe248d9256a",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

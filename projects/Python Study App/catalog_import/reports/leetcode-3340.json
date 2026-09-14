@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3340",
+  "content_sha256": "df4f93e2c6102442fc38ed0176dfc69fc35aee11220b8f18ce71f36820e34ed4",
+  "source_hash": "cbd794f1ccdfffff4b6feaf077835ebad80339868b0fd737e2e0edb35e8e5043",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the inverse balance condition.",
+      "failed_cases": [
+        "lc-3340-1",
+        "lc-3340-2",
+        "lc-3340-3",
+        "lc-3340-4",
+        "lc-3340-5",
+        "lc-3340-6",
+        "lc-3340-7",
+        "lc-3340-8",
+        "lc-3340-9",
+        "lc-3340-10",
+        "lc-3340-11",
+        "lc-3340-12",
+        "lc-3340-13",
+        "lc-3340-14",
+        "lc-3340-15",
+        "lc-3340-16"
+      ]
+    },
+    {
+      "reason": "Sums even positions twice.",
+      "failed_cases": [
+        "lc-3340-1",
+        "lc-3340-5",
+        "lc-3340-6",
+        "lc-3340-8",
+        "lc-3340-10",
+        "lc-3340-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7387,
+  "oracle_implementation": "code_practice/import_batch_192b.py:balanced_oracle",
+  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "batch_implementation_sha256": "e4184ac5181099816728e2e85cefaa0ffa4274f6f322e9a60c82f0d577a15cf8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "10a9b9c7e359409b27232254cb50969425d7cc5d60fcaddf7d38da55e57912be",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
