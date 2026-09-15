@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2791,
+  "count": 2796,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -47711,6 +47711,26 @@
       "source_id": 3538
     },
     {
+      "id": "leetcode-3539",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Sum of Array Product of Magical Sequences",
+      "summary": "Given integers m, k, and an array nums, find the sum of the array products for all magical sequences of size m where each element is an index in nums, and the binary representation of the sum of powers of 2 corresponding to these indices has exactly k set bits.",
+      "topics": [
+        "dynamic programming",
+        "combinatorics",
+        "bit manipulation"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3539.json",
+      "content_sha256": "d7a89fe44c01bd983bd34674d7f5e4112c737b101e510681d5557387f914804d",
+      "source_id": 3539
+    },
+    {
       "id": "leetcode-3540",
       "version": 1,
       "status": "approved",
@@ -47747,6 +47767,62 @@
       "source_id": 3541
     },
     {
+      "id": "leetcode-3542",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Convert All Elements to Zero",
+      "summary": "Given an array of non-negative integers, determine the least number of operations needed to convert all elements to zero.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "monotonic stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3542.json",
+      "content_sha256": "b37b40990a3a67fd09f03cf35da48d9c003c177e16a9092bbf0ef0f5213cc51a",
+      "source_id": 3542
+    },
+    {
+      "id": "leetcode-3543",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Weighted K-Edge Path",
+      "summary": "Given an integer n, a Directed Acyclic Graph (DAG) with n nodes, and two integers k and t, find the maximum sum of edge weights for a path with exactly k edges where the total weight is less than t.",
+      "topics": [
+        "graphs",
+        "dynamic programming",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3543.json",
+      "content_sha256": "c937727d4b9af7ce2d08b81699ae4279ec49af7bd2b2fc0351ab8319eff43819",
+      "source_id": 3543
+    },
+    {
+      "id": "leetcode-3544",
+      "version": 1,
+      "status": "approved",
+      "title": "Subtree Inversion Sum",
+      "summary": "Given an undirected tree with n nodes numbered from 0 to n-1, represented by edges, and an integer array nums with values at each node, you can invert nodes' values by multiplying them by -1.",
+      "topics": [
+        "trees",
+        "dynamic programming",
+        "depth first search"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3544.json",
+      "content_sha256": "926d9e229e5cbabea98502f2a22b669b6fbed70430cb1908c1665449cb84d5f6",
+      "source_id": 3544
+    },
+    {
       "id": "leetcode-3545",
       "version": 1,
       "status": "approved",
@@ -47763,6 +47839,24 @@
       "path": "problems/leetcode-3545.json",
       "content_sha256": "aa708c452a62ae2b26934b235cc6e04efaea3194f0eb6b4df80670bafcdf3e2e",
       "source_id": 3545
+    },
+    {
+      "id": "leetcode-3546",
+      "version": 1,
+      "status": "approved",
+      "title": "Equal Sum Grid Partition I",
+      "summary": "Given an m x n matrix of positive integers, decide if a partition can be made by either a horizontal or vertical cut, ensuring both resulting sections are non-empty and have equal sums.",
+      "topics": [
+        "matrices",
+        "prefix sums",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3546.json",
+      "content_sha256": "56cda585f4694549172bfac10ad7f923e1c273ff3875a6ba6d83f31b0de85e65",
+      "source_id": 3546
     },
     {
       "id": "leetcode-3550",

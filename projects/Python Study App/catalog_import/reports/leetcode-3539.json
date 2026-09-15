@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3539",
+  "content_sha256": "d7a89fe44c01bd983bd34674d7f5e4112c737b101e510681d5557387f914804d",
+  "source_hash": "5e4bc951f1ec243cf3f67ecf76d90577048f1f6ef6d93d6c4e047e6510302df6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never consumes finalized carry bits and accepts sequences with the wrong popcount.",
+      "failed_cases": [
+        "lc-3539-1",
+        "lc-3539-2",
+        "lc-3539-3",
+        "lc-3539-4",
+        "lc-3539-6",
+        "lc-3539-7",
+        "lc-3539-8",
+        "lc-3539-9",
+        "lc-3539-10",
+        "lc-3539-11",
+        "lc-3539-12",
+        "lc-3539-13",
+        "lc-3539-14"
+      ]
+    },
+    {
+      "reason": "Omits multinomial position choices and counts each frequency allocation only once.",
+      "failed_cases": [
+        "lc-3539-1",
+        "lc-3539-2",
+        "lc-3539-7",
+        "lc-3539-8",
+        "lc-3539-9",
+        "lc-3539-10",
+        "lc-3539-11",
+        "lc-3539-13",
+        "lc-3539-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7586,
+  "oracle_implementation": "code_practice/import_batch_228b.py:magical_oracle",
+  "validator_implementation_sha256": "350975f818dfbaa0d7da0bac1edc2851570b70cc70ffba8b796e966b8d443335",
+  "batch_implementation_sha256": "7de69c1a3b68d60338e1d9085b4f75cd66f796d1418019f18a8200e90c630413",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5f9e4e997b57a7655b038c41b3e5674d47a9c5998abefba47bda52c8273aa625",
+  "elapsed_seconds": 0.089,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

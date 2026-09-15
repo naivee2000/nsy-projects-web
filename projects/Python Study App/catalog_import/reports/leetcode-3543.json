@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3543",
+  "content_sha256": "c937727d4b9af7ce2d08b81699ae4279ec49af7bd2b2fc0351ab8319eff43819",
+  "source_hash": "fd17cdfdfb6d463c79d1ec1ef744a6f8995d532ca9454700e7051ae59dbff8c6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows path weight equal to the strict upper limit.",
+      "failed_cases": [
+        "lc-3543-2",
+        "lc-3543-3",
+        "lc-3543-8"
+      ]
+    },
+    {
+      "reason": "Requires every path to start at node zero although any node may be its start.",
+      "failed_cases": [
+        "lc-3543-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7590,
+  "oracle_implementation": "code_practice/import_batch_228b.py:path_oracle",
+  "validator_implementation_sha256": "350975f818dfbaa0d7da0bac1edc2851570b70cc70ffba8b796e966b8d443335",
+  "batch_implementation_sha256": "7de69c1a3b68d60338e1d9085b4f75cd66f796d1418019f18a8200e90c630413",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bea9ba1bb378941b0ce5394907a24ddfc7b54f1e00b650fe2a7007e841cd0b7c",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

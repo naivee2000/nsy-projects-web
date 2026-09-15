@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3546",
+  "content_sha256": "56cda585f4694549172bfac10ad7f923e1c273ff3875a6ba6d83f31b0de85e65",
+  "source_hash": "1f1ba5fb6aeacc561e79b8647c9d428a6fc482bb1e96ad0ea882ebdac80a0653",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks each row alone rather than cumulative row prefixes.",
+      "failed_cases": [
+        "lc-3546-6"
+      ]
+    },
+    {
+      "reason": "Checks each column alone rather than cumulative column prefixes.",
+      "failed_cases": [
+        "lc-3546-5",
+        "lc-3546-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7593,
+  "oracle_implementation": "code_practice/import_batch_228b.py:partition_oracle",
+  "validator_implementation_sha256": "350975f818dfbaa0d7da0bac1edc2851570b70cc70ffba8b796e966b8d443335",
+  "batch_implementation_sha256": "7de69c1a3b68d60338e1d9085b4f75cd66f796d1418019f18a8200e90c630413",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "051286c21cbc820e15ed693c4b4c3a13653307c9234c75b954f1880f7b63bdad",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

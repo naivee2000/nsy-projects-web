@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3542",
+  "content_sha256": "b37b40990a3a67fd09f03cf35da48d9c003c177e16a9092bbf0ef0f5213cc51a",
+  "source_hash": "a181b3208f6f08b86518cfa26aa70c4958bbc7f165b670c7c4a116f0747f2168",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pops only one larger active level when several must end at the new smaller value.",
+      "failed_cases": [
+        "lc-3542-12"
+      ]
+    },
+    {
+      "reason": "Pushes duplicate levels and skips new distinct positive levels.",
+      "failed_cases": [
+        "lc-3542-3",
+        "lc-3542-6",
+        "lc-3542-8",
+        "lc-3542-12",
+        "lc-3542-13",
+        "lc-3542-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7589,
+  "oracle_implementation": "code_practice/import_batch_228b.py:zero_oracle",
+  "validator_implementation_sha256": "350975f818dfbaa0d7da0bac1edc2851570b70cc70ffba8b796e966b8d443335",
+  "batch_implementation_sha256": "7de69c1a3b68d60338e1d9085b4f75cd66f796d1418019f18a8200e90c630413",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d7f91795d48951f5bce6ce2fd75556b8daebfbd619195c6bf7e68596e3961f68",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

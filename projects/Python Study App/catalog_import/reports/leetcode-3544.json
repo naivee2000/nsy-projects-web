@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3544",
+  "content_sha256": "926d9e229e5cbabea98502f2a22b669b6fbed70430cb1908c1665449cb84d5f6",
+  "source_hash": "78de3db4dab5e579a1cfebccd13403c7d5eca86e98453d3cc7fe125869e157cc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows inversions too close to an inverted ancestor.",
+      "failed_cases": [
+        "lc-3544-1",
+        "lc-3544-2",
+        "lc-3544-6",
+        "lc-3544-8",
+        "lc-3544-9",
+        "lc-3544-11",
+        "lc-3544-12",
+        "lc-3544-14"
+      ]
+    },
+    {
+      "reason": "Fails to toggle descendant parity when an ancestor subtree is inverted.",
+      "failed_cases": [
+        "lc-3544-1",
+        "lc-3544-2",
+        "lc-3544-6",
+        "lc-3544-8",
+        "lc-3544-11",
+        "lc-3544-12",
+        "lc-3544-13",
+        "lc-3544-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7591,
+  "oracle_implementation": "code_practice/import_batch_228b.py:inversion_oracle",
+  "validator_implementation_sha256": "350975f818dfbaa0d7da0bac1edc2851570b70cc70ffba8b796e966b8d443335",
+  "batch_implementation_sha256": "7de69c1a3b68d60338e1d9085b4f75cd66f796d1418019f18a8200e90c630413",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ef0d6bb73e4e763d96cd990cfd88e7eec8ef2bc369853c86b74d3fcb67bb1295",
+  "elapsed_seconds": 0.229,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
