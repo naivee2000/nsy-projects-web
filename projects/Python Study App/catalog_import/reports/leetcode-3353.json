@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3353",
+  "content_sha256": "311ee6acf422ea8a9e2c2ee09fb94bc5147f41606f4ab14949fd1cb1efb9ebe3",
+  "source_hash": "01f0420b3eb6f3f28b5e31e5e049362c620004453766cf1aef296aef1434230d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal boundaries instead of unequal ones.",
+      "failed_cases": [
+        "lc-3353-1",
+        "lc-3353-2",
+        "lc-3353-4",
+        "lc-3353-5",
+        "lc-3353-8",
+        "lc-3353-9",
+        "lc-3353-10",
+        "lc-3353-11",
+        "lc-3353-13",
+        "lc-3353-14"
+      ]
+    },
+    {
+      "reason": "Ignores the first adjacent boundary.",
+      "failed_cases": [
+        "lc-3353-1",
+        "lc-3353-4",
+        "lc-3353-5",
+        "lc-3353-7",
+        "lc-3353-8",
+        "lc-3353-10",
+        "lc-3353-11",
+        "lc-3353-13",
+        "lc-3353-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7400,
+  "oracle_implementation": "code_practice/import_batch_199c.py:prefix_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "7750fb664b683b18376ccf23c52525ab0bc1ccdcc013f315c5735bf688488550",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c9c79f74e3e720bec1b9c041b4a31b83c4c7ee4c0da2ab82cc9b1dc705332a40",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

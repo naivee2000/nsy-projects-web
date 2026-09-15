@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3125",
+  "content_sha256": "6e7cc0a86fcbd21017be4ca05d425559c8719afc3cc3fca3943a8632c6be17e4",
+  "source_hash": "046bc4bebbc6c837d065304ee7f646a542d6c043ff014551fb90004178beb1de",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the next power of two, which can exceed n.",
+      "failed_cases": [
+        "lc-3125-1",
+        "lc-3125-2",
+        "lc-3125-3",
+        "lc-3125-4",
+        "lc-3125-5",
+        "lc-3125-6",
+        "lc-3125-7",
+        "lc-3125-8",
+        "lc-3125-9",
+        "lc-3125-10",
+        "lc-3125-11",
+        "lc-3125-12",
+        "lc-3125-13",
+        "lc-3125-14"
+      ]
+    },
+    {
+      "reason": "Uses one fewer bit and produces a start that is not maximal.",
+      "failed_cases": [
+        "lc-3125-1",
+        "lc-3125-2",
+        "lc-3125-4",
+        "lc-3125-5",
+        "lc-3125-6",
+        "lc-3125-7",
+        "lc-3125-8",
+        "lc-3125-9",
+        "lc-3125-10",
+        "lc-3125-11",
+        "lc-3125-12",
+        "lc-3125-13",
+        "lc-3125-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7172,
+  "oracle_implementation": "code_practice/import_batch_199c.py:and_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "7750fb664b683b18376ccf23c52525ab0bc1ccdcc013f315c5735bf688488550",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6598f11f9e7072d0de00242d5c121b80377b186dd3cc6a7259fd96ded9215e09",
+  "elapsed_seconds": 0.179,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

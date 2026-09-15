@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3627",
+  "content_sha256": "c6eca6801abea70a942d98b9a923d3a094eb11aa7ae53975ba010cce26b55bc5",
+  "source_hash": "04eb8d4bfe35563cdfa221fa24c5897d4a0678a04457ad6efb6fab87d4047c42",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes small values that should be reserved as triplet minima.",
+      "failed_cases": [
+        "lc-3627-1",
+        "lc-3627-2",
+        "lc-3627-3",
+        "lc-3627-4",
+        "lc-3627-5",
+        "lc-3627-6",
+        "lc-3627-7",
+        "lc-3627-8",
+        "lc-3627-9",
+        "lc-3627-10",
+        "lc-3627-11",
+        "lc-3627-12",
+        "lc-3627-13",
+        "lc-3627-14"
+      ]
+    },
+    {
+      "reason": "Selects every third rather than every second median candidate.",
+      "failed_cases": [
+        "lc-3627-4",
+        "lc-3627-5",
+        "lc-3627-8",
+        "lc-3627-10",
+        "lc-3627-13",
+        "lc-3627-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7674,
+  "oracle_implementation": "code_practice/import_batch_199d.py:medians_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "1b4965c12d4c386eabcdf332ce59d25b3e0915bf747c52339032627877ca444e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8dcb7901c478206c329276cc8a2d0f1ca6ce36ea389853ced2a8c4de7f5fb58a",
+  "elapsed_seconds": 0.227,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

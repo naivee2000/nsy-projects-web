@@ -231,6 +231,17 @@ def test_import_timeout_and_bad_sample_are_quarantined_without_poisoning_next_pr
     assert payload["id"] == "leetcode-11" and report["valid"]
 
 
+def test_unserializable_validator_input_fails_only_that_candidate():
+    source = next(json.loads(line) for line in (ROOT / "catalog_import/sources.jsonl").read_text().splitlines()
+                  if json.loads(line)["source_id"] == 11)
+    unpicklable = {**BATCH[11], "oracle": lambda arguments: arguments}
+    payload, report = review_isolated(11, unpicklable, source, "test")
+    assert payload is None and not report["valid"]
+    assert report["failures"][0]["phase"] == "isolated_validation_start"
+    payload, report = review_isolated(11, BATCH[11], source, "test")
+    assert payload["id"] == "leetcode-11" and report["valid"]
+
+
 def test_new_tree_list_inputs_respect_source_domains_including_stress_cases():
     from code_practice.import_batch_004 import BATCH as node_batch
     sources = {s["source_id"]: s for line in (ROOT / "catalog_import/sources.jsonl").read_text().splitlines() if (s := json.loads(line))}

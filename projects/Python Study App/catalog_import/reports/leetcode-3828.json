@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3828",
+  "content_sha256": "2c3b0cff763d2410d8dce945471a361640ec8bb047336d69976e7587577ff159",
+  "source_hash": "3066864f4e58aebaa7967adb7744f5d0e75673865d736cb8916eb00b10c4c238",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly assumes Alice can preserve an interior maximum.",
+      "failed_cases": [
+        "lc-3828-1",
+        "lc-3828-6",
+        "lc-3828-9",
+        "lc-3828-11",
+        "lc-3828-12",
+        "lc-3828-14"
+      ]
+    },
+    {
+      "reason": "Lets Bob choose between the original endpoints on Alice’s first move.",
+      "failed_cases": [
+        "lc-3828-1",
+        "lc-3828-2",
+        "lc-3828-4",
+        "lc-3828-5",
+        "lc-3828-6",
+        "lc-3828-8",
+        "lc-3828-9",
+        "lc-3828-10",
+        "lc-3828-11",
+        "lc-3828-13",
+        "lc-3828-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7875,
+  "oracle_implementation": "code_practice/import_batch_199d.py:final_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "1b4965c12d4c386eabcdf332ce59d25b3e0915bf747c52339032627877ca444e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e6a1bc998e58fc3396974d6763e686bc37e030f9c71aa473aa0d5f2031cb22d1",
+  "elapsed_seconds": 0.012,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

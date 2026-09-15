@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-891",
+  "content_sha256": "fb3fb3b0c844edf089097fe76d20a3e28a61ac88e4c91d6b86d360e9cc071b5d",
+  "source_hash": "9af2b76eb0c763007f71427269323f589ecfa2a4c8e49943ae82da0a681c1566",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds maximum and minimum contributions instead of subtracting them.",
+      "failed_cases": [
+        "lc-891-1",
+        "lc-891-2",
+        "lc-891-3",
+        "lc-891-4",
+        "lc-891-5",
+        "lc-891-6",
+        "lc-891-7",
+        "lc-891-8",
+        "lc-891-9",
+        "lc-891-10",
+        "lc-891-11",
+        "lc-891-12",
+        "lc-891-13",
+        "lc-891-14"
+      ]
+    },
+    {
+      "reason": "Uses powers of three rather than the binary include/exclude count.",
+      "failed_cases": [
+        "lc-891-1",
+        "lc-891-4",
+        "lc-891-5",
+        "lc-891-6",
+        "lc-891-7",
+        "lc-891-8",
+        "lc-891-9",
+        "lc-891-10",
+        "lc-891-11",
+        "lc-891-13",
+        "lc-891-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4938,
+  "oracle_implementation": "code_practice/import_batch_199a.py:widths_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "e2cc9c669ecd92d39f088b786cd6834d2ffbee2ad1e14ac586af04c83617ba7f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "efb1ffecaaf2055294717820dda73d71e40017e11e120a768bd24dd0df54b725",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

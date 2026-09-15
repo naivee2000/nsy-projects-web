@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-810",
+  "content_sha256": "f9954eb4f9c4cea0fc0d4be22fd02b103d435f97369d3e8f8282e125c83ea818",
+  "source_hash": "15feb5cab05fc5207458e29374c62cd3bb745666ab17cd77a0e730524e58664b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats odd rather than even length as automatically winning.",
+      "failed_cases": [
+        "lc-810-1",
+        "lc-810-3",
+        "lc-810-5",
+        "lc-810-7",
+        "lc-810-9",
+        "lc-810-11",
+        "lc-810-13",
+        "lc-810-14"
+      ]
+    },
+    {
+      "reason": "Reverses the starting-zero winning condition.",
+      "failed_cases": [
+        "lc-810-1",
+        "lc-810-2",
+        "lc-810-3",
+        "lc-810-7",
+        "lc-810-10",
+        "lc-810-11",
+        "lc-810-12",
+        "lc-810-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4857,
+  "oracle_implementation": "code_practice/import_batch_199a.py:xor_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "e2cc9c669ecd92d39f088b786cd6834d2ffbee2ad1e14ac586af04c83617ba7f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0b6c091f7918b3de33db3c2f2fa899ca652aee4ba38f7224f4c3dec5cd69d8ee",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

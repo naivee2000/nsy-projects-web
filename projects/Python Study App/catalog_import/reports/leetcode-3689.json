@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3689",
+  "content_sha256": "2103e5148baf37d7c400a47a45188ea5b2ba05412af13c8d6bba3c0498dc1394",
+  "source_hash": "48ec3c3488f4d1b43957c51b2cbc9d5b24942c4137738eea90935f90a9d603f7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds extrema instead of taking their range.",
+      "failed_cases": [
+        "lc-3689-1",
+        "lc-3689-2",
+        "lc-3689-3",
+        "lc-3689-4",
+        "lc-3689-5",
+        "lc-3689-6",
+        "lc-3689-7",
+        "lc-3689-9",
+        "lc-3689-10",
+        "lc-3689-11",
+        "lc-3689-12",
+        "lc-3689-13",
+        "lc-3689-14"
+      ]
+    },
+    {
+      "reason": "Selects only k-1 subarrays.",
+      "failed_cases": [
+        "lc-3689-1",
+        "lc-3689-2",
+        "lc-3689-4",
+        "lc-3689-6",
+        "lc-3689-7",
+        "lc-3689-8",
+        "lc-3689-9",
+        "lc-3689-10",
+        "lc-3689-11",
+        "lc-3689-13",
+        "lc-3689-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7736,
+  "oracle_implementation": "code_practice/import_batch_199d.py:subarrays_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "1b4965c12d4c386eabcdf332ce59d25b3e0915bf747c52339032627877ca444e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b293079f47724a1c90621a67c5ad4df1bc239bbb0c2e03046f632d609aa6dfa8",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2997",
+  "content_sha256": "d7db7996ae0bc467484d9b71fdd4a558b34d27e8294ea5468b8817465bdd002a",
+  "source_hash": "ea441d6051617adfc42c66b86007601348b712514c64dce2a31b983fe6b1d83b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the target k and only counts current XOR bits.",
+      "failed_cases": [
+        "lc-2997-1",
+        "lc-2997-4",
+        "lc-2997-5",
+        "lc-2997-7",
+        "lc-2997-8",
+        "lc-2997-9",
+        "lc-2997-10",
+        "lc-2997-12",
+        "lc-2997-13"
+      ]
+    },
+    {
+      "reason": "Drops the lowest differing bit before counting.",
+      "failed_cases": [
+        "lc-2997-5",
+        "lc-2997-11",
+        "lc-2997-13",
+        "lc-2997-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7044,
+  "oracle_implementation": "code_practice/import_batch_199b.py:xor_flips_oracle",
+  "validator_implementation_sha256": "aad0e50666b7112d34fe7d17dcac3c78f75196538cf2b54696345f09d5b01153",
+  "batch_implementation_sha256": "ebe19db471afe151ea6f8b9674f029559fa1f1324f5a07f3f38a6321f6a0462e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "254dae26b06967180eda11caa7f747e2b9eca88b388aa70f8197b13a7cdfc012",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

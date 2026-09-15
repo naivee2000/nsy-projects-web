@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3084",
+  "content_sha256": "d553b09bfd03d649486ede57d9d83086db04c9ee974f8c2292ad294684299980",
+  "source_hash": "9adf0420e92f1d30eff4e1255ce541d657a96f5439b11bc2486360e3db36ddda",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits all one-character substrings.",
+      "failed_cases": [
+        "lc-3084-1",
+        "lc-3084-3",
+        "lc-3084-4",
+        "lc-3084-5",
+        "lc-3084-6",
+        "lc-3084-7",
+        "lc-3084-9",
+        "lc-3084-10",
+        "lc-3084-11",
+        "lc-3084-12",
+        "lc-3084-13",
+        "lc-3084-14"
+      ]
+    },
+    {
+      "reason": "Uses the first index instead of the number of occurrences.",
+      "failed_cases": [
+        "lc-3084-1",
+        "lc-3084-3",
+        "lc-3084-4",
+        "lc-3084-6",
+        "lc-3084-7",
+        "lc-3084-9",
+        "lc-3084-10",
+        "lc-3084-11",
+        "lc-3084-12",
+        "lc-3084-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7131,
+  "oracle_implementation": "code_practice/import_batch_199c.py:substring_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "7750fb664b683b18376ccf23c52525ab0bc1ccdcc013f315c5735bf688488550",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f78e842ecd35774578c9fc017e385b27596a6a70cc5faa816ee713ab1fe8ffb6",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

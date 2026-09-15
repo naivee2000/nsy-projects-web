@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2914",
+  "content_sha256": "3b8cf2ff09d54136758fd166b78024f4df826a767996ab372ad7273a401cb197",
+  "source_hash": "a6bdedca17686686c1e016fb827f5ee7a10d7770449a76f57dcc5866861a38e0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the first fixed pair.",
+      "failed_cases": [
+        "lc-2914-1",
+        "lc-2914-4",
+        "lc-2914-5",
+        "lc-2914-7",
+        "lc-2914-11",
+        "lc-2914-13"
+      ]
+    },
+    {
+      "reason": "Counts already-equal pairs rather than mismatched pairs.",
+      "failed_cases": [
+        "lc-2914-1",
+        "lc-2914-2",
+        "lc-2914-3",
+        "lc-2914-4",
+        "lc-2914-5",
+        "lc-2914-6",
+        "lc-2914-7",
+        "lc-2914-8",
+        "lc-2914-9",
+        "lc-2914-10",
+        "lc-2914-11",
+        "lc-2914-12",
+        "lc-2914-13",
+        "lc-2914-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6961,
+  "oracle_implementation": "code_practice/import_batch_199b.py:changes_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "ebe19db471afe151ea6f8b9674f029559fa1f1324f5a07f3f38a6321f6a0462e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "96cfa4de70f9f04337bd416c7f330ea9d4258aea9e48d57303cefa87fbe32857",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

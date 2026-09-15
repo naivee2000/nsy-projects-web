@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2206,
+  "count": 2226,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -10976,6 +10976,25 @@
       "source_id": 792
     },
     {
+      "id": "leetcode-793",
+      "version": 1,
+      "status": "approved",
+      "title": "Preimage Size of Factorial Zeroes Function",
+      "summary": "Define f(x) as the count of trailing zeroes in the factorial of x.",
+      "topics": [
+        "math",
+        "binary search"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-793.json",
+      "content_sha256": "54364994aa2d9366c058e07caeb9fa975ccac6b3400074fb11babc0cf8d8fc75",
+      "source_id": 793
+    },
+    {
       "id": "leetcode-794",
       "version": 1,
       "status": "approved",
@@ -11160,6 +11179,25 @@
       "path": "problems/leetcode-809.json",
       "content_sha256": "fbef2f370db18887a132bb5ce720340b6b5d80d007d0345b408da466e0ef2efb",
       "source_id": 809
+    },
+    {
+      "id": "leetcode-810",
+      "version": 1,
+      "status": "approved",
+      "title": "Chalkboard XOR Game",
+      "summary": "Given an array of integers nums, Alice and Bob take turns erasing exactly one number from the array, with Alice starting first.",
+      "topics": [
+        "game theory",
+        "bit manipulation"
+      ],
+      "prerequisites": [
+        "game theory"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-810.json",
+      "content_sha256": "f9954eb4f9c4cea0fc0d4be22fd02b103d435f97369d3e8f8282e125c83ea818",
+      "source_id": 810
     },
     {
       "id": "leetcode-811",
@@ -11964,6 +12002,25 @@
       "source_id": 877
     },
     {
+      "id": "leetcode-878",
+      "version": 1,
+      "status": "approved",
+      "title": "Nth Magical Number",
+      "summary": "Identify the n-th number that is divisible by either a or b, ensuring the result is within the range of 0 to 10^9 + 6.",
+      "topics": [
+        "math",
+        "binary search"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-878.json",
+      "content_sha256": "9f99e1e3b8ff31a732cce3a107b6d72853204ecfdbfa7025abeff70a60defd07",
+      "source_id": 878
+    },
+    {
       "id": "leetcode-880",
       "version": 1,
       "status": "approved",
@@ -12098,6 +12155,26 @@
       "path": "problems/leetcode-890.json",
       "content_sha256": "3e54ef2e315f22f0c13e3eab4c7d9b2868e8b23cd8ab4f4749437000555a8c79",
       "source_id": 890
+    },
+    {
+      "id": "leetcode-891",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Subsequence Widths",
+      "summary": "Calculate the sum of widths for all non-empty subsequences of an integer array, where the width is the difference between the maximum and minimum elements in each subsequence.",
+      "topics": [
+        "arrays",
+        "combinatorics",
+        "sorting"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-891.json",
+      "content_sha256": "fb3fb3b0c844edf089097fe76d20a3e28a61ac88e4c91d6b86d360e9cc071b5d",
+      "source_id": 891
     },
     {
       "id": "leetcode-892",
@@ -15893,6 +15970,23 @@
       "path": "problems/leetcode-1252.json",
       "content_sha256": "fb6f7bc3213a4be26f7e4c7cd36e1ec21dd60f97a433ff0e29586a14eaacbccd",
       "source_id": 1252
+    },
+    {
+      "id": "leetcode-1256",
+      "version": 1,
+      "status": "approved",
+      "title": "Encode Number",
+      "summary": "Given a non-negative integer, convert it to a string using a deduced secret function as shown in the provided table.",
+      "topics": [
+        "math",
+        "binary strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1256.json",
+      "content_sha256": "25dd795d8aeb996c139e29e72196db23d12e22930a10f7bb5a631eb5640b4cfa",
+      "source_id": 1256
     },
     {
       "id": "leetcode-1260",
@@ -35585,6 +35679,23 @@
       "source_id": 2913
     },
     {
+      "id": "leetcode-2914",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Changes to Make Binary String Beautiful",
+      "summary": "Given a binary string of even length, determine the least number of character changes needed to make the string beautiful, where a string is beautiful if it can be divided into substrings of even length containing only identical characters.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2914.json",
+      "content_sha256": "3b8cf2ff09d54136758fd166b78024f4df826a767996ab372ad7273a401cb197",
+      "source_id": 2914
+    },
+    {
       "id": "leetcode-2917",
       "version": 1,
       "status": "approved",
@@ -35797,6 +35908,23 @@
       "source_id": 2974
     },
     {
+      "id": "leetcode-2979",
+      "version": 1,
+      "status": "approved",
+      "title": "Most Expensive Item That Can Not Be Bought",
+      "summary": "Given two distinct prime numbers, primeOne and primeTwo, Alice and Bob visit a market with an infinite number of items, each priced with a positive integer.",
+      "topics": [
+        "math",
+        "number theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2979.json",
+      "content_sha256": "fc02d3a6c510285b3ce216e58b587314783e34a063fc64c2774bae00dc765d22",
+      "source_id": 2979
+    },
+    {
       "id": "leetcode-2980",
       "version": 1,
       "status": "approved",
@@ -35830,6 +35958,23 @@
       "path": "problems/leetcode-2996.json",
       "content_sha256": "fb97286156f7e24ddd165dfa09cd1db51ba1932a05937dd2d573ddc3b904bd6b",
       "source_id": 2996
+    },
+    {
+      "id": "leetcode-2997",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Operations to Make Array XOR Equal to K",
+      "summary": "Given a 0-indexed integer array nums and a positive integer k, find the minimum number of bit flips required to make the bitwise XOR of all elements in the array equal to k.",
+      "topics": [
+        "bit manipulation",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2997.json",
+      "content_sha256": "d7db7996ae0bc467484d9b71fdd4a558b34d27e8294ea5468b8817465bdd002a",
+      "source_id": 2997
     },
     {
       "id": "leetcode-3000",
@@ -36166,6 +36311,23 @@
       "source_id": 3083
     },
     {
+      "id": "leetcode-3084",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Substrings Starting and Ending with Given Character",
+      "summary": "Given a string and a character, count all substrings that begin and end with the specified character.",
+      "topics": [
+        "strings",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3084.json",
+      "content_sha256": "d553b09bfd03d649486ede57d9d83086db04c9ee974f8c2292ad294684299980",
+      "source_id": 3084
+    },
+    {
       "id": "leetcode-3090",
       "version": 1,
       "status": "approved",
@@ -36285,6 +36447,23 @@
       "path": "problems/leetcode-3120.json",
       "content_sha256": "368f62e8adcd4b00b2d592b34ba91cbd68e11e86a898bce84579f888a87370a3",
       "source_id": 3120
+    },
+    {
+      "id": "leetcode-3125",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number That Makes Result of Bitwise AND Zero",
+      "summary": "For an integer n, find the largest integer x where x is less than or equal to n, and the bitwise AND of all numbers from x to n equals zero.",
+      "topics": [
+        "bit manipulation",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3125.json",
+      "content_sha256": "6e7cc0a86fcbd21017be4ca05d425559c8719afc3cc3fca3943a8632c6be17e4",
+      "source_id": 3125
     },
     {
       "id": "leetcode-3127",
@@ -36496,6 +36675,25 @@
       "source_id": 3178
     },
     {
+      "id": "leetcode-3181",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Total Reward Using Operations II",
+      "summary": "Given an integer array rewardValues, start with a total reward of 0 and no indices marked.",
+      "topics": [
+        "dynamic programming",
+        "bitsets"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3181.json",
+      "content_sha256": "18222f5f823d6924b59f47084e80c3ef75781dc0a43729fc4f0c077b768ff994",
+      "source_id": 3181
+    },
+    {
       "id": "leetcode-3184",
       "version": 1,
       "status": "approved",
@@ -36652,6 +36850,24 @@
       "source_id": 3222
     },
     {
+      "id": "leetcode-3223",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Length of String After Operations",
+      "summary": "Given a string s , you can repeatedly remove pairs of identical characters that are adjacent to the same character at an index.",
+      "topics": [
+        "strings",
+        "counting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3223.json",
+      "content_sha256": "42baebd9fd67198238be280d57e18ad3bda2fbcf8a86600d12eaefc31726abc1",
+      "source_id": 3223
+    },
+    {
       "id": "leetcode-3226",
       "version": 1,
       "status": "approved",
@@ -36666,6 +36882,23 @@
       "path": "problems/leetcode-3226.json",
       "content_sha256": "828b3c4bc8f6262f5c9fc1017069e4f7d6926a14fe79428a0ebe69135bf74712",
       "source_id": 3226
+    },
+    {
+      "id": "leetcode-3227",
+      "version": 1,
+      "status": "approved",
+      "title": "Vowels Game in a String",
+      "summary": "Alice and Bob play a game on a string.",
+      "topics": [
+        "strings",
+        "game theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3227.json",
+      "content_sha256": "173f22fa3cd70e5b3c290fc1db3880345fbea185353ecc5685385ce6a33eef79",
+      "source_id": 3227
     },
     {
       "id": "leetcode-3232",
@@ -36982,6 +37215,23 @@
       "path": "problems/leetcode-3349.json",
       "content_sha256": "31018736dda33b9bac3b1635ec618862b26e7171f62300079395861c85dd871d",
       "source_id": 3349
+    },
+    {
+      "id": "leetcode-3353",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Total Operations",
+      "summary": "Given an array of integers, you can perform operations by selecting a prefix and adding a chosen integer k to each element in that prefix.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3353.json",
+      "content_sha256": "311ee6acf422ea8a9e2c2ee09fb94bc5147f41606f4ab14949fd1cb1efb9ebe3",
+      "source_id": 3353
     },
     {
       "id": "leetcode-3360",
@@ -37738,6 +37988,24 @@
       "source_id": 3622
     },
     {
+      "id": "leetcode-3627",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Median Sum of Subsequences of Size 3",
+      "summary": "Given an integer array where the length is divisible by 3, you can remove any three elements at a time, compute their median, and remove them.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3627.json",
+      "content_sha256": "c6eca6801abea70a942d98b9a923d3a094eb11aa7ae53975ba010cce26b55bc5",
+      "source_id": 3627
+    },
+    {
       "id": "leetcode-3633",
       "version": 1,
       "status": "approved",
@@ -37894,6 +38162,23 @@
       "source_id": 3674
     },
     {
+      "id": "leetcode-3675",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Transform String",
+      "summary": "Given a string s made of lowercase English letters, you can replace each character with the next letter in the alphabet any number of times.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3675.json",
+      "content_sha256": "84507e747aba336208826dc3b9460087f77f12b86780012ba5d43fedc424c8b9",
+      "source_id": 3675
+    },
+    {
       "id": "leetcode-3678",
       "version": 1,
       "status": "approved",
@@ -37980,6 +38265,23 @@
       "path": "problems/leetcode-3688.json",
       "content_sha256": "ea38c4adddb14174c898f1311717c49929a9f627526d84b0f1574cfeb6105a79",
       "source_id": 3688
+    },
+    {
+      "id": "leetcode-3689",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Total Subarray Value I",
+      "summary": "Given an integer array nums of length n and an integer k, select exactly k non-empty subarrays.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3689.json",
+      "content_sha256": "2103e5148baf37d7c400a47a45188ea5b2ba05412af13c8d6bba3c0498dc1394",
+      "source_id": 3689
     },
     {
       "id": "leetcode-3696",
@@ -38158,6 +38460,23 @@
       "source_id": 3745
     },
     {
+      "id": "leetcode-3746",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum String Length After Balanced Removals",
+      "summary": "Given a string s made up of 'a' and 'b', repeatedly remove any substring where the count of 'a' equals the count of 'b'.",
+      "topics": [
+        "strings",
+        "invariants"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3746.json",
+      "content_sha256": "d161effaea587035aca8cd1786d72780a15d86059969246d9e7bf17413233874",
+      "source_id": 3746
+    },
+    {
       "id": "leetcode-3750",
       "version": 1,
       "status": "approved",
@@ -38191,6 +38510,23 @@
       "path": "problems/leetcode-3754.json",
       "content_sha256": "54c6e27f89716116d78fbd8d6f99d4c4481fbf703a0610eff27a1ae2f6b44ca3",
       "source_id": 3754
+    },
+    {
+      "id": "leetcode-3760",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Substrings With Distinct Start",
+      "summary": "Given a string of lowercase letters, determine the greatest number of substrings that can be formed where each substring begins with a unique letter.",
+      "topics": [
+        "strings",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3760.json",
+      "content_sha256": "5a4a50329f1f16275f640080fd56bd522d9253ab466ead8493b7445cf9f159ba",
+      "source_id": 3760
     },
     {
       "id": "leetcode-3769",
@@ -38330,6 +38666,23 @@
       "path": "problems/leetcode-3827.json",
       "content_sha256": "c9e3b40b0a00f0b12c5a0f3b455f37c6c2b7891121a094d276ace575c2d564c4",
       "source_id": 3827
+    },
+    {
+      "id": "leetcode-3828",
+      "version": 1,
+      "status": "approved",
+      "title": "Final Element After Subarray Deletions",
+      "summary": "Given an integer array, players Alice and Bob take turns removing subarrays of length less than the current array length.",
+      "topics": [
+        "arrays",
+        "game theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3828.json",
+      "content_sha256": "2c3b0cff763d2410d8dce945471a361640ec8bb047336d69976e7587577ff159",
+      "source_id": 3828
     },
     {
       "id": "leetcode-3833",

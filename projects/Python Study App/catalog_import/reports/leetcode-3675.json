@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3675",
+  "content_sha256": "84507e747aba336208826dc3b9460087f77f12b86780012ba5d43fedc424c8b9",
+  "source_hash": "21595a59ec23e59f117a3fc65d0fbe301226f85fa5b487d48ba29cda7a4e6d97",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the nearest character rather than the farthest required distance.",
+      "failed_cases": [
+        "lc-3675-1",
+        "lc-3675-4",
+        "lc-3675-5",
+        "lc-3675-6",
+        "lc-3675-7",
+        "lc-3675-8",
+        "lc-3675-9",
+        "lc-3675-10",
+        "lc-3675-11",
+        "lc-3675-12",
+        "lc-3675-13",
+        "lc-3675-14"
+      ]
+    },
+    {
+      "reason": "Includes a as needing a full cycle of operations.",
+      "failed_cases": [
+        "lc-3675-2",
+        "lc-3675-3",
+        "lc-3675-6",
+        "lc-3675-8",
+        "lc-3675-12",
+        "lc-3675-13",
+        "lc-3675-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7722,
+  "oracle_implementation": "code_practice/import_batch_199d.py:letters_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "1b4965c12d4c386eabcdf332ce59d25b3e0915bf747c52339032627877ca444e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7472ca2d3d84f5c342ee517d109527cf1bc71ab72c618485cec3d8f37fb1d883",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

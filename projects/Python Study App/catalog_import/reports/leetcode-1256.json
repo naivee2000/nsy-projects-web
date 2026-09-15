@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1256",
+  "content_sha256": "25dd795d8aeb996c139e29e72196db23d12e22930a10f7bb5a631eb5640b4cfa",
+  "source_hash": "c23f51586a1b31064837ae8c0debe0c5c69bf640028f4ba6553f7a0cefe3f274",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses num rather than num+1 and shifts the enumeration.",
+      "failed_cases": [
+        "lc-1256-1",
+        "lc-1256-3",
+        "lc-1256-4",
+        "lc-1256-5",
+        "lc-1256-6",
+        "lc-1256-7",
+        "lc-1256-8",
+        "lc-1256-9",
+        "lc-1256-10",
+        "lc-1256-11",
+        "lc-1256-12",
+        "lc-1256-13",
+        "lc-1256-14"
+      ]
+    },
+    {
+      "reason": "Keeps the leading one instead of removing it.",
+      "failed_cases": [
+        "lc-1256-1",
+        "lc-1256-2",
+        "lc-1256-3",
+        "lc-1256-4",
+        "lc-1256-5",
+        "lc-1256-6",
+        "lc-1256-7",
+        "lc-1256-8",
+        "lc-1256-9",
+        "lc-1256-10",
+        "lc-1256-11",
+        "lc-1256-12",
+        "lc-1256-13",
+        "lc-1256-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5303,
+  "oracle_implementation": "code_practice/import_batch_199b.py:encode_oracle",
+  "validator_implementation_sha256": "aad0e50666b7112d34fe7d17dcac3c78f75196538cf2b54696345f09d5b01153",
+  "batch_implementation_sha256": "ebe19db471afe151ea6f8b9674f029559fa1f1324f5a07f3f38a6321f6a0462e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9c90e5f0c4950636b42320f80024414b53f841923ca4455339ed27f5afa98a22",
+  "elapsed_seconds": 0.304,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

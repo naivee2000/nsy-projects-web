@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-793",
+  "content_sha256": "54364994aa2d9366c058e07caeb9fa975ccac6b3400074fb11babc0cf8d8fc75",
+  "source_hash": "dd23b7b50f921ea312b097732fa3b414f77887712edd503b75fad3a630715329",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts the two lower bounds in reverse order.",
+      "failed_cases": [
+        "lc-793-1",
+        "lc-793-3",
+        "lc-793-4",
+        "lc-793-5",
+        "lc-793-6",
+        "lc-793-7",
+        "lc-793-8",
+        "lc-793-9",
+        "lc-793-10",
+        "lc-793-11",
+        "lc-793-12",
+        "lc-793-13",
+        "lc-793-14"
+      ]
+    },
+    {
+      "reason": "Searches for values strictly above the target rather than at least the target.",
+      "failed_cases": [
+        "lc-793-2",
+        "lc-793-6",
+        "lc-793-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4840,
+  "oracle_implementation": "code_practice/import_batch_199a.py:preimage_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "e2cc9c669ecd92d39f088b786cd6834d2ffbee2ad1e14ac586af04c83617ba7f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1709d76dae08e3c52c65401b813257202f1013c98705b0aaeb201def40a3e20d",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

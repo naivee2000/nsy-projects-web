@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3181",
+  "content_sha256": "18222f5f823d6924b59f47084e80c3ef75781dc0a43729fc4f0c077b768ff994",
+  "source_hash": "c9d6f00f14a3d208ced30eff87d0d259af6597472bcdb442b03975a9c0c92a06",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Processes rewards in descending order, blocking useful small totals.",
+      "failed_cases": [
+        "lc-3181-1",
+        "lc-3181-2",
+        "lc-3181-5",
+        "lc-3181-6",
+        "lc-3181-7",
+        "lc-3181-8",
+        "lc-3181-9",
+        "lc-3181-10",
+        "lc-3181-11",
+        "lc-3181-12",
+        "lc-3181-13",
+        "lc-3181-14"
+      ]
+    },
+    {
+      "reason": "Keeps only one reachable total below value rather than every eligible total.",
+      "failed_cases": [
+        "lc-3181-1",
+        "lc-3181-2",
+        "lc-3181-3",
+        "lc-3181-4",
+        "lc-3181-5",
+        "lc-3181-6",
+        "lc-3181-7",
+        "lc-3181-8",
+        "lc-3181-9",
+        "lc-3181-10",
+        "lc-3181-11",
+        "lc-3181-12",
+        "lc-3181-13",
+        "lc-3181-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7228,
+  "oracle_implementation": "code_practice/import_batch_199c.py:reward_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "7750fb664b683b18376ccf23c52525ab0bc1ccdcc013f315c5735bf688488550",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c42d1a4f1bcc2e63a1ad4da890764b039c5097841728a3ed5af15a7efc920fb1",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3223",
+  "content_sha256": "42baebd9fd67198238be280d57e18ad3bda2fbcf8a86600d12eaefc31726abc1",
+  "source_hash": "5bbac411af75d7040bd015a524dcd9e62260de3ed8cca04d73be7d0277dac7f3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps two copies for odd counts and one for even counts.",
+      "failed_cases": [
+        "lc-3223-1",
+        "lc-3223-2",
+        "lc-3223-3",
+        "lc-3223-4",
+        "lc-3223-5",
+        "lc-3223-6",
+        "lc-3223-7",
+        "lc-3223-10",
+        "lc-3223-11",
+        "lc-3223-12",
+        "lc-3223-13",
+        "lc-3223-14"
+      ]
+    },
+    {
+      "reason": "Deduplicates equal frequency values and loses character groups.",
+      "failed_cases": [
+        "lc-3223-6",
+        "lc-3223-7",
+        "lc-3223-10",
+        "lc-3223-11",
+        "lc-3223-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7270,
+  "oracle_implementation": "code_practice/import_batch_199e.py:minimum_length_oracle",
+  "validator_implementation_sha256": "aad0e50666b7112d34fe7d17dcac3c78f75196538cf2b54696345f09d5b01153",
+  "batch_implementation_sha256": "bcfd7398df42912a675ea83ba55dcdef45a2dafee16760bdf0115dbc3663466d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "89b2add043d808a4f3bd264c97a12986b575c6513173706649d8ff9a7226ce82",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

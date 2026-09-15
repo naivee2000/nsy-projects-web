@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3746",
+  "content_sha256": "d161effaea587035aca8cd1786d72780a15d86059969246d9e7bf17413233874",
+  "source_hash": "812986a6c1ac52d6bd59a91ada3d1cfda2f98c48925784fe1ed61c727ba80430",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns a signed count difference instead of a length.",
+      "failed_cases": [
+        "lc-3746-4",
+        "lc-3746-8",
+        "lc-3746-12",
+        "lc-3746-14"
+      ]
+    },
+    {
+      "reason": "Ignores b characters entirely.",
+      "failed_cases": [
+        "lc-3746-1",
+        "lc-3746-2",
+        "lc-3746-4",
+        "lc-3746-5",
+        "lc-3746-6",
+        "lc-3746-8",
+        "lc-3746-9",
+        "lc-3746-10",
+        "lc-3746-11",
+        "lc-3746-12",
+        "lc-3746-13",
+        "lc-3746-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7793,
+  "oracle_implementation": "code_practice/import_batch_199d.py:removals_oracle",
+  "validator_implementation_sha256": "030bae57a314b0c5a75f37c91196b05f44aa9fedf11c86fbda1cf86aa0f24f91",
+  "batch_implementation_sha256": "1b4965c12d4c386eabcdf332ce59d25b3e0915bf747c52339032627877ca444e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "795d0c124b580ddd3de5a7ff11c67f1b0d1985397538d1f950787425a1d19de2",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

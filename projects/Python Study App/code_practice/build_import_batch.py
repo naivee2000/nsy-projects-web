@@ -357,6 +357,11 @@ from .import_batch_198b import BATCH as BATCH_198B
 from .import_batch_198c import BATCH as BATCH_198C
 from .import_batch_198d import BATCH as BATCH_198D
 from .import_batch_198e import BATCH as BATCH_198E
+from .import_batch_199a import BATCH as BATCH_199A
+from .import_batch_199b import BATCH as BATCH_199B
+from .import_batch_199c import BATCH as BATCH_199C
+from .import_batch_199d import BATCH as BATCH_199D
+from .import_batch_199e import BATCH as BATCH_199E
 from .catalog_evidence import judge_contract_hash
 from .catalog_artifacts import write_json_atomic
 from .schemas import ProblemDefinition, TestCase
@@ -672,6 +677,11 @@ BATCH.update(BATCH_198B)
 BATCH.update(BATCH_198C)
 BATCH.update(BATCH_198D)
 BATCH.update(BATCH_198E)
+BATCH.update(BATCH_199A)
+BATCH.update(BATCH_199B)
+BATCH.update(BATCH_199C)
+BATCH.update(BATCH_199D)
+BATCH.update(BATCH_199E)
 
 
 def digest(payload):
@@ -918,7 +928,20 @@ def review_isolated(pid, spec, source, source_hash, timeout_seconds=30):
     context = multiprocessing.get_context("spawn")
     incoming, outgoing = context.Pipe(duplex=False)
     process = context.Process(target=_review_child, args=(pid, spec, source, source_hash, outgoing))
-    process.start()
+    try:
+        process.start()
+    except Exception as error:
+        incoming.close()
+        outgoing.close()
+        return None, {
+            "valid": False,
+            "problem_id": f"leetcode-{pid}",
+            "source_hash": source_hash,
+            "failures": [{
+                "phase": "isolated_validation_start",
+                "error": f"{type(error).__name__}: {error}",
+            }],
+        }
     outgoing.close()
     try:
         if incoming.poll(timeout_seconds):
