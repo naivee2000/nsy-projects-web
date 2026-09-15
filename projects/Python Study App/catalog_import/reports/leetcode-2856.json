@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2856",
+  "content_sha256": "671fbd68475f2ca909def61d2fd21b1fdb5960c8729021da0067fb8130a97165",
+  "source_hash": "0ca68ad593a75934dd27132a86361b41630dd69669ae0a445564cd4c009459b1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes every pair can be made from unequal values.",
+      "failed_cases": [
+        "lc-2856-2",
+        "lc-2856-5",
+        "lc-2856-9",
+        "lc-2856-14"
+      ]
+    },
+    {
+      "reason": "Uses half the total size rather than the count of all non-majority values against the majority.",
+      "failed_cases": [
+        "lc-2856-2",
+        "lc-2856-5",
+        "lc-2856-9",
+        "lc-2856-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6903,
+  "oracle_implementation": "code_practice/import_batch_210a.py:removals_oracle",
+  "validator_implementation_sha256": "7f099f0ec19e39a5d224d69fb64cf52d9755d7ce11b4431094883e753a7abdd1",
+  "batch_implementation_sha256": "f636c7e8a4756068480c681e8ee563c3e684dae4a606353715e00d3d73790016",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c8ef36bd2f5706926e55601fda77fc81f6ef1838594f874dbe4d1ffb73ec397f",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

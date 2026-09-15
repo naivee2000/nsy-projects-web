@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2852",
+  "content_sha256": "f57567ffcfd7da37a81b01b0b3c0a3c1ca2411f1ef5b8662fca7183a8ac66ab9",
+  "source_hash": "36d0df12467f3268e65ff6a2c2e77a7f70a404f6810935bd56ccc4c32aac9213",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts the component’s cell count from the global value sum.",
+      "failed_cases": [
+        "lc-2852-1",
+        "lc-2852-2",
+        "lc-2852-5",
+        "lc-2852-6",
+        "lc-2852-7",
+        "lc-2852-8",
+        "lc-2852-9",
+        "lc-2852-10",
+        "lc-2852-11",
+        "lc-2852-12",
+        "lc-2852-13",
+        "lc-2852-15",
+        "lc-2852-16"
+      ]
+    },
+    {
+      "reason": "Weights outside values by the component value sum instead of its number of cells.",
+      "failed_cases": [
+        "lc-2852-1",
+        "lc-2852-2",
+        "lc-2852-6",
+        "lc-2852-8",
+        "lc-2852-9",
+        "lc-2852-10",
+        "lc-2852-11",
+        "lc-2852-15",
+        "lc-2852-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6899,
+  "oracle_implementation": "code_practice/import_batch_210a.py:remoteness_oracle",
+  "validator_implementation_sha256": "7f099f0ec19e39a5d224d69fb64cf52d9755d7ce11b4431094883e753a7abdd1",
+  "batch_implementation_sha256": "f636c7e8a4756068480c681e8ee563c3e684dae4a606353715e00d3d73790016",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8959ad01dd87c8c43981cb8a67c854a41aec50e06101d8590b1ddfc46f93846c",
+  "elapsed_seconds": 0.088,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

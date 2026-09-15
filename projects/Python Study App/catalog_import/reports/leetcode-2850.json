@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2850",
+  "content_sha256": "f52a4ffbe5e96c05175003752cad1e8c1be1c808003358c21b59f41e1664cfee",
+  "source_hash": "f56b44aa099800448ef0d6569e58350670bfbc16404e372bf7259a30c7eef4ab",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses diagonal distance even though moves may cross only shared sides.",
+      "failed_cases": [
+        "lc-2850-1",
+        "lc-2850-4",
+        "lc-2850-5",
+        "lc-2850-6",
+        "lc-2850-12",
+        "lc-2850-14",
+        "lc-2850-15"
+      ]
+    },
+    {
+      "reason": "Lets multiple surplus stones fill the same nearest empty cell instead of enforcing a one-to-one assignment.",
+      "failed_cases": [
+        "lc-2850-4",
+        "lc-2850-5",
+        "lc-2850-6",
+        "lc-2850-9",
+        "lc-2850-12",
+        "lc-2850-13",
+        "lc-2850-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6897,
+  "oracle_implementation": "code_practice/import_batch_210a.py:stones_oracle",
+  "validator_implementation_sha256": "7f099f0ec19e39a5d224d69fb64cf52d9755d7ce11b4431094883e753a7abdd1",
+  "batch_implementation_sha256": "f636c7e8a4756068480c681e8ee563c3e684dae4a606353715e00d3d73790016",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ca118c4f89c40976bdf0fdce95b08bb47199594290aa0b576ab7b07866f7bfcf",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2857",
+  "content_sha256": "06a9e63760e3bc2eda2918d259d74840501a0900d13c480cea79754ec3860ff7",
+  "source_hash": "e7a71f39351ec69dc3cb3eb054181ef2e57563286894078646cc687e4cccd080",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Combines the coordinate XOR contributions with addition instead of splitting k.",
+      "failed_cases": [
+        "lc-2857-1",
+        "lc-2857-4",
+        "lc-2857-5",
+        "lc-2857-8",
+        "lc-2857-9",
+        "lc-2857-11",
+        "lc-2857-12",
+        "lc-2857-13",
+        "lc-2857-14",
+        "lc-2857-15"
+      ]
+    },
+    {
+      "reason": "Never considers the split where the x-coordinate XOR contributes all k.",
+      "failed_cases": [
+        "lc-2857-1",
+        "lc-2857-2",
+        "lc-2857-3",
+        "lc-2857-4",
+        "lc-2857-10",
+        "lc-2857-13",
+        "lc-2857-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6904,
+  "oracle_implementation": "code_practice/import_batch_210a.py:xor_pairs_oracle",
+  "validator_implementation_sha256": "7f099f0ec19e39a5d224d69fb64cf52d9755d7ce11b4431094883e753a7abdd1",
+  "batch_implementation_sha256": "f636c7e8a4756068480c681e8ee563c3e684dae4a606353715e00d3d73790016",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "174497d194e57172bdaca304b6ab36145bf20e18755f811921e0a21a6396300c",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
