@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3404",
+  "content_sha256": "adfd27393469aa10a15232941bebda0afe576dfdbfa10b86a5fa38e91cae6eec",
+  "source_hash": "2f226688a8452560c30faaa5eb6f34d66d9bcda85b1410acc6c4ff937f7161f5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stores the right-hand ratio in reversed order.",
+      "failed_cases": [
+        "lc-3404-1",
+        "lc-3404-4",
+        "lc-3404-5",
+        "lc-3404-6",
+        "lc-3404-7",
+        "lc-3404-8",
+        "lc-3404-9",
+        "lc-3404-10",
+        "lc-3404-11",
+        "lc-3404-13",
+        "lc-3404-14"
+      ]
+    },
+    {
+      "reason": "Allows the last two selected indices to be adjacent.",
+      "failed_cases": [
+        "lc-3404-2",
+        "lc-3404-5",
+        "lc-3404-7",
+        "lc-3404-8",
+        "lc-3404-11",
+        "lc-3404-12",
+        "lc-3404-13",
+        "lc-3404-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7451,
+  "oracle_implementation": "code_practice/import_batch_223c.py:special_oracle",
+  "validator_implementation_sha256": "a58c317d727bc18a90bae95dc8f8eb4c2cb7884fdcc2ccafa8506057f933335d",
+  "batch_implementation_sha256": "b1f97cc7e8dc41df4097418db0bdbfe2928830f57cfe20a73b28133daa0cd5ef",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f86caddbc73694f056501aabb3e9f4c74d33a834ddc0efc32833464c82ce043a",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

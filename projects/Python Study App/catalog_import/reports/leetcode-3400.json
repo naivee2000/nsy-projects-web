@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3400",
+  "content_sha256": "5f9a44bad8bc3be8bc3b18e49390ab1ebfbf7795c428d66f3bbe39e957295441",
+  "source_hash": "2d029c0ae0a0a021a64f50a2d9d7749e650f5bb93a4b7da523630b3b26725c5f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops wrapped entries instead of rotating them to the front.",
+      "failed_cases": [
+        "lc-3400-1",
+        "lc-3400-6",
+        "lc-3400-7",
+        "lc-3400-8",
+        "lc-3400-10",
+        "lc-3400-11",
+        "lc-3400-12",
+        "lc-3400-13",
+        "lc-3400-14"
+      ]
+    },
+    {
+      "reason": "Checks only the original alignment.",
+      "failed_cases": [
+        "lc-3400-1",
+        "lc-3400-6",
+        "lc-3400-7",
+        "lc-3400-8",
+        "lc-3400-10",
+        "lc-3400-11",
+        "lc-3400-12",
+        "lc-3400-13",
+        "lc-3400-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7447,
+  "oracle_implementation": "code_practice/import_batch_223c.py:matching_oracle",
+  "validator_implementation_sha256": "a58c317d727bc18a90bae95dc8f8eb4c2cb7884fdcc2ccafa8506057f933335d",
+  "batch_implementation_sha256": "b1f97cc7e8dc41df4097418db0bdbfe2928830f57cfe20a73b28133daa0cd5ef",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "be5ef595635f170a73e5000cc60e124d0694d69eb721245b0a44fd2274ea7b0d",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

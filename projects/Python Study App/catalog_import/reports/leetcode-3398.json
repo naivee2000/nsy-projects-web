@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3398",
+  "content_sha256": "957440f51d1a67bf47e6b65d02e46e5e7b739c3fe1ac0f20d7bceb706295fec4",
+  "source_hash": "a93daf8702342adf8673da9c4e9db6f7108ac88077a3b212d0aaedfb6c252e39",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only the alternating pattern beginning with zero.",
+      "failed_cases": [
+        "lc-3398-12"
+      ]
+    },
+    {
+      "reason": "Rounds the flips per run upward and rejects feasible limits.",
+      "failed_cases": [
+        "lc-3398-1",
+        "lc-3398-2",
+        "lc-3398-9",
+        "lc-3398-10",
+        "lc-3398-12",
+        "lc-3398-13",
+        "lc-3398-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7445,
+  "oracle_implementation": "code_practice/import_batch_223c.py:binary_oracle",
+  "validator_implementation_sha256": "a58c317d727bc18a90bae95dc8f8eb4c2cb7884fdcc2ccafa8506057f933335d",
+  "batch_implementation_sha256": "b1f97cc7e8dc41df4097418db0bdbfe2928830f57cfe20a73b28133daa0cd5ef",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a38018aa4d188c57826a7f2a8b020b6c8c897647cff0c2f63568f3516ee124bb",
+  "elapsed_seconds": 0.157,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
