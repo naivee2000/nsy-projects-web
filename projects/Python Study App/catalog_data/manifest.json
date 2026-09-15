@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2786,
+  "count": 2791,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -47614,6 +47614,65 @@
       "source_id": 3532
     },
     {
+      "id": "leetcode-3533",
+      "version": 1,
+      "status": "approved",
+      "title": "Concatenated Divisibility",
+      "summary": "Given an array of positive integers and a positive integer k, find the lexicographically smallest permutation of the array such that the concatenated number is divisible by k.",
+      "topics": [
+        "arrays",
+        "bitmask dynamic programming",
+        "modular arithmetic"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3533.json",
+      "content_sha256": "2433136a14bf0f57625c96216c55ab345548f543500529b31fe86a453937ad85",
+      "source_id": 3533
+    },
+    {
+      "id": "leetcode-3534",
+      "version": 1,
+      "status": "approved",
+      "title": "Path Existence Queries in a Graph II",
+      "summary": "Given an integer n representing the number of nodes in a graph, labeled from 0 to n - 1, along with an integer array nums of length n and an integer maxDiff, an undirected edge exists between nodes i and j if the absolute difference between nums[i] and nums[j] is at most maxDiff (i.e., |nums[i] - nums[j]| <= maxDiff).",
+      "topics": [
+        "graphs",
+        "sorting",
+        "binary lifting",
+        "two pointers"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3534.json",
+      "content_sha256": "c9e65eaab2ff94d855bd24a97437285f2071fe3bc0488007cbd40b74199e0f1b",
+      "source_id": 3534
+    },
+    {
+      "id": "leetcode-3535",
+      "version": 1,
+      "status": "approved",
+      "title": "Unit Conversion II",
+      "summary": "Given n types of units indexed from 0 to n-1, conversions are defined by a 2D array where each entry [sourceUniti, targetUniti, conversionFactori] shows that one unit of sourceUniti equals conversionFactori units of targetUniti.",
+      "topics": [
+        "graphs",
+        "modular arithmetic",
+        "depth first search"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3535.json",
+      "content_sha256": "dd64571cac4759fafa05a27e8263d21659b65595156a738e6dd66cf692cfaee1",
+      "source_id": 3535
+    },
+    {
       "id": "leetcode-3536",
       "version": 1,
       "status": "approved",
@@ -47630,6 +47689,44 @@
       "path": "problems/leetcode-3536.json",
       "content_sha256": "66d7d4756f9631453f1fb53c8de92689f3f6cd173631368ff421c3c50fe2a378",
       "source_id": 3536
+    },
+    {
+      "id": "leetcode-3538",
+      "version": 1,
+      "status": "approved",
+      "title": "Merge Operations for Minimum Travel Time",
+      "summary": "Given a straight road of length l km, with n signs at positions in strictly increasing order, and travel times between consecutive signs, you must perform exactly k merge operations.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "prefix sums"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3538.json",
+      "content_sha256": "b0fa8ff9def955cba4495189803e48351e4f8c00ae8b3f621272d109ac8d6996",
+      "source_id": 3538
+    },
+    {
+      "id": "leetcode-3540",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Visit All Houses",
+      "summary": "Given two arrays forward and backward of size n, and an array queries, you must determine the minimum time to visit each house in the specified order.",
+      "topics": [
+        "arrays",
+        "prefix sums",
+        "shortest paths"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3540.json",
+      "content_sha256": "c3c5798d82841cfce58d74b86d40b5db6dfb2ddd3efd7eb7b709306e501baf09",
+      "source_id": 3540
     },
     {
       "id": "leetcode-3541",

@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3535",
+  "content_sha256": "dd64571cac4759fafa05a27e8263d21659b65595156a738e6dd66cf692cfaee1",
+  "source_hash": "98b25ee6f92be84f2368f63ac2be1dfcbb5914610ef71d6f587b1a43478be009",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the forward factor on reverse edges instead of its modular inverse.",
+      "failed_cases": [
+        "lc-3535-4",
+        "lc-3535-6",
+        "lc-3535-10",
+        "lc-3535-13",
+        "lc-3535-14"
+      ]
+    },
+    {
+      "reason": "Multiplies root-relative values instead of dividing target by source.",
+      "failed_cases": [
+        "lc-3535-1",
+        "lc-3535-2",
+        "lc-3535-3",
+        "lc-3535-4",
+        "lc-3535-5",
+        "lc-3535-6",
+        "lc-3535-7",
+        "lc-3535-9",
+        "lc-3535-10",
+        "lc-3535-11",
+        "lc-3535-12",
+        "lc-3535-13",
+        "lc-3535-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7582,
+  "oracle_implementation": "code_practice/import_batch_228a.py:conversion_query_oracle",
+  "validator_implementation_sha256": "da38c0394c0ce3b9c6d1ea60e0236d15dc93e5a13a65a0f437e66615cb3141fb",
+  "batch_implementation_sha256": "ee229994c4fdbf4dff51db87739aa10ed9371e0469796d99d101a331fed8261c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cee73b876bd73139b494cb127c7296fdff3efa566b7a4306592aba35c8d699f1",
+  "elapsed_seconds": 0.078,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

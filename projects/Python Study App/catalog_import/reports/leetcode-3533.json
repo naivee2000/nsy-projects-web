@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3533",
+  "content_sha256": "2433136a14bf0f57625c96216c55ab345548f543500529b31fe86a453937ad85",
+  "source_hash": "29155243e5b864e7a65c583c504752540eafa54555d7f5e77f3335569b19b40a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tries values in descending order and returns the lexicographically largest feasible permutation.",
+      "failed_cases": [
+        "lc-3533-1",
+        "lc-3533-9",
+        "lc-3533-10",
+        "lc-3533-11",
+        "lc-3533-12",
+        "lc-3533-13"
+      ]
+    },
+    {
+      "reason": "Updates the remainder by addition instead of decimal concatenation.",
+      "failed_cases": [
+        "lc-3533-2",
+        "lc-3533-6",
+        "lc-3533-9",
+        "lc-3533-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7580,
+  "oracle_implementation": "code_practice/import_batch_228a.py:concatenation_oracle",
+  "validator_implementation_sha256": "da38c0394c0ce3b9c6d1ea60e0236d15dc93e5a13a65a0f437e66615cb3141fb",
+  "batch_implementation_sha256": "ee229994c4fdbf4dff51db87739aa10ed9371e0469796d99d101a331fed8261c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "465f78f520579534d4416760a485b3ce2821f0409b84a401d889a016020072f7",
+  "elapsed_seconds": 1.253,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
