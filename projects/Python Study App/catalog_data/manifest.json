@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2386,
+  "count": 2391,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -31673,6 +31673,26 @@
       "source_id": 2312
     },
     {
+      "id": "leetcode-2313",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Flips in Binary Tree to Get Result",
+      "summary": "Given a binary tree with leaf nodes representing boolean values and non-leaf nodes representing boolean operations, determine the minimum number of flips required to achieve a specified boolean result at the root.",
+      "topics": [
+        "trees",
+        "dynamic programming",
+        "recursion"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2313.json",
+      "content_sha256": "10aa9a1b66ac55ed37ef03e1140a93e3655103c06a9a2335ca7c706c3ac212a9",
+      "source_id": 2313
+    },
+    {
       "id": "leetcode-2315",
       "version": 1,
       "status": "approved",
@@ -31797,6 +31817,44 @@
       "source_id": 2321
     },
     {
+      "id": "leetcode-2322",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Score After Removals on a Tree",
+      "summary": "Given an undirected connected tree with nodes labeled from 0 to n-1 and a value array for each node, remove two distinct edges to form three connected components.",
+      "topics": [
+        "trees",
+        "depth-first search",
+        "bit manipulation"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2322.json",
+      "content_sha256": "0b1ea8c97ea5d342e7008fc7aa760351715b5c89fe2c1bd5fdd52bf7132e4d9d",
+      "source_id": 2322
+    },
+    {
+      "id": "leetcode-2323",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Minimum Time to Finish All Jobs II",
+      "summary": "Given two 0-indexed integer arrays, jobs and workers, where jobs[i] represents the time needed to complete the i-th job, and workers[j] represents the amount of time the j-th worker can work each day, assign each job to exactly one worker such that each worker is assigned exactly one job.",
+      "topics": [
+        "sorting",
+        "greedy",
+        "assignment"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2323.json",
+      "content_sha256": "9f30e8e3e5ff899fa5de275aac41099e564e663f858cd819ed8086aea557fd95",
+      "source_id": 2323
+    },
+    {
       "id": "leetcode-2325",
       "version": 1,
       "status": "approved",
@@ -31868,6 +31926,24 @@
       "source_id": 2330
     },
     {
+      "id": "leetcode-2331",
+      "version": 1,
+      "status": "approved",
+      "title": "Evaluate Boolean Binary Tree",
+      "summary": "Given a full binary tree, evaluate the root node by recursively applying boolean operations on its children until a leaf node's value (0 or 1) is reached, where 0 is False and 1 is True.",
+      "topics": [
+        "trees",
+        "recursion",
+        "boolean logic"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-2331.json",
+      "content_sha256": "420a7734c8eab8df8a857ce2dbba266eb2fa1f0abf24b0d3322b9944da093dce",
+      "source_id": 2331
+    },
+    {
       "id": "leetcode-2332",
       "version": 1,
       "status": "approved",
@@ -31936,6 +32012,26 @@
       "path": "problems/leetcode-2337.json",
       "content_sha256": "53698bdd2718548ea6ae8bc91d5c7dea782a199d910110dec90c9cd95e7e1f21",
       "source_id": 2337
+    },
+    {
+      "id": "leetcode-2338",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Ideal Arrays",
+      "summary": "Given integers n and maxValue, determine the count of distinct ideal arrays of length n where each element is between 1 and maxValue, and each element is divisible by the previous one.",
+      "topics": [
+        "math",
+        "combinatorics",
+        "prime factorization"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2338.json",
+      "content_sha256": "3f80316e90801d997cea671259d531cae7c0d9656c38901a8d661ac64e7eb8e0",
+      "source_id": 2338
     },
     {
       "id": "leetcode-2340",

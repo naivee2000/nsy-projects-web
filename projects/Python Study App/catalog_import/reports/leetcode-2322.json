@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2322",
+  "content_sha256": "0b1ea8c97ea5d342e7008fc7aa760351715b5c89fe2c1bd5fdd52bf7132e4d9d",
+  "source_hash": "14570419f1e12e91795062ef7dd85992318d9df41ff8762615e1730fb3c0c002",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "For disjoint cut subtrees, forgets to remove the second subtree XOR from the remainder.",
+      "failed_cases": [
+        "lc-2322-1",
+        "lc-2322-4",
+        "lc-2322-7",
+        "lc-2322-10",
+        "lc-2322-12",
+        "lc-2322-15",
+        "lc-2322-16"
+      ]
+    },
+    {
+      "reason": "Minimizes only the maximum XOR instead of the range between maximum and minimum.",
+      "failed_cases": [
+        "lc-2322-1",
+        "lc-2322-3",
+        "lc-2322-4",
+        "lc-2322-6",
+        "lc-2322-7",
+        "lc-2322-9",
+        "lc-2322-10",
+        "lc-2322-11",
+        "lc-2322-12",
+        "lc-2322-13",
+        "lc-2322-14",
+        "lc-2322-15",
+        "lc-2322-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6369,
+  "oracle_implementation": "code_practice/import_batch_208a.py:score_oracle",
+  "validator_implementation_sha256": "56e68536c1785ce6c385b69646e0d4837039c4964abd23c9ab21f1bb3d86e1f4",
+  "batch_implementation_sha256": "e2c53acc01af9744e0cc50142d91ebfec344b36a373d9f0e0f1821b945152e4b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e7287419e3e650ce9dd2cce3933928c79650edd844c65aceedd7cd4663c8458f",
+  "elapsed_seconds": 0.12,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

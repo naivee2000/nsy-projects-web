@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2338",
+  "content_sha256": "3f80316e90801d997cea671259d531cae7c0d9656c38901a8d661ac64e7eb8e0",
+  "source_hash": "1fa88abf9a418c3cbcd9ae8e4084a2b13c081ed68b03239a5e0d992b24eba295",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Places prime-factor increments independently into n choices but ignores combinations with repetition.",
+      "failed_cases": [
+        "lc-2338-1",
+        "lc-2338-10",
+        "lc-2338-12",
+        "lc-2338-14",
+        "lc-2338-15",
+        "lc-2338-16"
+      ]
+    },
+    {
+      "reason": "Overwrites the running total and returns only the contribution from max_value.",
+      "failed_cases": [
+        "lc-2338-1",
+        "lc-2338-2",
+        "lc-2338-4",
+        "lc-2338-6",
+        "lc-2338-7",
+        "lc-2338-8",
+        "lc-2338-9",
+        "lc-2338-10",
+        "lc-2338-11",
+        "lc-2338-12",
+        "lc-2338-14",
+        "lc-2338-15",
+        "lc-2338-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6385,
+  "oracle_implementation": "code_practice/import_batch_208a.py:ideal_oracle",
+  "validator_implementation_sha256": "56e68536c1785ce6c385b69646e0d4837039c4964abd23c9ab21f1bb3d86e1f4",
+  "batch_implementation_sha256": "e2c53acc01af9744e0cc50142d91ebfec344b36a373d9f0e0f1821b945152e4b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1efd154f9237174b8924023288b710327cf9a37b4ead74472970a80334dafe04",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2313",
+  "content_sha256": "10aa9a1b66ac55ed37ef03e1140a93e3655103c06a9a2335ca7c706c3ac212a9",
+  "source_hash": "4bc7398e6378bfb30e3fe6d43b6692a347d0be0a427520f6e8dd19e50dcfab92",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats NOT as an identity operation.",
+      "failed_cases": [
+        "lc-2313-1",
+        "lc-2313-13",
+        "lc-2313-14",
+        "lc-2313-16"
+      ]
+    },
+    {
+      "reason": "Evaluates XOR as AND.",
+      "failed_cases": [
+        "lc-2313-1",
+        "lc-2313-11",
+        "lc-2313-12",
+        "lc-2313-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6360,
+  "oracle_implementation": "code_practice/import_batch_208a.py:flips_oracle",
+  "validator_implementation_sha256": "56e68536c1785ce6c385b69646e0d4837039c4964abd23c9ab21f1bb3d86e1f4",
+  "batch_implementation_sha256": "e2c53acc01af9744e0cc50142d91ebfec344b36a373d9f0e0f1821b945152e4b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a220d0009ad17743fd7afc2812393e36c70f7351a43b3cab91c2e22340f8ab29",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
