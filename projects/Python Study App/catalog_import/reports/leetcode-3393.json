@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3393",
+  "content_sha256": "d7a71a684a92a5f92d1b63e0d38e586d8bca745164dd3784ce700744ad173592",
+  "source_hash": "dbf0d5a99b1a74affc4261733eed3e4e951c7021419a944f47eda28cb99c4cf1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to include the current cell in transitions from above.",
+      "failed_cases": [
+        "lc-3393-7",
+        "lc-3393-9",
+        "lc-3393-10",
+        "lc-3393-11",
+        "lc-3393-12"
+      ]
+    },
+    {
+      "reason": "Always returns the count for XOR zero instead of the requested target.",
+      "failed_cases": [
+        "lc-3393-1",
+        "lc-3393-4",
+        "lc-3393-5",
+        "lc-3393-6",
+        "lc-3393-7",
+        "lc-3393-9",
+        "lc-3393-11",
+        "lc-3393-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7440,
+  "oracle_implementation": "code_practice/import_batch_223b.py:xor_oracle",
+  "validator_implementation_sha256": "69ec71adfc7b1d98fbea919791e07915e3adcb2d53e861fc60d0cd979f3f3349",
+  "batch_implementation_sha256": "cbc41681809d32c87232d0bba6621f959df7149c290c6c3a96fec219347809ce",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a2d4522ec4c7b8bb7d2b5d7427e54fefe9d43d0f55243fced41f3ea8185c0532",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3397",
+  "content_sha256": "fe8d508eb100309eab5286143cc2ce97ccd5daa9ad8967983e1d02794368a94e",
+  "source_hash": "eb358de0e02ffd5c8957b5c06d30a2406719519fac4af822d5121bd7b13b182c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always takes each interval’s left endpoint and creates avoidable duplicates.",
+      "failed_cases": [
+        "lc-3397-1",
+        "lc-3397-2",
+        "lc-3397-5",
+        "lc-3397-7",
+        "lc-3397-9",
+        "lc-3397-10",
+        "lc-3397-11",
+        "lc-3397-12",
+        "lc-3397-14"
+      ]
+    },
+    {
+      "reason": "Allows the next assigned value to equal the previous one.",
+      "failed_cases": [
+        "lc-3397-1",
+        "lc-3397-2",
+        "lc-3397-5",
+        "lc-3397-7",
+        "lc-3397-9",
+        "lc-3397-10",
+        "lc-3397-11",
+        "lc-3397-12",
+        "lc-3397-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7444,
+  "oracle_implementation": "code_practice/import_batch_223b.py:distinct_oracle",
+  "validator_implementation_sha256": "69ec71adfc7b1d98fbea919791e07915e3adcb2d53e861fc60d0cd979f3f3349",
+  "batch_implementation_sha256": "cbc41681809d32c87232d0bba6621f959df7149c290c6c3a96fec219347809ce",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "df887630dd82148b844b7574cd7259ab4ad454fcff7ea3f2cbe389d8343dc4a7",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

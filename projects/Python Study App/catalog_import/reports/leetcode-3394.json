@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3394",
+  "content_sha256": "b84437b9d159cd2c2077c49ad211bb26ff1fca0e4b812a4ea7a3dc5cd3cd63d8",
+  "source_hash": "e9272ecc220ef5548f6bbca9fdb576527d25abf17750d13b1309e4a909674ccc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats touching interval boundaries as overlapping and misses legal cuts.",
+      "failed_cases": [
+        "lc-3394-1",
+        "lc-3394-3",
+        "lc-3394-4",
+        "lc-3394-5",
+        "lc-3394-6",
+        "lc-3394-7",
+        "lc-3394-8",
+        "lc-3394-10",
+        "lc-3394-12",
+        "lc-3394-14"
+      ]
+    },
+    {
+      "reason": "Accepts only two sections instead of requiring three.",
+      "failed_cases": [
+        "lc-3394-2",
+        "lc-3394-9",
+        "lc-3394-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7441,
+  "oracle_implementation": "code_practice/import_batch_223b.py:cuts_oracle",
+  "validator_implementation_sha256": "69ec71adfc7b1d98fbea919791e07915e3adcb2d53e861fc60d0cd979f3f3349",
+  "batch_implementation_sha256": "cbc41681809d32c87232d0bba6621f959df7149c290c6c3a96fec219347809ce",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f16b7ffd020d6618f9f54cfc16436fe9853001952ec63dcfef296131dde9b7bc",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

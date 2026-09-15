@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3389",
+  "content_sha256": "0ef274655417f6bcc39e63a9b0af34c4c0244ea782b71ba9f0cb9e648ee24c4f",
+  "source_hash": "369f42f2b83bee04aac27bd925e212d543e6596391e65f13c05aff63f6b1ad6c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never uses the cheaper next-letter replacement between adjacent frequencies.",
+      "failed_cases": [
+        "lc-3389-8",
+        "lc-3389-14"
+      ]
+    },
+    {
+      "reason": "Fails to consider keeping the current maximum frequency as the common target.",
+      "failed_cases": [
+        "lc-3389-2",
+        "lc-3389-3",
+        "lc-3389-4",
+        "lc-3389-6",
+        "lc-3389-8",
+        "lc-3389-9",
+        "lc-3389-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7436,
+  "oracle_implementation": "code_practice/import_batch_223b.py:frequency_oracle",
+  "validator_implementation_sha256": "69ec71adfc7b1d98fbea919791e07915e3adcb2d53e861fc60d0cd979f3f3349",
+  "batch_implementation_sha256": "cbc41681809d32c87232d0bba6621f959df7149c290c6c3a96fec219347809ce",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "393f8248877eea196c3e9065a92da6e15b330b7607ad3819a1c7858e2f2595d7",
+  "elapsed_seconds": 0.11,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
