@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2871",
+  "content_sha256": "11c224365e9ed433cce666762b8ca6ce6b58bf12509aac397ca15df6bcf85cf4",
+  "source_hash": "fedf1cb9765c3fae9e35da701b3ad65719e73608a45780e2f2c90e6324a45f64",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns zero parts when the full-array AND is nonzero, though at least one part is required.",
+      "failed_cases": [
+        "lc-2871-2",
+        "lc-2871-4",
+        "lc-2871-7",
+        "lc-2871-10",
+        "lc-2871-14"
+      ]
+    },
+    {
+      "reason": "Cuts when the running AND is one rather than zero.",
+      "failed_cases": [
+        "lc-2871-1",
+        "lc-2871-5",
+        "lc-2871-7",
+        "lc-2871-12",
+        "lc-2871-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6918,
+  "oracle_implementation": "code_practice/import_batch_210b.py:split_and_oracle",
+  "validator_implementation_sha256": "6dcf386b39bc78b760d9767ee6d93d9a6e54d897bfce7b88b99ea36c595f2add",
+  "batch_implementation_sha256": "69930f45c7fd0b5562c7b801c0a8610fa9d89c6f42bc9ca5b97ea976733308e0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "40aeacf8bd0ddc5c6cd42dd4ae677aeddae9703b9f031b1ad521e21a878f0a98",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

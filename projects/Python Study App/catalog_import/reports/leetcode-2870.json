@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2870",
+  "content_sha256": "bee69a2e3339d61df0e23b73ecc60fa58d804e9f780bc4592e6a8100539332c9",
+  "source_hash": "8a7cdff9186acce314b539cde27324a9c171aa05a2250c40d0887d7e31c25d62",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only groups of three and discards a needed final pair.",
+      "failed_cases": [
+        "lc-2870-1",
+        "lc-2870-3",
+        "lc-2870-6",
+        "lc-2870-7",
+        "lc-2870-9",
+        "lc-2870-10",
+        "lc-2870-11",
+        "lc-2870-12",
+        "lc-2870-14",
+        "lc-2870-15",
+        "lc-2870-16"
+      ]
+    },
+    {
+      "reason": "Fails to reject a value occurring exactly once.",
+      "failed_cases": [
+        "lc-2870-2",
+        "lc-2870-4",
+        "lc-2870-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6917,
+  "oracle_implementation": "code_practice/import_batch_210b.py:empty_array_oracle",
+  "validator_implementation_sha256": "6dcf386b39bc78b760d9767ee6d93d9a6e54d897bfce7b88b99ea36c595f2add",
+  "batch_implementation_sha256": "69930f45c7fd0b5562c7b801c0a8610fa9d89c6f42bc9ca5b97ea976733308e0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "27a221b29d2ebfb8e3fe9add19c7e3d4730f7e40b738f63157d85363bafaea78",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2865",
+  "content_sha256": "93998b982921a577b96d30db0692eb085f35ceb743a313cc739bb23a07e19713",
+  "source_hash": "8b2917d5f914e378b7e118a1703871a4811207b57a5637ac113b67642ca3a90d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the original bounds’ sum even when they are not mountain-shaped.",
+      "failed_cases": [
+        "lc-2865-1",
+        "lc-2865-2",
+        "lc-2865-9",
+        "lc-2865-11",
+        "lc-2865-12",
+        "lc-2865-13",
+        "lc-2865-14",
+        "lc-2865-15",
+        "lc-2865-16"
+      ]
+    },
+    {
+      "reason": "Counts the peak twice when joining left and right constrained sums.",
+      "failed_cases": [
+        "lc-2865-1",
+        "lc-2865-2",
+        "lc-2865-3",
+        "lc-2865-4",
+        "lc-2865-5",
+        "lc-2865-6",
+        "lc-2865-7",
+        "lc-2865-8",
+        "lc-2865-9",
+        "lc-2865-10",
+        "lc-2865-11",
+        "lc-2865-12",
+        "lc-2865-13",
+        "lc-2865-14",
+        "lc-2865-15",
+        "lc-2865-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6912,
+  "oracle_implementation": "code_practice/import_batch_210b.py:towers_oracle",
+  "validator_implementation_sha256": "6dcf386b39bc78b760d9767ee6d93d9a6e54d897bfce7b88b99ea36c595f2add",
+  "batch_implementation_sha256": "69930f45c7fd0b5562c7b801c0a8610fa9d89c6f42bc9ca5b97ea976733308e0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "91b7ee3204319bdda76f76d8e6ebfd8b65e2c318e8fd0688f067171373b13f61",
+  "elapsed_seconds": 0.068,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

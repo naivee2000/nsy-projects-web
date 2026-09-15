@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2861",
+  "content_sha256": "a0adc6088b129d11be98d1fd51bb8e6d34101aac5b4e4d180a00eb37024e05a1",
+  "source_hash": "e9460c314317a3faacd9b3dc0b84e78d8b07f38c747286e59dfde9ec91296f4e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Pays for every required unit and ignores existing stock.",
+      "failed_cases": [
+        "lc-2861-2",
+        "lc-2861-6",
+        "lc-2861-7",
+        "lc-2861-8",
+        "lc-2861-9",
+        "lc-2861-10",
+        "lc-2861-11",
+        "lc-2861-13",
+        "lc-2861-15",
+        "lc-2861-16"
+      ]
+    },
+    {
+      "reason": "Considers only the first machine instead of choosing the best recipe.",
+      "failed_cases": [
+        "lc-2861-7",
+        "lc-2861-8",
+        "lc-2861-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6908,
+  "oracle_implementation": "code_practice/import_batch_210b.py:alloys_oracle",
+  "validator_implementation_sha256": "6dcf386b39bc78b760d9767ee6d93d9a6e54d897bfce7b88b99ea36c595f2add",
+  "batch_implementation_sha256": "69930f45c7fd0b5562c7b801c0a8610fa9d89c6f42bc9ca5b97ea976733308e0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "72efd7801bcd37205190535581a5fd97fc1ab88512351f72a86f03d549669319",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
