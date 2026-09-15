@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3993",
+  "content_sha256": "e428cd67b032e10a1855df0be9fcd85023b2191d765f800834f036d928165d95",
+  "source_hash": "2b1e97e33a743d6c0969d2cde924d3b4a44318ab34cb9bf13d260d0cada7acbd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses too few upward peaks for even lengths.",
+      "failed_cases": [
+        "lc-3993-1",
+        "lc-3993-2",
+        "lc-3993-7",
+        "lc-3993-9",
+        "lc-3993-12",
+        "lc-3993-14"
+      ]
+    },
+    {
+      "reason": "Moves the first attainable peak in the wrong direction.",
+      "failed_cases": [
+        "lc-3993-1",
+        "lc-3993-2",
+        "lc-3993-5",
+        "lc-3993-6",
+        "lc-3993-7",
+        "lc-3993-8",
+        "lc-3993-9",
+        "lc-3993-10",
+        "lc-3993-11",
+        "lc-3993-12",
+        "lc-3993-13",
+        "lc-3993-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8040,
+  "oracle_implementation": "code_practice/import_batch_197d.py:alternating_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "fa1d79c6a7efccd8c818fa04c004250035f86d01023accdca2c62999eb29abf6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f5a085d28e3e3979384297a24e42bbf9a819783cadaf780d89fa09c944e5e932",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

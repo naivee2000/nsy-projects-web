@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4006",
+  "content_sha256": "8109523adb3a2eb04ba83fe4ee98941ea1922e95cf62fa088891e34d4fe97851",
+  "source_hash": "4d72ea5d1ad6fece8e379b518027cc227e4dc6fb25ce21e1e75dda9a8e7794e3",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only perfectly balanced even-length prefixes.",
+      "failed_cases": [
+        "lc-4006-1",
+        "lc-4006-2",
+        "lc-4006-3",
+        "lc-4006-4",
+        "lc-4006-5",
+        "lc-4006-6",
+        "lc-4006-7",
+        "lc-4006-8",
+        "lc-4006-9",
+        "lc-4006-10",
+        "lc-4006-11",
+        "lc-4006-12",
+        "lc-4006-13",
+        "lc-4006-14",
+        "lc-4006-15"
+      ]
+    },
+    {
+      "reason": "Incorrectly treats every nonnegative balance as rearrangeable.",
+      "failed_cases": [
+        "lc-4006-1",
+        "lc-4006-3",
+        "lc-4006-5",
+        "lc-4006-6",
+        "lc-4006-8",
+        "lc-4006-9",
+        "lc-4006-10",
+        "lc-4006-11",
+        "lc-4006-12",
+        "lc-4006-13",
+        "lc-4006-14",
+        "lc-4006-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8053,
+  "oracle_implementation": "code_practice/import_batch_197d.py:prefixes_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "fa1d79c6a7efccd8c818fa04c004250035f86d01023accdca2c62999eb29abf6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6eb8cac33884e7e257c973159e71ea656e0180dc7e073b40df261b94759bb450",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

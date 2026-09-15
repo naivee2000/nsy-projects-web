@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3945",
+  "content_sha256": "76f383da8b9a25ca44e3e52683f4b30e180fbf872807328d1a9e745d74858a56",
+  "source_hash": "12fec2f666265ef7f35123f83b58fc3bafab9fc61a0f8f80699e11fb1e851f35",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns only the largest digit.",
+      "failed_cases": [
+        "lc-3945-1",
+        "lc-3945-2",
+        "lc-3945-6",
+        "lc-3945-7",
+        "lc-3945-9",
+        "lc-3945-10",
+        "lc-3945-11",
+        "lc-3945-12",
+        "lc-3945-13",
+        "lc-3945-14"
+      ]
+    },
+    {
+      "reason": "Drops the final decimal digit from the score.",
+      "failed_cases": [
+        "lc-3945-1",
+        "lc-3945-2",
+        "lc-3945-3",
+        "lc-3945-4",
+        "lc-3945-6",
+        "lc-3945-7",
+        "lc-3945-9",
+        "lc-3945-10",
+        "lc-3945-11",
+        "lc-3945-12",
+        "lc-3945-13",
+        "lc-3945-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7992,
+  "oracle_implementation": "code_practice/import_batch_197b.py:digit_score_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "1d86916800a333e26d049fabe3a761f1961751395ac0479f78df7fde00e9a15e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3c16d3329cb675cda973e1adcf552ea73839ba3eb2b67eae7d98471aef083d93",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

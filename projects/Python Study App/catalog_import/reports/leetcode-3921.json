@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3921",
+  "content_sha256": "e2a9c25bad92c00a47976791a3b6e278e98ac2a796cb14aa8dff2631516a8179",
+  "source_hash": "a53db0430883040f6b71a152d385aa17bf564dd1863d184e575e82dd38efdbf4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to score WD and NB events.",
+      "failed_cases": [
+        "lc-3921-1",
+        "lc-3921-5",
+        "lc-3921-6",
+        "lc-3921-8",
+        "lc-3921-10",
+        "lc-3921-12",
+        "lc-3921-14"
+      ]
+    },
+    {
+      "reason": "Processes one event beyond the tenth wicket.",
+      "failed_cases": [
+        "lc-3921-2",
+        "lc-3921-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7968,
+  "oracle_implementation": "code_practice/import_batch_197a.py:score_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "d6b7dd3b54fc9390c290f3decd9ec96729a86be3a11a282555a39ec739f272e8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "59d29b0470ac8f3f0f0ee1f7709c9dcaa26ace324fc890bd3bb579efa2c162cc",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

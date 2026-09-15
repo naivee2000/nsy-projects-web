@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3936",
+  "content_sha256": "cf774899c29c1a37ea9a365a4cf28425015786fd016d71aba52c8eab896bda61",
+  "source_hash": "9ada11f6d25091f6b43467119bef9b4d85995cf4bf300cbfdff869b3a94247c8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts zeros already in the target suffix.",
+      "failed_cases": [
+        "lc-3936-1",
+        "lc-3936-2",
+        "lc-3936-3",
+        "lc-3936-5",
+        "lc-3936-6",
+        "lc-3936-7",
+        "lc-3936-9",
+        "lc-3936-13",
+        "lc-3936-14"
+      ]
+    },
+    {
+      "reason": "Counts nonzeros rather than misplaced zeros.",
+      "failed_cases": [
+        "lc-3936-1",
+        "lc-3936-3",
+        "lc-3936-9",
+        "lc-3936-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7983,
+  "oracle_implementation": "code_practice/import_batch_197b.py:swaps_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "1d86916800a333e26d049fabe3a761f1961751395ac0479f78df7fde00e9a15e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c315dbb3d4eb2dcdde61eb6d939c220173b2854d3799c647246822fa7fe2ed3b",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

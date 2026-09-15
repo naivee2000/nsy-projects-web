@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3917",
+  "content_sha256": "03b9515699309436540a5c9da57ba0d8e92b17359102f93c3c4d2ce10803cb69",
+  "source_hash": "4e07cf395001e12a3b0c8bf9243a3e8f1e78b35b3861c0475064ec296442cff5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes the current element in future inventory.",
+      "failed_cases": [
+        "lc-3917-1",
+        "lc-3917-4",
+        "lc-3917-5",
+        "lc-3917-7",
+        "lc-3917-8",
+        "lc-3917-9",
+        "lc-3917-10",
+        "lc-3917-11",
+        "lc-3917-12",
+        "lc-3917-13",
+        "lc-3917-14"
+      ]
+    },
+    {
+      "reason": "Counts same-parity rather than opposite-parity values.",
+      "failed_cases": [
+        "lc-3917-1",
+        "lc-3917-2",
+        "lc-3917-4",
+        "lc-3917-5",
+        "lc-3917-6",
+        "lc-3917-7",
+        "lc-3917-8",
+        "lc-3917-9",
+        "lc-3917-10",
+        "lc-3917-11",
+        "lc-3917-12",
+        "lc-3917-13",
+        "lc-3917-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7964,
+  "oracle_implementation": "code_practice/import_batch_197a.py:parity_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "d6b7dd3b54fc9390c290f3decd9ec96729a86be3a11a282555a39ec739f272e8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eaa466496887655ea818fd86ac8604c663d4d7eaad9c4a0b854077969b4ff05d",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

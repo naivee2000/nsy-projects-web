@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3978",
+  "content_sha256": "c25adfb9f4b4d0c1a5f8f395b25d743778c69b1984a4d6c018ed65980267f876",
+  "source_hash": "8eecbfccb82ca7013a910e4e3b746c872fc13829530d6eb5a742877f8d75d140",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly requires the middle value to be absent.",
+      "failed_cases": [
+        "lc-3978-1",
+        "lc-3978-3",
+        "lc-3978-5",
+        "lc-3978-6",
+        "lc-3978-7",
+        "lc-3978-8",
+        "lc-3978-9",
+        "lc-3978-10",
+        "lc-3978-11",
+        "lc-3978-12",
+        "lc-3978-13",
+        "lc-3978-14"
+      ]
+    },
+    {
+      "reason": "Checks uniqueness of the first value instead of the middle value.",
+      "failed_cases": [
+        "lc-3978-5",
+        "lc-3978-7",
+        "lc-3978-8",
+        "lc-3978-9",
+        "lc-3978-11",
+        "lc-3978-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8025,
+  "oracle_implementation": "code_practice/import_batch_197c.py:middle_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "68315ca992722f9bc0e0a5d9cdc611ebeb07e0aeda8321b0cacfa3c5618d0b06",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6a75a70ec961588207d411a31a14de659fbb43eab02e80975089f755ea20c34d",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

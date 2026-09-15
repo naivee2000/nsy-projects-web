@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3954",
+  "content_sha256": "d2897458401870c2afbcced5417ffc3d7d8c156406751776705b45d21da65d9f",
+  "source_hash": "95cbafcfd70ccd3b16a54d535f699af190dd3b7b6ceb19b7f3e6bf2bb356caa9",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Sums incompatible values whose bits overlap n.",
+      "failed_cases": [
+        "lc-3954-1",
+        "lc-3954-2",
+        "lc-3954-3",
+        "lc-3954-4",
+        "lc-3954-5",
+        "lc-3954-6",
+        "lc-3954-7",
+        "lc-3954-8",
+        "lc-3954-9",
+        "lc-3954-10",
+        "lc-3954-11",
+        "lc-3954-12",
+        "lc-3954-13",
+        "lc-3954-14",
+        "lc-3954-15"
+      ]
+    },
+    {
+      "reason": "Includes nonpositive integers when the interval crosses zero.",
+      "failed_cases": [
+        "lc-3954-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8001,
+  "oracle_implementation": "code_practice/import_batch_197b.py:compatible_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "1d86916800a333e26d049fabe3a761f1961751395ac0479f78df7fde00e9a15e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9622d8f945f752fbb288e7036408d6760f8581f61333f4d5519f54acc2d7e072",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3996",
+  "content_sha256": "ff852b1c40b11dc701529114f27099209454afa82d87415f160dc3c5174a1677",
+  "source_hash": "c900dee26dab5aa76e0b61f89251d8d65c7fbfe5c978617a6d53404055259e1e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts opposite-colored rather than same-colored endpoints.",
+      "failed_cases": [
+        "lc-3996-1",
+        "lc-3996-2",
+        "lc-3996-3",
+        "lc-3996-4",
+        "lc-3996-5",
+        "lc-3996-6",
+        "lc-3996-7",
+        "lc-3996-8",
+        "lc-3996-9",
+        "lc-3996-10",
+        "lc-3996-11",
+        "lc-3996-12",
+        "lc-3996-13",
+        "lc-3996-14"
+      ]
+    },
+    {
+      "reason": "Ignores the target row when computing its square color.",
+      "failed_cases": [
+        "lc-3996-8",
+        "lc-3996-11",
+        "lc-3996-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8043,
+  "oracle_implementation": "code_practice/import_batch_197d.py:knight_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "fa1d79c6a7efccd8c818fa04c004250035f86d01023accdca2c62999eb29abf6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f34b1823da7ae0fd7db1be9dc951eefb06fcf3359cd71602ff0dc9a4db01ebd3",
+  "elapsed_seconds": 0.012,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

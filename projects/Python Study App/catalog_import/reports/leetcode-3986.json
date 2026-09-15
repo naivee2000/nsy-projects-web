@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3986",
+  "content_sha256": "7e1f38c55e84a47373016cbac280655299171a1e52ec465c19e96de89ec2f267",
+  "source_hash": "59a3f9535d1e702de0b3b7d2d1d93e6099fcb0eb98175079371cf0ecd3e62432",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Converts hours as minutes rather than seconds.",
+      "failed_cases": [
+        "lc-3986-5",
+        "lc-3986-6",
+        "lc-3986-8",
+        "lc-3986-10",
+        "lc-3986-11",
+        "lc-3986-12",
+        "lc-3986-14"
+      ]
+    },
+    {
+      "reason": "Subtracts the times in reverse order.",
+      "failed_cases": [
+        "lc-3986-1",
+        "lc-3986-2",
+        "lc-3986-4",
+        "lc-3986-5",
+        "lc-3986-6",
+        "lc-3986-7",
+        "lc-3986-8",
+        "lc-3986-9",
+        "lc-3986-10",
+        "lc-3986-11",
+        "lc-3986-12",
+        "lc-3986-13",
+        "lc-3986-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8033,
+  "oracle_implementation": "code_practice/import_batch_197c.py:elapsed_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "68315ca992722f9bc0e0a5d9cdc611ebeb07e0aeda8321b0cacfa3c5618d0b06",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dc5a148b1c1bda79766d39bbce38c18f9b228599450eacf65ea6578a6a750162",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

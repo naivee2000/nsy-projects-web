@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3950",
+  "content_sha256": "22b688a299afee29f3e10b517b87d0101bb926c79e75983a730c20215481544f",
+  "source_hash": "9b98917a6775987d3a42d680269e84dc8d2ae0934e6078da2a0cea46afc7fe96",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts numbers with two or more adjacent set-bit pairs.",
+      "failed_cases": [
+        "lc-3950-13",
+        "lc-3950-14",
+        "lc-3950-16"
+      ]
+    },
+    {
+      "reason": "Searches for triples rather than counting adjacent pairs.",
+      "failed_cases": [
+        "lc-3950-1",
+        "lc-3950-5",
+        "lc-3950-9",
+        "lc-3950-10",
+        "lc-3950-11",
+        "lc-3950-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7997,
+  "oracle_implementation": "code_practice/import_batch_197b.py:pair_bits_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "1d86916800a333e26d049fabe3a761f1961751395ac0479f78df7fde00e9a15e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e1a6089cf9c95b4cc7e639b03e687ebf97dff69e1d767c3c2b0ebbdb54ff87bf",
+  "elapsed_seconds": 0.011,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

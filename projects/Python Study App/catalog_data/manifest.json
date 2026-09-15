@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2166,
+  "count": 2186,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -38573,6 +38573,348 @@
       "path": "problems/leetcode-3908.json",
       "content_sha256": "0c8767ee2867f6b6fc42558299a32cdb2973b1e690ebd767d6b18dc6d8d97979",
       "source_id": 3908
+    },
+    {
+      "id": "leetcode-3912",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Elements in an Array",
+      "summary": "Given an integer array nums, identify elements that are strictly greater than all elements to their left or to their right.",
+      "topics": [
+        "arrays",
+        "prefix maxima",
+        "suffix maxima"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3912.json",
+      "content_sha256": "b9521c85199f831034e8a60ac4151f9050c54e0bc72a983ca56ea5ae9499864d",
+      "source_id": 3912
+    },
+    {
+      "id": "leetcode-3914",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make Array Non Decreasing",
+      "summary": "Given an integer array nums, determine the least sum of increments needed to ensure the array is non-decreasing.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3914.json",
+      "content_sha256": "f4f28a0d921c1d7b2895ab9e610742690ad34b828ea6831940256b2833cc1c03",
+      "source_id": 3914
+    },
+    {
+      "id": "leetcode-3917",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Indices With Opposite Parity",
+      "summary": "Given an integer array nums of length n, calculate the score for each index i as the count of indices j where i < j < n and nums[i] and nums[j] have different parities.",
+      "topics": [
+        "arrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3917.json",
+      "content_sha256": "03b9515699309436540a5c9da57ba0d8e92b17359102f93c3c4d2ce10803cb69",
+      "source_id": 3917
+    },
+    {
+      "id": "leetcode-3921",
+      "version": 1,
+      "status": "approved",
+      "title": "Score Validator",
+      "summary": "Given a string array events, initialize score to 0 and counter to 0.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3921.json",
+      "content_sha256": "e2a9c25bad92c00a47976791a3b6e278e98ac2a796cb14aa8dff2631516a8179",
+      "source_id": 3921
+    },
+    {
+      "id": "leetcode-3925",
+      "version": 1,
+      "status": "approved",
+      "title": "Concatenate Array With Reverse",
+      "summary": "Given an integer array nums of length n, create a new array ans of length 2 * n where the first n elements are identical to nums, and the subsequent n elements are the reverse of nums.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3925.json",
+      "content_sha256": "d1037753402aef1c9f17c842b88045efc8bb7d4530340575baa1e4abd7c620c4",
+      "source_id": 3925
+    },
+    {
+      "id": "leetcode-3931",
+      "version": 1,
+      "status": "approved",
+      "title": "Check Adjacent Digit Differences",
+      "summary": "Given a string s consisting of digits, return true if the absolute difference between every pair of adjacent digits is at most 2, otherwise return false.",
+      "topics": [
+        "strings",
+        "adjacent pairs"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3931.json",
+      "content_sha256": "b1d8bd4881f4dcfeabcd987845a952d47fc2a826fd5bf47cbe9e1abefdc9911e",
+      "source_id": 3931
+    },
+    {
+      "id": "leetcode-3936",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Swaps to Move Zeros to End",
+      "summary": "Given an integer array nums, determine the minimum number of operations required to move all zeros to the end of the array.",
+      "topics": [
+        "arrays",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3936.json",
+      "content_sha256": "cf774899c29c1a37ea9a365a4cf28425015786fd016d71aba52c8eab896bda61",
+      "source_id": 3936
+    },
+    {
+      "id": "leetcode-3945",
+      "version": 1,
+      "status": "approved",
+      "title": "Digit Frequency Score",
+      "summary": "Given an integer n, calculate the score by summing the product of each distinct digit d and its frequency in n.",
+      "topics": [
+        "math",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3945.json",
+      "content_sha256": "76f383da8b9a25ca44e3e52683f4b30e180fbf872807328d1a9e745d74858a56",
+      "source_id": 3945
+    },
+    {
+      "id": "leetcode-3950",
+      "version": 1,
+      "status": "approved",
+      "title": "Exactly One Consecutive Set Bits Pair",
+      "summary": "Given an integer n, determine if its binary representation contains exactly one pair of consecutive set bits, and return true if so, otherwise return false.",
+      "topics": [
+        "bit manipulation",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3950.json",
+      "content_sha256": "22b688a299afee29f3e10b517b87d0101bb926c79e75983a730c20215481544f",
+      "source_id": 3950
+    },
+    {
+      "id": "leetcode-3954",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Compatible Numbers in Range I",
+      "summary": "Given integers n and k, find the sum of all positive integers x that meet the criteria: the absolute difference between n and x is less than or equal to k, and the bitwise AND of n and x equals zero.",
+      "topics": [
+        "bit manipulation",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3954.json",
+      "content_sha256": "d2897458401870c2afbcced5417ffc3d7d8c156406751776705b45d21da65d9f",
+      "source_id": 3954
+    },
+    {
+      "id": "leetcode-3958",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Split into Ones II",
+      "summary": "Given an integer n, find the minimum total cost to split it into n ones using operations that split an integer x into two positive integers a and b with a cost of a * b for each split.",
+      "topics": [
+        "math",
+        "invariants"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3958.json",
+      "content_sha256": "e59f791942ba70edf4ec731146e43a8752bf64f395a7e572a2a4298231855f62",
+      "source_id": 3958
+    },
+    {
+      "id": "leetcode-3959",
+      "version": 1,
+      "status": "approved",
+      "title": "Check Good Integer",
+      "summary": "Given a positive integer n, calculate the sum of its digits (digitSum) and the sum of the squares of its digits (squareSum).",
+      "topics": [
+        "math",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3959.json",
+      "content_sha256": "54b1758c8cf619b8958d6862f00d10a61336c522671667eeb9049d8ba10d5b84",
+      "source_id": 3959
+    },
+    {
+      "id": "leetcode-3978",
+      "version": 1,
+      "status": "approved",
+      "title": "Unique Middle Element",
+      "summary": "Given an integer array of odd length, determine if the middle element is unique by appearing exactly once.",
+      "topics": [
+        "arrays",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3978.json",
+      "content_sha256": "c25adfb9f4b4d0c1a5f8f395b25d743778c69b1984a4d6c018ed65980267f876",
+      "source_id": 3978
+    },
+    {
+      "id": "leetcode-3982",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Integers with Maximum Digit Range",
+      "summary": "Given an integer array, calculate the digit range for each number as the difference between its largest and smallest digits.",
+      "topics": [
+        "arrays",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3982.json",
+      "content_sha256": "2e1d737c2fb472d20e21fd1009848bdef24d40acfebae26dc75bcabe9e27947b",
+      "source_id": 3982
+    },
+    {
+      "id": "leetcode-3986",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Elapsed Seconds Between Two Times",
+      "summary": "Given two valid times in 'HH:MM:SS' format as startTime and endTime, calculate the total number of seconds that have passed between these two times.",
+      "topics": [
+        "strings",
+        "time arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3986.json",
+      "content_sha256": "7e1f38c55e84a47373016cbac280655299171a1e52ec465c19e96de89ec2f267",
+      "source_id": 3986
+    },
+    {
+      "id": "leetcode-3993",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Value of an Alternating Sequence",
+      "summary": "Given integers n, s, and m, find the largest possible value in a valid alternating sequence of length n starting with s, where the absolute difference between consecutive elements does not exceed m.",
+      "topics": [
+        "math",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3993.json",
+      "content_sha256": "e428cd67b032e10a1855df0be9fcd85023b2191d765f800834f036d928165d95",
+      "source_id": 3993
+    },
+    {
+      "id": "leetcode-3996",
+      "version": 1,
+      "status": "approved",
+      "title": "Even Number of Knight Moves",
+      "summary": "Given two cell coordinates on an 8x8 chessboard, determine if a knight can reach the target in an even number of moves.",
+      "topics": [
+        "graphs",
+        "chessboard parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3996.json",
+      "content_sha256": "ff852b1c40b11dc701529114f27099209454afa82d87415f160dc3c5174a1677",
+      "source_id": 3996
+    },
+    {
+      "id": "leetcode-4000",
+      "version": 1,
+      "status": "approved",
+      "title": "Largest Integer With Given Digit Sum",
+      "summary": "Given non-negative integers n and s, find the largest integer with at most n digits and a digit sum of s.",
+      "topics": [
+        "greedy",
+        "digits"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-4000.json",
+      "content_sha256": "ac5537e0b4065352ddd578408b4b72301f117ab42900d1be7fcc423beae89930",
+      "source_id": 4000
+    },
+    {
+      "id": "leetcode-4006",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Valid Prefixes",
+      "summary": "Given a binary string, count the number of prefixes that can be rearranged to form an alternating string where no two adjacent characters are the same.",
+      "topics": [
+        "strings",
+        "counting",
+        "prefixes"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-4006.json",
+      "content_sha256": "8109523adb3a2eb04ba83fe4ee98941ea1922e95cf62fa088891e34d4fe97851",
+      "source_id": 4006
+    },
+    {
+      "id": "leetcode-4020",
+      "version": 1,
+      "status": "approved",
+      "title": "Elevator Requests I",
+      "summary": "Given an integer n for the number of floors and an integer array requests, an elevator starts at floor 0 and moves one floor per second.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-4020.json",
+      "content_sha256": "7cd92d9b3c6bad062cb0d0f73437c9b4f1be86d78d17e9a7d1a256cb1270e054",
+      "source_id": 4020
     }
   ]
 }

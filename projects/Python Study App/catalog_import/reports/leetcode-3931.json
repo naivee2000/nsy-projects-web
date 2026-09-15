@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3931",
+  "content_sha256": "b1d8bd4881f4dcfeabcd987845a952d47fc2a826fd5bf47cbe9e1abefdc9911e",
+  "source_hash": "a8aee503129178030cddf2fca23ecd47a18c03934f2917dd3ff8202eefa256bc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects adjacent digits whose difference is exactly two.",
+      "failed_cases": [
+        "lc-3931-1",
+        "lc-3931-5",
+        "lc-3931-8",
+        "lc-3931-9",
+        "lc-3931-10"
+      ]
+    },
+    {
+      "reason": "Compares some digits two positions apart.",
+      "failed_cases": [
+        "lc-3931-8",
+        "lc-3931-9",
+        "lc-3931-10",
+        "lc-3931-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7978,
+  "oracle_implementation": "code_practice/import_batch_197b.py:adjacent_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "1d86916800a333e26d049fabe3a761f1961751395ac0479f78df7fde00e9a15e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bd43d5dae1e8cbf44456c58fe7a40c42f4d5f69e2c6a3d155893901535c173b0",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

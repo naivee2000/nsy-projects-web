@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3959",
+  "content_sha256": "54b1758c8cf619b8958d6862f00d10a61336c522671667eeb9049d8ba10d5b84",
+  "source_hash": "72000543ecd2ca65357d50bfd0927a3f41e55300fa919a9d0ef2d35dbea76892",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a score exactly equal to fifty.",
+      "failed_cases": [
+        "lc-3959-7"
+      ]
+    },
+    {
+      "reason": "Adds rather than subtracts the ordinary digit sum.",
+      "failed_cases": [
+        "lc-3959-6",
+        "lc-3959-12",
+        "lc-3959-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8006,
+  "oracle_implementation": "code_practice/import_batch_197c.py:good_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "68315ca992722f9bc0e0a5d9cdc611ebeb07e0aeda8321b0cacfa3c5618d0b06",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "525ab41b11479ce30f60f8cf3d6d550ddaa055ec8147a7515bfe2a5516bfec0c",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

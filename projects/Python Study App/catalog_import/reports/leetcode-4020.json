@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4020",
+  "content_sha256": "7cd92d9b3c6bad062cb0d0f73437c9b4f1be86d78d17e9a7d1a256cb1270e054",
+  "source_hash": "74a17858b4f01ffb6bb512ff92b1165a3982c51a7357a4445c96a90bc2bf6b03",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts at the first request and omits the initial trip from floor zero.",
+      "failed_cases": [
+        "lc-4020-1",
+        "lc-4020-2",
+        "lc-4020-4",
+        "lc-4020-6",
+        "lc-4020-7",
+        "lc-4020-8",
+        "lc-4020-10",
+        "lc-4020-12",
+        "lc-4020-13",
+        "lc-4020-14"
+      ]
+    },
+    {
+      "reason": "Uses signed displacement and lets downward travel cancel time.",
+      "failed_cases": [
+        "lc-4020-1",
+        "lc-4020-2",
+        "lc-4020-6",
+        "lc-4020-8",
+        "lc-4020-9",
+        "lc-4020-10",
+        "lc-4020-13",
+        "lc-4020-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8067,
+  "oracle_implementation": "code_practice/import_batch_197d.py:elevator_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "fa1d79c6a7efccd8c818fa04c004250035f86d01023accdca2c62999eb29abf6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3c5aaf21d8496a09559fb0bb04ea8c0b56ccbcf39896544bbcf439dc7625b46b",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

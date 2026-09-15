@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3925",
+  "content_sha256": "d1037753402aef1c9f17c842b88045efc8bb7d4530340575baa1e4abd7c620c4",
+  "source_hash": "ba07a7c3e1ed5e668eeef79072856bbaf8a24737c5d6a4a0e417759f1bc4ebe8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Repeats nums without reversing the second half.",
+      "failed_cases": [
+        "lc-3925-1",
+        "lc-3925-3",
+        "lc-3925-4",
+        "lc-3925-6",
+        "lc-3925-8",
+        "lc-3925-9",
+        "lc-3925-10",
+        "lc-3925-11",
+        "lc-3925-13"
+      ]
+    },
+    {
+      "reason": "Puts the reversed half before the original half.",
+      "failed_cases": [
+        "lc-3925-1",
+        "lc-3925-3",
+        "lc-3925-4",
+        "lc-3925-6",
+        "lc-3925-8",
+        "lc-3925-9",
+        "lc-3925-10",
+        "lc-3925-11",
+        "lc-3925-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7972,
+  "oracle_implementation": "code_practice/import_batch_197a.py:concat_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "d6b7dd3b54fc9390c290f3decd9ec96729a86be3a11a282555a39ec739f272e8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a36ce466d393a001b7e3865205ad85c392c0affe460edfaac0c431b747e4f66f",
+  "elapsed_seconds": 0.013,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

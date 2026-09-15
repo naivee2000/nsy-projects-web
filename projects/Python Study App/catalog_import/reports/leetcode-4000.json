@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4000",
+  "content_sha256": "ac5537e0b4065352ddd578408b4b72301f117ab42900d1be7fcc423beae89930",
+  "source_hash": "c68aa06c648c4dd0b40b50cb9284f0e27963dffd8610dfe3c6ccc9de39a59798",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Artificially caps every digit at eight.",
+      "failed_cases": [
+        "lc-4000-1",
+        "lc-4000-5",
+        "lc-4000-7",
+        "lc-4000-9",
+        "lc-4000-10",
+        "lc-4000-11",
+        "lc-4000-13"
+      ]
+    },
+    {
+      "reason": "Rejects the valid all-nine boundary case.",
+      "failed_cases": [
+        "lc-4000-5",
+        "lc-4000-7",
+        "lc-4000-10",
+        "lc-4000-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8047,
+  "oracle_implementation": "code_practice/import_batch_197d.py:largest_oracle",
+  "validator_implementation_sha256": "c73d47535f86176f1b478f158d378e6544dffc5a33b8851e2ad0ae48bcda8a63",
+  "batch_implementation_sha256": "fa1d79c6a7efccd8c818fa04c004250035f86d01023accdca2c62999eb29abf6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ed20ee5bf5b1c1416670d3c9bd5864d001fb24dc2364eb90c70ceb95acd59df1",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
