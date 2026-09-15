@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1383",
+  "content_sha256": "26765ce6ad65ba5f9fcd983b4bf2d0420313b1d4ebf06ccfdb4c949a160f3af9",
+  "source_hash": "ab291f2247de820285cfff0debe6029a9c94ec80eba8a30959f63600c926d15d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps at most k-1 speeds by removing a member as soon as team size reaches k.",
+      "failed_cases": [
+        "lc-1383-1",
+        "lc-1383-3",
+        "lc-1383-4",
+        "lc-1383-5",
+        "lc-1383-6",
+        "lc-1383-7",
+        "lc-1383-9",
+        "lc-1383-10",
+        "lc-1383-11",
+        "lc-1383-12"
+      ]
+    },
+    {
+      "reason": "Processes efficiencies ascending, so the current efficiency is not a valid team minimum.",
+      "failed_cases": [
+        "lc-1383-1",
+        "lc-1383-2",
+        "lc-1383-5",
+        "lc-1383-6",
+        "lc-1383-8",
+        "lc-1383-9",
+        "lc-1383-10",
+        "lc-1383-11",
+        "lc-1383-12",
+        "lc-1383-13",
+        "lc-1383-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5430,
+  "oracle_implementation": "code_practice/import_batch_206d.py:performance_oracle",
+  "validator_implementation_sha256": "c21fcdcd29dd364f8ac527ad33b49dcf667c66191c3881f0b7ea6d795df56698",
+  "batch_implementation_sha256": "9edcd1a0bab20871042e86c8d91d75be31b6dba4bda07216db6fc5d6c4c42b7e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9d321f859262d9e4f25d1938d833189154ad86f44e1b7aa5332177c3bb2373a1",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

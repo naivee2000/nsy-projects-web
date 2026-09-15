@@ -393,6 +393,7 @@ from .import_batch_205d import BATCH as BATCH_205D
 from .import_batch_206a import BATCH as BATCH_206A
 from .import_batch_206b import BATCH as BATCH_206B
 from .import_batch_206c import BATCH as BATCH_206C
+from .import_batch_206d import BATCH as BATCH_206D
 from .catalog_evidence import judge_contract_hash
 from .catalog_artifacts import write_json_atomic
 from .schemas import ProblemDefinition, TestCase
@@ -744,6 +745,7 @@ BATCH.update(BATCH_205D)
 BATCH.update(BATCH_206A)
 BATCH.update(BATCH_206B)
 BATCH.update(BATCH_206C)
+BATCH.update(BATCH_206D)
 
 
 def digest(payload):

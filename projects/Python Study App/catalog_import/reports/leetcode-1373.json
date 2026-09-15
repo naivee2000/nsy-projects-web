@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1373",
+  "content_sha256": "9d94e1afa854229d7c78d5538f2acc4b25abac11498fa955c0d34ce5df99fcf7",
+  "source_hash": "41d01537c7ededd1856de07622b3588a8d8fd00402edd8495268f58ebb5c2981",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows duplicate boundary values even though the BST ordering must be strict.",
+      "failed_cases": [
+        "lc-1373-3"
+      ]
+    },
+    {
+      "reason": "Overwrites the best sum with the latest valid subtree instead of retaining the maximum.",
+      "failed_cases": [
+        "lc-1373-5",
+        "lc-1373-7",
+        "lc-1373-8",
+        "lc-1373-11",
+        "lc-1373-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5420,
+  "oracle_implementation": "code_practice/import_batch_206d.py:bst_sum_oracle",
+  "validator_implementation_sha256": "c21fcdcd29dd364f8ac527ad33b49dcf667c66191c3881f0b7ea6d795df56698",
+  "batch_implementation_sha256": "9edcd1a0bab20871042e86c8d91d75be31b6dba4bda07216db6fc5d6c4c42b7e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "92aaeb0976191c3725586a368d03e1ebcef8b86fe35830535b67534f2b5ef869",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

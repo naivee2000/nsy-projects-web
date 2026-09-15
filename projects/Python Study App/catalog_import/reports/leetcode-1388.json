@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1388",
+  "content_sha256": "f2d7d08261dd8d962360204183f17461e374d9a4f22821007ae0621d312191d4",
+  "source_hash": "1030402472e6edb129c128bff8ebf80c0d910e848c70a82c1a43ca7723b48d95",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Solves only the case excluding the final slice and can miss an optimum using it.",
+      "failed_cases": [
+        "lc-1388-1",
+        "lc-1388-3",
+        "lc-1388-7",
+        "lc-1388-12",
+        "lc-1388-14"
+      ]
+    },
+    {
+      "reason": "Allows adjacent slices by transitioning from the immediately previous row.",
+      "failed_cases": [
+        "lc-1388-1",
+        "lc-1388-2",
+        "lc-1388-7",
+        "lc-1388-11",
+        "lc-1388-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5435,
+  "oracle_implementation": "code_practice/import_batch_206d.py:pizza_oracle",
+  "validator_implementation_sha256": "c21fcdcd29dd364f8ac527ad33b49dcf667c66191c3881f0b7ea6d795df56698",
+  "batch_implementation_sha256": "9edcd1a0bab20871042e86c8d91d75be31b6dba4bda07216db6fc5d6c4c42b7e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b5b0ffb12dce55997378decd45a75896fd6b60d8b4be3677e36676169362bb31",
+  "elapsed_seconds": 0.073,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

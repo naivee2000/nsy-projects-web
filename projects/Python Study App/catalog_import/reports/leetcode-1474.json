@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1474",
+  "content_sha256": "d26753d24501f88ee77814dabbed40a3f63c29ed25329fd38fb40d74a24d6232",
+  "source_hash": "5c67040c99f5a257350254f445bfd7e6b6fffbfe73f9f92751b0b7288e89ba01",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Deletes only n-1 nodes after each retained group.",
+      "failed_cases": [
+        "lc-1474-1",
+        "lc-1474-2",
+        "lc-1474-4",
+        "lc-1474-5",
+        "lc-1474-6",
+        "lc-1474-9",
+        "lc-1474-11",
+        "lc-1474-12",
+        "lc-1474-13",
+        "lc-1474-14"
+      ]
+    },
+    {
+      "reason": "Keeps m+1 nodes before each deletion phase.",
+      "failed_cases": [
+        "lc-1474-1",
+        "lc-1474-2",
+        "lc-1474-4",
+        "lc-1474-5",
+        "lc-1474-6",
+        "lc-1474-8",
+        "lc-1474-9",
+        "lc-1474-10",
+        "lc-1474-12",
+        "lc-1474-13",
+        "lc-1474-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5521,
+  "oracle_implementation": "code_practice/import_batch_206d.py:delete_list_oracle",
+  "validator_implementation_sha256": "c21fcdcd29dd364f8ac527ad33b49dcf667c66191c3881f0b7ea6d795df56698",
+  "batch_implementation_sha256": "9edcd1a0bab20871042e86c8d91d75be31b6dba4bda07216db6fc5d6c4c42b7e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aed03aeca86a6aff78b0fb098f25f5ea9c217ce4b404cada76b320e8a4c7d3ce",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

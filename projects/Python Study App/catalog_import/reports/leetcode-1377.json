@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1377",
+  "content_sha256": "a793966949541e9c93ad9cf69716b8b0d3b224cc40db59d940740f507794065d",
+  "source_hash": "ec2404c6e52e0b5f7e3f42e26ff3fee58050ea00482e96c2d9893b1f72f0c325",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes the already-visited parent among future choices.",
+      "failed_cases": [
+        "lc-1377-1",
+        "lc-1377-6",
+        "lc-1377-8",
+        "lc-1377-9",
+        "lc-1377-11",
+        "lc-1377-12",
+        "lc-1377-13"
+      ]
+    },
+    {
+      "reason": "Fails to keep the frog stationary at a leaf for remaining seconds.",
+      "failed_cases": [
+        "lc-1377-2",
+        "lc-1377-3",
+        "lc-1377-5",
+        "lc-1377-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5424,
+  "oracle_implementation": "code_practice/import_batch_206d.py:frog_oracle",
+  "validator_implementation_sha256": "c21fcdcd29dd364f8ac527ad33b49dcf667c66191c3881f0b7ea6d795df56698",
+  "batch_implementation_sha256": "9edcd1a0bab20871042e86c8d91d75be31b6dba4bda07216db6fc5d6c4c42b7e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8eabc0cc5005fc8e8196140e763603e31c6f80fb1e38f0a88b9fd4a25dcf6943",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
