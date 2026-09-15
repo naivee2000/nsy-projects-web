@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3109",
+  "content_sha256": "4a8beae7e279c2f696c5a9858e87bb8cf72eb553a05eb9599c77b212b290f9b0",
+  "source_hash": "03e76acb48bd2d781a13df7c1bf8f9437b760089b4355a2b59bc2391cd6aa4ad",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the current value itself among smaller unused values.",
+      "failed_cases": [
+        "lc-3109-1",
+        "lc-3109-2",
+        "lc-3109-3",
+        "lc-3109-4",
+        "lc-3109-5",
+        "lc-3109-6",
+        "lc-3109-7",
+        "lc-3109-8",
+        "lc-3109-9",
+        "lc-3109-10",
+        "lc-3109-11",
+        "lc-3109-12",
+        "lc-3109-13",
+        "lc-3109-14"
+      ]
+    },
+    {
+      "reason": "Uses the factorial of the processed prefix instead of the remaining suffix length.",
+      "failed_cases": [
+        "lc-3109-2",
+        "lc-3109-7",
+        "lc-3109-8",
+        "lc-3109-9",
+        "lc-3109-10",
+        "lc-3109-11",
+        "lc-3109-12",
+        "lc-3109-13",
+        "lc-3109-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7156,
+  "oracle_implementation": "code_practice/import_batch_215a.py:permutation_oracle",
+  "validator_implementation_sha256": "53db4e2a381afdd9d434303c5d7f5808c19b5370d8b114f08852b09bbac6299c",
+  "batch_implementation_sha256": "b3e8706afbbf421076bd5deb04680f8a4d90e9bdc3c2120268ca0ff2848f2a5f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fec8cef8a0bf9c1740f606a4c058d2b023e03cb45b3816f785689b093ef7bfca",
+  "elapsed_seconds": 0.11,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3115",
+  "content_sha256": "b6dc65ad1e62d473859b197f36cf1d1c055dcfd409316dc06fb1e823beaa68b7",
+  "source_hash": "4420d88770b4a551527c40e4c902e73689e66914228ec809a0fb86673fac5fe3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats two as nonprime and can choose later endpoints.",
+      "failed_cases": [
+        "lc-3115-1",
+        "lc-3115-5",
+        "lc-3115-8",
+        "lc-3115-10",
+        "lc-3115-12"
+      ]
+    },
+    {
+      "reason": "Stops trial division before the square root and misclassifies perfect squares as prime.",
+      "failed_cases": [
+        "lc-3115-1",
+        "lc-3115-2",
+        "lc-3115-3",
+        "lc-3115-4",
+        "lc-3115-9",
+        "lc-3115-11",
+        "lc-3115-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7162,
+  "oracle_implementation": "code_practice/import_batch_215a.py:prime_difference_oracle",
+  "validator_implementation_sha256": "53db4e2a381afdd9d434303c5d7f5808c19b5370d8b114f08852b09bbac6299c",
+  "batch_implementation_sha256": "b3e8706afbbf421076bd5deb04680f8a4d90e9bdc3c2120268ca0ff2848f2a5f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "79dd6f8653d30091ed4a2bb157f12bc1be2c705eb84ef396b2d20b8f5cf3c31e",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

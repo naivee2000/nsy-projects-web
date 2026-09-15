@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3111",
+  "content_sha256": "c70abea47514ecdf7df450dcb2d1fa776720e192f639e139a9e793617ec63bce",
+  "source_hash": "20a9d82d813d6466f9c9305fd1a73cafe04c7ef74f6f1d03a77c8c8ee7e9ce60",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the continuous inclusive width as if the right boundary were excluded.",
+      "failed_cases": [
+        "lc-3111-1",
+        "lc-3111-2",
+        "lc-3111-4",
+        "lc-3111-6",
+        "lc-3111-9",
+        "lc-3111-10",
+        "lc-3111-12",
+        "lc-3111-13"
+      ]
+    },
+    {
+      "reason": "Starts a new rectangle for a point exactly on the current inclusive right boundary.",
+      "failed_cases": [
+        "lc-3111-1",
+        "lc-3111-2",
+        "lc-3111-4",
+        "lc-3111-6",
+        "lc-3111-9",
+        "lc-3111-10",
+        "lc-3111-12",
+        "lc-3111-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7158,
+  "oracle_implementation": "code_practice/import_batch_215a.py:rectangles_oracle",
+  "validator_implementation_sha256": "53db4e2a381afdd9d434303c5d7f5808c19b5370d8b114f08852b09bbac6299c",
+  "batch_implementation_sha256": "b3e8706afbbf421076bd5deb04680f8a4d90e9bdc3c2120268ca0ff2848f2a5f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0289b79081d06adc2838f821d7a3ee8c084ec6d82c9c556b2c85a909e0ae1bfb",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3113",
+  "content_sha256": "ff03655caac927fd1f889c17568405d9dfc1d6a9fa9713fe7628fd30b8cb4c78",
+  "source_hash": "929da84e43dc7de09bc5bc7cfe25992417b14799384750c22a6dbfa38c4d2654",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pops equal values, losing earlier equal boundaries that should pair with the current endpoint.",
+      "failed_cases": [
+        "lc-3113-1",
+        "lc-3113-2",
+        "lc-3113-4",
+        "lc-3113-7",
+        "lc-3113-8",
+        "lc-3113-9",
+        "lc-3113-10",
+        "lc-3113-12",
+        "lc-3113-13",
+        "lc-3113-14"
+      ]
+    },
+    {
+      "reason": "Counts only singleton subarrays and ignores qualifying longer intervals.",
+      "failed_cases": [
+        "lc-3113-1",
+        "lc-3113-2",
+        "lc-3113-4",
+        "lc-3113-7",
+        "lc-3113-8",
+        "lc-3113-9",
+        "lc-3113-10",
+        "lc-3113-12",
+        "lc-3113-13",
+        "lc-3113-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7160,
+  "oracle_implementation": "code_practice/import_batch_215a.py:boundary_oracle",
+  "validator_implementation_sha256": "53db4e2a381afdd9d434303c5d7f5808c19b5370d8b114f08852b09bbac6299c",
+  "batch_implementation_sha256": "b3e8706afbbf421076bd5deb04680f8a4d90e9bdc3c2120268ca0ff2848f2a5f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "500f7fbefaeffe7fc268341c14e116b4ae1d6a3a7e8e2f3e9115c5d65ec22162",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
