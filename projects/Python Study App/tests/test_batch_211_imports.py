@@ -3,9 +3,10 @@ from pathlib import Path
 
 from code_practice.catalog import get_catalog
 from code_practice.import_batch_211a import BATCH as A
+from code_practice.import_batch_211b import BATCH as B
 
 ROOT = Path(__file__).resolve().parents[1]
-BATCH = {**A}
+BATCH = {**A, **B}
 IDS = tuple(BATCH)
 
 

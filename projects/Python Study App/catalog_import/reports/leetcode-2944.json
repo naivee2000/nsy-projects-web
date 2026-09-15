@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2944",
+  "content_sha256": "0550ea555e011065205c73b2e3542198384e2c410d209fe97cf0d4b1a7f759a4",
+  "source_hash": "e685e53df1e56f5b3ceb30a5150a29d6c290bdd4da2c02a6314f9a75ca2bf937",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the first fruit immediately after the free coverage boundary as a next purchase option.",
+      "failed_cases": [
+        "lc-2944-2",
+        "lc-2944-8",
+        "lc-2944-9",
+        "lc-2944-11",
+        "lc-2944-12",
+        "lc-2944-14"
+      ]
+    },
+    {
+      "reason": "Always buys odd-positioned fruits instead of optimizing which free-eligible fruits are worth purchasing for later rewards.",
+      "failed_cases": [
+        "lc-2944-1",
+        "lc-2944-7",
+        "lc-2944-8",
+        "lc-2944-9",
+        "lc-2944-10",
+        "lc-2944-11",
+        "lc-2944-12",
+        "lc-2944-13",
+        "lc-2944-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6991,
+  "oracle_implementation": "code_practice/import_batch_211b.py:fruits_oracle",
+  "validator_implementation_sha256": "d42772286176260a9daa0195505793a92d21895f59818467e36ca05b6c67c4c9",
+  "batch_implementation_sha256": "a8f52b58599fa3ec8b7ee1c8749ad708bec0cd4887fc843039c94d3f5e953b90",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "035850c3515d3d754be4264becf42b81b7e82a425a30b9a07d3ebb2c580d2fca",
+  "elapsed_seconds": 0.227,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

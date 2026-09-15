@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2947",
+  "content_sha256": "74ed29d3e9c91fdc6c7ce31da2bf5f4ff53a846ab1c33e2dc3a43e9c2ce71952",
+  "source_hash": "e70a51d1b80b1180a422731d4f03a0ebc6b4e93ed23cf00642314511606503a3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts every vowel/consonant-balanced substring without enforcing divisibility by k.",
+      "failed_cases": [
+        "lc-2947-1",
+        "lc-2947-6",
+        "lc-2947-10",
+        "lc-2947-12",
+        "lc-2947-13",
+        "lc-2947-14",
+        "lc-2947-15",
+        "lc-2947-16"
+      ]
+    },
+    {
+      "reason": "Tests whether substring length is divisible by k instead of the count product.",
+      "failed_cases": [
+        "lc-2947-1",
+        "lc-2947-6",
+        "lc-2947-10",
+        "lc-2947-12",
+        "lc-2947-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6994,
+  "oracle_implementation": "code_practice/import_batch_211b.py:beautiful_substrings_oracle",
+  "validator_implementation_sha256": "d42772286176260a9daa0195505793a92d21895f59818467e36ca05b6c67c4c9",
+  "batch_implementation_sha256": "a8f52b58599fa3ec8b7ee1c8749ad708bec0cd4887fc843039c94d3f5e953b90",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bd8b1aa70ab0f9064d05a19c4c5413a578e10a2d959a1346cb888edff067d561",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

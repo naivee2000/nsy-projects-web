@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2948",
+  "content_sha256": "7840178345e9113ef50c462da9e43451a87be9e8d9f9d6d8a75a65148d4eeb0f",
+  "source_hash": "8eea0063463fc4a6d72e8041b9e705396669ec10a2c7b8b2fb6f3f9b04fbd432",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats value differences equal to limit as disconnected.",
+      "failed_cases": [
+        "lc-2948-1",
+        "lc-2948-4",
+        "lc-2948-6",
+        "lc-2948-8",
+        "lc-2948-10",
+        "lc-2948-12",
+        "lc-2948-13",
+        "lc-2948-14",
+        "lc-2948-15"
+      ]
+    },
+    {
+      "reason": "Assigns sorted values to component indices in value order instead of earliest array-index order.",
+      "failed_cases": [
+        "lc-2948-1",
+        "lc-2948-2",
+        "lc-2948-4",
+        "lc-2948-6",
+        "lc-2948-8",
+        "lc-2948-9",
+        "lc-2948-10",
+        "lc-2948-12",
+        "lc-2948-13",
+        "lc-2948-14",
+        "lc-2948-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6995,
+  "oracle_implementation": "code_practice/import_batch_211b.py:lexical_oracle",
+  "validator_implementation_sha256": "d42772286176260a9daa0195505793a92d21895f59818467e36ca05b6c67c4c9",
+  "batch_implementation_sha256": "a8f52b58599fa3ec8b7ee1c8749ad708bec0cd4887fc843039c94d3f5e953b90",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7f202e179ad0f16365ce29a9e6e13d526b535cf6bfc9ce6906c2fefcc54efbed",
+  "elapsed_seconds": 0.19,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

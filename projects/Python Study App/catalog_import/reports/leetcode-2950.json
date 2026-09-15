@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2950",
+  "content_sha256": "3ebf31a3ce0e4e78f9d659e629a13af2b5bed1f0e7fe98d8c6ff45eb8897a30f",
+  "source_hash": "7e1c7ecc001d12f75e694b26a229dcdfe6e6c54d3403ab24a0ce742be60d9b8f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the wrong phone grouping for b and c.",
+      "failed_cases": [
+        "lc-2950-6",
+        "lc-2950-8",
+        "lc-2950-10"
+      ]
+    },
+    {
+      "reason": "Never checks average mapped value nine, missing all-x/y/z substrings.",
+      "failed_cases": [
+        "lc-2950-4",
+        "lc-2950-7",
+        "lc-2950-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6997,
+  "oracle_implementation": "code_practice/import_batch_211b.py:divisible_oracle",
+  "validator_implementation_sha256": "d42772286176260a9daa0195505793a92d21895f59818467e36ca05b6c67c4c9",
+  "batch_implementation_sha256": "a8f52b58599fa3ec8b7ee1c8749ad708bec0cd4887fc843039c94d3f5e953b90",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eea5bd4488b00e97fdd8f2af912b00a0865be32bc72b2c10e3687f4a8d0f13d7",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
