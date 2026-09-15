@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3035",
+  "content_sha256": "b6f963fb2acd20873ef6214c35664dd39c5b6d51f7bb0c6bd34ff534ef8605fd",
+  "source_hash": "530a13da5713dcffef44c2931572e7441fdc465f21ffbccba449fc1857e59071",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Processes input order rather than cheapest palindrome lengths first.",
+      "failed_cases": [
+        "lc-3035-11",
+        "lc-3035-14"
+      ]
+    },
+    {
+      "reason": "Charges a character pair for the center of every odd-length palindrome.",
+      "failed_cases": [
+        "lc-3035-2",
+        "lc-3035-3",
+        "lc-3035-7",
+        "lc-3035-10",
+        "lc-3035-11",
+        "lc-3035-14",
+        "lc-3035-15",
+        "lc-3035-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7082,
+  "oracle_implementation": "code_practice/import_batch_213a.py:palindromes_oracle",
+  "validator_implementation_sha256": "b437e29da88d95c0df448e0605732a39ccf0fd717425000d271fab98c2e480ef",
+  "batch_implementation_sha256": "264a1cbacf45ebbb5ea6eb79c8eee506f83474b49685f353dc49b739230ae86a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ca5fa539f0c0f6c5a11c6a6b38563c97a6017fdb610d44f973205ba3b7d52915",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

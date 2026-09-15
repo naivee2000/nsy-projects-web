@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3036",
+  "content_sha256": "7e640884f2a56dbed97dcd49b26976bc7ddd1bf97e30adb32447801f139497d5",
+  "source_hash": "93829a2c9e94300f01c7e9e10c9d9c916c04ecb6ff32fe63aabdfe19765fe9d4",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Resets fully after every mismatch or match and misses overlapping pattern occurrences.",
+      "failed_cases": [
+        "lc-3036-1",
+        "lc-3036-14",
+        "lc-3036-15"
+      ]
+    },
+    {
+      "reason": "Reverses the sign convention for increases and decreases.",
+      "failed_cases": [
+        "lc-3036-1",
+        "lc-3036-2",
+        "lc-3036-3",
+        "lc-3036-4",
+        "lc-3036-6",
+        "lc-3036-7",
+        "lc-3036-9",
+        "lc-3036-10",
+        "lc-3036-11",
+        "lc-3036-12",
+        "lc-3036-13",
+        "lc-3036-14",
+        "lc-3036-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7083,
+  "oracle_implementation": "code_practice/import_batch_213a.py:pattern_oracle",
+  "validator_implementation_sha256": "b437e29da88d95c0df448e0605732a39ccf0fd717425000d271fab98c2e480ef",
+  "batch_implementation_sha256": "264a1cbacf45ebbb5ea6eb79c8eee506f83474b49685f353dc49b739230ae86a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "91d517ad19e59634e56e5fda3350a87abe476d40d6654df3cc9bd5a469920cc3",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

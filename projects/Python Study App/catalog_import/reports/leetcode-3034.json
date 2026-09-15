@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3034",
+  "content_sha256": "f1d673a0a9e1e092f045b1f8c9db8f2cc2ef5e7d7bb816d58e1c055a7d68795e",
+  "source_hash": "03a213685537dd23ed835e46d903e843fc932a75c402106f16b163e505292e8f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the opposite sign convention for increases and decreases.",
+      "failed_cases": [
+        "lc-3034-2",
+        "lc-3034-5",
+        "lc-3034-8",
+        "lc-3034-11",
+        "lc-3034-13",
+        "lc-3034-15"
+      ]
+    },
+    {
+      "reason": "Omits the final legal starting position.",
+      "failed_cases": [
+        "lc-3034-1",
+        "lc-3034-2",
+        "lc-3034-3",
+        "lc-3034-4",
+        "lc-3034-5",
+        "lc-3034-6",
+        "lc-3034-7",
+        "lc-3034-8",
+        "lc-3034-9",
+        "lc-3034-10",
+        "lc-3034-11",
+        "lc-3034-13",
+        "lc-3034-14",
+        "lc-3034-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7081,
+  "oracle_implementation": "code_practice/import_batch_213a.py:pattern_oracle",
+  "validator_implementation_sha256": "b437e29da88d95c0df448e0605732a39ccf0fd717425000d271fab98c2e480ef",
+  "batch_implementation_sha256": "264a1cbacf45ebbb5ea6eb79c8eee506f83474b49685f353dc49b739230ae86a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d01479e89469f6de6f7dfbcf32ada0269919bd101b3df9620dfc6040f2de0ebe",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

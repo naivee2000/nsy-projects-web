@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2486,
+  "count": 2491,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -40283,6 +40283,44 @@
       "source_id": 3029
     },
     {
+      "id": "leetcode-3030",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Grid of Region Average",
+      "summary": "Given an m x n grayscale image grid, where each pixel intensity ranges from 0 to 255, and a non-negative threshold, identify regions as 3x3 subgrids where adjacent pixel intensity differences are within the threshold.",
+      "topics": [
+        "matrices",
+        "enumeration",
+        "averaging"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3030.json",
+      "content_sha256": "69e3bcdc52184a565df04dc9f0d5cb4c5230b2af28184c8326dcbdab0c6408e4",
+      "source_id": 3030
+    },
+    {
+      "id": "leetcode-3031",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Revert Word to Initial State II",
+      "summary": "Given a 0-indexed string word and an integer k, at each second, you must remove the first k characters from word and then add any k characters to the end of word.",
+      "topics": [
+        "Z algorithm",
+        "strings",
+        "prefix matching"
+      ],
+      "prerequisites": [
+        "Z algorithm"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3031.json",
+      "content_sha256": "a50caaa98679299c5588eaf083c5bd1898cc6cb27931b41c6140740a6db8670e",
+      "source_id": 3031
+    },
+    {
       "id": "leetcode-3032",
       "version": 1,
       "status": "approved",
@@ -40316,6 +40354,62 @@
       "path": "problems/leetcode-3033.json",
       "content_sha256": "7eccbf8be4e259ea93b4b4809c938c7928698624af0a2e2d959672312a2919ff",
       "source_id": 3033
+    },
+    {
+      "id": "leetcode-3034",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Subarrays That Match a Pattern I",
+      "summary": "Given an integer array nums and a pattern array of -1, 0, and 1, count the number of subarrays of size m+1 in nums that match the pattern by comparing adjacent elements according to the pattern's values.",
+      "topics": [
+        "arrays",
+        "enumeration",
+        "comparisons"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3034.json",
+      "content_sha256": "f1d673a0a9e1e092f045b1f8c9db8f2cc2ef5e7d7bb816d58e1c055a7d68795e",
+      "source_id": 3034
+    },
+    {
+      "id": "leetcode-3035",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Palindromes After Operations",
+      "summary": "Given a string array, you can swap any two characters from different strings any number of times.",
+      "topics": [
+        "greedy",
+        "counting",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3035.json",
+      "content_sha256": "b6f963fb2acd20873ef6214c35664dd39c5b6d51f7bb0c6bd34ff534ef8605fd",
+      "source_id": 3035
+    },
+    {
+      "id": "leetcode-3036",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Subarrays That Match a Pattern II",
+      "summary": "Given an integer array nums and a pattern array of -1, 0, and 1, count the number of subarrays of size m+1 in nums that match the pattern by comparing adjacent elements according to the pattern's values.",
+      "topics": [
+        "KMP",
+        "arrays",
+        "string matching"
+      ],
+      "prerequisites": [
+        "KMP"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3036.json",
+      "content_sha256": "7e640884f2a56dbed97dcd49b26976bc7ddd1bf97e30adb32447801f139497d5",
+      "source_id": 3036
     },
     {
       "id": "leetcode-3038",

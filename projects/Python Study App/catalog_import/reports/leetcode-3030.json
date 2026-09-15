@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3030",
+  "content_sha256": "69e3bcdc52184a565df04dc9f0d5cb4c5230b2af28184c8326dcbdab0c6408e4",
+  "source_hash": "593c6b91f36c843b8eeacb0f145ccde9742decf8b732c176c1cd98a9cbe9c7b8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks horizontal neighbors only and can accept a region with an invalid vertical edge.",
+      "failed_cases": [
+        "lc-3030-4",
+        "lc-3030-8"
+      ]
+    },
+    {
+      "reason": "Averages raw fractional region means instead of flooring each region before combining memberships.",
+      "failed_cases": [
+        "lc-3030-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7077,
+  "oracle_implementation": "code_practice/import_batch_213a.py:region_oracle",
+  "validator_implementation_sha256": "b437e29da88d95c0df448e0605732a39ccf0fd717425000d271fab98c2e480ef",
+  "batch_implementation_sha256": "264a1cbacf45ebbb5ea6eb79c8eee506f83474b49685f353dc49b739230ae86a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a118c6b19a9a30a789a1ddc7af7f2d0b65cf4e2fad33c8bc866d14dda36112f9",
+  "elapsed_seconds": 0.103,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
