@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-815",
+  "content_sha256": "4109b585869e69e48135992557ea2c88f3e8638e804834959982476bdfe45dde",
+  "source_hash": "88b04c88bb5eba3fcd0a089dbcea92e474fba7a514321185a2684a7928b5aad5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not count the bus that first reaches the target.",
+      "failed_cases": [
+        "lc-815-1",
+        "lc-815-4",
+        "lc-815-6",
+        "lc-815-7",
+        "lc-815-8",
+        "lc-815-9",
+        "lc-815-10",
+        "lc-815-12",
+        "lc-815-13",
+        "lc-815-14"
+      ]
+    },
+    {
+      "reason": "Skips every available route before exposing any of its stops.",
+      "failed_cases": [
+        "lc-815-1",
+        "lc-815-4",
+        "lc-815-6",
+        "lc-815-7",
+        "lc-815-8",
+        "lc-815-9",
+        "lc-815-10",
+        "lc-815-12",
+        "lc-815-13",
+        "lc-815-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4862,
+  "oracle_implementation": "code_practice/import_batch_203b.py:buses_o",
+  "validator_implementation_sha256": "392ed72658732867ebfc597ac7ab653c261e6b74ee51f82a73ce486ccc3d4010",
+  "batch_implementation_sha256": "4308822d25883509858a45c7f7c2469d751d0d68e5a0ad123dff4709b75a3fd9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2b87d17afbcb1b01a15581712be9f38eb2a8cbc225b4204f5157dc9b6c29fa4a",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

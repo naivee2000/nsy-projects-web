@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-805",
+  "content_sha256": "8dc9b26dd07ae927a25db0c95d97b18a3901b46ae8d7efc5bbb9beabcd29d39b",
+  "source_hash": "3dcb8093ba1db3471f25c66e7bb04e4beec00bb7d900125583d73a84a84b6a7b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires an impossible remainder of one instead of divisibility by the array length.",
+      "failed_cases": [
+        "lc-805-1",
+        "lc-805-3",
+        "lc-805-4",
+        "lc-805-5",
+        "lc-805-6",
+        "lc-805-7",
+        "lc-805-8",
+        "lc-805-10",
+        "lc-805-12",
+        "lc-805-13"
+      ]
+    },
+    {
+      "reason": "Never considers a subset of size exactly half the array.",
+      "failed_cases": [
+        "lc-805-4",
+        "lc-805-5",
+        "lc-805-6",
+        "lc-805-7",
+        "lc-805-8",
+        "lc-805-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4852,
+  "oracle_implementation": "code_practice/import_batch_203b.py:average_o",
+  "validator_implementation_sha256": "392ed72658732867ebfc597ac7ab653c261e6b74ee51f82a73ce486ccc3d4010",
+  "batch_implementation_sha256": "4308822d25883509858a45c7f7c2469d751d0d68e5a0ad123dff4709b75a3fd9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "91ea95a1c61a3d39b229ccd62a2d25d2c29c7a99c0fbbe6af93521a9510da65e",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

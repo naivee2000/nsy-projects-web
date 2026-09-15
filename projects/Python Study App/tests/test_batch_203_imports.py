@@ -1,10 +1,11 @@
 import json
 from pathlib import Path
 from code_practice.catalog import get_catalog
-from code_practice.import_batch_203a import BATCH
+from code_practice.import_batch_203a import BATCH as A
+from code_practice.import_batch_203b import BATCH as B
 
 ROOT=Path(__file__).resolve().parents[1]
-IDS=(755,768,773)
+BATCH={**A,**B};IDS=(755,768,773,780,801,805,814,815)
 
 def test_batch_203_verified_subset():
     catalog=get_catalog()

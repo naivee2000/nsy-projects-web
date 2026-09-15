@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-814",
+  "content_sha256": "d90f7e5d89557155e3a81bff3d5adc70c7d1535345e773fe1189b5c5b0392e76",
+  "source_hash": "b9a836b6edaad70c7db1d52d7c30b9f12f0012bc8e8ad0b3d2f65e72a252ea44",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Prunes leaf nodes containing one instead of zero.",
+      "failed_cases": [
+        "lc-814-1",
+        "lc-814-2",
+        "lc-814-4",
+        "lc-814-5",
+        "lc-814-6",
+        "lc-814-7",
+        "lc-814-8",
+        "lc-814-9",
+        "lc-814-10",
+        "lc-814-11",
+        "lc-814-12",
+        "lc-814-13",
+        "lc-814-14"
+      ]
+    },
+    {
+      "reason": "Prunes a zero node when either child is missing even if the other contains one.",
+      "failed_cases": [
+        "lc-814-1",
+        "lc-814-5",
+        "lc-814-6",
+        "lc-814-7",
+        "lc-814-8",
+        "lc-814-9",
+        "lc-814-10",
+        "lc-814-11",
+        "lc-814-12",
+        "lc-814-13",
+        "lc-814-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4861,
+  "oracle_implementation": "code_practice/import_batch_203b.py:prune_o",
+  "validator_implementation_sha256": "392ed72658732867ebfc597ac7ab653c261e6b74ee51f82a73ce486ccc3d4010",
+  "batch_implementation_sha256": "4308822d25883509858a45c7f7c2469d751d0d68e5a0ad123dff4709b75a3fd9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ea7675f607bddf04057abac12c21ade907ee3c3b0858256c1a56a656ef3bd8d2",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

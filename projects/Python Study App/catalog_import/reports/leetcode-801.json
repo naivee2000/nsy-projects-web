@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-801",
+  "content_sha256": "4ecf162185ab3580b4766ffab6d202efc0c4eaf6079a3df09ddf99e7773c4e94",
+  "source_hash": "658e0828d200742b4873d40d00a688a2334221b3c1cd5953b418965898334a73",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Charges a swap for keeping index zero and none for swapping it.",
+      "failed_cases": [
+        "lc-801-2",
+        "lc-801-4",
+        "lc-801-6",
+        "lc-801-9"
+      ]
+    },
+    {
+      "reason": "Returns the more expensive final state.",
+      "failed_cases": [
+        "lc-801-1",
+        "lc-801-2",
+        "lc-801-3",
+        "lc-801-4",
+        "lc-801-6",
+        "lc-801-7",
+        "lc-801-8",
+        "lc-801-9",
+        "lc-801-10",
+        "lc-801-11",
+        "lc-801-12",
+        "lc-801-13",
+        "lc-801-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4848,
+  "oracle_implementation": "code_practice/import_batch_203b.py:swaps_o",
+  "validator_implementation_sha256": "392ed72658732867ebfc597ac7ab653c261e6b74ee51f82a73ce486ccc3d4010",
+  "batch_implementation_sha256": "4308822d25883509858a45c7f7c2469d751d0d68e5a0ad123dff4709b75a3fd9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a018a92ff8472e43c42ae5e830aac4e19290eeb257b54524e070f273a64f483b",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
