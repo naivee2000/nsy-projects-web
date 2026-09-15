@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3418",
+  "content_sha256": "99d4468c5313884239aee9cfa3563e75d778b8d9ba07b026b320c708b6aa4bd1",
+  "source_hash": "c3ab09c49639763432f565a148e583ddff7a8ef182b78c72751778f961ae9fb6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows at most one neutralization instead of two.",
+      "failed_cases": [
+        "lc-3418-5",
+        "lc-3418-10",
+        "lc-3418-11",
+        "lc-3418-13"
+      ]
+    },
+    {
+      "reason": "Cannot neutralize a robber in the destination cell.",
+      "failed_cases": [
+        "lc-3418-2",
+        "lc-3418-5",
+        "lc-3418-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7465,
+  "oracle_implementation": "code_practice/import_batch_224a.py:robot_oracle",
+  "validator_implementation_sha256": "9ce6f89904e95482d2fa8b36cda44598a69990199b7278003dbf7739953cb93c",
+  "batch_implementation_sha256": "0156095534c7418b035420772a758b5a13a05ae44071dc237ed574c09c07dd38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b9d472f14d01e010773fe883762d47a4a874bb212e6e1060d4f38030da7aff81",
+  "elapsed_seconds": 0.103,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

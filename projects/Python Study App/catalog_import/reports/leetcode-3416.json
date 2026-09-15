@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3416",
+  "content_sha256": "30e18687ffeb4fabeefdc73d0a95a8ac4f41b84e530eed7399fde0161a29b51d",
+  "source_hash": "0f0d5a9203deaa1d127017ceecf5edf949d5b38cb09d3acb65e1a5786fa284e9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows another value to tie the middle value at frequency two.",
+      "failed_cases": [
+        "lc-3416-8",
+        "lc-3416-12",
+        "lc-3416-13",
+        "lc-3416-14"
+      ]
+    },
+    {
+      "reason": "Counts only cases with at least three copies of the middle value.",
+      "failed_cases": [
+        "lc-3416-6",
+        "lc-3416-9",
+        "lc-3416-11",
+        "lc-3416-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7463,
+  "oracle_implementation": "code_practice/import_batch_224a.py:mode_oracle",
+  "validator_implementation_sha256": "9ce6f89904e95482d2fa8b36cda44598a69990199b7278003dbf7739953cb93c",
+  "batch_implementation_sha256": "0156095534c7418b035420772a758b5a13a05ae44071dc237ed574c09c07dd38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3b6a254bb9d418093ef153ff9ddf3bd35449b37ad2b36d99af93ef2ed4cb2fd3",
+  "elapsed_seconds": 0.173,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3414",
+  "content_sha256": "851a61ac070a6d52f946efea15f4898dcc787cb49f39d764b2e1fda3b0771fc8",
+  "source_hash": "1c3de301b877c4af432b19aa49924925ebc79f0b3581a99ce14b2aa44c9cc600",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats intervals touching at an endpoint as non-overlapping.",
+      "failed_cases": [
+        "lc-3414-2",
+        "lc-3414-3",
+        "lc-3414-4",
+        "lc-3414-6",
+        "lc-3414-7",
+        "lc-3414-9",
+        "lc-3414-10",
+        "lc-3414-12",
+        "lc-3414-14"
+      ]
+    },
+    {
+      "reason": "Chooses the lexicographically largest index list when weights tie.",
+      "failed_cases": [
+        "lc-3414-6",
+        "lc-3414-8",
+        "lc-3414-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7461,
+  "oracle_implementation": "code_practice/import_batch_224a.py:intervals_oracle",
+  "validator_implementation_sha256": "9ce6f89904e95482d2fa8b36cda44598a69990199b7278003dbf7739953cb93c",
+  "batch_implementation_sha256": "0156095534c7418b035420772a758b5a13a05ae44071dc237ed574c09c07dd38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c75208cc3e14e58ac88758f70f6fcb91f5c3100378fba7dc041db9c1f727db73",
+  "elapsed_seconds": 0.092,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

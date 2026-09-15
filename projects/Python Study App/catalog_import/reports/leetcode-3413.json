@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3413",
+  "content_sha256": "a0566a47698c3a1cb6b7c59b968c08d70fbeb0ff34e6f2f89af0118fca2dc8eb",
+  "source_hash": "edb10a3188161dbfc4f81ffe604bfabcbb999e4aee4ff24070b3f55503ed2dd8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only windows beginning at a segment and misses an optimum ending at one.",
+      "failed_cases": [
+        "lc-3413-1"
+      ]
+    },
+    {
+      "reason": "Uses k+1 bags because the inclusive right endpoint is off by one.",
+      "failed_cases": [
+        "lc-3413-4",
+        "lc-3413-6",
+        "lc-3413-9",
+        "lc-3413-11",
+        "lc-3413-12",
+        "lc-3413-13",
+        "lc-3413-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7460,
+  "oracle_implementation": "code_practice/import_batch_224a.py:coins_oracle",
+  "validator_implementation_sha256": "9ce6f89904e95482d2fa8b36cda44598a69990199b7278003dbf7739953cb93c",
+  "batch_implementation_sha256": "0156095534c7418b035420772a758b5a13a05ae44071dc237ed574c09c07dd38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "64eea41d6bc52fa92de2a5a7a3529805c6c971c592e98b3beb2f2d6f95139859",
+  "elapsed_seconds": 0.08,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

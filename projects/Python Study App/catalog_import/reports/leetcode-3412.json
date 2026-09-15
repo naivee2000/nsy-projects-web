@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3412",
+  "content_sha256": "ac9654b23188a9b84ad8477d343f769e9482b9fee783b0f8b3717064e2652933",
+  "source_hash": "1c43f159d15c093368b8e813d8a1ffe9d026855cf47e61f028d7107c958b6c0f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Reuses an already marked mirror index for later characters.",
+      "failed_cases": [
+        "lc-3412-1",
+        "lc-3412-13",
+        "lc-3412-15"
+      ]
+    },
+    {
+      "reason": "Uses an off-by-one alphabet reflection.",
+      "failed_cases": [
+        "lc-3412-1",
+        "lc-3412-2",
+        "lc-3412-4",
+        "lc-3412-5",
+        "lc-3412-6",
+        "lc-3412-9",
+        "lc-3412-10",
+        "lc-3412-11",
+        "lc-3412-12",
+        "lc-3412-13",
+        "lc-3412-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7459,
+  "oracle_implementation": "code_practice/import_batch_224a.py:mirror_oracle",
+  "validator_implementation_sha256": "9ce6f89904e95482d2fa8b36cda44598a69990199b7278003dbf7739953cb93c",
+  "batch_implementation_sha256": "0156095534c7418b035420772a758b5a13a05ae44071dc237ed574c09c07dd38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "41004ab953c76b2984fec0f8400772d2ac27233634375670b79b781d43cef6b8",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
