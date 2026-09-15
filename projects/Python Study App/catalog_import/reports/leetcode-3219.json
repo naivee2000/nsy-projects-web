@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3219",
+  "content_sha256": "62cb913c74ca82262a55f88d8b80ec9adee4594f4b5821bef1a4785852cdd3d0",
+  "source_hash": "5944bbc941723ab6ebac31683233eebf8e2f22060d1b2fe5755bc5c1e757fdfb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Takes cheap cuts first, causing expensive cuts to be paid across more pieces.",
+      "failed_cases": [
+        "lc-3219-1",
+        "lc-3219-2",
+        "lc-3219-5",
+        "lc-3219-6",
+        "lc-3219-7",
+        "lc-3219-9",
+        "lc-3219-10",
+        "lc-3219-11",
+        "lc-3219-12"
+      ]
+    },
+    {
+      "reason": "Multiplies a cut by pieces in its own direction rather than the perpendicular direction.",
+      "failed_cases": [
+        "lc-3219-1",
+        "lc-3219-2",
+        "lc-3219-4",
+        "lc-3219-5",
+        "lc-3219-6",
+        "lc-3219-7",
+        "lc-3219-8",
+        "lc-3219-9",
+        "lc-3219-10",
+        "lc-3219-11",
+        "lc-3219-12",
+        "lc-3219-13",
+        "lc-3219-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7266,
+  "oracle_implementation": "code_practice/import_batch_218c.py:cake_oracle",
+  "validator_implementation_sha256": "712a35c70dd82bc9f139cc0730ae7bbbeaa966e4becf7445640b3ed70b2c13f3",
+  "batch_implementation_sha256": "4b8e0830ab2960a641c8c0b1a0e1edf749c6489505e468d7a3a636cb52cf4818",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d60924f9a2986aa4402289a00e0ab60d853958ecf3dac319ba9d15fb7137b133",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

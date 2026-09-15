@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3218",
+  "content_sha256": "eec95dde85086ccb57c63d73d951352d78c8569ba69ad550fdc211b10bd3fb77",
+  "source_hash": "b668e4802c6cabc2b08a3e9b4600b69ef2760ebabf998f32523e52291247dffb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Processes cheap cuts before expensive cuts and makes them repeat across more pieces.",
+      "failed_cases": [
+        "lc-3218-6",
+        "lc-3218-9",
+        "lc-3218-10",
+        "lc-3218-11",
+        "lc-3218-12"
+      ]
+    },
+    {
+      "reason": "Charges horizontal cuts once regardless of how many vertical pieces they cross.",
+      "failed_cases": [
+        "lc-3218-1",
+        "lc-3218-2",
+        "lc-3218-4",
+        "lc-3218-5",
+        "lc-3218-6",
+        "lc-3218-7",
+        "lc-3218-8",
+        "lc-3218-9",
+        "lc-3218-10",
+        "lc-3218-11",
+        "lc-3218-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7265,
+  "oracle_implementation": "code_practice/import_batch_218c.py:cake_oracle",
+  "validator_implementation_sha256": "712a35c70dd82bc9f139cc0730ae7bbbeaa966e4becf7445640b3ed70b2c13f3",
+  "batch_implementation_sha256": "4b8e0830ab2960a641c8c0b1a0e1edf749c6489505e468d7a3a636cb52cf4818",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1e3286951d1c551652ba01cb5b757d096de0bf9335278c04f2c9222b3bb32921",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

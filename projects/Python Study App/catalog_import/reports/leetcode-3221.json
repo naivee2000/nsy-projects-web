@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3221",
+  "content_sha256": "6d38845dac090bb8f489363967a3ce94e130f8673b335dbcda3bbcd4f0f2f21d",
+  "source_hash": "c8fb8d4bf94ca0da0d1d671d90d5306228cbf690641af99d206672075046bfaf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the immediate destination rather than the best reachable destination for earlier gaps.",
+      "failed_cases": [
+        "lc-3221-1",
+        "lc-3221-2",
+        "lc-3221-5",
+        "lc-3221-8",
+        "lc-3221-9",
+        "lc-3221-10",
+        "lc-3221-11",
+        "lc-3221-12",
+        "lc-3221-13",
+        "lc-3221-14"
+      ]
+    },
+    {
+      "reason": "Always hops one position at a time and misses profitable longer jumps.",
+      "failed_cases": [
+        "lc-3221-1",
+        "lc-3221-2",
+        "lc-3221-5",
+        "lc-3221-8",
+        "lc-3221-9",
+        "lc-3221-10",
+        "lc-3221-11",
+        "lc-3221-12",
+        "lc-3221-13",
+        "lc-3221-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7268,
+  "oracle_implementation": "code_practice/import_batch_218c.py:hopping_oracle",
+  "validator_implementation_sha256": "712a35c70dd82bc9f139cc0730ae7bbbeaa966e4becf7445640b3ed70b2c13f3",
+  "batch_implementation_sha256": "4b8e0830ab2960a641c8c0b1a0e1edf749c6489505e468d7a3a636cb52cf4818",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f873dc881db9397a0f6b70630bc7dd7ec40c1db4674406bc71943fb00a0a8247",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
