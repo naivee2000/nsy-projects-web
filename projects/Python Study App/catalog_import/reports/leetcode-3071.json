@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3071",
+  "content_sha256": "cd24530978e5c7ad8daf9bdb01b218d87da198b85a609c37287bb782d21b078d",
+  "source_hash": "5d10895170f5704a5fa62314ea3e4afd29169240c0148aa31aa477134cceecb6",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the center cell from both the arms and stem of the Y.",
+      "failed_cases": [
+        "lc-3071-1",
+        "lc-3071-3",
+        "lc-3071-5",
+        "lc-3071-6",
+        "lc-3071-7",
+        "lc-3071-8",
+        "lc-3071-10",
+        "lc-3071-11",
+        "lc-3071-12",
+        "lc-3071-13",
+        "lc-3071-15",
+        "lc-3071-16"
+      ]
+    },
+    {
+      "reason": "Shifts the upper-right diagonal one column and misclassifies its cells.",
+      "failed_cases": [
+        "lc-3071-1",
+        "lc-3071-2",
+        "lc-3071-4",
+        "lc-3071-5",
+        "lc-3071-6",
+        "lc-3071-7",
+        "lc-3071-9",
+        "lc-3071-10",
+        "lc-3071-12",
+        "lc-3071-13",
+        "lc-3071-14",
+        "lc-3071-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7118,
+  "oracle_implementation": "code_practice/import_batch_213d.py:y_oracle",
+  "validator_implementation_sha256": "70f66ddc6740588487a9cddfecfda30f968375a38d84fb557d67330ced8e04a3",
+  "batch_implementation_sha256": "84e3cf8cedb15ae2f4c5d16217867e827f6e8ebf63ba4de4f38382cd043d549b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fc86036a4f8f204b4fd7cbe0a42de0e7416e47ec06293f8649ba986d0d4d2c27",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,43 @@
+{
+  "scope": "Incremental batch gate; full-catalog benchmark intentionally not run",
+  "ids": [
+    "leetcode-3071",
+    "leetcode-3072",
+    "leetcode-3073",
+    "leetcode-3075",
+    "leetcode-3076"
+  ],
+  "worker": [
+    {
+      "id": "leetcode-3071",
+      "status": "accepted",
+      "cases": 16
+    },
+    {
+      "id": "leetcode-3072",
+      "status": "accepted",
+      "cases": 15
+    },
+    {
+      "id": "leetcode-3073",
+      "status": "accepted",
+      "cases": 15
+    },
+    {
+      "id": "leetcode-3075",
+      "status": "accepted",
+      "cases": 16
+    },
+    {
+      "id": "leetcode-3076",
+      "status": "accepted",
+      "cases": 14
+    }
+  ],
+  "checks": [
+    "library search, changed problem detail, and editor render",
+    "every changed reference and both documented wrong algorithms ran in fresh Pyodide workers",
+    "array/tree/list smoke references and five judge result categories",
+    "health, search, detail API, blocked external assets, and no page errors"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3073",
+  "content_sha256": "8cb823d199f74bae2f1d943da79d153484488b2923de82278ee72334ed1c5fd1",
+  "source_hash": "0635f8db59033c5a5f273ec7c7c16b708d449e077829d1564d988491669bd7c7",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows an equal-valued left endpoint despite strict increase.",
+      "failed_cases": [
+        "lc-3073-11"
+      ]
+    },
+    {
+      "reason": "Uses the largest later value without checking that it is greater than the middle value.",
+      "failed_cases": [
+        "lc-3073-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7120,
+  "oracle_implementation": "code_practice/import_batch_213d.py:triplet_oracle",
+  "validator_implementation_sha256": "70f66ddc6740588487a9cddfecfda30f968375a38d84fb557d67330ced8e04a3",
+  "batch_implementation_sha256": "84e3cf8cedb15ae2f4c5d16217867e827f6e8ebf63ba4de4f38382cd043d549b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eee2ca0db574915f0970d099e84428317e64782e2e2bfee7b9256bc08581b285",
+  "elapsed_seconds": 0.08,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
