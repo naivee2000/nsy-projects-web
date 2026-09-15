@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3148",
+  "content_sha256": "2757e48e8c868f81212ad355353a31da9917eb7f244dc816ccb31ce05b1563e9",
+  "source_hash": "7f43d24473c18918034cbdd90cc6961ea912b0a0874ea96758b889925f0225a8",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets smaller values from earlier reachable cells, considering only immediate predecessors.",
+      "failed_cases": [
+        "lc-3148-1",
+        "lc-3148-5",
+        "lc-3148-6",
+        "lc-3148-11"
+      ]
+    },
+    {
+      "reason": "Uses absolute difference and therefore rewards moving from a larger value to a smaller one.",
+      "failed_cases": [
+        "lc-3148-2",
+        "lc-3148-4",
+        "lc-3148-7",
+        "lc-3148-12",
+        "lc-3148-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7195,
+  "oracle_implementation": "code_practice/import_batch_216b.py:grid_oracle",
+  "validator_implementation_sha256": "a62512889b84da8c159e804af1fd2ecc099812ca76329d8e0d3356ad48a18494",
+  "batch_implementation_sha256": "97c3b7cab75231d9f35df76aece361fc9e83d623818f06575338ed1fe783824b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "da09ecd1164d987a8b7906d5ff5519dffd30f689abfc75f942cd023d1193dc84",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

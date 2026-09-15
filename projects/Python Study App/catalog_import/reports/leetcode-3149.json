@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3149",
+  "content_sha256": "daffa80c07c2c16ef473c760b4c93628bf6470921bcec802c2ad904b04af7777",
+  "source_hash": "8da9824030097e1e1b0d2a7ce0bc482b9ec7524628d08f6676d5dc5a788ed437",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the closing cyclic edge from the final element back to the first.",
+      "failed_cases": [
+        "lc-3149-7",
+        "lc-3149-12"
+      ]
+    },
+    {
+      "reason": "Reconstructs in descending order and therefore returns a non-lexicographic optimum on ties.",
+      "failed_cases": [
+        "lc-3149-7",
+        "lc-3149-11",
+        "lc-3149-12",
+        "lc-3149-13",
+        "lc-3149-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7196,
+  "oracle_implementation": "code_practice/import_batch_216b.py:permutation_oracle",
+  "validator_implementation_sha256": "a62512889b84da8c159e804af1fd2ecc099812ca76329d8e0d3356ad48a18494",
+  "batch_implementation_sha256": "97c3b7cab75231d9f35df76aece361fc9e83d623818f06575338ed1fe783824b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b3dc6738a33beacc97d8d000c1c117de2878eafaf0d958dbd70e72ff8776feb4",
+  "elapsed_seconds": 0.136,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

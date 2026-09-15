@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3153",
+  "content_sha256": "9e70a71071716fec322e0b6d1ee18ff401ce753986174f46c945d4d68ae97bf3",
+  "source_hash": "c7460d74f4641c74605ffb913e2bf9fe3b507a9e2d791d949df7f9396f7628d6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts earlier matching digits rather than earlier differing digits.",
+      "failed_cases": [
+        "lc-3153-1",
+        "lc-3153-2",
+        "lc-3153-3",
+        "lc-3153-5",
+        "lc-3153-6",
+        "lc-3153-7",
+        "lc-3153-8",
+        "lc-3153-9",
+        "lc-3153-10",
+        "lc-3153-11",
+        "lc-3153-12",
+        "lc-3153-13",
+        "lc-3153-14"
+      ]
+    },
+    {
+      "reason": "Skips the final digit position entirely.",
+      "failed_cases": [
+        "lc-3153-1",
+        "lc-3153-3",
+        "lc-3153-4",
+        "lc-3153-5",
+        "lc-3153-6",
+        "lc-3153-7",
+        "lc-3153-8",
+        "lc-3153-9",
+        "lc-3153-10",
+        "lc-3153-11",
+        "lc-3153-12",
+        "lc-3153-13",
+        "lc-3153-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7200,
+  "oracle_implementation": "code_practice/import_batch_216b.py:digits_oracle",
+  "validator_implementation_sha256": "a62512889b84da8c159e804af1fd2ecc099812ca76329d8e0d3356ad48a18494",
+  "batch_implementation_sha256": "97c3b7cab75231d9f35df76aece361fc9e83d623818f06575338ed1fe783824b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "083c53091fbc2ad5998d5c471dbfffd2ee4558d87e66d403c566815fbbf79dd6",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

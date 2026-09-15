@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3147",
+  "content_sha256": "8dcf63aca6791c818ca6389fcb739671530ff8a5a5dd337a5aee2fb1822e4e37",
+  "source_hash": "ff47fd9856e3f043b23de4a3851e8c2cb0516402f1ca907ffd395b2b6b4c2363",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns only the route beginning at index zero after the reverse scan finishes.",
+      "failed_cases": [
+        "lc-3147-1",
+        "lc-3147-2",
+        "lc-3147-6",
+        "lc-3147-9",
+        "lc-3147-12",
+        "lc-3147-14"
+      ]
+    },
+    {
+      "reason": "Illegally skips negative energy at visited magicians.",
+      "failed_cases": [
+        "lc-3147-1",
+        "lc-3147-2",
+        "lc-3147-4",
+        "lc-3147-9",
+        "lc-3147-11",
+        "lc-3147-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7194,
+  "oracle_implementation": "code_practice/import_batch_216b.py:energy_oracle",
+  "validator_implementation_sha256": "a62512889b84da8c159e804af1fd2ecc099812ca76329d8e0d3356ad48a18494",
+  "batch_implementation_sha256": "97c3b7cab75231d9f35df76aece361fc9e83d623818f06575338ed1fe783824b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ccbb804cdbed0817db8d0ca2b6eff0c091fe7ec6b71537fc3fc72d4c328fa662",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
