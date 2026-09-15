@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3008",
+  "content_sha256": "df8bf35acef3fb3c5e443e148e066fd397a96c6a0cefae5ad9cc290dbe5ce081",
+  "source_hash": "661f9b4a5dff8b029ec60cbd64b0bcae9e4a5fe846497b0b11579ab126a4fe74",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Discards a b occurrence exactly k positions before i.",
+      "failed_cases": [
+        "lc-3008-1",
+        "lc-3008-6",
+        "lc-3008-7",
+        "lc-3008-11",
+        "lc-3008-12"
+      ]
+    },
+    {
+      "reason": "Builds the KMP combined string in the wrong order, so reported offsets are not starts in s.",
+      "failed_cases": [
+        "lc-3008-1",
+        "lc-3008-2",
+        "lc-3008-5",
+        "lc-3008-6",
+        "lc-3008-7",
+        "lc-3008-8",
+        "lc-3008-9",
+        "lc-3008-10",
+        "lc-3008-11",
+        "lc-3008-12",
+        "lc-3008-13",
+        "lc-3008-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7055,
+  "oracle_implementation": "code_practice/import_batch_212b.py:beautiful_oracle",
+  "validator_implementation_sha256": "736cc81dc9314b296ad7c8245d09d6396921ea107c6771167055e5b94a3eebf3",
+  "batch_implementation_sha256": "ecca1b5b31b879f363d7a24fd784a9d488a6222fba6f848fd548d2f0a4649188",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7a587adae8c204ee557f59d900e86a69917db84543f01a046ca6d2ffaa10a3c1",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2471,
+  "count": 2476,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -39881,6 +39881,42 @@
       "source_id": 3001
     },
     {
+      "id": "leetcode-3002",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Size of a Set After Removals",
+      "summary": "Given two 0-indexed integer arrays nums1 and nums2 of even length n, you must remove n / 2 elements from each array.",
+      "topics": [
+        "sets",
+        "greedy",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3002.json",
+      "content_sha256": "255f9cac14631de7227b83842b84e85689b71baf308a444c98aca54a47853be6",
+      "source_id": 3002
+    },
+    {
+      "id": "leetcode-3004",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Subtree of the Same Color",
+      "summary": "Given a tree with nodes numbered from 0 to n-1, where each node has a color, find the largest subtree where all nodes share the same color, rooted at node 0.",
+      "topics": [
+        "trees",
+        "recursion",
+        "depth-first search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3004.json",
+      "content_sha256": "873f50c3ca1f76caa61f4af80cfce483d7dfe1fe5fdf5f184408a3192cc1cc4a",
+      "source_id": 3004
+    },
+    {
       "id": "leetcode-3005",
       "version": 1,
       "status": "approved",
@@ -39897,6 +39933,62 @@
       "path": "problems/leetcode-3005.json",
       "content_sha256": "254c6cfcfa1c027fff7f2005063b995a8f71a29e2aed62531b360259e445c325",
       "source_id": 3005
+    },
+    {
+      "id": "leetcode-3006",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Beautiful Indices in the Given Array I",
+      "summary": "Given a string s and strings a, b, and an integer k, find indices i where s[i:i+len(a)] equals a, s[j:j+len(b)] equals b, and |j - i| is at most k.",
+      "topics": [
+        "strings",
+        "enumeration",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3006.json",
+      "content_sha256": "d56092781967806da6ed8b19530d51d2975d10f8ce66bf647abbf9e2744be188",
+      "source_id": 3006
+    },
+    {
+      "id": "leetcode-3007",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number That Sum of the Prices Is Less Than or Equal to K",
+      "summary": "Given an integer k and x, the price of a number num is the count of set bits at positions x, 2x, 3x, etc., in its binary representation.",
+      "topics": [
+        "binary search",
+        "bit counting",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3007.json",
+      "content_sha256": "40f74fc6b40256f4bdb72f0a870fdc3b857bb720796692ff00da8c05d30dcf4a",
+      "source_id": 3007
+    },
+    {
+      "id": "leetcode-3008",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Beautiful Indices in the Given Array II",
+      "summary": "Given a string s and strings a, b, and an integer k, find indices i where s[i:i+len(a)] equals a, s[j:j+len(b)] equals b, and |j - i| is at most k.",
+      "topics": [
+        "KMP",
+        "strings",
+        "two pointers"
+      ],
+      "prerequisites": [
+        "KMP"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3008.json",
+      "content_sha256": "df8bf35acef3fb3c5e443e148e066fd397a96c6a0cefae5ad9cc290dbe5ce081",
+      "source_id": 3008
     },
     {
       "id": "leetcode-3010",

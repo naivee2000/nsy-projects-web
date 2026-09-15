@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3004",
+  "content_sha256": "873f50c3ca1f76caa61f4af80cfce483d7dfe1fe5fdf5f184408a3192cc1cc4a",
+  "source_hash": "50284a14c0e092c76d4658022a68526ab32b66ae646773151a7d68d2b0825083",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only each child root color and ignores a different-colored deeper descendant.",
+      "failed_cases": [
+        "lc-3004-7",
+        "lc-3004-11",
+        "lc-3004-15"
+      ]
+    },
+    {
+      "reason": "Counts immediate children rather than the full recursive subtree size.",
+      "failed_cases": [
+        "lc-3004-6",
+        "lc-3004-10",
+        "lc-3004-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7051,
+  "oracle_implementation": "code_practice/import_batch_212b.py:subtree_oracle",
+  "validator_implementation_sha256": "736cc81dc9314b296ad7c8245d09d6396921ea107c6771167055e5b94a3eebf3",
+  "batch_implementation_sha256": "ecca1b5b31b879f363d7a24fd784a9d488a6222fba6f848fd548d2f0a4649188",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f653d93027cc6cc62c43f83b599504ca3c33de675427158e2b15f3413146a6be",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
