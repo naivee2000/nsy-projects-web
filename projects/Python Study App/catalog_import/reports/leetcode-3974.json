@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3974",
+  "content_sha256": "b1928af9847bf4e3a5125358f29f0105cb4c0a16ed41051f65749e88cda55563",
+  "source_hash": "eca339bd34c67fc007c18a1d5f12e500734dd7db7e868b2f16392f22fa9c1790",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Selects the smallest values.",
+      "failed_cases": [
+        "lc-3974-1",
+        "lc-3974-2",
+        "lc-3974-6",
+        "lc-3974-8",
+        "lc-3974-9",
+        "lc-3974-10",
+        "lc-3974-11",
+        "lc-3974-12",
+        "lc-3974-13",
+        "lc-3974-14"
+      ]
+    },
+    {
+      "reason": "Uses zero or negative multipliers even though leaving a value unchanged is allowed.",
+      "failed_cases": [
+        "lc-3974-1",
+        "lc-3974-2",
+        "lc-3974-5",
+        "lc-3974-7",
+        "lc-3974-8",
+        "lc-3974-10",
+        "lc-3974-12",
+        "lc-3974-13",
+        "lc-3974-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8021,
+  "oracle_implementation": "code_practice/import_batch_201b.py:selected_oracle",
+  "validator_implementation_sha256": "181eacc91a921aadd9b6fe52229fbd9d2a5f64fc118fc0b59a9e58f1121e96a4",
+  "batch_implementation_sha256": "64fd5a5438ee000468b9b218852431d6ac410a9eb56455abcb57fede05524e7b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "98bf8feb39883be583aa38bce37e0754027d7a8c94aedb04669a1ca08456d5cb",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

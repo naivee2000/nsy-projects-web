@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4036",
+  "content_sha256": "0c2ae1bbb5925b4e79e0ebdea280eb5931fe8e187f7de92883b83ffd146970f2",
+  "source_hash": "697c4050ebccd07f7146f1457025011039beca7a583b8414b578bd549e06062e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Emits letters from low to high, producing a lexicographically smaller order.",
+      "failed_cases": [
+        "lc-4036-1",
+        "lc-4036-5",
+        "lc-4036-6",
+        "lc-4036-7",
+        "lc-4036-8",
+        "lc-4036-9",
+        "lc-4036-10",
+        "lc-4036-12",
+        "lc-4036-13",
+        "lc-4036-14"
+      ]
+    },
+    {
+      "reason": "Repeats letters by quotient counts and represents the same mass noncanonically.",
+      "failed_cases": [
+        "lc-4036-1",
+        "lc-4036-2",
+        "lc-4036-4",
+        "lc-4036-5",
+        "lc-4036-6",
+        "lc-4036-7",
+        "lc-4036-8",
+        "lc-4036-9",
+        "lc-4036-10",
+        "lc-4036-11",
+        "lc-4036-12",
+        "lc-4036-13",
+        "lc-4036-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8083,
+  "oracle_implementation": "code_practice/import_batch_201d.py:largest_oracle",
+  "validator_implementation_sha256": "7a4773a7e0dd997b2c04def4909b5b32154085b5e1e04f8178eefc7bc5fa6a0f",
+  "batch_implementation_sha256": "1c396bc9068719e8fa8eb19002c00e8135da52a5e6fb47076bdef5920471d095",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c352a7a92219ebf32809feee24a56b0100a19ad965ee41b3443ea6ffc1f6e2db",
+  "elapsed_seconds": 0.409,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

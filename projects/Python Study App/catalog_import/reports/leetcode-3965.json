@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3965",
+  "content_sha256": "5a663667e04271302778ffbb2471d70b559b4bffc3b43d7b7b70644ad619e1c3",
+  "source_hash": "b48138590fe7f471eecdf7e6b5c96911eb3985585a49bd661cb1cbf788ea93ef",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the spread between child completion times.",
+      "failed_cases": [
+        "lc-3965-2",
+        "lc-3965-5",
+        "lc-3965-6",
+        "lc-3965-7",
+        "lc-3965-10",
+        "lc-3965-14"
+      ]
+    },
+    {
+      "reason": "Treats leaf tasks as taking zero time.",
+      "failed_cases": [
+        "lc-3965-1",
+        "lc-3965-2",
+        "lc-3965-3",
+        "lc-3965-4",
+        "lc-3965-5",
+        "lc-3965-6",
+        "lc-3965-7",
+        "lc-3965-8",
+        "lc-3965-9",
+        "lc-3965-10",
+        "lc-3965-11",
+        "lc-3965-12",
+        "lc-3965-13",
+        "lc-3965-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8012,
+  "oracle_implementation": "code_practice/import_batch_201b.py:finish_oracle",
+  "validator_implementation_sha256": "181eacc91a921aadd9b6fe52229fbd9d2a5f64fc118fc0b59a9e58f1121e96a4",
+  "batch_implementation_sha256": "64fd5a5438ee000468b9b218852431d6ac410a9eb56455abcb57fede05524e7b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f1a3cd0aaa022b4391a289636778d8c9d7ce4201ab63c34559a156bdf42cb6a5",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4043",
+  "content_sha256": "32601e30bd4fd7aea80717656cb90ede6f299e074a30d0fc41fd022e9b0d1e16",
+  "source_hash": "3d8899ce3b5b0d252d648e815c9c0c7efc938a676a0fbcc79683dc6d659f83bf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the final cyclic rotation.",
+      "failed_cases": [
+        "lc-4043-1",
+        "lc-4043-2",
+        "lc-4043-3",
+        "lc-4043-4",
+        "lc-4043-5",
+        "lc-4043-6",
+        "lc-4043-7",
+        "lc-4043-11",
+        "lc-4043-12",
+        "lc-4043-13"
+      ]
+    },
+    {
+      "reason": "Counts rotations whose score exceeds k as well.",
+      "failed_cases": [
+        "lc-4043-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8090,
+  "oracle_implementation": "code_practice/import_batch_201d.py:rotations_oracle",
+  "validator_implementation_sha256": "7a4773a7e0dd997b2c04def4909b5b32154085b5e1e04f8178eefc7bc5fa6a0f",
+  "batch_implementation_sha256": "1c396bc9068719e8fa8eb19002c00e8135da52a5e6fb47076bdef5920471d095",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b45cb46ed039d14994fa23475bde528283856a02fcd23c941d25f61616662b9a",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

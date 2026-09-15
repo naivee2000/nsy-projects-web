@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4021",
+  "content_sha256": "da050dcaac420d726498e05b388fff8259f9b2d050e7de07a7adaeb288d2db9b",
+  "source_hash": "9f5d25a49bdde388bba2ca359b364c3541f5222b08834c895ae7b57bbb8a56dc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores wraparound letter increments.",
+      "failed_cases": [
+        "lc-4021-7",
+        "lc-4021-8",
+        "lc-4021-12",
+        "lc-4021-13"
+      ]
+    },
+    {
+      "reason": "Treats every cyclic rotation as free.",
+      "failed_cases": [
+        "lc-4021-1",
+        "lc-4021-6",
+        "lc-4021-10",
+        "lc-4021-11",
+        "lc-4021-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8068,
+  "oracle_implementation": "code_practice/import_batch_201d.py:palindrome_oracle",
+  "validator_implementation_sha256": "7a4773a7e0dd997b2c04def4909b5b32154085b5e1e04f8178eefc7bc5fa6a0f",
+  "batch_implementation_sha256": "1c396bc9068719e8fa8eb19002c00e8135da52a5e6fb47076bdef5920471d095",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3cd6ada4f8b36e4ff9c015b862ccdf3a382b127c44494912f560102d681e667a",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

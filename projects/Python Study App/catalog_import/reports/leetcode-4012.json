@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4012",
+  "content_sha256": "2f13085978c3ee1794138da7f017426711f77f031b21426706587e9f0eb2dfdd",
+  "source_hash": "63d2815996d5b0296cd984acca253a44948d8101320acd0e1bcbbe34b8bc87d5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Replaces prior partial progress rather than carrying it forward.",
+      "failed_cases": [
+        "lc-4012-8"
+      ]
+    },
+    {
+      "reason": "Reports all tasks unfinished immediately after completing a full cycle.",
+      "failed_cases": [
+        "lc-4012-1",
+        "lc-4012-4",
+        "lc-4012-6",
+        "lc-4012-8",
+        "lc-4012-9",
+        "lc-4012-10",
+        "lc-4012-11",
+        "lc-4012-12",
+        "lc-4012-13",
+        "lc-4012-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8059,
+  "oracle_implementation": "code_practice/import_batch_201c.py:tasks_oracle",
+  "validator_implementation_sha256": "7a4773a7e0dd997b2c04def4909b5b32154085b5e1e04f8178eefc7bc5fa6a0f",
+  "batch_implementation_sha256": "f25b71cc34b80f5ea1ebd1d5dc6636e63c8185b75810f953930e54c30b8c8188",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a3ab08082ac96c672491999b2d8e8d9fdab601671b65b7c4d54812f7743c69f7",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4008",
+  "content_sha256": "3e4356d4e139463be568099112d3fa97c21a18568ff22015e3f4cda6c0624aef",
+  "source_hash": "c2480078d3e151424cf2508b3bc4fbbed7478658fdcb8b91e12a6db7ef2ec9df",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows permanent strength to become negative rather than clamping it.",
+      "failed_cases": [
+        "lc-4008-6",
+        "lc-4008-9",
+        "lc-4008-10"
+      ]
+    },
+    {
+      "reason": "Uses only the latest difference-array change instead of the accumulated active bonus.",
+      "failed_cases": [
+        "lc-4008-6",
+        "lc-4008-9",
+        "lc-4008-10",
+        "lc-4008-13",
+        "lc-4008-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8055,
+  "oracle_implementation": "code_practice/import_batch_201c.py:strength_oracle",
+  "validator_implementation_sha256": "7a4773a7e0dd997b2c04def4909b5b32154085b5e1e04f8178eefc7bc5fa6a0f",
+  "batch_implementation_sha256": "f25b71cc34b80f5ea1ebd1d5dc6636e63c8185b75810f953930e54c30b8c8188",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "97def031ec46bde7645c66dcfd2015402792a2a294e46e4512783da90a6b6f2e",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

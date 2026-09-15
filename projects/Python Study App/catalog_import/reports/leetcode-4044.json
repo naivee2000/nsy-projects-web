@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4044",
+  "content_sha256": "441cd78c62935651d7224c6198676f7bda8dd28caa49886a5a4332c38d3e6547",
+  "source_hash": "9703510f2711949b782bcd8d6e4df161c92f258d8d3e6acd86fe0db753b9d6f9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts tied half sums as good.",
+      "failed_cases": [
+        "lc-4044-2",
+        "lc-4044-5",
+        "lc-4044-6",
+        "lc-4044-7",
+        "lc-4044-13"
+      ]
+    },
+    {
+      "reason": "Omits one noninitial rotation.",
+      "failed_cases": [
+        "lc-4044-4",
+        "lc-4044-8",
+        "lc-4044-10",
+        "lc-4044-11",
+        "lc-4044-12",
+        "lc-4044-13",
+        "lc-4044-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8091,
+  "oracle_implementation": "code_practice/import_batch_201d.py:good_oracle",
+  "validator_implementation_sha256": "7a4773a7e0dd997b2c04def4909b5b32154085b5e1e04f8178eefc7bc5fa6a0f",
+  "batch_implementation_sha256": "1c396bc9068719e8fa8eb19002c00e8135da52a5e6fb47076bdef5920471d095",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b7dba980d716995899e3e8abab90d39a1f5f20b2e42dcc1ea6fa3bc07d9c5039",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

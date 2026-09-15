@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3961",
+  "content_sha256": "372860ce040f6d3fb8ea488756166f0b1fca31df30387a65c8e490174f821644",
+  "source_hash": "923357b95245561d8091c147bd31050edd03213f6ad4794ab221b6d0db1c509f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets the receiver must retain the globally smallest donated unit.",
+      "failed_cases": [
+        "lc-3961-1",
+        "lc-3961-5",
+        "lc-3961-6",
+        "lc-3961-7",
+        "lc-3961-9",
+        "lc-3961-11",
+        "lc-3961-12",
+        "lc-3961-13",
+        "lc-3961-14"
+      ]
+    },
+    {
+      "reason": "Uses the two largest units of each device rather than the two smallest.",
+      "failed_cases": [
+        "lc-3961-5",
+        "lc-3961-6",
+        "lc-3961-7",
+        "lc-3961-9",
+        "lc-3961-11",
+        "lc-3961-12",
+        "lc-3961-13",
+        "lc-3961-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8008,
+  "oracle_implementation": "code_practice/import_batch_201d.py:ratings_oracle",
+  "validator_implementation_sha256": "181eacc91a921aadd9b6fe52229fbd9d2a5f64fc118fc0b59a9e58f1121e96a4",
+  "batch_implementation_sha256": "1c396bc9068719e8fa8eb19002c00e8135da52a5e6fb47076bdef5920471d095",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7439cf983d1124f2e296c395cb3f363dff9c603d5aaebd673963d51986cdaafb",
+  "elapsed_seconds": 0.119,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

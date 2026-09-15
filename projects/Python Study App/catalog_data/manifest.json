@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2246,
+  "count": 2266,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -39431,6 +39431,23 @@
       "source_id": 3936
     },
     {
+      "id": "leetcode-3937",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make Array Modulo Alternating I",
+      "summary": "Given an integer array nums and an integer k, determine the least number of operations needed to adjust each element by +1 or -1 so that the array becomes modulo alternating.",
+      "topics": [
+        "arrays",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3937.json",
+      "content_sha256": "a1fe9d720d88110df6662900f8aa9230b0cf7ab01fc8f784736aa83cc8fdfa6e",
+      "source_id": 3937
+    },
+    {
       "id": "leetcode-3940",
       "version": 1,
       "status": "approved",
@@ -39465,6 +39482,23 @@
       "source_id": 3941
     },
     {
+      "id": "leetcode-3942",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Sort a Permutation",
+      "summary": "Given an integer array nums of length n, representing a permutation of integers from 0 to n-1, determine the minimum number of operations needed to sort the array in ascending order using only reverse operations on the entire array or left rotations by one position.",
+      "topics": [
+        "arrays",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3942.json",
+      "content_sha256": "42e38bc1fe57a6814cf84fbd6750d4bc7d837aafd169b61544bb93729b07be07",
+      "source_id": 3942
+    },
+    {
       "id": "leetcode-3945",
       "version": 1,
       "status": "approved",
@@ -39480,6 +39514,23 @@
       "path": "problems/leetcode-3945.json",
       "content_sha256": "76f383da8b9a25ca44e3e52683f4b30e180fbf872807328d1a9e745d74858a56",
       "source_id": 3945
+    },
+    {
+      "id": "leetcode-3946",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Items From Sale I",
+      "summary": "Given a 2D integer array items, where each item is represented as [factori, pricei], and an integer budget, determine the maximum total number of item copies (both purchased and free) you can obtain.",
+      "topics": [
+        "dynamic programming",
+        "knapsack"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3946.json",
+      "content_sha256": "b20cda0a34b80971a6d82a9d3fd95ef6777341919975752ab9b63a0182eac9f4",
+      "source_id": 3946
     },
     {
       "id": "leetcode-3950",
@@ -39516,6 +39567,23 @@
       "source_id": 3954
     },
     {
+      "id": "leetcode-3955",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Binary Strings With Cost Limit",
+      "summary": "Given integers n and k, find all binary strings of length n that do not have two consecutive '1's and whose indices sum to a cost no greater than k.",
+      "topics": [
+        "backtracking",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3955.json",
+      "content_sha256": "199829820b40f4cdfc69187c042e50b40ab4ed698e5c64801620c58ab1f9d7cc",
+      "source_id": 3955
+    },
+    {
       "id": "leetcode-3958",
       "version": 1,
       "status": "approved",
@@ -39548,6 +39616,74 @@
       "path": "problems/leetcode-3959.json",
       "content_sha256": "54b1758c8cf619b8958d6862f00d10a61336c522671667eeb9049d8ba10d5b84",
       "source_id": 3959
+    },
+    {
+      "id": "leetcode-3960",
+      "version": 1,
+      "status": "approved",
+      "title": "Frequency Balance Subarray",
+      "summary": "Given an integer array nums, identify the longest subarray where each element either appears a single time or in multiples that are either equal or double the frequency of another element within the subarray.",
+      "topics": [
+        "arrays",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3960.json",
+      "content_sha256": "7d84aca923ce9cf2e769da2c64a32d1145b3c694a2b487e699d20e70862530d0",
+      "source_id": 3960
+    },
+    {
+      "id": "leetcode-3961",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Sum of Device Ratings",
+      "summary": "Given a 2D integer array units where each element represents the capacity of a unit in a device, the rating of a device is defined as the minimum capacity among all its units.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3961.json",
+      "content_sha256": "372860ce040f6d3fb8ea488756166f0b1fca31df30387a65c8e490174f821644",
+      "source_id": 3961
+    },
+    {
+      "id": "leetcode-3964",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Lights to Illuminate a Road",
+      "summary": "Given an array of integers representing positions on a road, where each position can have a working bulb or not, determine the minimum number of additional bulbs needed to ensure every position is illuminated by at least one bulb.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3964.json",
+      "content_sha256": "c7410f2af05c7b24abb0cc7158442a12457769b6702ee05404d233e20e356dd6",
+      "source_id": 3964
+    },
+    {
+      "id": "leetcode-3965",
+      "version": 1,
+      "status": "approved",
+      "title": "Finish Time of Tasks I",
+      "summary": "Given n tasks forming a tree with task 0 as the root, and an array of base completion times, calculate the finish time for each task.",
+      "topics": [
+        "trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3965.json",
+      "content_sha256": "5a663667e04271302778ffbb2471d70b559b4bffc3b43d7b7b70644ad619e1c3",
+      "source_id": 3965
     },
     {
       "id": "leetcode-3968",
@@ -39586,6 +39722,24 @@
       "source_id": 3969
     },
     {
+      "id": "leetcode-3974",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Total Sum of K Selected Elements",
+      "summary": "Given an integer array nums and two integers k and mul, select exactly k elements from nums.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3974.json",
+      "content_sha256": "b1928af9847bf4e3a5125358f29f0105cb4c0a16ed41051f65749e88cda55563",
+      "source_id": 3974
+    },
+    {
       "id": "leetcode-3975",
       "version": 1,
       "status": "approved",
@@ -39604,6 +39758,23 @@
       "source_id": 3975
     },
     {
+      "id": "leetcode-3976",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Subarray Sum After Multiplier",
+      "summary": "Given an integer array nums and a positive integer k, you must select exactly one subarray and perform either of the following operations: - Multiply each element in the chosen subarray by k.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3976.json",
+      "content_sha256": "ed9e2998f2a16cc08720e72f6cd47c759fb03f344e2e00fcb472eda8567527ff",
+      "source_id": 3976
+    },
+    {
       "id": "leetcode-3978",
       "version": 1,
       "status": "approved",
@@ -39619,6 +39790,23 @@
       "path": "problems/leetcode-3978.json",
       "content_sha256": "c25adfb9f4b4d0c1a5f8f395b25d743778c69b1984a4d6c018ed65980267f876",
       "source_id": 3978
+    },
+    {
+      "id": "leetcode-3979",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Valid Pair Sum",
+      "summary": "Given an integer array nums and an integer k, find the maximum sum of nums[i] + nums[j] for all valid pairs (i, j) where 0 = k.",
+      "topics": [
+        "arrays",
+        "prefix maxima"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3979.json",
+      "content_sha256": "9563398e020d6b8e85e4280f9bb5cb2db71ffb0309f9b6ea9fcbd9843619c549",
+      "source_id": 3979
     },
     {
       "id": "leetcode-3982",
@@ -39671,6 +39859,23 @@
       "path": "problems/leetcode-3987.json",
       "content_sha256": "07a21d7c2523bfddf097c038f8e64e981351ce761180ce2b3929b7cd7ab63958",
       "source_id": 3987
+    },
+    {
+      "id": "leetcode-3991",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort Array Using Prefix Reversals",
+      "summary": "Given an integer array nums that is a permutation of the integers in the range [0, n-1] and an array pre containing valid prefix lengths, determine the minimum number of operations required to sort nums in ascending order by performing prefix reversals.",
+      "topics": [
+        "arrays",
+        "breadth-first search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3991.json",
+      "content_sha256": "e9376738c19c40894df7e71625904c6c62d4c577a296bb3d93b53174ed264f71",
+      "source_id": 3991
     },
     {
       "id": "leetcode-3993",
@@ -39778,6 +39983,23 @@
       "source_id": 4006
     },
     {
+      "id": "leetcode-4008",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Initial Strength to Defeat All Monsters",
+      "summary": "Given an integer array monsters, where each element represents the strength of a monster, and a 2D integer array boosts, where each element is a triplet [li, ri, vi] indicating that a temporary bonus of vi is available while fighting any monster whose index is between li and ri (inclusive), calculate the minimum initial strength required to defeat all the monsters.",
+      "topics": [
+        "arrays",
+        "binary search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4008.json",
+      "content_sha256": "3e4356d4e139463be568099112d3fa97c21a18568ff22015e3f4cda6c0624aef",
+      "source_id": 4008
+    },
+    {
       "id": "leetcode-4010",
       "version": 1,
       "status": "approved",
@@ -39811,6 +40033,23 @@
       "path": "problems/leetcode-4011.json",
       "content_sha256": "529baaca164a4c47eae73d356407687d55c6510e17ba26ba78ee71606a22d196",
       "source_id": 4011
+    },
+    {
+      "id": "leetcode-4012",
+      "version": 1,
+      "status": "approved",
+      "title": "Count of Unfinished Tasks After Each Shift",
+      "summary": "Given two arrays, tasks and shifts, where tasks[i] is the time to complete the i-th task and shifts[j] is the time available during the j-th shift, process tasks in order.",
+      "topics": [
+        "arrays",
+        "binary search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4012.json",
+      "content_sha256": "2f13085978c3ee1794138da7f017426711f77f031b21426706587e9f0eb2dfdd",
+      "source_id": 4012
     },
     {
       "id": "leetcode-4014",
@@ -39847,6 +40086,23 @@
       "source_id": 4020
     },
     {
+      "id": "leetcode-4021",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make a Rotated Palindrome I",
+      "summary": "Given a string s consisting of lowercase English letters, you can perform the following operations any number of times (including zero) and in any order: - Increment: Choose any index i and replace s[i] with the next lowercase English letter.",
+      "topics": [
+        "strings",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4021.json",
+      "content_sha256": "da050dcaac420d726498e05b388fff8259f9b2d050e7de07a7adaeb288d2db9b",
+      "source_id": 4021
+    },
+    {
       "id": "leetcode-4022",
       "version": 1,
       "status": "approved",
@@ -39863,6 +40119,23 @@
       "path": "problems/leetcode-4022.json",
       "content_sha256": "6502ec3dc2bfdd82e1c3b82e62c2616966066783bc831addf1d54ea159890330",
       "source_id": 4022
+    },
+    {
+      "id": "leetcode-4024",
+      "version": 1,
+      "status": "approved",
+      "title": "Nearest Available Drone",
+      "summary": "Given a list of drones with their coordinates and ranges, and a target coordinate, find the index of the nearest drone that can reach the target.",
+      "topics": [
+        "arrays",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-4024.json",
+      "content_sha256": "b7243c39e31fd5ed8b70e0e37093c6f4a0489195a6e00b15594927ef0a3959ef",
+      "source_id": 4024
     },
     {
       "id": "leetcode-4025",
@@ -39952,6 +40225,40 @@
       "source_id": 4034
     },
     {
+      "id": "leetcode-4035",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Valid Split Positions I",
+      "summary": "Given an integer array nums, you can remove at most one element.",
+      "topics": [
+        "arrays",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4035.json",
+      "content_sha256": "4af1fe089ada52c3836c8d10c66b53e8689afcfaa16937ad9fc4c66087e3db10",
+      "source_id": 4035
+    },
+    {
+      "id": "leetcode-4036",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographically Largest String After Pair Transformations",
+      "summary": "Given an integer array nums, for each integer x in nums, start with a string consisting of exactly x lowercase 'a' characters.",
+      "topics": [
+        "strings",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4036.json",
+      "content_sha256": "0c2ae1bbb5925b4e79e0ebdea280eb5931fe8e187f7de92883b83ffd146970f2",
+      "source_id": 4036
+    },
+    {
       "id": "leetcode-4038",
       "version": 1,
       "status": "approved",
@@ -39967,6 +40274,40 @@
       "path": "problems/leetcode-4038.json",
       "content_sha256": "56057ba980434ee1672639a7898b8f085de9c9b326f866252714a99e2ebcad33",
       "source_id": 4038
+    },
+    {
+      "id": "leetcode-4043",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Rotations With Exactly K Equal Adjacent Pairs",
+      "summary": "Given a string s of length n and an integer k , count the number of cyclic rotations of s such that the score of each rotation equals k .",
+      "topics": [
+        "strings",
+        "sliding window"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-4043.json",
+      "content_sha256": "32601e30bd4fd7aea80717656cb90ede6f299e074a30d0fc41fd022e9b0d1e16",
+      "source_id": 4043
+    },
+    {
+      "id": "leetcode-4044",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Good Cyclic Rotations",
+      "summary": "Given an even-length integer array, count the number of cyclic rotations where the sum of the first half of the array is strictly greater than the sum of the second half.",
+      "topics": [
+        "arrays",
+        "sliding window"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4044.json",
+      "content_sha256": "441cd78c62935651d7224c6198676f7bda8dd28caa49886a5a4332c38d3e6547",
+      "source_id": 4044
     }
   ]
 }

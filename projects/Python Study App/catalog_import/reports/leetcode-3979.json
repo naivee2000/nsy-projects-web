@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3979",
+  "content_sha256": "9563398e020d6b8e85e4280f9bb5cb2db71ffb0309f9b6ea9fcbd9843619c549",
+  "source_hash": "3ed42ea391666a6ab354f2b66ec9ba5346dba9291dc7e5f6d8826a73c33f992d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows pairs whose index gap is only k-1.",
+      "failed_cases": [
+        "lc-3979-2",
+        "lc-3979-3",
+        "lc-3979-4",
+        "lc-3979-7",
+        "lc-3979-8",
+        "lc-3979-9",
+        "lc-3979-10",
+        "lc-3979-13"
+      ]
+    },
+    {
+      "reason": "Adds one to every maximum pair sum.",
+      "failed_cases": [
+        "lc-3979-1",
+        "lc-3979-2",
+        "lc-3979-3",
+        "lc-3979-4",
+        "lc-3979-5",
+        "lc-3979-6",
+        "lc-3979-7",
+        "lc-3979-8",
+        "lc-3979-9",
+        "lc-3979-10",
+        "lc-3979-11",
+        "lc-3979-12",
+        "lc-3979-13",
+        "lc-3979-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8026,
+  "oracle_implementation": "code_practice/import_batch_201b.py:pair_oracle",
+  "validator_implementation_sha256": "181eacc91a921aadd9b6fe52229fbd9d2a5f64fc118fc0b59a9e58f1121e96a4",
+  "batch_implementation_sha256": "64fd5a5438ee000468b9b218852431d6ac410a9eb56455abcb57fede05524e7b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fd8539cf675cce3ff1e25a0c8b1530085a360175ae72bc9aca698b6293476a35",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

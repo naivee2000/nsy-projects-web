@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4024",
+  "content_sha256": "b7243c39e31fd5ed8b70e0e37093c6f4a0489195a6e00b15594927ef0a3959ef",
+  "source_hash": "756e9ee63ee65777d998ed8e2905aa43f335074ba070c8b58f924241c95aeb62",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Excludes drones whose range exactly equals the distance.",
+      "failed_cases": [
+        "lc-4024-3",
+        "lc-4024-4",
+        "lc-4024-7",
+        "lc-4024-8",
+        "lc-4024-9",
+        "lc-4024-10",
+        "lc-4024-12",
+        "lc-4024-13",
+        "lc-4024-14"
+      ]
+    },
+    {
+      "reason": "Lets a later equal-distance drone replace the required smaller index.",
+      "failed_cases": [
+        "lc-4024-4",
+        "lc-4024-8",
+        "lc-4024-9",
+        "lc-4024-11",
+        "lc-4024-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8071,
+  "oracle_implementation": "code_practice/import_batch_201c.py:drone_oracle",
+  "validator_implementation_sha256": "7a4773a7e0dd997b2c04def4909b5b32154085b5e1e04f8178eefc7bc5fa6a0f",
+  "batch_implementation_sha256": "f25b71cc34b80f5ea1ebd1d5dc6636e63c8185b75810f953930e54c30b8c8188",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c0b1a738503b65d9b30e21843135e9374a9f78d54945326e728cac9289427c23",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

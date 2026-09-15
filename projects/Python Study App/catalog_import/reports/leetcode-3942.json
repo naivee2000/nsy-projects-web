@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3942",
+  "content_sha256": "42e38bc1fe57a6814cf84fbd6750d4bc7d837aafd169b61544bb93729b07be07",
+  "source_hash": "43ca1760ad027c590b5e96ef00947a7115e45558a8dc36a7cc2541c9e0f588f8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds an operation to the direct forward-rotation case.",
+      "failed_cases": [
+        "lc-3942-2",
+        "lc-3942-3",
+        "lc-3942-4",
+        "lc-3942-6",
+        "lc-3942-7",
+        "lc-3942-9",
+        "lc-3942-10",
+        "lc-3942-13"
+      ]
+    },
+    {
+      "reason": "Returns zero rather than -1 for unreachable orientations.",
+      "failed_cases": [
+        "lc-3942-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7989,
+  "oracle_implementation": "code_practice/import_batch_201a.py:sort_oracle",
+  "validator_implementation_sha256": "181eacc91a921aadd9b6fe52229fbd9d2a5f64fc118fc0b59a9e58f1121e96a4",
+  "batch_implementation_sha256": "e67bcc17c76f37b9d560ba7c36b157e57ef15e507fd2042d3e20128464d0ec7d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a1292e4786dc49642bbd7b7f75cc99ffc4528e6789745a62a12a9bb8f1a409e3",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

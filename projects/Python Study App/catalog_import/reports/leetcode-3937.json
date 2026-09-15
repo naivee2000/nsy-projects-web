@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3937",
+  "content_sha256": "a1fe9d720d88110df6662900f8aa9230b0cf7ab01fc8f784736aa83cc8fdfa6e",
+  "source_hash": "f8b2ba4adc9e252941ffefb62bce05ee430b5ba1acc9c0d925c8e0a60a58bc30",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the two target residues to be equal.",
+      "failed_cases": [
+        "lc-3937-3",
+        "lc-3937-5",
+        "lc-3937-6",
+        "lc-3937-8",
+        "lc-3937-13"
+      ]
+    },
+    {
+      "reason": "Ignores circular residue distance across zero.",
+      "failed_cases": [
+        "lc-3937-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7984,
+  "oracle_implementation": "code_practice/import_batch_201a.py:modulo_oracle",
+  "validator_implementation_sha256": "7a4773a7e0dd997b2c04def4909b5b32154085b5e1e04f8178eefc7bc5fa6a0f",
+  "batch_implementation_sha256": "e67bcc17c76f37b9d560ba7c36b157e57ef15e507fd2042d3e20128464d0ec7d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5bf6b559527a2d231bffaf3c425d7c49dab3181e2e64314bab7d83c230748c8c",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

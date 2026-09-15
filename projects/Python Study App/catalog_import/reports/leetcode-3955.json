@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3955",
+  "content_sha256": "199829820b40f4cdfc69187c042e50b40ab4ed698e5c64801620c58ab1f9d7cc",
+  "source_hash": "4d44c20015fa47e66e13b428923d3e41f6cf38ba91079b5b2a9ac41b4ac4c558",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Takes the one-branch where the zero-branch belongs and produces duplicates/invalid order.",
+      "failed_cases": [
+        "lc-3955-1",
+        "lc-3955-2",
+        "lc-3955-3",
+        "lc-3955-4",
+        "lc-3955-5",
+        "lc-3955-6",
+        "lc-3955-7",
+        "lc-3955-8",
+        "lc-3955-9",
+        "lc-3955-10",
+        "lc-3955-11",
+        "lc-3955-12",
+        "lc-3955-13",
+        "lc-3955-14"
+      ]
+    },
+    {
+      "reason": "Ignores the cost limit on newly placed ones.",
+      "failed_cases": [
+        "lc-3955-1",
+        "lc-3955-2",
+        "lc-3955-7",
+        "lc-3955-8",
+        "lc-3955-10",
+        "lc-3955-12",
+        "lc-3955-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8002,
+  "oracle_implementation": "code_practice/import_batch_201a.py:strings_oracle",
+  "validator_implementation_sha256": "7a4773a7e0dd997b2c04def4909b5b32154085b5e1e04f8178eefc7bc5fa6a0f",
+  "batch_implementation_sha256": "e67bcc17c76f37b9d560ba7c36b157e57ef15e507fd2042d3e20128464d0ec7d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f43fe94081432f779ee41eb5786be1345b70f5c56b214f47f11f8e089ab027cd",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

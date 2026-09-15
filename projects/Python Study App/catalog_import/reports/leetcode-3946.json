@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3946",
+  "content_sha256": "b20cda0a34b80971a6d82a9d3fd95ef6777341919975752ab9b63a0182eac9f4",
+  "source_hash": "2452d6d4b96a5efccd78e65fdc697c15ac54fef9885f3c4fff89e9ee55f0ed38",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Turns each promotion into an unbounded knapsack item and awards its free copies repeatedly.",
+      "failed_cases": [
+        "lc-3946-4",
+        "lc-3946-6",
+        "lc-3946-7",
+        "lc-3946-9",
+        "lc-3946-10",
+        "lc-3946-11",
+        "lc-3946-12",
+        "lc-3946-13",
+        "lc-3946-14"
+      ]
+    },
+    {
+      "reason": "Forgets that leftover budget can buy additional ordinary copies.",
+      "failed_cases": [
+        "lc-3946-1",
+        "lc-3946-2",
+        "lc-3946-5",
+        "lc-3946-7",
+        "lc-3946-9",
+        "lc-3946-10",
+        "lc-3946-12",
+        "lc-3946-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7993,
+  "oracle_implementation": "code_practice/import_batch_201a.py:sale_oracle",
+  "validator_implementation_sha256": "7a4773a7e0dd997b2c04def4909b5b32154085b5e1e04f8178eefc7bc5fa6a0f",
+  "batch_implementation_sha256": "e67bcc17c76f37b9d560ba7c36b157e57ef15e507fd2042d3e20128464d0ec7d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f296939342fec41c8005a473795a9e6641d1aa4720ca9d6c90a565b1e007be1b",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
