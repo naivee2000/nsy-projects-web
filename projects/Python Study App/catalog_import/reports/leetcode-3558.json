@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3558",
+  "content_sha256": "8dbc8a2bf4f308c4406ed99b71e4521175f42fa567901354fa25e84966d7d232",
+  "source_hash": "427d6d1c19d14edc4247b7730f45baecc85c0e7a2d0c38588c1425fd9cf14f47",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts all 2^d assignments rather than exactly half of them.",
+      "failed_cases": [
+        "lc-3558-1",
+        "lc-3558-2",
+        "lc-3558-3",
+        "lc-3558-4",
+        "lc-3558-5",
+        "lc-3558-6",
+        "lc-3558-7",
+        "lc-3558-8",
+        "lc-3558-9",
+        "lc-3558-10",
+        "lc-3558-11",
+        "lc-3558-12",
+        "lc-3558-13",
+        "lc-3558-14"
+      ]
+    },
+    {
+      "reason": "Uses the shallowest non-root depth instead of the maximum depth.",
+      "failed_cases": [
+        "lc-3558-2",
+        "lc-3558-4",
+        "lc-3558-5",
+        "lc-3558-7",
+        "lc-3558-8",
+        "lc-3558-9",
+        "lc-3558-10",
+        "lc-3558-11",
+        "lc-3558-12",
+        "lc-3558-13",
+        "lc-3558-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7605,
+  "oracle_implementation": "code_practice/import_batch_228d.py:edge_weight_oracle",
+  "validator_implementation_sha256": "5dc474ab5d522f0f294f8239b3d1771f443cfe0cc36f59e233843144153d5837",
+  "batch_implementation_sha256": "6a2fc5bd3f2c56a44781a0b03081ab359dc2dffb4f16ea566bc8b05f123fe319",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "00a69fcd54593fa78f1ea2b292f66afddc6dda19fe60f0c883e1a110ae1cad05",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

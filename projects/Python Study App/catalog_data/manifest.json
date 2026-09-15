@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2801,
+  "count": 2805,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -47970,6 +47970,80 @@
       "path": "problems/leetcode-3552.json",
       "content_sha256": "167c6b4c6c54bdec13030f7b5853c154ada4dc0390e1778f46ed07282b099998",
       "source_id": 3552
+    },
+    {
+      "id": "leetcode-3553",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Weighted Subgraph With the Required Paths II",
+      "summary": "Given an undirected weighted tree with nodes numbered from 0 to n-1, and a set of queries specifying source nodes, return an array where each element is the minimum weight of a subtree allowing travel from both source nodes to a destination node.",
+      "topics": [
+        "trees",
+        "lowest common ancestor",
+        "binary lifting"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3553.json",
+      "content_sha256": "05666c56f32214ec18f8388d3905cede261f83a84f09c374e0218e224bfde845",
+      "source_id": 3553
+    },
+    {
+      "id": "leetcode-3555",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Subarray to Sort in Every Sliding Window",
+      "summary": "Given an integer array nums and an integer k, for each contiguous subarray of length k, find the shortest segment that needs to be sorted to make the subarray non-decreasing.",
+      "topics": [
+        "arrays",
+        "sliding windows",
+        "scanning"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3555.json",
+      "content_sha256": "6ef7792b517595404300a8456af6f0926c442920837facf4eae9a38d3fe9f4ca",
+      "source_id": 3555
+    },
+    {
+      "id": "leetcode-3557",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Maximum Number of Non Intersecting Substrings",
+      "summary": "Given a string, determine the greatest count of non-overlapping substrings that are at least four characters long and begin and end with the same letter.",
+      "topics": [
+        "strings",
+        "greedy",
+        "interval scheduling"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3557.json",
+      "content_sha256": "9bd8926c227f5d19c8ddb19ea580e9cd51ea78ba7ae4796b9c9958bfd3215a43",
+      "source_id": 3557
+    },
+    {
+      "id": "leetcode-3558",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Assign Edge Weights I",
+      "summary": "Given an undirected tree with nodes numbered 1 to n, rooted at node 1, assign each edge a weight of 1 or 2.",
+      "topics": [
+        "trees",
+        "breadth first search",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3558.json",
+      "content_sha256": "8dbc8a2bf4f308c4406ed99b71e4521175f42fa567901354fa25e84966d7d232",
+      "source_id": 3558
     },
     {
       "id": "leetcode-3560",

@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3557",
+  "content_sha256": "9bd8926c227f5d19c8ddb19ea580e9cd51ea78ba7ae4796b9c9958bfd3215a43",
+  "source_hash": "5b6f74a716067007e0ad1679264dbba2c3021c9843cb68342bec9dc730d3c6ba",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts length-three substrings even though four characters are required.",
+      "failed_cases": [
+        "lc-3557-8"
+      ]
+    },
+    {
+      "reason": "Keeps earlier starts after choosing an interval and can count overlapping substrings.",
+      "failed_cases": [
+        "lc-3557-1",
+        "lc-3557-2",
+        "lc-3557-8",
+        "lc-3557-9",
+        "lc-3557-10",
+        "lc-3557-11",
+        "lc-3557-12",
+        "lc-3557-13",
+        "lc-3557-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7604,
+  "oracle_implementation": "code_practice/import_batch_228d.py:substring_oracle",
+  "validator_implementation_sha256": "5dc474ab5d522f0f294f8239b3d1771f443cfe0cc36f59e233843144153d5837",
+  "batch_implementation_sha256": "6a2fc5bd3f2c56a44781a0b03081ab359dc2dffb4f16ea566bc8b05f123fe319",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2a7886f620a083d6c3b4ec04367e0a3f48b7b7a0e7733b16c59048b0f0b39ae8",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

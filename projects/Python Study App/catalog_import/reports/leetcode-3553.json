@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3553",
+  "content_sha256": "05666c56f32214ec18f8388d3905cede261f83a84f09c374e0218e224bfde845",
+  "source_hash": "38192363ec0f1ba46f8504cbfcfb000796f2e42b00ff0621f931a54d737547be",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Divides the three pairwise distances by three instead of two.",
+      "failed_cases": [
+        "lc-3553-1",
+        "lc-3553-2",
+        "lc-3553-3",
+        "lc-3553-4",
+        "lc-3553-5",
+        "lc-3553-6",
+        "lc-3553-7",
+        "lc-3553-8",
+        "lc-3553-9",
+        "lc-3553-10",
+        "lc-3553-11",
+        "lc-3553-12",
+        "lc-3553-13",
+        "lc-3553-14",
+        "lc-3553-15",
+        "lc-3553-16"
+      ]
+    },
+    {
+      "reason": "Subtracts only one root distance in the pairwise distance formula.",
+      "failed_cases": [
+        "lc-3553-1",
+        "lc-3553-5",
+        "lc-3553-8",
+        "lc-3553-9",
+        "lc-3553-10",
+        "lc-3553-11",
+        "lc-3553-12",
+        "lc-3553-14",
+        "lc-3553-15",
+        "lc-3553-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7600,
+  "oracle_implementation": "code_practice/import_batch_228d.py:subtree_oracle",
+  "validator_implementation_sha256": "5dc474ab5d522f0f294f8239b3d1771f443cfe0cc36f59e233843144153d5837",
+  "batch_implementation_sha256": "6a2fc5bd3f2c56a44781a0b03081ab359dc2dffb4f16ea566bc8b05f123fe319",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "91739e1b60a3f2c7ae081428e3b80f006d18dee18076f0d48097a4612ff6baaa",
+  "elapsed_seconds": 0.132,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
