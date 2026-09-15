@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2874",
+  "content_sha256": "9a41af16e9e7f4721eea9e231af2422e535b1d76f77738e4ea80b7d886fae04a",
+  "source_hash": "cd1ab8692b7e2aaa4fb62a7812822e3d4f0510507ecd2c7df7a48efc71685ff3",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the required subtraction order.",
+      "failed_cases": [
+        "lc-2874-1",
+        "lc-2874-2",
+        "lc-2874-3",
+        "lc-2874-4",
+        "lc-2874-5",
+        "lc-2874-6",
+        "lc-2874-8",
+        "lc-2874-9",
+        "lc-2874-10",
+        "lc-2874-11",
+        "lc-2874-12",
+        "lc-2874-14",
+        "lc-2874-15",
+        "lc-2874-16"
+      ]
+    },
+    {
+      "reason": "Returns a negative value when all ordered triplets are negative instead of clamping to zero.",
+      "failed_cases": [
+        "lc-2874-3",
+        "lc-2874-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6921,
+  "oracle_implementation": "code_practice/import_batch_210c.py:triplet_oracle",
+  "validator_implementation_sha256": "dba073a1c578a774d9fdc1879edd454a14598acf142fc8b83c1f0b0638b1db88",
+  "batch_implementation_sha256": "64ab9a761a1ead7d9ebcc1480a7571e49b4864a6b0611ca17cbade97023234c4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c6bf86e37285920ad4727e630afe94d6347e859b7379a5c880da4504571180c2",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

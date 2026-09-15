@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2895",
+  "content_sha256": "723139b4e7c61b9fe1dce8962b217067afb1886ae3cf70a9b0403584f73207c3",
+  "source_hash": "702acd914971eaab1111b1f68e88376a3885a619d8a7f893243ef6158cb19be2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Pairs the longest tasks with the latest processor group by sorting durations upward.",
+      "failed_cases": [
+        "lc-2895-1",
+        "lc-2895-3",
+        "lc-2895-5",
+        "lc-2895-6",
+        "lc-2895-7",
+        "lc-2895-8",
+        "lc-2895-9",
+        "lc-2895-10",
+        "lc-2895-11",
+        "lc-2895-12",
+        "lc-2895-13",
+        "lc-2895-14",
+        "lc-2895-15",
+        "lc-2895-16"
+      ]
+    },
+    {
+      "reason": "Pairs late processors with long tasks rather than balancing them against early availability.",
+      "failed_cases": [
+        "lc-2895-1",
+        "lc-2895-2",
+        "lc-2895-5",
+        "lc-2895-6",
+        "lc-2895-7",
+        "lc-2895-9",
+        "lc-2895-11",
+        "lc-2895-12",
+        "lc-2895-14",
+        "lc-2895-15",
+        "lc-2895-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6942,
+  "oracle_implementation": "code_practice/import_batch_210c.py:processing_oracle",
+  "validator_implementation_sha256": "dba073a1c578a774d9fdc1879edd454a14598acf142fc8b83c1f0b0638b1db88",
+  "batch_implementation_sha256": "64ab9a761a1ead7d9ebcc1480a7571e49b4864a6b0611ca17cbade97023234c4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8d76db8bec540edaac2d6a59043db96b8d37a433ddaf53c8bdf0941d2aa76f0e",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

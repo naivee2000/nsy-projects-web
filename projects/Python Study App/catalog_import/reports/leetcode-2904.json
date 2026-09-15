@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2904",
+  "content_sha256": "f838d27a6407b4f9db312e27e448399418f377cefed7bb93d6cb5462b657491f",
+  "source_hash": "5a1dc06c96d715edceb69f8fed8b51b169a6a5abc0e1adf080aeed14fda0d2bd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Trims leading ones instead of irrelevant leading zeros and loses required matches.",
+      "failed_cases": [
+        "lc-2904-1",
+        "lc-2904-2",
+        "lc-2904-7",
+        "lc-2904-8",
+        "lc-2904-9",
+        "lc-2904-10",
+        "lc-2904-11",
+        "lc-2904-12",
+        "lc-2904-13",
+        "lc-2904-14",
+        "lc-2904-15",
+        "lc-2904-16"
+      ]
+    },
+    {
+      "reason": "Keeps the first shortest candidate without applying the lexicographic tie-break.",
+      "failed_cases": [
+        "lc-2904-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6951,
+  "oracle_implementation": "code_practice/import_batch_210c.py:beautiful_oracle",
+  "validator_implementation_sha256": "dba073a1c578a774d9fdc1879edd454a14598acf142fc8b83c1f0b0638b1db88",
+  "batch_implementation_sha256": "64ab9a761a1ead7d9ebcc1480a7571e49b4864a6b0611ca17cbade97023234c4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e049cc5f3bae0563cfdb4470bcfbb857f37bbcf7338738719aa5e472a6ff0286",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
