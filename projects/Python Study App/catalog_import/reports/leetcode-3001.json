@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3001",
+  "content_sha256": "fb0e1139226987f075889e5fdb31821fefdc52f61a40ffe5c0db87b83ea79a41",
+  "source_hash": "b8e8774566e5251c4e1936dc47465628b866993295cb370008a69a15f2152ab5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores a bishop blocking the rook along a shared row.",
+      "failed_cases": [
+        "lc-3001-4",
+        "lc-3001-13"
+      ]
+    },
+    {
+      "reason": "Checks only one diagonal slope for the bishop and misses the other.",
+      "failed_cases": [
+        "lc-3001-7",
+        "lc-3001-10",
+        "lc-3001-11",
+        "lc-3001-14",
+        "lc-3001-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7048,
+  "oracle_implementation": "code_practice/import_batch_212a.py:chess_oracle",
+  "validator_implementation_sha256": "7dccd60ea2098cd3d46a2b4bcd3286a8d7c3b0c1ce2bbdc5cbfb12d62de31ecc",
+  "batch_implementation_sha256": "b00ead1719420810742ebf013f71eae6408374d3e923957dbc7395d43759cbf1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "122fa0bcd1785c9db0779a104ad8eed0fd7c6473f71601568e9c024c16c6e6af",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

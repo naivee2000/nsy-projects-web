@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2976",
+  "content_sha256": "d17fcc3f7ec4d3a8bff41cd0a6dd40e0f9ed1db54705ff714621a818baa92463",
+  "source_hash": "8f95b9abb616d94d147d856617fc08df6dacdd2a944b414b847551cf6c16d845",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites a cheaper duplicate direct rule with the last listed cost.",
+      "failed_cases": [
+        "lc-2976-9"
+      ]
+    },
+    {
+      "reason": "Never allows z as an intermediate character in a cheapest conversion path.",
+      "failed_cases": [
+        "lc-2976-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7023,
+  "oracle_implementation": "code_practice/import_batch_212a.py:conversion_oracle",
+  "validator_implementation_sha256": "7dccd60ea2098cd3d46a2b4bcd3286a8d7c3b0c1ce2bbdc5cbfb12d62de31ecc",
+  "batch_implementation_sha256": "b00ead1719420810742ebf013f71eae6408374d3e923957dbc7395d43759cbf1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e4fee524fa434bbab43fe79039c2e81f149d03900c803a8207ed39157d265968",
+  "elapsed_seconds": 0.569,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

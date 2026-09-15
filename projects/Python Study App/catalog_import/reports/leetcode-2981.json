@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2981",
+  "content_sha256": "d8b1cdaf02ac79937be41a5cd83ed1f38c35e031eac7276e676fef4c97f867c2",
+  "source_hash": "2c8804d9365ad0343550b33e878e56a964111295f8a215f150185cdf58d1ad62",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires four occurrences instead of the specified three.",
+      "failed_cases": [
+        "lc-2981-1",
+        "lc-2981-3",
+        "lc-2981-6",
+        "lc-2981-7",
+        "lc-2981-8",
+        "lc-2981-9",
+        "lc-2981-11",
+        "lc-2981-12",
+        "lc-2981-14",
+        "lc-2981-15"
+      ]
+    },
+    {
+      "reason": "Undercounts overlapping substrings inside each repeated-character run by one.",
+      "failed_cases": [
+        "lc-2981-1",
+        "lc-2981-3",
+        "lc-2981-6",
+        "lc-2981-7",
+        "lc-2981-8",
+        "lc-2981-9",
+        "lc-2981-10",
+        "lc-2981-11",
+        "lc-2981-12",
+        "lc-2981-13",
+        "lc-2981-14",
+        "lc-2981-15",
+        "lc-2981-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7028,
+  "oracle_implementation": "code_practice/import_batch_212a.py:special_oracle",
+  "validator_implementation_sha256": "7dccd60ea2098cd3d46a2b4bcd3286a8d7c3b0c1ce2bbdc5cbfb12d62de31ecc",
+  "batch_implementation_sha256": "b00ead1719420810742ebf013f71eae6408374d3e923957dbc7395d43759cbf1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7ff2341d54b800f6e942064018ddbf3b83c46c3a44148f38ada6a4f4dbbc5690",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

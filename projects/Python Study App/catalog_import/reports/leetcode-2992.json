@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2992",
+  "content_sha256": "9fc6a04a5e6a732f15df27df146692b566103f477c8ea9cc44d1e513278695ef",
+  "source_hash": "28afde94e02922810ff954827add2a7bbf759eb37506a0893c3f3a31288b2593",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the divisibility rule from Beautiful Arrangement instead of coprimality.",
+      "failed_cases": [
+        "lc-2992-3",
+        "lc-2992-4",
+        "lc-2992-5",
+        "lc-2992-6",
+        "lc-2992-7",
+        "lc-2992-8",
+        "lc-2992-9",
+        "lc-2992-10",
+        "lc-2992-11",
+        "lc-2992-12",
+        "lc-2992-13",
+        "lc-2992-14",
+        "lc-2992-15"
+      ]
+    },
+    {
+      "reason": "Treats the zero-based filled count as the one-based position.",
+      "failed_cases": [
+        "lc-2992-1",
+        "lc-2992-2",
+        "lc-2992-3",
+        "lc-2992-4",
+        "lc-2992-5",
+        "lc-2992-6",
+        "lc-2992-7",
+        "lc-2992-8",
+        "lc-2992-9",
+        "lc-2992-10",
+        "lc-2992-11",
+        "lc-2992-12",
+        "lc-2992-13",
+        "lc-2992-14",
+        "lc-2992-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7039,
+  "oracle_implementation": "code_practice/import_batch_212a.py:permutations_oracle",
+  "validator_implementation_sha256": "7dccd60ea2098cd3d46a2b4bcd3286a8d7c3b0c1ce2bbdc5cbfb12d62de31ecc",
+  "batch_implementation_sha256": "b00ead1719420810742ebf013f71eae6408374d3e923957dbc7395d43759cbf1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "679e822fca32ce08ccacb9d002decad9abb47fe145af7090431862e2917a76c5",
+  "elapsed_seconds": 0.639,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
