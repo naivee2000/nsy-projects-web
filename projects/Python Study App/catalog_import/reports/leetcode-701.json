@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-701",
+  "content_sha256": "d420fccb399f6197baf21fa4f7549c3fd9138beb4d51d32fc4fac9ae08325af9",
+  "source_hash": "57a8a2acf6845a0d62a666052314cd6a48261d1abc25906c5adeaf64da91ccf9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Traverses the wrong BST branch.",
+      "failed_cases": [
+        "lc-701-1",
+        "lc-701-3",
+        "lc-701-4",
+        "lc-701-5",
+        "lc-701-6",
+        "lc-701-7",
+        "lc-701-8",
+        "lc-701-9",
+        "lc-701-10",
+        "lc-701-11",
+        "lc-701-12",
+        "lc-701-13",
+        "lc-701-14"
+      ]
+    },
+    {
+      "reason": "Returns the inserted leaf rather than the tree root.",
+      "failed_cases": [
+        "lc-701-1",
+        "lc-701-3",
+        "lc-701-4",
+        "lc-701-7",
+        "lc-701-8",
+        "lc-701-10",
+        "lc-701-11",
+        "lc-701-12",
+        "lc-701-13",
+        "lc-701-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4748,
+  "oracle_implementation": "code_practice/import_batch_202b.py:insert_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "8036b1b7d29729fa106b7edf7f5e9462a14f3bd5092cb4ba24de4e149af85ff7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cede39151d5c5be0ea15e9f5c42b7c13706780e22580e287d4e31e1101793559",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-817",
+  "content_sha256": "f584934922ca2d50a5184956738133301ed2ecd367812ce3cc497a3d7bde24a4",
+  "source_hash": "d555e4255c515e611e87a3b8d13cb5e6d415c7ec7690bb9ae5c45084fe3f7da4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts every selected node rather than maximal runs.",
+      "failed_cases": [
+        "lc-817-1",
+        "lc-817-2",
+        "lc-817-6",
+        "lc-817-10",
+        "lc-817-12",
+        "lc-817-13",
+        "lc-817-14"
+      ]
+    },
+    {
+      "reason": "Never ends a component when an unselected node appears.",
+      "failed_cases": [
+        "lc-817-1",
+        "lc-817-2",
+        "lc-817-8",
+        "lc-817-9",
+        "lc-817-11",
+        "lc-817-12",
+        "lc-817-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4864,
+  "oracle_implementation": "code_practice/import_batch_202d.py:components_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "0fc3f7a0374b56f498e56d657f8e254aa88ee3b5fd588b7084930e96a778654a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a8570d6b13edacc9701f9a89a2ae369b81f07fb1aeba6342702a328f0a9815ac",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-757",
+  "content_sha256": "8cf840e2ee624c8ca617d5931c58001e4bb0f3616be57e9018d1c1ee7e940a6b",
+  "source_hash": "e8c97c1997fdf9f6316c4a7c6baaa9f8bb2c64bc9270544686eb4d4f5ccc67cb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses earliest points, reducing reuse by later intervals.",
+      "failed_cases": [
+        "lc-757-1",
+        "lc-757-2",
+        "lc-757-9",
+        "lc-757-11"
+      ]
+    },
+    {
+      "reason": "Mishandles an interval whose start equals the older selected point.",
+      "failed_cases": [
+        "lc-757-2",
+        "lc-757-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4804,
+  "oracle_implementation": "code_practice/import_batch_202c.py:intersection_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "7b1ba9e72a4c4f618e8bfc2e0ca6040d4e9228e3218b4f2fd136913c936f1368",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b00365ab31f454c46363ac2f76a4536482ac79b22216b184187db5fd87c7e39b",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-536",
+  "content_sha256": "e776efde54c52d95f66f2294f3b311b6cedec3a8d8b8a4777d18c601cc97d9c0",
+  "source_hash": "8813a8692310598298fb04dbc2661671cc55a83323b3f166a84219e62556c52a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stores the first child on the right.",
+      "failed_cases": [
+        "lc-536-1",
+        "lc-536-2",
+        "lc-536-5",
+        "lc-536-7",
+        "lc-536-8",
+        "lc-536-9",
+        "lc-536-10",
+        "lc-536-11",
+        "lc-536-12",
+        "lc-536-13",
+        "lc-536-14"
+      ]
+    },
+    {
+      "reason": "Fails to parse negative node values.",
+      "failed_cases": [
+        "lc-536-2",
+        "lc-536-4",
+        "lc-536-8",
+        "lc-536-11",
+        "lc-536-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4583,
+  "oracle_implementation": "code_practice/import_batch_202b.py:parse_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "8036b1b7d29729fa106b7edf7f5e9462a14f3bd5092cb4ba24de4e149af85ff7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "61fda3a226498a30814b05b8732db2b0c53ae3c2c390a312d568a38ad8908713",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

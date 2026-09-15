@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-545",
+  "content_sha256": "1809ae8d4787b0e990b8dc897592cb8580610e5ed6a5b2792f1c38a8cd95b5eb",
+  "source_hash": "ee4878b737b0418ba59e1f57ec9c8d7f3ded9dec231483259c63befc470ec73b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the right boundary top-down instead of bottom-up.",
+      "failed_cases": [
+        "lc-545-10"
+      ]
+    },
+    {
+      "reason": "Includes left-boundary leaves and duplicates them in the leaf traversal.",
+      "failed_cases": [
+        "lc-545-4",
+        "lc-545-5",
+        "lc-545-7",
+        "lc-545-8",
+        "lc-545-9",
+        "lc-545-11",
+        "lc-545-12",
+        "lc-545-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4592,
+  "oracle_implementation": "code_practice/import_batch_202b.py:boundary_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "8036b1b7d29729fa106b7edf7f5e9462a14f3bd5092cb4ba24de4e149af85ff7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "66c8520eccd054ac2dbea199cce5516ea1cd74fbee075d19211ae20cf37ad6fc",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

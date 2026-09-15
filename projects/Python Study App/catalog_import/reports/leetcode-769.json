@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-769",
+  "content_sha256": "9b4d1fdb5dc8677521667452fcfa9b086a6fda9aadce9855aa9f17666a76acec",
+  "source_hash": "2534cddd0ebffc9cc70737a8b5fb58362ff04835a97d1634c6575cf94845b8ef",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tests an off-by-one prefix maximum and misses valid chunk boundaries.",
+      "failed_cases": [
+        "lc-769-2",
+        "lc-769-3",
+        "lc-769-5",
+        "lc-769-7",
+        "lc-769-8",
+        "lc-769-9",
+        "lc-769-11",
+        "lc-769-13",
+        "lc-769-14"
+      ]
+    },
+    {
+      "reason": "Forgets earlier large values when testing prefix closure.",
+      "failed_cases": [
+        "lc-769-2",
+        "lc-769-4",
+        "lc-769-6",
+        "lc-769-7",
+        "lc-769-8",
+        "lc-769-10",
+        "lc-769-12",
+        "lc-769-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4816,
+  "oracle_implementation": "code_practice/import_batch_202c.py:chunks_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "7b1ba9e72a4c4f618e8bfc2e0ca6040d4e9228e3218b4f2fd136913c936f1368",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "585827605bc17a21f40d5e9cb22119cd44bad013a57850f0236d352b3d57af2e",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

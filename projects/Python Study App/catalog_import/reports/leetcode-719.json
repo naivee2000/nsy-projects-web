@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-719",
+  "content_sha256": "e4a66d073e92259b8d552e8696c0d9d9e7e2252bcfc6a4e4f1ab5841c3e42466",
+  "source_hash": "6a8e6ef8d47cb162f9da422fc21b6229defb208a47153a9e0875ecedafed8653",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a strict count threshold and skips exact kth boundaries.",
+      "failed_cases": [
+        "lc-719-1",
+        "lc-719-6",
+        "lc-719-10",
+        "lc-719-11",
+        "lc-719-13"
+      ]
+    },
+    {
+      "reason": "Counts each element paired with itself.",
+      "failed_cases": [
+        "lc-719-2",
+        "lc-719-4",
+        "lc-719-5",
+        "lc-719-6",
+        "lc-719-8",
+        "lc-719-9",
+        "lc-719-10",
+        "lc-719-11",
+        "lc-719-12",
+        "lc-719-13",
+        "lc-719-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4766,
+  "oracle_implementation": "code_practice/import_batch_202c.py:distance_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "7b1ba9e72a4c4f618e8bfc2e0ca6040d4e9228e3218b4f2fd136913c936f1368",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "415235457502f7a5b738bc94f60bbe1781d4b550b77478665ab6022784332414",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-778",
+  "content_sha256": "596dfed9ca7c895fd9cdc9d49ca6e8bff26e3deed3e0d86ebcd1e914043065e6",
+  "source_hash": "6163e449ecabdf334e6ee1182c8fb1b2a81b01aec100231d3a2590350ea13c04",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets the maximum elevation already crossed.",
+      "failed_cases": [
+        "lc-778-3",
+        "lc-778-5",
+        "lc-778-8",
+        "lc-778-9",
+        "lc-778-11",
+        "lc-778-12",
+        "lc-778-14"
+      ]
+    },
+    {
+      "reason": "Assumes the starting elevation is available at time zero.",
+      "failed_cases": [
+        "lc-778-3",
+        "lc-778-5",
+        "lc-778-8",
+        "lc-778-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4825,
+  "oracle_implementation": "code_practice/import_batch_202d.py:swim_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "0fc3f7a0374b56f498e56d657f8e254aa88ee3b5fd588b7084930e96a778654a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "23507fbc49140ffd05a4379319056addc576485d8311b5919a55005907c08ddd",
+  "elapsed_seconds": 0.064,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

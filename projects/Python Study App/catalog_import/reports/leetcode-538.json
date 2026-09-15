@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-538",
+  "content_sha256": "937eaed8557c0445c0c4eaac50fcefdba80ff72bd0e3814f0a22008d2d118427",
+  "source_hash": "4e68513b67c5d1fc4255741c21ccfd891c8b18df1bc86e6639715b9b0ccf8888",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Traverses smaller values first.",
+      "failed_cases": [
+        "lc-538-1",
+        "lc-538-2",
+        "lc-538-5",
+        "lc-538-6",
+        "lc-538-7",
+        "lc-538-8",
+        "lc-538-9",
+        "lc-538-10",
+        "lc-538-11",
+        "lc-538-12",
+        "lc-538-13",
+        "lc-538-14"
+      ]
+    },
+    {
+      "reason": "Resets rather than accumulates the greater-value sum.",
+      "failed_cases": [
+        "lc-538-1",
+        "lc-538-2",
+        "lc-538-5",
+        "lc-538-6",
+        "lc-538-7",
+        "lc-538-8",
+        "lc-538-9",
+        "lc-538-10",
+        "lc-538-11",
+        "lc-538-12",
+        "lc-538-13",
+        "lc-538-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4585,
+  "oracle_implementation": "code_practice/import_batch_202b.py:greater_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "8036b1b7d29729fa106b7edf7f5e9462a14f3bd5092cb4ba24de4e149af85ff7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2db5e0e80dc68a6577df136b36c3a5ffa5d6b5efb863ea044ffd5abae548f248",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

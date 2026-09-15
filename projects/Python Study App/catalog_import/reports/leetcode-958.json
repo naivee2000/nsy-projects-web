@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-958",
+  "content_sha256": "6fe5fdbaadf27a682f9c715383e54d5b9f416f54025717579d9f2eaec2b8497d",
+  "source_hash": "b229d228e31397c8b0a26fc39560dc130469c6dc750836e5de20cf8f9bfeea4e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores nonnull nodes that appear after a missing position.",
+      "failed_cases": [
+        "lc-958-2",
+        "lc-958-5",
+        "lc-958-8",
+        "lc-958-9",
+        "lc-958-11",
+        "lc-958-12",
+        "lc-958-14"
+      ]
+    },
+    {
+      "reason": "Enqueues right children first and applies the completeness order backward.",
+      "failed_cases": [
+        "lc-958-1",
+        "lc-958-4",
+        "lc-958-5",
+        "lc-958-7",
+        "lc-958-13",
+        "lc-958-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5005,
+  "oracle_implementation": "code_practice/import_batch_202d.py:complete_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "0fc3f7a0374b56f498e56d657f8e254aa88ee3b5fd588b7084930e96a778654a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1472c8bd7cb9bfbf139f297c11268d296bf115beaaa825b35e443fcf0ec005ea",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

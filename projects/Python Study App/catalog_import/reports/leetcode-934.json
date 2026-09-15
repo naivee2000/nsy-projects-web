@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-934",
+  "content_sha256": "46886f0497423fdc9d7dfddb4a1dbb8b8518dacc17fd5baf01cbf10ac78fafe6",
+  "source_hash": "6cf75e91453ff6def16085cf6af951a30aa86cba7ad9bb67b9e17b2639e66b84",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the reached island cell as an additional water conversion.",
+      "failed_cases": [
+        "lc-934-1",
+        "lc-934-2",
+        "lc-934-3",
+        "lc-934-4",
+        "lc-934-5",
+        "lc-934-6",
+        "lc-934-7",
+        "lc-934-8",
+        "lc-934-9",
+        "lc-934-10",
+        "lc-934-11",
+        "lc-934-12",
+        "lc-934-13",
+        "lc-934-14"
+      ]
+    },
+    {
+      "reason": "Does not increase distance while crossing water.",
+      "failed_cases": [
+        "lc-934-1",
+        "lc-934-2",
+        "lc-934-3",
+        "lc-934-4",
+        "lc-934-5",
+        "lc-934-6",
+        "lc-934-7",
+        "lc-934-8",
+        "lc-934-9",
+        "lc-934-10",
+        "lc-934-11",
+        "lc-934-12",
+        "lc-934-13",
+        "lc-934-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4981,
+  "oracle_implementation": "code_practice/import_batch_202d.py:bridge_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "0fc3f7a0374b56f498e56d657f8e254aa88ee3b5fd588b7084930e96a778654a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4e24c9777463bb21f472cdd01a3d95b12a0487e93d6fbb9522847f784ff26af5",
+  "elapsed_seconds": 0.09,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

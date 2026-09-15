@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-807",
+  "content_sha256": "be9c2e07ab4498faf2418d30b4f34871be5ca0ff81a8220ecb45f7a2699eb0a7",
+  "source_hash": "a516e7396e42e2b5b22b8846951a6c49b174bf8904a079578bac55fa8a7dba5e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Raises cells to the larger skyline and changes a view.",
+      "failed_cases": [
+        "lc-807-1",
+        "lc-807-4",
+        "lc-807-7",
+        "lc-807-8",
+        "lc-807-9",
+        "lc-807-10",
+        "lc-807-12",
+        "lc-807-13"
+      ]
+    },
+    {
+      "reason": "Adds original heights instead of subtracting them from their caps.",
+      "failed_cases": [
+        "lc-807-1",
+        "lc-807-2",
+        "lc-807-4",
+        "lc-807-5",
+        "lc-807-6",
+        "lc-807-7",
+        "lc-807-8",
+        "lc-807-9",
+        "lc-807-10",
+        "lc-807-11",
+        "lc-807-12",
+        "lc-807-13",
+        "lc-807-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4854,
+  "oracle_implementation": "code_practice/import_batch_202d.py:skyline_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "0fc3f7a0374b56f498e56d657f8e254aa88ee3b5fd588b7084930e96a778654a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ddc2297909fc80cfab1130eb6b38c64c8c7f6e6c5b92c9adba35d4d1b3ac159d",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

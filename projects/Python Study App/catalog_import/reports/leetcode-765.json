@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-765",
+  "content_sha256": "a062eaa481749be94350577510bdb6d7da92350826bb2633ed00c7120cb6fecc",
+  "source_hash": "3d1c961ae14ec0214ea3581210df3b1a1169d478140f0761e5842a1d900551e7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts an extra component from the swap count.",
+      "failed_cases": [
+        "lc-765-1",
+        "lc-765-2",
+        "lc-765-3",
+        "lc-765-4",
+        "lc-765-5",
+        "lc-765-6",
+        "lc-765-7",
+        "lc-765-8",
+        "lc-765-9",
+        "lc-765-10",
+        "lc-765-11",
+        "lc-765-12",
+        "lc-765-13",
+        "lc-765-14"
+      ]
+    },
+    {
+      "reason": "Maps the second person by parity instead of couple number.",
+      "failed_cases": [
+        "lc-765-2",
+        "lc-765-7",
+        "lc-765-8",
+        "lc-765-11",
+        "lc-765-12",
+        "lc-765-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4812,
+  "oracle_implementation": "code_practice/import_batch_202c.py:couples_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "7b1ba9e72a4c4f618e8bfc2e0ca6040d4e9228e3218b4f2fd136913c936f1368",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1f7c30ac130f783aed0297094dcc06ebed241518d104c05579648b3dd8092831",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

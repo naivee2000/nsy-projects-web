@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-966",
+  "content_sha256": "e24a8a757e816fa496c5fccbfa71cc25dbb2540676ea2e9c4a1206e378600205",
+  "source_hash": "00318a474846798a32ece021d1481c20497bf33fece4758332a3a0ff03511dfd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites the first capitalization match with the last matching word.",
+      "failed_cases": [
+        "lc-966-1",
+        "lc-966-9",
+        "lc-966-13",
+        "lc-966-14"
+      ]
+    },
+    {
+      "reason": "Skips capitalization matches and can choose the wrong vowel-normalized candidate.",
+      "failed_cases": [
+        "lc-966-6",
+        "lc-966-10",
+        "lc-966-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5013,
+  "oracle_implementation": "code_practice/import_batch_202e.py:spell_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "e6a334baaea40a8e5805e4ae0f867092e6a2c0db95a0e6fc53c5be8e97fdab4d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "53acea3779ac48cc95f989ad9ccfcab391785d7661d371e8eb31b55d823a8ec8",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

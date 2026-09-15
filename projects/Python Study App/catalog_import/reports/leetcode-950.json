@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-950",
+  "content_sha256": "120392e96cf0dbf58fa43ae4c9432dc69fb93f9f04265cf870954d50c06d8e25",
+  "source_hash": "c2ecae45e9f5d91ceae4a7967ed44949c6517b2e184878aefd75093f57138a66",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rotates the reverse-construction queue in the wrong direction.",
+      "failed_cases": [
+        "lc-950-1",
+        "lc-950-6",
+        "lc-950-7",
+        "lc-950-8",
+        "lc-950-9",
+        "lc-950-10",
+        "lc-950-12",
+        "lc-950-13",
+        "lc-950-14"
+      ]
+    },
+    {
+      "reason": "Places smaller cards last during reverse construction.",
+      "failed_cases": [
+        "lc-950-1",
+        "lc-950-2",
+        "lc-950-4",
+        "lc-950-5",
+        "lc-950-6",
+        "lc-950-7",
+        "lc-950-8",
+        "lc-950-9",
+        "lc-950-10",
+        "lc-950-11",
+        "lc-950-12",
+        "lc-950-13",
+        "lc-950-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4997,
+  "oracle_implementation": "code_practice/import_batch_202d.py:deck_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "0fc3f7a0374b56f498e56d657f8e254aa88ee3b5fd588b7084930e96a778654a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "58c00584ded73c711edd4577f2ecd25cadbdd3bd605541751d03644f1039bea1",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

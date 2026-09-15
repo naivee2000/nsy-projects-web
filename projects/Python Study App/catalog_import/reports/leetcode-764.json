@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-764",
+  "content_sha256": "b8a350b14daa9d994c201d6c6c8ff0b741cdee8ccbf948815dfcd3c032c087a4",
+  "source_hash": "4eb030dd86d9924678e9fa8abdb23185e578402a8fedc191868273c76b5fd3ef",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Scans the right arm in the wrong direction.",
+      "failed_cases": [
+        "lc-764-1",
+        "lc-764-9",
+        "lc-764-12"
+      ]
+    },
+    {
+      "reason": "Ignores the final downward/upward arm constraint.",
+      "failed_cases": [
+        "lc-764-1",
+        "lc-764-9",
+        "lc-764-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4811,
+  "oracle_implementation": "code_practice/import_batch_202c.py:plus_oracle",
+  "validator_implementation_sha256": "b1cac43e5c8568b23e6dc3cd3befd3efd98f4108ccbb11d398c1d5103261aa6e",
+  "batch_implementation_sha256": "7b1ba9e72a4c4f618e8bfc2e0ca6040d4e9228e3218b4f2fd136913c936f1368",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1000f3946ce3cf8c4bce3d450a155ab66f4280f6d7dcb6a590e8a7d7dbe544ba",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
