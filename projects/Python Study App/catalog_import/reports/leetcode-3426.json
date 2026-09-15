@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3426",
+  "content_sha256": "96f900d3a1323be8654f44b1ea7c82470d813f9811db6acad606dda8ff025f78",
+  "source_hash": "21bb698b0333ed77629633a6339b0e82df07614a04b7776b251b6da20f1f1600",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts each cell pair only once instead of once for every placement containing that pair.",
+      "failed_cases": [
+        "lc-3426-2",
+        "lc-3426-8",
+        "lc-3426-11",
+        "lc-3426-12",
+        "lc-3426-13",
+        "lc-3426-14"
+      ]
+    },
+    {
+      "reason": "Includes vertical distance but omits all horizontal distance.",
+      "failed_cases": [
+        "lc-3426-1",
+        "lc-3426-2",
+        "lc-3426-3",
+        "lc-3426-5",
+        "lc-3426-6",
+        "lc-3426-7",
+        "lc-3426-8",
+        "lc-3426-9",
+        "lc-3426-10",
+        "lc-3426-11",
+        "lc-3426-12",
+        "lc-3426-13",
+        "lc-3426-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7473,
+  "oracle_implementation": "code_practice/import_batch_224c.py:grid_distance_oracle",
+  "validator_implementation_sha256": "2dedd4e9a4628c5a34d2d5d242e4b0e39990213984ba939ae4c8a21c71db29ae",
+  "batch_implementation_sha256": "ddb9143ecbcc8bf84535ce1964471e0b6ef146c191ab5d7ad09dc67920fd4b66",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8e09462d3c74624382fec6296482c6dfcd60ca1116680413b6211cf4e098896c",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

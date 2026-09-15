@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3431",
+  "content_sha256": "50e486b8fccf81c46eb8b5cb0e26dbb882a780e9b6dc1ff2a45aa9167f6ad169",
+  "source_hash": "6830b146eeb83239639e93b796251f30a53db2260cb291b05c05c76012402448",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats an inversion of three before one as sortable even though those values can never cross.",
+      "failed_cases": [
+        "lc-3431-5",
+        "lc-3431-12",
+        "lc-3431-13",
+        "lc-3431-14"
+      ]
+    },
+    {
+      "reason": "Fails to unlock the first boundary in each required crossing interval.",
+      "failed_cases": [
+        "lc-3431-6",
+        "lc-3431-8",
+        "lc-3431-9",
+        "lc-3431-10",
+        "lc-3431-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7478,
+  "oracle_implementation": "code_practice/import_batch_224c.py:unlock_oracle",
+  "validator_implementation_sha256": "2dedd4e9a4628c5a34d2d5d242e4b0e39990213984ba939ae4c8a21c71db29ae",
+  "batch_implementation_sha256": "ddb9143ecbcc8bf84535ce1964471e0b6ef146c191ab5d7ad09dc67920fd4b66",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0d4b3ed1e823814ed234b090b224bde381a9ddb5487ecc1fe08b9abe59f668ae",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

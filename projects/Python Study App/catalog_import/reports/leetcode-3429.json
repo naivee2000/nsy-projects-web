@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3429",
+  "content_sha256": "3b54da14222521fe9e2043aa9ab1f0a91dc519592c9c5487708ee1220455e178",
+  "source_hash": "4f847d2d54538e4f8d4c069e7705dce8b0fc7c64374a21dc43fd1be7c7e9d587",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the outer mirrored pair to share a color.",
+      "failed_cases": [
+        "lc-3429-2",
+        "lc-3429-5",
+        "lc-3429-11"
+      ]
+    },
+    {
+      "reason": "Allows every later mirrored pair to share a color.",
+      "failed_cases": [
+        "lc-3429-5",
+        "lc-3429-7",
+        "lc-3429-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7476,
+  "oracle_implementation": "code_practice/import_batch_224c.py:paint_oracle",
+  "validator_implementation_sha256": "2dedd4e9a4628c5a34d2d5d242e4b0e39990213984ba939ae4c8a21c71db29ae",
+  "batch_implementation_sha256": "ddb9143ecbcc8bf84535ce1964471e0b6ef146c191ab5d7ad09dc67920fd4b66",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ff7221f3188240256527ab672944c5c579513a27459f83c3935c7954dc4883b8",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

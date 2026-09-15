@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3428",
+  "content_sha256": "35db1e3beecadcd62a76f5adb96d25332a20be19bd799414087f42cebab3ccf4",
+  "source_hash": "465ef1942c817456b8aa2c63d01d59af65ad13184decd0154ef35c3fd95940ef",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only singleton subsequences and ignores every larger allowed size.",
+      "failed_cases": [
+        "lc-3428-1",
+        "lc-3428-5",
+        "lc-3428-6",
+        "lc-3428-8",
+        "lc-3428-9",
+        "lc-3428-10",
+        "lc-3428-11",
+        "lc-3428-12",
+        "lc-3428-13",
+        "lc-3428-14"
+      ]
+    },
+    {
+      "reason": "Counts each value only as a maximum and omits its minimum contribution.",
+      "failed_cases": [
+        "lc-3428-1",
+        "lc-3428-2",
+        "lc-3428-3",
+        "lc-3428-5",
+        "lc-3428-6",
+        "lc-3428-7",
+        "lc-3428-8",
+        "lc-3428-9",
+        "lc-3428-10",
+        "lc-3428-11",
+        "lc-3428-12",
+        "lc-3428-13",
+        "lc-3428-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7475,
+  "oracle_implementation": "code_practice/import_batch_224c.py:subsequence_oracle",
+  "validator_implementation_sha256": "2dedd4e9a4628c5a34d2d5d242e4b0e39990213984ba939ae4c8a21c71db29ae",
+  "batch_implementation_sha256": "ddb9143ecbcc8bf84535ce1964471e0b6ef146c191ab5d7ad09dc67920fd4b66",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0623a7bf5b91f7f79028d876f0168a67e239b361d23ed1ba1c134dd7c60e07d0",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

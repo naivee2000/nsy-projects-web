@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2716,
+  "count": 2721,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -45940,6 +45940,26 @@
       "source_id": 3425
     },
     {
+      "id": "leetcode-3426",
+      "version": 1,
+      "status": "approved",
+      "title": "Manhattan Distances of All Arrangements of Pieces",
+      "summary": "Given the integers m, n, and k, calculate the sum of Manhattan distances between every pair of k identical pieces for all valid arrangements on an m × n grid.",
+      "topics": [
+        "math",
+        "combinatorics",
+        "grids"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3426.json",
+      "content_sha256": "96f900d3a1323be8654f44b1ea7c82470d813f9811db6acad606dda8ff025f78",
+      "source_id": 3426
+    },
+    {
       "id": "leetcode-3427",
       "version": 1,
       "status": "approved",
@@ -45955,6 +45975,79 @@
       "path": "problems/leetcode-3427.json",
       "content_sha256": "4de4b20d9d2fe0f62069ac440dea66e6c430b3ffb98bc55812ff7e14581d5df9",
       "source_id": 3427
+    },
+    {
+      "id": "leetcode-3428",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum and Minimum Sums of at Most Size K Subsequences",
+      "summary": "Given an integer array and a positive integer k, calculate the sum of the maximum and minimum elements of all subsequences of the array with at most k elements, then return the result modulo 10^9 + 7.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3428.json",
+      "content_sha256": "35db1e3beecadcd62a76f5adb96d25332a20be19bd799414087f42cebab3ccf4",
+      "source_id": 3428
+    },
+    {
+      "id": "leetcode-3429",
+      "version": 1,
+      "status": "approved",
+      "title": "Paint House IV",
+      "summary": "Given an even number of houses in a line and a cost matrix for painting each house with one of three colors, find the minimum cost to paint the houses ensuring no two adjacent houses have the same color and houses equidistant from the ends are also differently colored.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3429.json",
+      "content_sha256": "3b54da14222521fe9e2043aa9ab1f0a91dc519592c9c5487708ee1220455e178",
+      "source_id": 3429
+    },
+    {
+      "id": "leetcode-3430",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum and Minimum Sums of at Most Size K Subarrays",
+      "summary": "Given an integer array and a positive integer k, calculate the sum of the maximum and minimum elements for every subarray containing at most k elements.",
+      "topics": [
+        "arrays",
+        "monotonic stacks",
+        "sliding window"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3430.json",
+      "content_sha256": "651e2a3263f838835477dc1639265d18d8a19cb7fe5bad95865dbafbee340dd4",
+      "source_id": 3430
+    },
+    {
+      "id": "leetcode-3431",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Unlocked Indices to Sort Nums",
+      "summary": "Given an array nums with values 1, 2, or 3 and a binary array locked of the same length, determine the least number of operations to unlock indices for adjacent swaps that sort nums.",
+      "topics": [
+        "arrays",
+        "invariants",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3431.json",
+      "content_sha256": "50e486b8fccf81c46eb8b5cb0e26dbb882a780e9b6dc1ff2a45aa9167f6ad169",
+      "source_id": 3431
     },
     {
       "id": "leetcode-3432",
