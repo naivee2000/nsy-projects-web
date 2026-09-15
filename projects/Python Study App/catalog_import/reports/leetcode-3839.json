@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3839",
+  "content_sha256": "6c2f05c4589f32185f94ebcb90ae965e2f02633e79ba602e725665a1d83a9359",
+  "source_hash": "9fe788df7b44c089ae55e2197c0d75782661c34ba9c12bc84b89db0e37c5bac7",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires three members instead of two.",
+      "failed_cases": [
+        "lc-3839-1",
+        "lc-3839-4",
+        "lc-3839-6",
+        "lc-3839-7",
+        "lc-3839-15"
+      ]
+    },
+    {
+      "reason": "Includes short words using their entire value as a prefix.",
+      "failed_cases": [
+        "lc-3839-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7886,
+  "oracle_implementation": "code_practice/import_batch_200d.py:prefix_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "de52f56ea49c95c5158691b7f04a52bfdc80e33fc9dbd62029dffa9f568d2318",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4ed93b3f98146ea83c51e3fa234b6ce8faa397808a668a12637c7a17bd1b231f",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

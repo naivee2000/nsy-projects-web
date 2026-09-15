@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3513",
+  "content_sha256": "2b342653cf4da7e110b0e2af261aaad4f5db5b243b6bd14d7ff77954414a3148",
+  "source_hash": "3204f2b407a41ddfb6371d65268dffeb7099aebd397bbfa190a53cf150efc271",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns n for the three-element case instead of four results.",
+      "failed_cases": [
+        "lc-3513-2",
+        "lc-3513-5"
+      ]
+    },
+    {
+      "reason": "Uses the next power of two based on n-1 and fails when n itself is a power of two.",
+      "failed_cases": [
+        "lc-3513-6",
+        "lc-3513-7",
+        "lc-3513-8",
+        "lc-3513-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7560,
+  "oracle_implementation": "code_practice/import_batch_200c.py:xor_triplets_oracle",
+  "validator_implementation_sha256": "c8602cc0654e6865464133a991dbd0e1d6dfb90bfe326e5f2391aa9d097d05a6",
+  "batch_implementation_sha256": "88299efa57313ee697da8bbb8512f0b5d5e580f50705783b231bac157e0fd418",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "418f29a7b5440158fb30e08dc079331ed83008cc7609688dd48f42f0497aa85c",
+  "elapsed_seconds": 0.015,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

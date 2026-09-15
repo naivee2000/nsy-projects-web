@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2449",
+  "content_sha256": "da629569af218b5c1dc44be1b2ebf90101bb4063b2674887fc80619dd247b36a",
+  "source_hash": "42a876ee92ab134108afbcfdd760c9328b1b010dec88366fc41b682d53967784",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts both the increases and decreases as separate operations.",
+      "failed_cases": [
+        "lc-2449-1",
+        "lc-2449-2",
+        "lc-2449-5",
+        "lc-2449-6",
+        "lc-2449-7",
+        "lc-2449-9",
+        "lc-2449-10",
+        "lc-2449-12",
+        "lc-2449-13"
+      ]
+    },
+    {
+      "reason": "Matches values without preserving parity classes.",
+      "failed_cases": [
+        "lc-2449-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6496,
+  "oracle_implementation": "code_practice/import_batch_200a.py:similar_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "71a3b8c6f26b17d9c67441cc7d3fc75b07dead9a30cb6ce6c53e4e8d0a9d5c98",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e99d65f6b679de1e9247dd68fd4ff54fcc7ae3ca2d5bd75b64251e91fefc1fde",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

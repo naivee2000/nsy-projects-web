@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4038",
+  "content_sha256": "56057ba980434ee1672639a7898b8f085de9c9b326f866252714a99e2ebcad33",
+  "source_hash": "1362e93f83fee9420e7264878b3d19d61b31b229d47389ba0ab7af3c089147d4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts every distinct value even when it appears in several runs.",
+      "failed_cases": [
+        "lc-4038-1",
+        "lc-4038-2",
+        "lc-4038-7",
+        "lc-4038-9",
+        "lc-4038-10",
+        "lc-4038-11",
+        "lc-4038-13"
+      ]
+    },
+    {
+      "reason": "Records only the first array value and misses every later run.",
+      "failed_cases": [
+        "lc-4038-2",
+        "lc-4038-5",
+        "lc-4038-6",
+        "lc-4038-8",
+        "lc-4038-11",
+        "lc-4038-12",
+        "lc-4038-13",
+        "lc-4038-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8085,
+  "oracle_implementation": "code_practice/import_batch_200e.py:blocks_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "61226bd4141c77a21655db72be2ae615c02436085063cf3d2c671fb63871e6a5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "35411082e266ba82550b993b057a9aa04940239f2b57cd6b09e7a71b3be44d45",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

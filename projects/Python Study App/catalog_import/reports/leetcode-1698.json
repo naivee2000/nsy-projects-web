@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1698",
+  "content_sha256": "31aad52b4097c0271e958092f6bfa0c75b528bdbf89da0bfee1b75437ff315ec",
+  "source_hash": "25d98639b76db52d31c7a27e5ddf2aa35ef856da613b6acf316e8496af276781",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits every substring ending at the final character.",
+      "failed_cases": [
+        "lc-1698-1",
+        "lc-1698-2",
+        "lc-1698-3",
+        "lc-1698-4",
+        "lc-1698-5",
+        "lc-1698-6",
+        "lc-1698-7",
+        "lc-1698-8",
+        "lc-1698-9",
+        "lc-1698-10",
+        "lc-1698-11",
+        "lc-1698-12",
+        "lc-1698-13",
+        "lc-1698-14"
+      ]
+    },
+    {
+      "reason": "Drops the first character from every candidate slice.",
+      "failed_cases": [
+        "lc-1698-1",
+        "lc-1698-5",
+        "lc-1698-6",
+        "lc-1698-7",
+        "lc-1698-8",
+        "lc-1698-9",
+        "lc-1698-10",
+        "lc-1698-11",
+        "lc-1698-13",
+        "lc-1698-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5745,
+  "oracle_implementation": "code_practice/import_batch_200a.py:distinct_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "71a3b8c6f26b17d9c67441cc7d3fc75b07dead9a30cb6ce6c53e4e8d0a9d5c98",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "008a214a7f6d080de23004486684191912f9d223780cf590fcba2d3f2b3d0500",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

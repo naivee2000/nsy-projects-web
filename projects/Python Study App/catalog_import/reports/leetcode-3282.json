@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3282",
+  "content_sha256": "9739aac3498c7028fbe94d86f4ad20502f793039f1111da9188579f2eb8cca46",
+  "source_hash": "bb37dd06e39e46285087e4d590dab7884117ea3282653a47b12d921040e59ac0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only the current value instead of the best value seen before each unit step.",
+      "failed_cases": [
+        "lc-3282-1",
+        "lc-3282-2",
+        "lc-3282-6",
+        "lc-3282-8",
+        "lc-3282-9",
+        "lc-3282-11",
+        "lc-3282-12",
+        "lc-3282-13"
+      ]
+    },
+    {
+      "reason": "Adds a score contribution after already reaching the last index.",
+      "failed_cases": [
+        "lc-3282-1",
+        "lc-3282-2",
+        "lc-3282-3",
+        "lc-3282-4",
+        "lc-3282-5",
+        "lc-3282-6",
+        "lc-3282-7",
+        "lc-3282-8",
+        "lc-3282-9",
+        "lc-3282-10",
+        "lc-3282-11",
+        "lc-3282-12",
+        "lc-3282-13",
+        "lc-3282-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7329,
+  "oracle_implementation": "code_practice/import_batch_200c.py:jump_oracle",
+  "validator_implementation_sha256": "c8602cc0654e6865464133a991dbd0e1d6dfb90bfe326e5f2391aa9d097d05a6",
+  "batch_implementation_sha256": "88299efa57313ee697da8bbb8512f0b5d5e580f50705783b231bac157e0fd418",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2ba0800894a41ae524a606f3b292d70c5e8c7b68908f21e482adcb88c950cd67",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

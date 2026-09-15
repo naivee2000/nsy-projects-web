@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2919",
+  "content_sha256": "df68def22dece1d04071516a3d10ee9007c356a0620758b73797b54579ac830a",
+  "source_hash": "a971506c56c2105f9294f4a5b226bd4193294261348236b5c741924bd6306647",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forces the state from exactly three positions ago instead of choosing the cheapest recent state.",
+      "failed_cases": [
+        "lc-2919-10"
+      ]
+    },
+    {
+      "reason": "Allows already-large values to contribute negative cost.",
+      "failed_cases": [
+        "lc-2919-11",
+        "lc-2919-12",
+        "lc-2919-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6966,
+  "oracle_implementation": "code_practice/import_batch_200b.py:beautiful_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "b1bd6027d95e31ab87166e3be85a905de714fae8c8e5f638cd2bace0749a7666",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ee191902709bfd5594d79d6c78854b665100ede27ce2e445dfe24038a98d01c",
+  "elapsed_seconds": 0.121,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

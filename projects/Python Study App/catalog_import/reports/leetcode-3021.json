@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3021",
+  "content_sha256": "0de0e3f79529bee56f3742c6515eb62e5466dac65af9e4053fae3684d05a7a26",
+  "source_hash": "454443423f48c185ed42757c1a3866e4422483477e74e8df004c1e27b30e3265",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts odd-odd pairs instead of odd-even pairs.",
+      "failed_cases": [
+        "lc-3021-2",
+        "lc-3021-4",
+        "lc-3021-6",
+        "lc-3021-7",
+        "lc-3021-11",
+        "lc-3021-13",
+        "lc-3021-14"
+      ]
+    },
+    {
+      "reason": "Subtracts one parity combination from the other.",
+      "failed_cases": [
+        "lc-3021-1",
+        "lc-3021-3",
+        "lc-3021-5",
+        "lc-3021-6",
+        "lc-3021-7",
+        "lc-3021-8",
+        "lc-3021-9",
+        "lc-3021-10",
+        "lc-3021-11",
+        "lc-3021-12",
+        "lc-3021-13",
+        "lc-3021-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7068,
+  "oracle_implementation": "code_practice/import_batch_200b.py:flower_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "b1bd6027d95e31ab87166e3be85a905de714fae8c8e5f638cd2bace0749a7666",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5203f0d23ae10a4db975968e0cba9d2cf23cccb2de76028a93abbf1f5cbc04a5",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

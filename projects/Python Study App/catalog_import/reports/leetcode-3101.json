@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3101",
+  "content_sha256": "58096fea28069f0193f7ee03719bae6b25ba9932cd5ef90c161c85755a2f1b65",
+  "source_hash": "3d6610c3d055d9b513a2e9631737d26b1354ef4c1ebe7eaa5e1403d2572927c3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Resets the number of alternating subarrays ending at a repeated value to zero instead of its singleton.",
+      "failed_cases": [
+        "lc-3101-1",
+        "lc-3101-5",
+        "lc-3101-7",
+        "lc-3101-9",
+        "lc-3101-10",
+        "lc-3101-12",
+        "lc-3101-13",
+        "lc-3101-14"
+      ]
+    },
+    {
+      "reason": "Skips the adjacency decision at index one.",
+      "failed_cases": [
+        "lc-3101-1",
+        "lc-3101-2",
+        "lc-3101-5",
+        "lc-3101-6",
+        "lc-3101-7",
+        "lc-3101-8",
+        "lc-3101-9",
+        "lc-3101-10",
+        "lc-3101-11",
+        "lc-3101-12",
+        "lc-3101-13",
+        "lc-3101-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7148,
+  "oracle_implementation": "code_practice/import_batch_200d.py:alternating_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "de52f56ea49c95c5158691b7f04a52bfdc80e33fc9dbd62029dffa9f568d2318",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2c4608f9e2eff0943926b9043bdc38517674bd8a93cabc26538c9a3b6a415d35",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

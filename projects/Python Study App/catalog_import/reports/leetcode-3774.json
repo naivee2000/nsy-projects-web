@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3774",
+  "content_sha256": "6d0d6ff11b7227d385914512945b9ae57e481bca8268cc1fc784c7b3e396f483",
+  "source_hash": "83c19d44500a13b031cf1c566dc520c9d7648b5207b582d94bc0f5d6685e5334",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the smallest group for both sides and always returns zero.",
+      "failed_cases": [
+        "lc-3774-1",
+        "lc-3774-4",
+        "lc-3774-5",
+        "lc-3774-6",
+        "lc-3774-8",
+        "lc-3774-9",
+        "lc-3774-10",
+        "lc-3774-11",
+        "lc-3774-12",
+        "lc-3774-13",
+        "lc-3774-14"
+      ]
+    },
+    {
+      "reason": "Adds the two extreme sums instead of taking their difference.",
+      "failed_cases": [
+        "lc-3774-1",
+        "lc-3774-2",
+        "lc-3774-3",
+        "lc-3774-4",
+        "lc-3774-5",
+        "lc-3774-6",
+        "lc-3774-7",
+        "lc-3774-9",
+        "lc-3774-10",
+        "lc-3774-11",
+        "lc-3774-12",
+        "lc-3774-13",
+        "lc-3774-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7821,
+  "oracle_implementation": "code_practice/import_batch_200d.py:difference_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "de52f56ea49c95c5158691b7f04a52bfdc80e33fc9dbd62029dffa9f568d2318",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "da7aca25df0c4cdc8ce334cee5e0b68b7f6d9d03663ca63a43f304b45b207593",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

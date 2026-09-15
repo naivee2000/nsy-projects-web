@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1365",
+  "content_sha256": "7db1004e68e48281e874a75a973835224caa16c0314509353cf3963d495d151e",
+  "source_hash": "ea2dd2d4054e541183dcbeddc776b1dd65d5b713dc48f51bdcb5e723fd7e51b4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal values as smaller.",
+      "failed_cases": [
+        "lc-1365-1",
+        "lc-1365-2",
+        "lc-1365-3",
+        "lc-1365-4",
+        "lc-1365-5",
+        "lc-1365-6",
+        "lc-1365-7",
+        "lc-1365-8",
+        "lc-1365-9",
+        "lc-1365-10",
+        "lc-1365-11",
+        "lc-1365-12",
+        "lc-1365-13",
+        "lc-1365-14"
+      ]
+    },
+    {
+      "reason": "Binary-searches an unsorted sequence.",
+      "failed_cases": [
+        "lc-1365-1",
+        "lc-1365-2",
+        "lc-1365-4",
+        "lc-1365-7",
+        "lc-1365-8",
+        "lc-1365-9",
+        "lc-1365-10",
+        "lc-1365-13",
+        "lc-1365-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5412,
+  "oracle_implementation": "code_practice/import_batch_200a.py:smaller_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "71a3b8c6f26b17d9c67441cc7d3fc75b07dead9a30cb6ce6c53e4e8d0a9d5c98",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "693258ce2d8e671e8517a4631a821f227d82f82eeb38349450bb25cb43da17b2",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

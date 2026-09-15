@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3631",
+  "content_sha256": "7ba10737cd1e7a3d3149d266d1b828d86eb700db3d75e33480224d9750719b85",
+  "source_hash": "dac226fc9ba4a966b165f01ece643a7d85461003adb6b594467c94cd46302f66",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts lower scores first.",
+      "failed_cases": [
+        "lc-3631-1",
+        "lc-3631-4",
+        "lc-3631-8",
+        "lc-3631-9",
+        "lc-3631-11",
+        "lc-3631-14"
+      ]
+    },
+    {
+      "reason": "Breaks equal-score ties by descending ID.",
+      "failed_cases": [
+        "lc-3631-2",
+        "lc-3631-5",
+        "lc-3631-6",
+        "lc-3631-7",
+        "lc-3631-10",
+        "lc-3631-11",
+        "lc-3631-12",
+        "lc-3631-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7678,
+  "oracle_implementation": "code_practice/import_batch_200c.py:threats_oracle",
+  "validator_implementation_sha256": "c8602cc0654e6865464133a991dbd0e1d6dfb90bfe326e5f2391aa9d097d05a6",
+  "batch_implementation_sha256": "88299efa57313ee697da8bbb8512f0b5d5e580f50705783b231bac157e0fd418",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8070c62492ac444c8031ce3d8810c951447f4a3def222fafa25180cf06f159b0",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

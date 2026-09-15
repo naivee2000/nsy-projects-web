@@ -65,6 +65,11 @@ DECISIONS = {
         "source_hash": "96e38bc1896eb94f07fc21941e35874391887f54bc744c3b81d10566bf794b9e",
         "reason": "Bulb i is toggled once per positive divisor, so it remains on exactly when i is a perfect square (only squares have an unpaired divisor). Thus the number lit among 1..n is floor(sqrt(n)), exactly the existing integer-square-root result. The target's 0..2^31-1 input domain covers all source n in 0..10^9, and its binary-search implementation satisfies the source's performance needs. Keep the existing progress ID.",
     },
+    3857: {
+        "target_source_id": 3958,
+        "source_hash": "2511ca20508157851c0d9fa7e472d72467b9881490a5fd015fd05ad3be337fb4",
+        "reason": "The two workbook records define exactly the same split operation, cost a*b, and minimum total cost. Source 3958 covers n through 50,000,000, including source 3857's complete 1..500 domain. Independent partition dynamic programming verifies 500 seeded small inputs; the identity C(a+b,2)-C(a,2)-C(b,2)=a*b certifies every split tree and full-domain boundaries. Keep the already verified 3958 problem and avoid a duplicate exercise.",
+    },
 }
 
 
@@ -465,6 +470,41 @@ def check_bulb_square_root(payload, source):
             'domain': 'n=0..10^9; odd divisor counts occur exactly at perfect-square bulb positions'}
 
 
+def check_split_into_ones(payload, source):
+    """Prove the duplicate split-cost contract without using its closed form as oracle."""
+    from .build_import_batch import workbook_sample
+    namespace = {}
+    exec(compile(payload['reference_solution'], '<reviewed-split-cost>', 'exec'), namespace)
+    function = namespace[payload['signature']['name']]
+    sample = workbook_sample(source['sample'], [{'name': 'n'}])
+    if sample is None or function(*sample[0]) != sample[1]:
+        raise ValueError('Split-cost workbook sample disagrees')
+    # Independent optimal-partition DP. Each state tries every first split.
+    costs = [0] * 61
+    for total in range(2, 61):
+        costs[total] = min(left * (total-left) + costs[left] + costs[total-left]
+                           for left in range(1, total))
+    rng = random.Random(7905)
+    for _ in range(500):
+        n = rng.randint(1, 60)
+        if function(n) != costs[n]:
+            raise ValueError('Split-cost reference disagrees with partition DP')
+    # The potential drop proves path independence for every larger source input.
+    boundaries = [1, 2, 3, 4, 5, 10, 100, 499, 500]
+    for n in boundaries:
+        expected = n * (n-1) // 2
+        if function(n) != expected:
+            raise ValueError('Split-cost source boundary disagrees')
+        for left in {1, max(1, n//2), max(1, n-1)}:
+            right = n-left
+            if right and expected - left*(left-1)//2 - right*(right-1)//2 != left*right:
+                raise ValueError('Split-cost binomial potential certificate failed')
+    return {'oracle_inputs': 500, 'oracle_seed': 7905, 'workbook_sample_checked': True,
+            'deterministic_inputs': len(boundaries)+1, 'largest_input': 500,
+            'domain': 'Source n=1..500 is contained in target n=1..50,000,000',
+            'scale_oracle': 'Every split cost equals the decrease in the pair-count potential C(x,2)'}
+
+
 def restore_import_overlaps(records, previous, root=ROOT):
     """Preserve proved mappings on unchanged re-extraction, never stale ones."""
     by_id = {record["source_id"]: record for record in records}
@@ -500,7 +540,7 @@ def reconcile(root=ROOT):
             payload = load_verified_import(target, root)
             checker = {531: check_single_pixels, 783: check_bst_gap, 521: check_two_uncommon, 1009: check_complement, 2410: check_player_matching,
                        2220: check_bit_flips, 46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
-                       319: check_bulb_square_root}[source_id]
+                       319: check_bulb_square_root, 3857: check_split_into_ones}[source_id]
             evidence = checker(payload, sources[source_id])
             report = {"valid": True, "source_id": source_id, "source_hash": record["source_hash"],
                       "target_problem_id": target["problem_id"], "target_source_hash": target["source_hash"],

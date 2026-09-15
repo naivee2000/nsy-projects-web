@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4030",
+  "content_sha256": "7451b0eab6a3b1c5ee61fafb7271296963b98b7df232768c96a210937637cfbd",
+  "source_hash": "33fa3eb8ed0a8d4d0f1e45f677b0e02135268422122351b17187617502acc78e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops the required leading zero from each eight-bit encoding.",
+      "failed_cases": [
+        "lc-4030-1",
+        "lc-4030-4",
+        "lc-4030-14"
+      ]
+    },
+    {
+      "reason": "Checks whether the original letters form a palindrome instead of the constructed bits.",
+      "failed_cases": [
+        "lc-4030-1",
+        "lc-4030-4",
+        "lc-4030-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8077,
+  "oracle_implementation": "code_practice/import_batch_200e.py:ascii_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "61226bd4141c77a21655db72be2ae615c02436085063cf3d2c671fb63871e6a5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d2d866cc4099de87a477cc461e696c684d1ed0ad3908a34e7af86159f13428f8",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

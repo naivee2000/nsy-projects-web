@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3295",
+  "content_sha256": "dab2155dfe60d486c0acdc65b3042880af3de4a6fe77e98e85cb6c01f2b2f8d0",
+  "source_hash": "ed828d9aba3a56cee7546c18297d554267eccf1c4b703d08b8d1dfe9feff3e3d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Marks a message spam after only one match.",
+      "failed_cases": [
+        "lc-3295-2",
+        "lc-3295-3",
+        "lc-3295-9",
+        "lc-3295-11",
+        "lc-3295-12"
+      ]
+    },
+    {
+      "reason": "Counts distinct matching words instead of matching positions.",
+      "failed_cases": [
+        "lc-3295-4",
+        "lc-3295-8",
+        "lc-3295-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7342,
+  "oracle_implementation": "code_practice/import_batch_200c.py:spam_oracle",
+  "validator_implementation_sha256": "c8602cc0654e6865464133a991dbd0e1d6dfb90bfe326e5f2391aa9d097d05a6",
+  "batch_implementation_sha256": "88299efa57313ee697da8bbb8512f0b5d5e580f50705783b231bac157e0fd418",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8c3f9f1c4e6389226d35d4e787ed978df577e4cc588202c145e6f90910abd607",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

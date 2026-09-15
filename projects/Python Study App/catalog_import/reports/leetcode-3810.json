@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3810",
+  "content_sha256": "dda2a73066acd1ae06a180fc2770d5821b08362b9aaf9ac01ec1cbf1b28e13ae",
+  "source_hash": "502dd952137c8225cbec112fd9df53ef89e85a7f298fd37efa91ffa8dda3be3f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts values at already-correct positions too.",
+      "failed_cases": [
+        "lc-3810-1",
+        "lc-3810-2",
+        "lc-3810-3",
+        "lc-3810-5",
+        "lc-3810-7",
+        "lc-3810-9",
+        "lc-3810-12",
+        "lc-3810-13",
+        "lc-3810-14"
+      ]
+    },
+    {
+      "reason": "Counts distinct target values instead of the original values selected by operations.",
+      "failed_cases": [
+        "lc-3810-6",
+        "lc-3810-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7857,
+  "oracle_implementation": "code_practice/import_batch_200d.py:operations_oracle",
+  "validator_implementation_sha256": "2ba858744a9cb4228f36006526692dfb252d63fbcd06b3e0093a35036fd17644",
+  "batch_implementation_sha256": "de52f56ea49c95c5158691b7f04a52bfdc80e33fc9dbd62029dffa9f568d2318",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1d9fe6eade9bf2f1dcd829539fc9157a8c8739121c1ac1964933f097c8551223",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
