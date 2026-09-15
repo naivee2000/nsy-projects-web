@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3070",
+  "content_sha256": "a23bedd8bf0f86d97b39885a2207620c992ad3df7dc5998a535fb6066c8e1a0e",
+  "source_hash": "5ec95312a1c8bd92a8e2a817f5d8690142626471e123b3e05c8fbf99e6c9cd5a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects submatrices whose sum equals k even though equality is allowed.",
+      "failed_cases": [
+        "lc-3070-3",
+        "lc-3070-5",
+        "lc-3070-6",
+        "lc-3070-8",
+        "lc-3070-9",
+        "lc-3070-11",
+        "lc-3070-12",
+        "lc-3070-13",
+        "lc-3070-14"
+      ]
+    },
+    {
+      "reason": "Adds the overlapping prefix twice instead of subtracting it in inclusion-exclusion.",
+      "failed_cases": [
+        "lc-3070-9",
+        "lc-3070-12",
+        "lc-3070-13",
+        "lc-3070-14",
+        "lc-3070-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7117,
+  "oracle_implementation": "code_practice/import_batch_213c.py:top_left_oracle",
+  "validator_implementation_sha256": "a58e11fc1b7ba7909598a2a86758ed8636170713a4aa1bdbe8a4b2deb33a1b3a",
+  "batch_implementation_sha256": "b2c15bb65b65d2371cc6f28edc7df766adc74dba171f61dbcad129520e5de7a9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a9dbde7365dadd9cce6929517a96a07d1651b7654d66c8b213210ba0ece04a84",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

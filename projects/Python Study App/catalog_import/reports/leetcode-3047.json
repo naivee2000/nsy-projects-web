@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3047",
+  "content_sha256": "082ceb8dc167b07dc2ddbf8d42c7b3877c2fccf567cfded61ee515817156399c",
+  "source_hash": "436e3e44231e6f11279a9ccdf44a719cd883de45c01076f153b80c6c4211a3d9",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the longer overlap dimension even when the square cannot fit in the shorter one.",
+      "failed_cases": [
+        "lc-3047-1",
+        "lc-3047-5",
+        "lc-3047-6",
+        "lc-3047-8",
+        "lc-3047-10",
+        "lc-3047-14"
+      ]
+    },
+    {
+      "reason": "Returns the full rectangular intersection area rather than its largest inscribed square.",
+      "failed_cases": [
+        "lc-3047-1",
+        "lc-3047-5",
+        "lc-3047-6",
+        "lc-3047-8",
+        "lc-3047-10",
+        "lc-3047-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7094,
+  "oracle_implementation": "code_practice/import_batch_213c.py:square_oracle",
+  "validator_implementation_sha256": "a58e11fc1b7ba7909598a2a86758ed8636170713a4aa1bdbe8a4b2deb33a1b3a",
+  "batch_implementation_sha256": "b2c15bb65b65d2371cc6f28edc7df766adc74dba171f61dbcad129520e5de7a9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6dcdbe4738744e9df5bc740cda138969940846684e8985d2e479ef1d21425312",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3066",
+  "content_sha256": "af90ba976b5a5056ec887dbda588fa75ba147c9ea859ecf8b7c83ac76a52861a",
+  "source_hash": "79305cfd5d1f791cdafe4f8bbc5e3fb366908d1df89a906e28f2400b6668f40a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the two minima without doubling the smaller value.",
+      "failed_cases": [
+        "lc-3066-1",
+        "lc-3066-16"
+      ]
+    },
+    {
+      "reason": "Stops according to the second heap slot, which is neither necessarily the minimum nor the required stopping condition.",
+      "failed_cases": [
+        "lc-3066-6",
+        "lc-3066-7",
+        "lc-3066-10",
+        "lc-3066-12",
+        "lc-3066-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7113,
+  "oracle_implementation": "code_practice/import_batch_213c.py:threshold_oracle",
+  "validator_implementation_sha256": "a58e11fc1b7ba7909598a2a86758ed8636170713a4aa1bdbe8a4b2deb33a1b3a",
+  "batch_implementation_sha256": "b2c15bb65b65d2371cc6f28edc7df766adc74dba171f61dbcad129520e5de7a9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fba63fed0ccb68f76649b48cb097007296851adab3f3244661e5872c968ce83e",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

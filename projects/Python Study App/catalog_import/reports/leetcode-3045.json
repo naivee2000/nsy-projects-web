@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3045",
+  "content_sha256": "93d047482caf69cb4ec082472b818aba173c46e3304e431262054f92a9ff4b8b",
+  "source_hash": "50d816e53254aeedc5ffa482ea8436b2ae71dad0b4a553df80fb60d5f5ea22ec",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks the prefix condition but ignores the required suffix.",
+      "failed_cases": [
+        "lc-3045-8"
+      ]
+    },
+    {
+      "reason": "Counts only equal strings and misses proper borders.",
+      "failed_cases": [
+        "lc-3045-1",
+        "lc-3045-2",
+        "lc-3045-7",
+        "lc-3045-9",
+        "lc-3045-11",
+        "lc-3045-12",
+        "lc-3045-13",
+        "lc-3045-14",
+        "lc-3045-15",
+        "lc-3045-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7092,
+  "oracle_implementation": "code_practice/import_batch_213c.py:border_pairs_oracle",
+  "validator_implementation_sha256": "a58e11fc1b7ba7909598a2a86758ed8636170713a4aa1bdbe8a4b2deb33a1b3a",
+  "batch_implementation_sha256": "b2c15bb65b65d2371cc6f28edc7df766adc74dba171f61dbcad129520e5de7a9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b75102eca371026dda73418ec3b10bd3b481159e6b3db8e986db3467d32e1a57",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
