@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3137",
+  "content_sha256": "3a10ab16a59c8da1527ce5adafba799fb1236c3e23e2284fb9f92f9a684f80c4",
+  "source_hash": "4ec939f6a02544fd68fba96c928444939890c33d1ee444e7054671cee95f2777",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the least frequent block instead of the most frequent one.",
+      "failed_cases": [
+        "lc-3137-1",
+        "lc-3137-12"
+      ]
+    },
+    {
+      "reason": "Starts block slicing at index one and compares misaligned substrings.",
+      "failed_cases": [
+        "lc-3137-1",
+        "lc-3137-2",
+        "lc-3137-5",
+        "lc-3137-6",
+        "lc-3137-8",
+        "lc-3137-10",
+        "lc-3137-11",
+        "lc-3137-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7184,
+  "oracle_implementation": "code_practice/import_batch_215d.py:periodic_oracle",
+  "validator_implementation_sha256": "b2a8822cdc95a105022a5df3321d49ea318e35f1b3921f619420187c1e96fa40",
+  "batch_implementation_sha256": "a2c642b94dac0be6e2fde5ad67eb8e2eaea75bb76c72cbe3d2dc6142a283da7b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f764af327ce2bf165e9c1ccbab65266eaa14b074e0b37963037ec0d5b61f87c5",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

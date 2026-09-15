@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3134",
+  "content_sha256": "7a0387f471a7b68d6bfa5262f4a26f2b6b3e562ba68fbcc3552ff7f984a354f3",
+  "source_hash": "88db68226dd28551e7f9b749154cafc515972449c67ca487fb32f431aaec51cd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the upper median rank when the number of subarrays is even.",
+      "failed_cases": [
+        "lc-3134-1",
+        "lc-3134-6",
+        "lc-3134-7"
+      ]
+    },
+    {
+      "reason": "Omits every one-element window from the at-most count.",
+      "failed_cases": [
+        "lc-3134-1",
+        "lc-3134-2",
+        "lc-3134-5",
+        "lc-3134-6",
+        "lc-3134-7",
+        "lc-3134-9",
+        "lc-3134-10",
+        "lc-3134-11",
+        "lc-3134-12",
+        "lc-3134-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7181,
+  "oracle_implementation": "code_practice/import_batch_215d.py:uniqueness_oracle",
+  "validator_implementation_sha256": "b2a8822cdc95a105022a5df3321d49ea318e35f1b3921f619420187c1e96fa40",
+  "batch_implementation_sha256": "a2c642b94dac0be6e2fde5ad67eb8e2eaea75bb76c72cbe3d2dc6142a283da7b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cfe35ffc58d9013038e7f4b3c56c8ec22fa893f2f3ddb42697707950e1d223f0",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

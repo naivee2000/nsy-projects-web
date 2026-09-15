@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3135",
+  "content_sha256": "913512604eea91338986c4c0a17e35d34325b6f022c327276814afb4f2459e2d",
+  "source_hash": "3cda0285c254a4a9ba9bf85741d6bbb7a4ad4783e75e497ba5a2adaca2586252",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a same-column transition and computes a common subsequence-like value instead of a contiguous match.",
+      "failed_cases": [
+        "lc-3135-1",
+        "lc-3135-8",
+        "lc-3135-9",
+        "lc-3135-10",
+        "lc-3135-11",
+        "lc-3135-12",
+        "lc-3135-13",
+        "lc-3135-14"
+      ]
+    },
+    {
+      "reason": "Credits each retained common character for only one saved operation instead of one removal and one addition.",
+      "failed_cases": [
+        "lc-3135-1",
+        "lc-3135-6",
+        "lc-3135-8",
+        "lc-3135-9",
+        "lc-3135-10",
+        "lc-3135-11",
+        "lc-3135-12",
+        "lc-3135-13",
+        "lc-3135-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7182,
+  "oracle_implementation": "code_practice/import_batch_215d.py:end_edits_oracle",
+  "validator_implementation_sha256": "b2a8822cdc95a105022a5df3321d49ea318e35f1b3921f619420187c1e96fa40",
+  "batch_implementation_sha256": "a2c642b94dac0be6e2fde5ad67eb8e2eaea75bb76c72cbe3d2dc6142a283da7b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a545b930be645ea97771e6c58ee4986904947d6181d53aa6e39c18a1742bc429",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3133",
+  "content_sha256": "9940fdf23199726058d8955b5b0fc396909ff1c547cd82ae7dfc1b1ed1d9a99c",
+  "source_hash": "b496e6e4dac73d56b914e30693e5623a2090f1bf2122625bfaaaa74944f09ff3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Embeds n instead of the zero-based offset n-1, skipping the true n-th superset.",
+      "failed_cases": [
+        "lc-3133-1",
+        "lc-3133-2",
+        "lc-3133-3",
+        "lc-3133-4",
+        "lc-3133-5",
+        "lc-3133-6",
+        "lc-3133-7",
+        "lc-3133-8",
+        "lc-3133-9",
+        "lc-3133-10",
+        "lc-3133-11",
+        "lc-3133-12",
+        "lc-3133-13",
+        "lc-3133-14"
+      ]
+    },
+    {
+      "reason": "Always consumes an offset bit at bit zero, even when x already fixes that position to one.",
+      "failed_cases": [
+        "lc-3133-2",
+        "lc-3133-5",
+        "lc-3133-6",
+        "lc-3133-8",
+        "lc-3133-9",
+        "lc-3133-11",
+        "lc-3133-12",
+        "lc-3133-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7180,
+  "oracle_implementation": "code_practice/import_batch_215d.py:array_end_oracle",
+  "validator_implementation_sha256": "b2a8822cdc95a105022a5df3321d49ea318e35f1b3921f619420187c1e96fa40",
+  "batch_implementation_sha256": "a2c642b94dac0be6e2fde5ad67eb8e2eaea75bb76c72cbe3d2dc6142a283da7b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2a12a9ff75f11ca9502457416b1d524593ed85f2b268f3d63bf0119659671601",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

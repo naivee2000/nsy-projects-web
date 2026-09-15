@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3138",
+  "content_sha256": "96b60100806e87270bc2e94b6e0ccb33a20b084df9d673e274a39bd3ef06f312",
+  "source_hash": "59d1ce376eaa91ad3da4287a32ce51f36b71c8cada8be35298ee4efdbd8dc0fe",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Compares only distinct character sets and ignores multiplicities.",
+      "failed_cases": [
+        "lc-3138-14"
+      ]
+    },
+    {
+      "reason": "Never considers a one-character block, failing uniform strings.",
+      "failed_cases": [
+        "lc-3138-3",
+        "lc-3138-4",
+        "lc-3138-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7185,
+  "oracle_implementation": "code_practice/import_batch_215d.py:anagram_oracle",
+  "validator_implementation_sha256": "b2a8822cdc95a105022a5df3321d49ea318e35f1b3921f619420187c1e96fa40",
+  "batch_implementation_sha256": "a2c642b94dac0be6e2fde5ad67eb8e2eaea75bb76c72cbe3d2dc6142a283da7b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "08318df6965b7866373756e02cd0697e6a7edbcf72619fd1e8a58e775ca4f1d9",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
