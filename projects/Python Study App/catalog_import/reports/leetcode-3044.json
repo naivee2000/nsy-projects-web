@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3044",
+  "content_sha256": "8d34afaa42751175045a43a360e8bd4323da83a17cad24caf1c2595387ff4e33",
+  "source_hash": "3167423845acfcac0dd9bc05a845f72ab75241147711c597eb30d0c831794de9",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Searches only four cardinal directions and misses diagonal numbers.",
+      "failed_cases": [
+        "lc-3044-1",
+        "lc-3044-14"
+      ]
+    },
+    {
+      "reason": "Breaks equal-frequency ties toward the smaller prime.",
+      "failed_cases": [
+        "lc-3044-3",
+        "lc-3044-4",
+        "lc-3044-7",
+        "lc-3044-8",
+        "lc-3044-9",
+        "lc-3044-10",
+        "lc-3044-11",
+        "lc-3044-13",
+        "lc-3044-14",
+        "lc-3044-15",
+        "lc-3044-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7091,
+  "oracle_implementation": "code_practice/import_batch_213b.py:prime_oracle",
+  "validator_implementation_sha256": "ffe11722b8efbad894c6d941606a2cec8d4c395ecbc6a645cf53436ac47b0f42",
+  "batch_implementation_sha256": "277a4ed1fc0c74a099a68343d6b24046ad7b35149c2ed9cadcffb63ac95cc32d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6c454e3fe04375cd85b8db9e198f722ed31e4e678041fe6230ae4c554ff95c79",
+  "elapsed_seconds": 0.084,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

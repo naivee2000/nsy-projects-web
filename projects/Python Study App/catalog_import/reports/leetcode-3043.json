@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3043",
+  "content_sha256": "9d8c95d399614a0a9b037297e27b6b0c83e54781786e10383f8696fbd85a5673",
+  "source_hash": "a8606426a2b9b600943246d40f7e9dd72fafac7a37915f696b25e50d5cea7c80",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Stores only complete first-array numbers rather than all of their prefixes.",
+      "failed_cases": [
+        "lc-3043-6",
+        "lc-3043-7",
+        "lc-3043-10",
+        "lc-3043-11",
+        "lc-3043-12",
+        "lc-3043-13",
+        "lc-3043-14"
+      ]
+    },
+    {
+      "reason": "Maximizes the numeric prefix value and returns it instead of maximizing and returning its digit length.",
+      "failed_cases": [
+        "lc-3043-1",
+        "lc-3043-5",
+        "lc-3043-6",
+        "lc-3043-7",
+        "lc-3043-8",
+        "lc-3043-9",
+        "lc-3043-10",
+        "lc-3043-11",
+        "lc-3043-12",
+        "lc-3043-13",
+        "lc-3043-14",
+        "lc-3043-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7090,
+  "oracle_implementation": "code_practice/import_batch_213b.py:prefix_oracle",
+  "validator_implementation_sha256": "ffe11722b8efbad894c6d941606a2cec8d4c395ecbc6a645cf53436ac47b0f42",
+  "batch_implementation_sha256": "277a4ed1fc0c74a099a68343d6b24046ad7b35149c2ed9cadcffb63ac95cc32d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "42a3a5d94facb1ac38e201a2bcdf119dbacf7d94c2c0bc70ea57369a55aead07",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

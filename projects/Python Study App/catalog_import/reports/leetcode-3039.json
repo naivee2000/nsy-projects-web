@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3039",
+  "content_sha256": "90a8667f36c0475f5b473da1c7c8d5c1d9b0ad66ec247ab1fd9b3777d9c418b6",
+  "source_hash": "ba916b979f547a9f9a3e7faf69f0e5cf810a44038b219023fd21cc3e8da8cec5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the first maximum-frequency occurrence rather than the last surviving occurrence.",
+      "failed_cases": [
+        "lc-3039-1",
+        "lc-3039-6",
+        "lc-3039-10",
+        "lc-3039-14"
+      ]
+    },
+    {
+      "reason": "Sorts the final characters alphabetically instead of preserving their positions in the current string.",
+      "failed_cases": [
+        "lc-3039-1",
+        "lc-3039-6",
+        "lc-3039-8",
+        "lc-3039-10",
+        "lc-3039-14",
+        "lc-3039-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7086,
+  "oracle_implementation": "code_practice/import_batch_213b.py:last_string_oracle",
+  "validator_implementation_sha256": "ffe11722b8efbad894c6d941606a2cec8d4c395ecbc6a645cf53436ac47b0f42",
+  "batch_implementation_sha256": "277a4ed1fc0c74a099a68343d6b24046ad7b35149c2ed9cadcffb63ac95cc32d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4c4d1d27e47460f2a587828449958d2c282ffe63bcabf78976fd5ca417ea6c6a",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
