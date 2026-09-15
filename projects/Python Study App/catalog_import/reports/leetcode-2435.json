@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2435",
+  "content_sha256": "e7fc4e03b55ada7341c719f12104620891f8ac0de195c7bf1b122ecbb1f2b91b",
+  "source_hash": "57b59480948f99ac7aa541ca7ad504c45a01927d5fc5d1c21681048a43e50dc5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns paths with remainder one instead of remainder zero.",
+      "failed_cases": [
+        "lc-2435-1",
+        "lc-2435-2",
+        "lc-2435-5",
+        "lc-2435-6",
+        "lc-2435-7",
+        "lc-2435-9",
+        "lc-2435-10",
+        "lc-2435-12",
+        "lc-2435-13",
+        "lc-2435-14",
+        "lc-2435-15",
+        "lc-2435-16"
+      ]
+    },
+    {
+      "reason": "Reverses the modular transition and therefore tracks the wrong sums.",
+      "failed_cases": [
+        "lc-2435-1",
+        "lc-2435-6",
+        "lc-2435-7",
+        "lc-2435-9",
+        "lc-2435-14",
+        "lc-2435-15",
+        "lc-2435-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6482,
+  "oracle_implementation": "code_practice/import_batch_209a.py:divisible_paths_oracle",
+  "validator_implementation_sha256": "805d8862ac6e50cd2b09778d1d65c2ab1ddd097f578f0a8a04697045988ec100",
+  "batch_implementation_sha256": "e769cd15801dacf24954174d69c3e966537a621bdce5ff7dd8024e38e8c84a2d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "23ab6be2059afad3a87c8b87acd62352f5e86d35d7117e99e89972ef5c71820e",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

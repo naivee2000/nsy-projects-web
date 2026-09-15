@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2417",
+  "content_sha256": "c389344bbe09f64a37511e0d7c8221d33b2aac3d2f2334d81754cc39634ce471",
+  "source_hash": "61a3e6159d519fdbda5f02f4b0c11218dd441f25a69e544c34e55f0b1cb29bf4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Misclassifies zero as odd when counting digit parity.",
+      "failed_cases": [
+        "lc-2417-5",
+        "lc-2417-8",
+        "lc-2417-10",
+        "lc-2417-13",
+        "lc-2417-14",
+        "lc-2417-16"
+      ]
+    },
+    {
+      "reason": "Always searches strictly above n even when n itself is already fair.",
+      "failed_cases": [
+        "lc-2417-5",
+        "lc-2417-7",
+        "lc-2417-9",
+        "lc-2417-14",
+        "lc-2417-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6464,
+  "oracle_implementation": "code_practice/import_batch_209a.py:fair_oracle",
+  "validator_implementation_sha256": "805d8862ac6e50cd2b09778d1d65c2ab1ddd097f578f0a8a04697045988ec100",
+  "batch_implementation_sha256": "e769cd15801dacf24954174d69c3e966537a621bdce5ff7dd8024e38e8c84a2d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b79c4728dff95a9d367a28e901d0a8c8421e1fcdf56fdf2e66af0a5e22333509",
+  "elapsed_seconds": 8.764,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

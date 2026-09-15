@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2426",
+  "content_sha256": "4c258d31506c5dbf6ab72267449dafc9f84e93baa739e433063e5de931f1857d",
+  "source_hash": "1803884b0df65bcdf4a472e6ffb29e9c8ae82ae248fe8c0fe19ed82c9602b1a9",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only strict inequalities and loses equality cases.",
+      "failed_cases": [
+        "lc-2426-1",
+        "lc-2426-3",
+        "lc-2426-11",
+        "lc-2426-15",
+        "lc-2426-16"
+      ]
+    },
+    {
+      "reason": "Combines the arrays by addition instead of the required difference.",
+      "failed_cases": [
+        "lc-2426-9",
+        "lc-2426-11",
+        "lc-2426-13",
+        "lc-2426-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6473,
+  "oracle_implementation": "code_practice/import_batch_209a.py:inequality_oracle",
+  "validator_implementation_sha256": "805d8862ac6e50cd2b09778d1d65c2ab1ddd097f578f0a8a04697045988ec100",
+  "batch_implementation_sha256": "e769cd15801dacf24954174d69c3e966537a621bdce5ff7dd8024e38e8c84a2d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e1b17ba2db9f33bc9ba7c51fec5eebb60e2cd862d6415e1a0225462168134f4b",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
