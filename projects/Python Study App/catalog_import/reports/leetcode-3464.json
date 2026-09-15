@@ -1,0 +1,52 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-3464",
+  "content_sha256": "6c667de1684d9cfcc3561bd96e88ca64dbc200fc26a6a4d272ede12346a67bce",
+  "source_hash": "60ced974a81aff01cffd3efd38f6de96fc4f37e9b5fcb3669be30359f1a0cecc",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns one below the final feasible binary-search boundary.",
+      "failed_cases": [
+        "lc-3464-1",
+        "lc-3464-2",
+        "lc-3464-3",
+        "lc-3464-4",
+        "lc-3464-5",
+        "lc-3464-6",
+        "lc-3464-7",
+        "lc-3464-8",
+        "lc-3464-9",
+        "lc-3464-10",
+        "lc-3464-11",
+        "lc-3464-12",
+        "lc-3464-13",
+        "lc-3464-14",
+        "lc-3464-15",
+        "lc-3464-16"
+      ]
+    },
+    {
+      "reason": "Treats the first sorted point as the only possible circular cut and misses solutions that wrap elsewhere.",
+      "failed_cases": []
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7511,
+  "oracle_implementation": "code_practice/import_batch_225d.py:distance_oracle",
+  "validator_implementation_sha256": "e39d745d3c5e31ab823c5e0512b7bba844bb4d59dc7ef158a1ac0b4dd8d228e6",
+  "batch_implementation_sha256": "c7251fc11714604a46716c146feed8040f569f24d83800d2b1839e5c090eeda2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "74905c02c0f4688ed62c9402dc395d03f46ad55e6e1ae3597ccd0d76d04ce74c",
+  "elapsed_seconds": 0.08,
+  "failures": [
+    {
+      "phase": "known_wrong",
+      "index": 1
+    }
+  ],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3469",
+  "content_sha256": "dd0890fdc36116eb4aed4d366188d25e6541a4a0a700175851637076984b0ea4",
+  "source_hash": "c696c44a8337ab912d7a080c40d555f8bdef3bce6cb8ea8407d9dfc7fe11e7a8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always removes the first two available values and never compares the other survivor choices.",
+      "failed_cases": [
+        "lc-3469-1",
+        "lc-3469-4",
+        "lc-3469-7",
+        "lc-3469-8",
+        "lc-3469-9",
+        "lc-3469-10",
+        "lc-3469-11",
+        "lc-3469-12",
+        "lc-3469-13",
+        "lc-3469-14"
+      ]
+    },
+    {
+      "reason": "Charges the sum of the final two elements instead of their maximum.",
+      "failed_cases": [
+        "lc-3469-1",
+        "lc-3469-2",
+        "lc-3469-7",
+        "lc-3469-9",
+        "lc-3469-11",
+        "lc-3469-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7516,
+  "oracle_implementation": "code_practice/import_batch_225d.py:removal_oracle",
+  "validator_implementation_sha256": "e39d745d3c5e31ab823c5e0512b7bba844bb4d59dc7ef158a1ac0b4dd8d228e6",
+  "batch_implementation_sha256": "e44d9761bbb8c2ff1af93cea02958247329010c288d8eea2da1ea19ed160cc7b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "38cd6b5e2b02d1b48369d952c9df6fcebdebb5ae123ef6c38ef787cd36361eb4",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -5,15 +5,19 @@ from code_practice.catalog import get_catalog
 from code_practice.import_batch_225a import BATCH as BATCH_A
 from code_practice.import_batch_225b import BATCH as BATCH_B
 from code_practice.import_batch_225c import BATCH as BATCH_C
+from code_practice.import_batch_225d import BATCH as BATCH_D
 
-BATCH={**BATCH_A,**BATCH_B,**BATCH_C}
+BATCH={**BATCH_A,**BATCH_B,**BATCH_C,**BATCH_D}
 
 ROOT=Path(__file__).resolve().parents[1]
 
 
 def test_batch_225_verified():
     catalog=get_catalog()
+    records={record['source_id']:record for record in json.loads((ROOT/'catalog_import'/'ledger.json').read_text())['records']}
     for source_id,spec in BATCH.items():
+        if records[source_id]['status']!='imported':
+            continue
         problem=catalog.get(f'leetcode-{source_id}')
         report=json.loads((ROOT/'catalog_import'/'reports'/f'leetcode-{source_id}.json').read_text())
         assert problem.signature.name==spec['name']

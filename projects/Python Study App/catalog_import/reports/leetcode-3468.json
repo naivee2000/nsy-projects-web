@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3468",
+  "content_sha256": "027da90a1027645330d5e164e787c5dec1cfa779a26e915cfd56ce94f5e98a55",
+  "source_hash": "24de72ace055c602c3c8266f4ec429fca41e78b06b6ac7f7ecb90ebaee0b245c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats inclusive shift endpoints as exclusive and undercounts by one.",
+      "failed_cases": [
+        "lc-3468-1",
+        "lc-3468-3",
+        "lc-3468-4",
+        "lc-3468-5",
+        "lc-3468-6",
+        "lc-3468-7",
+        "lc-3468-8",
+        "lc-3468-9",
+        "lc-3468-10",
+        "lc-3468-11",
+        "lc-3468-12",
+        "lc-3468-13",
+        "lc-3468-14"
+      ]
+    },
+    {
+      "reason": "Intersects raw bounds without translating them by original values.",
+      "failed_cases": [
+        "lc-3468-1",
+        "lc-3468-2",
+        "lc-3468-3",
+        "lc-3468-6",
+        "lc-3468-7",
+        "lc-3468-8",
+        "lc-3468-10",
+        "lc-3468-11",
+        "lc-3468-12",
+        "lc-3468-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7515,
+  "oracle_implementation": "code_practice/import_batch_225d.py:copies_oracle",
+  "validator_implementation_sha256": "e39d745d3c5e31ab823c5e0512b7bba844bb4d59dc7ef158a1ac0b4dd8d228e6",
+  "batch_implementation_sha256": "e44d9761bbb8c2ff1af93cea02958247329010c288d8eea2da1ea19ed160cc7b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ef4d1b9753a1e8e279b6a804f7513c6ebba33f40ef2bb3fc0f359e652c42275",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
