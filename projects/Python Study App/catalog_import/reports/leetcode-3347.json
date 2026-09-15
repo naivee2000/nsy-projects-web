@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3347",
+  "content_sha256": "245ba76eebdac307ffd24251bbf5c3945ca0c587eb1c954174d7c0af2c55c758",
+  "source_hash": "a37ab62575ce5ba6fac79609f5916b54b475ed4a0f0d5f59f68c0ddf26cd08d7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits original values as candidate coordinates, which can miss the benefit of existing duplicates.",
+      "failed_cases": [
+        "lc-3347-2"
+      ]
+    },
+    {
+      "reason": "Allows one more changed index than num_operations permits.",
+      "failed_cases": [
+        "lc-3347-8",
+        "lc-3347-13",
+        "lc-3347-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7394,
+  "oracle_implementation": "code_practice/import_batch_221d.py:frequency_oracle",
+  "validator_implementation_sha256": "4e5c100fd472763f3bd19c1fb5e4d4f201770049843d403a48c8b6d8f980ed30",
+  "batch_implementation_sha256": "450c9d1f12765bab89f1c3f13fb328cabb6cba9894cb9504ad8e3ba01d104600",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9946651cd2b0d54237067fa7dec9da6e7e5bb7137e9954f49a1b792fdba7ab77",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

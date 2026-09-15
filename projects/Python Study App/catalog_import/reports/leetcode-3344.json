@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3344",
+  "content_sha256": "eddb61eb667dee5964e7b71b5d5a254e2c1b0419883e56d1845370f8c5b46ee8",
+  "source_hash": "91351c3b5cef60c5efc26ad96a854e8163a6e4a09dee60b51d599c4d174373ed",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts only the number of zero-bit values rather than zero-bit ordered pairs.",
+      "failed_cases": [
+        "lc-3344-9",
+        "lc-3344-11",
+        "lc-3344-12",
+        "lc-3344-13",
+        "lc-3344-14"
+      ]
+    },
+    {
+      "reason": "Uses a strict budget test and rejects dimensions whose sum equals s.",
+      "failed_cases": [
+        "lc-3344-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7391,
+  "oracle_implementation": "code_practice/import_batch_221d.py:sized_oracle",
+  "validator_implementation_sha256": "4e5c100fd472763f3bd19c1fb5e4d4f201770049843d403a48c8b6d8f980ed30",
+  "batch_implementation_sha256": "450c9d1f12765bab89f1c3f13fb328cabb6cba9894cb9504ad8e3ba01d104600",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "52d689a04cf030fbee1c587f6be1804d3bc3b79ee625b366269f9656a105cd14",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

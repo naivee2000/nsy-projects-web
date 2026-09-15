@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3350",
+  "content_sha256": "dd993b8b44c8ecef60a892eb2439a952a493e65bae3d18b16a6ced5fddd4d7ef",
+  "source_hash": "4750ff1b2a82a3ebcf401dc94ad837b5becd4770dc9a98188a276414ef456d0a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses an entire increasing run for both halves instead of splitting it.",
+      "failed_cases": [
+        "lc-3350-1",
+        "lc-3350-2",
+        "lc-3350-3",
+        "lc-3350-5",
+        "lc-3350-8",
+        "lc-3350-11",
+        "lc-3350-12",
+        "lc-3350-14",
+        "lc-3350-15"
+      ]
+    },
+    {
+      "reason": "Uses the larger neighboring run even though both adjacent pieces must fit.",
+      "failed_cases": [
+        "lc-3350-1",
+        "lc-3350-2",
+        "lc-3350-3",
+        "lc-3350-5",
+        "lc-3350-8",
+        "lc-3350-11",
+        "lc-3350-12",
+        "lc-3350-14",
+        "lc-3350-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7397,
+  "oracle_implementation": "code_practice/import_batch_221d.py:increasing_oracle",
+  "validator_implementation_sha256": "4e5c100fd472763f3bd19c1fb5e4d4f201770049843d403a48c8b6d8f980ed30",
+  "batch_implementation_sha256": "450c9d1f12765bab89f1c3f13fb328cabb6cba9894cb9504ad8e3ba01d104600",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4be0e5698a1656a67af5fb412bae1c3e22099bf23f6507c9aafc54324585984d",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2661,
+  "count": 2666,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -44645,6 +44645,24 @@
       "source_id": 3343
     },
     {
+      "id": "leetcode-3344",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Sized Array",
+      "summary": "Given a positive integer s, determine the largest n for which the sum of all elements in a 3D array A of dimensions n × n × n, where each element A[i][j][k] equals i multiplied by the bitwise OR of j and k, does not surpass s.",
+      "topics": [
+        "bit manipulation",
+        "binary search",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3344.json",
+      "content_sha256": "eddb61eb667dee5964e7b71b5d5a254e2c1b0419883e56d1845370f8c5b46ee8",
+      "source_id": 3344
+    },
+    {
       "id": "leetcode-3345",
       "version": 1,
       "status": "approved",
@@ -44663,6 +44681,62 @@
       "source_id": 3345
     },
     {
+      "id": "leetcode-3346",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Frequency of an Element After Performing Operations I",
+      "summary": "Given an integer array nums, integers k and numOperations, perform numOperations operations where each operation involves selecting an unselected index and adding a value in the range [-k, k] to the element at that index.",
+      "topics": [
+        "arrays",
+        "sweep line",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3346.json",
+      "content_sha256": "bcae0c6a5ccf6170fc4f03f6f5dc1907a414fa5c09086b04f71a2c42d4408e73",
+      "source_id": 3346
+    },
+    {
+      "id": "leetcode-3347",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Frequency of an Element After Performing Operations II",
+      "summary": "Given an integer array nums, integers k and numOperations, perform numOperations operations where each operation involves selecting an unselected index and adding an integer in the range [-k, k] to the element at that index.",
+      "topics": [
+        "arrays",
+        "sweep line",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3347.json",
+      "content_sha256": "245ba76eebdac307ffd24251bbf5c3945ca0c587eb1c954174d7c0af2c55c758",
+      "source_id": 3347
+    },
+    {
+      "id": "leetcode-3348",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest Divisible Digit Product II",
+      "summary": "Given a string representing a positive integer and an integer t, find the smallest zero-free number greater than or equal to the input number where the product of its digits is divisible by t.",
+      "topics": [
+        "strings",
+        "greedy",
+        "number theory"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3348.json",
+      "content_sha256": "d41396ce49b5017182c576b66c8be0246b528d2437f0ee5803be67d46a35a4ae",
+      "source_id": 3348
+    },
+    {
       "id": "leetcode-3349",
       "version": 1,
       "status": "approved",
@@ -44678,6 +44752,24 @@
       "path": "problems/leetcode-3349.json",
       "content_sha256": "31018736dda33b9bac3b1635ec618862b26e7171f62300079395861c85dd871d",
       "source_id": 3349
+    },
+    {
+      "id": "leetcode-3350",
+      "version": 1,
+      "status": "approved",
+      "title": "Adjacent Increasing Subarrays Detection II",
+      "summary": "Given an array of integers, determine the largest k for which two adjacent subarrays of length k each are strictly increasing.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "runs"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3350.json",
+      "content_sha256": "dd993b8b44c8ecef60a892eb2439a952a493e65bae3d18b16a6ced5fddd4d7ef",
+      "source_id": 3350
     },
     {
       "id": "leetcode-3353",

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3346",
+  "content_sha256": "bcae0c6a5ccf6170fc4f03f6f5dc1907a414fa5c09086b04f71a2c42d4408e73",
+  "source_hash": "f64cbf9ad5bf2876089c915d8511525c318498e5bb3fa8069008270952d2eceb",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets existing target values do not consume change operations.",
+      "failed_cases": [
+        "lc-3346-2",
+        "lc-3346-3",
+        "lc-3346-7",
+        "lc-3346-9",
+        "lc-3346-10",
+        "lc-3346-12",
+        "lc-3346-13",
+        "lc-3346-15"
+      ]
+    },
+    {
+      "reason": "Ends each reachable interval one coordinate too early.",
+      "failed_cases": [
+        "lc-3346-3",
+        "lc-3346-5",
+        "lc-3346-6",
+        "lc-3346-9",
+        "lc-3346-12",
+        "lc-3346-14",
+        "lc-3346-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7393,
+  "oracle_implementation": "code_practice/import_batch_221d.py:frequency_oracle",
+  "validator_implementation_sha256": "4e5c100fd472763f3bd19c1fb5e4d4f201770049843d403a48c8b6d8f980ed30",
+  "batch_implementation_sha256": "450c9d1f12765bab89f1c3f13fb328cabb6cba9894cb9504ad8e3ba01d104600",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4c0267b878c61571e38627b3031510cff48d31aecb0c4a3f364696e3bb24f651",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -46,7 +46,7 @@ const report = { scope: 'Current published catalog; not the final full-catalog a
   frontendIndexSha256: sha256(await fs.readFile(path.join(root, 'frontend/dist/index.html'))),
   browserVerifierSha256: sha256(await fs.readFile(fileURLToPath(import.meta.url))),
   hardware: { platform: os.platform(), architecture: os.arch(), cpu: os.cpus()[0].model, memoryGiB: os.totalmem() / 2**30 },
-  worker: [], endpoints: {}, checks: [] };
+  worker: [], endpoints: {}, checks: [], infrastructureRetries: [] };
 
 async function start() {
   const started = performance.now();
@@ -416,7 +416,18 @@ try {
       if (index >= referenceEntries.length) return;
       const entry = referenceEntries[index];
       const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
-      const result = await judge(page, problem, problem.reference_solution);
+      let result;
+      for (let attempt = 1; attempt <= 2; attempt++) {
+        try {
+          result = await judge(page, problem, problem.reference_solution);
+          break;
+        } catch (error) {
+          if (attempt === 2 || !String(error).includes('Pyodide warmup timed out')) throw error;
+          report.infrastructureRetries.push({ id: entry.id, reason: 'Pyodide warmup timed out', recoveredWithFreshWorker: true });
+          console.log(`Retrying ${entry.id} after a Pyodide warmup timeout`);
+          await sleep(250);
+        }
+      }
       assert.equal(result.status, 'accepted', `${entry.id}: ${JSON.stringify(result)}`);
       assert.equal(result.cases.length, problem.tests.length);
       referenceResults[index] = { id: entry.id, status: result.status, cases: result.cases.length, runtimeMs: result.runtimeMs };

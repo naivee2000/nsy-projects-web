@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3348",
+  "content_sha256": "d41396ce49b5017182c576b66c8be0246b528d2437f0ee5803be67d46a35a4ae",
+  "source_hash": "1a478a7f59c24c106ef98ae5b857820e53faafbd1074752744e30f20118de2b7",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the numeric successor instead of preserving an already valid input.",
+      "failed_cases": [
+        "lc-3348-2",
+        "lc-3348-5",
+        "lc-3348-6",
+        "lc-3348-8",
+        "lc-3348-13"
+      ]
+    },
+    {
+      "reason": "Increases the earliest feasible digit rather than the rightmost one, so the result is not minimal.",
+      "failed_cases": [
+        "lc-3348-1",
+        "lc-3348-3",
+        "lc-3348-4",
+        "lc-3348-9",
+        "lc-3348-12",
+        "lc-3348-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7395,
+  "oracle_implementation": "code_practice/import_batch_221d.py:product_oracle",
+  "validator_implementation_sha256": "4e5c100fd472763f3bd19c1fb5e4d4f201770049843d403a48c8b6d8f980ed30",
+  "batch_implementation_sha256": "450c9d1f12765bab89f1c3f13fb328cabb6cba9894cb9504ad8e3ba01d104600",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b3dccfbd8a389bcc945493fd2c89704d94e7b416aa16b710b75a014e7104d7f7",
+  "elapsed_seconds": 0.332,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
