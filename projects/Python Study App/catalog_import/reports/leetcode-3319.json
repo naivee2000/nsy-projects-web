@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3319",
+  "content_sha256": "8995c042420279e6fc5a56d40f32c2491f84230f2581e96af5d09a68fa26c643",
+  "source_hash": "7961a103b29b76d5e18b8fd0a55d22b789758e906761623221a6cf15b2d063b7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects equal child sizes and accepts unequal ones.",
+      "failed_cases": [
+        "lc-3319-1",
+        "lc-3319-2",
+        "lc-3319-3",
+        "lc-3319-5",
+        "lc-3319-7",
+        "lc-3319-8",
+        "lc-3319-9",
+        "lc-3319-11",
+        "lc-3319-13",
+        "lc-3319-14",
+        "lc-3319-15",
+        "lc-3319-16"
+      ]
+    },
+    {
+      "reason": "Stores subtree height-like values rather than node counts.",
+      "failed_cases": [
+        "lc-3319-1",
+        "lc-3319-2",
+        "lc-3319-7",
+        "lc-3319-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7366,
+  "oracle_implementation": "code_practice/import_batch_220d.py:perfect_oracle",
+  "validator_implementation_sha256": "e9a35191e64db66f320538dd022bcd4647405184f16c698708f3bdbbcb42eefd",
+  "batch_implementation_sha256": "f5f9c57c9a3444bc21517a469c94fb8300d3aea6154097cab28022d4113fa933",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "44ba5723077d1b7e0de8cc818a57093b51f38959dfdc24c57d8efeddbdabe4c2",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

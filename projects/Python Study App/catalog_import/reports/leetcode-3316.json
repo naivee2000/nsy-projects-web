@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3316",
+  "content_sha256": "ea0c299852b69d1791f59b41e6015d2dc40de8259d133f14e4c873e0c2fe8a12",
+  "source_hash": "eb06b31d28aa1dd3670f997bd7ea8e3fcdb3cf885ea6443cb3cacec304d6a902",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Reuses the current source character through an in-place match transition.",
+      "failed_cases": [
+        "lc-3316-1",
+        "lc-3316-3",
+        "lc-3316-6",
+        "lc-3316-7",
+        "lc-3316-8",
+        "lc-3316-11",
+        "lc-3316-12"
+      ]
+    },
+    {
+      "reason": "Counts removal of positions not listed in target_indices.",
+      "failed_cases": [
+        "lc-3316-1",
+        "lc-3316-2",
+        "lc-3316-11",
+        "lc-3316-12",
+        "lc-3316-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7363,
+  "oracle_implementation": "code_practice/import_batch_220d.py:removals_oracle",
+  "validator_implementation_sha256": "e9a35191e64db66f320538dd022bcd4647405184f16c698708f3bdbbcb42eefd",
+  "batch_implementation_sha256": "f5f9c57c9a3444bc21517a469c94fb8300d3aea6154097cab28022d4113fa933",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c465086195f39d99738f7eb221aa552974e141f94448bdfb6f38b3a2d6e9df50",
+  "elapsed_seconds": 0.099,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3317",
+  "content_sha256": "9ea186379c1d9b14a16d82de40937e6ed4f1bf798e5393e5278cb424d7af3fec",
+  "source_hash": "dd59563725c74f0e74dc22f1f85ef2b58234231d92afc273f2ef41e0a4a03f2c",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets which occupied stage an arriving performer joins.",
+      "failed_cases": [
+        "lc-3317-2",
+        "lc-3317-5",
+        "lc-3317-6",
+        "lc-3317-7",
+        "lc-3317-8",
+        "lc-3317-9",
+        "lc-3317-10",
+        "lc-3317-12",
+        "lc-3317-13",
+        "lc-3317-14",
+        "lc-3317-15",
+        "lc-3317-16"
+      ]
+    },
+    {
+      "reason": "Adds score choices instead of multiplying one independent choice per band.",
+      "failed_cases": [
+        "lc-3317-1",
+        "lc-3317-2",
+        "lc-3317-3",
+        "lc-3317-4",
+        "lc-3317-5",
+        "lc-3317-6",
+        "lc-3317-7",
+        "lc-3317-8",
+        "lc-3317-9",
+        "lc-3317-10",
+        "lc-3317-11",
+        "lc-3317-12",
+        "lc-3317-13",
+        "lc-3317-14",
+        "lc-3317-15",
+        "lc-3317-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7364,
+  "oracle_implementation": "code_practice/import_batch_220d.py:event_oracle",
+  "validator_implementation_sha256": "e9a35191e64db66f320538dd022bcd4647405184f16c698708f3bdbbcb42eefd",
+  "batch_implementation_sha256": "f5f9c57c9a3444bc21517a469c94fb8300d3aea6154097cab28022d4113fa933",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1f87842758b1d18738c96082e19a0230aa8dfd1024be0520c99de425f2e78896",
+  "elapsed_seconds": 0.106,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

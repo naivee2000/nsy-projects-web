@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3320",
+  "content_sha256": "1ae656ccec21606607f6713b1c04fed533c7d86db43cdb0b6f1b8befc14b7dc8",
+  "source_hash": "db5f1b64711bef44bc4108e1b1b14dbac61758cbaddd2a1aa9b4f59cf08402cb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows Bob to repeat the same creature in consecutive rounds.",
+      "failed_cases": [
+        "lc-3320-1",
+        "lc-3320-2",
+        "lc-3320-6",
+        "lc-3320-7",
+        "lc-3320-8",
+        "lc-3320-9",
+        "lc-3320-10",
+        "lc-3320-11",
+        "lc-3320-12",
+        "lc-3320-13",
+        "lc-3320-14"
+      ]
+    },
+    {
+      "reason": "Counts tied battles as wins.",
+      "failed_cases": [
+        "lc-3320-1",
+        "lc-3320-2",
+        "lc-3320-3",
+        "lc-3320-4",
+        "lc-3320-5",
+        "lc-3320-6",
+        "lc-3320-7",
+        "lc-3320-8",
+        "lc-3320-9",
+        "lc-3320-10",
+        "lc-3320-11",
+        "lc-3320-12",
+        "lc-3320-13",
+        "lc-3320-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7367,
+  "oracle_implementation": "code_practice/import_batch_220d.py:winning_oracle",
+  "validator_implementation_sha256": "e9a35191e64db66f320538dd022bcd4647405184f16c698708f3bdbbcb42eefd",
+  "batch_implementation_sha256": "f5f9c57c9a3444bc21517a469c94fb8300d3aea6154097cab28022d4113fa933",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b00a862a7e4407b0b24718cc9277015f7a0efff75b39bb63f6a2ef0d3c180389",
+  "elapsed_seconds": 0.557,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

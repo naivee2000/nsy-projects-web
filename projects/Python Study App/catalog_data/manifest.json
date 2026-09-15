@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2641,
+  "count": 2646,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -44221,6 +44221,43 @@
       "source_id": 3315
     },
     {
+      "id": "leetcode-3316",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Maximum Removals From Source String",
+      "summary": "Given a string source of size n, a string pattern that is a subsequence of source, and a sorted integer array targetIndices containing distinct numbers in the range [0, n - 1], determine the maximum number of characters that can be removed from source such that pattern remains a subsequence of the modified source.",
+      "topics": [
+        "dynamic programming",
+        "subsequences",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3316.json",
+      "content_sha256": "ea0c299852b69d1791f59b41e6015d2dc40de8259d133f14e4c873e0c2fe8a12",
+      "source_id": 3316
+    },
+    {
+      "id": "leetcode-3317",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Number of Possible Ways for an Event",
+      "summary": "Given n performers, x stages, and y possible scores, calculate the total number of distinct event configurations, where each performer is assigned to a stage and each band receives a score between 1 and y, modulo 10^9 + 7.",
+      "topics": [
+        "dynamic programming",
+        "combinatorics"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3317.json",
+      "content_sha256": "9ea186379c1d9b14a16d82de40937e6ed4f1bf798e5393e5278cb424d7af3fec",
+      "source_id": 3317
+    },
+    {
       "id": "leetcode-3318",
       "version": 1,
       "status": "approved",
@@ -44238,6 +44275,61 @@
       "path": "problems/leetcode-3318.json",
       "content_sha256": "ce1c6b7332d67d944deb06bc3e2b9c79d46d02dbe4223adf6186fa2fef623dc9",
       "source_id": 3318
+    },
+    {
+      "id": "leetcode-3319",
+      "version": 1,
+      "status": "approved",
+      "title": "K-th Largest Perfect Subtree Size in Binary Tree",
+      "summary": "Given a binary tree and an integer k, find the size of the k-th largest perfect binary subtree.",
+      "topics": [
+        "trees",
+        "postorder traversal",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3319.json",
+      "content_sha256": "8995c042420279e6fc5a56d40f32c2491f84230f2581e96af5d09a68fa26c643",
+      "source_id": 3319
+    },
+    {
+      "id": "leetcode-3320",
+      "version": 1,
+      "status": "approved",
+      "title": "Count The Number of Winning Sequences",
+      "summary": "Alice and Bob participate in a fantasy battle game consisting of n rounds.",
+      "topics": [
+        "dynamic programming",
+        "game theory",
+        "counting"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3320.json",
+      "content_sha256": "1ae656ccec21606607f6713b1c04fed533c7d86db43cdb0b6f1b8befc14b7dc8",
+      "source_id": 3320
+    },
+    {
+      "id": "leetcode-3324",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Sequence of Strings Appeared on the Screen",
+      "summary": "Given a string target, return a list of all strings displayed on the screen as Alice types it using a special keyboard with two keys: one appends 'a' and the other changes the last character to its next in the alphabet.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3324.json",
+      "content_sha256": "41ec342fbda44265962b5d09c915f77715de4be1912b834af09ff456c9cb84ac",
+      "source_id": 3324
     },
     {
       "id": "leetcode-3330",
