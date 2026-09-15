@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3495",
+  "content_sha256": "41308c4cea0a957beba60fe82f6968944cb332e1cf6d63484d788c1130449b0b",
+  "source_hash": "c3757eada182a1ce516f68cfa41273b6b4a39b27d617c544854f43d06856f54c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only half the total work and ignores the lower bound from the slowest single element.",
+      "failed_cases": [
+        "lc-3495-2",
+        "lc-3495-4"
+      ]
+    },
+    {
+      "reason": "Groups values by powers of two instead of powers of four and assigns incorrect division counts.",
+      "failed_cases": [
+        "lc-3495-1",
+        "lc-3495-2",
+        "lc-3495-4",
+        "lc-3495-5",
+        "lc-3495-6",
+        "lc-3495-7",
+        "lc-3495-8",
+        "lc-3495-9",
+        "lc-3495-10",
+        "lc-3495-11",
+        "lc-3495-12",
+        "lc-3495-13",
+        "lc-3495-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7542,
+  "oracle_implementation": "code_practice/import_batch_226c.py:operations_oracle",
+  "validator_implementation_sha256": "0aadacb3139d85aace661240e213a2628b1f776cbe7b22dc326d8669db88ba9b",
+  "batch_implementation_sha256": "f606266c4df0d547bf37fa1aa668d593f17301d23c6c7aa7fdcf9275adfe607a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cd32031fd3e522325c44279429bf033fa916f313a6d65f32ac57290c6d18015f",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3490",
+  "content_sha256": "86f248b46d265cbfd2fb5e59060133725997fb664fb56b1393ecf33120948007",
+  "source_hash": "eecf59a4e8f267601c983f9bcd46c4e6bf937d59105690b8939c37c35e746088",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks digit sum modulo the target instead of digit product modulo the target.",
+      "failed_cases": [
+        "lc-3490-1",
+        "lc-3490-2",
+        "lc-3490-6",
+        "lc-3490-7",
+        "lc-3490-8",
+        "lc-3490-9",
+        "lc-3490-10",
+        "lc-3490-11",
+        "lc-3490-12",
+        "lc-3490-13",
+        "lc-3490-14"
+      ]
+    },
+    {
+      "reason": "Accepts product remainder one instead of divisibility remainder zero.",
+      "failed_cases": [
+        "lc-3490-2",
+        "lc-3490-4",
+        "lc-3490-6",
+        "lc-3490-7",
+        "lc-3490-8",
+        "lc-3490-9",
+        "lc-3490-10",
+        "lc-3490-11",
+        "lc-3490-12",
+        "lc-3490-13",
+        "lc-3490-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7537,
+  "oracle_implementation": "code_practice/import_batch_226c.py:beautiful_oracle",
+  "validator_implementation_sha256": "0aadacb3139d85aace661240e213a2628b1f776cbe7b22dc326d8669db88ba9b",
+  "batch_implementation_sha256": "f606266c4df0d547bf37fa1aa668d593f17301d23c6c7aa7fdcf9275adfe607a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5b4084fe97d76b6fd8ce0e107fbc3b0ec0b5f9327027f6fcd7bdc6eed4683af0",
+  "elapsed_seconds": 1.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

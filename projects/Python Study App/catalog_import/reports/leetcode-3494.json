@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3494",
+  "content_sha256": "a7c9dd1628fce5f09717ac6db32958597922c978ce52d305b09cad72dbcaf478",
+  "source_hash": "a3ac39eb94434da3d0867a7afbd76c8ec8672a1573894893e5afc8071a3c4a2e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores conflicts with the preceding potion and overlaps work on the same wizard.",
+      "failed_cases": [
+        "lc-3494-1",
+        "lc-3494-3",
+        "lc-3494-4",
+        "lc-3494-6",
+        "lc-3494-7",
+        "lc-3494-8",
+        "lc-3494-9",
+        "lc-3494-10",
+        "lc-3494-11",
+        "lc-3494-12",
+        "lc-3494-13",
+        "lc-3494-14"
+      ]
+    },
+    {
+      "reason": "Back-propagates equal finish times instead of subtracting each downstream processing duration.",
+      "failed_cases": [
+        "lc-3494-1",
+        "lc-3494-4",
+        "lc-3494-6",
+        "lc-3494-7",
+        "lc-3494-8",
+        "lc-3494-9",
+        "lc-3494-10",
+        "lc-3494-11",
+        "lc-3494-12",
+        "lc-3494-13",
+        "lc-3494-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7541,
+  "oracle_implementation": "code_practice/import_batch_226c.py:potion_oracle",
+  "validator_implementation_sha256": "0aadacb3139d85aace661240e213a2628b1f776cbe7b22dc326d8669db88ba9b",
+  "batch_implementation_sha256": "f606266c4df0d547bf37fa1aa668d593f17301d23c6c7aa7fdcf9275adfe607a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e653748eee967aa86e54a60261fc358184d33edebe5604ce26b1f1ae9a8372e2",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

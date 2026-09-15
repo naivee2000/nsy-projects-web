@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3489",
+  "content_sha256": "c6e46b56f96e74a3c782d6376f6e1993907a88d5ef5311b16ab76a2b7dd4d1ad",
+  "source_hash": "73a6feccf5bd911efc8d0b6183a4ec43470532c36cc74de5f07daab86512e52d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Applies each query to every index instead of only its covered range.",
+      "failed_cases": [
+        "lc-3489-8",
+        "lc-3489-10",
+        "lc-3489-12"
+      ]
+    },
+    {
+      "reason": "Requires using every covering query and discards earlier subset sums.",
+      "failed_cases": [
+        "lc-3489-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7536,
+  "oracle_implementation": "code_practice/import_batch_226c.py:zero_oracle",
+  "validator_implementation_sha256": "0aadacb3139d85aace661240e213a2628b1f776cbe7b22dc326d8669db88ba9b",
+  "batch_implementation_sha256": "f606266c4df0d547bf37fa1aa668d593f17301d23c6c7aa7fdcf9275adfe607a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6fba222fe1fe6282ae7ba37e3f2264607aa58f8a0632e351535cf35a3f8fb6d8",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

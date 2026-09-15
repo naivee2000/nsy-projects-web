@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3493",
+  "content_sha256": "50d85519e87a3fbcff167bbb8e9cd0e0efad2ba95de951fa81ea471ad666932f",
+  "source_hash": "d405f2db26b05b0b021acf60af3447cf2cc7a03b68d8e4f0af605a707b59691a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts duplicate pairings rather than distinct shared values.",
+      "failed_cases": [
+        "lc-3493-2"
+      ]
+    },
+    {
+      "reason": "Requires more than k shared values instead of at least k.",
+      "failed_cases": [
+        "lc-3493-1",
+        "lc-3493-4",
+        "lc-3493-6",
+        "lc-3493-7",
+        "lc-3493-8",
+        "lc-3493-9",
+        "lc-3493-10",
+        "lc-3493-11",
+        "lc-3493-12",
+        "lc-3493-13",
+        "lc-3493-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7540,
+  "oracle_implementation": "code_practice/import_batch_226c.py:components_oracle",
+  "validator_implementation_sha256": "0aadacb3139d85aace661240e213a2628b1f776cbe7b22dc326d8669db88ba9b",
+  "batch_implementation_sha256": "f606266c4df0d547bf37fa1aa668d593f17301d23c6c7aa7fdcf9275adfe607a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "405b07b67df580f91cbbd0d6713bb0a8c6b6e14cef75ec64e29645ee61276506",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

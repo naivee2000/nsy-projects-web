@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2756,
+  "count": 2761,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -46914,6 +46914,43 @@
       "source_id": 3488
     },
     {
+      "id": "leetcode-3489",
+      "version": 1,
+      "status": "approved",
+      "title": "Zero Array Transformation IV",
+      "summary": "Given an integer array nums and a 2D array queries, where each queries[i] is in the form [li, ri, vali], perform the following operations in sequence: - For each query, select a subset of indices in the range [li, ri] from nums.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "subset sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3489.json",
+      "content_sha256": "c6e46b56f96e74a3c782d6376f6e1993907a88d5ef5311b16ab76a2b7dd4d1ad",
+      "source_id": 3489
+    },
+    {
+      "id": "leetcode-3490",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Beautiful Numbers",
+      "summary": "Given two positive integers l and r, count the numbers between l and r (inclusive) whose digit product is divisible by their digit sum.",
+      "topics": [
+        "digit dynamic programming",
+        "math"
+      ],
+      "prerequisites": [
+        "digit dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3490.json",
+      "content_sha256": "86f248b46d265cbfd2fb5e59060133725997fb664fb56b1393ecf33120948007",
+      "source_id": 3490
+    },
+    {
       "id": "leetcode-3491",
       "version": 1,
       "status": "approved",
@@ -46946,6 +46983,62 @@
       "path": "problems/leetcode-3492.json",
       "content_sha256": "a5d94e11a8cd760bee458184ff7cc5bcecbda639e33a38d77ea53ca706cd30f9",
       "source_id": 3492
+    },
+    {
+      "id": "leetcode-3493",
+      "version": 1,
+      "status": "approved",
+      "title": "Properties Graph",
+      "summary": "Given a 2D integer array properties with dimensions n x m and an integer k, define a function intersect(a, b) that counts the number of distinct integers common to both arrays a and b.",
+      "topics": [
+        "graphs",
+        "union find",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3493.json",
+      "content_sha256": "50d85519e87a3fbcff167bbb8e9cd0e0efad2ba95de951fa81ea471ad666932f",
+      "source_id": 3493
+    },
+    {
+      "id": "leetcode-3494",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Minimum Amount of Time to Brew Potions",
+      "summary": "Given two integer arrays, skill and mana, of lengths n and m respectively, you are to determine the minimum amount of time required for n wizards to sequentially brew m potions.",
+      "topics": [
+        "arrays",
+        "simulation",
+        "prefix timing"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3494.json",
+      "content_sha256": "a7c9dd1628fce5f09717ac6db32958597922c978ce52d305b09cad72dbcaf478",
+      "source_id": 3494
+    },
+    {
+      "id": "leetcode-3495",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make Array Elements Zero",
+      "summary": "Given a 2D array queries, where each query defines an array of integers ranging from l to r.",
+      "topics": [
+        "math",
+        "range counting",
+        "greedy"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3495.json",
+      "content_sha256": "41308c4cea0a957beba60fe82f6968944cb332e1cf6d63484d788c1130449b0b",
+      "source_id": 3495
     },
     {
       "id": "leetcode-3498",
