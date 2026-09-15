@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3476",
+  "content_sha256": "2ab9a0637ea0fc1c00d0f7e2d18641bd970edd825442ee681f1fecd0a7c43b73",
+  "source_hash": "b772a6f1a098821fdc0b3f56ac49a6c0aee9a4abfc3a34d56bdc558720119ba1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses min-heaps without negation and assigns the least profitable matching tasks.",
+      "failed_cases": [
+        "lc-3476-11"
+      ]
+    },
+    {
+      "reason": "Omits the unrestricted extra worker entirely.",
+      "failed_cases": [
+        "lc-3476-1",
+        "lc-3476-2",
+        "lc-3476-4",
+        "lc-3476-5",
+        "lc-3476-6",
+        "lc-3476-7",
+        "lc-3476-8",
+        "lc-3476-9",
+        "lc-3476-10",
+        "lc-3476-11",
+        "lc-3476-12",
+        "lc-3476-13",
+        "lc-3476-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7523,
+  "oracle_implementation": "code_practice/import_batch_226a.py:profit_oracle",
+  "validator_implementation_sha256": "8c839bf067c5f490ac7b70fa8d338fffa2c33582d6a786db63ccf56375dfc01c",
+  "batch_implementation_sha256": "c6703ddadcd2327ed96c5c3276f4913bd0ddddc1e97917eb25519856b64fc6fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b66191c1f339fbf795c4a0f76c75946ce8ef3f0c8711fb3923a3df201c0ffe82",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

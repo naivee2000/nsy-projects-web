@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3474",
+  "content_sha256": "dfbb93953bf18ab825ae28e8f1e5be9a5141043e9512409e1da6086f8cb1187e",
+  "source_hash": "5bd442a1382fe406a0fe5c35f2e4c658d44e6bc9e7549063e27be7d92adf51ad",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Initializes free positions to b instead of the lexicographically smallest letter a.",
+      "failed_cases": [
+        "lc-3474-1",
+        "lc-3474-7",
+        "lc-3474-10",
+        "lc-3474-11",
+        "lc-3474-13",
+        "lc-3474-14"
+      ]
+    },
+    {
+      "reason": "Enforces forced T windows but ignores the requirement that every F window differ from the pattern.",
+      "failed_cases": [
+        "lc-3474-4",
+        "lc-3474-6",
+        "lc-3474-8",
+        "lc-3474-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7521,
+  "oracle_implementation": "code_practice/import_batch_226a.py:generated_oracle",
+  "validator_implementation_sha256": "8c839bf067c5f490ac7b70fa8d338fffa2c33582d6a786db63ccf56375dfc01c",
+  "batch_implementation_sha256": "c6703ddadcd2327ed96c5c3276f4913bd0ddddc1e97917eb25519856b64fc6fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bf911be87993d361e0be0131d115e46cfc78ce5e11a6d90f96c8e547a508e003",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

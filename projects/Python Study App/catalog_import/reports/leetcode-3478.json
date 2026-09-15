@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3478",
+  "content_sha256": "1715f8513393e67697f86b8adc2ed3404d8db281ab8bce88a7ed7ff47d2bdf9c",
+  "source_hash": "94b922210a83c1f8d957b368ff1f9bf93bf7d86b2161e4d74a121520b52acacc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes equal-key indices even though eligibility requires a strict inequality.",
+      "failed_cases": [
+        "lc-3478-2",
+        "lc-3478-8",
+        "lc-3478-11"
+      ]
+    },
+    {
+      "reason": "Retains at most k-1 values because it pops when the heap first reaches size k.",
+      "failed_cases": [
+        "lc-3478-1",
+        "lc-3478-4",
+        "lc-3478-5",
+        "lc-3478-6",
+        "lc-3478-7",
+        "lc-3478-8",
+        "lc-3478-9",
+        "lc-3478-11",
+        "lc-3478-12",
+        "lc-3478-13",
+        "lc-3478-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7525,
+  "oracle_implementation": "code_practice/import_batch_226a.py:sums_oracle",
+  "validator_implementation_sha256": "8c839bf067c5f490ac7b70fa8d338fffa2c33582d6a786db63ccf56375dfc01c",
+  "batch_implementation_sha256": "c6703ddadcd2327ed96c5c3276f4913bd0ddddc1e97917eb25519856b64fc6fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "39db843aaeeb1583eb4e71cfdac5d87c778102519256d118e3afff066aab915f",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

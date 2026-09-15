@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3479",
+  "content_sha256": "feb8939f2aedf85e2f316304f1d4a93acf34fa5d6a17a14e66d96b0b4a925546",
+  "source_hash": "0a05ca0250733e23c14d22f8a325c3a02406624db2f9fde2ef63e33e75f09551",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips a left basket whose capacity equals the fruit amount.",
+      "failed_cases": [
+        "lc-3479-2",
+        "lc-3479-6",
+        "lc-3479-9",
+        "lc-3479-10",
+        "lc-3479-11",
+        "lc-3479-13",
+        "lc-3479-14"
+      ]
+    },
+    {
+      "reason": "Searches the right subtree without enforcing the required capacity.",
+      "failed_cases": [
+        "lc-3479-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7526,
+  "oracle_implementation": "code_practice/import_batch_226a.py:fruit_oracle",
+  "validator_implementation_sha256": "8c839bf067c5f490ac7b70fa8d338fffa2c33582d6a786db63ccf56375dfc01c",
+  "batch_implementation_sha256": "c6703ddadcd2327ed96c5c3276f4913bd0ddddc1e97917eb25519856b64fc6fe",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cdca8c977c0e659920956bc6419947b4818d1a62718db759227528886f7295fc",
+  "elapsed_seconds": 0.082,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

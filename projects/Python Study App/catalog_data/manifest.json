@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2746,
+  "count": 2751,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -46672,6 +46672,62 @@
       "source_id": 3472
     },
     {
+      "id": "leetcode-3473",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of K Subarrays With Length at Least M",
+      "summary": "Given an integer array nums and two integers k and m, find the maximum sum of k non-overlapping subarrays, each with a length of at least m.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3473.json",
+      "content_sha256": "9eb03801dc8f5f0fa6610c3006fe2db87e8d4ebc95ca39fb85e8729da2776385",
+      "source_id": 3473
+    },
+    {
+      "id": "leetcode-3474",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographically Smallest Generated String",
+      "summary": "Given two strings, str1 and str2, of lengths n and m respectively, generate a string word of length n + m - 1 that meets the following conditions for each index 0 <= i <= n - 1: - If str1[i] is 'T', the substring of word starting at index i and of length m must be equal to str2, i.e., word[i..(i + m - 1)] == str2.",
+      "topics": [
+        "strings",
+        "greedy",
+        "constraints"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3474.json",
+      "content_sha256": "dfbb93953bf18ab825ae28e8f1e5be9a5141043e9512409e1da6086f8cb1187e",
+      "source_id": 3474
+    },
+    {
+      "id": "leetcode-3476",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Profit from Task Assignment",
+      "summary": "Given an integer array of worker skill levels and a 2D integer array of tasks, where each task has a skill requirement and a profit, assign tasks to workers such that each worker's skill level matches the task's skill requirement.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "heaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3476.json",
+      "content_sha256": "2ab9a0637ea0fc1c00d0f7e2d18641bd970edd825442ee681f1fecd0a7c43b73",
+      "source_id": 3476
+    },
+    {
       "id": "leetcode-3477",
       "version": 1,
       "status": "approved",
@@ -46688,6 +46744,42 @@
       "path": "problems/leetcode-3477.json",
       "content_sha256": "265ae84d607bee05a29032a3587e346ab79f7d566290a325ed8a63c68d2627c9",
       "source_id": 3477
+    },
+    {
+      "id": "leetcode-3478",
+      "version": 1,
+      "status": "approved",
+      "title": "Choose K Elements With Maximum Sum",
+      "summary": "Given two integer arrays nums1 and nums2 of equal length n, and a positive integer k, for each index i in nums1, identify indices j where nums1[j] is less than nums1[i].",
+      "topics": [
+        "arrays",
+        "sorting",
+        "heaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3478.json",
+      "content_sha256": "1715f8513393e67697f86b8adc2ed3404d8db281ab8bce88a7ed7ff47d2bdf9c",
+      "source_id": 3478
+    },
+    {
+      "id": "leetcode-3479",
+      "version": 1,
+      "status": "approved",
+      "title": "Fruits Into Baskets III",
+      "summary": "Given two arrays, fruits and baskets, each of length n, place each fruit type in the leftmost available basket with sufficient capacity, ensuring each basket holds only one type of fruit.",
+      "topics": [
+        "arrays",
+        "segment trees",
+        "binary search"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3479.json",
+      "content_sha256": "feb8939f2aedf85e2f316304f1d4a93acf34fa5d6a17a14e66d96b0b4a925546",
+      "source_id": 3479
     },
     {
       "id": "leetcode-3483",
