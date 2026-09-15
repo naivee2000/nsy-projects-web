@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3333",
+  "content_sha256": "d450fa4c8a806009151f19a44ec1f91750c482f94e23a041233bc04c9a44e727",
+  "source_hash": "a1ac846bdf419ddb98d6e5634520cb6f49e80ab2b3ea40716298123764b6449f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns all run-length choices when the minimum possible original length is still one below k.",
+      "failed_cases": [
+        "lc-3333-9",
+        "lc-3333-11"
+      ]
+    },
+    {
+      "reason": "Adds invalid short originals instead of subtracting them.",
+      "failed_cases": [
+        "lc-3333-1",
+        "lc-3333-2",
+        "lc-3333-5",
+        "lc-3333-6",
+        "lc-3333-9",
+        "lc-3333-10",
+        "lc-3333-11",
+        "lc-3333-12",
+        "lc-3333-15",
+        "lc-3333-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7380,
+  "oracle_implementation": "code_practice/import_batch_221b.py:typed_oracle",
+  "validator_implementation_sha256": "81c524c2b995f610689aaae888444b4c1d2a137de50e7234765b25464611250e",
+  "batch_implementation_sha256": "81f54615016ef8e018d74596adad2e77bdec2a7a96713c7d16bd4ecd6714469d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c02ce9a651b281d2d66d98dd45d27e2b328ae2af0471900fde7f8dc6fe220b72",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3334",
+  "content_sha256": "eedba1bb6175a84f04ba38557aa8bb7d205bca7c4a94bb1f3888e218ddf6602f",
+  "source_hash": "1a31626d2eb8004d5940a56b6407b47442eacb405f5daccfe2852ae2c9f0108f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires removing one element and ignores the legal keep-all score.",
+      "failed_cases": [
+        "lc-3334-3",
+        "lc-3334-4",
+        "lc-3334-12"
+      ]
+    },
+    {
+      "reason": "Uses zero as the empty LCM identity, making all suffix LCM values zero.",
+      "failed_cases": [
+        "lc-3334-1",
+        "lc-3334-2",
+        "lc-3334-3",
+        "lc-3334-4",
+        "lc-3334-5",
+        "lc-3334-6",
+        "lc-3334-7",
+        "lc-3334-8",
+        "lc-3334-9",
+        "lc-3334-10",
+        "lc-3334-11",
+        "lc-3334-12",
+        "lc-3334-13",
+        "lc-3334-14",
+        "lc-3334-15",
+        "lc-3334-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7381,
+  "oracle_implementation": "code_practice/import_batch_221b.py:factor_oracle",
+  "validator_implementation_sha256": "81c524c2b995f610689aaae888444b4c1d2a137de50e7234765b25464611250e",
+  "batch_implementation_sha256": "81f54615016ef8e018d74596adad2e77bdec2a7a96713c7d16bd4ecd6714469d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "95fbde4a9c4207cbf6119add1dc0d20a56289d26fb499da38123047c5ce6c248",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

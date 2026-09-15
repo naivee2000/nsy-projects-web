@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3332",
+  "content_sha256": "84c8ff4e329ad4cd98fe5bcd561c526d54d67b73cab6ce68fcd427a388baa941",
+  "source_hash": "1f23c7a6e0ca10441c81a6b382596704cf177e81fe04e2bb44ca154ec80c22c2",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forces the tourist to start in city zero.",
+      "failed_cases": [
+        "lc-3332-1",
+        "lc-3332-2",
+        "lc-3332-9",
+        "lc-3332-10",
+        "lc-3332-14",
+        "lc-3332-15"
+      ]
+    },
+    {
+      "reason": "Reads travel points in the reverse direction.",
+      "failed_cases": [
+        "lc-3332-2",
+        "lc-3332-6",
+        "lc-3332-10",
+        "lc-3332-13",
+        "lc-3332-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7379,
+  "oracle_implementation": "code_practice/import_batch_221b.py:tourist_oracle",
+  "validator_implementation_sha256": "81c524c2b995f610689aaae888444b4c1d2a137de50e7234765b25464611250e",
+  "batch_implementation_sha256": "81f54615016ef8e018d74596adad2e77bdec2a7a96713c7d16bd4ecd6714469d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aece3a5efb42f993b3e8aaa92a7aaeb94e6f2e5c44baca865bc443da5587847e",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
