@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2844",
+  "content_sha256": "3df3ba48cd675a5250bdb822d13482494144fd5d09a6406195187ea30b737951",
+  "source_hash": "f3e016e7c895bd1ecbab7a2f7f38bd978f34f65a29cda76ce1a02fd1258c0552",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets that keeping one zero—or deleting everything—also represents a divisible result.",
+      "failed_cases": [
+        "lc-2844-1",
+        "lc-2844-4",
+        "lc-2844-5"
+      ]
+    },
+    {
+      "reason": "Searches only endings 00 and 25, omitting 50 and 75.",
+      "failed_cases": [
+        "lc-2844-1",
+        "lc-2844-7",
+        "lc-2844-8",
+        "lc-2844-11",
+        "lc-2844-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6891,
+  "oracle_implementation": "code_practice/import_batch_209d.py:special_number_oracle",
+  "validator_implementation_sha256": "14ab814459bf3e440646c87dc32f627786b979a195abc5d9ca9b802b7f5a7b32",
+  "batch_implementation_sha256": "9ff1a7d5014d42b3a35e4908763e7839ba2aa2479aa9ccec9861a6b7706d7f24",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2bf980e73636ed591b729f3fdda6f6e52009ecf6b5e6dd7533e601ace74229a8",
+  "elapsed_seconds": 0.101,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

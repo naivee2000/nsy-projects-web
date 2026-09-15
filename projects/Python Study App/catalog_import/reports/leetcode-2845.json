@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2845",
+  "content_sha256": "7c26a1c8f5aba04c8854ba6ba19737e91bfc086df6aad696d5f52b8391b7c51a",
+  "source_hash": "d58e781f7bf04ba2fc99c6e6da33a4637dbfbac76b9399730f6de1893d573f83",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires the marked count to equal k instead of merely having remainder k.",
+      "failed_cases": [
+        "lc-2845-2",
+        "lc-2845-3",
+        "lc-2845-8",
+        "lc-2845-9"
+      ]
+    },
+    {
+      "reason": "Marks multiples of modulo rather than values whose remainder equals k.",
+      "failed_cases": [
+        "lc-2845-4",
+        "lc-2845-5",
+        "lc-2845-8",
+        "lc-2845-10",
+        "lc-2845-11",
+        "lc-2845-14",
+        "lc-2845-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6892,
+  "oracle_implementation": "code_practice/import_batch_209d.py:interesting_oracle",
+  "validator_implementation_sha256": "14ab814459bf3e440646c87dc32f627786b979a195abc5d9ca9b802b7f5a7b32",
+  "batch_implementation_sha256": "9ff1a7d5014d42b3a35e4908763e7839ba2aa2479aa9ccec9861a6b7706d7f24",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "63d253bc001c2fe13ace0ba97c4413c37a90900be1e51e08f766160bac037e31",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

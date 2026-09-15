@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2831",
+  "content_sha256": "a656f9b1c7c2ea83552fe418b43f67cff4063be580bcdd6bec9a6d2a4fd873db",
+  "source_hash": "ce9144d82906c810cddb4bddd9d756cecb589cd9d82cbcdec0256cd46da123d4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the pre-deletion window width rather than the retained equal count.",
+      "failed_cases": [
+        "lc-2831-1",
+        "lc-2831-2",
+        "lc-2831-6",
+        "lc-2831-8",
+        "lc-2831-9",
+        "lc-2831-10",
+        "lc-2831-11",
+        "lc-2831-12",
+        "lc-2831-13",
+        "lc-2831-14",
+        "lc-2831-15",
+        "lc-2831-16"
+      ]
+    },
+    {
+      "reason": "Shrinks when exactly k deletions are needed, treating the limit as strict.",
+      "failed_cases": [
+        "lc-2831-2",
+        "lc-2831-4",
+        "lc-2831-8",
+        "lc-2831-9",
+        "lc-2831-10",
+        "lc-2831-11",
+        "lc-2831-12",
+        "lc-2831-13",
+        "lc-2831-14",
+        "lc-2831-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6878,
+  "oracle_implementation": "code_practice/import_batch_209d.py:equal_subarray_oracle",
+  "validator_implementation_sha256": "14ab814459bf3e440646c87dc32f627786b979a195abc5d9ca9b802b7f5a7b32",
+  "batch_implementation_sha256": "9ff1a7d5014d42b3a35e4908763e7839ba2aa2479aa9ccec9861a6b7706d7f24",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a1af29dd64819918fb98220b20e138934d9200a01fc42c560572b945b3461378",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

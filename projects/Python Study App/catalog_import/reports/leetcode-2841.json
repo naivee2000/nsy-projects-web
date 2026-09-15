@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2841",
+  "content_sha256": "daf91b376f6f1c6a97829128db2ca452f620b92e9feda987b6477eb149533f6c",
+  "source_hash": "45f5f736fa793196e2c49fd1c2ce10e72f52ba1ad643f64ae1a85bc2a0563e45",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts exactly m distinct values instead of at least m.",
+      "failed_cases": [
+        "lc-2841-2",
+        "lc-2841-13"
+      ]
+    },
+    {
+      "reason": "Initializes a length-m window while later sliding as though it had length k.",
+      "failed_cases": [
+        "lc-2841-1",
+        "lc-2841-2",
+        "lc-2841-4",
+        "lc-2841-9",
+        "lc-2841-13",
+        "lc-2841-14",
+        "lc-2841-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6888,
+  "oracle_implementation": "code_practice/import_batch_209d.py:almost_unique_oracle",
+  "validator_implementation_sha256": "14ab814459bf3e440646c87dc32f627786b979a195abc5d9ca9b802b7f5a7b32",
+  "batch_implementation_sha256": "9ff1a7d5014d42b3a35e4908763e7839ba2aa2479aa9ccec9861a6b7706d7f24",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b440947403249df5035631fb367b702d82f8349cbfecc3236784198720d98266",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
