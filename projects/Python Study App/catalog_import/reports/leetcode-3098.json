@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3098",
+  "content_sha256": "b1c18d61f9657244b298e9963ba1f115164762d8523d57b9651b6372ea92f856",
+  "source_hash": "afbc70bc4e2b5e2e50c3d28d75da79186883c3f595fcdadc07b89bd5a542b795",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only the most recent adjacent selected gap rather than the minimum over every selected gap.",
+      "failed_cases": [
+        "lc-3098-1",
+        "lc-3098-9",
+        "lc-3098-10",
+        "lc-3098-12",
+        "lc-3098-13",
+        "lc-3098-14"
+      ]
+    },
+    {
+      "reason": "Initializes the running minimum to zero, forcing every subsequence power to zero.",
+      "failed_cases": [
+        "lc-3098-1",
+        "lc-3098-2",
+        "lc-3098-3",
+        "lc-3098-5",
+        "lc-3098-6",
+        "lc-3098-7",
+        "lc-3098-8",
+        "lc-3098-10",
+        "lc-3098-11",
+        "lc-3098-12",
+        "lc-3098-13",
+        "lc-3098-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7145,
+  "oracle_implementation": "code_practice/import_batch_214c.py:powers_oracle",
+  "validator_implementation_sha256": "c7479a7ea5e26fc1811b312062b130f3f66003db3da736cdc72effc28426dac2",
+  "batch_implementation_sha256": "978ea3ff99d31f4dfdd9ddd8e5ea129e07644d68f42947dcce39237b897dbfbf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b9d585f0eb0254d7377f61cb50356cad6b8f5703be452fbba07a119c39a4ba0f",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

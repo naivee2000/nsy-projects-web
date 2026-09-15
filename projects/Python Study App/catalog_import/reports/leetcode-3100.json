@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3100",
+  "content_sha256": "89a7d390bfd58402abdbe1efebd45691109c1749c4ff7a94e4937e8205b4f12f",
+  "source_hash": "d79a8690920f18821dbd0a5a26585d72828d0eb1a78e97ad1afa1cfe9c25bafe",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Increases the exchange requirement by two after each trade instead of one.",
+      "failed_cases": [
+        "lc-3100-2",
+        "lc-3100-5",
+        "lc-3100-9",
+        "lc-3100-11",
+        "lc-3100-13",
+        "lc-3100-14"
+      ]
+    },
+    {
+      "reason": "Forgets that drinking the newly exchanged full bottle produces another empty bottle.",
+      "failed_cases": [
+        "lc-3100-2",
+        "lc-3100-5",
+        "lc-3100-9",
+        "lc-3100-11",
+        "lc-3100-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7147,
+  "oracle_implementation": "code_practice/import_batch_214c.py:bottles_oracle",
+  "validator_implementation_sha256": "c7479a7ea5e26fc1811b312062b130f3f66003db3da736cdc72effc28426dac2",
+  "batch_implementation_sha256": "978ea3ff99d31f4dfdd9ddd8e5ea129e07644d68f42947dcce39237b897dbfbf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f473cf01ee6d3117e327f4a7dfa8277e0a027fbfeb4d14a6972a80d559f8c6ce",
+  "elapsed_seconds": 0.014,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3096",
+  "content_sha256": "d35cf88d9035637394e2643fda4a4b631131388047c67df08b8f7516f81232f0",
+  "source_hash": "381dc6d02970ad6aec734ebac2e6aa0c4ffa6c15f928353b93d5a4257c20aae6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a tied score even though Alice must score strictly more.",
+      "failed_cases": [
+        "lc-3096-3",
+        "lc-3096-4",
+        "lc-3096-14"
+      ]
+    },
+    {
+      "reason": "Allows Alice to take every level, leaving Bob with an empty suffix.",
+      "failed_cases": [
+        "lc-3096-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7143,
+  "oracle_implementation": "code_practice/import_batch_214c.py:levels_oracle",
+  "validator_implementation_sha256": "c7479a7ea5e26fc1811b312062b130f3f66003db3da736cdc72effc28426dac2",
+  "batch_implementation_sha256": "978ea3ff99d31f4dfdd9ddd8e5ea129e07644d68f42947dcce39237b897dbfbf",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "240acbd000979205242218b4a590f00d147aee5064390227e71477a80226cba0",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

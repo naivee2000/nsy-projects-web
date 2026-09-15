@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2516,
+  "count": 2521,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -41105,6 +41105,26 @@
       "source_id": 3092
     },
     {
+      "id": "leetcode-3093",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Common Suffix Queries",
+      "summary": "Given two arrays of strings, for each string in the query array, find the string in the container array that shares the longest common suffix.",
+      "topics": [
+        "tries",
+        "strings",
+        "queries"
+      ],
+      "prerequisites": [
+        "tries"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3093.json",
+      "content_sha256": "773606f46440257909b5588f8f9d70b05dbacad110f77a3345e4eac0ef8fce86",
+      "source_id": 3093
+    },
+    {
       "id": "leetcode-3095",
       "version": 1,
       "status": "approved",
@@ -41123,6 +41143,61 @@
       "source_id": 3095
     },
     {
+      "id": "leetcode-3096",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Levels to Gain More Points",
+      "summary": "Given a binary array indicating which levels are clearable (where 0 means the level is not clearable), Alice plays the first few levels in the given order, and Bob plays the remaining levels.",
+      "topics": [
+        "prefix sums",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3096.json",
+      "content_sha256": "d35cf88d9035637394e2643fda4a4b631131388047c67df08b8f7516f81232f0",
+      "source_id": 3096
+    },
+    {
+      "id": "leetcode-3097",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Subarray With OR at Least K II",
+      "summary": "Given an array of non-negative integers and an integer k, find the minimum length of a contiguous subarray whose bitwise OR of elements is at least k.",
+      "topics": [
+        "bit manipulation",
+        "sliding window",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3097.json",
+      "content_sha256": "7b8947191c1b1758ee73b4ebeca5b72b373c3d9903f08a736bdfcc895c72bc91",
+      "source_id": 3097
+    },
+    {
+      "id": "leetcode-3098",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Sum of Subsequence Powers",
+      "summary": "Given an integer array nums and a positive integer k, calculate the sum of the minimum absolute differences between any two elements in all subsequences of length k.",
+      "topics": [
+        "dynamic programming",
+        "sorting",
+        "subsequences"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3098.json",
+      "content_sha256": "b1c18d61f9657244b298e9963ba1f115164762d8523d57b9651b6372ea92f856",
+      "source_id": 3098
+    },
+    {
       "id": "leetcode-3099",
       "version": 1,
       "status": "approved",
@@ -41138,6 +41213,23 @@
       "path": "problems/leetcode-3099.json",
       "content_sha256": "91b09146213a3b606485512daf262407687c1ccf1ac4c1613a17b184612ac4d4",
       "source_id": 3099
+    },
+    {
+      "id": "leetcode-3100",
+      "version": 1,
+      "status": "approved",
+      "title": "Water Bottles II",
+      "summary": "Given the initial count of full water bottles and the number of empty bottles required for an exchange, determine the maximum number of water bottles that can be drunk.",
+      "topics": [
+        "simulation",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3100.json",
+      "content_sha256": "89a7d390bfd58402abdbe1efebd45691109c1749c4ff7a94e4937e8205b4f12f",
+      "source_id": 3100
     },
     {
       "id": "leetcode-3101",
