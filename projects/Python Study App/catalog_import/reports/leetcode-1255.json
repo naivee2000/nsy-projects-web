@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1255",
+  "content_sha256": "c09ebfddd377d7d1bb76293e1aa369d2ceb41128dff8744f3f62f70b6a351cd2",
+  "source_hash": "a9c6b7a70d374d8f11115cad8341b60e0f1c90ac26a51178455b0a454c3ca233",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Never explores excluding the current word.",
+      "failed_cases": [
+        "lc-1255-1",
+        "lc-1255-2",
+        "lc-1255-5",
+        "lc-1255-6",
+        "lc-1255-9",
+        "lc-1255-11",
+        "lc-1255-14",
+        "lc-1255-15",
+        "lc-1255-16"
+      ]
+    },
+    {
+      "reason": "Adds required letters to availability instead of consuming them.",
+      "failed_cases": [
+        "lc-1255-1",
+        "lc-1255-2",
+        "lc-1255-4",
+        "lc-1255-5",
+        "lc-1255-6",
+        "lc-1255-9",
+        "lc-1255-11",
+        "lc-1255-14",
+        "lc-1255-15",
+        "lc-1255-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5302,
+  "oracle_implementation": "code_practice/import_batch_204d.py:score_o",
+  "validator_implementation_sha256": "0d69ea6340fdfa5f51907631304c6f6c24b6697b9eeaff90a1aa19e0f56c1572",
+  "batch_implementation_sha256": "5b7fd19e35fc4c94cc84df6476267660dd708af0cffa80fedc9c692c54a7bb2a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "748cce5063eb4c821dae872850c80374786d26fd5ea77ce5a8b5f874d6f577d1",
+  "elapsed_seconds": 0.141,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

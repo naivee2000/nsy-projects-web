@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1254",
+  "content_sha256": "ffb913e6fe1ac82863cf362c5cbaa7793b6c2feb712c21f4d906ae6282271d21",
+  "source_hash": "ac15df9759ce60e789ab1db75935d26cb2286b3749eee485527d0647f02ddab8",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats leaving the grid as enclosed instead of open.",
+      "failed_cases": [
+        "lc-1254-1",
+        "lc-1254-2",
+        "lc-1254-4",
+        "lc-1254-8",
+        "lc-1254-9",
+        "lc-1254-11",
+        "lc-1254-12",
+        "lc-1254-14"
+      ]
+    },
+    {
+      "reason": "Returns zero without examining any land components.",
+      "failed_cases": [
+        "lc-1254-1",
+        "lc-1254-2",
+        "lc-1254-6",
+        "lc-1254-7",
+        "lc-1254-10",
+        "lc-1254-13",
+        "lc-1254-14",
+        "lc-1254-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5301,
+  "oracle_implementation": "code_practice/import_batch_204d.py:closed_o",
+  "validator_implementation_sha256": "0d69ea6340fdfa5f51907631304c6f6c24b6697b9eeaff90a1aa19e0f56c1572",
+  "batch_implementation_sha256": "5b7fd19e35fc4c94cc84df6476267660dd708af0cffa80fedc9c692c54a7bb2a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "02bb86767d0db8f44a88c4bb0e704e37857cc0fd3d723f17830a9965084d61bb",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

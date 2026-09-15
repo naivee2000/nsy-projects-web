@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1246",
+  "content_sha256": "a694387fa36e53cc0a9f5ce6bdf17b6cef402a52ba97a632d03d51515db9202a",
+  "source_hash": "1060ce1ef6909fba45f088a23c13a0be03650d472b9871f48c44aa2d9ad55bbe",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats a singleton as requiring zero moves.",
+      "failed_cases": [
+        "lc-1246-1",
+        "lc-1246-2",
+        "lc-1246-3",
+        "lc-1246-5",
+        "lc-1246-7",
+        "lc-1246-8",
+        "lc-1246-9",
+        "lc-1246-10",
+        "lc-1246-11",
+        "lc-1246-12",
+        "lc-1246-13",
+        "lc-1246-14"
+      ]
+    },
+    {
+      "reason": "Merges intervals around unequal endpoint values.",
+      "failed_cases": [
+        "lc-1246-2",
+        "lc-1246-5",
+        "lc-1246-6",
+        "lc-1246-7",
+        "lc-1246-8",
+        "lc-1246-10",
+        "lc-1246-12",
+        "lc-1246-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5293,
+  "oracle_implementation": "code_practice/import_batch_204d.py:removal_o",
+  "validator_implementation_sha256": "0d69ea6340fdfa5f51907631304c6f6c24b6697b9eeaff90a1aa19e0f56c1572",
+  "batch_implementation_sha256": "5b7fd19e35fc4c94cc84df6476267660dd708af0cffa80fedc9c692c54a7bb2a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "78fc0b5c6c9b32199d2740bc266dab864eba33ec24192872e8367f29a75ab0d1",
+  "elapsed_seconds": 0.093,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

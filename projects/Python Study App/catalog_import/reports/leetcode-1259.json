@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1259",
+  "content_sha256": "560c59137346a049e16bb6221747ec09726740f1c520a1756d4be9441001d539",
+  "source_hash": "94108bfd511eedaf5dadb05f2c0dd6524521e9cd23ae6c1798c0c88cebb99c91",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the split where the first person pairs with the final valid partner.",
+      "failed_cases": [
+        "lc-1259-1",
+        "lc-1259-2",
+        "lc-1259-3",
+        "lc-1259-4",
+        "lc-1259-5",
+        "lc-1259-6",
+        "lc-1259-7",
+        "lc-1259-8",
+        "lc-1259-9",
+        "lc-1259-10",
+        "lc-1259-11",
+        "lc-1259-12",
+        "lc-1259-13",
+        "lc-1259-14"
+      ]
+    },
+    {
+      "reason": "Erases the empty-subproblem base case required by every pairing.",
+      "failed_cases": [
+        "lc-1259-1",
+        "lc-1259-2",
+        "lc-1259-3",
+        "lc-1259-4",
+        "lc-1259-5",
+        "lc-1259-6",
+        "lc-1259-7",
+        "lc-1259-8",
+        "lc-1259-9",
+        "lc-1259-10",
+        "lc-1259-11",
+        "lc-1259-12",
+        "lc-1259-13",
+        "lc-1259-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5306,
+  "oracle_implementation": "code_practice/import_batch_204d.py:hand_o",
+  "validator_implementation_sha256": "0d69ea6340fdfa5f51907631304c6f6c24b6697b9eeaff90a1aa19e0f56c1572",
+  "batch_implementation_sha256": "5b7fd19e35fc4c94cc84df6476267660dd708af0cffa80fedc9c692c54a7bb2a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "22602d5e76bf9a4a45e10c0f1f1a092e7bebe74cb964107a51e9cda6e94da249",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
