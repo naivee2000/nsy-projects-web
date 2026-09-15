@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3310",
+  "content_sha256": "314f7cf9fb12067c22a966869ede808486a0d628134be2185a76cf340e398965",
+  "source_hash": "d29b76331e48369f9de4c23ee0e2c23056ebc9b0344b398c051747fc2b7efd5a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects removal for calls made inside the suspicious set.",
+      "failed_cases": [
+        "lc-3310-2",
+        "lc-3310-4",
+        "lc-3310-5",
+        "lc-3310-6",
+        "lc-3310-8",
+        "lc-3310-9",
+        "lc-3310-10",
+        "lc-3310-11",
+        "lc-3310-13",
+        "lc-3310-14"
+      ]
+    },
+    {
+      "reason": "Explores only direct calls from k and misses deeper suspicious methods.",
+      "failed_cases": [
+        "lc-3310-6",
+        "lc-3310-8",
+        "lc-3310-11",
+        "lc-3310-13",
+        "lc-3310-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7357,
+  "oracle_implementation": "code_practice/import_batch_220c.py:methods_oracle",
+  "validator_implementation_sha256": "4b966d21e15ae20463a9ba8aafebf65ff5fe284902bac136a2af0b10b96a214c",
+  "batch_implementation_sha256": "f8d488d90fc5bf3ed285b0d9f769f8e7082c7f19019ce5eddd0a4b05ab6a0ce8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "201999ff883698996620f31c3868a733e67f97d696a365f78807eb061bcf5578",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

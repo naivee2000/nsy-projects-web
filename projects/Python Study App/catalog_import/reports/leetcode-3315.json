@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3315",
+  "content_sha256": "5b312ac050740e46c04d42fe7ea3faec76ba857aa216c74ca82fe226b2f78c3a",
+  "source_hash": "427415faee44e0c364bd64b20d6d3c337c6e7e6945bc44bc02fb364d61aba8a1",
+  "visible_tests": 2,
+  "hidden_tests": 16,
+  "reference_passed": 18,
+  "wrong_solutions": [
+    {
+      "reason": "Clears the first zero bit instead of the highest bit in the trailing-one run.",
+      "failed_cases": [
+        "lc-3315-1",
+        "lc-3315-2",
+        "lc-3315-4",
+        "lc-3315-5",
+        "lc-3315-6",
+        "lc-3315-7",
+        "lc-3315-8",
+        "lc-3315-9",
+        "lc-3315-10",
+        "lc-3315-11",
+        "lc-3315-12",
+        "lc-3315-13",
+        "lc-3315-14",
+        "lc-3315-15",
+        "lc-3315-16",
+        "lc-3315-17",
+        "lc-3315-18"
+      ]
+    },
+    {
+      "reason": "Incorrectly treats prime three as impossible along with two.",
+      "failed_cases": [
+        "lc-3315-1",
+        "lc-3315-4",
+        "lc-3315-16",
+        "lc-3315-17"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7362,
+  "oracle_implementation": "code_practice/import_batch_220c.py:bit_oracle",
+  "validator_implementation_sha256": "4b966d21e15ae20463a9ba8aafebf65ff5fe284902bac136a2af0b10b96a214c",
+  "batch_implementation_sha256": "f8d488d90fc5bf3ed285b0d9f769f8e7082c7f19019ce5eddd0a4b05ab6a0ce8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "20aa52c57385b3fe9e6bd5c1246a8a3fac194954486861ebc4d48aec64810f0c",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

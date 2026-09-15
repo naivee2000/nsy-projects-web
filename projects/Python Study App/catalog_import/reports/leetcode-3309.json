@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3309",
+  "content_sha256": "0483b4b29853555ed210b30ff1b46da2feb6c7134fbcd042e2aaecf32a15390f",
+  "source_hash": "3d138af17c13c7803e9d70b642811fbe8861367690123de00ab1bbcc27959801",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only the input order.",
+      "failed_cases": [
+        "lc-3309-1",
+        "lc-3309-5",
+        "lc-3309-9",
+        "lc-3309-10",
+        "lc-3309-11",
+        "lc-3309-12",
+        "lc-3309-13",
+        "lc-3309-14",
+        "lc-3309-15"
+      ]
+    },
+    {
+      "reason": "Pads every number to seven bits and introduces forbidden leading zeros.",
+      "failed_cases": [
+        "lc-3309-1",
+        "lc-3309-2",
+        "lc-3309-3",
+        "lc-3309-4",
+        "lc-3309-5",
+        "lc-3309-6",
+        "lc-3309-7",
+        "lc-3309-8",
+        "lc-3309-9",
+        "lc-3309-10",
+        "lc-3309-11",
+        "lc-3309-12",
+        "lc-3309-13",
+        "lc-3309-14",
+        "lc-3309-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7356,
+  "oracle_implementation": "code_practice/import_batch_220c.py:binary_oracle",
+  "validator_implementation_sha256": "4b966d21e15ae20463a9ba8aafebf65ff5fe284902bac136a2af0b10b96a214c",
+  "batch_implementation_sha256": "f8d488d90fc5bf3ed285b0d9f769f8e7082c7f19019ce5eddd0a4b05ab6a0ce8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5a01095164b44f94f3f8104ffc7057a8bb9290abd81258786fdf919652e012f8",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
