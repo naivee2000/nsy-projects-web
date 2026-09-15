@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3020",
+  "content_sha256": "8c3485a04efb53178ba03677ec7f6c08916e5db27095027178a405774bacede0",
+  "source_hash": "c5f97579801880346c30134b896aed364f36578dfd87814abcb2b313853e9535",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a chain level with only one copy even though both symmetric sides require it.",
+      "failed_cases": [
+        "lc-3020-2",
+        "lc-3020-13"
+      ]
+    },
+    {
+      "reason": "Uses an even number of ones even though every valid pattern has odd length.",
+      "failed_cases": [
+        "lc-3020-3",
+        "lc-3020-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7067,
+  "oracle_implementation": "code_practice/import_batch_212c.py:square_chain_oracle",
+  "validator_implementation_sha256": "1bc2f57fa4613abc5c35b19c7e14a03b7966cd568e7b9325fe4cf4c6d13d2429",
+  "batch_implementation_sha256": "bda9b6448fccc7a13fc0aef6585061707d6df7bb077136c8440fe006fcef0869",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b246342073fdf4deb7522c3faf2c45e6628b828d820d7b980a6bdb5b36cd67c7",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

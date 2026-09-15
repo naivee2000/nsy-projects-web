@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3017",
+  "content_sha256": "5d8056d0af2be147cbc507c02f9ee99f4b6dc99160ca4dbf7ed017531af5e6c1",
+  "source_hash": "870145ea9d7d201e524a902cfefb84fa327daecf64aa492d16a8266ae0e2ec2d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the shortcut edge itself from the cycle length.",
+      "failed_cases": [
+        "lc-3017-1",
+        "lc-3017-2",
+        "lc-3017-8",
+        "lc-3017-9",
+        "lc-3017-10",
+        "lc-3017-11",
+        "lc-3017-12",
+        "lc-3017-14",
+        "lc-3017-15",
+        "lc-3017-16"
+      ]
+    },
+    {
+      "reason": "Subtracts only one duplicated path edge instead of both ordered orientations.",
+      "failed_cases": [
+        "lc-3017-1",
+        "lc-3017-2",
+        "lc-3017-8",
+        "lc-3017-9",
+        "lc-3017-10",
+        "lc-3017-11",
+        "lc-3017-12",
+        "lc-3017-14",
+        "lc-3017-15",
+        "lc-3017-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7064,
+  "oracle_implementation": "code_practice/import_batch_212c.py:houses_oracle",
+  "validator_implementation_sha256": "1bc2f57fa4613abc5c35b19c7e14a03b7966cd568e7b9325fe4cf4c6d13d2429",
+  "batch_implementation_sha256": "bda9b6448fccc7a13fc0aef6585061707d6df7bb077136c8440fe006fcef0869",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e87584ed94041c82e5475b2fb4315860c88a41c841127059461c939a6d6b3fb7",
+  "elapsed_seconds": 0.108,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

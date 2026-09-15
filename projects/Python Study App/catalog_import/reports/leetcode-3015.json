@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3015",
+  "content_sha256": "9f473758c31834d26c64d5c334d77023160eff1099ceb81466645a38ad13097b",
+  "source_hash": "6cc7f952320527fa257c25c408cc47120538ce9cebab76ecae1201a47092217b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts unordered pairs only once instead of both travel directions.",
+      "failed_cases": [
+        "lc-3015-1",
+        "lc-3015-2",
+        "lc-3015-3",
+        "lc-3015-4",
+        "lc-3015-5",
+        "lc-3015-6",
+        "lc-3015-7",
+        "lc-3015-8",
+        "lc-3015-9",
+        "lc-3015-10",
+        "lc-3015-11",
+        "lc-3015-12",
+        "lc-3015-13",
+        "lc-3015-14",
+        "lc-3015-15",
+        "lc-3015-16"
+      ]
+    },
+    {
+      "reason": "Treats the added x-y street as having zero length.",
+      "failed_cases": [
+        "lc-3015-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7062,
+  "oracle_implementation": "code_practice/import_batch_212c.py:houses_oracle",
+  "validator_implementation_sha256": "1bc2f57fa4613abc5c35b19c7e14a03b7966cd568e7b9325fe4cf4c6d13d2429",
+  "batch_implementation_sha256": "bda9b6448fccc7a13fc0aef6585061707d6df7bb077136c8440fe006fcef0869",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1527abfcdda7b16d8edea6dfa0921f3b6e89ea488937b38aa6a404eb986930b5",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
