@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1224",
+  "content_sha256": "724e6a5e775bca13da642753f7b03370612224a7f6ad877bfdcac93313aac9d0",
+  "source_hash": "3191ac0d87f15463dfbb8d2a50d72d0cfe4ae8b9720a640d6a6c9ad3a23580e5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails the case where every value currently appears once.",
+      "failed_cases": [
+        "lc-1224-5",
+        "lc-1224-6"
+      ]
+    },
+    {
+      "reason": "Omits the single exceptional occurrence in a valid frequency pattern.",
+      "failed_cases": [
+        "lc-1224-1",
+        "lc-1224-2",
+        "lc-1224-7",
+        "lc-1224-8",
+        "lc-1224-9",
+        "lc-1224-11",
+        "lc-1224-12",
+        "lc-1224-13",
+        "lc-1224-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5271,
+  "oracle_implementation": "code_practice/import_batch_204b.py:frequency_o",
+  "validator_implementation_sha256": "faee05411d6588dff86062f2f081ffb87a2aab3b65ac20a9a915c7167c1f45f9",
+  "batch_implementation_sha256": "f4c46fa6c3b0d31abc6205876cdec58dba57e56dd059848a8d5c35c23215b12b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d52a06711512b372577e43e4ab2f10d95cdb87af030c08c8d27fa05189729679",
+  "elapsed_seconds": 0.113,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

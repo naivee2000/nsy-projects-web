@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1223",
+  "content_sha256": "f54cb2323be2fe72aa805f25ca1548150f9bfcc92732a5cfe2fc8c2bffc1f850",
+  "source_hash": "cee8dade433e12b4ce2dcfec23ace09de33fe0fd78c887b153db10601ec8d47d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects runs whose length exactly equals the allowed maximum.",
+      "failed_cases": [
+        "lc-1223-1",
+        "lc-1223-2",
+        "lc-1223-4",
+        "lc-1223-5",
+        "lc-1223-6",
+        "lc-1223-7",
+        "lc-1223-8",
+        "lc-1223-9",
+        "lc-1223-10",
+        "lc-1223-11",
+        "lc-1223-12",
+        "lc-1223-13",
+        "lc-1223-14"
+      ]
+    },
+    {
+      "reason": "Extends the run length when the face changes instead of when it repeats.",
+      "failed_cases": [
+        "lc-1223-1",
+        "lc-1223-2",
+        "lc-1223-4",
+        "lc-1223-5",
+        "lc-1223-6",
+        "lc-1223-7",
+        "lc-1223-10",
+        "lc-1223-11",
+        "lc-1223-12",
+        "lc-1223-13",
+        "lc-1223-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5270,
+  "oracle_implementation": "code_practice/import_batch_204b.py:dice_o",
+  "validator_implementation_sha256": "faee05411d6588dff86062f2f081ffb87a2aab3b65ac20a9a915c7167c1f45f9",
+  "batch_implementation_sha256": "f4c46fa6c3b0d31abc6205876cdec58dba57e56dd059848a8d5c35c23215b12b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b173ef94fddba8c4848e79fddb4b0100394d833598de5a11d5e9f20a11ea3121",
+  "elapsed_seconds": 0.241,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

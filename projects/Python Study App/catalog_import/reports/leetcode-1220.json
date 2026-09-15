@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1220",
+  "content_sha256": "c371a9d7f3d263506df5e2d91d32c8d5c9de8408901e1102d7d9117da4030ed8",
+  "source_hash": "86e57d62d944173d887999b5f49ff680b224e263fd49ce4388a28adfab8571b5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits transitions into a from u.",
+      "failed_cases": [
+        "lc-1220-2",
+        "lc-1220-3",
+        "lc-1220-4",
+        "lc-1220-5",
+        "lc-1220-6",
+        "lc-1220-7",
+        "lc-1220-8",
+        "lc-1220-9",
+        "lc-1220-10",
+        "lc-1220-11",
+        "lc-1220-12",
+        "lc-1220-13",
+        "lc-1220-14"
+      ]
+    },
+    {
+      "reason": "Omits transitions into e from i.",
+      "failed_cases": [
+        "lc-1220-2",
+        "lc-1220-3",
+        "lc-1220-4",
+        "lc-1220-5",
+        "lc-1220-6",
+        "lc-1220-7",
+        "lc-1220-8",
+        "lc-1220-9",
+        "lc-1220-10",
+        "lc-1220-11",
+        "lc-1220-12",
+        "lc-1220-13",
+        "lc-1220-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5267,
+  "oracle_implementation": "code_practice/import_batch_204b.py:vowels_o",
+  "validator_implementation_sha256": "faee05411d6588dff86062f2f081ffb87a2aab3b65ac20a9a915c7167c1f45f9",
+  "batch_implementation_sha256": "f4c46fa6c3b0d31abc6205876cdec58dba57e56dd059848a8d5c35c23215b12b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "36a73c4cf06e0dee4dd546cee3609e0c8702b746ff42d9aaaa891a9727b93987",
+  "elapsed_seconds": 0.109,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

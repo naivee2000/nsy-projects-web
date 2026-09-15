@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1222",
+  "content_sha256": "9ff4b6646cdf4ecc20428ea818505d3de0c9a1494d2d6b7d16ffd6240b399f17",
+  "source_hash": "bcfcc75587702d58c3e04e3c638e4f5fafe36f08cbfe6c7df7e1f7cb75ae668b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Looks through nearer queens and returns multiple queens from one direction.",
+      "failed_cases": [
+        "lc-1222-1",
+        "lc-1222-2",
+        "lc-1222-6",
+        "lc-1222-15",
+        "lc-1222-16"
+      ]
+    },
+    {
+      "reason": "Never scans positive row directions.",
+      "failed_cases": [
+        "lc-1222-1",
+        "lc-1222-2",
+        "lc-1222-4",
+        "lc-1222-7",
+        "lc-1222-10",
+        "lc-1222-11",
+        "lc-1222-12",
+        "lc-1222-13",
+        "lc-1222-14",
+        "lc-1222-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5269,
+  "oracle_implementation": "code_practice/import_batch_204b.py:queens_o",
+  "validator_implementation_sha256": "faee05411d6588dff86062f2f081ffb87a2aab3b65ac20a9a915c7167c1f45f9",
+  "batch_implementation_sha256": "f4c46fa6c3b0d31abc6205876cdec58dba57e56dd059848a8d5c35c23215b12b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "deee14c3adc3b5fd8d89f5f60b603292bbbd16951de89cb4b80e40920ad7d8dc",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

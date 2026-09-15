@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1229",
+  "content_sha256": "c3c5d90c44857c1691d4bc3c7f7b4166b27550b6417e5796ddc3a97a9b4b6d74",
+  "source_hash": "994d734739828d2e590d27dd0f312aec5dd55d312f644f4510e9568c8122fbca",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects an overlap whose length equals the requested duration.",
+      "failed_cases": [
+        "lc-1229-3",
+        "lc-1229-5",
+        "lc-1229-7",
+        "lc-1229-9",
+        "lc-1229-10",
+        "lc-1229-12",
+        "lc-1229-13"
+      ]
+    },
+    {
+      "reason": "Uses the earlier interval start instead of the overlap start.",
+      "failed_cases": [
+        "lc-1229-1",
+        "lc-1229-2",
+        "lc-1229-3",
+        "lc-1229-4",
+        "lc-1229-5",
+        "lc-1229-6",
+        "lc-1229-9",
+        "lc-1229-10",
+        "lc-1229-11",
+        "lc-1229-12",
+        "lc-1229-13",
+        "lc-1229-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5276,
+  "oracle_implementation": "code_practice/import_batch_204b.py:meeting_o",
+  "validator_implementation_sha256": "faee05411d6588dff86062f2f081ffb87a2aab3b65ac20a9a915c7167c1f45f9",
+  "batch_implementation_sha256": "f4c46fa6c3b0d31abc6205876cdec58dba57e56dd059848a8d5c35c23215b12b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a2fb3c0900c3977147222db7d3d884aec0483af6e61cfc969a4c96da808546d2",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
