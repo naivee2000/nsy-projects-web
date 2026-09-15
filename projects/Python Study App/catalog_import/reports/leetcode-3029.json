@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3029",
+  "content_sha256": "ecbcab1ec10aef0ac1c13b4afff29454b214620c79c4e8132a4176bfc7973235",
+  "source_hash": "22097eaec8a18ec81bf3abbfb39a2c580d68eaa70cfedb1f33faa5f066818d6a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Compares the remaining suffix with itself, incorrectly accepting the first second.",
+      "failed_cases": [
+        "lc-3029-1",
+        "lc-3029-5",
+        "lc-3029-9",
+        "lc-3029-10",
+        "lc-3029-12",
+        "lc-3029-13",
+        "lc-3029-15",
+        "lc-3029-16"
+      ]
+    },
+    {
+      "reason": "Uses floor division when no overlap works, undercounting the final partial removal.",
+      "failed_cases": [
+        "lc-3029-12",
+        "lc-3029-15",
+        "lc-3029-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7076,
+  "oracle_implementation": "code_practice/import_batch_212d.py:revert_oracle",
+  "validator_implementation_sha256": "40c594cd8d7f998f6eae0a5718e3e23a8de06a3e9f655fd3564f1460c36455bb",
+  "batch_implementation_sha256": "c8bf5d5a48bad98fa89c1e38ebe54e4addc001b9e3bc8c8b9ab610341d8c6d79",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ae88218dce9e00cf509444e7eaba1210fc84de37c6a2a671957e5f65e6e6591d",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

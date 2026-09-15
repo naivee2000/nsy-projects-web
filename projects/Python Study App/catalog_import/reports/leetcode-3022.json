@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3022",
+  "content_sha256": "be3c585851f999f8d9ffeaa20e19ff990de43f840b99f8ee78e779a78f043fbe",
+  "source_hash": "e9d032963e7a9eda5127522a3446759dc93797e9fc85446dd3ef11062e9e6be5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires fewer than k merges and rejects solutions using exactly the allowed number.",
+      "failed_cases": [
+        "lc-3022-1",
+        "lc-3022-2",
+        "lc-3022-3",
+        "lc-3022-4",
+        "lc-3022-5",
+        "lc-3022-6",
+        "lc-3022-8",
+        "lc-3022-9",
+        "lc-3022-11",
+        "lc-3022-13",
+        "lc-3022-14",
+        "lc-3022-15",
+        "lc-3022-16"
+      ]
+    },
+    {
+      "reason": "Resets the next segment mask to zero, making every following element appear to clear all forbidden bits.",
+      "failed_cases": [
+        "lc-3022-1",
+        "lc-3022-5",
+        "lc-3022-8",
+        "lc-3022-11",
+        "lc-3022-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7069,
+  "oracle_implementation": "code_practice/import_batch_212d.py:minimum_or_oracle",
+  "validator_implementation_sha256": "40c594cd8d7f998f6eae0a5718e3e23a8de06a3e9f655fd3564f1460c36455bb",
+  "batch_implementation_sha256": "c8bf5d5a48bad98fa89c1e38ebe54e4addc001b9e3bc8c8b9ab610341d8c6d79",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6c7f937c1e4bf6968cdc9259ec4b4e0cc5492576507206b962332c062c7e13d5",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3025",
+  "content_sha256": "cb79e585322f1bb3449a791a1baaace726f02d5b47d57e35b3e4e1afc2182af0",
+  "source_hash": "4454a87594de3011d0dd9c0492902179e8285c87a8931516bcfd0a9b20a22fa4",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts equal-x points bottom-first, causing incorrect vertical fence visibility.",
+      "failed_cases": [
+        "lc-3025-8",
+        "lc-3025-15"
+      ]
+    },
+    {
+      "reason": "Allows a second point at the same lower boundary height even though the first lies on the new fence.",
+      "failed_cases": [
+        "lc-3025-9",
+        "lc-3025-10",
+        "lc-3025-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7072,
+  "oracle_implementation": "code_practice/import_batch_212d.py:people_oracle",
+  "validator_implementation_sha256": "40c594cd8d7f998f6eae0a5718e3e23a8de06a3e9f655fd3564f1460c36455bb",
+  "batch_implementation_sha256": "c8bf5d5a48bad98fa89c1e38ebe54e4addc001b9e3bc8c8b9ab610341d8c6d79",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "26f9168819466b0919cef4fa997d2c9ef5746d5d197e43053b8199474de373ed",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

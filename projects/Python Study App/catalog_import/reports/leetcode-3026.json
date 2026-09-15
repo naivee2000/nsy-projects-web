@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3026",
+  "content_sha256": "93d61cfeb777e8ea69e97eaf2d5cfc4f19b4822e1d2175b35560a065a3c9e91d",
+  "source_hash": "e0dcae1d6fc6357fdfd4430b7e6fb6578611cb843e8da6a9bd70c5f2e269512b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only endpoints where the first value is k smaller, missing the opposite orientation.",
+      "failed_cases": [
+        "lc-3026-5",
+        "lc-3026-6",
+        "lc-3026-10",
+        "lc-3026-15",
+        "lc-3026-16"
+      ]
+    },
+    {
+      "reason": "Stores the largest earlier prefix instead of the smallest, losing higher-sum subarrays.",
+      "failed_cases": [
+        "lc-3026-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7073,
+  "oracle_implementation": "code_practice/import_batch_212d.py:good_sum_oracle",
+  "validator_implementation_sha256": "40c594cd8d7f998f6eae0a5718e3e23a8de06a3e9f655fd3564f1460c36455bb",
+  "batch_implementation_sha256": "c8bf5d5a48bad98fa89c1e38ebe54e4addc001b9e3bc8c8b9ab610341d8c6d79",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "115da67722442e53eb585fc7cb0d0b67aae9e2678c9f1012a386270795232d94",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

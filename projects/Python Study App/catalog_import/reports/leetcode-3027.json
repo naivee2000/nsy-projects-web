@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3027",
+  "content_sha256": "79f0a4b3dc37caf73a19ef3de3f83204096d1101f9dc52455439f5f428351f10",
+  "source_hash": "d089ff5c1d92ae3978ba4066baecc48046b95d3cb2964a85ae77488d3d823f17",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the wrong tie order for equal x coordinates.",
+      "failed_cases": [
+        "lc-3027-8",
+        "lc-3027-15"
+      ]
+    },
+    {
+      "reason": "Rejects valid horizontal fences where Alice and Bob have equal y.",
+      "failed_cases": [
+        "lc-3027-3",
+        "lc-3027-9",
+        "lc-3027-10",
+        "lc-3027-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7074,
+  "oracle_implementation": "code_practice/import_batch_212d.py:people_oracle",
+  "validator_implementation_sha256": "40c594cd8d7f998f6eae0a5718e3e23a8de06a3e9f655fd3564f1460c36455bb",
+  "batch_implementation_sha256": "c8bf5d5a48bad98fa89c1e38ebe54e4addc001b9e3bc8c8b9ab610341d8c6d79",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6f4eaa255559ab2b06cc1a0b02e02ddf057d80b5f5c77362dbdbd45bf31c926e",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
