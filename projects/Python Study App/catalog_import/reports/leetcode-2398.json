@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2398",
+  "content_sha256": "361658d94dc12bea17e03f6879ead7897b9824ef6264b32f0d45d71f13481d42",
+  "source_hash": "20df86fcdd65c43930d7a17c20a7c4f77a689a59b59e5c395bf4f6808e68d204",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the window-size multiplier from the running cost.",
+      "failed_cases": [
+        "lc-2398-1",
+        "lc-2398-6",
+        "lc-2398-9",
+        "lc-2398-10",
+        "lc-2398-11",
+        "lc-2398-12",
+        "lc-2398-13",
+        "lc-2398-15",
+        "lc-2398-16"
+      ]
+    },
+    {
+      "reason": "Uses the newest robot charge instead of the maximum charge in the window.",
+      "failed_cases": [
+        "lc-2398-6",
+        "lc-2398-9",
+        "lc-2398-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6445,
+  "oracle_implementation": "code_practice/import_batch_208d.py:robots_oracle",
+  "validator_implementation_sha256": "d8ef9d4bf5a4342146354528f97cd34bc65175e1a3d390a4e403f72ab5466ed3",
+  "batch_implementation_sha256": "149115bab7bdf78f5a3c7554e31c8764d63d209bdb0fd19b53bc137a5e7042c6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a9a0bd4bf94dda79eac4f9115fe41caaaca51345f525c00ad2c35764eb753d00",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

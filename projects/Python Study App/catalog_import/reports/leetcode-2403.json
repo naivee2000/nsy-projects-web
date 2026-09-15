@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2403",
+  "content_sha256": "7873d71b01f5e64366737df1c7a017a80342399366285c24cddfacda961a979b",
+  "source_hash": "adbd2f3ac1eab5ef2db2207d12b553bce4a1126e2e7132736be85f63c628d5ec",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Rounds required days down when a power is not divisible by gain.",
+      "failed_cases": [
+        "lc-2403-1",
+        "lc-2403-2",
+        "lc-2403-6",
+        "lc-2403-7",
+        "lc-2403-9",
+        "lc-2403-10",
+        "lc-2403-11",
+        "lc-2403-12",
+        "lc-2403-13",
+        "lc-2403-15"
+      ]
+    },
+    {
+      "reason": "Starts with gain two instead of one.",
+      "failed_cases": [
+        "lc-2403-1",
+        "lc-2403-2",
+        "lc-2403-4",
+        "lc-2403-5",
+        "lc-2403-7",
+        "lc-2403-9",
+        "lc-2403-10",
+        "lc-2403-11",
+        "lc-2403-12",
+        "lc-2403-13",
+        "lc-2403-14",
+        "lc-2403-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6450,
+  "oracle_implementation": "code_practice/import_batch_208d.py:monsters_oracle",
+  "validator_implementation_sha256": "d8ef9d4bf5a4342146354528f97cd34bc65175e1a3d390a4e403f72ab5466ed3",
+  "batch_implementation_sha256": "149115bab7bdf78f5a3c7554e31c8764d63d209bdb0fd19b53bc137a5e7042c6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a6c505ad77a69997774ac6ad22e2e16c03d1ff4e74e618485c93ed746351660a",
+  "elapsed_seconds": 0.251,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

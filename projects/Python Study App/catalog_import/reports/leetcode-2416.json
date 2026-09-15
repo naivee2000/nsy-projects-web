@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2416",
+  "content_sha256": "ba57c6191f0d6def4ffb8edf146a7014094a1556f439ac5da9a82ef87bfcc857",
+  "source_hash": "07749ee718b10a7f6ae82fc94e213bdd74bbbaaa6e63cce2abd41bd178ba8a03",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only complete-word duplicates instead of all shared prefixes.",
+      "failed_cases": [
+        "lc-2416-1",
+        "lc-2416-5",
+        "lc-2416-6",
+        "lc-2416-7",
+        "lc-2416-8",
+        "lc-2416-9",
+        "lc-2416-10",
+        "lc-2416-11",
+        "lc-2416-12",
+        "lc-2416-13",
+        "lc-2416-14",
+        "lc-2416-15",
+        "lc-2416-16"
+      ]
+    },
+    {
+      "reason": "Omits each word’s full-length prefix from its score.",
+      "failed_cases": [
+        "lc-2416-1",
+        "lc-2416-2",
+        "lc-2416-3",
+        "lc-2416-4",
+        "lc-2416-5",
+        "lc-2416-6",
+        "lc-2416-7",
+        "lc-2416-8",
+        "lc-2416-9",
+        "lc-2416-10",
+        "lc-2416-11",
+        "lc-2416-12",
+        "lc-2416-13",
+        "lc-2416-14",
+        "lc-2416-15",
+        "lc-2416-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6463,
+  "oracle_implementation": "code_practice/import_batch_208d.py:prefix_scores_oracle",
+  "validator_implementation_sha256": "d8ef9d4bf5a4342146354528f97cd34bc65175e1a3d390a4e403f72ab5466ed3",
+  "batch_implementation_sha256": "149115bab7bdf78f5a3c7554e31c8764d63d209bdb0fd19b53bc137a5e7042c6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "280055647788832462e089064adff584fd286f60f0b62498dd8566d103e2564c",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

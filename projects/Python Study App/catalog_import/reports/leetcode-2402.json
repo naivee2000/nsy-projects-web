@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2402",
+  "content_sha256": "f67a00cc111c2fb92c8ca7dca1837bac4d84ceaadb027f356b990c34ca62803e",
+  "source_hash": "45473a6baba35756e308e88e9397d1575c3b29e4be715e26ae62e899e01016f9",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ends delayed meetings at their original end time instead of preserving duration.",
+      "failed_cases": [
+        "lc-2402-1",
+        "lc-2402-2",
+        "lc-2402-16"
+      ]
+    },
+    {
+      "reason": "Breaks a most-used-room tie in favor of the larger room number.",
+      "failed_cases": [
+        "lc-2402-1",
+        "lc-2402-2",
+        "lc-2402-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6449,
+  "oracle_implementation": "code_practice/import_batch_208d.py:meetings_oracle",
+  "validator_implementation_sha256": "d8ef9d4bf5a4342146354528f97cd34bc65175e1a3d390a4e403f72ab5466ed3",
+  "batch_implementation_sha256": "149115bab7bdf78f5a3c7554e31c8764d63d209bdb0fd19b53bc137a5e7042c6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e61cf1145bf15e0e85697287434dcee943eb887dd2a41b13794e706facc66678",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

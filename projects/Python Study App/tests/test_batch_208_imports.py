@@ -5,9 +5,10 @@ from code_practice.catalog import get_catalog
 from code_practice.import_batch_208a import BATCH as A
 from code_practice.import_batch_208b import BATCH as B
 from code_practice.import_batch_208c import BATCH as C
+from code_practice.import_batch_208d import BATCH as D
 
 ROOT = Path(__file__).resolve().parents[1]
-BATCH = {**A, **B, **C}
+BATCH = {**A, **B, **C, **D}
 IDS = tuple(BATCH)
 
 
