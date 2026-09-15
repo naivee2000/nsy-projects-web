@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3157",
+  "content_sha256": "b8e0329f7ead423ab0886089250d7018988017cefbc4b53069da12ce50b57300",
+  "source_hash": "5ce7fee56b3d42a64a6304c28e1269118f9bb2bf949fe94ee3b1b63195da6b10",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Replaces an earlier tied level with a later one instead of returning the smallest level.",
+      "failed_cases": [
+        "lc-3157-6",
+        "lc-3157-8"
+      ]
+    },
+    {
+      "reason": "Initializes the best sum to zero and can leave level one selected when all level sums are positive.",
+      "failed_cases": [
+        "lc-3157-1",
+        "lc-3157-8",
+        "lc-3157-11",
+        "lc-3157-12",
+        "lc-3157-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7204,
+  "oracle_implementation": "code_practice/import_batch_216c.py:level_oracle",
+  "validator_implementation_sha256": "0af50a4d2f5927f6612a307b0405e36b3263de8493431a2e175969881c92cabe",
+  "batch_implementation_sha256": "412a7a9da0b77b4c944c648f25727fced571bcc0724b093badedcd723e67d670",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "82f0f0802fc89cefd0028b965085535f94be878dbd3e87d12d5ac2447b1967bc",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

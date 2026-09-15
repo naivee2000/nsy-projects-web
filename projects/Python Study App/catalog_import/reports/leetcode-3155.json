@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3155",
+  "content_sha256": "51606d591bd1341f1f5aa261ea42b536ba380099e5aa9948dd02cf041a984222",
+  "source_hash": "10433c540ec57a07e3818f31c132fa8148aac509725a4c646c9f8884446dbfa8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes one server is unavailable for sale even when upgrading fewer, underestimating funds.",
+      "failed_cases": [
+        "lc-3155-1",
+        "lc-3155-3",
+        "lc-3155-7",
+        "lc-3155-12",
+        "lc-3155-13",
+        "lc-3155-14"
+      ]
+    },
+    {
+      "reason": "Fails to cap the formula by the number of existing servers.",
+      "failed_cases": [
+        "lc-3155-4"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7202,
+  "oracle_implementation": "code_practice/import_batch_216c.py:upgrades_oracle",
+  "validator_implementation_sha256": "0af50a4d2f5927f6612a307b0405e36b3263de8493431a2e175969881c92cabe",
+  "batch_implementation_sha256": "412a7a9da0b77b4c944c648f25727fced571bcc0724b093badedcd723e67d670",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b74c7d6eebccaaa20b4c043513a84c507b756465b098451acd4dc61ac2770d90",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3160",
+  "content_sha256": "005bf649c30c280240fca556a914e5352e2740e10a78360233f09050b4eee623",
+  "source_hash": "7faeafa37dbf9d785b6de90cffb5cfc0715657b95301493b20a7f37639232160",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps zero-frequency colors in the map and continues counting them.",
+      "failed_cases": [
+        "lc-3160-1",
+        "lc-3160-4",
+        "lc-3160-8",
+        "lc-3160-10",
+        "lc-3160-12",
+        "lc-3160-13",
+        "lc-3160-14"
+      ]
+    },
+    {
+      "reason": "Never records a ball’s new color, so later recoloring cannot decrement the old color.",
+      "failed_cases": [
+        "lc-3160-1",
+        "lc-3160-4",
+        "lc-3160-8",
+        "lc-3160-10",
+        "lc-3160-12",
+        "lc-3160-13",
+        "lc-3160-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7207,
+  "oracle_implementation": "code_practice/import_batch_216c.py:colors_oracle",
+  "validator_implementation_sha256": "0af50a4d2f5927f6612a307b0405e36b3263de8493431a2e175969881c92cabe",
+  "batch_implementation_sha256": "412a7a9da0b77b4c944c648f25727fced571bcc0724b093badedcd723e67d670",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c56cd60f62fa4695ae18a807cac9a12dc845bc74e6d6a02df1a2099d47fac4bb",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

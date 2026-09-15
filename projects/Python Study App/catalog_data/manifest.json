@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2556,
+  "count": 2561,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -42087,6 +42087,61 @@
       "source_id": 3153
     },
     {
+      "id": "leetcode-3154",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Number of Ways to Reach the K-th Stair",
+      "summary": "Given a non-negative integer k, Alice starts at stair 1 and aims to reach stair k using operations that either move her down to the previous stair or up to the next stair by 2^jump, incrementing jump each time.",
+      "topics": [
+        "combinatorics",
+        "dynamic programming",
+        "bit manipulation"
+      ],
+      "prerequisites": [
+        "combinatorics"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3154.json",
+      "content_sha256": "cbb32d1ff4138ce30349335c603db6fc15aeffd434071193c5988eb752dc8b08",
+      "source_id": 3154
+    },
+    {
+      "id": "leetcode-3155",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Upgradable Servers",
+      "summary": "Given n data centers, you are provided with four arrays: count, upgrade, sell, and money.",
+      "topics": [
+        "math",
+        "binary search",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3155.json",
+      "content_sha256": "51606d591bd1341f1f5aa261ea42b536ba380099e5aa9948dd02cf041a984222",
+      "source_id": 3155
+    },
+    {
+      "id": "leetcode-3157",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Level of Tree with Minimum Sum",
+      "summary": "Determine the level of a binary tree with the smallest sum of node values, where the root is at level 1 and each subsequent level is one unit higher.",
+      "topics": [
+        "trees",
+        "breadth-first search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3157.json",
+      "content_sha256": "b8e0329f7ead423ab0886089250d7018988017cefbc4b53069da12ce50b57300",
+      "source_id": 3157
+    },
+    {
       "id": "leetcode-3158",
       "version": 1,
       "status": "approved",
@@ -42103,6 +42158,40 @@
       "path": "problems/leetcode-3158.json",
       "content_sha256": "44ccc08f2669eb1f76104dcfcfb9b0f2ce03333b8b80cb4455bda2e4887b3e33",
       "source_id": 3158
+    },
+    {
+      "id": "leetcode-3159",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Occurrences of an Element in an Array",
+      "summary": "Given an integer array nums, an integer array queries, and an integer x, for each query in queries, find the index of the queries[i]-th occurrence of x in nums.",
+      "topics": [
+        "arrays",
+        "hash tables"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3159.json",
+      "content_sha256": "b75a1901dd4aaa2ee45af21ccf6ebf8b055c1cab08cb8f5b6002ac84c99a70f7",
+      "source_id": 3159
+    },
+    {
+      "id": "leetcode-3160",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Number of Distinct Colors Among the Balls",
+      "summary": "Given an integer limit and a 2D array queries, mark each ball x with color y for every query [x, y].",
+      "topics": [
+        "hash tables",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3160.json",
+      "content_sha256": "005bf649c30c280240fca556a914e5352e2740e10a78360233f09050b4eee623",
+      "source_id": 3160
     },
     {
       "id": "leetcode-3162",
