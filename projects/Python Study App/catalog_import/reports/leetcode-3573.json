@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3573",
+  "content_sha256": "228a5148e1862f31f49ccc05564698fde2c645deed2151f7954213c6a1009cb4",
+  "source_hash": "49be908127c7b46d290cc7679d9bd59b312b4b1347fb50402a5950f19479694d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the cover price when closing a short instead of subtracting it.",
+      "failed_cases": [
+        "lc-3573-1",
+        "lc-3573-2",
+        "lc-3573-3",
+        "lc-3573-4",
+        "lc-3573-5",
+        "lc-3573-6",
+        "lc-3573-7",
+        "lc-3573-8",
+        "lc-3573-9",
+        "lc-3573-10",
+        "lc-3573-11",
+        "lc-3573-12",
+        "lc-3573-13",
+        "lc-3573-14"
+      ]
+    },
+    {
+      "reason": "Opens short positions by subtracting the sale proceeds instead of adding them.",
+      "failed_cases": [
+        "lc-3573-1",
+        "lc-3573-2",
+        "lc-3573-4",
+        "lc-3573-9",
+        "lc-3573-10",
+        "lc-3573-11",
+        "lc-3573-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7620,
+  "oracle_implementation": "code_practice/import_batch_229c.py:stock_oracle",
+  "validator_implementation_sha256": "c1b9043966f8b6581612e2f4a5919a1c89c566a76f639d1fa2589fa69940a565",
+  "batch_implementation_sha256": "189a3d4ad1670fa1fa02c518f7e57d1b6c321574c64745e9a5d4e4ac63c2a50c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d08c700443324d547a17304349b97f0cab3823c270907600cb7b453c9013e912",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3576",
+  "content_sha256": "a31022dc158b541fa02149c5ea7afad470d7da27f84e46ec4bfcd0b7120e5d5b",
+  "source_hash": "3d95a3fa98698e88f663c3fad5cbc84cbd1ec61aaf653af0c923b8b8e1909be8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only the target equal to the first original value and misses a cheaper opposite target.",
+      "failed_cases": [
+        "lc-3576-11",
+        "lc-3576-14"
+      ]
+    },
+    {
+      "reason": "Does not verify that the forced flips also make the final element equal to the target.",
+      "failed_cases": [
+        "lc-3576-2",
+        "lc-3576-5",
+        "lc-3576-7",
+        "lc-3576-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7623,
+  "oracle_implementation": "code_practice/import_batch_229c.py:equal_oracle",
+  "validator_implementation_sha256": "c1b9043966f8b6581612e2f4a5919a1c89c566a76f639d1fa2589fa69940a565",
+  "batch_implementation_sha256": "189a3d4ad1670fa1fa02c518f7e57d1b6c321574c64745e9a5d4e4ac63c2a50c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3e2239bba9ff3b21714e2f4d87a272fbd4005bfaa6ea94342f0383437387ee91",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

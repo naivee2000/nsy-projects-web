@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3574",
+  "content_sha256": "7696df942214cf4a99909f1adf9e23590a111fa9a0de5bc549b2545182c53be7",
+  "source_hash": "b4b2960cbff3645bd6ab7d4758549817b7a3fa21682614381f63e68e4b215e2c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires strictly more operations than necessary when the minimum count equals k.",
+      "failed_cases": [
+        "lc-3574-1",
+        "lc-3574-3",
+        "lc-3574-4",
+        "lc-3574-8",
+        "lc-3574-10",
+        "lc-3574-14"
+      ]
+    },
+    {
+      "reason": "Compares the minimum power of two with k instead of how many elements attain that minimum.",
+      "failed_cases": [
+        "lc-3574-5",
+        "lc-3574-6",
+        "lc-3574-7",
+        "lc-3574-10",
+        "lc-3574-11",
+        "lc-3574-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7621,
+  "oracle_implementation": "code_practice/import_batch_229c.py:gcd_oracle",
+  "validator_implementation_sha256": "c1b9043966f8b6581612e2f4a5919a1c89c566a76f639d1fa2589fa69940a565",
+  "batch_implementation_sha256": "189a3d4ad1670fa1fa02c518f7e57d1b6c321574c64745e9a5d4e4ac63c2a50c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ab6173ac8d74bcb94d34886234ad5348bcbb506c1e73592457244b90e431d631",
+  "elapsed_seconds": 0.097,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
