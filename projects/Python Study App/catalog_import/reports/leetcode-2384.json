@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2384",
+  "content_sha256": "f9fbfac2996cb7b9fc44df6a11826cf9708bac6a02916eb9474d9b1cf2044ec6",
+  "source_hash": "bf8334af310268f1bc74ea156fc21178c7f92b40c5781a88a502707a02d25cc7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Never uses digit nine as an outer pair.",
+      "failed_cases": [
+        "lc-2384-13",
+        "lc-2384-15"
+      ]
+    },
+    {
+      "reason": "Uses zero pairs even when they become forbidden leading zeros.",
+      "failed_cases": [
+        "lc-2384-2",
+        "lc-2384-5",
+        "lc-2384-6",
+        "lc-2384-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6431,
+  "oracle_implementation": "code_practice/import_batch_208c.py:palindrome_oracle",
+  "validator_implementation_sha256": "a6e577b85626af1d4ebf5f1131b1bcd332f8c158769102e9f31ef667480088f1",
+  "batch_implementation_sha256": "9b872534731ef8a97aaa5be56ecfb54fa715a898a232a37f92ded3b3f8d8d8e4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ac2914a4ccc181dc46a08ba9d2fe64ba88058874961c8a3576acd0c7fc4615c9",
+  "elapsed_seconds": 0.132,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

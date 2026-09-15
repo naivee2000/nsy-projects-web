@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2385",
+  "content_sha256": "fc528f6d255faf73bdbffb14735be585c2fc01a4b065f77ffae24127088c0253",
+  "source_hash": "e5959fdd9a312c3e220f6a332703f211ffb4bd52860437e52d172233107a8f85",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Builds only parent-to-child edges, preventing infection from moving upward.",
+      "failed_cases": [
+        "lc-2385-1",
+        "lc-2385-4",
+        "lc-2385-6",
+        "lc-2385-7",
+        "lc-2385-9",
+        "lc-2385-11",
+        "lc-2385-12",
+        "lc-2385-13",
+        "lc-2385-15",
+        "lc-2385-16"
+      ]
+    },
+    {
+      "reason": "Starts the minute counter at zero before processing the initial frontier and overcounts by one.",
+      "failed_cases": [
+        "lc-2385-1",
+        "lc-2385-2",
+        "lc-2385-3",
+        "lc-2385-4",
+        "lc-2385-5",
+        "lc-2385-6",
+        "lc-2385-7",
+        "lc-2385-8",
+        "lc-2385-9",
+        "lc-2385-10",
+        "lc-2385-11",
+        "lc-2385-12",
+        "lc-2385-13",
+        "lc-2385-14",
+        "lc-2385-15",
+        "lc-2385-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6432,
+  "oracle_implementation": "code_practice/import_batch_208c.py:infection_oracle",
+  "validator_implementation_sha256": "a6e577b85626af1d4ebf5f1131b1bcd332f8c158769102e9f31ef667480088f1",
+  "batch_implementation_sha256": "9b872534731ef8a97aaa5be56ecfb54fa715a898a232a37f92ded3b3f8d8d8e4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "94af0c95a235204b4e189dfee38fb7100ee43fd96bae9cce68ae7166d345439e",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

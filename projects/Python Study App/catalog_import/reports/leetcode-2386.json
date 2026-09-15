@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2386",
+  "content_sha256": "82cbc80d8c7648239f73ba564bf1d8e166d6c9d429a0852be8c0937a3faaf35b",
+  "source_hash": "04197282e29873c7ef95b381620f6823fceb2cb04fbc8227b9bd3b245accb752",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Starts from the sum of every value instead of the maximum sum containing only positives.",
+      "failed_cases": [
+        "lc-2386-1",
+        "lc-2386-2",
+        "lc-2386-5",
+        "lc-2386-6",
+        "lc-2386-10",
+        "lc-2386-11",
+        "lc-2386-13",
+        "lc-2386-14",
+        "lc-2386-16"
+      ]
+    },
+    {
+      "reason": "Pops one fewer excluded-cost state, returning the preceding rank.",
+      "failed_cases": [
+        "lc-2386-2",
+        "lc-2386-4",
+        "lc-2386-6",
+        "lc-2386-9",
+        "lc-2386-10",
+        "lc-2386-12",
+        "lc-2386-13",
+        "lc-2386-14",
+        "lc-2386-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6433,
+  "oracle_implementation": "code_practice/import_batch_208c.py:ksum_oracle",
+  "validator_implementation_sha256": "a6e577b85626af1d4ebf5f1131b1bcd332f8c158769102e9f31ef667480088f1",
+  "batch_implementation_sha256": "9b872534731ef8a97aaa5be56ecfb54fa715a898a232a37f92ded3b3f8d8d8e4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f77cddf1ab801ee04e40bcb1a3267886c63a5ff3ac0e1e9029d0771a9e298fb4",
+  "elapsed_seconds": 0.118,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

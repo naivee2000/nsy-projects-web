@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2387",
+  "content_sha256": "e7f95491a67506e6582ce6800818e6418158adae686dcb7f083c9b173c7ad9d7",
+  "source_hash": "19b85a0b6ce783e4035a627b716cc4d9e5093d2142033d3d36eda48a5aa65e84",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts values strictly below the candidate and mishandles duplicate medians.",
+      "failed_cases": [
+        "lc-2387-1",
+        "lc-2387-2",
+        "lc-2387-4",
+        "lc-2387-5",
+        "lc-2387-7",
+        "lc-2387-8",
+        "lc-2387-9",
+        "lc-2387-10",
+        "lc-2387-11",
+        "lc-2387-12",
+        "lc-2387-13",
+        "lc-2387-14",
+        "lc-2387-16"
+      ]
+    },
+    {
+      "reason": "Searches for only half the entries rather than the one-based middle rank.",
+      "failed_cases": [
+        "lc-2387-2",
+        "lc-2387-4",
+        "lc-2387-5",
+        "lc-2387-7",
+        "lc-2387-8",
+        "lc-2387-9",
+        "lc-2387-11",
+        "lc-2387-12",
+        "lc-2387-13",
+        "lc-2387-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6434,
+  "oracle_implementation": "code_practice/import_batch_208c.py:median_oracle",
+  "validator_implementation_sha256": "a6e577b85626af1d4ebf5f1131b1bcd332f8c158769102e9f31ef667480088f1",
+  "batch_implementation_sha256": "9b872534731ef8a97aaa5be56ecfb54fa715a898a232a37f92ded3b3f8d8d8e4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "15ac52f32c8eabe7adfaaa372f77a92f0f6910db10faf517a4761f8117d12841",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
