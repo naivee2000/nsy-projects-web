@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3424",
+  "content_sha256": "b3ba4d3252ad291e8d371f6447d4fe09f9d1f95f3d51c30e5930019b72255d5d",
+  "source_hash": "4aa52a73367110d1bc58136060d9d4a70bf29b08ff05e75fc33787c33a2b22fc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always pays the rearrangement fee even when positional edits are cheaper.",
+      "failed_cases": [
+        "lc-3424-4",
+        "lc-3424-5",
+        "lc-3424-7",
+        "lc-3424-13"
+      ]
+    },
+    {
+      "reason": "Never considers rearranging pieces.",
+      "failed_cases": [
+        "lc-3424-1",
+        "lc-3424-2",
+        "lc-3424-6",
+        "lc-3424-8",
+        "lc-3424-9",
+        "lc-3424-10",
+        "lc-3424-11",
+        "lc-3424-12",
+        "lc-3424-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7471,
+  "oracle_implementation": "code_practice/import_batch_224b.py:arrays_oracle",
+  "validator_implementation_sha256": "ba0ead4cf932d5c04f64dd64b00532495b8b263b57c93874f7d88254015b8110",
+  "batch_implementation_sha256": "ca0f270f17b5502f3dc3393b21da7f5d78146a0a2241e8ec836b76b56740f0c8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ad9f18e94d0bf0e110e326cb242c6fa394d24f8a7b44d2dd710e0713d1def5b7",
+  "elapsed_seconds": 0.238,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

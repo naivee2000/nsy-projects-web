@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3425",
+  "content_sha256": "cbadc05e243a6a91a88b71f190effc8c4cf8e6eb1a689275c26b77d88b98722f",
+  "source_hash": "d649de5d19d280e701ec0974b1ac6065b352ad1874d82b556d748f480acbb12f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never advances past a repeated value and accepts non-unique paths.",
+      "failed_cases": [
+        "lc-3425-1",
+        "lc-3425-2",
+        "lc-3425-5",
+        "lc-3425-7",
+        "lc-3425-9",
+        "lc-3425-11",
+        "lc-3425-14"
+      ]
+    },
+    {
+      "reason": "Reports edge count rather than node count for tie-breaking.",
+      "failed_cases": [
+        "lc-3425-1",
+        "lc-3425-2",
+        "lc-3425-3",
+        "lc-3425-4",
+        "lc-3425-5",
+        "lc-3425-6",
+        "lc-3425-7",
+        "lc-3425-8",
+        "lc-3425-9",
+        "lc-3425-10",
+        "lc-3425-11",
+        "lc-3425-12",
+        "lc-3425-13",
+        "lc-3425-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7472,
+  "oracle_implementation": "code_practice/import_batch_224b.py:path_oracle",
+  "validator_implementation_sha256": "ba0ead4cf932d5c04f64dd64b00532495b8b263b57c93874f7d88254015b8110",
+  "batch_implementation_sha256": "ca0f270f17b5502f3dc3393b21da7f5d78146a0a2241e8ec836b76b56740f0c8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "174f857375d1e27fd19dda803e836e7b5c0220a07d65e119d553784657928b95",
+  "elapsed_seconds": 0.093,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

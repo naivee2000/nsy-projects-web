@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3419",
+  "content_sha256": "0f7cca11ca16fd286a56ae5da17fd4d58c7341d50c024018de062b46e7b5349d",
+  "source_hash": "baaf79103da28960a8a3a212fd03370cd720834e1df15e6064e56edb6a555775",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Traverses outward from zero instead of reversing edges to test who can reach zero.",
+      "failed_cases": [
+        "lc-3419-1",
+        "lc-3419-2",
+        "lc-3419-3",
+        "lc-3419-4",
+        "lc-3419-5",
+        "lc-3419-6",
+        "lc-3419-8",
+        "lc-3419-9",
+        "lc-3419-10",
+        "lc-3419-11",
+        "lc-3419-12",
+        "lc-3419-13",
+        "lc-3419-14"
+      ]
+    },
+    {
+      "reason": "Treats an edge whose weight equals the candidate limit as unavailable.",
+      "failed_cases": [
+        "lc-3419-1",
+        "lc-3419-3",
+        "lc-3419-4",
+        "lc-3419-5",
+        "lc-3419-6",
+        "lc-3419-8",
+        "lc-3419-9",
+        "lc-3419-10",
+        "lc-3419-11",
+        "lc-3419-12",
+        "lc-3419-13",
+        "lc-3419-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7466,
+  "oracle_implementation": "code_practice/import_batch_224b.py:graph_oracle",
+  "validator_implementation_sha256": "ba0ead4cf932d5c04f64dd64b00532495b8b263b57c93874f7d88254015b8110",
+  "batch_implementation_sha256": "ca0f270f17b5502f3dc3393b21da7f5d78146a0a2241e8ec836b76b56740f0c8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bdff7d845d96efe821cde13bad1624a12ee0fbaf6882f4330ad155eb2bcb74d0",
+  "elapsed_seconds": 0.073,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2711,
+  "count": 2716,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -45829,6 +45829,62 @@
       "source_id": 3418
     },
     {
+      "id": "leetcode-3419",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize the Maximum Edge Weight of Graph",
+      "summary": "Given the integers n and threshold, along with a directed weighted graph consisting of n nodes numbered from 0 to n - 1, you are to remove some edges from the graph.",
+      "topics": [
+        "graphs",
+        "binary search",
+        "reachability"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3419.json",
+      "content_sha256": "0f7cca11ca16fd286a56ae5da17fd4d58c7341d50c024018de062b46e7b5349d",
+      "source_id": 3419
+    },
+    {
+      "id": "leetcode-3420",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Non-Decreasing Subarrays After K Operations",
+      "summary": "Given an array of integers and an integer k, determine the count of subarrays that can become non-decreasing by applying at most k increment operations to any element within each subarray.",
+      "topics": [
+        "arrays",
+        "monotonic queues",
+        "sliding window"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3420.json",
+      "content_sha256": "00a0cb96203af2ada8dad78b994737b3c516402154a6b3aa0ff198b151ad66f5",
+      "source_id": 3420
+    },
+    {
+      "id": "leetcode-3422",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make Subarray Elements Equal",
+      "summary": "Given an integer array nums and an integer k, determine the least number of operations needed to make at least one subarray of size k have all elements identical.",
+      "topics": [
+        "arrays",
+        "sliding window",
+        "fenwick trees"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3422.json",
+      "content_sha256": "7e78198109269af4e57e340ad31250aa4d340dd7191f7f7e0504fa5849afe296",
+      "source_id": 3422
+    },
+    {
       "id": "leetcode-3423",
       "version": 1,
       "status": "approved",
@@ -45844,6 +45900,44 @@
       "path": "problems/leetcode-3423.json",
       "content_sha256": "951066daeb772e4a25e53dda485d03c6e1d8c5ba04f6cf590db1fd436e526b86",
       "source_id": 3423
+    },
+    {
+      "id": "leetcode-3424",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Make Arrays Identical",
+      "summary": "Given two integer arrays, arr and brr, both of length n, and an integer k, you can perform the following operations on arr: - Split arr into any number of contiguous subarrays and rearrange these subarrays in any order.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3424.json",
+      "content_sha256": "b3ba4d3252ad291e8d371f6447d4fe09f9d1f95f3d51c30e5930019b72255d5d",
+      "source_id": 3424
+    },
+    {
+      "id": "leetcode-3425",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Special Path",
+      "summary": "Given an undirected tree with nodes numbered from 0 to n-1, where edges are defined by a 2D array, and an array of node values, find the longest path where all node values are unique, and the minimum number of nodes in such paths.",
+      "topics": [
+        "trees",
+        "depth-first search",
+        "sliding window"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3425.json",
+      "content_sha256": "cbadc05e243a6a91a88b71f190effc8c4cf8e6eb1a689275c26b77d88b98722f",
+      "source_id": 3425
     },
     {
       "id": "leetcode-3427",
