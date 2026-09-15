@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2471",
+  "content_sha256": "72f74709f9c7b52baccb70b62a197a8b4d6e2a8f4b2dab77a6ec895eec7e9cd2",
+  "source_hash": "5d8ea59191b9a524600c5298520ba2245d7c0a4a41dcbf963cede96380f8d604",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only whether a level is unsorted instead of its minimum swaps.",
+      "failed_cases": [
+        "lc-2471-1",
+        "lc-2471-7",
+        "lc-2471-9",
+        "lc-2471-10",
+        "lc-2471-12",
+        "lc-2471-14",
+        "lc-2471-15"
+      ]
+    },
+    {
+      "reason": "Counts adjacent swaps through inversions even though one operation may swap any two level values.",
+      "failed_cases": [
+        "lc-2471-1",
+        "lc-2471-7",
+        "lc-2471-9",
+        "lc-2471-10",
+        "lc-2471-12",
+        "lc-2471-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6518,
+  "oracle_implementation": "code_practice/import_batch_209b.py:sort_levels_oracle",
+  "validator_implementation_sha256": "3a8a2536b4bda3f447a8936c1c871ae9c4c19f1752b5b1c50c6017f559541c96",
+  "batch_implementation_sha256": "20742709a15166ca2337eb53b6d1c79c857d6eeaf14f23371903b99c7210afab",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a932b2dcb26e8dd735d84005e9020e1b966477531581da1b86c4aeeae6126df8",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

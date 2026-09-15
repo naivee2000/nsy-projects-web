@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2472",
+  "content_sha256": "fdccfc2254983e9e8a5d436fc2532b61180502be72df18f0f08277d9fc54ebb1",
+  "source_hash": "faaebcf87ab95567ae5e1d36a6aa260e57763f02139e08a4f769354345d1aa4a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only palindromes of exactly k characters and misses longer valid choices.",
+      "failed_cases": [
+        "lc-2472-1",
+        "lc-2472-8",
+        "lc-2472-12",
+        "lc-2472-14"
+      ]
+    },
+    {
+      "reason": "Counts every qualifying palindrome even when their ranges overlap.",
+      "failed_cases": [
+        "lc-2472-4",
+        "lc-2472-10",
+        "lc-2472-11",
+        "lc-2472-12",
+        "lc-2472-13",
+        "lc-2472-14",
+        "lc-2472-15",
+        "lc-2472-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6519,
+  "oracle_implementation": "code_practice/import_batch_209b.py:palindromes_oracle",
+  "validator_implementation_sha256": "3a8a2536b4bda3f447a8936c1c871ae9c4c19f1752b5b1c50c6017f559541c96",
+  "batch_implementation_sha256": "20742709a15166ca2337eb53b6d1c79c857d6eeaf14f23371903b99c7210afab",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ca1dfba844956790da1b79670eb92e9ec1612f5a751409b6ced79e1fa30c72e2",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

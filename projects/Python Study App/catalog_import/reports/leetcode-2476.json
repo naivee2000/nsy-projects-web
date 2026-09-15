@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2476",
+  "content_sha256": "6527dddbf199e41276f00a778cfcd3848a0d0112ff946dd0bff3a1ebe3f7eab3",
+  "source_hash": "db903dae0aa937524a5f2bcbac04fe846a8c23bb2ff99c0b4006fc0bdcf6ca40",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a strict lower bound, incorrectly excluding an exact query match.",
+      "failed_cases": [
+        "lc-2476-1",
+        "lc-2476-3",
+        "lc-2476-5",
+        "lc-2476-7",
+        "lc-2476-10",
+        "lc-2476-11",
+        "lc-2476-13",
+        "lc-2476-16"
+      ]
+    },
+    {
+      "reason": "Returns one nearest value twice rather than independent floor and ceiling bounds.",
+      "failed_cases": [
+        "lc-2476-1",
+        "lc-2476-2",
+        "lc-2476-4",
+        "lc-2476-6",
+        "lc-2476-8",
+        "lc-2476-9",
+        "lc-2476-10",
+        "lc-2476-11",
+        "lc-2476-12",
+        "lc-2476-13",
+        "lc-2476-14",
+        "lc-2476-15",
+        "lc-2476-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6523,
+  "oracle_implementation": "code_practice/import_batch_209b.py:bst_queries_oracle",
+  "validator_implementation_sha256": "3a8a2536b4bda3f447a8936c1c871ae9c4c19f1752b5b1c50c6017f559541c96",
+  "batch_implementation_sha256": "20742709a15166ca2337eb53b6d1c79c857d6eeaf14f23371903b99c7210afab",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dc52b0ec058c6c43b9cb864943ddabc5337ffed9123535c98756cf2e43f789a5",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

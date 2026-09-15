@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2411,
+  "count": 2416,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -33712,6 +33712,25 @@
       "source_id": 2453
     },
     {
+      "id": "leetcode-2454",
+      "version": 1,
+      "status": "approved",
+      "title": "Next Greater Element IV",
+      "summary": "Given a non-negative integer array, for each element, find the second greater element that meets specific conditions: there must be exactly one element between the current element and the second greater element, and the second greater element must be strictly greater than the current element.",
+      "topics": [
+        "monotonic stacks",
+        "arrays"
+      ],
+      "prerequisites": [
+        "monotonic stacks"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2454.json",
+      "content_sha256": "c74c0639dc2ab652928ddda080b6b533b37f3c2b355d53ab5399cfcdecd1a396",
+      "source_id": 2454
+    },
+    {
       "id": "leetcode-2455",
       "version": 1,
       "status": "approved",
@@ -33885,6 +33904,26 @@
       "source_id": 2467
     },
     {
+      "id": "leetcode-2468",
+      "version": 1,
+      "status": "approved",
+      "title": "Split Message Based on Limit",
+      "summary": "Given a string message and a positive integer limit, split message into the minimum number of parts where each part, except the last, is exactly limit characters long (including the suffix), and the last part is at most limit characters long.",
+      "topics": [
+        "strings",
+        "enumeration",
+        "counting"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2468.json",
+      "content_sha256": "212783a2ced40a8b5bff6b87fce9432f6da7f9488ab0af5a9c330e48781b9660",
+      "source_id": 2468
+    },
+    {
       "id": "leetcode-2469",
       "version": 1,
       "status": "approved",
@@ -33918,6 +33957,44 @@
       "path": "problems/leetcode-2470.json",
       "content_sha256": "9797ebcc195a0634b23113d034035f4b0ce32d711552032213b3269132e343c6",
       "source_id": 2470
+    },
+    {
+      "id": "leetcode-2471",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Operations to Sort a Binary Tree by Level",
+      "summary": "Given a binary tree with unique values, determine the minimum number of operations required to sort the values at each level in a strictly increasing order by swapping values between nodes at the same level.",
+      "topics": [
+        "trees",
+        "breadth-first search",
+        "permutations"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2471.json",
+      "content_sha256": "72f74709f9c7b52baccb70b62a197a8b4d6e2a8f4b2dab77a6ec895eec7e9cd2",
+      "source_id": 2471
+    },
+    {
+      "id": "leetcode-2472",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Non-overlapping Palindrome Substrings",
+      "summary": "Given a string and a positive integer k, find the maximum number of non-overlapping palindromic substrings, each at least k characters long.",
+      "topics": [
+        "dynamic programming",
+        "strings",
+        "palindromes"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2472.json",
+      "content_sha256": "fdccfc2254983e9e8a5d436fc2532b61180502be72df18f0f08277d9fc54ebb1",
+      "source_id": 2472
     },
     {
       "id": "leetcode-2473",
@@ -33954,6 +34031,24 @@
       "path": "problems/leetcode-2475.json",
       "content_sha256": "68b3b6e049a4c1c0aa68c37a381554948d539c138ecb431c534f533c54902179",
       "source_id": 2475
+    },
+    {
+      "id": "leetcode-2476",
+      "version": 1,
+      "status": "approved",
+      "title": "Closest Nodes Queries in a Binary Search Tree",
+      "summary": "Given a binary search tree and an array of positive integers, determine for each query the largest value less than or equal to the query and the smallest value greater than or equal to the query.",
+      "topics": [
+        "binary search trees",
+        "inorder traversal",
+        "binary search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2476.json",
+      "content_sha256": "6527dddbf199e41276f00a778cfcd3848a0d0112ff946dd0bff3a1ebe3f7eab3",
+      "source_id": 2476
     },
     {
       "id": "leetcode-2477",

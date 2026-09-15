@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2468",
+  "content_sha256": "212783a2ced40a8b5bff6b87fce9432f6da7f9488ab0af5a9c330e48781b9660",
+  "source_hash": "4df3b4136232dbd6a4203fd661ce2ed8a82e9ab7d6ca7b8403a57c45e0c7248a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes every part index has one digit and overestimates capacity after part nine.",
+      "failed_cases": [
+        "lc-2468-1"
+      ]
+    },
+    {
+      "reason": "Builds suffixes without the required total-part denominator.",
+      "failed_cases": [
+        "lc-2468-1",
+        "lc-2468-2",
+        "lc-2468-5",
+        "lc-2468-7",
+        "lc-2468-8",
+        "lc-2468-9",
+        "lc-2468-10",
+        "lc-2468-11",
+        "lc-2468-12",
+        "lc-2468-13",
+        "lc-2468-14",
+        "lc-2468-15",
+        "lc-2468-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6515,
+  "oracle_implementation": "code_practice/import_batch_209b.py:split_message_oracle",
+  "validator_implementation_sha256": "3a8a2536b4bda3f447a8936c1c871ae9c4c19f1752b5b1c50c6017f559541c96",
+  "batch_implementation_sha256": "20742709a15166ca2337eb53b6d1c79c857d6eeaf14f23371903b99c7210afab",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2ab64bde1ae355c7c01ea3df36745898022f0261011ba7d3be718b34919f610e",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
