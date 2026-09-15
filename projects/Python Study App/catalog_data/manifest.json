@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2796,
+  "count": 2801,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -47859,6 +47859,66 @@
       "source_id": 3546
     },
     {
+      "id": "leetcode-3547",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Sum of Edge Values in a Graph",
+      "summary": "Given an undirected connected graph with n nodes numbered 0 to n-1, where each node is connected to at most two others, and m edges represented by a 2D array, assign each node a unique value from 1 to n such that the score, defined as the sum of the products of values of nodes connected by each edge, is maximized.",
+      "topics": [
+        "graphs",
+        "greedy",
+        "rearrangement"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3547.json",
+      "content_sha256": "07e68fb7d5ddd167114d38c3576c0e512517e96d5a67a92c8b6017cfd56849b3",
+      "source_id": 3547
+    },
+    {
+      "id": "leetcode-3548",
+      "version": 1,
+      "status": "approved",
+      "title": "Equal Sum Grid Partition II",
+      "summary": "Given an m x n matrix of positive integers, determine if a partition can be made by either a horizontal or vertical cut such that each resulting section is non-empty, has equal sums, or can achieve equal sums by excluding at most one cell, while maintaining connectivity within each section.",
+      "topics": [
+        "matrices",
+        "prefix sums",
+        "hash maps"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3548.json",
+      "content_sha256": "dd19077e6400805250538cfe87abdd8b5c375337c5feeeec118e660e9938bfdc",
+      "source_id": 3548
+    },
+    {
+      "id": "leetcode-3549",
+      "version": 1,
+      "status": "approved",
+      "title": "Multiply Two Polynomials",
+      "summary": "Given two integer arrays, where each array's element at index i represents the coefficient of x^i in a polynomial, compute the coefficients of the product polynomial R(x) = A(x) × B(x), and return these coefficients in a new integer array of appropriate length.",
+      "topics": [
+        "math",
+        "divide and conquer",
+        "fast Fourier transform"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3549.json",
+      "content_sha256": "ab405971cd8710665561dab50f3dc59f076cce36e2c490b51c7233e6b8aeba1e",
+      "source_id": 3549
+    },
+    {
       "id": "leetcode-3550",
       "version": 1,
       "status": "approved",
@@ -47874,6 +47934,42 @@
       "path": "problems/leetcode-3550.json",
       "content_sha256": "b16a989cee7718b3a00b78210594e70673b4b97e28e55b322c86df03d81235ff",
       "source_id": 3550
+    },
+    {
+      "id": "leetcode-3551",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Swaps to Sort by Digit Sum",
+      "summary": "Given an array of distinct positive integers, determine the least number of swaps needed to arrange the array in ascending order based on the sum of the digits of each element.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "permutations"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3551.json",
+      "content_sha256": "16e083fe71e5f5723fe7f961dba07bcbbafed60607bcf9579f730f344ada9943",
+      "source_id": 3551
+    },
+    {
+      "id": "leetcode-3552",
+      "version": 1,
+      "status": "approved",
+      "title": "Grid Teleportation Traversal",
+      "summary": "Given a 2D character grid of size m x n, where each cell is either empty ('.'), an obstacle ('#'), or a portal (an uppercase letter 'A'-'Z'), start at the top-left cell (0, 0) and aim to reach the bottom-right cell (m - 1, n - 1).",
+      "topics": [
+        "graphs",
+        "breadth first search",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3552.json",
+      "content_sha256": "167c6b4c6c54bdec13030f7b5853c154ada4dc0390e1778f46ed07282b099998",
+      "source_id": 3552
     },
     {
       "id": "leetcode-3560",

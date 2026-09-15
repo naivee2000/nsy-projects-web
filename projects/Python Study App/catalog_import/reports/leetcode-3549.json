@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3549",
+  "content_sha256": "ab405971cd8710665561dab50f3dc59f076cce36e2c490b51c7233e6b8aeba1e",
+  "source_hash": "a85443897ec6408541f3255c2b91b9a649a6a318fa7653b5ff8d7e775d4b6417",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Drops the highest-degree coefficient by returning one position too few.",
+      "failed_cases": [
+        "lc-3549-1",
+        "lc-3549-2",
+        "lc-3549-3",
+        "lc-3549-4",
+        "lc-3549-5",
+        "lc-3549-6",
+        "lc-3549-7",
+        "lc-3549-8",
+        "lc-3549-9",
+        "lc-3549-10",
+        "lc-3549-11",
+        "lc-3549-12",
+        "lc-3549-13",
+        "lc-3549-14",
+        "lc-3549-15"
+      ]
+    },
+    {
+      "reason": "Squares the first transformed polynomial instead of multiplying the two transforms.",
+      "failed_cases": [
+        "lc-3549-1",
+        "lc-3549-2",
+        "lc-3549-5",
+        "lc-3549-7",
+        "lc-3549-8",
+        "lc-3549-9",
+        "lc-3549-10",
+        "lc-3549-11",
+        "lc-3549-12",
+        "lc-3549-13",
+        "lc-3549-14",
+        "lc-3549-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7596,
+  "oracle_implementation": "code_practice/import_batch_228c.py:polynomial_oracle",
+  "validator_implementation_sha256": "07748bf0a237b89f5beaf81cd5b2640f757f556541f3bb6daedb901730c16788",
+  "batch_implementation_sha256": "b748e81b27a75718068728075d7709bca9d34a38c652bc891a620ffde9528ba2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f430f3487659d6bb4c118b5b8ca7dbe88e66476cad9003692de5328cfa35334c",
+  "elapsed_seconds": 0.107,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

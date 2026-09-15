@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3551",
+  "content_sha256": "16e083fe71e5f5723fe7f961dba07bcbbafed60607bcf9579f730f344ada9943",
+  "source_hash": "0308b126e031bf894d6f49d4e99a7fde0585e1004ffc195fedcc33f78022df3f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts by numeric value instead of digit sum with numeric tie-breaking.",
+      "failed_cases": [
+        "lc-3551-1",
+        "lc-3551-2",
+        "lc-3551-4",
+        "lc-3551-5",
+        "lc-3551-8"
+      ]
+    },
+    {
+      "reason": "Counts the number of elements in each cycle instead of the required cycle length minus one swaps.",
+      "failed_cases": [
+        "lc-3551-1",
+        "lc-3551-2",
+        "lc-3551-3",
+        "lc-3551-4",
+        "lc-3551-5",
+        "lc-3551-6",
+        "lc-3551-7",
+        "lc-3551-8",
+        "lc-3551-9",
+        "lc-3551-10",
+        "lc-3551-11",
+        "lc-3551-12",
+        "lc-3551-13",
+        "lc-3551-14",
+        "lc-3551-15",
+        "lc-3551-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7598,
+  "oracle_implementation": "code_practice/import_batch_228c.py:swap_oracle",
+  "validator_implementation_sha256": "07748bf0a237b89f5beaf81cd5b2640f757f556541f3bb6daedb901730c16788",
+  "batch_implementation_sha256": "b748e81b27a75718068728075d7709bca9d34a38c652bc891a620ffde9528ba2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9bf46bbba089d9958ef0d300d40a8ac6201189301f3b86356c62a734d1bb6354",
+  "elapsed_seconds": 6.817,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

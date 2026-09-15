@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3548",
+  "content_sha256": "dd19077e6400805250538cfe87abdd8b5c375337c5feeeec118e660e9938bfdc",
+  "source_hash": "83089c1d181ee69af44d3d79bd7e9e2443a068a2a3b568b392281d4cb81c3909",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows removing an interior cell from a one-row section even though it disconnects that section.",
+      "failed_cases": [
+        "lc-3548-3"
+      ]
+    },
+    {
+      "reason": "Rejects already equal sections instead of accepting the cut immediately.",
+      "failed_cases": [
+        "lc-3548-5",
+        "lc-3548-6",
+        "lc-3548-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7595,
+  "oracle_implementation": "code_practice/import_batch_228c.py:partition_discount_oracle",
+  "validator_implementation_sha256": "07748bf0a237b89f5beaf81cd5b2640f757f556541f3bb6daedb901730c16788",
+  "batch_implementation_sha256": "b748e81b27a75718068728075d7709bca9d34a38c652bc891a620ffde9528ba2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2c1972b3d3bc4ade549578080ddc54396e775d90e8075908e66755b86ce5b281",
+  "elapsed_seconds": 0.091,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
