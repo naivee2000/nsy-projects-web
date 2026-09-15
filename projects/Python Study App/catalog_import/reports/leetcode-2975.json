@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2975",
+  "content_sha256": "d4a95a95eaaf80ca012ad397f61ffa278bb232435cb1b263a12c6fa644beada6",
+  "source_hash": "b3059e92dffe06428b8efcf8e6e483317db5c97afcb3b779466cf1940945c040",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a gap present in either direction instead of requiring the same side length in both.",
+      "failed_cases": [
+        "lc-2975-1",
+        "lc-2975-2",
+        "lc-2975-4",
+        "lc-2975-7",
+        "lc-2975-8",
+        "lc-2975-10",
+        "lc-2975-11",
+        "lc-2975-12",
+        "lc-2975-14",
+        "lc-2975-15"
+      ]
+    },
+    {
+      "reason": "Forgets to reduce a potentially huge square area modulo 1,000,000,007.",
+      "failed_cases": [
+        "lc-2975-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7022,
+  "oracle_implementation": "code_practice/import_batch_211d.py:field_oracle",
+  "validator_implementation_sha256": "4974a67948ddb985ce8c3ebc1c5a07e48f31dfa582f2f654e274af05e1ee23dd",
+  "batch_implementation_sha256": "beaa1824e89c28f056fe8c83c276efc7bdb3a9b2ff4720c89efba8b361fe0efa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8a61ce4d8df8acfa5094c6fb9f8745f3d33338505ee577b70b0b015d6453486d",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

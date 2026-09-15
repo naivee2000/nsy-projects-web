@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2971",
+  "content_sha256": "69389cfd11ddf948eb23fc8bd3a9247723227b6ef427a7a911120ddddeaa041a",
+  "source_hash": "371e2ad7643e65d7252a44b23f07815932d192d0b7b395f59abade385d200796",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a degenerate polygon where the longest side equals the other-side sum.",
+      "failed_cases": [
+        "lc-2971-2",
+        "lc-2971-3",
+        "lc-2971-4",
+        "lc-2971-6",
+        "lc-2971-8"
+      ]
+    },
+    {
+      "reason": "Returns only the longest side instead of the full perimeter.",
+      "failed_cases": [
+        "lc-2971-1",
+        "lc-2971-2",
+        "lc-2971-5",
+        "lc-2971-7",
+        "lc-2971-9",
+        "lc-2971-10",
+        "lc-2971-11",
+        "lc-2971-12",
+        "lc-2971-13",
+        "lc-2971-14",
+        "lc-2971-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7018,
+  "oracle_implementation": "code_practice/import_batch_211d.py:polygon_oracle",
+  "validator_implementation_sha256": "4974a67948ddb985ce8c3ebc1c5a07e48f31dfa582f2f654e274af05e1ee23dd",
+  "batch_implementation_sha256": "beaa1824e89c28f056fe8c83c276efc7bdb3a9b2ff4720c89efba8b361fe0efa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7f2c45407c45246bd1ab89b70c0b98e7b54962287f0687f626fef2562f816092",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -407,14 +407,27 @@ try {
   }
   report.checks.push('batch 54 examples explain value-pair uniqueness, identical pixel rows, signed complex formatting, duplicate clock entries, singleton values rather than indices, and short reversed tails');
 
-  for (const entry of manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values', 'recursive-step-combinations', 'longest-target-sum-subarray'].includes(e.id))) {
-    const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
-    const result = await judge(page, problem, problem.reference_solution);
-    assert.equal(result.status, 'accepted', `${entry.id}: ${JSON.stringify(result)}`);
-    assert.equal(result.cases.length, problem.tests.length);
-    report.worker.push({ id: entry.id, status: result.status, cases: result.cases.length, runtimeMs: result.runtimeMs });
-    if (report.worker.length % 25 === 0) console.log(`Verified ${report.worker.length} reference suites in Chrome`);
+  const referenceEntries = manifest.entries.filter(e => e.source_id !== null || ['matrix-spiral-order', 'tree-max-depth', 'total-covered-length', 'next-greater-values', 'recursive-step-combinations', 'longest-target-sum-subarray'].includes(e.id));
+  const referenceResults = new Array(referenceEntries.length);
+  let nextReference = 0, completedReferences = 0;
+  async function verifyReferences() {
+    while (true) {
+      const index = nextReference++;
+      if (index >= referenceEntries.length) return;
+      const entry = referenceEntries[index];
+      const problem = JSON.parse(await fs.readFile(path.join(root, 'catalog_data', entry.path), 'utf8'));
+      const result = await judge(page, problem, problem.reference_solution);
+      assert.equal(result.status, 'accepted', `${entry.id}: ${JSON.stringify(result)}`);
+      assert.equal(result.cases.length, problem.tests.length);
+      referenceResults[index] = { id: entry.id, status: result.status, cases: result.cases.length, runtimeMs: result.runtimeMs };
+      completedReferences += 1;
+      if (completedReferences % 100 === 0) {
+        console.log(`Verified ${completedReferences} reference suites in Chrome`);
+      }
+    }
   }
+  await Promise.all(Array.from({ length: Math.min(4, referenceEntries.length) }, verifyReferences));
+  report.worker.push(...referenceResults);
   console.log(`All ${report.worker.length} reference suites passed; checking wrong algorithms and output contracts`);
   for (const id of [148, 149, 156, 164, 186, 189, 203]) {
     const problem = JSON.parse(await fs.readFile(path.join(root, `catalog_data/problems/leetcode-${id}.json`), 'utf8'));

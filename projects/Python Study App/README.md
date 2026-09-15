@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 2,366 runnable problems (101 original exercises plus 2,265 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 2,466 runnable problems (101 original exercises plus 2,365 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 2,366-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 2,466-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,8 +68,8 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 84 existing equivalents, 2,265 verified imports, 156 documented
-design/interactive exclusions, 32 quarantined records, and 1,092 pending records. Ordinary tree and
+Current status: 84 existing equivalents, 2,365 verified imports, 156 documented
+design/interactive exclusions, 33 quarantined records, and 991 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
@@ -622,7 +622,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 1,463 problems; future
+been checked against every reviewed batch. The current package contains 2,466 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the
@@ -643,19 +643,21 @@ Development validation includes `.venv/bin/python -m pytest` and
 `node scripts/verify_catalog_browser.mjs` (requires Playwright and Chrome).
 The browser check uses a temporary database, exercises real Pyodide workers,
 checks the editor with external HTTP requests blocked, restarts the backend,
-and performs 100 real HTTP requests per benchmark route. On macOS/Linux it records
+and performs 100 real HTTP requests per benchmark route. Its catalog-wide reference
+phase runs up to four fresh workers concurrently while preserving one isolated
+worker per problem. On macOS/Linux it records
 the OS-reported backend peak RSS over each complete server run, excluding the
 browser and benchmark driver. Install dependencies and build the frontend first.
 Its report is `catalog_import/benchmarks/current.json`; until all imports finish,
 this is an interim measurement, not the final full-catalog performance gate.
 
-At the 2,265-import checkpoint, 1,116 backend tests and 19 frontend tests passed,
+At the 2,365-import checkpoint, 1,126 backend tests and 19 frontend tests passed,
 and the production frontend built successfully. Chrome/Pyodide validated all
-2,271 eligible approved reference suites across at least 2,650 isolated judge runs,
+2,371 eligible approved reference suites across at least 2,750 isolated judge runs,
 including wrong-answer rejection, timeout recovery, restart persistence, and
 offline assets. On the recorded Apple M3 Pro/18 GiB development machine, backend
-startup took 236 ms and peak RSS was 273.188 MiB. Warm p95 latency over 100
-requests per route ranged from 1.092 ms to 1.719 ms for library search/filtering,
+startup took 343 ms and peak RSS was 273 MiB. Warm p95 latency over 100
+requests per route ranged from 1.079 ms to 1.652 ms for library search/filtering,
 problem details, and the dashboard, below the interim 300/500 ms targets. Exact
 route measurements and hardware metadata are retained in
 `catalog_import/benchmarks/current.json`.

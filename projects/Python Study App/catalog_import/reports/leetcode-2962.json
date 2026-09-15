@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2962",
+  "content_sha256": "10e3b312768af683c83d5b44c17644e5832aab190961758f7f92cbdec48771a3",
+  "source_hash": "74daff2579ce0ca92ed5dab5be72671fa99f721e921510e42f76f8e69bcb323a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Shrinks only after more than k maxima, counting windows with too few occurrences.",
+      "failed_cases": [
+        "lc-2962-1",
+        "lc-2962-3",
+        "lc-2962-5",
+        "lc-2962-6",
+        "lc-2962-7",
+        "lc-2962-9",
+        "lc-2962-10",
+        "lc-2962-11",
+        "lc-2962-12",
+        "lc-2962-13",
+        "lc-2962-14",
+        "lc-2962-15",
+        "lc-2962-16"
+      ]
+    },
+    {
+      "reason": "Adds an extra start position for every right endpoint, overcounting invalid windows.",
+      "failed_cases": [
+        "lc-2962-1",
+        "lc-2962-2",
+        "lc-2962-3",
+        "lc-2962-4",
+        "lc-2962-5",
+        "lc-2962-6",
+        "lc-2962-7",
+        "lc-2962-8",
+        "lc-2962-9",
+        "lc-2962-10",
+        "lc-2962-11",
+        "lc-2962-12",
+        "lc-2962-13",
+        "lc-2962-14",
+        "lc-2962-15",
+        "lc-2962-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7009,
+  "oracle_implementation": "code_practice/import_batch_211d.py:maximum_subarrays_oracle",
+  "validator_implementation_sha256": "4974a67948ddb985ce8c3ebc1c5a07e48f31dfa582f2f654e274af05e1ee23dd",
+  "batch_implementation_sha256": "beaa1824e89c28f056fe8c83c276efc7bdb3a9b2ff4720c89efba8b361fe0efa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ab36cb3856cbe546ee606c6b6bad5747718c1af4e31074bae674f148a7283918",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

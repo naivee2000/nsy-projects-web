@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2964",
+  "content_sha256": "204a3f83ded86b2cd350f37ce935ec3d70b66afe94500e0247f1f7bb70c928cd",
+  "source_hash": "0262b4f4b01533008e7e40450fb6579e244e21eacc009ae7d8b971e2e75166fe",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Looks up the pair remainder rather than its additive inverse.",
+      "failed_cases": [
+        "lc-2964-1",
+        "lc-2964-5",
+        "lc-2964-9",
+        "lc-2964-11",
+        "lc-2964-15",
+        "lc-2964-16"
+      ]
+    },
+    {
+      "reason": "Allows the middle and right indices to be equal, counting non-triplets.",
+      "failed_cases": [
+        "lc-2964-1",
+        "lc-2964-2",
+        "lc-2964-6",
+        "lc-2964-8",
+        "lc-2964-9",
+        "lc-2964-10",
+        "lc-2964-11",
+        "lc-2964-12",
+        "lc-2964-13",
+        "lc-2964-15",
+        "lc-2964-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7011,
+  "oracle_implementation": "code_practice/import_batch_211d.py:triplets_oracle",
+  "validator_implementation_sha256": "4974a67948ddb985ce8c3ebc1c5a07e48f31dfa582f2f654e274af05e1ee23dd",
+  "batch_implementation_sha256": "beaa1824e89c28f056fe8c83c276efc7bdb3a9b2ff4720c89efba8b361fe0efa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0152ceba7adb468b330a7ff5b888d561b3d357fa7e4f9fa4956dcbbfad032393",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
