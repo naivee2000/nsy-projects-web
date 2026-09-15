@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3496",
+  "content_sha256": "2e9753968c8113cfa944f9bacbc01df2d2cffa524447c1b6421e3b55e296672d",
+  "source_hash": "b6c6184d172d5c2aa717f6beba34f74d3f2cdaa882a9d29c68a46763eb5f4e25",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "For odd length, leaves the maximum rather than minimum value unremoved.",
+      "failed_cases": [
+        "lc-3496-1",
+        "lc-3496-3",
+        "lc-3496-6",
+        "lc-3496-7",
+        "lc-3496-12",
+        "lc-3496-13"
+      ]
+    },
+    {
+      "reason": "For even length, assumes the two endpoints can remain instead of minimizing over adjacent pairs.",
+      "failed_cases": [
+        "lc-3496-2",
+        "lc-3496-5",
+        "lc-3496-10",
+        "lc-3496-11",
+        "lc-3496-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7543,
+  "oracle_implementation": "code_practice/import_batch_226d.py:score_oracle",
+  "validator_implementation_sha256": "3b9ed2f9694354f138bdab5bfed253589b2ea52ff31ef6c84cf764eb527204cf",
+  "batch_implementation_sha256": "f66e01dd50411abd53c18ba76e72a4cbfdab6838de9b6de9dfedd5b9d92f4299",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5bfdf9b45228ebedb41ffb270b0b14f29494f17e3eaf8a3c0405a97a326e0c2a",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

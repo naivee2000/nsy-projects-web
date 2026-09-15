@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3503",
+  "content_sha256": "3d7ae845975c39b6da07d288d69b4041c06a3df892d7b17572d610f248292f09",
+  "source_hash": "519acca9e9a657c9410fa9f4328cce34052576518660606431ac459c36cb6e55",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Matches s against t without reversing t and therefore pairs characters in the wrong order.",
+      "failed_cases": [
+        "lc-3503-3",
+        "lc-3503-5",
+        "lc-3503-6",
+        "lc-3503-9",
+        "lc-3503-10",
+        "lc-3503-12",
+        "lc-3503-14"
+      ]
+    },
+    {
+      "reason": "Ignores palindromes contained entirely within one input string.",
+      "failed_cases": [
+        "lc-3503-2",
+        "lc-3503-4",
+        "lc-3503-7",
+        "lc-3503-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7550,
+  "oracle_implementation": "code_practice/import_batch_226d.py:palindrome_oracle",
+  "validator_implementation_sha256": "3b9ed2f9694354f138bdab5bfed253589b2ea52ff31ef6c84cf764eb527204cf",
+  "batch_implementation_sha256": "f66e01dd50411abd53c18ba76e72a4cbfdab6838de9b6de9dfedd5b9d92f4299",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3b5aff61cbda061bd463c7ef8244fb825249048377a03fda6ce8873b9dc83e09",
+  "elapsed_seconds": 0.106,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

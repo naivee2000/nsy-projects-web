@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3501",
+  "content_sha256": "da3d4aab9170b1d79e130ba4dac252a6219780b6b310a074c406022cfebf36bd",
+  "source_hash": "db9704e1e7b33c55b959cde36ece7b7d656e56b7a8ac957d5c6e22d7579be39c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns only the query-local gain and omits active positions outside the range.",
+      "failed_cases": [
+        "lc-3501-1",
+        "lc-3501-3",
+        "lc-3501-5",
+        "lc-3501-8",
+        "lc-3501-9",
+        "lc-3501-11",
+        "lc-3501-14",
+        "lc-3501-15"
+      ]
+    },
+    {
+      "reason": "Uses full zero-run lengths at query boundaries instead of clipping them to the queried substring.",
+      "failed_cases": [
+        "lc-3501-2",
+        "lc-3501-7",
+        "lc-3501-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7548,
+  "oracle_implementation": "code_practice/import_batch_226d.py:range_trade_oracle",
+  "validator_implementation_sha256": "3b9ed2f9694354f138bdab5bfed253589b2ea52ff31ef6c84cf764eb527204cf",
+  "batch_implementation_sha256": "f66e01dd50411abd53c18ba76e72a4cbfdab6838de9b6de9dfedd5b9d92f4299",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dc2a5f541f388a7d2e45aca6359d11f5c92f204a5ce35e3a13a01e12a7737a18",
+  "elapsed_seconds": 0.143,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

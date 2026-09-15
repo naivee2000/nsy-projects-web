@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3499",
+  "content_sha256": "2a4141199f83f00711d2b3678028a55c53efa3983642aa4f013cbb2553fae5d5",
+  "source_hash": "cdbda12cb1609d75962cd0fcdfe62f41ca43b262bf60f8b2593f5f243c596d84",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only one adjacent zero run instead of both sides of the removed one-run.",
+      "failed_cases": [
+        "lc-3499-2",
+        "lc-3499-7",
+        "lc-3499-10",
+        "lc-3499-12",
+        "lc-3499-13",
+        "lc-3499-14"
+      ]
+    },
+    {
+      "reason": "Combines adjacent one runs rather than zero runs.",
+      "failed_cases": [
+        "lc-3499-2",
+        "lc-3499-7",
+        "lc-3499-8",
+        "lc-3499-9",
+        "lc-3499-11",
+        "lc-3499-12",
+        "lc-3499-13",
+        "lc-3499-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7546,
+  "oracle_implementation": "code_practice/import_batch_226d.py:trade_oracle",
+  "validator_implementation_sha256": "3b9ed2f9694354f138bdab5bfed253589b2ea52ff31ef6c84cf764eb527204cf",
+  "batch_implementation_sha256": "f66e01dd50411abd53c18ba76e72a4cbfdab6838de9b6de9dfedd5b9d92f4299",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "11bc1534aa7f18981363183d3bf49a7174001cbcc934657503ab74893da63e5c",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
