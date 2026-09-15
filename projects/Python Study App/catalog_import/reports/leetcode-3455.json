@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3455",
+  "content_sha256": "eb73911dbf3b60beff99c7a47fb0758cf50b166ceaf34b90e7777283e50491ee",
+  "source_hash": "9426e54ef0c8e8ffb0d42a81e96fa2be0f9efbb457b6fbf1832f9bec3be7943a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the first literal piece to overlap the middle piece.",
+      "failed_cases": [
+        "lc-3455-5",
+        "lc-3455-10",
+        "lc-3455-14"
+      ]
+    },
+    {
+      "reason": "Allows the middle literal piece to overlap the final piece.",
+      "failed_cases": [
+        "lc-3455-1",
+        "lc-3455-4",
+        "lc-3455-5",
+        "lc-3455-9",
+        "lc-3455-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7502,
+  "oracle_implementation": "code_practice/import_batch_225b.py:matching_oracle",
+  "validator_implementation_sha256": "bb2fcefc270fde9debb7e4b4cededb2fffad07499aa0bd150c709102ceec1a34",
+  "batch_implementation_sha256": "13f863c77b4dfa1c6af1f11899c6bd605590b526dab8acfa113204d20b755ad9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d10c3ca7c89b17e37e1c667848786095c3847ee64eb281fa1a68325c8d3fb3cd",
+  "elapsed_seconds": 0.099,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

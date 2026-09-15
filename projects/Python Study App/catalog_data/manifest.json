@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2731,
+  "count": 2736,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -46288,6 +46288,46 @@
       "source_id": 3447
     },
     {
+      "id": "leetcode-3448",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Substrings Divisible By Last Digit",
+      "summary": "Given a string s made of digits, count the substrings where the substring's value is divisible by its non-zero final digit, including those with leading zeros.",
+      "topics": [
+        "strings",
+        "dynamic programming",
+        "modular arithmetic"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3448.json",
+      "content_sha256": "ad001a05da7750ff660ff26f6b3e91d7646b653523732996e617b41afadb7f99",
+      "source_id": 3448
+    },
+    {
+      "id": "leetcode-3449",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize the Minimum Game Score",
+      "summary": "Given an array points of size n and an integer m, initialize an array gameScore of size n with all elements set to 0.",
+      "topics": [
+        "arrays",
+        "binary search",
+        "greedy"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3449.json",
+      "content_sha256": "05c3e3e8e96b4e90b04e0528f643b2105e747ffb3bfbdfa6bedc703ec2ccbf3b",
+      "source_id": 3449
+    },
+    {
       "id": "leetcode-3450",
       "version": 1,
       "status": "approved",
@@ -46321,6 +46361,64 @@
       "path": "problems/leetcode-3452.json",
       "content_sha256": "3b31edeacb5d48b8fd4d3b2cf0eaa949279af44913a353fe3f7109b4cc35793c",
       "source_id": 3452
+    },
+    {
+      "id": "leetcode-3453",
+      "version": 1,
+      "status": "approved",
+      "title": "Separate Squares I",
+      "summary": "Given a 2D integer array representing squares with their bottom-left coordinates and side lengths, determine the minimum y-coordinate of a horizontal line that equally divides the total area of squares above and below the line, allowing for overlaps where areas are counted multiple times.",
+      "topics": [
+        "arrays",
+        "binary search",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3453.json",
+      "content_sha256": "6944205b428a4dc44aa3c772c77561ffed2701e51e422456deb8fcd6657585a8",
+      "source_id": 3453
+    },
+    {
+      "id": "leetcode-3454",
+      "version": 1,
+      "status": "approved",
+      "title": "Separate Squares II",
+      "summary": "Given a 2D integer array of squares, each defined by its bottom-left corner coordinates and side length, determine the minimum y-coordinate of a horizontal line that equally divides the total area of squares above and below it, allowing for overlaps where areas are counted once.",
+      "topics": [
+        "geometry",
+        "sweep line",
+        "segment trees"
+      ],
+      "prerequisites": [
+        "geometry"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3454.json",
+      "content_sha256": "d41a25bfef8a924d24116fa50dcbd866136ae047a5d3235296b9235664757d14",
+      "source_id": 3454
+    },
+    {
+      "id": "leetcode-3455",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Matching Substring",
+      "summary": "Given a string s and a pattern string p with exactly two '*' characters, find the length of the shortest substring in s that matches p .",
+      "topics": [
+        "strings",
+        "two pointers",
+        "string matching"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3455.json",
+      "content_sha256": "eb73911dbf3b60beff99c7a47fb0758cf50b166ceaf34b90e7777283e50491ee",
+      "source_id": 3455
     },
     {
       "id": "leetcode-3456",

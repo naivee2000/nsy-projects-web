@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3448",
+  "content_sha256": "ad001a05da7750ff660ff26f6b3e91d7646b653523732996e617b41afadb7f99",
+  "source_hash": "f720e844feee84e3f397aa8c137edb7ab9417074f2b6ab6790fe34c2c19a0dd2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tests every suffix for divisibility by one instead of its actual last digit.",
+      "failed_cases": [
+        "lc-3448-1",
+        "lc-3448-2",
+        "lc-3448-3",
+        "lc-3448-5",
+        "lc-3448-7",
+        "lc-3448-9",
+        "lc-3448-10",
+        "lc-3448-11",
+        "lc-3448-12",
+        "lc-3448-14"
+      ]
+    },
+    {
+      "reason": "Omits the new one-character substring at each ending position.",
+      "failed_cases": [
+        "lc-3448-1",
+        "lc-3448-2",
+        "lc-3448-3",
+        "lc-3448-4",
+        "lc-3448-6",
+        "lc-3448-7",
+        "lc-3448-8",
+        "lc-3448-9",
+        "lc-3448-10",
+        "lc-3448-11",
+        "lc-3448-12",
+        "lc-3448-13",
+        "lc-3448-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7495,
+  "oracle_implementation": "code_practice/import_batch_225b.py:divisible_oracle",
+  "validator_implementation_sha256": "bb2fcefc270fde9debb7e4b4cededb2fffad07499aa0bd150c709102ceec1a34",
+  "batch_implementation_sha256": "13f863c77b4dfa1c6af1f11899c6bd605590b526dab8acfa113204d20b755ad9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a053e1292c874eb91ecb15ddb2dc452c6165d946487df6f3f1e3084495d9b044",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

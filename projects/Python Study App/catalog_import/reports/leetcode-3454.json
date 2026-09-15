@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3454",
+  "content_sha256": "d41a25bfef8a924d24116fa50dcbd866136ae047a5d3235296b9235664757d14",
+  "source_hash": "6a2f93fa5185186197f2f2fb58436a8b27e5594a6a8741b1d62c9d0b1286d554",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds every square area independently and double-counts overlaps.",
+      "failed_cases": [
+        "lc-3454-10"
+      ]
+    },
+    {
+      "reason": "Cuts at one third of the union area instead of one half.",
+      "failed_cases": [
+        "lc-3454-1",
+        "lc-3454-2",
+        "lc-3454-3",
+        "lc-3454-4",
+        "lc-3454-5",
+        "lc-3454-6",
+        "lc-3454-7",
+        "lc-3454-8",
+        "lc-3454-9",
+        "lc-3454-10",
+        "lc-3454-11",
+        "lc-3454-12",
+        "lc-3454-13",
+        "lc-3454-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7501,
+  "oracle_implementation": "code_practice/import_batch_225b.py:union_square_oracle",
+  "validator_implementation_sha256": "bb2fcefc270fde9debb7e4b4cededb2fffad07499aa0bd150c709102ceec1a34",
+  "batch_implementation_sha256": "13f863c77b4dfa1c6af1f11899c6bd605590b526dab8acfa113204d20b755ad9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ed7238ce5a0fb6e66897d0807e2d116314f59c6cbca35f683b1b05c43b18b110",
+  "elapsed_seconds": 0.149,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
