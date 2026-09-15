@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3235",
+  "content_sha256": "e2c915b6f1c61385d6765f42ed45bc3b16e2acdd29e340ac10d2d6af819b622d",
+  "source_hash": "b984e64efaa478f1ddaac96fa8cd444dc04c49670e479e9d1c4d35c3d57199d1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores connected boundary barriers.",
+      "failed_cases": [
+        "lc-3235-3",
+        "lc-3235-8",
+        "lc-3235-9",
+        "lc-3235-11",
+        "lc-3235-13",
+        "lc-3235-15"
+      ]
+    },
+    {
+      "reason": "Classifies right/bottom contacts as left/top contacts, preventing barrier detection.",
+      "failed_cases": [
+        "lc-3235-3",
+        "lc-3235-8",
+        "lc-3235-9",
+        "lc-3235-11",
+        "lc-3235-13",
+        "lc-3235-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7282,
+  "oracle_implementation": "code_practice/import_batch_219d.py:corner_oracle",
+  "validator_implementation_sha256": "2ea4dbad8582b2b554b3edf413ca082551ddf94ccf456f14e1e529e3e321e396",
+  "batch_implementation_sha256": "732481e0b6319dde44ce78d5a3aaf2b14655108a4f7f7efa6c60313739a7123a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1586590b830ce202d194d32bdd2975e836fdb54877761a912965954984b91274",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

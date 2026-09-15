@@ -1,0 +1,64 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3244",
+  "content_sha256": "08702249d7a75b3f231bb9bce1fc9cecbde90d677b3bcabf2b2a6b63fef4977c",
+  "source_hash": "3c7d3ca79764155d4fc8189192eeafb7139d87b2b7b42ba94eab4f83241e9b22",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Increases distance when bypassing a chain edge.",
+      "failed_cases": [
+        "lc-3244-1",
+        "lc-3244-2",
+        "lc-3244-3",
+        "lc-3244-4",
+        "lc-3244-5",
+        "lc-3244-6",
+        "lc-3244-7",
+        "lc-3244-8",
+        "lc-3244-9",
+        "lc-3244-10",
+        "lc-3244-11",
+        "lc-3244-12",
+        "lc-3244-13",
+        "lc-3244-14",
+        "lc-3244-15",
+        "lc-3244-16"
+      ]
+    },
+    {
+      "reason": "Always reports the original chain length after shortcuts.",
+      "failed_cases": [
+        "lc-3244-1",
+        "lc-3244-2",
+        "lc-3244-3",
+        "lc-3244-4",
+        "lc-3244-5",
+        "lc-3244-6",
+        "lc-3244-7",
+        "lc-3244-8",
+        "lc-3244-9",
+        "lc-3244-10",
+        "lc-3244-11",
+        "lc-3244-12",
+        "lc-3244-13",
+        "lc-3244-14",
+        "lc-3244-15",
+        "lc-3244-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7291,
+  "oracle_implementation": "code_practice/import_batch_219d.py:road_oracle",
+  "validator_implementation_sha256": "2ea4dbad8582b2b554b3edf413ca082551ddf94ccf456f14e1e529e3e321e396",
+  "batch_implementation_sha256": "732481e0b6319dde44ce78d5a3aaf2b14655108a4f7f7efa6c60313739a7123a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "04b765de7fcd42ffc8f63f94db2f1f797564782938388891f5024d03738fbfee",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

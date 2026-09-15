@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3250",
+  "content_sha256": "104a0d0023a74b95b0ee9f5c5b24f3772e45b27395cc1067481ba0af340c6b5e",
+  "source_hash": "a20f658d4f37b6fcb2ada60a4f21dacc72f029364243d80fb6c9c254ed1b1c25",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Enforces only arr1 monotonicity and ignores the derived arr2 condition.",
+      "failed_cases": [
+        "lc-3250-1",
+        "lc-3250-6",
+        "lc-3250-9",
+        "lc-3250-10",
+        "lc-3250-12",
+        "lc-3250-15",
+        "lc-3250-16"
+      ]
+    },
+    {
+      "reason": "Counts only transitions from arr1 value zero.",
+      "failed_cases": [
+        "lc-3250-1",
+        "lc-3250-2",
+        "lc-3250-5",
+        "lc-3250-6",
+        "lc-3250-7",
+        "lc-3250-8",
+        "lc-3250-9",
+        "lc-3250-10",
+        "lc-3250-11",
+        "lc-3250-12",
+        "lc-3250-13",
+        "lc-3250-14",
+        "lc-3250-15",
+        "lc-3250-16",
+        "lc-3250-17"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7297,
+  "oracle_implementation": "code_practice/import_batch_219d.py:monotone_oracle",
+  "validator_implementation_sha256": "2ea4dbad8582b2b554b3edf413ca082551ddf94ccf456f14e1e529e3e321e396",
+  "batch_implementation_sha256": "732481e0b6319dde44ce78d5a3aaf2b14655108a4f7f7efa6c60313739a7123a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b3b37d4c753d82fc2722a625c61080c4272ac95abc721a235c1d8896efe7d393",
+  "elapsed_seconds": 2.663,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

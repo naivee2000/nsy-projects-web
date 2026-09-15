@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2621,
+  "count": 2626,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -43357,6 +43357,26 @@
       "source_id": 3234
     },
     {
+      "id": "leetcode-3235",
+      "version": 1,
+      "status": "approved",
+      "title": "Check if the Rectangle Corner Is Reachable",
+      "summary": "Given two positive integers xCorner and yCorner, and a list of circles where each circle is defined by its center coordinates (xi, yi) and radius ri, determine if there exists a path from the bottom left corner of a rectangle (at the origin) to the top right corner (at coordinates (xCorner, yCorner)) such that the path lies entirely within the rectangle, does not touch or enter any circle, and touches the rectangle only at the two corners.",
+      "topics": [
+        "geometry",
+        "union find",
+        "graphs"
+      ],
+      "prerequisites": [
+        "geometry"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3235.json",
+      "content_sha256": "e2c915b6f1c61385d6765f42ed45bc3b16e2acdd29e340ac10d2d6af819b622d",
+      "source_id": 3235
+    },
+    {
       "id": "leetcode-3237",
       "version": 1,
       "status": "approved",
@@ -43428,6 +43448,26 @@
       "source_id": 3240
     },
     {
+      "id": "leetcode-3241",
+      "version": 1,
+      "status": "approved",
+      "title": "Time Taken to Mark All Nodes",
+      "summary": "Given an undirected tree with nodes numbered from 0 to n-1, and edges defined by a 2D integer array, determine the time for each node to be marked.",
+      "topics": [
+        "trees",
+        "rerooting",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3241.json",
+      "content_sha256": "e71bafb56272e79ccdc86c28ead9dc79d4328b3937682296561ccc74f003cc77",
+      "source_id": 3241
+    },
+    {
       "id": "leetcode-3243",
       "version": 1,
       "status": "approved",
@@ -43444,6 +43484,26 @@
       "path": "problems/leetcode-3243.json",
       "content_sha256": "7e78fb2a2861ead410fd3014bfaac26caff0a2eb12cbc1e047ade26a9bc89983",
       "source_id": 3243
+    },
+    {
+      "id": "leetcode-3244",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Distance After Road Addition Queries II",
+      "summary": "Given an integer n and a series of queries, each adding a unidirectional road between two cities.",
+      "topics": [
+        "graphs",
+        "greedy",
+        "linked lists"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3244.json",
+      "content_sha256": "08702249d7a75b3f231bb9bce1fc9cecbde90d677b3bcabf2b2a6b63fef4977c",
+      "source_id": 3244
     },
     {
       "id": "leetcode-3247",
@@ -43495,6 +43555,41 @@
       "path": "problems/leetcode-3249.json",
       "content_sha256": "b8e3f9b100e375f4473e979f612f808c453e2711096813da388d9facff398c0f",
       "source_id": 3249
+    },
+    {
+      "id": "leetcode-3250",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Count of Monotonic Pairs I",
+      "summary": "Given an array of positive integers nums of length n, find the number of pairs of non-negative integer arrays (arr1, arr2) such that arr1 is monotonically non-decreasing, arr2 is monotonically non-increasing, and arr1[i] + arr2[i] equals nums[i] for all indices i.",
+      "topics": [
+        "dynamic programming",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3250.json",
+      "content_sha256": "104a0d0023a74b95b0ee9f5c5b24f3772e45b27395cc1067481ba0af340c6b5e",
+      "source_id": 3250
+    },
+    {
+      "id": "leetcode-3253",
+      "version": 1,
+      "status": "approved",
+      "title": "Construct String with Minimum Cost (Easy)",
+      "summary": "Given a target string and an array of words along with their associated costs, construct the target string by appending words to an empty string s.",
+      "topics": [
+        "tries",
+        "dynamic programming",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3253.json",
+      "content_sha256": "c3a938f3258735cbb633b6811cfec64a323a532de6f33f93850468e7e366cf68",
+      "source_id": 3253
     },
     {
       "id": "leetcode-3254",

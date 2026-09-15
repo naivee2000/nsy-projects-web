@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3253",
+  "content_sha256": "c3a938f3258735cbb633b6811cfec64a323a532de6f33f93850468e7e366cf68",
+  "source_hash": "22fac02b5486358afc22f75bf3dc0db366cd79ba5e24cc0a128d0fb788c964e6",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds an erroneous one-point surcharge every time a word is appended.",
+      "failed_cases": [
+        "lc-3253-1",
+        "lc-3253-3",
+        "lc-3253-5",
+        "lc-3253-6",
+        "lc-3253-7",
+        "lc-3253-8",
+        "lc-3253-10",
+        "lc-3253-11",
+        "lc-3253-12",
+        "lc-3253-13",
+        "lc-3253-14",
+        "lc-3253-15",
+        "lc-3253-16"
+      ]
+    },
+    {
+      "reason": "Forgets construction cost accumulated before the current word.",
+      "failed_cases": [
+        "lc-3253-1",
+        "lc-3253-5",
+        "lc-3253-6",
+        "lc-3253-7",
+        "lc-3253-8",
+        "lc-3253-10",
+        "lc-3253-11",
+        "lc-3253-12",
+        "lc-3253-13",
+        "lc-3253-14",
+        "lc-3253-15",
+        "lc-3253-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7300,
+  "oracle_implementation": "code_practice/import_batch_219d.py:cost_oracle",
+  "validator_implementation_sha256": "2ea4dbad8582b2b554b3edf413ca082551ddf94ccf456f14e1e529e3e321e396",
+  "batch_implementation_sha256": "732481e0b6319dde44ce78d5a3aaf2b14655108a4f7f7efa6c60313739a7123a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "66ee9acd5bb046d304f6f7a2236cc1e028a5f234c0eb0968e7723d441a6082af",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
