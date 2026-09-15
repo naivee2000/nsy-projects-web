@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3486",
+  "content_sha256": "3a6c687bdb67fd83f1613556626c75bd2465b5d8e9b6a79ef7b793a17b870f94",
+  "source_hash": "d59d2411e84d3052aa3bd627a837979983a1dc8f0caeca5a7f6491259be503a0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows two distinct values to be duplicated by discarding only the third-largest duplicate boundary.",
+      "failed_cases": [
+        "lc-3486-6",
+        "lc-3486-10"
+      ]
+    },
+    {
+      "reason": "Ignores third occurrences and can admit one value three times.",
+      "failed_cases": [
+        "lc-3486-1",
+        "lc-3486-4",
+        "lc-3486-13",
+        "lc-3486-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7533,
+  "oracle_implementation": "code_practice/import_batch_226b.py:path_oracle",
+  "validator_implementation_sha256": "24eba83b0c3b3788f4be634b05cb1cb97fd2dbe4c8ca57fd217b79c85b96b6cf",
+  "batch_implementation_sha256": "935b1de27e597317a4bfdccbc9dd654d872cb21b0d07964804b34c808da323c3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "52885c865c2733fc65a2ad1edaa211ca6969c5be010dcb25f3983cbf483d90b6",
+  "elapsed_seconds": 0.206,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3488",
+  "content_sha256": "c6a80419186ec2ddfba65e1fafdf183065e56c8c73b7c8b3560459ae479b5122",
+  "source_hash": "5993e97f5bbfed573ed01c897c46a69852665b3abc25dfe5984718fdef599646",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses linear distance to the previous occurrence and misses wraparound.",
+      "failed_cases": [
+        "lc-3488-1",
+        "lc-3488-2",
+        "lc-3488-4",
+        "lc-3488-6",
+        "lc-3488-7",
+        "lc-3488-8",
+        "lc-3488-9",
+        "lc-3488-10",
+        "lc-3488-11",
+        "lc-3488-12",
+        "lc-3488-13",
+        "lc-3488-14"
+      ]
+    },
+    {
+      "reason": "Returns zero for values with no other matching index.",
+      "failed_cases": [
+        "lc-3488-1",
+        "lc-3488-3",
+        "lc-3488-5",
+        "lc-3488-10",
+        "lc-3488-11",
+        "lc-3488-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7535,
+  "oracle_implementation": "code_practice/import_batch_226b.py:queries_oracle",
+  "validator_implementation_sha256": "24eba83b0c3b3788f4be634b05cb1cb97fd2dbe4c8ca57fd217b79c85b96b6cf",
+  "batch_implementation_sha256": "935b1de27e597317a4bfdccbc9dd654d872cb21b0d07964804b34c808da323c3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6cb16ef84879f53fbe392383e10309923b494e57e25d34b56b36542d5e731545",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

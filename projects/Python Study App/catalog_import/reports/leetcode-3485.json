@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3485",
+  "content_sha256": "589d8517e0abba495225f7bc91938b59486518dd7efe56e2dfb4f4987208851f",
+  "source_hash": "c74d96fb5553e3fd1b96f86d83510243562a9ac8d481aed994b35811f78e3936",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Temporarily removes every qualifying trie node on the word path, including nodes that remain supported by more than k words.",
+      "failed_cases": [
+        "lc-3485-2",
+        "lc-3485-4",
+        "lc-3485-5",
+        "lc-3485-6",
+        "lc-3485-7",
+        "lc-3485-8",
+        "lc-3485-10",
+        "lc-3485-11",
+        "lc-3485-13"
+      ]
+    },
+    {
+      "reason": "Reuses the global best prefix without removing the queried word’s critical path nodes.",
+      "failed_cases": [
+        "lc-3485-1",
+        "lc-3485-2",
+        "lc-3485-5",
+        "lc-3485-8",
+        "lc-3485-12",
+        "lc-3485-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7532,
+  "oracle_implementation": "code_practice/import_batch_226b.py:prefixes_oracle",
+  "validator_implementation_sha256": "24eba83b0c3b3788f4be634b05cb1cb97fd2dbe4c8ca57fd217b79c85b96b6cf",
+  "batch_implementation_sha256": "935b1de27e597317a4bfdccbc9dd654d872cb21b0d07964804b34c808da323c3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8786e3184a6dd8c3b5d333602dd57c896c118a2fa8cb04b0793735929d56c693",
+  "elapsed_seconds": 0.132,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

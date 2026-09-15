@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2751,
+  "count": 2756,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -46782,6 +46782,44 @@
       "source_id": 3479
     },
     {
+      "id": "leetcode-3480",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Subarrays After Removing One Conflicting Pair",
+      "summary": "Given an array nums containing the integers from 1 to n in order, and a 2D array conflictingPairs where each element [a, b] indicates a conflicting pair, remove exactly one conflicting pair from conflictingPairs.",
+      "topics": [
+        "arrays",
+        "prefix sums",
+        "enumeration"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3480.json",
+      "content_sha256": "a0718302e040be6560c45930d85e22ae0e1f16d9eaaebc515670aad261a4e266",
+      "source_id": 3480
+    },
+    {
+      "id": "leetcode-3481",
+      "version": 1,
+      "status": "approved",
+      "title": "Apply Substitutions",
+      "summary": "Given a mapping of replacements and a text string with placeholders %var%, replace each placeholder with the corresponding value from the mapping.",
+      "topics": [
+        "strings",
+        "graphs",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3481.json",
+      "content_sha256": "6722010b4ef1c5cd3cfe2052c919d891b8d3ed8b4e25290156d4b654b3365daa",
+      "source_id": 3481
+    },
+    {
       "id": "leetcode-3483",
       "version": 1,
       "status": "approved",
@@ -46800,6 +46838,46 @@
       "source_id": 3483
     },
     {
+      "id": "leetcode-3485",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Common Prefix of K Strings After Removal",
+      "summary": "Given an array of strings and an integer k, for each element in the array, determine the length of the longest common prefix among any k strings from the remaining array after removing the current element.",
+      "topics": [
+        "strings",
+        "tries",
+        "segment trees"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3485.json",
+      "content_sha256": "589d8517e0abba495225f7bc91938b59486518dd7efe56e2dfb4f4987208851f",
+      "source_id": 3485
+    },
+    {
+      "id": "leetcode-3486",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Special Path II",
+      "summary": "Given an undirected tree rooted at node 0 with nodes numbered from 0 to n-1, represented by a 2D array of edges where each edge connects two nodes and has a specified length, and an integer array nums where each element represents the value at the corresponding node, find the longest path from an ancestor node to a descendant node where all node values are distinct except for at most one value that may appear twice.",
+      "topics": [
+        "trees",
+        "recursion",
+        "fenwick trees"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3486.json",
+      "content_sha256": "3a6c687bdb67fd83f1613556626c75bd2465b5d8e9b6a79ef7b793a17b870f94",
+      "source_id": 3486
+    },
+    {
       "id": "leetcode-3487",
       "version": 1,
       "status": "approved",
@@ -46816,6 +46894,24 @@
       "path": "problems/leetcode-3487.json",
       "content_sha256": "68cb24fbf6a091d3b01fcf557db84bf8e5dc269f270bd57c287990caa138509f",
       "source_id": 3487
+    },
+    {
+      "id": "leetcode-3488",
+      "version": 1,
+      "status": "approved",
+      "title": "Closest Equal Element Queries",
+      "summary": "Given a circular array nums and an array queries, for each query, find the smallest distance to another index where the value matches the queried index.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "binary search"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3488.json",
+      "content_sha256": "c6a80419186ec2ddfba65e1fafdf183065e56c8c73b7c8b3560459ae479b5122",
+      "source_id": 3488
     },
     {
       "id": "leetcode-3491",
