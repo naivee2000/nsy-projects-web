@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3169",
+  "content_sha256": "7d9d832d75b2d788d72d7cc7264f218004b9825bf94e7b0c29b1c5fca65dccc7",
+  "source_hash": "14630b2f276cecb58e4c97a8096b3e0d790e9ad661ecfff0a502ccffcd3a9d48",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats intervals sharing an endpoint as disjoint and counts that shared day twice.",
+      "failed_cases": [
+        "lc-3169-7"
+      ]
+    },
+    {
+      "reason": "Counts inclusive meeting intervals as half-open and undercounts occupied endpoints.",
+      "failed_cases": [
+        "lc-3169-1",
+        "lc-3169-2",
+        "lc-3169-4",
+        "lc-3169-5",
+        "lc-3169-6",
+        "lc-3169-7",
+        "lc-3169-8",
+        "lc-3169-9",
+        "lc-3169-10",
+        "lc-3169-11",
+        "lc-3169-13",
+        "lc-3169-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7216,
+  "oracle_implementation": "code_practice/import_batch_217a.py:days_oracle",
+  "validator_implementation_sha256": "e71fda9e514ef7eca7760b47230e335d278f680a5e8eac17ccf1f859a27e7733",
+  "batch_implementation_sha256": "c231e3b52ead64692217a70684bc2c07f57f86dfa2b964b139c41db0ef6975b6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "881337dd2f53627385b32e48e862a82d206017d1e0b1636752774d267b89192e",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3176",
+  "content_sha256": "31df4b3725e01985ded2ebd76d8bdc0ea48a6627ecb3640b969cc3a66b5e897c",
+  "source_hash": "15776dab621b1a3a62f1119c1ec0119e8cb84c08d0c20cd3f900292126aa7da3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Charges a change even when consecutive chosen values are equal.",
+      "failed_cases": [
+        "lc-3176-1",
+        "lc-3176-2",
+        "lc-3176-6",
+        "lc-3176-7",
+        "lc-3176-8",
+        "lc-3176-10",
+        "lc-3176-11",
+        "lc-3176-12",
+        "lc-3176-13",
+        "lc-3176-14"
+      ]
+    },
+    {
+      "reason": "Never fills DP states using exactly k changes.",
+      "failed_cases": [
+        "lc-3176-2",
+        "lc-3176-5",
+        "lc-3176-6",
+        "lc-3176-7",
+        "lc-3176-8",
+        "lc-3176-9",
+        "lc-3176-10",
+        "lc-3176-11",
+        "lc-3176-12",
+        "lc-3176-13",
+        "lc-3176-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7223,
+  "oracle_implementation": "code_practice/import_batch_217a.py:good_oracle",
+  "validator_implementation_sha256": "e71fda9e514ef7eca7760b47230e335d278f680a5e8eac17ccf1f859a27e7733",
+  "batch_implementation_sha256": "c231e3b52ead64692217a70684bc2c07f57f86dfa2b964b139c41db0ef6975b6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5b5175497fe8053349c253f52b8d252cc3c1c552024ffcee54c61e778bd64230",
+  "elapsed_seconds": 0.068,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

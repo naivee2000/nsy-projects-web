@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2566,
+  "count": 2571,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -42322,6 +42322,61 @@
       "source_id": 3168
     },
     {
+      "id": "leetcode-3169",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Days Without Meetings",
+      "summary": "Given a positive integer representing the total number of workdays starting from day 1, and a 2D array of meeting schedules where each meeting is defined by a start and end day, count the number of days the employee is available and has no meetings scheduled.",
+      "topics": [
+        "intervals",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3169.json",
+      "content_sha256": "7d9d832d75b2d788d72d7cc7264f218004b9825bf94e7b0c29b1c5fca65dccc7",
+      "source_id": 3169
+    },
+    {
+      "id": "leetcode-3170",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographically Minimum String After Removing Stars",
+      "summary": "Given a string s that may contain any number of '*', remove all '*' characters by performing the following operation as many times as necessary: 1.",
+      "topics": [
+        "greedy",
+        "stacks",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3170.json",
+      "content_sha256": "c01563a1b487fe2963430ced22fbbbb93bba332fd97803d2c633e5f70915ee74",
+      "source_id": 3170
+    },
+    {
+      "id": "leetcode-3171",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Subarray With Bitwise OR Closest to K",
+      "summary": "Given an array nums and an integer k, find a contiguous subarray whose bitwise OR of elements has the smallest absolute difference with k.",
+      "topics": [
+        "bit manipulation",
+        "dynamic programming",
+        "subarrays"
+      ],
+      "prerequisites": [
+        "bit manipulation"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3171.json",
+      "content_sha256": "0a435632a385a116e82b063d2e271981446c201bda57e0bca7da261f70101d29",
+      "source_id": 3171
+    },
+    {
       "id": "leetcode-3173",
       "version": 1,
       "status": "approved",
@@ -42355,6 +42410,40 @@
       "path": "problems/leetcode-3174.json",
       "content_sha256": "6faec41d0c47a96fecf5cda9ffd8a2ce14c217d6e532e0c32ea853372f95982f",
       "source_id": 3174
+    },
+    {
+      "id": "leetcode-3175",
+      "version": 1,
+      "status": "approved",
+      "title": "Find The First Player to win K Games in a Row",
+      "summary": "In a competition with n players, each having a unique skill level, players are queued from 0 to n-1.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3175.json",
+      "content_sha256": "610b270987ab7d176cb3fe7a2e9b1c0afbe752ebe0a0600ef8542d50f8e28872",
+      "source_id": 3175
+    },
+    {
+      "id": "leetcode-3176",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Maximum Length of a Good Subsequence I",
+      "summary": "Given an integer array nums and a non-negative integer k, determine the longest subsequence where at most k indices have consecutive elements differing.",
+      "topics": [
+        "dynamic programming",
+        "subsequences"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3176.json",
+      "content_sha256": "31df4b3725e01985ded2ebd76d8bdc0ea48a6627ecb3640b969cc3a66b5e897c",
+      "source_id": 3176
     },
     {
       "id": "leetcode-3178",

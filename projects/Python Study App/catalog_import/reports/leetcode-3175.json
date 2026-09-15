@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3175",
+  "content_sha256": "610b270987ab7d176cb3fe7a2e9b1c0afbe752ebe0a0600ef8542d50f8e28872",
+  "source_hash": "6baad04ac74763119469022f136ed4f15b722aab9e6f1f521b603268e3c16b84",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Resets a new champion’s first victory to zero instead of one.",
+      "failed_cases": [
+        "lc-3175-1"
+      ]
+    },
+    {
+      "reason": "After the initial scan always returns player zero, even though the maximum champion remains in front.",
+      "failed_cases": [
+        "lc-3175-1",
+        "lc-3175-2",
+        "lc-3175-4",
+        "lc-3175-6",
+        "lc-3175-8",
+        "lc-3175-11",
+        "lc-3175-12",
+        "lc-3175-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7222,
+  "oracle_implementation": "code_practice/import_batch_217a.py:winner_oracle",
+  "validator_implementation_sha256": "e71fda9e514ef7eca7760b47230e335d278f680a5e8eac17ccf1f859a27e7733",
+  "batch_implementation_sha256": "c231e3b52ead64692217a70684bc2c07f57f86dfa2b964b139c41db0ef6975b6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2dfe6160a70f6bf59db2df9d14bb52ca181656ee2d770d7f2d42077b9ce8eddc",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

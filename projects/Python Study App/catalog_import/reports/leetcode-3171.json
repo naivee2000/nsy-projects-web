@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3171",
+  "content_sha256": "0a435632a385a116e82b063d2e271981446c201bda57e0bca7da261f70101d29",
+  "source_hash": "dc691e74a0eeef85a5cc3effad9a71190547057f4a8ef1b662766d5a295b08bb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets subarrays longer than one after every step.",
+      "failed_cases": [
+        "lc-3171-12",
+        "lc-3171-14"
+      ]
+    },
+    {
+      "reason": "Computes bitwise AND values rather than bitwise OR values.",
+      "failed_cases": [
+        "lc-3171-1",
+        "lc-3171-11",
+        "lc-3171-12",
+        "lc-3171-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7218,
+  "oracle_implementation": "code_practice/import_batch_217a.py:or_oracle",
+  "validator_implementation_sha256": "e71fda9e514ef7eca7760b47230e335d278f680a5e8eac17ccf1f859a27e7733",
+  "batch_implementation_sha256": "c231e3b52ead64692217a70684bc2c07f57f86dfa2b964b139c41db0ef6975b6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c97e570d65f735bfb15e529a7da76a6783186e41aa6a0197057c40469b79c18e",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

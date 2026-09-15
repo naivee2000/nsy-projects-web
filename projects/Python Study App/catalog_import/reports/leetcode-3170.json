@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3170",
+  "content_sha256": "c01563a1b487fe2963430ced22fbbbb93bba332fd97803d2c633e5f70915ee74",
+  "source_hash": "28ce3c5b959a364b46e5e6326393705a809be561b4da53d98479178c65200467",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes the leftmost copy of the smallest letter, leaving a lexicographically larger prefix.",
+      "failed_cases": [
+        "lc-3170-1",
+        "lc-3170-11",
+        "lc-3170-13"
+      ]
+    },
+    {
+      "reason": "Removes the largest available letter rather than the smallest.",
+      "failed_cases": [
+        "lc-3170-1",
+        "lc-3170-2",
+        "lc-3170-4",
+        "lc-3170-5",
+        "lc-3170-8",
+        "lc-3170-9",
+        "lc-3170-10",
+        "lc-3170-11",
+        "lc-3170-13",
+        "lc-3170-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7217,
+  "oracle_implementation": "code_practice/import_batch_217a.py:stars_oracle",
+  "validator_implementation_sha256": "e71fda9e514ef7eca7760b47230e335d278f680a5e8eac17ccf1f859a27e7733",
+  "batch_implementation_sha256": "c231e3b52ead64692217a70684bc2c07f57f86dfa2b964b139c41db0ef6975b6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "28bc9478076059e364d9c96df525fb77ce175886c68f5804186a4ceb53988671",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
