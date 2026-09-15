@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3081",
+  "content_sha256": "cf5aeab600508975c98cef7ca13fa1685e49a217cc87de99da45fe7b06a0dff9",
+  "source_hash": "80cea5223bb0cbec222fb7bdeab1bbe5bd801b879375c0014847349cf1946339",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the optimal multiset but places its letters in descending order, losing the lexicographic tie-break.",
+      "failed_cases": [
+        "lc-3081-1",
+        "lc-3081-2",
+        "lc-3081-4",
+        "lc-3081-8",
+        "lc-3081-9",
+        "lc-3081-10",
+        "lc-3081-11",
+        "lc-3081-12",
+        "lc-3081-14",
+        "lc-3081-15"
+      ]
+    },
+    {
+      "reason": "Breaks equal-frequency heap ties toward larger letters instead of smaller ones.",
+      "failed_cases": [
+        "lc-3081-1",
+        "lc-3081-2",
+        "lc-3081-3",
+        "lc-3081-4",
+        "lc-3081-5",
+        "lc-3081-6",
+        "lc-3081-7",
+        "lc-3081-8",
+        "lc-3081-9",
+        "lc-3081-10",
+        "lc-3081-11",
+        "lc-3081-12",
+        "lc-3081-14",
+        "lc-3081-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7128,
+  "oracle_implementation": "code_practice/import_batch_214a.py:replacement_oracle",
+  "validator_implementation_sha256": "62aacbfd87e3b6a508282965f2d0ca7a8d884924b485e6c4c529b1a7384c8a61",
+  "batch_implementation_sha256": "cc619a0496cd52955fd6ce9af014537219b51b4aa5ee21fd4d0ea6cd77781ccd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c9ee37b113ed1dd630f9f295c53f3024effc920b08f9b6485abf35e49b69ac07",
+  "elapsed_seconds": 0.474,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3082",
+  "content_sha256": "3ece08353bea0d2c804cbea225955e6ff146424bd2344c4a524be0366de5975c",
+  "source_hash": "f4e408728469cc65d8a5ecbbc02182d51639f46160aa80f1ad633c154355a77b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts target-sum subsequences only once instead of once per containing outer subsequence.",
+      "failed_cases": [
+        "lc-3082-1",
+        "lc-3082-2",
+        "lc-3082-5",
+        "lc-3082-7",
+        "lc-3082-8",
+        "lc-3082-9",
+        "lc-3082-10",
+        "lc-3082-11",
+        "lc-3082-12",
+        "lc-3082-13",
+        "lc-3082-14"
+      ]
+    },
+    {
+      "reason": "Doubles the newly selected branch instead of the branch that omits the current element.",
+      "failed_cases": [
+        "lc-3082-1",
+        "lc-3082-2",
+        "lc-3082-3",
+        "lc-3082-5",
+        "lc-3082-6",
+        "lc-3082-7",
+        "lc-3082-8",
+        "lc-3082-9",
+        "lc-3082-10",
+        "lc-3082-11",
+        "lc-3082-12",
+        "lc-3082-13",
+        "lc-3082-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7129,
+  "oracle_implementation": "code_practice/import_batch_214a.py:power_oracle",
+  "validator_implementation_sha256": "62aacbfd87e3b6a508282965f2d0ca7a8d884924b485e6c4c529b1a7384c8a61",
+  "batch_implementation_sha256": "cc619a0496cd52955fd6ce9af014537219b51b4aa5ee21fd4d0ea6cd77781ccd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3b6f5bdfd683e0922bd7041ade84c6457616b075eea740f9c170fbf98fcba6ea",
+  "elapsed_seconds": 0.072,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

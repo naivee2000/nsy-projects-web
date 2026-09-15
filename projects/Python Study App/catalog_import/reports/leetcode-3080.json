@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3080",
+  "content_sha256": "836b20db9e40ddae3fa0d99671a1944e76065fb836249d898feb260e3f3a49ef",
+  "source_hash": "e67501298811b0b2fc4522288b0998375ccd1b9b9a971c5dce0f33a4c76f1b89",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Marks the largest remaining values first instead of the smallest.",
+      "failed_cases": [
+        "lc-3080-1",
+        "lc-3080-2",
+        "lc-3080-5",
+        "lc-3080-7",
+        "lc-3080-8",
+        "lc-3080-9",
+        "lc-3080-10",
+        "lc-3080-11",
+        "lc-3080-12",
+        "lc-3080-13",
+        "lc-3080-14"
+      ]
+    },
+    {
+      "reason": "Subtracts a queried value again when its index was already marked.",
+      "failed_cases": [
+        "lc-3080-1",
+        "lc-3080-2",
+        "lc-3080-13",
+        "lc-3080-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7127,
+  "oracle_implementation": "code_practice/import_batch_214a.py:marking_oracle",
+  "validator_implementation_sha256": "62aacbfd87e3b6a508282965f2d0ca7a8d884924b485e6c4c529b1a7384c8a61",
+  "batch_implementation_sha256": "cc619a0496cd52955fd6ce9af014537219b51b4aa5ee21fd4d0ea6cd77781ccd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c119e27085fa88692f7c350fe1004dc3d68db74e200fc8ee378cd43d976daeb2",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
