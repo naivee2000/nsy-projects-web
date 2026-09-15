@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3515",
+  "content_sha256": "427b137794a639c4552678d2d390fe37c20b6a7e20528873ccd7ab8b5d52e837",
+  "source_hash": "6806785f9a67690c5af73c1065e52bf38510cb592a82fbb5d67f66695d9f72c7",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Starts each subtree update but never ends it, so later unrelated Euler positions inherit the change.",
+      "failed_cases": [
+        "lc-3515-6",
+        "lc-3515-15"
+      ]
+    },
+    {
+      "reason": "Returns only accumulated updates and omits every original root distance.",
+      "failed_cases": [
+        "lc-3515-1",
+        "lc-3515-2",
+        "lc-3515-3",
+        "lc-3515-5",
+        "lc-3515-6",
+        "lc-3515-7",
+        "lc-3515-8",
+        "lc-3515-9",
+        "lc-3515-10",
+        "lc-3515-11",
+        "lc-3515-12",
+        "lc-3515-13",
+        "lc-3515-14",
+        "lc-3515-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7562,
+  "oracle_implementation": "code_practice/import_batch_227b.py:tree_distance_oracle",
+  "validator_implementation_sha256": "d64f1fb06b09a60e2eb53df81313f0c4ade82c1479a1c301e3d46234c9ac010d",
+  "batch_implementation_sha256": "149e8815354cd4ef97c157bc5904c1929ee08416a64dc945e000f3c6d9b0e093",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "959109bf81734fa5f1d9ea54d402d7ea9774b31eb53146c26533af95e1c76470",
+  "elapsed_seconds": 0.126,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

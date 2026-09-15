@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3520",
+  "content_sha256": "ab2c3fa9e9865561bac3829539a3f7bdbeb2a3180e3591307cbd3567d5d777d9",
+  "source_hash": "2622c43ba10cbc7416947b334df3bb02c68b26cba813ad765c9b5c6fa22b9738",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes equal-valued earlier elements even though inversions require strict inequality.",
+      "failed_cases": [
+        "lc-3520-1",
+        "lc-3520-2",
+        "lc-3520-7"
+      ]
+    },
+    {
+      "reason": "Counts only differences strictly below the threshold and loses boundary pairs.",
+      "failed_cases": [
+        "lc-3520-1",
+        "lc-3520-2",
+        "lc-3520-5",
+        "lc-3520-6",
+        "lc-3520-8",
+        "lc-3520-9",
+        "lc-3520-10",
+        "lc-3520-11",
+        "lc-3520-12",
+        "lc-3520-13",
+        "lc-3520-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7567,
+  "oracle_implementation": "code_practice/import_batch_227b.py:inversion_threshold_oracle",
+  "validator_implementation_sha256": "d64f1fb06b09a60e2eb53df81313f0c4ade82c1479a1c301e3d46234c9ac010d",
+  "batch_implementation_sha256": "149e8815354cd4ef97c157bc5904c1929ee08416a64dc945e000f3c6d9b0e093",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "592585166e11c8c4d234afecb294d8f76b9efaba3b62e0aa0a89b578c2d73b97",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3518",
+  "content_sha256": "33672566d93a4d220fcd145715ba87e1e5c6a17c69a93c531da19fb7a3b64e30",
+  "source_hash": "d36e41ac809ac8c2d8d5ccbb56efd8df9a7b177029af4471460412e783c5d760",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tries left-half characters from largest to smallest, reversing lexicographic order.",
+      "failed_cases": [
+        "lc-3518-1",
+        "lc-3518-3",
+        "lc-3518-6",
+        "lc-3518-8",
+        "lc-3518-9",
+        "lc-3518-10",
+        "lc-3518-11",
+        "lc-3518-12",
+        "lc-3518-13",
+        "lc-3518-14"
+      ]
+    },
+    {
+      "reason": "Skips a block when its size equals k even though the desired arrangement is inside that block.",
+      "failed_cases": [
+        "lc-3518-1",
+        "lc-3518-3",
+        "lc-3518-6",
+        "lc-3518-8",
+        "lc-3518-9",
+        "lc-3518-10",
+        "lc-3518-11",
+        "lc-3518-12",
+        "lc-3518-13",
+        "lc-3518-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7565,
+  "oracle_implementation": "code_practice/import_batch_227b.py:kth_palindrome_oracle",
+  "validator_implementation_sha256": "d64f1fb06b09a60e2eb53df81313f0c4ade82c1479a1c301e3d46234c9ac010d",
+  "batch_implementation_sha256": "149e8815354cd4ef97c157bc5904c1929ee08416a64dc945e000f3c6d9b0e093",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "32d5e38b17f20a17d3b028212d679c1a930f83dd95be33fc342b4f1f5c4f34da",
+  "elapsed_seconds": 0.082,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
