@@ -1,0 +1,44 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-3983",
+  "content_sha256": "b11081f76b2c109910adf434a6d634e70e34f3c76d98bd620e9e6a1ab4a2b74f",
+  "source_hash": "21fe15989645b8e58340a4c8dec7eca65d82fa869e6fea918c9c5605f50688e7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 13,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites progress already made in the replaced state.",
+      "failed_cases": [
+        "lc-3983-13",
+        "lc-3983-14"
+      ]
+    },
+    {
+      "reason": "Never permits a replacement and checks only the original subsequence.",
+      "failed_cases": [
+        "lc-3983-4",
+        "lc-3983-8",
+        "lc-3983-13",
+        "lc-3983-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8030,
+  "oracle_implementation": "code_practice/import_batch_198b.py:replace_oracle",
+  "validator_implementation_sha256": "4f52b52dd086fa51924155703edaba1d06abde71b2228bfdba2132f1a4be6d32",
+  "batch_implementation_sha256": "1dd2d0756fb302b536f9aeeafd1fc0d18ff709ba0a14a955a9060c004ae16b9a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c294636cb7f0e835bfb35b79ed2a199ecd414f631c251dd6d3653eecb6bc7d65",
+  "elapsed_seconds": 0.032,
+  "failures": [
+    {
+      "phase": "deterministic",
+      "case": "lc-3983-6",
+      "error": null
+    }
+  ],
+  "workbook_sample": "preserved and independently verified"
+}

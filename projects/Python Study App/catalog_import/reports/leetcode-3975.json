@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3975",
+  "content_sha256": "cef2bde80e7bf2dbb2ae8fee9aea244cc519f5a9f31a45280dc6b032998f61f9",
+  "source_hash": "66a42f03224191ffba1644619a5ea35cc4cd77798e9f870ed63c708d8d11cdaa",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to merge touching integer intervals.",
+      "failed_cases": [
+        "lc-3975-4",
+        "lc-3975-12"
+      ]
+    },
+    {
+      "reason": "Retains the first supposedly free point on a left remainder.",
+      "failed_cases": [
+        "lc-3975-1",
+        "lc-3975-3",
+        "lc-3975-9",
+        "lc-3975-11",
+        "lc-3975-12",
+        "lc-3975-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8022,
+  "oracle_implementation": "code_practice/import_batch_198b.py:interval_oracle",
+  "validator_implementation_sha256": "4f52b52dd086fa51924155703edaba1d06abde71b2228bfdba2132f1a4be6d32",
+  "batch_implementation_sha256": "1dd2d0756fb302b536f9aeeafd1fc0d18ff709ba0a14a955a9060c004ae16b9a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "745ddac45e89f958fe9f78d048bf0bb389b16100149d26cb03d121b6b224290c",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

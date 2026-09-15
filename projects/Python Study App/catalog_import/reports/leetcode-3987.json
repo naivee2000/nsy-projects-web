@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3987",
+  "content_sha256": "07a21d7c2523bfddf097c038f8e64e981351ce761180ce2b3929b7cd7ab63958",
+  "source_hash": "dd01d88dc4982550a1cc056b6161eb9af2009cf96b0976df457dbf8815f53ebb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses floor division and may buy too few resource blocks.",
+      "failed_cases": [
+        "lc-3987-1",
+        "lc-3987-4",
+        "lc-3987-5",
+        "lc-3987-8",
+        "lc-3987-9",
+        "lc-3987-10",
+        "lc-3987-12",
+        "lc-3987-13",
+        "lc-3987-14"
+      ]
+    },
+    {
+      "reason": "Starts purchase costs at zero instead of one.",
+      "failed_cases": [
+        "lc-3987-1",
+        "lc-3987-4",
+        "lc-3987-5",
+        "lc-3987-6",
+        "lc-3987-7",
+        "lc-3987-8",
+        "lc-3987-9",
+        "lc-3987-10",
+        "lc-3987-11",
+        "lc-3987-12",
+        "lc-3987-13",
+        "lc-3987-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8034,
+  "oracle_implementation": "code_practice/import_batch_198b.py:resources_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "1dd2d0756fb302b536f9aeeafd1fc0d18ff709ba0a14a955a9060c004ae16b9a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "448dca9ae61fddb51306f388635f19e7ff2e3a6d18378787d322a6ae8efee8a0",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

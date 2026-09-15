@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4022",
+  "content_sha256": "6502ec3dc2bfdd82e1c3b82e62c2616966066783bc831addf1d54ea159890330",
+  "source_hash": "2d7e62804a043b5ab27134e03a20b7292beb83cae8a750af4879697a03aa0b27",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the requested position as zero-indexed in the initial prefix.",
+      "failed_cases": [
+        "lc-4022-1",
+        "lc-4022-3",
+        "lc-4022-4"
+      ]
+    },
+    {
+      "reason": "Reverses which block parity is ascending.",
+      "failed_cases": [
+        "lc-4022-5",
+        "lc-4022-8",
+        "lc-4022-10",
+        "lc-4022-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8069,
+  "oracle_implementation": "code_practice/import_batch_198d.py:kth_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "58a07c9b51c728bd425737232b3157fd13a366305cd729f7c168d4baef12e95a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5ecab14d4ae111ccce28caf52b00b1251cc6ed91b25733777cd319bb84e4dbf1",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

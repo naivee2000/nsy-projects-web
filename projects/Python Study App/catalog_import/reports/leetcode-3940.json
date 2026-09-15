@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3940",
+  "content_sha256": "033a4eb5db48f96b2bd3c3dc36d57d8d276c2e1921a7fe6cfaf830ef06a384f6",
+  "source_hash": "9c9913fa41b5f22d40c9056dd75ba0319faf717ff2f97278097dade784a2e5d9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps k+1 copies at the beginning of a run.",
+      "failed_cases": [
+        "lc-3940-1",
+        "lc-3940-2",
+        "lc-3940-4",
+        "lc-3940-6",
+        "lc-3940-7",
+        "lc-3940-8",
+        "lc-3940-12",
+        "lc-3940-14"
+      ]
+    },
+    {
+      "reason": "Compares only with the previous value and drops nearly every repeat.",
+      "failed_cases": [
+        "lc-3940-1",
+        "lc-3940-9",
+        "lc-3940-10",
+        "lc-3940-11",
+        "lc-3940-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7987,
+  "oracle_implementation": "code_practice/import_batch_198a.py:limit_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "568714debb48e8438f2db472f66ee9da98ef8d487e81a10d409161bc54ddfa37",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9bc3c329dde6ecfe5b438fd95e62d787f52b1ef1ee0f7fd56178669e6a629d99",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

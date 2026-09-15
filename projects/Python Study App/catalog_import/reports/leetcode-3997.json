@@ -1,0 +1,39 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-3997",
+  "content_sha256": "c7dc5897e59ee76916475e3421db5eb1f3f91fab8466f16d81d698c97905f016",
+  "source_hash": "9b3cab2444be3ca2b2091a301be952527c4d58344ed602e3de638568169ed370",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires strict dominance and rejects nodes tied with a descendant maximum.",
+      "failed_cases": [
+        "lc-3997-5",
+        "lc-3997-10",
+        "lc-3997-12"
+      ]
+    },
+    {
+      "reason": "Returns only the child root value rather than the subtree maximum.",
+      "failed_cases": []
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8044,
+  "oracle_implementation": "code_practice/import_batch_198c.py:tree_oracle",
+  "validator_implementation_sha256": "4f52b52dd086fa51924155703edaba1d06abde71b2228bfdba2132f1a4be6d32",
+  "batch_implementation_sha256": "4e5c224f83de65ddbb90106946072356be12ee1d3992bdd29e839c018adc7a19",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8b24854037aaea2b99753e864dc1d2572e58f8403cbcc8dc88b4974ddaf8c79e",
+  "elapsed_seconds": 0.035,
+  "failures": [
+    {
+      "phase": "known_wrong",
+      "index": 1
+    }
+  ],
+  "workbook_sample": "preserved and independently verified"
+}

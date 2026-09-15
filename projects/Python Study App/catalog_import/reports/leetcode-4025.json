@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4025",
+  "content_sha256": "440a6cb0f60561e0917af4cf45e967963b67c409887272401731e593e7b497b0",
+  "source_hash": "7bcdfa58d23ef99aea69a236c13f64a82fd3d1eef9d8bf6602262b40a0e82571",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the shortest green phase although every car may choose the best light.",
+      "failed_cases": [
+        "lc-4025-1",
+        "lc-4025-5",
+        "lc-4025-8",
+        "lc-4025-10",
+        "lc-4025-14"
+      ]
+    },
+    {
+      "reason": "Treats arrival exactly at green length as still green.",
+      "failed_cases": [
+        "lc-4025-1",
+        "lc-4025-5",
+        "lc-4025-6",
+        "lc-4025-7",
+        "lc-4025-8",
+        "lc-4025-9",
+        "lc-4025-10",
+        "lc-4025-12",
+        "lc-4025-13",
+        "lc-4025-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8072,
+  "oracle_implementation": "code_practice/import_batch_198d.py:lights_oracle",
+  "validator_implementation_sha256": "4f52b52dd086fa51924155703edaba1d06abde71b2228bfdba2132f1a4be6d32",
+  "batch_implementation_sha256": "58a07c9b51c728bd425737232b3157fd13a366305cd729f7c168d4baef12e95a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d89d0af669cfd5910cf26446301cd33381730cd3df202a15c933538bd4980325",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

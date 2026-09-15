@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4001",
+  "content_sha256": "5aab6f998194d6219036799b486ca81338cf07eea7e73cd76281711d79c61fca",
+  "source_hash": "eef46661800302a985344220f660f214e7e02bdfb0a422d2800b66879e92ba1e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to add the second series at the first unmatched timestamp.",
+      "failed_cases": [
+        "lc-4001-2",
+        "lc-4001-5",
+        "lc-4001-8",
+        "lc-4001-11",
+        "lc-4001-12"
+      ]
+    },
+    {
+      "reason": "Fails to add the next first-series value when the second timestamp is smaller.",
+      "failed_cases": [
+        "lc-4001-1",
+        "lc-4001-4",
+        "lc-4001-6",
+        "lc-4001-7",
+        "lc-4001-10",
+        "lc-4001-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8048,
+  "oracle_implementation": "code_practice/import_batch_198c.py:series_oracle",
+  "validator_implementation_sha256": "4f52b52dd086fa51924155703edaba1d06abde71b2228bfdba2132f1a4be6d32",
+  "batch_implementation_sha256": "4e5c224f83de65ddbb90106946072356be12ee1d3992bdd29e839c018adc7a19",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9c8b7abcdd27fc976f4a8c5eac2c97efdd0b4542f8a9b23e17037fc92074f5b6",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

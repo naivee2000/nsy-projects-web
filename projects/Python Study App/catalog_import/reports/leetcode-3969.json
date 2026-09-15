@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3969",
+  "content_sha256": "c666eb0c1dc4af164e5ffa1d39691c6f72c7b71e15b3e064929f924ece28bd8e",
+  "source_hash": "d3e09ec81e700f399ed0e886c2285ae9415db77f8141e163e9dfe9dd3bae5e6a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts sums matching only one endpoint digit.",
+      "failed_cases": [
+        "lc-3969-1",
+        "lc-3969-4",
+        "lc-3969-6",
+        "lc-3969-7",
+        "lc-3969-8",
+        "lc-3969-10",
+        "lc-3969-11",
+        "lc-3969-12",
+        "lc-3969-13",
+        "lc-3969-14"
+      ]
+    },
+    {
+      "reason": "Never considers subarrays ending at the final array element.",
+      "failed_cases": [
+        "lc-3969-1",
+        "lc-3969-2",
+        "lc-3969-3",
+        "lc-3969-5",
+        "lc-3969-7",
+        "lc-3969-9",
+        "lc-3969-10",
+        "lc-3969-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8016,
+  "oracle_implementation": "code_practice/import_batch_198b.py:digit_subarrays_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "1dd2d0756fb302b536f9aeeafd1fc0d18ff709ba0a14a955a9060c004ae16b9a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2dc6db13820c05e25c7f158de9125ecbacc2494d5b3687359236c6312c05c11e",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3941",
+  "content_sha256": "31921a2b3d2852e7a49944e1f657abe4d07a62b55d299bebbf2d14482d13c8db",
+  "source_hash": "a41f29ec516df08e08dc5fa969bf827a44d6263548a74fb39852a9687468bcbe",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Scores repeated character occurrences more than once.",
+      "failed_cases": [
+        "lc-3941-2",
+        "lc-3941-11"
+      ]
+    },
+    {
+      "reason": "Awards digits one point instead of three.",
+      "failed_cases": [
+        "lc-3941-1",
+        "lc-3941-2",
+        "lc-3941-5",
+        "lc-3941-9",
+        "lc-3941-11",
+        "lc-3941-13",
+        "lc-3941-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7988,
+  "oracle_implementation": "code_practice/import_batch_198a.py:strength_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "568714debb48e8438f2db472f66ee9da98ef8d487e81a10d409161bc54ddfa37",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "29b8d8e486b1661323d0891b37170e0c6fef7ebac9426bf60f8b66fdfecef728",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

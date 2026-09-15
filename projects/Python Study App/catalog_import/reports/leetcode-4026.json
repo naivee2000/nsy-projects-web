@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4026",
+  "content_sha256": "5bf4d7dcb75c2873c0821a0f76d897533548f336e4ab89503ccc58d933d81b7a",
+  "source_hash": "da7c37ef7aef1ca123c1bdad02d6d09048636b0a912993954afd32734dea57a9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Compares the same worker’s earliest and latest positions instead of consecutive workers.",
+      "failed_cases": [
+        "lc-4026-1",
+        "lc-4026-2",
+        "lc-4026-4",
+        "lc-4026-5",
+        "lc-4026-6",
+        "lc-4026-7",
+        "lc-4026-8",
+        "lc-4026-9",
+        "lc-4026-10",
+        "lc-4026-11",
+        "lc-4026-12",
+        "lc-4026-13",
+        "lc-4026-14"
+      ]
+    },
+    {
+      "reason": "Starts the suffix scan before the final station and can miss the latest match.",
+      "failed_cases": [
+        "lc-4026-1",
+        "lc-4026-2",
+        "lc-4026-4",
+        "lc-4026-5",
+        "lc-4026-6",
+        "lc-4026-7",
+        "lc-4026-8",
+        "lc-4026-9",
+        "lc-4026-11",
+        "lc-4026-13",
+        "lc-4026-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8073,
+  "oracle_implementation": "code_practice/import_batch_198d.py:gap_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "58a07c9b51c728bd425737232b3157fd13a366305cd729f7c168d4baef12e95a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "939274dde698914e93026590a3cc6d2bf843c56623f385e260796946ca617607",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3932",
+  "content_sha256": "b201bb69e06c543881ef0d0a69ba057846f1f8f1e2a378e2ea3466e2b7f43d39",
+  "source_hash": "6fc0ca90ed076b144cd687d805a27395a44d27762d4ef29f99a1010aad084b2a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Excludes a power equal to the lower endpoint.",
+      "failed_cases": [
+        "lc-3932-1",
+        "lc-3932-2",
+        "lc-3932-5",
+        "lc-3932-6",
+        "lc-3932-10",
+        "lc-3932-13"
+      ]
+    },
+    {
+      "reason": "Mishandles the k=1 interval where every value qualifies.",
+      "failed_cases": [
+        "lc-3932-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7979,
+  "oracle_implementation": "code_practice/import_batch_198a.py:roots_oracle",
+  "validator_implementation_sha256": "4f52b52dd086fa51924155703edaba1d06abde71b2228bfdba2132f1a4be6d32",
+  "batch_implementation_sha256": "568714debb48e8438f2db472f66ee9da98ef8d487e81a10d409161bc54ddfa37",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "07310479fe11d7b629025a3591639ad53e3bbe412e19fe206f17dc957991097c",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

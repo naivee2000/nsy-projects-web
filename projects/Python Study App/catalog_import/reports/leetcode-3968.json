@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3968",
+  "content_sha256": "62f2418afc504754603f8f8c231e730e02d3e0a91f6085e6036713c94fa297c7",
+  "source_hash": "598b0865fa6c3a1aedd5f1d913384e68688b56f69e7e38906a22c3b51d71c292",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts wildcard moves instead of using them to extend distance.",
+      "failed_cases": [
+        "lc-3968-1",
+        "lc-3968-2",
+        "lc-3968-3",
+        "lc-3968-6",
+        "lc-3968-9",
+        "lc-3968-10",
+        "lc-3968-11",
+        "lc-3968-12",
+        "lc-3968-13",
+        "lc-3968-14"
+      ]
+    },
+    {
+      "reason": "Combines axes before taking absolute value and loses opposing components.",
+      "failed_cases": [
+        "lc-3968-1",
+        "lc-3968-7",
+        "lc-3968-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8015,
+  "oracle_implementation": "code_practice/import_batch_198b.py:distance_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "1dd2d0756fb302b536f9aeeafd1fc0d18ff709ba0a14a955a9060c004ae16b9a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8f6f7c915218d28e1f5c513ce253abe049ec2138635a0edfc15ab6b030d7d3ad",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

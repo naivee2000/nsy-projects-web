@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4034",
+  "content_sha256": "7d5bbd83356c4523fb720d667dde767ce6ffdc082151e623aab8405ada8d07f1",
+  "source_hash": "0973873a87cb81dd91123d77ace0c5ec01be6f2279acc08e58900aeeb3e9324a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects same-colored reachable targets and accepts opposite colors.",
+      "failed_cases": [
+        "lc-4034-1",
+        "lc-4034-2",
+        "lc-4034-3",
+        "lc-4034-4",
+        "lc-4034-5",
+        "lc-4034-6",
+        "lc-4034-7",
+        "lc-4034-8",
+        "lc-4034-9",
+        "lc-4034-10",
+        "lc-4034-11",
+        "lc-4034-12",
+        "lc-4034-13",
+        "lc-4034-14"
+      ]
+    },
+    {
+      "reason": "Returns two moves even when source and target share a diagonal.",
+      "failed_cases": [
+        "lc-4034-1",
+        "lc-4034-3",
+        "lc-4034-4",
+        "lc-4034-7",
+        "lc-4034-8",
+        "lc-4034-10",
+        "lc-4034-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8081,
+  "oracle_implementation": "code_practice/import_batch_198d.py:bishop_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "58a07c9b51c728bd425737232b3157fd13a366305cd729f7c168d4baef12e95a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c317729ff71cddfec2aeb0a02fcb4cbd58ade3b8e0b8c42af0613f1540f0b358",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3913",
+  "content_sha256": "961a32e9249d5c4d4e8fc1f4b9cf52bc299911c3650df2449dd41deb147821ff",
+  "source_hash": "586da9a26833dfb13abc043e5ad137cefe99a023eebc2adf9ad903546fbcc8b4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts vowel groups by increasing frequency.",
+      "failed_cases": [
+        "lc-3913-1",
+        "lc-3913-7",
+        "lc-3913-11",
+        "lc-3913-12"
+      ]
+    },
+    {
+      "reason": "Reverses the required first-occurrence tie break.",
+      "failed_cases": [
+        "lc-3913-5",
+        "lc-3913-6",
+        "lc-3913-9",
+        "lc-3913-10",
+        "lc-3913-11",
+        "lc-3913-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7960,
+  "oracle_implementation": "code_practice/import_batch_198e.py:vowel_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "b710a7b70f513712b270cfec2c37a346f6bda2f96ad02d6d44f62c122d6ec1b0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "15e053c7a4241fdd0afbddc99e631b9cea8e19ce98da756e493f38be7c30a88a",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

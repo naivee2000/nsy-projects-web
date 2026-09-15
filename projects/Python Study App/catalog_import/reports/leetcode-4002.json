@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4002",
+  "content_sha256": "8a74b0f50d38e5d4227db55a662d97e7ba76db8aace4fd9de35d3df012ebcfa7",
+  "source_hash": "7f481b5e519d0751d7ace717143c98954fb0eb1a82727a5f80812b99f21db002",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds all-odd compositions instead of subtracting them.",
+      "failed_cases": [
+        "lc-4002-1",
+        "lc-4002-2",
+        "lc-4002-3",
+        "lc-4002-5",
+        "lc-4002-6",
+        "lc-4002-8",
+        "lc-4002-12",
+        "lc-4002-14"
+      ]
+    },
+    {
+      "reason": "Uses the wrong parity condition for whether all-odd compositions exist.",
+      "failed_cases": [
+        "lc-4002-1",
+        "lc-4002-2",
+        "lc-4002-3",
+        "lc-4002-4",
+        "lc-4002-5",
+        "lc-4002-6",
+        "lc-4002-7",
+        "lc-4002-8",
+        "lc-4002-9",
+        "lc-4002-10",
+        "lc-4002-11",
+        "lc-4002-12",
+        "lc-4002-13",
+        "lc-4002-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8049,
+  "oracle_implementation": "code_practice/import_batch_198c.py:sequences_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "4e5c224f83de65ddbb90106946072356be12ee1d3992bdd29e839c018adc7a19",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3d6c3c658f409b8672523ab98b626e9d2f70474fb524bb09475407469f78d284",
+  "elapsed_seconds": 0.076,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

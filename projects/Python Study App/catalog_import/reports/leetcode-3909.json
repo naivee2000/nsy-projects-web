@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3909",
+  "content_sha256": "62cf4b8890253ce3dce2add736b079d22c9a5a7845728ae24f2dedabeca29eb5",
+  "source_hash": "fa605bccd8ea1bd9fd8821183dfb126676eccce1be8f07817735a3fc532b40d9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the shared peak from the descending part.",
+      "failed_cases": [
+        "lc-3909-1",
+        "lc-3909-2",
+        "lc-3909-3",
+        "lc-3909-5",
+        "lc-3909-6",
+        "lc-3909-9",
+        "lc-3909-10",
+        "lc-3909-13",
+        "lc-3909-14"
+      ]
+    },
+    {
+      "reason": "Swaps the two greater-sum return codes.",
+      "failed_cases": [
+        "lc-3909-1",
+        "lc-3909-4",
+        "lc-3909-5",
+        "lc-3909-6",
+        "lc-3909-7",
+        "lc-3909-8",
+        "lc-3909-9",
+        "lc-3909-10",
+        "lc-3909-11",
+        "lc-3909-12",
+        "lc-3909-13",
+        "lc-3909-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7956,
+  "oracle_implementation": "code_practice/import_batch_198a.py:bitonic_oracle",
+  "validator_implementation_sha256": "a356e32bb9d43a598ccf437a0e9fce15ab15fa892bd1baf5895fc9c23ddde283",
+  "batch_implementation_sha256": "568714debb48e8438f2db472f66ee9da98ef8d487e81a10d409161bc54ddfa37",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5855337b86c92a4eb612951f4086ab2bc53c6d5e83daafa5ae49a9a102c8d403",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

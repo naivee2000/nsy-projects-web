@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2186,
+  "count": 2206,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -38575,6 +38575,23 @@
       "source_id": 3908
     },
     {
+      "id": "leetcode-3909",
+      "version": 1,
+      "status": "approved",
+      "title": "Compare Sums of Bitonic Parts",
+      "summary": "Given a bitonic array of length n, split it into an ascending part from index 0 to the peak element and a descending part from the peak element to index n-1.",
+      "topics": [
+        "arrays",
+        "bitonic arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3909.json",
+      "content_sha256": "62cf4b8890253ce3dce2add736b079d22c9a5a7845728ae24f2dedabeca29eb5",
+      "source_id": 3909
+    },
+    {
       "id": "leetcode-3912",
       "version": 1,
       "status": "approved",
@@ -38591,6 +38608,24 @@
       "path": "problems/leetcode-3912.json",
       "content_sha256": "b9521c85199f831034e8a60ac4151f9050c54e0bc72a983ca56ea5ae9499864d",
       "source_id": 3912
+    },
+    {
+      "id": "leetcode-3913",
+      "version": 1,
+      "status": "approved",
+      "title": "Sort Vowels by Frequency",
+      "summary": "Given a string of lowercase English characters, rearrange only the vowels to appear in non-increasing order of their frequency.",
+      "topics": [
+        "strings",
+        "sorting",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3913.json",
+      "content_sha256": "961a32e9249d5c4d4e8fc1f4b9cf52bc299911c3650df2449dd41deb147821ff",
+      "source_id": 3913
     },
     {
       "id": "leetcode-3914",
@@ -38625,6 +38660,23 @@
       "path": "problems/leetcode-3917.json",
       "content_sha256": "03b9515699309436540a5c9da57ba0d8e92b17359102f93c3c4d2ce10803cb69",
       "source_id": 3917
+    },
+    {
+      "id": "leetcode-3918",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Primes Between Number and Its Reverse",
+      "summary": "Given an integer n, find the sum of all prime numbers between the lesser of n and its digit-reversed form r, and the greater of n and r, inclusive.",
+      "topics": [
+        "math",
+        "prime testing"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3918.json",
+      "content_sha256": "07fbf8c498419f4068cb21da5cf7c78d8de77aa16d2683d618d4eeca4725d1aa",
+      "source_id": 3918
     },
     {
       "id": "leetcode-3921",
@@ -38678,6 +38730,23 @@
       "source_id": 3931
     },
     {
+      "id": "leetcode-3932",
+      "version": 1,
+      "status": "approved",
+      "title": "Count K-th Roots in a Range",
+      "summary": "Given integers l, r, and k, count how many integers y in the range [l, r] can be expressed as x^k for some integer x.",
+      "topics": [
+        "math",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3932.json",
+      "content_sha256": "b201bb69e06c543881ef0d0a69ba057846f1f8f1e2a378e2ea3466e2b7f43d39",
+      "source_id": 3932
+    },
+    {
       "id": "leetcode-3936",
       "version": 1,
       "status": "approved",
@@ -38693,6 +38762,40 @@
       "path": "problems/leetcode-3936.json",
       "content_sha256": "cf774899c29c1a37ea9a365a4cf28425015786fd016d71aba52c8eab896bda61",
       "source_id": 3936
+    },
+    {
+      "id": "leetcode-3940",
+      "version": 1,
+      "status": "approved",
+      "title": "Limit Occurrences in Sorted Array",
+      "summary": "Given a sorted integer array nums and an integer k, create an array where each distinct element appears at most k times, maintaining the original order.",
+      "topics": [
+        "arrays",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3940.json",
+      "content_sha256": "033a4eb5db48f96b2bd3c3dc36d57d8d276c2e1921a7fe6cfaf830ef06a384f6",
+      "source_id": 3940
+    },
+    {
+      "id": "leetcode-3941",
+      "version": 1,
+      "status": "approved",
+      "title": "Password Strength",
+      "summary": "Given a string password, calculate its strength by awarding 1 point for each distinct lowercase letter, 2 points for each distinct uppercase letter, 3 points for each distinct digit, and 5 points for each distinct special character from the set '!@#$', with each character contributing at most once.",
+      "topics": [
+        "strings",
+        "sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3941.json",
+      "content_sha256": "31921a2b3d2852e7a49944e1f657abe4d07a62b55d299bebbf2d14482d13c8db",
+      "source_id": 3941
     },
     {
       "id": "leetcode-3945",
@@ -38780,6 +38883,60 @@
       "source_id": 3959
     },
     {
+      "id": "leetcode-3968",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Manhattan Distance After All Moves",
+      "summary": "Given a string of moves including 'U', 'D', 'L', 'R', and '_', where '_' can be replaced by any of these, determine the greatest Manhattan distance from the origin (0,0) achievable after executing all moves.",
+      "topics": [
+        "strings",
+        "greedy",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3968.json",
+      "content_sha256": "62f2418afc504754603f8f8c231e730e02d3e0a91f6085e6036713c94fa297c7",
+      "source_id": 3968
+    },
+    {
+      "id": "leetcode-3969",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Subarrays With Matching Sum Digits I",
+      "summary": "Given an integer array nums and an integer digit x, count the subarrays where the sum's first and last digits both equal x.",
+      "topics": [
+        "arrays",
+        "prefix sums",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3969.json",
+      "content_sha256": "c666eb0c1dc4af164e5ffa1d39691c6f72c7b71e15b3e064929f924ece28bd8e",
+      "source_id": 3969
+    },
+    {
+      "id": "leetcode-3975",
+      "version": 1,
+      "status": "approved",
+      "title": "Filter Occupied Intervals",
+      "summary": "Given a 2D integer array occupiedIntervals, where each element is a time interval [starti, endi] indicating an occupied period, merge any overlapping or touching intervals.",
+      "topics": [
+        "arrays",
+        "intervals",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3975.json",
+      "content_sha256": "cef2bde80e7bf2dbb2ae8fee9aea244cc519f5a9f31a45280dc6b032998f61f9",
+      "source_id": 3975
+    },
+    {
       "id": "leetcode-3978",
       "version": 1,
       "status": "approved",
@@ -38829,6 +38986,24 @@
       "path": "problems/leetcode-3986.json",
       "content_sha256": "7e1f38c55e84a47373016cbac280655299171a1e52ec465c19e96de89ec2f267",
       "source_id": 3986
+    },
+    {
+      "id": "leetcode-3987",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Total Cost to Process All Elements",
+      "summary": "Given an integer array nums and an integer k, you start with k resources.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3987.json",
+      "content_sha256": "07a21d7c2523bfddf097c038f8e64e981351ce761180ce2b3929b7cd7ab63958",
+      "source_id": 3987
     },
     {
       "id": "leetcode-3993",
@@ -38882,6 +39057,42 @@
       "source_id": 4000
     },
     {
+      "id": "leetcode-4001",
+      "version": 1,
+      "status": "approved",
+      "title": "Aggregate Two Time Series",
+      "summary": "Given two 2D integer arrays, each containing [timestamp, value] pairs sorted in increasing timestamp order, create an aggregated series by summing corresponding values at each timestamp.",
+      "topics": [
+        "arrays",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4001.json",
+      "content_sha256": "5aab6f998194d6219036799b486ca81338cf07eea7e73cd76281711d79c61fca",
+      "source_id": 4001
+    },
+    {
+      "id": "leetcode-4002",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Valid Sequences",
+      "summary": "Given positive integers n and k, find the count of sequences of k positive integers where the sum equals n and the product is even.",
+      "topics": [
+        "math",
+        "combinatorics"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-4002.json",
+      "content_sha256": "8a74b0f50d38e5d4227db55a662d97e7ba76db8aace4fd9de35d3df012ebcfa7",
+      "source_id": 4002
+    },
+    {
       "id": "leetcode-4006",
       "version": 1,
       "status": "approved",
@@ -38900,6 +39111,58 @@
       "source_id": 4006
     },
     {
+      "id": "leetcode-4010",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Pair Strength Using GCD",
+      "summary": "Given an integer array nums, select a unique pair of distinct indices i and j.",
+      "topics": [
+        "arrays",
+        "math",
+        "gcd"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4010.json",
+      "content_sha256": "4e980b65e058bac00ef2b58ad299da15be728d97eb70c7268981d7841d9cd8d4",
+      "source_id": 4010
+    },
+    {
+      "id": "leetcode-4011",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Subarrays With Even Odd Ratio I",
+      "summary": "Given an integer array nums and two integers a and b, count the number of subarrays where the ratio of even elements to odd elements is less than or equal to a/b, with the condition that there must be at least one odd element in the subarray.",
+      "topics": [
+        "arrays",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4011.json",
+      "content_sha256": "529baaca164a4c47eae73d356407687d55c6510e17ba26ba78ee71606a22d196",
+      "source_id": 4011
+    },
+    {
+      "id": "leetcode-4014",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Total Price After Applying Discounts",
+      "summary": "Given integer arrays prices and discounts, where prices[i] is the price of the i-th item and discounts[j] is a discount percentage, determine the minimum total price after applying at most one discount to each item.",
+      "topics": [
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4014.json",
+      "content_sha256": "02bdbd2dec7eb25b4a6933fa0066e985e3d6a39b6558da66101ff47dc177ea4e",
+      "source_id": 4014
+    },
+    {
       "id": "leetcode-4020",
       "version": 1,
       "status": "approved",
@@ -38915,6 +39178,94 @@
       "path": "problems/leetcode-4020.json",
       "content_sha256": "7cd92d9b3c6bad062cb0d0f73437c9b4f1be86d78d17e9a7d1a256cb1270e054",
       "source_id": 4020
+    },
+    {
+      "id": "leetcode-4022",
+      "version": 1,
+      "status": "approved",
+      "title": "K-th Digit in Infinite String",
+      "summary": "Given an integer k, construct an infinite string by concatenating the decimal representations of positive integers in a specific order.",
+      "topics": [
+        "math",
+        "binary search",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4022.json",
+      "content_sha256": "6502ec3dc2bfdd82e1c3b82e62c2616966066783bc831addf1d54ea159890330",
+      "source_id": 4022
+    },
+    {
+      "id": "leetcode-4025",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize the Maximum Waiting Time at Synchronized Traffic Lights",
+      "summary": "Given an integer period and an array lights, where lights[i] represents the duration of the green phase for the i-th traffic light, and an array arrivalTime indicating the arrival time of each car, assign each car to exactly one traffic light.",
+      "topics": [
+        "arrays",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4025.json",
+      "content_sha256": "440a6cb0f60561e0917af4cf45e967963b67c409887272401731e593e7b497b0",
+      "source_id": 4025
+    },
+    {
+      "id": "leetcode-4026",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Gap Between Stations",
+      "summary": "Given two strings, skill and station, each of length n and m respectively, assign each worker to a unique station such that skill[i] matches station[j] for all i, and the station indices assigned to the workers must be strictly increasing.",
+      "topics": [
+        "strings",
+        "two pointers",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4026.json",
+      "content_sha256": "5bf4d7dcb75c2873c0821a0f76d897533548f336e4ab89503ccc58d933d81b7a",
+      "source_id": 4026
+    },
+    {
+      "id": "leetcode-4031",
+      "version": 1,
+      "status": "approved",
+      "title": "Find All Numbers Disappeared in an Array II",
+      "summary": "Given an integer array nums and a range [lower, upper], identify all integers within this range that are missing from nums.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "intervals"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4031.json",
+      "content_sha256": "6ee01a0d94d5c98eb16664a411357941e6372f6052994aefeb852aa5e8910dd7",
+      "source_id": 4031
+    },
+    {
+      "id": "leetcode-4034",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Bishop Moves to Reach Target",
+      "summary": "Given an 8x8 chessboard with 1-indexed rows and columns, a bishop starts at a specified position and aims to reach a target position.",
+      "topics": [
+        "chessboard",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-4034.json",
+      "content_sha256": "7d5bbd83356c4523fb720d667dde767ce6ffdc082151e623aab8405ada8d07f1",
+      "source_id": 4034
     }
   ]
 }
