@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2586,
+  "count": 2591,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -42839,6 +42839,60 @@
       "source_id": 3201
     },
     {
+      "id": "leetcode-3202",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Maximum Length of Valid Subsequence II",
+      "summary": "Given an integer array nums and a positive integer k, find the maximum length of a subsequence where the sum of every two consecutive elements modulo k is constant.",
+      "topics": [
+        "dynamic programming",
+        "modular arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3202.json",
+      "content_sha256": "1b9e48c482ecf439fce45ec9cf36f61f5b3a5ab70ea720a9187c38dab023b686",
+      "source_id": 3202
+    },
+    {
+      "id": "leetcode-3203",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Minimum Diameter After Merging Two Trees",
+      "summary": "Given two undirected trees with nodes numbered from 0 to n-1 and 0 to m-1, and edge lists for each, you must connect one node from the first tree to another node from the second tree with an edge.",
+      "topics": [
+        "trees",
+        "graphs",
+        "breadth-first search"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3203.json",
+      "content_sha256": "48b836f38c2ba1c6fad8cb507d311476c35baa984dad243ecc92f2aa3a93da30",
+      "source_id": 3203
+    },
+    {
+      "id": "leetcode-3205",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Array Hopping Score I",
+      "summary": "Starting from index 0, navigate through an array to reach the final element with the highest score.",
+      "topics": [
+        "greedy",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3205.json",
+      "content_sha256": "3d327d57c0f2a18bb68bfbb28ce98731c44b7a99445daa254b69463f0eec91b5",
+      "source_id": 3205
+    },
+    {
       "id": "leetcode-3206",
       "version": 1,
       "status": "approved",
@@ -42854,6 +42908,40 @@
       "path": "problems/leetcode-3206.json",
       "content_sha256": "1e630b28e2ac4aeed3f7c2358ba0847dbe320284bd5f65d4e4bcd704dad0cea7",
       "source_id": 3206
+    },
+    {
+      "id": "leetcode-3207",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Points After Enemy Battles",
+      "summary": "Given an integer array enemyEnergies representing the energy values of various enemies and an integer currentEnergy representing the initial amount of energy you have, you can perform the following operations to gain points: - Choose an unmarked enemy i such that currentEnergy is greater than or equal to enemyEnergies[i].",
+      "topics": [
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3207.json",
+      "content_sha256": "b3ae60af9626af003c45fdf816a3a9ba56f84c972245a5f463f530e5e5777163",
+      "source_id": 3207
+    },
+    {
+      "id": "leetcode-3208",
+      "version": 1,
+      "status": "approved",
+      "title": "Alternating Groups II",
+      "summary": "Given an array of integers representing the colors of tiles in a circle, where 0 is red and 1 is blue, count the number of k-tile groups where each tile alternates in color with its neighbors, considering the first and last tiles as adjacent.",
+      "topics": [
+        "sliding windows",
+        "circular arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3208.json",
+      "content_sha256": "f015d26c39ac9335116db409a269b2001eced6e7e66016669e5c0cec2d4e963c",
+      "source_id": 3208
     },
     {
       "id": "leetcode-3210",

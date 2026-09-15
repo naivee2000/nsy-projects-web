@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3205",
+  "content_sha256": "3d327d57c0f2a18bb68bfbb28ce98731c44b7a99445daa254b69463f0eec91b5",
+  "source_hash": "84241fda11b8ffd1c643ea8d4e2697c930eb9102cbd99eecd229e58f27187a29",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses each immediate destination rather than the best destination reachable across that gap.",
+      "failed_cases": [
+        "lc-3205-1",
+        "lc-3205-2",
+        "lc-3205-5",
+        "lc-3205-8",
+        "lc-3205-9",
+        "lc-3205-10",
+        "lc-3205-11",
+        "lc-3205-12",
+        "lc-3205-13",
+        "lc-3205-14"
+      ]
+    },
+    {
+      "reason": "Omits the final unit gap and therefore never credits the mandatory arrival at the last index.",
+      "failed_cases": [
+        "lc-3205-1",
+        "lc-3205-2",
+        "lc-3205-3",
+        "lc-3205-4",
+        "lc-3205-5",
+        "lc-3205-6",
+        "lc-3205-7",
+        "lc-3205-8",
+        "lc-3205-9",
+        "lc-3205-10",
+        "lc-3205-11",
+        "lc-3205-12",
+        "lc-3205-13",
+        "lc-3205-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7252,
+  "oracle_implementation": "code_practice/import_batch_218a.py:hopping_oracle",
+  "validator_implementation_sha256": "db44f127e85951a94afbea88ca1e673f15f28963c735e3d357d469fd6e1b50c6",
+  "batch_implementation_sha256": "ea1f31ee70cecf0d906da134acf00163fa80fd814d78062419bff156e2a30517",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "16b6a60c1ad3357c981f8d9d280179fe202fa77230bf2b614f7b831772db3cb6",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

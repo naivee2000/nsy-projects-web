@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3208",
+  "content_sha256": "f015d26c39ac9335116db409a269b2001eced6e7e66016669e5c0cec2d4e963c",
+  "source_hash": "e3d8bd732a3ae8233b962461ef43675c3fe5ca5404a66e1ba173f159d027f86c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stops before examining wraparound starts.",
+      "failed_cases": [
+        "lc-3208-2",
+        "lc-3208-4",
+        "lc-3208-8",
+        "lc-3208-9",
+        "lc-3208-10"
+      ]
+    },
+    {
+      "reason": "Counts a window only when the run length equals k and misses later windows within a longer alternating run.",
+      "failed_cases": [
+        "lc-3208-1",
+        "lc-3208-2",
+        "lc-3208-4",
+        "lc-3208-6",
+        "lc-3208-8",
+        "lc-3208-9",
+        "lc-3208-10",
+        "lc-3208-12",
+        "lc-3208-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7255,
+  "oracle_implementation": "code_practice/import_batch_218a.py:alternating_oracle",
+  "validator_implementation_sha256": "db44f127e85951a94afbea88ca1e673f15f28963c735e3d357d469fd6e1b50c6",
+  "batch_implementation_sha256": "ea1f31ee70cecf0d906da134acf00163fa80fd814d78062419bff156e2a30517",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fea0735750d362cdd1c226b27cf5a7caab83d4bdb42a7134f42b1a7abf2cc395",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

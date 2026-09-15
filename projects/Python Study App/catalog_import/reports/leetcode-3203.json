@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3203",
+  "content_sha256": "48b836f38c2ba1c6fad8cb507d311476c35baa984dad243ecc92f2aa3a93da30",
+  "source_hash": "84979b8d3389a9b96116b8acb3e0fd4b456313da4f6512e7673bbe047e46a5a7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses floor radii and underestimates trees with odd diameters.",
+      "failed_cases": [
+        "lc-3203-1",
+        "lc-3203-3",
+        "lc-3203-4",
+        "lc-3203-6",
+        "lc-3203-10",
+        "lc-3203-11",
+        "lc-3203-12",
+        "lc-3203-13"
+      ]
+    },
+    {
+      "reason": "Returns only the cross-tree path and ignores an unchanged larger original diameter.",
+      "failed_cases": [
+        "lc-3203-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7250,
+  "oracle_implementation": "code_practice/import_batch_218a.py:diameter_oracle",
+  "validator_implementation_sha256": "db44f127e85951a94afbea88ca1e673f15f28963c735e3d357d469fd6e1b50c6",
+  "batch_implementation_sha256": "ea1f31ee70cecf0d906da134acf00163fa80fd814d78062419bff156e2a30517",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "912490750887a4b26c8d4e5acbbc618bd64d763aa8e664e59ed0d7710a3cf2e4",
+  "elapsed_seconds": 0.071,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
