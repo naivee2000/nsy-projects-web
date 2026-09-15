@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3445",
+  "content_sha256": "11aa0d18e610d847f1bcfb75a78ad214060b23ee7adb1e58a2f5f283e8178853",
+  "source_hash": "5b7c37bd592399f408893b5b3c44c209ac8d71b7dde73b52c734051267a15e58",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the even-frequency digit to occur zero times.",
+      "failed_cases": [
+        "lc-3445-1",
+        "lc-3445-2",
+        "lc-3445-3",
+        "lc-3445-4",
+        "lc-3445-5",
+        "lc-3445-6",
+        "lc-3445-7",
+        "lc-3445-8",
+        "lc-3445-9",
+        "lc-3445-10",
+        "lc-3445-11",
+        "lc-3445-13",
+        "lc-3445-14"
+      ]
+    },
+    {
+      "reason": "Matches an even first-digit frequency instead of the required odd frequency.",
+      "failed_cases": [
+        "lc-3445-1",
+        "lc-3445-2",
+        "lc-3445-3",
+        "lc-3445-4",
+        "lc-3445-6",
+        "lc-3445-7",
+        "lc-3445-8",
+        "lc-3445-9",
+        "lc-3445-10",
+        "lc-3445-11",
+        "lc-3445-12",
+        "lc-3445-13",
+        "lc-3445-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7492,
+  "oracle_implementation": "code_practice/import_batch_225a.py:difference_oracle",
+  "validator_implementation_sha256": "cfcddab8e7b5233fc91f4ea952ed6bf226efc3a71348d23f2d1bf0e383c06664",
+  "batch_implementation_sha256": "7866260b0d64ce73cc4015347524a9101088a7616940d04b3abed2efe3688600",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8cb2ef406e31576f0e5a195620bd75eb95138433fefed0d86c0668131185c74f",
+  "elapsed_seconds": 0.091,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3444",
+  "content_sha256": "b9f4458c68dcb40506727c18406f9c575cfbb6e19dfad5d7f83d8840766ca47e",
+  "source_hash": "528cee486f629937a1ee291bbfac9ef2366c849237ea1ce177fbab952c343f82",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the product instead of the least common multiple for combined targets and can overpay.",
+      "failed_cases": [
+        "lc-3444-3",
+        "lc-3444-8",
+        "lc-3444-11"
+      ]
+    },
+    {
+      "reason": "Lets each nums element cover only one target and misses cheaper shared multiples.",
+      "failed_cases": [
+        "lc-3444-2",
+        "lc-3444-3",
+        "lc-3444-8",
+        "lc-3444-11",
+        "lc-3444-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7491,
+  "oracle_implementation": "code_practice/import_batch_225a.py:multiples_oracle",
+  "validator_implementation_sha256": "cfcddab8e7b5233fc91f4ea952ed6bf226efc3a71348d23f2d1bf0e383c06664",
+  "batch_implementation_sha256": "7866260b0d64ce73cc4015347524a9101088a7616940d04b3abed2efe3688600",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8627d22131261c2de96724afe8e574b9d087e7946fab46950bfdcbb8aae11bb0",
+  "elapsed_seconds": 0.111,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

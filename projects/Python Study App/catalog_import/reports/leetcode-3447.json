@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3447",
+  "content_sha256": "f6243fe581d45e66e72daae66bda603c074df2e9dd548204f784f93dcc2d7b97",
+  "source_hash": "c9e43ad84d021bd66f57d239bcb2fb06d89040d20542036f46713bfabeb3de34",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites earlier valid indices with later elements.",
+      "failed_cases": [
+        "lc-3447-1",
+        "lc-3447-5",
+        "lc-3447-6",
+        "lc-3447-7",
+        "lc-3447-9",
+        "lc-3447-10",
+        "lc-3447-12",
+        "lc-3447-13",
+        "lc-3447-14"
+      ]
+    },
+    {
+      "reason": "Marks quotients rather than multiples and reverses the divisibility relationship.",
+      "failed_cases": [
+        "lc-3447-1",
+        "lc-3447-2",
+        "lc-3447-5",
+        "lc-3447-6",
+        "lc-3447-7",
+        "lc-3447-8",
+        "lc-3447-9",
+        "lc-3447-10",
+        "lc-3447-12",
+        "lc-3447-13",
+        "lc-3447-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7494,
+  "oracle_implementation": "code_practice/import_batch_225a.py:assignment_oracle",
+  "validator_implementation_sha256": "cfcddab8e7b5233fc91f4ea952ed6bf226efc3a71348d23f2d1bf0e383c06664",
+  "batch_implementation_sha256": "7866260b0d64ce73cc4015347524a9101088a7616940d04b3abed2efe3688600",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e97910925db13daffe13c4831823dbad77649a8ddf4f8cd8c58f1ec9eb982895",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
