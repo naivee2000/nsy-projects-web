@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2456,
+  "count": 2461,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -39453,6 +39453,42 @@
       "source_id": 2951
     },
     {
+      "id": "leetcode-2952",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Coins to be Added",
+      "summary": "Given an array of coin values and a target, determine the least number of coins to add so that every integer from 1 to the target can be formed by a subsequence of the coins.",
+      "topics": [
+        "greedy",
+        "sorting",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2952.json",
+      "content_sha256": "9bbdc91c775a8824be8b36350a27770bc02348f3a7a2da351f727bf15b77110d",
+      "source_id": 2952
+    },
+    {
+      "id": "leetcode-2955",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Same-End Substrings",
+      "summary": "Given a string s and a 2D array of queries, where each query specifies a substring of s from index l_i to r_i, return an array where each element represents the count of same-end substrings within the corresponding query's substring.",
+      "topics": [
+        "prefix sums",
+        "strings",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2955.json",
+      "content_sha256": "db2cffca99a213f84e6b83b855bf8252bc6c588709f4a46bb51c7953686a1005",
+      "source_id": 2955
+    },
+    {
       "id": "leetcode-2956",
       "version": 1,
       "status": "approved",
@@ -39471,6 +39507,41 @@
       "source_id": 2956
     },
     {
+      "id": "leetcode-2957",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Adjacent Almost-Equal Characters",
+      "summary": "Given a string, determine the least number of operations required to eliminate all adjacent characters that are almost equal.",
+      "topics": [
+        "greedy",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2957.json",
+      "content_sha256": "44d628b6e82386eac43034eb737b316f9b7e8d73bb9914ae33a15c3d80749088",
+      "source_id": 2957
+    },
+    {
+      "id": "leetcode-2958",
+      "version": 1,
+      "status": "approved",
+      "title": "Length of Longest Subarray With at Most K Frequency",
+      "summary": "Given an integer array nums and an integer k, find the length of the longest subarray where each element's frequency does not exceed k.",
+      "topics": [
+        "sliding window",
+        "hash maps",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2958.json",
+      "content_sha256": "c7139e3dc4c5f059fbe6e2bbba00ee5547cd49e9e498bda2949966ae6880827e",
+      "source_id": 2958
+    },
+    {
       "id": "leetcode-2960",
       "version": 1,
       "status": "approved",
@@ -39487,6 +39558,24 @@
       "path": "problems/leetcode-2960.json",
       "content_sha256": "8e9c3fd55c3d7c49da3c6abaf11f742fd28d01cc27a58e49006df233dc013918",
       "source_id": 2960
+    },
+    {
+      "id": "leetcode-2961",
+      "version": 1,
+      "status": "approved",
+      "title": "Double Modular Exponentiation",
+      "summary": "Given a 0-indexed 2D array variables with each row as [ai, bi, ci, mi], and an integer target, identify indices i where 0 <= i < variables.length and ((ai^bi % 10)^ci) % mi equals target.",
+      "topics": [
+        "modular arithmetic",
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2961.json",
+      "content_sha256": "decb3b783f6e75aabc9ad5f3bd548abb7a8c6ee86341766b5fe71be3800c97c2",
+      "source_id": 2961
     },
     {
       "id": "leetcode-2970",

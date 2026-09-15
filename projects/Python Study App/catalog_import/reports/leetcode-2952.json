@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2952",
+  "content_sha256": "9bbdc91c775a8824be8b36350a27770bc02348f3a7a2da351f727bf15b77110d",
+  "source_hash": "86b6b94a9f520a1a513eea67a654237f4ad55e283cbb6f17b6de98b756344aca",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects a coin equal to the first unreachable sum even though it closes the gap exactly.",
+      "failed_cases": [
+        "lc-2952-1",
+        "lc-2952-2",
+        "lc-2952-3",
+        "lc-2952-5",
+        "lc-2952-7",
+        "lc-2952-8",
+        "lc-2952-9",
+        "lc-2952-10",
+        "lc-2952-11",
+        "lc-2952-13",
+        "lc-2952-15",
+        "lc-2952-16"
+      ]
+    },
+    {
+      "reason": "Overstates the new coverage after adding the optimal coin at the coverage boundary.",
+      "failed_cases": [
+        "lc-2952-12",
+        "lc-2952-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6999,
+  "oracle_implementation": "code_practice/import_batch_211c.py:coins_oracle",
+  "validator_implementation_sha256": "b650538145a720ec54cdb0aea817c33683250d63567ccece659d706c8fa2dfbe",
+  "batch_implementation_sha256": "d96b5dae052d0cadff6f5fd2fc9a948854edde8daac2172b7f37fb0505257e55",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "87f302cc56b67d23225b0681b11f1dd3b81c617450bb9997af50114bce37e865",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,64 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2955",
+  "content_sha256": "db2cffca99a213f84e6b83b855bf8252bc6c588709f4a46bb51c7953686a1005",
+  "source_hash": "171e2bdadd0b3fbc25904b07ae8085cdb6922f63d8191ae64bc69bc5a2ee168a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only length-at-least-two matches and omits all one-character substrings.",
+      "failed_cases": [
+        "lc-2955-1",
+        "lc-2955-2",
+        "lc-2955-3",
+        "lc-2955-4",
+        "lc-2955-5",
+        "lc-2955-6",
+        "lc-2955-7",
+        "lc-2955-8",
+        "lc-2955-9",
+        "lc-2955-10",
+        "lc-2955-11",
+        "lc-2955-12",
+        "lc-2955-13",
+        "lc-2955-14",
+        "lc-2955-15",
+        "lc-2955-16"
+      ]
+    },
+    {
+      "reason": "Uses an exclusive right boundary even though query endpoints are inclusive.",
+      "failed_cases": [
+        "lc-2955-1",
+        "lc-2955-2",
+        "lc-2955-3",
+        "lc-2955-4",
+        "lc-2955-5",
+        "lc-2955-6",
+        "lc-2955-7",
+        "lc-2955-8",
+        "lc-2955-9",
+        "lc-2955-10",
+        "lc-2955-11",
+        "lc-2955-12",
+        "lc-2955-13",
+        "lc-2955-14",
+        "lc-2955-15",
+        "lc-2955-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7002,
+  "oracle_implementation": "code_practice/import_batch_211c.py:same_end_oracle",
+  "validator_implementation_sha256": "b650538145a720ec54cdb0aea817c33683250d63567ccece659d706c8fa2dfbe",
+  "batch_implementation_sha256": "d96b5dae052d0cadff6f5fd2fc9a948854edde8daac2172b7f37fb0505257e55",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f805c3e3717fa4c7e30888c22db7f6d291e96608ec2efdb378d9dcdb1e4ebb13",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

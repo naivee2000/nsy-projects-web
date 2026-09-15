@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2961",
+  "content_sha256": "decb3b783f6e75aabc9ad5f3bd548abb7a8c6ee86341766b5fe71be3800c97c2",
+  "source_hash": "b4b0c04568c5ef83fa7108d99cea9119f0f4da3819f9d9dc5daa47503692e51d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the required inner modulo ten before the second exponentiation.",
+      "failed_cases": [
+        "lc-2961-8",
+        "lc-2961-13",
+        "lc-2961-14",
+        "lc-2961-16"
+      ]
+    },
+    {
+      "reason": "Reduces the target modulo each row modulus, accepting rows whose result is not literally target.",
+      "failed_cases": [
+        "lc-2961-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7008,
+  "oracle_implementation": "code_practice/import_batch_211c.py:modular_oracle",
+  "validator_implementation_sha256": "b650538145a720ec54cdb0aea817c33683250d63567ccece659d706c8fa2dfbe",
+  "batch_implementation_sha256": "d96b5dae052d0cadff6f5fd2fc9a948854edde8daac2172b7f37fb0505257e55",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8a26df464fb885ce1f3a2f8e758099cdc766d9214f79d77b009dce9b67ba3885",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

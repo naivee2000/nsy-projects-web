@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2958",
+  "content_sha256": "c7139e3dc4c5f059fbe6e2bbba00ee5547cd49e9e498bda2949966ae6880827e",
+  "source_hash": "6d179fe3e60c91e6bb6f2eb8be4aeb2f4a5199ea6005d8f414c1974e3fee284f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Shrinks only once even when multiple excess copies remain in the window.",
+      "failed_cases": [
+        "lc-2958-9"
+      ]
+    },
+    {
+      "reason": "Decrements the incoming value instead of the value removed from the left edge.",
+      "failed_cases": [
+        "lc-2958-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7005,
+  "oracle_implementation": "code_practice/import_batch_211c.py:longest_oracle",
+  "validator_implementation_sha256": "b650538145a720ec54cdb0aea817c33683250d63567ccece659d706c8fa2dfbe",
+  "batch_implementation_sha256": "d96b5dae052d0cadff6f5fd2fc9a948854edde8daac2172b7f37fb0505257e55",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a742f521d249b38f026f5877966a8f142056ee546891978c619fc1df452cbcd3",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

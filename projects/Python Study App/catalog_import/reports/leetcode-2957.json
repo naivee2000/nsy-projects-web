@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2957",
+  "content_sha256": "44d628b6e82386eac43034eb737b316f9b7e8d73bb9914ae33a15c3d80749088",
+  "source_hash": "d288c98a13725a00ec66fb19bfc3244cf049aaf4e5c3b9376b7d2297b6bb0224",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats identical letters as the only conflict and misses alphabet neighbors.",
+      "failed_cases": [
+        "lc-2957-2",
+        "lc-2957-5",
+        "lc-2957-8",
+        "lc-2957-10",
+        "lc-2957-11",
+        "lc-2957-12",
+        "lc-2957-14"
+      ]
+    },
+    {
+      "reason": "Rechecks the next pair after changing a character, double-counting conflicts one edit can break.",
+      "failed_cases": [
+        "lc-2957-1",
+        "lc-2957-2",
+        "lc-2957-8",
+        "lc-2957-9",
+        "lc-2957-10",
+        "lc-2957-11",
+        "lc-2957-12",
+        "lc-2957-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7004,
+  "oracle_implementation": "code_practice/import_batch_211c.py:edits_oracle",
+  "validator_implementation_sha256": "b650538145a720ec54cdb0aea817c33683250d63567ccece659d706c8fa2dfbe",
+  "batch_implementation_sha256": "d96b5dae052d0cadff6f5fd2fc9a948854edde8daac2172b7f37fb0505257e55",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "10a1b362cad5a0a50e7a748128e7081d188b32c3db7fe79ba8a66ab6927bc7f8",
+  "elapsed_seconds": 0.158,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
