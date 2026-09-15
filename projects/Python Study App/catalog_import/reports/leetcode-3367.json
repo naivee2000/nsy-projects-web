@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3367",
+  "content_sha256": "4078b32e990ae4dc15df83570380f1bbf183188d012d49cebba37b308b3e4c57",
+  "source_hash": "e5c2d5cf0d89e251445ff4316a1d61f1f781ac4f6ecbb576482ca1a95272b53b",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the degree cap and keeps every edge.",
+      "failed_cases": [
+        "lc-3367-1",
+        "lc-3367-2",
+        "lc-3367-4",
+        "lc-3367-5",
+        "lc-3367-6",
+        "lc-3367-7",
+        "lc-3367-8",
+        "lc-3367-10",
+        "lc-3367-11",
+        "lc-3367-12",
+        "lc-3367-13"
+      ]
+    },
+    {
+      "reason": "Incorrectly reserves a parent-edge slot at the root.",
+      "failed_cases": [
+        "lc-3367-2",
+        "lc-3367-3",
+        "lc-3367-4",
+        "lc-3367-6",
+        "lc-3367-7",
+        "lc-3367-10",
+        "lc-3367-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7414,
+  "oracle_implementation": "code_practice/import_batch_222c.py:weighted_tree_oracle",
+  "validator_implementation_sha256": "1ebfde6c4dab981d903740558fd712a28dcfd3637ce967c58e676c9ab1d08658",
+  "batch_implementation_sha256": "79e07bdab949992d8b8711b779f641998be9b1e98c9a8c40fd4654d372b1819a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "503144e25f9c66937710fd1c3fe3ab3f50cf642672b9452b178492ea061c8fd6",
+  "elapsed_seconds": 0.074,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

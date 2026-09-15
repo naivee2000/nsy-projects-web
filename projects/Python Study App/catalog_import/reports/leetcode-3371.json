@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3371",
+  "content_sha256": "c87550b958d76f99021836c711117daf8935ae38a5f7ffe265f78f0a3d5e7a87",
+  "source_hash": "85b12739f9fdd6471cf4f316a67ebf3d72f62dfb10a7873502333919e2cb9965",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses one occurrence as both the outlier and sum entry.",
+      "failed_cases": [
+        "lc-3371-6"
+      ]
+    },
+    {
+      "reason": "Returns the first valid outlier rather than the largest.",
+      "failed_cases": [
+        "lc-3371-2",
+        "lc-3371-3",
+        "lc-3371-8",
+        "lc-3371-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7418,
+  "oracle_implementation": "code_practice/import_batch_222c.py:outlier_oracle",
+  "validator_implementation_sha256": "1ebfde6c4dab981d903740558fd712a28dcfd3637ce967c58e676c9ab1d08658",
+  "batch_implementation_sha256": "79e07bdab949992d8b8711b779f641998be9b1e98c9a8c40fd4654d372b1819a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d80031e5894cb239143559d6fa6a1160e15c8f112131fc9b5bc2551c879a32e9",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

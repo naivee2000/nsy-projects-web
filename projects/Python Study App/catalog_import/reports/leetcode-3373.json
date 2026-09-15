@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3373",
+  "content_sha256": "3617c395b43666314dc27bd3e0888ae5782fe59bff519d8724809d747c9fa761",
+  "source_hash": "3ba22782d6abc3ed2d97fc3700ac257f69256f4d59362274f222659b5f070229",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the smaller second-tree parity class.",
+      "failed_cases": [
+        "lc-3373-1",
+        "lc-3373-4",
+        "lc-3373-5",
+        "lc-3373-8",
+        "lc-3373-9",
+        "lc-3373-10",
+        "lc-3373-11",
+        "lc-3373-14"
+      ]
+    },
+    {
+      "reason": "Counts the opposite parity class in the first tree.",
+      "failed_cases": [
+        "lc-3373-1",
+        "lc-3373-3",
+        "lc-3373-4",
+        "lc-3373-6",
+        "lc-3373-7",
+        "lc-3373-8",
+        "lc-3373-9",
+        "lc-3373-12",
+        "lc-3373-14",
+        "lc-3373-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7420,
+  "oracle_implementation": "code_practice/import_batch_222c.py:target_two_oracle",
+  "validator_implementation_sha256": "1ebfde6c4dab981d903740558fd712a28dcfd3637ce967c58e676c9ab1d08658",
+  "batch_implementation_sha256": "79e07bdab949992d8b8711b779f641998be9b1e98c9a8c40fd4654d372b1819a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fcb9c4be208058120e3c1973933e151463379b5576386a0abe6b61d9fcff0233",
+  "elapsed_seconds": 0.137,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

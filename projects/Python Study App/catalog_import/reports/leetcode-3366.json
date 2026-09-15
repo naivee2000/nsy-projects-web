@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3366",
+  "content_sha256": "0115ed300382cec0c43ec9b7a8619ebe11f94f8ec40ef69d8822f9bc0f483c73",
+  "source_hash": "965fc9e5accde6688fd27be2f0f71b9a42e67a3aa761a77ff64b8dc335ade51e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rounds odd halves down instead of up.",
+      "failed_cases": [
+        "lc-3366-1",
+        "lc-3366-8",
+        "lc-3366-10",
+        "lc-3366-12",
+        "lc-3366-14"
+      ]
+    },
+    {
+      "reason": "Never permits both operations on the same index.",
+      "failed_cases": [
+        "lc-3366-2",
+        "lc-3366-5",
+        "lc-3366-9",
+        "lc-3366-11",
+        "lc-3366-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7413,
+  "oracle_implementation": "code_practice/import_batch_222c.py:minimum_sum_oracle",
+  "validator_implementation_sha256": "1ebfde6c4dab981d903740558fd712a28dcfd3637ce967c58e676c9ab1d08658",
+  "batch_implementation_sha256": "79e07bdab949992d8b8711b779f641998be9b1e98c9a8c40fd4654d372b1819a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "03a88ac7873285aee920a3a5ba15967cd07a1912081df83d2ec812bafe0f9eb5",
+  "elapsed_seconds": 0.962,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

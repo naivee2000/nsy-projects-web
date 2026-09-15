@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3372",
+  "content_sha256": "bf5fdfb92d92512c19697da1619f038924acbc09b2b765991980ed39e6216374",
+  "source_hash": "cf6f530f2b16445ffe5694a1295cf38bdc60bd65ca3c565f776f926fb8c23900",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets that the connecting edge consumes one unit of distance.",
+      "failed_cases": [
+        "lc-3372-1",
+        "lc-3372-2",
+        "lc-3372-7",
+        "lc-3372-9",
+        "lc-3372-11",
+        "lc-3372-12",
+        "lc-3372-16"
+      ]
+    },
+    {
+      "reason": "Always connects at second-tree node zero instead of its best center.",
+      "failed_cases": [
+        "lc-3372-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7419,
+  "oracle_implementation": "code_practice/import_batch_222c.py:target_one_oracle",
+  "validator_implementation_sha256": "1ebfde6c4dab981d903740558fd712a28dcfd3637ce967c58e676c9ab1d08658",
+  "batch_implementation_sha256": "79e07bdab949992d8b8711b779f641998be9b1e98c9a8c40fd4654d372b1819a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c9428d86df83f03cc1acd871b8bf0f4d321157164240748f1713738a6216954e",
+  "elapsed_seconds": 0.132,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

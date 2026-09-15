@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2676,
+  "count": 2681,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -45013,6 +45013,43 @@
       "source_id": 3365
     },
     {
+      "id": "leetcode-3366",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Array Sum",
+      "summary": "Given an integer array nums and three integers k, op1, and op2, you can perform the following operations on nums: - Operation 1: Choose an index i and divide nums[i] by 2, rounding up to the nearest whole number.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3366.json",
+      "content_sha256": "0115ed300382cec0c43ec9b7a8619ebe11f94f8ec40ef69d8822f9bc0f483c73",
+      "source_id": 3366
+    },
+    {
+      "id": "leetcode-3367",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Sum of Weights after Edge Removals",
+      "summary": "Given a tree with n nodes and edge weights, remove edges so that each node connects to at most k other nodes and the sum of the remaining edge weights is maximized.",
+      "topics": [
+        "trees",
+        "dynamic programming",
+        "greedy"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3367.json",
+      "content_sha256": "4078b32e990ae4dc15df83570380f1bbf183188d012d49cebba37b308b3e4c57",
+      "source_id": 3367
+    },
+    {
       "id": "leetcode-3370",
       "version": 1,
       "status": "approved",
@@ -45028,6 +45065,62 @@
       "path": "problems/leetcode-3370.json",
       "content_sha256": "b7cc679f77880c70d1c725c2e574d58c5acb4ae00f139d07e127b89f8f3a491a",
       "source_id": 3370
+    },
+    {
+      "id": "leetcode-3371",
+      "version": 1,
+      "status": "approved",
+      "title": "Identify the Largest Outlier in an Array",
+      "summary": "Given an integer array nums with n elements, where exactly n-2 elements are special numbers, one element is the sum of these special numbers, and one element is an outlier, identify the outlier.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3371.json",
+      "content_sha256": "c87550b958d76f99021836c711117daf8935ae38a5f7ffe265f78f0a3d5e7a87",
+      "source_id": 3371
+    },
+    {
+      "id": "leetcode-3372",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize the Number of Target Nodes After Connecting Trees I",
+      "summary": "Given two distinct labeled trees with n and m nodes, represented by their edges, and an integer k, determine the maximum number of nodes in the first tree that can be targets to each node in the first tree by connecting one node from the first tree to any node in the second tree, ensuring each query is independent and the added edge is removed before the next query.",
+      "topics": [
+        "trees",
+        "breadth-first search",
+        "graphs"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3372.json",
+      "content_sha256": "bf5fdfb92d92512c19697da1619f038924acbc09b2b765991980ed39e6216374",
+      "source_id": 3372
+    },
+    {
+      "id": "leetcode-3373",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize the Number of Target Nodes After Connecting Trees II",
+      "summary": "Given two trees with n and m nodes, represented by their edges, determine the maximum number of nodes in the first tree that can be targets for each node, by connecting one node from the first tree to any node in the second tree.",
+      "topics": [
+        "trees",
+        "graph coloring",
+        "parity"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3373.json",
+      "content_sha256": "3617c395b43666314dc27bd3e0888ae5782fe59bff519d8724809d747c9fa761",
+      "source_id": 3373
     },
     {
       "id": "leetcode-3375",
