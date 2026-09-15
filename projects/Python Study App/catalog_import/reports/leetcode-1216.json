@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1216",
+  "content_sha256": "624e8a61d9a66144dc9230a890a87342b6dcd1cc14b74e382d735f6e64fa5450",
+  "source_hash": "b7dec682ca388cc30b32711f584505e6439de2494a779e570afe90e9cdeb163c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Charges two deletions whenever endpoint characters differ.",
+      "failed_cases": [
+        "lc-1216-1",
+        "lc-1216-2",
+        "lc-1216-5",
+        "lc-1216-7",
+        "lc-1216-9",
+        "lc-1216-10",
+        "lc-1216-11",
+        "lc-1216-12",
+        "lc-1216-14"
+      ]
+    },
+    {
+      "reason": "Rejects strings requiring exactly k deletions.",
+      "failed_cases": [
+        "lc-1216-1",
+        "lc-1216-2",
+        "lc-1216-3",
+        "lc-1216-5",
+        "lc-1216-6",
+        "lc-1216-7",
+        "lc-1216-9",
+        "lc-1216-10",
+        "lc-1216-11",
+        "lc-1216-12",
+        "lc-1216-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5263,
+  "oracle_implementation": "code_practice/import_batch_204a.py:palindrome_o",
+  "validator_implementation_sha256": "2c4313daac912da1aa2228a1671d4f4a0331f7dd34c921450a2f2c30ff3269bb",
+  "batch_implementation_sha256": "6f14844736d0545bedac715f91ff0f2f1e1b4f3107dc4bb02c15b8ac98ebbdf1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "452b562ba0c662d29845956c35f7f5fa8dd9c911fc68326f82d695246408d1ea",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1201",
+  "content_sha256": "b37e58d2e8e8b655089fed616ac54b13361ccbfcf74feca425f1e42f56590200",
+  "source_hash": "e6db0b86215682856064b7717a63e4c5f6d1a4943232a6966714826ce6232da9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts the triple intersection instead of restoring it.",
+      "failed_cases": [
+        "lc-1201-10",
+        "lc-1201-11"
+      ]
+    },
+    {
+      "reason": "Finds the first value whose count exceeds n, skipping exact boundaries.",
+      "failed_cases": [
+        "lc-1201-1",
+        "lc-1201-2",
+        "lc-1201-4",
+        "lc-1201-6",
+        "lc-1201-7",
+        "lc-1201-8",
+        "lc-1201-9",
+        "lc-1201-10",
+        "lc-1201-11",
+        "lc-1201-12",
+        "lc-1201-13",
+        "lc-1201-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5248,
+  "oracle_implementation": "code_practice/import_batch_204a.py:ugly_o",
+  "validator_implementation_sha256": "2c4313daac912da1aa2228a1671d4f4a0331f7dd34c921450a2f2c30ff3269bb",
+  "batch_implementation_sha256": "6f14844736d0545bedac715f91ff0f2f1e1b4f3107dc4bb02c15b8ac98ebbdf1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c15fe715e37232246d1af4bc3b25dfe742db3f240ad0ec5c6819fd21d4f6a817",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1210",
+  "content_sha256": "f234428d2f1dbbe054f1a88b22c3455139666055952375aef39eda8f8f6973f5",
+  "source_hash": "462e655b3257aa0fb886d4a56a5d48a077ba14b65e1638eeaed6f55f66790638",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Charges two for each legal move.",
+      "failed_cases": [
+        "lc-1210-1",
+        "lc-1210-2",
+        "lc-1210-4",
+        "lc-1210-5",
+        "lc-1210-8",
+        "lc-1210-9",
+        "lc-1210-11",
+        "lc-1210-12",
+        "lc-1210-13",
+        "lc-1210-14",
+        "lc-1210-15"
+      ]
+    },
+    {
+      "reason": "Never permits clockwise rotation from horizontal to vertical.",
+      "failed_cases": [
+        "lc-1210-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5257,
+  "oracle_implementation": "code_practice/import_batch_204a.py:snake_o",
+  "validator_implementation_sha256": "2c4313daac912da1aa2228a1671d4f4a0331f7dd34c921450a2f2c30ff3269bb",
+  "batch_implementation_sha256": "6f14844736d0545bedac715f91ff0f2f1e1b4f3107dc4bb02c15b8ac98ebbdf1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9a3836d9efce6360938cd57c6cdbf7130856869b29497d8f78516d072c78542e",
+  "elapsed_seconds": 0.106,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

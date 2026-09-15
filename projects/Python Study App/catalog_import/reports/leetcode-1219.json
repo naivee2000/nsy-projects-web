@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1219",
+  "content_sha256": "526a2bad79bf3dacb77274d93bd1bcc75b7fb9680ce5522781dc9759f08ee0bc",
+  "source_hash": "3b8acb284c85193054c85a7882826bee9975e33a816b580c0b5a232945beea46",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the gold in the current cell from every path total.",
+      "failed_cases": [
+        "lc-1219-1",
+        "lc-1219-2",
+        "lc-1219-4",
+        "lc-1219-5",
+        "lc-1219-6",
+        "lc-1219-7",
+        "lc-1219-8",
+        "lc-1219-9",
+        "lc-1219-10",
+        "lc-1219-11",
+        "lc-1219-13",
+        "lc-1219-14"
+      ]
+    },
+    {
+      "reason": "Fails to restore cells after exploring one branch, corrupting later starts and alternatives.",
+      "failed_cases": [
+        "lc-1219-1",
+        "lc-1219-9",
+        "lc-1219-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5266,
+  "oracle_implementation": "code_practice/import_batch_204a.py:gold_o",
+  "validator_implementation_sha256": "2c4313daac912da1aa2228a1671d4f4a0331f7dd34c921450a2f2c30ff3269bb",
+  "batch_implementation_sha256": "6f14844736d0545bedac715f91ff0f2f1e1b4f3107dc4bb02c15b8ac98ebbdf1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f9ffb1ebae3db44e9ea3470ecadd4766aa0f08b38a530abf72a7fa414275bbd2",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
