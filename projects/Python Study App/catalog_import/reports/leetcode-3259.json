@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3259",
+  "content_sha256": "6cc27c561accd7dbee4a08517d31d0dddd4d508352c4d5d35faeb2cc289ae601",
+  "source_hash": "4165ac57e14491732103f3f3cd8c5f81678ef44a1c5af7f1e00f2e1cce920228",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Switches immediately without paying the cleanse hour.",
+      "failed_cases": [
+        "lc-3259-2",
+        "lc-3259-4",
+        "lc-3259-6",
+        "lc-3259-7",
+        "lc-3259-8",
+        "lc-3259-9",
+        "lc-3259-10",
+        "lc-3259-11",
+        "lc-3259-12",
+        "lc-3259-13",
+        "lc-3259-14",
+        "lc-3259-15",
+        "lc-3259-16"
+      ]
+    },
+    {
+      "reason": "Forces the schedule to finish with drink A.",
+      "failed_cases": [
+        "lc-3259-2",
+        "lc-3259-4",
+        "lc-3259-5",
+        "lc-3259-12",
+        "lc-3259-13",
+        "lc-3259-14",
+        "lc-3259-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7306,
+  "oracle_implementation": "code_practice/import_batch_219b.py:energy_oracle",
+  "validator_implementation_sha256": "71396bb3838dcce74a24bf4058c00992ecfd7a0eb9c398384fe209adfd3928b7",
+  "batch_implementation_sha256": "88bfbe56cdd302cf54c6411cdee97241a6dd815cf869c0a077673bfd2c9a3fa7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8e5d91fb99f33580800000369a1f601d0ef2029ff908c42967b0dc1f6bd85efa",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

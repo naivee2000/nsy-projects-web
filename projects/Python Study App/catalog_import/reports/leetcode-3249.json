@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3249",
+  "content_sha256": "b8e3f9b100e375f4473e979f612f808c453e2711096813da388d9facff398c0f",
+  "source_hash": "b6f815e90b712b1c357c260c6471f39439a36f7175702b9e1dc80aa1ed74132a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only leaves and single-child nodes as good.",
+      "failed_cases": [
+        "lc-3249-1",
+        "lc-3249-2",
+        "lc-3249-4",
+        "lc-3249-6",
+        "lc-3249-7",
+        "lc-3249-10",
+        "lc-3249-13",
+        "lc-3249-16"
+      ]
+    },
+    {
+      "reason": "Adds only child counts rather than full subtree sizes.",
+      "failed_cases": [
+        "lc-3249-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7296,
+  "oracle_implementation": "code_practice/import_batch_219b.py:good_oracle",
+  "validator_implementation_sha256": "71396bb3838dcce74a24bf4058c00992ecfd7a0eb9c398384fe209adfd3928b7",
+  "batch_implementation_sha256": "88bfbe56cdd302cf54c6411cdee97241a6dd815cf869c0a077673bfd2c9a3fa7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fc89024f843299652a9d669088d7e4c8c1d2a8db57f999014201b5a93fa754ee",
+  "elapsed_seconds": 0.064,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
