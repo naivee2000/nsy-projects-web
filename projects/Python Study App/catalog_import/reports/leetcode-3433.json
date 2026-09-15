@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3433",
+  "content_sha256": "6502ebc6b28d53c029d0dc9d67f40e068280c8ce6b006dfa51ec119ea7821052",
+  "source_hash": "a1918dc03374820132d622e69a07f0461c1f34407a3b2bb7d04f094a4ce9babf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Processes a same-time message before the status change.",
+      "failed_cases": [
+        "lc-3433-2",
+        "lc-3433-8"
+      ]
+    },
+    {
+      "reason": "Incorrectly excludes offline users from ALL mentions.",
+      "failed_cases": [
+        "lc-3433-3",
+        "lc-3433-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7480,
+  "oracle_implementation": "code_practice/import_batch_224d.py:mentions_oracle",
+  "validator_implementation_sha256": "fedf0095f53a6ba1e53f23034cf51bf58f5c42948a73a04847d6625664444eb2",
+  "batch_implementation_sha256": "3957d8785a33f8282d9023bf7241234706e782ee0892ba7d724e1add87729b5e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "27d13d5d5b3d99d8139614d1635513bf909376a1c6a9fe2c3a3ddd063c676d60",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

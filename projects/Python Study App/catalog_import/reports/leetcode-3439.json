@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3439",
+  "content_sha256": "a99d969b62ed6e2300498cb0d556cfb9b6c4174b9ed87d6959d332244630a9ef",
+  "source_hash": "9e28c0db5073dabc131d4a64eba04d8722f435dc5134c9f888e9f4346770f6a3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Combines only k gaps even though moving k meetings can merge k+1 gaps.",
+      "failed_cases": [
+        "lc-3439-1",
+        "lc-3439-2",
+        "lc-3439-3",
+        "lc-3439-4",
+        "lc-3439-6",
+        "lc-3439-7",
+        "lc-3439-8",
+        "lc-3439-9",
+        "lc-3439-10",
+        "lc-3439-11",
+        "lc-3439-12",
+        "lc-3439-13",
+        "lc-3439-14"
+      ]
+    },
+    {
+      "reason": "Removes the wrong outgoing gap as the window advances.",
+      "failed_cases": [
+        "lc-3439-3",
+        "lc-3439-6",
+        "lc-3439-8",
+        "lc-3439-9",
+        "lc-3439-13",
+        "lc-3439-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7486,
+  "oracle_implementation": "code_practice/import_batch_224d.py:ordered_meeting_oracle",
+  "validator_implementation_sha256": "fedf0095f53a6ba1e53f23034cf51bf58f5c42948a73a04847d6625664444eb2",
+  "batch_implementation_sha256": "3957d8785a33f8282d9023bf7241234706e782ee0892ba7d724e1add87729b5e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8e7b9b5bed29e51fddc14c5bb677ef0e61d21961c11c51408d7da69f6f8084eb",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

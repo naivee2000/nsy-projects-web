@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3434",
+  "content_sha256": "c813776a70894744a3eb7be3a41fb5b5004de87c44c3fe4948d5f46a8be2b41a",
+  "source_hash": "58d2125ba02b7808bd07d1cdaac9f4781edec1452073ec9bcf92fe59b7f90eca",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not subtract target values destroyed inside the changed subarray.",
+      "failed_cases": [
+        "lc-3434-7",
+        "lc-3434-8",
+        "lc-3434-9",
+        "lc-3434-10",
+        "lc-3434-11",
+        "lc-3434-12",
+        "lc-3434-13",
+        "lc-3434-14"
+      ]
+    },
+    {
+      "reason": "Returns only the gained occurrences and omits targets already present outside the operation.",
+      "failed_cases": [
+        "lc-3434-1",
+        "lc-3434-2",
+        "lc-3434-3",
+        "lc-3434-5",
+        "lc-3434-7",
+        "lc-3434-8",
+        "lc-3434-9",
+        "lc-3434-10",
+        "lc-3434-11",
+        "lc-3434-12",
+        "lc-3434-13",
+        "lc-3434-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7481,
+  "oracle_implementation": "code_practice/import_batch_224d.py:frequency_oracle",
+  "validator_implementation_sha256": "fedf0095f53a6ba1e53f23034cf51bf58f5c42948a73a04847d6625664444eb2",
+  "batch_implementation_sha256": "3957d8785a33f8282d9023bf7241234706e782ee0892ba7d724e1add87729b5e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c407189c17218759db22abf34f9ff37a965905c18e6c79b74fe2037b411e158c",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

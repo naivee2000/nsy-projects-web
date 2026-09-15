@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3443",
+  "content_sha256": "5918b5f7c7a05911b4d6384164cabad755517f4f00e65d0483b3de1001e89dbc",
+  "source_hash": "f562e4e7f08b98c6be2dba8bf7e909cfe572e96216fda04723043f30b58d0e53",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns only the final distance for each directional quadrant and misses a larger earlier prefix.",
+      "failed_cases": [
+        "lc-3443-1",
+        "lc-3443-5",
+        "lc-3443-9",
+        "lc-3443-11"
+      ]
+    },
+    {
+      "reason": "Optimizes only the northeast quadrant and misses paths best directed elsewhere.",
+      "failed_cases": [
+        "lc-3443-1",
+        "lc-3443-2",
+        "lc-3443-9",
+        "lc-3443-11",
+        "lc-3443-12",
+        "lc-3443-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7490,
+  "oracle_implementation": "code_practice/import_batch_224d.py:distance_oracle",
+  "validator_implementation_sha256": "fedf0095f53a6ba1e53f23034cf51bf58f5c42948a73a04847d6625664444eb2",
+  "batch_implementation_sha256": "3957d8785a33f8282d9023bf7241234706e782ee0892ba7d724e1add87729b5e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d9f182159a5f4def18c135b790133382f0e2b56421ff65f83994588c86cc8833",
+  "elapsed_seconds": 0.312,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

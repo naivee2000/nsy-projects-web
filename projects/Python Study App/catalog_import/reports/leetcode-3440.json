@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3440",
+  "content_sha256": "bf6420e56c03a2a8ffb2e1861d07c880910efdd50924e9960b933385827cb078",
+  "source_hash": "613de4860b2cab34a7b9ca2c5c825efa53a7a18db4c550f88134cbe202268b90",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks relocation space only before the removed meeting and misses later gaps.",
+      "failed_cases": [
+        "lc-3440-7",
+        "lc-3440-10",
+        "lc-3440-11"
+      ]
+    },
+    {
+      "reason": "Never relocates a meeting outside its old span, so it cannot recover the meeting duration as free time.",
+      "failed_cases": [
+        "lc-3440-2",
+        "lc-3440-7",
+        "lc-3440-8",
+        "lc-3440-9",
+        "lc-3440-10",
+        "lc-3440-11",
+        "lc-3440-12",
+        "lc-3440-13",
+        "lc-3440-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7487,
+  "oracle_implementation": "code_practice/import_batch_224d.py:movable_meeting_oracle",
+  "validator_implementation_sha256": "fedf0095f53a6ba1e53f23034cf51bf58f5c42948a73a04847d6625664444eb2",
+  "batch_implementation_sha256": "3957d8785a33f8282d9023bf7241234706e782ee0892ba7d724e1add87729b5e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c10ceaacd99c5c2eea4d327f247bd6333b1bdd2118072e29adfd3fd4c131f147",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
