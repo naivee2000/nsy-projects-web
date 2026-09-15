@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3361",
+  "content_sha256": "1d6eebbc778dc16f8bc19ddc3a4ee2969392f297008fa4c3e28de6768acecb39",
+  "source_hash": "cd593f36385f11206aa6c239da345a1d1ea813ca60891ac52cb76bc694d917d0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Charges the backward edge using its destination rather than source letter.",
+      "failed_cases": [
+        "lc-3361-1",
+        "lc-3361-9",
+        "lc-3361-16"
+      ]
+    },
+    {
+      "reason": "Always shifts forward even when the backward route is cheaper.",
+      "failed_cases": [
+        "lc-3361-1",
+        "lc-3361-2",
+        "lc-3361-5",
+        "lc-3361-9",
+        "lc-3361-10",
+        "lc-3361-15",
+        "lc-3361-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7408,
+  "oracle_implementation": "code_practice/import_batch_222b.py:shift_oracle",
+  "validator_implementation_sha256": "7150a6ca3829af00830109df2593ac1b42c94812913ae53d3018a952d6719e32",
+  "batch_implementation_sha256": "3d046f706ed401dda2619964d6f88a6df20c7e8ee9b94df11920328191b8b7d8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f62d085fdded94c9d24bc35e199b99ad33f6fbd1a5a9f19db8729a50abcc6358",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3362",
+  "content_sha256": "4347aa8e6bfdfd16b3efe54e18a49f20cb17587c524057a7895b5911b7640e15",
+  "source_hash": "9406721c487e52442a050d58b2e95686e53c2c23a807d9f11a22c198995c46e0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Selects the earliest-ending available range instead of preserving the farthest reach.",
+      "failed_cases": [
+        "lc-3362-2",
+        "lc-3362-9",
+        "lc-3362-10",
+        "lc-3362-15"
+      ]
+    },
+    {
+      "reason": "Expires a selected inclusive range at its final covered index.",
+      "failed_cases": [
+        "lc-3362-1",
+        "lc-3362-2",
+        "lc-3362-7",
+        "lc-3362-8",
+        "lc-3362-9",
+        "lc-3362-10",
+        "lc-3362-12",
+        "lc-3362-15",
+        "lc-3362-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7409,
+  "oracle_implementation": "code_practice/import_batch_222b.py:removable_oracle",
+  "validator_implementation_sha256": "7150a6ca3829af00830109df2593ac1b42c94812913ae53d3018a952d6719e32",
+  "batch_implementation_sha256": "3d046f706ed401dda2619964d6f88a6df20c7e8ee9b94df11920328191b8b7d8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c75628c39a03e17eed14882e085a795d3c89af44823aa5175485f9babdb31b51",
+  "elapsed_seconds": 0.108,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

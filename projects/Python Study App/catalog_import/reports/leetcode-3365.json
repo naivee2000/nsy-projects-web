@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3365",
+  "content_sha256": "d9be06de8111efa065b455583e7c110c1926a3f92d7a907765a564b2fd7d1fb2",
+  "source_hash": "ceefd6f94b63b269c66cbece4e92605292aea2a6ccd8a3a282fd449e74647f53",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Uses k as the block length rather than the number of blocks.",
+      "failed_cases": [
+        "lc-3365-2",
+        "lc-3365-4",
+        "lc-3365-5",
+        "lc-3365-7",
+        "lc-3365-9",
+        "lc-3365-12",
+        "lc-3365-16"
+      ]
+    },
+    {
+      "reason": "Sorts characters inside each block even though internal block order must remain unchanged.",
+      "failed_cases": [
+        "lc-3365-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7412,
+  "oracle_implementation": "code_practice/import_batch_222b.py:chunk_oracle",
+  "validator_implementation_sha256": "7150a6ca3829af00830109df2593ac1b42c94812913ae53d3018a952d6719e32",
+  "batch_implementation_sha256": "3d046f706ed401dda2619964d6f88a6df20c7e8ee9b94df11920328191b8b7d8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c119dd8a8611f06962bf34c4751def143f0f40b791930cad2c0fe07143466e5d",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

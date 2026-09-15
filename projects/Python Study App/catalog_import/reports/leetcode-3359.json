@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3359",
+  "content_sha256": "5fdf7864bb6dab4187da9eb818bcc55e26bd01b0643020150b3342892848feba",
+  "source_hash": "da36153a278cdbd65ef48ef8ae5ca79053c04807f8dd73ffd7f7d3c5ae9b27ed",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires strict decreases and incorrectly breaks equal adjacent values.",
+      "failed_cases": [
+        "lc-3359-2",
+        "lc-3359-8",
+        "lc-3359-11",
+        "lc-3359-15"
+      ]
+    },
+    {
+      "reason": "Maintains maxima instead of minima across row intervals.",
+      "failed_cases": [
+        "lc-3359-1",
+        "lc-3359-7",
+        "lc-3359-9",
+        "lc-3359-10",
+        "lc-3359-11",
+        "lc-3359-12",
+        "lc-3359-14",
+        "lc-3359-15",
+        "lc-3359-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7406,
+  "oracle_implementation": "code_practice/import_batch_222b.py:sorted_matrix_oracle",
+  "validator_implementation_sha256": "7150a6ca3829af00830109df2593ac1b42c94812913ae53d3018a952d6719e32",
+  "batch_implementation_sha256": "3d046f706ed401dda2619964d6f88a6df20c7e8ee9b94df11920328191b8b7d8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5a6407be05c407468397fa44a50c13a25293f55e9dfa429a2f46c1bca2398a5c",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3363",
+  "content_sha256": "656d7d8cd22672a30a5144f9e11c7f68671c43aefd5921f863f0a152c80348eb",
+  "source_hash": "11b2c16109b5e6ebee06c1df68db1e895002038094c4938170965104d8c15ccf",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the fruit in the upper child’s starting room.",
+      "failed_cases": [
+        "lc-3363-1",
+        "lc-3363-2",
+        "lc-3363-3",
+        "lc-3363-5",
+        "lc-3363-6",
+        "lc-3363-7",
+        "lc-3363-8",
+        "lc-3363-10",
+        "lc-3363-11",
+        "lc-3363-12",
+        "lc-3363-13",
+        "lc-3363-14",
+        "lc-3363-15"
+      ]
+    },
+    {
+      "reason": "Keeps only one side child’s contribution instead of both disjoint triangular paths.",
+      "failed_cases": [
+        "lc-3363-1",
+        "lc-3363-2",
+        "lc-3363-3",
+        "lc-3363-5",
+        "lc-3363-6",
+        "lc-3363-7",
+        "lc-3363-8",
+        "lc-3363-9",
+        "lc-3363-10",
+        "lc-3363-11",
+        "lc-3363-12",
+        "lc-3363-13",
+        "lc-3363-14",
+        "lc-3363-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7410,
+  "oracle_implementation": "code_practice/import_batch_222b.py:fruit_oracle",
+  "validator_implementation_sha256": "7150a6ca3829af00830109df2593ac1b42c94812913ae53d3018a952d6719e32",
+  "batch_implementation_sha256": "3d046f706ed401dda2619964d6f88a6df20c7e8ee9b94df11920328191b8b7d8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4c315348a2a339c0d6c8379d37893f5d4f0dca3f311a79fff7f04eefc7631a57",
+  "elapsed_seconds": 0.089,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
