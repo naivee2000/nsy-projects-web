@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3525",
+  "content_sha256": "14e14871f029f9c664554387b1444ad5c8e995b72c7edb50882d6a62335b9ac6",
+  "source_hash": "a3dd12a7ad4499a8b16d7c8fab986115e1d1a70f7261b8a0f5045ad1fe53329e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Merges right-prefix counts without multiplying by the full left segment product.",
+      "failed_cases": [
+        "lc-3525-1",
+        "lc-3525-2",
+        "lc-3525-5",
+        "lc-3525-7",
+        "lc-3525-9",
+        "lc-3525-10",
+        "lc-3525-12",
+        "lc-3525-13",
+        "lc-3525-14"
+      ]
+    },
+    {
+      "reason": "Ignores the required start index and always queries from the beginning.",
+      "failed_cases": [
+        "lc-3525-5",
+        "lc-3525-8",
+        "lc-3525-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7572,
+  "oracle_implementation": "code_practice/import_batch_227c.py:dynamic_x_oracle",
+  "validator_implementation_sha256": "29bc1cf86260fbcafd7c7f8a3499456bc7855ef46f480936109fca7c578832d3",
+  "batch_implementation_sha256": "b185d7f26fb560cee6e6253acee32aadf3d9f964cf5cd96a2db82cc6af730163",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8d8b44a635c7d5f11fe88b54900a2561eb05c9156738a20120a627d9954d1450",
+  "elapsed_seconds": 0.13,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

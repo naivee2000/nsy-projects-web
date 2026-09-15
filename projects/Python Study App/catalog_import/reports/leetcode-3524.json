@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3524",
+  "content_sha256": "fa4e0f20c3797506d9c474c3d7e5effcf9f05571621e82595d591afa2a970cc9",
+  "source_hash": "b711730d198f41c4ac18f2e583f4a660cd2185bc64df24deb4df3593a9ca1201",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts every one-element subarray with remainder one instead of its value.",
+      "failed_cases": [
+        "lc-3524-1",
+        "lc-3524-2",
+        "lc-3524-3",
+        "lc-3524-5",
+        "lc-3524-6",
+        "lc-3524-7",
+        "lc-3524-8",
+        "lc-3524-9",
+        "lc-3524-10",
+        "lc-3524-11",
+        "lc-3524-13",
+        "lc-3524-14"
+      ]
+    },
+    {
+      "reason": "Tracks subarray sums modulo k rather than products.",
+      "failed_cases": [
+        "lc-3524-1",
+        "lc-3524-2",
+        "lc-3524-3",
+        "lc-3524-8",
+        "lc-3524-9",
+        "lc-3524-11",
+        "lc-3524-12",
+        "lc-3524-13",
+        "lc-3524-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7571,
+  "oracle_implementation": "code_practice/import_batch_227c.py:x_values_oracle",
+  "validator_implementation_sha256": "29bc1cf86260fbcafd7c7f8a3499456bc7855ef46f480936109fca7c578832d3",
+  "batch_implementation_sha256": "b185d7f26fb560cee6e6253acee32aadf3d9f964cf5cd96a2db82cc6af730163",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "581b53c52a6dffe1d198fbfb29fcce259b47b6c090d6d883e12e2ebf88cf45d1",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

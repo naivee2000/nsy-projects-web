@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3526",
+  "content_sha256": "569474be44a533ac80d4d1b963059c6f9d9aef270478c11dc90ad25958562eb4",
+  "source_hash": "a6bc381fce1d684a720c7690826d06a6220cb8a7e17d0445c7dade1f76ce4496",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the whole-array XOR instead of the selected interval.",
+      "failed_cases": [
+        "lc-3526-4",
+        "lc-3526-13",
+        "lc-3526-14"
+      ]
+    },
+    {
+      "reason": "Ignores reversal operations, so later positional updates and queries use the wrong order.",
+      "failed_cases": [
+        "lc-3526-4",
+        "lc-3526-6",
+        "lc-3526-13",
+        "lc-3526-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7573,
+  "oracle_implementation": "code_practice/import_batch_227c.py:xor_query_oracle",
+  "validator_implementation_sha256": "29bc1cf86260fbcafd7c7f8a3499456bc7855ef46f480936109fca7c578832d3",
+  "batch_implementation_sha256": "b185d7f26fb560cee6e6253acee32aadf3d9f964cf5cd96a2db82cc6af730163",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f148ff522d51403cc4bb78c540dd5411d3289948d0398962c4bd72bccd731a33",
+  "elapsed_seconds": 0.205,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
