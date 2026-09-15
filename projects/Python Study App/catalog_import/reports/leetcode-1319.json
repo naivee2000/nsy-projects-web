@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1319",
+  "content_sha256": "72c79f069e44ac013db4095e2bdd83a518d75bb2d8df5f8f13ae6d387adf9ee6",
+  "source_hash": "13f934e02e543079a0677b3e080b29646bebf03fc8c9c14d63e526a1a1e24cb3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only whether any cable exists rather than whether enough cables exist.",
+      "failed_cases": [
+        "lc-1319-2",
+        "lc-1319-3",
+        "lc-1319-6"
+      ]
+    },
+    {
+      "reason": "Returns the cost of connecting isolated computers and ignores components already joined.",
+      "failed_cases": [
+        "lc-1319-1",
+        "lc-1319-5",
+        "lc-1319-7",
+        "lc-1319-8",
+        "lc-1319-9",
+        "lc-1319-10",
+        "lc-1319-11",
+        "lc-1319-12",
+        "lc-1319-13",
+        "lc-1319-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5366,
+  "oracle_implementation": "code_practice/import_batch_205d.py:connected_oracle",
+  "validator_implementation_sha256": "063fb883fc10708afc8a54ef50eea01afe415ad9cf756c8fb0753ec32570d6ca",
+  "batch_implementation_sha256": "4f2083aeab30464eb0ba2cac15a296b1a895e14b22edb42141fe7679badb978d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8a023a6f83b7f942c84c425f01c974a863465320d52982b7d5f31c10dd87c2f8",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1316",
+  "content_sha256": "dd79070b7e8ebd629d617c3e3ee168353ab29fa289fa88fdd4d943042f0914ef",
+  "source_hash": "16cec681ce0e457a1a3b78ab95065322bf87015fd8a4a00776f40014cabd2f47",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes the start position in the identity and counts repeated occurrences separately.",
+      "failed_cases": [
+        "lc-1316-1",
+        "lc-1316-2",
+        "lc-1316-11",
+        "lc-1316-13"
+      ]
+    },
+    {
+      "reason": "Checks only echo halves of length one.",
+      "failed_cases": [
+        "lc-1316-1",
+        "lc-1316-7",
+        "lc-1316-9",
+        "lc-1316-10",
+        "lc-1316-11",
+        "lc-1316-12",
+        "lc-1316-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5363,
+  "oracle_implementation": "code_practice/import_batch_205d.py:echo_oracle",
+  "validator_implementation_sha256": "063fb883fc10708afc8a54ef50eea01afe415ad9cf756c8fb0753ec32570d6ca",
+  "batch_implementation_sha256": "4f2083aeab30464eb0ba2cac15a296b1a895e14b22edb42141fe7679badb978d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5b73e029a512d7a83c34297658d4ab4233cd000d2f305657b217be5f7cb30096",
+  "elapsed_seconds": 0.09,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

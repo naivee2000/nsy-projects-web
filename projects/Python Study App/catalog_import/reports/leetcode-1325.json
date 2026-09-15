@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1325",
+  "content_sha256": "af2c53b15984d8fcf538c083450676230659b1d633aa6350dbf178693bf27a70",
+  "source_hash": "30b502a5c98a3fa4a0461b9cd8871431b438846cb035bfab6f44471c91f7d354",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tests leaf status before recursion and misses parents that become matching leaves.",
+      "failed_cases": [
+        "lc-1325-1",
+        "lc-1325-6",
+        "lc-1325-7",
+        "lc-1325-8",
+        "lc-1325-9",
+        "lc-1325-10",
+        "lc-1325-12",
+        "lc-1325-13",
+        "lc-1325-14"
+      ]
+    },
+    {
+      "reason": "Treats a matching node with only one missing child as a leaf and discards a live subtree.",
+      "failed_cases": [
+        "lc-1325-1",
+        "lc-1325-2",
+        "lc-1325-4",
+        "lc-1325-5",
+        "lc-1325-7",
+        "lc-1325-9",
+        "lc-1325-10",
+        "lc-1325-11",
+        "lc-1325-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5372,
+  "oracle_implementation": "code_practice/import_batch_205d.py:delete_oracle",
+  "validator_implementation_sha256": "063fb883fc10708afc8a54ef50eea01afe415ad9cf756c8fb0753ec32570d6ca",
+  "batch_implementation_sha256": "4f2083aeab30464eb0ba2cac15a296b1a895e14b22edb42141fe7679badb978d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "486145a331b04ab4687e04949c39da7049afcb75703b847def770abb8dc22491",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

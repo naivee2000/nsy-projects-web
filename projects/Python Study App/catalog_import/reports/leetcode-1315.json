@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1315",
+  "content_sha256": "4a4c69fb1f044a4cedef7a73f0fb142f6bcab5877f7ded4b581d77a5abce535c",
+  "source_hash": "1b4237f1242609f8f97612cb1b0224912785b60acb7febc16cdc82130fa1c9fc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks the parent rather than the grandparent.",
+      "failed_cases": [
+        "lc-1315-1",
+        "lc-1315-3",
+        "lc-1315-6",
+        "lc-1315-7",
+        "lc-1315-8",
+        "lc-1315-10",
+        "lc-1315-11",
+        "lc-1315-12",
+        "lc-1315-13",
+        "lc-1315-14"
+      ]
+    },
+    {
+      "reason": "Sums nodes with odd-valued grandparents instead of even ones.",
+      "failed_cases": [
+        "lc-1315-1",
+        "lc-1315-3",
+        "lc-1315-6",
+        "lc-1315-7",
+        "lc-1315-8",
+        "lc-1315-9",
+        "lc-1315-10",
+        "lc-1315-11",
+        "lc-1315-12",
+        "lc-1315-13",
+        "lc-1315-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5362,
+  "oracle_implementation": "code_practice/import_batch_205d.py:grandparent_oracle",
+  "validator_implementation_sha256": "063fb883fc10708afc8a54ef50eea01afe415ad9cf756c8fb0753ec32570d6ca",
+  "batch_implementation_sha256": "4f2083aeab30464eb0ba2cac15a296b1a895e14b22edb42141fe7679badb978d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ba857310f9957172245ca108236e59fb356dbb9cc33b0236f85ada97ce6607d3",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
