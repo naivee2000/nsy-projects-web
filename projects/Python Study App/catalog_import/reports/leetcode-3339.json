@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3339",
+  "content_sha256": "1f9487ced88660bc4b52c7bd4fd632106fa62a1ef0df0421c6147d901287be7d",
+  "source_hash": "6c109d01242253e6d88cc0b4e4a841327bb75dd45636277035642a00f3f5fca5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts any pair ending in an even value instead of requiring both values even.",
+      "failed_cases": [
+        "lc-3339-1",
+        "lc-3339-7",
+        "lc-3339-9",
+        "lc-3339-10",
+        "lc-3339-11",
+        "lc-3339-12",
+        "lc-3339-13",
+        "lc-3339-15",
+        "lc-3339-16"
+      ]
+    },
+    {
+      "reason": "Swaps the odd and even value counts when m is odd.",
+      "failed_cases": [
+        "lc-3339-2",
+        "lc-3339-5",
+        "lc-3339-10",
+        "lc-3339-11",
+        "lc-3339-14",
+        "lc-3339-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7386,
+  "oracle_implementation": "code_practice/import_batch_221c.py:even_oracle",
+  "validator_implementation_sha256": "82fe0c8da8a4b132d317beb7781f84fd58696436c7ac133c333695a024920eb9",
+  "batch_implementation_sha256": "563120088e6c13a8ddeab627750d965ac020b5745c485fdade9912f42eb7939d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1d8028cc92dcf81c2b6345d7ad386c9d547194c43974599384600806195b76fb",
+  "elapsed_seconds": 0.878,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

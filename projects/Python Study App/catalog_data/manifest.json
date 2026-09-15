@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2656,
+  "count": 2661,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -44534,6 +44534,43 @@
       "source_id": 3336
     },
     {
+      "id": "leetcode-3337",
+      "version": 1,
+      "status": "approved",
+      "title": "Total Characters in String After Transformations II",
+      "summary": "Given a string s consisting of lowercase English letters, an integer t representing the number of transformations to perform, and an array nums of size 26, each character in s is transformed in exactly t transformations according to the following rule: replace s[i] with the next nums[s[i] - 'a'] consecutive characters in the alphabet.",
+      "topics": [
+        "strings",
+        "matrix exponentiation",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3337.json",
+      "content_sha256": "b0b7ddbb23b2ae1089aa639ec4cc134cb74f20903025b6045490aa9c4307d23e",
+      "source_id": 3337
+    },
+    {
+      "id": "leetcode-3339",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Number of K-Even Arrays",
+      "summary": "Given integers n, m, and k, find the count of k-even arrays of size n with elements in [1, m].",
+      "topics": [
+        "dynamic programming",
+        "parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3339.json",
+      "content_sha256": "1f9487ced88660bc4b52c7bd4fd632106fa62a1ef0df0421c6147d901287be7d",
+      "source_id": 3339
+    },
+    {
       "id": "leetcode-3340",
       "version": 1,
       "status": "approved",
@@ -44550,6 +44587,62 @@
       "path": "problems/leetcode-3340.json",
       "content_sha256": "df4f93e2c6102442fc38ed0176dfc69fc35aee11220b8f18ce71f36820e34ed4",
       "source_id": 3340
+    },
+    {
+      "id": "leetcode-3341",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Minimum Time to Reach Last Room I",
+      "summary": "In a dungeon grid with n x m rooms, each room (i, j) becomes accessible after moveTime[i][j] seconds.",
+      "topics": [
+        "graphs",
+        "matrices",
+        "dijkstra"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3341.json",
+      "content_sha256": "669f601f6e81d852615301b60740d9134f63a23b200c947d39c65c71664ae65d",
+      "source_id": 3341
+    },
+    {
+      "id": "leetcode-3342",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Minimum Time to Reach Last Room II",
+      "summary": "In a grid of n x m rooms, you start at (0,0) at time 0.",
+      "topics": [
+        "graphs",
+        "matrices",
+        "dijkstra"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3342.json",
+      "content_sha256": "ef6dad55f215737ba27aafb20e2bebd6408609150c63e4422353767589d157b6",
+      "source_id": 3342
+    },
+    {
+      "id": "leetcode-3343",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Number of Balanced Permutations",
+      "summary": "Given a string num, determine the count of distinct permutations where the sum of digits at even indices equals the sum of digits at odd indices.",
+      "topics": [
+        "dynamic programming",
+        "combinatorics",
+        "strings"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3343.json",
+      "content_sha256": "8435dff3377cfd7b90cdb0703dffa3ffaf1dbe4aed4a7ed4146ed214a5c73e48",
+      "source_id": 3343
     },
     {
       "id": "leetcode-3345",

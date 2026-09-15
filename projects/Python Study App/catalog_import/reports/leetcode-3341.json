@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3341",
+  "content_sha256": "669f601f6e81d852615301b60740d9134f63a23b200c947d39c65c71664ae65d",
+  "source_hash": "a845f60c55ee4d8af811464c5f2d5090ebbc514c39834d2026f2d9a7b91b99de",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets the one second required to traverse an edge.",
+      "failed_cases": [
+        "lc-3341-1",
+        "lc-3341-2",
+        "lc-3341-3",
+        "lc-3341-4",
+        "lc-3341-5",
+        "lc-3341-6",
+        "lc-3341-7",
+        "lc-3341-8",
+        "lc-3341-9",
+        "lc-3341-10",
+        "lc-3341-11",
+        "lc-3341-12",
+        "lc-3341-13",
+        "lc-3341-14",
+        "lc-3341-15",
+        "lc-3341-16"
+      ]
+    },
+    {
+      "reason": "Waits for the room being left rather than the destination room.",
+      "failed_cases": [
+        "lc-3341-1",
+        "lc-3341-4",
+        "lc-3341-7",
+        "lc-3341-8",
+        "lc-3341-9",
+        "lc-3341-11",
+        "lc-3341-12",
+        "lc-3341-13",
+        "lc-3341-14",
+        "lc-3341-15",
+        "lc-3341-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7388,
+  "oracle_implementation": "code_practice/import_batch_221c.py:grid_one_oracle",
+  "validator_implementation_sha256": "82fe0c8da8a4b132d317beb7781f84fd58696436c7ac133c333695a024920eb9",
+  "batch_implementation_sha256": "563120088e6c13a8ddeab627750d965ac020b5745c485fdade9912f42eb7939d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8f2f22e2aa4c1b8015f5361bdaed1029c700d4250de0e1b636d69aadafa768fb",
+  "elapsed_seconds": 0.07,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

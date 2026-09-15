@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3342",
+  "content_sha256": "ef6dad55f215737ba27aafb20e2bebd6408609150c63e4422353767589d157b6",
+  "source_hash": "dc21ea03bd39976a38cdbdfa88b46bc31982598d3472adf5bc66c1397ba93cc5",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Charges one second for every move instead of alternating.",
+      "failed_cases": [
+        "lc-3342-1",
+        "lc-3342-2",
+        "lc-3342-3",
+        "lc-3342-4",
+        "lc-3342-5",
+        "lc-3342-6",
+        "lc-3342-7",
+        "lc-3342-8",
+        "lc-3342-9",
+        "lc-3342-10",
+        "lc-3342-11",
+        "lc-3342-12",
+        "lc-3342-13",
+        "lc-3342-14",
+        "lc-3342-15",
+        "lc-3342-16"
+      ]
+    },
+    {
+      "reason": "Starts the duration sequence with two seconds instead of one.",
+      "failed_cases": [
+        "lc-3342-10",
+        "lc-3342-11",
+        "lc-3342-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7389,
+  "oracle_implementation": "code_practice/import_batch_221c.py:grid_two_oracle",
+  "validator_implementation_sha256": "82fe0c8da8a4b132d317beb7781f84fd58696436c7ac133c333695a024920eb9",
+  "batch_implementation_sha256": "563120088e6c13a8ddeab627750d965ac020b5745c485fdade9912f42eb7939d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "625fdc943aabfc07277cc284a252a0b74e6d7b1d7f3e813ea0cd837f3d2ebefa",
+  "elapsed_seconds": 0.072,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

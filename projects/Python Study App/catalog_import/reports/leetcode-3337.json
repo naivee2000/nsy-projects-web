@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3337",
+  "content_sha256": "b0b7ddbb23b2ae1089aa639ec4cc134cb74f20903025b6045490aa9c4307d23e",
+  "source_hash": "df0afefaa99a217065170fd18cfdc2dc9f989a377009010d95e356b3eaf53c46",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Starts each replacement one letter too far ahead.",
+      "failed_cases": [
+        "lc-3337-1",
+        "lc-3337-11",
+        "lc-3337-13",
+        "lc-3337-15",
+        "lc-3337-16"
+      ]
+    },
+    {
+      "reason": "Includes the current letter and omits the final required successor.",
+      "failed_cases": [
+        "lc-3337-1",
+        "lc-3337-11",
+        "lc-3337-13",
+        "lc-3337-15",
+        "lc-3337-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7384,
+  "oracle_implementation": "code_practice/import_batch_221c.py:transform_oracle",
+  "validator_implementation_sha256": "82fe0c8da8a4b132d317beb7781f84fd58696436c7ac133c333695a024920eb9",
+  "batch_implementation_sha256": "563120088e6c13a8ddeab627750d965ac020b5745c485fdade9912f42eb7939d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bc9201cff37599dbef08bbf67e9a6f7be14074e92303f172ee4c6259a12efb8d",
+  "elapsed_seconds": 0.209,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
