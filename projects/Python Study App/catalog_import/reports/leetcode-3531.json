@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3531",
+  "content_sha256": "e78d895452ca90b49d5ed1cb5f8d86f7c12b24a91ed9343de48bfa82030b57f3",
+  "source_hash": "acfa5f668df11222ab0275f66d0b06f98f3258f6827b56f5a6e19fdde3bef451",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the building itself to satisfy above and below because column comparisons are non-strict.",
+      "failed_cases": [
+        "lc-3531-6",
+        "lc-3531-7",
+        "lc-3531-11",
+        "lc-3531-14"
+      ]
+    },
+    {
+      "reason": "Requires row coverage or column coverage instead of all four directions.",
+      "failed_cases": [
+        "lc-3531-5",
+        "lc-3531-6",
+        "lc-3531-7",
+        "lc-3531-11",
+        "lc-3531-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7578,
+  "oracle_implementation": "code_practice/import_batch_227d.py:covered_oracle",
+  "validator_implementation_sha256": "2653560c8c1b83871029d3585a57ceba587975159bd4949d5a83c313b466f022",
+  "batch_implementation_sha256": "25b13c0f56db4533db73d64b5a646a82337f89e831ab9d799a549444173035c8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8eda9314c858ef392b784507e0595af6110207c10d623fa48f024ec19be28ce2",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

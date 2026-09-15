@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3528",
+  "content_sha256": "3dfaf4ac2dcc78625c3e2529b1f81f0f5178a7aebcfe7d9deee0317d4a5b20dd",
+  "source_hash": "d1bdb45cc58d301d9dfbc7df843a9dfa50e46cca5e9e2b51af0eb200674aaf27",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only the final edge factor and ignores earlier conversions on the path.",
+      "failed_cases": [
+        "lc-3528-1",
+        "lc-3528-2",
+        "lc-3528-6",
+        "lc-3528-7",
+        "lc-3528-8",
+        "lc-3528-9",
+        "lc-3528-10",
+        "lc-3528-11",
+        "lc-3528-12",
+        "lc-3528-13",
+        "lc-3528-14"
+      ]
+    },
+    {
+      "reason": "Fails to reduce potentially enormous path products modulo the required modulus.",
+      "failed_cases": [
+        "lc-3528-4",
+        "lc-3528-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7575,
+  "oracle_implementation": "code_practice/import_batch_227d.py:conversion_oracle",
+  "validator_implementation_sha256": "2653560c8c1b83871029d3585a57ceba587975159bd4949d5a83c313b466f022",
+  "batch_implementation_sha256": "25b13c0f56db4533db73d64b5a646a82337f89e831ab9d799a549444173035c8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3544554d379da3de190b0d2c91a7546b6b7675679c6c7f2ddacab3b8fd214528",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

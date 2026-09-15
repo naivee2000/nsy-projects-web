@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3529",
+  "content_sha256": "1ac13fa82d360e0f815dbaebe1b9f98c9bf490bfa87eb0c162e312d3fd674308",
+  "source_hash": "3a3f53d7b36f057f943abaee361aad97e63965d34a6d521974729b03529ac36a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses row-major order for both directions and never performs the required column-major scan.",
+      "failed_cases": [
+        "lc-3529-7",
+        "lc-3529-11",
+        "lc-3529-12"
+      ]
+    },
+    {
+      "reason": "Marks only the first character of each match rather than every covered character.",
+      "failed_cases": [
+        "lc-3529-1",
+        "lc-3529-2",
+        "lc-3529-4",
+        "lc-3529-5",
+        "lc-3529-6",
+        "lc-3529-10",
+        "lc-3529-13",
+        "lc-3529-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7576,
+  "oracle_implementation": "code_practice/import_batch_227d.py:overlap_oracle",
+  "validator_implementation_sha256": "2653560c8c1b83871029d3585a57ceba587975159bd4949d5a83c313b466f022",
+  "batch_implementation_sha256": "25b13c0f56db4533db73d64b5a646a82337f89e831ab9d799a549444173035c8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "032f40ccb5be05544770d81880aed138b78885b22d0a2a041b69e56aef3d85a7",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

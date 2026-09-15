@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2781,
+  "count": 2786,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -47520,6 +47520,98 @@
       "path": "problems/leetcode-3527.json",
       "content_sha256": "8e2cabc7fb1d9d86d2c16963cbb38e965ef1f839205376253090deb16720f95f",
       "source_id": 3527
+    },
+    {
+      "id": "leetcode-3528",
+      "version": 1,
+      "status": "approved",
+      "title": "Unit Conversion I",
+      "summary": "Given n types of units indexed from 0 to n-1, and a 2D array conversions detailing conversion factors between units, calculate the number of units of each type equivalent to one unit of type 0, modulo 10^9 + 7.",
+      "topics": [
+        "graphs",
+        "depth first search",
+        "modular arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3528.json",
+      "content_sha256": "3dfaf4ac2dcc78625c3e2529b1f81f0f5178a7aebcfe7d9deee0317d4a5b20dd",
+      "source_id": 3528
+    },
+    {
+      "id": "leetcode-3529",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Cells in Overlapping Horizontal and Vertical Substrings",
+      "summary": "Given an m x n matrix grid and a string pattern, count the number of cells that are part of at least one matching horizontal and one matching vertical substring of the pattern.",
+      "topics": [
+        "matrices",
+        "strings",
+        "kmp"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3529.json",
+      "content_sha256": "1ac13fa82d360e0f815dbaebe1b9f98c9bf490bfa87eb0c162e312d3fd674308",
+      "source_id": 3529
+    },
+    {
+      "id": "leetcode-3530",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Profit from Valid Topological Order in DAG",
+      "summary": "Given a Directed Acyclic Graph (DAG) with nodes labeled from 0 to n-1, where edges[i] = [ui, vi] denotes a directed edge from node ui to vi, and each node has a score in the array score, calculate the maximum profit by processing nodes in a valid topological order.",
+      "topics": [
+        "graphs",
+        "bitmask dynamic programming",
+        "topological sorting"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3530.json",
+      "content_sha256": "d58a6c6b0aa6e3fdf0e19ef649a681762fd19c2e18431c4660b1a42deaed5bdb",
+      "source_id": 3530
+    },
+    {
+      "id": "leetcode-3531",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Covered Buildings",
+      "summary": "Given a positive integer n for an n x n city and a 2D grid of buildings, count how many buildings are covered by at least one building in all four cardinal directions.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3531.json",
+      "content_sha256": "e78d895452ca90b49d5ed1cb5f8d86f7c12b24a91ed9343de48bfa82030b57f3",
+      "source_id": 3531
+    },
+    {
+      "id": "leetcode-3532",
+      "version": 1,
+      "status": "approved",
+      "title": "Path Existence Queries in a Graph I",
+      "summary": "Given an integer n for the number of nodes in a graph, labeled 0 to n-1, and an integer array nums sorted in non-decreasing order of length n, along with an integer maxDiff, an undirected edge exists between nodes i and j if the absolute difference between nums[i] and nums[j] is at most maxDiff.",
+      "topics": [
+        "arrays",
+        "graphs",
+        "connected components"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3532.json",
+      "content_sha256": "7ee2353ada5e72e623435cb5db88f115a11312936023e3b25f351168caee7701",
+      "source_id": 3532
     },
     {
       "id": "leetcode-3536",
