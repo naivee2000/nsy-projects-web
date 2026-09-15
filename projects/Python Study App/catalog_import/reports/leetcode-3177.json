@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3177",
+  "content_sha256": "7d7473d26393af4fb688580e129eb71fcda9b9752f084d2b1a1d9ecf6c59e22d",
+  "source_hash": "a93d620598c844c07364b391eff425746532fc2efd8401769bdc2ecacf6d3c0b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes each permitted change can add only one element beyond the most frequent value.",
+      "failed_cases": [
+        "lc-3177-1",
+        "lc-3177-8",
+        "lc-3177-10",
+        "lc-3177-11",
+        "lc-3177-12",
+        "lc-3177-13"
+      ]
+    },
+    {
+      "reason": "Finds only a contiguous window even though arbitrary intervening indices may be skipped.",
+      "failed_cases": [
+        "lc-3177-7",
+        "lc-3177-11",
+        "lc-3177-12",
+        "lc-3177-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7224,
+  "oracle_implementation": "code_practice/import_batch_217b.py:good_oracle",
+  "validator_implementation_sha256": "d4d16903646eb3f38798b9cfa8f569a7e39d05c8ca9d88d2a7ca90367861de34",
+  "batch_implementation_sha256": "206358ad0c32414a156b3121556e95b75213f3a70aa8ed204829aa36d3945b6a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d29f03e54a38a16cfa0a542a21b287a1bee17b12d8a6698cca3d8fa2839a7309",
+  "elapsed_seconds": 0.108,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3183",
+  "content_sha256": "30f00df00397b6741df1b27f756816835257db35005b79bd69d01bf7bfe148e4",
+  "source_hash": "04e9b029469e772f351ff04a8c62d1b119fa5c70ecc7ef2ff553767b7f4a41e2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows at most one four-valued coin instead of two.",
+      "failed_cases": [
+        "lc-3183-2",
+        "lc-3183-10",
+        "lc-3183-11",
+        "lc-3183-12",
+        "lc-3183-13",
+        "lc-3183-14"
+      ]
+    },
+    {
+      "reason": "Treats four as unlimited rather than restricting it to two copies.",
+      "failed_cases": [
+        "lc-3183-1",
+        "lc-3183-2",
+        "lc-3183-7",
+        "lc-3183-8",
+        "lc-3183-9",
+        "lc-3183-10",
+        "lc-3183-11",
+        "lc-3183-12",
+        "lc-3183-13",
+        "lc-3183-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7230,
+  "oracle_implementation": "code_practice/import_batch_217b.py:sum_oracle",
+  "validator_implementation_sha256": "d4d16903646eb3f38798b9cfa8f569a7e39d05c8ca9d88d2a7ca90367861de34",
+  "batch_implementation_sha256": "206358ad0c32414a156b3121556e95b75213f3a70aa8ed204829aa36d3945b6a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "144c3b319abd89c57ec8cf09d7c2ef5a7f56ab4647f66ab9c00de216cf2e2108",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3185",
+  "content_sha256": "3cd58ed2181af73eab9ade50c5e0c3dcb42ab87f71f23bf84c042dce07568221",
+  "source_hash": "2272882b67fd8d8eb74962a1501ff0b244d61b21555ee57f4f4f4e9dba641f05",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Wraps complement buckets with modulus 23 instead of 24.",
+      "failed_cases": [
+        "lc-3185-1",
+        "lc-3185-2",
+        "lc-3185-9",
+        "lc-3185-14"
+      ]
+    },
+    {
+      "reason": "Reduces hours modulo 23 instead of one complete 24-hour day.",
+      "failed_cases": [
+        "lc-3185-1",
+        "lc-3185-2",
+        "lc-3185-4",
+        "lc-3185-6",
+        "lc-3185-7",
+        "lc-3185-8",
+        "lc-3185-9",
+        "lc-3185-10",
+        "lc-3185-12",
+        "lc-3185-13",
+        "lc-3185-14",
+        "lc-3185-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7232,
+  "oracle_implementation": "code_practice/import_batch_217b.py:day_oracle",
+  "validator_implementation_sha256": "d4d16903646eb3f38798b9cfa8f569a7e39d05c8ca9d88d2a7ca90367861de34",
+  "batch_implementation_sha256": "206358ad0c32414a156b3121556e95b75213f3a70aa8ed204829aa36d3945b6a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "89b319fc3f79bf8a95e7244cc5ba0b6686c3118233f4197fd01a7b7f2cff4a75",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

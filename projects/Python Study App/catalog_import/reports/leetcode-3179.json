@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3179",
+  "content_sha256": "0cf4c7ca458bc1ed51d3b982c9d4df0f38900fca96e6dbbff850ea8e172e209d",
+  "source_hash": "ab6da854a4194112397f8f16c0a9a6cccc00ed6645f3a20d5975155fc8d3e915",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Computes one extra multiplicative term and returns the next array position.",
+      "failed_cases": [
+        "lc-3179-1",
+        "lc-3179-2",
+        "lc-3179-4",
+        "lc-3179-5",
+        "lc-3179-6",
+        "lc-3179-8",
+        "lc-3179-9",
+        "lc-3179-10",
+        "lc-3179-11",
+        "lc-3179-12",
+        "lc-3179-13",
+        "lc-3179-14"
+      ]
+    },
+    {
+      "reason": "Uses the wrong shifted binomial factors, corresponding to one fewer prefix-sum round.",
+      "failed_cases": [
+        "lc-3179-1",
+        "lc-3179-4",
+        "lc-3179-5",
+        "lc-3179-6",
+        "lc-3179-7",
+        "lc-3179-8",
+        "lc-3179-9",
+        "lc-3179-10",
+        "lc-3179-11",
+        "lc-3179-12",
+        "lc-3179-13",
+        "lc-3179-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7226,
+  "oracle_implementation": "code_practice/import_batch_217b.py:seconds_oracle",
+  "validator_implementation_sha256": "d4d16903646eb3f38798b9cfa8f569a7e39d05c8ca9d88d2a7ca90367861de34",
+  "batch_implementation_sha256": "206358ad0c32414a156b3121556e95b75213f3a70aa8ed204829aa36d3945b6a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cf6f5e7a288a34db41b1c301e1161837c44b6a194b1fd13bb8e92954ab317f47",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

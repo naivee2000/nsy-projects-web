@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3180",
+  "content_sha256": "b2b9189de1779237e303ff9ac7cde7dcf09a8bcb89b18f5bd538a02f0bdfe40f",
+  "source_hash": "c1c0eb4506b67891fa32df4c7172e1c26d7ec06cc8dde21a2755e9f4a5ec4baf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a prior total equal to the chosen reward even though the inequality is strict.",
+      "failed_cases": [
+        "lc-3180-2"
+      ]
+    },
+    {
+      "reason": "Processes large rewards first, losing reachable totals that require smaller rewards beforehand.",
+      "failed_cases": [
+        "lc-3180-1",
+        "lc-3180-2",
+        "lc-3180-4",
+        "lc-3180-6",
+        "lc-3180-7",
+        "lc-3180-8",
+        "lc-3180-9",
+        "lc-3180-11",
+        "lc-3180-12",
+        "lc-3180-13",
+        "lc-3180-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7227,
+  "oracle_implementation": "code_practice/import_batch_217b.py:reward_oracle",
+  "validator_implementation_sha256": "d4d16903646eb3f38798b9cfa8f569a7e39d05c8ca9d88d2a7ca90367861de34",
+  "batch_implementation_sha256": "206358ad0c32414a156b3121556e95b75213f3a70aa8ed204829aa36d3945b6a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bd9247319e54b8b08a4ccdcbefbc9838dbb22d13e70453561d8b13279a655956",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
