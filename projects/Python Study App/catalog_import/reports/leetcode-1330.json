@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1330",
+  "content_sha256": "58ec33064ca930f23b7cdbe25c61672c081b79a96a1a323109be44590a1945b3",
+  "source_hash": "2f46b53c36ddfa8347027cfdcc6636cf2c3b4ba9d17c5584bacddf5521119107",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only prefix and suffix reversals, missing profitable internal reversals.",
+      "failed_cases": [
+        "lc-1330-1",
+        "lc-1330-2"
+      ]
+    },
+    {
+      "reason": "Uses the old boundary endpoint when evaluating prefix reversals.",
+      "failed_cases": [
+        "lc-1330-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5377,
+  "oracle_implementation": "code_practice/import_batch_206a.py:reversal_oracle",
+  "validator_implementation_sha256": "510e154c79b04d8bbfcee77e4f08d2534f21478c3fe40938565c520b7ead0972",
+  "batch_implementation_sha256": "988b3db7aa18a40899ed7c2842bf9980017273cfb63f900cf5a67c09f9736650",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ddd03581d4ad19f5e49e291bc28ef4200b9dd0f771c0cfe2902166576748e8ab",
+  "elapsed_seconds": 0.07,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

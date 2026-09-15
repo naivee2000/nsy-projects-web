@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2346,
+  "count": 2351,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -17863,6 +17863,25 @@
       "source_id": 1325
     },
     {
+      "id": "leetcode-1326",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Taps to Open to Water a Garden",
+      "summary": "Given a garden on the x-axis from 0 to n, with taps at each integer point, and each tap having a watering range defined by an array, determine the minimum number of taps needed to water the entire garden.",
+      "topics": [
+        "greedy",
+        "intervals"
+      ],
+      "prerequisites": [
+        "greedy"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1326.json",
+      "content_sha256": "f8770a4d5fea092da4ea7352ab45b43e1cba270b519c0bba9020ecb298237c85",
+      "source_id": 1326
+    },
+    {
       "id": "leetcode-1328",
       "version": 1,
       "status": "approved",
@@ -17895,6 +17914,26 @@
       "path": "problems/leetcode-1329.json",
       "content_sha256": "f8f514c0740a193dc59f9752703d23071c115a5c26b9983e3c7a91c60bf2fbb2",
       "source_id": 1329
+    },
+    {
+      "id": "leetcode-1330",
+      "version": 1,
+      "status": "approved",
+      "title": "Reverse Subarray To Maximize Array Value",
+      "summary": "Given an integer array nums, the value of the array is defined as the sum of the absolute differences between every pair of consecutive elements, i.e., the sum of |nums[i] - nums[i + 1]| for all 0 ≤ i < nums.length - 1 .",
+      "topics": [
+        "arrays",
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1330.json",
+      "content_sha256": "58ec33064ca930f23b7cdbe25c61672c081b79a96a1a323109be44590a1945b3",
+      "source_id": 1330
     },
     {
       "id": "leetcode-1331",
@@ -17965,6 +18004,25 @@
       "source_id": 1334
     },
     {
+      "id": "leetcode-1335",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Difficulty of a Job Schedule",
+      "summary": "Given an array of job difficulties and a number of days, find the minimum total difficulty by scheduling jobs such that each day has at least one job, and the difficulty of a day is the highest job difficulty on that day.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1335.json",
+      "content_sha256": "b16109d6cf27f982d11fe261715f991109e78e51a21347a0714cd47fa9527ce3",
+      "source_id": 1335
+    },
+    {
       "id": "leetcode-1337",
       "version": 1,
       "status": "approved",
@@ -17997,6 +18055,44 @@
       "path": "problems/leetcode-1338.json",
       "content_sha256": "338ef8d80d49ae623c741249574409436c0543a98ac5df1d17ae5037a14c31c8",
       "source_id": 1338
+    },
+    {
+      "id": "leetcode-1339",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Product of Splitted Binary Tree",
+      "summary": "Given a binary tree, determine the maximum product of the sums of two resulting subtrees after removing one edge.",
+      "topics": [
+        "trees",
+        "recursion",
+        "postorder"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1339.json",
+      "content_sha256": "c830081c5c548f482c7febcc935b6a62862669d0013e4138d196a0866d222dde",
+      "source_id": 1339
+    },
+    {
+      "id": "leetcode-1340",
+      "version": 1,
+      "status": "approved",
+      "title": "Jump Game V",
+      "summary": "Given an array of integers arr and an integer d, you can jump from index i to index i + x or i - x where 0 arr[j] for all indices j between i and the new index.",
+      "topics": [
+        "arrays",
+        "recursion",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1340.json",
+      "content_sha256": "f543fa4634d528fd2125b92f1ddb1e9416f9f3bd658a22da72628f294df71563",
+      "source_id": 1340
     },
     {
       "id": "leetcode-1342",

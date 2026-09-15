@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1339",
+  "content_sha256": "c830081c5c548f482c7febcc935b6a62862669d0013e4138d196a0866d222dde",
+  "source_hash": "57a43a13b4c29a6a7eeda9413578ef1ea54247ffb6fdebdebe03c990c10067d9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Squares one component sum instead of multiplying both resulting component sums.",
+      "failed_cases": [
+        "lc-1339-1",
+        "lc-1339-3",
+        "lc-1339-5",
+        "lc-1339-6",
+        "lc-1339-7",
+        "lc-1339-8",
+        "lc-1339-9",
+        "lc-1339-11",
+        "lc-1339-12",
+        "lc-1339-13",
+        "lc-1339-14"
+      ]
+    },
+    {
+      "reason": "Evaluates only the first postorder subtree rather than every removable edge.",
+      "failed_cases": [
+        "lc-1339-1",
+        "lc-1339-4",
+        "lc-1339-5",
+        "lc-1339-7",
+        "lc-1339-9",
+        "lc-1339-11",
+        "lc-1339-12",
+        "lc-1339-13",
+        "lc-1339-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5386,
+  "oracle_implementation": "code_practice/import_batch_206a.py:product_oracle",
+  "validator_implementation_sha256": "510e154c79b04d8bbfcee77e4f08d2534f21478c3fe40938565c520b7ead0972",
+  "batch_implementation_sha256": "988b3db7aa18a40899ed7c2842bf9980017273cfb63f900cf5a67c09f9736650",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d4d26651f72e380187a14624774359d2d117683f024067656227a899a78abfe9",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
