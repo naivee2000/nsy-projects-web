@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3108",
+  "content_sha256": "95489eb03a72afc32aeee41549035cb280067f292e4d6818f3d9afac44f7e6b5",
+  "source_hash": "3b7dff32468e55e6e13851513886e68be6a2be8052b25329169ac66db14de586",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the largest component edge instead of the AND of every edge.",
+      "failed_cases": [
+        "lc-3108-1",
+        "lc-3108-2",
+        "lc-3108-6",
+        "lc-3108-8",
+        "lc-3108-9",
+        "lc-3108-10",
+        "lc-3108-13",
+        "lc-3108-14"
+      ]
+    },
+    {
+      "reason": "Returns the component edge cost for an equal-endpoint query instead of the required zero-length cost zero.",
+      "failed_cases": [
+        "lc-3108-3",
+        "lc-3108-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7155,
+  "oracle_implementation": "code_practice/import_batch_214d.py:graph_oracle",
+  "validator_implementation_sha256": "cb61d670954a5de7ebab05954601ff6051c26592749044b68abc37e68a7973cb",
+  "batch_implementation_sha256": "c17a02b306b91688e775a09cfe795b302e350e6f341fe7a7746e1cc49fae9562",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b50c87bcebbd74f23f19dae9c40206f67373e6b240f59b5c64f52ddc822efc23",
+  "elapsed_seconds": 0.067,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

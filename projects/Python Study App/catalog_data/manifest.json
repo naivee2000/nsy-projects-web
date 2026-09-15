@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2521,
+  "count": 2526,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -41249,6 +41249,46 @@
       "source_id": 3101
     },
     {
+      "id": "leetcode-3102",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize Manhattan Distances",
+      "summary": "Given an array of points with their 2D coordinates, where each point is represented as [xi, yi], find the minimum possible value for the maximum Manhattan distance between any two points after removing exactly one point from the array.",
+      "topics": [
+        "geometry",
+        "sorting",
+        "extrema"
+      ],
+      "prerequisites": [
+        "geometry"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3102.json",
+      "content_sha256": "507f3f6e43c1dcc2943b33c76555c4c9211e8233a37cdf37c49c5c571bdeb788",
+      "source_id": 3102
+    },
+    {
+      "id": "leetcode-3104",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Longest Self-Contained Substring",
+      "summary": "Determine the length of the longest substring within a given string that does not appear elsewhere in the string.",
+      "topics": [
+        "strings",
+        "intervals",
+        "hash maps"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3104.json",
+      "content_sha256": "7f0e2676caa5fe6e7d707bea98efacbff4c70d26857f647634f7d21d62bb6568",
+      "source_id": 3104
+    },
+    {
       "id": "leetcode-3105",
       "version": 1,
       "status": "approved",
@@ -41264,6 +41304,61 @@
       "path": "problems/leetcode-3105.json",
       "content_sha256": "38a61e06789e86d84261013b7afa8ed0137167db61f37f954d9a432ce811fa4c",
       "source_id": 3105
+    },
+    {
+      "id": "leetcode-3106",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographically Smallest String After Operations With Constraint",
+      "summary": "Given a string s and an integer k, find the lexicographically smallest string t that can be formed by changing any letter of s to any other lowercase English letter, ensuring the distance between s and t is less than or equal to k.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3106.json",
+      "content_sha256": "be2f56badee47bb1eb94ee64bcd2c64c8abb7255aae0c212063e26b9c4014452",
+      "source_id": 3106
+    },
+    {
+      "id": "leetcode-3107",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Make Median of Array Equal to K",
+      "summary": "Given an integer array and a non-negative integer k, determine the least number of operations required to make the median of the array equal to k.",
+      "topics": [
+        "sorting",
+        "greedy",
+        "medians"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3107.json",
+      "content_sha256": "c14ff57f3fe999f3cc8d9a5556eb76d01040cd3ba1bf041311d089c2df768909",
+      "source_id": 3107
+    },
+    {
+      "id": "leetcode-3108",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost Walk in Weighted Graph",
+      "summary": "Given an undirected weighted graph with n vertices labeled from 0 to n-1 , where each edge has a weight, and a set of queries specifying start and end vertices, determine the minimum cost of a walk between each pair of vertices.",
+      "topics": [
+        "graphs",
+        "union find",
+        "bit manipulation"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3108.json",
+      "content_sha256": "95489eb03a72afc32aeee41549035cb280067f292e4d6818f3d9afac44f7e6b5",
+      "source_id": 3108
     },
     {
       "id": "leetcode-3110",

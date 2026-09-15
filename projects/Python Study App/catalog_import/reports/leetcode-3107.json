@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3107",
+  "content_sha256": "c14ff57f3fe999f3cc8d9a5556eb76d01040cd3ba1bf041311d089c2df768909",
+  "source_hash": "679e2adffe8a9d90cbc1194e0b996d9338784e5cf9b1e917b1a5bf79378ab8e3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the lower middle element for even-length arrays.",
+      "failed_cases": [
+        "lc-3107-2",
+        "lc-3107-5",
+        "lc-3107-6",
+        "lc-3107-7",
+        "lc-3107-9",
+        "lc-3107-12",
+        "lc-3107-14"
+      ]
+    },
+    {
+      "reason": "Changes only the current median and ignores other values that would cross the target median position.",
+      "failed_cases": [
+        "lc-3107-1",
+        "lc-3107-2",
+        "lc-3107-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7154,
+  "oracle_implementation": "code_practice/import_batch_214d.py:median_oracle",
+  "validator_implementation_sha256": "cb61d670954a5de7ebab05954601ff6051c26592749044b68abc37e68a7973cb",
+  "batch_implementation_sha256": "c17a02b306b91688e775a09cfe795b302e350e6f341fe7a7746e1cc49fae9562",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "47fe3482e0422fd003e5ebe79cf3cb35a0b7dd824841f0fa56cab4e948345222",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

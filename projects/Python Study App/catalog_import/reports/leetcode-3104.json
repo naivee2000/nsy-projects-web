@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3104",
+  "content_sha256": "7f0e2676caa5fe6e7d707bea98efacbff4c70d26857f647634f7d21d62bb6568",
+  "source_hash": "1fb2a37106643a84c7c56c355765ad75101e16abf7ef46e4dd7aced38380391f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the entire string even though the substring must be proper.",
+      "failed_cases": [
+        "lc-3104-1",
+        "lc-3104-2",
+        "lc-3104-3",
+        "lc-3104-4",
+        "lc-3104-5",
+        "lc-3104-6",
+        "lc-3104-7",
+        "lc-3104-8",
+        "lc-3104-9",
+        "lc-3104-10",
+        "lc-3104-11",
+        "lc-3104-12",
+        "lc-3104-13",
+        "lc-3104-14"
+      ]
+    },
+    {
+      "reason": "Continues through a character whose earlier occurrence lies outside, accepting a non-contained interval.",
+      "failed_cases": [
+        "lc-3104-2",
+        "lc-3104-8",
+        "lc-3104-9",
+        "lc-3104-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7151,
+  "oracle_implementation": "code_practice/import_batch_214d.py:closed_oracle",
+  "validator_implementation_sha256": "cb61d670954a5de7ebab05954601ff6051c26592749044b68abc37e68a7973cb",
+  "batch_implementation_sha256": "c17a02b306b91688e775a09cfe795b302e350e6f341fe7a7746e1cc49fae9562",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9045b5db04e7027e49290befb855904ac1cad1ba66d517a629237dec4fd7aefc",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
