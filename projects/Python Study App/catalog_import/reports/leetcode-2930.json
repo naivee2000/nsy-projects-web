@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2930",
+  "content_sha256": "1247dd7fcd829425ee438b1ca25d43919d6a99b294a37ae33b9ee8a3f54e18bf",
+  "source_hash": "5973b5e919a05e2ad481c50eb04db48174e47901b2c440292922d3e385a981bf",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires only one e rather than two.",
+      "failed_cases": [
+        "lc-2930-1",
+        "lc-2930-2",
+        "lc-2930-5",
+        "lc-2930-6",
+        "lc-2930-7",
+        "lc-2930-8",
+        "lc-2930-9",
+        "lc-2930-10",
+        "lc-2930-11",
+        "lc-2930-12",
+        "lc-2930-13",
+        "lc-2930-14",
+        "lc-2930-15",
+        "lc-2930-16"
+      ]
+    },
+    {
+      "reason": "Treats twenty-four ordinary letters as distinct options instead of twenty-three.",
+      "failed_cases": [
+        "lc-2930-2",
+        "lc-2930-6",
+        "lc-2930-7",
+        "lc-2930-8",
+        "lc-2930-9",
+        "lc-2930-10",
+        "lc-2930-11",
+        "lc-2930-12",
+        "lc-2930-13",
+        "lc-2930-14",
+        "lc-2930-15",
+        "lc-2930-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6977,
+  "oracle_implementation": "code_practice/import_batch_211a.py:string_count_oracle",
+  "validator_implementation_sha256": "b7c683ce00402edb2a9786ac3a2278c1bf6e17c13c7107b840758c80eca55ae9",
+  "batch_implementation_sha256": "bba8fbd17c4189f7435b40aa7cdab0038ff936469fee367798b8a3d55a21f08e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "035cb4dd26bef3441fb9d5655971a956b1591e71c2cf70c78d669cc9305f9852",
+  "elapsed_seconds": 1.654,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

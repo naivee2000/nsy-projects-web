@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2934",
+  "content_sha256": "259d461cb094c7200cc550239e0cb7d24e569032d2fa10f2a823c217f9e0f35e",
+  "source_hash": "421be5534fb6a8d1c48f6948e5260b0297b87c8f7d3047d8292f73706540296b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets to count swapping the final pair in the second orientation.",
+      "failed_cases": [
+        "lc-2934-1",
+        "lc-2934-2",
+        "lc-2934-4",
+        "lc-2934-6",
+        "lc-2934-14",
+        "lc-2934-15"
+      ]
+    },
+    {
+      "reason": "Uses strict limits for swapped earlier pairs and rejects values equal to the final maximum.",
+      "failed_cases": [
+        "lc-2934-9",
+        "lc-2934-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6981,
+  "oracle_implementation": "code_practice/import_batch_211a.py:last_elements_oracle",
+  "validator_implementation_sha256": "b7c683ce00402edb2a9786ac3a2278c1bf6e17c13c7107b840758c80eca55ae9",
+  "batch_implementation_sha256": "bba8fbd17c4189f7435b40aa7cdab0038ff936469fee367798b8a3d55a21f08e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3ca0525f3d14b49c094227aff7140a06a7d1f6c4e280def289c6f59b114b1933",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

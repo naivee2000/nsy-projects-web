@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2938",
+  "content_sha256": "784dc2143adfa07aa3ea37fa93747a3c9622bdc438ee81c3c417bf38a50a84e1",
+  "source_hash": "b054d60857007d9db20983b5268690154d73ad63332571247a0e9698d7a020c0",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts white-before-black pairs, the already-correct orientation.",
+      "failed_cases": [
+        "lc-2938-2",
+        "lc-2938-5",
+        "lc-2938-6",
+        "lc-2938-10",
+        "lc-2938-11",
+        "lc-2938-12",
+        "lc-2938-14",
+        "lc-2938-15"
+      ]
+    },
+    {
+      "reason": "Adds one per encountered white ball instead of one per preceding black inversion.",
+      "failed_cases": [
+        "lc-2938-3",
+        "lc-2938-5",
+        "lc-2938-7",
+        "lc-2938-9",
+        "lc-2938-10",
+        "lc-2938-11",
+        "lc-2938-12",
+        "lc-2938-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6985,
+  "oracle_implementation": "code_practice/import_batch_211a.py:separate_oracle",
+  "validator_implementation_sha256": "b7c683ce00402edb2a9786ac3a2278c1bf6e17c13c7107b840758c80eca55ae9",
+  "batch_implementation_sha256": "bba8fbd17c4189f7435b40aa7cdab0038ff936469fee367798b8a3d55a21f08e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0eb5648f0578359c7c70f79ceee9dac03c32d05dc940c63aa348b5641c06f75b",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2933",
+  "content_sha256": "bc521328618aaf485a105728267448084196b8c0d8516cc4662936e4410846a3",
+  "source_hash": "3b838d6facb709d4b36348c5678d249f17062dc714382c8095658cb00c94ab56",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Includes accesses exactly sixty minutes apart.",
+      "failed_cases": [
+        "lc-2933-5",
+        "lc-2933-8",
+        "lc-2933-9",
+        "lc-2933-15"
+      ]
+    },
+    {
+      "reason": "Checks only the latest adjacent pair rather than the span across three accesses.",
+      "failed_cases": [
+        "lc-2933-5",
+        "lc-2933-8",
+        "lc-2933-9",
+        "lc-2933-13",
+        "lc-2933-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6980,
+  "oracle_implementation": "code_practice/import_batch_211a.py:access_oracle",
+  "validator_implementation_sha256": "b7c683ce00402edb2a9786ac3a2278c1bf6e17c13c7107b840758c80eca55ae9",
+  "batch_implementation_sha256": "bba8fbd17c4189f7435b40aa7cdab0038ff936469fee367798b8a3d55a21f08e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f49070cb64b218f87460bab9bb663b4fa47469b07e636c9ceacd55e0e983da55",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

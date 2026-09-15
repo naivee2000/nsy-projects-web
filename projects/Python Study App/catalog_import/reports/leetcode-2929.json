@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2929",
+  "content_sha256": "416fb3ec59b6673339cd3ec2996841c6c3c6b50fa49745ec3e088cb4a6f99d2a",
+  "source_hash": "a12d0c1713438bc0c25d6516b5a418bf76909b28e2acf58c9dbd12e4f3020509",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts only one child-limit violation instead of all three symmetric cases.",
+      "failed_cases": [
+        "lc-2929-1",
+        "lc-2929-4",
+        "lc-2929-5",
+        "lc-2929-8",
+        "lc-2929-9",
+        "lc-2929-11",
+        "lc-2929-12",
+        "lc-2929-15"
+      ]
+    },
+    {
+      "reason": "Omits the overlap correction for two children exceeding the limit.",
+      "failed_cases": [
+        "lc-2929-9",
+        "lc-2929-12",
+        "lc-2929-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6976,
+  "oracle_implementation": "code_practice/import_batch_211a.py:candies_oracle",
+  "validator_implementation_sha256": "b7c683ce00402edb2a9786ac3a2278c1bf6e17c13c7107b840758c80eca55ae9",
+  "batch_implementation_sha256": "bba8fbd17c4189f7435b40aa7cdab0038ff936469fee367798b8a3d55a21f08e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "00ea37c240371de9a20ad83abf88fbd0f5dd7992a321b87c756f700c06949433",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
