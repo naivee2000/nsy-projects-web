@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3132",
+  "content_sha256": "92f2280011b91570339d371fb3ecfe78dbb2927f66d1f669d3f794aa7a4fd934",
+  "source_hash": "94baa3508068bb5657076b1d036c5d555ce231c08c71f7b1625da2066b5e4018",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes the smallest nums1 value is kept and misses solutions deleting it.",
+      "failed_cases": [
+        "lc-3132-1",
+        "lc-3132-2",
+        "lc-3132-3",
+        "lc-3132-5",
+        "lc-3132-7",
+        "lc-3132-8",
+        "lc-3132-9",
+        "lc-3132-11",
+        "lc-3132-12",
+        "lc-3132-13",
+        "lc-3132-14"
+      ]
+    },
+    {
+      "reason": "Maximizes the valid offset instead of returning the smallest one.",
+      "failed_cases": [
+        "lc-3132-1",
+        "lc-3132-2",
+        "lc-3132-3",
+        "lc-3132-4",
+        "lc-3132-5",
+        "lc-3132-6",
+        "lc-3132-7",
+        "lc-3132-8",
+        "lc-3132-9",
+        "lc-3132-10",
+        "lc-3132-11",
+        "lc-3132-12",
+        "lc-3132-13",
+        "lc-3132-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7179,
+  "oracle_implementation": "code_practice/import_batch_215c.py:added_oracle",
+  "validator_implementation_sha256": "c1a881bfdd7fa9d015f3074a0283eea1e78c843a18cbd9eaa8c62eece428ec19",
+  "batch_implementation_sha256": "c13279fc71ccb5d140017d1619c502beec00043bb9320cca4c9a37cf7a63ed86",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "495fc4f896b2660bb644781954d9d26bc04b8ffb1b3982fc2f487b6c15affd04",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

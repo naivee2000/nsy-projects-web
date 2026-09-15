@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2536,
+  "count": 2541,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -41598,6 +41598,26 @@
       "source_id": 3122
     },
     {
+      "id": "leetcode-3123",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Edges in Shortest Paths",
+      "summary": "Given an undirected weighted graph with n nodes and m edges, determine which edges are part of at least one shortest path from node 0 to node n-1.",
+      "topics": [
+        "graphs",
+        "Dijkstra",
+        "shortest paths"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3123.json",
+      "content_sha256": "688b488f77a2cd717d6f42aaf3a4344dd4922f6aa026d12d5e85f2adb0780a42",
+      "source_id": 3123
+    },
+    {
       "id": "leetcode-3125",
       "version": 1,
       "status": "approved",
@@ -41632,6 +41652,62 @@
       "source_id": 3127
     },
     {
+      "id": "leetcode-3128",
+      "version": 1,
+      "status": "approved",
+      "title": "Right Triangles",
+      "summary": "Given a 2D boolean matrix, count the number of right triangles formed by three 1s where one element is in the same row as another and in the same column as the third, without being adjacent.",
+      "topics": [
+        "matrices",
+        "counting",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3128.json",
+      "content_sha256": "da877141f8aa3cbe46c0e284b6efd06f6239e985175066450a3e7781cc4809fe",
+      "source_id": 3128
+    },
+    {
+      "id": "leetcode-3129",
+      "version": 1,
+      "status": "approved",
+      "title": "Find All Possible Stable Binary Arrays I",
+      "summary": "Given three positive integers, num_zeros, num_ones, and limit, find the total number of binary arrays that satisfy the following conditions: - The array contains exactly num_zeros zeros.",
+      "topics": [
+        "dynamic programming",
+        "recursion",
+        "binary arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3129.json",
+      "content_sha256": "6c1cd0df78e4ccd6df729d72af9acf8fa3deab5638c53015cd201d7879c839b9",
+      "source_id": 3129
+    },
+    {
+      "id": "leetcode-3130",
+      "version": 1,
+      "status": "approved",
+      "title": "Find All Possible Stable Binary Arrays II",
+      "summary": "Given three positive integers, num_zeros, num_ones, and limit, determine the total number of binary arrays where the number of zeros equals num_zeros, the number of ones equals num_ones, and every subarray larger than limit contains at least one occurrence of both 0 and 1.",
+      "topics": [
+        "dynamic programming",
+        "prefix sums",
+        "binary arrays"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3130.json",
+      "content_sha256": "e3afc76d117a74d0ee3aa5e6a4622b917bbb39ed007cf0dc650e81a69f401de3",
+      "source_id": 3130
+    },
+    {
       "id": "leetcode-3131",
       "version": 1,
       "status": "approved",
@@ -41647,6 +41723,24 @@
       "path": "problems/leetcode-3131.json",
       "content_sha256": "d1ef7fa45c06a519013f77972d49955d92496b3eec4fc1f1382a7baaa5e33ae8",
       "source_id": 3131
+    },
+    {
+      "id": "leetcode-3132",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Integer Added to Array II",
+      "summary": "Given two integer arrays, nums1 and nums2, find the smallest integer x such that removing any two elements from nums1 and adding x to the remaining elements (or subtracting x if it is negative) results in nums2.",
+      "topics": [
+        "sorting",
+        "two pointers",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3132.json",
+      "content_sha256": "92f2280011b91570339d371fb3ecfe78dbb2927f66d1f669d3f794aa7a4fd934",
+      "source_id": 3132
     },
     {
       "id": "leetcode-3136",
