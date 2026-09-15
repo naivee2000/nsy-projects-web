@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3329",
+  "content_sha256": "8af985571bd6cadf3c1fe9611d8e71bb22a9ac579a24396abab03c74f666683d",
+  "source_hash": "30b7a1aa99a4691b3862d14df44b2d4001826459d8feab4595023c95bafd4a25",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts suffix length rather than the number of valid starting positions.",
+      "failed_cases": [
+        "lc-3329-1",
+        "lc-3329-2",
+        "lc-3329-3",
+        "lc-3329-4",
+        "lc-3329-5",
+        "lc-3329-6",
+        "lc-3329-7",
+        "lc-3329-8",
+        "lc-3329-9",
+        "lc-3329-10",
+        "lc-3329-11",
+        "lc-3329-12",
+        "lc-3329-13",
+        "lc-3329-14",
+        "lc-3329-15",
+        "lc-3329-16"
+      ]
+    },
+    {
+      "reason": "Decrements the triggering character rather than the character that leaves the window.",
+      "failed_cases": [
+        "lc-3329-10",
+        "lc-3329-14",
+        "lc-3329-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7376,
+  "oracle_implementation": "code_practice/import_batch_221a.py:frequency_oracle",
+  "validator_implementation_sha256": "ebe100065728c0562eb83ad30a80948c34d8c1f528a26a4a0679c09f06066709",
+  "batch_implementation_sha256": "0821affc3e1502cbf6899c41760be24db3396cfb6940c7fd5e80c08d5c63a1e9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "26fe6daeb84660d6cc7c5a62340c06bd24e61187c52da950537352a24493661f",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

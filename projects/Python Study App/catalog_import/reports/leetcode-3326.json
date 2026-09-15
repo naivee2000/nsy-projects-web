@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3326",
+  "content_sha256": "51599a1c049934b0edcfc1da88cda0fe1b05acca7cc292ade049718b02441914",
+  "source_hash": "531fe44dbb99b9c05ff5c21919a4d4bce9764ab627f8ec0c08857ec2b1f1ad7b",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Repairs left to right even though lowering a later value can invalidate an earlier comparison.",
+      "failed_cases": [
+        "lc-3326-13"
+      ]
+    },
+    {
+      "reason": "Returns the operations used so far when the array is still impossible.",
+      "failed_cases": [
+        "lc-3326-2",
+        "lc-3326-4",
+        "lc-3326-10",
+        "lc-3326-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7373,
+  "oracle_implementation": "code_practice/import_batch_221a.py:division_oracle",
+  "validator_implementation_sha256": "ebe100065728c0562eb83ad30a80948c34d8c1f528a26a4a0679c09f06066709",
+  "batch_implementation_sha256": "0821affc3e1502cbf6899c41760be24db3396cfb6940c7fd5e80c08d5c63a1e9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8fb503f34789dc13ded61c697c7e637ce7008765d0bd22f2aca295ce24f05749",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

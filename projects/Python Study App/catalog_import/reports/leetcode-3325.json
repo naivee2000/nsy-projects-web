@@ -1,0 +1,61 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3325",
+  "content_sha256": "69f0495697904b6a3550befe8132d686d4dac60f6774ec59af670075f555b9df",
+  "source_hash": "024cbca5041bf4098043fd7366d3812754fcaa8e0d1471ab8d20c62266319143",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Adds one invalid start position for every ending index.",
+      "failed_cases": [
+        "lc-3325-1",
+        "lc-3325-2",
+        "lc-3325-3",
+        "lc-3325-4",
+        "lc-3325-5",
+        "lc-3325-6",
+        "lc-3325-7",
+        "lc-3325-8",
+        "lc-3325-9",
+        "lc-3325-10",
+        "lc-3325-11",
+        "lc-3325-12",
+        "lc-3325-13",
+        "lc-3325-14",
+        "lc-3325-15",
+        "lc-3325-16"
+      ]
+    },
+    {
+      "reason": "Shrinks only after the triggering frequency exceeds k, so it misses boundary-valid substrings.",
+      "failed_cases": [
+        "lc-3325-1",
+        "lc-3325-2",
+        "lc-3325-3",
+        "lc-3325-5",
+        "lc-3325-6",
+        "lc-3325-8",
+        "lc-3325-9",
+        "lc-3325-10",
+        "lc-3325-11",
+        "lc-3325-12",
+        "lc-3325-13",
+        "lc-3325-14",
+        "lc-3325-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7372,
+  "oracle_implementation": "code_practice/import_batch_221a.py:frequency_oracle",
+  "validator_implementation_sha256": "ebe100065728c0562eb83ad30a80948c34d8c1f528a26a4a0679c09f06066709",
+  "batch_implementation_sha256": "0821affc3e1502cbf6899c41760be24db3396cfb6940c7fd5e80c08d5c63a1e9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cab081d65674ebcb8fea7bbcb62e4fd29216f73a38ef3e311bd28798d85dbe41",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
