@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3567",
+  "content_sha256": "7ea1447ee63b60157473d525b0ef04f9443a7a936668208dfe5a78b01e57143d",
+  "source_hash": "f4ef53e6ec7859eb24ac5cc32aff210c8fc70db5751d24d32e871ba7e13ef38c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps duplicate values, incorrectly producing a zero gap when two equal cells coexist with other values.",
+      "failed_cases": [
+        "lc-3567-6",
+        "lc-3567-10",
+        "lc-3567-13"
+      ]
+    },
+    {
+      "reason": "Adds adjacent values instead of subtracting them to measure their gap.",
+      "failed_cases": [
+        "lc-3567-1",
+        "lc-3567-5",
+        "lc-3567-6",
+        "lc-3567-8",
+        "lc-3567-9",
+        "lc-3567-10",
+        "lc-3567-12",
+        "lc-3567-13",
+        "lc-3567-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7614,
+  "oracle_implementation": "code_practice/import_batch_229b.py:matrix_oracle",
+  "validator_implementation_sha256": "51725b8a8a621b933defaab5d8f19bab65ad2e9f1658175d44a63c34f1d11129",
+  "batch_implementation_sha256": "d8030c6cf1ab5e2d6cac146846a9c973dc8eda40d581109124909d3f4c67b160",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4abbf66a22d9534000e7ff0d84160346fcb7cbd92b3eb6a2323289e17c42e93a",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

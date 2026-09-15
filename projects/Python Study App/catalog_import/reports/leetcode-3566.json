@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3566",
+  "content_sha256": "ae3d141c618a36aaed1b834d0c04a4dead44818ee203c023c15b4620cc05469c",
+  "source_hash": "bfe1c082336a47803b113e57df88a0f75581e25fb9ee65d7a814258f3aae95c6",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Compares the full product with target rather than target squared.",
+      "failed_cases": [
+        "lc-3566-1",
+        "lc-3566-5",
+        "lc-3566-6",
+        "lc-3566-7",
+        "lc-3566-8",
+        "lc-3566-9",
+        "lc-3566-10",
+        "lc-3566-11",
+        "lc-3566-12",
+        "lc-3566-15"
+      ]
+    },
+    {
+      "reason": "Checks only whether some subset has product target, without requiring its complement to have the same product.",
+      "failed_cases": [
+        "lc-3566-2",
+        "lc-3566-3",
+        "lc-3566-4",
+        "lc-3566-13",
+        "lc-3566-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7613,
+  "oracle_implementation": "code_practice/import_batch_229b.py:product_oracle",
+  "validator_implementation_sha256": "51725b8a8a621b933defaab5d8f19bab65ad2e9f1658175d44a63c34f1d11129",
+  "batch_implementation_sha256": "d8030c6cf1ab5e2d6cac146846a9c973dc8eda40d581109124909d3f4c67b160",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d7f80db2fc553393575caea2fc856ffd60fa6a269567cdbc6a71f50a6e3c9a65",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

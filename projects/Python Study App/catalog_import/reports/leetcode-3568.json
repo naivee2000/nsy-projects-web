@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3568",
+  "content_sha256": "77a0e94ec21d65bc91511b92a06310920e9923834ee21e4826a529c9e0d60e99",
+  "source_hash": "38fa926ac294ad84bddd7aa2f3bfd171d14e43657bfeb76b10c3cb329abbf90a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Does not spend energy on ordinary moves.",
+      "failed_cases": [
+        "lc-3568-6",
+        "lc-3568-7",
+        "lc-3568-11",
+        "lc-3568-13",
+        "lc-3568-14"
+      ]
+    },
+    {
+      "reason": "Allows movement with zero energy away from a non-reset cell.",
+      "failed_cases": [
+        "lc-3568-6",
+        "lc-3568-7",
+        "lc-3568-11",
+        "lc-3568-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7615,
+  "oracle_implementation": "code_practice/import_batch_229b.py:classroom_oracle",
+  "validator_implementation_sha256": "51725b8a8a621b933defaab5d8f19bab65ad2e9f1658175d44a63c34f1d11129",
+  "batch_implementation_sha256": "d8030c6cf1ab5e2d6cac146846a9c973dc8eda40d581109124909d3f4c67b160",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a7ac3cf9a40fa033005746ace4e24bbc8133bf7650b5a44e356870daa625d1f1",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

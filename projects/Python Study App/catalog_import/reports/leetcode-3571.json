@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3571",
+  "content_sha256": "d38880047fbffa11014c8ceef4cc5ba1f4376f67cabea6d19f0a628a3c8f5667",
+  "source_hash": "5c4b949e2872614a52c09bedbc9b7f22c9544a91f958a1eeec7fa2078cf8fee4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always prefers the first orientation even when the reverse overlap is shorter.",
+      "failed_cases": [
+        "lc-3571-6"
+      ]
+    },
+    {
+      "reason": "Concatenates contained strings instead of returning the containing input.",
+      "failed_cases": [
+        "lc-3571-5",
+        "lc-3571-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7618,
+  "oracle_implementation": "code_practice/import_batch_229b.py:superstring_oracle",
+  "validator_implementation_sha256": "51725b8a8a621b933defaab5d8f19bab65ad2e9f1658175d44a63c34f1d11129",
+  "batch_implementation_sha256": "d8030c6cf1ab5e2d6cac146846a9c973dc8eda40d581109124909d3f4c67b160",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "55affe30939f442aeacef9ffe12e99e50746b89b0baec9a1e2072bd2d6e56abb",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

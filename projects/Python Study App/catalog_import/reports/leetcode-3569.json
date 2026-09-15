@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3569",
+  "content_sha256": "59778e8fc2cdbd0afd3549b60b8a1e50e08e7b74604fea4013538ec85267e1f7",
+  "source_hash": "4ecfd7ff1dfeea41eb7e9e9e99656308e25f2d494776731a8dc511f88510b88d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts each distinct prime only once and omits the extra contribution from primes spanning the split.",
+      "failed_cases": [
+        "lc-3569-1",
+        "lc-3569-3",
+        "lc-3569-5",
+        "lc-3569-6",
+        "lc-3569-8",
+        "lc-3569-9",
+        "lc-3569-10",
+        "lc-3569-11",
+        "lc-3569-14"
+      ]
+    },
+    {
+      "reason": "Maintains minimum split coverage instead of the required maximum coverage.",
+      "failed_cases": [
+        "lc-3569-1",
+        "lc-3569-6",
+        "lc-3569-8",
+        "lc-3569-10",
+        "lc-3569-11",
+        "lc-3569-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7616,
+  "oracle_implementation": "code_practice/import_batch_229b.py:prime_split_oracle",
+  "validator_implementation_sha256": "51725b8a8a621b933defaab5d8f19bab65ad2e9f1658175d44a63c34f1d11129",
+  "batch_implementation_sha256": "d8030c6cf1ab5e2d6cac146846a9c973dc8eda40d581109124909d3f4c67b160",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "843d9db938e925ec4ba64c9e8276cdd4d2a4cd647af4ae46629bcc672da7d6fd",
+  "elapsed_seconds": 0.263,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
