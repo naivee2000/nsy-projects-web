@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1674",
+  "content_sha256": "67aa07974aed43a05239eab0dc6deb375254de0f2886d6291fa192e6240f0656",
+  "source_hash": "51135025721d6c4e1640e1f658150e341dd5dc2668505ca29f064ffbf2717239",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes every mismatched pair costs one move, even when the target cannot be reached by changing only one value.",
+      "failed_cases": [
+        "lc-1674-2",
+        "lc-1674-12"
+      ]
+    },
+    {
+      "reason": "Checks only target limit+1 instead of sweeping every feasible common sum.",
+      "failed_cases": [
+        "lc-1674-1",
+        "lc-1674-5",
+        "lc-1674-7",
+        "lc-1674-8",
+        "lc-1674-10",
+        "lc-1674-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5721,
+  "oracle_implementation": "code_practice/import_batch_207c.py:complementary_oracle",
+  "validator_implementation_sha256": "022fcf594240072b83435244af3ef72c27e9342d7ad7885bea589288fe70c282",
+  "batch_implementation_sha256": "de337c60ad3a36b1e8264f88596bfc126c709e400146ee1a41947456ab635e25",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5e5730c8b8113f796c9c24d4dd38097e2a830e71f218c4b4a227c6146847ca6d",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

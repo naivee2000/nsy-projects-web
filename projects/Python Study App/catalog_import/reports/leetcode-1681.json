@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1681",
+  "content_sha256": "cea8f7e718b889385a8e0ed8ac893a576d49928cb5d784cf79b9c4ea145972f6",
+  "source_hash": "c1720c7fe50d6ed072bfe8f2294517060f790262ad32d8dec528d96bd29eff99",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows repeated values inside a group.",
+      "failed_cases": [
+        "lc-1681-1",
+        "lc-1681-2",
+        "lc-1681-4",
+        "lc-1681-7",
+        "lc-1681-8",
+        "lc-1681-10",
+        "lc-1681-11",
+        "lc-1681-13",
+        "lc-1681-14",
+        "lc-1681-15"
+      ]
+    },
+    {
+      "reason": "Sorts into consecutive groups greedily, which can be invalid or more expensive than interleaving values.",
+      "failed_cases": [
+        "lc-1681-1",
+        "lc-1681-2",
+        "lc-1681-7",
+        "lc-1681-10",
+        "lc-1681-11",
+        "lc-1681-13",
+        "lc-1681-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5728,
+  "oracle_implementation": "code_practice/import_batch_207c.py:incompatibility_oracle",
+  "validator_implementation_sha256": "022fcf594240072b83435244af3ef72c27e9342d7ad7885bea589288fe70c282",
+  "batch_implementation_sha256": "de337c60ad3a36b1e8264f88596bfc126c709e400146ee1a41947456ab635e25",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7a7d2d89b5cb9a1da4e7ea2d40f8234eef7d6326cd09858d29fe9dace417798e",
+  "elapsed_seconds": 0.076,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

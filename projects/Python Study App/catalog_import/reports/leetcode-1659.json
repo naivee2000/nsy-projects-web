@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1659",
+  "content_sha256": "b895b82466c6b7bfbc2d1b64eb08950ff976287e689f216c2bd104c0481a8d0d",
+  "source_hash": "8e1879778640dd21e16699ed107dfc71c93c20ff810385e991b5051e68f4d179",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores vertical neighbor effects between consecutive rows.",
+      "failed_cases": [
+        "lc-1659-8",
+        "lc-1659-10",
+        "lc-1659-13",
+        "lc-1659-14",
+        "lc-1659-15",
+        "lc-1659-16"
+      ]
+    },
+    {
+      "reason": "Gives extroverts the introvert base score of 120 instead of 40.",
+      "failed_cases": [
+        "lc-1659-1",
+        "lc-1659-5",
+        "lc-1659-6",
+        "lc-1659-7",
+        "lc-1659-9",
+        "lc-1659-10",
+        "lc-1659-11",
+        "lc-1659-13",
+        "lc-1659-14",
+        "lc-1659-15",
+        "lc-1659-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5706,
+  "oracle_implementation": "code_practice/import_batch_207c.py:happiness_oracle",
+  "validator_implementation_sha256": "022fcf594240072b83435244af3ef72c27e9342d7ad7885bea589288fe70c282",
+  "batch_implementation_sha256": "de337c60ad3a36b1e8264f88596bfc126c709e400146ee1a41947456ab635e25",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "306afa426e612d1cd2b7c99d21079b39027a5f6821f9a0b81ad55bfb18930a69",
+  "elapsed_seconds": 0.222,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

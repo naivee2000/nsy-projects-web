@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1671",
+  "content_sha256": "239e21f298232dfc045865f37c839d6abc8fda8578a2ee6685c6c1b6af9b0f27",
+  "source_hash": "076b079b91cc89cdb0e0c4441980d151e00babe59dea15e5812afd9f81182d05",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows equal adjacent values on the increasing side.",
+      "failed_cases": [
+        "lc-1671-2",
+        "lc-1671-8",
+        "lc-1671-9"
+      ]
+    },
+    {
+      "reason": "Uses only the increasing subsequence length and ignores the required descending side.",
+      "failed_cases": [
+        "lc-1671-1",
+        "lc-1671-2",
+        "lc-1671-3",
+        "lc-1671-4",
+        "lc-1671-5",
+        "lc-1671-6",
+        "lc-1671-7",
+        "lc-1671-8",
+        "lc-1671-9",
+        "lc-1671-10",
+        "lc-1671-11",
+        "lc-1671-12",
+        "lc-1671-13",
+        "lc-1671-14",
+        "lc-1671-15",
+        "lc-1671-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5718,
+  "oracle_implementation": "code_practice/import_batch_207c.py:mountain_oracle",
+  "validator_implementation_sha256": "022fcf594240072b83435244af3ef72c27e9342d7ad7885bea589288fe70c282",
+  "batch_implementation_sha256": "de337c60ad3a36b1e8264f88596bfc126c709e400146ee1a41947456ab635e25",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "73cf088264878876e5b7fe9037b1b00a02375ac5bb049ca44328f0543e2da7af",
+  "elapsed_seconds": 0.359,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

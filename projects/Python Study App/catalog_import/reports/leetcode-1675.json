@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1675",
+  "content_sha256": "272c31dd08cc940a20cfa8a68a8b9aba767851ae35183eb5132a6ae13436a039",
+  "source_hash": "20d0ce70853b52c419a93d9428b1c53617d3d3839d5ca3f389df6f1b24ef194a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to double odd inputs before comparing their full reachable ranges.",
+      "failed_cases": [
+        "lc-1675-1",
+        "lc-1675-2",
+        "lc-1675-5",
+        "lc-1675-6",
+        "lc-1675-9",
+        "lc-1675-11",
+        "lc-1675-15"
+      ]
+    },
+    {
+      "reason": "Halves the current maximum at most once and can stop before reaching the best range.",
+      "failed_cases": [
+        "lc-1675-1",
+        "lc-1675-2",
+        "lc-1675-3",
+        "lc-1675-4",
+        "lc-1675-5",
+        "lc-1675-6",
+        "lc-1675-7",
+        "lc-1675-8",
+        "lc-1675-9",
+        "lc-1675-10",
+        "lc-1675-11",
+        "lc-1675-12",
+        "lc-1675-13",
+        "lc-1675-14",
+        "lc-1675-15",
+        "lc-1675-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5722,
+  "oracle_implementation": "code_practice/import_batch_207c.py:deviation_oracle",
+  "validator_implementation_sha256": "022fcf594240072b83435244af3ef72c27e9342d7ad7885bea589288fe70c282",
+  "batch_implementation_sha256": "de337c60ad3a36b1e8264f88596bfc126c709e400146ee1a41947456ab635e25",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "13375985f56e3af6882ed273749e4c64bce96afaf2c927739a26218957c3d420",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
