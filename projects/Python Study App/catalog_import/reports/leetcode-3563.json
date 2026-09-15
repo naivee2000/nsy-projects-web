@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3563",
+  "content_sha256": "ce654f79c8beb1c941c70e883b18a16333f485e96e916c64a3ddb97eb37d1129",
+  "source_hash": "240b08750cf0c7a9be05e3336442f2152e6db4d74d4d59d1eff1f8c716b7684b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets circular a-z removals.",
+      "failed_cases": [
+        "lc-3563-5",
+        "lc-3563-8",
+        "lc-3563-14"
+      ]
+    },
+    {
+      "reason": "Greedily removes the first exposed pair instead of considering that keeping it may lead to a smaller final string.",
+      "failed_cases": [
+        "lc-3563-1",
+        "lc-3563-2",
+        "lc-3563-6",
+        "lc-3563-10",
+        "lc-3563-11",
+        "lc-3563-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7610,
+  "oracle_implementation": "code_practice/import_batch_229a.py:smallest_oracle",
+  "validator_implementation_sha256": "3e80fe20cd0e3fe57faf4523945f2ee52006dec226d627a2ca788246b31ddea5",
+  "batch_implementation_sha256": "9f5fbcd4e35eda265005b3fc585d54a9179fe14e5608881f950edf356a365d5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0b6ce8ea79e4033c18f9226ac51887a6e95431602fd70d7617ed0abcba232b4c",
+  "elapsed_seconds": 0.077,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

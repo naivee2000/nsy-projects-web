@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3559",
+  "content_sha256": "b7766ecf7c9a9a1f9dfb86919fc8b3ff9ff037ddb9f368469849f9fee0a7368e",
+  "source_hash": "444c0c3420de1e7921c092cec9603d206af8e7dec0d354680007c49d4eabb262",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts all 2^distance assignments instead of exactly half.",
+      "failed_cases": [
+        "lc-3559-1",
+        "lc-3559-2",
+        "lc-3559-3",
+        "lc-3559-4",
+        "lc-3559-5",
+        "lc-3559-6",
+        "lc-3559-7",
+        "lc-3559-8",
+        "lc-3559-9",
+        "lc-3559-10",
+        "lc-3559-11",
+        "lc-3559-12",
+        "lc-3559-13",
+        "lc-3559-14",
+        "lc-3559-15"
+      ]
+    },
+    {
+      "reason": "Computes path length with an incorrect LCA subtraction.",
+      "failed_cases": [
+        "lc-3559-2",
+        "lc-3559-4",
+        "lc-3559-5",
+        "lc-3559-7",
+        "lc-3559-9",
+        "lc-3559-10",
+        "lc-3559-11",
+        "lc-3559-12",
+        "lc-3559-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7606,
+  "oracle_implementation": "code_practice/import_batch_229a.py:weights_oracle",
+  "validator_implementation_sha256": "3e80fe20cd0e3fe57faf4523945f2ee52006dec226d627a2ca788246b31ddea5",
+  "batch_implementation_sha256": "9f5fbcd4e35eda265005b3fc585d54a9179fe14e5608881f950edf356a365d5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b36b1a98ccda5a482fbd03734914827eeb7a4798cfa3b587139c85a62fb47f8c",
+  "elapsed_seconds": 0.117,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

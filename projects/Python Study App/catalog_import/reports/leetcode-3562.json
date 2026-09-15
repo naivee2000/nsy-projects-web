@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3562",
+  "content_sha256": "f581ab8ff8f98796e2631497b4c35b8baec56a7cfd064d2a2be6c8a09fe5cbc3",
+  "source_hash": "42228aaed39fa775c4ebc31602e2fcc65c3ba11fae343be0114dd81f73b9f108",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Gives every employee the half-price discount even when their direct boss was not purchased.",
+      "failed_cases": [
+        "lc-3562-1",
+        "lc-3562-2",
+        "lc-3562-3",
+        "lc-3562-5",
+        "lc-3562-6",
+        "lc-3562-7",
+        "lc-3562-8",
+        "lc-3562-9",
+        "lc-3562-10",
+        "lc-3562-11",
+        "lc-3562-12",
+        "lc-3562-13",
+        "lc-3562-14",
+        "lc-3562-15"
+      ]
+    },
+    {
+      "reason": "Combines purchased employees with children evaluated as though their boss was not purchased.",
+      "failed_cases": [
+        "lc-3562-1",
+        "lc-3562-5",
+        "lc-3562-6",
+        "lc-3562-9",
+        "lc-3562-10",
+        "lc-3562-11",
+        "lc-3562-12",
+        "lc-3562-13",
+        "lc-3562-14",
+        "lc-3562-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7609,
+  "oracle_implementation": "code_practice/import_batch_229a.py:profit_oracle",
+  "validator_implementation_sha256": "3e80fe20cd0e3fe57faf4523945f2ee52006dec226d627a2ca788246b31ddea5",
+  "batch_implementation_sha256": "9f5fbcd4e35eda265005b3fc585d54a9179fe14e5608881f950edf356a365d5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e0cab126601da3d7438f449b25b9c1066395e3bc8c5b5f360f1efc1374edf0e5",
+  "elapsed_seconds": 0.139,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

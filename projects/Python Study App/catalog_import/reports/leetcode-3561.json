@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3561",
+  "content_sha256": "221f8d4996947a4396215d670cab6f6c9fd0b4bdeebe8fde287684a25262fa98",
+  "source_hash": "39d916b379e61a8c046824b19848af5c3d39016752c6478ba1b27289107d47e4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets the circular adjacency between a and z.",
+      "failed_cases": [
+        "lc-3561-6",
+        "lc-3561-7",
+        "lc-3561-8",
+        "lc-3561-12",
+        "lc-3561-13"
+      ]
+    },
+    {
+      "reason": "Removes from the front of the retained prefix instead of the character adjacent to the current letter.",
+      "failed_cases": [
+        "lc-3561-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7608,
+  "oracle_implementation": "code_practice/import_batch_229a.py:leftmost_oracle",
+  "validator_implementation_sha256": "3e80fe20cd0e3fe57faf4523945f2ee52006dec226d627a2ca788246b31ddea5",
+  "batch_implementation_sha256": "9f5fbcd4e35eda265005b3fc585d54a9179fe14e5608881f950edf356a365d5b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2110ca2261abf0995de8d0f53bb99da09374fcde6b078b9251cc429403ca09a4",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

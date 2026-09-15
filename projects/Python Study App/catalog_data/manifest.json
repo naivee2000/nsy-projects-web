@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2805,
+  "count": 2810,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -48046,6 +48046,26 @@
       "source_id": 3558
     },
     {
+      "id": "leetcode-3559",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Assign Edge Weights II",
+      "summary": "Given an undirected tree with nodes labeled from 1 to n, rooted at node 1, and edges represented by a 2D integer array, assign each edge a weight of 1 or 2.",
+      "topics": [
+        "trees",
+        "lowest common ancestor",
+        "combinatorics"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3559.json",
+      "content_sha256": "b7766ecf7c9a9a1f9dfb86919fc8b3ff9ff037ddb9f368469849f9fee0a7368e",
+      "source_id": 3559
+    },
+    {
       "id": "leetcode-3560",
       "version": 1,
       "status": "approved",
@@ -48061,6 +48081,82 @@
       "path": "problems/leetcode-3560.json",
       "content_sha256": "c2379ddbb278375d192ef6f43bd2b5b3fd707626fc84ca37e8dfcc333fbba771",
       "source_id": 3560
+    },
+    {
+      "id": "leetcode-3561",
+      "version": 1,
+      "status": "approved",
+      "title": "Resulting String After Adjacent Removals",
+      "summary": "Given a string consisting of lowercase English letters, repeatedly remove the leftmost pair of adjacent characters that are consecutive in the alphabet (considering the alphabet as circular, where 'a' and 'z' are consecutive).",
+      "topics": [
+        "strings",
+        "stacks",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3561.json",
+      "content_sha256": "221f8d4996947a4396215d670cab6f6c9fd0b4bdeebe8fde287684a25262fa98",
+      "source_id": 3561
+    },
+    {
+      "id": "leetcode-3562",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Profit from Trading Stocks with Discounts",
+      "summary": "Given the number of employees, their current and expected stock prices, the company's hierarchy, and a budget, determine the maximum profit that can be achieved by buying and selling stocks.",
+      "topics": [
+        "trees",
+        "dynamic programming",
+        "knapsack"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3562.json",
+      "content_sha256": "f581ab8ff8f98796e2631497b4c35b8baec56a7cfd064d2a2be6c8a09fe5cbc3",
+      "source_id": 3562
+    },
+    {
+      "id": "leetcode-3563",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographically Smallest String After Adjacent Removals",
+      "summary": "Given a string of lowercase letters, repeatedly remove any adjacent characters that are consecutive in the alphabet, then shift the remaining characters left.",
+      "topics": [
+        "strings",
+        "dynamic programming",
+        "intervals"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3563.json",
+      "content_sha256": "ce654f79c8beb1c941c70e883b18a16333f485e96e916c64a3ddb97eb37d1129",
+      "source_id": 3563
+    },
+    {
+      "id": "leetcode-3565",
+      "version": 1,
+      "status": "approved",
+      "title": "Sequential Grid Path Cover",
+      "summary": "Given a 2D grid of size m x n with k unique values from 1 to k and the rest as 0, find a path that visits every cell exactly once and in order of the values.",
+      "topics": [
+        "matrices",
+        "backtracking",
+        "Hamiltonian paths"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3565.json",
+      "content_sha256": "8ebdd7657f5f58195a367349e3b5d798ac19ba830ed4ca32d1d096909ea96ce4",
+      "source_id": 3565
     },
     {
       "id": "leetcode-3581",
