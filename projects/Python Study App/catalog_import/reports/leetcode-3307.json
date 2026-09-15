@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3307",
+  "content_sha256": "8b49fa0f47b8750e7f5833c86c0df93f3e70681842ed80adb7aa343c643cf6c3",
+  "source_hash": "9df733de8affdce8f1b70959a4f651d661397dd1424b93b1d213dd78af12894e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Shifts for every appended-half choice even when the operation is type zero.",
+      "failed_cases": [
+        "lc-3307-1",
+        "lc-3307-2",
+        "lc-3307-4",
+        "lc-3307-6",
+        "lc-3307-9",
+        "lc-3307-10",
+        "lc-3307-13",
+        "lc-3307-14",
+        "lc-3307-15"
+      ]
+    },
+    {
+      "reason": "Treats the last position of the first half as belonging to the appended half.",
+      "failed_cases": [
+        "lc-3307-2",
+        "lc-3307-6",
+        "lc-3307-10",
+        "lc-3307-13",
+        "lc-3307-14",
+        "lc-3307-15",
+        "lc-3307-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7354,
+  "oracle_implementation": "code_practice/import_batch_220b.py:game_oracle",
+  "validator_implementation_sha256": "dd52ff4b09a4199fb7c834993d0203a15540b91a8ae1ef6d1fdccb34bdb5197b",
+  "batch_implementation_sha256": "591c1e42bbf6a3b93ae5a255db40d9c6e02c2ce51f4fb79e4fa1be0800048426",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4abc4efb39727bd33887950965ff26f6066cf10e4b4c42f89602be6dfd77a2f6",
+  "elapsed_seconds": 0.029,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

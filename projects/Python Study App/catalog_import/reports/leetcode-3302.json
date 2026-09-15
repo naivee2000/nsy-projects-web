@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3302",
+  "content_sha256": "fb02aa4758ae5a53c79c90f67c695ed409026794db15f302527d8cf82251a1dc",
+  "source_hash": "d34d09ac1c0cc6063306969e703f3eec331540bfa6cd57d98eaac8cfbcd7e791",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Spends the one mismatch before checking whether the remaining suffix can match.",
+      "failed_cases": [
+        "lc-3302-2",
+        "lc-3302-15"
+      ]
+    },
+    {
+      "reason": "Resets the mismatch flag and may use multiple character changes.",
+      "failed_cases": [
+        "lc-3302-2",
+        "lc-3302-7",
+        "lc-3302-9",
+        "lc-3302-11",
+        "lc-3302-12",
+        "lc-3302-14",
+        "lc-3302-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7349,
+  "oracle_implementation": "code_practice/import_batch_220b.py:sequence_oracle",
+  "validator_implementation_sha256": "dd52ff4b09a4199fb7c834993d0203a15540b91a8ae1ef6d1fdccb34bdb5197b",
+  "batch_implementation_sha256": "591c1e42bbf6a3b93ae5a255db40d9c6e02c2ce51f4fb79e4fa1be0800048426",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "05b368988ad966cc7803d7a8cac9b0615dd86bef8b1110dcbb457d41b76d190c",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3301",
+  "content_sha256": "e57926f5c94dfee1ebc4e901d7ec498ba58dfa65550564a27cb08772f982beb9",
+  "source_hash": "0b3a46e7bf72b4501a09c9d2b8a4e430d3ac6a652852bf2d51dcd2a9c0364336",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows equal assigned heights.",
+      "failed_cases": [
+        "lc-3301-1",
+        "lc-3301-4",
+        "lc-3301-5",
+        "lc-3301-6",
+        "lc-3301-8",
+        "lc-3301-10",
+        "lc-3301-11",
+        "lc-3301-12",
+        "lc-3301-13",
+        "lc-3301-14"
+      ]
+    },
+    {
+      "reason": "Processes tight limits last and can waste large heights on constrained towers.",
+      "failed_cases": [
+        "lc-3301-1",
+        "lc-3301-2",
+        "lc-3301-7",
+        "lc-3301-9",
+        "lc-3301-11",
+        "lc-3301-12",
+        "lc-3301-14",
+        "lc-3301-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7348,
+  "oracle_implementation": "code_practice/import_batch_220b.py:towers_oracle",
+  "validator_implementation_sha256": "dd52ff4b09a4199fb7c834993d0203a15540b91a8ae1ef6d1fdccb34bdb5197b",
+  "batch_implementation_sha256": "591c1e42bbf6a3b93ae5a255db40d9c6e02c2ce51f4fb79e4fa1be0800048426",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e52b78cb5f09d5a21fdc60d5edee5d64bbf15b7143c75863b3ca4fafafafdb72",
+  "elapsed_seconds": 0.403,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

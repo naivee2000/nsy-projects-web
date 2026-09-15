@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3298",
+  "content_sha256": "a3a023df849f788f1b73bf11d3c697e67a3c08df46df8e6fed6f007d65c0121c",
+  "source_hash": "36a7f8341c8ba6beac8ad79991c26883054f0464ced83601146c764637bb944e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only one valid start per ending position.",
+      "failed_cases": [
+        "lc-3298-1",
+        "lc-3298-2",
+        "lc-3298-4",
+        "lc-3298-7",
+        "lc-3298-8",
+        "lc-3298-9",
+        "lc-3298-10",
+        "lc-3298-11",
+        "lc-3298-12",
+        "lc-3298-13",
+        "lc-3298-14",
+        "lc-3298-15",
+        "lc-3298-16"
+      ]
+    },
+    {
+      "reason": "Removes two copies of each outgoing character.",
+      "failed_cases": [
+        "lc-3298-2",
+        "lc-3298-6",
+        "lc-3298-8",
+        "lc-3298-9",
+        "lc-3298-11",
+        "lc-3298-12",
+        "lc-3298-13",
+        "lc-3298-14",
+        "lc-3298-15",
+        "lc-3298-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7345,
+  "oracle_implementation": "code_practice/import_batch_220b.py:contain_oracle",
+  "validator_implementation_sha256": "dd52ff4b09a4199fb7c834993d0203a15540b91a8ae1ef6d1fdccb34bdb5197b",
+  "batch_implementation_sha256": "591c1e42bbf6a3b93ae5a255db40d9c6e02c2ce51f4fb79e4fa1be0800048426",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7e6fdab2f87cb3ec621f818cc8f05ba3c388ffb80424d2d317250a433b204b95",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
