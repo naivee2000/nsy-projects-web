@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3459",
+  "content_sha256": "5a5767f3b0bda807abf9a5107659ffdd33071b22b0c8c6bdff1a479f85d98c96",
+  "source_hash": "74de4d39dca95f599428e3f91241f90cec02e2036972fbf31d13c65eb6f4dcdc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a counterclockwise turn instead of the required clockwise turn.",
+      "failed_cases": [
+        "lc-3459-1"
+      ]
+    },
+    {
+      "reason": "Starts paths from value two rather than value one.",
+      "failed_cases": [
+        "lc-3459-1",
+        "lc-3459-2",
+        "lc-3459-5",
+        "lc-3459-7",
+        "lc-3459-10",
+        "lc-3459-11",
+        "lc-3459-12",
+        "lc-3459-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7506,
+  "oracle_implementation": "code_practice/import_batch_225c.py:diagonal_path_oracle",
+  "validator_implementation_sha256": "7d512124d393d7077e0e6beedb725606c8aecdd8836083a24e0c5a540f537c2f",
+  "batch_implementation_sha256": "6f92941a6fa7a4e82889fa688498a3d2bf4c79448fe16bf996ef5c47a84af6ea",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dddfa55fa4d360cf4fbc223ffdc850ddbba3bcb21be91d56080fac6c2720e843",
+  "elapsed_seconds": 0.084,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

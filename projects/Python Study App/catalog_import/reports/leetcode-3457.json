@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3457",
+  "content_sha256": "055b91b0a7692279826de66d364d093e7b69fda6151fcacf496377d900a48ebb",
+  "source_hash": "70c19a7a7f0e46a9d5e00201aef403fc662615a633da47c1db0b44964630bfc3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses floor division for odd-day count and omits one gain when days is odd.",
+      "failed_cases": [
+        "lc-3457-2",
+        "lc-3457-3",
+        "lc-3457-4",
+        "lc-3457-11"
+      ]
+    },
+    {
+      "reason": "Selects the heaviest remaining pizza on even days instead of the required second-heaviest.",
+      "failed_cases": [
+        "lc-3457-1",
+        "lc-3457-5",
+        "lc-3457-6",
+        "lc-3457-7",
+        "lc-3457-8",
+        "lc-3457-9",
+        "lc-3457-12",
+        "lc-3457-13",
+        "lc-3457-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7504,
+  "oracle_implementation": "code_practice/import_batch_225c.py:pizza_oracle",
+  "validator_implementation_sha256": "7d512124d393d7077e0e6beedb725606c8aecdd8836083a24e0c5a540f537c2f",
+  "batch_implementation_sha256": "6f92941a6fa7a4e82889fa688498a3d2bf4c79448fe16bf996ef5c47a84af6ea",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3a244bab22b56844f0d2ff3f66cf5b35d28f033f4dcccb3c4c5a694bd21b19a4",
+  "elapsed_seconds": 4.228,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

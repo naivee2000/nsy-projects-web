@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3458",
+  "content_sha256": "aaba540d5ec5685f65aca991a0612a00dbc1c65d5e972d200d904911f41c5098",
+  "source_hash": "12a328f327d1ec87a9794bea20d89a065ff064d306ce83ae5bd46b37bd3a83a7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the whole string as a valid special substring.",
+      "failed_cases": [
+        "lc-3458-2",
+        "lc-3458-4",
+        "lc-3458-11"
+      ]
+    },
+    {
+      "reason": "Does not expand an interval to include every occurrence of newly encountered characters.",
+      "failed_cases": [
+        "lc-3458-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7505,
+  "oracle_implementation": "code_practice/import_batch_225c.py:special_oracle",
+  "validator_implementation_sha256": "7d512124d393d7077e0e6beedb725606c8aecdd8836083a24e0c5a540f537c2f",
+  "batch_implementation_sha256": "6f92941a6fa7a4e82889fa688498a3d2bf4c79448fe16bf996ef5c47a84af6ea",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b3816afaa40557678545254d4386a55cf39dd4f148f4303cc6b33c6b2c33a207",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
