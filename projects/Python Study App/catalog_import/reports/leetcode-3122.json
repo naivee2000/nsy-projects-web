@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3122",
+  "content_sha256": "6d792a8b134c0685c501e13f0af14d62c1b8f4635945bf93c368e114dd42afd6",
+  "source_hash": "8fc0fb28f5c295f4437bbd4a2ebc785385a4d4da4859fcc4387fc9d94622a92d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires adjacent columns to use the same digit rather than different digits.",
+      "failed_cases": [
+        "lc-3122-1",
+        "lc-3122-2",
+        "lc-3122-5",
+        "lc-3122-8",
+        "lc-3122-9",
+        "lc-3122-10",
+        "lc-3122-11",
+        "lc-3122-13"
+      ]
+    },
+    {
+      "reason": "Charges cells already equal to the chosen digit instead of cells that must change.",
+      "failed_cases": [
+        "lc-3122-2",
+        "lc-3122-5",
+        "lc-3122-6",
+        "lc-3122-7",
+        "lc-3122-8",
+        "lc-3122-10",
+        "lc-3122-12",
+        "lc-3122-13",
+        "lc-3122-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7169,
+  "oracle_implementation": "code_practice/import_batch_215b.py:columns_oracle",
+  "validator_implementation_sha256": "acd33546de6e6eabc4f92e90bce9d2bf02cec2730441bd38d5128d7bc1691540",
+  "batch_implementation_sha256": "95f645df8211965de3f81dfd5253547f0f58d3cb263fd851f27801b72e54798a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c88e3a5326e3825f62e982dfe94aa8e9e39440364f88affb834b4ab3486e030d",
+  "elapsed_seconds": 0.136,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

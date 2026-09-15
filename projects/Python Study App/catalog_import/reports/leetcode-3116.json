@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3116",
+  "content_sha256": "f3f6e223f6b1d3f880d2a5b1de3d60855fae8cb2641f6ea91b53eb74323114e3",
+  "source_hash": "b37ef97e14ac6d7f6265ea2a1de31cec7c9310564be7c16f2e9432226d0a0716",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds all multiple counts without inclusion-exclusion, double-counting common multiples.",
+      "failed_cases": [
+        "lc-3116-1",
+        "lc-3116-2",
+        "lc-3116-6",
+        "lc-3116-8",
+        "lc-3116-9",
+        "lc-3116-10",
+        "lc-3116-12",
+        "lc-3116-13",
+        "lc-3116-14"
+      ]
+    },
+    {
+      "reason": "Uses an exclusive upper boundary and can omit the exact k-th multiple of the smallest denomination.",
+      "failed_cases": [
+        "lc-3116-1",
+        "lc-3116-3",
+        "lc-3116-4",
+        "lc-3116-5",
+        "lc-3116-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7163,
+  "oracle_implementation": "code_practice/import_batch_215b.py:denomination_oracle",
+  "validator_implementation_sha256": "acd33546de6e6eabc4f92e90bce9d2bf02cec2730441bd38d5128d7bc1691540",
+  "batch_implementation_sha256": "95f645df8211965de3f81dfd5253547f0f58d3cb263fd851f27801b72e54798a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "afc2895171ac19a46dd3b9e44e7b0a02ba88c9b6bf225ab411459f6c68e51d37",
+  "elapsed_seconds": 0.088,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
