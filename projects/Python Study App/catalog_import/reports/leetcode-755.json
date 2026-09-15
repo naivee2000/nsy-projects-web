@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-755",
+  "content_sha256": "3505d9605d4cc4f4a942537bc1c69023d33eac431aab4880ce4e5cb9b6966839",
+  "source_hash": "354c24d650da696af45b2c44777422bf469f89c857c6441efc917086b0b32f38",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Prefers right before left.",
+      "failed_cases": [
+        "lc-755-9",
+        "lc-755-12",
+        "lc-755-14"
+      ]
+    },
+    {
+      "reason": "Cannot traverse across equal-height columns to reach a later drop.",
+      "failed_cases": [
+        "lc-755-8",
+        "lc-755-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4802,
+  "oracle_implementation": "code_practice/import_batch_203a.py:water_o",
+  "validator_implementation_sha256": "90957eb4df99e89e1098e5c9351bc8b1f034ec766c55933210bace84baeac578",
+  "batch_implementation_sha256": "0b54a7b742264fa74089d7a450c70fcae214cdb816cc6ffcd9bde8a58b4157c3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "13ef86705c7680667a2e3b7b2741154a2cac24ea1885a30152219985bde178d5",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

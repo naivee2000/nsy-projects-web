@@ -1,0 +1,46 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-758",
+  "content_sha256": "f2176febaedb757769577d2bdef41cc516fafd643d9476a135823be1053011aa",
+  "source_hash": "8caa91560429989ffb093911a85313dfc5738124e21bdbd5340a7136071249a1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps only the shortest word beginning at each position.",
+      "failed_cases": []
+    },
+    {
+      "reason": "Wraps only the first character of every bold region.",
+      "failed_cases": [
+        "lc-758-1",
+        "lc-758-2",
+        "lc-758-5",
+        "lc-758-6",
+        "lc-758-7",
+        "lc-758-8",
+        "lc-758-9",
+        "lc-758-12",
+        "lc-758-13",
+        "lc-758-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4805,
+  "oracle_implementation": "code_practice/import_batch_203a.py:bold_o",
+  "validator_implementation_sha256": "90957eb4df99e89e1098e5c9351bc8b1f034ec766c55933210bace84baeac578",
+  "batch_implementation_sha256": "0b54a7b742264fa74089d7a450c70fcae214cdb816cc6ffcd9bde8a58b4157c3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2f56ff7371b90e5b82c3fb789be0129b7aeefb2c728ec2a575afb3807e39899e",
+  "elapsed_seconds": 0.062,
+  "failures": [
+    {
+      "phase": "known_wrong",
+      "index": 0
+    }
+  ],
+  "workbook_sample": "preserved and independently verified"
+}

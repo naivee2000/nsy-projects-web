@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-768",
+  "content_sha256": "f269baf8c50b1c606a9de466affcd69d3980d0400e018bd07aadf06e6eec8451",
+  "source_hash": "7118bd00c956f7a5816c180bfccb8ae708697d24e6667eb3a474f86b17515f66",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts original-prefix values instead of accumulating them.",
+      "failed_cases": [
+        "lc-768-1",
+        "lc-768-2",
+        "lc-768-3",
+        "lc-768-4",
+        "lc-768-5",
+        "lc-768-6",
+        "lc-768-8",
+        "lc-768-9",
+        "lc-768-10",
+        "lc-768-11",
+        "lc-768-12",
+        "lc-768-13",
+        "lc-768-14"
+      ]
+    },
+    {
+      "reason": "Cuts at precisely the prefixes whose multisets do not match.",
+      "failed_cases": [
+        "lc-768-1",
+        "lc-768-2",
+        "lc-768-3",
+        "lc-768-5",
+        "lc-768-6",
+        "lc-768-7",
+        "lc-768-8",
+        "lc-768-9",
+        "lc-768-10",
+        "lc-768-11",
+        "lc-768-12",
+        "lc-768-13",
+        "lc-768-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4815,
+  "oracle_implementation": "code_practice/import_batch_203a.py:chunks_o",
+  "validator_implementation_sha256": "90957eb4df99e89e1098e5c9351bc8b1f034ec766c55933210bace84baeac578",
+  "batch_implementation_sha256": "0b54a7b742264fa74089d7a450c70fcae214cdb816cc6ffcd9bde8a58b4157c3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4299002beaf280a2cfb0870e65ae5f2f4dea79136103068ab6912ba1a6d89384",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

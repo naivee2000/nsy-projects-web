@@ -1,0 +1,39 @@
+{
+  "valid": false,
+  "problem_id": "leetcode-737",
+  "content_sha256": "6ab353461038d82b177c3271e1705e79136972e00494097a27023255ff3c4df8",
+  "source_hash": "c35acd84dcb8dfa4b0e4a785f0bead27e786a9412616bdc5849abeaecef53815",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Does not merge component roots, so longer transitive chains can break.",
+      "failed_cases": []
+    },
+    {
+      "reason": "Forgets that every word is similar to itself.",
+      "failed_cases": []
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4784,
+  "oracle_implementation": "code_practice/import_batch_203a.py:similar_o",
+  "validator_implementation_sha256": "90957eb4df99e89e1098e5c9351bc8b1f034ec766c55933210bace84baeac578",
+  "batch_implementation_sha256": "0b54a7b742264fa74089d7a450c70fcae214cdb816cc6ffcd9bde8a58b4157c3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7c350c9b9d747be0405787511b15062cd7f833756a4bc54d05a513cfb5bf9259",
+  "elapsed_seconds": 0.047,
+  "failures": [
+    {
+      "phase": "known_wrong",
+      "index": 0
+    },
+    {
+      "phase": "known_wrong",
+      "index": 1
+    }
+  ],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-773",
+  "content_sha256": "4fa57ea8c1d051e0932f7a5ba91e1c7126fb57b8be6762badb256b002f6ab80e",
+  "source_hash": "80d3c55b15198e4563d7a5e5a2e50e378309bd7ba3567c5902073c3245acd055",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Searches for the wrong target arrangement.",
+      "failed_cases": [
+        "lc-773-1",
+        "lc-773-3",
+        "lc-773-4",
+        "lc-773-5",
+        "lc-773-6",
+        "lc-773-7",
+        "lc-773-8",
+        "lc-773-9",
+        "lc-773-11",
+        "lc-773-12",
+        "lc-773-13",
+        "lc-773-14"
+      ]
+    },
+    {
+      "reason": "Charges two moves for every legal swap.",
+      "failed_cases": [
+        "lc-773-1",
+        "lc-773-4",
+        "lc-773-5",
+        "lc-773-6",
+        "lc-773-7",
+        "lc-773-8",
+        "lc-773-9",
+        "lc-773-11",
+        "lc-773-12",
+        "lc-773-13",
+        "lc-773-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4820,
+  "oracle_implementation": "code_practice/import_batch_203a.py:puzzle_o",
+  "validator_implementation_sha256": "90957eb4df99e89e1098e5c9351bc8b1f034ec766c55933210bace84baeac578",
+  "batch_implementation_sha256": "0b54a7b742264fa74089d7a450c70fcae214cdb816cc6ffcd9bde8a58b4157c3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "be4a3a4af3cf4a3ebf806fcf62a34daa0383e4e1801c70e24bc273036d770219",
+  "elapsed_seconds": 0.104,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
