@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-920",
+  "content_sha256": "54ad814a27ad91854b51be70f11ad4ebd8e1e6def92c8a3ded47016209e96314",
+  "source_hash": "834d6111ce9302e88a393bb8e4c0d3a1582dd0994859beeb777c07726ab99b6a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts already-used songs as choices for introducing a new song.",
+      "failed_cases": [
+        "lc-920-1",
+        "lc-920-2",
+        "lc-920-3",
+        "lc-920-4",
+        "lc-920-5",
+        "lc-920-6",
+        "lc-920-7",
+        "lc-920-8",
+        "lc-920-9",
+        "lc-920-10",
+        "lc-920-11",
+        "lc-920-12",
+        "lc-920-13",
+        "lc-920-14"
+      ]
+    },
+    {
+      "reason": "Allows replaying any used song without excluding the previous k songs.",
+      "failed_cases": [
+        "lc-920-6",
+        "lc-920-7",
+        "lc-920-8",
+        "lc-920-10",
+        "lc-920-11",
+        "lc-920-13",
+        "lc-920-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4967,
+  "oracle_implementation": "code_practice/import_batch_203d.py:playlists_o",
+  "validator_implementation_sha256": "509008dbe021e5f4e568f023d42cf7781f0260352fe8860279bb8631f8c53bec",
+  "batch_implementation_sha256": "697a4c7090e99c3ac0c80430bd39789befcc155f881409a31c34fbf356e98eda",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "edafb8cb81765e236cf34fdeabf8c2c3a4d9096c8b9e1efab0f8de75e5b9b8e8",
+  "elapsed_seconds": 0.13,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

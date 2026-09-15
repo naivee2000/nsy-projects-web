@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2299,
+  "count": 2306,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -12772,6 +12772,25 @@
       "source_id": 899
     },
     {
+      "id": "leetcode-903",
+      "version": 1,
+      "status": "approved",
+      "title": "Valid Permutations for DI Sequence",
+      "summary": "Given a string s of length n with characters 'D' for decreasing and 'I' for increasing, find the count of valid permutations of integers from 0 to n that adhere to the specified order constraints.",
+      "topics": [
+        "dynamic programming",
+        "prefix sums"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-903.json",
+      "content_sha256": "e645504d2b9badb1e06d6d615e1fd23b20fc2bc26ed8b8cbbeeb1b2c61336369",
+      "source_id": 903
+    },
+    {
       "id": "leetcode-904",
       "version": 1,
       "status": "approved",
@@ -12820,6 +12839,23 @@
       "path": "problems/leetcode-908.json",
       "content_sha256": "b7cfd141e8efc59d4d3c2f3c09a013cb40122818aadab7e47279aa201bf64914",
       "source_id": 908
+    },
+    {
+      "id": "leetcode-909",
+      "version": 1,
+      "status": "approved",
+      "title": "Snakes and Ladders",
+      "summary": "Given an n x n integer matrix board where cells are labeled from 1 to n^2 in a Boustrophedon style starting from the bottom left (i.e., board[n - 1][0]) and alternating direction each row, you start on square 1.",
+      "topics": [
+        "matrices",
+        "breadth-first search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-909.json",
+      "content_sha256": "43eae1fbf0ee0d97707ff7ab2cd0593b5212181685a172316f630be995e8fe7a",
+      "source_id": 909
     },
     {
       "id": "leetcode-910",
@@ -12905,6 +12941,25 @@
       "path": "problems/leetcode-917.json",
       "content_sha256": "fc4b9fe1ac69d835c6d75645b8e5b3416277f53b1d73a93df6d86607e8cdfe1c",
       "source_id": 917
+    },
+    {
+      "id": "leetcode-920",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Music Playlists",
+      "summary": "Given n distinct songs, determine the count of playlists that can be made to play at least goal songs, with each song played at least once and a song repeated only after k other songs have been played, modulo 10^9 + 7.",
+      "topics": [
+        "dynamic programming",
+        "combinatorics"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-920.json",
+      "content_sha256": "54ad814a27ad91854b51be70f11ad4ebd8e1e6def92c8a3ded47016209e96314",
+      "source_id": 920
     },
     {
       "id": "leetcode-921",
@@ -13441,6 +13496,25 @@
       "source_id": 970
     },
     {
+      "id": "leetcode-972",
+      "version": 1,
+      "status": "approved",
+      "title": "Equal Rational Numbers",
+      "summary": "Given two strings s and t, each representing a non-negative rational number with optional repeating parts in parentheses, return true if and only if they represent the same number.",
+      "topics": [
+        "strings",
+        "math"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-972.json",
+      "content_sha256": "eea89cae29e7149a71a620a016aa539cfdc5271f8a729b7262966e7e91def3b2",
+      "source_id": 972
+    },
+    {
       "id": "leetcode-974",
       "version": 1,
       "status": "approved",
@@ -13456,6 +13530,26 @@
       "path": "problems/leetcode-974.json",
       "content_sha256": "91b30c67cf10dd72d17153b67d73f30e14ed24afb1a46dcb266c086ebea46180",
       "source_id": 974
+    },
+    {
+      "id": "leetcode-975",
+      "version": 1,
+      "status": "approved",
+      "title": "Odd Even Jump",
+      "summary": "Given an integer array arr, determine the number of starting indices from which you can reach the end of the array by making a series of jumps.",
+      "topics": [
+        "arrays",
+        "monotonic stacks",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-975.json",
+      "content_sha256": "d1f9859cf5f8df6f81c40c49de8e94de4090846b9f484a7d7dbca6bf52af7737",
+      "source_id": 975
     },
     {
       "id": "leetcode-976",
@@ -13791,6 +13885,23 @@
       "path": "problems/leetcode-997.json",
       "content_sha256": "76c9f7d6ed22bc2f6f869b4b0250752ed8bf2c6d63416d99891b8d3b1eb56044",
       "source_id": 997
+    },
+    {
+      "id": "leetcode-999",
+      "version": 1,
+      "status": "approved",
+      "title": "Available Captures for Rook",
+      "summary": "Given an 8 x 8 matrix representing a chessboard, count the number of black pawns ('p') that the white rook ('R') can capture by moving horizontally or vertically to the same square, without encountering any other pieces in the path.",
+      "topics": [
+        "matrices",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-999.json",
+      "content_sha256": "b32d98dffde536bb86f11cbf47b122786a24d738223856b95c1c258ead209138",
+      "source_id": 999
     },
     {
       "id": "leetcode-1002",
@@ -16376,6 +16487,23 @@
       "path": "problems/leetcode-1213.json",
       "content_sha256": "e652a409345da6f5951e567e30da307565415737d84af70da325a7948b583438",
       "source_id": 1213
+    },
+    {
+      "id": "leetcode-1215",
+      "version": 1,
+      "status": "approved",
+      "title": "Stepping Numbers",
+      "summary": "Identify integers within a specified range [low, high] where the absolute difference between each pair of consecutive digits is exactly 1.",
+      "topics": [
+        "breadth-first search",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1215.json",
+      "content_sha256": "3fb647d600e1988c0df209b55520950f8fc9ff349a5f03571587d12986f5744a",
+      "source_id": 1215
     },
     {
       "id": "leetcode-1217",

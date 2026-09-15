@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1215",
+  "content_sha256": "3fb647d600e1988c0df209b55520950f8fc9ff349a5f03571587d12986f5744a",
+  "source_hash": "545bf38aa9a69a1cd792084a6bdf591d97249b1e1b6827369aa1a370937bee23",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Extends numbers with digits differing by two instead of one.",
+      "failed_cases": [
+        "lc-1215-1",
+        "lc-1215-2",
+        "lc-1215-5",
+        "lc-1215-7",
+        "lc-1215-8",
+        "lc-1215-9",
+        "lc-1215-10",
+        "lc-1215-11",
+        "lc-1215-13",
+        "lc-1215-14"
+      ]
+    },
+    {
+      "reason": "Includes zero even when the lower bound is one.",
+      "failed_cases": [
+        "lc-1215-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5262,
+  "oracle_implementation": "code_practice/import_batch_203e.py:stepping_o",
+  "validator_implementation_sha256": "509008dbe021e5f4e568f023d42cf7781f0260352fe8860279bb8631f8c53bec",
+  "batch_implementation_sha256": "240e72bdc25c9973653bbf3cce51f9bc7e2886fd87949c001a19ab91385a27e1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4a7c6f2504f7ffaa0305ec1e926016b12aba99560b130536d60eb648e8f32e74",
+  "elapsed_seconds": 0.25,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

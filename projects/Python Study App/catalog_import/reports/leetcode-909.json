@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-909",
+  "content_sha256": "43eae1fbf0ee0d97707ff7ab2cd0593b5212181685a172316f630be995e8fe7a",
+  "source_hash": "016a956d432cee93b3852935af0e3f348c2c07ca09a49a3f99816255963fac79",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Never considers rolling exactly one.",
+      "failed_cases": [
+        "lc-909-1"
+      ]
+    },
+    {
+      "reason": "Adds an extra move when the target state is dequeued.",
+      "failed_cases": [
+        "lc-909-1",
+        "lc-909-2",
+        "lc-909-3",
+        "lc-909-4",
+        "lc-909-5",
+        "lc-909-6",
+        "lc-909-7",
+        "lc-909-8",
+        "lc-909-9",
+        "lc-909-10",
+        "lc-909-11",
+        "lc-909-12",
+        "lc-909-13",
+        "lc-909-14",
+        "lc-909-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4956,
+  "oracle_implementation": "code_practice/import_batch_203d.py:snakes_o",
+  "validator_implementation_sha256": "509008dbe021e5f4e568f023d42cf7781f0260352fe8860279bb8631f8c53bec",
+  "batch_implementation_sha256": "697a4c7090e99c3ac0c80430bd39789befcc155f881409a31c34fbf356e98eda",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "74551605897cbf7c10da37080b9652846cb43ec62b401c063db607573344b16d",
+  "elapsed_seconds": 0.059,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

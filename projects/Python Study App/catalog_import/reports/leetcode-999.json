@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-999",
+  "content_sha256": "b32d98dffde536bb86f11cbf47b122786a24d738223856b95c1c258ead209138",
+  "source_hash": "3229ae8faacc66e11121af1aecda9b66f0510e79e6e1472dca3e4837e7d81fee",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Looks through bishops instead of stopping the ray.",
+      "failed_cases": [
+        "lc-999-12",
+        "lc-999-13"
+      ]
+    },
+    {
+      "reason": "Counts every pawn on a ray instead of only the first visible one.",
+      "failed_cases": [
+        "lc-999-8",
+        "lc-999-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5046,
+  "oracle_implementation": "code_practice/import_batch_203e.py:rook_o",
+  "validator_implementation_sha256": "509008dbe021e5f4e568f023d42cf7781f0260352fe8860279bb8631f8c53bec",
+  "batch_implementation_sha256": "240e72bdc25c9973653bbf3cce51f9bc7e2886fd87949c001a19ab91385a27e1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "04098784c36c9f3ab772cf680cc0c1c8b83ad48edaa58bd5bfe86f7a079ad605",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "missing in workbook; reviewed examples authored"
+}

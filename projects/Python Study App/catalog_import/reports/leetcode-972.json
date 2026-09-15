@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-972",
+  "content_sha256": "eea89cae29e7149a71a620a016aa539cfdc5271f8a729b7262966e7e91def3b2",
+  "source_hash": "cd186f43f40cbf2a52b79392f4d3c38c5774e67933335d8c004e2a6fe82256b9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats a repeating block as an ordinary finite block.",
+      "failed_cases": [
+        "lc-972-1",
+        "lc-972-3",
+        "lc-972-6",
+        "lc-972-10",
+        "lc-972-11",
+        "lc-972-12",
+        "lc-972-14"
+      ]
+    },
+    {
+      "reason": "Ignores the repeating portion entirely.",
+      "failed_cases": [
+        "lc-972-1",
+        "lc-972-2",
+        "lc-972-3",
+        "lc-972-10",
+        "lc-972-11",
+        "lc-972-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5019,
+  "oracle_implementation": "code_practice/import_batch_203d.py:rational_o",
+  "validator_implementation_sha256": "509008dbe021e5f4e568f023d42cf7781f0260352fe8860279bb8631f8c53bec",
+  "batch_implementation_sha256": "697a4c7090e99c3ac0c80430bd39789befcc155f881409a31c34fbf356e98eda",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "006bdf00ccf20d7b3c88911c675a869b25355b6735f21a514e054eba2ed641bd",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

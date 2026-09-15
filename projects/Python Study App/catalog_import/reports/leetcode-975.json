@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-975",
+  "content_sha256": "d1f9859cf5f8df6f81c40c49de8e94de4090846b9f484a7d7dbca6bf52af7737",
+  "source_hash": "de03770f6bc5626384312ebcdfc0e2663af145457eb5f4061644dd54f90462d9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks equal-value ties toward the largest later index.",
+      "failed_cases": [
+        "lc-975-2",
+        "lc-975-7",
+        "lc-975-10",
+        "lc-975-11",
+        "lc-975-12"
+      ]
+    },
+    {
+      "reason": "Follows another odd jump instead of alternating to an even jump.",
+      "failed_cases": [
+        "lc-975-1",
+        "lc-975-2",
+        "lc-975-6",
+        "lc-975-9",
+        "lc-975-11",
+        "lc-975-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5022,
+  "oracle_implementation": "code_practice/import_batch_203e.py:jumps_o",
+  "validator_implementation_sha256": "509008dbe021e5f4e568f023d42cf7781f0260352fe8860279bb8631f8c53bec",
+  "batch_implementation_sha256": "240e72bdc25c9973653bbf3cce51f9bc7e2886fd87949c001a19ab91385a27e1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "16e7ed0c3f913ec57c9850481370b0485690953a400f04ea3575f9c23d0b7477",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

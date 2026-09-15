@@ -4,9 +4,11 @@ from code_practice.catalog import get_catalog
 from code_practice.import_batch_203a import BATCH as A
 from code_practice.import_batch_203b import BATCH as B
 from code_practice.import_batch_203c import BATCH as C
+from code_practice.import_batch_203d import BATCH as D
+from code_practice.import_batch_203e import BATCH as E
 
 ROOT=Path(__file__).resolve().parents[1]
-BATCH={**A,**B,**C};IDS=(755,768,773,780,801,805,814,815,839,847,862,872,879)
+BATCH={**A,**B,**C,**D,**E};IDS=(755,768,773,780,801,805,814,815,839,847,862,872,879,903,909,920,972,975,999,1215)
 
 def test_batch_203_verified_subset():
     catalog=get_catalog()
