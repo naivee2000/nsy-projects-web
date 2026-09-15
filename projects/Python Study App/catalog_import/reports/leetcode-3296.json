@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3296",
+  "content_sha256": "8b57f2da0c01f1f899ca1e3fdb803be29273b823053ded410a9c06b8ab1395eb",
+  "source_hash": "483aeba3a1fdb576384041563410878088493880326f6d99f622a1bb44532c3e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores differing worker speeds when computing capacity.",
+      "failed_cases": [
+        "lc-3296-2",
+        "lc-3296-5",
+        "lc-3296-7",
+        "lc-3296-8",
+        "lc-3296-9",
+        "lc-3296-10",
+        "lc-3296-12",
+        "lc-3296-13",
+        "lc-3296-14",
+        "lc-3296-15",
+        "lc-3296-16"
+      ]
+    },
+    {
+      "reason": "Requires workers to remove strictly more than the mountain height.",
+      "failed_cases": [
+        "lc-3296-2",
+        "lc-3296-6",
+        "lc-3296-9",
+        "lc-3296-10",
+        "lc-3296-12",
+        "lc-3296-13",
+        "lc-3296-14",
+        "lc-3296-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7343,
+  "oracle_implementation": "code_practice/import_batch_220a.py:mountain_oracle",
+  "validator_implementation_sha256": "257f0d89c1c738536894f11c583a78962e5ed437b60e2cc872b6be24e66db406",
+  "batch_implementation_sha256": "771bcbeb48c700f208034cccd418f0e0e3ca0e39cda611e0bafbd51a351b1789",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bb4e5fc866dc255474a2484201215d68db5778401dd7cfb1dd9b82776848126c",
+  "elapsed_seconds": 0.072,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

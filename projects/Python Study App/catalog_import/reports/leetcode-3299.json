@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3299",
+  "content_sha256": "db56f777c28a084de469db367f44619e6224132ed9456c0f5bdab776478cfae0",
+  "source_hash": "3095aee980aac05621edf2e07f8089e8c5d96c6f671b324d053afd863b38422b",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts every singleton twice.",
+      "failed_cases": [
+        "lc-3299-1",
+        "lc-3299-2",
+        "lc-3299-3",
+        "lc-3299-4",
+        "lc-3299-5",
+        "lc-3299-6",
+        "lc-3299-7",
+        "lc-3299-8",
+        "lc-3299-9",
+        "lc-3299-10",
+        "lc-3299-11",
+        "lc-3299-12",
+        "lc-3299-13",
+        "lc-3299-14",
+        "lc-3299-15"
+      ]
+    },
+    {
+      "reason": "Extends increasing sequences from the wrong previous value.",
+      "failed_cases": [
+        "lc-3299-1",
+        "lc-3299-2",
+        "lc-3299-4",
+        "lc-3299-6",
+        "lc-3299-7",
+        "lc-3299-11",
+        "lc-3299-12",
+        "lc-3299-13",
+        "lc-3299-14",
+        "lc-3299-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7346,
+  "oracle_implementation": "code_practice/import_batch_220a.py:subsequence_oracle",
+  "validator_implementation_sha256": "257f0d89c1c738536894f11c583a78962e5ed437b60e2cc872b6be24e66db406",
+  "batch_implementation_sha256": "771bcbeb48c700f208034cccd418f0e0e3ca0e39cda611e0bafbd51a351b1789",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7e2050c3bc0f42cdd831f9301695a142ef043c7141fa430a0b50301a552e00b6",
+  "elapsed_seconds": 1.155,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

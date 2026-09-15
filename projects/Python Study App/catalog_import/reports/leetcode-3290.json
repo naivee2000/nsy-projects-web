@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3290",
+  "content_sha256": "84cbfc6509fa8e09a1426f5a3e059d9b77b6d5742642af4fd44b256b21daabac",
+  "source_hash": "f702402de1dc061e1606c92c6dfd06bf495bd0bcaf4d722c2d12c0738425be21",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Updates selection states forward, allowing one b value to be reused.",
+      "failed_cases": [
+        "lc-3290-1",
+        "lc-3290-2",
+        "lc-3290-3",
+        "lc-3290-4",
+        "lc-3290-5",
+        "lc-3290-7",
+        "lc-3290-8",
+        "lc-3290-9",
+        "lc-3290-11",
+        "lc-3290-12",
+        "lc-3290-13",
+        "lc-3290-14",
+        "lc-3290-15",
+        "lc-3290-16"
+      ]
+    },
+    {
+      "reason": "Allows fewer than four selected indices.",
+      "failed_cases": [
+        "lc-3290-2",
+        "lc-3290-5",
+        "lc-3290-7",
+        "lc-3290-8",
+        "lc-3290-11",
+        "lc-3290-12",
+        "lc-3290-13",
+        "lc-3290-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7337,
+  "oracle_implementation": "code_practice/import_batch_220a.py:score_oracle",
+  "validator_implementation_sha256": "257f0d89c1c738536894f11c583a78962e5ed437b60e2cc872b6be24e66db406",
+  "batch_implementation_sha256": "771bcbeb48c700f208034cccd418f0e0e3ca0e39cda611e0bafbd51a351b1789",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ff234fed9546c536ab2525e823715ac5cbe322ef3ed633b7b1b9dd6466bfad0b",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

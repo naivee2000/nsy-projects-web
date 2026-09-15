@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3288",
+  "content_sha256": "f4d9ef421b534c6e252ca4a5fe64088ea870b2b2a9ea1027ffa51286824086b4",
+  "source_hash": "2d0e41be2f0c6b28cfd851bac47b8824716ffcfe37f187628c2ee6ba0ed0c287",
+  "visible_tests": 2,
+  "hidden_tests": 15,
+  "reference_passed": 17,
+  "wrong_solutions": [
+    {
+      "reason": "Uses nondecreasing y subsequences and therefore permits equal y coordinates.",
+      "failed_cases": [
+        "lc-3288-17"
+      ]
+    },
+    {
+      "reason": "Includes points that are lower in only one coordinate.",
+      "failed_cases": [
+        "lc-3288-1",
+        "lc-3288-6",
+        "lc-3288-9",
+        "lc-3288-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7335,
+  "oracle_implementation": "code_practice/import_batch_220a.py:path_oracle",
+  "validator_implementation_sha256": "257f0d89c1c738536894f11c583a78962e5ed437b60e2cc872b6be24e66db406",
+  "batch_implementation_sha256": "771bcbeb48c700f208034cccd418f0e0e3ca0e39cda611e0bafbd51a351b1789",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4b9e47e0bbb4ac1dd50a74afd97a56c6ba10714121fea2211b85d878fb0b7a9e",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

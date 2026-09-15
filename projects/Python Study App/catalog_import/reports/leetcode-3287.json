@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3287",
+  "content_sha256": "edbd71b60f7615199bdd280f9cc9538ac18dff9d860b42cdc6320118dfb89ba5",
+  "source_hash": "176408f69c1707a14313a95a636afb42463a87e1a90ed03b80d2b7316d907a5a",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Combines the two OR values with OR instead of XOR.",
+      "failed_cases": [
+        "lc-3287-1",
+        "lc-3287-2",
+        "lc-3287-4",
+        "lc-3287-6",
+        "lc-3287-8",
+        "lc-3287-10",
+        "lc-3287-11",
+        "lc-3287-12",
+        "lc-3287-16"
+      ]
+    },
+    {
+      "reason": "Forces an unused index between the selected halves.",
+      "failed_cases": [
+        "lc-3287-2",
+        "lc-3287-3",
+        "lc-3287-5",
+        "lc-3287-6",
+        "lc-3287-8",
+        "lc-3287-10",
+        "lc-3287-13",
+        "lc-3287-14",
+        "lc-3287-15",
+        "lc-3287-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7334,
+  "oracle_implementation": "code_practice/import_batch_220a.py:sequence_oracle",
+  "validator_implementation_sha256": "257f0d89c1c738536894f11c583a78962e5ed437b60e2cc872b6be24e66db406",
+  "batch_implementation_sha256": "771bcbeb48c700f208034cccd418f0e0e3ca0e39cda611e0bafbd51a351b1789",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "469e6379fe410e5e57d7ad8b27cb318d0af1983c9767c57ecde5e50ef025f5fd",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
