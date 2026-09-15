@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3191",
+  "content_sha256": "7a084a9729dd070db33885ec3a50574b58fd28238d474d8abd7d405ac3a0faaf",
+  "source_hash": "46e65221d23b7f969a1a349996fb3ee42fc0f8d6a1a903b719b31921285a4149",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Flips when the leftmost unresolved bit is already one instead of zero.",
+      "failed_cases": [
+        "lc-3191-1",
+        "lc-3191-5",
+        "lc-3191-6"
+      ]
+    },
+    {
+      "reason": "Stops one starting position too early and misses a required final triple.",
+      "failed_cases": [
+        "lc-3191-1",
+        "lc-3191-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7238,
+  "oracle_implementation": "code_practice/import_batch_217c.py:triple_oracle",
+  "validator_implementation_sha256": "c502a8ef77a79cc123aa64217fcf7e160f2250c1713becd0029f6ec0219a1b65",
+  "batch_implementation_sha256": "f4765766c75c0d242ef3a0b14e19fd1f83837881c5d34c32865c36ae78f26bc8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "77ffb22fea5db37232b53f7c75d53ebdaf8fa2dd4850532a3f87774f8d1ab471",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

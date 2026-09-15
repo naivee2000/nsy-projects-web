@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3192",
+  "content_sha256": "14ed5edd345040d00463eac9ee5c35602a1d09f5fc38c930680b09d2ba17aee8",
+  "source_hash": "96767fbc87ea856e503c81a10ee05c087eb301a9792500090d0f95ec09ff1455",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the parity of earlier suffix flips when deciding the current effective bit.",
+      "failed_cases": [
+        "lc-3192-1",
+        "lc-3192-5",
+        "lc-3192-7",
+        "lc-3192-8",
+        "lc-3192-9",
+        "lc-3192-10",
+        "lc-3192-11",
+        "lc-3192-14"
+      ]
+    },
+    {
+      "reason": "Sets the flip state permanently instead of toggling it after every operation.",
+      "failed_cases": [
+        "lc-3192-8",
+        "lc-3192-12",
+        "lc-3192-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7239,
+  "oracle_implementation": "code_practice/import_batch_217c.py:suffix_oracle",
+  "validator_implementation_sha256": "c502a8ef77a79cc123aa64217fcf7e160f2250c1713becd0029f6ec0219a1b65",
+  "batch_implementation_sha256": "f4765766c75c0d242ef3a0b14e19fd1f83837881c5d34c32865c36ae78f26bc8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3be4e8e5a0fee34eab584c5c05221f7a9c9ac4646755d4cb7948501d9cccc7b8",
+  "elapsed_seconds": 0.164,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3189",
+  "content_sha256": "4539c1b0ca723484201e0a31a9293bba7f4bb05f9a081c1db707ae2b409b3616",
+  "source_hash": "f5b3f5a7657ab864cca2044f7fe0de561ac001222afa572774dae475f9af2908",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assigns row targets in input order instead of sorted order and can cross assignments unnecessarily.",
+      "failed_cases": [
+        "lc-3189-10",
+        "lc-3189-12"
+      ]
+    },
+    {
+      "reason": "Balances rows but ignores the required one-rook-per-column condition.",
+      "failed_cases": [
+        "lc-3189-1",
+        "lc-3189-6",
+        "lc-3189-7",
+        "lc-3189-8",
+        "lc-3189-11",
+        "lc-3189-12",
+        "lc-3189-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7236,
+  "oracle_implementation": "code_practice/import_batch_217c.py:rooks_oracle",
+  "validator_implementation_sha256": "c502a8ef77a79cc123aa64217fcf7e160f2250c1713becd0029f6ec0219a1b65",
+  "batch_implementation_sha256": "f4765766c75c0d242ef3a0b14e19fd1f83837881c5d34c32865c36ae78f26bc8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b000b1280b7189150a127c5fce4ef69a8c1ebb4b02a992e9076120dc7e1491c5",
+  "elapsed_seconds": 0.424,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3187",
+  "content_sha256": "3b40dbb7eb840d70fa6450073e6af469cd3dddd0436103659ada9b4e0e749e2e",
+  "source_hash": "76fdb92765a62e41d3d3281d3648fc9e31067057df48495b8afc68aaddfd4954",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes the query range endpoints even though they cannot count as peaks.",
+      "failed_cases": [
+        "lc-3187-6"
+      ]
+    },
+    {
+      "reason": "Refreshes only the updated index and misses changed peak status at its neighbors.",
+      "failed_cases": [
+        "lc-3187-1",
+        "lc-3187-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7234,
+  "oracle_implementation": "code_practice/import_batch_217c.py:peaks_oracle",
+  "validator_implementation_sha256": "c502a8ef77a79cc123aa64217fcf7e160f2250c1713becd0029f6ec0219a1b65",
+  "batch_implementation_sha256": "f4765766c75c0d242ef3a0b14e19fd1f83837881c5d34c32865c36ae78f26bc8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a6fd6b61f099a1ee94847fd9e49d4b5022c07fffda92bc0070e099cd1675235c",
+  "elapsed_seconds": 0.09,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

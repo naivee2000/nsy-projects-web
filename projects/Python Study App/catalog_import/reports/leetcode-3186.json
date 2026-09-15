@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3186",
+  "content_sha256": "770aa0ed12b7435db3ddc638102a8106dfc5a1a39fdd6983d4b8d839fe873b57",
+  "source_hash": "7321d3436c45068b629f2ecb684dcd6fff2132653ca2d37d4e72c99647cdcd4f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forbids only distance one and can combine damages differing by two.",
+      "failed_cases": [
+        "lc-3186-5",
+        "lc-3186-7",
+        "lc-3186-9",
+        "lc-3186-10",
+        "lc-3186-12",
+        "lc-3186-13"
+      ]
+    },
+    {
+      "reason": "Counts each distinct damage once and loses repeated compatible spells.",
+      "failed_cases": [
+        "lc-3186-1",
+        "lc-3186-2",
+        "lc-3186-7",
+        "lc-3186-11",
+        "lc-3186-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7233,
+  "oracle_implementation": "code_practice/import_batch_217c.py:damage_oracle",
+  "validator_implementation_sha256": "c502a8ef77a79cc123aa64217fcf7e160f2250c1713becd0029f6ec0219a1b65",
+  "batch_implementation_sha256": "f4765766c75c0d242ef3a0b14e19fd1f83837881c5d34c32865c36ae78f26bc8",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "58c542a58e7d53a25d617d208a346b9a07d1ec1c5a1287fdab56b04c7863cef9",
+  "elapsed_seconds": 0.16,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
