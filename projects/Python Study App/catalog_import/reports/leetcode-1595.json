@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1595",
+  "content_sha256": "3f00fcdd79bda37f6ef1a8c1fee2127627e02243ba5faaba1d2fb6f7295b70e8",
+  "source_hash": "76283a3fc534f33a6aecad551632854c1a1b886350925cc358395968f29f1ecd",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forces every left point to use the first column before separately covering other columns.",
+      "failed_cases": [
+        "lc-1595-1",
+        "lc-1595-2",
+        "lc-1595-6",
+        "lc-1595-7",
+        "lc-1595-8",
+        "lc-1595-9",
+        "lc-1595-10",
+        "lc-1595-11",
+        "lc-1595-12",
+        "lc-1595-15",
+        "lc-1595-16"
+      ]
+    },
+    {
+      "reason": "Connects each left point cheaply but never ensures every right point is covered.",
+      "failed_cases": [
+        "lc-1595-2",
+        "lc-1595-4",
+        "lc-1595-6",
+        "lc-1595-10",
+        "lc-1595-11",
+        "lc-1595-12",
+        "lc-1595-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5642,
+  "oracle_implementation": "code_practice/import_batch_207b.py:connect_oracle",
+  "validator_implementation_sha256": "85d112dc5c148afde3bf8f5f598cd5a066de4abd1652f8226deb7a781c355fb8",
+  "batch_implementation_sha256": "15d18a49871c780439def0245bec4268c678ec0572764c484e8a043fd3a98719",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bc784d4fa48895472a7fb36c2591d3d234aecfe502e1d759833c7fd26d62e87e",
+  "elapsed_seconds": 0.101,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

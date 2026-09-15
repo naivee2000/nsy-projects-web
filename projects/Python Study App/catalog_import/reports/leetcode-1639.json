@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1639",
+  "content_sha256": "3e312951823e942374057b581c5d0357595ee85819c60631850036cbb47e5bed",
+  "source_hash": "23b7f1c95170e3c5fe9b584fe8f2e7d16b44753da277813bbac401bb129d4958",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Updates target positions left-to-right and reuses the same source column more than once.",
+      "failed_cases": [
+        "lc-1639-1",
+        "lc-1639-2",
+        "lc-1639-10",
+        "lc-1639-11",
+        "lc-1639-13",
+        "lc-1639-14",
+        "lc-1639-16"
+      ]
+    },
+    {
+      "reason": "Counts characters from only the first word and loses choices supplied by other words.",
+      "failed_cases": [
+        "lc-1639-1",
+        "lc-1639-2",
+        "lc-1639-5",
+        "lc-1639-8",
+        "lc-1639-9",
+        "lc-1639-10",
+        "lc-1639-11",
+        "lc-1639-13",
+        "lc-1639-14",
+        "lc-1639-15",
+        "lc-1639-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5686,
+  "oracle_implementation": "code_practice/import_batch_207b.py:formation_oracle",
+  "validator_implementation_sha256": "85d112dc5c148afde3bf8f5f598cd5a066de4abd1652f8226deb7a781c355fb8",
+  "batch_implementation_sha256": "15d18a49871c780439def0245bec4268c678ec0572764c484e8a043fd3a98719",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c5a153c07da3a255819c22eefe3c8db125207a6654e9ce3d966712d45dcf97fa",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

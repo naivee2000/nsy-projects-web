@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2371,
+  "count": 2376,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -21450,6 +21450,26 @@
       "source_id": 1594
     },
     {
+      "id": "leetcode-1595",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Connect Two Groups of Points",
+      "summary": "Given two groups of points with sizes size1 and size2 (where size1 is greater than or equal to size2), a cost matrix of size1 x size2 defines the connection costs between points in the two groups.",
+      "topics": [
+        "dynamic programming",
+        "bitmasks",
+        "graphs"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1595.json",
+      "content_sha256": "3f00fcdd79bda37f6ef1a8c1fee2127627e02243ba5faaba1d2fb6f7295b70e8",
+      "source_id": 1595
+    },
+    {
       "id": "leetcode-1598",
       "version": 1,
       "status": "approved",
@@ -21647,6 +21667,26 @@
       "source_id": 1615
     },
     {
+      "id": "leetcode-1617",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Subtrees With Max Distance Between Cities",
+      "summary": "Given a tree with n cities numbered from 1 to n, where the connections between cities are represented by an array of edges, find the number of subtrees for each possible maximum distance d from 1 to n-1.",
+      "topics": [
+        "trees",
+        "bitmasks",
+        "graph distances"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1617.json",
+      "content_sha256": "c2f1c014fd1d020d35c0a0026b1b697c705c98c581ebff8e48e65c96034f3883",
+      "source_id": 1617
+    },
+    {
       "id": "leetcode-1619",
       "version": 1,
       "status": "approved",
@@ -21799,6 +21839,44 @@
       "path": "problems/leetcode-1637.json",
       "content_sha256": "095ee0043b104159a568ec77e16b8ee7212af6ef1421568836bf9c770a52e5c3",
       "source_id": 1637
+    },
+    {
+      "id": "leetcode-1638",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Substrings That Differ by One Character",
+      "summary": "Given two strings s and t, determine the count of non-empty substrings in s that can be altered by changing a single character to match some substring in t exactly.",
+      "topics": [
+        "strings",
+        "dynamic programming",
+        "sliding windows"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1638.json",
+      "content_sha256": "6631661d6ab168e49d0880078678c30b30383f39397242c0617c58edb75fcec7",
+      "source_id": 1638
+    },
+    {
+      "id": "leetcode-1639",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Form a Target String Given a Dictionary",
+      "summary": "Given a list of strings of equal length and a target string, determine the number of ways to form the target by selecting characters from the list.",
+      "topics": [
+        "strings",
+        "dynamic programming",
+        "counting"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1639.json",
+      "content_sha256": "3e312951823e942374057b581c5d0357595ee85819c60631850036cbb47e5bed",
+      "source_id": 1639
     },
     {
       "id": "leetcode-1640",
@@ -21990,6 +22068,26 @@
       "path": "problems/leetcode-1654.json",
       "content_sha256": "4fff85455237009dffd2573de398a99a76638098daa857070d0483cd8a314bac",
       "source_id": 1654
+    },
+    {
+      "id": "leetcode-1655",
+      "version": 1,
+      "status": "approved",
+      "title": "Distribute Repeating Integers",
+      "summary": "Given an array of n integers with at most 50 unique values and an array of m customer order quantities, determine if it's possible to distribute the integers such that each customer receives exactly their specified quantity of identical integers, and all customers are satisfied.",
+      "topics": [
+        "backtracking",
+        "bitmasks",
+        "counting"
+      ],
+      "prerequisites": [
+        "backtracking"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1655.json",
+      "content_sha256": "c4bd2a0cd35fe6d29f094be94d64b471ca7f5d67a42eee96504ac53e17733cc0",
+      "source_id": 1655
     },
     {
       "id": "leetcode-1657",

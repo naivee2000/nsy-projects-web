@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1655",
+  "content_sha256": "c4bd2a0cd35fe6d29f094be94d64b471ca7f5d67a42eee96504ac53e17733cc0",
+  "source_hash": "cab6f3747e8a49bc5ce235d36dd245abb20784d02970fb6a2021f8691fa8d7d8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires unused capacity after an assignment and rejects an exact fit.",
+      "failed_cases": [
+        "lc-1655-2",
+        "lc-1655-3",
+        "lc-1655-5",
+        "lc-1655-6",
+        "lc-1655-7",
+        "lc-1655-9",
+        "lc-1655-10",
+        "lc-1655-11",
+        "lc-1655-12",
+        "lc-1655-14"
+      ]
+    },
+    {
+      "reason": "Checks only the total number of items and ignores the identical-value requirement.",
+      "failed_cases": [
+        "lc-1655-1",
+        "lc-1655-13",
+        "lc-1655-15",
+        "lc-1655-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5702,
+  "oracle_implementation": "code_practice/import_batch_207b.py:distribute_oracle",
+  "validator_implementation_sha256": "85d112dc5c148afde3bf8f5f598cd5a066de4abd1652f8226deb7a781c355fb8",
+  "batch_implementation_sha256": "15d18a49871c780439def0245bec4268c678ec0572764c484e8a043fd3a98719",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "606526a6ba1125464729e1aea96245a86c4abf57803048944d1a41ff52c0773f",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

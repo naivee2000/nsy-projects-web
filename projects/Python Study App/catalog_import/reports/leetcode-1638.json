@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1638",
+  "content_sha256": "6631661d6ab168e49d0880078678c30b30383f39397242c0617c58edb75fcec7",
+  "source_hash": "056bdef4edd5d777d6a66f5de1b74c8ac77fe95efd2f839407c3a5abb1bf48d0",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only length-one substring pairs and misses longer pairs with one difference.",
+      "failed_cases": [
+        "lc-1638-2",
+        "lc-1638-8",
+        "lc-1638-10",
+        "lc-1638-15",
+        "lc-1638-16"
+      ]
+    },
+    {
+      "reason": "Counts matching substring pairs as well as pairs with exactly one difference.",
+      "failed_cases": [
+        "lc-1638-1",
+        "lc-1638-2",
+        "lc-1638-3",
+        "lc-1638-5",
+        "lc-1638-6",
+        "lc-1638-7",
+        "lc-1638-8",
+        "lc-1638-10",
+        "lc-1638-11",
+        "lc-1638-12",
+        "lc-1638-13",
+        "lc-1638-14",
+        "lc-1638-15",
+        "lc-1638-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5685,
+  "oracle_implementation": "code_practice/import_batch_207b.py:substring_oracle",
+  "validator_implementation_sha256": "85d112dc5c148afde3bf8f5f598cd5a066de4abd1652f8226deb7a781c355fb8",
+  "batch_implementation_sha256": "15d18a49871c780439def0245bec4268c678ec0572764c484e8a043fd3a98719",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0e0b34b9fb9c9deb0a191e51edd2309870b2ceaef4e05c866f6afeccd33f268d",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
