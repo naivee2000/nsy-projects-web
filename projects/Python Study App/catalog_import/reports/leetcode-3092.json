@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3092",
+  "content_sha256": "973e3c41a706698a021ce79add85aa907cda1aa19875b4af52fe6ad495367388",
+  "source_hash": "e02fb72453fdfb729207dfb05097837bbc88d82f3244ffbb5e6fcd4e30787bdf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never removes stale heap entries, so an old maximum can survive decreases.",
+      "failed_cases": [
+        "lc-3092-1",
+        "lc-3092-2",
+        "lc-3092-5",
+        "lc-3092-7",
+        "lc-3092-10",
+        "lc-3092-12",
+        "lc-3092-14"
+      ]
+    },
+    {
+      "reason": "Ignores removal updates and therefore leaves frequencies too high.",
+      "failed_cases": [
+        "lc-3092-1",
+        "lc-3092-2",
+        "lc-3092-5",
+        "lc-3092-7",
+        "lc-3092-10",
+        "lc-3092-12",
+        "lc-3092-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7139,
+  "oracle_implementation": "code_practice/import_batch_214b.py:ids_oracle",
+  "validator_implementation_sha256": "70153f1508f05982526e6c78df05b1a8e63ab01cf674dbac3181d3dd6e30fe73",
+  "batch_implementation_sha256": "8554fe918d5c124816ff7822df2823c0b8168974587e6af6efa2d67b36581a29",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "874fcf0617591ac359de6c128ff3f2b76ff66b135845f18bde4cf63aec600da1",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

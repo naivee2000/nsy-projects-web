@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2511,
+  "count": 2516,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -40993,6 +40993,64 @@
       "source_id": 3084
     },
     {
+      "id": "leetcode-3085",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Deletions to Make String K-Special",
+      "summary": "Given a string and an integer k, determine the least number of deletions required to ensure that the frequency difference between any two characters in the string does not exceed k.",
+      "topics": [
+        "strings",
+        "counting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3085.json",
+      "content_sha256": "d23c61d83c1bd162242109c46d6b82a0e82bf6fe6eb3fccbf3a1ef1db2b41420",
+      "source_id": 3085
+    },
+    {
+      "id": "leetcode-3086",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Moves to Pick K Ones",
+      "summary": "Given a binary array nums of length n, a positive integer k, and a non-negative integer maxChanges, Alice must pick exactly k ones using the minimum number of moves.",
+      "topics": [
+        "prefix sums",
+        "binary search",
+        "greedy"
+      ],
+      "prerequisites": [
+        "prefix sums"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3086.json",
+      "content_sha256": "2abf4a3578512904b7a9f2694c1a807a205524c7525b9504a67d0964af121fcc",
+      "source_id": 3086
+    },
+    {
+      "id": "leetcode-3088",
+      "version": 1,
+      "status": "approved",
+      "title": "Make String Anti-palindrome",
+      "summary": "Given a string s of even length n , define it as an anti-palindrome if for each index 0 ≤ i < n , the character at index i is not equal to the character at index n - i - 1 .",
+      "topics": [
+        "strings",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3088.json",
+      "content_sha256": "750b7550587fadfe5b1f10667e4c59a9f70a2e1cfe9cce77ef1c0c9690d22d4f",
+      "source_id": 3088
+    },
+    {
       "id": "leetcode-3090",
       "version": 1,
       "status": "approved",
@@ -41009,6 +41067,42 @@
       "path": "problems/leetcode-3090.json",
       "content_sha256": "8c876bb5918df90933c057840713775abd585e98990635718fffee6d80baac12",
       "source_id": 3090
+    },
+    {
+      "id": "leetcode-3091",
+      "version": 1,
+      "status": "approved",
+      "title": "Apply Operations to Make Sum of Array Greater Than or Equal to k",
+      "summary": "Given a positive integer k, start with an array containing a single element 1.",
+      "topics": [
+        "math",
+        "enumeration",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3091.json",
+      "content_sha256": "30054d64dbffbf5f67b576e14266c0ab89fb899b1dd0a60a3e5fe662e858ce5a",
+      "source_id": 3091
+    },
+    {
+      "id": "leetcode-3092",
+      "version": 1,
+      "status": "approved",
+      "title": "Most Frequent IDs",
+      "summary": "Given two arrays, nums and freq of equal length n, where nums[i] is an ID and freq[i] indicates the number of times to add or remove that ID at step i.",
+      "topics": [
+        "heaps",
+        "hash maps",
+        "streaming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3092.json",
+      "content_sha256": "973e3c41a706698a021ce79add85aa907cda1aa19875b4af52fe6ad495367388",
+      "source_id": 3092
     },
     {
       "id": "leetcode-3095",

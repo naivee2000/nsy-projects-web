@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3088",
+  "content_sha256": "750b7550587fadfe5b1f10667e4c59a9f70a2e1cfe9cce77ef1c0c9690d22d4f",
+  "source_hash": "32bd224f6aa01da3acc8d37418c3f761849383cd37db496f3dd024fafa669ef2",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Returns impossible whenever the fully sorted arrangement conflicts, even when swaps within the second half can repair it.",
+      "failed_cases": [
+        "lc-3088-7",
+        "lc-3088-8",
+        "lc-3088-12",
+        "lc-3088-15"
+      ]
+    },
+    {
+      "reason": "Repairs a conflict with the latest available character instead of the earliest, losing the lexicographically smallest result.",
+      "failed_cases": [
+        "lc-3088-7",
+        "lc-3088-8",
+        "lc-3088-10",
+        "lc-3088-12",
+        "lc-3088-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7135,
+  "oracle_implementation": "code_practice/import_batch_214b.py:anti_oracle",
+  "validator_implementation_sha256": "70153f1508f05982526e6c78df05b1a8e63ab01cf674dbac3181d3dd6e30fe73",
+  "batch_implementation_sha256": "8554fe918d5c124816ff7822df2823c0b8168974587e6af6efa2d67b36581a29",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1491893c26ac84a70842eb8d2f1f6872c597743a017404c7a09c03eff97e48fe",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
