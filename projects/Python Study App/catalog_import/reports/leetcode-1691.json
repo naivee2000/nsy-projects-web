@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1691",
+  "content_sha256": "535376b34b46967d357de9216638edd5cfb81bb08954fa7494e63da583523ce1",
+  "source_hash": "0622a248a2c455584ce5e0e9a34ce8667b2731904b5acc602b8767fb3b7ad540",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts cuboids but never normalizes rotations within each cuboid.",
+      "failed_cases": [
+        "lc-1691-1",
+        "lc-1691-2",
+        "lc-1691-7",
+        "lc-1691-9",
+        "lc-1691-10",
+        "lc-1691-12",
+        "lc-1691-13",
+        "lc-1691-14",
+        "lc-1691-15",
+        "lc-1691-16"
+      ]
+    },
+    {
+      "reason": "Checks only one dimension when deciding whether two cuboids can stack.",
+      "failed_cases": [
+        "lc-1691-2",
+        "lc-1691-8",
+        "lc-1691-11",
+        "lc-1691-12",
+        "lc-1691-13",
+        "lc-1691-14",
+        "lc-1691-15",
+        "lc-1691-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5738,
+  "oracle_implementation": "code_practice/import_batch_207d.py:cuboid_oracle",
+  "validator_implementation_sha256": "ac5d523de40f8e6d277548b1e09429713647cc9ae5c3f2222f7ca4ccc22cf6a1",
+  "batch_implementation_sha256": "ca798f03024855a43c7826dbdf846b5d6a6d09827002a5aad2b8282ea867e1a3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "87f81dfa5459ace173c6ae25746e135980c5838bb7b3fedf9c380b9e5a1a5055",
+  "elapsed_seconds": 0.073,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

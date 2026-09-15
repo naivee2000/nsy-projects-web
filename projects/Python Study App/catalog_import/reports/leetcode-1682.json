@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1682",
+  "content_sha256": "5a92655716e7106e19325b64813417b9315733dd4e0cd02793837f56e6373644",
+  "source_hash": "242e769cdfc1cb4a1e4d6830b8b379775544783e6dc6ec670646b54751f157c8",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Computes an ordinary longest palindromic subsequence and may return an odd length or repeated outer neighbors.",
+      "failed_cases": [
+        "lc-1682-1",
+        "lc-1682-2",
+        "lc-1682-3",
+        "lc-1682-5",
+        "lc-1682-6",
+        "lc-1682-7",
+        "lc-1682-9",
+        "lc-1682-10",
+        "lc-1682-12",
+        "lc-1682-13",
+        "lc-1682-16"
+      ]
+    },
+    {
+      "reason": "Returns only one matching pair and misses longer good palindromes with alternating outer characters.",
+      "failed_cases": [
+        "lc-1682-1",
+        "lc-1682-2",
+        "lc-1682-8",
+        "lc-1682-12",
+        "lc-1682-14",
+        "lc-1682-15",
+        "lc-1682-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5729,
+  "oracle_implementation": "code_practice/import_batch_207d.py:good_palindrome_oracle",
+  "validator_implementation_sha256": "ac5d523de40f8e6d277548b1e09429713647cc9ae5c3f2222f7ca4ccc22cf6a1",
+  "batch_implementation_sha256": "ca798f03024855a43c7826dbdf846b5d6a6d09827002a5aad2b8282ea867e1a3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0508da761c12e9f4110159c943f51df67ac357b16a44b1f8f260fa33c3a5f8d8",
+  "elapsed_seconds": 0.158,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

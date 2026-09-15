@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1707",
+  "content_sha256": "4cad7841f4c35b5ef9ac10270cbb3b4c104265203cd58ce9d465af54a584ae21",
+  "source_hash": "166ba99c081bb5b7d8d5bd2917d3e16febcf3f618cd5e5042165449a7982f9c7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores each query limit and may choose an ineligible large number.",
+      "failed_cases": [
+        "lc-1707-1",
+        "lc-1707-2",
+        "lc-1707-4",
+        "lc-1707-6",
+        "lc-1707-9",
+        "lc-1707-10",
+        "lc-1707-11",
+        "lc-1707-13",
+        "lc-1707-14",
+        "lc-1707-15"
+      ]
+    },
+    {
+      "reason": "Minimizes XOR among eligible values instead of maximizing it.",
+      "failed_cases": [
+        "lc-1707-1",
+        "lc-1707-2",
+        "lc-1707-8",
+        "lc-1707-9",
+        "lc-1707-10",
+        "lc-1707-11",
+        "lc-1707-13",
+        "lc-1707-14",
+        "lc-1707-15",
+        "lc-1707-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5754,
+  "oracle_implementation": "code_practice/import_batch_207e.py:xor_oracle",
+  "validator_implementation_sha256": "ac5d523de40f8e6d277548b1e09429713647cc9ae5c3f2222f7ca4ccc22cf6a1",
+  "batch_implementation_sha256": "941be9a22a76d65ac8223adcbe759987e81c63ddcc7e3212d93dbf3db57b94ac",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "947fe155545c932344bb4b6baa4864f822befa29cf8cef438feecc074bcf9878",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
