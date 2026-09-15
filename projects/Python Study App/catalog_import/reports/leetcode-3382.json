@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3382",
+  "content_sha256": "b177e53217a9cd8acca9d9b1a60754b9de98bf2655f5b4f2a3c13fa3c54937ae",
+  "source_hash": "b540b0bd7f1bc234367a4ed25e83f5905e3dbd6ada19dba9855e5faf8108021b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores extra points on the earlier vertical border.",
+      "failed_cases": [
+        "lc-3382-6"
+      ]
+    },
+    {
+      "reason": "Ignores points inside the rectangle between its two boundary columns.",
+      "failed_cases": [
+        "lc-3382-2",
+        "lc-3382-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7429,
+  "oracle_implementation": "code_practice/import_batch_223a.py:rectangle_oracle",
+  "validator_implementation_sha256": "56a4a2978ec5927d3abcdf8770677ebf5f86f1c4361208529518226b541809be",
+  "batch_implementation_sha256": "fd2b60fc199d187aae990e38b7fa1ec605f99beb7b3fed9002367a25c50818ed",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "361c5a0109c1ce455ba3ab7f575e120a5176522125e5de6db9926b16f1bbc00e",
+  "elapsed_seconds": 0.134,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

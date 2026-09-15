@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3383",
+  "content_sha256": "b922b0682ffb88a2ed00298d665578e7ad2b1b32ab3634887476c4c616c46fe7",
+  "source_hash": "fd0b86ba6dbb315cb450e647b205062c04faf0a618fbbe107eacd9ae04192643",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts every unreachable SCC instead of only source SCCs.",
+      "failed_cases": [
+        "lc-3383-5",
+        "lc-3383-9",
+        "lc-3383-11",
+        "lc-3383-13",
+        "lc-3383-15"
+      ]
+    },
+    {
+      "reason": "Ignores reachability already supplied by crystals.",
+      "failed_cases": [
+        "lc-3383-1",
+        "lc-3383-2",
+        "lc-3383-3",
+        "lc-3383-5",
+        "lc-3383-6",
+        "lc-3383-7",
+        "lc-3383-8",
+        "lc-3383-9",
+        "lc-3383-10",
+        "lc-3383-11",
+        "lc-3383-12",
+        "lc-3383-13",
+        "lc-3383-14",
+        "lc-3383-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7430,
+  "oracle_implementation": "code_practice/import_batch_223a.py:runes_oracle",
+  "validator_implementation_sha256": "56a4a2978ec5927d3abcdf8770677ebf5f86f1c4361208529518226b541809be",
+  "batch_implementation_sha256": "fd2b60fc199d187aae990e38b7fa1ec605f99beb7b3fed9002367a25c50818ed",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "80b545c4667735012ee7f8086d1d6e39fdd74f223ed54d585a9955da42ec0f44",
+  "elapsed_seconds": 0.136,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

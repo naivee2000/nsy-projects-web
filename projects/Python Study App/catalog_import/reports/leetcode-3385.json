@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3385",
+  "content_sha256": "6339c884d3c1ee3864dc89361e4221384d8aa987865d73bc0107d2d2a2afbeb4",
+  "source_hash": "9e872a290613c657952dcf440cfbbe9be555dc4df9f1df41a03f9975a2817bd3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Greedily assigns the weakest locks to the smallest factors.",
+      "failed_cases": [
+        "lc-3385-1"
+      ]
+    },
+    {
+      "reason": "Greedily assigns the strongest locks to the smallest factors; ceiling effects can make this suboptimal.",
+      "failed_cases": [
+        "lc-3385-1",
+        "lc-3385-2",
+        "lc-3385-8",
+        "lc-3385-9",
+        "lc-3385-10",
+        "lc-3385-11",
+        "lc-3385-12",
+        "lc-3385-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7432,
+  "oracle_implementation": "code_practice/import_batch_223a.py:locks_oracle",
+  "validator_implementation_sha256": "56a4a2978ec5927d3abcdf8770677ebf5f86f1c4361208529518226b541809be",
+  "batch_implementation_sha256": "fd2b60fc199d187aae990e38b7fa1ec605f99beb7b3fed9002367a25c50818ed",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b3ffef4b4a9311220b77cbf86691d40cfb0b49dea85b94fcfc7375b30a709edc",
+  "elapsed_seconds": 0.307,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
