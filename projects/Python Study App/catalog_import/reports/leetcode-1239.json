@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1239",
+  "content_sha256": "5a8b8917b4c41206907453541ba1a1a41d292d1bc9352ce6fd254ada747f1ad6",
+  "source_hash": "79482a37a587d8cffb91732e5dbe959f37ca8cd6e6622d0aac51163cdc205ded",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows words that already repeat a character internally.",
+      "failed_cases": [
+        "lc-1239-4",
+        "lc-1239-8"
+      ]
+    },
+    {
+      "reason": "Combines only masks that conflict instead of disjoint masks.",
+      "failed_cases": [
+        "lc-1239-1",
+        "lc-1239-2",
+        "lc-1239-3",
+        "lc-1239-5",
+        "lc-1239-6",
+        "lc-1239-7",
+        "lc-1239-9",
+        "lc-1239-10",
+        "lc-1239-11",
+        "lc-1239-12",
+        "lc-1239-13",
+        "lc-1239-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5286,
+  "oracle_implementation": "code_practice/import_batch_204c.py:unique_o",
+  "validator_implementation_sha256": "bca6e82c211959a102e658095537c7d8665a64a3fb2f9c041aa2a73f0d9a8b9b",
+  "batch_implementation_sha256": "1b22887d7f69276e27b0d4ea79cef763d867024e6b75ea5461e16ef9fb72e41b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fb3e67564d5fb32cfe95eb092b66f8a02718580a37675399440cd9e4a744c675",
+  "elapsed_seconds": 0.115,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

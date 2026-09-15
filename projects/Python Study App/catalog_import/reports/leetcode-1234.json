@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1234",
+  "content_sha256": "8c7855fa419adb1153bbc2a15df78cd6fb0085c600de3394edb453ddf25f2390",
+  "source_hash": "a4b99b0814dc0e0312bc6c8c4a78402b983f5e3e2af3dd8acfd7e42d9700409c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds the window character to the outside counts instead of removing it.",
+      "failed_cases": [
+        "lc-1234-2",
+        "lc-1234-3",
+        "lc-1234-4",
+        "lc-1234-5",
+        "lc-1234-6",
+        "lc-1234-7",
+        "lc-1234-8",
+        "lc-1234-11",
+        "lc-1234-13",
+        "lc-1234-14"
+      ]
+    },
+    {
+      "reason": "Requires every outside count to be strictly below its allowed quota.",
+      "failed_cases": [
+        "lc-1234-1",
+        "lc-1234-2",
+        "lc-1234-3",
+        "lc-1234-4",
+        "lc-1234-5",
+        "lc-1234-6",
+        "lc-1234-7",
+        "lc-1234-8",
+        "lc-1234-9",
+        "lc-1234-10",
+        "lc-1234-11",
+        "lc-1234-12",
+        "lc-1234-13",
+        "lc-1234-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5281,
+  "oracle_implementation": "code_practice/import_batch_204c.py:balanced_o",
+  "validator_implementation_sha256": "bca6e82c211959a102e658095537c7d8665a64a3fb2f9c041aa2a73f0d9a8b9b",
+  "batch_implementation_sha256": "1b22887d7f69276e27b0d4ea79cef763d867024e6b75ea5461e16ef9fb72e41b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "40e8a6c420046addc937e24984046269a00db65d1e6cf1de411499402c3cc148",
+  "elapsed_seconds": 0.185,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

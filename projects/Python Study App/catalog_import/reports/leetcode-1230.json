@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1230",
+  "content_sha256": "a49182b3cde0c63b00f627bd9f4560c98efa7b37d3d6a85e2f72724380731029",
+  "source_hash": "3bb697dbcfc96c11a6a064db7759b5bd3fab90e8879b922a54aa849d97351b21",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the head probability when the current coin must be tails.",
+      "failed_cases": [
+        "lc-1230-3",
+        "lc-1230-6",
+        "lc-1230-8",
+        "lc-1230-9",
+        "lc-1230-11",
+        "lc-1230-12",
+        "lc-1230-13",
+        "lc-1230-14"
+      ]
+    },
+    {
+      "reason": "Uses the tail probability when the current coin supplies the new head.",
+      "failed_cases": [
+        "lc-1230-1",
+        "lc-1230-5",
+        "lc-1230-7",
+        "lc-1230-8",
+        "lc-1230-10",
+        "lc-1230-11",
+        "lc-1230-12",
+        "lc-1230-13",
+        "lc-1230-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5277,
+  "oracle_implementation": "code_practice/import_batch_204c.py:coins_o",
+  "validator_implementation_sha256": "bca6e82c211959a102e658095537c7d8665a64a3fb2f9c041aa2a73f0d9a8b9b",
+  "batch_implementation_sha256": "1b22887d7f69276e27b0d4ea79cef763d867024e6b75ea5461e16ef9fb72e41b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3f38e3ff713b2086b4b927a62aff07edbb3c63b95e2ddbce7091e7ebb7bbcb26",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
