@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3406",
+  "content_sha256": "39c8e47df9341f27f7ceeeb54fbab703145a498c752e184f99affd79c51ae898",
+  "source_hash": "79b875c1a492323206fca2bce24dd10aa7dffc4f4c9d13c8f37e7feaef14b5f8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the greatest suffix without reserving characters for other friends.",
+      "failed_cases": [
+        "lc-3406-1",
+        "lc-3406-6",
+        "lc-3406-7",
+        "lc-3406-8",
+        "lc-3406-11",
+        "lc-3406-14"
+      ]
+    },
+    {
+      "reason": "Truncates the best suffix one character too early.",
+      "failed_cases": [
+        "lc-3406-1",
+        "lc-3406-5",
+        "lc-3406-6",
+        "lc-3406-7",
+        "lc-3406-8",
+        "lc-3406-9",
+        "lc-3406-11",
+        "lc-3406-12",
+        "lc-3406-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7453,
+  "oracle_implementation": "code_practice/import_batch_223d.py:box_oracle",
+  "validator_implementation_sha256": "7aedfea8cdf21fae3616116865acc1b9a4a721fe1b6cb4855a457d2410933115",
+  "batch_implementation_sha256": "703475bc038263e4794d62f5526ec9aa0def59ac55ecdc6850e847ec338e4a76",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f67b442f8b7d87fcd0fc129a2c5de07540df8300a65767f984dcf7bc939f041d",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3409",
+  "content_sha256": "786902542b63f7d09e7bc0eda39241588375e9b767007e81697baef4f4ca377b",
+  "source_hash": "c85f3b36056e05391f33fec100fc58a68a75dfcc8fad2b16e9c48ddbe30ce110",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires the next difference to be strictly smaller and loses equal-difference extensions.",
+      "failed_cases": [
+        "lc-3409-4",
+        "lc-3409-6",
+        "lc-3409-13"
+      ]
+    },
+    {
+      "reason": "Builds prefix rather than suffix maxima over allowed prior differences.",
+      "failed_cases": [
+        "lc-3409-1",
+        "lc-3409-2",
+        "lc-3409-5",
+        "lc-3409-7",
+        "lc-3409-8",
+        "lc-3409-9",
+        "lc-3409-10",
+        "lc-3409-11",
+        "lc-3409-12",
+        "lc-3409-14",
+        "lc-3409-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7456,
+  "oracle_implementation": "code_practice/import_batch_223d.py:decreasing_oracle",
+  "validator_implementation_sha256": "7aedfea8cdf21fae3616116865acc1b9a4a721fe1b6cb4855a457d2410933115",
+  "batch_implementation_sha256": "703475bc038263e4794d62f5526ec9aa0def59ac55ecdc6850e847ec338e4a76",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dd61c0b916af30defaad364219af12ff431ddf820025e3139b6ca8b3c34bcf12",
+  "elapsed_seconds": 0.417,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

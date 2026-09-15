@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3410",
+  "content_sha256": "a6d9c4dc5538008e3620492f9ab497b32a6ebc309abce460e8793a0d0577900f",
+  "source_hash": "49f9523de37888ec4bbb475ae0115df14bb1525186b674fb6ce0250eb376c506",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Removes only the first occurrence of the chosen value.",
+      "failed_cases": [
+        "lc-3410-1",
+        "lc-3410-7",
+        "lc-3410-8",
+        "lc-3410-10",
+        "lc-3410-11",
+        "lc-3410-12",
+        "lc-3410-13"
+      ]
+    },
+    {
+      "reason": "Fails to restore trial deletions and illegally combines removals of several values.",
+      "failed_cases": [
+        "lc-3410-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7457,
+  "oracle_implementation": "code_practice/import_batch_223d.py:removal_oracle",
+  "validator_implementation_sha256": "7aedfea8cdf21fae3616116865acc1b9a4a721fe1b6cb4855a457d2410933115",
+  "batch_implementation_sha256": "703475bc038263e4794d62f5526ec9aa0def59ac55ecdc6850e847ec338e4a76",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fd5f810294ac98f94d0ad7a000909752b71decb4273db3cfcdb61f4876a6e161",
+  "elapsed_seconds": 0.093,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
