@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3247",
+  "content_sha256": "d3ff58c318310267b66e71f981806123cf82c0c4ac3404f9bf64531eb2f4e728",
+  "source_hash": "350ef4193295ed3ce39974513ed2b16c5db279ae5190acf43c0666e4daef9962",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to convert existing even sums when adding an odd value.",
+      "failed_cases": [
+        "lc-3247-1",
+        "lc-3247-8",
+        "lc-3247-11",
+        "lc-3247-13"
+      ]
+    },
+    {
+      "reason": "Fails to double odd choices when an even value may be included or skipped.",
+      "failed_cases": [
+        "lc-3247-2",
+        "lc-3247-6",
+        "lc-3247-8",
+        "lc-3247-11",
+        "lc-3247-12",
+        "lc-3247-13",
+        "lc-3247-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7294,
+  "oracle_implementation": "code_practice/import_batch_219a.py:odd_oracle",
+  "validator_implementation_sha256": "247f9dac91a21eb8e16e3531d35cae16880ec718b7689ccbc8a0425c8f405e9f",
+  "batch_implementation_sha256": "4d23c1342d3fe78db6d4b3f6924e2b78a1bb21a499b108f11295ce735d1715dd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d30c4fd36bc3584d3020d64241971c26437ad34ef54c881e43c47bc0f752353d",
+  "elapsed_seconds": 0.91,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

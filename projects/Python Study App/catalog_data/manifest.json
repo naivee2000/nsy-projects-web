@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2606,
+  "count": 2611,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -43337,6 +43337,44 @@
       "source_id": 3233
     },
     {
+      "id": "leetcode-3234",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Substrings With Dominant Ones",
+      "summary": "Given a binary string, count the substrings where the number of ones is at least the square of the number of zeros.",
+      "topics": [
+        "strings",
+        "enumeration",
+        "prefix sums"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3234.json",
+      "content_sha256": "434d17237311400d34ba814d753a13a1318895a204882b8eb7f63a040036e8d0",
+      "source_id": 3234
+    },
+    {
+      "id": "leetcode-3237",
+      "version": 1,
+      "status": "approved",
+      "title": "Alt and Tab Simulation",
+      "summary": "Given an array of n windows initially ordered, and a series of queries to bring specific windows to the top, return the final order of the windows after applying all queries.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3237.json",
+      "content_sha256": "a0ef8d7c8f9ca157581ed4906efdb847460129674a4a876d7c647fdf549a224d",
+      "source_id": 3237
+    },
+    {
       "id": "leetcode-3238",
       "version": 1,
       "status": "approved",
@@ -43353,6 +43391,58 @@
       "path": "problems/leetcode-3238.json",
       "content_sha256": "64492bb98677ae6af9b053c3ae6743304a16dce5423354418d154d18d8a93a67",
       "source_id": 3238
+    },
+    {
+      "id": "leetcode-3239",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Flips to Make Binary Grid Palindromic I",
+      "summary": "Given an m x n binary matrix, determine the least number of cell flips required to make all rows or all columns palindromic.",
+      "topics": [
+        "matrices",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3239.json",
+      "content_sha256": "2b9442d987d7cbb3f56f838eec315c3bfd866f363b6f5a66fc3678d9b0799f88",
+      "source_id": 3239
+    },
+    {
+      "id": "leetcode-3240",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Flips to Make Binary Grid Palindromic II",
+      "summary": "Given an m x n binary matrix, determine the minimum number of cell flips required to make all rows and columns palindromic, ensuring the total number of 1's is divisible by 4.",
+      "topics": [
+        "matrices",
+        "greedy",
+        "symmetry"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3240.json",
+      "content_sha256": "69b78bfad5a8684bf5ae11805dd2955f6aed2732174adfdf431a02888fe173cd",
+      "source_id": 3240
+    },
+    {
+      "id": "leetcode-3247",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Subsequences with Odd Sum",
+      "summary": "For an array nums, calculate the count of subsequences whose sum of elements is odd, then return this count modulo 10^9 + 7.",
+      "topics": [
+        "dynamic programming",
+        "combinatorics"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3247.json",
+      "content_sha256": "d3ff58c318310267b66e71f981806123cf82c0c4ac3404f9bf64531eb2f4e728",
+      "source_id": 3247
     },
     {
       "id": "leetcode-3248",

@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3239",
+  "content_sha256": "2b9442d987d7cbb3f56f838eec315c3bfd866f363b6f5a66fc3678d9b0799f88",
+  "source_hash": "76574728f8f1dc5da98846c4b9003180fc278e3dc4f1cdbfc803d8140eb7735c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always chooses rows even when columns are cheaper.",
+      "failed_cases": [
+        "lc-3239-2",
+        "lc-3239-6",
+        "lc-3239-14"
+      ]
+    },
+    {
+      "reason": "Compares each cell with itself instead of its vertical mirror.",
+      "failed_cases": [
+        "lc-3239-1",
+        "lc-3239-2",
+        "lc-3239-7",
+        "lc-3239-12",
+        "lc-3239-13",
+        "lc-3239-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7286,
+  "oracle_implementation": "code_practice/import_batch_219a.py:palindrome_one_oracle",
+  "validator_implementation_sha256": "247f9dac91a21eb8e16e3531d35cae16880ec718b7689ccbc8a0425c8f405e9f",
+  "batch_implementation_sha256": "4d23c1342d3fe78db6d4b3f6924e2b78a1bb21a499b108f11295ce735d1715dd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2c29b76d244d04575792ae852eb444e665cedad6faacd7778fb40ea45ba15cdf",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

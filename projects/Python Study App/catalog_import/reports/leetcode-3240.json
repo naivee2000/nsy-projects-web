@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3240",
+  "content_sha256": "69b78bfad5a8684bf5ae11805dd2955f6aed2732174adfdf431a02888fe173cd",
+  "source_hash": "4cb61da12307fa7037eef8b2447bdbddba657f73fc4d685ed6e1ccbb9342612d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always clears four-cell orbits, missing cheaper all-one repairs.",
+      "failed_cases": [
+        "lc-3240-10",
+        "lc-3240-14"
+      ]
+    },
+    {
+      "reason": "Ignores the modulo-four correction when every middle pair already matches.",
+      "failed_cases": [
+        "lc-3240-5",
+        "lc-3240-8",
+        "lc-3240-12",
+        "lc-3240-13",
+        "lc-3240-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7287,
+  "oracle_implementation": "code_practice/import_batch_219a.py:palindrome_two_oracle",
+  "validator_implementation_sha256": "247f9dac91a21eb8e16e3531d35cae16880ec718b7689ccbc8a0425c8f405e9f",
+  "batch_implementation_sha256": "4d23c1342d3fe78db6d4b3f6924e2b78a1bb21a499b108f11295ce735d1715dd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9c88062adcd6f16101f29871a16885431fac782180f1d64a34b0077ffd3a7cf9",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
