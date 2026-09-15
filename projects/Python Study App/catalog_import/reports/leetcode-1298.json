@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1298",
+  "content_sha256": "11e541e0c2fe2e81d58e5cd913383503949c007573fd478e80c2604b8c064b01",
+  "source_hash": "11569991b211d50de2628d77193c61913fd47469dec9c80659e17e9cf4ee977a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores keys obtained from opened boxes.",
+      "failed_cases": [
+        "lc-1298-1",
+        "lc-1298-6",
+        "lc-1298-9",
+        "lc-1298-14"
+      ]
+    },
+    {
+      "reason": "Ignores newly obtained contained boxes.",
+      "failed_cases": [
+        "lc-1298-1",
+        "lc-1298-6",
+        "lc-1298-9",
+        "lc-1298-10",
+        "lc-1298-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5345,
+  "oracle_implementation": "code_practice/import_batch_205c.py:candies_oracle",
+  "validator_implementation_sha256": "1f5e2f287c6284bb39be3f768f7b7dde9a9ac6961b32019195cbcdecf734be3e",
+  "batch_implementation_sha256": "b5c1b88f8d4b2a4b426651013cc6081bc4538a48000f057efbd786e7f8defb38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "66c2d7982f9beba03044c37660e060fc9cf3f7dd6d9b3174e17689deea7c5e51",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

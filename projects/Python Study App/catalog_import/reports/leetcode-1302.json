@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1302",
+  "content_sha256": "3d8be35e10c34e1f1eeb61f9b72a8b49f04121f3bccf5b61ba324f295c235ed6",
+  "source_hash": "9f373f23d95ed23054e616b38286a1735efca2945a686bb122ab667bfcc03eba",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accumulates earlier levels instead of resetting the sum for each new depth.",
+      "failed_cases": [
+        "lc-1302-1",
+        "lc-1302-4",
+        "lc-1302-5",
+        "lc-1302-6",
+        "lc-1302-7",
+        "lc-1302-8",
+        "lc-1302-9",
+        "lc-1302-10",
+        "lc-1302-11",
+        "lc-1302-13",
+        "lc-1302-14"
+      ]
+    },
+    {
+      "reason": "Returns only the final visited deepest node rather than the whole deepest level sum.",
+      "failed_cases": [
+        "lc-1302-1",
+        "lc-1302-6",
+        "lc-1302-8",
+        "lc-1302-9",
+        "lc-1302-12",
+        "lc-1302-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5349,
+  "oracle_implementation": "code_practice/import_batch_205c.py:deepest_oracle",
+  "validator_implementation_sha256": "1f5e2f287c6284bb39be3f768f7b7dde9a9ac6961b32019195cbcdecf734be3e",
+  "batch_implementation_sha256": "b5c1b88f8d4b2a4b426651013cc6081bc4538a48000f057efbd786e7f8defb38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "73daee201acb07fc3908fabaa0e60d98e037fbd3261f5b49c0d7816038bbd3be",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

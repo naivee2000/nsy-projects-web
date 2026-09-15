@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1301",
+  "content_sha256": "11cd85a1e7dbaae7cae3225a6dcad2a98b8a2bd251ad10d424d91388a964600c",
+  "source_hash": "4615c9533e74dc8f5f004eff6cc44617cefa804e9b1feccc3d57f3aca9d7287c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only one optimal predecessor when several create distinct best paths.",
+      "failed_cases": [
+        "lc-1301-2",
+        "lc-1301-3",
+        "lc-1301-5",
+        "lc-1301-6",
+        "lc-1301-7",
+        "lc-1301-8",
+        "lc-1301-9",
+        "lc-1301-10"
+      ]
+    },
+    {
+      "reason": "Omits diagonal moves.",
+      "failed_cases": [
+        "lc-1301-4",
+        "lc-1301-5",
+        "lc-1301-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5348,
+  "oracle_implementation": "code_practice/import_batch_205c.py:score_paths_oracle",
+  "validator_implementation_sha256": "1f5e2f287c6284bb39be3f768f7b7dde9a9ac6961b32019195cbcdecf734be3e",
+  "batch_implementation_sha256": "b5c1b88f8d4b2a4b426651013cc6081bc4538a48000f057efbd786e7f8defb38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4ef33201e985315dab7af2ca18a27c9600c65b98833bca3715d3768331a1982d",
+  "elapsed_seconds": 0.115,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

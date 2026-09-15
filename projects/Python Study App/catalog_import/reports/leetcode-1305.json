@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1305",
+  "content_sha256": "2ad31edf180a9ecd7a4fca19e3e9bf364eb7957e093687148d179f58625a8f3e",
+  "source_hash": "f6bb93e74c0db330b0ef9273761667d98c613b09e1f8a2c98c2dd646d1b8e11b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Concatenates the two sorted traversals without merging their relative order.",
+      "failed_cases": [
+        "lc-1305-1",
+        "lc-1305-7",
+        "lc-1305-8",
+        "lc-1305-10",
+        "lc-1305-12",
+        "lc-1305-13",
+        "lc-1305-14"
+      ]
+    },
+    {
+      "reason": "Uses a set and incorrectly removes duplicate node values.",
+      "failed_cases": [
+        "lc-1305-1",
+        "lc-1305-8",
+        "lc-1305-10",
+        "lc-1305-12",
+        "lc-1305-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5352,
+  "oracle_implementation": "code_practice/import_batch_205c.py:all_bst_oracle",
+  "validator_implementation_sha256": "1f5e2f287c6284bb39be3f768f7b7dde9a9ac6961b32019195cbcdecf734be3e",
+  "batch_implementation_sha256": "b5c1b88f8d4b2a4b426651013cc6081bc4538a48000f057efbd786e7f8defb38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "da84fa6e22334c1a57fb0a42827bd5357a431f8fd57afa765b241e8b70068bcd",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

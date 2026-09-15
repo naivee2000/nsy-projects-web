@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1312",
+  "content_sha256": "f1c1b466fcf198631c1ba8ef7096d76a3c27980579b2ec36d07e02455c43c79a",
+  "source_hash": "c2fc4ae9b11b720ae773cda8826b74a6ca08b700f1feb33b077d121af917be1f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses the more expensive mismatch repair rather than the cheaper side.",
+      "failed_cases": [
+        "lc-1312-8",
+        "lc-1312-9",
+        "lc-1312-11",
+        "lc-1312-14"
+      ]
+    },
+    {
+      "reason": "Never recognizes matching ends and inserts around them unnecessarily.",
+      "failed_cases": [
+        "lc-1312-1",
+        "lc-1312-2",
+        "lc-1312-5",
+        "lc-1312-8",
+        "lc-1312-9",
+        "lc-1312-10",
+        "lc-1312-11",
+        "lc-1312-12",
+        "lc-1312-13",
+        "lc-1312-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5359,
+  "oracle_implementation": "code_practice/import_batch_205c.py:insertions_oracle",
+  "validator_implementation_sha256": "1f5e2f287c6284bb39be3f768f7b7dde9a9ac6961b32019195cbcdecf734be3e",
+  "batch_implementation_sha256": "b5c1b88f8d4b2a4b426651013cc6081bc4538a48000f057efbd786e7f8defb38",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4a2bceae3c0270b5750d9d8c909f5ce9afd47d700fb78490bc84c6b4986a5cf0",
+  "elapsed_seconds": 0.1,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
