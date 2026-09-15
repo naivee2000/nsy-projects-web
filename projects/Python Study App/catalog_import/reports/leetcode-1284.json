@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1284",
+  "content_sha256": "844c8630991be26188a3066ae2b783c9670045a1c487b073282a75956af3c239",
+  "source_hash": "7604e1d71b5f163500688aa8d64001853fe65f14d77587674ce450b0f2f61e75",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Flips only neighbors and leaves the selected cell unchanged.",
+      "failed_cases": [
+        "lc-1284-1",
+        "lc-1284-3",
+        "lc-1284-4",
+        "lc-1284-5",
+        "lc-1284-6",
+        "lc-1284-7",
+        "lc-1284-8",
+        "lc-1284-9",
+        "lc-1284-10",
+        "lc-1284-11",
+        "lc-1284-12",
+        "lc-1284-13",
+        "lc-1284-14",
+        "lc-1284-15"
+      ]
+    },
+    {
+      "reason": "Counts the already-reached zero state as an additional move.",
+      "failed_cases": [
+        "lc-1284-1",
+        "lc-1284-2",
+        "lc-1284-3",
+        "lc-1284-5",
+        "lc-1284-7",
+        "lc-1284-8",
+        "lc-1284-9",
+        "lc-1284-11",
+        "lc-1284-13",
+        "lc-1284-14",
+        "lc-1284-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5331,
+  "oracle_implementation": "code_practice/import_batch_205b.py:flips_oracle",
+  "validator_implementation_sha256": "95493821d322e73e83ccb9fa0c50d0e6d62a902a6fe0fd384fd023766e876243",
+  "batch_implementation_sha256": "04fa60f474a5b0b00b4b8d427d97d0af222c6fce086a31a762037f0fe8a0976a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "57228cadcfa0ebe2956e08eddd6d6e7f63218d7cc30a061e9b8c8afc3ac60c3d",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

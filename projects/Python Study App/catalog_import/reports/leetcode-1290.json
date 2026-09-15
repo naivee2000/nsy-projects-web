@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1290",
+  "content_sha256": "b43cbe3c6fa501a16008eb712a6da28eeb98d991fe8c90dbbe9c94f5864ecbce",
+  "source_hash": "c07d8a1ffa0bf1a46d5bed0d078aab67e335a2439e124e1ab3842c0504c0ebd9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds bits without shifting the accumulated prefix.",
+      "failed_cases": [
+        "lc-1290-1",
+        "lc-1290-4",
+        "lc-1290-5",
+        "lc-1290-7",
+        "lc-1290-8",
+        "lc-1290-10",
+        "lc-1290-11",
+        "lc-1290-12",
+        "lc-1290-13",
+        "lc-1290-14"
+      ]
+    },
+    {
+      "reason": "Gives every bit the same value-two place instead of advancing place values.",
+      "failed_cases": [
+        "lc-1290-1",
+        "lc-1290-3",
+        "lc-1290-4",
+        "lc-1290-6",
+        "lc-1290-7",
+        "lc-1290-8",
+        "lc-1290-9",
+        "lc-1290-10",
+        "lc-1290-11",
+        "lc-1290-12",
+        "lc-1290-13",
+        "lc-1290-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5337,
+  "oracle_implementation": "code_practice/import_batch_205b.py:binary_list_oracle",
+  "validator_implementation_sha256": "95493821d322e73e83ccb9fa0c50d0e6d62a902a6fe0fd384fd023766e876243",
+  "batch_implementation_sha256": "04fa60f474a5b0b00b4b8d427d97d0af222c6fce086a31a762037f0fe8a0976a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b477f6f07a64503a6e14d1d54f11fc9d5044e9b8f5b74c24fadf51a812521394",
+  "elapsed_seconds": 0.018,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

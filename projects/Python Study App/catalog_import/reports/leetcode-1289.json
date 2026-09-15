@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1289",
+  "content_sha256": "64077332e3a14fe7cc8e6b7d4aeb7bbfab0a72d8aa5f3ce774cfe0801f02acca",
+  "source_hash": "f0d58bce36af0d3d185c2991c43ec4c49349d965e708fef8536767f2ae0926d3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows consecutive rows to reuse the same minimum column.",
+      "failed_cases": [
+        "lc-1289-1",
+        "lc-1289-5",
+        "lc-1289-9",
+        "lc-1289-14"
+      ]
+    },
+    {
+      "reason": "Returns the greatest final path total instead of the least.",
+      "failed_cases": [
+        "lc-1289-1",
+        "lc-1289-7",
+        "lc-1289-8",
+        "lc-1289-9",
+        "lc-1289-11",
+        "lc-1289-12",
+        "lc-1289-13",
+        "lc-1289-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5336,
+  "oracle_implementation": "code_practice/import_batch_205b.py:falling_oracle",
+  "validator_implementation_sha256": "95493821d322e73e83ccb9fa0c50d0e6d62a902a6fe0fd384fd023766e876243",
+  "batch_implementation_sha256": "04fa60f474a5b0b00b4b8d427d97d0af222c6fce086a31a762037f0fe8a0976a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2f4d078664e73d8dd40213b07088e64402e4b77b66dd3c9f694f6bb1b8d84abe",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

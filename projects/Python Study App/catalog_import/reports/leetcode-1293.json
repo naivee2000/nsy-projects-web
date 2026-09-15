@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1293",
+  "content_sha256": "56b7c8b4daf3c93c29d6aa234a20e42c37b2df77e71d246b22aea0d18e3b204c",
+  "source_hash": "faf6466f768a59fb9a3c81ece765f49a4b91dd84122aafe272fd469babf47be5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Walks through obstacles without spending an elimination.",
+      "failed_cases": [
+        "lc-1293-2",
+        "lc-1293-10"
+      ]
+    },
+    {
+      "reason": "Rejects a move that validly spends the final available elimination.",
+      "failed_cases": [
+        "lc-1293-1",
+        "lc-1293-6",
+        "lc-1293-9",
+        "lc-1293-11",
+        "lc-1293-12",
+        "lc-1293-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5340,
+  "oracle_implementation": "code_practice/import_batch_205b.py:obstacle_oracle",
+  "validator_implementation_sha256": "95493821d322e73e83ccb9fa0c50d0e6d62a902a6fe0fd384fd023766e876243",
+  "batch_implementation_sha256": "04fa60f474a5b0b00b4b8d427d97d0af222c6fce086a31a762037f0fe8a0976a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "56b2f8a0b5b04c4b13d492228d399cb989e5436b5f18437149cd7578f74c355e",
+  "elapsed_seconds": 0.07,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

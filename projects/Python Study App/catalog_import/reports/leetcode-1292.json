@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1292",
+  "content_sha256": "f7b20013cb507987ae038d8c89014161a523a306afc48f3cbbc15b6f223df8d0",
+  "source_hash": "a12fca585a752c7d0c0a6abe48b73cec701559bd81e18aae167d32721202f968",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a strict threshold and rejects squares whose sum equals the limit.",
+      "failed_cases": [
+        "lc-1292-1",
+        "lc-1292-3",
+        "lc-1292-5",
+        "lc-1292-8",
+        "lc-1292-11",
+        "lc-1292-12",
+        "lc-1292-13",
+        "lc-1292-14"
+      ]
+    },
+    {
+      "reason": "Checks only the top-left square for each side length.",
+      "failed_cases": [
+        "lc-1292-10",
+        "lc-1292-12",
+        "lc-1292-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5339,
+  "oracle_implementation": "code_practice/import_batch_205b.py:square_oracle",
+  "validator_implementation_sha256": "95493821d322e73e83ccb9fa0c50d0e6d62a902a6fe0fd384fd023766e876243",
+  "batch_implementation_sha256": "04fa60f474a5b0b00b4b8d427d97d0af222c6fce086a31a762037f0fe8a0976a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1241a1c2932a9c6c9876288d5bacca8e08905d8962685d9c4eee6082e51243cd",
+  "elapsed_seconds": 0.079,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
