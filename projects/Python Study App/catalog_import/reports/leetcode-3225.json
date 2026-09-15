@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3225",
+  "content_sha256": "6afaacd4b3c148808f27f530e5d2c0d7aa676d58aefbf97ea82cfb50ad9e7d59",
+  "source_hash": "a996f832e513c92bd2cae25c171d63dde172acd63483e5d14e33e5f909fbeedd",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores transitions where the left neighboring black prefix is taller than both current and right heights.",
+      "failed_cases": [
+        "lc-3225-1",
+        "lc-3225-11",
+        "lc-3225-14",
+        "lc-3225-15"
+      ]
+    },
+    {
+      "reason": "Subtracts rather than adds the final column’s exposed white-cell contribution.",
+      "failed_cases": [
+        "lc-3225-2",
+        "lc-3225-6",
+        "lc-3225-8",
+        "lc-3225-10",
+        "lc-3225-11",
+        "lc-3225-13",
+        "lc-3225-14",
+        "lc-3225-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7272,
+  "oracle_implementation": "code_practice/import_batch_218d.py:grid_oracle",
+  "validator_implementation_sha256": "5f7da8b31b97dac0b894ecbd488609e9ef27d9f7a5229ec751e6b6fe11327d81",
+  "batch_implementation_sha256": "e94e17ca536571efde4f72ba1cfe258157a312e42255cfbda9364126bd26f168",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b492fee9187824353a7a14625b7e236f0a5cdd9f8e7add3a5d69e0ab6d47d7c4",
+  "elapsed_seconds": 0.239,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

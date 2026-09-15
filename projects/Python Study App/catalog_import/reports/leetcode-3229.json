@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3229",
+  "content_sha256": "22161154a87b0a01078c00b20c201106f3bd38bfc115bd69b2db4407e2e29492",
+  "source_hash": "40309356ad0137b480936c2a9997a9806a16b390649c53003aaf81524f189f89",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts every same-sign layer again instead of reusing layers already active from the previous index.",
+      "failed_cases": [
+        "lc-3229-1",
+        "lc-3229-6",
+        "lc-3229-8",
+        "lc-3229-11",
+        "lc-3229-12"
+      ]
+    },
+    {
+      "reason": "Charges the full difference change even when existing same-sign layers can be reused.",
+      "failed_cases": [
+        "lc-3229-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7276,
+  "oracle_implementation": "code_practice/import_batch_218d.py:operations_oracle",
+  "validator_implementation_sha256": "5f7da8b31b97dac0b894ecbd488609e9ef27d9f7a5229ec751e6b6fe11327d81",
+  "batch_implementation_sha256": "e94e17ca536571efde4f72ba1cfe258157a312e42255cfbda9364126bd26f168",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1fb0caa61cfeadd5081e1a2b893f72e733a839d3227e0b2934572666ff25e2e3",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

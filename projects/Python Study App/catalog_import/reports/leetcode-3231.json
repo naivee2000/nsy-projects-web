@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3231",
+  "content_sha256": "17da571e1a8e8a131f82797041b0facfb8274ec69c52c14ec94200d86b83f877",
+  "source_hash": "7dcdc97cc3510fd08ded4cdfc706cec4bd4ec2a97b1b154573da2f32e5294dd0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Computes a strictly decreasing obstruction and mishandles equal values, which cannot share a strict-increasing removal round.",
+      "failed_cases": [
+        "lc-3231-5",
+        "lc-3231-9",
+        "lc-3231-12"
+      ]
+    },
+    {
+      "reason": "Finds a nondecreasing subsequence in the original direction instead of a non-increasing obstruction.",
+      "failed_cases": [
+        "lc-3231-1",
+        "lc-3231-2",
+        "lc-3231-3",
+        "lc-3231-8",
+        "lc-3231-9",
+        "lc-3231-10",
+        "lc-3231-11",
+        "lc-3231-12",
+        "lc-3231-13",
+        "lc-3231-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7278,
+  "oracle_implementation": "code_practice/import_batch_218d.py:removal_oracle",
+  "validator_implementation_sha256": "5f7da8b31b97dac0b894ecbd488609e9ef27d9f7a5229ec751e6b6fe11327d81",
+  "batch_implementation_sha256": "e94e17ca536571efde4f72ba1cfe258157a312e42255cfbda9364126bd26f168",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f32d7c21482600211e9165d37d651e25be05a759c6fd277e91f553684c2b6a6c",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
