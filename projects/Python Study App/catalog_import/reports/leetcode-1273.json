@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1273",
+  "content_sha256": "b1d6fcfe21d1a1f3dcab3557b44b892c9c65dc3330139b083e2a284cb277334b",
+  "source_hash": "3cc57f4cc5fcb90b93c9258b84d9b8f1831790efee0e0eed2b2717f02f3d2711",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps zero-sum subtrees instead of deleting them.",
+      "failed_cases": [
+        "lc-1273-1",
+        "lc-1273-2",
+        "lc-1273-3",
+        "lc-1273-5",
+        "lc-1273-7",
+        "lc-1273-8",
+        "lc-1273-9",
+        "lc-1273-10",
+        "lc-1273-11",
+        "lc-1273-12",
+        "lc-1273-13",
+        "lc-1273-14"
+      ]
+    },
+    {
+      "reason": "Counts one per child subtree instead of all surviving descendants.",
+      "failed_cases": [
+        "lc-1273-1",
+        "lc-1273-2",
+        "lc-1273-9",
+        "lc-1273-10",
+        "lc-1273-11",
+        "lc-1273-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5320,
+  "oracle_implementation": "code_practice/import_batch_205a.py:delete_o",
+  "validator_implementation_sha256": "817089090612821787a07ffa561cc40bd977de9928cd10a4c35721f86aadae5b",
+  "batch_implementation_sha256": "0c9a2ff084a2020c9780711c130c3ca9a5eeb61737d0755fa6ce18a3905f0727",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "83fb6f7fa3d5335e8bc762da012d03ee5b2a7b102f189b9508110e0932d8b770",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

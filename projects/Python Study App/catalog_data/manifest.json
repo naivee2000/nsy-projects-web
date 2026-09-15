@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2326,
+  "count": 2331,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -17088,6 +17088,23 @@
       "source_id": 1260
     },
     {
+      "id": "leetcode-1262",
+      "version": 1,
+      "status": "approved",
+      "title": "Greatest Sum Divisible by Three",
+      "summary": "Given an integer array, find the highest sum of its elements that is divisible by three.",
+      "topics": [
+        "dynamic programming",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1262.json",
+      "content_sha256": "d8aef50385b932df1e15496a356b2039bd641472d3d62b4c184f0744a60716c8",
+      "source_id": 1262
+    },
+    {
       "id": "leetcode-1266",
       "version": 1,
       "status": "approved",
@@ -17120,6 +17137,42 @@
       "path": "problems/leetcode-1267.json",
       "content_sha256": "bdd5970107fd8733f88e104e480a6143d644e1362fd7c0cf72fed5baa08f6da2",
       "source_id": 1267
+    },
+    {
+      "id": "leetcode-1268",
+      "version": 1,
+      "status": "approved",
+      "title": "Search Suggestions System",
+      "summary": "Given an array of strings products and a string searchWord, design a system that suggests at most three product names from products after each character of searchWord is typed.",
+      "topics": [
+        "strings",
+        "sorting",
+        "binary search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1268.json",
+      "content_sha256": "f4f472290a8d7f68637d75446e13db92f980bc82d4208a0880ec2c3ec59cf8d1",
+      "source_id": 1268
+    },
+    {
+      "id": "leetcode-1269",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Stay in the Same Place After Some Steps",
+      "summary": "Given a pointer at index 0 in an array of size arrLen, at each step, you can move left, right, or stay in place within the array bounds.",
+      "topics": [
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1269.json",
+      "content_sha256": "3d74cc9659c84d8e68bb47dc61c0d29369e51ec441b7db0efa114a2242c1afb4",
+      "source_id": 1269
     },
     {
       "id": "leetcode-1271",
@@ -17156,6 +17209,23 @@
       "source_id": 1272
     },
     {
+      "id": "leetcode-1273",
+      "version": 1,
+      "status": "approved",
+      "title": "Delete Tree Nodes",
+      "summary": "Given a tree with nodes rooted at 0, where each node has a value and a parent, remove all subtrees with a sum of node values equal to zero.",
+      "topics": [
+        "trees",
+        "recursion"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1273.json",
+      "content_sha256": "b1d6fcfe21d1a1f3dcab3557b44b892c9c65dc3330139b083e2a284cb277334b",
+      "source_id": 1273
+    },
+    {
       "id": "leetcode-1276",
       "version": 1,
       "status": "approved",
@@ -17188,6 +17258,25 @@
       "path": "problems/leetcode-1277.json",
       "content_sha256": "2c7a69ffb49f4207a8358cd93c58f6e958e54df8974886a8ab551120537c3764",
       "source_id": 1277
+    },
+    {
+      "id": "leetcode-1278",
+      "version": 1,
+      "status": "approved",
+      "title": "Palindrome Partitioning III",
+      "summary": "Given a string s with lowercase letters and an integer k, transform some characters to any lowercase letter and partition s into k non-empty palindromic substrings.",
+      "topics": [
+        "strings",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1278.json",
+      "content_sha256": "3c635d32f879860a0b292afc510cd89c11f28018cbe97ff17c4bd4e5cface5fc",
+      "source_id": 1278
     },
     {
       "id": "leetcode-1281",

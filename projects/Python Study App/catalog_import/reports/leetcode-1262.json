@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1262",
+  "content_sha256": "d8aef50385b932df1e15496a356b2039bd641472d3d62b4c184f0744a60716c8",
+  "source_hash": "91359ef912a7f9d7197ea7950cc9b1d0b1823001af80131cc899536cb3747f41",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Updates from the current row and can reuse one value multiple times.",
+      "failed_cases": [
+        "lc-1262-1",
+        "lc-1262-2",
+        "lc-1262-4",
+        "lc-1262-5",
+        "lc-1262-7",
+        "lc-1262-9",
+        "lc-1262-10",
+        "lc-1262-11",
+        "lc-1262-13"
+      ]
+    },
+    {
+      "reason": "Returns the greatest sum regardless of its remainder.",
+      "failed_cases": [
+        "lc-1262-1",
+        "lc-1262-2",
+        "lc-1262-5",
+        "lc-1262-7",
+        "lc-1262-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5309,
+  "oracle_implementation": "code_practice/import_batch_205a.py:divisible_o",
+  "validator_implementation_sha256": "817089090612821787a07ffa561cc40bd977de9928cd10a4c35721f86aadae5b",
+  "batch_implementation_sha256": "0c9a2ff084a2020c9780711c130c3ca9a5eeb61737d0755fa6ce18a3905f0727",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4ca8c73133b88915eec1425bcd4875a7538edcbeae12f96b8338d5feb7ba8681",
+  "elapsed_seconds": 0.15,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
