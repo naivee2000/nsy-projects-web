@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3209",
+  "content_sha256": "5f27c2c9843b5fea2ce8cffb03f49c0370eeec9caa5fcb354f67a01a8f0dff49",
+  "source_hash": "f2583b5da275b60a31a570296e1fab757d1d337c93091debdfea76fe8fd40e53",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Carries ending bitwise OR values rather than AND values.",
+      "failed_cases": [
+        "lc-3209-2",
+        "lc-3209-5",
+        "lc-3209-7",
+        "lc-3209-8",
+        "lc-3209-9",
+        "lc-3209-10",
+        "lc-3209-11",
+        "lc-3209-12",
+        "lc-3209-13",
+        "lc-3209-14"
+      ]
+    },
+    {
+      "reason": "Omits the one-element subarray beginning at each position.",
+      "failed_cases": [
+        "lc-3209-1",
+        "lc-3209-2",
+        "lc-3209-4",
+        "lc-3209-5",
+        "lc-3209-6",
+        "lc-3209-7",
+        "lc-3209-8",
+        "lc-3209-9",
+        "lc-3209-10",
+        "lc-3209-11",
+        "lc-3209-12",
+        "lc-3209-13",
+        "lc-3209-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7256,
+  "oracle_implementation": "code_practice/import_batch_218b.py:and_oracle",
+  "validator_implementation_sha256": "2ea3d9be87780623aee47de8c722d8e8a0e2e93cd30dbdf08e37227697919053",
+  "batch_implementation_sha256": "94948cc0347b5850e2736f47ddbf02850d50ed417508ba1e36b272f31b55d6b0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1d573b60af05d28f490100b37b1ff864ad0f16ed2207be3f11db2c5e4e5b8b94",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

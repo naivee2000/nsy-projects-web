@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3215",
+  "content_sha256": "0aeb8c1e6e4be40e5e94d33e555957d4996870fdefbec8bf4b21393bfd281595",
+  "source_hash": "f2ac9d66a441359bc394dfef6ace0cbc508beb710de4c561002edf3d4b22eee8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only parity patterns containing at least one odd-popcount value and omits even-even-even.",
+      "failed_cases": [
+        "lc-3215-3",
+        "lc-3215-6",
+        "lc-3215-8",
+        "lc-3215-11",
+        "lc-3215-14"
+      ]
+    },
+    {
+      "reason": "Classifies integers by numeric odd/even parity rather than set-bit-count parity.",
+      "failed_cases": [
+        "lc-3215-8",
+        "lc-3215-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7262,
+  "oracle_implementation": "code_practice/import_batch_218b.py:triplets_oracle",
+  "validator_implementation_sha256": "2ea3d9be87780623aee47de8c722d8e8a0e2e93cd30dbdf08e37227697919053",
+  "batch_implementation_sha256": "94948cc0347b5850e2736f47ddbf02850d50ed417508ba1e36b272f31b55d6b0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "12de2fecfc9095e7f0b7fa0ed03c687af15bd0676ef74db3e8d508fb5bd8fc84",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,63 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3211",
+  "content_sha256": "f81a36b908535b81861e55d0a878adab994297182d39bf5c8c370bc861566eb9",
+  "source_hash": "6db2ebdc0586a2dbc045307949654838597ee23de7ed57def5e34e7edcaffb34",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Generates strings containing adjacent zeros.",
+      "failed_cases": [
+        "lc-3211-1",
+        "lc-3211-3",
+        "lc-3211-4",
+        "lc-3211-5",
+        "lc-3211-6",
+        "lc-3211-7",
+        "lc-3211-8",
+        "lc-3211-9",
+        "lc-3211-10",
+        "lc-3211-11",
+        "lc-3211-12",
+        "lc-3211-13",
+        "lc-3211-14",
+        "lc-3211-15",
+        "lc-3211-16"
+      ]
+    },
+    {
+      "reason": "Explores the zero branch twice and never generates strings beginning with or extending by one.",
+      "failed_cases": [
+        "lc-3211-1",
+        "lc-3211-2",
+        "lc-3211-3",
+        "lc-3211-4",
+        "lc-3211-5",
+        "lc-3211-6",
+        "lc-3211-7",
+        "lc-3211-8",
+        "lc-3211-9",
+        "lc-3211-10",
+        "lc-3211-11",
+        "lc-3211-12",
+        "lc-3211-13",
+        "lc-3211-14",
+        "lc-3211-15",
+        "lc-3211-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7258,
+  "oracle_implementation": "code_practice/import_batch_218b.py:strings_oracle",
+  "validator_implementation_sha256": "2ea3d9be87780623aee47de8c722d8e8a0e2e93cd30dbdf08e37227697919053",
+  "batch_implementation_sha256": "94948cc0347b5850e2736f47ddbf02850d50ed417508ba1e36b272f31b55d6b0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "87c8390837f741a06c992190e672ae838e44db39511c16ee48579c01aa200d7e",
+  "elapsed_seconds": 0.061,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

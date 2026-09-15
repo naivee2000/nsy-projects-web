@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3212",
+  "content_sha256": "dda07bcc7c5be92c34d3ec1c1823ce795fb73792c9d11fe1184fa573f07e6580",
+  "source_hash": "b5876c01d2083f2360407921d48ce6e5737dead98fad755de3dad5651d17c7d7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts empty-of-X rectangles where both X and Y totals are zero.",
+      "failed_cases": [
+        "lc-3212-2",
+        "lc-3212-4",
+        "lc-3212-9",
+        "lc-3212-13"
+      ]
+    },
+    {
+      "reason": "Treats dot cells as X and inflates the X prefix count.",
+      "failed_cases": [
+        "lc-3212-7",
+        "lc-3212-9",
+        "lc-3212-11",
+        "lc-3212-12",
+        "lc-3212-13",
+        "lc-3212-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7259,
+  "oracle_implementation": "code_practice/import_batch_218b.py:matrices_oracle",
+  "validator_implementation_sha256": "2ea3d9be87780623aee47de8c722d8e8a0e2e93cd30dbdf08e37227697919053",
+  "batch_implementation_sha256": "94948cc0347b5850e2736f47ddbf02850d50ed417508ba1e36b272f31b55d6b0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "364f3b6293e7bd664486522e269cbcb90d43f6d7eb646ef5f3ebf2156279f7d0",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
