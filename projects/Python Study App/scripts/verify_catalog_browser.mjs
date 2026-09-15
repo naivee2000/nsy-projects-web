@@ -230,7 +230,7 @@ try {
   report.checks.push('ocean-flow instructions explain downhill plateaus and ordered row/column coordinates');
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await page.getByPlaceholder('Search title, topic, or pattern').fill('String Compression');
-  await page.getByRole('button', { name: /String Compression.*Medium/ }).click();
+  await page.getByText('String Compression', { exact: true }).locator('xpath=ancestor::button').click();
   const characterNote = page.getByRole('note').filter({ hasText: 'In-place judging' });
   await characterNote.waitFor();
   assert((await characterNote.textContent()).includes('first k entries of chars'));
