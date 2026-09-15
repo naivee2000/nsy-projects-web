@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1366",
+  "content_sha256": "decbf58dc2e0ce3d78366dfae35b0a82347862cf8e0b4795df3bff47e2dd5cb3",
+  "source_hash": "a426d09ea4b3e0b1178d524ca1b61874bc7b237ffc899a5d699b3f9561db9b7b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only first-place totals and ignores lower-rank tie breakers.",
+      "failed_cases": [
+        "lc-1366-1",
+        "lc-1366-2",
+        "lc-1366-4",
+        "lc-1366-13",
+        "lc-1366-14"
+      ]
+    },
+    {
+      "reason": "Breaks complete ties in reverse alphabetical order.",
+      "failed_cases": [
+        "lc-1366-5",
+        "lc-1366-7",
+        "lc-1366-8",
+        "lc-1366-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5413,
+  "oracle_implementation": "code_practice/import_batch_206c.py:votes_oracle",
+  "validator_implementation_sha256": "dd9f6b23f14a19063c56190291be9cfdbe7514b7ba4dc6b74b66e87532ed0e4b",
+  "batch_implementation_sha256": "180942cfa104e5007e3c69edb24748f4b5894dc3e7b2f5ac05e761a88dda66e0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8948bef4473f1d13502e45a703bfde737d1bd060e2ae4ef33d6f26ce59ac27af",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

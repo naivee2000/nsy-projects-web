@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1372",
+  "content_sha256": "e4d7931a0ab397e9f7454f9e9abd9b75f1685437cea1a93f9326079ef2b17174",
+  "source_hash": "728b93946adf0a1003aacf0b472b2fabb5837d707f287ee6bd9c93abc9d8dbd1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts nodes rather than edges, making every result one too large.",
+      "failed_cases": [
+        "lc-1372-1",
+        "lc-1372-2",
+        "lc-1372-3",
+        "lc-1372-4",
+        "lc-1372-5",
+        "lc-1372-6",
+        "lc-1372-7",
+        "lc-1372-8",
+        "lc-1372-9",
+        "lc-1372-10",
+        "lc-1372-11",
+        "lc-1372-12",
+        "lc-1372-13",
+        "lc-1372-14"
+      ]
+    },
+    {
+      "reason": "Traverses only left children and misses ZigZag paths inside right subtrees.",
+      "failed_cases": [
+        "lc-1372-1",
+        "lc-1372-4",
+        "lc-1372-7",
+        "lc-1372-8",
+        "lc-1372-9",
+        "lc-1372-10",
+        "lc-1372-12",
+        "lc-1372-13",
+        "lc-1372-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5419,
+  "oracle_implementation": "code_practice/import_batch_206c.py:zigzag_oracle",
+  "validator_implementation_sha256": "dd9f6b23f14a19063c56190291be9cfdbe7514b7ba4dc6b74b66e87532ed0e4b",
+  "batch_implementation_sha256": "180942cfa104e5007e3c69edb24748f4b5894dc3e7b2f5ac05e761a88dda66e0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ed3b25ed064a4ed299ffcca3ccc2e28f691df21d8bd384c6f11bb810443c88bc",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
