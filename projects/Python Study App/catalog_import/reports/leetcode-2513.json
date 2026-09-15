@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2513",
+  "content_sha256": "e770b373cd0f8f9ebc75a1d3a6d405f8b4131cc4aaad54c927ff8396f1bfb96d",
+  "source_hash": "061204c094f82586f9d208554d8e990e077b724b2f17d6f941f77cff0e57b60d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks each array separately but ignores that their chosen values must be disjoint.",
+      "failed_cases": [
+        "lc-2513-1",
+        "lc-2513-2",
+        "lc-2513-3",
+        "lc-2513-5",
+        "lc-2513-6",
+        "lc-2513-7",
+        "lc-2513-8",
+        "lc-2513-9",
+        "lc-2513-10",
+        "lc-2513-11",
+        "lc-2513-12",
+        "lc-2513-15",
+        "lc-2513-16"
+      ]
+    },
+    {
+      "reason": "Subtracts an incorrect ceiling count of forbidden multiples.",
+      "failed_cases": [
+        "lc-2513-4",
+        "lc-2513-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6560,
+  "oracle_implementation": "code_practice/import_batch_209c.py:minimize_arrays_oracle",
+  "validator_implementation_sha256": "cdda592e8047e503e43ac71567628da09f6c083e15b452bb8f802bd1b7bbc7c1",
+  "batch_implementation_sha256": "3ffd891dbab240c3c1598acdba54a6ac05c297c90bfcbb87730f17df910d3029",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f4f19b9bb88800e42c5792e72bac90c5656df2528273404e9666972fb1e2cbd5",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

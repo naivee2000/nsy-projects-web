@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2829",
+  "content_sha256": "424ff979d7d03702771f1309b05d24bf1e9686ac09a29c80839bc9bc8928bffa",
+  "source_hash": "8482740bce31f5c6398e71c2002867b55003be12ec28b1816014d1aa68586e62",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Blocks k+candidate instead of the complementary value k-candidate.",
+      "failed_cases": [
+        "lc-2829-1",
+        "lc-2829-5",
+        "lc-2829-7",
+        "lc-2829-8",
+        "lc-2829-9",
+        "lc-2829-10",
+        "lc-2829-11",
+        "lc-2829-12",
+        "lc-2829-13",
+        "lc-2829-14",
+        "lc-2829-15",
+        "lc-2829-16"
+      ]
+    },
+    {
+      "reason": "Incorrectly treats using k/2 once as a forbidden pair with itself.",
+      "failed_cases": [
+        "lc-2829-1",
+        "lc-2829-4",
+        "lc-2829-6",
+        "lc-2829-8",
+        "lc-2829-10",
+        "lc-2829-13",
+        "lc-2829-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6876,
+  "oracle_implementation": "code_practice/import_batch_209c.py:avoiding_sum_oracle",
+  "validator_implementation_sha256": "cdda592e8047e503e43ac71567628da09f6c083e15b452bb8f802bd1b7bbc7c1",
+  "batch_implementation_sha256": "3ffd891dbab240c3c1598acdba54a6ac05c297c90bfcbb87730f17df910d3029",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "983e35ae0451bf7b37185a8affc57afa7fbe347ae735975a27544df4259c4fc2",
+  "elapsed_seconds": 0.128,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

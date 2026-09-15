@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2512",
+  "content_sha256": "321400e48d2972c07268404843047750ac5b020660ca761fcefd290e77644998",
+  "source_hash": "7ea59aa44cad23d04a46432f0920c8baf7c63d8b7b85887b72d11c0409e1d992",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Awards only one point for positive feedback.",
+      "failed_cases": [
+        "lc-2512-11",
+        "lc-2512-14",
+        "lc-2512-15"
+      ]
+    },
+    {
+      "reason": "Breaks equal-score ties in favor of the larger student ID.",
+      "failed_cases": [
+        "lc-2512-1",
+        "lc-2512-5",
+        "lc-2512-6",
+        "lc-2512-10",
+        "lc-2512-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6559,
+  "oracle_implementation": "code_practice/import_batch_209c.py:top_students_oracle",
+  "validator_implementation_sha256": "cdda592e8047e503e43ac71567628da09f6c083e15b452bb8f802bd1b7bbc7c1",
+  "batch_implementation_sha256": "3ffd891dbab240c3c1598acdba54a6ac05c297c90bfcbb87730f17df910d3029",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f94e7a74d72b3055538d9220d71265418f81648f8adcc56a236f0cc159958575",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

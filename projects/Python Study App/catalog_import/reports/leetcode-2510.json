@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2510",
+  "content_sha256": "2230ee883f9f90f7f5eed1159c7928ff8c66ec7a60351a3c1fbe0004227bd1f3",
+  "source_hash": "174d799df4e99402ca3bfeda24887e38f5e7348b8606ffd82f3c7ec19171cdf7",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Checks whether the whole matrix is balanced instead of whether one valid path is balanced.",
+      "failed_cases": [
+        "lc-2510-1",
+        "lc-2510-3",
+        "lc-2510-6",
+        "lc-2510-7",
+        "lc-2510-11",
+        "lc-2510-15"
+      ]
+    },
+    {
+      "reason": "Uses the number of moves rather than visited cells when deciding the required balance.",
+      "failed_cases": [
+        "lc-2510-1",
+        "lc-2510-2",
+        "lc-2510-6",
+        "lc-2510-7",
+        "lc-2510-8",
+        "lc-2510-9",
+        "lc-2510-10",
+        "lc-2510-11",
+        "lc-2510-12",
+        "lc-2510-13",
+        "lc-2510-14",
+        "lc-2510-15",
+        "lc-2510-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6557,
+  "oracle_implementation": "code_practice/import_batch_209c.py:equal_binary_path_oracle",
+  "validator_implementation_sha256": "cdda592e8047e503e43ac71567628da09f6c083e15b452bb8f802bd1b7bbc7c1",
+  "batch_implementation_sha256": "3ffd891dbab240c3c1598acdba54a6ac05c297c90bfcbb87730f17df910d3029",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "39d8a7bdc9959cc28b2494a0554cb4fec6f6cfbeb3867465b3ec540e8960ec99",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
