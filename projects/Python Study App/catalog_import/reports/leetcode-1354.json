@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1354",
+  "content_sha256": "25526bacf281494d95bc08f40d5ef8c303a172ab2d1cbeedb45a498d7b282fa2",
+  "source_hash": "3b5e9ddabf8071774e298e5b0d9807df359b382b24a3c8d5ad7c0fcac4425c47",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes every target component must be odd, which is neither necessary nor sufficient.",
+      "failed_cases": [
+        "lc-1354-6",
+        "lc-1354-8"
+      ]
+    },
+    {
+      "reason": "Treats greatest common divisor one as sufficient and ignores the required replacement sequence.",
+      "failed_cases": [
+        "lc-1354-2",
+        "lc-1354-12",
+        "lc-1354-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5401,
+  "oracle_implementation": "code_practice/import_batch_206b.py:possible_oracle",
+  "validator_implementation_sha256": "64c7977b1f82da57802bc76e10d8ec92b99b3dde879e5e38d64e1e4dcc56784a",
+  "batch_implementation_sha256": "d77735b306865c8847f2fc01e9d8712a083ec2a6cc42091122a47870a32e3f7a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7ca18ac7d38aab08fdbd30a1728344cb6a0ba080efea2879bd1d1af96d779652",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

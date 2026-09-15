@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1345",
+  "content_sha256": "05fabdd2f06303c8743811358396b593fb09d9495bbac7ad3d12fedc0db2a768",
+  "source_hash": "0d23367546c9ad4d6e8d29c092c8da91bea3e044b84d26ef240202d900f47fe5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores equal-value teleport jumps and walks only between neighbors.",
+      "failed_cases": [
+        "lc-1345-1",
+        "lc-1345-5",
+        "lc-1345-8",
+        "lc-1345-9",
+        "lc-1345-10",
+        "lc-1345-12",
+        "lc-1345-13",
+        "lc-1345-14"
+      ]
+    },
+    {
+      "reason": "Uses equal-value jumps but omits adjacent moves.",
+      "failed_cases": [
+        "lc-1345-1",
+        "lc-1345-3",
+        "lc-1345-6",
+        "lc-1345-7",
+        "lc-1345-10",
+        "lc-1345-11",
+        "lc-1345-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5392,
+  "oracle_implementation": "code_practice/import_batch_206b.py:jump_oracle",
+  "validator_implementation_sha256": "64c7977b1f82da57802bc76e10d8ec92b99b3dde879e5e38d64e1e4dcc56784a",
+  "batch_implementation_sha256": "d77735b306865c8847f2fc01e9d8712a083ec2a6cc42091122a47870a32e3f7a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "20b451aeccca6fd3b8f708c3a8dcf274ff6fb5ba166f73138cb5eb9546dc171a",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

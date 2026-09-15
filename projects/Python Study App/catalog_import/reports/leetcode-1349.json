@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1349",
+  "content_sha256": "223a7f3df18b47a5889abccda5d4a1fc361aa2031d3b30070842745715347627",
+  "source_hash": "9a2c295c7b10484f76c48c144286ddc7af1a8e5e0d7ddc1cb41a0038e4e2c849",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows horizontally adjacent students in the same row.",
+      "failed_cases": [
+        "lc-1349-5",
+        "lc-1349-12",
+        "lc-1349-14"
+      ]
+    },
+    {
+      "reason": "Ignores diagonal cheating between consecutive rows.",
+      "failed_cases": [
+        "lc-1349-1",
+        "lc-1349-2",
+        "lc-1349-9",
+        "lc-1349-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5396,
+  "oracle_implementation": "code_practice/import_batch_206b.py:students_oracle",
+  "validator_implementation_sha256": "64c7977b1f82da57802bc76e10d8ec92b99b3dde879e5e38d64e1e4dcc56784a",
+  "batch_implementation_sha256": "d77735b306865c8847f2fc01e9d8712a083ec2a6cc42091122a47870a32e3f7a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1ebe1cdc9ec5a44ba627b8885491c5c4ebc75c5efa3e806b0e5ff26b03562ff5",
+  "elapsed_seconds": 0.059,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input seats = [[\"#\",\".\",\"#\",\"#\",\".\",\"#\"], [\".\",\"#\",\"#\",\"#\",\"#\",\".\"], [\"#\",\".\",\"#\",\"#\",\".\",\"#\"]] → Output 4.",
+    "arguments": [
+      [
+        "#.##.#",
+        ".####.",
+        "#.##.#"
+      ]
+    ],
+    "expected": 4,
+    "reason": "The workbook serializes each row as a character list; the Python callable receives the equivalent row strings.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README_EN.md"
+  }
+}

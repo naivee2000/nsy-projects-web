@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1362",
+  "content_sha256": "307f93072ff1bfaf4cd1dc555ee5496ca22103ede356ea4b603cf20f3e71a929",
+  "source_hash": "ab641c96ccdb781ae5c52bec2147d3a401b47db1e57643e5e1d207fc0bf4bf4a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks factorizations of num+1 only and ignores num+2.",
+      "failed_cases": [
+        "lc-1362-2",
+        "lc-1362-4",
+        "lc-1362-6",
+        "lc-1362-8"
+      ]
+    },
+    {
+      "reason": "Starts divisor search from the square root of num rather than each candidate product.",
+      "failed_cases": [
+        "lc-1362-1",
+        "lc-1362-4",
+        "lc-1362-5",
+        "lc-1362-9",
+        "lc-1362-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5409,
+  "oracle_implementation": "code_practice/import_batch_206b.py:divisor_oracle",
+  "validator_implementation_sha256": "64c7977b1f82da57802bc76e10d8ec92b99b3dde879e5e38d64e1e4dcc56784a",
+  "batch_implementation_sha256": "d77735b306865c8847f2fc01e9d8712a083ec2a6cc42091122a47870a32e3f7a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7a5fbe1b4e3ea69e59904aede919868dc77743dc9e702a3c1b8260a26707e983",
+  "elapsed_seconds": 8.785,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
