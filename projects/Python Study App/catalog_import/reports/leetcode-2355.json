@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2355",
+  "content_sha256": "edcde4d6a51d28d2923a7600a2dc2926e454ed36737e49b609e744da9248a0bd",
+  "source_hash": "209f254f04815806c28b01d1ff8c82425164963351eab0dce30272fbb2a6e33b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses only one shelf and misses profitable increasing multi-shelf segments.",
+      "failed_cases": [
+        "lc-2355-1",
+        "lc-2355-2",
+        "lc-2355-6",
+        "lc-2355-8",
+        "lc-2355-10",
+        "lc-2355-11",
+        "lc-2355-12",
+        "lc-2355-13",
+        "lc-2355-15",
+        "lc-2355-16"
+      ]
+    },
+    {
+      "reason": "Takes every book without enforcing strictly increasing take counts.",
+      "failed_cases": [
+        "lc-2355-1",
+        "lc-2355-2",
+        "lc-2355-5",
+        "lc-2355-7",
+        "lc-2355-9",
+        "lc-2355-10",
+        "lc-2355-12",
+        "lc-2355-13",
+        "lc-2355-14",
+        "lc-2355-15",
+        "lc-2355-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6402,
+  "oracle_implementation": "code_practice/import_batch_208b.py:books_oracle",
+  "validator_implementation_sha256": "6f527e90e9d28c9433ed36503ebd37f41412e830f416a93a115ed6fee0a40bfd",
+  "batch_implementation_sha256": "86fbfbb1399bc39520949ad3e70ae0535d1efb1cedbe2429f25c8df3f430efd4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "06dccbd26f0bb4bc8ee33a7ba479512d57fcb5160bf1e72be2909555adca7191",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

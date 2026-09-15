@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2360",
+  "content_sha256": "ad11380f24875959b6fb5f2884730cbcf68411cb4fb1230d471e1a93687b9ade",
+  "source_hash": "29e3d0519966d134a9f6028f459d1741e2b80ae0728a3f9b59fc3ede6e5eafe0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the noncyclic tail leading into a cycle as part of its length.",
+      "failed_cases": [
+        "lc-2360-1"
+      ]
+    },
+    {
+      "reason": "Recognizes only mutual two-node cycles and misses cycles of every other length.",
+      "failed_cases": [
+        "lc-2360-1",
+        "lc-2360-6",
+        "lc-2360-7",
+        "lc-2360-8",
+        "lc-2360-11",
+        "lc-2360-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6407,
+  "oracle_implementation": "code_practice/import_batch_208b.py:cycle_oracle",
+  "validator_implementation_sha256": "6f527e90e9d28c9433ed36503ebd37f41412e830f416a93a115ed6fee0a40bfd",
+  "batch_implementation_sha256": "86fbfbb1399bc39520949ad3e70ae0535d1efb1cedbe2429f25c8df3f430efd4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c080148bd77bf19eb10cb7aaefab87ef02506193eb5a6f4aa98b320469cac7fc",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

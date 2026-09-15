@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2376",
+  "content_sha256": "3b2860ae063726da0deb482de6a6d93ce5f209082d8067a01718857155f7a50d",
+  "source_hash": "9bfe9c059bb6a052e31234950622223e156816383604978672c95aa32e29438c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never checks the used-digit mask and counts numbers with repeated digits.",
+      "failed_cases": [
+        "lc-2376-1",
+        "lc-2376-2",
+        "lc-2376-7",
+        "lc-2376-8",
+        "lc-2376-9",
+        "lc-2376-10",
+        "lc-2376-11",
+        "lc-2376-12",
+        "lc-2376-13",
+        "lc-2376-14"
+      ]
+    },
+    {
+      "reason": "Counts the all-leading-zero construction as the positive integer zero.",
+      "failed_cases": [
+        "lc-2376-1",
+        "lc-2376-2",
+        "lc-2376-3",
+        "lc-2376-4",
+        "lc-2376-5",
+        "lc-2376-6",
+        "lc-2376-7",
+        "lc-2376-8",
+        "lc-2376-9",
+        "lc-2376-10",
+        "lc-2376-11",
+        "lc-2376-12",
+        "lc-2376-13",
+        "lc-2376-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6423,
+  "oracle_implementation": "code_practice/import_batch_208b.py:special_oracle",
+  "validator_implementation_sha256": "6f527e90e9d28c9433ed36503ebd37f41412e830f416a93a115ed6fee0a40bfd",
+  "batch_implementation_sha256": "86fbfbb1399bc39520949ad3e70ae0535d1efb1cedbe2429f25c8df3f430efd4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "02b7414f738bdcff5c96be3c2271c9df99607cec2d5e674f80b16077720b740e",
+  "elapsed_seconds": 0.354,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2366",
+  "content_sha256": "54584fe10cb20714234eb5d8931c4c642f9f6dec45436e99d267be59a984b5a4",
+  "source_hash": "aea351a759f016d416e4d135a30c63f3c1aa331904377452fa20b35f83ac71ca",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses floor division and may leave a generated part above the right-side limit.",
+      "failed_cases": [
+        "lc-2366-7",
+        "lc-2366-8",
+        "lc-2366-9",
+        "lc-2366-12",
+        "lc-2366-14"
+      ]
+    },
+    {
+      "reason": "Never lowers the right-side bound after splitting, so earlier values may remain too large.",
+      "failed_cases": [
+        "lc-2366-9",
+        "lc-2366-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6413,
+  "oracle_implementation": "code_practice/import_batch_208b.py:replacement_oracle",
+  "validator_implementation_sha256": "6f527e90e9d28c9433ed36503ebd37f41412e830f416a93a115ed6fee0a40bfd",
+  "batch_implementation_sha256": "86fbfbb1399bc39520949ad3e70ae0535d1efb1cedbe2429f25c8df3f430efd4",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b1daff86ca1b96495a924fe321771b05e7a65d7fd0bc8ef791ef10511a1c74bb",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
