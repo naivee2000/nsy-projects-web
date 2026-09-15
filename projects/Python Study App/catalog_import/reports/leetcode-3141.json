@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3141",
+  "content_sha256": "54af1eb2f4599cc17355357c0a8d03ba889727cb26d8d1bb238a57081c9c5bbe",
+  "source_hash": "d6b1142fa0f853df620431e1fc3db6e6d8db56f3012dab92ffe80dc4d9ce172b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Measures distance to the input set from the value itself, yielding zero instead of using its complement.",
+      "failed_cases": [
+        "lc-3141-1",
+        "lc-3141-3",
+        "lc-3141-7",
+        "lc-3141-8",
+        "lc-3141-9",
+        "lc-3141-10",
+        "lc-3141-11",
+        "lc-3141-13",
+        "lc-3141-14"
+      ]
+    },
+    {
+      "reason": "Returns the complement’s minimum distance directly instead of converting it to maximum Hamming distance.",
+      "failed_cases": [
+        "lc-3141-1",
+        "lc-3141-2",
+        "lc-3141-3",
+        "lc-3141-4",
+        "lc-3141-5",
+        "lc-3141-6",
+        "lc-3141-7",
+        "lc-3141-8",
+        "lc-3141-9",
+        "lc-3141-10",
+        "lc-3141-11",
+        "lc-3141-12",
+        "lc-3141-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7188,
+  "oracle_implementation": "code_practice/import_batch_216a.py:hamming_oracle",
+  "validator_implementation_sha256": "32e79ba3cfd86d17f885d4afca6adecb38bf9099e63ab6e8387553b18a9d43a8",
+  "batch_implementation_sha256": "05d1ba96b1096ee6dc7ba64dd35e50e5869dfe99f19f95cb909142a78e4b9e0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cae6a64d7711a59b71ddb8bcb6864b56218e17c3a43cf33a2270475e77df2d12",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

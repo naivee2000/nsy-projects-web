@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3144",
+  "content_sha256": "d364c3ea46360a000e12fbd64d43a51d4a70a0328bdd3d26779fe68abcbcab84",
+  "source_hash": "0b1cf50f451dd2b8d63f99c48b55dd2e61f7c2ef6245291a3a7210b10f41a205",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts substrings having two different positive frequencies.",
+      "failed_cases": [
+        "lc-3144-1",
+        "lc-3144-6",
+        "lc-3144-9",
+        "lc-3144-10",
+        "lc-3144-14"
+      ]
+    },
+    {
+      "reason": "Overwrites the best partition with the last balanced prefix instead of minimizing all choices.",
+      "failed_cases": [
+        "lc-3144-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7191,
+  "oracle_implementation": "code_practice/import_batch_216a.py:partition_oracle",
+  "validator_implementation_sha256": "32e79ba3cfd86d17f885d4afca6adecb38bf9099e63ab6e8387553b18a9d43a8",
+  "batch_implementation_sha256": "05d1ba96b1096ee6dc7ba64dd35e50e5869dfe99f19f95cb909142a78e4b9e0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7d3dcaf41a4831ae9ed43d892e2ed249af0196cc49b934dc5d1e3dd6dbdf5caf",
+  "elapsed_seconds": 0.213,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

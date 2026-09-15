@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3143",
+  "content_sha256": "d4a6efd72ae022c7d2406fc7a1e85e5ac5c00734dcbce07bc38518807c53976d",
+  "source_hash": "23386feb267562ab62db62bf1c627308259b3fe6743b5e1039a04306b2d3cec8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Misses duplicate tags introduced together at the same square boundary.",
+      "failed_cases": [
+        "lc-3143-5"
+      ]
+    },
+    {
+      "reason": "Forgets tags from smaller included distances when processing the next boundary.",
+      "failed_cases": [
+        "lc-3143-6",
+        "lc-3143-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7190,
+  "oracle_implementation": "code_practice/import_batch_216a.py:square_oracle",
+  "validator_implementation_sha256": "32e79ba3cfd86d17f885d4afca6adecb38bf9099e63ab6e8387553b18a9d43a8",
+  "batch_implementation_sha256": "05d1ba96b1096ee6dc7ba64dd35e50e5869dfe99f19f95cb909142a78e4b9e0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "448664ec866520d19126db5379ae4591dcd14e307a9e3be23169262d689cd6ee",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
