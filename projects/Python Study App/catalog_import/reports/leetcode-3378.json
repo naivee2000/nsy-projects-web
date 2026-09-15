@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3378",
+  "content_sha256": "307ef9646ad4e97c44b1160d1d21285a5eaf5c9be781f499c555eec821624dd4",
+  "source_hash": "37021a453fa4070e832b66c461ced35b65b2db16e5ad8677e4fbe37960621031",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the threshold boundary as strict.",
+      "failed_cases": [
+        "lc-3378-4",
+        "lc-3378-5",
+        "lc-3378-7",
+        "lc-3378-8",
+        "lc-3378-10",
+        "lc-3378-11",
+        "lc-3378-14"
+      ]
+    },
+    {
+      "reason": "Unions no shared-multiple intermediates, leaving connected values separate.",
+      "failed_cases": [
+        "lc-3378-1",
+        "lc-3378-2",
+        "lc-3378-4",
+        "lc-3378-5",
+        "lc-3378-7",
+        "lc-3378-8",
+        "lc-3378-10",
+        "lc-3378-11",
+        "lc-3378-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7425,
+  "oracle_implementation": "code_practice/import_batch_222d.py:lcm_components_oracle",
+  "validator_implementation_sha256": "1213fd334f746281f97ed7a35cbf65d906dc9924cf5152fca7b9cdba40a267ee",
+  "batch_implementation_sha256": "a3c10e738e166c021c47e5b426f5ad7d2de32ec1101cb50d785a104eeb973594",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5e4a60018b3f94b82dd9624d71b13165bf24ff870b80abd877399a20d60d91a8",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

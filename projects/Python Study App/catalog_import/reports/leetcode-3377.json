@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3377",
+  "content_sha256": "943525dbf40a03578733ba74432c0715e046d47732628fa5467d9d64ce75c28c",
+  "source_hash": "81f7b573506a16af2d807be694fd4fdb437abfa99e98a5b9e1463f6a1e420197",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows prime endpoints and intermediate values.",
+      "failed_cases": [
+        "lc-3377-1",
+        "lc-3377-2",
+        "lc-3377-3",
+        "lc-3377-7",
+        "lc-3377-8",
+        "lc-3377-11",
+        "lc-3377-12",
+        "lc-3377-13"
+      ]
+    },
+    {
+      "reason": "Omits the starting number from the transformation cost.",
+      "failed_cases": [
+        "lc-3377-1",
+        "lc-3377-4",
+        "lc-3377-5",
+        "lc-3377-6",
+        "lc-3377-8",
+        "lc-3377-9",
+        "lc-3377-10",
+        "lc-3377-11",
+        "lc-3377-12",
+        "lc-3377-13",
+        "lc-3377-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7424,
+  "oracle_implementation": "code_practice/import_batch_222d.py:digit_oracle",
+  "validator_implementation_sha256": "1213fd334f746281f97ed7a35cbf65d906dc9924cf5152fca7b9cdba40a267ee",
+  "batch_implementation_sha256": "a3c10e738e166c021c47e5b426f5ad7d2de32ec1101cb50d785a104eeb973594",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c6b84e3bf6e360676b11cd66303faabfde0f69545104ce7d2cf8d61526dc7bf7",
+  "elapsed_seconds": 0.108,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

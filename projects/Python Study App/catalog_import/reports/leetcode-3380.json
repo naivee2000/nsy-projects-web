@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3380",
+  "content_sha256": "34e618dbf969044d87fa7dcdef906f846ad3d74bfa76fa4b14c738a75febf0a4",
+  "source_hash": "f94a5d7a2c7769856cc51ccc770a13eda2cfc21592f9f65d8311838753115c54",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks the four corners but ignores all interior and border points.",
+      "failed_cases": [
+        "lc-3380-2",
+        "lc-3380-3",
+        "lc-3380-8",
+        "lc-3380-10",
+        "lc-3380-11",
+        "lc-3380-13"
+      ]
+    },
+    {
+      "reason": "Rejects interior points but incorrectly allows extra points on the border.",
+      "failed_cases": [
+        "lc-3380-3",
+        "lc-3380-8",
+        "lc-3380-10",
+        "lc-3380-11",
+        "lc-3380-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7427,
+  "oracle_implementation": "code_practice/import_batch_222d.py:rectangle_oracle",
+  "validator_implementation_sha256": "1213fd334f746281f97ed7a35cbf65d906dc9924cf5152fca7b9cdba40a267ee",
+  "batch_implementation_sha256": "a3c10e738e166c021c47e5b426f5ad7d2de32ec1101cb50d785a104eeb973594",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "42e9c2f55bbb33367d1002a08aac2bc93d6d97ce22d43c3f317202c2ef22a7d7",
+  "elapsed_seconds": 0.081,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
