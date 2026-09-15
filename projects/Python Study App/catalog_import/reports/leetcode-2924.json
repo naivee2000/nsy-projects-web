@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2924",
+  "content_sha256": "177c49d7e6a975672728a486a84f04d8ddfe8f5e142ba9d1c98f5ef8f4393e14",
+  "source_hash": "bd7a452b809dcde47fc39f7904840caecc01ce1b6b0b86c65d2b22bb69293b69",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts outgoing edges instead of incoming edges.",
+      "failed_cases": [
+        "lc-2924-1",
+        "lc-2924-5",
+        "lc-2924-6",
+        "lc-2924-7",
+        "lc-2924-8",
+        "lc-2924-9",
+        "lc-2924-10",
+        "lc-2924-11",
+        "lc-2924-13",
+        "lc-2924-15"
+      ]
+    },
+    {
+      "reason": "Returns the first undefeated team even when the champion is not unique.",
+      "failed_cases": [
+        "lc-2924-2",
+        "lc-2924-4",
+        "lc-2924-9",
+        "lc-2924-12",
+        "lc-2924-14",
+        "lc-2924-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6971,
+  "oracle_implementation": "code_practice/import_batch_210d.py:champion_oracle",
+  "validator_implementation_sha256": "87c9d7e8d0d1541af9b0caa725127576f448b0efe95f8e980e38e12dc1d8252b",
+  "batch_implementation_sha256": "e889f7c19fcba70974dae1a6b21e37f67be8764c5f59757bf23015b5b443c1c3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9f47f5afded7c6caf68c684a534119afc6d1b314d68bc4c1b22f7ad539e16ef7",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

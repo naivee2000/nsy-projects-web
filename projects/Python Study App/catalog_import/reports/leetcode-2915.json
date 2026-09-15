@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2915",
+  "content_sha256": "ea8264ad4492f81df2fe40846743a50b39a1183af7b2728015967e19f8d27a47",
+  "source_hash": "5db47f42515405eaa617bc1f3f69218dddf2fdccd062f9e9f6999cd7bc46dedc",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Updates sums upward and may reuse the same input element multiple times.",
+      "failed_cases": [
+        "lc-2915-1",
+        "lc-2915-2",
+        "lc-2915-4",
+        "lc-2915-7",
+        "lc-2915-8",
+        "lc-2915-9",
+        "lc-2915-11",
+        "lc-2915-12",
+        "lc-2915-14",
+        "lc-2915-15",
+        "lc-2915-16"
+      ]
+    },
+    {
+      "reason": "Overwrites a longer solution with the latest shorter solution.",
+      "failed_cases": [
+        "lc-2915-1",
+        "lc-2915-2",
+        "lc-2915-7",
+        "lc-2915-15",
+        "lc-2915-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6962,
+  "oracle_implementation": "code_practice/import_batch_210d.py:subsequence_length_oracle",
+  "validator_implementation_sha256": "87c9d7e8d0d1541af9b0caa725127576f448b0efe95f8e980e38e12dc1d8252b",
+  "batch_implementation_sha256": "e889f7c19fcba70974dae1a6b21e37f67be8764c5f59757bf23015b5b443c1c3",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cd59d5f05163aab0d34b76c1b574b86c6f484f55db579178f600244f7dcc0ad0",
+  "elapsed_seconds": 0.224,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
