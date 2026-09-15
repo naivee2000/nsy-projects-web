@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3201",
+  "content_sha256": "cf32633617aa9a693344bf17f9acb23cf01fdafc37ecde2f6d2d9a8741516b9c",
+  "source_hash": "a04526c9fa63a247afae7a5f6a9bb62ee0753b11a9b672f39ecbd3c39e4e22ca",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only even-sum pairs and misses longer alternating-parity subsequences.",
+      "failed_cases": [
+        "lc-3201-1",
+        "lc-3201-5",
+        "lc-3201-7",
+        "lc-3201-8",
+        "lc-3201-9",
+        "lc-3201-11",
+        "lc-3201-13"
+      ]
+    },
+    {
+      "reason": "Counts equal-parity transitions as part of the alternating candidate.",
+      "failed_cases": [
+        "lc-3201-1",
+        "lc-3201-5",
+        "lc-3201-6",
+        "lc-3201-7",
+        "lc-3201-8",
+        "lc-3201-9",
+        "lc-3201-11",
+        "lc-3201-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7248,
+  "oracle_implementation": "code_practice/import_batch_217d.py:parity_oracle",
+  "validator_implementation_sha256": "e34cffbbf0efbed0d680c3450d8dc52f7bf0aff9621158be67b96db0afc341de",
+  "batch_implementation_sha256": "9dc99c1e08a070bd9b0150f22349651ebd65c1b86fad9898620665da2eb2cf7c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "017cb3132c292a2232f3dea93f7328d1f8be664760448a7f9b9104f2d40ab7d3",
+  "elapsed_seconds": 0.245,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

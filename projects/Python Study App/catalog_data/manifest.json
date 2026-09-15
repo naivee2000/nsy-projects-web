@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2581,
+  "count": 2586,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -42696,6 +42696,25 @@
       "source_id": 3192
     },
     {
+      "id": "leetcode-3193",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Inversions",
+      "summary": "Given an integer n and a 2D array requirements, where each element in requirements is a pair [endi, cnti] representing the end index and the exact inversion count for that requirement, find the number of permutations of the array [0, 1, 2, ..., n-1] such that for each requirement, the subarray from the start to endi contains exactly cnti inversions.",
+      "topics": [
+        "dynamic programming",
+        "combinatorics"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3193.json",
+      "content_sha256": "6434356e86b5d2351e524595b70653311135269418556b4b07d21c4df2d16401",
+      "source_id": 3193
+    },
+    {
       "id": "leetcode-3194",
       "version": 1,
       "status": "approved",
@@ -42711,6 +42730,60 @@
       "path": "problems/leetcode-3194.json",
       "content_sha256": "5e3fb402b5c54d3ea79427010f49208fc99c8e21ca3f7300e5335440cf37b9fc",
       "source_id": 3194
+    },
+    {
+      "id": "leetcode-3195",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Minimum Area to Cover All Ones I",
+      "summary": "Given a 2D binary array, determine the smallest rectangle that encloses all '1's, and report its area.",
+      "topics": [
+        "matrices",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3195.json",
+      "content_sha256": "70b0b47e1dd8c6e883feea3cb2e13fd18afd08bd722bdec1501f16eba5758735",
+      "source_id": 3195
+    },
+    {
+      "id": "leetcode-3196",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Total Cost of Alternating Subarrays",
+      "summary": "Given an integer array nums, define the cost of a subarray as the alternating sum of its elements.",
+      "topics": [
+        "dynamic programming",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3196.json",
+      "content_sha256": "d5bd6fed749c09056673112ed119b027afc9d68ae187415d49b2be0254db6353",
+      "source_id": 3196
+    },
+    {
+      "id": "leetcode-3197",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Minimum Area to Cover All Ones II",
+      "summary": "Given a 2D binary array, determine the smallest total area of three non-overlapping rectangles that cover all the 1's, allowing the rectangles to touch.",
+      "topics": [
+        "matrices",
+        "enumeration",
+        "geometry"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3197.json",
+      "content_sha256": "abca46467a6343fdca32e9d665c90458d30d3ff360e52947691bab9394f575a5",
+      "source_id": 3197
     },
     {
       "id": "leetcode-3199",
@@ -42747,6 +42820,23 @@
       "path": "problems/leetcode-3200.json",
       "content_sha256": "489d21514fccae1d2d75fc8c8f5d86454ee05d07de96fe6225346efec720dfd8",
       "source_id": 3200
+    },
+    {
+      "id": "leetcode-3201",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Maximum Length of Valid Subsequence I",
+      "summary": "Given an integer array, find the maximum length of a subsequence where the alternating sum of consecutive elements is even.",
+      "topics": [
+        "dynamic programming",
+        "parity"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3201.json",
+      "content_sha256": "cf32633617aa9a693344bf17f9acb23cf01fdafc37ecde2f6d2d9a8741516b9c",
+      "source_id": 3201
     },
     {
       "id": "leetcode-3206",

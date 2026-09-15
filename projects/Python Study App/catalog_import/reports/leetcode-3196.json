@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3196",
+  "content_sha256": "d5bd6fed749c09056673112ed119b027afc9d68ae187415d49b2be0254db6353",
+  "source_hash": "be51b15227d7d7f11c0187776962d7fa6e4517b581547811ca09a0459ae709f1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Extends a negative-signed state from itself instead of a preceding positive-signed state.",
+      "failed_cases": [
+        "lc-3196-1",
+        "lc-3196-5",
+        "lc-3196-6",
+        "lc-3196-8",
+        "lc-3196-10",
+        "lc-3196-11",
+        "lc-3196-13",
+        "lc-3196-14"
+      ]
+    },
+    {
+      "reason": "Forces the final element to carry a positive sign and misses optimal parts ending on a subtraction.",
+      "failed_cases": [
+        "lc-3196-5",
+        "lc-3196-6",
+        "lc-3196-11",
+        "lc-3196-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7243,
+  "oracle_implementation": "code_practice/import_batch_217d.py:alternating_oracle",
+  "validator_implementation_sha256": "e34cffbbf0efbed0d680c3450d8dc52f7bf0aff9621158be67b96db0afc341de",
+  "batch_implementation_sha256": "9dc99c1e08a070bd9b0150f22349651ebd65c1b86fad9898620665da2eb2cf7c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "36a744a64360f279f3169d5843811e5e2e1fcd08ac7e22c93f587968f47775c2",
+  "elapsed_seconds": 0.116,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
