@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1311",
+  "content_sha256": "97d75a9aac6af5a23fbed9a8c243fe130914bf4873b72c4af838f0d9287c9f1c",
+  "source_hash": "8cb2c933fd7976f8f56003c3c8330a4916d1597ceef9e900c347289ac9399c6e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Stops one friendship layer early.",
+      "failed_cases": [
+        "lc-1311-1",
+        "lc-1311-2",
+        "lc-1311-4",
+        "lc-1311-6",
+        "lc-1311-7",
+        "lc-1311-8",
+        "lc-1311-9",
+        "lc-1311-10",
+        "lc-1311-11",
+        "lc-1311-12",
+        "lc-1311-13",
+        "lc-1311-14",
+        "lc-1311-15",
+        "lc-1311-16"
+      ]
+    },
+    {
+      "reason": "Sorts alphabetically before frequency instead of using frequency as the primary key.",
+      "failed_cases": [
+        "lc-1311-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5358,
+  "oracle_implementation": "code_practice/import_batch_207a.py:watched_oracle",
+  "validator_implementation_sha256": "0ad08432dc4555c5574baecbd726b1e4636f8f80fb75c54b1c1a20d818a96869",
+  "batch_implementation_sha256": "ae840247a1ac8d386141cd59dfe9f155ba70f46b50b7659433b210bfc5478f0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a760af3bf70ce2358c304182a6319bb042a88eb4cf70469cb942fed6277f7f85",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

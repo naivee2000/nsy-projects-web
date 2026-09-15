@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1610",
+  "content_sha256": "80774d6df18616eb1501eaa33941a67635aab5f7bc0694da80e7390f1afaf20d",
+  "source_hash": "5a28e7da9acb178444732a67f238ad85c72cc992a6acd1151747774d6592ed54",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Drops points located at the observer when the sector is a full circle.",
+      "failed_cases": [
+        "lc-1610-13"
+      ]
+    },
+    {
+      "reason": "Never adds points coincident with the observer to the directional-window count.",
+      "failed_cases": [
+        "lc-1610-2",
+        "lc-1610-4",
+        "lc-1610-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5657,
+  "oracle_implementation": "code_practice/import_batch_207a.py:visible_oracle",
+  "validator_implementation_sha256": "0ad08432dc4555c5574baecbd726b1e4636f8f80fb75c54b1c1a20d818a96869",
+  "batch_implementation_sha256": "ae840247a1ac8d386141cd59dfe9f155ba70f46b50b7659433b210bfc5478f0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "929d0f7e5454c645224ddc464c6b5cc59e74f7b30902b230b01d28d22973102e",
+  "elapsed_seconds": 0.058,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

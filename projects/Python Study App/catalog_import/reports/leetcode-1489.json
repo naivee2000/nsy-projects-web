@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1489",
+  "content_sha256": "4073683a30d57b65027b8de6ea2ed7e2496cdfff6b03fe59929a47bb75f0687d",
+  "source_hash": "358a4a8ad0a5d85ede3b79684bda604d3fec740390b7411b6b2ec5c74549a985",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Labels an edge critical even when excluding it leaves another MST of equal weight.",
+      "failed_cases": [
+        "lc-1489-1",
+        "lc-1489-2",
+        "lc-1489-4",
+        "lc-1489-5",
+        "lc-1489-6",
+        "lc-1489-7",
+        "lc-1489-8",
+        "lc-1489-9",
+        "lc-1489-10",
+        "lc-1489-11",
+        "lc-1489-12",
+        "lc-1489-13",
+        "lc-1489-14",
+        "lc-1489-15"
+      ]
+    },
+    {
+      "reason": "Labels every noncritical edge pseudo-critical without proving it can belong to an MST.",
+      "failed_cases": [
+        "lc-1489-1",
+        "lc-1489-4",
+        "lc-1489-6",
+        "lc-1489-7",
+        "lc-1489-8",
+        "lc-1489-9",
+        "lc-1489-11",
+        "lc-1489-12",
+        "lc-1489-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5536,
+  "oracle_implementation": "code_practice/import_batch_207a.py:mst_oracle",
+  "validator_implementation_sha256": "0ad08432dc4555c5574baecbd726b1e4636f8f80fb75c54b1c1a20d818a96869",
+  "batch_implementation_sha256": "ae840247a1ac8d386141cd59dfe9f155ba70f46b50b7659433b210bfc5478f0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dcfc85e467e1587f7bc14dd310b40ecc1e8c0a1c19f9bbd3bc2821ac41cf99dc",
+  "elapsed_seconds": 0.104,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

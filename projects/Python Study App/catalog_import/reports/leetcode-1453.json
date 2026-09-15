@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1453",
+  "content_sha256": "481316f554e38f554dc3329746b36f912b1c1278430d31ec427a5499c5bf0fa6",
+  "source_hash": "29f96daa884f5690e8db60184c1b399ae7fe88b3fbb648dec9e8d31a5cb49d64",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects pairs farther than one radius even though their separation may be as large as the diameter.",
+      "failed_cases": [
+        "lc-1453-1",
+        "lc-1453-2",
+        "lc-1453-4",
+        "lc-1453-6",
+        "lc-1453-7",
+        "lc-1453-8",
+        "lc-1453-9",
+        "lc-1453-10",
+        "lc-1453-11",
+        "lc-1453-12",
+        "lc-1453-13",
+        "lc-1453-15",
+        "lc-1453-16"
+      ]
+    },
+    {
+      "reason": "Forgets that the fixed anchor point itself is always inside the candidate circle.",
+      "failed_cases": [
+        "lc-1453-3",
+        "lc-1453-5"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5500,
+  "oracle_implementation": "code_practice/import_batch_207a.py:darts_oracle",
+  "validator_implementation_sha256": "0ad08432dc4555c5574baecbd726b1e4636f8f80fb75c54b1c1a20d818a96869",
+  "batch_implementation_sha256": "ae840247a1ac8d386141cd59dfe9f155ba70f46b50b7659433b210bfc5478f0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5c23b77f9214ff19a5d43810a4a1f72382f49402335f6c9a52947a282b5e63f9",
+  "elapsed_seconds": 0.088,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
