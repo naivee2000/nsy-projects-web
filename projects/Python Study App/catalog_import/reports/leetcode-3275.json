@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3275",
+  "content_sha256": "7af44bfdface52d29a2f1f524c6d61b1d5942904ee04d9af75783a6abc7bb399",
+  "source_hash": "70e07d2ae4c6ac2151b2e610e191a1250196c4f2db83ee90f07127bf3283d253",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps only k-1 distances.",
+      "failed_cases": [
+        "lc-3275-1",
+        "lc-3275-2",
+        "lc-3275-3",
+        "lc-3275-5",
+        "lc-3275-6",
+        "lc-3275-7",
+        "lc-3275-8",
+        "lc-3275-9",
+        "lc-3275-10",
+        "lc-3275-11",
+        "lc-3275-12",
+        "lc-3275-13",
+        "lc-3275-14",
+        "lc-3275-15"
+      ]
+    },
+    {
+      "reason": "Uses a min-heap sign, discarding near obstacles instead of far ones.",
+      "failed_cases": [
+        "lc-3275-1",
+        "lc-3275-2",
+        "lc-3275-5",
+        "lc-3275-6",
+        "lc-3275-7",
+        "lc-3275-8",
+        "lc-3275-9",
+        "lc-3275-10",
+        "lc-3275-11",
+        "lc-3275-12",
+        "lc-3275-13",
+        "lc-3275-14",
+        "lc-3275-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7322,
+  "oracle_implementation": "code_practice/import_batch_219c.py:nearest_oracle",
+  "validator_implementation_sha256": "9791d6e1f3da353c65974c81b02ceabbcce4d350459929beb7373263a2ce08f6",
+  "batch_implementation_sha256": "774553b932915f545a7d729e9758f752dff02c4d5e999379afc6d4123cdbdde5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3b91a042c769f51bac81203413affb7c87192904a329f04c2ee99cdc0c698314",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

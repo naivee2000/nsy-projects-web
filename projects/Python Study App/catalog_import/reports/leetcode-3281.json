@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3281",
+  "content_sha256": "82e5a2e02bd1c0e906c35515332a7459aa539d51dfd37a09df6279bedc0cf1b3",
+  "source_hash": "d7b5726ce756bb9b4dfbb53ae520f9920922b0b3a0f1479736c241e7ceaca2a1",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Forces every choice to follow the prior one even when the interval begins later.",
+      "failed_cases": [
+        "lc-3281-14"
+      ]
+    },
+    {
+      "reason": "Rejects a choice equal to the inclusive right endpoint.",
+      "failed_cases": [
+        "lc-3281-1",
+        "lc-3281-2",
+        "lc-3281-3",
+        "lc-3281-4",
+        "lc-3281-6",
+        "lc-3281-7",
+        "lc-3281-8",
+        "lc-3281-11",
+        "lc-3281-14",
+        "lc-3281-15",
+        "lc-3281-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7328,
+  "oracle_implementation": "code_practice/import_batch_219c.py:spacing_oracle",
+  "validator_implementation_sha256": "9791d6e1f3da353c65974c81b02ceabbcce4d350459929beb7373263a2ce08f6",
+  "batch_implementation_sha256": "774553b932915f545a7d729e9758f752dff02c4d5e999379afc6d4123cdbdde5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a1672c5978c67158c6a010634e37110f04f6f5e1aa2fc202018bcdf2eeeab4c6",
+  "elapsed_seconds": 0.288,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

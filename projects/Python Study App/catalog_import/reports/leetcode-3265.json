@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3265",
+  "content_sha256": "57c0077dc2940692128e6c34922404676b693e84fc7ba72c238b3846529cd588",
+  "source_hash": "f4c6f91ff9635f3354a60b18b4ac36e0b651fceb2e3303ce4cfdb2b5e86d295e",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Requires a swap and misses pairs that are already equal.",
+      "failed_cases": [
+        "lc-3265-2",
+        "lc-3265-8"
+      ]
+    },
+    {
+      "reason": "Incorrectly requires both numbers to reach one another with separate swaps.",
+      "failed_cases": [
+        "lc-3265-1",
+        "lc-3265-5",
+        "lc-3265-6",
+        "lc-3265-7",
+        "lc-3265-9",
+        "lc-3265-11",
+        "lc-3265-14",
+        "lc-3265-16"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7312,
+  "oracle_implementation": "code_practice/import_batch_219c.py:almost_oracle",
+  "validator_implementation_sha256": "9791d6e1f3da353c65974c81b02ceabbcce4d350459929beb7373263a2ce08f6",
+  "batch_implementation_sha256": "774553b932915f545a7d729e9758f752dff02c4d5e999379afc6d4123cdbdde5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f87e8636c7d7897af75463ccd8e1928caa08726093e5388a4d5ff591deb0e13b",
+  "elapsed_seconds": 0.088,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

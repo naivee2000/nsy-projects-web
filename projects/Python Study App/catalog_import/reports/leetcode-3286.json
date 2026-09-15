@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3286",
+  "content_sha256": "99f5ba669e8ac6949f0f8cfcb344cf25e4c856d80b70e22a87534e3a38f2a963",
+  "source_hash": "bc7f95a3d370f9c207797f004ac9e563d5c7573f4b3ef911e7c31be0111ec11d",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Does not charge an unsafe starting cell.",
+      "failed_cases": [
+        "lc-3286-5",
+        "lc-3286-9",
+        "lc-3286-14",
+        "lc-3286-16"
+      ]
+    },
+    {
+      "reason": "Allows health to fall to zero at the destination.",
+      "failed_cases": [
+        "lc-3286-2",
+        "lc-3286-4",
+        "lc-3286-10",
+        "lc-3286-11",
+        "lc-3286-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7333,
+  "oracle_implementation": "code_practice/import_batch_219c.py:safe_oracle",
+  "validator_implementation_sha256": "9791d6e1f3da353c65974c81b02ceabbcce4d350459929beb7373263a2ce08f6",
+  "batch_implementation_sha256": "774553b932915f545a7d729e9758f752dff02c4d5e999379afc6d4123cdbdde5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "683efb5e5c11462e43723c6accc70dd6eb79ed66f25549a2ed24b1e6199f1dc8",
+  "elapsed_seconds": 0.063,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
