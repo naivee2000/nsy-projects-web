@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-862",
+  "content_sha256": "3d5a3b657131bb5ed37c6430c4ba8c09318f79a611ff78bbe5306df91a9b8190",
+  "source_hash": "f4e516509b92671da9602102efffbf9c668ead887d368751ee350631c654a116",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects subarrays whose sum equals k exactly.",
+      "failed_cases": [
+        "lc-862-1",
+        "lc-862-2",
+        "lc-862-4",
+        "lc-862-5",
+        "lc-862-7",
+        "lc-862-8",
+        "lc-862-10",
+        "lc-862-12",
+        "lc-862-14"
+      ]
+    },
+    {
+      "reason": "Adds one to every qualifying subarray length.",
+      "failed_cases": [
+        "lc-862-1",
+        "lc-862-2",
+        "lc-862-4",
+        "lc-862-5",
+        "lc-862-7",
+        "lc-862-8",
+        "lc-862-9",
+        "lc-862-10",
+        "lc-862-11",
+        "lc-862-12",
+        "lc-862-13",
+        "lc-862-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4909,
+  "oracle_implementation": "code_practice/import_batch_203c.py:shortest_o",
+  "validator_implementation_sha256": "acdd038a69be2b58d5525a7b1283c4cb6ef7455952cba19364fc5f438d784e95",
+  "batch_implementation_sha256": "2be19928cc748cd8d5bfa52cef0dee74c0ee588166d039429f4427c0a24dc595",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b315cb87d9dbda9ee739878fd691373a5c04b579b248bda9bc34f54075648819",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

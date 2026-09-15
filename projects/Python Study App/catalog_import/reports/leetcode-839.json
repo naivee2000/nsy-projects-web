@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-839",
+  "content_sha256": "fcc2beefda73c245b1806dd1ffcc4b9c4aff0050b024c95b5810434244e0260f",
+  "source_hash": "66a83b0aedc8d965ce3a47093e4b9e07163a4e9042258700f360b1bbda303c26",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Connects only identical strings and misses valid swaps.",
+      "failed_cases": [
+        "lc-839-1",
+        "lc-839-2",
+        "lc-839-4",
+        "lc-839-5",
+        "lc-839-7",
+        "lc-839-9",
+        "lc-839-10",
+        "lc-839-11",
+        "lc-839-12",
+        "lc-839-13"
+      ]
+    },
+    {
+      "reason": "Links raw indices instead of component roots, which can split transitive groups.",
+      "failed_cases": [
+        "lc-839-7",
+        "lc-839-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4886,
+  "oracle_implementation": "code_practice/import_batch_203c.py:groups_o",
+  "validator_implementation_sha256": "acdd038a69be2b58d5525a7b1283c4cb6ef7455952cba19364fc5f438d784e95",
+  "batch_implementation_sha256": "2be19928cc748cd8d5bfa52cef0dee74c0ee588166d039429f4427c0a24dc595",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "282290ab1171b4bcdc11309069555e5bc2bc0deae9c8924e441a7f4974fb13a7",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

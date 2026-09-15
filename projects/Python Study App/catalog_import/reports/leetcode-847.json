@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-847",
+  "content_sha256": "c5c94dfdf264eac3c2b0d3428fd96a7d7d82c48c0162f712c4425681377b7481",
+  "source_hash": "c23ed6e8e524cb0d2b59cbdb5e8c6ea6bb724896d7267a5f8a722ab40e7b00b5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows starting only at vertex zero.",
+      "failed_cases": [
+        "lc-847-1",
+        "lc-847-9",
+        "lc-847-12",
+        "lc-847-13"
+      ]
+    },
+    {
+      "reason": "Never records newly visited vertices in the state mask.",
+      "failed_cases": [
+        "lc-847-1",
+        "lc-847-2",
+        "lc-847-4",
+        "lc-847-5",
+        "lc-847-6",
+        "lc-847-7",
+        "lc-847-8",
+        "lc-847-9",
+        "lc-847-10",
+        "lc-847-11",
+        "lc-847-12",
+        "lc-847-13",
+        "lc-847-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4894,
+  "oracle_implementation": "code_practice/import_batch_203c.py:cover_o",
+  "validator_implementation_sha256": "acdd038a69be2b58d5525a7b1283c4cb6ef7455952cba19364fc5f438d784e95",
+  "batch_implementation_sha256": "2be19928cc748cd8d5bfa52cef0dee74c0ee588166d039429f4427c0a24dc595",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f6159e7bb0c67565884bac12245b28dcca1b0be6a0d395552943714ef4eddf98",
+  "elapsed_seconds": 0.116,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
