@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3167",
+  "content_sha256": "27cbd8136455286f834d50b87c741f3a4d07425aa03ee20895208bb8844f9c62",
+  "source_hash": "b91c18b897cb338d1cd97d41903c9ac22cec55ab2d3d99dd20b9c8b6a178ff7e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Overwrites repeated letter counts instead of adding them.",
+      "failed_cases": [
+        "lc-3167-1",
+        "lc-3167-2",
+        "lc-3167-5",
+        "lc-3167-8",
+        "lc-3167-9",
+        "lc-3167-10",
+        "lc-3167-11",
+        "lc-3167-14"
+      ]
+    },
+    {
+      "reason": "Emits letters in encounter order instead of alphabetical order.",
+      "failed_cases": [
+        "lc-3167-1",
+        "lc-3167-2",
+        "lc-3167-4",
+        "lc-3167-7",
+        "lc-3167-10",
+        "lc-3167-11",
+        "lc-3167-12",
+        "lc-3167-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7214,
+  "oracle_implementation": "code_practice/import_batch_216d.py:better_oracle",
+  "validator_implementation_sha256": "a056d0ec40002a5ff7f1fb0e52f6e5b78201c192daf51b5e51f4df9d5798ebe9",
+  "batch_implementation_sha256": "f57f6bba95af395e600d33d17428d7056d8dc9eb9d72a0d0254f502d748a0cd9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3f32503a8a95bad158c6456068c587ea0c95e3ab910ea04505e58c8088f7a8d2",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

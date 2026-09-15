@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2561,
+  "count": 2566,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -42194,6 +42194,26 @@
       "source_id": 3160
     },
     {
+      "id": "leetcode-3161",
+      "version": 1,
+      "status": "approved",
+      "title": "Block Placement Queries",
+      "summary": "On an infinite number line starting at 0, you handle queries to build obstacles and check if blocks can be placed without intersecting them.",
+      "topics": [
+        "segment trees",
+        "binary search",
+        "ordered sets"
+      ],
+      "prerequisites": [
+        "segment trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3161.json",
+      "content_sha256": "a12a5a4c22408b6030daf80be51b488a300b9194ff214734bddf4bce3c767b28",
+      "source_id": 3161
+    },
+    {
       "id": "leetcode-3162",
       "version": 1,
       "status": "approved",
@@ -42210,6 +42230,78 @@
       "path": "problems/leetcode-3162.json",
       "content_sha256": "eeced3d38d746479bb9bb0f9726f663113809921e1f5d077f4b57e24df9ceca9",
       "source_id": 3162
+    },
+    {
+      "id": "leetcode-3163",
+      "version": 1,
+      "status": "approved",
+      "title": "String Compression III",
+      "summary": "Given a string word, repeatedly remove the longest prefix consisting of a single character that appears at most 9 times consecutively, record the length of this prefix followed by the character, and continue until the word is empty.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3163.json",
+      "content_sha256": "982d906808565b043083a338cbd443a0ba59278f3a85a7587a9d226bef5c4544",
+      "source_id": 3163
+    },
+    {
+      "id": "leetcode-3164",
+      "version": 1,
+      "status": "approved",
+      "title": "Find the Number of Good Pairs II",
+      "summary": "Given two integer arrays nums1 and nums2 of lengths n and m, and a positive integer k, find the count of pairs (i, j) where nums1[i] is divisible by nums2[j] multiplied by k.",
+      "topics": [
+        "number theory",
+        "hash tables",
+        "divisors"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3164.json",
+      "content_sha256": "1f169e972a2db18146c25bf6851ce1bcd179defa7c5cbe0636056f05b480f276",
+      "source_id": 3164
+    },
+    {
+      "id": "leetcode-3165",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Sum of Subsequence With Non-adjacent Elements",
+      "summary": "Given an array nums consisting of integers and a 2D array queries, where each queries[i] is in the form [posi, xi], for each query i, set nums[posi] to xi.",
+      "topics": [
+        "segment trees",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "segment trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3165.json",
+      "content_sha256": "a6081a753b1d40798248f818c18e5a19fa7ffb09ebb1d276dfe46178ab494a17",
+      "source_id": 3165
+    },
+    {
+      "id": "leetcode-3167",
+      "version": 1,
+      "status": "approved",
+      "title": "Better Compression of String",
+      "summary": "Given a string compressed in the format of a character followed by its frequency, produce a new compressed string where each character appears only once, in alphabetical order, maintaining the frequency count.",
+      "topics": [
+        "strings",
+        "parsing",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3167.json",
+      "content_sha256": "27cbd8136455286f834d50b87c741f3a4d07425aa03ee20895208bb8844f9c62",
+      "source_id": 3167
     },
     {
       "id": "leetcode-3168",

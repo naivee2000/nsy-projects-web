@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3163",
+  "content_sha256": "982d906808565b043083a338cbd443a0ba59278f3a85a7587a9d226bef5c4544",
+  "source_hash": "82d3af5b9cac4d7372138a2629927bb1cefa957c273497097cd7e943913285a5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a chunk of ten, violating the single-digit maximum count.",
+      "failed_cases": [
+        "lc-3163-2",
+        "lc-3163-6",
+        "lc-3163-8",
+        "lc-3163-11",
+        "lc-3163-13"
+      ]
+    },
+    {
+      "reason": "Writes character before count instead of the required count-character format.",
+      "failed_cases": [
+        "lc-3163-1",
+        "lc-3163-2",
+        "lc-3163-3",
+        "lc-3163-4",
+        "lc-3163-5",
+        "lc-3163-6",
+        "lc-3163-7",
+        "lc-3163-8",
+        "lc-3163-9",
+        "lc-3163-10",
+        "lc-3163-11",
+        "lc-3163-12",
+        "lc-3163-13",
+        "lc-3163-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7210,
+  "oracle_implementation": "code_practice/import_batch_216d.py:compression_oracle",
+  "validator_implementation_sha256": "a056d0ec40002a5ff7f1fb0e52f6e5b78201c192daf51b5e51f4df9d5798ebe9",
+  "batch_implementation_sha256": "f57f6bba95af395e600d33d17428d7056d8dc9eb9d72a0d0254f502d748a0cd9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "66385ca0b5404c2de1297fc46d0bf0383fd628fb28000f8836592a78d5c0780b",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

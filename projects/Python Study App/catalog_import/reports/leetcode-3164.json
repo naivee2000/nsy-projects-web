@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3164",
+  "content_sha256": "1f169e972a2db18146c25bf6851ce1bcd179defa7c5cbe0636056f05b480f276",
+  "source_hash": "be7696f42e69c6deefdfe1ea80f8fd3d3ac12cf15f2eda0aca059d8d89d1dc71",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Floor-divides values not divisible by k and may count invalid pairs.",
+      "failed_cases": [
+        "lc-3164-4"
+      ]
+    },
+    {
+      "reason": "Counts distinct divisor values but ignores duplicate nums2 indices.",
+      "failed_cases": [
+        "lc-3164-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7211,
+  "oracle_implementation": "code_practice/import_batch_216d.py:pairs_oracle",
+  "validator_implementation_sha256": "a056d0ec40002a5ff7f1fb0e52f6e5b78201c192daf51b5e51f4df9d5798ebe9",
+  "batch_implementation_sha256": "f57f6bba95af395e600d33d17428d7056d8dc9eb9d72a0d0254f502d748a0cd9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cf70f8fd954ecfa44437cd95ec3095c45a3b7dbe5d2995d1a90c2f9512190c37",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

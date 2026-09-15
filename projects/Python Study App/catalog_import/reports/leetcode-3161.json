@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3161",
+  "content_sha256": "a12a5a4c22408b6030daf80be51b488a300b9194ff214734bddf4bce3c767b28",
+  "source_hash": "3474c2454d05160fd011f801b704b5e35c000fe14e2ad25f11937292e57dbeb1",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only the trailing gap and ignores a larger completed gap earlier in the range.",
+      "failed_cases": [
+        "lc-3161-1",
+        "lc-3161-2",
+        "lc-3161-4",
+        "lc-3161-9",
+        "lc-3161-10",
+        "lc-3161-13"
+      ]
+    },
+    {
+      "reason": "Fails to shrink the following obstacle’s gap after inserting a point between two obstacles.",
+      "failed_cases": [
+        "lc-3161-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7208,
+  "oracle_implementation": "code_practice/import_batch_216d.py:blocks_oracle",
+  "validator_implementation_sha256": "a056d0ec40002a5ff7f1fb0e52f6e5b78201c192daf51b5e51f4df9d5798ebe9",
+  "batch_implementation_sha256": "f57f6bba95af395e600d33d17428d7056d8dc9eb9d72a0d0254f502d748a0cd9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8ce2812890be6bfb44e149e55ba8f84bfc7d18fa5024e3594f925051cf149957",
+  "elapsed_seconds": 0.114,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3165",
+  "content_sha256": "a6081a753b1d40798248f818c18e5a19fa7ffb09ebb1d276dfe46178ab494a17",
+  "source_hash": "cce36415e0806eacda0110348c67ac0060c44d337db830f83a2229532d37b981",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows selecting adjacent boundary elements while merging child intervals.",
+      "failed_cases": [
+        "lc-3165-2",
+        "lc-3165-5",
+        "lc-3165-6",
+        "lc-3165-7",
+        "lc-3165-8",
+        "lc-3165-10",
+        "lc-3165-12",
+        "lc-3165-13",
+        "lc-3165-14"
+      ]
+    },
+    {
+      "reason": "Returns only the last update’s optimum instead of summing every update result.",
+      "failed_cases": [
+        "lc-3165-1",
+        "lc-3165-2",
+        "lc-3165-8",
+        "lc-3165-11",
+        "lc-3165-13",
+        "lc-3165-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7212,
+  "oracle_implementation": "code_practice/import_batch_216d.py:subsequence_oracle",
+  "validator_implementation_sha256": "a056d0ec40002a5ff7f1fb0e52f6e5b78201c192daf51b5e51f4df9d5798ebe9",
+  "batch_implementation_sha256": "f57f6bba95af395e600d33d17428d7056d8dc9eb9d72a0d0254f502d748a0cd9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b20c988a04032e5e71c0d769f37b66d69e86245c996aa1e8cdf4d3fae2ad03c2",
+  "elapsed_seconds": 0.133,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
