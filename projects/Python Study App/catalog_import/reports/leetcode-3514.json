@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3514",
+  "content_sha256": "44a10519d5a0770200e2cf506f02cb92a9b32f4d356e88c9618f24aa7756f34e",
+  "source_hash": "25085734701910b38551d5bd420377073e2eb6c5e83e36b67a8fcc13d7ca5757",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses bitwise OR for the third combination instead of XOR.",
+      "failed_cases": [
+        "lc-3514-2",
+        "lc-3514-4",
+        "lc-3514-6",
+        "lc-3514-8",
+        "lc-3514-9",
+        "lc-3514-10",
+        "lc-3514-11",
+        "lc-3514-12",
+        "lc-3514-13",
+        "lc-3514-14"
+      ]
+    },
+    {
+      "reason": "Treats every pair XOR as zero and returns only distinct input values.",
+      "failed_cases": [
+        "lc-3514-6",
+        "lc-3514-9",
+        "lc-3514-10",
+        "lc-3514-11",
+        "lc-3514-12",
+        "lc-3514-13",
+        "lc-3514-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7561,
+  "oracle_implementation": "code_practice/import_batch_227a.py:xor_triplets_oracle",
+  "validator_implementation_sha256": "8efd05cc3ff92b1cb792c9c5926930f00e7dd1de11837b1c565c61b01c80dfba",
+  "batch_implementation_sha256": "b09eff1869346523f836719f67c2b447c963afd59d43340225a8d72d6005b7bd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "14d20f156f661a9189e18084217227e625ae04ebd2d9f2237541639cf72389a4",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

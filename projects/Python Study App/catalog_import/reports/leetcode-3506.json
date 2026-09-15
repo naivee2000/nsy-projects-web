@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3506",
+  "content_sha256": "f0d2751e6d18c5dd6a7a13552f0bb8d8497082aacdaad6c122ecc39e61d9a4e4",
+  "source_hash": "95fdfc1f91a2ca3e240b226db671624d1d4c4e7249107f5141180c3b4e21610a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Combines from the smaller completion time and underestimates the slower branch.",
+      "failed_cases": [
+        "lc-3506-1",
+        "lc-3506-2",
+        "lc-3506-4",
+        "lc-3506-5",
+        "lc-3506-7",
+        "lc-3506-8",
+        "lc-3506-9",
+        "lc-3506-10",
+        "lc-3506-11",
+        "lc-3506-12",
+        "lc-3506-13",
+        "lc-3506-14"
+      ]
+    },
+    {
+      "reason": "Adds both branch durations even though the two child workers operate in parallel.",
+      "failed_cases": [
+        "lc-3506-1",
+        "lc-3506-2",
+        "lc-3506-3",
+        "lc-3506-4",
+        "lc-3506-5",
+        "lc-3506-6",
+        "lc-3506-7",
+        "lc-3506-8",
+        "lc-3506-9",
+        "lc-3506-10",
+        "lc-3506-11",
+        "lc-3506-12",
+        "lc-3506-13",
+        "lc-3506-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7553,
+  "oracle_implementation": "code_practice/import_batch_227a.py:elimination_oracle",
+  "validator_implementation_sha256": "8efd05cc3ff92b1cb792c9c5926930f00e7dd1de11837b1c565c61b01c80dfba",
+  "batch_implementation_sha256": "b09eff1869346523f836719f67c2b447c963afd59d43340225a8d72d6005b7bd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "459165fdde50bbd0acaacc85485c08a5e7604788299b7daa4cb732bbef91a33c",
+  "elapsed_seconds": 0.147,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
