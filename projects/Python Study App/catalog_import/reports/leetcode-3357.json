@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3357",
+  "content_sha256": "a26a431d44b323540bfe1a79c845e257e76243609ed6eb3e56e3017368cae66e",
+  "source_hash": "165934f313ba7b47254b7604b128aa626300f90ec58b8891b158203e857e3a1f",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Treats a one-position internal gap like a longer gap that can transition between both chosen values.",
+      "failed_cases": [
+        "lc-3357-1",
+        "lc-3357-7",
+        "lc-3357-10",
+        "lc-3357-14",
+        "lc-3357-15"
+      ]
+    },
+    {
+      "reason": "Rejects feasible chosen values whose separation equals the allowed difference.",
+      "failed_cases": [
+        "lc-3357-8",
+        "lc-3357-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7404,
+  "oracle_implementation": "code_practice/import_batch_222a.py:missing_oracle",
+  "validator_implementation_sha256": "772537a2cf42134c378121ce93baae9eff02d68b210989aa2b6d194e1c4f4971",
+  "batch_implementation_sha256": "06112b118e925dcfd948d169c687ca7c36cfc4a606a3faa7139a68ab7a54dd1f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0c25e256c83447e72a76e84378605278f7260842d4f39db8a1cf5731cb31508d",
+  "elapsed_seconds": 0.238,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

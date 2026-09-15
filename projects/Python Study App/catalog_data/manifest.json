@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2666,
+  "count": 2671,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -44772,6 +44772,46 @@
       "source_id": 3350
     },
     {
+      "id": "leetcode-3351",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Good Subsequences",
+      "summary": "Given an integer array, calculate the sum of all subsequences where the absolute difference between consecutive elements is exactly 1, modulo 10^9 + 7.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "hash maps"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3351.json",
+      "content_sha256": "9e6ba5b9281a7d3173fc4ad743ee5204e548883cd850c1933dcc01f0d74a0463",
+      "source_id": 3351
+    },
+    {
+      "id": "leetcode-3352",
+      "version": 1,
+      "status": "approved",
+      "title": "Count K-Reducible Numbers Less Than N",
+      "summary": "Given a binary string s representing a number n and an integer k, count how many positive integers less than n can be reduced to 1 by applying the operation of replacing the number with the count of its set bits in binary form at most k times.",
+      "topics": [
+        "dynamic programming",
+        "combinatorics",
+        "bit manipulation"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3352.json",
+      "content_sha256": "d9be905974649393777b419c47f8e23c16bb9fe63488e4932f6c2ee2c159c15c",
+      "source_id": 3352
+    },
+    {
       "id": "leetcode-3353",
       "version": 1,
       "status": "approved",
@@ -44787,6 +44827,62 @@
       "path": "problems/leetcode-3353.json",
       "content_sha256": "311ee6acf422ea8a9e2c2ee09fb94bc5147f41606f4ab14949fd1cb1efb9ebe3",
       "source_id": 3353
+    },
+    {
+      "id": "leetcode-3355",
+      "version": 1,
+      "status": "approved",
+      "title": "Zero Array Transformation I",
+      "summary": "Given an integer array nums and a series of queries, for each query, select a subset of indices within the specified range and decrement their values by 1.",
+      "topics": [
+        "arrays",
+        "difference arrays",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3355.json",
+      "content_sha256": "aba9105ef65625a9935b7fe09b8e25a5fa57cdcf8be7d01f55c6fc4dc02f33e9",
+      "source_id": 3355
+    },
+    {
+      "id": "leetcode-3356",
+      "version": 1,
+      "status": "approved",
+      "title": "Zero Array Transformation II",
+      "summary": "Given an integer array nums and a series of queries, each query specifies a range and a value.",
+      "topics": [
+        "arrays",
+        "binary search",
+        "difference arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3356.json",
+      "content_sha256": "f8329f26c9314bb7b5d99c4874cb701233bdb9c559c555c0fc968e886c85b0b6",
+      "source_id": 3356
+    },
+    {
+      "id": "leetcode-3357",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize the Maximum Adjacent Element Difference",
+      "summary": "Given an array of integers where some values are -1, you must choose a pair of positive integers (x, y) and replace each -1 with either x or y.",
+      "topics": [
+        "arrays",
+        "binary search",
+        "interval stabbing"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3357.json",
+      "content_sha256": "a26a431d44b323540bfe1a79c845e257e76243609ed6eb3e56e3017368cae66e",
+      "source_id": 3357
     },
     {
       "id": "leetcode-3360",
