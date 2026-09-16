@@ -1,7 +1,7 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-2907",
-  "content_sha256": "1205090e4c6a630b97877c28fd8d1238e6ee286cbe57b106db3dd3ab62f760c9",
+  "content_sha256": "007a26a7923d4f1a7c19d2825aa99b8651c5e1845a2313ad30e7ffa71cfc0e57",
   "source_hash": "3628ba5f26070e5c6a417f39550601af340b911a6999aaa12786c457bb359aad",
   "visible_tests": 2,
   "hidden_tests": 12,
@@ -14,24 +14,27 @@
       ]
     },
     {
-      "reason": "Allows the final price to equal the middle price even though all three prices must increase strictly.",
-      "failed_cases": []
+      "reason": "Chooses strictly increasing prices but ignores the required increasing index order.",
+      "failed_cases": [
+        "lc-2907-1",
+        "lc-2907-3",
+        "lc-2907-4",
+        "lc-2907-5",
+        "lc-2907-6",
+        "lc-2907-7",
+        "lc-2907-13"
+      ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 6954,
   "oracle_implementation": "code_practice/import_batch_244b.py:triplet_oracle",
-  "validator_implementation_sha256": "c3bb0972bec853dee160f132043f74b592ec4c3a42c8580e29ebe7fc0ec5c3d3",
-  "batch_implementation_sha256": "d287e2984580de67cb4198d819b4607569fc55b523780392bc578ee57d4c3bb1",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "8b55dc7e3412279044d985bb02a88311350dbf5d687f0558013562e94fad80ef",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
-  "validation_cache_key": "99a4b661e93461e5749a1c21e2a96f0b46fdb8f04e4ee7d87a82c151bfc2b291",
-  "elapsed_seconds": 0.048,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 1
-    }
-  ],
+  "validation_cache_key": "a0e672bd5a258900878860269c7bb3ea905f08b0844a22b06a9f352607665a92",
+  "elapsed_seconds": 0.047,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

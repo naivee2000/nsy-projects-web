@@ -267,3 +267,9 @@ BATCH[2862]['wrong'][0]='''def maximum_complete_index_sum(nums):
     return max(groups.values())
 '''
 BATCH[2862]['wrong_reasons'][0]='Groups positions only by parity, which does not characterize square index products.'
+BATCH[2896]['wrong'][1]='''def minimum_binary_transform_cost(s1,s2,x):
+    positions=[index for index,(a,b) in enumerate(zip(s1,s2)) if a!=b]
+    if len(positions)%2:return -1
+    return sum(positions[index+1]-positions[index] for index in range(0,len(positions),2))
+'''
+BATCH[2896]['wrong_reasons'][1]='Pairs adjacent mismatch positions only and never considers a cheaper arbitrary pair flip.'

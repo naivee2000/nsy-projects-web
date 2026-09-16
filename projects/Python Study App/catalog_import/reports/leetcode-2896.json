@@ -1,7 +1,7 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-2896",
-  "content_sha256": "c961c1c7ab5e9aded84039adcedeb332944c31700e22ef8fe6455fade4de32ee",
+  "content_sha256": "d575271a3d09487aea878442d76217be2d02fd77a0415f7ec41ad1765473ce3b",
   "source_hash": "14668c63594c6adc9ca4a462bf8e100e713b7c88180710262dff293de7e90863",
   "visible_tests": 2,
   "hidden_tests": 12,
@@ -16,24 +16,21 @@
       ]
     },
     {
-      "reason": "Adds one extra cost to every adjacent-pair repair.",
-      "failed_cases": []
+      "reason": "Pairs adjacent mismatch positions only and never considers a cheaper arbitrary pair flip.",
+      "failed_cases": [
+        "lc-2896-1"
+      ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 6943,
   "oracle_implementation": "code_practice/import_batch_244a.py:operations_oracle",
-  "validator_implementation_sha256": "b29cf1bd197b72c617279383095a97b87f04b65147a8cb548bf0a5fcf01704cf",
-  "batch_implementation_sha256": "6657cb2ab6a6a2b5c68c08325830085e750647f3783436332c5d628e32e33169",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "fbaedb454346aa47a947abc0a8a78e023f151d2298ddcb1db6e6a9ea9665c11c",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
-  "validation_cache_key": "6ed5455360acbbaba4c5a4eeb67d5fbe1043771d16758f6e4b6d93f790bcb126",
-  "elapsed_seconds": 0.057,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 1
-    }
-  ],
+  "validation_cache_key": "f3b504555d14cb728a1fdd4109410e1da5c5ab015c0ebc307bccd3ddc9b46392",
+  "elapsed_seconds": 0.055,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

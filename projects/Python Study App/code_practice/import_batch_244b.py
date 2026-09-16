@@ -248,6 +248,15 @@ BATCH[2907]['wrong'][1]='''def maximum_profitable_triplet(prices,profits):
     return answer
 '''
 BATCH[2907]['wrong_reasons'][1]='Allows the final price to equal the middle price even though all three prices must increase strictly.'
+BATCH[2907]['wrong'][1]='''def maximum_profitable_triplet(prices,profits):
+    answer=-1
+    for i in range(len(prices)):
+        for j in range(len(prices)):
+            for k in range(len(prices)):
+                if prices[i]<prices[j]<prices[k]:answer=max(answer,profits[i]+profits[j]+profits[k])
+    return answer
+'''
+BATCH[2907]['wrong_reasons'][1]='Chooses strictly increasing prices but ignores the required increasing index order.'
 BATCH[2940]['wrong']=[
     '''def leftmost_meeting_buildings(heights,queries):
     return [max(first,second) for first,second in queries]
@@ -277,7 +286,7 @@ BATCH[2953]['wrong'][1]='''def count_complete_substrings(word,k):
 BATCH[2953]['wrong_reasons'][1]='Checks exact frequencies but ignores the adjacent-letter distance restriction.'
 BATCH[2967]['reference']='''def minimum_equalindromic_cost(nums):
     ordered=sorted(nums);median=ordered[len(ordered)//2];text=str(median);half=(len(text)+1)//2;prefix=int(text[:half])
-    candidates={10**(len(text)-1)-1,10**len+1}
+    candidates={10**(len(text)-1)-1,10**len(text)+1}
     for value in range(max(1,prefix-2),prefix+3):
         first=str(value);tail=first[:-1] if len(text)%2 else first
         candidates.add(int(first+tail[::-1]))
