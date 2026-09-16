@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2858",
+  "content_sha256": "254e10a163e9ad535fce1ad4e6259fd0aa2c29049f1151faf808cdcd1bd99900",
+  "source_hash": "e2821c974a39dd6d57e57fbb4e5b5ba5961d469505063aed9a385d846ae967cb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assigns the forward direction a reversal cost of one from the initial root.",
+      "failed_cases": [
+        "lc-2858-1",
+        "lc-2858-3",
+        "lc-2858-5",
+        "lc-2858-7",
+        "lc-2858-9",
+        "lc-2858-10",
+        "lc-2858-11",
+        "lc-2858-12",
+        "lc-2858-13",
+        "lc-2858-14"
+      ]
+    },
+    {
+      "reason": "Uses the reroot delta in the opposite direction.",
+      "failed_cases": [
+        "lc-2858-1",
+        "lc-2858-2",
+        "lc-2858-3",
+        "lc-2858-4",
+        "lc-2858-5",
+        "lc-2858-6",
+        "lc-2858-7",
+        "lc-2858-8",
+        "lc-2858-9",
+        "lc-2858-10",
+        "lc-2858-11",
+        "lc-2858-12",
+        "lc-2858-13",
+        "lc-2858-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6905,
+  "oracle_implementation": "code_practice/import_batch_245a.py:reversals_oracle",
+  "validator_implementation_sha256": "dee8669a9a49f993b4bcdd4e8e933e696a5dfd8b6cc9559603c37dee73a794e5",
+  "batch_implementation_sha256": "f2ea73d4a4630997c2fd362bcb69082cf40c711f73521c780cb4c5b2fee2d2bc",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b731f3a33c1479b2b1e0ee0ba86ce045eb5ee5cf3976b164008178a8f0f7114e",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

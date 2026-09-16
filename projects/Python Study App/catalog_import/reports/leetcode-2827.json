@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2827",
+  "content_sha256": "30403b25a1a42e7e04011f819c98d70136e7ce875c818e728012708c59ced22b",
+  "source_hash": "ccd185f288408d1cfe9b0453cb90993f6b79d780366f544526597945ac62689f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the required equality between even- and odd-digit counts.",
+      "failed_cases": [
+        "lc-2827-1",
+        "lc-2827-2",
+        "lc-2827-4",
+        "lc-2827-5",
+        "lc-2827-6",
+        "lc-2827-8",
+        "lc-2827-9",
+        "lc-2827-10",
+        "lc-2827-11",
+        "lc-2827-12",
+        "lc-2827-13",
+        "lc-2827-14"
+      ]
+    },
+    {
+      "reason": "Counts parity-balanced values without requiring divisibility.",
+      "failed_cases": [
+        "lc-2827-1",
+        "lc-2827-6",
+        "lc-2827-9",
+        "lc-2827-10",
+        "lc-2827-11",
+        "lc-2827-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6874,
+  "oracle_implementation": "code_practice/import_batch_245a.py:beautiful_oracle",
+  "validator_implementation_sha256": "dee8669a9a49f993b4bcdd4e8e933e696a5dfd8b6cc9559603c37dee73a794e5",
+  "batch_implementation_sha256": "f2ea73d4a4630997c2fd362bcb69082cf40c711f73521c780cb4c5b2fee2d2bc",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4542c77189bcc9cc8b91c2b7b00b768460bc6f217342d38025796ff5bed915d0",
+  "elapsed_seconds": 0.181,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

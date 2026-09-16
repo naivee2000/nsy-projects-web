@@ -542,6 +542,7 @@ from .import_batch_243b import BATCH as BATCH_243B
 from .import_batch_243c import BATCH as BATCH_243C
 from .import_batch_244a import BATCH as BATCH_244A
 from .import_batch_244b import BATCH as BATCH_244B
+from .import_batch_245a import BATCH as BATCH_245A
 from .catalog_evidence import judge_contract_hash
 from .catalog_artifacts import write_json_atomic
 from .schemas import ProblemDefinition, TestCase
@@ -1042,6 +1043,7 @@ BATCH.update(BATCH_243B)
 BATCH.update(BATCH_243C)
 BATCH.update(BATCH_244A)
 BATCH.update(BATCH_244B)
+BATCH.update(BATCH_245A)
 
 from .order_insensitive_outputs import apply_order_insensitive_outputs
 apply_order_insensitive_outputs(BATCH)

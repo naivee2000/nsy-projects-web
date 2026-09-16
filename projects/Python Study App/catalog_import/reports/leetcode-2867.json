@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2867",
+  "content_sha256": "c5e2a900a590ef75118aecbcc162a93ef101a3ff57fdfaff8b8ec3e5ca580e11",
+  "source_hash": "f36ba5cfc0cdaab7bfcc6185027d773c93fe433fdbf2a29ea06260d6b108f6b7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only paths crossing two nonprime components and omits paths ending at the prime.",
+      "failed_cases": [
+        "lc-2867-1",
+        "lc-2867-2",
+        "lc-2867-3",
+        "lc-2867-4",
+        "lc-2867-5",
+        "lc-2867-6",
+        "lc-2867-7",
+        "lc-2867-8",
+        "lc-2867-9",
+        "lc-2867-10",
+        "lc-2867-11",
+        "lc-2867-12",
+        "lc-2867-13",
+        "lc-2867-14"
+      ]
+    },
+    {
+      "reason": "Builds components from prime neighbors instead of nonprime regions.",
+      "failed_cases": [
+        "lc-2867-1",
+        "lc-2867-2",
+        "lc-2867-3",
+        "lc-2867-4",
+        "lc-2867-5",
+        "lc-2867-6",
+        "lc-2867-7",
+        "lc-2867-8",
+        "lc-2867-9",
+        "lc-2867-10",
+        "lc-2867-11",
+        "lc-2867-12",
+        "lc-2867-13",
+        "lc-2867-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6914,
+  "oracle_implementation": "code_practice/import_batch_245a.py:valid_paths_oracle",
+  "validator_implementation_sha256": "dee8669a9a49f993b4bcdd4e8e933e696a5dfd8b6cc9559603c37dee73a794e5",
+  "batch_implementation_sha256": "f2ea73d4a4630997c2fd362bcb69082cf40c711f73521c780cb4c5b2fee2d2bc",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "03f7b0ec77fc800cea51035dcb8927bb52a06e4b2116a94eb6c63aec57ecb47f",
+  "elapsed_seconds": 0.088,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

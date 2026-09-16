@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2842",
+  "content_sha256": "c75e3cb6ec85c621d71cd9236877f88370c329a37e2ebcf74089a57030eef6e4",
+  "source_hash": "c77233d139c4d5fb4823793f6d6d4f4387276fa0f428f5eb7b3e610b6ef517ef",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the number of cutoff-frequency characters instead of choosing the required number of them.",
+      "failed_cases": [
+        "lc-2842-2",
+        "lc-2842-9",
+        "lc-2842-11",
+        "lc-2842-14"
+      ]
+    },
+    {
+      "reason": "Counts only one cutoff character occurrence even when several cutoff classes are selected.",
+      "failed_cases": [
+        "lc-2842-7",
+        "lc-2842-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6889,
+  "oracle_implementation": "code_practice/import_batch_245a.py:beauty_oracle",
+  "validator_implementation_sha256": "dee8669a9a49f993b4bcdd4e8e933e696a5dfd8b6cc9559603c37dee73a794e5",
+  "batch_implementation_sha256": "f2ea73d4a4630997c2fd362bcb69082cf40c711f73521c780cb4c5b2fee2d2bc",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "59a8529b735efb4986ac1c8c081ff0a0ae468edb90ef5489174c3326337c8c5a",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2813",
+  "content_sha256": "a4322faef1d0ca6889e03324dea58ca347eb71c9ccfe46bf5115a30b0c4ae846",
+  "source_hash": "d89e8708eb9347db3409772e63e0411a9ae6ef0a0bb43ca36cb8d8ecb7894ec3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Starts from the lowest-profit items.",
+      "failed_cases": [
+        "lc-2813-1",
+        "lc-2813-4",
+        "lc-2813-6",
+        "lc-2813-8",
+        "lc-2813-10",
+        "lc-2813-11",
+        "lc-2813-12",
+        "lc-2813-13",
+        "lc-2813-14"
+      ]
+    },
+    {
+      "reason": "Removes the largest duplicate profit instead of the smallest when adding a category.",
+      "failed_cases": [
+        "lc-2813-1",
+        "lc-2813-2",
+        "lc-2813-6",
+        "lc-2813-8",
+        "lc-2813-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6860,
+  "oracle_implementation": "code_practice/import_batch_245a.py:elegance_oracle",
+  "validator_implementation_sha256": "dee8669a9a49f993b4bcdd4e8e933e696a5dfd8b6cc9559603c37dee73a794e5",
+  "batch_implementation_sha256": "f2ea73d4a4630997c2fd362bcb69082cf40c711f73521c780cb4c5b2fee2d2bc",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7c09a3f580be6f242cd8ad7eab7cf5c353f7209775b8da699a86368c32a34389",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2812",
+  "content_sha256": "0abe9e86f086678ee37bc987dfb7c0d3032aae78c846a2b01bdf189e30ebf91f",
+  "source_hash": "fbc73061d4159e650b784cd7b28c1f22ad429915b64836e14377f460e03420fd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only the destination cell distance instead of the minimum across the whole path.",
+      "failed_cases": [
+        "lc-2812-4",
+        "lc-2812-6",
+        "lc-2812-7",
+        "lc-2812-8",
+        "lc-2812-10",
+        "lc-2812-11"
+      ]
+    },
+    {
+      "reason": "Fails to increase distance layers away from thieves.",
+      "failed_cases": [
+        "lc-2812-2",
+        "lc-2812-3",
+        "lc-2812-6",
+        "lc-2812-7",
+        "lc-2812-8",
+        "lc-2812-9",
+        "lc-2812-10",
+        "lc-2812-11",
+        "lc-2812-12",
+        "lc-2812-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6859,
+  "oracle_implementation": "code_practice/import_batch_245a.py:safest_oracle",
+  "validator_implementation_sha256": "dee8669a9a49f993b4bcdd4e8e933e696a5dfd8b6cc9559603c37dee73a794e5",
+  "batch_implementation_sha256": "f2ea73d4a4630997c2fd362bcb69082cf40c711f73521c780cb4c5b2fee2d2bc",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "94e24cc47e3891129a55469338f47fd89556a0f4125e6526c8e0b588d693d836",
+  "elapsed_seconds": 0.114,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
