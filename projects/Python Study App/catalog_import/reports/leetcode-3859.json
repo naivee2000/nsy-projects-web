@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3859",
+  "content_sha256": "15a8fa5028c7ee087a5703ad5ae49b6fee0b45219c0ddee1813d3c68f8cf2aaa",
+  "source_hash": "1a3a3950a712d367d3520c0a5a5c94f835e1547429615a41fced2a4134c234d7",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts windows with at least k distinct values instead of exactly k.",
+      "failed_cases": [
+        "lc-3859-11",
+        "lc-3859-13",
+        "lc-3859-14"
+      ]
+    },
+    {
+      "reason": "Increments the qualified-value counter repeatedly after a frequency exceeds m.",
+      "failed_cases": [
+        "lc-3859-1",
+        "lc-3859-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7906,
+  "oracle_implementation": "code_practice/import_batch_239d.py:distinct_oracle",
+  "validator_implementation_sha256": "4283c4f82f5e1e7e79c985ec0cb53c627874dd5e2358af445eacc1ec93be0584",
+  "batch_implementation_sha256": "29073ff6c362278c281561b9fb7004f7150dc83b649e2fff2afc48016112005a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "68bf0330b9f70f495240a7005fe724fd4a410e614a1e63648970f4a75dab29f3",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

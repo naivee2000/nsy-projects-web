@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3863",
+  "content_sha256": "75a30332d3ba7af3778b2810f3c48f2c2d5224183b9dc7677bd939c78bcc7ed4",
+  "source_hash": "3178018b17ca47b5845f3b3f0f92109248159c9ba82306f9549a4b76a2701c90",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows sorting the entire length-two string despite the proper-substring restriction.",
+      "failed_cases": [
+        "lc-3863-2"
+      ]
+    },
+    {
+      "reason": "Claims every remaining arrangement is solvable in two operations, missing the three-operation case.",
+      "failed_cases": [
+        "lc-3863-6",
+        "lc-3863-9",
+        "lc-3863-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7910,
+  "oracle_implementation": "code_practice/import_batch_239d.py:sorting_oracle",
+  "validator_implementation_sha256": "4283c4f82f5e1e7e79c985ec0cb53c627874dd5e2358af445eacc1ec93be0584",
+  "batch_implementation_sha256": "29073ff6c362278c281561b9fb7004f7150dc83b649e2fff2afc48016112005a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c789932d175d17397d82c57ca807d7725dcd54d07d74b7a57be6d82e65185abe",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

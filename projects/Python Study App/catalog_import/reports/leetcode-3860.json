@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3860",
+  "content_sha256": "2b746e4d30892f3601c2ab9358807ab90b8ea6b7e6149c38f66b2b17ddf2af37",
+  "source_hash": "6bb7462a8f281ff16e7e1d0ec30cfe3558a8b1ef87d3e9fc1aebaf599a2d4889",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Drops the @ separator and can collide different local/domain splits.",
+      "failed_cases": [
+        "lc-3860-6"
+      ]
+    },
+    {
+      "reason": "Leaves dots in the local name instead of ignoring them.",
+      "failed_cases": [
+        "lc-3860-1",
+        "lc-3860-4",
+        "lc-3860-7",
+        "lc-3860-10",
+        "lc-3860-11",
+        "lc-3860-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7907,
+  "oracle_implementation": "code_practice/import_batch_239d.py:email_oracle",
+  "validator_implementation_sha256": "4283c4f82f5e1e7e79c985ec0cb53c627874dd5e2358af445eacc1ec93be0584",
+  "batch_implementation_sha256": "29073ff6c362278c281561b9fb7004f7150dc83b649e2fff2afc48016112005a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "090059a7e5640da9fbadedd6c16e293734103f01a9d2085af3ce9c47ead62134",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

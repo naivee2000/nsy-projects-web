@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3862",
+  "content_sha256": "7cd1ac973ec87acea4fc404f53e5135b768ff6e6b8e63509e502689d893f58c9",
+  "source_hash": "096393d91e00cc83ee3c18d36f662d00e0a98b43c37f0241d7d9c4a4093fa66f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses zero rather than the multiplicative identity for an empty suffix.",
+      "failed_cases": [
+        "lc-3862-1",
+        "lc-3862-2",
+        "lc-3862-3",
+        "lc-3862-4",
+        "lc-3862-5",
+        "lc-3862-6",
+        "lc-3862-7",
+        "lc-3862-8",
+        "lc-3862-9",
+        "lc-3862-10",
+        "lc-3862-11",
+        "lc-3862-12",
+        "lc-3862-13",
+        "lc-3862-14",
+        "lc-3862-15"
+      ]
+    },
+    {
+      "reason": "Returns distance from the right instead of the original array index.",
+      "failed_cases": [
+        "lc-3862-4",
+        "lc-3862-5",
+        "lc-3862-11",
+        "lc-3862-12",
+        "lc-3862-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7909,
+  "oracle_implementation": "code_practice/import_batch_239d.py:balance_oracle",
+  "validator_implementation_sha256": "4283c4f82f5e1e7e79c985ec0cb53c627874dd5e2358af445eacc1ec93be0584",
+  "batch_implementation_sha256": "29073ff6c362278c281561b9fb7004f7150dc83b649e2fff2afc48016112005a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "61d9a0473deca71f18217a3360e77929b37cc91ee48c2e48a1c02ab5952aa294",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
