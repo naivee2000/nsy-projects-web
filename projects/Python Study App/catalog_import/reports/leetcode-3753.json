@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3753",
+  "content_sha256": "3c16dbdf70538e16a58793dc43d9f7815b89f76b9066c8517c78da287c9566d0",
+  "source_hash": "5acb6f978901095e6dda2f3c6077a7305e9ff6c40056d57b646809f6a06bd8c1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal-neighbor plateaus as peaks.",
+      "failed_cases": [
+        "lc-3753-1",
+        "lc-3753-4",
+        "lc-3753-5",
+        "lc-3753-6",
+        "lc-3753-8",
+        "lc-3753-10",
+        "lc-3753-11",
+        "lc-3753-12",
+        "lc-3753-13",
+        "lc-3753-14"
+      ]
+    },
+    {
+      "reason": "Excludes num1 by subtracting its inclusive prefix total.",
+      "failed_cases": [
+        "lc-3753-1",
+        "lc-3753-2",
+        "lc-3753-4",
+        "lc-3753-5",
+        "lc-3753-6",
+        "lc-3753-7",
+        "lc-3753-9",
+        "lc-3753-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7800,
+  "oracle_implementation": "code_practice/import_batch_236a.py:waviness_oracle",
+  "validator_implementation_sha256": "6f1fec2ff8c48c57589885206d806daa95d12382686dbe54bb316686e7debecc",
+  "batch_implementation_sha256": "9ac6087eaa165ae8c4771147c44a64af0c62ef5713dc42a3e51ae03eace521c1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "05b284eac7f6af6e2975ff3a53305be69daa61c0135f071cec06103c9a8e274c",
+  "elapsed_seconds": 0.366,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

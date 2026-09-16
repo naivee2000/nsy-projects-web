@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3758",
+  "content_sha256": "4e23ad31a6339c14df668be0c109aa0e8dd9d69adb1c336cd5da8bfb96b454bd",
+  "source_hash": "5190f5c212693c561b74fd3d2b162e889758ca57dae5e74e000e08a468de6e44",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Advances one character too little after a match and can reuse its final letter.",
+      "failed_cases": [
+        "lc-3758-11",
+        "lc-3758-14"
+      ]
+    },
+    {
+      "reason": "Maps word positions to the wrong digits by rotating the dictionary order.",
+      "failed_cases": [
+        "lc-3758-1",
+        "lc-3758-2",
+        "lc-3758-3",
+        "lc-3758-4",
+        "lc-3758-7",
+        "lc-3758-8",
+        "lc-3758-9",
+        "lc-3758-10",
+        "lc-3758-11",
+        "lc-3758-12",
+        "lc-3758-13",
+        "lc-3758-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7805,
+  "oracle_implementation": "code_practice/import_batch_236a.py:words_oracle",
+  "validator_implementation_sha256": "6f1fec2ff8c48c57589885206d806daa95d12382686dbe54bb316686e7debecc",
+  "batch_implementation_sha256": "9ac6087eaa165ae8c4771147c44a64af0c62ef5713dc42a3e51ae03eace521c1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5cc47c5473ade51cb6b2a4eac83baeebc7dc5c958338176236f258d77cb24588",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

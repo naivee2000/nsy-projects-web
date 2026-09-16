@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3756",
+  "content_sha256": "0d727178f92f88e35976315b22abd0f0f65f51e2a66e1033d9699147cdd320d5",
+  "source_hash": "8092078e0c086f3b0c6127a54d7f28c7f59dd5a65931e52c7281774bc0139bbd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts zeros as concatenated digit positions and shifts substring extraction.",
+      "failed_cases": [
+        "lc-3756-1",
+        "lc-3756-5",
+        "lc-3756-9",
+        "lc-3756-10",
+        "lc-3756-12",
+        "lc-3756-13",
+        "lc-3756-14"
+      ]
+    },
+    {
+      "reason": "Omits the query’s final digit from its digit sum.",
+      "failed_cases": [
+        "lc-3756-1",
+        "lc-3756-6",
+        "lc-3756-7",
+        "lc-3756-9",
+        "lc-3756-10",
+        "lc-3756-11",
+        "lc-3756-12",
+        "lc-3756-13",
+        "lc-3756-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7803,
+  "oracle_implementation": "code_practice/import_batch_236a.py:concatenate_oracle",
+  "validator_implementation_sha256": "6f1fec2ff8c48c57589885206d806daa95d12382686dbe54bb316686e7debecc",
+  "batch_implementation_sha256": "9ac6087eaa165ae8c4771147c44a64af0c62ef5713dc42a3e51ae03eace521c1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d12020e1e011648c5c9b60bb630a1cf9e715c46b6ab5301f3daa840ffa285d24",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2945,
+  "count": 2950,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -51275,6 +51275,26 @@
       "source_id": 3752
     },
     {
+      "id": "leetcode-3753",
+      "version": 1,
+      "status": "approved",
+      "title": "Total Waviness of Numbers in Range II",
+      "summary": "Given two integers num1 and num2, calculate the total waviness of all numbers in the inclusive range [num1, num2].",
+      "topics": [
+        "dynamic programming",
+        "digit dp",
+        "math"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3753.json",
+      "content_sha256": "3c16dbdf70538e16a58793dc43d9f7815b89f76b9066c8517c78da287c9566d0",
+      "source_id": 3753
+    },
+    {
       "id": "leetcode-3754",
       "version": 1,
       "status": "approved",
@@ -51291,6 +51311,81 @@
       "path": "problems/leetcode-3754.json",
       "content_sha256": "54c6e27f89716116d78fbd8d6f99d4c4481fbf703a0610eff27a1ae2f6b44ca3",
       "source_id": 3754
+    },
+    {
+      "id": "leetcode-3755",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Maximum Balanced XOR Subarray Length",
+      "summary": "Given an integer array, determine the longest subarray with a bitwise XOR of zero and an equal count of even and odd numbers.",
+      "topics": [
+        "arrays",
+        "bit manipulation",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3755.json",
+      "content_sha256": "2b8d0edad57a9fea56900405f63d31c435992722de2c49340eb50f5f81cdc246",
+      "source_id": 3755
+    },
+    {
+      "id": "leetcode-3756",
+      "version": 1,
+      "status": "approved",
+      "title": "Concatenate Non-Zero Digits and Multiply by Sum II",
+      "summary": "Given a string s with digits and a list of query ranges, for each query, extract the substring, form a new integer by concatenating non-zero digits, calculate the sum of these digits, and return the product of the integer and its sum modulo 10^9 + 7.",
+      "topics": [
+        "strings",
+        "prefix sums",
+        "modular arithmetic"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3756.json",
+      "content_sha256": "0d727178f92f88e35976315b22abd0f0f65f51e2a66e1033d9699147cdd320d5",
+      "source_id": 3756
+    },
+    {
+      "id": "leetcode-3757",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Effective Subsequences",
+      "summary": "Given an integer array, calculate the number of subsequences whose removal strictly decreases the bitwise OR of the remaining elements, modulo 10^9 + 7.",
+      "topics": [
+        "arrays",
+        "bit manipulation",
+        "inclusion exclusion",
+        "subset dp"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3757.json",
+      "content_sha256": "5b98dcb027a3ccc978a22cdc58dcf49a9c3362899d1e2f16714e7c534cd3e151",
+      "source_id": 3757
+    },
+    {
+      "id": "leetcode-3758",
+      "version": 1,
+      "status": "approved",
+      "title": "Convert Number Words to Digits",
+      "summary": "Given a string s consisting of lowercase English letters, extract and convert any valid number words to their corresponding digits, forming a resulting string of digits.",
+      "topics": [
+        "strings",
+        "tries",
+        "parsing"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3758.json",
+      "content_sha256": "4e23ad31a6339c14df668be0c109aa0e8dd9d69adb1c336cd5da8bfb96b454bd",
+      "source_id": 3758
     },
     {
       "id": "leetcode-3760",
