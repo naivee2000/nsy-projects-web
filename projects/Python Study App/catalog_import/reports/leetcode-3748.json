@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3748",
+  "content_sha256": "4135605d98bf392b2d73fbf8236371bc4084f7fc414e88870e13e9e94bc2edca",
+  "source_hash": "453be3cf5a8e9d8e9d1efa7108e359d505bffae8d317c10a9a47809a282fa5e2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks runs at equal adjacent values and loses valid nondecreasing subarrays.",
+      "failed_cases": [
+        "lc-3748-2",
+        "lc-3748-9",
+        "lc-3748-10",
+        "lc-3748-11",
+        "lc-3748-13",
+        "lc-3748-14"
+      ]
+    },
+    {
+      "reason": "Chooses the segment before the query’s left boundary when locating partial runs.",
+      "failed_cases": [
+        "lc-3748-6",
+        "lc-3748-8",
+        "lc-3748-11",
+        "lc-3748-12",
+        "lc-3748-13",
+        "lc-3748-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7795,
+  "oracle_implementation": "code_practice/import_batch_235d.py:stable_oracle",
+  "validator_implementation_sha256": "ebe93cd4e60c00ef01f34613fc19e81e1476085157abfec8d8bff08f1a22c3cc",
+  "batch_implementation_sha256": "872f530d188f74e05d72cbbe6d1bf118a278b9688722a7374d2e1229480037cd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7db4e9a4996c55b2873cc88b023fb7d1ad9de52e6e4fe567c12e53de8e5e0d6e",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

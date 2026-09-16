@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3752",
+  "content_sha256": "b32a5d60221bfb237e01f56e14e7ee58595801a6a8974cb291eae1a5beeb363c",
+  "source_hash": "af2f405132c413275c0f19739774b55e3939a347db9bf9c0eda1f210135ea445",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tests target parity alone instead of parity relative to the total sum.",
+      "failed_cases": [
+        "lc-3752-3",
+        "lc-3752-4",
+        "lc-3752-5",
+        "lc-3752-6",
+        "lc-3752-7",
+        "lc-3752-12",
+        "lc-3752-13"
+      ]
+    },
+    {
+      "reason": "Chooses negative magnitudes from smallest upward and loses lexicographic minimality.",
+      "failed_cases": [
+        "lc-3752-1",
+        "lc-3752-10",
+        "lc-3752-11",
+        "lc-3752-12",
+        "lc-3752-13",
+        "lc-3752-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7799,
+  "oracle_implementation": "code_practice/import_batch_235d.py:signed_oracle",
+  "validator_implementation_sha256": "ebe93cd4e60c00ef01f34613fc19e81e1476085157abfec8d8bff08f1a22c3cc",
+  "batch_implementation_sha256": "872f530d188f74e05d72cbbe6d1bf118a278b9688722a7374d2e1229480037cd",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4560a813335fe513915d4569da61588d45265035110a416c44659033742aed3f",
+  "elapsed_seconds": 20.515,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

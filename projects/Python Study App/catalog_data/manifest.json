@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2940,
+  "count": 2945,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -51165,6 +51165,64 @@
       "source_id": 3746
     },
     {
+      "id": "leetcode-3747",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Distinct Integers After Removing Zeros",
+      "summary": "Given a positive integer n, for each integer x from 1 to n, remove all zeros from its decimal representation.",
+      "topics": [
+        "dynamic programming",
+        "digit dp",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3747.json",
+      "content_sha256": "6959f20b45d8fa990a72b01a1a03ac75f6545e6ef2f2339a1d943311535c7a9a",
+      "source_id": 3747
+    },
+    {
+      "id": "leetcode-3748",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Stable Subarrays",
+      "summary": "Given an integer array nums, for each query [li, ri] in a 2D array queries, calculate the count of stable subarrays within nums[li..ri].",
+      "topics": [
+        "arrays",
+        "binary search",
+        "prefix sums"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3748.json",
+      "content_sha256": "4135605d98bf392b2d73fbf8236371bc4084f7fc414e88870e13e9e94bc2edca",
+      "source_id": 3748
+    },
+    {
+      "id": "leetcode-3749",
+      "version": 1,
+      "status": "approved",
+      "title": "Evaluate Valid Expressions",
+      "summary": "Given a string expression representing a nested mathematical expression, evaluate it.",
+      "topics": [
+        "strings",
+        "stacks",
+        "parsing"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3749.json",
+      "content_sha256": "04abcb3a306dbfb90450ff0848e9367cfa63f8ff73544dd2f01ee6b88ce719fe",
+      "source_id": 3749
+    },
+    {
       "id": "leetcode-3750",
       "version": 1,
       "status": "approved",
@@ -51180,6 +51238,41 @@
       "path": "problems/leetcode-3750.json",
       "content_sha256": "79b3673a265541d750b90cec8e1e5957b462648031c8bea3635cf456963da456",
       "source_id": 3750
+    },
+    {
+      "id": "leetcode-3751",
+      "version": 1,
+      "status": "approved",
+      "title": "Total Waviness of Numbers in Range I",
+      "summary": "Given two integers num1 and num2, calculate the total waviness of all numbers in the inclusive range [num1, num2].",
+      "topics": [
+        "math",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3751.json",
+      "content_sha256": "20749da2c95f05578609292b62986ba38d8f07d883412b635a15e64fd8dc9b75",
+      "source_id": 3751
+    },
+    {
+      "id": "leetcode-3752",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographically Smallest Negated Permutation that Sums to Target",
+      "summary": "Given a positive integer n and an integer target, find the lexicographically smallest array of n integers where the sum equals the target and the absolute values of the elements are a permutation of 1 through n.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3752.json",
+      "content_sha256": "b32a5d60221bfb237e01f56e14e7ee58595801a6a8974cb291eae1a5beeb363c",
+      "source_id": 3752
     },
     {
       "id": "leetcode-3754",
