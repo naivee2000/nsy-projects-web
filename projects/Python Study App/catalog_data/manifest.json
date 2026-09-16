@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2890,
+  "count": 2895,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -49918,6 +49918,44 @@
       "source_id": 3670
     },
     {
+      "id": "leetcode-3671",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Beautiful Subsequences",
+      "summary": "Given an integer array nums, calculate the sum of beauty values for all positive integers g, where the beauty of g is the product of g and the count of strictly increasing subsequences of nums with a greatest common divisor of exactly g.",
+      "topics": [
+        "arrays",
+        "number theory",
+        "fenwick trees"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3671.json",
+      "content_sha256": "e197685529581592822468354e83c4b57bb42f1ae75b2e3bb3ee9141a995671f",
+      "source_id": 3671
+    },
+    {
+      "id": "leetcode-3672",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Weighted Modes in Subarrays",
+      "summary": "Given an integer array nums and an integer k, for every subarray of length k, calculate the mode (the element with the highest frequency, or the smallest element in case of a tie) and its frequency.",
+      "topics": [
+        "arrays",
+        "sliding windows",
+        "heaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3672.json",
+      "content_sha256": "d946d1f469bfed71cf4b528371ce6813be5d57188b2931dd31d313a88545cc1d",
+      "source_id": 3672
+    },
+    {
       "id": "leetcode-3674",
       "version": 1,
       "status": "approved",
@@ -49952,6 +49990,42 @@
       "source_id": 3675
     },
     {
+      "id": "leetcode-3676",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Bowl Subarrays",
+      "summary": "Given an array of distinct integers, count the subarrays of at least length 3 where the minimum value of the first and last elements is strictly greater than the maximum value of the elements in between.",
+      "topics": [
+        "arrays",
+        "monotonic stacks"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3676.json",
+      "content_sha256": "a78cd965b8a1100b7614ccc312cf26b4b82528d79b8b04629447614b46ae1643",
+      "source_id": 3676
+    },
+    {
+      "id": "leetcode-3677",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Binary Palindromic Numbers",
+      "summary": "Given a non-negative integer n, count how many integers k between 0 and n inclusive have a binary representation that is a palindrome.",
+      "topics": [
+        "bit manipulation",
+        "combinatorics"
+      ],
+      "prerequisites": [
+        "bit manipulation"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3677.json",
+      "content_sha256": "cade7d964f711373a1b55cea250275768193910be6eec0e3de5d086d74202a02",
+      "source_id": 3677
+    },
+    {
       "id": "leetcode-3678",
       "version": 1,
       "status": "approved",
@@ -49968,6 +50042,24 @@
       "path": "problems/leetcode-3678.json",
       "content_sha256": "02b281ac7280abc001777ff22299cc636c8f134addc44f9a8acc607ce8db804d",
       "source_id": 3678
+    },
+    {
+      "id": "leetcode-3679",
+      "version": 1,
+      "status": "approved",
+      "title": " Minimum Discards to Balance Inventory",
+      "summary": "Given integers w and m, and an integer array arrivals where each element represents the type of item arriving on a specific day (days are 1-indexed), you must ensure that no item type appears more than m times in any w-day window by discarding the minimum number of arrivals.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "sliding windows"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3679.json",
+      "content_sha256": "eb9a6088141b577ace289353d5fa417377d592a3ad069c3a52edeb05f8515c22",
+      "source_id": 3679
     },
     {
       "id": "leetcode-3683",

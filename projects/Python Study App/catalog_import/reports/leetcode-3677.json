@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3677",
+  "content_sha256": "cade7d964f711373a1b55cea250275768193910be6eec0e3de5d086d74202a02",
+  "source_hash": "d8c15ec47ce07b256114c708da4315ee9efd9afa35dc7627e88be4901e46f660",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Excludes n itself when n is binary-palindromic.",
+      "failed_cases": [
+        "lc-3677-1",
+        "lc-3677-3",
+        "lc-3677-5",
+        "lc-3677-7",
+        "lc-3677-9",
+        "lc-3677-11"
+      ]
+    },
+    {
+      "reason": "Forgets to count zero.",
+      "failed_cases": [
+        "lc-3677-1",
+        "lc-3677-3",
+        "lc-3677-4",
+        "lc-3677-5",
+        "lc-3677-6",
+        "lc-3677-7",
+        "lc-3677-8",
+        "lc-3677-9",
+        "lc-3677-10",
+        "lc-3677-11",
+        "lc-3677-12",
+        "lc-3677-13",
+        "lc-3677-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7724,
+  "oracle_implementation": "code_practice/import_batch_233b.py:palindrome_oracle",
+  "validator_implementation_sha256": "db01111376e5b2fda5e204a1b7e444909a98b101930d06be898df92e479e8b6a",
+  "batch_implementation_sha256": "965d99a46bd18734b8bee4cf769c5e706dc2c71cd221f00587c0ee722a790a2e",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fc755255926295bbc03d4c2ecc8e9dbb10a6d216abc3bc5806e6e83d089420e8",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
