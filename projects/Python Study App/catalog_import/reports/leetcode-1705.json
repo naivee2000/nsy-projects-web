@@ -1,15 +1,17 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1705",
-  "content_sha256": "fbb6a3370c66bdc5653943d30e64a503f7b78f3fe9d9b0d9e6fcdb64392e8f09",
+  "content_sha256": "71bf99235f3173cd091e0d7acf76ea9bd2f264c0c6468a326f11ff141325cebc",
   "source_hash": "4949dd68e0ad62942908fc02e0fb57a83cd3d486987b751ba48d1206cda7758a",
   "visible_tests": 2,
-  "hidden_tests": 14,
-  "reference_passed": 16,
+  "hidden_tests": 15,
+  "reference_passed": 17,
   "wrong_solutions": [
     {
       "reason": "Consumes the newest batch first and can let an earlier-expiring batch rot.",
-      "failed_cases": []
+      "failed_cases": [
+        "lc-1705-17"
+      ]
     },
     {
       "reason": "Stops eating when the tree stops producing, discarding still-fresh stored apples.",
@@ -18,24 +20,20 @@
         "lc-1705-2",
         "lc-1705-6",
         "lc-1705-10",
-        "lc-1705-14"
+        "lc-1705-14",
+        "lc-1705-17"
       ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 5752,
   "oracle_implementation": "code_practice/import_batch_207d.py:apples_oracle",
-  "validator_implementation_sha256": "b1f4acf211480db82e8c680b0ab565d29f75bee174571a0711a7836f5a0b7729",
+  "validator_implementation_sha256": "c07e6177a8a8c068cf133ba8d6ae21acd2139b5a8340cc58ce25f006b5717d4a",
   "batch_implementation_sha256": "f4aaeafbcceee958f593d43f349d6524035762e6852cd38da599a7a436e537e7",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "d2eb1ca5345ae66a57e285110eb201b3e8bdb88fe771f43fefead8e0e5d0766b",
-  "elapsed_seconds": 0.051,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 0
-    }
-  ],
+  "elapsed_seconds": 0.047,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

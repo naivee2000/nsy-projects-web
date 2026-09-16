@@ -82,9 +82,15 @@ def billboard_oracle(a):
   if left==right:best=max(best,left)
  return best
 def prison_oracle(a):
- cells,n=a;state=cells[:]
- for _ in range(n):state=[0]+[int(state[i-1]==state[i+1]) for i in range(1,7)]+[0]
- return state
+ cells,n=a;state=tuple(cells);seen={};history=[]
+ while n and state not in seen:
+  seen[state]=len(history);history.append(state)
+  state=(0,)+tuple(int(state[i-1]==state[i+1]) for i in range(1,7))+(0,)
+  n-=1
+ if n:
+  cycle_start=seen[state]
+  state=history[cycle_start+n%(len(history)-cycle_start)]
+ return list(state)
 def regions_oracle(a):
  grid=a[0];n=len(grid);board=[[0]*(3*n) for _ in range(3*n)]
  for r,row in enumerate(grid):
@@ -279,8 +285,8 @@ REGIONS=r'''def slash_region_count(grid):
  for r,row in enumerate(grid):
   for c,ch in enumerate(row):
    base=4*(r*n+c)
-   if ch!='\\':union(base,base+1);union(base+2,base+3)
-   if ch!='/':union(base,base+3);union(base+1,base+2)
+   if ch!='/':union(base,base+1);union(base+2,base+3)
+   if ch!='\\':union(base,base+3);union(base+1,base+2)
    if r:union(base,4*((r-1)*n+c)+2)
    if c:union(base+3,4*(r*n+c-1)+1)
  return len({find(i) for i in range(4*n*n)})

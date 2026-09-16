@@ -1,11 +1,45 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1243",
+  "content_sha256": "030308bf30039d9a0b6c15c09c20277e5365a54152d761c2f18503ef05cdff4c",
   "source_hash": "50b74bf3e1e19b00330258544626c5f9b1910936de880ff35391903267764ba4",
-  "failures": [
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
     {
-      "phase": "isolated_validation",
-      "error": "Validation exceeded 30 seconds"
+      "reason": "Performs only one day and returns before later changes reach stability.",
+      "failed_cases": [
+        "lc-1243-2",
+        "lc-1243-5",
+        "lc-1243-6",
+        "lc-1243-8",
+        "lc-1243-9",
+        "lc-1243-10",
+        "lc-1243-14"
+      ]
+    },
+    {
+      "reason": "Raises valleys but never lowers strict peaks.",
+      "failed_cases": [
+        "lc-1243-2",
+        "lc-1243-5",
+        "lc-1243-8",
+        "lc-1243-9",
+        "lc-1243-10",
+        "lc-1243-14"
+      ]
     }
-  ]
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5290,
+  "oracle_implementation": "code_practice/import_batch_089b.py:transform_o",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
+  "batch_implementation_sha256": "a0d28a5602a716da1888958f23d6d260813547354caaf28ac1bd98060188a73d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3f0e410c9eb6dce67e1784f6e4b539a4f6172b26d163d32554a2213189569fc7",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
 }

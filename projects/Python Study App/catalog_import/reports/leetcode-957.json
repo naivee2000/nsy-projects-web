@@ -1,11 +1,51 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-957",
+  "content_sha256": "4d767d9aeb8e05f3cd287e90c4ed61e685d3b39ea7f1c4d9a119b7dc88db7235",
   "source_hash": "bb05ceb17e25d4b73bcc12895b5e9a996e0b7336a6f6c19bdab4726cb9ee2394",
-  "failures": [
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
     {
-      "phase": "isolated_validation",
-      "error": "Validation exceeded 30 seconds"
+      "reason": "Uses unequal neighbors instead of equal neighbors.",
+      "failed_cases": [
+        "lc-957-2",
+        "lc-957-4",
+        "lc-957-5",
+        "lc-957-6",
+        "lc-957-7",
+        "lc-957-8",
+        "lc-957-9",
+        "lc-957-12",
+        "lc-957-13",
+        "lc-957-14",
+        "lc-957-15",
+        "lc-957-16"
+      ]
+    },
+    {
+      "reason": "Leaves the first endpoint unchanged.",
+      "failed_cases": [
+        "lc-957-2",
+        "lc-957-5",
+        "lc-957-6",
+        "lc-957-7",
+        "lc-957-11",
+        "lc-957-13",
+        "lc-957-15"
+      ]
     }
-  ]
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5004,
+  "oracle_implementation": "code_practice/import_batch_077.py:prison_oracle",
+  "validator_implementation_sha256": "c07e6177a8a8c068cf133ba8d6ae21acd2139b5a8340cc58ce25f006b5717d4a",
+  "batch_implementation_sha256": "de2834514475f7f4ad4116f37124f75185b9410df8c50d936f10c1a8c4179899",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6da5a204bc622c944c48775e7c0cee3cb3210600cb3604373b29bfe664897936",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
 }

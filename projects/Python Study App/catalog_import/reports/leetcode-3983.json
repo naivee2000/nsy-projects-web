@@ -1,15 +1,16 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-3983",
-  "content_sha256": "b11081f76b2c109910adf434a6d634e70e34f3c76d98bd620e9e6a1ab4a2b74f",
+  "content_sha256": "3df7bd04f5a2e24511257513fea19b2f57a03315b634ecbd31b8c1a92e0b44b3",
   "source_hash": "21fe15989645b8e58340a4c8dec7eca65d82fa869e6fea918c9c5605f50688e7",
   "visible_tests": 2,
   "hidden_tests": 12,
-  "reference_passed": 13,
+  "reference_passed": 14,
   "wrong_solutions": [
     {
       "reason": "Overwrites progress already made in the replaced state.",
       "failed_cases": [
+        "lc-3983-6",
         "lc-3983-13",
         "lc-3983-14"
       ]
@@ -18,6 +19,7 @@
       "reason": "Never permits a replacement and checks only the original subsequence.",
       "failed_cases": [
         "lc-3983-4",
+        "lc-3983-6",
         "lc-3983-8",
         "lc-3983-13",
         "lc-3983-14"
@@ -27,18 +29,12 @@
   "oracle_inputs": 500,
   "oracle_seed": 8030,
   "oracle_implementation": "code_practice/import_batch_198b.py:replace_oracle",
-  "validator_implementation_sha256": "4f52b52dd086fa51924155703edaba1d06abde71b2228bfdba2132f1a4be6d32",
-  "batch_implementation_sha256": "1dd2d0756fb302b536f9aeeafd1fc0d18ff709ba0a14a955a9060c004ae16b9a",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
+  "batch_implementation_sha256": "a0d0dd49bb2c26c9d75336a3b4b7eb15576a8d0aee45a0d1c98aec394eddb854",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
-  "validation_cache_key": "c294636cb7f0e835bfb35b79ed2a199ecd414f631c251dd6d3653eecb6bc7d65",
-  "elapsed_seconds": 0.032,
-  "failures": [
-    {
-      "phase": "deterministic",
-      "case": "lc-3983-6",
-      "error": null
-    }
-  ],
+  "validation_cache_key": "9d2e18b049377907a7562ca10628d8cfd9b3565e93c5b021c7db0e376d29f4ec",
+  "elapsed_seconds": 0.053,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

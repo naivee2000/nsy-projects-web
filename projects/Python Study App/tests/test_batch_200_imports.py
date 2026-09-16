@@ -22,6 +22,10 @@ def test_batch_200_inputs_are_distinct():
         values=[args for args,_ in spec['examples']]+spec['boundaries'];encoded=[json.dumps(args,sort_keys=True) for args in values]
         assert len(encoded)==len(set(encoded))
 
-def test_twice_failed_candidates_remain_quarantined():
+def test_repaired_candidates_are_verified():
     records={r['source_id']:r for r in json.loads((ROOT/'catalog_import/ledger.json').read_text())['records']}
-    assert all(records[source_id]['status']=='quarantined' for source_id in QUARANTINED)
+    assert all(records[source_id]['status']=='imported' for source_id in QUARANTINED)
+    for source_id in QUARANTINED:
+        report=json.loads((ROOT/'catalog_import/reports'/f'leetcode-{source_id}.json').read_text())
+        assert report['valid'] and report['oracle_inputs']==500
+        assert all(control['failed_cases'] for control in report['wrong_solutions'])

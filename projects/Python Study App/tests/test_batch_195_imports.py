@@ -17,6 +17,8 @@ def test_batch_195_inputs_are_distinct():
     for spec in SPECS.values():
         values=[a for a,_ in spec['examples']]+spec['boundaries'];encoded=[json.dumps(a,sort_keys=True) for a in values]
         assert len(encoded)==len(set(encoded))
-def test_twice_failed_candidate_remains_quarantined():
-    assert 'leetcode-3740' not in get_catalog()
-    assert not json.loads((ROOT/'catalog_import/reports/leetcode-3740.json').read_text())['valid']
+def test_repaired_candidate_is_verified():
+    assert 'leetcode-3740' in get_catalog()
+    report=json.loads((ROOT/'catalog_import/reports/leetcode-3740.json').read_text())
+    assert report['valid'] and report['oracle_inputs']==500
+    assert all(control['failed_cases'] for control in report['wrong_solutions'])

@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 3,074 runnable problems (101 original exercises plus 2,973 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 3,174 runnable problems (101 original exercises plus 3,073 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 3,074-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 3,174-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -623,7 +623,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 3,074 problems; future
+been checked against every reviewed batch. The current package contains 3,174 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the
@@ -672,6 +672,22 @@ approved reference suites in Chrome/Pyodide with no infrastructure retries.
 Backend startup took 464 ms and peak RSS was 275.0 MiB. Warm p95 latency over
 100 requests per route ranged from 1.099 ms to 1.704 ms for library searches,
 problem details, and the dashboard, remaining below the 300/500 ms targets.
+
+At the 3,073-import checkpoint, the ledger records 84 existing equivalents,
+3,073 verified imports, 157 justified exclusions, four quarantined records,
+and 311 pending records. The package has 3,174 runnable problems. Recent
+repairs recovered former quarantines by correcting independent checkers,
+nonterminating wrong controls, and discriminating tests; Sum of Distances in
+Tree adds a Hard rerooting exercise with 500 seeded small-tree comparisons and
+a 1,000-node chain case. The checkpoint passed 1,214 backend tests, 20 frontend
+tests, and the production frontend build. Existing problem IDs and the live
+progress database were not changed. Chrome/Pyodide accepted all 3,079
+catalog-wide reference suites with no infrastructure retries and confirmed
+saved drafts/attempts across a real backend restart. The local backend started
+in 353 ms and peaked at 275.5 MiB RSS. Warm p95 latency over 100 requests per
+route ranged from 1.098 ms to 1.906 ms for library, detail, and dashboard APIs,
+below the interim 300/500 ms targets. Exact measurements are in
+`catalog_import/benchmarks/current.json`. No push or deployment occurred.
 
 Source provenance: workbook filename/hash and row numbers are retained in the
 ledger. `catalog_import/sources.jsonl` records LeetCode URLs and the exact

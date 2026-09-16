@@ -7,6 +7,39 @@ the candidate-to-spec contract check invalidates the changed candidate.
 
 
 def apply_quarantine_repairs(batch):
+    batch[1705]['boundaries'].append([[3, 2, 2], [3, 1, 3]])
+
+    batch[3510]['wrong'][1] = batch[3510]['reference'].replace(
+        '(values[left]+values[right],left,right,versions[left],versions[right])',
+        '(values[left]+values[right],-left,left,right,versions[left],versions[right])').replace(
+        '_,left,right,left_version,right_version=heapq.heappop(heap)',
+        '_,_,left,right,left_version,right_version=heapq.heappop(heap)')
+    batch[3510]['wrong_reasons'][1] = 'Breaks equal-sum ties toward the right rather than the left.'
+
+    batch[1718]['wrong'][0] = batch[1718]['reference'].replace(
+        'range(n,0,-1)', '([n-1,n,*range(n-2,0,-1)] if n>1 else [1])')
+    batch[1718]['wrong_reasons'][0] = 'Tries n-1 before n and returns a smaller valid sequence at the first differing position.'
+    batch[1718]['wrong'][1] = batch[1718]['reference'].replace(
+        'answer=[0]*(2*n-1)', 'n=max(1,n-1)\n answer=[0]*(2*n-1)')
+    batch[1718]['wrong_reasons'][1] = 'Solves the smaller n-1 instance and omits the required largest value.'
+
+    batch[1625]['wrong'][1] = batch[1625]['reference'].replace(
+        'for candidate in (added,rotated):', 'for candidate in (added,):')
+    batch[1625]['wrong_reasons'][1] = 'Explores odd-position additions but never uses the rotation operation.'
+
+    batch[3556]['wrong'][1] = batch[3556]['reference'].replace(
+        'if value<2:return False', 'if value==1:return True\n        if value<2:return False')
+    batch[3556]['wrong_reasons'][1] = 'Incorrectly classifies the value one as prime.'
+
+    batch[1199]['wrong'][0] = batch[1199]['reference'].replace(
+        'heappop(work)+split', 'heappop(work)')
+    batch[1199]['wrong_reasons'][0] = 'Merges worker branches without charging the split duration.'
+
+    batch[1243]['wrong'][1] = batch[1243]['reference'].replace(
+        'elif current[i]>current[i-1] and current[i]>current[i+1]:following[i]-=1',
+        'elif False:following[i]-=1')
+    batch[1243]['wrong_reasons'][1] = 'Raises valleys but never lowers strict peaks.'
+
     batch[2663]['boundaries'] = [
         ['abca', 4] if arguments == ['abac', 4] else arguments
         for arguments in batch[2663]['boundaries']

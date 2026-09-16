@@ -16,7 +16,20 @@ def orderly_oracle(a):
  return min(s[i:]+s[:i] for i in range(len(s)))
 def digit_set_oracle(a):
  digits,n=a;allowed=set(digits)
- return sum(set(str(x))<=allowed for x in range(1,n+1))
+ if n<=1000:return sum(set(str(x))<=allowed for x in range(1,n+1))
+ from functools import lru_cache
+ bound=str(n)
+ @lru_cache(None)
+ def count(position,tight,started):
+  if position==len(bound):return int(started)
+  limit=int(bound[position]) if tight else 9
+  total=count(position+1,tight and limit==0,False) if not started else 0
+  for character in digits:
+   value=int(character)
+   if value<=limit:
+    total+=count(position+1,tight and value==limit,True)
+  return total
+ return count(0,True,False)
 def fruit_oracle(a):
  f=a[0];best=0
  for i in range(len(f)):

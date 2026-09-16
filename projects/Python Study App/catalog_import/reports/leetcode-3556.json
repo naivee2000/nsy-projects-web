@@ -1,11 +1,42 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-3556",
+  "content_sha256": "803cb15c2a9140cee1022f5f0d4a71a1c8f5319c327a6f8cff2d3e288a91a2cc",
   "source_hash": "3c0e3737a9737bcd287db44aef8837c95d638b8b4d9f4938a44d27e86a95009d",
-  "failures": [
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
     {
-      "phase": "isolated_validation",
-      "error": "Validation exceeded 60.0 seconds"
+      "reason": "Sums every prime substring instead of retaining only the largest three distinct values.",
+      "failed_cases": [
+        "lc-3556-1",
+        "lc-3556-10",
+        "lc-3556-14",
+        "lc-3556-15"
+      ]
+    },
+    {
+      "reason": "Incorrectly classifies the value one as prime.",
+      "failed_cases": [
+        "lc-3556-2",
+        "lc-3556-4",
+        "lc-3556-6",
+        "lc-3556-7",
+        "lc-3556-12",
+        "lc-3556-13"
+      ]
     }
-  ]
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7603,
+  "oracle_implementation": "code_practice/import_batch_228d.py:prime_oracle",
+  "validator_implementation_sha256": "c07e6177a8a8c068cf133ba8d6ae21acd2139b5a8340cc58ce25f006b5717d4a",
+  "batch_implementation_sha256": "6a2fc5bd3f2c56a44781a0b03081ab359dc2dffb4f16ea566bc8b05f123fe319",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ab274a9f214f45f08dec94354dc95d98f069bf7514e10f66c868c1d665a9dc13",
+  "elapsed_seconds": 0.071,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
 }

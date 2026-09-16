@@ -34,10 +34,13 @@ def test_batch_122_third_slice_inputs_are_distinct():
         assert len(encoded) == len(set(encoded))
 
 
-def test_failed_candidates_remain_quarantined_and_invisible():
+def test_repaired_candidates_are_verified_and_visible():
     catalog = get_catalog()
     ledger = json.loads((ROOT / "catalog_import/ledger.json").read_text())
     records = {record["source_id"]: record for record in ledger["records"]}
     for source_id in QUARANTINED_IDS:
-        assert records[source_id]["status"] == "quarantined"
-        assert f"leetcode-{source_id}" not in catalog
+        assert records[source_id]["status"] == "imported"
+        assert f"leetcode-{source_id}" in catalog
+        report = json.loads((ROOT / "catalog_import/reports" / f"leetcode-{source_id}.json").read_text())
+        assert report["valid"] and report["oracle_inputs"] == 500
+        assert all(control["failed_cases"] for control in report["wrong_solutions"])

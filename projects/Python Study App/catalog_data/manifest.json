@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 3160,
+  "count": 3174,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -12210,6 +12210,27 @@
       "source_id": 833
     },
     {
+      "id": "leetcode-834",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Distances in Tree",
+      "summary": "Given an undirected connected tree with n nodes numbered from 0 to n-1 and n-1 edges, return an array of length n.",
+      "topics": [
+        "trees",
+        "graphs",
+        "depth first search",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-834.json",
+      "content_sha256": "9cec2755a0a3ea71fed645a8a1015cae32a4ce1972abaccddef6ce45b753cf5c",
+      "source_id": 834
+    },
+    {
       "id": "leetcode-835",
       "version": 1,
       "status": "approved",
@@ -13055,6 +13076,25 @@
       "source_id": 899
     },
     {
+      "id": "leetcode-902",
+      "version": 1,
+      "status": "approved",
+      "title": "Numbers At Most N Given Digit Set",
+      "summary": "Given a sorted array of digits, determine how many positive integers can be formed using these digits that are less than or equal to a specified integer n.",
+      "topics": [
+        "dynamic-programming",
+        "math"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-902.json",
+      "content_sha256": "abd5a36ce9727e22c6188498b0f935b0ae2bc72ed4d18d521e17aa97f7eec9c7",
+      "source_id": 902
+    },
+    {
       "id": "leetcode-903",
       "version": 1,
       "status": "approved",
@@ -13693,6 +13733,23 @@
       "source_id": 956
     },
     {
+      "id": "leetcode-957",
+      "version": 1,
+      "status": "approved",
+      "title": "Prison Cells After N Days",
+      "summary": "Given an array representing the initial state of 8 prison cells, where each cell is either occupied (1) or vacant (0), and an integer n, determine the state of the cells after n days following specific transition rules.",
+      "topics": [
+        "simulation",
+        "hash-maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-957.json",
+      "content_sha256": "4d767d9aeb8e05f3cd287e90c4ed61e685d3b39ea7f1c4d9a119b7dc88db7235",
+      "source_id": 957
+    },
+    {
       "id": "leetcode-958",
       "version": 1,
       "status": "approved",
@@ -13708,6 +13765,24 @@
       "path": "problems/leetcode-958.json",
       "content_sha256": "6fe5fdbaadf27a682f9c715383e54d5b9f416f54025717579d9f2eaec2b8497d",
       "source_id": 958
+    },
+    {
+      "id": "leetcode-959",
+      "version": 1,
+      "status": "approved",
+      "title": "Regions Cut By Slashes",
+      "summary": "An n x n grid made of 1 x 1 squares, each containing '/', '\\', or a space, divides the squares into regions.",
+      "topics": [
+        "graphs",
+        "union-find",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-959.json",
+      "content_sha256": "58c2b096056b83da5ff27cc1f9427cd4b768e45028d64c4ce2780c06d4c4af53",
+      "source_id": 959
     },
     {
       "id": "leetcode-960",
@@ -16811,6 +16886,25 @@
       "source_id": 1198
     },
     {
+      "id": "leetcode-1199",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Build Blocks",
+      "summary": "Given a list of blocks with specified build times, determine the minimum time required to build all blocks.",
+      "topics": [
+        "heaps",
+        "greedy"
+      ],
+      "prerequisites": [
+        "heaps"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1199.json",
+      "content_sha256": "ccf1c8c49f4895dde7a10a4d599db556c9cb79624a7be54cfb5f7cbb29571861",
+      "source_id": 1199
+    },
+    {
       "id": "leetcode-1200",
       "version": 1,
       "status": "approved",
@@ -17146,6 +17240,23 @@
       "source_id": 1224
     },
     {
+      "id": "leetcode-1227",
+      "version": 1,
+      "status": "approved",
+      "title": "Airplane Seat Assignment Probability",
+      "summary": "In an airplane with exactly n seats, the first passenger chooses a seat randomly.",
+      "topics": [
+        "probability",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1227.json",
+      "content_sha256": "434241eb88c9fbe8f300a68af72493db6c0c232623a00391dfe45a81def28203",
+      "source_id": 1227
+    },
+    {
       "id": "leetcode-1228",
       "version": 1,
       "status": "approved",
@@ -17282,6 +17393,23 @@
       "path": "problems/leetcode-1239.json",
       "content_sha256": "5a8b8917b4c41206907453541ba1a1a41d292d1bc9352ce6fd254ada747f1ad6",
       "source_id": 1239
+    },
+    {
+      "id": "leetcode-1243",
+      "version": 1,
+      "status": "approved",
+      "title": "Array Transformation",
+      "summary": "Starting from arr, form each new day's array simultaneously from the preceding day's values.",
+      "topics": [
+        "simulation",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1243.json",
+      "content_sha256": "030308bf30039d9a0b6c15c09c20277e5365a54152d761c2f18503ef05cdff4c",
+      "source_id": 1243
     },
     {
       "id": "leetcode-1245",
@@ -19267,6 +19395,26 @@
       "path": "problems/leetcode-1395.json",
       "content_sha256": "01b96947acfaa2001ceb0efac6da286193271e53eec219a56bfc2e724da1889a",
       "source_id": 1395
+    },
+    {
+      "id": "leetcode-1397",
+      "version": 1,
+      "status": "approved",
+      "title": "Find All Good Strings",
+      "summary": "Determine the count of valid strings of length n that are lexicographically between s1 and s2 and do not include the substring evil, returning the result modulo 10^9 + 7.",
+      "topics": [
+        "dynamic-programming",
+        "strings",
+        "kmp"
+      ],
+      "prerequisites": [
+        "dynamic-programming"
+      ],
+      "difficulty": 9,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-1397.json",
+      "content_sha256": "5234726ede45263b03b6c5ca2a96e29f555746a6f49fd50518db9e4ef00bf3b5",
+      "source_id": 1397
     },
     {
       "id": "leetcode-1399",
@@ -22248,6 +22396,23 @@
       "source_id": 1624
     },
     {
+      "id": "leetcode-1625",
+      "version": 1,
+      "status": "approved",
+      "title": "Lexicographically Smallest String After Applying Operations",
+      "summary": "Given a string s of even length consisting of digits from 0 to 9, and two integers a and b , you can perform either of the following operations any number of times in any order: - Add a to all digits at odd indices of s (0-indexed).",
+      "topics": [
+        "breadth-first-search",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1625.json",
+      "content_sha256": "e3b4cd35bca3602c42df6ed78bd9595d2d9a19fe08039687fd63048bd9770907",
+      "source_id": 1625
+    },
+    {
       "id": "leetcode-1626",
       "version": 1,
       "status": "approved",
@@ -23256,6 +23421,24 @@
       "source_id": 1704
     },
     {
+      "id": "leetcode-1705",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of Eaten Apples",
+      "summary": "Given two arrays, apples and days, each of length n, where apples[i] represents the number of apples grown on the i-th day and days[i] indicates how many days those apples remain fresh, determine the maximum number of apples you can eat over n days, eating at most one apple per day.",
+      "topics": [
+        "greedy",
+        "heaps",
+        "scheduling"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1705.json",
+      "content_sha256": "71bf99235f3173cd091e0d7acf76ea9bd2f264c0c6468a326f11ff141325cebc",
+      "source_id": 1705
+    },
+    {
       "id": "leetcode-1706",
       "version": 1,
       "status": "approved",
@@ -23415,6 +23598,23 @@
       "path": "problems/leetcode-1717.json",
       "content_sha256": "e581362bda9c1f7b7f08ef372a6280a42bf4bee8f539331a160069f457b09ce6",
       "source_id": 1717
+    },
+    {
+      "id": "leetcode-1718",
+      "version": 1,
+      "status": "approved",
+      "title": "Construct the Lexicographically Largest Valid Sequence",
+      "summary": "Given an integer n, construct a sequence with elements in the range [1, n] such that the integer 1 appears once, each integer from 2 to n appears twice, and the distance between the two occurrences of each integer i is exactly i.",
+      "topics": [
+        "backtracking",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-1718.json",
+      "content_sha256": "4578518b8123be101147be791833680a4e5da3d80d3eb06ddb03208c6faf8cca",
+      "source_id": 1718
     },
     {
       "id": "leetcode-1720",
@@ -48648,6 +48848,27 @@
       "source_id": 3509
     },
     {
+      "id": "leetcode-3510",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Pair Removal to Sort Array II",
+      "summary": "Given an array nums, repeatedly replace the leftmost adjacent pair with the minimum sum until the array becomes non-decreasing.",
+      "topics": [
+        "arrays",
+        "linked lists",
+        "heaps",
+        "simulation"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3510.json",
+      "content_sha256": "2a2eeb4eeca6579c06e87773433ab2e03e1d3be2c4b14614ebccb5f8c6bbfead",
+      "source_id": 3510
+    },
+    {
       "id": "leetcode-3511",
       "version": 1,
       "status": "approved",
@@ -49431,6 +49652,24 @@
       "path": "problems/leetcode-3555.json",
       "content_sha256": "6ef7792b517595404300a8456af6f0926c442920837facf4eae9a38d3fe9f4ca",
       "source_id": 3555
+    },
+    {
+      "id": "leetcode-3556",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Largest Prime Substrings",
+      "summary": "Given a string, identify the three largest unique prime numbers formed by any of its substrings.",
+      "topics": [
+        "strings",
+        "number theory",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3556.json",
+      "content_sha256": "803cb15c2a9140cee1022f5f0d4a71a1c8f5319c327a6f8cff2d3e288a91a2cc",
+      "source_id": 3556
     },
     {
       "id": "leetcode-3557",
@@ -56273,6 +56512,24 @@
       "path": "problems/leetcode-3982.json",
       "content_sha256": "2e1d737c2fb472d20e21fd1009848bdef24d40acfebae26dc75bcabe9e27947b",
       "source_id": 3982
+    },
+    {
+      "id": "leetcode-3983",
+      "version": 1,
+      "status": "approved",
+      "title": "Subsequence After One Replacement",
+      "summary": "Given strings s and t of lowercase English letters, determine if s can become a subsequence of t by replacing at most one character in s.",
+      "topics": [
+        "strings",
+        "dynamic programming",
+        "two pointers"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3983.json",
+      "content_sha256": "3df7bd04f5a2e24511257513fea19b2f57a03315b634ecbd31b8c1a92e0b44b3",
+      "source_id": 3983
     },
     {
       "id": "leetcode-3986",

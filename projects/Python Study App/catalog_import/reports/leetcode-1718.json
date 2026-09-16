@@ -1,11 +1,61 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1718",
+  "content_sha256": "4578518b8123be101147be791833680a4e5da3d80d3eb06ddb03208c6faf8cca",
   "source_hash": "8812d16e10be41799d5afbde61e073085f7901db4e963f02fcb0fa908bc6b157",
-  "failures": [
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
     {
-      "phase": "isolated_validation",
-      "error": "Validation exceeded 30 seconds"
+      "reason": "Tries n-1 before n and returns a smaller valid sequence at the first differing position.",
+      "failed_cases": [
+        "lc-1718-1",
+        "lc-1718-2",
+        "lc-1718-5",
+        "lc-1718-6",
+        "lc-1718-7",
+        "lc-1718-8",
+        "lc-1718-9",
+        "lc-1718-10",
+        "lc-1718-11",
+        "lc-1718-12",
+        "lc-1718-13",
+        "lc-1718-14",
+        "lc-1718-15",
+        "lc-1718-16"
+      ]
+    },
+    {
+      "reason": "Solves the smaller n-1 instance and omits the required largest value.",
+      "failed_cases": [
+        "lc-1718-1",
+        "lc-1718-2",
+        "lc-1718-4",
+        "lc-1718-5",
+        "lc-1718-6",
+        "lc-1718-7",
+        "lc-1718-8",
+        "lc-1718-9",
+        "lc-1718-10",
+        "lc-1718-11",
+        "lc-1718-12",
+        "lc-1718-13",
+        "lc-1718-14",
+        "lc-1718-15",
+        "lc-1718-16"
+      ]
     }
-  ]
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5765,
+  "oracle_implementation": "code_practice/import_batch_103c.py:sequence_o",
+  "validator_implementation_sha256": "c07e6177a8a8c068cf133ba8d6ae21acd2139b5a8340cc58ce25f006b5717d4a",
+  "batch_implementation_sha256": "7f9e4d135e7c85d66b43966d50e47a63aba4a267519c1879d0010eac6bae7298",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "80ba376a92ef820333366e9ed4db762e67ed1bdab63552d4bd48dd9a63022286",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
 }

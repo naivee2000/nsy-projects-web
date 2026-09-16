@@ -1,11 +1,55 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1397",
+  "content_sha256": "5234726ede45263b03b6c5ca2a96e29f555746a6f49fd50518db9e4ef00bf3b5",
   "source_hash": "08164b445434dadbde3fa0b2a2c5a717eadf6c922aa51dd0825b4d70d184eb2c",
-  "failures": [
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
     {
-      "phase": "isolated_validation",
-      "error": "Validation exceeded 30 seconds"
+      "reason": "Ignores both lexical boundaries and counts the entire length-n domain.",
+      "failed_cases": [
+        "lc-1397-1",
+        "lc-1397-2",
+        "lc-1397-5",
+        "lc-1397-6",
+        "lc-1397-7",
+        "lc-1397-8",
+        "lc-1397-10",
+        "lc-1397-11",
+        "lc-1397-12",
+        "lc-1397-13"
+      ]
+    },
+    {
+      "reason": "Counts strings after the forbidden substring has already appeared.",
+      "failed_cases": [
+        "lc-1397-1",
+        "lc-1397-2",
+        "lc-1397-3",
+        "lc-1397-4",
+        "lc-1397-6",
+        "lc-1397-7",
+        "lc-1397-8",
+        "lc-1397-9",
+        "lc-1397-10",
+        "lc-1397-11",
+        "lc-1397-12",
+        "lc-1397-13",
+        "lc-1397-14"
+      ]
     }
-  ]
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5444,
+  "oracle_implementation": "code_practice/import_batch_093.py:good_o",
+  "validator_implementation_sha256": "c07e6177a8a8c068cf133ba8d6ae21acd2139b5a8340cc58ce25f006b5717d4a",
+  "batch_implementation_sha256": "52b444d197b2038cda00df3fc954a5d9718dea017bad3a644ebc125690ed1dff",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7b6b3cb00edf6e1da0dfe67c54362b6002570d5dd20ad320be21c0f4d91ec780",
+  "elapsed_seconds": 0.087,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
 }

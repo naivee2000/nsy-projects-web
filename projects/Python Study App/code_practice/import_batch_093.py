@@ -7,7 +7,32 @@ from .import_batch_055 import entry
 
 MOD=1_000_000_007
 def good_o(a):
- n,lo,hi,bad=a;return sum(lo<= ''.join(w) <=hi and bad not in ''.join(w) for w in product('abcdefghijklmnopqrstuvwxyz',repeat=n))%MOD
+ n,lo,hi,bad=a
+ alphabet='abcdefghijklmnopqrstuvwxyz'
+ if n<=2:
+  return sum(lo<=word<=hi and bad not in word
+             for letters in product(alphabet,repeat=n)
+             for word in (''.join(letters),))%MOD
+ transitions={}
+ for matched in range(len(bad)):
+  for character in alphabet:
+   suffix=bad[:matched]+character
+   transitions[matched,character]=max(
+    length for length in range(len(bad)+1) if suffix.endswith(bad[:length]))
+ def at_most(bound):
+  states={(0,True):1}
+  for upper in bound:
+   following={}
+   for (matched,tight),count in states.items():
+    for character in alphabet:
+     if tight and character>upper:break
+     next_matched=transitions[matched,character]
+     if next_matched==len(bad):continue
+     key=(next_matched,tight and character==upper)
+     following[key]=(following.get(key,0)+count)%MOD
+   states=following
+  return sum(states.values())%MOD
+ return (at_most(hi)-at_most(lo)+int(bad not in lo))%MOD
 def stones_o(a):
  v=a[0]
  @lru_cache(None)

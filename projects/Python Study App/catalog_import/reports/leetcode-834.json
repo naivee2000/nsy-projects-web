@@ -1,0 +1,59 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-834",
+  "content_sha256": "9cec2755a0a3ea71fed645a8a1015cae32a4ce1972abaccddef6ce45b753cf5c",
+  "source_hash": "d271ea8ec1b79d9cfea93a80a2d4aa860cbb3067ff3ee0940ecda5c06a969b2e",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Computes the root sum but never adjusts it when moving the root to another node.",
+      "failed_cases": [
+        "lc-834-1",
+        "lc-834-2",
+        "lc-834-5",
+        "lc-834-6",
+        "lc-834-7",
+        "lc-834-8",
+        "lc-834-9",
+        "lc-834-10",
+        "lc-834-11",
+        "lc-834-12",
+        "lc-834-13",
+        "lc-834-14",
+        "lc-834-stress-1"
+      ]
+    },
+    {
+      "reason": "Subtracts the child subtree only once; rerooting must remove and add its contribution.",
+      "failed_cases": [
+        "lc-834-1",
+        "lc-834-2",
+        "lc-834-4",
+        "lc-834-5",
+        "lc-834-6",
+        "lc-834-7",
+        "lc-834-8",
+        "lc-834-9",
+        "lc-834-10",
+        "lc-834-11",
+        "lc-834-12",
+        "lc-834-13",
+        "lc-834-14",
+        "lc-834-stress-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4881,
+  "oracle_implementation": "code_practice/import_batch_230.py:distance_sum_oracle",
+  "validator_implementation_sha256": "ddf70c68fcf86f4b912a741e38dee85fcd45e81c14233271302d489c556ff9ed",
+  "batch_implementation_sha256": "48b2b49af5581df8aadf2cd2b2d7520c68905cbf1e4f3a23017d4885ba477a1d",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d10abd76b789986fc9c86786676d6524d084ee0e52fd0035e9cc408502231819",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

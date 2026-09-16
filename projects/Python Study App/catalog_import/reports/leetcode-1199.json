@@ -1,11 +1,58 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1199",
+  "content_sha256": "ccf1c8c49f4895dde7a10a4d599db556c9cb79624a7be54cfb5f7cbb29571861",
   "source_hash": "9725fd70b9ffbe35234bd374ce26e312c71b6779b01efa9ae31b6c6d5c05bd93",
-  "failures": [
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
     {
-      "phase": "isolated_validation",
-      "error": "Validation exceeded 30.0 seconds"
+      "reason": "Merges worker branches without charging the split duration.",
+      "failed_cases": [
+        "lc-1199-2",
+        "lc-1199-4",
+        "lc-1199-5",
+        "lc-1199-6",
+        "lc-1199-7",
+        "lc-1199-8",
+        "lc-1199-9",
+        "lc-1199-10",
+        "lc-1199-11",
+        "lc-1199-12",
+        "lc-1199-13",
+        "lc-1199-14",
+        "lc-1199-15"
+      ]
+    },
+    {
+      "reason": "Charges twice the split duration at every merge.",
+      "failed_cases": [
+        "lc-1199-2",
+        "lc-1199-4",
+        "lc-1199-5",
+        "lc-1199-6",
+        "lc-1199-7",
+        "lc-1199-8",
+        "lc-1199-9",
+        "lc-1199-10",
+        "lc-1199-11",
+        "lc-1199-12",
+        "lc-1199-13",
+        "lc-1199-14",
+        "lc-1199-15"
+      ]
     }
-  ]
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5246,
+  "oracle_implementation": "code_practice/import_batch_200a.py:build_oracle",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
+  "batch_implementation_sha256": "71a3b8c6f26b17d9c67441cc7d3fc75b07dead9a30cb6ce6c53e4e8d0a9d5c98",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ebf93d9e42744d77c439225f4ed640450b959f7a939fc6918289ae7075565d6b",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
 }

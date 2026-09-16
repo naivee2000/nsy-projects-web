@@ -220,7 +220,7 @@ PAIR_REMOVAL = '''def minimum_pair_removal_operations(nums):
         if after!=-1:previous[after]=left
         if before!=-1:inversions+=values[before]>values[left]
         if after!=-1:inversions+=values[left]>values[after]
-        if before!=-1:versions[before]+=1;push(before)
+        if before!=-1:push(before)
         push(left);operations+=1
     return operations
 '''

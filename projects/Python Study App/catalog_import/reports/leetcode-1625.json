@@ -1,11 +1,53 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1625",
+  "content_sha256": "e3b4cd35bca3602c42df6ed78bd9595d2d9a19fe08039687fd63048bd9770907",
   "source_hash": "2c3466063f96eae7e321db906bb5388d69adf91a6711251ed3d34476e1f55aae",
-  "failures": [
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
     {
-      "phase": "isolated_validation",
-      "error": "Validation exceeded 30 seconds"
+      "reason": "Returns the last explored state instead of the smallest reachable state.",
+      "failed_cases": [
+        "lc-1625-1",
+        "lc-1625-2",
+        "lc-1625-3",
+        "lc-1625-4",
+        "lc-1625-5",
+        "lc-1625-6",
+        "lc-1625-7",
+        "lc-1625-8",
+        "lc-1625-9",
+        "lc-1625-10",
+        "lc-1625-11",
+        "lc-1625-12",
+        "lc-1625-13",
+        "lc-1625-14"
+      ]
+    },
+    {
+      "reason": "Explores odd-position additions but never uses the rotation operation.",
+      "failed_cases": [
+        "lc-1625-1",
+        "lc-1625-2",
+        "lc-1625-4",
+        "lc-1625-6",
+        "lc-1625-8",
+        "lc-1625-13",
+        "lc-1625-14"
+      ]
     }
-  ]
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5672,
+  "oracle_implementation": "code_practice/import_batch_100b.py:lexical_oracle",
+  "validator_implementation_sha256": "c07e6177a8a8c068cf133ba8d6ae21acd2139b5a8340cc58ce25f006b5717d4a",
+  "batch_implementation_sha256": "189be236110f64330bfb234ed12fd8c3a7c655735ae95de21018c43a4b7c6ad5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4169a52475b67f1c13d617fa1c2a2e7c030eca145fbfe9be0e4bc5e6989708e6",
+  "elapsed_seconds": 0.112,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
 }

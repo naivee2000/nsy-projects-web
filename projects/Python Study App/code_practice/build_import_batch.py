@@ -487,6 +487,7 @@ from .import_batch_229a import BATCH as BATCH_229A
 from .import_batch_229b import BATCH as BATCH_229B
 from .import_batch_229c import BATCH as BATCH_229C
 from .import_batch_229d import BATCH as BATCH_229D
+from .import_batch_230 import BATCH as BATCH_230
 from .import_batch_230a import BATCH as BATCH_230A
 from .import_batch_230b import BATCH as BATCH_230B
 from .import_batch_230c import BATCH as BATCH_230C
@@ -989,6 +990,7 @@ BATCH.update(BATCH_229A)
 BATCH.update(BATCH_229B)
 BATCH.update(BATCH_229C)
 BATCH.update(BATCH_229D)
+BATCH.update(BATCH_230)
 BATCH.update(BATCH_230A)
 BATCH.update(BATCH_230B)
 BATCH.update(BATCH_230C)
@@ -1241,7 +1243,8 @@ def build(pid, spec, source):
         for test in tests:
             test["expected_node_order"] = spec["node_order"](test["arguments"])
     rubric = {3: (1, 1, 1, 0, 0), 5: (2, 1, 1, 1, 0), 6: (2, 1, 1, 1, 1),
-              7: (2, 2, 1, 1, 1), 8: (3, 2, 1, 1, 1)}[spec["difficulty"]]
+              7: (2, 2, 1, 1, 1), 8: (3, 2, 1, 1, 1), 9: (3, 2, 2, 1, 1),
+              10: (3, 2, 2, 2, 1)}[spec["difficulty"]]
     starter = f"def {spec['name']}({', '.join(n + ': ' + a for n, a, _ in spec['params'])}) -> {spec['returns']}:\n    # Write your solution here.\n    pass\n"
     statement = spec.get("statement", source["statement"])
     summary = statement.split(". ", 1)[0]

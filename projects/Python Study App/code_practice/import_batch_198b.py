@@ -1,5 +1,6 @@
 """Wildcard movement, digit-ended subarrays, interval filtering, replacement, and resources."""
 from itertools import product
+from string import ascii_lowercase
 from .import_batch_055 import entry
 
 def distance_oracle(a):
@@ -30,7 +31,7 @@ def subsequence(x,t):
 def replace_oracle(a):
     s,t=a
     if subsequence(s,t):return True
-    return any(subsequence(s[:i]+c+s[i+1:],t) for i in range(len(s)) for c in 'abc')
+    return any(subsequence(s[:i]+c+s[i+1:],t) for i in range(len(s)) for c in ascii_lowercase)
 def random_replace(r):return [''.join(r.choice('abc') for _ in range(r.randint(1,7))),''.join(r.choice('abc') for _ in range(r.randint(1,10)))]
 def resources_oracle(a):
     nums,k=a;current=k;buys=0

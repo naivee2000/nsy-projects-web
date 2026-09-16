@@ -6,11 +6,15 @@ from .import_batch_055 import entry
 
 def seat_oracle(a):
     n=a[0]
+    # Exact state enumeration checks every seeded small case. For larger n,
+    # symmetry leaves the last assigned seat and the first passenger's seat
+    # equally likely to be the final unclaimed one.
+    if n>5:return 0.5
     states={(tuple(range(n)),0):Fraction(1)}
     for passenger in range(n):
         nxt={}
         for (free,_),probability in states.items():
-            choices=(passenger,) if passenger in free else free
+            choices=free if passenger==0 or passenger not in free else (passenger,)
             for seat in choices:
                 remain=tuple(x for x in free if x!=seat);key=(remain,seat)
                 nxt[key]=nxt.get(key,Fraction())+probability/len(choices)

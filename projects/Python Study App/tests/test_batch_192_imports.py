@@ -27,7 +27,8 @@ def test_batch_192_inputs_are_distinct():
         encoded=[json.dumps(args,sort_keys=True) for args in cases]
         assert len(encoded)==len(set(encoded))
 
-def test_twice_failed_candidate_remains_quarantined():
-    assert 'leetcode-3354' not in get_catalog()
+def test_repaired_candidate_is_verified():
+    assert 'leetcode-3354' in get_catalog()
     report=json.loads((ROOT/'catalog_import/reports/leetcode-3354.json').read_text())
-    assert not report['valid']
+    assert report['valid'] and report['oracle_inputs']==500
+    assert all(control['failed_cases'] for control in report['wrong_solutions'])
