@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3926",
+  "content_sha256": "2f31d66aed8df8bb390a383d5872ff4c09357ade8596e4125215c2b28dbd330b",
+  "source_hash": "cb4cfc6351d7943da3c4563827d38cc431297a6680b30c6f7dda8e13300b073c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Inserts separators between chunks instead of concatenating them directly.",
+      "failed_cases": [
+        "lc-3926-1",
+        "lc-3926-2",
+        "lc-3926-10"
+      ]
+    },
+    {
+      "reason": "Treats a hyphen as a joiner when only one adjacent character is lowercase.",
+      "failed_cases": [
+        "lc-3926-4",
+        "lc-3926-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7973,
+  "oracle_implementation": "code_practice/import_batch_242a.py:words_oracle",
+  "validator_implementation_sha256": "8f84373ef35880f132187ba21d51e511e4359addfd98430794910d93aef38f9c",
+  "batch_implementation_sha256": "170c6466667fd9197f10ec2ba39922513b3eb635152a517262c32c60b49c40dc",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c3e935818f74b10784062b31c86c08cc8d41a1795b7a5c6e510fd11490c2d559",
+  "elapsed_seconds": 0.059,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3924",
+  "content_sha256": "c2dc22259c92fccb0b74755b10959589d646393db2f5a3063c3be7218b08a6e3",
+  "source_hash": "72210e544e95f073014e4661d450b702aeed192e040d4bb23a2f9eb1fec70a15",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats edges equal to the threshold as heavy.",
+      "failed_cases": [
+        "lc-3924-1",
+        "lc-3924-5",
+        "lc-3924-7",
+        "lc-3924-8",
+        "lc-3924-9",
+        "lc-3924-11",
+        "lc-3924-13",
+        "lc-3924-14",
+        "lc-3924-15"
+      ]
+    },
+    {
+      "reason": "Requires strictly fewer than k heavy edges instead of at most k.",
+      "failed_cases": [
+        "lc-3924-1",
+        "lc-3924-5",
+        "lc-3924-6",
+        "lc-3924-7",
+        "lc-3924-8",
+        "lc-3924-9",
+        "lc-3924-10",
+        "lc-3924-11",
+        "lc-3924-13",
+        "lc-3924-14",
+        "lc-3924-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7971,
+  "oracle_implementation": "code_practice/import_batch_242a.py:threshold_oracle",
+  "validator_implementation_sha256": "8f84373ef35880f132187ba21d51e511e4359addfd98430794910d93aef38f9c",
+  "batch_implementation_sha256": "170c6466667fd9197f10ec2ba39922513b3eb635152a517262c32c60b49c40dc",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b290cff4df22b3a098f0eaf70abdc97d9d927d59d41093c717677c48cbadbc19",
+  "elapsed_seconds": 0.096,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

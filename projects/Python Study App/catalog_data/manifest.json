@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 3064,
+  "count": 3069,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -54106,6 +54106,44 @@
       "source_id": 3922
     },
     {
+      "id": "leetcode-3923",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Generations to Target Point",
+      "summary": "Given a 2D integer array points where each point is represented as [xi, yi, zi] in 3D space, and an integer array target representing a target point, define generation 0 as the initial list of points.",
+      "topics": [
+        "arrays",
+        "breadth-first search",
+        "geometry"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3923.json",
+      "content_sha256": "f60667ab418e635f1cc245a5d0b36330a94ca957d6ee99603a3a8d8d55cbcadb",
+      "source_id": 3923
+    },
+    {
+      "id": "leetcode-3924",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Threshold Path With Limited Heavy Edges",
+      "summary": "Given an undirected weighted graph with n nodes, represented by edges with weights, and integers source, target, and k, find the minimum threshold value.",
+      "topics": [
+        "graphs",
+        "binary search",
+        "zero-one BFS"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3924.json",
+      "content_sha256": "c2dc22259c92fccb0b74755b10959589d646393db2f5a3063c3be7218b08a6e3",
+      "source_id": 3924
+    },
+    {
       "id": "leetcode-3925",
       "version": 1,
       "status": "approved",
@@ -54121,6 +54159,62 @@
       "path": "problems/leetcode-3925.json",
       "content_sha256": "d1037753402aef1c9f17c842b88045efc8bb7d4530340575baa1e4abd7c620c4",
       "source_id": 3925
+    },
+    {
+      "id": "leetcode-3926",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Valid Word Occurrences",
+      "summary": "Given an array of strings chunks, concatenate them to form a string s.",
+      "topics": [
+        "strings",
+        "parsing",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3926.json",
+      "content_sha256": "2f31d66aed8df8bb390a383d5872ff4c09357ade8596e4125215c2b28dbd330b",
+      "source_id": 3926
+    },
+    {
+      "id": "leetcode-3927",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize Array Sum Using Divisible Replacements",
+      "summary": "Given an integer array, you can repeatedly choose two indices where one element is divisible by the other, then replace the divisible element with the divisor.",
+      "topics": [
+        "arrays",
+        "number theory",
+        "sieve"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3927.json",
+      "content_sha256": "8a07f8e79fcc031c86a49384f801ebd539268ce5915d6ef86dff424f916d1436",
+      "source_id": 3927
+    },
+    {
+      "id": "leetcode-3928",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Buy Apples II",
+      "summary": "Given an integer n and an array prices of n integers, and a 2D array roads with details of bidirectional roads, determine the minimum cost to buy apples at each shop.",
+      "topics": [
+        "graphs",
+        "dijkstra",
+        "shortest paths"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3928.json",
+      "content_sha256": "af0912ad61df78fdc831fa89b6f8f791f75b42805ad672af5c937e6f92666dba",
+      "source_id": 3928
     },
     {
       "id": "leetcode-3931",

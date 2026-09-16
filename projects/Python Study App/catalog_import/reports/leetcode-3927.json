@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3927",
+  "content_sha256": "8a07f8e79fcc031c86a49384f801ebd539268ce5915d6ef86dff424f916d1436",
+  "source_hash": "736c061f22c9870f87350a0eb21fc0c8326800cbbcb1e44613ff0706803fc8a4",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Starts one past each divisor, updating nonmultiples instead of its multiples.",
+      "failed_cases": [
+        "lc-3927-1",
+        "lc-3927-2",
+        "lc-3927-5",
+        "lc-3927-7",
+        "lc-3927-9",
+        "lc-3927-10",
+        "lc-3927-11",
+        "lc-3927-12",
+        "lc-3927-13",
+        "lc-3927-14",
+        "lc-3927-15"
+      ]
+    },
+    {
+      "reason": "Keeps the larger candidate divisor instead of the smallest.",
+      "failed_cases": [
+        "lc-3927-1",
+        "lc-3927-2",
+        "lc-3927-5",
+        "lc-3927-7",
+        "lc-3927-9",
+        "lc-3927-10",
+        "lc-3927-11",
+        "lc-3927-13",
+        "lc-3927-14",
+        "lc-3927-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7974,
+  "oracle_implementation": "code_practice/import_batch_242a.py:divisible_oracle",
+  "validator_implementation_sha256": "8f84373ef35880f132187ba21d51e511e4359addfd98430794910d93aef38f9c",
+  "batch_implementation_sha256": "170c6466667fd9197f10ec2ba39922513b3eb635152a517262c32c60b49c40dc",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1a0a6e80fd22b394cec7430bb8b5d5de8ef4fc331882a88bbb45f2bdd63d75af",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
