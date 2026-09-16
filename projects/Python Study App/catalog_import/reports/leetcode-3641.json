@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3641",
+  "content_sha256": "8e7fde71688fbc720fe46843cbcf9d0d65eef449305e60704efbbc04e00e5b2b",
+  "source_hash": "d3eb59044e27257ad4de32d3d76b5b9dacfcaa3640a45914e83cec0ab7df72dd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts every extra copy as another repeated value.",
+      "failed_cases": [
+        "lc-3641-9"
+      ]
+    },
+    {
+      "reason": "Stops counting a value as repeated only after removing its final copy.",
+      "failed_cases": [
+        "lc-3641-1",
+        "lc-3641-7",
+        "lc-3641-10",
+        "lc-3641-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7688,
+  "oracle_implementation": "code_practice/import_batch_232a.py:repeating_oracle",
+  "validator_implementation_sha256": "be0c3534fd7a0572bdefc258dadf99d9f51835591618b3dd1239e153db0efe41",
+  "batch_implementation_sha256": "cf0850d7b2274aefac6f402563aa841cdde1855ddfc840b5c59a21a4a3f413ec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ddf26f1a1feb196a33e36ad6b0f699d2e9725f9966f828e06d2f43e3ad04f9c2",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

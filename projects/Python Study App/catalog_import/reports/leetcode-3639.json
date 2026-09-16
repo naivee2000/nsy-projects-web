@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3639",
+  "content_sha256": "2a3cce6b027922cdf7130ca3af391d4f5e58caad9d4288fa46941a41a4c73969",
+  "source_hash": "165e55598fc98c9cf58d0a4eda48c82c2d092c5039675c1704c9e540a54d8de1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires strictly more than k valid substrings.",
+      "failed_cases": [
+        "lc-3639-2",
+        "lc-3639-3",
+        "lc-3639-4",
+        "lc-3639-5",
+        "lc-3639-7",
+        "lc-3639-8",
+        "lc-3639-9",
+        "lc-3639-12",
+        "lc-3639-14"
+      ]
+    },
+    {
+      "reason": "Activates only positions before time t and misses the current activation.",
+      "failed_cases": [
+        "lc-3639-1",
+        "lc-3639-2",
+        "lc-3639-3",
+        "lc-3639-4",
+        "lc-3639-5",
+        "lc-3639-6",
+        "lc-3639-7",
+        "lc-3639-8",
+        "lc-3639-9",
+        "lc-3639-10",
+        "lc-3639-11",
+        "lc-3639-12",
+        "lc-3639-13",
+        "lc-3639-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7686,
+  "oracle_implementation": "code_practice/import_batch_232a.py:activation_oracle",
+  "validator_implementation_sha256": "be0c3534fd7a0572bdefc258dadf99d9f51835591618b3dd1239e153db0efe41",
+  "batch_implementation_sha256": "cf0850d7b2274aefac6f402563aa841cdde1855ddfc840b5c59a21a4a3f413ec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "05fa0862c905a426d5f2ebf43f2116e579eab83370ab138b4647dc295ae5e444",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

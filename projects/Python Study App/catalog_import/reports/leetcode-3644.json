@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3644",
+  "content_sha256": "383de1d64076ef9d87ae1895f9f83c45b903dda2d26abe55ab4b0192094cc23d",
+  "source_hash": "b77279ec14c138bbf99364a705ad5bf8ded1fee2b578e424ee047835657ad7e7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes fixed values, often forcing the result to zero.",
+      "failed_cases": [
+        "lc-3644-1",
+        "lc-3644-2",
+        "lc-3644-14"
+      ]
+    },
+    {
+      "reason": "Combines misplaced values with OR rather than AND.",
+      "failed_cases": [
+        "lc-3644-1",
+        "lc-3644-2",
+        "lc-3644-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7691,
+  "oracle_implementation": "code_practice/import_batch_232a.py:permutation_oracle",
+  "validator_implementation_sha256": "be0c3534fd7a0572bdefc258dadf99d9f51835591618b3dd1239e153db0efe41",
+  "batch_implementation_sha256": "cf0850d7b2274aefac6f402563aa841cdde1855ddfc840b5c59a21a4a3f413ec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "614bf3b660b9d8f236774d66eb1f772081af0ce3fcd9b0806968887a1ed82bcb",
+  "elapsed_seconds": 0.016,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3640",
+  "content_sha256": "434824150a3be3f6211b6c287325f42a6f4497388cd4b7a3e65894d1cc418998",
+  "source_hash": "a729d9be785de8e2a21cb329b770891458327af40dcff6f3eb5dac823f83b96f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Restarts rather than extending the final increasing phase.",
+      "failed_cases": [
+        "lc-3640-2",
+        "lc-3640-5",
+        "lc-3640-6",
+        "lc-3640-8",
+        "lc-3640-10",
+        "lc-3640-11",
+        "lc-3640-14"
+      ]
+    },
+    {
+      "reason": "Fails to extend a decreasing phase beyond one edge.",
+      "failed_cases": [
+        "lc-3640-4",
+        "lc-3640-6",
+        "lc-3640-7",
+        "lc-3640-8",
+        "lc-3640-10",
+        "lc-3640-13",
+        "lc-3640-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7687,
+  "oracle_implementation": "code_practice/import_batch_232a.py:trionic_oracle",
+  "validator_implementation_sha256": "be0c3534fd7a0572bdefc258dadf99d9f51835591618b3dd1239e153db0efe41",
+  "batch_implementation_sha256": "cf0850d7b2274aefac6f402563aa841cdde1855ddfc840b5c59a21a4a3f413ec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ce4cc3840506903720c4d2183b45c8cb8e9758b26a3fd1f0180746333e00fce0",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
