@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3738",
+  "content_sha256": "a9a586b277d505225ea9681fc4ebca93956f124467cadd6fc2b894b066edc73f",
+  "source_hash": "4c652f6a4c32dd2c59c0ffcb1f641040dd29beaf8a6f4f637bc7fb46dc7dd120",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Refuses to bridge equal neighbors around the replaced value.",
+      "failed_cases": [
+        "lc-3738-8"
+      ]
+    },
+    {
+      "reason": "Forgets to count the replacement position when joining both sides.",
+      "failed_cases": [
+        "lc-3738-4",
+        "lc-3738-8",
+        "lc-3738-9",
+        "lc-3738-10",
+        "lc-3738-12",
+        "lc-3738-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7785,
+  "oracle_implementation": "code_practice/import_batch_235c.py:nondescending_oracle",
+  "validator_implementation_sha256": "15023933e3d28583ac994fd3fa380e60b2147cf127ba28399c0307365365ecc9",
+  "batch_implementation_sha256": "d1cbc7b7f5c522f88955b04444e1599135e5321ecc41a572be717d774035427c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "446a01ce027c262ed464a045c44a4ce108ddf01af27afa02ec74d540544c2045",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3741",
+  "content_sha256": "6b54e18c3a24917bca737e7f5d80fa200f9960ecb84b0a8a9c77fcc9cb3baa71",
+  "source_hash": "cb9c0318e5917c9501e5debffdde4a36f4de5a524990c88f5cd1903f64dcf0d4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses only the final gap instead of the full first-to-third span.",
+      "failed_cases": [
+        "lc-3741-1",
+        "lc-3741-2",
+        "lc-3741-5",
+        "lc-3741-6",
+        "lc-3741-7",
+        "lc-3741-8",
+        "lc-3741-10",
+        "lc-3741-11",
+        "lc-3741-12",
+        "lc-3741-13",
+        "lc-3741-14"
+      ]
+    },
+    {
+      "reason": "Skips the last consecutive triple of occurrences.",
+      "failed_cases": [
+        "lc-3741-1",
+        "lc-3741-2",
+        "lc-3741-5",
+        "lc-3741-6",
+        "lc-3741-7",
+        "lc-3741-10",
+        "lc-3741-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7788,
+  "oracle_implementation": "code_practice/import_batch_235c.py:triple_oracle",
+  "validator_implementation_sha256": "15023933e3d28583ac994fd3fa380e60b2147cf127ba28399c0307365365ecc9",
+  "batch_implementation_sha256": "d1cbc7b7f5c522f88955b04444e1599135e5321ecc41a572be717d774035427c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fb101d378db568e981d57246ed1534ada51695cb01bb40d9f64fd3ac42ff78ec",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

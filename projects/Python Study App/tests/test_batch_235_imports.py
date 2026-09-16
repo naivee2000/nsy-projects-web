@@ -3,8 +3,9 @@ from pathlib import Path
 from code_practice.catalog import get_catalog
 from code_practice.import_batch_235a import BATCH as BATCH_A
 from code_practice.import_batch_235b import BATCH as BATCH_B
+from code_practice.import_batch_235c import BATCH as BATCH_C
 
-BATCH={**BATCH_A,**BATCH_B}
+BATCH={**BATCH_A,**BATCH_B,**BATCH_C}
 
 ROOT=Path(__file__).resolve().parents[1]
 

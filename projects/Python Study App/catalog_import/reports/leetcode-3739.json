@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3739",
+  "content_sha256": "af09a9803d103899634bbf722f129ffb400749a036782573251d446675c1405f",
+  "source_hash": "d56d9f41807ba6f87c0d109210bad4a8edfc0172d1e70d8a5e21ec14999402c3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal prefix balances and therefore includes tied subarrays.",
+      "failed_cases": [
+        "lc-3739-1",
+        "lc-3739-6",
+        "lc-3739-7",
+        "lc-3739-8",
+        "lc-3739-10",
+        "lc-3739-11",
+        "lc-3739-12",
+        "lc-3739-13",
+        "lc-3739-14"
+      ]
+    },
+    {
+      "reason": "Reverses the target and non-target prefix contributions.",
+      "failed_cases": [
+        "lc-3739-1",
+        "lc-3739-2",
+        "lc-3739-3",
+        "lc-3739-4",
+        "lc-3739-5",
+        "lc-3739-7",
+        "lc-3739-8",
+        "lc-3739-9",
+        "lc-3739-10",
+        "lc-3739-11",
+        "lc-3739-12",
+        "lc-3739-13",
+        "lc-3739-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7786,
+  "oracle_implementation": "code_practice/import_batch_235c.py:majority_oracle",
+  "validator_implementation_sha256": "15023933e3d28583ac994fd3fa380e60b2147cf127ba28399c0307365365ecc9",
+  "batch_implementation_sha256": "d1cbc7b7f5c522f88955b04444e1599135e5321ecc41a572be717d774035427c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ad2d12f03639a03a41fa370ade6531f4b28638abdf1e1ef2adb2c2356b6623ff",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
