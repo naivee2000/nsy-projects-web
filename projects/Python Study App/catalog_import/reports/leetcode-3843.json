@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3843",
+  "content_sha256": "45dd29835abc5d94776edcf57b4546e178b5b9e240a2e48ea7e1d0f281aa9b09",
+  "source_hash": "c26e29c03c3fd34aa807735550360b9fbe00481b3d85d4101a7e34525e3b614c",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Confuses a unique frequency with a value that appears once.",
+      "failed_cases": [
+        "lc-3843-1",
+        "lc-3843-2",
+        "lc-3843-4",
+        "lc-3843-5",
+        "lc-3843-10",
+        "lc-3843-11",
+        "lc-3843-12"
+      ]
+    },
+    {
+      "reason": "Returns the rightmost qualifying value instead of the first from the left.",
+      "failed_cases": [
+        "lc-3843-5",
+        "lc-3843-6",
+        "lc-3843-9",
+        "lc-3843-10",
+        "lc-3843-11",
+        "lc-3843-14",
+        "lc-3843-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7890,
+  "oracle_implementation": "code_practice/import_batch_239b.py:frequency_oracle",
+  "validator_implementation_sha256": "5ccf25bfe36ce5dd40a151c4292295dda4041c2c1535396865e60f9cc6db28d9",
+  "batch_implementation_sha256": "8f9ad2679bb3ed4f9539a35b3fe6bf5a294761f7a30f99371c508a1cd49c0ea6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0e73c21b6331574bec5654a647cf086f96c1bfeee7cfbe793b981aaf5dae2133",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3847",
+  "content_sha256": "196448241dcf2314300f70b9b87a83cfa581b7fdc470dfd019527309772c3bc6",
+  "source_hash": "a16ce79f20e1e79db80a72476e61c0235f4067c3c58505f6461467eaaae122ef",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Adds every score to the first player regardless of the active role.",
+      "failed_cases": [
+        "lc-3847-1",
+        "lc-3847-3",
+        "lc-3847-5",
+        "lc-3847-7",
+        "lc-3847-8",
+        "lc-3847-9",
+        "lc-3847-10",
+        "lc-3847-11",
+        "lc-3847-12",
+        "lc-3847-13",
+        "lc-3847-14",
+        "lc-3847-15"
+      ]
+    },
+    {
+      "reason": "Applies the periodic swap on indices divisible by six rather than every sixth one-based game.",
+      "failed_cases": [
+        "lc-3847-2",
+        "lc-3847-3",
+        "lc-3847-4",
+        "lc-3847-7",
+        "lc-3847-8",
+        "lc-3847-9",
+        "lc-3847-10",
+        "lc-3847-11",
+        "lc-3847-12",
+        "lc-3847-13",
+        "lc-3847-14",
+        "lc-3847-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7894,
+  "oracle_implementation": "code_practice/import_batch_239b.py:game_oracle",
+  "validator_implementation_sha256": "5ccf25bfe36ce5dd40a151c4292295dda4041c2c1535396865e60f9cc6db28d9",
+  "batch_implementation_sha256": "8f9ad2679bb3ed4f9539a35b3fe6bf5a294761f7a30f99371c508a1cd49c0ea6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e64109be7fc5e84b7b0729b99cb3649d31c4d6897e48e905baddb8cd1efb6398",
+  "elapsed_seconds": 0.023,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

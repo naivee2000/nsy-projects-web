@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3846",
+  "content_sha256": "9cfed827712ac1198837dba229a2c6d7a14f0fea700c96ad0c2803bb80249c45",
+  "source_hash": "36d58b95cc3ae90c115f8308993361e02b6051b422912944d248199709048f77",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Starts the finger on q instead of a.",
+      "failed_cases": [
+        "lc-3846-1",
+        "lc-3846-2",
+        "lc-3846-3",
+        "lc-3846-4",
+        "lc-3846-5",
+        "lc-3846-6",
+        "lc-3846-7",
+        "lc-3846-8",
+        "lc-3846-9",
+        "lc-3846-10",
+        "lc-3846-11",
+        "lc-3846-12",
+        "lc-3846-13",
+        "lc-3846-14",
+        "lc-3846-15"
+      ]
+    },
+    {
+      "reason": "Counts horizontal movement but ignores row changes.",
+      "failed_cases": [
+        "lc-3846-1",
+        "lc-3846-3",
+        "lc-3846-4",
+        "lc-3846-5",
+        "lc-3846-6",
+        "lc-3846-7",
+        "lc-3846-8",
+        "lc-3846-9",
+        "lc-3846-11",
+        "lc-3846-12",
+        "lc-3846-13",
+        "lc-3846-14",
+        "lc-3846-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7893,
+  "oracle_implementation": "code_practice/import_batch_239b.py:keyboard_oracle",
+  "validator_implementation_sha256": "5ccf25bfe36ce5dd40a151c4292295dda4041c2c1535396865e60f9cc6db28d9",
+  "batch_implementation_sha256": "8f9ad2679bb3ed4f9539a35b3fe6bf5a294761f7a30f99371c508a1cd49c0ea6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "518d326aa64f75bd5967e2e35090cce8315a54c6f7c16285b7b5a0cce1bc8e48",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
