@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-546",
+  "content_sha256": "20f63d1d5876c478ecdf8cd4014e288c8b962c5d76fc11805e49966476133940",
+  "source_hash": "efa2f5ac7ca69b16cd62b10707d913ef2d7d375641c2a77fb62f5df6902f2d92",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Scores a merged run linearly instead of quadratically.",
+      "failed_cases": [
+        "lc-546-1",
+        "lc-546-2",
+        "lc-546-5",
+        "lc-546-6",
+        "lc-546-7",
+        "lc-546-8",
+        "lc-546-9",
+        "lc-546-10",
+        "lc-546-11",
+        "lc-546-13",
+        "lc-546-14"
+      ]
+    },
+    {
+      "reason": "Fails to carry matching right-end boxes across the removed middle interval.",
+      "failed_cases": [
+        "lc-546-1",
+        "lc-546-5",
+        "lc-546-6",
+        "lc-546-7",
+        "lc-546-9",
+        "lc-546-10",
+        "lc-546-11",
+        "lc-546-13",
+        "lc-546-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4593,
+  "oracle_implementation": "code_practice/import_batch_245b.py:boxes_oracle",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "d08398db7d32f1c45dd5b3f120ab8bdaed2db513e3ab60cf54fded8a5c2b4ca9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e4a4a6e3064e4c44c8a80cfe63f0a1b3f7074bee6407bba7a4082ae7f25d7149",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

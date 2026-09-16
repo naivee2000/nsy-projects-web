@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-568",
+  "content_sha256": "5b659084b74ca4a59085c6f4f2860fdaf24fa7ae82c2e84af88767d3cc890c8d",
+  "source_hash": "8c78ef2470f6e9f54a1d708d275b6827a3d38a3b90f2e687151bfda4efef1877",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forbids staying in the current city when no self-flight is listed.",
+      "failed_cases": [
+        "lc-568-2",
+        "lc-568-3",
+        "lc-568-4",
+        "lc-568-6",
+        "lc-568-9",
+        "lc-568-10",
+        "lc-568-11",
+        "lc-568-12",
+        "lc-568-13",
+        "lc-568-14"
+      ]
+    },
+    {
+      "reason": "Starts in the last city instead of city zero.",
+      "failed_cases": [
+        "lc-568-2",
+        "lc-568-6",
+        "lc-568-8",
+        "lc-568-10",
+        "lc-568-11",
+        "lc-568-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4615,
+  "oracle_implementation": "code_practice/import_batch_245b.py:vacation_oracle",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "d08398db7d32f1c45dd5b3f120ab8bdaed2db513e3ab60cf54fded8a5c2b4ca9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "319889a4c7d7e01a088ed49259b3178ae8c2f5705fb61481248aa4acdf551c8c",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-727",
+  "content_sha256": "370120c1c160295f7a05acc03e560fdd2347d6e083be07516c7bc3886e567092",
+  "source_hash": "65e36ed4426571052e749c5eb8b7410bd6dcfc983bcd5dedc2ac56ef61ba9a61",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stops after the first feasible start instead of searching later starts for a shorter window.",
+      "failed_cases": [
+        "lc-727-10",
+        "lc-727-12",
+        "lc-727-14"
+      ]
+    },
+    {
+      "reason": "Replaces an earlier equal-length optimum with a later window.",
+      "failed_cases": [
+        "lc-727-1"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4774,
+  "oracle_implementation": "code_practice/import_batch_245b.py:window_oracle",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "d08398db7d32f1c45dd5b3f120ab8bdaed2db513e3ab60cf54fded8a5c2b4ca9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8668d076c8ba426eb992d9241318ebce09914df2b2b6ea6f8e2da1b98a8024e6",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

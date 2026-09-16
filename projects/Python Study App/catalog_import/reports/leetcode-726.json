@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-726",
+  "content_sha256": "663f4f0b5143e84c2ccbd468554578504be5ac5a4dda09abc84f909839b61e62",
+  "source_hash": "159aeb3dc0fc129348e1742e073532fcbb9b8570243a764fcc9291615cf2cece",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores multipliers after parenthesized groups.",
+      "failed_cases": [
+        "lc-726-2",
+        "lc-726-3",
+        "lc-726-7",
+        "lc-726-10",
+        "lc-726-12",
+        "lc-726-14"
+      ]
+    },
+    {
+      "reason": "Emits atoms in parsing order rather than required lexicographic order.",
+      "failed_cases": [
+        "lc-726-2",
+        "lc-726-3",
+        "lc-726-8",
+        "lc-726-12",
+        "lc-726-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4773,
+  "oracle_implementation": "code_practice/import_batch_245b.py:atoms_oracle",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "d08398db7d32f1c45dd5b3f120ab8bdaed2db513e3ab60cf54fded8a5c2b4ca9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "04bb4d7fb769772975217c9d86024ec2a3851f1f9e2cdd522231db951f494073",
+  "elapsed_seconds": 0.08,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-675",
+  "content_sha256": "0a94c2897e71a33799a0d5c50b8071278adb2c6e521e5563ea6835d244fcc6f8",
+  "source_hash": "486af38cdebd05fcc52d41df7d5e7d0380874b95114abbf2b87f2c730bb63122",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips unreachable required trees instead of reporting failure.",
+      "failed_cases": [
+        "lc-675-2",
+        "lc-675-6"
+      ]
+    },
+    {
+      "reason": "Restarts every trip at the origin rather than the previously cut tree.",
+      "failed_cases": [
+        "lc-675-1",
+        "lc-675-5",
+        "lc-675-9",
+        "lc-675-10",
+        "lc-675-11",
+        "lc-675-12",
+        "lc-675-13",
+        "lc-675-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4722,
+  "oracle_implementation": "code_practice/import_batch_245b.py:forest_oracle",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "d08398db7d32f1c45dd5b3f120ab8bdaed2db513e3ab60cf54fded8a5c2b4ca9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3e640eadb6185db4f98e25593fe5c39dc377146633ad62e9e977ea0cf0794978",
+  "elapsed_seconds": 0.108,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

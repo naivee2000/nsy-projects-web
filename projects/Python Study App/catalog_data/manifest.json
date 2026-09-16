@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 3124,
+  "count": 3133,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -8754,6 +8754,26 @@
       "source_id": 545
     },
     {
+      "id": "leetcode-546",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove Boxes",
+      "summary": "You are provided with multiple boxes of various colors, each color represented by a unique positive number.",
+      "topics": [
+        "dynamic programming",
+        "recursion",
+        "memoization"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-546.json",
+      "content_sha256": "20f63d1d5876c478ecdf8cd4014e288c8b962c5d76fc11805e49966476133940",
+      "source_id": 546
+    },
+    {
       "id": "leetcode-547",
       "version": 1,
       "status": "approved",
@@ -8998,6 +9018,25 @@
       "source_id": 567
     },
     {
+      "id": "leetcode-568",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Vacation Days",
+      "summary": "Given an n x n matrix representing flights between cities and an n x k matrix representing the maximum vacation days allowed in each city for each week, determine the maximum number of vacation days that can be taken over k weeks.",
+      "topics": [
+        "dynamic programming",
+        "graphs"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-568.json",
+      "content_sha256": "5b659084b74ca4a59085c6f4f2860fdaf24fa7ae82c2e84af88767d3cc890c8d",
+      "source_id": 568
+    },
+    {
       "id": "leetcode-572",
       "version": 1,
       "status": "approved",
@@ -9120,6 +9159,26 @@
       "path": "problems/leetcode-583.json",
       "content_sha256": "baa58007e31dda236cbb2ca359dda11ee59ffa59477fd0de89761bc9daffb3ba",
       "source_id": 583
+    },
+    {
+      "id": "leetcode-591",
+      "version": 1,
+      "status": "approved",
+      "title": "Tag Validator",
+      "summary": "Given a string representing a code snippet, implement a tag validator to determine if the code is valid according to the following rules: - The code must be enclosed in a valid closed tag.",
+      "topics": [
+        "strings",
+        "stacks",
+        "parsing"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-591.json",
+      "content_sha256": "fffe9fb8df7dd2f210614c927582b0b3034c5ec710770643634381859f567741",
+      "source_id": 591
     },
     {
       "id": "leetcode-592",
@@ -10103,6 +10162,26 @@
       "source_id": 673
     },
     {
+      "id": "leetcode-675",
+      "version": 1,
+      "status": "approved",
+      "title": "Cut Off Trees for Golf Event",
+      "summary": "Given an m x n matrix representing a forest, where 0 indicates an impassable cell, 1 represents an empty cell, and numbers greater than 1 represent trees of varying heights, you need to cut off all the trees in ascending order of their height starting from the cell (0, 0).",
+      "topics": [
+        "graphs",
+        "breadth-first search",
+        "sorting"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-675.json",
+      "content_sha256": "0a94c2897e71a33799a0d5c50b8071278adb2c6e521e5563ea6835d244fcc6f8",
+      "source_id": 675
+    },
+    {
       "id": "leetcode-678",
       "version": 1,
       "status": "approved",
@@ -10663,6 +10742,45 @@
       "source_id": 722
     },
     {
+      "id": "leetcode-726",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Atoms",
+      "summary": "Given a string representing a chemical formula, return the count of each atom.",
+      "topics": [
+        "stacks",
+        "parsing",
+        "hash maps"
+      ],
+      "prerequisites": [
+        "stacks"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-726.json",
+      "content_sha256": "663f4f0b5143e84c2ccbd468554578504be5ac5a4dda09abc84f909839b61e62",
+      "source_id": 726
+    },
+    {
+      "id": "leetcode-727",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Window Subsequence",
+      "summary": "Given strings s1 and s2, identify the shortest continuous segment within s1 where s2 appears as a subsequence.",
+      "topics": [
+        "strings",
+        "two pointers"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-727.json",
+      "content_sha256": "370120c1c160295f7a05acc03e560fdd2347d6e083be07516c7bc3886e567092",
+      "source_id": 727
+    },
+    {
       "id": "leetcode-728",
       "version": 1,
       "status": "approved",
@@ -10678,6 +10796,25 @@
       "path": "problems/leetcode-728.json",
       "content_sha256": "8d7b4d99bd89b47a23f67c4884a187f4fc6f9aed6ef6796e382bd39657e52bb9",
       "source_id": 728
+    },
+    {
+      "id": "leetcode-730",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Different Palindromic Subsequences",
+      "summary": "Given a string, calculate the count of distinct non-empty palindromic subsequences, modulo 10^9 + 7.",
+      "topics": [
+        "dynamic programming",
+        "strings"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-730.json",
+      "content_sha256": "90da1d78733ec0634abbbcc44d26ddfc85f79000a4e60e2017d9d898116e9f64",
+      "source_id": 730
     },
     {
       "id": "leetcode-734",
@@ -11078,6 +11215,25 @@
       "source_id": 773
     },
     {
+      "id": "leetcode-774",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize Max Distance to Gas Station",
+      "summary": "Given an array of gas station positions and an integer k, add k new gas stations to minimize the maximum distance between any two adjacent gas stations.",
+      "topics": [
+        "binary search",
+        "greedy"
+      ],
+      "prerequisites": [
+        "binary search"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-774.json",
+      "content_sha256": "55248cd2240f17d0fa2c5c9d06c147d86cb851c588220215cf7289fb50d0986c",
+      "source_id": 774
+    },
+    {
       "id": "leetcode-775",
       "version": 1,
       "status": "approved",
@@ -11183,6 +11339,26 @@
       "path": "problems/leetcode-781.json",
       "content_sha256": "a4ed529c9664f7de8ed812b46217683d99043a4f255ce19e4f96d1a8b281e359",
       "source_id": 781
+    },
+    {
+      "id": "leetcode-782",
+      "version": 1,
+      "status": "approved",
+      "title": "Transform to Chessboard",
+      "summary": "Given an n x n binary grid, determine the minimum number of row and column swaps needed to achieve a chessboard pattern.",
+      "topics": [
+        "matrices",
+        "math",
+        "greedy"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-782.json",
+      "content_sha256": "0a9ad9a6f12873dc4bf03ae042f45b54a8d716e0ce191b9e99365f5ced7b2af6",
+      "source_id": 782
     },
     {
       "id": "leetcode-786",

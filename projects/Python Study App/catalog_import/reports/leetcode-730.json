@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-730",
+  "content_sha256": "90da1d78733ec0634abbbcc44d26ddfc85f79000a4e60e2017d9d898116e9f64",
+  "source_hash": "459fbb9e7a5b4920dfa4e07956d625029f1f516ef3986935f53aa416466008b3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds rather than removes palindromes duplicated between the inner equal boundary characters.",
+      "failed_cases": [
+        "lc-730-13"
+      ]
+    },
+    {
+      "reason": "Treats the no-inner-match case as one-inner-match and undercounts new wrapped palindromes.",
+      "failed_cases": [
+        "lc-730-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4777,
+  "oracle_implementation": "code_practice/import_batch_245b.py:pal_subsequence_oracle",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "d08398db7d32f1c45dd5b3f120ab8bdaed2db513e3ab60cf54fded8a5c2b4ca9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f9a7322312c2892817178d34c19ac77ad61fe8e9f3dc5d7ae5996b31a29f4b86",
+  "elapsed_seconds": 0.131,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

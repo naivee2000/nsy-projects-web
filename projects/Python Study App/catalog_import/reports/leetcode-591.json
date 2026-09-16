@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-591",
+  "content_sha256": "fffe9fb8df7dd2f210614c927582b0b3034c5ec710770643634381859f567741",
+  "source_hash": "b81f38a6ed98515615d4627c2d083c3bdba019ea7b26605fbb07f477e8dc9265",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows trailing content or a second root after the first tag closes.",
+      "failed_cases": [
+        "lc-591-7",
+        "lc-591-11",
+        "lc-591-16"
+      ]
+    },
+    {
+      "reason": "Accepts lowercase tag names.",
+      "failed_cases": [
+        "lc-591-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4638,
+  "oracle_implementation": "code_practice/import_batch_245b.py:tag_oracle",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "d08398db7d32f1c45dd5b3f120ab8bdaed2db513e3ab60cf54fded8a5c2b4ca9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9acf0a04c29347c654ac58ee09b1fe7bb50092353ea342d30d906ef74809a974",
+  "elapsed_seconds": 0.055,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

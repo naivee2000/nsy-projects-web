@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-782",
+  "content_sha256": "0a9ad9a6f12873dc4bf03ae042f45b54a8d716e0ce191b9e99365f5ced7b2af6",
+  "source_hash": "cfc864e4a60daa73573634ad8695c9a09f25099b7c3421cbec9fa36c975db147",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only first-row and first-column balance and ignores arrangement and complement consistency.",
+      "failed_cases": [
+        "lc-782-2",
+        "lc-782-11",
+        "lc-782-12",
+        "lc-782-13"
+      ]
+    },
+    {
+      "reason": "Counts displaced row positions as full swaps instead of pairs.",
+      "failed_cases": [
+        "lc-782-1",
+        "lc-782-2",
+        "lc-782-5",
+        "lc-782-6",
+        "lc-782-9",
+        "lc-782-10",
+        "lc-782-11",
+        "lc-782-12",
+        "lc-782-13",
+        "lc-782-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4829,
+  "oracle_implementation": "code_practice/import_batch_245b.py:chess_oracle",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "d08398db7d32f1c45dd5b3f120ab8bdaed2db513e3ab60cf54fded8a5c2b4ca9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "49c14b8388bcf750cbc619b28c9d22b8ed4131b70a01aa80d42433e7cde04220",
+  "elapsed_seconds": 0.171,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

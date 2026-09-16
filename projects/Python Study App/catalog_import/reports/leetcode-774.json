@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-774",
+  "content_sha256": "55248cd2240f17d0fa2c5c9d06c147d86cb851c588220215cf7289fb50d0986c",
+  "source_hash": "fd580de9bb6d1e2cd9a257334298b6a08c13d289305332c0dad15e08666f8653",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats exactly k required insertions as infeasible.",
+      "failed_cases": [
+        "lc-774-1",
+        "lc-774-2",
+        "lc-774-4",
+        "lc-774-5",
+        "lc-774-6",
+        "lc-774-7",
+        "lc-774-8",
+        "lc-774-9",
+        "lc-774-10",
+        "lc-774-11",
+        "lc-774-13",
+        "lc-774-14"
+      ]
+    },
+    {
+      "reason": "Stops binary search too early for the required precision.",
+      "failed_cases": [
+        "lc-774-1",
+        "lc-774-2",
+        "lc-774-4",
+        "lc-774-5",
+        "lc-774-6",
+        "lc-774-7",
+        "lc-774-8",
+        "lc-774-9",
+        "lc-774-10",
+        "lc-774-11",
+        "lc-774-13",
+        "lc-774-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4821,
+  "oracle_implementation": "code_practice/import_batch_245b.py:gas_oracle",
+  "validator_implementation_sha256": "0133afd745c33a7c60ed6fd2c223fdb273ff7a436148a1e2a56342c1d574ebf2",
+  "batch_implementation_sha256": "d08398db7d32f1c45dd5b3f120ab8bdaed2db513e3ab60cf54fded8a5c2b4ca9",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "df1bc16c284039281a2f57aded3a6b17246e5a95777e982263261f208a082ff8",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
