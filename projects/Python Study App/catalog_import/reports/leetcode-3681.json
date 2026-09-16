@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3681",
+  "content_sha256": "0ef6dc074b8d1c515ff76e3fa57182b5c5eeeca474b5a54c8cd9d40d2e45a5c5",
+  "source_hash": "cff83d11c862ab8e183be623a8cec25e81e662eaf4df948e5a6591bffd4d0ec6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never considers bit twenty-nine in the final maximization.",
+      "failed_cases": [
+        "lc-3681-12"
+      ]
+    },
+    {
+      "reason": "Blindly XORs every basis vector instead of greedily improving the result.",
+      "failed_cases": [
+        "lc-3681-11",
+        "lc-3681-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7728,
+  "oracle_implementation": "code_practice/import_batch_233c.py:xor_oracle",
+  "validator_implementation_sha256": "2e1af8453fb8300caac24e5ccf08237ca3386044fc16496192b42a167062ba89",
+  "batch_implementation_sha256": "56c5d279e98d3ffe91939fd6889204df99969fc6bda23b865b064830007ab3a5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "46d4bf5af8ddeaa705ffe5a0dc0135b27a544c0bdcaec398639c4713e2be7dc8",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

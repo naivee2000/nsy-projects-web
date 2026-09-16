@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3685",
+  "content_sha256": "aeb6889b70160460fc410735539e100e9022914ea1df19b6e73bade1fa1873cf",
+  "source_hash": "0944cdc99e006a4977237a51e440310fc350adfe193aed4d1e431f7d28d134cf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the largest feasible number of capped elements.",
+      "failed_cases": [
+        "lc-3685-1",
+        "lc-3685-2",
+        "lc-3685-3",
+        "lc-3685-6",
+        "lc-3685-8",
+        "lc-3685-9",
+        "lc-3685-10",
+        "lc-3685-11",
+        "lc-3685-12",
+        "lc-3685-13",
+        "lc-3685-14"
+      ]
+    },
+    {
+      "reason": "Removes an extra capped item from later-cap availability.",
+      "failed_cases": [
+        "lc-3685-1",
+        "lc-3685-2",
+        "lc-3685-6",
+        "lc-3685-8",
+        "lc-3685-9",
+        "lc-3685-10",
+        "lc-3685-11",
+        "lc-3685-12",
+        "lc-3685-13",
+        "lc-3685-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7732,
+  "oracle_implementation": "code_practice/import_batch_233c.py:capped_oracle",
+  "validator_implementation_sha256": "2e1af8453fb8300caac24e5ccf08237ca3386044fc16496192b42a167062ba89",
+  "batch_implementation_sha256": "56c5d279e98d3ffe91939fd6889204df99969fc6bda23b865b064830007ab3a5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "00e519cfab057c1b09bed9acbc2ab5c8ebfac582fe601cc83eb4d50ceeb3d1ca",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

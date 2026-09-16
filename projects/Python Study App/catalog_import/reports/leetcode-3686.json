@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3686",
+  "content_sha256": "77078ee5304be59d97c63b8681511eda180f40028636deb84c16979c2380ef65",
+  "source_hash": "ab0fd622639796f79a9c8f68ac23be44a9af7baa9cd0d2f7eb742c48fca6cdff",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows extending an already length-two same-parity run.",
+      "failed_cases": [
+        "lc-3686-1",
+        "lc-3686-2",
+        "lc-3686-6",
+        "lc-3686-7",
+        "lc-3686-9",
+        "lc-3686-10",
+        "lc-3686-11",
+        "lc-3686-12",
+        "lc-3686-13",
+        "lc-3686-14"
+      ]
+    },
+    {
+      "reason": "Treats every value as even and loses parity transitions.",
+      "failed_cases": [
+        "lc-3686-2",
+        "lc-3686-8",
+        "lc-3686-9",
+        "lc-3686-10",
+        "lc-3686-11",
+        "lc-3686-12",
+        "lc-3686-13",
+        "lc-3686-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7733,
+  "oracle_implementation": "code_practice/import_batch_233c.py:stable_oracle",
+  "validator_implementation_sha256": "2e1af8453fb8300caac24e5ccf08237ca3386044fc16496192b42a167062ba89",
+  "batch_implementation_sha256": "56c5d279e98d3ffe91939fd6889204df99969fc6bda23b865b064830007ab3a5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "200099d1abaccbd17b45c3356a0633ef34ed52435aafe7f6fae749013dc65daa",
+  "elapsed_seconds": 0.333,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3682",
+  "content_sha256": "e22897d3784145117448ea50b7ad50ac45fea5f7b0cfff48775a003b8050c424",
+  "source_hash": "6d6e8d62ce1a249b5909422d719c04e6af848b9892fa8a8c4cb3c75ea1967f5f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stores the last second-array index instead of the earliest.",
+      "failed_cases": [
+        "lc-3682-11"
+      ]
+    },
+    {
+      "reason": "Chooses the maximum matching index sum after the first match.",
+      "failed_cases": [
+        "lc-3682-1",
+        "lc-3682-6",
+        "lc-3682-10",
+        "lc-3682-11",
+        "lc-3682-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7729,
+  "oracle_implementation": "code_practice/import_batch_233c.py:index_oracle",
+  "validator_implementation_sha256": "2e1af8453fb8300caac24e5ccf08237ca3386044fc16496192b42a167062ba89",
+  "batch_implementation_sha256": "56c5d279e98d3ffe91939fd6889204df99969fc6bda23b865b064830007ab3a5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8d9cf4dc5eb8b645cebd35e7cdd6ae1c1f73891e5f5199119892a1edccbceb1c",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

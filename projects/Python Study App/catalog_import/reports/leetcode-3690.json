@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3690",
+  "content_sha256": "8dc2de45f5f2a9f1cff222a3523d2aae701bf894e9a79fdba6ae645480479b37",
+  "source_hash": "161b182544431352663f7326732d15e6688349788d241195d0fc5224248404e5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows moving only single elements and misses optimal multi-element blocks.",
+      "failed_cases": [
+        "lc-3690-2",
+        "lc-3690-9",
+        "lc-3690-10",
+        "lc-3690-11",
+        "lc-3690-12",
+        "lc-3690-13"
+      ]
+    },
+    {
+      "reason": "Undercounts by omitting the final move into the target state.",
+      "failed_cases": [
+        "lc-3690-1",
+        "lc-3690-2",
+        "lc-3690-4",
+        "lc-3690-5",
+        "lc-3690-6",
+        "lc-3690-7",
+        "lc-3690-8",
+        "lc-3690-9",
+        "lc-3690-10",
+        "lc-3690-11",
+        "lc-3690-12",
+        "lc-3690-13",
+        "lc-3690-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7737,
+  "oracle_implementation": "code_practice/import_batch_233c.py:merge_oracle",
+  "validator_implementation_sha256": "2e1af8453fb8300caac24e5ccf08237ca3386044fc16496192b42a167062ba89",
+  "batch_implementation_sha256": "56c5d279e98d3ffe91939fd6889204df99969fc6bda23b865b064830007ab3a5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "49a401a0d9552d460bc57c3040eecce85b2e87c5c1b962c8d14695f3a1a208ab",
+  "elapsed_seconds": 0.286,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
