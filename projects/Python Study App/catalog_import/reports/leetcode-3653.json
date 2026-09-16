@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3653",
+  "content_sha256": "dd0856955b009e7d2a2c7d214ef1d38b345effdeebc7f522cba21b4384489b34",
+  "source_hash": "5fc74991565a3ef29626ac69fc75ba7a6c4856a94d8516201f448f841265626e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the inclusive right endpoint as exclusive.",
+      "failed_cases": [
+        "lc-3653-1",
+        "lc-3653-2",
+        "lc-3653-3",
+        "lc-3653-4",
+        "lc-3653-5",
+        "lc-3653-7",
+        "lc-3653-8",
+        "lc-3653-9",
+        "lc-3653-10",
+        "lc-3653-11",
+        "lc-3653-12",
+        "lc-3653-13",
+        "lc-3653-14"
+      ]
+    },
+    {
+      "reason": "Omits the required modulus after each multiplication.",
+      "failed_cases": [
+        "lc-3653-7",
+        "lc-3653-8",
+        "lc-3653-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7700,
+  "oracle_implementation": "code_practice/import_batch_232c.py:xor_oracle",
+  "validator_implementation_sha256": "9883eb28e8d682c6d4fa9eb72b5b676058e7b5adb63e10b8118a4b802112f690",
+  "batch_implementation_sha256": "2a86b41c2583da4f7b8698f38720cacc1cf120b3538adae3cbac9c427c9a7930",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d88fd9f5c5d0533389ce940c72611e7aad2927b9b8220dc49ab38d931d9e79dd",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3654",
+  "content_sha256": "0ecacc1942f507b59623cc5e47d34a50663b41c168032bc6180c3e9fe724b6c7",
+  "source_hash": "90213e6651b22d83756d01bffb0a782537b0c5dd6fdf41a1aa75563f8a1a8e2d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Looks up a state after consuming the current value rather than before it.",
+      "failed_cases": [
+        "lc-3654-1",
+        "lc-3654-2",
+        "lc-3654-4",
+        "lc-3654-7",
+        "lc-3654-8",
+        "lc-3654-9",
+        "lc-3654-10",
+        "lc-3654-11",
+        "lc-3654-12",
+        "lc-3654-13"
+      ]
+    },
+    {
+      "reason": "Returns only the total remainder instead of the minimum retained sum.",
+      "failed_cases": [
+        "lc-3654-2",
+        "lc-3654-10",
+        "lc-3654-11",
+        "lc-3654-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7701,
+  "oracle_implementation": "code_practice/import_batch_232c.py:deletion_oracle",
+  "validator_implementation_sha256": "9883eb28e8d682c6d4fa9eb72b5b676058e7b5adb63e10b8118a4b802112f690",
+  "batch_implementation_sha256": "2a86b41c2583da4f7b8698f38720cacc1cf120b3538adae3cbac9c427c9a7930",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3f25c3bfa62f98206917c126d7c0158c1bfe85c289c04983d4cb3cccf0c5151a",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

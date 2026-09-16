@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2875,
+  "count": 2880,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -49555,6 +49555,96 @@
       "path": "problems/leetcode-3649.json",
       "content_sha256": "6ef0994b156d50ac429771e814b653644a3341f4d2ad813416c5346128d62dce",
       "source_id": 3649
+    },
+    {
+      "id": "leetcode-3650",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost Path with Edge Reversals",
+      "summary": "Given a directed, weighted graph with nodes labeled from 0 to n-1 and edges with associated costs, you can reverse an incoming edge at any node exactly once to travel on it, incurring a cost of 2 * wi for that move.",
+      "topics": [
+        "graphs",
+        "dijkstra"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3650.json",
+      "content_sha256": "51277f57d16c0f09dcb16cc0586fc09478a7e8afeb63314ddc2ca9fe7e9074ad",
+      "source_id": 3650
+    },
+    {
+      "id": "leetcode-3651",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost Path with Teleportations",
+      "summary": "Given a m x n grid and an integer k, find the minimum total cost to reach the bottom-right cell (m - 1, n - 1) from the top-left cell (0, 0).",
+      "topics": [
+        "matrices",
+        "dynamic programming",
+        "sorting"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3651.json",
+      "content_sha256": "db86c92a3267e576cb38aa0a8e4772482bc5914b60e8d6c3f9ef52f765656285",
+      "source_id": 3651
+    },
+    {
+      "id": "leetcode-3652",
+      "version": 1,
+      "status": "approved",
+      "title": "Best Time to Buy and Sell Stock using Strategy",
+      "summary": "Given stock prices and a trading strategy, you can modify a segment of the strategy to maximize profit.",
+      "topics": [
+        "arrays",
+        "prefix sums",
+        "sliding windows"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3652.json",
+      "content_sha256": "282abcebe091591ec85d5336ed5935be67760a69ddb0baf7824518e71efd63b1",
+      "source_id": 3652
+    },
+    {
+      "id": "leetcode-3653",
+      "version": 1,
+      "status": "approved",
+      "title": "XOR After Range Multiplication Queries I",
+      "summary": "Given an integer array nums of length n and a 2D integer array queries of size q, where each query is represented as [li, ri, ki, vi], for each query, perform the following operations in order: 1.",
+      "topics": [
+        "arrays",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3653.json",
+      "content_sha256": "dd0856955b009e7d2a2c7d214ef1d38b345effdeebc7f522cba21b4384489b34",
+      "source_id": 3653
+    },
+    {
+      "id": "leetcode-3654",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Sum After Divisible Sum Deletions",
+      "summary": "Given an integer array nums and an integer k, repeatedly choose any contiguous subarray whose sum is divisible by k and delete it.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "prefix remainders"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3654.json",
+      "content_sha256": "0ecacc1942f507b59623cc5e47d34a50663b41c168032bc6180c3e9fe724b6c7",
+      "source_id": 3654
     },
     {
       "id": "leetcode-3658",
