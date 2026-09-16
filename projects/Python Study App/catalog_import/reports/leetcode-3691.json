@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3691",
+  "content_sha256": "6d88b3769f590a22061e0b1fcadb35df19911722f066f167ad6683199c16d636",
+  "source_hash": "ea3d14399992d33a399236e12df634bc90305a522cc984b793263a1dca618ea1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Selects only k minus one subarrays.",
+      "failed_cases": [
+        "lc-3691-1",
+        "lc-3691-2",
+        "lc-3691-4",
+        "lc-3691-7",
+        "lc-3691-9",
+        "lc-3691-10",
+        "lc-3691-11",
+        "lc-3691-12",
+        "lc-3691-13",
+        "lc-3691-14"
+      ]
+    },
+    {
+      "reason": "Adds the negative heap key instead of the subarray value.",
+      "failed_cases": [
+        "lc-3691-1",
+        "lc-3691-2",
+        "lc-3691-4",
+        "lc-3691-5",
+        "lc-3691-7",
+        "lc-3691-8",
+        "lc-3691-9",
+        "lc-3691-10",
+        "lc-3691-11",
+        "lc-3691-12",
+        "lc-3691-13",
+        "lc-3691-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7738,
+  "oracle_implementation": "code_practice/import_batch_233d.py:subarray_oracle",
+  "validator_implementation_sha256": "603e186de98224fc44243d8296cc845855f8e8ab635ebe6e4266edd2a946ed38",
+  "batch_implementation_sha256": "9683258186744590648b052540dc183496c9eabfb07783c9788dd2b99383b37c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c993f1485b7cde2035182c0af3140376d9e8143ed68ff244f325ee4b51e40069",
+  "elapsed_seconds": 0.101,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

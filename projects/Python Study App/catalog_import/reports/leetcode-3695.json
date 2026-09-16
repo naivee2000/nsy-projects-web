@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3695",
+  "content_sha256": "160965f4119e428155d7f4ae6c0a19b9b54ed7128231fbbd6674d1292f624c89",
+  "source_hash": "f084fd37ab3956201a35fec8ef1f5f780cd8492c01de2d94138746644fc90983",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts each component in the opposite direction before assigning signs.",
+      "failed_cases": [
+        "lc-3695-1",
+        "lc-3695-2",
+        "lc-3695-4",
+        "lc-3695-5",
+        "lc-3695-6",
+        "lc-3695-8",
+        "lc-3695-9",
+        "lc-3695-10",
+        "lc-3695-12",
+        "lc-3695-13",
+        "lc-3695-14"
+      ]
+    },
+    {
+      "reason": "Counts negative rather than positive positions in each component.",
+      "failed_cases": [
+        "lc-3695-1",
+        "lc-3695-2",
+        "lc-3695-3",
+        "lc-3695-5",
+        "lc-3695-6",
+        "lc-3695-7",
+        "lc-3695-9",
+        "lc-3695-10",
+        "lc-3695-11",
+        "lc-3695-12",
+        "lc-3695-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7742,
+  "oracle_implementation": "code_practice/import_batch_233d.py:swap_oracle",
+  "validator_implementation_sha256": "603e186de98224fc44243d8296cc845855f8e8ab635ebe6e4266edd2a946ed38",
+  "batch_implementation_sha256": "9683258186744590648b052540dc183496c9eabfb07783c9788dd2b99383b37c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4b15e776b2bc5d7171608e6af6f17ed6f882057f3a2f8e204d51e05682e78cc4",
+  "elapsed_seconds": 0.139,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

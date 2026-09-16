@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3692",
+  "content_sha256": "c907a82845dc8ce7d452029f92cde197e4bbdffb67b44a76e260f5477f029dce",
+  "source_hash": "be7e47067e97769f201c745a22d848012b4dd5023055e0f004647f0f0f2492ca",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Breaks tied group sizes toward the lower frequency.",
+      "failed_cases": [
+        "lc-3692-2",
+        "lc-3692-5",
+        "lc-3692-13"
+      ]
+    },
+    {
+      "reason": "Chooses by character-code total rather than number of distinct characters.",
+      "failed_cases": [
+        "lc-3692-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7739,
+  "oracle_implementation": "code_practice/import_batch_233d.py:frequency_oracle",
+  "validator_implementation_sha256": "603e186de98224fc44243d8296cc845855f8e8ab635ebe6e4266edd2a946ed38",
+  "batch_implementation_sha256": "9683258186744590648b052540dc183496c9eabfb07783c9788dd2b99383b37c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a9e9a1b4a4d9a576a7f6bafece6e9675d2cb548ba5c6ad95a001dcb58e2a1e20",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

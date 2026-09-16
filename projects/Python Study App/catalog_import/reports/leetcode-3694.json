@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3694",
+  "content_sha256": "8570531acded1403485d11dc742be4f2c688d1196faf275918a7a58def8d0f35",
+  "source_hash": "4b5c6c207d69c6b262044b306b41fe62681b505c9d49f877969a28b751f68995",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips the removal window ending at the final character.",
+      "failed_cases": [
+        "lc-3694-2",
+        "lc-3694-3",
+        "lc-3694-5",
+        "lc-3694-6",
+        "lc-3694-7",
+        "lc-3694-8",
+        "lc-3694-9",
+        "lc-3694-11",
+        "lc-3694-12"
+      ]
+    },
+    {
+      "reason": "Subtracts rather than restores the displacement before the removed window.",
+      "failed_cases": [
+        "lc-3694-1",
+        "lc-3694-7",
+        "lc-3694-8",
+        "lc-3694-11",
+        "lc-3694-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7741,
+  "oracle_implementation": "code_practice/import_batch_233d.py:point_oracle",
+  "validator_implementation_sha256": "603e186de98224fc44243d8296cc845855f8e8ab635ebe6e4266edd2a946ed38",
+  "batch_implementation_sha256": "9683258186744590648b052540dc183496c9eabfb07783c9788dd2b99383b37c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "01156644c98e3de9dc5ff67dadab6cc193b8b65421d360d77c8a6d668114988a",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
