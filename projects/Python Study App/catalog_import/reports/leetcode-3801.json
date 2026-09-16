@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3801",
+  "content_sha256": "689090cece6bee3c6aecd012a18779f242f0f58de27b1bd8a9a409b5381d5914",
+  "source_hash": "c46f99083a0d029e287f2664d9f5850118050711fc124e10fa4de71241ce0095",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the median-difference component of every merge.",
+      "failed_cases": [
+        "lc-3801-1",
+        "lc-3801-2",
+        "lc-3801-4",
+        "lc-3801-5",
+        "lc-3801-6",
+        "lc-3801-7",
+        "lc-3801-8",
+        "lc-3801-10",
+        "lc-3801-11",
+        "lc-3801-12",
+        "lc-3801-13",
+        "lc-3801-14"
+      ]
+    },
+    {
+      "reason": "Uses the right middle value for even-length merged lists.",
+      "failed_cases": [
+        "lc-3801-4",
+        "lc-3801-6",
+        "lc-3801-11",
+        "lc-3801-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7848,
+  "oracle_implementation": "code_practice/import_batch_237d.py:merge_cost_oracle",
+  "validator_implementation_sha256": "b82aa77777bfd0d2957b33120ffd607bf5643f9a0ebe4a55a6d8cdc3bac019b6",
+  "batch_implementation_sha256": "68bca04da7b1e7565957e137fe6a34531ca9c186c6f5057668a64f5056bd1c4c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b9db9339026e7d7e8ac8b5caa659d1e422f71c9227ded0acfae36a7565e9b6b8",
+  "elapsed_seconds": 0.207,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

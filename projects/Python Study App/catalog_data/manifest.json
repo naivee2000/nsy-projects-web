@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2980,
+  "count": 2985,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -52041,6 +52041,26 @@
       "source_id": 3796
     },
     {
+      "id": "leetcode-3797",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Routes to Climb a Rectangular Grid",
+      "summary": "Given a string array grid of size n, where each string grid[i] has length m, and each character grid[i][j] is either '.' (available cell) or '#' (blocked cell), count the number of distinct routes from any cell in the bottom row (row n - 1) to any cell in the top row (row 0).",
+      "topics": [
+        "matrices",
+        "dynamic programming",
+        "prefix sums"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3797.json",
+      "content_sha256": "87386594fdf1850e5e42b255e17344d1c49bea2259674692ef5a0023a260dea0",
+      "source_id": 3797
+    },
+    {
       "id": "leetcode-3798",
       "version": 1,
       "status": "approved",
@@ -52056,6 +52076,81 @@
       "path": "problems/leetcode-3798.json",
       "content_sha256": "c653e9ec4d165dff9da3ae96854d3c207b36288ea34d2a6be7e637c429f0ff9b",
       "source_id": 3798
+    },
+    {
+      "id": "leetcode-3799",
+      "version": 1,
+      "status": "approved",
+      "title": "Word Squares II",
+      "summary": "Given a list of distinct 4-letter words, find all possible word squares that can be formed.",
+      "topics": [
+        "strings",
+        "backtracking",
+        "enumeration"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3799.json",
+      "content_sha256": "c5ef6d00d56ccfc7687a8b4bd764c0e581ebe5882d099829e0ed591cee155054",
+      "source_id": 3799
+    },
+    {
+      "id": "leetcode-3800",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Make Two Binary Strings Equal",
+      "summary": "Given two binary strings s and t , both of length n , and three positive integers flipCost , swapCost , and crossCost , determine the minimum total cost required to make s and t identical.",
+      "topics": [
+        "strings",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3800.json",
+      "content_sha256": "f13d0211be956d5630d8674dbc90d93dc3530e10ed016fec7ef788e024e15731",
+      "source_id": 3800
+    },
+    {
+      "id": "leetcode-3801",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Merge Sorted Lists",
+      "summary": "Given a 2D integer array where each sub-array is sorted in non-decreasing order, you must repeatedly choose two distinct sub-arrays, merge them, and remove the original sub-arrays.",
+      "topics": [
+        "arrays",
+        "bitmask dynamic programming",
+        "binary search"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3801.json",
+      "content_sha256": "689090cece6bee3c6aecd012a18779f242f0f58de27b1bd8a9a409b5381d5914",
+      "source_id": 3801
+    },
+    {
+      "id": "leetcode-3802",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Ways to Paint Sheets",
+      "summary": "Given an integer n for the number of sheets, and an array limit of size m indicating the maximum sheets that can be painted with each color, find the number of ways to paint all sheets using exactly two distinct colors, each covering a contiguous segment, without exceeding the limit for each color.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "binary search"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3802.json",
+      "content_sha256": "0c812488b69c8892ea3ca0385d013c809d6fe3f45cc2ae140555189af93f8820",
+      "source_id": 3802
     },
     {
       "id": "leetcode-3803",

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3802",
+  "content_sha256": "0c812488b69c8892ea3ca0385d013c809d6fe3f45cc2ae140555189af93f8820",
+  "source_hash": "0ca72709de47f3aed39580be77247cd3886824f724bcd7c182be081f77111cc7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the same color to occupy both segments.",
+      "failed_cases": [
+        "lc-3802-1",
+        "lc-3802-2",
+        "lc-3802-3",
+        "lc-3802-4",
+        "lc-3802-6",
+        "lc-3802-7",
+        "lc-3802-8",
+        "lc-3802-9",
+        "lc-3802-10",
+        "lc-3802-11",
+        "lc-3802-12",
+        "lc-3802-13",
+        "lc-3802-14"
+      ]
+    },
+    {
+      "reason": "Treats the ordered left/right color roles as an unordered pair.",
+      "failed_cases": [
+        "lc-3802-1",
+        "lc-3802-2",
+        "lc-3802-3",
+        "lc-3802-4",
+        "lc-3802-6",
+        "lc-3802-7",
+        "lc-3802-8",
+        "lc-3802-9",
+        "lc-3802-10",
+        "lc-3802-11",
+        "lc-3802-12",
+        "lc-3802-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7849,
+  "oracle_implementation": "code_practice/import_batch_237d.py:paint_oracle",
+  "validator_implementation_sha256": "b82aa77777bfd0d2957b33120ffd607bf5643f9a0ebe4a55a6d8cdc3bac019b6",
+  "batch_implementation_sha256": "68bca04da7b1e7565957e137fe6a34531ca9c186c6f5057668a64f5056bd1c4c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "539c61206093ba379235b2c0baa5fae4d2be29e0e4e448d1e0ee456910c62d27",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
