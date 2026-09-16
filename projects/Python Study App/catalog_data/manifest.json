@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 3034,
+  "count": 3039,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -53321,6 +53321,24 @@
       "source_id": 3878
     },
     {
+      "id": "leetcode-3879",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Distinct Path Sum in a Binary Tree",
+      "summary": "Given a binary tree with integer node values, find the maximum sum of a path where all node values are distinct.",
+      "topics": [
+        "trees",
+        "depth-first search",
+        "hash sets"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3879.json",
+      "content_sha256": "6e4ffea506be316f1476012498e18f5ea72b0d084837bb665b87961c499f3232",
+      "source_id": 3879
+    },
+    {
       "id": "leetcode-3880",
       "version": 1,
       "status": "approved",
@@ -53338,6 +53356,61 @@
       "source_id": 3880
     },
     {
+      "id": "leetcode-3881",
+      "version": 1,
+      "status": "approved",
+      "title": "Direction Assignments with Exactly K Visible People",
+      "summary": "Given the integers n, pos, and k, determine the number of ways to assign each of the n people a direction ('L' or 'R') such that the person at index pos sees exactly k people.",
+      "topics": [
+        "combinatorics",
+        "math"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3881.json",
+      "content_sha256": "83d171d4674805968626236387c3f3e7a9c16869cae9feb6df36cbf2d8c1d2a9",
+      "source_id": 3881
+    },
+    {
+      "id": "leetcode-3882",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum XOR Path in a Grid",
+      "summary": "Given a 2D integer array grid of size m * n, find the minimum possible bitwise XOR value among all valid paths from the top-left cell (0, 0) to the bottom-right cell (m - 1, n - 1).",
+      "topics": [
+        "matrices",
+        "dynamic programming",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3882.json",
+      "content_sha256": "b73b71b4d5f018303d582242fcc3113d09bf01169762f0810be6741f53d50fe5",
+      "source_id": 3882
+    },
+    {
+      "id": "leetcode-3883",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Non Decreasing Arrays With Given Digit Sums",
+      "summary": "Given an integer array digitSum of length n, find the number of distinct non-decreasing arrays arr of length n where each arr[i] is between 0 and 5000, and the sum of the digits of arr[i] equals digitSum[i].",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "prefix sums"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3883.json",
+      "content_sha256": "c971b842b891b7014a6952addbc5aea2eaccafd050ece6761b9325eea899ba92",
+      "source_id": 3883
+    },
+    {
       "id": "leetcode-3884",
       "version": 1,
       "status": "approved",
@@ -53353,6 +53426,26 @@
       "path": "problems/leetcode-3884.json",
       "content_sha256": "0d126febaf5778a7569748903d195922f54cba86018d467b80061cc3d54d438d",
       "source_id": 3884
+    },
+    {
+      "id": "leetcode-3886",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Sortable Integers",
+      "summary": "Given an integer array nums of length n, determine all integers k that divide n and enable nums to be sorted in non-decreasing order by partitioning nums into consecutive subarrays of length k and independently rotating each subarray.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "string matching"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3886.json",
+      "content_sha256": "065d597b8de7ce020ef25a1ab7fe822672b1f097796c8f354a0a6a0acd314cfd",
+      "source_id": 3886
     },
     {
       "id": "leetcode-3894",

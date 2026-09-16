@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3882",
+  "content_sha256": "b73b71b4d5f018303d582242fcc3113d09bf01169762f0810be6741f53d50fe5",
+  "source_hash": "d0b99cd0366207a7e7ca762cd67fc4d5d5f50a35292714acaa829754cf4dcadb",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "When both predecessors exist, discards all paths arriving from above.",
+      "failed_cases": [
+        "lc-3882-5",
+        "lc-3882-8",
+        "lc-3882-12",
+        "lc-3882-15"
+      ]
+    },
+    {
+      "reason": "Returns the maximum reachable XOR rather than the minimum.",
+      "failed_cases": [
+        "lc-3882-1",
+        "lc-3882-5",
+        "lc-3882-6",
+        "lc-3882-8",
+        "lc-3882-11",
+        "lc-3882-12",
+        "lc-3882-13",
+        "lc-3882-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7929,
+  "oracle_implementation": "code_practice/import_batch_240c.py:xor_oracle",
+  "validator_implementation_sha256": "bcbc9a095516f69d7fa9aed9b7a420e0e9d0c3b23cdd334c4aa277006cd1c035",
+  "batch_implementation_sha256": "96b5b304fc8f7fe5e8d43f146efe220d5f3fc120329c6f6ec310ad8817a3b968",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5347781942374d7c436193ee6ab6aa3142a1e62595144de11abf6a40d30bed10",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

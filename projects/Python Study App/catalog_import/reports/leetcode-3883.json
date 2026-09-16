@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3883",
+  "content_sha256": "c971b842b891b7014a6952addbc5aea2eaccafd050ece6761b9325eea899ba92",
+  "source_hash": "c1f7a518c1c5a47da01471b0c3be9723dcb7dbd4fa8e8a058588ca76ae3bd860",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts prior counts while building the prefix transition.",
+      "failed_cases": [
+        "lc-3883-1",
+        "lc-3883-6",
+        "lc-3883-7",
+        "lc-3883-8",
+        "lc-3883-9",
+        "lc-3883-10",
+        "lc-3883-12"
+      ]
+    },
+    {
+      "reason": "Requires the previous value to be strictly smaller instead of allowing equality.",
+      "failed_cases": [
+        "lc-3883-6",
+        "lc-3883-9",
+        "lc-3883-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7930,
+  "oracle_implementation": "code_practice/import_batch_240c.py:digits_oracle",
+  "validator_implementation_sha256": "bcbc9a095516f69d7fa9aed9b7a420e0e9d0c3b23cdd334c4aa277006cd1c035",
+  "batch_implementation_sha256": "96b5b304fc8f7fe5e8d43f146efe220d5f3fc120329c6f6ec310ad8817a3b968",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "80e54b4291922f26311ec396828ae5a6eaeae334702a8a8d65d93b6f1d5729bd",
+  "elapsed_seconds": 0.676,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

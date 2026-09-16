@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3881",
+  "content_sha256": "83d171d4674805968626236387c3f3e7a9c16869cae9feb6df36cbf2d8c1d2a9",
+  "source_hash": "79147a8f7fd830e98365accf8efdb485e5c43534aa7e646e6622cee49e1be35d",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets the two independent direction choices of the person at pos.",
+      "failed_cases": [
+        "lc-3881-1",
+        "lc-3881-2",
+        "lc-3881-3",
+        "lc-3881-4",
+        "lc-3881-5",
+        "lc-3881-6",
+        "lc-3881-7",
+        "lc-3881-8",
+        "lc-3881-9",
+        "lc-3881-10",
+        "lc-3881-11",
+        "lc-3881-12",
+        "lc-3881-13",
+        "lc-3881-14",
+        "lc-3881-15"
+      ]
+    },
+    {
+      "reason": "Computes the binomial coefficient from n-2 rather than n-1 other people.",
+      "failed_cases": [
+        "lc-3881-4",
+        "lc-3881-5",
+        "lc-3881-6",
+        "lc-3881-7",
+        "lc-3881-8",
+        "lc-3881-9",
+        "lc-3881-11",
+        "lc-3881-12",
+        "lc-3881-13",
+        "lc-3881-14",
+        "lc-3881-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7928,
+  "oracle_implementation": "code_practice/import_batch_240c.py:direction_oracle",
+  "validator_implementation_sha256": "bcbc9a095516f69d7fa9aed9b7a420e0e9d0c3b23cdd334c4aa277006cd1c035",
+  "batch_implementation_sha256": "96b5b304fc8f7fe5e8d43f146efe220d5f3fc120329c6f6ec310ad8817a3b968",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ff09a855768a2b75975a95dc9ec74f121fc29189176a94e4459bcb79d2278a5a",
+  "elapsed_seconds": 2.185,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3886",
+  "content_sha256": "065d597b8de7ce020ef25a1ab7fe822672b1f097796c8f354a0a6a0acd314cfd",
+  "source_hash": "32cdc10ae030767fef42f9c791bcfdd1e51168d6d7889e4d3c268fa7a8412698",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Compares rotations against the unsorted input instead of the required sorted target.",
+      "failed_cases": [
+        "lc-3886-1",
+        "lc-3886-4",
+        "lc-3886-5",
+        "lc-3886-6",
+        "lc-3886-8",
+        "lc-3886-9",
+        "lc-3886-10",
+        "lc-3886-11",
+        "lc-3886-12",
+        "lc-3886-13",
+        "lc-3886-14",
+        "lc-3886-15"
+      ]
+    },
+    {
+      "reason": "Counts valid block sizes rather than summing their values.",
+      "failed_cases": [
+        "lc-3886-1",
+        "lc-3886-2",
+        "lc-3886-4",
+        "lc-3886-6",
+        "lc-3886-7",
+        "lc-3886-10",
+        "lc-3886-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7933,
+  "oracle_implementation": "code_practice/import_batch_240c.py:sortable_oracle",
+  "validator_implementation_sha256": "bcbc9a095516f69d7fa9aed9b7a420e0e9d0c3b23cdd334c4aa277006cd1c035",
+  "batch_implementation_sha256": "96b5b304fc8f7fe5e8d43f146efe220d5f3fc120329c6f6ec310ad8817a3b968",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6a90d786e0e36d8ba564a15ec58b696afc2ed066268adebd1083e18c6bceb21e",
+  "elapsed_seconds": 0.078,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

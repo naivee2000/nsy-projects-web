@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3879",
+  "content_sha256": "6e4ffea506be316f1476012498e18f5ea72b0d084837bb665b87961c499f3232",
+  "source_hash": "bb25d67379abb9ef9241113fa0f8db1fa5155ddbebe244ad5bab5fd0db9f9e78",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the first repeated-value node before stopping the path.",
+      "failed_cases": [
+        "lc-3879-1",
+        "lc-3879-5",
+        "lc-3879-7",
+        "lc-3879-13"
+      ]
+    },
+    {
+      "reason": "Tracks only individual node values instead of accumulated path sums.",
+      "failed_cases": [
+        "lc-3879-1",
+        "lc-3879-4",
+        "lc-3879-6",
+        "lc-3879-7",
+        "lc-3879-8",
+        "lc-3879-10",
+        "lc-3879-11",
+        "lc-3879-12",
+        "lc-3879-13",
+        "lc-3879-14",
+        "lc-3879-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7926,
+  "oracle_implementation": "code_practice/import_batch_240c.py:tree_oracle",
+  "validator_implementation_sha256": "bcbc9a095516f69d7fa9aed9b7a420e0e9d0c3b23cdd334c4aa277006cd1c035",
+  "batch_implementation_sha256": "96b5b304fc8f7fe5e8d43f146efe220d5f3fc120329c6f6ec310ad8817a3b968",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "952bf851ce06ba03502432963330dba730a552fccf03f6fac9f6b297ac4b5f80",
+  "elapsed_seconds": 0.071,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
