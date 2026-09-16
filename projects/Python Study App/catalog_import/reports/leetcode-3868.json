@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3868",
+  "content_sha256": "a6364a83574a16f53e56397fa509ad283b39cabb2c88feb4609ffc1f85e19392",
+  "source_hash": "7a2bda0dc3c72f09b5897061dfd008b9e398099a1b2733decc89e95687247eba",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts each excess copy as a separate swap instead of exchanging two-sided excesses.",
+      "failed_cases": [
+        "lc-3868-2",
+        "lc-3868-9",
+        "lc-3868-12",
+        "lc-3868-14"
+      ]
+    },
+    {
+      "reason": "Ignores odd combined multiplicities and reports a cost for impossible inputs.",
+      "failed_cases": [
+        "lc-3868-4",
+        "lc-3868-6",
+        "lc-3868-10",
+        "lc-3868-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7915,
+  "oracle_implementation": "code_practice/import_batch_240a.py:equalize_oracle",
+  "validator_implementation_sha256": "a1ba2e09a0fcdae392e94eae847623776cda98fbf577062f66f8a340c52a4b2e",
+  "batch_implementation_sha256": "9d85f3950884c491b47462decfc99d73fd5efd9d8de4ec541fb3727b929d462a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cc2ac35723141d6c40fbc8917fb00bbe6ca6f4dc5415c030eeb96cbb884f44f2",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

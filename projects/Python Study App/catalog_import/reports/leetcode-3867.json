@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3867",
+  "content_sha256": "3e186f065621dc8c0d7febce7ed93ae42da674b9362e6a0f20949f631200ebe3",
+  "source_hash": "0dc2ce8bd6142d3520ccd4da4295c6fba602f3bb8a0e47a2f9fa39646e7010d6",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the first value rather than the evolving prefix maximum.",
+      "failed_cases": [
+        "lc-3867-10",
+        "lc-3867-14"
+      ]
+    },
+    {
+      "reason": "Pairs neighboring sorted values rather than the smallest with the largest.",
+      "failed_cases": [
+        "lc-3867-10",
+        "lc-3867-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7914,
+  "oracle_implementation": "code_practice/import_batch_240a.py:gcd_oracle",
+  "validator_implementation_sha256": "a1ba2e09a0fcdae392e94eae847623776cda98fbf577062f66f8a340c52a4b2e",
+  "batch_implementation_sha256": "9d85f3950884c491b47462decfc99d73fd5efd9d8de4ec541fb3727b929d462a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f4d09ae032503412e903640ccf26bcf33c99836eb11173cd93c7b132995d15ac",
+  "elapsed_seconds": 0.033,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

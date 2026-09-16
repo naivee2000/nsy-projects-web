@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3872",
+  "content_sha256": "21060972ec2b1c4afaacd2a9420443c0a5ae74ec4a8eeb335ea4b6162fa69ed1",
+  "source_hash": "5141b1c1f6d534d2c2a267f531e5dd1dd28ab19464e46c7fdf2ed7cdb8951c6f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the two-step gap as the adjacent difference without halving it.",
+      "failed_cases": [
+        "lc-3872-1",
+        "lc-3872-6",
+        "lc-3872-9",
+        "lc-3872-10",
+        "lc-3872-11",
+        "lc-3872-13",
+        "lc-3872-15"
+      ]
+    },
+    {
+      "reason": "Fails to extend a left arithmetic run by changing its next endpoint.",
+      "failed_cases": [
+        "lc-3872-8",
+        "lc-3872-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7919,
+  "oracle_implementation": "code_practice/import_batch_240a.py:arithmetic_oracle",
+  "validator_implementation_sha256": "a1ba2e09a0fcdae392e94eae847623776cda98fbf577062f66f8a340c52a4b2e",
+  "batch_implementation_sha256": "9d85f3950884c491b47462decfc99d73fd5efd9d8de4ec541fb3727b929d462a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "99fed15c44b1d6c4b2e6b759eeeb155dc0ed3ce6654568deb921ebd4ca1d3a4f",
+  "elapsed_seconds": 2.097,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

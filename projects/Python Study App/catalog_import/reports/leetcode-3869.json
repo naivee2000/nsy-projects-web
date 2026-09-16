@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3869",
+  "content_sha256": "2fa5584e058f2aac7c4e563e1ccdb1554ecd63422a4d553acaf0f4e98b710f92",
+  "source_hash": "e10b2ebd93d46035f3246bb701aaf48583ce193d5ed9e3149d4462b141701256",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires both the number and digit sum to be good instead of either one.",
+      "failed_cases": [
+        "lc-3869-5",
+        "lc-3869-6",
+        "lc-3869-7",
+        "lc-3869-8",
+        "lc-3869-9",
+        "lc-3869-10",
+        "lc-3869-11",
+        "lc-3869-12",
+        "lc-3869-13",
+        "lc-3869-14",
+        "lc-3869-15"
+      ]
+    },
+    {
+      "reason": "Excludes the inclusive left endpoint from the range subtraction.",
+      "failed_cases": [
+        "lc-3869-1",
+        "lc-3869-2",
+        "lc-3869-3",
+        "lc-3869-4",
+        "lc-3869-5",
+        "lc-3869-6",
+        "lc-3869-7",
+        "lc-3869-8",
+        "lc-3869-9",
+        "lc-3869-10",
+        "lc-3869-11",
+        "lc-3869-12",
+        "lc-3869-13",
+        "lc-3869-14",
+        "lc-3869-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7916,
+  "oracle_implementation": "code_practice/import_batch_240a.py:fancy_oracle",
+  "validator_implementation_sha256": "a1ba2e09a0fcdae392e94eae847623776cda98fbf577062f66f8a340c52a4b2e",
+  "batch_implementation_sha256": "9d85f3950884c491b47462decfc99d73fd5efd9d8de4ec541fb3727b929d462a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fa4333fd58b2221544ab20462641ffec30536db04032fe23ae3122e4b6fcc3dc",
+  "elapsed_seconds": 0.588,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3865",
+  "content_sha256": "26ea098a9fa4b49dbd07303ae4dd88e467df53095d27d492f8905cc123caba80",
+  "source_hash": "298d68d00f1b0796b296f9ecc7e27962f1372b93e67651a27db76ff7603d9c9f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses k as the block length instead of the number of blocks.",
+      "failed_cases": [
+        "lc-3865-1",
+        "lc-3865-4",
+        "lc-3865-5",
+        "lc-3865-6",
+        "lc-3865-7",
+        "lc-3865-8",
+        "lc-3865-10",
+        "lc-3865-11",
+        "lc-3865-13",
+        "lc-3865-14"
+      ]
+    },
+    {
+      "reason": "Leaves each block in its original order.",
+      "failed_cases": [
+        "lc-3865-1",
+        "lc-3865-2",
+        "lc-3865-4",
+        "lc-3865-7",
+        "lc-3865-9",
+        "lc-3865-10",
+        "lc-3865-12",
+        "lc-3865-14",
+        "lc-3865-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7912,
+  "oracle_implementation": "code_practice/import_batch_240a.py:reverse_oracle",
+  "validator_implementation_sha256": "a1ba2e09a0fcdae392e94eae847623776cda98fbf577062f66f8a340c52a4b2e",
+  "batch_implementation_sha256": "9d85f3950884c491b47462decfc99d73fd5efd9d8de4ec541fb3727b929d462a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1eb1687524226c7d47e75c71bd83082c1912666205c547b911cbeae9df4d705d",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
