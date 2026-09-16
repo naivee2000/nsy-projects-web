@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3587",
+  "content_sha256": "62e7625c4edbff976709deef9cbf39c5a0e2a2fa4b739acbdbb480e3e0a8083c",
+  "source_hash": "2a41d69af9ec45ae9ab560da396204f530f44e1ffa0e8f41e61a2afc6748eb85",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "When counts tie, considers only arrangements beginning with even and can miss the cheaper odd-first arrangement.",
+      "failed_cases": [
+        "lc-3587-5",
+        "lc-3587-10",
+        "lc-3587-12"
+      ]
+    },
+    {
+      "reason": "Uses signed displacement, allowing left and right movements to cancel instead of counting every adjacent swap.",
+      "failed_cases": [
+        "lc-3587-1",
+        "lc-3587-2",
+        "lc-3587-10",
+        "lc-3587-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7634,
+  "oracle_implementation": "code_practice/import_batch_230a.py:parity_oracle",
+  "validator_implementation_sha256": "157a4037b92cc0775291f807787d222c0291e09cb16b3044e06332ceabaa2b91",
+  "batch_implementation_sha256": "d4f2dd471e2b76afa16f0672bfdbf87dad7eb4b6befd3f5af8a708a62849ecfa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5518684ac6bbe36f043db1bf284dbef038b2df18d058d3480ffa3f2053b3cae6",
+  "elapsed_seconds": 2.376,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

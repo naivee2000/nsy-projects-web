@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3588",
+  "content_sha256": "f0296c968747f764305b72b58ad403e1456bc0cb64fc0a047991d113ce98026a",
+  "source_hash": "fa98f0cdb1477b0b7e6b95e673ad49ba86448eaeb1ec77ed2536ec3e384bde54",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks only vertical parallel sides and misses triangles whose qualifying side is horizontal.",
+      "failed_cases": [
+        "lc-3588-6",
+        "lc-3588-11"
+      ]
+    },
+    {
+      "reason": "Uses the nearer global x extreme instead of the farther one, reducing the possible height.",
+      "failed_cases": [
+        "lc-3588-5",
+        "lc-3588-6",
+        "lc-3588-9",
+        "lc-3588-10",
+        "lc-3588-11",
+        "lc-3588-13",
+        "lc-3588-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7635,
+  "oracle_implementation": "code_practice/import_batch_230a.py:triangle_oracle",
+  "validator_implementation_sha256": "157a4037b92cc0775291f807787d222c0291e09cb16b3044e06332ceabaa2b91",
+  "batch_implementation_sha256": "d4f2dd471e2b76afa16f0672bfdbf87dad7eb4b6befd3f5af8a708a62849ecfa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "773e3e74aa94442a4b918fbecf8ff0d31adb6ba996e37f0221549d3da2c476a1",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

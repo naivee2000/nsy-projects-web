@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3589",
+  "content_sha256": "1f9fb11692fe0f1e73f13ec5ce0961ae5c03e577fa593790b49eb3f16e51505a",
+  "source_hash": "dbb0a9165237e664c6369ce3d438d96412567b2f3e4778b40090fc2cb04465c3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes the current prime as a possible first prime, thereby counting subarrays containing only one prime.",
+      "failed_cases": [
+        "lc-3589-1",
+        "lc-3589-2",
+        "lc-3589-7",
+        "lc-3589-8",
+        "lc-3589-9",
+        "lc-3589-10",
+        "lc-3589-11",
+        "lc-3589-12",
+        "lc-3589-13",
+        "lc-3589-14"
+      ]
+    },
+    {
+      "reason": "Rejects prime ranges whose gap equals k even though equality is allowed.",
+      "failed_cases": [
+        "lc-3589-1",
+        "lc-3589-2",
+        "lc-3589-7",
+        "lc-3589-8",
+        "lc-3589-9",
+        "lc-3589-11",
+        "lc-3589-13",
+        "lc-3589-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7636,
+  "oracle_implementation": "code_practice/import_batch_230a.py:prime_gap_oracle",
+  "validator_implementation_sha256": "157a4037b92cc0775291f807787d222c0291e09cb16b3044e06332ceabaa2b91",
+  "batch_implementation_sha256": "d4f2dd471e2b76afa16f0672bfdbf87dad7eb4b6befd3f5af8a708a62849ecfa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7723771c94a1dfa4ce268f6b0f7859980664cc62ef33a11a7c6a55aad7393b13",
+  "elapsed_seconds": 0.112,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

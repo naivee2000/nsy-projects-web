@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3590",
+  "content_sha256": "dcc25b67bdfa3a450c6b3d8c3f7bd398e05d95082d3f4e6d6252ff7e082e1c21",
+  "source_hash": "f94c914ef4032c9af76da2a4ff5c7cb337daaa7c7590297442565cf8cc541904",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts repeated XOR values as separate ranks instead of maintaining distinct presence.",
+      "failed_cases": [
+        "lc-3590-1",
+        "lc-3590-6",
+        "lc-3590-9",
+        "lc-3590-11"
+      ]
+    },
+    {
+      "reason": "Uses each node value alone instead of the XOR accumulated from the root path.",
+      "failed_cases": [
+        "lc-3590-1",
+        "lc-3590-2",
+        "lc-3590-4",
+        "lc-3590-5",
+        "lc-3590-6",
+        "lc-3590-8",
+        "lc-3590-9",
+        "lc-3590-10",
+        "lc-3590-12",
+        "lc-3590-13",
+        "lc-3590-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7637,
+  "oracle_implementation": "code_practice/import_batch_230a.py:xor_oracle",
+  "validator_implementation_sha256": "157a4037b92cc0775291f807787d222c0291e09cb16b3044e06332ceabaa2b91",
+  "batch_implementation_sha256": "d4f2dd471e2b76afa16f0672bfdbf87dad7eb4b6befd3f5af8a708a62849ecfa",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5e767fa9584550d29be294284e17913ef6c31c928f8f23fbae676bccf275bec7",
+  "elapsed_seconds": 0.172,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

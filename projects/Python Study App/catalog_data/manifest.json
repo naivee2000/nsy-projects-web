@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2825,
+  "count": 2830,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -48470,6 +48470,100 @@
       "path": "problems/leetcode-3584.json",
       "content_sha256": "5158f6d48b3cfea3a331d3ae5d95bbe498cfac5c487451226d1f50556e6abdce",
       "source_id": 3584
+    },
+    {
+      "id": "leetcode-3585",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Weighted Median Node in Tree",
+      "summary": "Given an integer n and an undirected, weighted tree rooted at node 0 with n nodes numbered from 0 to n - 1, represented by a 2D array edges, and a 2D integer array queries, for each query determine the first node x on the path from uj to vj where the sum of edge weights from uj to x is at least half of the total path weight.",
+      "topics": [
+        "trees",
+        "lowest common ancestor",
+        "binary lifting"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3585.json",
+      "content_sha256": "9eff2e624133568a2c217e42793df1e9dd0a318886bf618b0ab8d0b37fbda65e",
+      "source_id": 3585
+    },
+    {
+      "id": "leetcode-3587",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Adjacent Swaps to Alternate Parity",
+      "summary": "Given an array of distinct integers, determine the minimum number of adjacent swaps required to transform the array into a valid arrangement where the parity of adjacent elements alternates (i.e., each pair of adjacent elements consists of one even and one odd number).",
+      "topics": [
+        "arrays",
+        "greedy",
+        "adjacent swaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3587.json",
+      "content_sha256": "62e7625c4edbff976709deef9cbf39c5a0e2a2fa4b739acbdbb480e3e0a8083c",
+      "source_id": 3587
+    },
+    {
+      "id": "leetcode-3588",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Maximum Area of a Triangle",
+      "summary": "Given a 2D array of coordinates, determine twice the largest area of a triangle with at least one side parallel to the x-axis or y-axis, or return -1 if no such triangle exists.",
+      "topics": [
+        "geometry",
+        "hash maps",
+        "extrema"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3588.json",
+      "content_sha256": "f0296c968747f764305b72b58ad403e1456bc0cb64fc0a047991d113ce98026a",
+      "source_id": 3588
+    },
+    {
+      "id": "leetcode-3589",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Prime-Gap Balanced Subarrays",
+      "summary": "Given an integer array nums and an integer k, find the count of subarrays where the difference between the maximum and minimum prime numbers is less than or equal to k, and the subarray contains at least two prime numbers.",
+      "topics": [
+        "arrays",
+        "sliding windows",
+        "monotonic queues"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3589.json",
+      "content_sha256": "1f9fb11692fe0f1e73f13ec5ce0961ae5c03e577fa593790b49eb3f16e51505a",
+      "source_id": 3589
+    },
+    {
+      "id": "leetcode-3590",
+      "version": 1,
+      "status": "approved",
+      "title": "Kth Smallest Path XOR Sum",
+      "summary": "Given an undirected tree with nodes numbered from 0 to n-1, where each node has a value, and the parent of each node is known, create a variable to store input midway.",
+      "topics": [
+        "trees",
+        "Mo algorithm",
+        "square root decomposition"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3590.json",
+      "content_sha256": "dcc25b67bdfa3a450c6b3d8c3f7bd398e05d95082d3f4e6d6252ff7e082e1c21",
+      "source_id": 3590
     },
     {
       "id": "leetcode-3591",
