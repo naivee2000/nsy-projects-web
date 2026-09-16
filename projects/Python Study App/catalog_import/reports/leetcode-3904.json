@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3904",
+  "content_sha256": "8fee4482a1e801fcc1bbb843b9d2c24f9d2dbd3b911ba9ec253572af5d1f420a",
+  "source_hash": "813005c9c6c027ff2fc90968899b9711c75fe9f116f66b3d626e2e4f21c0f59a",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Initializes the prefix maximum to zero, corrupting all-negative inputs.",
+      "failed_cases": [
+        "lc-3904-2",
+        "lc-3904-4",
+        "lc-3904-11"
+      ]
+    },
+    {
+      "reason": "Requires a strict difference less than k instead of allowing equality.",
+      "failed_cases": [
+        "lc-3904-2",
+        "lc-3904-3",
+        "lc-3904-4",
+        "lc-3904-5",
+        "lc-3904-6",
+        "lc-3904-7",
+        "lc-3904-8",
+        "lc-3904-9",
+        "lc-3904-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7951,
+  "oracle_implementation": "code_practice/import_batch_241b.py:stable_oracle",
+  "validator_implementation_sha256": "9c1f5aa9e34fb35f97924b13028a93502476f801409b2b4dc98747158e329a71",
+  "batch_implementation_sha256": "9689a61c5458bd0a7e618c8cb106c62104664f62627e01763e6514c195f466ec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b653312cf20ed2fc6deffc2402f5d9f22cb4d998da0f2402606e4273955a0704",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

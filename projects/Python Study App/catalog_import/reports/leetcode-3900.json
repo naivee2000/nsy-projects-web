@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3900",
+  "content_sha256": "52adf6b7000a1881e4ccb63bd04d4ee76d53d2d5123da04636479ef4d9a67f6f",
+  "source_hash": "f9702d95cb8b5fa27138e764900c4e0983f8f6c2622cf3f942b842fcb14f0a98",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Repairs only substrings with one excess direction and misses the symmetric case.",
+      "failed_cases": [
+        "lc-3900-1"
+      ]
+    },
+    {
+      "reason": "Ignores already-balanced substrings that need no swap.",
+      "failed_cases": [
+        "lc-3900-2",
+        "lc-3900-6",
+        "lc-3900-7",
+        "lc-3900-8",
+        "lc-3900-9",
+        "lc-3900-10",
+        "lc-3900-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7947,
+  "oracle_implementation": "code_practice/import_batch_241b.py:balanced_oracle",
+  "validator_implementation_sha256": "9c1f5aa9e34fb35f97924b13028a93502476f801409b2b4dc98747158e329a71",
+  "batch_implementation_sha256": "9689a61c5458bd0a7e618c8cb106c62104664f62627e01763e6514c195f466ec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "329af9401c7a10fb8df3410ca7c4921c11b333999aa6074543becc87776a2631",
+  "elapsed_seconds": 0.094,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

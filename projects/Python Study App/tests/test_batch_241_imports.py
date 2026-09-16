@@ -1,7 +1,10 @@
 import json
 from pathlib import Path
 from code_practice.catalog import get_catalog
-from code_practice.import_batch_241a import BATCH
+from code_practice.import_batch_241a import BATCH as BATCH_A
+from code_practice.import_batch_241b import BATCH as BATCH_B
+
+BATCH={**BATCH_A,**BATCH_B}
 
 ROOT=Path(__file__).resolve().parents[1]
 

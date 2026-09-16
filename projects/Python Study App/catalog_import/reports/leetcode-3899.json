@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3899",
+  "content_sha256": "c4ab2c1b2aa29996074982c8f9580a7195d0f95eaf0525bac7a335c8bc769acc",
+  "source_hash": "4c0a4dab0c9970685d637202955cfa889de76231b13d006f9485affedc8d1b31",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a degenerate zero-area triangle.",
+      "failed_cases": [
+        "lc-3899-2"
+      ]
+    },
+    {
+      "reason": "Uses the wrong sign when deriving the third angle from the 180-degree sum.",
+      "failed_cases": [
+        "lc-3899-1",
+        "lc-3899-3",
+        "lc-3899-4",
+        "lc-3899-5",
+        "lc-3899-6",
+        "lc-3899-7",
+        "lc-3899-8",
+        "lc-3899-9",
+        "lc-3899-10",
+        "lc-3899-11",
+        "lc-3899-12",
+        "lc-3899-13",
+        "lc-3899-14",
+        "lc-3899-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7946,
+  "oracle_implementation": "code_practice/import_batch_241b.py:triangle_oracle",
+  "validator_implementation_sha256": "9c1f5aa9e34fb35f97924b13028a93502476f801409b2b4dc98747158e329a71",
+  "batch_implementation_sha256": "9689a61c5458bd0a7e618c8cb106c62104664f62627e01763e6514c195f466ec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a6895d22c29e079a759eea29bf24d341046eb4251c12c5c6b59098648a9873d4",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
