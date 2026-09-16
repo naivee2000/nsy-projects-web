@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3628",
+  "content_sha256": "9439380aab699d0bf1a3d734c79bfef1a4b351418d5b9b43bac9cf538b045fce",
+  "source_hash": "0514b369b98f3123eab7826a9c4958d235bb7e2c1e1ea81fc7aed6cc4a3877b2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never considers inserting C between existing L and T characters.",
+      "failed_cases": [
+        "lc-3628-8"
+      ]
+    },
+    {
+      "reason": "Counts only subsequences using the inserted letter and forgets all preexisting LCT subsequences.",
+      "failed_cases": [
+        "lc-3628-1",
+        "lc-3628-2",
+        "lc-3628-6",
+        "lc-3628-7",
+        "lc-3628-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7675,
+  "oracle_implementation": "code_practice/import_batch_231c.py:subsequence_oracle",
+  "validator_implementation_sha256": "42317b0cb6e895c007a6510f4019e1b3acbccfb3b44d7b6e669fdcc5fbbcb63c",
+  "batch_implementation_sha256": "06bb8d53de67e44ec596e5c1ef1c7d1574d2190a2042767959b77067ce43c9d1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ed75db713f67ac9fc985bb1b71993d872746c9dfa276d44ba4f73355a6555402",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

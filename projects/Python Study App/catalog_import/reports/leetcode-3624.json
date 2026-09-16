@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3624",
+  "content_sha256": "8c90def944e2374a0504e2fdb0c09650179092cd449fbfb9f672a067168addcd",
+  "source_hash": "3530cc2c46edcbec5a81837618c5f2e5a3970578ef1ccc44054495908223a9d7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats the inclusive right endpoint as exclusive.",
+      "failed_cases": [
+        "lc-3624-1",
+        "lc-3624-2",
+        "lc-3624-3",
+        "lc-3624-4",
+        "lc-3624-5",
+        "lc-3624-6",
+        "lc-3624-7",
+        "lc-3624-8",
+        "lc-3624-10",
+        "lc-3624-13"
+      ]
+    },
+    {
+      "reason": "Removes the old category during an update but never inserts the new category.",
+      "failed_cases": [
+        "lc-3624-1",
+        "lc-3624-2",
+        "lc-3624-6",
+        "lc-3624-7",
+        "lc-3624-8",
+        "lc-3624-10",
+        "lc-3624-13",
+        "lc-3624-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7671,
+  "oracle_implementation": "code_practice/import_batch_231c.py:query_oracle",
+  "validator_implementation_sha256": "42317b0cb6e895c007a6510f4019e1b3acbccfb3b44d7b6e669fdcc5fbbcb63c",
+  "batch_implementation_sha256": "06bb8d53de67e44ec596e5c1ef1c7d1574d2190a2042767959b77067ce43c9d1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b9313789852a9770fb9d49f2aaaa223caeed4f0627e2fe05c67ecdfede02637f",
+  "elapsed_seconds": 0.09,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

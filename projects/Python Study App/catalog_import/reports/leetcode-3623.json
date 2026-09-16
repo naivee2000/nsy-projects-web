@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3623",
+  "content_sha256": "6e548dccef6bb5aa4369f7a8984865a49f5fb1ad2ab3362e10389ce64cfa4f88",
+  "source_hash": "585e46de4d51bf5224ca75106a417f9db72ed9913e98ba1f6db341d436595490",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds pair counts instead of multiplying choices across levels.",
+      "failed_cases": [
+        "lc-3623-1",
+        "lc-3623-2",
+        "lc-3623-3",
+        "lc-3623-6",
+        "lc-3623-7",
+        "lc-3623-8",
+        "lc-3623-9",
+        "lc-3623-10",
+        "lc-3623-11",
+        "lc-3623-12",
+        "lc-3623-13",
+        "lc-3623-14"
+      ]
+    },
+    {
+      "reason": "Groups vertical lines by x-coordinate rather than horizontal lines by y-coordinate.",
+      "failed_cases": [
+        "lc-3623-1",
+        "lc-3623-2",
+        "lc-3623-3",
+        "lc-3623-5",
+        "lc-3623-6",
+        "lc-3623-8",
+        "lc-3623-10",
+        "lc-3623-11",
+        "lc-3623-13",
+        "lc-3623-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7670,
+  "oracle_implementation": "code_practice/import_batch_231c.py:horizontal_oracle",
+  "validator_implementation_sha256": "42317b0cb6e895c007a6510f4019e1b3acbccfb3b44d7b6e669fdcc5fbbcb63c",
+  "batch_implementation_sha256": "06bb8d53de67e44ec596e5c1ef1c7d1574d2190a2042767959b77067ce43c9d1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fd99c0ad66e969c8fe48c98f6264757456246c146535592ec7f9184cf2739bb2",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
