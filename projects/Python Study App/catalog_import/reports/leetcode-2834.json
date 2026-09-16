@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2834",
+  "content_sha256": "c0d44ac65c0133880b62be32f3a99bf02171741babd236056ae7b595390bfe32",
+  "source_hash": "49f89b032c5ffceb07af8bd570ded2213cb3acde5d74ca2c16d91163b4762bf4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes both members of a forbidden complementary pair around target.",
+      "failed_cases": [
+        "lc-2834-1",
+        "lc-2834-2",
+        "lc-2834-8",
+        "lc-2834-9",
+        "lc-2834-13",
+        "lc-2834-14"
+      ]
+    },
+    {
+      "reason": "Starts the upper safe range at target+1 and overstates the minimum.",
+      "failed_cases": [
+        "lc-2834-1",
+        "lc-2834-2",
+        "lc-2834-3",
+        "lc-2834-6",
+        "lc-2834-8",
+        "lc-2834-9",
+        "lc-2834-10",
+        "lc-2834-11",
+        "lc-2834-12",
+        "lc-2834-13",
+        "lc-2834-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6881,
+  "oracle_implementation": "code_practice/import_batch_243c.py:beautiful_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "a1b32250844abb26d301fc2e392c57035541b517a4e5b945b3b850dba4410f17",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d98c2355d6e0f84ce153e965dc7afb4be294f45029ed4f4d44bd3363f040bd47",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

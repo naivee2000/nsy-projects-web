@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3297",
+  "content_sha256": "0af5e8553c36519dfc79e46ecbf377347aa3438bfee8eb46df4ab35a40828174",
+  "source_hash": "fab1fba98002cb7885d41944d7be288111669dee2ef65e1818be91f69c72aff0",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Drops one valid starting position at every endpoint.",
+      "failed_cases": [
+        "lc-3297-1",
+        "lc-3297-2",
+        "lc-3297-3",
+        "lc-3297-5",
+        "lc-3297-6",
+        "lc-3297-8",
+        "lc-3297-9",
+        "lc-3297-10",
+        "lc-3297-11",
+        "lc-3297-12",
+        "lc-3297-13",
+        "lc-3297-14"
+      ]
+    },
+    {
+      "reason": "Marks a requirement satisfied only after exceeding its needed count.",
+      "failed_cases": [
+        "lc-3297-1",
+        "lc-3297-2",
+        "lc-3297-3",
+        "lc-3297-5",
+        "lc-3297-6",
+        "lc-3297-8",
+        "lc-3297-9",
+        "lc-3297-10",
+        "lc-3297-11",
+        "lc-3297-12",
+        "lc-3297-13",
+        "lc-3297-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7344,
+  "oracle_implementation": "code_practice/import_batch_243c.py:valid_substrings_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "a1b32250844abb26d301fc2e392c57035541b517a4e5b945b3b850dba4410f17",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ea35c2408ecc01908bdcc27ec2f50271843f7af037867e51e5944f9d16851987",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

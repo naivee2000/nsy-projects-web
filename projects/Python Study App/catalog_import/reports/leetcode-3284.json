@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3284",
+  "content_sha256": "5974ea1041a4d8e54dc756bb48833f93fe7c56c909173c8f82d4ffa6ba93bc29",
+  "source_hash": "6744e3be11b283318c03f52e5d8d244c807a6aabb97a59abcbee9eef66d8020e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts increasing runs twice and omits decreasing runs.",
+      "failed_cases": [
+        "lc-3284-1",
+        "lc-3284-3",
+        "lc-3284-5",
+        "lc-3284-6",
+        "lc-3284-8",
+        "lc-3284-9",
+        "lc-3284-10",
+        "lc-3284-11",
+        "lc-3284-12",
+        "lc-3284-14"
+      ]
+    },
+    {
+      "reason": "Counts each singleton twice when combining increasing and decreasing contributions.",
+      "failed_cases": [
+        "lc-3284-1",
+        "lc-3284-2",
+        "lc-3284-3",
+        "lc-3284-4",
+        "lc-3284-5",
+        "lc-3284-6",
+        "lc-3284-7",
+        "lc-3284-8",
+        "lc-3284-9",
+        "lc-3284-10",
+        "lc-3284-11",
+        "lc-3284-12",
+        "lc-3284-13",
+        "lc-3284-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7331,
+  "oracle_implementation": "code_practice/import_batch_243c.py:consecutive_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "a1b32250844abb26d301fc2e392c57035541b517a4e5b945b3b850dba4410f17",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7a8ad4b3ca9a58e329f570faa8ff211138021074f56600a5b80378c34bab84e0",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

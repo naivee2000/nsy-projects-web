@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2847",
+  "content_sha256": "36ce267d91021342016deeee840c1ab7bb7bf0780e23b87e787bd5b698e43825",
+  "source_hash": "b20779c132e4a6905e8f583d800a757032c4744579afd503242fa247a66347e8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never uses digit nine, so it misses smaller factorizations containing 9.",
+      "failed_cases": [
+        "lc-2847-8",
+        "lc-2847-12"
+      ]
+    },
+    {
+      "reason": "Leaves extracted digits descending and returns a larger number.",
+      "failed_cases": [
+        "lc-2847-1",
+        "lc-2847-5",
+        "lc-2847-6",
+        "lc-2847-8",
+        "lc-2847-9",
+        "lc-2847-10",
+        "lc-2847-12",
+        "lc-2847-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6894,
+  "oracle_implementation": "code_practice/import_batch_243c.py:digit_product_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "a1b32250844abb26d301fc2e392c57035541b517a4e5b945b3b850dba4410f17",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d837af7d07fa4910c54fc9356858d3c9910145df31a3104db884fb5d4f85b159",
+  "elapsed_seconds": 0.214,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

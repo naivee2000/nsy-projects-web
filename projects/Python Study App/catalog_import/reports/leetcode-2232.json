@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2232",
+  "content_sha256": "dd081d234ab3f94f90e918bd472b14aadb1ec0718f7e2d499a882902f51dab2c",
+  "source_hash": "ffcb74fa9d9b82d1371bbf32de2b30009c004ea61b4fcd81e9db835d8d1c3f82",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always encloses both complete operands and ignores placements with useful outside multipliers.",
+      "failed_cases": [
+        "lc-2232-1",
+        "lc-2232-2",
+        "lc-2232-5",
+        "lc-2232-6",
+        "lc-2232-7",
+        "lc-2232-8",
+        "lc-2232-9",
+        "lc-2232-11",
+        "lc-2232-12",
+        "lc-2232-13"
+      ]
+    },
+    {
+      "reason": "Selects the largest evaluated placement rather than the smallest.",
+      "failed_cases": [
+        "lc-2232-1",
+        "lc-2232-2",
+        "lc-2232-3",
+        "lc-2232-4",
+        "lc-2232-5",
+        "lc-2232-6",
+        "lc-2232-7",
+        "lc-2232-8",
+        "lc-2232-9",
+        "lc-2232-10",
+        "lc-2232-11",
+        "lc-2232-12",
+        "lc-2232-13",
+        "lc-2232-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6279,
+  "oracle_implementation": "code_practice/import_batch_243b.py:minimize_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "cb06479f4b379aea766de084939b4156dc15667f0945a8552497ce5566c3b005",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c3a90522800787de753f801dc44dafdd0eeacdb29bdac94898ebb29f4431e17d",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

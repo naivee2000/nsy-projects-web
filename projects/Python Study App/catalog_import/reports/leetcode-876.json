@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-876",
+  "content_sha256": "c17a5897a092feed575c6e5e12f9b945ab9c939e7214aad1db5c763d7c5e69d6",
+  "source_hash": "dbc069e67d93b1dbd290610fa07e316f0e234853e36dd6b0ae1cad50b2de3d1d",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Advances fast too far in the loop condition and can stop at the wrong node.",
+      "failed_cases": [
+        "lc-876-2",
+        "lc-876-4",
+        "lc-876-5",
+        "lc-876-7",
+        "lc-876-9",
+        "lc-876-10",
+        "lc-876-14",
+        "lc-876-15"
+      ]
+    },
+    {
+      "reason": "Moves slow twice per round and skips the middle.",
+      "failed_cases": [
+        "lc-876-1",
+        "lc-876-2",
+        "lc-876-3",
+        "lc-876-4",
+        "lc-876-5",
+        "lc-876-6",
+        "lc-876-7",
+        "lc-876-8",
+        "lc-876-9",
+        "lc-876-10",
+        "lc-876-11",
+        "lc-876-12",
+        "lc-876-14",
+        "lc-876-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4923,
+  "oracle_implementation": "code_practice/import_batch_243b.py:middle_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "cb06479f4b379aea766de084939b4156dc15667f0945a8552497ce5566c3b005",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dbe4bd81af4f936c2c23f6d01faaa11a7a98c03c50072a2bb59c937670f448e1",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

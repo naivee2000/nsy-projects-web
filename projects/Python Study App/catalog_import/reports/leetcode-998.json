@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-998",
+  "content_sha256": "f939efc187265936f4b3e933b500d611f571301e47dadad88f4797c780ef4a01",
+  "source_hash": "0977fad833decd3c8a751054fda37a6c77abcca76ef3c4818df5c53e8c89d600",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns only the appended value and discards the entire original maximum tree.",
+      "failed_cases": [
+        "lc-998-1",
+        "lc-998-2",
+        "lc-998-3",
+        "lc-998-4",
+        "lc-998-5",
+        "lc-998-6",
+        "lc-998-7",
+        "lc-998-8",
+        "lc-998-9",
+        "lc-998-10",
+        "lc-998-11",
+        "lc-998-12",
+        "lc-998-13",
+        "lc-998-14"
+      ]
+    },
+    {
+      "reason": "Returns the original tree unchanged and never inserts the appended value.",
+      "failed_cases": [
+        "lc-998-1",
+        "lc-998-2",
+        "lc-998-3",
+        "lc-998-4",
+        "lc-998-5",
+        "lc-998-6",
+        "lc-998-7",
+        "lc-998-8",
+        "lc-998-9",
+        "lc-998-10",
+        "lc-998-11",
+        "lc-998-12",
+        "lc-998-13",
+        "lc-998-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5045,
+  "oracle_implementation": "code_practice/import_batch_243b.py:insert_max_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "cb06479f4b379aea766de084939b4156dc15667f0945a8552497ce5566c3b005",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "986b341cf74afd799aab7949983f3da70e668cc9565b3008c8b1f5ba4e2ece79",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2939",
+  "content_sha256": "d3ebb36bc6cd1f303e0ba88619a06a91a1f6c555f0f329375acb16ab644fc82e",
+  "source_hash": "c02a8826632c1df867d40027047873bb02915eaa0070fc5a9a33fced772031d3",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds a differing bit to the larger factor instead of the smaller one.",
+      "failed_cases": [
+        "lc-2939-1",
+        "lc-2939-3",
+        "lc-2939-7",
+        "lc-2939-8",
+        "lc-2939-9",
+        "lc-2939-10",
+        "lc-2939-11",
+        "lc-2939-12",
+        "lc-2939-13",
+        "lc-2939-14"
+      ]
+    },
+    {
+      "reason": "Treats differing original bits as though both factors could receive that bit.",
+      "failed_cases": [
+        "lc-2939-1",
+        "lc-2939-2",
+        "lc-2939-3",
+        "lc-2939-4",
+        "lc-2939-5",
+        "lc-2939-7",
+        "lc-2939-8",
+        "lc-2939-9",
+        "lc-2939-10",
+        "lc-2939-11",
+        "lc-2939-12",
+        "lc-2939-13",
+        "lc-2939-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6986,
+  "oracle_implementation": "code_practice/import_batch_243c.py:xor_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "a1b32250844abb26d301fc2e392c57035541b517a4e5b945b3b850dba4410f17",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f30f7bee5e9625d4c7c610a340dbf8adb3c09ef6d2eea549aec8106160c3fb56",
+  "elapsed_seconds": 0.035,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

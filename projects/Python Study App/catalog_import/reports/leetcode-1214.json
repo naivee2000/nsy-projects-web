@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1214",
+  "content_sha256": "33054784badb3d6304e7ade3d23410590ad380fbdb01440fa54f933e56708eef",
+  "source_hash": "6c7d58a7441591695b68ae68434af02497623e83c319b1484d783b3dbec4ab10",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Checks equal values instead of complementary values.",
+      "failed_cases": [
+        "lc-1214-3",
+        "lc-1214-5",
+        "lc-1214-6",
+        "lc-1214-7",
+        "lc-1214-9",
+        "lc-1214-11",
+        "lc-1214-12",
+        "lc-1214-13",
+        "lc-1214-14"
+      ]
+    },
+    {
+      "reason": "Searches the first tree twice and may reuse the wrong input.",
+      "failed_cases": [
+        "lc-1214-3",
+        "lc-1214-5",
+        "lc-1214-6",
+        "lc-1214-7",
+        "lc-1214-9",
+        "lc-1214-12",
+        "lc-1214-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5261,
+  "oracle_implementation": "code_practice/import_batch_243b.py:two_bst_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "cb06479f4b379aea766de084939b4156dc15667f0945a8552497ce5566c3b005",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "01130ea3378fa862a11d90a8d19546cd15e15f105cce88abc9f392c5f365353a",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

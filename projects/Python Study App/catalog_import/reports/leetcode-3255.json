@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3255",
+  "content_sha256": "abaa0b21634ec674acf14795e21327e32ee27af84b7b5fce3fc4a254192b2d72",
+  "source_hash": "9d9bf2c7b7b418bc3a5b60b99ffe9e36297790e337575a8782ead98f906e021f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts jumps larger than one as consecutive.",
+      "failed_cases": [
+        "lc-3255-8"
+      ]
+    },
+    {
+      "reason": "Requires one extra consecutive edge and rejects valid windows of exactly length k.",
+      "failed_cases": [
+        "lc-3255-1",
+        "lc-3255-3",
+        "lc-3255-4",
+        "lc-3255-5",
+        "lc-3255-6",
+        "lc-3255-7",
+        "lc-3255-8",
+        "lc-3255-10",
+        "lc-3255-11",
+        "lc-3255-12",
+        "lc-3255-13",
+        "lc-3255-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7302,
+  "oracle_implementation": "code_practice/import_batch_243c.py:power_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "a1b32250844abb26d301fc2e392c57035541b517a4e5b945b3b850dba4410f17",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cdd4f96f8d49c536908601741dd6a99a2a71b259ddb847b7376cb2e513b9c03f",
+  "elapsed_seconds": 0.03,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

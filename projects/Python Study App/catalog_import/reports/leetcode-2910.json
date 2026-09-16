@@ -1,0 +1,72 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2910",
+  "content_sha256": "c09a7aa6b0465723b5139d9d4dd368ff00e8090887b42bd921d46518322b9c30",
+  "source_hash": "c185e447f058f857015019ce779f65b091670fb5d7ce7ed6b81591a89a5fe9cf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips the largest feasible small-group size and may use too many groups.",
+      "failed_cases": [
+        "lc-2910-1",
+        "lc-2910-2",
+        "lc-2910-3",
+        "lc-2910-4",
+        "lc-2910-7",
+        "lc-2910-8",
+        "lc-2910-9",
+        "lc-2910-11",
+        "lc-2910-12",
+        "lc-2910-13",
+        "lc-2910-14"
+      ]
+    },
+    {
+      "reason": "Rounds group counts down and can leave items unassigned.",
+      "failed_cases": [
+        "lc-2910-1",
+        "lc-2910-2",
+        "lc-2910-3",
+        "lc-2910-4",
+        "lc-2910-5",
+        "lc-2910-6",
+        "lc-2910-7",
+        "lc-2910-8",
+        "lc-2910-9",
+        "lc-2910-10",
+        "lc-2910-11",
+        "lc-2910-12",
+        "lc-2910-13",
+        "lc-2910-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6957,
+  "oracle_implementation": "code_practice/import_batch_243c.py:groups_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "a1b32250844abb26d301fc2e392c57035541b517a4e5b945b3b850dba4410f17",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7bf9c293f2ea7bb0ea55bfd6e785c43bb8ad25f9daf2abcee1be6613cbd6a934",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input balls = [3,2,3,2,3] → Output 2.",
+    "arguments": [
+      [
+        3,
+        2,
+        3,
+        2,
+        3
+      ]
+    ],
+    "expected": 2,
+    "reason": "The workbook labels the list balls while the reviewed callable uses the source signature name nums.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/2900-2999/2910.Minimum%20Number%20of%20Groups%20to%20Create%20a%20Valid%20Assignment/README_EN.md"
+  }
+}

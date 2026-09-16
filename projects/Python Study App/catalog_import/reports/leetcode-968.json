@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-968",
+  "content_sha256": "2557cada636e4245dc06222fbde87f33ac82c71abbf571e5e9c91ba1fdccfcbb",
+  "source_hash": "f73ac7ded99a0b3e22639ba2f748a8ad60746c5e7226ad7bb5dc27b585e39a1a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Places a camera only when both children are uncovered.",
+      "failed_cases": [
+        "lc-968-2",
+        "lc-968-6",
+        "lc-968-8",
+        "lc-968-9",
+        "lc-968-10",
+        "lc-968-11",
+        "lc-968-13",
+        "lc-968-14"
+      ]
+    },
+    {
+      "reason": "Leaves an uncovered root without a final camera.",
+      "failed_cases": [
+        "lc-968-1",
+        "lc-968-2",
+        "lc-968-3",
+        "lc-968-4",
+        "lc-968-5",
+        "lc-968-6",
+        "lc-968-7",
+        "lc-968-8",
+        "lc-968-9",
+        "lc-968-10",
+        "lc-968-11",
+        "lc-968-12",
+        "lc-968-13",
+        "lc-968-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5015,
+  "oracle_implementation": "code_practice/import_batch_243b.py:camera_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "cb06479f4b379aea766de084939b4156dc15667f0945a8552497ce5566c3b005",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "038b4e394ff65ca05d765a57a147621e298f8ca34dba40041f2903060fd4cb38",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

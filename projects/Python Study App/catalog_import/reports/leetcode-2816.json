@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2816",
+  "content_sha256": "75f89896a9802af32d3bcb81791f83d71f9e10b6b0005f84b8bbfccb5f06ad88",
+  "source_hash": "9d4d6f6a35d6bd68345c954fb51390a4ab6449c4f4d52f79cc4000cccd547b6d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Copies rather than doubles each digit.",
+      "failed_cases": [
+        "lc-2816-1",
+        "lc-2816-2",
+        "lc-2816-3",
+        "lc-2816-4",
+        "lc-2816-5",
+        "lc-2816-6",
+        "lc-2816-7",
+        "lc-2816-8",
+        "lc-2816-9",
+        "lc-2816-10",
+        "lc-2816-11",
+        "lc-2816-12",
+        "lc-2816-13",
+        "lc-2816-14"
+      ]
+    },
+    {
+      "reason": "Drops a final carry that requires a new leading digit.",
+      "failed_cases": [
+        "lc-2816-2",
+        "lc-2816-4",
+        "lc-2816-6",
+        "lc-2816-8",
+        "lc-2816-10",
+        "lc-2816-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6863,
+  "oracle_implementation": "code_practice/import_batch_243c.py:double_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "a1b32250844abb26d301fc2e392c57035541b517a4e5b945b3b850dba4410f17",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f33bd1ae9facc1ffe453d6475f9412315c1aedf201da8525ad717a4abdeaa57a",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

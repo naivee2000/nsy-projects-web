@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-572",
+  "content_sha256": "78ae873ce107d2559abfeab72edb6bcdde7aecf3d9b7cb1d4518b13b24a32b19",
+  "source_hash": "d79313cbc2937242890ece7715f3829bfb31748762a684835468158a93c86905",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts a partial one-sided match instead of requiring both child subtrees.",
+      "failed_cases": [
+        "lc-572-2",
+        "lc-572-4",
+        "lc-572-14"
+      ]
+    },
+    {
+      "reason": "Searches only the left descendants and misses matches on the right.",
+      "failed_cases": [
+        "lc-572-7",
+        "lc-572-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 4619,
+  "oracle_implementation": "code_practice/import_batch_243b.py:subtree_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "cb06479f4b379aea766de084939b4156dc15667f0945a8552497ce5566c3b005",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5defb1e50c8674fb1870e966721bc1bebd6e7cdb14c2ea226e78f4f20f8d1b49",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

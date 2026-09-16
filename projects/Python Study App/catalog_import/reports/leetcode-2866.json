@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2866",
+  "content_sha256": "95c1f30668c0cf34b0bfe7b16875074e143acd8078563641142bae1ff84181f6",
+  "source_hash": "9492bac499a181c8615d95fc68d47d5adf0d0dce238d2c8836f4eb5e3bc87575",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pops larger-boundary candidates instead of smaller caps, so prefix mountain sums are invalid.",
+      "failed_cases": [
+        "lc-2866-1",
+        "lc-2866-2",
+        "lc-2866-3",
+        "lc-2866-5",
+        "lc-2866-8",
+        "lc-2866-10",
+        "lc-2866-11",
+        "lc-2866-12",
+        "lc-2866-13",
+        "lc-2866-14"
+      ]
+    },
+    {
+      "reason": "Counts the peak twice when combining left and right sums.",
+      "failed_cases": [
+        "lc-2866-1",
+        "lc-2866-2",
+        "lc-2866-3",
+        "lc-2866-4",
+        "lc-2866-5",
+        "lc-2866-6",
+        "lc-2866-7",
+        "lc-2866-8",
+        "lc-2866-9",
+        "lc-2866-10",
+        "lc-2866-11",
+        "lc-2866-12",
+        "lc-2866-13",
+        "lc-2866-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6913,
+  "oracle_implementation": "code_practice/import_batch_243c.py:towers_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "a1b32250844abb26d301fc2e392c57035541b517a4e5b945b3b850dba4410f17",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f4a15abaaa99be1d17d5101f4eed929c78c003bd0d37ff4d6c24dfbe8eda208a",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-1669",
+  "content_sha256": "99958287786062f6dc38d5a8e583e1098219432cafeca4295793a649497f0795",
+  "source_hash": "fc55ca6a99dc40ab4c040205999c4684a683f97d1a3e9e7c4ca0d791bf4057cc",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the final node at index b instead of removing it.",
+      "failed_cases": [
+        "lc-1669-1",
+        "lc-1669-2",
+        "lc-1669-3",
+        "lc-1669-4",
+        "lc-1669-5",
+        "lc-1669-6",
+        "lc-1669-7",
+        "lc-1669-8",
+        "lc-1669-9",
+        "lc-1669-10",
+        "lc-1669-11",
+        "lc-1669-12",
+        "lc-1669-13",
+        "lc-1669-14"
+      ]
+    },
+    {
+      "reason": "Skips the first retained node after the removed range.",
+      "failed_cases": [
+        "lc-1669-1",
+        "lc-1669-2",
+        "lc-1669-3",
+        "lc-1669-4",
+        "lc-1669-5",
+        "lc-1669-6",
+        "lc-1669-7",
+        "lc-1669-8",
+        "lc-1669-9",
+        "lc-1669-10",
+        "lc-1669-11",
+        "lc-1669-12",
+        "lc-1669-13",
+        "lc-1669-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5716,
+  "oracle_implementation": "code_practice/import_batch_243b.py:merge_oracle",
+  "validator_implementation_sha256": "2b5512af3d6852153f3a243370d29876616556a3490c13bfb14440b059461a23",
+  "batch_implementation_sha256": "cb06479f4b379aea766de084939b4156dc15667f0945a8552497ce5566c3b005",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "30648cb7d4495658608e625faaf99951b93bfebe5fbb4d5b10d3e56fd1d0f0ac",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
