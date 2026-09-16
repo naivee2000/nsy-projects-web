@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3648",
+  "content_sha256": "dd46c7cf55f83ee299b3327e159d3f7bddcd7ceab3935b5e2b2df7a1db1afb8d",
+  "source_hash": "c7e951bc22c1154ac44ef08c141958998bd00f02ee96d6e97c6c0e8db611d7f9",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses k+1 rather than the full 2k+1 coverage width.",
+      "failed_cases": [
+        "lc-3648-1",
+        "lc-3648-6",
+        "lc-3648-7",
+        "lc-3648-8",
+        "lc-3648-10",
+        "lc-3648-11",
+        "lc-3648-14"
+      ]
+    },
+    {
+      "reason": "Rounds both one-dimensional sensor counts down instead of up.",
+      "failed_cases": [
+        "lc-3648-1",
+        "lc-3648-2",
+        "lc-3648-6",
+        "lc-3648-8",
+        "lc-3648-9",
+        "lc-3648-10",
+        "lc-3648-11",
+        "lc-3648-12",
+        "lc-3648-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7695,
+  "oracle_implementation": "code_practice/import_batch_232b.py:sensors_oracle",
+  "validator_implementation_sha256": "fed1337725738ffccc43b7d97ccbc7c11439fe8719e6844e3916179ba0dfe367",
+  "batch_implementation_sha256": "3b67db989102e23478db398151e8e882a8feb4feaa76df25c99bc33230197d87",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cbc7cd00d94a09873d569adb0e13a1b9c2108a92d83b30998735cd55b205e497",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

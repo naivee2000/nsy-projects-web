@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3646",
+  "content_sha256": "a1259c21e3d4c521d1cd42b9e8968dd17ec566eb32c34d199f5a0a3a00695abe",
+  "source_hash": "87ed8a85b1eb1da32fbaf507a33d3f7470a383b4347bb4e4c553b762703e3e19",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a non-strict search and may return n itself.",
+      "failed_cases": [
+        "lc-3646-4",
+        "lc-3646-6",
+        "lc-3646-8",
+        "lc-3646-10"
+      ]
+    },
+    {
+      "reason": "Incorrectly forbids all valid palindromes containing digit one.",
+      "failed_cases": [
+        "lc-3646-2",
+        "lc-3646-3",
+        "lc-3646-6",
+        "lc-3646-7"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7693,
+  "oracle_implementation": "code_practice/import_batch_232b.py:special_oracle",
+  "validator_implementation_sha256": "fed1337725738ffccc43b7d97ccbc7c11439fe8719e6844e3916179ba0dfe367",
+  "batch_implementation_sha256": "3b67db989102e23478db398151e8e882a8feb4feaa76df25c99bc33230197d87",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "303de6e60828a9d6b44ad5c9009bd2bb30b192e4db3869b78d49264abcc5fbfa",
+  "elapsed_seconds": 3.569,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3647",
+  "content_sha256": "6da50ec842d3c3ee5ad95a2389184d0b8f6cdd5f65adf287d11af372c63983d3",
+  "source_hash": "9f954048b9bb848f7a05a7df0f9ac8dba097cfca64b7bdd1de3e71729f377fd8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Iterates capacities upward and can reuse the same item repeatedly.",
+      "failed_cases": [
+        "lc-3647-3",
+        "lc-3647-9"
+      ]
+    },
+    {
+      "reason": "Never considers placing an item into the second bag.",
+      "failed_cases": [
+        "lc-3647-1",
+        "lc-3647-4",
+        "lc-3647-5",
+        "lc-3647-7",
+        "lc-3647-9",
+        "lc-3647-10",
+        "lc-3647-11",
+        "lc-3647-12",
+        "lc-3647-13",
+        "lc-3647-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7694,
+  "oracle_implementation": "code_practice/import_batch_232b.py:bags_oracle",
+  "validator_implementation_sha256": "fed1337725738ffccc43b7d97ccbc7c11439fe8719e6844e3916179ba0dfe367",
+  "batch_implementation_sha256": "3b67db989102e23478db398151e8e882a8feb4feaa76df25c99bc33230197d87",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d23b9efd0eeef7913c826d38f998b759a612f21cb600661e364cb3c3c37c7650",
+  "elapsed_seconds": 0.57,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
