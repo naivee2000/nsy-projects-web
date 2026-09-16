@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3583",
+  "content_sha256": "b2242aea7684a733c693e465987d023e7ca9e2fd2cc3fad0147fb610c3447a9d",
+  "source_hash": "acb8de40e4ddc66a308e1882fc0d6f6eea69fa3bded4b3ec3a71d23206ca3f2f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Leaves the middle occurrence in the right-side counts, creating invalid reuse when the doubled value equals the middle value zero.",
+      "failed_cases": [
+        "lc-3583-1",
+        "lc-3583-2",
+        "lc-3583-3",
+        "lc-3583-4",
+        "lc-3583-5",
+        "lc-3583-6",
+        "lc-3583-7",
+        "lc-3583-8",
+        "lc-3583-10",
+        "lc-3583-11",
+        "lc-3583-12",
+        "lc-3583-13",
+        "lc-3583-14"
+      ]
+    },
+    {
+      "reason": "Counts equal outer values instead of values twice the middle.",
+      "failed_cases": [
+        "lc-3583-1",
+        "lc-3583-3",
+        "lc-3583-5",
+        "lc-3583-7",
+        "lc-3583-8",
+        "lc-3583-9",
+        "lc-3583-11",
+        "lc-3583-12",
+        "lc-3583-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7630,
+  "oracle_implementation": "code_practice/import_batch_229d.py:triplet_oracle",
+  "validator_implementation_sha256": "72d3b98927b2217c9e56c01ca7e944f2dcc6645053f822f9284e723a2c6170ff",
+  "batch_implementation_sha256": "f30e20c85fe716e276640d966a4b7bb30fdb2a7dfb9d96b3e8cf06c6afe17282",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2435de97a0a055b5ba78c7c5d7b7ca87f218f7a65ab566983d5978d7a314a825",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3579",
+  "content_sha256": "a697795dcef22b676edd97f0ef8cf24f0c1370ded5c5a71244fd834699f80f78",
+  "source_hash": "9597c55f6d6842f3e4649953a2b27c48f4d9d279cd424528b778629b90c26e8d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats substring reversal as free.",
+      "failed_cases": [
+        "lc-3579-1",
+        "lc-3579-2",
+        "lc-3579-5",
+        "lc-3579-6",
+        "lc-3579-7",
+        "lc-3579-8",
+        "lc-3579-10",
+        "lc-3579-11",
+        "lc-3579-12",
+        "lc-3579-13",
+        "lc-3579-14"
+      ]
+    },
+    {
+      "reason": "Never pairs inverse mismatches into one swap and replaces every mismatch separately.",
+      "failed_cases": [
+        "lc-3579-2",
+        "lc-3579-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7626,
+  "oracle_implementation": "code_practice/import_batch_229d.py:conversion_oracle",
+  "validator_implementation_sha256": "72d3b98927b2217c9e56c01ca7e944f2dcc6645053f822f9284e723a2c6170ff",
+  "batch_implementation_sha256": "f30e20c85fe716e276640d966a4b7bb30fdb2a7dfb9d96b3e8cf06c6afe17282",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d8973b3d3481a468ef17b3c68c3d013c0d8b24c96b11369ae252893f5add61f4",
+  "elapsed_seconds": 0.132,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

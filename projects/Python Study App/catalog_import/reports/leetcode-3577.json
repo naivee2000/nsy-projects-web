@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3577",
+  "content_sha256": "443a82e8474b93cb033e84c407d33a34eda827f485dac71e2cd1caa679634f5a",
+  "source_hash": "b56accd46579aaf34ba0b5d5285d0514fe0e26dae01f580b377b6f661608fb93",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a computer with complexity equal to the root even though the comparison must be strict.",
+      "failed_cases": [
+        "lc-3577-2",
+        "lc-3577-5",
+        "lc-3577-13"
+      ]
+    },
+    {
+      "reason": "Omits the final factorial factor and undercounts valid permutations for length at least three.",
+      "failed_cases": [
+        "lc-3577-1",
+        "lc-3577-6",
+        "lc-3577-7",
+        "lc-3577-9",
+        "lc-3577-10",
+        "lc-3577-11",
+        "lc-3577-12",
+        "lc-3577-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7624,
+  "oracle_implementation": "code_practice/import_batch_229d.py:unlock_oracle",
+  "validator_implementation_sha256": "72d3b98927b2217c9e56c01ca7e944f2dcc6645053f822f9284e723a2c6170ff",
+  "batch_implementation_sha256": "f30e20c85fe716e276640d966a4b7bb30fdb2a7dfb9d96b3e8cf06c6afe17282",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1c5e00f4fd8776f65f8675c873542547114f122058b56c097e628a82e026d092",
+  "elapsed_seconds": 0.222,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

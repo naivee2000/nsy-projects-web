@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2820,
+  "count": 2825,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -48345,6 +48345,62 @@
       "source_id": 3576
     },
     {
+      "id": "leetcode-3577",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Computer Unlocking Permutations",
+      "summary": "Given an array complexity of length n, find the number of permutations of [0, 1, 2, ..., (n - 1)] that allow the unlocking of all computers starting from computer 0, where each subsequent computer can only be unlocked if its complexity is greater than a previously unlocked computer.",
+      "topics": [
+        "arrays",
+        "combinatorics",
+        "permutations"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3577.json",
+      "content_sha256": "443a82e8474b93cb033e84c407d33a34eda827f485dac71e2cd1caa679634f5a",
+      "source_id": 3577
+    },
+    {
+      "id": "leetcode-3578",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Partitions With Max-Min Difference at Most K",
+      "summary": "Given an integer array nums and an integer k, partition nums into contiguous segments where the difference between the maximum and minimum elements in each segment is at most k.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "monotonic queues"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3578.json",
+      "content_sha256": "e5f8d4de1d677b685cb62d87b1f71a81c627da1d92213b75ddd217b6406002cd",
+      "source_id": 3578
+    },
+    {
+      "id": "leetcode-3579",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Steps to Convert String with Operations",
+      "summary": "Given two equal-length strings, word1 and word2, determine the least number of operations needed to convert word1 into word2.",
+      "topics": [
+        "strings",
+        "dynamic programming",
+        "counting"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3579.json",
+      "content_sha256": "a697795dcef22b676edd97f0ef8cf24f0c1370ded5c5a71244fd834699f80f78",
+      "source_id": 3579
+    },
+    {
       "id": "leetcode-3581",
       "version": 1,
       "status": "approved",
@@ -48378,6 +48434,42 @@
       "path": "problems/leetcode-3582.json",
       "content_sha256": "3ecc016ad87e9858a74c47f69abeb85cb3df88c8beb9803b31d68878de91dbf5",
       "source_id": 3582
+    },
+    {
+      "id": "leetcode-3583",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Special Triplets",
+      "summary": "Given an integer array, count the number of triplets (i, j, k) where 0 <= i < j < k < n, and nums[i] equals nums[j] times two, and nums[k] equals nums[j] times two.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3583.json",
+      "content_sha256": "b2242aea7684a733c693e465987d023e7ca9e2fd2cc3fad0147fb610c3447a9d",
+      "source_id": 3583
+    },
+    {
+      "id": "leetcode-3584",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Product of First and Last Elements of a Subsequence",
+      "summary": "Given an integer array nums and an integer m, find the maximum product of the first and last elements in any subsequence of nums that has exactly m elements.",
+      "topics": [
+        "arrays",
+        "prefix extrema",
+        "subsequences"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3584.json",
+      "content_sha256": "5158f6d48b3cfea3a331d3ae5d95bbe498cfac5c487451226d1f50556e6abdce",
+      "source_id": 3584
     },
     {
       "id": "leetcode-3591",

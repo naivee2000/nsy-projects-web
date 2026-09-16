@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3584",
+  "content_sha256": "5158f6d48b3cfea3a331d3ae5d95bbe498cfac5c487451226d1f50556e6abdce",
+  "source_hash": "854d7c1418ceaaea2fb1c65374cc3362311e03eddb5a543a2c11a7e816eb848e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows the first endpoint too far right, leaving fewer than m chosen positions.",
+      "failed_cases": [
+        "lc-3584-1",
+        "lc-3584-5",
+        "lc-3584-6",
+        "lc-3584-7",
+        "lc-3584-8",
+        "lc-3584-14"
+      ]
+    },
+    {
+      "reason": "Tracks only the largest eligible first value and misses products of two negative endpoints.",
+      "failed_cases": [
+        "lc-3584-1",
+        "lc-3584-2",
+        "lc-3584-8",
+        "lc-3584-9",
+        "lc-3584-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7631,
+  "oracle_implementation": "code_practice/import_batch_229d.py:subsequence_oracle",
+  "validator_implementation_sha256": "72d3b98927b2217c9e56c01ca7e944f2dcc6645053f822f9284e723a2c6170ff",
+  "batch_implementation_sha256": "f30e20c85fe716e276640d966a4b7bb30fdb2a7dfb9d96b3e8cf06c6afe17282",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cf5f1584afafc0f8c5600dbda295a85e7ba8c737addb6f5d339fe8b308836474",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
