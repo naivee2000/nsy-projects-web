@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3770",
+  "content_sha256": "96d104c4414b7b10db9afd289ca81926d29abd7a5c63a23a6f19e317608701d0",
+  "source_hash": "8730be4b39c845b365cda5e15203107dfad9594876f36f9595e3171bb3273218",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the largest prime prefix sum even when that sum is composite.",
+      "failed_cases": [
+        "lc-3770-8",
+        "lc-3770-13",
+        "lc-3770-14"
+      ]
+    },
+    {
+      "reason": "Skips prime two when building consecutive sums.",
+      "failed_cases": [
+        "lc-3770-1",
+        "lc-3770-2",
+        "lc-3770-4",
+        "lc-3770-5",
+        "lc-3770-6",
+        "lc-3770-7",
+        "lc-3770-8",
+        "lc-3770-9",
+        "lc-3770-10",
+        "lc-3770-11",
+        "lc-3770-12",
+        "lc-3770-13",
+        "lc-3770-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7817,
+  "oracle_implementation": "code_practice/import_batch_236c.py:prime_sum_oracle",
+  "validator_implementation_sha256": "6dec2d56a6f33f7b7cc43d6b11d2275b2583d2e464dbdfc844120024b14d0a1e",
+  "batch_implementation_sha256": "6fd626474b1382848db8188a1d573454f0bbd32af3eed7fb425d231316553677",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9a622e63cf5c0b6537cc4c3c243671904f80d13c534bd17da7ef49be6d0c9046",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

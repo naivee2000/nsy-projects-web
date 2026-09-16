@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3771",
+  "content_sha256": "cddbf12d81a4fdac1b7284fe340cd233e372ca485bd0161f95ffbcb058088e34",
+  "source_hash": "5272bcf0e49042419bc41bb76026681892974776d12f9cd662d48b3f6bb4535c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts the health requirement instead of adding it to the damage threshold.",
+      "failed_cases": [
+        "lc-3771-1",
+        "lc-3771-3",
+        "lc-3771-5",
+        "lc-3771-7",
+        "lc-3771-9",
+        "lc-3771-10",
+        "lc-3771-13"
+      ]
+    },
+    {
+      "reason": "Undercounts one qualifying starting boundary for every scored room.",
+      "failed_cases": [
+        "lc-3771-1",
+        "lc-3771-2",
+        "lc-3771-4",
+        "lc-3771-5",
+        "lc-3771-6",
+        "lc-3771-7",
+        "lc-3771-8",
+        "lc-3771-9",
+        "lc-3771-10",
+        "lc-3771-11",
+        "lc-3771-12",
+        "lc-3771-13",
+        "lc-3771-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7818,
+  "oracle_implementation": "code_practice/import_batch_236c.py:dungeon_oracle",
+  "validator_implementation_sha256": "6dec2d56a6f33f7b7cc43d6b11d2275b2583d2e464dbdfc844120024b14d0a1e",
+  "batch_implementation_sha256": "6fd626474b1382848db8188a1d573454f0bbd32af3eed7fb425d231316553677",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e5737fee3f4ed0143502be6268527ccbe16c4cfe5b4158049d65d433caaec2ef",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

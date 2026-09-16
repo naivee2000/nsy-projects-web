@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3767",
+  "content_sha256": "3fbe292b967e4b3ad767b64134713ae320a35454ca211e6e410b8e4bde05b4a0",
+  "source_hash": "51c69435be996669a1a69c939c9594ce77b8a81183d2cb20c67e1c4510ff747d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forces technique one on the k worst score differences.",
+      "failed_cases": [
+        "lc-3767-1",
+        "lc-3767-5",
+        "lc-3767-8",
+        "lc-3767-9",
+        "lc-3767-10",
+        "lc-3767-11",
+        "lc-3767-13",
+        "lc-3767-14"
+      ]
+    },
+    {
+      "reason": "After satisfying k, ignores additional tasks where technique one scores higher.",
+      "failed_cases": [
+        "lc-3767-2",
+        "lc-3767-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7814,
+  "oracle_implementation": "code_practice/import_batch_236c.py:points_oracle",
+  "validator_implementation_sha256": "6dec2d56a6f33f7b7cc43d6b11d2275b2583d2e464dbdfc844120024b14d0a1e",
+  "batch_implementation_sha256": "6fd626474b1382848db8188a1d573454f0bbd32af3eed7fb425d231316553677",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1e750c4a8a93625d1eb996564f4dbe13b6bf5e777e99614ce774690fb7d4c48d",
+  "elapsed_seconds": 0.084,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

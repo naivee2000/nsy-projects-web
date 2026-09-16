@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3766",
+  "content_sha256": "f24fa728b435f0ff793f86daa4f992c33fcf09fcee21f47d795d76cc055a7a12",
+  "source_hash": "9bc71c8a7fc1d6cf4268a43f62635e8e5a40a95b6fa61f9745a24cceeed06ae6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds one unnecessary operation to every nearest-palindrome distance.",
+      "failed_cases": [
+        "lc-3766-1",
+        "lc-3766-2",
+        "lc-3766-3",
+        "lc-3766-4",
+        "lc-3766-5",
+        "lc-3766-6",
+        "lc-3766-7",
+        "lc-3766-8",
+        "lc-3766-9",
+        "lc-3766-10",
+        "lc-3766-11",
+        "lc-3766-12",
+        "lc-3766-13",
+        "lc-3766-14"
+      ]
+    },
+    {
+      "reason": "Never considers the nearest lower binary palindrome.",
+      "failed_cases": [
+        "lc-3766-8",
+        "lc-3766-11",
+        "lc-3766-12",
+        "lc-3766-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7813,
+  "oracle_implementation": "code_practice/import_batch_236c.py:binary_oracle",
+  "validator_implementation_sha256": "6dec2d56a6f33f7b7cc43d6b11d2275b2583d2e464dbdfc844120024b14d0a1e",
+  "batch_implementation_sha256": "6fd626474b1382848db8188a1d573454f0bbd32af3eed7fb425d231316553677",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6ab0575d5211a45a42e8f4f78afb8459af3977c9f6475e4d27cd5aee23d43621",
+  "elapsed_seconds": 0.504,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
