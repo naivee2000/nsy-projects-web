@@ -29,20 +29,44 @@ def random_boxes(rng):return [[rng.randint(1,4) for _ in range(rng.randint(1,8))
 
 
 def attendance_oracle(args):
-    n=args[0]
-    return sum(word.count('A')<2 and 'LLL' not in word for word in map(''.join,product('ALP',repeat=n)))%1_000_000_007
+    n=args[0];mod=1_000_000_007
+    # Count A-free strings independently by the last block of at most two Ls.
+    absent_free=[1]
+    for length in range(1,n+1):
+        absent_free.append(sum(absent_free[max(0,length-run-1)]
+                               for run in range(min(2,length)+1)
+                               if run<length) + (length<=2))
+        absent_free[-1]%=mod
+    # Place the sole A at each position and multiply the two independent sides.
+    return (absent_free[n]+sum(absent_free[left]*absent_free[n-left-1]
+                               for left in range(n)))%mod
 
 
 def random_attendance(rng):return [rng.randint(1,6)]
 
 
 def palindrome_oracle(args):
-    value=int(args[0])
-    for distance in range(1,value+2):
-        lower=value-distance
-        if lower>=0 and str(lower)==str(lower)[::-1]:return str(lower)
-        upper=value+distance
-        if str(upper)==str(upper)[::-1]:return str(upper)
+    value=int(args[0]);maximum_length=len(args[0])+1
+    lengths=[(1,10)]
+    lengths.extend((digits,9*10**((digits+1)//2-1)) for digits in range(2,maximum_length+1))
+    total=sum(count for _,count in lengths)
+    def palindrome_by_rank(rank):
+        for digits,count in lengths:
+            if rank<count:
+                if digits==1:return rank
+                half=10**((digits+1)//2-1)+rank
+                text=str(half)
+                return int(text+(text[-2::-1] if digits%2 else text[::-1]))
+            rank-=count
+        raise ValueError('Palindrome rank exceeds the supported length')
+    low,high=0,total
+    while low<high:
+        middle=(low+high)//2
+        if palindrome_by_rank(middle)<value:low=middle+1
+        else:high=middle
+    candidates=[palindrome_by_rank(rank) for rank in (low-1,low,low+1)
+                if 0<=rank<total and palindrome_by_rank(rank)!=value]
+    return str(min(candidates,key=lambda candidate:(abs(candidate-value),candidate)))
 
 
 def random_palindrome(rng):return [str(rng.randint(1,500_000))]
@@ -387,7 +411,7 @@ CHESS='''def minimum_chessboard_swaps(board):
 CASES={
 546:[[x] for x in ([1,3,2,2,2,3,4,3,1],[1,1,1],[1],[1,2],[1,2,1],[1,2,2,1],[1,2,1,2],[1,1,2,2],[1,2,3,2,1],[2,2,1,2,2],[1,3,3,1,3],[4,3,2,1],[1,2,3,3,2,1],[1,1,2,1,2,2])],
 552:[[n] for n in (2,1,3,4,5,6,7,8,10,12,20,50,100,101)],
-564:[[s] for s in ('123','1','10','11','99','100','101','1000','999','1283','12345','9999','10001','807045053224792883')],
+564:[[s] for s in ('123','1','10','11','99','100','101','1000','999','1900','12345','9999','10001','807045053224792883')],
 568:[[f,d] for f,d in [([[0,1,1],[1,0,1],[1,1,0]],[[1,3,1],[6,0,3],[3,3,3]]),([[0,0,0],[0,0,0],[0,0,0]],[[1,1,1],[7,7,7],[7,7,7]]),([[0]],[[5]]),([[0]],[[1,2,3]]),([[0,1],[0,0]],[[1],[7]]),([[0,0],[1,0]],[[4,4],[7,7]]),([[0,1],[1,0]],[[0,7],[7,0]]),([[0,1,0],[0,0,1],[1,0,0]],[[1,1],[2,2],[3,3]]),([[0,1,1],[0,0,0],[0,0,0]],[[1,1,1],[2,2,2],[7,0,7]]),([[0,1],[0,0]],[[5,0,5],[0,7,0]]),([[0,0],[0,0]],[[0,0],[7,7]]),([[0,1,0],[1,0,1],[0,1,0]],[[7,0,0],[0,7,0],[0,0,7]]),([[0,1],[1,0]],[[3,4,5,6],[6,5,4,3]]),([[0,1,1],[1,0,0],[0,1,0]],[[2,4,1],[5,1,6],[3,7,2]])]],
 591:[[s] for s in TAG_POOL],
 675:[[f] for f in [ [[1,2,3],[0,0,4],[7,6,5]],[[1,2,3],[0,0,0],[7,6,5]],[[2]],[[1,2]],[[1],[2],[3]],[[1,0,2]],[[1,2],[3,4]],[[1,3,2]],[[1,2,0],[0,3,4]],[[1,0,3],[2,4,5]],[[1,2,3],[4,5,6]],[[1,2],[0,3],[4,5]],[[1,0,0],[2,3,4]],[[1,5,1],[2,3,4]] ]],
@@ -425,3 +449,5 @@ BATCH={
 }
 
 BATCH[774]['comparator']='float'
+BATCH[552]['stress']=[([100000],attendance_oracle([100000]))]
+BATCH[564]['stress']=[(['999999999999999999'],palindrome_oracle(['999999999999999999']))]
