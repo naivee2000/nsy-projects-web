@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3814",
+  "content_sha256": "abc613b0b964c9a1054b59636a7acfe8852dc44e6dcc6cfbe6799dfaab35458f",
+  "source_hash": "6eab9e083d257123b47b611d594c789d6229b7c1d977c42351425e3961be54d2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a non-strict budget comparison and admits total cost equal to budget.",
+      "failed_cases": [
+        "lc-3814-1",
+        "lc-3814-3",
+        "lc-3814-6",
+        "lc-3814-8",
+        "lc-3814-10",
+        "lc-3814-11"
+      ]
+    },
+    {
+      "reason": "Allows selecting the same machine twice.",
+      "failed_cases": [
+        "lc-3814-1",
+        "lc-3814-2",
+        "lc-3814-6",
+        "lc-3814-9",
+        "lc-3814-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7861,
+  "oracle_implementation": "code_practice/import_batch_238b.py:capacity_oracle",
+  "validator_implementation_sha256": "5771a3b19953d731a33aaa22b4d5fb96632c57e652028a3f9728799a32bd636b",
+  "batch_implementation_sha256": "3c1954ca306f7d7b0044c0cd7ec8519d370218f8adccb0e202757c99fc09e5ec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "927be16d714d6e2e61ce6eda7a050f802c14ba58eccb47748d1c0f0047d426a3",
+  "elapsed_seconds": 0.079,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

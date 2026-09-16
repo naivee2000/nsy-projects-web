@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3816",
+  "content_sha256": "dc5ac71f71914ac5d5e69c907bc4b7577f7bfae86a8fd57abd32eda82a606c8d",
+  "source_hash": "0cc39fce97cada91c454c205add85e50efc86e571f696f72a235e8b245fa892b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Pops equal letters during the main scan and can discard a useful earlier occurrence.",
+      "failed_cases": [
+        "lc-3816-1",
+        "lc-3816-7",
+        "lc-3816-9",
+        "lc-3816-10",
+        "lc-3816-12",
+        "lc-3816-13",
+        "lc-3816-14"
+      ]
+    },
+    {
+      "reason": "Fails to remove deletable duplicate suffix characters after the scan.",
+      "failed_cases": [
+        "lc-3816-4",
+        "lc-3816-5",
+        "lc-3816-6",
+        "lc-3816-9",
+        "lc-3816-11",
+        "lc-3816-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7863,
+  "oracle_implementation": "code_practice/import_batch_238b.py:deletion_oracle",
+  "validator_implementation_sha256": "5771a3b19953d731a33aaa22b4d5fb96632c57e652028a3f9728799a32bd636b",
+  "batch_implementation_sha256": "3c1954ca306f7d7b0044c0cd7ec8519d370218f8adccb0e202757c99fc09e5ec",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "22c3ff9c1cb1b0936c66d5f7dc20496b1809f73c8218a5c48c6697c360ae287c",
+  "elapsed_seconds": 0.051,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
