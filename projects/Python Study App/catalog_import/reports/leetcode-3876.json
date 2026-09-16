@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3876",
+  "content_sha256": "c4438bed0ff897cb5ad5b9b651460bd31aac979c8911a67cc5e104101939f950",
+  "source_hash": "63f67cc71acf876bee7f728d380e2978e28ef92b63c5eb4841385d90b16b2ef5",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the largest odd as the subtraction source, rejecting valid arrays with a smaller usable odd.",
+      "failed_cases": [
+        "lc-3876-1",
+        "lc-3876-12"
+      ]
+    },
+    {
+      "reason": "Checks odd values against the smallest odd instead of determining whether every even can become odd.",
+      "failed_cases": [
+        "lc-3876-7",
+        "lc-3876-8",
+        "lc-3876-9",
+        "lc-3876-10",
+        "lc-3876-11",
+        "lc-3876-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7923,
+  "oracle_implementation": "code_practice/import_batch_240b.py:uniform_oracle",
+  "validator_implementation_sha256": "7cf39d295a362ef4bf33444932986554fb15b3690866b69b42d82308d335c1b9",
+  "batch_implementation_sha256": "6552f8cada1559f2f55c38a8f73f91c5b12d360ad8f0d2a93806d4725a12575f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "af1e1706f3d7ae2bb15bafb776e60f219874786ed9c40ed50989756b7dfa5bdc",
+  "elapsed_seconds": 0.032,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

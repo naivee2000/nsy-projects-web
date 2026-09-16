@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3877",
+  "content_sha256": "fe29d501287937596be301eefe252cf956ea0ae872a85e36ebcb3b371d1f3331",
+  "source_hash": "60a49b63ec0ed19d5893083a8e45bbf0fd055e2027efdb81acbec9303ad5d169",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Drops every skip transition, so it considers only subsets containing the latest processed element.",
+      "failed_cases": [
+        "lc-3877-1",
+        "lc-3877-2",
+        "lc-3877-15"
+      ]
+    },
+    {
+      "reason": "Returns the number kept rather than the number removed.",
+      "failed_cases": [
+        "lc-3877-1",
+        "lc-3877-2",
+        "lc-3877-3",
+        "lc-3877-4",
+        "lc-3877-5",
+        "lc-3877-6",
+        "lc-3877-8",
+        "lc-3877-9",
+        "lc-3877-10",
+        "lc-3877-11",
+        "lc-3877-12",
+        "lc-3877-14",
+        "lc-3877-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7924,
+  "oracle_implementation": "code_practice/import_batch_240b.py:removals_oracle",
+  "validator_implementation_sha256": "7cf39d295a362ef4bf33444932986554fb15b3690866b69b42d82308d335c1b9",
+  "batch_implementation_sha256": "6552f8cada1559f2f55c38a8f73f91c5b12d360ad8f0d2a93806d4725a12575f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bde943f1413b25c3c893f40daec62abfc68f1a83857c7bf1cf1812861459e6d2",
+  "elapsed_seconds": 0.65,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

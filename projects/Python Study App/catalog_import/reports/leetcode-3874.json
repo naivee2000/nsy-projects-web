@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3874",
+  "content_sha256": "1e6d8e7c48816601f87653ddb783627b05944233e16bd5ba000f4130a0cc4b24",
+  "source_hash": "9723a87dc8a360a41dd22a13c3503db32c44ed50475c934dc977bcd6ebc53014",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows only k-1 positions to the right of each peak.",
+      "failed_cases": [
+        "lc-3874-1",
+        "lc-3874-2",
+        "lc-3874-5",
+        "lc-3874-8",
+        "lc-3874-11",
+        "lc-3874-12",
+        "lc-3874-13",
+        "lc-3874-14",
+        "lc-3874-15"
+      ]
+    },
+    {
+      "reason": "Allows the next peak into the current peak’s subarrays, causing double counting and invalid windows.",
+      "failed_cases": [
+        "lc-3874-6",
+        "lc-3874-9",
+        "lc-3874-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7921,
+  "oracle_implementation": "code_practice/import_batch_240b.py:peaks_oracle",
+  "validator_implementation_sha256": "7cf39d295a362ef4bf33444932986554fb15b3690866b69b42d82308d335c1b9",
+  "batch_implementation_sha256": "6552f8cada1559f2f55c38a8f73f91c5b12d360ad8f0d2a93806d4725a12575f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "92bebef4221a93a89c6037064b77c529564adf7c5c523bfcb94fa41f9dbef6a4",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
