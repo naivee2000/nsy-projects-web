@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3706",
+  "content_sha256": "95ffb9e8be83ae354ad8b482bae9493d97bbb6cc0c42d64251b37c93ebbca429",
+  "source_hash": "a16563c60a54d212673239c37ba8aab8eb25c1c66a90cc7e91f76f904edeb8da",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets the inclusive plus one for pairs measured from the first index.",
+      "failed_cases": [
+        "lc-3706-7"
+      ]
+    },
+    {
+      "reason": "Forgets the inclusive plus one for pairs measured from the last index.",
+      "failed_cases": [
+        "lc-3706-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7753,
+  "oracle_implementation": "code_practice/import_batch_234b.py:distance_oracle",
+  "validator_implementation_sha256": "2485f6cacfde5ecbbc84ec8d6f66cc848537dc06ccd9a271b4b2f3145096d89f",
+  "batch_implementation_sha256": "0eb49fb56626ab68e973ace778ab78f858fb75c5f8be663aaf9f970dd7ab2fc5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "13a3a5e986d3bf99db3cc49ec4ac2f53bfda6f263e4575a315d8ac43d854b875",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

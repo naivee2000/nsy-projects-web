@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3708",
+  "content_sha256": "adfabc6b850f387428efa4a3b6a56de6fce78dd50bd4a04d14d83cc46857e39a",
+  "source_hash": "0c7df92ec52bad3f43259d90f3fc3de463b3c671c29e29aa58c8aeadb6240ccb",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Restarts a broken run at length one instead of the final two elements.",
+      "failed_cases": [
+        "lc-3708-1"
+      ]
+    },
+    {
+      "reason": "Checks a difference recurrence instead of the Fibonacci sum.",
+      "failed_cases": [
+        "lc-3708-1",
+        "lc-3708-2",
+        "lc-3708-3",
+        "lc-3708-4",
+        "lc-3708-5",
+        "lc-3708-7",
+        "lc-3708-8",
+        "lc-3708-10",
+        "lc-3708-11",
+        "lc-3708-12",
+        "lc-3708-13",
+        "lc-3708-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7755,
+  "oracle_implementation": "code_practice/import_batch_234b.py:fibonacci_oracle",
+  "validator_implementation_sha256": "2485f6cacfde5ecbbc84ec8d6f66cc848537dc06ccd9a271b4b2f3145096d89f",
+  "batch_implementation_sha256": "0eb49fb56626ab68e973ace778ab78f858fb75c5f8be663aaf9f970dd7ab2fc5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f154d798f188d91b68d36258c163dc43d9750b94036d3f8d3a0ed5a1a9026c4f",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

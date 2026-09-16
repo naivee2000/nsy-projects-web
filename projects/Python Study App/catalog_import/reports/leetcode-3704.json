@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3704",
+  "content_sha256": "133608377f1d160b479fea87750a7064191eec959d25affc159faf5e1c94c8f7",
+  "source_hash": "191b63487575d43e9b13f5679871ff345090d518c65d4c6afc01b4d0ce0c3d65",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows zero as an active decimal digit.",
+      "failed_cases": [
+        "lc-3704-1",
+        "lc-3704-2",
+        "lc-3704-3",
+        "lc-3704-4",
+        "lc-3704-5",
+        "lc-3704-6",
+        "lc-3704-7",
+        "lc-3704-8",
+        "lc-3704-9",
+        "lc-3704-10",
+        "lc-3704-11",
+        "lc-3704-12",
+        "lc-3704-13",
+        "lc-3704-14"
+      ]
+    },
+    {
+      "reason": "Incorrectly treats the ordered pairs as unordered.",
+      "failed_cases": [
+        "lc-3704-1",
+        "lc-3704-2",
+        "lc-3704-3",
+        "lc-3704-4",
+        "lc-3704-5",
+        "lc-3704-6",
+        "lc-3704-7",
+        "lc-3704-8",
+        "lc-3704-9",
+        "lc-3704-10",
+        "lc-3704-11",
+        "lc-3704-12",
+        "lc-3704-13",
+        "lc-3704-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7751,
+  "oracle_implementation": "code_practice/import_batch_234b.py:nozero_oracle",
+  "validator_implementation_sha256": "2485f6cacfde5ecbbc84ec8d6f66cc848537dc06ccd9a271b4b2f3145096d89f",
+  "batch_implementation_sha256": "0eb49fb56626ab68e973ace778ab78f858fb75c5f8be663aaf9f970dd7ab2fc5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "73c40645c476101649ae2b3665b1f829719c7ab8e6d948b6112f26c3652160a8",
+  "elapsed_seconds": 0.1,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3710",
+  "content_sha256": "aff7f40013926a85c977e6568c123de8bc9975b66ab4a0e09d1843ed4ec8a602",
+  "source_hash": "a189dc75a33f333d2f184ebe20ee04030c4e3f5f26c7d80bdfd3b1349e8a2ce6",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats pairs exactly at the candidate factor as conflicts.",
+      "failed_cases": [
+        "lc-3710-1",
+        "lc-3710-2",
+        "lc-3710-4",
+        "lc-3710-5",
+        "lc-3710-6",
+        "lc-3710-7",
+        "lc-3710-8",
+        "lc-3710-9",
+        "lc-3710-10",
+        "lc-3710-11",
+        "lc-3710-12",
+        "lc-3710-13",
+        "lc-3710-14"
+      ]
+    },
+    {
+      "reason": "Uses Chebyshev distance instead of Manhattan distance in the conflict graph.",
+      "failed_cases": [
+        "lc-3710-1",
+        "lc-3710-2",
+        "lc-3710-4",
+        "lc-3710-5",
+        "lc-3710-7",
+        "lc-3710-8",
+        "lc-3710-9",
+        "lc-3710-10",
+        "lc-3710-11",
+        "lc-3710-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7757,
+  "oracle_implementation": "code_practice/import_batch_234b.py:partition_oracle",
+  "validator_implementation_sha256": "2485f6cacfde5ecbbc84ec8d6f66cc848537dc06ccd9a271b4b2f3145096d89f",
+  "batch_implementation_sha256": "0eb49fb56626ab68e973ace778ab78f858fb75c5f8be663aaf9f970dd7ab2fc5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b08033747db18e4ca63f18ea3809ad703820a77e7b69200e243a6ee05797f00c",
+  "elapsed_seconds": 0.169,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

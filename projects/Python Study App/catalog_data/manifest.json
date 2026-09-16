@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2910,
+  "count": 2915,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -50476,6 +50476,43 @@
       "source_id": 3703
     },
     {
+      "id": "leetcode-3704",
+      "version": 1,
+      "status": "approved",
+      "title": "Count No-Zero Pairs That Sum to N",
+      "summary": "Count pairs of no-zero integers (a, b) such that their sum equals n, where a and b are positive integers without the digit 0.",
+      "topics": [
+        "dynamic programming",
+        "math",
+        "digit dp"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3704.json",
+      "content_sha256": "133608377f1d160b479fea87750a7064191eec959d25affc159faf5e1c94c8f7",
+      "source_id": 3704
+    },
+    {
+      "id": "leetcode-3706",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Distance Between Unequal Words in Array II",
+      "summary": "Given an array of strings, determine the greatest distance between two different indices where the strings at these indices are not identical.",
+      "topics": [
+        "arrays",
+        "strings"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3706.json",
+      "content_sha256": "95ffb9e8be83ae354ad8b482bae9493d97bbb6cc0c42d64251b37c93ebbca429",
+      "source_id": 3706
+    },
+    {
       "id": "leetcode-3707",
       "version": 1,
       "status": "approved",
@@ -50491,6 +50528,60 @@
       "path": "problems/leetcode-3707.json",
       "content_sha256": "744557ad09f665e7b8fea77d58d34a07cb245391efa92c8fc8b40bda29cc230a",
       "source_id": 3707
+    },
+    {
+      "id": "leetcode-3708",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Fibonacci Subarray",
+      "summary": "Given an array of positive integers, identify the longest contiguous subarray where each element (starting from the third) is the sum of the two preceding elements, adhering to the Fibonacci sequence rule.",
+      "topics": [
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3708.json",
+      "content_sha256": "adfabc6b850f387428efa4a3b6a56de6fce78dd50bd4a04d14d83cc46857e39a",
+      "source_id": 3708
+    },
+    {
+      "id": "leetcode-3710",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Partition Factor",
+      "summary": "Given a 2D integer array points, where points[i] = [xi, yi] are coordinates on the Cartesian plane, find the maximum partition factor by splitting the points into exactly two non-empty groups.",
+      "topics": [
+        "graphs",
+        "binary search",
+        "bipartite graphs"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3710.json",
+      "content_sha256": "aff7f40013926a85c977e6568c123de8bc9975b66ab4a0e09d1843ed4ec8a602",
+      "source_id": 3710
+    },
+    {
+      "id": "leetcode-3711",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Transactions Without Negative Balance",
+      "summary": "Given an array of transactions with positive values indicating received money and negative values indicating sent money, determine the maximum number of transactions that can be processed without the account balance ever dropping below zero, considering transactions must be processed in order but allowing some to be skipped.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "heaps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3711.json",
+      "content_sha256": "f2fb7d7f7eb4ead4542ae8b38b9a069141302c790724c9f6f0476d034f1ae198",
+      "source_id": 3711
     },
     {
       "id": "leetcode-3712",
