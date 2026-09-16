@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3930",
+  "content_sha256": "6dc6a40cc37208acc5ae599ab92aeba91673f35609d750ecc957d8a614e93602",
+  "source_hash": "e07d45a67b96dce38cc7b0ecbf128839018727f7b926ae3807e6f681da9dbd28",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Selects the kth smallest rank instead of the kth largest.",
+      "failed_cases": [
+        "lc-3930-1",
+        "lc-3930-2",
+        "lc-3930-3",
+        "lc-3930-5",
+        "lc-3930-7",
+        "lc-3930-9",
+        "lc-3930-10",
+        "lc-3930-11",
+        "lc-3930-12",
+        "lc-3930-13",
+        "lc-3930-14",
+        "lc-3930-15"
+      ]
+    },
+    {
+      "reason": "Does not increase the multiset size after an insertion.",
+      "failed_cases": [
+        "lc-3930-1",
+        "lc-3930-2",
+        "lc-3930-3",
+        "lc-3930-7",
+        "lc-3930-9",
+        "lc-3930-10",
+        "lc-3930-11",
+        "lc-3930-12",
+        "lc-3930-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7977,
+  "oracle_implementation": "code_practice/import_batch_242b.py:power_oracle",
+  "validator_implementation_sha256": "ea74b895c12d35fc4f84362ff433b2782a03edbcbfd014cec28250101dd6078b",
+  "batch_implementation_sha256": "e02b8cac7267f93b79f03843a4685141ea86c54952ff5c38beaecb57bc342d77",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "af5fd6da7bff667f451b04bda8ff3004d2983e0d6de53f18785a019f86a4fb6b",
+  "elapsed_seconds": 0.091,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

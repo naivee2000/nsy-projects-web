@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 2,970 runnable problems (101 original exercises plus 2,869 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 3,074 runnable problems (101 original exercises plus 2,973 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 2,970-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 3,074-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -68,8 +68,8 @@ under `data/` or the configured `CODE_PRACTICE_DB` path. Old accepted submission
 remain Passed even after more than 500 newer attempts.
 
 The 3,629-row workbook inventory is stored in `catalog_import/ledger.json`.
-Current status: 84 existing equivalents, 2,465 verified imports, 156 documented
-design/interactive exclusions, 33 quarantined records, and 891 pending records. Ordinary tree and
+Current status: 84 existing equivalents, 2,973 verified imports, 157 documented
+design/interactive exclusions, 37 quarantined records, and 378 pending records. Ordinary tree and
 linked-list exercises remain in scope. See [the delivery gates](docs/CATALOG_EXPANSION.md).
 The ledger is an audit of source records, not a claim that pending problems are
 available in the runnable library.
@@ -622,7 +622,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 2,870 problems; future
+been checked against every reviewed batch. The current package contains 3,074 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the
@@ -661,6 +661,16 @@ requests per route ranged from 1.134 ms to 1.756 ms for library search/filtering
 problem details, and the dashboard, below the interim 300/500 ms targets. Exact
 route measurements and hardware metadata are retained in
 `catalog_import/benchmarks/current.json`.
+
+At the 2,973-import checkpoint, all preceding definitions and progress IDs remain
+stable. The ledger records 84 overlaps, 2,973 verified imports, 157 justified
+exclusions, 37 quarantined records, and 378 pending records; the packaged catalog
+contains 3,074 runnable problems. The checkpoint passed 1,188 backend tests and
+19 frontend tests, built the production frontend, and validated all 2,979 eligible
+approved reference suites in Chrome/Pyodide with no infrastructure retries.
+Backend startup took 464 ms and peak RSS was 275.0 MiB. Warm p95 latency over
+100 requests per route ranged from 1.099 ms to 1.704 ms for library searches,
+problem details, and the dashboard, remaining below the 300/500 ms targets.
 
 Source provenance: workbook filename/hash and row numbers are retained in the
 ledger. `catalog_import/sources.jsonl` records LeetCode URLs and the exact

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3934",
+  "content_sha256": "3526b1fcca8cc99ba5c17b26a5cb581b08f34025954946886908999ab3f1cf67",
+  "source_hash": "52ca9ef6fbc7c3b27232e2306e7e2851490268fd19bf109e1ca57f29b602428b",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the smaller adjacent LCP and can mistake a repeated prefix for a unique one.",
+      "failed_cases": [
+        "lc-3934-1",
+        "lc-3934-3",
+        "lc-3934-6",
+        "lc-3934-8"
+      ]
+    },
+    {
+      "reason": "Maximizes candidate length instead of minimizing it.",
+      "failed_cases": [
+        "lc-3934-2",
+        "lc-3934-3",
+        "lc-3934-5",
+        "lc-3934-7",
+        "lc-3934-8",
+        "lc-3934-9",
+        "lc-3934-10",
+        "lc-3934-11",
+        "lc-3934-12",
+        "lc-3934-13",
+        "lc-3934-14",
+        "lc-3934-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7981,
+  "oracle_implementation": "code_practice/import_batch_242b.py:unique_oracle",
+  "validator_implementation_sha256": "ea74b895c12d35fc4f84362ff433b2782a03edbcbfd014cec28250101dd6078b",
+  "batch_implementation_sha256": "e02b8cac7267f93b79f03843a4685141ea86c54952ff5c38beaecb57bc342d77",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3850c3a16f40c11e15d2c0c5cd3f77094b4d452492d28806a2c1734e4fa3cf8c",
+  "elapsed_seconds": 0.121,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

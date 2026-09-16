@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3944",
+  "content_sha256": "e70127dc239d15314cbe153b761471199a01fe206e14b288b336629c6c46b2e6",
+  "source_hash": "54356cae3955b1c7ae6686a6ab4a98d03ee1e9b67d513d5ee495a35669e9656b",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Allows even and odd positions to choose the same target residue.",
+      "failed_cases": [
+        "lc-3944-2",
+        "lc-3944-5",
+        "lc-3944-10"
+      ]
+    },
+    {
+      "reason": "Uses straight residue distance and misses cheaper wraparound moves.",
+      "failed_cases": [
+        "lc-3944-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7991,
+  "oracle_implementation": "code_practice/import_batch_242b.py:modulo_oracle",
+  "validator_implementation_sha256": "ea74b895c12d35fc4f84362ff433b2782a03edbcbfd014cec28250101dd6078b",
+  "batch_implementation_sha256": "e02b8cac7267f93b79f03843a4685141ea86c54952ff5c38beaecb57bc342d77",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b05f5ee3ebe00ed8d7f2c41226703d373304a10398735ff9e6817501d1d96612",
+  "elapsed_seconds": 0.112,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

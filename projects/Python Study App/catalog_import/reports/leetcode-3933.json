@@ -1,0 +1,124 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3933",
+  "content_sha256": "8925322a28ee093c6f8b562683ed1a677712fe3d55b73c4b21a05e4ecd669135",
+  "source_hash": "d8bb4fb72ff7afb58f0f395eb6de8c0532d2504e571acbe621521b30b2431533",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal-valued cells as disqualifying, including the candidate itself.",
+      "failed_cases": [
+        "lc-3933-1",
+        "lc-3933-2",
+        "lc-3933-3",
+        "lc-3933-4",
+        "lc-3933-5",
+        "lc-3933-7",
+        "lc-3933-8",
+        "lc-3933-9",
+        "lc-3933-10",
+        "lc-3933-11",
+        "lc-3933-12",
+        "lc-3933-13",
+        "lc-3933-14",
+        "lc-3933-15",
+        "lc-3933-16"
+      ]
+    },
+    {
+      "reason": "Subtracts excluded corner positions even when they do not contain a greater value.",
+      "failed_cases": [
+        "lc-3933-1",
+        "lc-3933-4",
+        "lc-3933-5",
+        "lc-3933-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7980,
+  "oracle_implementation": "code_practice/import_batch_242b.py:local_oracle",
+  "validator_implementation_sha256": "ea74b895c12d35fc4f84362ff433b2782a03edbcbfd014cec28250101dd6078b",
+  "batch_implementation_sha256": "e02b8cac7267f93b79f03843a4685141ea86c54952ff5c38beaecb57bc342d77",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b34f5ce89189fdda0f6d3be44e1599896f0d5b7c00f75f7a5c5e433df6f10fff",
+  "elapsed_seconds": 0.112,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input matrix = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,2,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]] → Output 1 ​​​​​​​​​​​​​​​​​​​​​.",
+    "arguments": [
+      [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    ],
+    "expected": 1,
+    "reason": "The workbook output contains zero-width formatting characters after the integer; the adapter preserves the stated matrix and result while removing that invisible markup.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/3900-3999/3933.Largest%20Local%20Values%20in%20a%20Matrix%20II/README_EN.md"
+  }
+}
