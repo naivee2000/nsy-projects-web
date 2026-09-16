@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3889",
+  "content_sha256": "d2fa6e9b2e970809457e5198d0dc14bb20d7da339788eb104c0fc8b86f785b7d",
+  "source_hash": "8d90085251bb991cde7ab31134d9d42f879778923d94a16b2457db1b1daefbe3",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Marks only one side of a mirror pair and counts it again when the mirror appears.",
+      "failed_cases": [
+        "lc-3889-6",
+        "lc-3889-9"
+      ]
+    },
+    {
+      "reason": "Squares each frequency difference instead of taking its absolute value.",
+      "failed_cases": [
+        "lc-3889-14",
+        "lc-3889-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7936,
+  "oracle_implementation": "code_practice/import_batch_240d.py:mirror_oracle",
+  "validator_implementation_sha256": "7cf925a8f0206b600a7bba42b0f90315668ff6fd4db15af2684aeb0d529fd97f",
+  "batch_implementation_sha256": "410a55d3f09a861e3acd83d0985a02687e02a6f1e21091b23dcf28563858b349",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "570a7ee23c38352b5643222ab06688325465b0715733b75a399174ee2679de76",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

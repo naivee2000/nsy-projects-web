@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3887",
+  "content_sha256": "d361476a35b8e35cfde1219755edcbcad64c230d97133e78c35202b4488b32cb",
+  "source_hash": "fcbfc71d6c336127f124d27326e9f06006af8811197f8d1c52aee6d5656a547d",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts precisely inconsistent cycle edges instead of consistent ones.",
+      "failed_cases": [
+        "lc-3887-1",
+        "lc-3887-2",
+        "lc-3887-3",
+        "lc-3887-5",
+        "lc-3887-6",
+        "lc-3887-7",
+        "lc-3887-9",
+        "lc-3887-10",
+        "lc-3887-11",
+        "lc-3887-12",
+        "lc-3887-13",
+        "lc-3887-14",
+        "lc-3887-15"
+      ]
+    },
+    {
+      "reason": "Stores the new edge weight without accounting for endpoint path parities.",
+      "failed_cases": [
+        "lc-3887-1",
+        "lc-3887-7",
+        "lc-3887-11",
+        "lc-3887-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7934,
+  "oracle_implementation": "code_practice/import_batch_240d.py:edge_oracle",
+  "validator_implementation_sha256": "7cf925a8f0206b600a7bba42b0f90315668ff6fd4db15af2684aeb0d529fd97f",
+  "batch_implementation_sha256": "410a55d3f09a861e3acd83d0985a02687e02a6f1e21091b23dcf28563858b349",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1746ae41c42ee24fd733da23726c130c321d9c5b64c2e2e04dd0273dc79bd5a3",
+  "elapsed_seconds": 0.075,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

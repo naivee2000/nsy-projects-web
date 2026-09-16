@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3888",
+  "content_sha256": "58d7b7bbd3617630954292a06e63ee6dde1ab612d833f1a29b2b844bc2eeafdb",
+  "source_hash": "97e0ff23ce32a48689ba19930e8f922bfd10225a414014dec0081e562076eb57",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes the initial maximum is always the target instead of honoring the boundary-forced target.",
+      "failed_cases": [
+        "lc-3888-14"
+      ]
+    },
+    {
+      "reason": "Counts each selected square once rather than once per unit increment.",
+      "failed_cases": [
+        "lc-3888-1",
+        "lc-3888-5",
+        "lc-3888-10",
+        "lc-3888-11",
+        "lc-3888-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7935,
+  "oracle_implementation": "code_practice/import_batch_240d.py:grid_oracle",
+  "validator_implementation_sha256": "7cf925a8f0206b600a7bba42b0f90315668ff6fd4db15af2684aeb0d529fd97f",
+  "batch_implementation_sha256": "410a55d3f09a861e3acd83d0985a02687e02a6f1e21091b23dcf28563858b349",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aef2d81d5d82e37bbd4bc31edbe5dd8b0cfa69d27fb03a0e2b715cf744382fa8",
+  "elapsed_seconds": 0.173,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

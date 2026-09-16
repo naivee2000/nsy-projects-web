@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3890",
+  "content_sha256": "6b6848cddfda88126fdfe4144df953d34dae0c4075188ea1be5dfe59418e6297",
+  "source_hash": "07066780a063f9d761630fdbcfde7b2c5317218736d7cb41d1e7c157ccfd0333",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts ordered pairs separately, falsely turning one representation into multiple ones.",
+      "failed_cases": [
+        "lc-3890-1",
+        "lc-3890-2",
+        "lc-3890-5",
+        "lc-3890-6",
+        "lc-3890-7",
+        "lc-3890-8",
+        "lc-3890-9",
+        "lc-3890-10",
+        "lc-3890-11",
+        "lc-3890-12",
+        "lc-3890-13",
+        "lc-3890-14",
+        "lc-3890-15"
+      ]
+    },
+    {
+      "reason": "Requires three representations instead of at least two.",
+      "failed_cases": [
+        "lc-3890-1",
+        "lc-3890-2",
+        "lc-3890-6",
+        "lc-3890-7",
+        "lc-3890-8",
+        "lc-3890-9",
+        "lc-3890-10",
+        "lc-3890-11",
+        "lc-3890-12",
+        "lc-3890-13",
+        "lc-3890-14",
+        "lc-3890-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7937,
+  "oracle_implementation": "code_practice/import_batch_240d.py:cubes_oracle",
+  "validator_implementation_sha256": "7cf925a8f0206b600a7bba42b0f90315668ff6fd4db15af2684aeb0d529fd97f",
+  "batch_implementation_sha256": "410a55d3f09a861e3acd83d0985a02687e02a6f1e21091b23dcf28563858b349",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6fdb1dc53befebccc3fcd78736485133b11a1ff5eb43582bb9da8edb8aff3d01",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

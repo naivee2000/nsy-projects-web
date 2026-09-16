@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3891",
+  "content_sha256": "473db0626370badbb4e65ce6efd45d90692ce29fa2fbf32fb18630589d1e3703",
+  "source_hash": "0f35bd7181beeb4c737e04371d8b37614c38a97d4eefa84df10784ca19ec5592",
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
+    {
+      "reason": "For even lengths, never considers the one necessary parity shift among maximum-size peak placements.",
+      "failed_cases": [
+        "lc-3891-9",
+        "lc-3891-13"
+      ]
+    },
+    {
+      "reason": "Allows equality with a neighbor instead of requiring a strictly greater peak.",
+      "failed_cases": [
+        "lc-3891-1",
+        "lc-3891-6",
+        "lc-3891-7",
+        "lc-3891-10",
+        "lc-3891-11",
+        "lc-3891-12",
+        "lc-3891-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7938,
+  "oracle_implementation": "code_practice/import_batch_240d.py:peak_oracle",
+  "validator_implementation_sha256": "7cf925a8f0206b600a7bba42b0f90315668ff6fd4db15af2684aeb0d529fd97f",
+  "batch_implementation_sha256": "410a55d3f09a861e3acd83d0985a02687e02a6f1e21091b23dcf28563858b349",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "aa36bab030bd4199297fe99de8364e768e80d4177397eb1943c096751d42d554",
+  "elapsed_seconds": 0.378,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
