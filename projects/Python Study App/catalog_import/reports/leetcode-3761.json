@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3761",
+  "content_sha256": "4dc76bea623bc5894ad2b8d6ad8b8ccb50222c44c07775611241b9d8992887d4",
+  "source_hash": "5e2d7c888a0c0f07e5e63eff778ea5bb8c5d022783cf1419ad95b677a9e09f82",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Stores original values rather than the future reversed values being awaited.",
+      "failed_cases": [
+        "lc-3761-1",
+        "lc-3761-2",
+        "lc-3761-3",
+        "lc-3761-6",
+        "lc-3761-7",
+        "lc-3761-10",
+        "lc-3761-11",
+        "lc-3761-13",
+        "lc-3761-14"
+      ]
+    },
+    {
+      "reason": "Keeps the earliest producer of a reversed value instead of the latest and can miss a shorter gap.",
+      "failed_cases": [
+        "lc-3761-9"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7808,
+  "oracle_implementation": "code_practice/import_batch_236b.py:mirror_oracle",
+  "validator_implementation_sha256": "29772bfd643d04cf36f58ab5a69cfd276c5de606b71ad3ad9c8921deb74d7cac",
+  "batch_implementation_sha256": "dfedb32570faf284d8c844ce19337abf08a60b8ca5ba4bf25597933c6aaae811",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4868a439362a408d3d32323420aca3ea93d8e9139c314e10957bf00a217dfb28",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

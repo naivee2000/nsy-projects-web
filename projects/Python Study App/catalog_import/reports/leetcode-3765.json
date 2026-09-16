@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3765",
+  "content_sha256": "905aa84e67df11ac26b95d1d8068ff00d3608619c2c4cf1bf64df2397ba9af72",
+  "source_hash": "96a66fe3adf4efc48864768d0ca62da287b8d1377bca82b80bfe800a1161509f",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats one as a prime number.",
+      "failed_cases": [
+        "lc-3765-7",
+        "lc-3765-8",
+        "lc-3765-11"
+      ]
+    },
+    {
+      "reason": "Checks prefixes twice and never validates suffixes.",
+      "failed_cases": [
+        "lc-3765-10",
+        "lc-3765-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7812,
+  "oracle_implementation": "code_practice/import_batch_236b.py:complete_oracle",
+  "validator_implementation_sha256": "29772bfd643d04cf36f58ab5a69cfd276c5de606b71ad3ad9c8921deb74d7cac",
+  "batch_implementation_sha256": "dfedb32570faf284d8c844ce19337abf08a60b8ca5ba4bf25597933c6aaae811",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "37fbe23584c1d2aaef7a68dd4e9935cfa1d0c24074a307ba7583c64a1c99cc97",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

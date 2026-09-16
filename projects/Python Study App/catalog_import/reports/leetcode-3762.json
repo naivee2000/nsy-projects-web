@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3762",
+  "content_sha256": "3d3e459c0ebeeab06c4ff69bb6693130033fd87120c7af09167a21f572320a36",
+  "source_hash": "b56639908cc0f71f70c273213c9645e0653934d152f6ee42b0caa32ac8849529",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal adjacent residues as incompatibility breaks.",
+      "failed_cases": [
+        "lc-3762-1",
+        "lc-3762-2",
+        "lc-3762-4",
+        "lc-3762-5",
+        "lc-3762-6",
+        "lc-3762-7",
+        "lc-3762-8",
+        "lc-3762-9",
+        "lc-3762-10",
+        "lc-3762-11",
+        "lc-3762-12",
+        "lc-3762-13",
+        "lc-3762-14"
+      ]
+    },
+    {
+      "reason": "Always chooses the smallest normalized value instead of a median.",
+      "failed_cases": [
+        "lc-3762-1",
+        "lc-3762-4",
+        "lc-3762-6",
+        "lc-3762-8",
+        "lc-3762-9",
+        "lc-3762-10",
+        "lc-3762-11",
+        "lc-3762-12",
+        "lc-3762-13",
+        "lc-3762-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7809,
+  "oracle_implementation": "code_practice/import_batch_236b.py:equalize_oracle",
+  "validator_implementation_sha256": "29772bfd643d04cf36f58ab5a69cfd276c5de606b71ad3ad9c8921deb74d7cac",
+  "batch_implementation_sha256": "dfedb32570faf284d8c844ce19337abf08a60b8ca5ba4bf25597933c6aaae811",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b3c3eadc3ff0b2fcb802a3bb5015906b56005f3d0c9b5c8d377008ebf729f849",
+  "elapsed_seconds": 0.194,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
