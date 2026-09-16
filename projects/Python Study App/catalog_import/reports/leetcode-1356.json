@@ -1,11 +1,79 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1356",
+  "content_sha256": "3389cab0b5de927e502f72235517689b5da033a5afdd17b859cbfe484007710f",
   "source_hash": "7e9b32872f6590b30629eca66d2af989ef8be6c2b03ceaa6f9e34663c43bc3b7",
-  "failures": [
+  "visible_tests": 2,
+  "hidden_tests": 14,
+  "reference_passed": 16,
+  "wrong_solutions": [
     {
-      "phase": "build",
-      "error": "ValueError: 1356: invalid or stale workbook sample contract adapter"
+      "reason": "Sorts larger bit counts first.",
+      "failed_cases": [
+        "lc-1356-1",
+        "lc-1356-5",
+        "lc-1356-6",
+        "lc-1356-7",
+        "lc-1356-8",
+        "lc-1356-10",
+        "lc-1356-11",
+        "lc-1356-13",
+        "lc-1356-14",
+        "lc-1356-16"
+      ]
+    },
+    {
+      "reason": "Breaks equal-bit-count ties by larger numerical value.",
+      "failed_cases": [
+        "lc-1356-1",
+        "lc-1356-2",
+        "lc-1356-4",
+        "lc-1356-7",
+        "lc-1356-9",
+        "lc-1356-11",
+        "lc-1356-12",
+        "lc-1356-15"
+      ]
     }
-  ]
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 5403,
+  "oracle_implementation": "code_practice/import_batch_091b.py:bits_o",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
+  "batch_implementation_sha256": "c63a49843d7e7c99f30d2feaa7f76966fe0faedb1bc7c93a21635729dc780dc6",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "4c9b2246c7891cdd596dc82d77214eebe59f14489ffd8eea0bc61b0a7d2349b1",
+  "elapsed_seconds": 0.019,
+  "failures": [],
+  "workbook_sample": "source sample preserved through an explicit callable-context adapter",
+  "sample_contract_adapter": {
+    "source_sample": "Input arr = [0,1,2,3,4,5,6,7,8] → Output [0,1,2,4,8,3,5,6,7] Explantion: [0] is the only integer with 0 bits. [1,2,4,8] all have 1 bit. [3,5,6] have 2 bits. [7] has 3 bits. The sorted array by bits is [0,1,2,4,8,3,5,6,7].",
+    "arguments": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    ],
+    "expected": [
+      0,
+      1,
+      2,
+      4,
+      8,
+      3,
+      5,
+      6,
+      7
+    ],
+    "reason": "The workbook appends a misspelled Explanation section to the output; the adapter preserves the stated input and result while normalizing that prose.",
+    "source_reference": "https://github.com/doocs/leetcode/blob/f85554a7ffaa91aeaae6f0ff9f9d0641731097ed/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README_EN.md"
+  }
 }

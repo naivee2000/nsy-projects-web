@@ -1,11 +1,11 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1275",
-  "content_sha256": "b54e0cabc986b0db42fd6eede45496bcb36328270635ec9fd6c7cabc14675de1",
+  "content_sha256": "dd869b7c14490c331831a7421b3700b5f73a1113dbec754863ae80e0e029877a",
   "source_hash": "9fc7c6858d2d11ee97ce873dea1059a7a23b11a6727d34e578bdc17f0f86a5c6",
   "visible_tests": 2,
-  "hidden_tests": 14,
-  "reference_passed": 16,
+  "hidden_tests": 15,
+  "reference_passed": 17,
   "wrong_solutions": [
     {
       "reason": "Assigns the first move to B.",
@@ -27,23 +27,20 @@
     },
     {
       "reason": "Never reports a full-board draw.",
-      "failed_cases": []
+      "failed_cases": [
+        "lc-1275-17"
+      ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 5322,
   "oracle_implementation": "code_practice/import_batch_090.py:game_o",
-  "validator_implementation_sha256": "b1ee8a137f9062503c7aaf061f896e9b99fdc81fe616eb0e13cdfa96450cb9a0",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
   "batch_implementation_sha256": "fc83ce656321c8e8280765899e6561d549c959234f526aef546ab98fc417901a",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "15bf424fda47fcbbd9411b498e9526153d09a235e6eb7793ecfb644462152422",
-  "elapsed_seconds": 0.048,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 1
-    }
-  ],
+  "elapsed_seconds": 0.049,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

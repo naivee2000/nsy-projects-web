@@ -1,11 +1,11 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-2663",
-  "content_sha256": "194f613a4a2187c8296bf2350a3601631ec30a4d5d8396de48e12a34db786040",
+  "content_sha256": "d0867f6f1f3485c2a0e219996c6ed890e3078ebc29157a5a000186fb14c4a1c6",
   "source_hash": "aa3ed47a004770618c8b8ecefb8d9af47a51187dc35d1f62521aebaa770a2d86",
   "visible_tests": 2,
   "hidden_tests": 14,
-  "reference_passed": 15,
+  "reference_passed": 16,
   "wrong_solutions": [
     {
       "reason": "Attempts to increase the leftmost position first and skips smaller valid successors.",
@@ -26,26 +26,19 @@
         "lc-2663-9",
         "lc-2663-10",
         "lc-2663-13",
-        "lc-2663-15",
-        "lc-2663-16"
+        "lc-2663-15"
       ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 6710,
   "oracle_implementation": "code_practice/import_batch_170.py:beautiful_oracle",
-  "validator_implementation_sha256": "124549c53ba22eddacffc5d0b0373dca42692ad3f5b52039d3391c7e6e2f5a18",
-  "batch_implementation_sha256": "2ecd4453400e37f12327436ebbd5ad5ea39f32dd54ce4d76979b38ff2f81e467",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
+  "batch_implementation_sha256": "b171578e597634ffb62cb1bcf97eabfd5d9d9a5255a36ab05c9165c2d8c77db1",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
-  "validation_cache_key": "8f5604b05e9d64dbcc6cb27ade20e7406b6650c9c06bd024a35c589ebbeb5362",
-  "elapsed_seconds": 0.365,
-  "failures": [
-    {
-      "phase": "deterministic",
-      "case": "lc-2663-16",
-      "error": null
-    }
-  ],
+  "validation_cache_key": "6d177abd2111e0e9f38550aa2cbc0838dc74de6ae01814ecd0f22f7b18042996",
+  "elapsed_seconds": 0.355,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

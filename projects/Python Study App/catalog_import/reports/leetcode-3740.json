@@ -1,11 +1,11 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-3740",
-  "content_sha256": "d41f4156de50cde3826bef1f52ca2934c61eaf5cb216fa3bfa625cbbcc854253",
+  "content_sha256": "b12deec5d8a2dd4afce83223cbe2630df3cb6110d6a73fab5d09d922eba81d28",
   "source_hash": "8369d12db66d7ed5a42718e15324a8f43ce98565d4d0b2e6e0a422eede49e3a2",
   "visible_tests": 2,
-  "hidden_tests": 13,
-  "reference_passed": 15,
+  "hidden_tests": 14,
+  "reference_passed": 16,
   "wrong_solutions": [
     {
       "reason": "Counts only the outer index gap rather than all pairwise distances.",
@@ -22,28 +22,27 @@
         "lc-3740-12",
         "lc-3740-13",
         "lc-3740-14",
-        "lc-3740-15"
+        "lc-3740-15",
+        "lc-3740-16"
       ]
     },
     {
       "reason": "Checks only the earliest triplet for each value.",
-      "failed_cases": []
+      "failed_cases": [
+        "lc-3740-15",
+        "lc-3740-16"
+      ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 7787,
   "oracle_implementation": "code_practice/import_batch_195d.py:triple_oracle",
-  "validator_implementation_sha256": "b11201f341e28097297273108adfb723bc49832a6d1a47c135f7695888808d19",
-  "batch_implementation_sha256": "7fe7d19f6ebb52d009c0aba7eea7784d6fbc132ea783030b501c4ac850a11c5d",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
+  "batch_implementation_sha256": "e27b38c30679efcf2a05207e2932441f325d2c9e6512fa6be46ed30118c880f2",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
-  "validation_cache_key": "192e3c9c80038641cfc2e6d677c0f7b251801faa47fa5ba88afd8599d7b15c8f",
-  "elapsed_seconds": 0.035,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 1
-    }
-  ],
+  "validation_cache_key": "4ffa6a9cbd74c3554268b86c9d5b701689340a6975875e143588cd4c615cb5a3",
+  "elapsed_seconds": 0.033,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

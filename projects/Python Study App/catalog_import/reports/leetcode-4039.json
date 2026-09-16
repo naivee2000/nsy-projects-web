@@ -1,15 +1,28 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-4039",
-  "content_sha256": "2ec30de0410236dfe043e7be5dc515590ef11ce9aa2edf3b62930b83d30aa02b",
+  "content_sha256": "5adb749df2ac0d0ba0d760b38f271cb06be6baea65f805aedffe483665860115",
   "source_hash": "60e8709285efd22733ff25c1ed2b7c59e76dc1856084749e93c2cf04a07cea1e",
   "visible_tests": 2,
   "hidden_tests": 12,
   "reference_passed": 14,
   "wrong_solutions": [
     {
-      "reason": "Swaps the body and width components.",
-      "failed_cases": []
+      "reason": "Adds one to the decoded exponent before modular exponentiation.",
+      "failed_cases": [
+        "lc-4039-1",
+        "lc-4039-2",
+        "lc-4039-4",
+        "lc-4039-5",
+        "lc-4039-7",
+        "lc-4039-8",
+        "lc-4039-9",
+        "lc-4039-10",
+        "lc-4039-11",
+        "lc-4039-12",
+        "lc-4039-13",
+        "lc-4039-14"
+      ]
     },
     {
       "reason": "Uses the suffix as x instead of the first width digits.",
@@ -31,17 +44,12 @@
   "oracle_inputs": 500,
   "oracle_seed": 8086,
   "oracle_implementation": "code_practice/import_batch_198d.py:decoded_oracle",
-  "validator_implementation_sha256": "4f52b52dd086fa51924155703edaba1d06abde71b2228bfdba2132f1a4be6d32",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
   "batch_implementation_sha256": "58a07c9b51c728bd425737232b3157fd13a366305cd729f7c168d4baef12e95a",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "598f734b399154ef177906972fa58f12397f76e7d2df95d9b3d46e9b4947178a",
   "elapsed_seconds": 0.027,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 0
-    }
-  ],
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

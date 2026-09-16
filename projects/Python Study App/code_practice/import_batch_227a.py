@@ -25,7 +25,7 @@ def equal_windows_oracle(args):
 
 def random_equal_windows(rng):
     width = rng.randint(2, 5)
-    needed = rng.randint(1, 3)
+    needed = rng.randint(1, min(3, 12 // width))
     size = rng.randint(width * needed, 12)
     return [[rng.randint(-8, 8) for _ in range(size)], width, needed]
 

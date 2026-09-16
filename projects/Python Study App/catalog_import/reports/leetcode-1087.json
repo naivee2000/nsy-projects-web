@@ -1,15 +1,17 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1087",
-  "content_sha256": "55e1fb5e42ae3f7e677814ff01e13c0279175d3bedae361ac3fb64479ed0847b",
+  "content_sha256": "8589286f0636185158128825e5ab32154c2036c28c678bff54f2866ccf8a20e4",
   "source_hash": "081407adc90138828277f107b0d872a96bc0de56cb03f87e5c073dda23098699",
   "visible_tests": 2,
-  "hidden_tests": 14,
-  "reference_passed": 16,
+  "hidden_tests": 15,
+  "reference_passed": 17,
   "wrong_solutions": [
     {
       "reason": "Preserves unsorted group order instead of lexicographic output.",
-      "failed_cases": []
+      "failed_cases": [
+        "lc-1087-17"
+      ]
     },
     {
       "reason": "Uses only the first alternative from every group.",
@@ -26,25 +28,21 @@
         "lc-1087-13",
         "lc-1087-14",
         "lc-1087-15",
-        "lc-1087-16"
+        "lc-1087-16",
+        "lc-1087-17"
       ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 5134,
   "oracle_implementation": "code_practice/import_batch_082.py:brace_one_oracle",
-  "validator_implementation_sha256": "b1ee8a137f9062503c7aaf061f896e9b99fdc81fe616eb0e13cdfa96450cb9a0",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
   "batch_implementation_sha256": "7f3b8c2f54c9208e8f651ecb7b0c90d0853c73c7028850ff758e09f2108c77f2",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "921ae6a3fb8030cf763dc76479255502b6c8635c7aa6aeccdf8544548bb8a6d4",
   "elapsed_seconds": 0.037,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 0
-    }
-  ],
+  "failures": [],
   "workbook_sample": "source sample preserved through an explicit callable-context adapter",
   "sample_contract_adapter": {
     "source_sample": "Input s = \"{a,b}c{d,e}f\" → Output [\"acdf\",\"acef\",\"bcdf\",\"bcef\"].",

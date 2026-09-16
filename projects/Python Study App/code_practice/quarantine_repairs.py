@@ -1,12 +1,57 @@
 """Reviewed control-only repairs kept separate from oracle/generator modules.
 
 The validation cache hashes the module containing each oracle. Keeping a change
-to one candidate's known-wrong control here leaves unrelated oracle evidence
-current, while the changed candidate's specification still gets a new cache key.
+to one candidate's spec here leaves unrelated oracle evidence current, while
+the candidate-to-spec contract check invalidates the changed candidate.
 """
 
 
 def apply_quarantine_repairs(batch):
+    batch[2663]['boundaries'] = [
+        ['abca', 4] if arguments == ['abac', 4] else arguments
+        for arguments in batch[2663]['boundaries']
+    ]
+
+    batch[1072]['wrong'][1] = batch[1072]['reference'].replace(
+        'max(counts.values())', 'len(counts)')
+    batch[1072]['wrong_reasons'][1] = 'Counts distinct normalized patterns instead of the largest group of compatible rows.'
+
+    batch[1356]['sample_contract_adapter']['source_sample'] = (
+        'Input arr = [0,1,2,3,4,5,6,7,8] → Output [0,1,2,4,8,3,5,6,7] '
+        'Explantion: [0] is the only integer with 0 bits. [1,2,4,8] all have 1 bit. '
+        '[3,5,6] have 2 bits. [7] has 3 bits. The sorted array by bits is [0,1,2,4,8,3,5,6,7].'
+    )
+
+    batch[1087]['boundaries'].append(['{b,a}'])
+
+    batch[1275]['boundaries'].append([[
+        [0, 0], [0, 1], [0, 2], [1, 1], [1, 0], [1, 2], [2, 1], [2, 0], [2, 2],
+    ]])
+
+    batch[1602]['boundaries'].append([[1, 2, 3, 4], 3])
+
+    batch[3012]['boundaries'].append([[2, 2, 2, 3]])
+
+    batch[3354]['boundaries'].append([[2, 0, 0]])
+
+    batch[3464]['boundaries'].append([
+        6, [[0, 6], [2, 0], [6, 5], [2, 6], [3, 6], [0, 3], [0, 2], [6, 2], [6, 3]], 4,
+    ])
+
+    batch[3740]['boundaries'].append([[1, 2, 3, 4, 5, 1, 6, 1, 1, 1]])
+    batch[3740]['wrong'][1] = batch[3740]['reference'].replace(
+        'range(len(group)-2)', 'range(min(1,len(group)-2))')
+
+    batch[3951]['wrong'][1] = batch[3951]['reference'].replace(
+        'merged[-1][1]<left', 'merged[-1][1]<=left')
+    batch[3951]['wrong_reasons'][1] = 'Counts a shared interval endpoint twice when requirements meet at that time.'
+
+    batch[3997]['boundaries'].append([[5, 2, 4, 6]])
+
+    batch[4039]['wrong'][0] = batch[4039]['reference'].replace(
+        'int(text[width:]),MOD)', 'int(text[width:])+1,MOD)')
+    batch[4039]['wrong_reasons'][0] = 'Adds one to the decoded exponent before modular exponentiation.'
+
     batch[737]['wrong'][0] = '''def are_sentences_similar(sentence1,sentence2,similar_pairs):
     if len(sentence1)!=len(sentence2):return False
     neighbors={tuple(pair) for pair in similar_pairs}

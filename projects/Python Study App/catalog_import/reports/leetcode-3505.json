@@ -1,11 +1,41 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-3505",
+  "content_sha256": "3e366039f393982c6116501d3ab5faf40511ea0fa72548d627874522db8860ad",
   "source_hash": "70beb253d00e6405b6beca68f6eadf42704e4d5be9280add997545d473e29290",
-  "failures": [
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
     {
-      "phase": "build",
-      "error": "ValueError: empty range in randint(15, 12)"
+      "reason": "Always chooses the window minimum instead of a median, so its absolute-change cost is not minimal.",
+      "failed_cases": [
+        "lc-3505-1",
+        "lc-3505-5",
+        "lc-3505-9",
+        "lc-3505-12",
+        "lc-3505-13"
+      ]
+    },
+    {
+      "reason": "Allows selected windows to overlap by advancing only one position after taking a window.",
+      "failed_cases": [
+        "lc-3505-1",
+        "lc-3505-2",
+        "lc-3505-4",
+        "lc-3505-5"
+      ]
     }
-  ]
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7552,
+  "oracle_implementation": "code_practice/import_batch_227a.py:equal_windows_oracle",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
+  "batch_implementation_sha256": "2c9793754544ef9684a150a913221ef315b81decd395900b67f059055cf9291c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ab8311e3d122cee1bc27db971debbf6c0adbe3150ea753ab2954d548e1997f84",
+  "elapsed_seconds": 0.141,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
 }

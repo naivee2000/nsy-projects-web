@@ -137,7 +137,9 @@ def random_gcd_string(r):
  base=''.join(r.choice('ABC') for _ in range(r.randint(1,4)));x=base*r.randint(1,5);y=base*r.randint(1,5)
  if r.random()<.3:y+='Z'
  return [x,y]
-def random_rows(r):return [[[r.randrange(2) for _ in range(r.randint(1,7))] for _ in range(r.randint(1,8))]]
+def random_rows(r):
+ rows,cols=r.randint(1,8),r.randint(1,7)
+ return [[[r.randrange(2) for _ in range(cols)] for _ in range(rows)]]
 def random_neg_add(r):return [neg_bits(r.randint(0,100)),neg_bits(r.randint(0,100))]
 def random_submatrix(r):
  rows,cols=r.randint(1,4),r.randint(1,4);return [[[r.randint(-3,3) for _ in range(cols)] for _ in range(rows)],r.randint(-5,5)]

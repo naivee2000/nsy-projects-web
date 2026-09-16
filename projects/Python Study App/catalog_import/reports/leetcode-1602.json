@@ -1,15 +1,17 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1602",
-  "content_sha256": "cc5bccc9c46e8c11c5df6b8ad4220f1ca1a89e59cdd60f028b6a8282a65f4b10",
+  "content_sha256": "1272c41d1903b4a4d784235d090f37a43434220691cc33b1569f81268a43e206",
   "source_hash": "50a61b08e142a0bd7266e193f3756322c2108e8d09e6d758f4c8e63783308cb8",
   "visible_tests": 2,
-  "hidden_tests": 12,
-  "reference_passed": 14,
+  "hidden_tests": 13,
+  "reference_passed": 15,
   "wrong_solutions": [
     {
       "reason": "Returns the next queued node even when it belongs to the following depth.",
-      "failed_cases": []
+      "failed_cases": [
+        "lc-1602-15"
+      ]
     },
     {
       "reason": "Compares every node with the root value rather than the selected node identity.",
@@ -27,17 +29,12 @@
   "oracle_inputs": 500,
   "oracle_seed": 5649,
   "oracle_implementation": "code_practice/import_batch_243b.py:nearest_oracle",
-  "validator_implementation_sha256": "a7372811eb9914a4682926beb941275a05cf9380b8dedaba210531c55e6bf7e9",
-  "batch_implementation_sha256": "38b93b97a0f2c44f592bcbf41c9b12dc23cd2a1a2db4e712915ec9a01d7e37e3",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
+  "batch_implementation_sha256": "cb06479f4b379aea766de084939b4156dc15667f0945a8552497ce5566c3b005",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
-  "validation_cache_key": "8d803e779678cb7c9753fad10be892b251c09d7d299eff4ee7ae5f177711a8f4",
-  "elapsed_seconds": 0.049,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 0
-    }
-  ],
+  "validation_cache_key": "bae64bf6af232324eafa58f7eede9811278a3f3bbad0a6580721a6fe47b2369e",
+  "elapsed_seconds": 0.044,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

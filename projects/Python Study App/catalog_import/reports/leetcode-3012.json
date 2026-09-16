@@ -1,15 +1,17 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-3012",
-  "content_sha256": "d9cc80ca3d95b2269c037257ec540b1df4cbfcec43b24bc3fe385ca741eb9182",
+  "content_sha256": "16ac807693e99730c0316ace2c695d05a99afe537c8250d0ca52720de788b86a",
   "source_hash": "0a5d871ed690e456622355bb5d35c51b7867004e99fcd967efe9c5f632fd904c",
   "visible_tests": 2,
-  "hidden_tests": 12,
-  "reference_passed": 14,
+  "hidden_tests": 13,
+  "reference_passed": 15,
   "wrong_solutions": [
     {
       "reason": "Tests whether every value has a remainder instead of whether any does.",
-      "failed_cases": []
+      "failed_cases": [
+        "lc-3012-15"
+      ]
     },
     {
       "reason": "Rounds the count of minimum values incorrectly.",
@@ -25,17 +27,12 @@
   "oracle_inputs": 500,
   "oracle_seed": 7059,
   "oracle_implementation": "code_practice/import_batch_200b.py:modulo_oracle",
-  "validator_implementation_sha256": "c8602cc0654e6865464133a991dbd0e1d6dfb90bfe326e5f2391aa9d097d05a6",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
   "batch_implementation_sha256": "b1bd6027d95e31ab87166e3be85a905de714fae8c8e5f638cd2bace0749a7666",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "886437d45f1ab439617df3c9397577058cd42077e5dba0d4f0f93c11faf88715",
-  "elapsed_seconds": 0.084,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 0
-    }
-  ],
+  "elapsed_seconds": 0.087,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

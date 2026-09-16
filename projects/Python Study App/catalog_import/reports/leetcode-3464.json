@@ -1,11 +1,11 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-3464",
-  "content_sha256": "6c667de1684d9cfcc3561bd96e88ca64dbc200fc26a6a4d272ede12346a67bce",
+  "content_sha256": "11c6b33a01032fe36bb7efa4eacb5e01ac23c33aa46abb3d3153d4079fb75ca4",
   "source_hash": "60ced974a81aff01cffd3efd38f6de96fc4f37e9b5fcb3669be30359f1a0cecc",
   "visible_tests": 2,
-  "hidden_tests": 14,
-  "reference_passed": 16,
+  "hidden_tests": 15,
+  "reference_passed": 17,
   "wrong_solutions": [
     {
       "reason": "Returns one below the final feasible binary-search boundary.",
@@ -25,28 +25,26 @@
         "lc-3464-13",
         "lc-3464-14",
         "lc-3464-15",
-        "lc-3464-16"
+        "lc-3464-16",
+        "lc-3464-17"
       ]
     },
     {
       "reason": "Treats the first sorted point as the only possible circular cut and misses solutions that wrap elsewhere.",
-      "failed_cases": []
+      "failed_cases": [
+        "lc-3464-17"
+      ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 7511,
   "oracle_implementation": "code_practice/import_batch_225d.py:distance_oracle",
-  "validator_implementation_sha256": "e39d745d3c5e31ab823c5e0512b7bba844bb4d59dc7ef158a1ac0b4dd8d228e6",
-  "batch_implementation_sha256": "c7251fc11714604a46716c146feed8040f569f24d83800d2b1839e5c090eeda2",
+  "validator_implementation_sha256": "be2bd8baf336c66b8b041d05ac79bbdb54f918cb3e1b632fc13b239a62a40b8d",
+  "batch_implementation_sha256": "e44d9761bbb8c2ff1af93cea02958247329010c288d8eea2da1ea19ed160cc7b",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
-  "validation_cache_key": "74905c02c0f4688ed62c9402dc395d03f46ad55e6e1ae3597ccd0d76d04ce74c",
-  "elapsed_seconds": 0.08,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 1
-    }
-  ],
+  "validation_cache_key": "b834108e82571f0cb6eeda6ef32ceedf4455896b28656c310466de16cdbc05e6",
+  "elapsed_seconds": 0.076,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

@@ -7,7 +7,10 @@ from code_practice.catalog import get_catalog
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RECOVERED = (737, 758, 916, 947, 1616, 1620, 2193, 2195)
+RECOVERED = (
+    737, 758, 916, 947, 1072, 1087, 1275, 1356, 1602, 1616, 1620,
+    2193, 2195, 2663, 3012, 3354, 3464, 3505, 3740, 3951, 3997, 4039,
+)
 
 
 def test_recovered_controls_are_verified_and_packaged():
