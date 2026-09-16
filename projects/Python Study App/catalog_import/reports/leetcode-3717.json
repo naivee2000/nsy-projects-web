@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3717",
+  "content_sha256": "08b8633d9f68d438c1a1e917f22548f8b654dbd173d36ad453e66e2beade0c7c",
+  "source_hash": "058717749518465e519e6e59707bef85abb28722e4e63fb3a9a95c649fc0f406",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps only the smallest immediate multiple and misses globally better larger choices.",
+      "failed_cases": [
+        "lc-3717-6",
+        "lc-3717-12"
+      ]
+    },
+    {
+      "reason": "Rounds down to a positive multiple and can incorrectly count a decrement as an operation.",
+      "failed_cases": [
+        "lc-3717-1",
+        "lc-3717-5",
+        "lc-3717-6",
+        "lc-3717-7",
+        "lc-3717-8",
+        "lc-3717-10",
+        "lc-3717-11",
+        "lc-3717-12",
+        "lc-3717-13",
+        "lc-3717-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7764,
+  "oracle_implementation": "code_practice/import_batch_234c.py:beautiful_oracle",
+  "validator_implementation_sha256": "6e1924847813ee3fe77bb6dbe3f9bb6043ab7d53e95b3373e0058c772f245b2e",
+  "batch_implementation_sha256": "12392e098254b6e885f2c1406ff0009bddcc76ae22bec55623b0d7b920bc61e7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e899efe009c4c7f07397c6bbde34c4815ec2cda80af38c35bdf4e2672f37f310",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

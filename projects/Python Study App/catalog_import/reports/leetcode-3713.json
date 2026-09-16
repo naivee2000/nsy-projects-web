@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3713",
+  "content_sha256": "61b9bbe4c443327b16ff1200433314975be8a0df4da005976e23a1252183f8c1",
+  "source_hash": "40077db6f9ef5c21d0d06dbd4a0f2f6977bb8aa186e97905a2cde5c48288e2f4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Recognizes only single-character balanced windows.",
+      "failed_cases": [
+        "lc-3713-1",
+        "lc-3713-2",
+        "lc-3713-5",
+        "lc-3713-6",
+        "lc-3713-7",
+        "lc-3713-8",
+        "lc-3713-9",
+        "lc-3713-10",
+        "lc-3713-11",
+        "lc-3713-13",
+        "lc-3713-14"
+      ]
+    },
+    {
+      "reason": "Forgets the true maximum when a lower-frequency character is updated.",
+      "failed_cases": [
+        "lc-3713-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7760,
+  "oracle_implementation": "code_practice/import_batch_234c.py:balanced_string_oracle",
+  "validator_implementation_sha256": "6e1924847813ee3fe77bb6dbe3f9bb6043ab7d53e95b3373e0058c772f245b2e",
+  "batch_implementation_sha256": "12392e098254b6e885f2c1406ff0009bddcc76ae22bec55623b0d7b920bc61e7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "999a17d043becec78c5c90d7476f125e92437d9c9a5a1ddd40bb45cfa12fdcf5",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

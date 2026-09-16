@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3715",
+  "content_sha256": "2e4759219f727cda95e7ba9a4f40757a909c7d451abd301b61cca3a1e24dc015",
+  "source_hash": "229c736f37b62421c149737fcfaea8a6cba9254b7189a023c0e235daff1e1895",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Compares raw values instead of their square-free kernels.",
+      "failed_cases": [
+        "lc-3715-1",
+        "lc-3715-2",
+        "lc-3715-4",
+        "lc-3715-5",
+        "lc-3715-6",
+        "lc-3715-7",
+        "lc-3715-8",
+        "lc-3715-9",
+        "lc-3715-11",
+        "lc-3715-12",
+        "lc-3715-13",
+        "lc-3715-14"
+      ]
+    },
+    {
+      "reason": "Never removes a completed branch from the active ancestor counts.",
+      "failed_cases": [
+        "lc-3715-2",
+        "lc-3715-9",
+        "lc-3715-10",
+        "lc-3715-13",
+        "lc-3715-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7762,
+  "oracle_implementation": "code_practice/import_batch_234c.py:ancestor_oracle",
+  "validator_implementation_sha256": "6e1924847813ee3fe77bb6dbe3f9bb6043ab7d53e95b3373e0058c772f245b2e",
+  "batch_implementation_sha256": "12392e098254b6e885f2c1406ff0009bddcc76ae22bec55623b0d7b920bc61e7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6efcee2ae70af5994fc77d8373c0b3a59f4faceba7eeb63547c68913c8d8f642",
+  "elapsed_seconds": 0.098,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
