@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3795",
+  "content_sha256": "bff01d8409197de4eb3c545ec8c0096d46900ed52663ed88abd17269ec90d31e",
+  "source_hash": "f6f879668dd07e87876e1439686e3aa7bba1dd2e1f180ffb8c2e656034a2a038",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Sums duplicate occurrences instead of distinct values.",
+      "failed_cases": [
+        "lc-3795-7",
+        "lc-3795-12"
+      ]
+    },
+    {
+      "reason": "Subtracts a value when any copy leaves, even if another copy remains in the window.",
+      "failed_cases": [
+        "lc-3795-1",
+        "lc-3795-10",
+        "lc-3795-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7842,
+  "oracle_implementation": "code_practice/import_batch_237c.py:distinct_sum_oracle",
+  "validator_implementation_sha256": "e508d4a2bbceb65fa5cd3c1ac500e170268d2a73169704e1ce021d2030d665d3",
+  "batch_implementation_sha256": "81302f779430e1657799299cc1c04e03cc895c05fb2f06895ab03c241ff409e2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "924a0e80cf961add625bc62e2cd79b9c83e21d697573b31fe058e1027f1ff78d",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

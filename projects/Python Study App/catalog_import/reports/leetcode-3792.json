@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3792",
+  "content_sha256": "4e9241a994fe883a990c8628f3ef691b7d12683a7adff6e5f63e87e9abca5159",
+  "source_hash": "d7fc8f25e2ae1fd532b3c0e6306e65bb0a8527dccd8f80099541ed2739550960",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Skips one integer between consecutive blocks.",
+      "failed_cases": [
+        "lc-3792-1",
+        "lc-3792-2",
+        "lc-3792-4",
+        "lc-3792-5",
+        "lc-3792-6",
+        "lc-3792-7",
+        "lc-3792-8",
+        "lc-3792-9",
+        "lc-3792-10",
+        "lc-3792-11",
+        "lc-3792-12",
+        "lc-3792-13",
+        "lc-3792-14"
+      ]
+    },
+    {
+      "reason": "Multiplies only size-1 integers in every block.",
+      "failed_cases": [
+        "lc-3792-1",
+        "lc-3792-2",
+        "lc-3792-4",
+        "lc-3792-5",
+        "lc-3792-6",
+        "lc-3792-7",
+        "lc-3792-8",
+        "lc-3792-9",
+        "lc-3792-10",
+        "lc-3792-11",
+        "lc-3792-12",
+        "lc-3792-13",
+        "lc-3792-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7839,
+  "oracle_implementation": "code_practice/import_batch_237c.py:blocks_oracle",
+  "validator_implementation_sha256": "e508d4a2bbceb65fa5cd3c1ac500e170268d2a73169704e1ce021d2030d665d3",
+  "batch_implementation_sha256": "81302f779430e1657799299cc1c04e03cc895c05fb2f06895ab03c241ff409e2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bba55e661268dd3dacc2264927f69ae36749fdc56894e5e14fb639b2a222af9b",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

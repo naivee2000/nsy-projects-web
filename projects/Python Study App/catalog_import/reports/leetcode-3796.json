@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3796",
+  "content_sha256": "5a72d6e98631c77b29f6e240b3bc3d7d4cbccb6945967073b53781de85fa0bed",
+  "source_hash": "6089ead6bc7dc36a9943abab3387e992b14fec866e1ef081766ab196bc28c590",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Propagates constraints only left-to-right, so later restrictions do not cap earlier peaks.",
+      "failed_cases": [
+        "lc-3796-1",
+        "lc-3796-6",
+        "lc-3796-8",
+        "lc-3796-9",
+        "lc-3796-12",
+        "lc-3796-13",
+        "lc-3796-14"
+      ]
+    },
+    {
+      "reason": "Ignores every explicit upper-bound restriction.",
+      "failed_cases": [
+        "lc-3796-1",
+        "lc-3796-2",
+        "lc-3796-4",
+        "lc-3796-5",
+        "lc-3796-6",
+        "lc-3796-7",
+        "lc-3796-8",
+        "lc-3796-9",
+        "lc-3796-10",
+        "lc-3796-11",
+        "lc-3796-12",
+        "lc-3796-13",
+        "lc-3796-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7843,
+  "oracle_implementation": "code_practice/import_batch_237c.py:constrained_oracle",
+  "validator_implementation_sha256": "e508d4a2bbceb65fa5cd3c1ac500e170268d2a73169704e1ce021d2030d665d3",
+  "batch_implementation_sha256": "81302f779430e1657799299cc1c04e03cc895c05fb2f06895ab03c241ff409e2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "8a83f29e897aaf73461f7a9dd48dd871b0234d41f34c18828271fd580be99f8d",
+  "elapsed_seconds": 0.041,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3791",
+  "content_sha256": "fc385c5e003f46b80ce1e9f30e603d2bfe20073093f20c30982609e000c04527",
+  "source_hash": "1651d8e8d5dc4e390c1d00c31e5439a1ceb03cafa6fd6bc4a0b8a266ef1bda79",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts the all-zero padded value and permits one-digit values.",
+      "failed_cases": [
+        "lc-3791-1",
+        "lc-3791-3",
+        "lc-3791-7",
+        "lc-3791-14"
+      ]
+    },
+    {
+      "reason": "Accepts numbers whose alternating digit sums differ by one.",
+      "failed_cases": [
+        "lc-3791-4",
+        "lc-3791-5",
+        "lc-3791-7",
+        "lc-3791-8",
+        "lc-3791-9",
+        "lc-3791-10",
+        "lc-3791-11",
+        "lc-3791-12",
+        "lc-3791-13",
+        "lc-3791-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7838,
+  "oracle_implementation": "code_practice/import_batch_237c.py:balanced_oracle",
+  "validator_implementation_sha256": "e508d4a2bbceb65fa5cd3c1ac500e170268d2a73169704e1ce021d2030d665d3",
+  "batch_implementation_sha256": "81302f779430e1657799299cc1c04e03cc895c05fb2f06895ab03c241ff409e2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "83b2970a4c94352e4eda29e9c704ba4a026c44cff16651fe4e72d095601f9b40",
+  "elapsed_seconds": 0.162,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

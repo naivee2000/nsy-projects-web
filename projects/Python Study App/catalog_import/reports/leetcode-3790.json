@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3790",
+  "content_sha256": "73babfe6a735e7a0d098e723b067787b4384ab772fb2567ce5f7146b8d22aa8d",
+  "source_hash": "3aec7995851824b9a68af446ab5db54ba53441dd7795c22ef8567e653fcf9f5b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Assumes every odd divisor requires exactly k digits and overlooks factors of five.",
+      "failed_cases": [
+        "lc-3790-2",
+        "lc-3790-4",
+        "lc-3790-6",
+        "lc-3790-7",
+        "lc-3790-8",
+        "lc-3790-9",
+        "lc-3790-10",
+        "lc-3790-11",
+        "lc-3790-13",
+        "lc-3790-14"
+      ]
+    },
+    {
+      "reason": "Stops before testing the kth distinct remainder, missing valid length-k answers.",
+      "failed_cases": [
+        "lc-3790-1",
+        "lc-3790-5",
+        "lc-3790-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7837,
+  "oracle_implementation": "code_practice/import_batch_237c.py:ones_oracle",
+  "validator_implementation_sha256": "e508d4a2bbceb65fa5cd3c1ac500e170268d2a73169704e1ce021d2030d665d3",
+  "batch_implementation_sha256": "81302f779430e1657799299cc1c04e03cc895c05fb2f06895ab03c241ff409e2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "956cb14cb35e59bd2768077a89fcf7b3abf5d01f0b044d4b23fff4519ec4de5a",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

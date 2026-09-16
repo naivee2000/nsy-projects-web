@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2975,
+  "count": 2980,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -51934,6 +51934,60 @@
       "source_id": 3789
     },
     {
+      "id": "leetcode-3790",
+      "version": 1,
+      "status": "approved",
+      "title": "Smallest All-Ones Multiple",
+      "summary": "Given a positive integer k, determine the least number of digits in an integer n, which is a multiple of k and composed entirely of the digit 1.",
+      "topics": [
+        "math",
+        "modular arithmetic",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3790.json",
+      "content_sha256": "73babfe6a735e7a0d098e723b067787b4384ab772fb2567ce5f7146b8d22aa8d",
+      "source_id": 3790
+    },
+    {
+      "id": "leetcode-3791",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of Balanced Integers in a Range",
+      "summary": "Given two integers low and high, count the balanced integers within the range [low, high].",
+      "topics": [
+        "digit dynamic programming",
+        "math"
+      ],
+      "prerequisites": [
+        "digit dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3791.json",
+      "content_sha256": "fc385c5e003f46b80ce1e9f30e603d2bfe20073093f20c30982609e000c04527",
+      "source_id": 3791
+    },
+    {
+      "id": "leetcode-3792",
+      "version": 1,
+      "status": "approved",
+      "title": "Sum of Increasing Product Blocks",
+      "summary": "Given an integer n, calculate the sum of the first n blocks where the i-th block is the product of the next i consecutive integers, and return the result modulo 10^9 + 7.",
+      "topics": [
+        "math",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3792.json",
+      "content_sha256": "4e9241a994fe883a990c8628f3ef691b7d12683a7adff6e5f63e87e9abca5159",
+      "source_id": 3792
+    },
+    {
       "id": "leetcode-3794",
       "version": 1,
       "status": "approved",
@@ -51949,6 +52003,42 @@
       "path": "problems/leetcode-3794.json",
       "content_sha256": "34777f8633d76a4df3aa31a7cf9d00db6fa4016f33cb4d711dec2a0da7311990",
       "source_id": 3794
+    },
+    {
+      "id": "leetcode-3795",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Subarray Length With Distinct Sum At Least K",
+      "summary": "Given an integer array nums and an integer k, return the minimum length of a subarray whose sum of distinct values (each value counted once) is at least k.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "sliding windows"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3795.json",
+      "content_sha256": "bff01d8409197de4eb3c545ec8c0096d46900ed52663ed88abd17269ec90d31e",
+      "source_id": 3795
+    },
+    {
+      "id": "leetcode-3796",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Maximum Value in a Constrained Sequence",
+      "summary": "Given an integer n, a 2D array of restrictions, and a diff array, construct a sequence of length n where a[0] is 0, all elements are non-negative, the absolute difference between consecutive elements does not exceed the corresponding diff value, and no element at a restricted index exceeds the specified maxVal.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3796.json",
+      "content_sha256": "5a72d6e98631c77b29f6e240b3bc3d7d4cbccb6945967073b53781de85fa0bed",
+      "source_id": 3796
     },
     {
       "id": "leetcode-3798",
