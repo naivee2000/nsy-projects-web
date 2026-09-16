@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3789",
+  "content_sha256": "be1d7c2c8693cf0acdc38b8644a77a9843fb7dc27616fa838335ab8f10f27376",
+  "source_hash": "3ba071fed02610561bd14fc71bc8a010ed65207c36064b7f61edaa9ce6cc546e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never considers shared both-items.",
+      "failed_cases": [
+        "lc-3789-1",
+        "lc-3789-5",
+        "lc-3789-6",
+        "lc-3789-7",
+        "lc-3789-8",
+        "lc-3789-9",
+        "lc-3789-10",
+        "lc-3789-11",
+        "lc-3789-12",
+        "lc-3789-13",
+        "lc-3789-14"
+      ]
+    },
+    {
+      "reason": "Forbids buying extra coverage, missing the all-both optimum when it is cheaper.",
+      "failed_cases": [
+        "lc-3789-1",
+        "lc-3789-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7836,
+  "oracle_implementation": "code_practice/import_batch_237b.py:acquire_oracle",
+  "validator_implementation_sha256": "144ea92155f0025e0fef22101b1c2ea398c22347fba89a0896f8518ec9be5f8e",
+  "batch_implementation_sha256": "f5aec064707989aeea0b0ab68e671f04c063397879ed373f306bf5977feb828c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e126e0653b7183c3a7067ed45caedd599095ca445340b2a60b7711a82beac3c9",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

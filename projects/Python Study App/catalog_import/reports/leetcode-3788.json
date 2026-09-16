@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3788",
+  "content_sha256": "57fe40c41ab77ead5368ec72af3547c2618f3c539b0a45a299e107ea557e9a2e",
+  "source_hash": "7d46fe5480e8c152e6bea8b423a6b99fb82c92caa87fb6504b8bc0a94da9a866",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a suffix maximum instead of the required suffix minimum.",
+      "failed_cases": [
+        "lc-3788-1",
+        "lc-3788-6",
+        "lc-3788-8",
+        "lc-3788-9",
+        "lc-3788-10",
+        "lc-3788-12",
+        "lc-3788-13"
+      ]
+    },
+    {
+      "reason": "Uses only the last prefix element rather than the complete prefix sum.",
+      "failed_cases": [
+        "lc-3788-1",
+        "lc-3788-5",
+        "lc-3788-7",
+        "lc-3788-10",
+        "lc-3788-13",
+        "lc-3788-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7835,
+  "oracle_implementation": "code_practice/import_batch_237b.py:split_oracle",
+  "validator_implementation_sha256": "144ea92155f0025e0fef22101b1c2ea398c22347fba89a0896f8518ec9be5f8e",
+  "batch_implementation_sha256": "f5aec064707989aeea0b0ab68e671f04c063397879ed373f306bf5977feb828c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dc862fb7468c83852972c6a0ba835610942d2fffdc015477c8477076634b1c91",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

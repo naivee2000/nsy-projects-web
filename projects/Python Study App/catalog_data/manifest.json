@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2970,
+  "count": 2975,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -51840,6 +51840,98 @@
       "path": "problems/leetcode-3784.json",
       "content_sha256": "27defc7b59fde7c5410676231b6693edd16f00de3995732138dc01ed8fe09864",
       "source_id": 3784
+    },
+    {
+      "id": "leetcode-3785",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Swaps to Avoid Forbidden Values",
+      "summary": "Given two integer arrays, nums and forbidden, each of length n, you can swap any two distinct elements any number of times.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "greedy"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3785.json",
+      "content_sha256": "2ffdaa94f0e09767008a98b4264347699a6682339ad731e154210181d5a7e74d",
+      "source_id": 3785
+    },
+    {
+      "id": "leetcode-3786",
+      "version": 1,
+      "status": "approved",
+      "title": "Total Sum of Interaction Cost in Tree Groups",
+      "summary": "Given an integer n and an undirected tree with n nodes numbered from 0 to n-1, represented by a 2D array edges, and an integer array group indicating group labels for each node, calculate the total interaction cost for all unordered pairs (u, v) where u and v are in the same group.",
+      "topics": [
+        "trees",
+        "small-to-large merging",
+        "depth-first search"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3786.json",
+      "content_sha256": "00ac9dfaab059daaea2b31e26a59fe3d8a1f08f07e608556e276ee2fb38fbb02",
+      "source_id": 3786
+    },
+    {
+      "id": "leetcode-3787",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Diameter Endpoints of a Tree",
+      "summary": "Given an undirected tree with nodes numbered 0 to n-1, represented by edges, return a binary string indicating whether each node is an endpoint of any diameter path.",
+      "topics": [
+        "trees",
+        "breadth-first search",
+        "graphs"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3787.json",
+      "content_sha256": "0546b447384d80a06fd827d7ad56b4a4746c5bc9506059ee8321595193ada8a1",
+      "source_id": 3787
+    },
+    {
+      "id": "leetcode-3788",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Score of a Split",
+      "summary": "Given an integer array nums, find the maximum score by selecting a split index i where the score is calculated as the difference between the prefix sum up to i and the minimum value in the suffix starting from i+1.",
+      "topics": [
+        "arrays",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3788.json",
+      "content_sha256": "57fe40c41ab77ead5368ec72af3547c2618f3c539b0a45a299e107ea557e9a2e",
+      "source_id": 3788
+    },
+    {
+      "id": "leetcode-3789",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Acquire Required Items",
+      "summary": "Given five integers cost1, cost2, costBoth, need1, and need2, determine the minimum cost to acquire enough items of three types to meet the requirements of at least need1 units of type 1 and need2 units of type 2.",
+      "topics": [
+        "math",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3789.json",
+      "content_sha256": "be1d7c2c8693cf0acdc38b8644a77a9843fb7dc27616fa838335ab8f10f27376",
+      "source_id": 3789
     },
     {
       "id": "leetcode-3794",

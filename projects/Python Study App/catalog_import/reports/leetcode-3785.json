@@ -1,0 +1,35 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3785",
+  "content_sha256": "2ffdaa94f0e09767008a98b4264347699a6682339ad731e154210181d5a7e74d",
+  "source_hash": "8f0b6698a77a0172eaf95dc09b09f7b43c0ebad51b429e8ef2d5a02d750109f8",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores a dominant conflicting value that can fix only one bad position per swap.",
+      "failed_cases": [
+        "lc-3785-10"
+      ]
+    },
+    {
+      "reason": "Omits the global feasibility check for values with too few allowed positions.",
+      "failed_cases": [
+        "lc-3785-2",
+        "lc-3785-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7832,
+  "oracle_implementation": "code_practice/import_batch_237b.py:forbidden_oracle",
+  "validator_implementation_sha256": "144ea92155f0025e0fef22101b1c2ea398c22347fba89a0896f8518ec9be5f8e",
+  "batch_implementation_sha256": "f5aec064707989aeea0b0ab68e671f04c063397879ed373f306bf5977feb828c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5c4117ec6a320c62d5e32214220a3136f6ef5198976b5d3016b095c0279777ee",
+  "elapsed_seconds": 0.052,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
