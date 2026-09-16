@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3655",
+  "content_sha256": "c428ffa3c47f6cad480c85c3fe5e19bf0642d38829f9cd97a1f1194d0484fb45",
+  "source_hash": "d74aec26eec661ab935fc8a2a9937e9f5c802924b736455b39124f18d9a24ba1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ends a deferred multiplier one progression position too early.",
+      "failed_cases": [
+        "lc-3655-1",
+        "lc-3655-2",
+        "lc-3655-3",
+        "lc-3655-4",
+        "lc-3655-5",
+        "lc-3655-7",
+        "lc-3655-8",
+        "lc-3655-9",
+        "lc-3655-10",
+        "lc-3655-11",
+        "lc-3655-12",
+        "lc-3655-13",
+        "lc-3655-14"
+      ]
+    },
+    {
+      "reason": "Treats the inclusive right endpoint as exclusive for large steps.",
+      "failed_cases": [
+        "lc-3655-10",
+        "lc-3655-13",
+        "lc-3655-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7702,
+  "oracle_implementation": "code_practice/import_batch_232d.py:xor_oracle",
+  "validator_implementation_sha256": "5c484ce4b28ca981dd8f8043b635fb3c0f651aa85372e6640a9e4bc0898ae624",
+  "batch_implementation_sha256": "e9abf5497569cdc30c9c741b84d59126af305c64662d33daa24b81d8ff9f1756",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "36f246bdba9615cd87a69a2518d0756adebce35a613c20168c4f6e28643202fc",
+  "elapsed_seconds": 0.113,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

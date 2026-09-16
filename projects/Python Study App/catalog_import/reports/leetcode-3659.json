@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3659",
+  "content_sha256": "1d2ceef3ec3b7fbecc99b7ef2b6142c7b775fc74be0dc154228502e43cddd255",
+  "source_hash": "e295cbfc9a3ec120521ab0c5a03f2d0fc0b4e07a2455d66ffcde39e2b48ed8d8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows a partial final group when the length is not divisible by k.",
+      "failed_cases": [
+        "lc-3659-6"
+      ]
+    },
+    {
+      "reason": "Rejects a value appearing exactly once per available group.",
+      "failed_cases": [
+        "lc-3659-2",
+        "lc-3659-3",
+        "lc-3659-4",
+        "lc-3659-7",
+        "lc-3659-12",
+        "lc-3659-13",
+        "lc-3659-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7706,
+  "oracle_implementation": "code_practice/import_batch_232d.py:groups_oracle",
+  "validator_implementation_sha256": "5c484ce4b28ca981dd8f8043b635fb3c0f651aa85372e6640a9e4bc0898ae624",
+  "batch_implementation_sha256": "e9abf5497569cdc30c9c741b84d59126af305c64662d33daa24b81d8ff9f1756",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "163e408e2bb0fa4424cdb629d03d28201fef871ca189eb85c78ea235efdc4bdf",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

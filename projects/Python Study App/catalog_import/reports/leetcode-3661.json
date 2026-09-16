@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3661",
+  "content_sha256": "ec1608c96824265f4cdd49bb712c3bf0454eb181a2bc3cf8150d335b952400c4",
+  "source_hash": "8a3553934ff31479fa363350874aa6ab81299f6a6b8d7c74249c360af02e7cb4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Lets a leftward bullet pass through the previous robot.",
+      "failed_cases": [
+        "lc-3661-10",
+        "lc-3661-12"
+      ]
+    },
+    {
+      "reason": "Lets a rightward bullet pass through the next robot.",
+      "failed_cases": [
+        "lc-3661-4",
+        "lc-3661-6",
+        "lc-3661-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7708,
+  "oracle_implementation": "code_practice/import_batch_232d.py:walls_oracle",
+  "validator_implementation_sha256": "5c484ce4b28ca981dd8f8043b635fb3c0f651aa85372e6640a9e4bc0898ae624",
+  "batch_implementation_sha256": "e9abf5497569cdc30c9c741b84d59126af305c64662d33daa24b81d8ff9f1756",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c6023a9fe4a23b66cbf21f76adb6a16442ae1b5dfededc55ef2f1ba1bf95d354",
+  "elapsed_seconds": 0.137,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3660",
+  "content_sha256": "c0d0bdeb65e5e510ca0baaa76bfe21b35ee7e0e6c2bc311d664c30f78e3d8149",
+  "source_hash": "87ecf9deb6702620929a5f3b45f5c0a5a2cc26e1ee86e7c6b42703eecb288dca",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Merges regions across equal values even though jumps require strict inequality.",
+      "failed_cases": [
+        "lc-3660-7"
+      ]
+    },
+    {
+      "reason": "Returns only the current value at a region boundary instead of its prefix maximum.",
+      "failed_cases": [
+        "lc-3660-1",
+        "lc-3660-2",
+        "lc-3660-5",
+        "lc-3660-7",
+        "lc-3660-8",
+        "lc-3660-9",
+        "lc-3660-11",
+        "lc-3660-12",
+        "lc-3660-13",
+        "lc-3660-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7707,
+  "oracle_implementation": "code_practice/import_batch_232d.py:jump_oracle",
+  "validator_implementation_sha256": "5c484ce4b28ca981dd8f8043b635fb3c0f651aa85372e6640a9e4bc0898ae624",
+  "batch_implementation_sha256": "e9abf5497569cdc30c9c741b84d59126af305c64662d33daa24b81d8ff9f1756",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "34ebd8a22f54901fd9f0c7dd31671c9da5a27e8cb2c18af0a3b32da33b5d02de",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

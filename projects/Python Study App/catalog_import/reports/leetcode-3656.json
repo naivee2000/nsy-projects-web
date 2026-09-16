@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3656",
+  "content_sha256": "2484cd70288ad53665bef80b64db764bc66e84a7de0da2e766e518f4b3ffbd4a",
+  "source_hash": "d1bd348605cbbc31a37120d973973b3ef8c8e4d66d16af8e9133487aef7f50a4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the handshake parity requirement.",
+      "failed_cases": [
+        "lc-3656-8"
+      ]
+    },
+    {
+      "reason": "Omits the possible edges among the highest-degree prefix.",
+      "failed_cases": [
+        "lc-3656-1",
+        "lc-3656-6",
+        "lc-3656-7",
+        "lc-3656-9",
+        "lc-3656-11",
+        "lc-3656-12",
+        "lc-3656-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7703,
+  "oracle_implementation": "code_practice/import_batch_232d.py:graph_oracle",
+  "validator_implementation_sha256": "5c484ce4b28ca981dd8f8043b635fb3c0f651aa85372e6640a9e4bc0898ae624",
+  "batch_implementation_sha256": "e9abf5497569cdc30c9c741b84d59126af305c64662d33daa24b81d8ff9f1756",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f0c3f352dd2bf13c1a7d1ac0747f4f9f24755562c991afbc6109ca032d41e784",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
