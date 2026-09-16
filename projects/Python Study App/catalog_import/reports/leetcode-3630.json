@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3630",
+  "content_sha256": "1b211c4e85e1248431a543ec8e3fe3253d2f0bd52364bfaba091704d09382b16",
+  "source_hash": "896df4f69586494a22a7a45e73cde46ba21324d03ed7b11ed2a90e9e3a8de2bf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Projects the XOR basis onto total-XOR bits instead of complementary bits.",
+      "failed_cases": [
+        "lc-3630-1",
+        "lc-3630-2",
+        "lc-3630-3",
+        "lc-3630-4",
+        "lc-3630-5",
+        "lc-3630-6",
+        "lc-3630-7",
+        "lc-3630-8",
+        "lc-3630-9",
+        "lc-3630-10",
+        "lc-3630-11",
+        "lc-3630-12",
+        "lc-3630-13",
+        "lc-3630-14"
+      ]
+    },
+    {
+      "reason": "Considers only an empty AND group and misses beneficial nonempty choices.",
+      "failed_cases": [
+        "lc-3630-6",
+        "lc-3630-7",
+        "lc-3630-10",
+        "lc-3630-11",
+        "lc-3630-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7677,
+  "oracle_implementation": "code_practice/import_batch_231d.py:partition_oracle",
+  "validator_implementation_sha256": "7441ccfb9138d30a374828e074b9473d114473c893a6bacaf9d8cf1d0074ba78",
+  "batch_implementation_sha256": "055f30330f1417d979f01949af3e22cecf47cba84c346c7fc93ad8207b32ba69",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "63dff6fec8a942cff5c106887ce93aaf556080b2a06e786aa78030b84d442324",
+  "elapsed_seconds": 0.361,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3634",
+  "content_sha256": "2f90179ddce5d045f1e93190db34de3697f19436716dbde7c0dd99e4dafba73b",
+  "source_hash": "27ec3819369b5aeac39d8280cde32e240344ed0d9f1513473e84ca07eab1a76c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats equality with k times the minimum as invalid.",
+      "failed_cases": [
+        "lc-3634-1",
+        "lc-3634-5",
+        "lc-3634-8",
+        "lc-3634-9",
+        "lc-3634-10",
+        "lc-3634-12",
+        "lc-3634-13",
+        "lc-3634-14"
+      ]
+    },
+    {
+      "reason": "Returns the number kept instead of the number removed.",
+      "failed_cases": [
+        "lc-3634-1",
+        "lc-3634-3",
+        "lc-3634-5",
+        "lc-3634-7",
+        "lc-3634-8",
+        "lc-3634-10",
+        "lc-3634-12",
+        "lc-3634-13",
+        "lc-3634-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7681,
+  "oracle_implementation": "code_practice/import_batch_231d.py:balance_oracle",
+  "validator_implementation_sha256": "7441ccfb9138d30a374828e074b9473d114473c893a6bacaf9d8cf1d0074ba78",
+  "batch_implementation_sha256": "055f30330f1417d979f01949af3e22cecf47cba84c346c7fc93ad8207b32ba69",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7b4cceb2e34965698d2eecbc34ffc737959a9f6bc0ae688af0c0d12dc0b69c89",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

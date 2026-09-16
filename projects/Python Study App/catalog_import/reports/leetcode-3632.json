@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3632",
+  "content_sha256": "d498e2ef2028b44ee5da34e9d51cf29aa2cbbfebc353113607bc5055267d3259",
+  "source_hash": "82468c14163c7c4c0fb740cbcaecd63022b5643c1004fd85127053236bba2376",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts XOR values strictly greater than k instead of greater than or equal.",
+      "failed_cases": [
+        "lc-3632-1",
+        "lc-3632-2",
+        "lc-3632-3",
+        "lc-3632-5",
+        "lc-3632-7",
+        "lc-3632-8",
+        "lc-3632-10",
+        "lc-3632-13"
+      ]
+    },
+    {
+      "reason": "Omits the empty prefix and therefore misses subarrays beginning at index zero.",
+      "failed_cases": [
+        "lc-3632-1",
+        "lc-3632-4",
+        "lc-3632-6",
+        "lc-3632-9",
+        "lc-3632-10",
+        "lc-3632-11",
+        "lc-3632-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7679,
+  "oracle_implementation": "code_practice/import_batch_231d.py:xor_oracle",
+  "validator_implementation_sha256": "7441ccfb9138d30a374828e074b9473d114473c893a6bacaf9d8cf1d0074ba78",
+  "batch_implementation_sha256": "055f30330f1417d979f01949af3e22cecf47cba84c346c7fc93ad8207b32ba69",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "929ef29958efec47221c0bd4ff9b467bd96792c8684cbddca94420292905ec0d",
+  "elapsed_seconds": 0.1,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

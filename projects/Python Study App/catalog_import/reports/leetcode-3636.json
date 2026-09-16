@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3636",
+  "content_sha256": "91a111e094b87c769ef98401a3c08aab5db8e8c2af714a5a6a5d2da9e57e0563",
+  "source_hash": "18bf64cf998629551d0b036b55a34194292b7c9335ca8e45e614f28ade5b5071",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rejects candidates occurring exactly threshold times.",
+      "failed_cases": [
+        "lc-3636-1",
+        "lc-3636-2",
+        "lc-3636-3",
+        "lc-3636-4",
+        "lc-3636-6",
+        "lc-3636-7",
+        "lc-3636-8",
+        "lc-3636-9",
+        "lc-3636-10",
+        "lc-3636-11",
+        "lc-3636-13",
+        "lc-3636-14"
+      ]
+    },
+    {
+      "reason": "Returns a negated heap value instead of the smallest tied value.",
+      "failed_cases": [
+        "lc-3636-1",
+        "lc-3636-2",
+        "lc-3636-3",
+        "lc-3636-4",
+        "lc-3636-6",
+        "lc-3636-7",
+        "lc-3636-8",
+        "lc-3636-9",
+        "lc-3636-10",
+        "lc-3636-11",
+        "lc-3636-13",
+        "lc-3636-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7683,
+  "oracle_implementation": "code_practice/import_batch_231d.py:majority_oracle",
+  "validator_implementation_sha256": "7441ccfb9138d30a374828e074b9473d114473c893a6bacaf9d8cf1d0074ba78",
+  "batch_implementation_sha256": "055f30330f1417d979f01949af3e22cecf47cba84c346c7fc93ad8207b32ba69",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1f7005807ed96d1934752b6bc22e421a1fcf048c045245e76bb5c4bd38419dc8",
+  "elapsed_seconds": 0.101,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

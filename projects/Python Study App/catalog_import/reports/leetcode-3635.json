@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3635",
+  "content_sha256": "b2bbbe13b94d3fc579a0058c60478043da724b18c61dd6b4082e28d5a88e8890",
+  "source_hash": "549cc305f22e5f409840cbd19c7439453f38a324b150d12688c0d4a80da4b2db",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Considers only land-before-water order.",
+      "failed_cases": [
+        "lc-3635-2",
+        "lc-3635-4",
+        "lc-3635-6",
+        "lc-3635-8",
+        "lc-3635-12",
+        "lc-3635-14"
+      ]
+    },
+    {
+      "reason": "Adds an opening time and prior finish instead of waiting until their maximum.",
+      "failed_cases": [
+        "lc-3635-1",
+        "lc-3635-2",
+        "lc-3635-3",
+        "lc-3635-4",
+        "lc-3635-5",
+        "lc-3635-6",
+        "lc-3635-7",
+        "lc-3635-8",
+        "lc-3635-9",
+        "lc-3635-10",
+        "lc-3635-11",
+        "lc-3635-12",
+        "lc-3635-13",
+        "lc-3635-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7682,
+  "oracle_implementation": "code_practice/import_batch_231d.py:rides_oracle",
+  "validator_implementation_sha256": "7441ccfb9138d30a374828e074b9473d114473c893a6bacaf9d8cf1d0074ba78",
+  "batch_implementation_sha256": "055f30330f1417d979f01949af3e22cecf47cba84c346c7fc93ad8207b32ba69",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a391e8fb20ad78b905469572117859378f8edd87b33e6f94d28d64e3989b30a2",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
