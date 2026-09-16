@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2925,
+  "count": 2930,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -50800,6 +50800,26 @@
       "source_id": 3724
     },
     {
+      "id": "leetcode-3725",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Ways to Choose Coprime Integers from Rows",
+      "summary": "Given a m x n matrix mat filled with positive integers, determine the number of ways to select exactly one integer from each row such that the greatest common divisor of all selected integers is 1.",
+      "topics": [
+        "matrices",
+        "dynamic programming",
+        "number theory"
+      ],
+      "prerequisites": [
+        "matrices"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3725.json",
+      "content_sha256": "28ea91f25aa74fc8c00ac8e93e4ca270d56e74c3777d09540a1485b8381f30f2",
+      "source_id": 3725
+    },
+    {
       "id": "leetcode-3726",
       "version": 1,
       "status": "approved",
@@ -50815,6 +50835,81 @@
       "path": "problems/leetcode-3726.json",
       "content_sha256": "55b0928ff92a2ebbcdf36d7381ea441947a8ef7d925ac744fd9d3e9a555c15c4",
       "source_id": 3726
+    },
+    {
+      "id": "leetcode-3727",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Alternating Sum of Squares",
+      "summary": "Given an integer array nums, you can rearrange its elements in any order.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3727.json",
+      "content_sha256": "5d13f3ed1f82c51752edc0f0dc225387a8391b892cbd9b2ed191117eb5b8b0e4",
+      "source_id": 3727
+    },
+    {
+      "id": "leetcode-3728",
+      "version": 1,
+      "status": "approved",
+      "title": "Stable Subarrays With Equal Boundary and Interior Sum",
+      "summary": "Given an integer array, count the subarrays where the first and last elements are each the sum of the elements between them, and the subarray length is at least 3.",
+      "topics": [
+        "arrays",
+        "prefix sums",
+        "hash maps"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3728.json",
+      "content_sha256": "6ac0320c3fd2e6f97a2db052e7283f90f82414bad684e0d0ab5e6ada8faac431",
+      "source_id": 3728
+    },
+    {
+      "id": "leetcode-3729",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Distinct Subarrays Divisible by K in Sorted Array",
+      "summary": "Given an integer array nums sorted in non-descending order and a positive integer k, count the number of distinct subarrays whose sum is divisible by k.",
+      "topics": [
+        "arrays",
+        "prefix sums",
+        "hash maps"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3729.json",
+      "content_sha256": "90a85e4311c9c379cb3fcb1f13c8f8153a6f9dd59940486930f62892fb4f1ba2",
+      "source_id": 3729
+    },
+    {
+      "id": "leetcode-3730",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Calories Burnt from Jumps",
+      "summary": "Given an integer array heights of size n, where each element heights[i] represents the height of the i^th block in an exercise routine, you start at height 0 (the ground) and must jump onto each block exactly once.",
+      "topics": [
+        "arrays",
+        "sorting",
+        "two pointers",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3730.json",
+      "content_sha256": "70c426ab1e39a0975da0ab565e8920ee5fa66ab4fcb2dcd3de0db93d44b8ffd2",
+      "source_id": 3730
     },
     {
       "id": "leetcode-3731",

@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3729",
+  "content_sha256": "90a85e4311c9c379cb3fcb1f13c8f8153a6f9dd59940486930f62892fb4f1ba2",
+  "source_hash": "bd16193b1145b5116484986dca6ca8a4983c866067e3178bafae7d5aee102998",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts one too many duplicate occurrences for each equal-value sequence.",
+      "failed_cases": [
+        "lc-3729-1",
+        "lc-3729-2",
+        "lc-3729-3",
+        "lc-3729-4",
+        "lc-3729-5",
+        "lc-3729-6",
+        "lc-3729-8",
+        "lc-3729-10",
+        "lc-3729-11",
+        "lc-3729-12",
+        "lc-3729-13",
+        "lc-3729-14"
+      ]
+    },
+    {
+      "reason": "Tests a single value instead of the full repeated-sequence sum.",
+      "failed_cases": [
+        "lc-3729-2",
+        "lc-3729-5",
+        "lc-3729-8",
+        "lc-3729-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7776,
+  "oracle_implementation": "code_practice/import_batch_235a.py:distinct_oracle",
+  "validator_implementation_sha256": "9174be9809ed840b63952ddd1f19a7548ac2ba069af57fe4ec96d723c7e39f61",
+  "batch_implementation_sha256": "5f5b40a633a55be9fbcb3d357041dcfe045c1497623bd46e200b0dce8c5b268c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2414012154e558c20bfbfcc9952260832fd80b591e6c9dcdf35bb458e0a90474",
+  "elapsed_seconds": 0.044,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

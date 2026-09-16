@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3725",
+  "content_sha256": "28ea91f25aa74fc8c00ac8e93e4ca270d56e74c3777d09540a1485b8381f30f2",
+  "source_hash": "610e98bb09435731ecfd5d258382c126aed3b90f67b5520a9bddd91049fbf5ab",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Multiplies state values instead of taking their greatest common divisor.",
+      "failed_cases": [
+        "lc-3725-1",
+        "lc-3725-3",
+        "lc-3725-5",
+        "lc-3725-7",
+        "lc-3725-8",
+        "lc-3725-9",
+        "lc-3725-10",
+        "lc-3725-11",
+        "lc-3725-12",
+        "lc-3725-13",
+        "lc-3725-14"
+      ]
+    },
+    {
+      "reason": "Counts every row selection regardless of its final greatest common divisor.",
+      "failed_cases": [
+        "lc-3725-1",
+        "lc-3725-2",
+        "lc-3725-4",
+        "lc-3725-5",
+        "lc-3725-6",
+        "lc-3725-7",
+        "lc-3725-8",
+        "lc-3725-9",
+        "lc-3725-10",
+        "lc-3725-11",
+        "lc-3725-12",
+        "lc-3725-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7772,
+  "oracle_implementation": "code_practice/import_batch_235a.py:coprime_oracle",
+  "validator_implementation_sha256": "9174be9809ed840b63952ddd1f19a7548ac2ba069af57fe4ec96d723c7e39f61",
+  "batch_implementation_sha256": "5f5b40a633a55be9fbcb3d357041dcfe045c1497623bd46e200b0dce8c5b268c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "121f3a96f3721b23166590ea293041c959a9f5153644e5372893a60344f066b5",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

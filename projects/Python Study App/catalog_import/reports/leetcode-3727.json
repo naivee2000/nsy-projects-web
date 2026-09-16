@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3727",
+  "content_sha256": "5d13f3ed1f82c51752edc0f0dc225387a8391b892cbd9b2ed191117eb5b8b0e4",
+  "source_hash": "c218791f29fdec4e2382c8c0e176bcbdbd07eaefbc5e1f9f27b9c65a9bd8e74c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses too many negative positions for odd-length arrays.",
+      "failed_cases": [
+        "lc-3727-1",
+        "lc-3727-3",
+        "lc-3727-6",
+        "lc-3727-8",
+        "lc-3727-12",
+        "lc-3727-13",
+        "lc-3727-14"
+      ]
+    },
+    {
+      "reason": "Optimizes absolute values instead of squared values.",
+      "failed_cases": [
+        "lc-3727-1",
+        "lc-3727-2",
+        "lc-3727-5",
+        "lc-3727-6",
+        "lc-3727-7",
+        "lc-3727-8",
+        "lc-3727-9",
+        "lc-3727-10",
+        "lc-3727-11",
+        "lc-3727-12",
+        "lc-3727-13",
+        "lc-3727-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7774,
+  "oracle_implementation": "code_practice/import_batch_235a.py:alternating_oracle",
+  "validator_implementation_sha256": "9174be9809ed840b63952ddd1f19a7548ac2ba069af57fe4ec96d723c7e39f61",
+  "batch_implementation_sha256": "5f5b40a633a55be9fbcb3d357041dcfe045c1497623bd46e200b0dce8c5b268c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "281fea668e0fdacf389ba2ec1f911f9a442457d6f057b21c0199f4ea0d371b57",
+  "elapsed_seconds": 1.572,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

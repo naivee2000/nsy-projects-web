@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3728",
+  "content_sha256": "6ac0320c3fd2e6f97a2db052e7283f90f82414bad684e0d0ab5e6ada8faac431",
+  "source_hash": "36950a63fd74cba41c429ee49ec3e4aedcf220fae56e613e42fa3e3c9bf5c351",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Admits length-two candidates even though the minimum length is three.",
+      "failed_cases": [
+        "lc-3728-1",
+        "lc-3728-3",
+        "lc-3728-5",
+        "lc-3728-9",
+        "lc-3728-10",
+        "lc-3728-11",
+        "lc-3728-12",
+        "lc-3728-13"
+      ]
+    },
+    {
+      "reason": "Stores the wrong prefix-sum key for potential left boundaries.",
+      "failed_cases": [
+        "lc-3728-1",
+        "lc-3728-3",
+        "lc-3728-5",
+        "lc-3728-6",
+        "lc-3728-8",
+        "lc-3728-9",
+        "lc-3728-10",
+        "lc-3728-11",
+        "lc-3728-12",
+        "lc-3728-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7775,
+  "oracle_implementation": "code_practice/import_batch_235a.py:stable_oracle",
+  "validator_implementation_sha256": "9174be9809ed840b63952ddd1f19a7548ac2ba069af57fe4ec96d723c7e39f61",
+  "batch_implementation_sha256": "5f5b40a633a55be9fbcb3d357041dcfe045c1497623bd46e200b0dce8c5b268c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a55e0dff80584499e1c46a672827194ab6f1328dc66e2d0eefc3700cc5c564c1",
+  "elapsed_seconds": 0.036,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
