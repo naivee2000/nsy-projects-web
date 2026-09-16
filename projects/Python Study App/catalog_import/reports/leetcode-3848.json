@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3848",
+  "content_sha256": "b248d989aea8f65467e4472330a7c5ddc18f9f4f3bd4b46d243dea808d884afb",
+  "source_hash": "b7c246fc72291cd03bdd1535c027ad7cdad4eb30b8a3c9c43a5d43be02590194",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Sums digits instead of their factorials.",
+      "failed_cases": [
+        "lc-3848-1",
+        "lc-3848-2",
+        "lc-3848-7",
+        "lc-3848-15"
+      ]
+    },
+    {
+      "reason": "Accepts only the original digit order instead of any permutation.",
+      "failed_cases": [
+        "lc-3848-2",
+        "lc-3848-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7895,
+  "oracle_implementation": "code_practice/import_batch_239c.py:digitorial_oracle",
+  "validator_implementation_sha256": "ab7113f4794b4ad0311a47868170752e2663463b427feb73075288da8d00ea0a",
+  "batch_implementation_sha256": "d42561dea92bc79fe2d81a37b432ef89592deb924af029c80d69d6293ce623a0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e7420eb9e9c1a4f1948c310f2f0d5c2b3a8256058699539966709438dc6697e7",
+  "elapsed_seconds": 0.541,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

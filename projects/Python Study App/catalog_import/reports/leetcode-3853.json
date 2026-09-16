@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3853",
+  "content_sha256": "1947e4041e7be48206a1ce6ae2f402c1498781f325d043c74510789667aaa45a",
+  "source_hash": "406ccf699b6e92e6f125e42ee15b72642eec03f57884a54b1eaf08245d41f4a5",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Excludes equal characters exactly k positions apart.",
+      "failed_cases": [
+        "lc-3853-1",
+        "lc-3853-4",
+        "lc-3853-5",
+        "lc-3853-7",
+        "lc-3853-8",
+        "lc-3853-9",
+        "lc-3853-10",
+        "lc-3853-11",
+        "lc-3853-13"
+      ]
+    },
+    {
+      "reason": "Uses the original string length instead of the character’s updated output position.",
+      "failed_cases": [
+        "lc-3853-2",
+        "lc-3853-6",
+        "lc-3853-9",
+        "lc-3853-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7900,
+  "oracle_implementation": "code_practice/import_batch_239c.py:merge_oracle",
+  "validator_implementation_sha256": "ab7113f4794b4ad0311a47868170752e2663463b427feb73075288da8d00ea0a",
+  "batch_implementation_sha256": "d42561dea92bc79fe2d81a37b432ef89592deb924af029c80d69d6293ce623a0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3071c3bddda713432912b0411503c2edf463833dc258a298b94235682acc9c6a",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

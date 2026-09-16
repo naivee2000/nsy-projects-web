@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3851",
+  "content_sha256": "07df4bf6409bb623ee84b140590f9d78f9f85bd73afbce3374ab7534baf96b04",
+  "source_hash": "1bd40822f3d0d80e3fb70c1a4caf43d829f435010c1359cbf8ba01762da64375",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats requests exactly window units apart as outside the restricted interval.",
+      "failed_cases": [
+        "lc-3851-2",
+        "lc-3851-4",
+        "lc-3851-7",
+        "lc-3851-9",
+        "lc-3851-10",
+        "lc-3851-11",
+        "lc-3851-12",
+        "lc-3851-13",
+        "lc-3851-15"
+      ]
+    },
+    {
+      "reason": "Enforces the restriction for only the first user.",
+      "failed_cases": [
+        "lc-3851-10",
+        "lc-3851-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7898,
+  "oracle_implementation": "code_practice/import_batch_239c.py:requests_oracle",
+  "validator_implementation_sha256": "ab7113f4794b4ad0311a47868170752e2663463b427feb73075288da8d00ea0a",
+  "batch_implementation_sha256": "d42561dea92bc79fe2d81a37b432ef89592deb924af029c80d69d6293ce623a0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fdb2a66f5579f8e250ccc2805be177706720bc342759deb722742bab348a0769",
+  "elapsed_seconds": 0.189,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
