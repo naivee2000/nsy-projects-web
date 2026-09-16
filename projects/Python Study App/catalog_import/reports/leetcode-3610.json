@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3610",
+  "content_sha256": "9a8ef156c4dbaf6c27c9f4e7a3933e03b6cc5cb6c1335278282a80136a1a7828",
+  "source_hash": "79f80e0195782982deee2a133a65ae0c42cd2ffe07de25adc462777f7a5f0f19",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats each prime as usable only once.",
+      "failed_cases": [
+        "lc-3610-1",
+        "lc-3610-6",
+        "lc-3610-9",
+        "lc-3610-10",
+        "lc-3610-11",
+        "lc-3610-13"
+      ]
+    },
+    {
+      "reason": "Charges two terms for each chosen prime.",
+      "failed_cases": [
+        "lc-3610-1",
+        "lc-3610-2",
+        "lc-3610-4",
+        "lc-3610-6",
+        "lc-3610-8",
+        "lc-3610-9",
+        "lc-3610-10",
+        "lc-3610-11",
+        "lc-3610-13",
+        "lc-3610-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7657,
+  "oracle_implementation": "code_practice/import_batch_231a.py:prime_oracle",
+  "validator_implementation_sha256": "f574cbfce35411e0a3fba5bb49964c310e8cf86b3fd6eb138a65da21ee428909",
+  "batch_implementation_sha256": "3579ad50635b5ace2ea24bd090df34c98277e2cc4961f5704b35313facf4d05b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6e218d34743016e8ef4da1f2ef0f3365a9e8d9cefc4e8eb53e36788589b1d0ee",
+  "elapsed_seconds": 0.106,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3614",
+  "content_sha256": "cca436739c21f01c45c17af3033fab06b806cef692b2f413c5ac75e15ad51879",
+  "source_hash": "4df82c6a786d4576f6e7a5a9aa4b933fc6cfe83238f608e0f4c1bcb4cde87e5d",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Maps the first position of the duplicated second half incorrectly.",
+      "failed_cases": [
+        "lc-3614-1",
+        "lc-3614-2",
+        "lc-3614-7",
+        "lc-3614-10",
+        "lc-3614-12",
+        "lc-3614-14"
+      ]
+    },
+    {
+      "reason": "Uses an off-by-one index when reversing.",
+      "failed_cases": [
+        "lc-3614-1",
+        "lc-3614-2",
+        "lc-3614-8",
+        "lc-3614-9",
+        "lc-3614-12",
+        "lc-3614-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7661,
+  "oracle_implementation": "code_practice/import_batch_231a.py:kth_oracle",
+  "validator_implementation_sha256": "f574cbfce35411e0a3fba5bb49964c310e8cf86b3fd6eb138a65da21ee428909",
+  "batch_implementation_sha256": "3579ad50635b5ace2ea24bd090df34c98277e2cc4961f5704b35313facf4d05b",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "fdb8294c0078d69d0a2d6ba4d7e1470c4028527e5889f4e7539ebe6792b89997",
+  "elapsed_seconds": 0.038,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

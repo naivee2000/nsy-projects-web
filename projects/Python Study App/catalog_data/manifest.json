@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2845,
+  "count": 2850,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -48896,6 +48896,99 @@
       "path": "problems/leetcode-3609.json",
       "content_sha256": "7c6c83da3e6b0af1e8a57e1d5554c7a1e5e03ec917a04dcab539e2e7e443278d",
       "source_id": 3609
+    },
+    {
+      "id": "leetcode-3610",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Primes to Sum to Target",
+      "summary": "Given the integers n and m , select a multiset of prime numbers from the first m prime numbers such that the sum of the selected primes equals n .",
+      "topics": [
+        "dynamic programming",
+        "number theory",
+        "coin change"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3610.json",
+      "content_sha256": "9a8ef156c4dbaf6c27c9f4e7a3933e03b6cc5cb6c1335278282a80136a1a7828",
+      "source_id": 3610
+    },
+    {
+      "id": "leetcode-3612",
+      "version": 1,
+      "status": "approved",
+      "title": "Process String with Special Operations I",
+      "summary": "Given a string s with lowercase English letters and special characters *, #, and %, construct a new string result by appending letters, removing the last character if '*', duplicating the result if '#', and reversing the result if '%', all processed from left to right.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3612.json",
+      "content_sha256": "964194fa879db8828cad2dd512e9106bd2fb0a31b266fab3ad05f1b73345b1db",
+      "source_id": 3612
+    },
+    {
+      "id": "leetcode-3613",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimize Maximum Component Cost",
+      "summary": "Given an undirected connected graph with nodes numbered 0 to n-1 and edges with weights, and an integer k, you can remove edges to create at most k connected components.",
+      "topics": [
+        "graphs",
+        "union find",
+        "minimum spanning trees"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3613.json",
+      "content_sha256": "4982f7884587aa6e43c009f0cc91d24ada5efb4d59101a5119d6cc2784b8be94",
+      "source_id": 3613
+    },
+    {
+      "id": "leetcode-3614",
+      "version": 1,
+      "status": "approved",
+      "title": "Process String with Special Operations II",
+      "summary": "Given a string s with lowercase English letters and special characters '*', '#', and '%', and an integer k, construct a new string result by applying the following rules from left to right: append a letter to result, remove the last character if '*', duplicate the result if '#', and reverse the result if '%'.",
+      "topics": [
+        "strings",
+        "reverse simulation",
+        "math"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3614.json",
+      "content_sha256": "cca436739c21f01c45c17af3033fab06b806cef692b2f413c5ac75e15ad51879",
+      "source_id": 3614
+    },
+    {
+      "id": "leetcode-3615",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Palindromic Path in Graph",
+      "summary": "Given an integer n and an undirected graph with n nodes labeled from 0 to n-1, and a 2D array edges indicating connections between nodes, along with a string label where each character corresponds to a node, find the longest path that forms a palindrome by visiting unique nodes.",
+      "topics": [
+        "graphs",
+        "bitmasking",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3615.json",
+      "content_sha256": "d3afe6b26fda08565a0235cce8c303d3ccabf59d4ece9fac43ab655701dbed1b",
+      "source_id": 3615
     },
     {
       "id": "leetcode-3622",
