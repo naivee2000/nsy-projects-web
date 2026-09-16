@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3784",
+  "content_sha256": "27defc7b59fde7c5410676231b6693edd16f00de3995732138dc01ed8fe09864",
+  "source_hash": "6412b77034088798947d7f8f199795b73570421715608d187c441bad993dc54b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps the character with the smallest total saved cost.",
+      "failed_cases": [
+        "lc-3784-1",
+        "lc-3784-2",
+        "lc-3784-4",
+        "lc-3784-6",
+        "lc-3784-7",
+        "lc-3784-9",
+        "lc-3784-10",
+        "lc-3784-11",
+        "lc-3784-12",
+        "lc-3784-13",
+        "lc-3784-14"
+      ]
+    },
+    {
+      "reason": "Chooses by frequency instead of the total deletion cost saved.",
+      "failed_cases": [
+        "lc-3784-1",
+        "lc-3784-2",
+        "lc-3784-3",
+        "lc-3784-4",
+        "lc-3784-5",
+        "lc-3784-6",
+        "lc-3784-7",
+        "lc-3784-9",
+        "lc-3784-10",
+        "lc-3784-11",
+        "lc-3784-12",
+        "lc-3784-13",
+        "lc-3784-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7831,
+  "oracle_implementation": "code_practice/import_batch_237a.py:deletion_oracle",
+  "validator_implementation_sha256": "6409b1c9e72a537678ec56c60b9c3e9ebd33320d710e3352b2cb01863fec154f",
+  "batch_implementation_sha256": "d949870b8e0fa9d90e2a5b495349e4f7ee86b94dc9c18ec8f7ece44bc643690f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b84c26867eeb5b3d6ef4d66c62b008ea039a53774c4552a2b9ab74e403804e4e",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

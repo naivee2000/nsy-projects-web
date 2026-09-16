@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3779",
+  "content_sha256": "9986efc6ecbfbbcd726042b6fb5756596b88d243bb6510100cb412ac7d7a45e6",
+  "source_hash": "bd298122a86556184eaeb88d1ee8e0837abdd9dc9aa1a789f907f58f6a143710",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rounds the required removed prefix down at duplicate index zero.",
+      "failed_cases": [
+        "lc-3779-1",
+        "lc-3779-5",
+        "lc-3779-6",
+        "lc-3779-7",
+        "lc-3779-10",
+        "lc-3779-11",
+        "lc-3779-12",
+        "lc-3779-13",
+        "lc-3779-14"
+      ]
+    },
+    {
+      "reason": "Omits the operation containing the duplicate boundary.",
+      "failed_cases": [
+        "lc-3779-1",
+        "lc-3779-5",
+        "lc-3779-6",
+        "lc-3779-7",
+        "lc-3779-8",
+        "lc-3779-9",
+        "lc-3779-10",
+        "lc-3779-11",
+        "lc-3779-12",
+        "lc-3779-13",
+        "lc-3779-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7826,
+  "oracle_implementation": "code_practice/import_batch_237a.py:distinct_oracle",
+  "validator_implementation_sha256": "6409b1c9e72a537678ec56c60b9c3e9ebd33320d710e3352b2cb01863fec154f",
+  "batch_implementation_sha256": "d949870b8e0fa9d90e2a5b495349e4f7ee86b94dc9c18ec8f7ece44bc643690f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2d1f323825c7c0c5cd708b920cfce7b78953b3cc8a1616f10a9a897d74ac3488",
+  "elapsed_seconds": 0.024,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3781",
+  "content_sha256": "e6e24fc896e71f46163bdcd80681429db7ce88fab74ce2b2aae0ed0417d8bf0a",
+  "source_hash": "37bef17e6e37c83a85c4664cdb892606f73c8e83e34d6f02d54bd3b1efa12cff",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never performs any beneficial swap.",
+      "failed_cases": [
+        "lc-3781-1",
+        "lc-3781-2",
+        "lc-3781-6",
+        "lc-3781-7",
+        "lc-3781-8",
+        "lc-3781-12",
+        "lc-3781-13",
+        "lc-3781-14"
+      ]
+    },
+    {
+      "reason": "Chooses the smallest available prefix value for each one rather than the largest.",
+      "failed_cases": [
+        "lc-3781-1",
+        "lc-3781-2",
+        "lc-3781-5",
+        "lc-3781-6",
+        "lc-3781-7",
+        "lc-3781-8",
+        "lc-3781-10",
+        "lc-3781-11",
+        "lc-3781-12",
+        "lc-3781-13",
+        "lc-3781-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7828,
+  "oracle_implementation": "code_practice/import_batch_237a.py:swaps_oracle",
+  "validator_implementation_sha256": "6409b1c9e72a537678ec56c60b9c3e9ebd33320d710e3352b2cb01863fec154f",
+  "batch_implementation_sha256": "d949870b8e0fa9d90e2a5b495349e4f7ee86b94dc9c18ec8f7ece44bc643690f",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f36389c568cf41ad5547db7d3d3971c4f1c45e362a81119959990aa4b354b735",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
