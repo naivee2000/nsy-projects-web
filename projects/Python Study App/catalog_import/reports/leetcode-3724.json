@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3724",
+  "content_sha256": "9aaa242d671175b14a0d4ad41b0bab7a4d99572ea7b97536ee6885582db1d2ec",
+  "source_hash": "eef5ec4e8acd8a06ab083b472475bd478dd3f8e71dfec7ca51dcf60ba0edfb24",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets that appending an element itself costs one operation.",
+      "failed_cases": [
+        "lc-3724-1",
+        "lc-3724-2",
+        "lc-3724-3",
+        "lc-3724-4",
+        "lc-3724-5",
+        "lc-3724-6",
+        "lc-3724-7",
+        "lc-3724-8",
+        "lc-3724-9",
+        "lc-3724-10",
+        "lc-3724-11",
+        "lc-3724-12",
+        "lc-3724-13",
+        "lc-3724-14"
+      ]
+    },
+    {
+      "reason": "Considers only copying the original value and ignores values encountered during its transformation.",
+      "failed_cases": [
+        "lc-3724-4",
+        "lc-3724-8",
+        "lc-3724-9",
+        "lc-3724-10",
+        "lc-3724-12",
+        "lc-3724-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7771,
+  "oracle_implementation": "code_practice/import_batch_234d.py:transform_oracle",
+  "validator_implementation_sha256": "4d353a5fa18c84b07e74d3e848b698d35f51c62e5d85de3a3d117d060e22b6c6",
+  "batch_implementation_sha256": "7f43a47dcba1914ee68d4c2c3eb7dcf3f912744ba768af6f841f9cf98f272083",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cc0da9bc5fe0629c7d4580a4357c2eff50b3aaecc4be8068a7af4218317b8339",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

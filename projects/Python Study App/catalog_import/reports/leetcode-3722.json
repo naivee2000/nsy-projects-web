@@ -1,0 +1,37 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3722",
+  "content_sha256": "666befc12fe70a9c64deccb3601f4c22d9d5cf52285c7be1853f670d54266a76",
+  "source_hash": "2eeb802518fc656c7f9c114ff36ec7e36b0a8e36537630b05300c45e75bc3a0c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never considers reversing the entire string.",
+      "failed_cases": [
+        "lc-3722-5",
+        "lc-3722-7",
+        "lc-3722-11",
+        "lc-3722-13"
+      ]
+    },
+    {
+      "reason": "Leaves suffix candidates unchanged instead of reversing them.",
+      "failed_cases": [
+        "lc-3722-2"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7769,
+  "oracle_implementation": "code_practice/import_batch_234d.py:reverse_oracle",
+  "validator_implementation_sha256": "4d353a5fa18c84b07e74d3e848b698d35f51c62e5d85de3a3d117d060e22b6c6",
+  "batch_implementation_sha256": "7f43a47dcba1914ee68d4c2c3eb7dcf3f912744ba768af6f841f9cf98f272083",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "6765fe2094b7b44d1451890a91a3a4269e6e545edb3e770220d9af8c0c0a48f5",
+  "elapsed_seconds": 0.026,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
