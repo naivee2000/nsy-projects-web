@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3809",
+  "content_sha256": "019dd1b23f4af8404a6668f42ce1355d63cc353bb01797c4ef84c53449239adf",
+  "source_hash": "04703ee6f80f5734e64ef1d18ac4fe4999c709ff50ac28370189f3b50a38db4a",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses Euclidean rather than Manhattan reachability.",
+      "failed_cases": [
+        "lc-3809-6"
+      ]
+    },
+    {
+      "reason": "Breaks quality ties toward lexicographically largest coordinates.",
+      "failed_cases": [
+        "lc-3809-2",
+        "lc-3809-5",
+        "lc-3809-7",
+        "lc-3809-11",
+        "lc-3809-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7856,
+  "oracle_implementation": "code_practice/import_batch_238a.py:tower_oracle",
+  "validator_implementation_sha256": "87f4a2a22b12071c7e46de1c6ab82696984bde89819b0695f3d08894a7680dd7",
+  "batch_implementation_sha256": "87d55d694b0a2856c101f2966d1702608e45f7610ce9f57508aabd143b995ed5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "662a32ece547797e8e954407c2d3456df08830133c270d5ac63c8708781eb184",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

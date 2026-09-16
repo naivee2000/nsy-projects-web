@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3806",
+  "content_sha256": "5936deed22b9a3937f02ef7e0133e3874f1a8320c1d19995e6427f7d811bcaaa",
+  "source_hash": "c4a03321966133d3a4d911f62537d8709429f4869ff8fe4769fec8d1d9fc2d16",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds k to the original AND instead of allocating increments to satisfy target bits.",
+      "failed_cases": [
+        "lc-3806-1",
+        "lc-3806-2",
+        "lc-3806-3",
+        "lc-3806-5",
+        "lc-3806-7",
+        "lc-3806-8",
+        "lc-3806-9",
+        "lc-3806-10",
+        "lc-3806-11",
+        "lc-3806-12",
+        "lc-3806-13",
+        "lc-3806-14"
+      ]
+    },
+    {
+      "reason": "Treats k as a separate per-element budget rather than one shared operation budget.",
+      "failed_cases": [
+        "lc-3806-1",
+        "lc-3806-2",
+        "lc-3806-3",
+        "lc-3806-5",
+        "lc-3806-7",
+        "lc-3806-8",
+        "lc-3806-9",
+        "lc-3806-10",
+        "lc-3806-11",
+        "lc-3806-12",
+        "lc-3806-13",
+        "lc-3806-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7853,
+  "oracle_implementation": "code_practice/import_batch_238a.py:and_oracle",
+  "validator_implementation_sha256": "87f4a2a22b12071c7e46de1c6ab82696984bde89819b0695f3d08894a7680dd7",
+  "batch_implementation_sha256": "87d55d694b0a2856c101f2966d1702608e45f7610ce9f57508aabd143b995ed5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "41eff95f2d6248026a4b51b62ed6f591f28414ab90d24669ba8451e629be616b",
+  "elapsed_seconds": 0.167,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

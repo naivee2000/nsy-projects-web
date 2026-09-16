@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3804",
+  "content_sha256": "a5f9dd76f3de140e1b050a319269ff6710f31c7b9e17564e161d81f4c7f8abd0",
+  "source_hash": "bc3a039701c2b37819cc82955b0aa1d8e58c152c0e433a58ad567fad61115a9c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses an at-least comparison instead of requiring equality.",
+      "failed_cases": [
+        "lc-3804-1",
+        "lc-3804-2",
+        "lc-3804-5",
+        "lc-3804-6",
+        "lc-3804-7",
+        "lc-3804-8",
+        "lc-3804-9",
+        "lc-3804-10",
+        "lc-3804-12",
+        "lc-3804-13",
+        "lc-3804-14"
+      ]
+    },
+    {
+      "reason": "Accepts a sum found elsewhere in nums rather than inside the current subarray.",
+      "failed_cases": [
+        "lc-3804-1",
+        "lc-3804-7",
+        "lc-3804-10",
+        "lc-3804-13",
+        "lc-3804-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7851,
+  "oracle_implementation": "code_practice/import_batch_238a.py:centered_oracle",
+  "validator_implementation_sha256": "87f4a2a22b12071c7e46de1c6ab82696984bde89819b0695f3d08894a7680dd7",
+  "batch_implementation_sha256": "87d55d694b0a2856c101f2966d1702608e45f7610ce9f57508aabd143b995ed5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0d5d3059a897c8a7ba24b00cdc96795ff25bfdfb2604bdb7090604dc300375a2",
+  "elapsed_seconds": 0.031,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

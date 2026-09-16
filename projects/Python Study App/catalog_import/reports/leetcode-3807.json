@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3807",
+  "content_sha256": "16f393b0a7eb78d1834c7b7c148cfdb262a2804a72cc79dc945322f8a58277e9",
+  "source_hash": "578c3c122206866115a9cfe8e762ff5c70a0600c29062ec5a6b9f65798840d49",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Minimizes the sum of repair costs instead of the single global repair threshold.",
+      "failed_cases": [
+        "lc-3807-1",
+        "lc-3807-4",
+        "lc-3807-5",
+        "lc-3807-6",
+        "lc-3807-7",
+        "lc-3807-8",
+        "lc-3807-9",
+        "lc-3807-10",
+        "lc-3807-11",
+        "lc-3807-12",
+        "lc-3807-13",
+        "lc-3807-14"
+      ]
+    },
+    {
+      "reason": "Ignores the maximum number of path edges.",
+      "failed_cases": [
+        "lc-3807-1",
+        "lc-3807-6",
+        "lc-3807-8",
+        "lc-3807-9",
+        "lc-3807-12",
+        "lc-3807-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7854,
+  "oracle_implementation": "code_practice/import_batch_238a.py:repair_oracle",
+  "validator_implementation_sha256": "87f4a2a22b12071c7e46de1c6ab82696984bde89819b0695f3d08894a7680dd7",
+  "batch_implementation_sha256": "87d55d694b0a2856c101f2966d1702608e45f7610ce9f57508aabd143b995ed5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "66b9cb7ecaaf840d8a769f0966ff501c3928f84b910d742f0a22d540363c5543",
+  "elapsed_seconds": 0.076,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

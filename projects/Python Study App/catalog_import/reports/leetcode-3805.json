@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3805",
+  "content_sha256": "2daa83a2185bc52eff3f4ceaa886571bc5b9b9cd05c452804e299422ea171d2c",
+  "source_hash": "f0549ddb452fd0dd8c83d4ecd17ffea177f9e38a756fb9d44b7fca6287bb377e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to wrap negative character differences modulo 26.",
+      "failed_cases": [
+        "lc-3805-1",
+        "lc-3805-2",
+        "lc-3805-6",
+        "lc-3805-9",
+        "lc-3805-10",
+        "lc-3805-12",
+        "lc-3805-14"
+      ]
+    },
+    {
+      "reason": "Counts only identical strings instead of uniform Caesar shifts.",
+      "failed_cases": [
+        "lc-3805-1",
+        "lc-3805-2",
+        "lc-3805-4",
+        "lc-3805-5",
+        "lc-3805-6",
+        "lc-3805-7",
+        "lc-3805-9",
+        "lc-3805-10",
+        "lc-3805-11",
+        "lc-3805-12",
+        "lc-3805-13",
+        "lc-3805-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7852,
+  "oracle_implementation": "code_practice/import_batch_238a.py:caesar_oracle",
+  "validator_implementation_sha256": "87f4a2a22b12071c7e46de1c6ab82696984bde89819b0695f3d08894a7680dd7",
+  "batch_implementation_sha256": "87d55d694b0a2856c101f2966d1702608e45f7610ce9f57508aabd143b995ed5",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "f7f06b5c324d8325ae733a2929aac4ce7305f88cdaf9e770e1276023c839f4ba",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
