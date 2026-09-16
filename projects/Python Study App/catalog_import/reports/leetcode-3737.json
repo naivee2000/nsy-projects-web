@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3737",
+  "content_sha256": "fcd62885464c2116d0539898ffb96528a7a5761dbacd16a993870de3006de64f",
+  "source_hash": "cc877631a5c64fd64e4be41df492c6a107c2be268cf01c0b3b4af63a73b10e70",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts tied-frequency subarrays even though the majority must be strict.",
+      "failed_cases": [
+        "lc-3737-1",
+        "lc-3737-6",
+        "lc-3737-7",
+        "lc-3737-8",
+        "lc-3737-10",
+        "lc-3737-11",
+        "lc-3737-12",
+        "lc-3737-13",
+        "lc-3737-14"
+      ]
+    },
+    {
+      "reason": "Counts non-target values instead of occurrences of target.",
+      "failed_cases": [
+        "lc-3737-1",
+        "lc-3737-2",
+        "lc-3737-3",
+        "lc-3737-4",
+        "lc-3737-5",
+        "lc-3737-7",
+        "lc-3737-8",
+        "lc-3737-9",
+        "lc-3737-10",
+        "lc-3737-11",
+        "lc-3737-12",
+        "lc-3737-13",
+        "lc-3737-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7784,
+  "oracle_implementation": "code_practice/import_batch_235b.py:majority_oracle",
+  "validator_implementation_sha256": "b4e19986446b2e8f11e0d1f4c7d1eae177aeaf18dcfae8290ee2ea4a7a12f74b",
+  "batch_implementation_sha256": "66889c356509aa009538de02f4f6c6e03a8a91d9f6acc3be784fcdef8e5fb143",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "1cf015f2ed7e6343298b29cf7632cd55493f7cdfbf3129cab3508f0b4602c10c",
+  "elapsed_seconds": 0.025,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

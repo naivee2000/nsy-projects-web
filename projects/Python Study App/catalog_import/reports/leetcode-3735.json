@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3735",
+  "content_sha256": "94859a71e71a059b1ac1f1b13487b142ae9847a7f281f8c2c2dcefde1f7a480b",
+  "source_hash": "00ba38fc4354103d5e7aeb97dc69dad51fb537f5f488c31a4e6791ba2ecae085",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Filters candidates using the original first character instead of the global minimum.",
+      "failed_cases": [
+        "lc-3735-1",
+        "lc-3735-5",
+        "lc-3735-7",
+        "lc-3735-9",
+        "lc-3735-11",
+        "lc-3735-12",
+        "lc-3735-13",
+        "lc-3735-14"
+      ]
+    },
+    {
+      "reason": "Never evaluates reversing the complete string.",
+      "failed_cases": [
+        "lc-3735-5",
+        "lc-3735-7",
+        "lc-3735-11",
+        "lc-3735-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7782,
+  "oracle_implementation": "code_practice/import_batch_235b.py:reverse_oracle",
+  "validator_implementation_sha256": "b4e19986446b2e8f11e0d1f4c7d1eae177aeaf18dcfae8290ee2ea4a7a12f74b",
+  "batch_implementation_sha256": "66889c356509aa009538de02f4f6c6e03a8a91d9f6acc3be784fcdef8e5fb143",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2239683efcb819a92d94fd075cbb73450dc8f71f9edb35a985c28f00d01f1846",
+  "elapsed_seconds": 0.191,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

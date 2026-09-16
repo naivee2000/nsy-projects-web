@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3732",
+  "content_sha256": "ab9b823757202975f01caee133434e9c1681e05d9e61e0e85d034934aada934b",
+  "source_hash": "c83538362df09e3b58768647a219882d1688a6e6d176838c413beeaf8738304c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a positive replacement with opposite-signed extremes, making that candidate negative.",
+      "failed_cases": [
+        "lc-3732-1",
+        "lc-3732-6",
+        "lc-3732-9",
+        "lc-3732-10",
+        "lc-3732-14"
+      ]
+    },
+    {
+      "reason": "Uses the wrong two largest retained elements for a positive replacement.",
+      "failed_cases": [
+        "lc-3732-3",
+        "lc-3732-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7779,
+  "oracle_implementation": "code_practice/import_batch_235b.py:product_oracle",
+  "validator_implementation_sha256": "b4e19986446b2e8f11e0d1f4c7d1eae177aeaf18dcfae8290ee2ea4a7a12f74b",
+  "batch_implementation_sha256": "66889c356509aa009538de02f4f6c6e03a8a91d9f6acc3be784fcdef8e5fb143",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "eabebfc5b851ad0c36d1d7f55b503e85483afdaf17887a9da7da6a1bab19557b",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

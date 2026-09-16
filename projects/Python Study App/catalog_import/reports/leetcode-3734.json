@@ -1,0 +1,50 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3734",
+  "content_sha256": "b9c3840b833170ec613fe06a823821bbc4639bb7a56a709927e6b6b73c2991e9",
+  "source_hash": "bfb23b7c0ef4d3458fc36ffb4f9e13133e54c87380ef77093460ff4cee6bd100",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns a palindrome equal to target even though the comparison must be strict.",
+      "failed_cases": [
+        "lc-3734-1",
+        "lc-3734-3",
+        "lc-3734-4",
+        "lc-3734-7",
+        "lc-3734-8",
+        "lc-3734-10",
+        "lc-3734-11",
+        "lc-3734-12"
+      ]
+    },
+    {
+      "reason": "Allows equality at the first changed half position.",
+      "failed_cases": [
+        "lc-3734-1",
+        "lc-3734-4",
+        "lc-3734-6",
+        "lc-3734-7",
+        "lc-3734-8",
+        "lc-3734-9",
+        "lc-3734-10",
+        "lc-3734-11",
+        "lc-3734-12",
+        "lc-3734-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7781,
+  "oracle_implementation": "code_practice/import_batch_235b.py:palindrome_oracle",
+  "validator_implementation_sha256": "b4e19986446b2e8f11e0d1f4c7d1eae177aeaf18dcfae8290ee2ea4a7a12f74b",
+  "batch_implementation_sha256": "66889c356509aa009538de02f4f6c6e03a8a91d9f6acc3be784fcdef8e5fb143",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3cb72f7e4aaaba6c81c6ad10587ed7b0bbfa0a622cce7a45b197cc56a5197601",
+  "elapsed_seconds": 2.002,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

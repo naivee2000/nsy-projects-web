@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3733",
+  "content_sha256": "e64a6f08447f8a0222741b43dac0c945d62bf70d27bceab8f3c245b5717d17eb",
+  "source_hash": "dd36e0d28c187214d3b0c5ed987bbbaba20d22b7edc5785ea5def7cd78ddfdb1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts hours when both drones recharge as usable union capacity.",
+      "failed_cases": [
+        "lc-3733-2",
+        "lc-3733-13"
+      ]
+    },
+    {
+      "reason": "Requires each drone to have one unnecessary extra available hour.",
+      "failed_cases": [
+        "lc-3733-1",
+        "lc-3733-3",
+        "lc-3733-4",
+        "lc-3733-5",
+        "lc-3733-7",
+        "lc-3733-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7780,
+  "oracle_implementation": "code_practice/import_batch_235b.py:delivery_oracle",
+  "validator_implementation_sha256": "b4e19986446b2e8f11e0d1f4c7d1eae177aeaf18dcfae8290ee2ea4a7a12f74b",
+  "batch_implementation_sha256": "66889c356509aa009538de02f4f6c6e03a8a91d9f6acc3be784fcdef8e5fb143",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2a06c1d179a53ba7f62d86e9b1e89698f3138a5588df34238c1c9e818c8b817b",
+  "elapsed_seconds": 0.05,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
