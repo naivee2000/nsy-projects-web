@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3599",
+  "content_sha256": "88384d12e3865bc609f7837efec4e238836e1e507a910233519d5febe5fa471f",
+  "source_hash": "0eb2a0bcf70c6d9f50e53eb396f1376cf205712c27aeb19abcee67eb706e6f05",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Tracks the smaller value instead of the partition maximum.",
+      "failed_cases": [
+        "lc-3599-1",
+        "lc-3599-2",
+        "lc-3599-3",
+        "lc-3599-4",
+        "lc-3599-5",
+        "lc-3599-6",
+        "lc-3599-7",
+        "lc-3599-8",
+        "lc-3599-10",
+        "lc-3599-11",
+        "lc-3599-12",
+        "lc-3599-13",
+        "lc-3599-14"
+      ]
+    },
+    {
+      "reason": "Uses OR instead of XOR.",
+      "failed_cases": [
+        "lc-3599-5",
+        "lc-3599-8",
+        "lc-3599-10",
+        "lc-3599-11",
+        "lc-3599-13",
+        "lc-3599-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7646,
+  "oracle_implementation": "code_practice/import_batch_230c.py:xor_oracle",
+  "validator_implementation_sha256": "a60589f16f64aa640bb22b1f7e3fbe6389728a9bff385190f51235483e230c1b",
+  "batch_implementation_sha256": "9dc83920783cd699be9afab15077abccc5e8c8ad71edd3fe14694331f09666f7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "64653f06fd77ac5eb1cedae2c3f9b8b22dff7f1ff1d3445d5e9ab43a21a01713",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

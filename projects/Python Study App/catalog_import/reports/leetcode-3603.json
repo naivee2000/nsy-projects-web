@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3603",
+  "content_sha256": "aa7ef43472df3f78480124118a7b15cbd3d69c414b83c31174b3565e1f9d33ce",
+  "source_hash": "7a381d83adf04f7356bdeb2b43264241013df16311663038d3bb3606788712f8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Charges a wait before the first move.",
+      "failed_cases": [
+        "lc-3603-1",
+        "lc-3603-2",
+        "lc-3603-3",
+        "lc-3603-4",
+        "lc-3603-5",
+        "lc-3603-6",
+        "lc-3603-7",
+        "lc-3603-9",
+        "lc-3603-10",
+        "lc-3603-11",
+        "lc-3603-12"
+      ]
+    },
+    {
+      "reason": "Never charges intermediate waits.",
+      "failed_cases": [
+        "lc-3603-2",
+        "lc-3603-4",
+        "lc-3603-5",
+        "lc-3603-6",
+        "lc-3603-7",
+        "lc-3603-9",
+        "lc-3603-10",
+        "lc-3603-11",
+        "lc-3603-12",
+        "lc-3603-13",
+        "lc-3603-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7650,
+  "oracle_implementation": "code_practice/import_batch_230c.py:waiting_oracle",
+  "validator_implementation_sha256": "a60589f16f64aa640bb22b1f7e3fbe6389728a9bff385190f51235483e230c1b",
+  "batch_implementation_sha256": "9dc83920783cd699be9afab15077abccc5e8c8ad71edd3fe14694331f09666f7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "be905baca1e35b225b15f7834f1a93078a35d7785350ce057a3434bff5d90a4c",
+  "elapsed_seconds": 0.057,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3600",
+  "content_sha256": "cd296908f185fa840d08d7497d4258d63ce4700d1c21ea4bdba588fdfcff70cb",
+  "source_hash": "ed5c51e7c2dcae5ab5a858897aa7e10f784c8d2fd2dd1015108bc163521a6672",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Accepts mandatory cycles.",
+      "failed_cases": [
+        "lc-3600-5"
+      ]
+    },
+    {
+      "reason": "Ignores that an unupgradable mandatory edge caps the stability.",
+      "failed_cases": [
+        "lc-3600-1",
+        "lc-3600-12",
+        "lc-3600-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7647,
+  "oracle_implementation": "code_practice/import_batch_230c.py:stability_oracle",
+  "validator_implementation_sha256": "a60589f16f64aa640bb22b1f7e3fbe6389728a9bff385190f51235483e230c1b",
+  "batch_implementation_sha256": "9dc83920783cd699be9afab15077abccc5e8c8ad71edd3fe14694331f09666f7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "79494a7a862bfde7f8c82bf78cfa1a4e4495b3471c300b7154637a9267b433ab",
+  "elapsed_seconds": 0.128,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2835,
+  "count": 2840,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -48676,6 +48676,80 @@
       "source_id": 3596
     },
     {
+      "id": "leetcode-3597",
+      "version": 1,
+      "status": "approved",
+      "title": "Partition String ",
+      "summary": "Given a string s, create segments by starting at index 0 and extending the segment until a unique substring is formed.",
+      "topics": [
+        "strings",
+        "hash sets",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3597.json",
+      "content_sha256": "1e54757ef18ecf22bf67e5d2f0e96fd7aac96dba72ebb7411f5c5c3954cab244",
+      "source_id": 3597
+    },
+    {
+      "id": "leetcode-3598",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Common Prefix Between Adjacent Strings After Removals",
+      "summary": "Given an array of strings, for each index, remove the element at that index, then find the longest common prefix among all adjacent pairs in the modified array.",
+      "topics": [
+        "arrays",
+        "strings",
+        "prefix maxima"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3598.json",
+      "content_sha256": "57ce2003157d6077502f49df421dc2f078046514f81b18b165bb9bb8859355bd",
+      "source_id": 3598
+    },
+    {
+      "id": "leetcode-3599",
+      "version": 1,
+      "status": "approved",
+      "title": "Partition Array to Minimize XOR",
+      "summary": "Given an integer array nums and an integer k, partition nums into k non-empty subarrays.",
+      "topics": [
+        "dynamic programming",
+        "bit manipulation",
+        "prefix xor"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3599.json",
+      "content_sha256": "88384d12e3865bc609f7837efec4e238836e1e507a910233519d5febe5fa471f",
+      "source_id": 3599
+    },
+    {
+      "id": "leetcode-3600",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Spanning Tree Stability with Upgrades",
+      "summary": "Given an integer n representing n nodes numbered from 0 to n-1 and a list of edges where each edge is defined as edges[i] = [u_i, v_i, s_i, m_i] : - u_i and v_i indicate an undirected edge between nodes u_i and v_i .",
+      "topics": [
+        "graphs",
+        "union find",
+        "binary search"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3600.json",
+      "content_sha256": "cd296908f185fa840d08d7497d4258d63ce4700d1c21ea4bdba588fdfcff70cb",
+      "source_id": 3600
+    },
+    {
       "id": "leetcode-3602",
       "version": 1,
       "status": "approved",
@@ -48692,6 +48766,23 @@
       "path": "problems/leetcode-3602.json",
       "content_sha256": "0c348cfe4e6aacd4390510ef049adc7fe033db702b3b98f224420811b7e7dbff",
       "source_id": 3602
+    },
+    {
+      "id": "leetcode-3603",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost Path with Alternating Directions II",
+      "summary": "Given a grid with dimensions m by n, the cost to enter cell (i, j) is defined as (i + 1) * (j + 1).",
+      "topics": [
+        "dynamic programming",
+        "matrices"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3603.json",
+      "content_sha256": "aa7ef43472df3f78480124118a7b15cbd3d69c414b83c31174b3565e1f9d33ce",
+      "source_id": 3603
     },
     {
       "id": "leetcode-3606",

@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3598",
+  "content_sha256": "57ce2003157d6077502f49df421dc2f078046514f81b18b165bb9bb8859355bd",
+  "source_hash": "4e8b649a78676f67d9bf7a387d72b2d7510d012d3d172f7ed66b012e92913472",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Retains a pair touching the removed word.",
+      "failed_cases": [
+        "lc-3598-1",
+        "lc-3598-11",
+        "lc-3598-12",
+        "lc-3598-13",
+        "lc-3598-14"
+      ]
+    },
+    {
+      "reason": "Omits the new bridge pair.",
+      "failed_cases": [
+        "lc-3598-6",
+        "lc-3598-8",
+        "lc-3598-9",
+        "lc-3598-10",
+        "lc-3598-11",
+        "lc-3598-12",
+        "lc-3598-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7645,
+  "oracle_implementation": "code_practice/import_batch_230c.py:removal_oracle",
+  "validator_implementation_sha256": "a60589f16f64aa640bb22b1f7e3fbe6389728a9bff385190f51235483e230c1b",
+  "batch_implementation_sha256": "9dc83920783cd699be9afab15077abccc5e8c8ad71edd3fe14694331f09666f7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b5e6f2135e8c41d64dfd54ac3801b3c1805e2f04d95b0d018d79ca0fd22ebcbe",
+  "elapsed_seconds": 0.075,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
