@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3915",
+  "content_sha256": "0673ce2725baf30f70e39051b53ea895e34f79763add6a766c20f81260ab8bd0",
+  "source_hash": "69c706e7e4f261bd3d8403cfda43daff142778afc9962f53143499b944ccfd80",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows equal consecutive selected values in the lower-value transition.",
+      "failed_cases": [
+        "lc-3915-10"
+      ]
+    },
+    {
+      "reason": "Delays eligibility by one extra index and misses valid pairs exactly k apart.",
+      "failed_cases": [
+        "lc-3915-1",
+        "lc-3915-2",
+        "lc-3915-4",
+        "lc-3915-5",
+        "lc-3915-6",
+        "lc-3915-7",
+        "lc-3915-8",
+        "lc-3915-9",
+        "lc-3915-11",
+        "lc-3915-13",
+        "lc-3915-14",
+        "lc-3915-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7962,
+  "oracle_implementation": "code_practice/import_batch_241d.py:alternating_oracle",
+  "validator_implementation_sha256": "db91ddad111aede48910d5b453c31a2772a1cb1d9210d89867f18df91d796913",
+  "batch_implementation_sha256": "beaffeda464527dfc51dc0e52c939016ea01a07a5b95b066edd0432e4fe286e0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c0be66abe11b5e1041dff7dd0179a97c497f17750f7df5993709cce700054e26",
+  "elapsed_seconds": 0.335,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

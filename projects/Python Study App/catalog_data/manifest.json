@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 3059,
+  "count": 3064,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -53960,6 +53960,46 @@
       "source_id": 3914
     },
     {
+      "id": "leetcode-3915",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Sum of Alternating Subsequence With Distance at Least K",
+      "summary": "Given an integer array nums and an integer k, find the maximum sum of a strictly alternating subsequence where the difference between consecutive indices is at least k.",
+      "topics": [
+        "arrays",
+        "fenwick trees",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3915.json",
+      "content_sha256": "0673ce2725baf30f70e39051b53ea895e34f79763add6a766c20f81260ab8bd0",
+      "source_id": 3915
+    },
+    {
+      "id": "leetcode-3916",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of ZigZag Arrays III",
+      "summary": "Given integers n, l, and r, calculate the count of ZigZag arrays of length n where each element is within [l, r], no two adjacent elements are the same, and no three consecutive elements form a strictly increasing or decreasing sequence.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "prefix sums"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3916.json",
+      "content_sha256": "593e3c9ad6650dd6d8eaefd05cf16927fe62659e0ae8ad2ef608b4ed311d1c63",
+      "source_id": 3916
+    },
+    {
       "id": "leetcode-3917",
       "version": 1,
       "status": "approved",
@@ -53994,6 +54034,43 @@
       "source_id": 3918
     },
     {
+      "id": "leetcode-3919",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost to Move Between Indices",
+      "summary": "Given an increasing integer array nums, for each index x, find the closest adjacent index y with the minimum absolute difference.",
+      "topics": [
+        "arrays",
+        "prefix sums",
+        "queries"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3919.json",
+      "content_sha256": "e11ffc5129525464101b004e35135a238e09c7126323c8beb3632ad252519833",
+      "source_id": 3919
+    },
+    {
+      "id": "leetcode-3920",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Fixed Points After Deletions",
+      "summary": "Given an integer array, identify positions where the value equals the index.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3920.json",
+      "content_sha256": "5c5cca883c3daef79abde76b2e79b4f881e8ea477b52191e58cb9e7559e1189c",
+      "source_id": 3920
+    },
+    {
       "id": "leetcode-3921",
       "version": 1,
       "status": "approved",
@@ -54009,6 +54086,24 @@
       "path": "problems/leetcode-3921.json",
       "content_sha256": "e2a9c25bad92c00a47976791a3b6e278e98ac2a796cb14aa8dff2631516a8179",
       "source_id": 3921
+    },
+    {
+      "id": "leetcode-3922",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Flips to Make Binary String Coherent",
+      "summary": "Given a binary string, determine the least number of flips needed to ensure it does not contain '011' or '110' as subsequences.",
+      "topics": [
+        "strings",
+        "dynamic programming",
+        "automata"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3922.json",
+      "content_sha256": "acfd28ea4c833d1707c03120a5f69125279b6e44da8cf29d630544a804bb9628",
+      "source_id": 3922
     },
     {
       "id": "leetcode-3925",

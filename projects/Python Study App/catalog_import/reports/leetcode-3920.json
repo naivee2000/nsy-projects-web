@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3920",
+  "content_sha256": "5c5cca883c3daef79abde76b2e79b4f881e8ea477b52191e58cb9e7559e1189c",
+  "source_hash": "90c4029988bdaa937567c32e0ececb45d820ce31b961baaf962621b8380a238b",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts every individually eligible candidate even when they cannot coexist in one retained subsequence.",
+      "failed_cases": [
+        "lc-3920-7",
+        "lc-3920-8",
+        "lc-3920-9",
+        "lc-3920-12",
+        "lc-3920-13",
+        "lc-3920-14",
+        "lc-3920-15"
+      ]
+    },
+    {
+      "reason": "Rejects feasible chains whose filler capacity is exactly tight.",
+      "failed_cases": [
+        "lc-3920-6",
+        "lc-3920-9",
+        "lc-3920-10",
+        "lc-3920-12",
+        "lc-3920-13",
+        "lc-3920-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7967,
+  "oracle_implementation": "code_practice/import_batch_241d.py:fixed_oracle",
+  "validator_implementation_sha256": "db91ddad111aede48910d5b453c31a2772a1cb1d9210d89867f18df91d796913",
+  "batch_implementation_sha256": "beaffeda464527dfc51dc0e52c939016ea01a07a5b95b066edd0432e4fe286e0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7bd353e93636aa4806a572116cac2e75bec4025a9e8641bf078e0f2cf0f730b7",
+  "elapsed_seconds": 0.328,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

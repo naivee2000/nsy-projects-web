@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3916",
+  "content_sha256": "593e3c9ad6650dd6d8eaefd05cf16927fe62659e0ae8ad2ef608b4ed311d1c63",
+  "source_hash": "7ae676d6b66ee926cbe87ff29a1c3c9f988ea4062075dc0c99dace9bc286a067",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Allows an equal predecessor in upward transitions.",
+      "failed_cases": [
+        "lc-3916-1",
+        "lc-3916-5",
+        "lc-3916-6",
+        "lc-3916-7",
+        "lc-3916-8",
+        "lc-3916-9",
+        "lc-3916-11",
+        "lc-3916-12",
+        "lc-3916-13",
+        "lc-3916-14",
+        "lc-3916-15"
+      ]
+    },
+    {
+      "reason": "Allows an equal predecessor in downward transitions.",
+      "failed_cases": [
+        "lc-3916-1",
+        "lc-3916-5",
+        "lc-3916-6",
+        "lc-3916-7",
+        "lc-3916-8",
+        "lc-3916-9",
+        "lc-3916-11",
+        "lc-3916-12",
+        "lc-3916-13",
+        "lc-3916-14",
+        "lc-3916-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7963,
+  "oracle_implementation": "code_practice/import_batch_241d.py:zigzag_oracle",
+  "validator_implementation_sha256": "db91ddad111aede48910d5b453c31a2772a1cb1d9210d89867f18df91d796913",
+  "batch_implementation_sha256": "beaffeda464527dfc51dc0e52c939016ea01a07a5b95b066edd0432e4fe286e0",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9a1deb90130aa3c03ffac09c78a6a310b41cb4655fc9ee95e67459593a422fc2",
+  "elapsed_seconds": 2.371,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
