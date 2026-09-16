@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2960,
+  "count": 2965,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -51605,6 +51605,26 @@
       "source_id": 3771
     },
     {
+      "id": "leetcode-3772",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Subgraph Score in a Tree",
+      "summary": "Given an undirected tree with nodes numbered from 0 to n-1, and an array indicating if each node is good or bad, calculate the maximum score for each node.",
+      "topics": [
+        "trees",
+        "dynamic programming",
+        "rerooting"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3772.json",
+      "content_sha256": "96b293e78b480b6404d6ea8c24f4271ecd3976717dd2061013a3723a7b4255fe",
+      "source_id": 3772
+    },
+    {
       "id": "leetcode-3773",
       "version": 1,
       "status": "approved",
@@ -51637,6 +51657,79 @@
       "path": "problems/leetcode-3774.json",
       "content_sha256": "6d0d6ff11b7227d385914512945b9ae57e481bca8268cc1fc784c7b3e396f483",
       "source_id": 3774
+    },
+    {
+      "id": "leetcode-3775",
+      "version": 1,
+      "status": "approved",
+      "title": "Reverse Words With Same Vowel Count",
+      "summary": "Given a string of lowercase English words separated by spaces, count the vowels in the first word.",
+      "topics": [
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3775.json",
+      "content_sha256": "063077c8217be046b9151c06fc782a5f83dcebe607c289743d1bdcc5f204de67",
+      "source_id": 3775
+    },
+    {
+      "id": "leetcode-3776",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Moves to Balance Circular Array",
+      "summary": "Given a circular array balance of length n with each element representing the net balance of a person, determine the minimum number of moves needed for all balances to be non-negative.",
+      "topics": [
+        "arrays",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3776.json",
+      "content_sha256": "394d3348f0d94c57713647299638e411720a63a4d36e1f3bac151ae01046de87",
+      "source_id": 3776
+    },
+    {
+      "id": "leetcode-3777",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Deletions to Make Alternating Substring",
+      "summary": "Given a string s of length n consisting only of the characters 'A' and 'B', and a 2D integer array queries of length q , where each queries[i] is one of the following: - [1, j]: Flip the character at index j of s .",
+      "topics": [
+        "strings",
+        "fenwick trees",
+        "dynamic queries"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3777.json",
+      "content_sha256": "015f29cd6dfb0a15f216d6652c9a24fff79f5d6cb4e01422c7718b97cc620336",
+      "source_id": 3777
+    },
+    {
+      "id": "leetcode-3778",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Distance Excluding One Maximum Weighted Edge",
+      "summary": "Given a positive integer n and a 2D integer array edges, where each edge is defined as [ui, vi, wi], find the minimum cost of a path from node 0 to node n-1, excluding the edge with the maximum weight in the path.",
+      "topics": [
+        "graphs",
+        "shortest paths",
+        "dijkstra"
+      ],
+      "prerequisites": [],
+      "difficulty": 7,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3778.json",
+      "content_sha256": "ba0486430e1101a6f8012dd9495bd8e271e9e76184283311cb4a4447ad520639",
+      "source_id": 3778
     },
     {
       "id": "leetcode-3783",

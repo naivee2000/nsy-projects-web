@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3776",
+  "content_sha256": "394d3348f0d94c57713647299638e411720a63a4d36e1f3bac151ae01046de87",
+  "source_hash": "21fe3966cc80e6d11d1e6363490983d3bf6673a2ce441a102f71a7b9092c2eac",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses linear rather than circular distance, missing wraparound transfers.",
+      "failed_cases": [
+        "lc-3776-1",
+        "lc-3776-8",
+        "lc-3776-13",
+        "lc-3776-14"
+      ]
+    },
+    {
+      "reason": "Fails to reject arrays whose total balance cannot cover the deficit.",
+      "failed_cases": [
+        "lc-3776-5",
+        "lc-3776-6"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7823,
+  "oracle_implementation": "code_practice/import_batch_236d.py:balance_oracle",
+  "validator_implementation_sha256": "9a26da4c79465b83eaa885fe8d01bdb0d955af0ffd3e7e63c7b78c135befba5a",
+  "batch_implementation_sha256": "8f58497dcba5b5ec3cdf2266287a09997c0f45da458fd1c30d060df1c8487ced",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "203770c4e5b4fb79798d661f9061a43ead3d7681e03070f9288c835c437de19a",
+  "elapsed_seconds": 0.047,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

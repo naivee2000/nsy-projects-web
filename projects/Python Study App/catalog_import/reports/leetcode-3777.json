@@ -1,0 +1,43 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3777",
+  "content_sha256": "015f29cd6dfb0a15f216d6652c9a24fff79f5d6cb4e01422c7718b97cc620336",
+  "source_hash": "d3937811e9e8e8e1a1de6909154b09116381642a115b1928f4cd32ea14e1fd34",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Includes the adjacency immediately before the requested substring.",
+      "failed_cases": [
+        "lc-3777-6",
+        "lc-3777-14"
+      ]
+    },
+    {
+      "reason": "Updates only the left adjacency touched by a flip and misses the right one.",
+      "failed_cases": [
+        "lc-3777-1",
+        "lc-3777-6",
+        "lc-3777-8",
+        "lc-3777-9",
+        "lc-3777-10",
+        "lc-3777-11",
+        "lc-3777-12",
+        "lc-3777-13",
+        "lc-3777-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7824,
+  "oracle_implementation": "code_practice/import_batch_236d.py:alternating_oracle",
+  "validator_implementation_sha256": "9a26da4c79465b83eaa885fe8d01bdb0d955af0ffd3e7e63c7b78c135befba5a",
+  "batch_implementation_sha256": "8f58497dcba5b5ec3cdf2266287a09997c0f45da458fd1c30d060df1c8487ced",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "923f4efd1c7af81ce076e41d5791a3a59b9f31196d9276f9f0941110b32f530d",
+  "elapsed_seconds": 0.085,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

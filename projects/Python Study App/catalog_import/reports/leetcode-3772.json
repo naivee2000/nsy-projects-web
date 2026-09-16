@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3772",
+  "content_sha256": "96b293e78b480b6404d6ea8c24f4271ecd3976717dd2061013a3723a7b4255fe",
+  "source_hash": "af045f83b6c13c3291e5bccba31300bbacec9d09717af37d36e28c7e1dc1286e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the root score for every node instead of rerooting contributions.",
+      "failed_cases": [
+        "lc-3772-1",
+        "lc-3772-2",
+        "lc-3772-4",
+        "lc-3772-6",
+        "lc-3772-7",
+        "lc-3772-8",
+        "lc-3772-9",
+        "lc-3772-10",
+        "lc-3772-11",
+        "lc-3772-12",
+        "lc-3772-13",
+        "lc-3772-14"
+      ]
+    },
+    {
+      "reason": "Treats bad nodes as neutral rather than subtracting one.",
+      "failed_cases": [
+        "lc-3772-1",
+        "lc-3772-2",
+        "lc-3772-3",
+        "lc-3772-5",
+        "lc-3772-6",
+        "lc-3772-7",
+        "lc-3772-8",
+        "lc-3772-9",
+        "lc-3772-10",
+        "lc-3772-11",
+        "lc-3772-12",
+        "lc-3772-13",
+        "lc-3772-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7819,
+  "oracle_implementation": "code_practice/import_batch_236d.py:tree_score_oracle",
+  "validator_implementation_sha256": "9a26da4c79465b83eaa885fe8d01bdb0d955af0ffd3e7e63c7b78c135befba5a",
+  "batch_implementation_sha256": "8f58497dcba5b5ec3cdf2266287a09997c0f45da458fd1c30d060df1c8487ced",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ea02cb34aa4579de2e84720cd1bea528403fdacdcb3d676fd9ad79205deaccd4",
+  "elapsed_seconds": 0.107,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

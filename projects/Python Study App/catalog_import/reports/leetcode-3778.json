@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3778",
+  "content_sha256": "ba0486430e1101a6f8012dd9495bd8e271e9e76184283311cb4a4447ad520639",
+  "source_hash": "503e2991b7a670aabfb9b5883aabbb1feedea5053a2cefed4cfd64cbbf2285c4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the ordinary shortest-path sum without excluding an edge.",
+      "failed_cases": [
+        "lc-3778-1",
+        "lc-3778-2",
+        "lc-3778-3",
+        "lc-3778-4",
+        "lc-3778-5",
+        "lc-3778-6",
+        "lc-3778-7",
+        "lc-3778-8",
+        "lc-3778-9",
+        "lc-3778-10",
+        "lc-3778-11",
+        "lc-3778-12",
+        "lc-3778-13",
+        "lc-3778-14"
+      ]
+    },
+    {
+      "reason": "Makes every traversed edge free instead of excluding exactly one maximum edge.",
+      "failed_cases": [
+        "lc-3778-1",
+        "lc-3778-2",
+        "lc-3778-3",
+        "lc-3778-4",
+        "lc-3778-5",
+        "lc-3778-6",
+        "lc-3778-7",
+        "lc-3778-8",
+        "lc-3778-9",
+        "lc-3778-10",
+        "lc-3778-11",
+        "lc-3778-12",
+        "lc-3778-13",
+        "lc-3778-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7825,
+  "oracle_implementation": "code_practice/import_batch_236d.py:path_oracle",
+  "validator_implementation_sha256": "9a26da4c79465b83eaa885fe8d01bdb0d955af0ffd3e7e63c7b78c135befba5a",
+  "batch_implementation_sha256": "8f58497dcba5b5ec3cdf2266287a09997c0f45da458fd1c30d060df1c8487ced",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0026e5ff0341f5617959fe96c8114d2f5fe62270aad0d1e17525438968029f85",
+  "elapsed_seconds": 0.069,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

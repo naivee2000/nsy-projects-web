@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3775",
+  "content_sha256": "063077c8217be046b9151c06fc782a5f83dcebe607c289743d1bdcc5f204de67",
+  "source_hash": "2505c62d8ea183418ab592db85e7cabb2aae0966527a9d1ff2a6e4d630cdbca3",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly reverses the first word when it matches its own vowel count.",
+      "failed_cases": [
+        "lc-3775-1",
+        "lc-3775-2",
+        "lc-3775-4",
+        "lc-3775-5",
+        "lc-3775-6",
+        "lc-3775-7",
+        "lc-3775-8",
+        "lc-3775-9",
+        "lc-3775-10",
+        "lc-3775-12",
+        "lc-3775-13",
+        "lc-3775-14",
+        "lc-3775-15"
+      ]
+    },
+    {
+      "reason": "Reverses words with a different vowel count instead of the same count.",
+      "failed_cases": [
+        "lc-3775-1",
+        "lc-3775-2",
+        "lc-3775-4",
+        "lc-3775-5",
+        "lc-3775-6",
+        "lc-3775-7",
+        "lc-3775-8",
+        "lc-3775-9",
+        "lc-3775-10",
+        "lc-3775-12",
+        "lc-3775-13",
+        "lc-3775-14",
+        "lc-3775-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7822,
+  "oracle_implementation": "code_practice/import_batch_236d.py:vowel_oracle",
+  "validator_implementation_sha256": "9a26da4c79465b83eaa885fe8d01bdb0d955af0ffd3e7e63c7b78c135befba5a",
+  "batch_implementation_sha256": "8f58497dcba5b5ec3cdf2266287a09997c0f45da458fd1c30d060df1c8487ced",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a818b80f89630c25d84b9c13a2c47a5d573c4d36db986bf9d8a803f7fbb44cc3",
+  "elapsed_seconds": 0.039,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
