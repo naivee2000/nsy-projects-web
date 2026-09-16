@@ -24,6 +24,7 @@ The local runner rebuilds the frontend on each start. After pulling dependency c
 - **Back navigation** returns a problem to the page that opened it—Today or Library—without clearing the Library filters.
 - **Run examples** executes the two hand-curated teaching examples: a representative case, a contrasting or boundary case, and a short explanation of why each shown output is correct.
 - **Submit** executes all hidden tests (at least twelve per problem) and records the outcome. Passed hidden tests remain summarized; each failed hidden test can be clicked to reveal only its input, expected value, and the value or error produced by the current code.
+- **Order-independent answers** accept the required results in any outer-list order when the problem contract permits it. The judge still checks every value and duplicate; order inside a path, partition, coordinate, or other sequence remains significant unless the problem also says otherwise.
 - **Local Coach** explains one likely mistake at a time after an unresolved run. Its three-step ladder moves from concrete evidence to a debugging question without revealing the full solution.
 - **Ask Codex coach** is optional and runs only after an explicit click. It sends the problem, visible failure evidence, and current draft to the locally authenticated Codex CLI for deeper Socratic feedback. It requires Codex login and may require internet access.
 - Hints unlock in concept, strategy, pseudocode, and editorial order.

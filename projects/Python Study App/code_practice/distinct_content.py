@@ -897,7 +897,7 @@ add(
                 piece = text[start:end]
                 if piece == piece[::-1]: path.append(piece); build(end,path); path.pop()
         build(0, []); return answer
-    """, SMALL_TEXT_CASES, 8, "O(n·2ⁿ)", "O(n)", "A valid recursion edge consumes one palindromic prefix of the remaining suffix.", "Try every end position, recurse only for palindromic pieces, and backtrack the path."),
+    """, SMALL_TEXT_CASES, 8, "O(n·2ⁿ)", "O(n)", "A valid recursion edge consumes one palindromic prefix of the remaining suffix.", "Try every end position, recurse only for palindromic pieces, and backtrack the path.", comparator="unordered"),
     S("letter-case-variations", "Letter Case Variations", "Return every string formed by independently toggling each letter's case.", ["backtracking", "recursion", "strings"], "letter_case_variations", [("text", "str", "raw")], "list[str]", """
         answer = []
         def build(index, path):
@@ -906,7 +906,7 @@ add(
             if char.isalpha(): build(index+1, path+char.lower()); build(index+1, path+char.upper())
             else: build(index+1, path+char)
         build(0, ""); return answer
-    """, SMALL_TEXT_CASES, 4, "O(2ˡ)", "O(n)", "Letters branch into lower and upper choices while nonletters have one branch.", "Advance one position per recursive call and append at the text-length base case."),
+    """, SMALL_TEXT_CASES, 4, "O(2ˡ)", "O(n)", "Letters branch into lower and upper choices while nonletters have one branch.", "Advance one position per recursive call and append at the text-length base case.", comparator="unordered"),
 )
 
 # Greedy and sequence reasoning.

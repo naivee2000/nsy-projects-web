@@ -1035,6 +1035,9 @@ BATCH.update(BATCH_242A)
 BATCH.update(BATCH_242B)
 BATCH.update(BATCH_243A)
 
+from .order_insensitive_outputs import apply_order_insensitive_outputs
+apply_order_insensitive_outputs(BATCH)
+
 
 def digest(payload):
     return hashlib.sha256(json.dumps(payload, ensure_ascii=False, sort_keys=True).encode()).hexdigest()

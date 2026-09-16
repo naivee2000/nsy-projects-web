@@ -101,6 +101,28 @@ test.each(["wiggle", "strict_wiggle"])("explains %s inequalities and alternative
   expect(await screen.findByText(/One valid output:/)).toBeInTheDocument();
 });
 
+test("explains order-independent combination grading", async () => {
+  const problem = {
+    id: "pair-sum-indices", version: 1, title: "Letter Case Variations", summary: "Toggle letter case.",
+    statement: "Return every variation.", constraints: ["Outer order does not matter."], topics: ["backtracking"], prerequisites: [],
+    difficulty: 4, estimated_minutes: 25, target_time_complexity: "O(2^n)", target_space_complexity: "O(n)",
+    signature: { name: "variations", parameters: [{ name: "text", annotation: "str", adapter: "raw" }],
+      returns: "list[str]", return_adapter: "raw", result_mode: "return" },
+    starter_code: "def variations(text): pass", savedDraft: "def variations(text): pass",
+    tests: [{ id: "case-example", arguments: ["a1"], expected: ["a1", "A1"], comparator: "unordered", visible: true, explanation: "Both cases are required." }],
+    revealedHintLevel: 0, revealedHints: [], solved: false,
+  };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
+    json: () => Promise.resolve(url.endsWith("/pair-sum-indices") ? problem : url.includes("dashboard") ? dashboard : libraryPage()),
+  })));
+  render(<App />);
+  fireEvent.click(await screen.findByRole("button", { name: /Pair Sum Indices/ }));
+  const note = await screen.findByText(/Order-independent judging/);
+  expect(note).toHaveTextContent("outer list may be in any order");
+  expect(note).toHaveTextContent("correct multiplicity");
+  expect(await screen.findByText(/One valid output:/)).toBeInTheDocument();
+});
+
 test("explains alternative shortest encodings and preserves failed output", async () => {
   const problem = {
     id: "pair-sum-indices", version: 1, title: "Shortest encoding", summary: "Encode the input.",

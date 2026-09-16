@@ -490,8 +490,10 @@ export default function App() {
   const decimalListOutput = Boolean(problem?.tests.some((test) => test.comparator === "float_list"));
   const flexibleWiggleOutput = Boolean(problem?.tests.some((test) => test.comparator === "wiggle"));
   const strictWiggleOutput = Boolean(problem?.tests.some((test) => test.comparator === "strict_wiggle"));
+  const unorderedOutput = Boolean(problem?.tests.some((test) => test.comparator === "unordered"));
+  const unorderedNestedOutput = Boolean(problem?.tests.some((test) => test.comparator === "unordered_nested"));
   const orderedGroupsOutput = Boolean(problem?.tests.some((test) => test.comparator === "unordered_rows"));
-  const flexibleOutput = flexibleTreeOutput || bstDeletionOutput || shortestEncodingOutput || flexibleWiggleOutput || strictWiggleOutput || orderedGroupsOutput;
+  const flexibleOutput = flexibleTreeOutput || bstDeletionOutput || shortestEncodingOutput || flexibleWiggleOutput || strictWiggleOutput || unorderedOutput || unorderedNestedOutput || orderedGroupsOutput;
 
   return (
     <div className="app-shell">
@@ -610,13 +612,15 @@ export default function App() {
                 {flexibleTreeOutput && <p className="statement" role="note">Flexible tree judging: any height-balanced BST with the complete input as its inorder traversal is accepted. Preserve duplicate values when present. The displayed tree is only one valid output; its exact shape is not required.</p>}
                 {flexibleWiggleOutput && <p className="statement" role="note">Flexible wiggle judging: modify the original list into any permutation that alternates ≤, ≥, ≤, ≥. The displayed arrangement is only one valid output.</p>}
                 {strictWiggleOutput && <p className="statement" role="note">Strict wiggle judging: modify the original list into any permutation that alternates &lt;, &gt;, &lt;, &gt;. Adjacent values must not be equal. The displayed arrangement is only one valid output.</p>}
+                {unorderedOutput && <p className="statement" role="note">Order-independent judging: return every required result with the correct multiplicity, but the outer list may be in any order. Order inside a path, partition, coordinate, or other nested result still matters.</p>}
+                {unorderedNestedOutput && <p className="statement" role="note">Combination judging: the returned combinations may be rearranged, and values inside each combination may also be rearranged. Required duplicates and multiplicities must still be preserved.</p>}
                 {orderedGroupsOutput && <p className="statement" role="note">Ordered-group judging: keep the groups in their required order. Values within each group may be rearranged, but every repeated value must be preserved. The displayed grouping is only one valid output.</p>}
                 <h2>Examples</h2>
                 {decimalListOutput && <p className="statement" role="note">Decimal-list judging: return one finite number per window, in window order. Each value may differ by at most 0.00001. This is an absolute tolerance, not relative error; integers and decimals are both accepted.</p>}
                 {teachingExamples(problem.tests).map((test, index) => (
                   <div className="example" key={test.id}>
                     <span>EXAMPLE {index + 1}</span>
-                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}{["balanced_bst", "bst_delete", "wiggle", "strict_wiggle", "unordered_rows", "shortest_encoding"].includes(test.comparator) ? "One valid output" : "Output"}: {JSON.stringify(test.expected)}</code>
+                    <code>Input: {JSON.stringify(test.arguments)}{"\n"}{["balanced_bst", "bst_delete", "wiggle", "strict_wiggle", "unordered", "unordered_nested", "unordered_rows", "shortest_encoding"].includes(test.comparator) ? "One valid output" : "Output"}: {JSON.stringify(test.expected)}</code>
                     {test.explanation && <p>{test.explanation}</p>}
                   </div>
                 ))}

@@ -1,22 +1,20 @@
 {
   "valid": true,
   "problem_id": "leetcode-3289",
-  "content_sha256": "b9af4c9072cab05e66c165944baa0fb05c2ad58860bd6a68a2faf8112ccf796a",
+  "content_sha256": "bc1c8f6e7b7d67c95dd7b933431b45a2aed0c972ee69d07c606b4f5dda3fa7f6",
   "source_hash": "d0b19244ae09317e87d57da4f97fd252ea2956be4359016cac7825a8a0f96b98",
   "visible_tests": 2,
   "hidden_tests": 14,
   "reference_passed": 16,
   "wrong_solutions": [
     {
-      "reason": "Returns encounter order instead of the required increasing order.",
+      "reason": "Treats duplicated zero as false and omits it from the answer.",
       "failed_cases": [
         "lc-3289-1",
-        "lc-3289-2",
-        "lc-3289-7",
-        "lc-3289-10",
-        "lc-3289-14",
-        "lc-3289-15",
-        "lc-3289-16"
+        "lc-3289-3",
+        "lc-3289-6",
+        "lc-3289-12",
+        "lc-3289-15"
       ]
     },
     {
@@ -44,12 +42,12 @@
   "oracle_inputs": 500,
   "oracle_seed": 7336,
   "oracle_implementation": "code_practice/import_batch_192a.py:sneaky_oracle",
-  "validator_implementation_sha256": "1c16fa9b259ed8bcf5ff78edbdbd66b96e03df710c840332b21b1ffd258df89e",
+  "validator_implementation_sha256": "0b4edaab37085e61b7c1f29276df33c7445f0740a7baa05cd6ace9e64c56635f",
   "batch_implementation_sha256": "429077ba832ccda06a6bcc88358635212642b3d8c49d7204f5b038beeb63758f",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "767afafb030c8f753503c6fffd4d85bb8c19792f8f9022bc2d3b7890add20a5d",
-  "elapsed_seconds": 0.023,
+  "elapsed_seconds": 0.022,
   "failures": [],
   "workbook_sample": "preserved and independently verified"
 }
