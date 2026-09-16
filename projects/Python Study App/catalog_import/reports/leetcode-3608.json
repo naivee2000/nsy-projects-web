@@ -1,0 +1,41 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3608",
+  "content_sha256": "eba458101e12ef46f9eeaed26efb8f489c21538e3b00acb66f3446e342245333",
+  "source_hash": "2cc813fc1c4c998d35b480a6adc610ce1eb3776229ced9bd41a8fc936fe8e456",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds edges in the wrong chronological direction.",
+      "failed_cases": [
+        "lc-3608-2",
+        "lc-3608-6",
+        "lc-3608-8",
+        "lc-3608-9",
+        "lc-3608-13"
+      ]
+    },
+    {
+      "reason": "Uses a non-strict threshold and returns one removal event too early.",
+      "failed_cases": [
+        "lc-3608-5",
+        "lc-3608-8",
+        "lc-3608-9",
+        "lc-3608-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7655,
+  "oracle_implementation": "code_practice/import_batch_230d.py:components_oracle",
+  "validator_implementation_sha256": "2480a6d97b32c4f392180d0475a22dc4a2fe63cc96a2cd702fcfb3f94985219b",
+  "batch_implementation_sha256": "8c279376fc348067903b73022e96a39c61be70c47264e47be78bf7d73263bf41",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d98d770b4696542124538b842f3fcc2d63d86b86a91b1550269d2fdafb908f29",
+  "elapsed_seconds": 0.049,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

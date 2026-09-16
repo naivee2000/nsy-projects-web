@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3609",
+  "content_sha256": "7c6c83da3e6b0af1e8a57e1d5554c7a1e5e03ec917a04dcab539e2e7e443278d",
+  "source_hash": "d0da124bad84411c5ea15a4ce8215e840da060ab3158db904bce4dad173529b7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Halves an odd dominant coordinate and rejects valid even reversals.",
+      "failed_cases": [
+        "lc-3609-2",
+        "lc-3609-10"
+      ]
+    },
+    {
+      "reason": "Declares every equal-coordinate target unreachable instead of considering its two possible predecessors.",
+      "failed_cases": [
+        "lc-3609-2",
+        "lc-3609-6",
+        "lc-3609-10",
+        "lc-3609-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7656,
+  "oracle_implementation": "code_practice/import_batch_230d.py:moves_oracle",
+  "validator_implementation_sha256": "2480a6d97b32c4f392180d0475a22dc4a2fe63cc96a2cd702fcfb3f94985219b",
+  "batch_implementation_sha256": "8c279376fc348067903b73022e96a39c61be70c47264e47be78bf7d73263bf41",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b6040e576cc8e0798dcb1c4bfe17dd63133623aff0253612d0c29912ca5c76fc",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

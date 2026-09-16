@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3607",
+  "content_sha256": "b03331ecbc55ffe1d3ddcf82ef5383ac02d707f1c658362afb72396934bd8ffe",
+  "source_hash": "5f3f79556cbf2b5d9ebc7f7f69ad1c7488a7375038ddcc4e15bbc69cb26e9ba2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Always returns the component minimum instead of an online queried station.",
+      "failed_cases": [
+        "lc-3607-1",
+        "lc-3607-12"
+      ]
+    },
+    {
+      "reason": "Takes the component representative offline instead of the requested station.",
+      "failed_cases": [
+        "lc-3607-1",
+        "lc-3607-6",
+        "lc-3607-7",
+        "lc-3607-8",
+        "lc-3607-9",
+        "lc-3607-10",
+        "lc-3607-11",
+        "lc-3607-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7654,
+  "oracle_implementation": "code_practice/import_batch_230d.py:maintenance_oracle",
+  "validator_implementation_sha256": "2480a6d97b32c4f392180d0475a22dc4a2fe63cc96a2cd702fcfb3f94985219b",
+  "batch_implementation_sha256": "8c279376fc348067903b73022e96a39c61be70c47264e47be78bf7d73263bf41",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9165f19f313b8ee21d33f75f2e42b4101b21b670ae92089ffb157f229e22525f",
+  "elapsed_seconds": 0.073,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

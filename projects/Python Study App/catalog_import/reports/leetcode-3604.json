@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3604",
+  "content_sha256": "30636cd551ff5ab041cca500516132a7aee6fbab87b7b250518eef093665d857",
+  "source_hash": "751619ca8d3eb2c1b9a62d9c31c265dc35821964927476312170de957be4d255",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Never waits for an edge to open.",
+      "failed_cases": [
+        "lc-3604-1",
+        "lc-3604-2",
+        "lc-3604-6",
+        "lc-3604-8",
+        "lc-3604-11",
+        "lc-3604-12",
+        "lc-3604-13"
+      ]
+    },
+    {
+      "reason": "Treats the inclusive closing time as exclusive.",
+      "failed_cases": [
+        "lc-3604-5",
+        "lc-3604-6",
+        "lc-3604-11",
+        "lc-3604-12",
+        "lc-3604-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7651,
+  "oracle_implementation": "code_practice/import_batch_230d.py:timed_oracle",
+  "validator_implementation_sha256": "2480a6d97b32c4f392180d0475a22dc4a2fe63cc96a2cd702fcfb3f94985219b",
+  "batch_implementation_sha256": "8c279376fc348067903b73022e96a39c61be70c47264e47be78bf7d73263bf41",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "08435cbf07f02e3c9faf55dcd8750aa37a516c9f5e1c8b8c9cfff137ce7950ff",
+  "elapsed_seconds": 0.056,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

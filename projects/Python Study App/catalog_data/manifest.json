@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2840,
+  "count": 2845,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -48785,6 +48785,45 @@
       "source_id": 3603
     },
     {
+      "id": "leetcode-3604",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Reach Destination in Directed Graph",
+      "summary": "Given an integer n and a directed graph with n nodes labeled from 0 to n-1, where each edge has a time range, find the minimum time to reach node n-1 from node 0.",
+      "topics": [
+        "graphs",
+        "shortest paths",
+        "priority queues"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3604.json",
+      "content_sha256": "30636cd551ff5ab041cca500516132a7aee6fbab87b7b250518eef093665d857",
+      "source_id": 3604
+    },
+    {
+      "id": "leetcode-3605",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Stability Factor of Array",
+      "summary": "Given an integer array and a maximum number of modifications, find the minimum stability factor of the array after making at most the specified modifications.",
+      "topics": [
+        "arrays",
+        "gcd",
+        "binary search",
+        "sparse tables"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3605.json",
+      "content_sha256": "344fd1c7766a3b5d2c50673ef65ff68ec40161a00eadee0cb4aae44eaa14b9d2",
+      "source_id": 3605
+    },
+    {
       "id": "leetcode-3606",
       "version": 1,
       "status": "approved",
@@ -48801,6 +48840,62 @@
       "path": "problems/leetcode-3606.json",
       "content_sha256": "cf49846b103bc5346624bcd328e5a5f90069c7b30717401f530e9de01ef10129",
       "source_id": 3606
+    },
+    {
+      "id": "leetcode-3607",
+      "version": 1,
+      "status": "approved",
+      "title": "Power Grid Maintenance",
+      "summary": "Given c power stations with unique identifiers from 1 to c, and n bidirectional cables connecting them, handle queries to either check or offline stations.",
+      "topics": [
+        "graphs",
+        "union find",
+        "priority queues"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3607.json",
+      "content_sha256": "b03331ecbc55ffe1d3ddcf82ef5383ac02d707f1c658362afb72396934bd8ffe",
+      "source_id": 3607
+    },
+    {
+      "id": "leetcode-3608",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time for K Connected Components",
+      "summary": "Given an integer n and an undirected graph with n nodes labeled from 0 to n-1, represented by a 2D array of edges where each edge can be removed at a specific time, and an integer k, find the minimum time t such that removing all edges with a time less than or equal to t results in at least k connected components.",
+      "topics": [
+        "graphs",
+        "union find",
+        "offline processing"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3608.json",
+      "content_sha256": "eba458101e12ef46f9eeaed26efb8f489c21538e3b00acb66f3446e342245333",
+      "source_id": 3608
+    },
+    {
+      "id": "leetcode-3609",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Moves to Reach Target in Grid",
+      "summary": "Given points (sx, sy) and (tx, ty) on an infinite 2D grid, determine the least number of moves to reach (tx, ty) from (sx, sy).",
+      "topics": [
+        "math",
+        "reverse simulation",
+        "memoization"
+      ],
+      "prerequisites": [
+        "math"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3609.json",
+      "content_sha256": "7c6c83da3e6b0af1e8a57e1d5554c7a1e5e03ec917a04dcab539e2e7e443278d",
+      "source_id": 3609
     },
     {
       "id": "leetcode-3622",

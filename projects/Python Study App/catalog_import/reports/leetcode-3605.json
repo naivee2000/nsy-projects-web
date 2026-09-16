@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3605",
+  "content_sha256": "344fd1c7766a3b5d2c50673ef65ff68ec40161a00eadee0cb4aae44eaa14b9d2",
+  "source_hash": "e37c60697a2b2e63df479b71768b9c11d0a4166aa923b2937c4f69ebc04d1ed1",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails to recognize that a window containing the most recent change is already broken.",
+      "failed_cases": [
+        "lc-3605-10",
+        "lc-3605-12",
+        "lc-3605-14"
+      ]
+    },
+    {
+      "reason": "Treats GCD exactly two as unstable.",
+      "failed_cases": [
+        "lc-3605-2",
+        "lc-3605-4",
+        "lc-3605-6",
+        "lc-3605-7",
+        "lc-3605-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7652,
+  "oracle_implementation": "code_practice/import_batch_230d.py:stability_oracle",
+  "validator_implementation_sha256": "2480a6d97b32c4f392180d0475a22dc4a2fe63cc96a2cd702fcfb3f94985219b",
+  "batch_implementation_sha256": "8c279376fc348067903b73022e96a39c61be70c47264e47be78bf7d73263bf41",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "56bff4e05f5cb0ad1e8f60b8fca92d672bc34fd69719eaaef9cf1e811c5359d3",
+  "elapsed_seconds": 0.105,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
