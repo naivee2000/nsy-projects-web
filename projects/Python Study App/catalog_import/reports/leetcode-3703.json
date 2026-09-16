@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3703",
+  "content_sha256": "0f79c544e7c891a5df96dc30bae2cae72e25563a1f26330aaefdea1bb2096bf8",
+  "source_hash": "c26c17009fbb01bde54838c270f6c9687cff74597bfc179f5ab645b13429844b",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Fails when the opening run contains more than k parentheses.",
+      "failed_cases": [
+        "lc-3703-1",
+        "lc-3703-2",
+        "lc-3703-8",
+        "lc-3703-10",
+        "lc-3703-11",
+        "lc-3703-12",
+        "lc-3703-14"
+      ]
+    },
+    {
+      "reason": "Leaves one opening parenthesis behind after every removal.",
+      "failed_cases": [
+        "lc-3703-1",
+        "lc-3703-2",
+        "lc-3703-3",
+        "lc-3703-6",
+        "lc-3703-7",
+        "lc-3703-8",
+        "lc-3703-9",
+        "lc-3703-10",
+        "lc-3703-11",
+        "lc-3703-12",
+        "lc-3703-13",
+        "lc-3703-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7750,
+  "oracle_implementation": "code_practice/import_batch_234a.py:removal_oracle",
+  "validator_implementation_sha256": "94901b7b72dde3be4230c6f4553b79555e3574135556ed260d24817cbcb2909f",
+  "batch_implementation_sha256": "1bccfbf1806cdadcbaa67ea50dbffb30be4914daff16e42142483ec3ed3d4244",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "404a5dca040871dae0dbf0a3a3842868ca61f938320020f53b332bedce1bf93a",
+  "elapsed_seconds": 0.045,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2905,
+  "count": 2910,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -50369,6 +50369,61 @@
       "source_id": 3697
     },
     {
+      "id": "leetcode-3698",
+      "version": 1,
+      "status": "approved",
+      "title": "Split Array With Minimum Difference",
+      "summary": "Given an integer array nums, split it into two subarrays, left and right, such that left is strictly increasing and right is strictly decreasing.",
+      "topics": [
+        "arrays",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3698.json",
+      "content_sha256": "bd843237dfbb8cd5e19d509eb39279f0f6855d10de4631cc6a03a804f9fe8ef1",
+      "source_id": 3698
+    },
+    {
+      "id": "leetcode-3699",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of ZigZag Arrays I",
+      "summary": "Given integers n, l, and r, calculate the total count of ZigZag arrays of length n where each element is within [l, r], no two adjacent elements are equal, and no three consecutive elements form a strictly increasing or decreasing sequence.",
+      "topics": [
+        "dynamic programming",
+        "prefix sums"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3699.json",
+      "content_sha256": "00e530e66eb67a62a330beb51fea1d090fc55ad4817763d2bcd70e63911fc98e",
+      "source_id": 3699
+    },
+    {
+      "id": "leetcode-3700",
+      "version": 1,
+      "status": "approved",
+      "title": "Number of ZigZag Arrays II",
+      "summary": "Given integers n, l, and r, calculate the count of ZigZag arrays of length n where each element is within [l, r], no two adjacent elements are equal, and no three consecutive elements form a strictly increasing or decreasing sequence.",
+      "topics": [
+        "dynamic programming",
+        "linear recurrences"
+      ],
+      "prerequisites": [
+        "dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3700.json",
+      "content_sha256": "f831ad08f4bb9c6ac8f59df5f80701b4c946e1d40e2ce9c7523a4838c61417f8",
+      "source_id": 3700
+    },
+    {
       "id": "leetcode-3701",
       "version": 1,
       "status": "approved",
@@ -50384,6 +50439,41 @@
       "path": "problems/leetcode-3701.json",
       "content_sha256": "5163e65064c93c97553ea0e9b95863b2fd013e4e9653d655c189aa448a0c792c",
       "source_id": 3701
+    },
+    {
+      "id": "leetcode-3702",
+      "version": 1,
+      "status": "approved",
+      "title": "Longest Subsequence With Non-Zero Bitwise XOR",
+      "summary": "Given an integer array, find the length of the longest subsequence with a non-zero bitwise XOR.",
+      "topics": [
+        "arrays",
+        "bit manipulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3702.json",
+      "content_sha256": "d6ab16e680bbc23f08bf467582a5c7c494379d77e60c1c2ad9ed913a74da161c",
+      "source_id": 3702
+    },
+    {
+      "id": "leetcode-3703",
+      "version": 1,
+      "status": "approved",
+      "title": "Remove K-Balanced Substrings",
+      "summary": "Given a string s made of '(' and ')', and an integer k, repeatedly remove all non-overlapping k-balanced substrings (exactly k '(' followed by k ')') from s.",
+      "topics": [
+        "strings",
+        "stacks",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3703.json",
+      "content_sha256": "0f79c544e7c891a5df96dc30bae2cae72e25563a1f26330aaefdea1bb2096bf8",
+      "source_id": 3703
     },
     {
       "id": "leetcode-3707",

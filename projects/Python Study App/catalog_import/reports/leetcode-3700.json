@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3700",
+  "content_sha256": "f831ad08f4bb9c6ac8f59df5f80701b4c946e1d40e2ce9c7523a4838c61417f8",
+  "source_hash": "efcda462f704a1036644c3e069868f4e0a1a0aceb4e49c914c8ae90496595f03",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the preceding generated term for ordinary lengths.",
+      "failed_cases": [
+        "lc-3700-2",
+        "lc-3700-6",
+        "lc-3700-7",
+        "lc-3700-8",
+        "lc-3700-9",
+        "lc-3700-10",
+        "lc-3700-11"
+      ]
+    },
+    {
+      "reason": "Returns the following generated term for ordinary lengths.",
+      "failed_cases": [
+        "lc-3700-2",
+        "lc-3700-6",
+        "lc-3700-7",
+        "lc-3700-8",
+        "lc-3700-9",
+        "lc-3700-10",
+        "lc-3700-11"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7747,
+  "oracle_implementation": "code_practice/import_batch_234a.py:zigzag_oracle",
+  "validator_implementation_sha256": "94901b7b72dde3be4230c6f4553b79555e3574135556ed260d24817cbcb2909f",
+  "batch_implementation_sha256": "1bccfbf1806cdadcbaa67ea50dbffb30be4914daff16e42142483ec3ed3d4244",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "524459ee5871418014676ea4399e8bce9151a78b5dfac4643e6b40c768780bc5",
+  "elapsed_seconds": 0.478,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
