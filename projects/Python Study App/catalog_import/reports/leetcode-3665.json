@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3665",
+  "content_sha256": "971514231e463560fbc48122117a8aea5cc08b48b2c15c31a90bc4c4057cffe5",
+  "source_hash": "fed712c262b344131ca5deda9432d6240d1db9f78e144e639bcc24e51777969e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Keeps downward arrivals moving down instead of turning rightward arrivals downward.",
+      "failed_cases": [
+        "lc-3665-1",
+        "lc-3665-4",
+        "lc-3665-6",
+        "lc-3665-8",
+        "lc-3665-9",
+        "lc-3665-11",
+        "lc-3665-13",
+        "lc-3665-14"
+      ]
+    },
+    {
+      "reason": "Treats every mirror as an ordinary cell with a free direction choice.",
+      "failed_cases": [
+        "lc-3665-1",
+        "lc-3665-6",
+        "lc-3665-8",
+        "lc-3665-9",
+        "lc-3665-10",
+        "lc-3665-12",
+        "lc-3665-13",
+        "lc-3665-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7712,
+  "oracle_implementation": "code_practice/import_batch_233a.py:mirror_oracle",
+  "validator_implementation_sha256": "ca44d205957a29a79308028c75d38384d75e5baa01c88cd10a5c66fc5606f39c",
+  "batch_implementation_sha256": "95f157c4e8dd44cf45906e1f50a45187db876043eb23f4935df7dc78be48f53a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "41010fa457de45ac4d1daf856785c1a6eaf539551d18e3fb36cc212caf38996e",
+  "elapsed_seconds": 0.08,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

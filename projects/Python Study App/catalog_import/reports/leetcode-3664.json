@@ -1,0 +1,38 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3664",
+  "content_sha256": "bad12710b6d3ae65741ba45553d763cccc6847bc175efb2206e91ec35ef43030",
+  "source_hash": "f6f25d2a20acd3e6f350c50394916bdc8e12227c1c409877dec4f7bfec6a8ee2",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Lets one sacrificed internal pair serve more than two center cards.",
+      "failed_cases": [
+        "lc-3664-9",
+        "lc-3664-13",
+        "lc-3664-14"
+      ]
+    },
+    {
+      "reason": "Counts cards already used by internal pairs as leftovers.",
+      "failed_cases": [
+        "lc-3664-9",
+        "lc-3664-13",
+        "lc-3664-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7711,
+  "oracle_implementation": "code_practice/import_batch_233a.py:cards_oracle",
+  "validator_implementation_sha256": "ca44d205957a29a79308028c75d38384d75e5baa01c88cd10a5c66fc5606f39c",
+  "batch_implementation_sha256": "95f157c4e8dd44cf45906e1f50a45187db876043eb23f4935df7dc78be48f53a",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "de3ba611abdc2a11fa61b2efd4a76a1f879ee2201316afa290234be8221132fd",
+  "elapsed_seconds": 0.065,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2885,
+  "count": 2890,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -49792,6 +49792,61 @@
       "source_id": 3663
     },
     {
+      "id": "leetcode-3664",
+      "version": 1,
+      "status": "approved",
+      "title": "Two-Letter Card Game",
+      "summary": "Given a deck of cards as a string array, each card showing two lowercase letters, and a letter x, you score points by removing pairs of cards that both contain x in any position.",
+      "topics": [
+        "strings",
+        "hash maps",
+        "matching"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3664.json",
+      "content_sha256": "bad12710b6d3ae65741ba45553d763cccc6847bc175efb2206e91ec35ef43030",
+      "source_id": 3664
+    },
+    {
+      "id": "leetcode-3665",
+      "version": 1,
+      "status": "approved",
+      "title": "Twisted Mirror Path Count",
+      "summary": "Given an m x n grid with cells either empty (0) or containing a mirror (1), a robot starts at (0, 0) and aims to reach (m - 1, n - 1) by moving only right or down.",
+      "topics": [
+        "matrices",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3665.json",
+      "content_sha256": "971514231e463560fbc48122117a8aea5cc08b48b2c15c31a90bc4c4057cffe5",
+      "source_id": 3665
+    },
+    {
+      "id": "leetcode-3666",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Operations to Equalize Binary String",
+      "summary": "Given a binary string and an integer k, determine the least number of operations needed to convert all characters to '1' by flipping exactly k different indices.",
+      "topics": [
+        "strings",
+        "breadth first search",
+        "disjoint sets"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3666.json",
+      "content_sha256": "8618ec1f26266137772a522ce4d5f1424a0e7cab60ac954660b850ddbb072d4f",
+      "source_id": 3666
+    },
+    {
       "id": "leetcode-3667",
       "version": 1,
       "status": "approved",
@@ -49825,6 +49880,42 @@
       "path": "problems/leetcode-3668.json",
       "content_sha256": "3146988b6ca45a87c5e25d74aed6c7ba0a0c3eaf5d6aaaa7aa54cfb68221dcbe",
       "source_id": 3668
+    },
+    {
+      "id": "leetcode-3669",
+      "version": 1,
+      "status": "approved",
+      "title": "Balanced K-Factor Decomposition",
+      "summary": "Given the integers n and k , decompose n into exactly k positive integers such that the product of these integers equals n .",
+      "topics": [
+        "math",
+        "backtracking",
+        "number theory"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3669.json",
+      "content_sha256": "32afa8b4e3ad459d6d7348653212edd161560d0597e53ca6529bab67f6a7e538",
+      "source_id": 3669
+    },
+    {
+      "id": "leetcode-3670",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Product of Two Integers With No Common Bits",
+      "summary": "Given an integer array, identify two distinct indices where the product of the corresponding values is maximized, with the condition that their binary representations have no shared bits.",
+      "topics": [
+        "arrays",
+        "bit manipulation",
+        "subset dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3670.json",
+      "content_sha256": "ea80b60c2f6d2e5203fe36c3cd6e242540db87d78608ec07b0975e1d5981950e",
+      "source_id": 3670
     },
     {
       "id": "leetcode-3674",
