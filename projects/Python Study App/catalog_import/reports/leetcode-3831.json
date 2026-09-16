@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3831",
+  "content_sha256": "2d4f9e5def078b0374ecbadff9d39eeff6514a9e320d91b9a387cfc0b87daeb0",
+  "source_hash": "2e0d06805625ef66396756a6504d9a7e019d868e4d1680040408f55a1be137bf",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Returns the smallest value on the requested level instead of its median.",
+      "failed_cases": [
+        "lc-3831-2",
+        "lc-3831-6",
+        "lc-3831-7",
+        "lc-3831-8",
+        "lc-3831-9",
+        "lc-3831-10",
+        "lc-3831-11",
+        "lc-3831-13",
+        "lc-3831-14"
+      ]
+    },
+    {
+      "reason": "Returns the lower median when the level has even size.",
+      "failed_cases": [
+        "lc-3831-2",
+        "lc-3831-6",
+        "lc-3831-7",
+        "lc-3831-10",
+        "lc-3831-11",
+        "lc-3831-13",
+        "lc-3831-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7878,
+  "oracle_implementation": "code_practice/import_batch_238d.py:level_oracle",
+  "validator_implementation_sha256": "0335982f05c4ca1e275f8c72551f43a53122288393415cb5481ad7c6ae56acd9",
+  "batch_implementation_sha256": "d98471b3a43e90567854da3a04034fc75e8e22b04a3ee23d03d6859f96008178",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "2384c930587b2d3145d79233bbbead5cd98e7cc67c6763e3ee8e26ddac6da890",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

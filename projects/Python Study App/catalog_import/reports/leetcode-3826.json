@@ -1,0 +1,58 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3826",
+  "content_sha256": "2a7ba7968e2fa21ae2d112bdd1f40c98309bee795cc231f79de4853d6b161306",
+  "source_hash": "7935b064abc72203c7854dec9774c067848ff92c6ab34bc1bcd3cd3dd40912e7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Uses the wrong expanded intercept sign for each cut prefix.",
+      "failed_cases": [
+        "lc-3826-1",
+        "lc-3826-2",
+        "lc-3826-5",
+        "lc-3826-6",
+        "lc-3826-7",
+        "lc-3826-8",
+        "lc-3826-9",
+        "lc-3826-10",
+        "lc-3826-11",
+        "lc-3826-12",
+        "lc-3826-13",
+        "lc-3826-14"
+      ]
+    },
+    {
+      "reason": "Initializes the empty partition at index one instead of index zero.",
+      "failed_cases": [
+        "lc-3826-1",
+        "lc-3826-2",
+        "lc-3826-3",
+        "lc-3826-4",
+        "lc-3826-5",
+        "lc-3826-6",
+        "lc-3826-7",
+        "lc-3826-8",
+        "lc-3826-9",
+        "lc-3826-10",
+        "lc-3826-11",
+        "lc-3826-12",
+        "lc-3826-13",
+        "lc-3826-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7873,
+  "oracle_implementation": "code_practice/import_batch_238d.py:partition_oracle",
+  "validator_implementation_sha256": "0335982f05c4ca1e275f8c72551f43a53122288393415cb5481ad7c6ae56acd9",
+  "batch_implementation_sha256": "d98471b3a43e90567854da3a04034fc75e8e22b04a3ee23d03d6859f96008178",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a39992a7d41ed26093bdb5b113f48856242f49a51aeb3202cc34b043b61108f8",
+  "elapsed_seconds": 0.121,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
