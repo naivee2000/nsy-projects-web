@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 3054,
+  "count": 3059,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -53778,6 +53778,60 @@
       "source_id": 3904
     },
     {
+      "id": "leetcode-3905",
+      "version": 1,
+      "status": "approved",
+      "title": "Multi Source Flood Fill",
+      "summary": "Given a grid size n by m, and an initial coloring of some cells, each cell spreads its color to adjacent uncolored cells simultaneously.",
+      "topics": [
+        "matrices",
+        "breadth-first search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3905.json",
+      "content_sha256": "65049fa7628c2f8cdd2d67d1548f4ba8973ee0c1cd203c1a89b58e553b0837f5",
+      "source_id": 3905
+    },
+    {
+      "id": "leetcode-3906",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Good Integers on a Grid Path",
+      "summary": "Given two integers l and r , and a string directions consisting of exactly three 'D' characters and three 'R' characters, for each integer x in the range [l, r] (inclusive): 1.",
+      "topics": [
+        "digit dynamic programming",
+        "matrices"
+      ],
+      "prerequisites": [
+        "digit dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3906.json",
+      "content_sha256": "ee9da186bf3b4ff8681de175f2d7167ade2e14f78f3cfbd2c6e48b559a93ccd7",
+      "source_id": 3906
+    },
+    {
+      "id": "leetcode-3907",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Smaller Elements With Opposite Parity",
+      "summary": "Given an integer array nums, compute the score for each index.",
+      "topics": [
+        "arrays",
+        "fenwick trees",
+        "coordinate compression"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3907.json",
+      "content_sha256": "5b7e14256acd87a8b35503e9cefc4a2e457fa26d322d70a97c3580770829bc07",
+      "source_id": 3907
+    },
+    {
       "id": "leetcode-3908",
       "version": 1,
       "status": "approved",
@@ -53811,6 +53865,46 @@
       "path": "problems/leetcode-3909.json",
       "content_sha256": "62cf4b8890253ce3dce2add736b079d22c9a5a7845728ae24f2dedabeca29eb5",
       "source_id": 3909
+    },
+    {
+      "id": "leetcode-3910",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Connected Subgraphs with Even Node Sum",
+      "summary": "Given an undirected graph with nodes labeled from 0 to n-1, where each node has a value of either 0 or 1, count the number of non-empty subsets of nodes such that the induced subgraph is connected and the sum of node values in the subset is even.",
+      "topics": [
+        "graphs",
+        "bit manipulation",
+        "enumeration"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3910.json",
+      "content_sha256": "24d1a55ff086b0caba5e8a11cdcdb7d8f7848b13cc21ae685644aa26efca67d7",
+      "source_id": 3910
+    },
+    {
+      "id": "leetcode-3911",
+      "version": 1,
+      "status": "approved",
+      "title": "K-th Smallest Remaining Even Integer in Subarray Queries",
+      "summary": "Given an increasing integer array nums and a series of queries, for each query, identify the k-th smallest even number not present in a specified subarray of nums.",
+      "topics": [
+        "arrays",
+        "binary search",
+        "queries"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3911.json",
+      "content_sha256": "c8f27b8d4b7ea994796e0f8bad680137396915a44af6cd7a9997c72a4981d242",
+      "source_id": 3911
     },
     {
       "id": "leetcode-3912",

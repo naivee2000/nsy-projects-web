@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3910",
+  "content_sha256": "24d1a55ff086b0caba5e8a11cdcdb7d8f7848b13cc21ae685644aa26efca67d7",
+  "source_hash": "37e2cd603ec0af890d919570f3c227f42bc35d4a8f117db05b32cffc855cac06",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts odd-sum connected subsets as well.",
+      "failed_cases": [
+        "lc-3910-1",
+        "lc-3910-3",
+        "lc-3910-5",
+        "lc-3910-6",
+        "lc-3910-7",
+        "lc-3910-8",
+        "lc-3910-9",
+        "lc-3910-11",
+        "lc-3910-12",
+        "lc-3910-13",
+        "lc-3910-14",
+        "lc-3910-15"
+      ]
+    },
+    {
+      "reason": "Counts disconnected subsets because it ignores the reachability comparison.",
+      "failed_cases": [
+        "lc-3910-1",
+        "lc-3910-6",
+        "lc-3910-7",
+        "lc-3910-8",
+        "lc-3910-10",
+        "lc-3910-11",
+        "lc-3910-12",
+        "lc-3910-13",
+        "lc-3910-14",
+        "lc-3910-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7957,
+  "oracle_implementation": "code_practice/import_batch_241c.py:subgraph_oracle",
+  "validator_implementation_sha256": "93fe99a94600e17d3351f54cec87a2255a07fc2ce167079d17764697f4dd42f2",
+  "batch_implementation_sha256": "454d67065851006b8a0a231ab54bbf87fc518b612eb4b500a5af262cefd26ff2",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "061245c0f9d6b1a7fcc67bdb2505429aadf671fe35e31d2c03cb5f05f9a511bc",
+  "elapsed_seconds": 0.232,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
