@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 3074,
+  "count": 3079,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -54361,6 +54361,26 @@
       "source_id": 3937
     },
     {
+      "id": "leetcode-3939",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Non Adjacent Subsets in a Rooted Tree",
+      "summary": "Given a rooted tree with nodes labeled from 0 to n-1, where node 0 is the root, and an integer array nums with values for each node, find the count of non-empty subsets of nodes whose values sum to a multiple of k, ensuring no two nodes in the subset are adjacent, modulo 10^9 + 7.",
+      "topics": [
+        "trees",
+        "dynamic programming",
+        "modular arithmetic"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3939.json",
+      "content_sha256": "462e42528f13791ee79ebe0b67f9b9bd6df93a122bf9f599c94b10e89c76c3ed",
+      "source_id": 3939
+    },
+    {
       "id": "leetcode-3940",
       "version": 1,
       "status": "approved",
@@ -54619,6 +54639,26 @@
       "source_id": 3965
     },
     {
+      "id": "leetcode-3966",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Good Integers in a Range",
+      "summary": "Given integers l, r, and k, count how many numbers in the range [l, r] have an absolute difference of at most k between every pair of adjacent digits.",
+      "topics": [
+        "digit dynamic programming",
+        "memoization",
+        "strings"
+      ],
+      "prerequisites": [
+        "digit dynamic programming"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3966.json",
+      "content_sha256": "551886649deae915a1efbd644750fb57ee45d2aeb7984c8b05906b3ecda5e6fc",
+      "source_id": 3966
+    },
+    {
       "id": "leetcode-3968",
       "version": 1,
       "status": "approved",
@@ -54653,6 +54693,24 @@
       "path": "problems/leetcode-3969.json",
       "content_sha256": "c666eb0c1dc4af164e5ffa1d39691c6f72c7b71e15b3e064929f924ece28bd8e",
       "source_id": 3969
+    },
+    {
+      "id": "leetcode-3970",
+      "version": 1,
+      "status": "approved",
+      "title": "Shortest Path With At Most K Consecutive Identical Characters",
+      "summary": "Given a directed weighted graph with n nodes, where each node has a label and a weight for each directed edge, find the minimum total edge weight of a path from node 0 to node n-1 with at most k consecutive identical characters in the path's label sequence.",
+      "topics": [
+        "graphs",
+        "dijkstra",
+        "state expansion"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3970.json",
+      "content_sha256": "1feccc4d235807e0073af0114ca816f13b0a4769932743703429db9cbb13dc92",
+      "source_id": 3970
     },
     {
       "id": "leetcode-3974",
@@ -55000,6 +55058,42 @@
       "path": "problems/leetcode-4014.json",
       "content_sha256": "02bdbd2dec7eb25b4a6933fa0066e985e3d6a39b6558da66101ff47dc177ea4e",
       "source_id": 4014
+    },
+    {
+      "id": "leetcode-4015",
+      "version": 1,
+      "status": "approved",
+      "title": "Weighted Sum of a Tree",
+      "summary": "Given an integer array parent representing a rooted tree and an integer array nums with node values, calculate the weighted sum of all nodes.",
+      "topics": [
+        "trees",
+        "breadth-first search",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4015.json",
+      "content_sha256": "21d5ad9152a3fa6658316f46269bdb465d16be998c36d409af194d9b3cf8dad7",
+      "source_id": 4015
+    },
+    {
+      "id": "leetcode-4016",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Area of Two Non-Overlapping Square Submatrices",
+      "summary": "Given a 2D matrix mat, find two non-overlapping square submatrices of equal size k, where each cell in the submatrices must be usable (mat[r][c] == 1).",
+      "topics": [
+        "matrix",
+        "binary search",
+        "prefix sums"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-4016.json",
+      "content_sha256": "fca8c01604ddd96f71f47eae3e9f5fe35826fc00b6c95a8d384ed2cecbfde14b",
+      "source_id": 4016
     },
     {
       "id": "leetcode-4020",

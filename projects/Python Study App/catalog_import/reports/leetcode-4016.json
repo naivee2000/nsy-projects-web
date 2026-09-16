@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4016",
+  "content_sha256": "fca8c01604ddd96f71f47eae3e9f5fe35826fc00b6c95a8d384ed2cecbfde14b",
+  "source_hash": "b4ff1ccbd1b2ea4eca63f28e23271c75cf6af6cbcd5e015a0ba864b23225e833",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Requires a gap between squares and rejects squares that merely touch along an edge.",
+      "failed_cases": [
+        "lc-4016-1",
+        "lc-4016-2",
+        "lc-4016-5",
+        "lc-4016-6",
+        "lc-4016-7",
+        "lc-4016-13"
+      ]
+    },
+    {
+      "reason": "Allows each candidate square to contain one unusable cell.",
+      "failed_cases": [
+        "lc-4016-3"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8063,
+  "oracle_implementation": "code_practice/import_batch_243a.py:squares_oracle",
+  "validator_implementation_sha256": "f9fcef39fbec9d85abd6ba6dd150029818d2f0607de97d354cee6b70ee34612a",
+  "batch_implementation_sha256": "ab7e36e23e643e15b50415ff96a9ddb216cf054dfc30e9f724b32159443ff98c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "99e8593d81c9772c1334e1c141b9fd0c1f5db1fec0fbe430fe69bc3db1503cc8",
+  "elapsed_seconds": 0.092,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

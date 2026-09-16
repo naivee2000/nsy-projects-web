@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3970",
+  "content_sha256": "1feccc4d235807e0073af0114ca816f13b0a4769932743703429db9cbb13dc92",
+  "source_hash": "2f53f8c7a96d28ab091ed05ad6c369ecbf5f04fcd317d7cef003ba210cac5c2f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Starts the initial label run at zero and permits one extra repeated label.",
+      "failed_cases": [
+        "lc-3970-1",
+        "lc-3970-3",
+        "lc-3970-6",
+        "lc-3970-10"
+      ]
+    },
+    {
+      "reason": "Rejects a run whose length equals the allowed maximum.",
+      "failed_cases": [
+        "lc-3970-1",
+        "lc-3970-2",
+        "lc-3970-7",
+        "lc-3970-8",
+        "lc-3970-9",
+        "lc-3970-11",
+        "lc-3970-12",
+        "lc-3970-13",
+        "lc-3970-14",
+        "lc-3970-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8017,
+  "oracle_implementation": "code_practice/import_batch_243a.py:path_oracle",
+  "validator_implementation_sha256": "f9fcef39fbec9d85abd6ba6dd150029818d2f0607de97d354cee6b70ee34612a",
+  "batch_implementation_sha256": "ab7e36e23e643e15b50415ff96a9ddb216cf054dfc30e9f724b32159443ff98c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "55284f7142e07419b6c01b4dd11fe93800dc04ca84959a51bdc72e92fb97b61a",
+  "elapsed_seconds": 0.066,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

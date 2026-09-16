@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3966",
+  "content_sha256": "551886649deae915a1efbd644750fb57ee45d2aeb7984c8b05906b3ecda5e6fc",
+  "source_hash": "711087ae72c3ffca7f60e60d2ccdb93ceb704c3bd212317cdd9c8c5a1aa6c44f",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Uses a strict digit-difference bound and rejects pairs differing exactly by k.",
+      "failed_cases": [
+        "lc-3966-1",
+        "lc-3966-2",
+        "lc-3966-4",
+        "lc-3966-6",
+        "lc-3966-7",
+        "lc-3966-8",
+        "lc-3966-9",
+        "lc-3966-10",
+        "lc-3966-11",
+        "lc-3966-12",
+        "lc-3966-14",
+        "lc-3966-15"
+      ]
+    },
+    {
+      "reason": "Subtracts through the left endpoint and makes the range half-open.",
+      "failed_cases": [
+        "lc-3966-1",
+        "lc-3966-2",
+        "lc-3966-4",
+        "lc-3966-5",
+        "lc-3966-7",
+        "lc-3966-8",
+        "lc-3966-9",
+        "lc-3966-12",
+        "lc-3966-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8013,
+  "oracle_implementation": "code_practice/import_batch_243a.py:digits_oracle",
+  "validator_implementation_sha256": "f9fcef39fbec9d85abd6ba6dd150029818d2f0607de97d354cee6b70ee34612a",
+  "batch_implementation_sha256": "ab7e36e23e643e15b50415ff96a9ddb216cf054dfc30e9f724b32159443ff98c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5c006acba30871a7f45c25ab890740cb3348139329b98361d21050ba31c7a6cc",
+  "elapsed_seconds": 0.135,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

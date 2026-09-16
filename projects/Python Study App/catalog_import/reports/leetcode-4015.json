@@ -1,0 +1,60 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-4015",
+  "content_sha256": "21d5ad9152a3fa6658316f46269bdb465d16be998c36d409af194d9b3cf8dad7",
+  "source_hash": "3d5ea310bf3c9da8ad05bb54d0b31d428f682538702447893384da990276b484",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the inclusive current level, giving every deepest node zero weight.",
+      "failed_cases": [
+        "lc-4015-1",
+        "lc-4015-2",
+        "lc-4015-3",
+        "lc-4015-4",
+        "lc-4015-5",
+        "lc-4015-6",
+        "lc-4015-7",
+        "lc-4015-8",
+        "lc-4015-9",
+        "lc-4015-10",
+        "lc-4015-11",
+        "lc-4015-12",
+        "lc-4015-13",
+        "lc-4015-14",
+        "lc-4015-15"
+      ]
+    },
+    {
+      "reason": "Weights values by depth instead of remaining levels through the tree height.",
+      "failed_cases": [
+        "lc-4015-1",
+        "lc-4015-2",
+        "lc-4015-4",
+        "lc-4015-5",
+        "lc-4015-6",
+        "lc-4015-7",
+        "lc-4015-8",
+        "lc-4015-9",
+        "lc-4015-10",
+        "lc-4015-11",
+        "lc-4015-13",
+        "lc-4015-14",
+        "lc-4015-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 8062,
+  "oracle_implementation": "code_practice/import_batch_243a.py:weighted_oracle",
+  "validator_implementation_sha256": "f9fcef39fbec9d85abd6ba6dd150029818d2f0607de97d354cee6b70ee34612a",
+  "batch_implementation_sha256": "ab7e36e23e643e15b50415ff96a9ddb216cf054dfc30e9f724b32159443ff98c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "0cc9183247f5963cbc39d025e9fd10dde1db2fce4fcdb27e39831de5d2853af8",
+  "elapsed_seconds": 0.054,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
