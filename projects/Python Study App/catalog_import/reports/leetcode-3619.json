@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3619",
+  "content_sha256": "d6220d81c17254cfa827ebc83858459f56c2ce05b60e9277740d18fe3bd94d7d",
+  "source_hash": "05e9f266350c7dbbeba58d84bfbae54ca67d72c60d3bce439bd28af1bfb0790c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly joins diagonally touching land.",
+      "failed_cases": [
+        "lc-3619-1",
+        "lc-3619-2",
+        "lc-3619-6",
+        "lc-3619-8",
+        "lc-3619-12"
+      ]
+    },
+    {
+      "reason": "Counts nondivisible island sums instead of divisible ones.",
+      "failed_cases": [
+        "lc-3619-2",
+        "lc-3619-3",
+        "lc-3619-4",
+        "lc-3619-6",
+        "lc-3619-7",
+        "lc-3619-8",
+        "lc-3619-9",
+        "lc-3619-10",
+        "lc-3619-11",
+        "lc-3619-13",
+        "lc-3619-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7666,
+  "oracle_implementation": "code_practice/import_batch_231b.py:islands_oracle",
+  "validator_implementation_sha256": "fee14e861e086dc84df5a171b95e309aaaaf70ab01bded8408102bafa5d82ab7",
+  "batch_implementation_sha256": "49c3c308c1350a0ff06b529f44bdb74fcbf4ae41361672f1eb9fd3b1bd325b0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d1905881099039fa82017943e3dfdf6adf2a1768e9933b9e432f6f04fd6b6de5",
+  "elapsed_seconds": 0.068,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

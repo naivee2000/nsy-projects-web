@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3616",
+  "content_sha256": "e6a2090d2e07248b6365d98ec6ab1c20a8b7ca36e203bbf36eb661044cc51fbc",
+  "source_hash": "f921af24910edc6019d0fafd08d1cd09592ee4b53b12f91c0e11cbc71995b2c7",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts equal ranks as improvements.",
+      "failed_cases": [
+        "lc-3616-2",
+        "lc-3616-6",
+        "lc-3616-7",
+        "lc-3616-10"
+      ]
+    },
+    {
+      "reason": "Counts the initially selected student as a replacement.",
+      "failed_cases": [
+        "lc-3616-2",
+        "lc-3616-4",
+        "lc-3616-7",
+        "lc-3616-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7663,
+  "oracle_implementation": "code_practice/import_batch_231b.py:replacements_oracle",
+  "validator_implementation_sha256": "fee14e861e086dc84df5a171b95e309aaaaf70ab01bded8408102bafa5d82ab7",
+  "batch_implementation_sha256": "49c3c308c1350a0ff06b529f44bdb74fcbf4ae41361672f1eb9fd3b1bd325b0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "170b466ef1b0b23017aa63935f279c3fb81d8f137e4f03ab2ca965da1439f903",
+  "elapsed_seconds": 0.021,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

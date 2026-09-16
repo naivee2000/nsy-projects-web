@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3620",
+  "content_sha256": "f2a1cad95f77c54980be79a228e56b3d97709d5af2ea9e54f66ca5b3953d1979",
+  "source_hash": "18475d9b78b570edaf3c32da6cda90fc53b3aa4d40ad805d150540d90cff1c16",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows paths through offline intermediate nodes.",
+      "failed_cases": [
+        "lc-3620-8"
+      ]
+    },
+    {
+      "reason": "Rejects a path whose total cost equals the budget.",
+      "failed_cases": [
+        "lc-3620-2",
+        "lc-3620-4",
+        "lc-3620-6",
+        "lc-3620-7",
+        "lc-3620-9",
+        "lc-3620-10",
+        "lc-3620-11",
+        "lc-3620-12",
+        "lc-3620-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7667,
+  "oracle_implementation": "code_practice/import_batch_231b.py:recovery_oracle",
+  "validator_implementation_sha256": "fee14e861e086dc84df5a171b95e309aaaaf70ab01bded8408102bafa5d82ab7",
+  "batch_implementation_sha256": "49c3c308c1350a0ff06b529f44bdb74fcbf4ae41361672f1eb9fd3b1bd325b0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "64e9324c2035b5157632ef2d1cca539f4f2c4dd470e11bde7776efbc15753779",
+  "elapsed_seconds": 0.081,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

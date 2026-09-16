@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3618",
+  "content_sha256": "6f50fb140f4d560a3ebd656d2eafad1e54de9cdafc7e921ded9af792338a034c",
+  "source_hash": "1831ed83a2698e5fa93d026c03426b5de9c6dff5a571e87f942d50793fdbe5a4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Incorrectly treats index one as prime.",
+      "failed_cases": [
+        "lc-3618-1",
+        "lc-3618-2",
+        "lc-3618-4",
+        "lc-3618-5",
+        "lc-3618-7",
+        "lc-3618-8",
+        "lc-3618-9",
+        "lc-3618-10",
+        "lc-3618-11",
+        "lc-3618-12",
+        "lc-3618-13",
+        "lc-3618-14"
+      ]
+    },
+    {
+      "reason": "Classifies elements by whether their values are prime rather than their indices.",
+      "failed_cases": [
+        "lc-3618-2",
+        "lc-3618-4",
+        "lc-3618-5",
+        "lc-3618-7",
+        "lc-3618-8",
+        "lc-3618-9",
+        "lc-3618-11",
+        "lc-3618-12",
+        "lc-3618-13",
+        "lc-3618-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7665,
+  "oracle_implementation": "code_practice/import_batch_231b.py:split_oracle",
+  "validator_implementation_sha256": "fee14e861e086dc84df5a171b95e309aaaaf70ab01bded8408102bafa5d82ab7",
+  "batch_implementation_sha256": "49c3c308c1350a0ff06b529f44bdb74fcbf4ae41361672f1eb9fd3b1bd325b0c",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "23a264c563d1756a01b327a9fa48d2bdbd8600c22e59f5f0ec1720956dce85e8",
+  "elapsed_seconds": 0.048,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
