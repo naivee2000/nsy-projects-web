@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3818",
+  "content_sha256": "b8f6fae3038b6e27966eabcaf855d4346ceeaabf295328d90d07cfe2e189d0db",
+  "source_hash": "e6487fd20efcbdc7dc1f9de4b068857eb115fac83c4c2f60029181c3b646af99",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Treats equal adjacent values as strictly increasing.",
+      "failed_cases": [
+        "lc-3818-1",
+        "lc-3818-5",
+        "lc-3818-12",
+        "lc-3818-14"
+      ]
+    },
+    {
+      "reason": "Removes one extra value beyond the last bad adjacency.",
+      "failed_cases": [
+        "lc-3818-1",
+        "lc-3818-4",
+        "lc-3818-5",
+        "lc-3818-6",
+        "lc-3818-8",
+        "lc-3818-9",
+        "lc-3818-10",
+        "lc-3818-11",
+        "lc-3818-12",
+        "lc-3818-13",
+        "lc-3818-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7865,
+  "oracle_implementation": "code_practice/import_batch_238c.py:prefix_oracle",
+  "validator_implementation_sha256": "8d189f183519636e2ee2a7397151773ea0f9c95270c90fb19a6f9d5266bdb859",
+  "batch_implementation_sha256": "d2903e4f75b6a8c6ac56f7499d42d988ff505f0d739bd6596e2958b86ae992f1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "75a1beccdb80b8d298e9e36b3d0902e73383653e1f5d8031a970ef932d5d5027",
+  "elapsed_seconds": 0.022,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

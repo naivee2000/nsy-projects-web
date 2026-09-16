@@ -1,0 +1,39 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3819",
+  "content_sha256": "5e18e9368632c7f3634d8ec06cd4abb5edeee716fb1885489f6da268a4f57486",
+  "source_hash": "e56ac78072f07362d9c11e482c2e1930002f15ffd4caa6b03c94d4a4bf9aa990",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rotates the selected values to the right instead of left.",
+      "failed_cases": [
+        "lc-3819-2",
+        "lc-3819-7",
+        "lc-3819-9",
+        "lc-3819-11",
+        "lc-3819-12",
+        "lc-3819-13"
+      ]
+    },
+    {
+      "reason": "Treats zero as negative and leaves it fixed.",
+      "failed_cases": [
+        "lc-3819-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7866,
+  "oracle_implementation": "code_practice/import_batch_238c.py:rotate_oracle",
+  "validator_implementation_sha256": "8d189f183519636e2ee2a7397151773ea0f9c95270c90fb19a6f9d5266bdb859",
+  "batch_implementation_sha256": "d2903e4f75b6a8c6ac56f7499d42d988ff505f0d739bd6596e2958b86ae992f1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "e33e2ee005d683d58bb4168b9370407d49055e09b117eae770f5b0bc66cbb31c",
+  "elapsed_seconds": 0.034,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

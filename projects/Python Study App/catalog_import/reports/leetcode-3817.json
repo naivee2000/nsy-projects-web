@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3817",
+  "content_sha256": "db7fdd1b5aed7f284d3e63bd456034c682d896da252138b7c7b001edcc6ca111",
+  "source_hash": "8acbb34f45063df0f27f8a6f44709625708d03e46a04cd5a942dc57c67413cd4",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Matches text starting at i rather than ending at i.",
+      "failed_cases": [
+        "lc-3817-1",
+        "lc-3817-9"
+      ]
+    },
+    {
+      "reason": "Starts the suffix one position too early and compares an extra digit.",
+      "failed_cases": [
+        "lc-3817-1",
+        "lc-3817-2",
+        "lc-3817-3",
+        "lc-3817-6",
+        "lc-3817-7",
+        "lc-3817-8",
+        "lc-3817-9",
+        "lc-3817-11",
+        "lc-3817-12",
+        "lc-3817-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7864,
+  "oracle_implementation": "code_practice/import_batch_238c.py:good_oracle",
+  "validator_implementation_sha256": "8d189f183519636e2ee2a7397151773ea0f9c95270c90fb19a6f9d5266bdb859",
+  "batch_implementation_sha256": "d2903e4f75b6a8c6ac56f7499d42d988ff505f0d739bd6596e2958b86ae992f1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c6b392ac1f6bfb43cf7b7c96ec8ea54fbf67cc987567b8529b0cc6546bdf39db",
+  "elapsed_seconds": 0.043,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
