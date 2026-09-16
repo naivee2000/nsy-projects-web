@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3897",
+  "content_sha256": "63b1a8275a3ff3d3c98d43aaca31f9e8ce31095f9c4711599aa164dbb46721c6",
+  "source_hash": "16c5d74bb0c109f3c858402605f27b35a830fd34d06f50e70d8abc3c15f6ea2d",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Sorts segments in the minimizing order.",
+      "failed_cases": [
+        "lc-3897-1",
+        "lc-3897-5",
+        "lc-3897-6",
+        "lc-3897-8",
+        "lc-3897-9",
+        "lc-3897-10",
+        "lc-3897-11",
+        "lc-3897-12",
+        "lc-3897-13",
+        "lc-3897-14",
+        "lc-3897-15"
+      ]
+    },
+    {
+      "reason": "Appends zero for every claimed one bit.",
+      "failed_cases": [
+        "lc-3897-1",
+        "lc-3897-2",
+        "lc-3897-3",
+        "lc-3897-5",
+        "lc-3897-6",
+        "lc-3897-7",
+        "lc-3897-8",
+        "lc-3897-9",
+        "lc-3897-10",
+        "lc-3897-11",
+        "lc-3897-12",
+        "lc-3897-13",
+        "lc-3897-14",
+        "lc-3897-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7944,
+  "oracle_implementation": "code_practice/import_batch_241a.py:segments_oracle",
+  "validator_implementation_sha256": "0ad8c2476a63f82e6627505d489aaca94c27103435002728190f8166bde7068e",
+  "batch_implementation_sha256": "aa315b9e1cc4252f48a5e16a22d1b7e0838291e655329c76859977940fbdac87",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "dca6affc959e83bef0f41f3fb3b4a7c14a354faa969d1b79e0996c648a005059",
+  "elapsed_seconds": 0.403,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

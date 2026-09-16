@@ -1,0 +1,36 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3893",
+  "content_sha256": "7208217bd3d9975171496c895262461c5f109ebf6c4351bcc8c8602aa4e61024",
+  "source_hash": "30905bddc235bf709cda3fd2f2a55446dcbd414cf9da38a3284fbe1b05805570",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Treats an interval ending exactly at the anchor start as disjoint.",
+      "failed_cases": [
+        "lc-3893-3",
+        "lc-3893-8"
+      ]
+    },
+    {
+      "reason": "Treats an interval starting exactly at the anchor end as disjoint.",
+      "failed_cases": [
+        "lc-3893-3",
+        "lc-3893-8"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7940,
+  "oracle_implementation": "code_practice/import_batch_241a.py:team_oracle",
+  "validator_implementation_sha256": "0ad8c2476a63f82e6627505d489aaca94c27103435002728190f8166bde7068e",
+  "batch_implementation_sha256": "aa315b9e1cc4252f48a5e16a22d1b7e0838291e655329c76859977940fbdac87",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "990404b6904f926bc3ce0eec10ed08083b4b0babd2358f4df36add717ccbc92e",
+  "elapsed_seconds": 0.042,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

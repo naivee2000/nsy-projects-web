@@ -1,0 +1,53 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3895",
+  "content_sha256": "31782f8e64befc2b5758bfc363b909cd7c317e385da99f0f5588d101ecb1d08d",
+  "source_hash": "817b8ab20e8a978fab43156630b4a76270ed7981eb9ce38bc66d1ade16e1bb99",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Counts only whether the digit occurs, not all repeated appearances.",
+      "failed_cases": [
+        "lc-3895-1",
+        "lc-3895-6",
+        "lc-3895-7",
+        "lc-3895-9",
+        "lc-3895-10",
+        "lc-3895-11",
+        "lc-3895-13",
+        "lc-3895-15"
+      ]
+    },
+    {
+      "reason": "Counts the mirror digit 9-digit instead of the requested digit.",
+      "failed_cases": [
+        "lc-3895-1",
+        "lc-3895-2",
+        "lc-3895-4",
+        "lc-3895-5",
+        "lc-3895-6",
+        "lc-3895-7",
+        "lc-3895-8",
+        "lc-3895-9",
+        "lc-3895-10",
+        "lc-3895-11",
+        "lc-3895-13",
+        "lc-3895-14",
+        "lc-3895-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7942,
+  "oracle_implementation": "code_practice/import_batch_241a.py:digit_oracle",
+  "validator_implementation_sha256": "0ad8c2476a63f82e6627505d489aaca94c27103435002728190f8166bde7068e",
+  "batch_implementation_sha256": "aa315b9e1cc4252f48a5e16a22d1b7e0838291e655329c76859977940fbdac87",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "de4639d4ae0e0a248393a68cb3cd76ddab9da004e9479d5c5dcc31d135adc07f",
+  "elapsed_seconds": 0.02,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

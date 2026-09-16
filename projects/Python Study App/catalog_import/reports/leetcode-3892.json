@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3892",
+  "content_sha256": "2789b0bf994c914e1d41f2c20307e2870a2f763d6d1c48a3a72e8e386d74974d",
+  "source_hash": "cec764955187c5dfa69ce11ef12db164e60aeaf23daab0becb67075074ce94c8",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Never considers solutions that select circular index zero.",
+      "failed_cases": [
+        "lc-3892-12",
+        "lc-3892-13",
+        "lc-3892-14",
+        "lc-3892-15"
+      ]
+    },
+    {
+      "reason": "Rejects feasible requests at exactly the maximum peak count.",
+      "failed_cases": [
+        "lc-3892-1",
+        "lc-3892-4",
+        "lc-3892-6",
+        "lc-3892-7",
+        "lc-3892-8",
+        "lc-3892-9",
+        "lc-3892-10",
+        "lc-3892-11",
+        "lc-3892-13",
+        "lc-3892-14",
+        "lc-3892-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7939,
+  "oracle_implementation": "code_practice/import_batch_241a.py:peak_oracle",
+  "validator_implementation_sha256": "0ad8c2476a63f82e6627505d489aaca94c27103435002728190f8166bde7068e",
+  "batch_implementation_sha256": "aa315b9e1cc4252f48a5e16a22d1b7e0838291e655329c76859977940fbdac87",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a07ab178dff143e6da0eb0a2e4cb6b5dcde280b69f5bcfef0820c858ae5acaaf",
+  "elapsed_seconds": 0.761,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

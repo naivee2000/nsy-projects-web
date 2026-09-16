@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3896",
+  "content_sha256": "5af2949f3a9f7019ebc64055618782834de562c5ef0953784cff7cd688ffde55",
+  "source_hash": "4e9bc8fb838669ee01632c3aae73762e5695c96f167fb1535836cfa7dc62d1f5",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Reverses the required prime/non-prime index pattern.",
+      "failed_cases": [
+        "lc-3896-1",
+        "lc-3896-2",
+        "lc-3896-3",
+        "lc-3896-6",
+        "lc-3896-8",
+        "lc-3896-9",
+        "lc-3896-10",
+        "lc-3896-11",
+        "lc-3896-12",
+        "lc-3896-13",
+        "lc-3896-14",
+        "lc-3896-15"
+      ]
+    },
+    {
+      "reason": "Forces at least one increment even when the starting value already qualifies.",
+      "failed_cases": [
+        "lc-3896-1",
+        "lc-3896-2",
+        "lc-3896-4",
+        "lc-3896-5",
+        "lc-3896-6",
+        "lc-3896-7",
+        "lc-3896-8",
+        "lc-3896-10",
+        "lc-3896-12",
+        "lc-3896-13",
+        "lc-3896-14",
+        "lc-3896-15"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7943,
+  "oracle_implementation": "code_practice/import_batch_241a.py:alternating_oracle",
+  "validator_implementation_sha256": "0ad8c2476a63f82e6627505d489aaca94c27103435002728190f8166bde7068e",
+  "batch_implementation_sha256": "aa315b9e1cc4252f48a5e16a22d1b7e0838291e655329c76859977940fbdac87",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d57fead1f588f2c1f8f42828487cb61a6bc83d4e3dc5da9d44ca7da4f304ab06",
+  "elapsed_seconds": 0.046,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
