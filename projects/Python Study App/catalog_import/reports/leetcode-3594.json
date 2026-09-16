@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3594",
+  "content_sha256": "453623fcda03c83bde002589ae5efeb8ef0cc79703452bf9ed98c5c95e856ec5",
+  "source_hash": "5a4e1ec685fd11f17713723e18243e0d6ee1d98b4f1a6bd1ebb159acaee51f2e",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Rounds crossing durations when advancing the stage instead of taking the floor.",
+      "failed_cases": [
+        "lc-3594-9",
+        "lc-3594-11",
+        "lc-3594-12"
+      ]
+    },
+    {
+      "reason": "Forgets that a return trip also advances the environmental stage.",
+      "failed_cases": [
+        "lc-3594-2",
+        "lc-3594-8",
+        "lc-3594-9",
+        "lc-3594-12",
+        "lc-3594-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7641,
+  "oracle_implementation": "code_practice/import_batch_230b.py:transport_oracle",
+  "validator_implementation_sha256": "87ac23b402b5f8345f506bb57503e4b4c5594b321d46f0120480e36074355e4a",
+  "batch_implementation_sha256": "36cba7f948a5e11a6c26075beb7af1e533a5f2f4e4839fefc3ba4e153dd07aad",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c306f081b727962f495919c7095b4f3f3b64e86bf7b1e826df4c52df084b5074",
+  "elapsed_seconds": 0.418,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

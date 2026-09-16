@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3596",
+  "content_sha256": "ad0f6f730c98bc5d7b8fb723652c1a4160b761cfe1ef8ba6e188c4c7afc4c21c",
+  "source_hash": "5d15064e37ebc863c42b6ca8c7753c62d5fb828653e88e3319f63a70f1df344c",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forgets the symmetric one-column reachable case.",
+      "failed_cases": [
+        "lc-3596-3"
+      ]
+    },
+    {
+      "reason": "Returns a fabricated area cost for destinations that are unreachable under alternating directions.",
+      "failed_cases": [
+        "lc-3596-4",
+        "lc-3596-5",
+        "lc-3596-6",
+        "lc-3596-7",
+        "lc-3596-8",
+        "lc-3596-9",
+        "lc-3596-10",
+        "lc-3596-11",
+        "lc-3596-12",
+        "lc-3596-13",
+        "lc-3596-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7643,
+  "oracle_implementation": "code_practice/import_batch_230b.py:alternating_oracle",
+  "validator_implementation_sha256": "87ac23b402b5f8345f506bb57503e4b4c5594b321d46f0120480e36074355e4a",
+  "batch_implementation_sha256": "36cba7f948a5e11a6c26075beb7af1e533a5f2f4e4839fefc3ba4e153dd07aad",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "cbc98d7d8bf325f4506a670291a63918be3eb1d2c72a05848c237dd459b1c952",
+  "elapsed_seconds": 0.017,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,0 +1,57 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3593",
+  "content_sha256": "7d08f36ce08080c19a4d3e2e14a32d47f6a5046dab0fc027e3c5bc8461b63c53",
+  "source_hash": "3c2f1fbc95f642102c010da03abb6922bd8e056853a0c06c764d3caaad5db2ce",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts every child branch including those already at the target score.",
+      "failed_cases": [
+        "lc-3593-1",
+        "lc-3593-2",
+        "lc-3593-3",
+        "lc-3593-4",
+        "lc-3593-5",
+        "lc-3593-6",
+        "lc-3593-7",
+        "lc-3593-8",
+        "lc-3593-9",
+        "lc-3593-10",
+        "lc-3593-11",
+        "lc-3593-12",
+        "lc-3593-13",
+        "lc-3593-14"
+      ]
+    },
+    {
+      "reason": "Balances children down to the minimum path score, which cannot be achieved using increments only.",
+      "failed_cases": [
+        "lc-3593-1",
+        "lc-3593-4",
+        "lc-3593-5",
+        "lc-3593-6",
+        "lc-3593-7",
+        "lc-3593-9",
+        "lc-3593-10",
+        "lc-3593-11",
+        "lc-3593-12",
+        "lc-3593-13",
+        "lc-3593-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7640,
+  "oracle_implementation": "code_practice/import_batch_230b.py:increment_oracle",
+  "validator_implementation_sha256": "87ac23b402b5f8345f506bb57503e4b4c5594b321d46f0120480e36074355e4a",
+  "batch_implementation_sha256": "36cba7f948a5e11a6c26075beb7af1e533a5f2f4e4839fefc3ba4e153dd07aad",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ab2e9af1ecbefc63aac9294dcf37d67908a9b1d0d22cec836552c1a43b3f8779",
+  "elapsed_seconds": 0.077,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

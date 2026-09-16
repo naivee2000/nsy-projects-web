@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3595",
+  "content_sha256": "c8601077321fe1f0f0f2d44044233665b96239bbc425e768fcf990a6a20a4b75",
+  "source_hash": "82f7c1754f8215d0fa9e6550644233672b397e636285d81a71965985d58d34a8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Chooses a distinguishing bit only from the once-only residue, failing when the values differ only in the twice-only residue.",
+      "failed_cases": [
+        "lc-3595-1",
+        "lc-3595-5",
+        "lc-3595-11"
+      ]
+    },
+    {
+      "reason": "Reverses which frequency group owns the distinguishing bit and swaps the recovered roles.",
+      "failed_cases": [
+        "lc-3595-1",
+        "lc-3595-2",
+        "lc-3595-3",
+        "lc-3595-4",
+        "lc-3595-5",
+        "lc-3595-6",
+        "lc-3595-7",
+        "lc-3595-8",
+        "lc-3595-9",
+        "lc-3595-10",
+        "lc-3595-11",
+        "lc-3595-12",
+        "lc-3595-13",
+        "lc-3595-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7642,
+  "oracle_implementation": "code_practice/import_batch_230b.py:once_twice_oracle",
+  "validator_implementation_sha256": "87ac23b402b5f8345f506bb57503e4b4c5594b321d46f0120480e36074355e4a",
+  "batch_implementation_sha256": "36cba7f948a5e11a6c26075beb7af1e533a5f2f4e4839fefc3ba4e153dd07aad",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "d5596500a76c53c1ed16fc8b63b68b8087430ceaf51530cb802c6fcf18af8a9c",
+  "elapsed_seconds": 0.067,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

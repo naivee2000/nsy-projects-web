@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3592",
+  "content_sha256": "e4e17e6a8dc8436f77dd138c4508faf9191139a683856ead270e625d3d709ead",
+  "source_hash": "96599e6576750379004930d8516cbc154c1a00386c15f4a37dfcde3ced349a97",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Requires a new denomination to add zero ways at its own amount instead of exactly one.",
+      "failed_cases": [
+        "lc-3592-1",
+        "lc-3592-4",
+        "lc-3592-5",
+        "lc-3592-6",
+        "lc-3592-7",
+        "lc-3592-8",
+        "lc-3592-9",
+        "lc-3592-10",
+        "lc-3592-11",
+        "lc-3592-12",
+        "lc-3592-13",
+        "lc-3592-14"
+      ]
+    },
+    {
+      "reason": "Fails to update the number of ways for the denomination amount itself.",
+      "failed_cases": [
+        "lc-3592-1",
+        "lc-3592-4",
+        "lc-3592-5",
+        "lc-3592-6",
+        "lc-3592-7",
+        "lc-3592-8",
+        "lc-3592-9",
+        "lc-3592-10",
+        "lc-3592-11",
+        "lc-3592-12",
+        "lc-3592-13",
+        "lc-3592-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7639,
+  "oracle_implementation": "code_practice/import_batch_230b.py:inverse_oracle",
+  "validator_implementation_sha256": "87ac23b402b5f8345f506bb57503e4b4c5594b321d46f0120480e36074355e4a",
+  "batch_implementation_sha256": "36cba7f948a5e11a6c26075beb7af1e533a5f2f4e4839fefc3ba4e153dd07aad",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "a982e400c1f0d409fca6e7e735dc3c19b48a4e14006c4f3607ca5474e0b6fb66",
+  "elapsed_seconds": 0.146,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

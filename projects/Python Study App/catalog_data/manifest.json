@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 2830,
+  "count": 2835,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -48582,6 +48582,98 @@
       "path": "problems/leetcode-3591.json",
       "content_sha256": "75f8281a9291d7445f402f30c5f8a9dc7e9f65148cc09430df2fe7d6c15a44e7",
       "source_id": 3591
+    },
+    {
+      "id": "leetcode-3592",
+      "version": 1,
+      "status": "approved",
+      "title": "Inverse Coin Change",
+      "summary": "Given a 1-indexed integer array numWays, where numWays[i] indicates the number of ways to achieve a total amount of i using an infinite supply of some fixed coin denominations, your task is to determine the unique coin denominations that could have produced this array.",
+      "topics": [
+        "dynamic programming",
+        "coin change",
+        "reconstruction"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3592.json",
+      "content_sha256": "e4e17e6a8dc8436f77dd138c4508faf9191139a683856ead270e625d3d709ead",
+      "source_id": 3592
+    },
+    {
+      "id": "leetcode-3593",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Increments to Equalize Leaf Paths",
+      "summary": "Given an integer n and a tree with n nodes, where each node has a cost, the task is to equalize the scores of all root-to-leaf paths by increasing the cost of some nodes.",
+      "topics": [
+        "trees",
+        "dynamic programming",
+        "greedy"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3593.json",
+      "content_sha256": "7d08f36ce08080c19a4d3e2e14a32d47f6a5046dab0fc027e3c5bc8461b63c53",
+      "source_id": 3593
+    },
+    {
+      "id": "leetcode-3594",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Time to Transport All Individuals",
+      "summary": "Given n individuals who need to cross a river using a single boat that can carry at most k people at a time, and considering m environmental stages that affect the crossing time with speed multipliers mul[j], determine the minimum total time required for all individuals to cross the river.",
+      "topics": [
+        "graphs",
+        "bitmasking",
+        "shortest paths"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3594.json",
+      "content_sha256": "453623fcda03c83bde002589ae5efeb8ef0cc79703452bf9ed98c5c95e856ec5",
+      "source_id": 3594
+    },
+    {
+      "id": "leetcode-3595",
+      "version": 1,
+      "status": "approved",
+      "title": "Once Twice",
+      "summary": "Given an integer array nums, where exactly one element appears once, another element appears twice, and all other elements appear exactly three times, return an integer array of length 2.",
+      "topics": [
+        "bit manipulation",
+        "finite state machines",
+        "arrays"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3595.json",
+      "content_sha256": "c8601077321fe1f0f0f2d44044233665b96239bbc425e768fcf990a6a20a4b75",
+      "source_id": 3595
+    },
+    {
+      "id": "leetcode-3596",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Cost Path with Alternating Directions I",
+      "summary": "Given a grid with dimensions m by n, the cost to enter cell (i, j) is (i + 1) * (j + 1).",
+      "topics": [
+        "grids",
+        "state graphs",
+        "invariants"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3596.json",
+      "content_sha256": "ad0f6f730c98bc5d7b8fb723652c1a4160b761cfe1ef8ba6e188c4c7afc4c21c",
+      "source_id": 3596
     },
     {
       "id": "leetcode-3602",
