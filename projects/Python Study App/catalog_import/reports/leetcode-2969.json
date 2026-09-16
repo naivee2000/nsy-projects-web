@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2969",
+  "content_sha256": "d2892bfb753bbfdbc50856aa930cc321cb1ede4a9b95589bebf6dec00edbf645",
+  "source_hash": "1ae79160017f503a0584250b03dde39ade80f7316a399efe4aa783fbcd412a30",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Allows one fewer next purchase choice and can miss the cheapest extension.",
+      "failed_cases": [
+        "lc-2969-2",
+        "lc-2969-4",
+        "lc-2969-5",
+        "lc-2969-6",
+        "lc-2969-8",
+        "lc-2969-9",
+        "lc-2969-10",
+        "lc-2969-11",
+        "lc-2969-12",
+        "lc-2969-14"
+      ]
+    },
+    {
+      "reason": "Treats every paid fruit as free by omitting its price.",
+      "failed_cases": [
+        "lc-2969-1",
+        "lc-2969-2",
+        "lc-2969-3",
+        "lc-2969-4",
+        "lc-2969-5",
+        "lc-2969-6",
+        "lc-2969-7",
+        "lc-2969-8",
+        "lc-2969-9",
+        "lc-2969-10",
+        "lc-2969-11",
+        "lc-2969-12",
+        "lc-2969-13",
+        "lc-2969-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7016,
+  "oracle_implementation": "code_practice/import_batch_244b.py:fruits_oracle",
+  "validator_implementation_sha256": "c3bb0972bec853dee160f132043f74b592ec4c3a42c8580e29ebe7fc0ec5c3d3",
+  "batch_implementation_sha256": "d287e2984580de67cb4198d819b4607569fc55b523780392bc578ee57d4c3bb1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "c68c17e2ff7a246c9bfdef4a2dd38cf68ba481d1dcdfc53d919be08541e73b27",
+  "elapsed_seconds": 0.04,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

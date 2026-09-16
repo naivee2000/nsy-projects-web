@@ -1,0 +1,46 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2817",
+  "content_sha256": "00099242c77d0c754d924e3eeb41ea3c29e8d82c2d0582b8c0d73953ad7a7425",
+  "source_hash": "b380631db9ffa9ab3cc1f6be8b50115da829cfb8b5adb3d5d739ae80a3e78ac8",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Adds candidates one position too late and misses pairs exactly x apart.",
+      "failed_cases": [
+        "lc-2817-1",
+        "lc-2817-2",
+        "lc-2817-3",
+        "lc-2817-5",
+        "lc-2817-6",
+        "lc-2817-7",
+        "lc-2817-8",
+        "lc-2817-9",
+        "lc-2817-10",
+        "lc-2817-11",
+        "lc-2817-12",
+        "lc-2817-14"
+      ]
+    },
+    {
+      "reason": "Checks only pairs exactly x positions apart and misses better pairs at greater distances.",
+      "failed_cases": [
+        "lc-2817-1",
+        "lc-2817-10"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6864,
+  "oracle_implementation": "code_practice/import_batch_244a.py:difference_oracle",
+  "validator_implementation_sha256": "c3bb0972bec853dee160f132043f74b592ec4c3a42c8580e29ebe7fc0ec5c3d3",
+  "batch_implementation_sha256": "10594eaf85a4e0cfcf29eb68f22a26e31a1498b6c16d149b178cb7520664c931",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "bf694e0593c1b91432fda8974696a760afa7244c5fa9e9136ffae1518a5d9c44",
+  "elapsed_seconds": 0.037,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

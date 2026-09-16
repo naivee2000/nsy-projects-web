@@ -1,0 +1,47 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2826",
+  "content_sha256": "47225527cde70878c0a3df673a18d0467a0760c949607bfdc11192dcc533d0ce",
+  "source_hash": "618165784a9b9afe062a488dc09269a111b0101d849261c875b2ddde452f6d7a",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Forces state two to follow only state two and cannot transition from ones.",
+      "failed_cases": [
+        "lc-2826-6",
+        "lc-2826-8",
+        "lc-2826-13",
+        "lc-2826-14"
+      ]
+    },
+    {
+      "reason": "Forces state three to follow only threes and misses cheaper earlier groups.",
+      "failed_cases": [
+        "lc-2826-1",
+        "lc-2826-2",
+        "lc-2826-3",
+        "lc-2826-4",
+        "lc-2826-6",
+        "lc-2826-8",
+        "lc-2826-9",
+        "lc-2826-11",
+        "lc-2826-12",
+        "lc-2826-13",
+        "lc-2826-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6873,
+  "oracle_implementation": "code_practice/import_batch_244a.py:groups_oracle",
+  "validator_implementation_sha256": "c3bb0972bec853dee160f132043f74b592ec4c3a42c8580e29ebe7fc0ec5c3d3",
+  "batch_implementation_sha256": "10594eaf85a4e0cfcf29eb68f22a26e31a1498b6c16d149b178cb7520664c931",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ca54b6165afc8d38cd644e3d8a0bcc3e01ef8a89f34c6376877b5add1f5b56c1",
+  "elapsed_seconds": 0.092,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

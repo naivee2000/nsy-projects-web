@@ -115,7 +115,8 @@ try {
     assert.equal(accepted.cases.length, problem.tests.length);
     report.worker.push({ id: entry.id, status: accepted.status, cases: accepted.cases.length });
     for (const wrong of problem.known_wrong_solutions) {
-      assert.equal((await judge(page, problem, wrong)).status, 'wrong_answer', `${entry.id} wrong algorithm`);
+      const rejected = await judge(page, problem, wrong);
+      assert.equal(rejected.status, 'wrong_answer', `${entry.id} wrong algorithm: ${JSON.stringify(rejected)}`);
     }
   }
   report.checks.push('every changed reference and both documented wrong algorithms ran in fresh Pyodide workers');

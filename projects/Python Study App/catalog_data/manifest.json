@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 3098,
+  "count": 3115,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -38482,6 +38482,24 @@
       "source_id": 2816
     },
     {
+      "id": "leetcode-2817",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Absolute Difference Between Elements With Constraint",
+      "summary": "Given an integer array nums and an integer x, find the smallest difference between any two elements where the indices of these elements are at least x apart.",
+      "topics": [
+        "arrays",
+        "ordered sets",
+        "binary search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2817.json",
+      "content_sha256": "00099242c77d0c754d924e3eeb41ea3c29e8d82c2d0582b8c0d73953ad7a7425",
+      "source_id": 2817
+    },
+    {
       "id": "leetcode-2824",
       "version": 1,
       "status": "approved",
@@ -38516,6 +38534,23 @@
       "path": "problems/leetcode-2825.json",
       "content_sha256": "643a60a9b73e8ac982d8efe1eb076c45451cd86e6663810091395ff92e02ad33",
       "source_id": 2825
+    },
+    {
+      "id": "leetcode-2826",
+      "version": 1,
+      "status": "approved",
+      "title": "Sorting Three Groups",
+      "summary": "Given an integer array where each element is either 1, 2, or 3, determine the least number of elements to remove to ensure the array is in non-decreasing order.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2826.json",
+      "content_sha256": "47225527cde70878c0a3df673a18d0467a0760c949607bfdc11192dcc533d0ce",
+      "source_id": 2826
     },
     {
       "id": "leetcode-2828",
@@ -38553,6 +38588,24 @@
       "source_id": 2829
     },
     {
+      "id": "leetcode-2830",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize the Profit as the Salesman",
+      "summary": "Given the number of houses and offers from buyers specifying the range of houses they want to purchase and the gold they offer, determine the maximum gold that can be earned by selling houses to buyers without any house being sold to more than one buyer.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "intervals"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2830.json",
+      "content_sha256": "fbf64cd89ab3137b389505255b1a5d50efe7e12f8e5419fc578f1b8c8c781b1a",
+      "source_id": 2830
+    },
+    {
       "id": "leetcode-2831",
       "version": 1,
       "status": "approved",
@@ -38569,6 +38622,23 @@
       "path": "problems/leetcode-2831.json",
       "content_sha256": "a656f9b1c7c2ea83552fe418b43f67cff4063be580bcdd6bec9a6d2a4fd873db",
       "source_id": 2831
+    },
+    {
+      "id": "leetcode-2832",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximal Range That Each Element Is Maximum in It",
+      "summary": "Given an array of distinct integers, create an array where each element represents the longest subarray starting or ending at the corresponding index, with that element being the maximum in the subarray.",
+      "topics": [
+        "arrays",
+        "monotonic stack"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2832.json",
+      "content_sha256": "429fee4d70dcbdaf56890142ac1877798b21c179ec6dfab23f8927691e534c37",
+      "source_id": 2832
     },
     {
       "id": "leetcode-2833",
@@ -38604,6 +38674,44 @@
       "path": "problems/leetcode-2834.json",
       "content_sha256": "c0d44ac65c0133880b62be32f3a99bf02171741babd236056ae7b595390bfe32",
       "source_id": 2834
+    },
+    {
+      "id": "leetcode-2836",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximize Value of Function in a Ball Passing Game",
+      "summary": "Given an integer array receiver of length n and an integer k, select a starting player i.",
+      "topics": [
+        "graphs",
+        "binary lifting",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2836.json",
+      "content_sha256": "048e78a0ff785f31bf39eb2d90b800692f42e440f5277d3826a214d6bffbd73a",
+      "source_id": 2836
+    },
+    {
+      "id": "leetcode-2838",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Coins Heroes Can Collect",
+      "summary": "Given n heroes and m monsters with their respective powers, and an array of coins for each monster, determine the maximum coins each hero can collect by defeating monsters.",
+      "topics": [
+        "sorting",
+        "prefix sums",
+        "binary search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2838.json",
+      "content_sha256": "bf579b4f8a78a5742e0cedf4a658dd026b87410cf1701df7f3481f4515f52666",
+      "source_id": 2838
     },
     {
       "id": "leetcode-2839",
@@ -38907,6 +39015,26 @@
       "source_id": 2861
     },
     {
+      "id": "leetcode-2862",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Element-Sum of a Complete Subset of Indices",
+      "summary": "Given a 1-indexed array nums, choose a complete subset where the product of any two indices is a perfect square.",
+      "topics": [
+        "arrays",
+        "number theory",
+        "hash maps"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2862.json",
+      "content_sha256": "77a6268823609bac9671924c7a519cb56ea1cf6ea4759ce6a36174de94541074",
+      "source_id": 2862
+    },
+    {
       "id": "leetcode-2863",
       "version": 1,
       "status": "approved",
@@ -39032,6 +39160,26 @@
       "source_id": 2871
     },
     {
+      "id": "leetcode-2872",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Number of K-Divisible Components",
+      "summary": "Given an undirected tree with nodes labeled from 0 to n-1, and a 2D array of edges, along with a values array and an integer k, determine the maximum number of components in the tree where each component's value (sum of node values) is divisible by k by removing any set of edges.",
+      "topics": [
+        "trees",
+        "depth-first search",
+        "modular arithmetic"
+      ],
+      "prerequisites": [
+        "trees"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2872.json",
+      "content_sha256": "94e46e255c26ad27878503acfac75d7a9627ddea5641d781d6df9758a1219cbc",
+      "source_id": 2872
+    },
+    {
       "id": "leetcode-2873",
       "version": 1,
       "status": "approved",
@@ -39083,6 +39231,26 @@
       "path": "problems/leetcode-2875.json",
       "content_sha256": "f422014c78b931574b6ea05da7409cb004672d4b98214c9978702545b1edd7b3",
       "source_id": 2875
+    },
+    {
+      "id": "leetcode-2876",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Visited Nodes in a Directed Graph",
+      "summary": "Given a directed graph with n nodes and edges, for each node i, return the count of distinct nodes visited when starting from node i and following edges until a previously visited node is encountered.",
+      "topics": [
+        "graphs",
+        "cycles",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "graphs"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2876.json",
+      "content_sha256": "7c92bab46f7d37893d5f29463bdfca0557d6b716338ad6bc0482b67ebdab0d14",
+      "source_id": 2876
     },
     {
       "id": "leetcode-2892",
@@ -39435,6 +39603,43 @@
       "source_id": 2924
     },
     {
+      "id": "leetcode-2925",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Score After Applying Operations on a Tree",
+      "summary": "Given an undirected tree with nodes labeled from 0 to n-1, and a set of edges connecting these nodes, along with an array of node values, you can increase your score by selecting any node, adding its value to your score, and setting its value to zero.",
+      "topics": [
+        "trees",
+        "dynamic programming",
+        "depth-first search"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-2925.json",
+      "content_sha256": "e005dd017baed2e2625b66aab47a8bd32fa64e8fe7fb12472bed1f3d3d8bed94",
+      "source_id": 2925
+    },
+    {
+      "id": "leetcode-2927",
+      "version": 1,
+      "status": "approved",
+      "title": "Distribute Candies Among Children III",
+      "summary": "Given positive integers n and limit, calculate the number of ways to distribute n candies among 3 children with each child receiving no more than limit candies.",
+      "topics": [
+        "combinatorics",
+        "inclusion exclusion"
+      ],
+      "prerequisites": [
+        "combinatorics"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2927.json",
+      "content_sha256": "d8c0c5ed36b81c40faf318a91324ebceabe0835a6a717b0054adaaf32d26b3d4",
+      "source_id": 2927
+    },
+    {
       "id": "leetcode-2928",
       "version": 1,
       "status": "approved",
@@ -39486,6 +39691,26 @@
       "path": "problems/leetcode-2930.json",
       "content_sha256": "1247dd7fcd829425ee438b1ca25d43919d6a99b294a37ae33b9ee8a3f54e18bf",
       "source_id": 2930
+    },
+    {
+      "id": "leetcode-2931",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Spending After Buying Items",
+      "summary": "Given an m * n matrix of item values, where each shop's items are sorted in non-increasing order, you are to buy one item per day from any shop.",
+      "topics": [
+        "heaps",
+        "greedy",
+        "sorting"
+      ],
+      "prerequisites": [
+        "heaps"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2931.json",
+      "content_sha256": "ab4952d7375c2f23d7234eb5df6ece93d1a52958c3f27479d1d678729b1647d4",
+      "source_id": 2931
     },
     {
       "id": "leetcode-2932",
@@ -39593,6 +39818,26 @@
       "path": "problems/leetcode-2939.json",
       "content_sha256": "d3ebb36bc6cd1f303e0ba88619a06a91a1f6c555f0f329375acb16ab644fc82e",
       "source_id": 2939
+    },
+    {
+      "id": "leetcode-2940",
+      "version": 1,
+      "status": "approved",
+      "title": "Find Building Where Alice and Bob Can Meet",
+      "summary": "Given an array of building heights, determine the leftmost building where Alice and Bob can meet for each query.",
+      "topics": [
+        "arrays",
+        "segment tree",
+        "binary search"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2940.json",
+      "content_sha256": "cfbbcc5b8580641b97d22d29b5a0330be9f724f0d0a1110cbcb66140a811ba8e",
+      "source_id": 2940
     },
     {
       "id": "leetcode-2942",
@@ -39755,6 +40000,26 @@
       "source_id": 2952
     },
     {
+      "id": "leetcode-2953",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Complete Substrings",
+      "summary": "Given a string and an integer k, count the number of substrings where each character appears exactly k times and the difference between any two adjacent characters is at most 2.",
+      "topics": [
+        "strings",
+        "sliding window",
+        "counting"
+      ],
+      "prerequisites": [
+        "strings"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2953.json",
+      "content_sha256": "f773111fb90b99f593cf0ced92b480b22bac235fc5e93e04c0ea85546dc68a5c",
+      "source_id": 2953
+    },
+    {
       "id": "leetcode-2955",
       "version": 1,
       "status": "approved",
@@ -39880,6 +40145,26 @@
       "source_id": 2962
     },
     {
+      "id": "leetcode-2963",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Good Partitions",
+      "summary": "Given an array of positive integers, determine the count of all possible partitions where each subarray contains unique numbers, modulo 10^9 + 7.",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "greedy"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2963.json",
+      "content_sha256": "660d826cb94b4d309f20c2d11e93ac2ff00222a522455c18423c47280c7051ff",
+      "source_id": 2963
+    },
+    {
       "id": "leetcode-2964",
       "version": 1,
       "status": "approved",
@@ -39916,6 +40201,26 @@
       "source_id": 2966
     },
     {
+      "id": "leetcode-2969",
+      "version": 1,
+      "status": "approved",
+      "title": "Minimum Number of Coins for Fruits II",
+      "summary": "Given an array prices representing the cost of each fruit, where purchasing the i-th fruit allows you to get the next i fruits free, determine the minimum coins required to acquire all the fruits, considering you can purchase any fruit to get future fruits free.",
+      "topics": [
+        "arrays",
+        "dynamic programming",
+        "monotonic queue"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2969.json",
+      "content_sha256": "d2892bfb753bbfdbc50856aa930cc321cb1ede4a9b95589bebf6dec00edbf645",
+      "source_id": 2969
+    },
+    {
       "id": "leetcode-2970",
       "version": 1,
       "status": "approved",
@@ -39950,6 +40255,25 @@
       "path": "problems/leetcode-2971.json",
       "content_sha256": "69389cfd11ddf948eb23fc8bd3a9247723227b6ef427a7a911120ddddeaa041a",
       "source_id": 2971
+    },
+    {
+      "id": "leetcode-2972",
+      "version": 1,
+      "status": "approved",
+      "title": "Count the Number of Incremovable Subarrays II",
+      "summary": "Given an array of positive integers, count the number of subarrays that, when removed, result in a strictly increasing array.",
+      "topics": [
+        "arrays",
+        "two pointers"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-2972.json",
+      "content_sha256": "54b9547731d2c254feaf5c487ed3b2bebad83b640eb6773a8846fa6f41c932e0",
+      "source_id": 2972
     },
     {
       "id": "leetcode-2974",

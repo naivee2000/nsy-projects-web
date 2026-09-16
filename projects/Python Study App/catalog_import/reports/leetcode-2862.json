@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2862",
+  "content_sha256": "77a6268823609bac9671924c7a519cb56ea1cf6ea4759ce6a36174de94541074",
+  "source_hash": "c4293bce5ef58fee4ac16b5259554d3af539ba874d19d7a02773761aaca98197",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Groups positions only by parity, which does not characterize square index products.",
+      "failed_cases": [
+        "lc-2862-1",
+        "lc-2862-2",
+        "lc-2862-5",
+        "lc-2862-6",
+        "lc-2862-7",
+        "lc-2862-8",
+        "lc-2862-9",
+        "lc-2862-10",
+        "lc-2862-11",
+        "lc-2862-12",
+        "lc-2862-13",
+        "lc-2862-14"
+      ]
+    },
+    {
+      "reason": "Overwrites earlier values instead of summing each complete group.",
+      "failed_cases": [
+        "lc-2862-1",
+        "lc-2862-2",
+        "lc-2862-5",
+        "lc-2862-6",
+        "lc-2862-7",
+        "lc-2862-9",
+        "lc-2862-10",
+        "lc-2862-11",
+        "lc-2862-13",
+        "lc-2862-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6909,
+  "oracle_implementation": "code_practice/import_batch_244a.py:complete_oracle",
+  "validator_implementation_sha256": "c3bb0972bec853dee160f132043f74b592ec4c3a42c8580e29ebe7fc0ec5c3d3",
+  "batch_implementation_sha256": "10594eaf85a4e0cfcf29eb68f22a26e31a1498b6c16d149b178cb7520664c931",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "deecc1cf55dc9acb7cf2ad856985bf3ca69115b54294af16d81d00aabf783800",
+  "elapsed_seconds": 0.096,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

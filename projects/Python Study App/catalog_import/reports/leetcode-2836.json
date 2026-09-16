@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2836",
+  "content_sha256": "048e78a0ff785f31bf39eb2d90b800692f42e440f5277d3826a214d6bffbd73a",
+  "source_hash": "5d52288f722f8e29a8f76ea9262ecb32d8b42184f971bc6948e51769641b4d39",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Omits the final reached node from each function value.",
+      "failed_cases": [
+        "lc-2836-1",
+        "lc-2836-2",
+        "lc-2836-6",
+        "lc-2836-8",
+        "lc-2836-10",
+        "lc-2836-12",
+        "lc-2836-13",
+        "lc-2836-14"
+      ]
+    },
+    {
+      "reason": "Stores receiver values instead of the starting nodes for jump-block sums.",
+      "failed_cases": [
+        "lc-2836-1",
+        "lc-2836-2",
+        "lc-2836-5",
+        "lc-2836-7",
+        "lc-2836-9",
+        "lc-2836-10",
+        "lc-2836-11",
+        "lc-2836-13"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6883,
+  "oracle_implementation": "code_practice/import_batch_244a.py:ball_oracle",
+  "validator_implementation_sha256": "c3bb0972bec853dee160f132043f74b592ec4c3a42c8580e29ebe7fc0ec5c3d3",
+  "batch_implementation_sha256": "10594eaf85a4e0cfcf29eb68f22a26e31a1498b6c16d149b178cb7520664c931",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "b9cb4cacd1d594c12359a368576dc2ce11635a5183dee51400f562b4bd6bdd0e",
+  "elapsed_seconds": 0.06,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

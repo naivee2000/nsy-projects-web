@@ -1,0 +1,44 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2830",
+  "content_sha256": "fbf64cd89ab3137b389505255b1a5d50efe7e12f8e5419fc578f1b8c8c781b1a",
+  "source_hash": "affcc223e1c03074f813675ba8dd8fc43e8ca3195db4362d8162cd73e0a61f79",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Combines an offer with schedules that may already sell its starting house.",
+      "failed_cases": [
+        "lc-2830-2",
+        "lc-2830-5",
+        "lc-2830-6",
+        "lc-2830-8",
+        "lc-2830-10"
+      ]
+    },
+    {
+      "reason": "Drops the best profit carried from the preceding house.",
+      "failed_cases": [
+        "lc-2830-1",
+        "lc-2830-2",
+        "lc-2830-6",
+        "lc-2830-8",
+        "lc-2830-9",
+        "lc-2830-10",
+        "lc-2830-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6877,
+  "oracle_implementation": "code_practice/import_batch_244a.py:offers_oracle",
+  "validator_implementation_sha256": "c3bb0972bec853dee160f132043f74b592ec4c3a42c8580e29ebe7fc0ec5c3d3",
+  "batch_implementation_sha256": "10594eaf85a4e0cfcf29eb68f22a26e31a1498b6c16d149b178cb7520664c931",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "7ce262c983bca9f5108ca20539710e17b4e893b0f1be29219cc57fade3667a1d",
+  "elapsed_seconds": 0.096,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

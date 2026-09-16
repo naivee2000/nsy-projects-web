@@ -1,0 +1,48 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2872",
+  "content_sha256": "94e46e255c26ad27878503acfac75d7a9627ddea5641d781d6df9758a1219cbc",
+  "source_hash": "73acbcc0364364e971b581639c0a024c984b4468b7e97c59fb899ba3b3321d17",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Counts nondivisible subtrees instead of cuttable divisible ones.",
+      "failed_cases": [
+        "lc-2872-1",
+        "lc-2872-2",
+        "lc-2872-3",
+        "lc-2872-5",
+        "lc-2872-6",
+        "lc-2872-7",
+        "lc-2872-8",
+        "lc-2872-9",
+        "lc-2872-10",
+        "lc-2872-12",
+        "lc-2872-13",
+        "lc-2872-14"
+      ]
+    },
+    {
+      "reason": "Returns only each root value and discards child subtree sums.",
+      "failed_cases": [
+        "lc-2872-1",
+        "lc-2872-7",
+        "lc-2872-10",
+        "lc-2872-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6919,
+  "oracle_implementation": "code_practice/import_batch_244a.py:components_oracle",
+  "validator_implementation_sha256": "c3bb0972bec853dee160f132043f74b592ec4c3a42c8580e29ebe7fc0ec5c3d3",
+  "batch_implementation_sha256": "10594eaf85a4e0cfcf29eb68f22a26e31a1498b6c16d149b178cb7520664c931",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "3fbc4b7377edf80bbe6ad411db5b65f67ec4fa87f2d2cab6c03e10d6dfb109cc",
+  "elapsed_seconds": 0.087,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

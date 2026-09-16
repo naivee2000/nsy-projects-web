@@ -1,0 +1,49 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2927",
+  "content_sha256": "d8c0c5ed36b81c40faf318a91324ebceabe0835a6a717b0054adaaf32d26b3d4",
+  "source_hash": "2ff6beaef9f97958180515f3318c546efa886022ae65f21f2faeb691aa6d44bd",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Subtracts only two choices for which child exceeds the limit.",
+      "failed_cases": [
+        "lc-2927-1",
+        "lc-2927-5",
+        "lc-2927-6",
+        "lc-2927-7",
+        "lc-2927-8",
+        "lc-2927-9",
+        "lc-2927-11",
+        "lc-2927-12",
+        "lc-2927-13",
+        "lc-2927-14"
+      ]
+    },
+    {
+      "reason": "Adds back only two pairwise intersections instead of three.",
+      "failed_cases": [
+        "lc-2927-7",
+        "lc-2927-8",
+        "lc-2927-9",
+        "lc-2927-11",
+        "lc-2927-12",
+        "lc-2927-13",
+        "lc-2927-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6974,
+  "oracle_implementation": "code_practice/import_batch_244b.py:candies_oracle",
+  "validator_implementation_sha256": "c3bb0972bec853dee160f132043f74b592ec4c3a42c8580e29ebe7fc0ec5c3d3",
+  "batch_implementation_sha256": "d287e2984580de67cb4198d819b4607569fc55b523780392bc578ee57d4c3bb1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "5d0988613e0e01f703cf836f5e0d7b87aa63152423dbdf4789241249c5d5a07e",
+  "elapsed_seconds": 0.027,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

@@ -1,3 +1,4 @@
+import ast
 import json
 import re
 from pathlib import Path
@@ -11,6 +12,18 @@ from code_practice.validation import compare
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def worker_compare():
+    source = (ROOT / "frontend" / "public" / "judge-worker.js").read_text()
+    python_source = source.split("runPythonAsync(`", 1)[1].split("`);", 1)[0]
+    functions = [
+        node for node in ast.parse(python_source).body
+        if isinstance(node, ast.FunctionDef) and node.name == "matches"
+    ]
+    namespace = {}
+    exec(compile(ast.Module(body=functions, type_ignores=[]), "<unordered-worker>", "exec"), namespace)
+    return namespace["matches"]
+
+
 def test_original_combination_outputs_accept_reordered_results():
     problems = {problem.id: problem for problem in PROBLEMS}
     for problem_id in ("letter-case-variations", "palindrome-partitions"):
@@ -18,6 +31,17 @@ def test_original_combination_outputs_accept_reordered_results():
         assert {test.comparator for test in problem.tests} == {"unordered"}
         expected = problem.tests[0].expected
         assert compare(list(reversed(expected)), expected, "unordered")
+
+
+def test_letter_case_variations_accept_any_outer_order_in_native_and_browser_judges():
+    problem = next(problem for problem in PROBLEMS if problem.id == "letter-case-variations")
+    expected = problem.tests[0].expected
+    reordered = [expected[2], expected[0], expected[3], expected[1]]
+
+    assert compare(reordered, expected, "unordered")
+    assert worker_compare()(reordered, expected, "unordered")
+    assert not worker_compare()(reordered[:-1], expected, "unordered")
+    assert not worker_compare()(reordered + reordered[:1], expected, "unordered")
 
 
 def test_every_reviewed_any_order_import_uses_flexible_comparison():
@@ -60,3 +84,26 @@ def test_packaged_explicit_any_order_contracts_are_not_exact_sequences():
         if phrase.search(source_text) and comparators == {"exact"}:
             exact_exceptions.append(problem["id"])
     assert exact_exceptions == ["leetcode-950"]
+
+
+def test_packaged_output_order_promises_use_a_flexible_comparator():
+    output_order_phrase = re.compile(
+        r"\b(?:return|output|answer|result)\b[^.]{0,100}"
+        r"\b(?:in any order|order does not matter|order doesn't matter|arbitrary order)\b",
+        re.IGNORECASE,
+    )
+    missed = []
+    for path in (ROOT / "catalog_data" / "problems").glob("*.json"):
+        problem = json.loads(path.read_text())
+        if not problem["signature"]["returns"].startswith("list"):
+            continue
+        contract = " ".join([
+            problem.get("summary", ""),
+            problem.get("statement", ""),
+            *problem.get("constraints", []),
+        ])
+        comparators = {test["comparator"] for test in problem["tests"]}
+        if output_order_phrase.search(contract) and comparators == {"exact"}:
+            missed.append(problem["id"])
+
+    assert missed == []

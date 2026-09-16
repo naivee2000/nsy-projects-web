@@ -1,0 +1,54 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-2931",
+  "content_sha256": "ab4952d7375c2f23d7234eb5df6ece93d1a52958c3f27479d1d678729b1647d4",
+  "source_hash": "8c508fa65142687ba08a6bdcccf5cce82340d28e49f8c141fb6b7ebba35429d5",
+  "visible_tests": 2,
+  "hidden_tests": 12,
+  "reference_passed": 14,
+  "wrong_solutions": [
+    {
+      "reason": "Ignores the increasing day multiplier.",
+      "failed_cases": [
+        "lc-2931-1",
+        "lc-2931-2",
+        "lc-2931-4",
+        "lc-2931-5",
+        "lc-2931-6",
+        "lc-2931-7",
+        "lc-2931-8",
+        "lc-2931-9",
+        "lc-2931-10",
+        "lc-2931-11",
+        "lc-2931-12",
+        "lc-2931-13",
+        "lc-2931-14"
+      ]
+    },
+    {
+      "reason": "Sorts the initial heap descending, violating min-heap extraction order.",
+      "failed_cases": [
+        "lc-2931-1",
+        "lc-2931-5",
+        "lc-2931-6",
+        "lc-2931-7",
+        "lc-2931-8",
+        "lc-2931-9",
+        "lc-2931-11",
+        "lc-2931-12",
+        "lc-2931-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 6978,
+  "oracle_implementation": "code_practice/import_batch_244b.py:spending_oracle",
+  "validator_implementation_sha256": "c3bb0972bec853dee160f132043f74b592ec4c3a42c8580e29ebe7fc0ec5c3d3",
+  "batch_implementation_sha256": "d287e2984580de67cb4198d819b4607569fc55b523780392bc578ee57d4c3bb1",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "39bc1e7f8d10bee5a778109e3b550d166ea9966d1dd033f8aee1fddaac4ac8ce",
+  "elapsed_seconds": 0.053,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
