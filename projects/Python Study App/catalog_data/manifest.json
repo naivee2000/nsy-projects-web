@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "count": 3004,
+  "count": 3009,
   "entries": [
     {
       "id": "pair-sum-indices",
@@ -52619,6 +52619,97 @@
       "path": "problems/leetcode-3833.json",
       "content_sha256": "957def7dc5bcd26a98a66bef995b3a75f940cfd9aef22cffe091f24ce3168f27",
       "source_id": 3833
+    },
+    {
+      "id": "leetcode-3834",
+      "version": 1,
+      "status": "approved",
+      "title": "Merge Adjacent Equal Elements",
+      "summary": "Given an integer array nums, repeatedly apply the following operation until no more changes can be made: - If any two adjacent elements are equal, replace them with a single element equal to their sum.",
+      "topics": [
+        "arrays",
+        "stacks",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3834.json",
+      "content_sha256": "639480178f211b84b2903664c456b5e096951af821a72b498a28bce771d816cc",
+      "source_id": 3834
+    },
+    {
+      "id": "leetcode-3835",
+      "version": 1,
+      "status": "approved",
+      "title": "Count Subarrays With Cost Less Than or Equal to K",
+      "summary": "Given an integer array nums and an integer k, count the number of subarrays where the cost, defined as the difference between the maximum and minimum values of the subarray multiplied by its length, is less than or equal to k.",
+      "topics": [
+        "arrays",
+        "sliding window",
+        "monotonic queues"
+      ],
+      "prerequisites": [],
+      "difficulty": 6,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3835.json",
+      "content_sha256": "7eef67cf24174fabdb3999f3cb65158489c6e974888cbfdbd87e01c1da28522f",
+      "source_id": 3835
+    },
+    {
+      "id": "leetcode-3836",
+      "version": 1,
+      "status": "approved",
+      "title": "Maximum Score Using Exactly K Pairs",
+      "summary": "Given integer arrays nums1 and nums2 of lengths n and m, and an integer k, select exactly k pairs (i, j) such that 0 <= i < j < n and 0 <= j < k < m to maximize the total score.",
+      "topics": [
+        "arrays",
+        "dynamic programming"
+      ],
+      "prerequisites": [
+        "arrays"
+      ],
+      "difficulty": 8,
+      "estimated_minutes": 50,
+      "path": "problems/leetcode-3836.json",
+      "content_sha256": "ca6e1d1f461137cf47d7d212a9829301973ae08cb78b113e4d03547c3b9ecb15",
+      "source_id": 3836
+    },
+    {
+      "id": "leetcode-3837",
+      "version": 1,
+      "status": "approved",
+      "title": "Delayed Count of Equal Elements",
+      "summary": "Given an integer array nums of length n and an integer k, for each index i, count the number of indices j where i + k < j <= n - 1 and nums[j] equals nums[i].",
+      "topics": [
+        "arrays",
+        "hash maps",
+        "counting"
+      ],
+      "prerequisites": [],
+      "difficulty": 5,
+      "estimated_minutes": 35,
+      "path": "problems/leetcode-3837.json",
+      "content_sha256": "f28c8fdcdc239bf505181ba8f2c1338e8e171d7e078c2430db0e2841e418e5c7",
+      "source_id": 3837
+    },
+    {
+      "id": "leetcode-3838",
+      "version": 1,
+      "status": "approved",
+      "title": "Weighted Word Mapping",
+      "summary": "Given an array of words with lowercase English letters and an array of weights for each letter, calculate the weight of each word by summing the weights of its characters, then map the result modulo 26 to a lowercase letter in reverse alphabetical order, and return the concatenated string of these mapped letters.",
+      "topics": [
+        "arrays",
+        "strings",
+        "simulation"
+      ],
+      "prerequisites": [],
+      "difficulty": 3,
+      "estimated_minutes": 20,
+      "path": "problems/leetcode-3838.json",
+      "content_sha256": "134d8c22c0a309d42a1e724aab826236a3c77537ea0c2c1697f922f251d4e684",
+      "source_id": 3838
     },
     {
       "id": "leetcode-3839",

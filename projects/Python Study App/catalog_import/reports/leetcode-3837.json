@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3837",
+  "content_sha256": "f28c8fdcdc239bf505181ba8f2c1338e8e171d7e078c2430db0e2841e418e5c7",
+  "source_hash": "110c0c8aa0e069310a7c607c38f1172576aa258c55b845a382044c9074807c99",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Includes distance exactly k instead of requiring the later index to be more than k away.",
+      "failed_cases": [
+        "lc-3837-1",
+        "lc-3837-2",
+        "lc-3837-6",
+        "lc-3837-8",
+        "lc-3837-9",
+        "lc-3837-10",
+        "lc-3837-11",
+        "lc-3837-13",
+        "lc-3837-14",
+        "lc-3837-15"
+      ]
+    },
+    {
+      "reason": "Starts one position too early and leaves a valid leading answer uncomputed.",
+      "failed_cases": [
+        "lc-3837-1",
+        "lc-3837-2",
+        "lc-3837-4",
+        "lc-3837-6",
+        "lc-3837-7",
+        "lc-3837-8",
+        "lc-3837-9",
+        "lc-3837-10",
+        "lc-3837-11",
+        "lc-3837-14"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7884,
+  "oracle_implementation": "code_practice/import_batch_239a.py:delayed_oracle",
+  "validator_implementation_sha256": "8056416e441872150d4efc2b479adfc3d0207893453658df3c04a61707618ea2",
+  "batch_implementation_sha256": "561551673caa911bcbe7385dfdd8822d84fda9fbfe201e5f70418f3c60379d41",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "ccc443631d5c89f1d8ec09598fa05c5727d59c4994f8f794630a9bb3c8af3e83",
+  "elapsed_seconds": 0.028,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}

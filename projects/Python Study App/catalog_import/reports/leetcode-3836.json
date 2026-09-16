@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "problem_id": "leetcode-3836",
+  "content_sha256": "ca6e1d1f461137cf47d7d212a9829301973ae08cb78b113e4d03547c3b9ecb15",
+  "source_hash": "583f41dd348c7ec02fd9246d92a42ebce7613764b20cb7404fe88b97a1fa72e8",
+  "visible_tests": 2,
+  "hidden_tests": 13,
+  "reference_passed": 15,
+  "wrong_solutions": [
+    {
+      "reason": "Initializes impossible states to zero, incorrectly allowing fewer than k pairs when scores are negative.",
+      "failed_cases": [
+        "lc-3836-2",
+        "lc-3836-12"
+      ]
+    },
+    {
+      "reason": "Reuses the current second-array prefix when pairing, which can reuse an index or violate order.",
+      "failed_cases": [
+        "lc-3836-1",
+        "lc-3836-5",
+        "lc-3836-7",
+        "lc-3836-8",
+        "lc-3836-10",
+        "lc-3836-12"
+      ]
+    }
+  ],
+  "oracle_inputs": 500,
+  "oracle_seed": 7883,
+  "oracle_implementation": "code_practice/import_batch_239a.py:pairs_oracle",
+  "validator_implementation_sha256": "8056416e441872150d4efc2b479adfc3d0207893453658df3c04a61707618ea2",
+  "batch_implementation_sha256": "561551673caa911bcbe7385dfdd8822d84fda9fbfe201e5f70418f3c60379d41",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "validation_protocol_version": 2,
+  "validation_cache_key": "9634be42867ae940393cd1ac03020428910d53200f1db0cbbe43cc98f73cb9d2",
+  "elapsed_seconds": 0.062,
+  "failures": [],
+  "workbook_sample": "preserved and independently verified"
+}
