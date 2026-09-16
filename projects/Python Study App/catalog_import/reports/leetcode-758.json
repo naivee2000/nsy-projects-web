@@ -1,15 +1,22 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-758",
-  "content_sha256": "f2176febaedb757769577d2bdef41cc516fafd643d9476a135823be1053011aa",
+  "content_sha256": "259fa2663da4b5f44f5f181fee3257cd2e35fe45e0134b8864ea60743b60c084",
   "source_hash": "8caa91560429989ffb093911a85313dfc5738124e21bdbd5340a7136071249a1",
   "visible_tests": 2,
   "hidden_tests": 12,
   "reference_passed": 14,
   "wrong_solutions": [
     {
-      "reason": "Keeps only the shortest word beginning at each position.",
-      "failed_cases": []
+      "reason": "Uses only the first dictionary word and misses bold regions supplied by later words.",
+      "failed_cases": [
+        "lc-758-1",
+        "lc-758-2",
+        "lc-758-6",
+        "lc-758-7",
+        "lc-758-11",
+        "lc-758-13"
+      ]
     },
     {
       "reason": "Wraps only the first character of every bold region.",
@@ -30,17 +37,12 @@
   "oracle_inputs": 500,
   "oracle_seed": 4805,
   "oracle_implementation": "code_practice/import_batch_203a.py:bold_o",
-  "validator_implementation_sha256": "90957eb4df99e89e1098e5c9351bc8b1f034ec766c55933210bace84baeac578",
+  "validator_implementation_sha256": "7f4592a113cde84bcbe961328e522a7ad8ef2b4dc9a232f11ce048327dbdc7e6",
   "batch_implementation_sha256": "0b54a7b742264fa74089d7a450c70fcae214cdb816cc6ffcd9bde8a58b4157c3",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "2f56ff7371b90e5b82c3fb789be0129b7aeefb2c728ec2a575afb3807e39899e",
-  "elapsed_seconds": 0.062,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 0
-    }
-  ],
+  "elapsed_seconds": 0.059,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

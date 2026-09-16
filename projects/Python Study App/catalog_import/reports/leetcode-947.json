@@ -1,7 +1,7 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-947",
-  "content_sha256": "dc05fcb760d7dc6bb2205b9c4dd21804ec4364ba623f4499fa80500f2ccc3905",
+  "content_sha256": "c2406ad234ffca36e4faf1a75c51f9c23599b84e3b6809efcc2999ec0784fc53",
   "source_hash": "e6e20dc62c87755c9bb383efda4a26ce909251a5b9dff05342b99903fc8a7212",
   "visible_tests": 2,
   "hidden_tests": 14,
@@ -29,24 +29,30 @@
       ]
     },
     {
-      "reason": "Confuses row and column namespaces.",
-      "failed_cases": []
+      "reason": "Connects stones only by equal rows and ignores chains linked through columns.",
+      "failed_cases": [
+        "lc-947-1",
+        "lc-947-4",
+        "lc-947-6",
+        "lc-947-8",
+        "lc-947-10",
+        "lc-947-11",
+        "lc-947-13",
+        "lc-947-14",
+        "lc-947-15",
+        "lc-947-16"
+      ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 4994,
   "oracle_implementation": "code_practice/import_batch_077.py:stones_oracle",
-  "validator_implementation_sha256": "b1ee8a137f9062503c7aaf061f896e9b99fdc81fe616eb0e13cdfa96450cb9a0",
+  "validator_implementation_sha256": "7f4592a113cde84bcbe961328e522a7ad8ef2b4dc9a232f11ce048327dbdc7e6",
   "batch_implementation_sha256": "77b7af97e3672c70e923a175ad017ad68efe5198f0eb6acf9ae33e7abb18f874",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "858f09dd19a5dabb2a77c2aa61c6711901c6e68f6965e7a8055bfbf7594057fc",
-  "elapsed_seconds": 0.04,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 1
-    }
-  ],
+  "elapsed_seconds": 0.039,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

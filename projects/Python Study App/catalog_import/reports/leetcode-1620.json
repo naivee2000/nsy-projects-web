@@ -1,7 +1,7 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-1620",
-  "content_sha256": "556ceb09b857490aaf9dd825753341c89fa13f0c23b4059715efff5dfa40a6d8",
+  "content_sha256": "3d4d4f742987a5ce0701864c154004df7748d57ac0946040b4fb3314f0d01708",
   "source_hash": "ec99cfa8f3359d07199ed49d79b49cf068efa6234639f9d2199283e71c47e15e",
   "visible_tests": 2,
   "hidden_tests": 12,
@@ -19,24 +19,22 @@
       ]
     },
     {
-      "reason": "Uses squared distance in the signal denominator instead of Euclidean distance.",
-      "failed_cases": []
+      "reason": "Uses the strongest individual tower rather than summing signals from all reachable towers.",
+      "failed_cases": [
+        "lc-1620-1",
+        "lc-1620-12"
+      ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 5667,
   "oracle_implementation": "code_practice/import_batch_100b.py:coordinate_oracle",
-  "validator_implementation_sha256": "b1ee8a137f9062503c7aaf061f896e9b99fdc81fe616eb0e13cdfa96450cb9a0",
+  "validator_implementation_sha256": "7f4592a113cde84bcbe961328e522a7ad8ef2b4dc9a232f11ce048327dbdc7e6",
   "batch_implementation_sha256": "189be236110f64330bfb234ed12fd8c3a7c655735ae95de21018c43a4b7c6ad5",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "2f8327a06ad9be4dc1b26d8b7b5ba5b38bb95884ae0ac40c553ea82285b75aa8",
-  "elapsed_seconds": 1.044,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 1
-    }
-  ],
+  "elapsed_seconds": 1.045,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

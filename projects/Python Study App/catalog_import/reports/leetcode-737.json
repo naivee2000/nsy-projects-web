@@ -1,39 +1,42 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-737",
-  "content_sha256": "6ab353461038d82b177c3271e1705e79136972e00494097a27023255ff3c4df8",
+  "content_sha256": "60b8fda719d2bfb2d14c01d06dff332566c46d7164b4fc59300a3be470822f27",
   "source_hash": "c35acd84dcb8dfa4b0e4a785f0bead27e786a9412616bdc5849abeaecef53815",
   "visible_tests": 2,
   "hidden_tests": 13,
   "reference_passed": 15,
   "wrong_solutions": [
     {
-      "reason": "Does not merge component roots, so longer transitive chains can break.",
-      "failed_cases": []
+      "reason": "Checks only direct similarity pairs and misses transitive chains.",
+      "failed_cases": [
+        "lc-737-1",
+        "lc-737-2",
+        "lc-737-6",
+        "lc-737-12",
+        "lc-737-14"
+      ]
     },
     {
-      "reason": "Forgets that every word is similar to itself.",
-      "failed_cases": []
+      "reason": "Rejects identical unseen words because it requires both words to occur in a similarity pair.",
+      "failed_cases": [
+        "lc-737-3",
+        "lc-737-6",
+        "lc-737-12",
+        "lc-737-13",
+        "lc-737-15"
+      ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 4784,
   "oracle_implementation": "code_practice/import_batch_203a.py:similar_o",
-  "validator_implementation_sha256": "90957eb4df99e89e1098e5c9351bc8b1f034ec766c55933210bace84baeac578",
+  "validator_implementation_sha256": "7f4592a113cde84bcbe961328e522a7ad8ef2b4dc9a232f11ce048327dbdc7e6",
   "batch_implementation_sha256": "0b54a7b742264fa74089d7a450c70fcae214cdb816cc6ffcd9bde8a58b4157c3",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "7c350c9b9d747be0405787511b15062cd7f833756a4bc54d05a513cfb5bf9259",
-  "elapsed_seconds": 0.047,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 0
-    },
-    {
-      "phase": "known_wrong",
-      "index": 1
-    }
-  ],
+  "elapsed_seconds": 0.048,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

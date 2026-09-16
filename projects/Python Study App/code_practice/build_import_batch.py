@@ -1049,6 +1049,8 @@ BATCH.update(BATCH_245B)
 
 from .order_insensitive_outputs import apply_order_insensitive_outputs
 apply_order_insensitive_outputs(BATCH)
+from .quarantine_repairs import apply_quarantine_repairs
+apply_quarantine_repairs(BATCH)
 
 
 def digest(payload):
@@ -1071,6 +1073,40 @@ def validation_cache_key(spec, source_hash):
     return digest(payload)
 
 
+def candidate_matches_spec_contract(candidate, spec):
+    """Catch spec edits even when a legacy report has no spec fingerprint."""
+    signature = candidate.get("signature", {})
+    tests = candidate.get("tests", [])
+    expected_inputs = [(args, True, explanation) for args, explanation in spec["examples"]]
+    expected_inputs += [(args, False, None) for args in spec["boundaries"]]
+    expected_inputs += [(args, False, None) for args, _ in spec.get("stress", [])]
+    if len(tests) != len(expected_inputs):
+        return False
+    if any(json.dumps(test.get("arguments"), sort_keys=True) != json.dumps(args, sort_keys=True)
+           or test.get("visible") != visible
+           or test.get("explanation") != explanation
+           or test.get("comparator") != spec.get("comparator", "exact")
+           for test, (args, visible, explanation) in zip(tests, expected_inputs)):
+        return False
+    if candidate.get("constraints") != spec["constraints"] or candidate.get("topics") != spec["topics"]:
+        return False
+    if candidate.get("reference_solution") != spec["reference"] or candidate.get("known_wrong_solutions") != spec["wrong"]:
+        return False
+    if candidate.get("hints") != spec["hints"] or candidate.get("editorial") != spec["editorial"]:
+        return False
+    if candidate.get("target_time_complexity") != spec["time"] or candidate.get("target_space_complexity") != spec["space"]:
+        return False
+    if signature.get("name") != spec["name"] or signature.get("returns") != spec["returns"]:
+        return False
+    if signature.get("return_adapter") != spec["adapter"] or signature.get("result_mode") != spec.get("result_mode", "return"):
+        return False
+    parameters = signature.get("parameters", [])
+    return len(parameters) == len(spec["params"]) and all(
+        (parameter.get("name"), parameter.get("annotation"), parameter.get("adapter")) == definition
+        for parameter, definition in zip(parameters, spec["params"])
+    )
+
+
 def cached_validation_is_current(pid, spec, source_hash, record, root=ROOT):
     """Return true only for a complete, unchanged approved validation bundle."""
     if record.get("status") != "imported" or record.get("source_hash") != source_hash:
@@ -1080,6 +1116,7 @@ def cached_validation_is_current(pid, spec, source_hash, record, root=ROOT):
         candidate = json.loads((root / "catalog_import/candidates" / f"leetcode-{pid}.json").read_text())
         if not (report.get("valid") and report.get("problem_id") == f"leetcode-{pid}"
                 and report.get("content_sha256") == digest(candidate)
+                and candidate_matches_spec_contract(candidate, spec)
                 and report.get("source_hash") == source_hash
                 and report.get("judge_contract_sha256") == judge_contract_hash()
                 and report.get("batch_implementation_sha256") == batch_implementation_hash(spec)

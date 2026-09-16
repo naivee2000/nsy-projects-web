@@ -1,15 +1,18 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-916",
-  "content_sha256": "85dd9fc3aeea83acc6d870545870dedbb8e76b9d5033af57a1205c71c4783d99",
+  "content_sha256": "cb7e9ee01781b9136e2728df0aa6debc822b827340320084e4034e68844e58a9",
   "source_hash": "4fc8b17f481b63cdb54e291976d9decb081fbdcdaeb0d7f8b75a74849017cfda",
   "visible_tests": 2,
   "hidden_tests": 14,
   "reference_passed": 16,
   "wrong_solutions": [
     {
-      "reason": "Adds requirements instead of taking their maximum multiplicity.",
-      "failed_cases": []
+      "reason": "Checks only the first required word and ignores later character requirements.",
+      "failed_cases": [
+        "lc-916-1",
+        "lc-916-2"
+      ]
     },
     {
       "reason": "Ignores repeated required letters.",
@@ -23,17 +26,12 @@
   "oracle_inputs": 500,
   "oracle_seed": 4963,
   "oracle_implementation": "code_practice/import_batch_076.py:subsets_oracle",
-  "validator_implementation_sha256": "b1ee8a137f9062503c7aaf061f896e9b99fdc81fe616eb0e13cdfa96450cb9a0",
+  "validator_implementation_sha256": "d421c849d1b7e33ad51602b09ef0fa186e000f0a93b2f4a49cc5997edbb88d6b",
   "batch_implementation_sha256": "70add63798b398798e62d7a2aa0240f47060be094cd68a57962ae377a2fcb626",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "7861350a486ca4c4a10f73287ea55e1336ffd1d467a5bddf5d0f8fdca69dbbea",
-  "elapsed_seconds": 0.038,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 0
-    }
-  ],
+  "elapsed_seconds": 0.035,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

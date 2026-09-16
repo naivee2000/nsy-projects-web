@@ -14,6 +14,7 @@ ORDER_INSENSITIVE_COMPARATORS = {
     1606: "unordered",
     1943: "unordered",
     1992: "unordered",
+    2007: "unordered",
     2015: "unordered",
     2100: "unordered",
     2456: "unordered",
@@ -65,6 +66,10 @@ CONSTRAINT_REPLACEMENTS = {
     1943: {
         "Return minimal nonoverlapping half-open intervals with positive mixed color sum, in increasing coordinate order.":
         "Return the minimal nonoverlapping half-open intervals with positive mixed color sum in any order.",
+    },
+    2007: {
+        "Return a valid original array, or [] when none exists.":
+        "Return the original values in any order, or [] when no valid original array exists.",
     },
     2100: {
         "Return all good indices in increasing order.": "Return all good indices in any order.",

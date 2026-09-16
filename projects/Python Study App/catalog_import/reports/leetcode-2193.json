@@ -1,7 +1,7 @@
 {
-  "valid": false,
+  "valid": true,
   "problem_id": "leetcode-2193",
-  "content_sha256": "74c5187b094f05f14a2d36cc5ec5570e28966ad7aa82ba584bb43797a2ecb19c",
+  "content_sha256": "8a04da7a9abaa7b09abc70816eb1e6e7e07cb262db335ebb6a4029b7fb0b03e8",
   "source_hash": "28470dbbf60a49d851161dac5d87258bddd74dc2cd5d2d14cd9b1ab082854677",
   "visible_tests": 2,
   "hidden_tests": 13,
@@ -23,24 +23,29 @@
       ]
     },
     {
-      "reason": "Skips an unmatched center candidate without paying or performing its adjacent swap.",
-      "failed_cases": []
+      "reason": "Counts mismatched mirrored positions instead of the adjacent swaps needed to move characters.",
+      "failed_cases": [
+        "lc-2193-2",
+        "lc-2193-5",
+        "lc-2193-6",
+        "lc-2193-7",
+        "lc-2193-10",
+        "lc-2193-11",
+        "lc-2193-13",
+        "lc-2193-14",
+        "lc-2193-15"
+      ]
     }
   ],
   "oracle_inputs": 500,
   "oracle_seed": 6240,
   "oracle_implementation": "code_practice/import_batch_122c.py:palindrome_oracle",
-  "validator_implementation_sha256": "7d1656ea82a3a8f65673728713f373b259351528508786d28f41c56a6e0672e3",
+  "validator_implementation_sha256": "7f4592a113cde84bcbe961328e522a7ad8ef2b4dc9a232f11ce048327dbdc7e6",
   "batch_implementation_sha256": "d8dfb88a3067ef9267d72d4feebcc4b96540d12a9fc8700acbd2142d75751519",
   "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
   "validation_protocol_version": 2,
   "validation_cache_key": "c6ff44374e777de85be8f24045202fce2450848832448464b2b68f0a8ac930d5",
-  "elapsed_seconds": 0.058,
-  "failures": [
-    {
-      "phase": "known_wrong",
-      "index": 1
-    }
-  ],
+  "elapsed_seconds": 0.048,
+  "failures": [],
   "workbook_sample": "preserved and independently verified"
 }

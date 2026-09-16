@@ -4,6 +4,7 @@ import re
 from pathlib import Path
 
 from code_practice.build_import_batch import BATCH
+from code_practice.catalog import get_catalog
 from code_practice.content import PROBLEMS
 from code_practice.order_insensitive_outputs import ORDER_INSENSITIVE_COMPARATORS
 from code_practice.validation import compare
@@ -42,6 +43,26 @@ def test_letter_case_variations_accept_any_outer_order_in_native_and_browser_jud
     assert worker_compare()(reordered, expected, "unordered")
     assert not worker_compare()(reordered[:-1], expected, "unordered")
     assert not worker_compare()(reordered + reordered[:1], expected, "unordered")
+
+
+def test_word_subsets_accept_any_outer_order_without_accepting_missing_words():
+    problem = get_catalog()["leetcode-916"]
+    assert {test.comparator for test in problem.tests} == {"unordered"}
+    expected = problem.tests[0].expected
+    assert len(expected) > 1
+    assert compare(expected[::-1], expected, "unordered")
+    assert worker_compare()(expected[::-1], expected, "unordered")
+    assert not compare(expected[:-1], expected, "unordered")
+
+
+def test_doubled_array_accepts_original_values_in_any_order():
+    problem = get_catalog()["leetcode-2007"]
+    assert {test.comparator for test in problem.tests} == {"unordered"}
+    expected = problem.tests[0].expected
+    assert len(expected) > 1
+    assert compare(expected[::-1], expected, "unordered")
+    assert worker_compare()(expected[::-1], expected, "unordered")
+    assert not worker_compare()(expected[:-1], expected, "unordered")
 
 
 def test_every_reviewed_any_order_import_uses_flexible_comparison():
