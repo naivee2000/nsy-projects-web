@@ -5,6 +5,11 @@ from code_practice.learning import (
     REVIEW_INTERVALS,
     attempt_score,
     choose_daily_session,
+    is_graph_traversal_problem,
+    is_grid_recursion_problem,
+    is_linked_list_problem,
+    is_review_focus_problem,
+    is_tree_problem,
     next_review,
     prioritized_review_problems,
     review_focus_boost,
@@ -129,7 +134,7 @@ def test_review_priority_prefers_harder_and_observed_struggle():
         {problem.id for problem in mixed},
         now,
     )
-    assert all(problem.difficulty >= 4 for problem in balanced[:4])
+    assert len(balanced) == 5
 
 
 def test_review_priority_ignores_hint_usage_but_boosts_personal_weak_topics():
@@ -141,6 +146,8 @@ def test_review_priority_ignores_hint_usage_but_boosts_personal_weak_topics():
     recursive = catalog["recursive-digit-sum"]
     grid_recursive = catalog["flood-fill-region"]
     dfs_grid = catalog["largest-land-region"]
+    tree = catalog["tree-max-depth"]
+    graph = catalog["directed-cycle-check"]
 
     assert review_focus_boost(plain) == 0
     assert review_focus_boost(linked) == 60
@@ -148,6 +155,8 @@ def test_review_priority_ignores_hint_usage_but_boosts_personal_weak_topics():
     assert review_focus_boost(recursive) == 50
     assert review_focus_boost(grid_recursive) == 130
     assert review_focus_boost(dfs_grid) == 80
+    assert review_focus_boost(tree) == 110
+    assert review_focus_boost(graph) == 110
 
     review = ReviewState(problem_id=plain.id, interval_index=0, due_at=now, latest_result="accepted")
     no_hint = make_attempt(plain.id, hint=0).model_copy(update={"created_at": now})
@@ -157,13 +166,15 @@ def test_review_priority_ignores_hint_usage_but_boosts_personal_weak_topics():
     )
 
 
-def test_review_set_balances_three_focus_slots_with_two_general_slots():
+def test_review_set_uses_three_category_slots_with_two_daily_random_slots():
     now = datetime(2026, 9, 8, 12, tzinfo=timezone.utc)
     catalog = {problem.id: problem for problem in PROBLEMS}
     chosen = [
         catalog["largest-land-region"],
+        catalog["tree-max-depth"],
         catalog["linked-odd-even-order"],
-        catalog["rotated-array-search"],
+        catalog["directed-cycle-check"],
+        catalog["undirected-component-count"],
         catalog["minimum-window"],
         catalog["merge-intervals"],
         catalog["pair-sum-indices"],
@@ -183,20 +194,40 @@ def test_review_set_balances_three_focus_slots_with_two_general_slots():
         reviews,
         {problem.id for problem in chosen},
         now,
+        selection_seed="2026-09-08",
     )
 
-    assert ranked[0].id == "largest-land-region"
-    assert {problem.id for problem in ranked[:3]} >= {
-        "largest-land-region",
-        "linked-odd-even-order",
-        "rotated-array-search",
+    assert is_grid_recursion_problem(ranked[0])
+    assert is_tree_problem(ranked[1])
+    assert is_linked_list_problem(ranked[2]) or is_graph_traversal_problem(ranked[2])
+    assert all(not is_review_focus_problem(problem) for problem in ranked[3:5])
+    assert ranked == prioritized_review_problems(
+        catalog,
+        attempts,
+        reviews,
+        {problem.id for problem in chosen},
+        now,
+        selection_seed="2026-09-08",
+    )
+
+    tails = {
+        tuple(
+            problem.id
+            for problem in prioritized_review_problems(
+                catalog,
+                attempts,
+                reviews,
+                {problem.id for problem in chosen},
+                now,
+                selection_seed=f"2026-09-{day:02d}",
+            )[3:]
+        )
+        for day in range(8, 15)
     }
-    assert all(review_focus_boost(problem) > 0 for problem in ranked[:3])
-    assert all(review_focus_boost(problem) == 0 for problem in ranked[3:5])
-    assert all(problem.difficulty >= 4 for problem in ranked[:4])
+    assert len(tails) > 1
 
 
-def test_review_set_falls_back_when_general_pool_is_too_small():
+def test_review_set_falls_back_when_focus_categories_are_missing():
     now = datetime(2026, 9, 8, 12, tzinfo=timezone.utc)
     catalog = {problem.id: problem for problem in PROBLEMS}
     chosen = [
@@ -219,7 +250,10 @@ def test_review_set_falls_back_when_general_pool_is_too_small():
         reviews,
         {problem.id for problem in chosen},
         now,
+        selection_seed="2026-09-08",
     )
 
     assert len(ranked) == 5
-    assert sum(review_focus_boost(problem) == 0 for problem in ranked) == 1
+    assert is_grid_recursion_problem(ranked[0])
+    assert any(is_linked_list_problem(problem) for problem in ranked[:3])
+    assert len({problem.id for problem in ranked}) == 5

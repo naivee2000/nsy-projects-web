@@ -302,7 +302,15 @@ def dashboard() -> dict[str, Any]:
 
     daily_review = get_daily_review_assignment(today_key)
     if daily_review is None:
-        review_problems = prioritized_review_problems(catalog, attempts, reviews, solved, now, limit=5)
+        review_problems = prioritized_review_problems(
+            catalog,
+            attempts,
+            reviews,
+            solved,
+            now,
+            limit=5,
+            selection_seed=today_key,
+        )
         daily_review = save_daily_review_assignment(today_key, [problem.id for problem in review_problems])
     review_assigned_at, assigned_review_ids = daily_review
     reviewed_today = {

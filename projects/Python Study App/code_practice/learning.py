@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
+import hashlib
+import random
 from typing import Iterable
 
 from .schemas import Attempt, ProblemDefinition, ReviewState
@@ -19,6 +21,9 @@ REVIEW_FOCUS_WEIGHTS = {
     "binary-search": 60.0,
 }
 GRID_RECURSION_BONUS = 80.0
+TREE_FOCUS_BONUS = 60.0
+LINKED_LIST_FOCUS_BONUS = 60.0
+GRAPH_TRAVERSAL_FOCUS_BONUS = 60.0
 
 
 def attempt_score(attempt: Attempt) -> float:
@@ -87,19 +92,69 @@ def choose_daily_session(candidates: Iterable[ProblemDefinition]) -> list[Proble
     return easy[:5]
 
 
+def normalized_topics(problem: ProblemDefinition) -> set[str]:
+    return {"-".join(topic.lower().replace("_", " ").split()) for topic in problem.topics}
+
+
 def is_grid_recursion_problem(problem: ProblemDefinition) -> bool:
     """Include explicitly recursive grids and DFS grid/field traversal."""
-    topics = set(problem.topics)
-    return "matrices" in topics and bool({"recursion", "depth-first-search"} & topics)
+    topics = normalized_topics(problem)
+    return bool({"matrix", "matrices"} & topics) and bool(
+        {"recursion", "depth-first-search", "dfs"} & topics
+    )
+
+
+def is_tree_problem(problem: ProblemDefinition) -> bool:
+    topics = normalized_topics(problem)
+    return bool(
+        {
+            "trees",
+            "binary-trees",
+            "binary-search-trees",
+            "tree-dp",
+            "tree-dynamic-programming",
+            "subtree-sizes",
+        }
+        & topics
+    )
+
+
+def is_linked_list_problem(problem: ProblemDefinition) -> bool:
+    return bool({"linked-list", "linked-lists"} & normalized_topics(problem))
+
+
+def is_graph_traversal_problem(problem: ProblemDefinition) -> bool:
+    topics = normalized_topics(problem)
+    return not is_grid_recursion_problem(problem) and any("graph" in topic for topic in topics)
+
+
+def is_review_focus_problem(problem: ProblemDefinition) -> bool:
+    return (
+        is_grid_recursion_problem(problem)
+        or is_tree_problem(problem)
+        or is_linked_list_problem(problem)
+        or is_graph_traversal_problem(problem)
+    )
 
 
 def review_focus_boost(problem: ProblemDefinition) -> float:
     """Return the owner's personal weak-topic priority boost."""
-    topics = set(problem.topics)
+    topics = normalized_topics(problem)
     boost = sum(weight for topic, weight in REVIEW_FOCUS_WEIGHTS.items() if topic in topics)
     if is_grid_recursion_problem(problem):
         boost += GRID_RECURSION_BONUS
+    if is_tree_problem(problem):
+        boost += TREE_FOCUS_BONUS
+    if is_linked_list_problem(problem) and "linked-lists" not in topics:
+        boost += LINKED_LIST_FOCUS_BONUS
+    if is_graph_traversal_problem(problem):
+        boost += GRAPH_TRAVERSAL_FOCUS_BONUS
     return boost
+
+
+def _stable_review_rng(seed: str, label: str) -> random.Random:
+    digest = hashlib.sha256(f"{seed}:{label}".encode()).digest()
+    return random.Random(int.from_bytes(digest[:8], "big"))
 
 
 def review_priority_score(
@@ -154,9 +209,11 @@ def prioritized_review_problems(
     solved_ids: set[str],
     now: datetime | None = None,
     limit: int = 5,
+    selection_seed: str | None = None,
 ) -> list[ProblemDefinition]:
-    """Return a stable review order that balances focus and broader practice."""
+    """Choose three focused reviews plus two daily-stable random reviews."""
     now = now or datetime.now(timezone.utc)
+    seed = selection_seed or now.date().isoformat()
     histories: dict[str, list[Attempt]] = defaultdict(list)
     for attempt in attempts:
         histories[attempt.problem_id].append(attempt)
@@ -170,16 +227,9 @@ def prioritized_review_problems(
             problem.id,
         ),
     )
-    # A full five-problem review set uses at most three focus slots. The other
-    # two slots come from completed problems outside the owner's weak-topic tags
-    # whenever those problems are available. This keeps recursion/grid, linked-
-    # list, and binary-search practice prominent without crowding out everything
-    # else. Smaller limits retain up to three focus slots before general review.
-    focus = [problem for problem in ranked if review_focus_boost(problem) > 0]
-    general = [problem for problem in ranked if review_focus_boost(problem) == 0]
-    challenging_focus = [problem for problem in focus if problem.difficulty >= 4]
-    challenging_general = [problem for problem in general if problem.difficulty >= 4]
-    grid_focus = [problem for problem in challenging_focus if is_grid_recursion_problem(problem)]
+    # Reserve one slot each for matrix/grid recursion, trees, and either linked
+    # lists or directed/undirected graph traversal. The structure/graph lane
+    # alternates deterministically by day when both pools are available.
     focus_limit = min(3, limit)
 
     selected: list[ProblemDefinition] = []
@@ -190,22 +240,38 @@ def prioritized_review_problems(
             selected.append(problem)
             selected_ids.add(problem.id)
 
-    if grid_focus:
-        add(grid_focus[0])
-    for problem in challenging_focus:
+    grid = [problem for problem in ranked if is_grid_recursion_problem(problem)]
+    trees = [problem for problem in ranked if is_tree_problem(problem)]
+    linked = [problem for problem in ranked if is_linked_list_problem(problem)]
+    graph = [problem for problem in ranked if is_graph_traversal_problem(problem)]
+
+    for pool in (grid, trees):
+        if pool and len(selected) < focus_limit:
+            add(pool[0])
+
+    structure_pools = [linked, graph]
+    _stable_review_rng(seed, "structure-lane").shuffle(structure_pools)
+    for pool in structure_pools:
+        if pool and len(selected) < focus_limit:
+            add(pool[0])
+            break
+
+    # If a requested focus category is not yet represented in completed work,
+    # retain the highest-priority review candidates rather than returning fewer
+    # than three core reviews.
+    for problem in ranked:
         if len(selected) >= focus_limit:
             break
         add(problem)
-    for problem in focus:
-        if len(selected) >= focus_limit:
-            break
+
+    remaining = [problem for problem in ranked if problem.id not in selected_ids]
+    general = [problem for problem in remaining if not is_review_focus_problem(problem)]
+    random_needed = max(0, limit - len(selected))
+    random_pool = general if len(general) >= random_needed else remaining
+    _stable_review_rng(seed, "random-slots").shuffle(random_pool)
+    for problem in random_pool:
         add(problem)
-    for problem in challenging_general:
-        add(problem)
-    for problem in general:
-        add(problem)
-    # If either pool is too small, fill unused slots with the best remaining
-    # review candidates instead of returning a short assignment.
+
     for problem in ranked:
         add(problem)
     return selected[:limit]

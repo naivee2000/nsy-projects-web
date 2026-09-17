@@ -689,6 +689,13 @@ route ranged from 1.098 ms to 1.906 ms for library, detail, and dashboard APIs,
 below the interim 300/500 ms targets. Exact measurements are in
 `catalog_import/benchmarks/current.json`. No push or deployment occurred.
 
+The September 17 follow-up keeps that catalog count unchanged and replaces only
+the `leetcode-543` hidden skew-tree fixture: 800 nodes still exercise linear
+postorder traversal without rejecting the standard recursive solution at
+Python's default recursion limit. The complete nine-problem source batch was
+revalidated, and `catalog_import/benchmarks/incremental-diameter-recursion-limit-543.json`
+records the isolated Chrome/Pyodide gate for the changed problem.
+
 Source provenance: workbook filename/hash and row numbers are retained in the
 ledger. `catalog_import/sources.jsonl` records LeetCode URLs and the exact
 [doocs/leetcode](https://github.com/doocs/leetcode) source revision, descriptions,

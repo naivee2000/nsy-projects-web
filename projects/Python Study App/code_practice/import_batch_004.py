@@ -213,6 +213,11 @@ def tree_diameter(root):
             heights[node] = 1 + max(left, right)
     return best
 '''
+
+# Keep the skewed-tree performance case deep enough to exercise O(n) traversal
+# without rejecting the standard recursive postorder solution at Python's
+# default recursion limit.
+DIAMETER_STRESS_NODES = 800
 TILT = '''\
 def tree_tilt(root):
     stack, sums, total = [(root, False)], {}, 0
@@ -345,7 +350,7 @@ BATCH = {
         ["Counts nodes instead of edges in the candidate path.", "Overwrites the best subtree path and keeps only the path through the root."], diameter_oracle, random_nonempty,
         ["The longest path through a node joins its deepest left and right descendants.", "Compute child heights before the parent and keep a separate global best path.", "For each postorder node, update best with left_height+right_height, then return height 1+max(left_height,right_height).", "The height returned to a parent and the best path anywhere in the tree are different quantities."],
         "Postorder traversal makes both child heights available before a node is processed. Their sum is the number of edges in the longest path whose highest node is this node. Maximize that candidate over every node, not just the root. Return one plus the larger child height upward. The implementation uses explicit visited-state frames and discards child heights after use, so its auxiliary storage is O(h), without relying on Python recursion depth.", "O(n)", "O(h)",
-        stress=[([[0,None] * 9999 + [0]],9999)]),
+        stress=[([[0, None] * (DIAMETER_STRESS_NODES - 1) + [0]], DIAMETER_STRESS_NODES - 1)]),
     563: spec("tree_tilt", TREE, "int", "raw", 3, ["trees", "recursion"],
         ["0–10,000 nodes; values are in [-1000, 1000].", "A node's tilt is abs(sum of left subtree - sum of right subtree). Return the sum of tilts at every node."],
         [([[1,2,3]], "The root's tilt is |2−3|=1 and each leaf has tilt zero, so the total is 1."),

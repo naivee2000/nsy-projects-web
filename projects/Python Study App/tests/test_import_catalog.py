@@ -295,6 +295,34 @@ def test_new_tree_list_inputs_respect_source_domains_including_stress_cases():
                 assert 1 <= args[1] <= 10**7
 
 
+def test_tree_diameter_accepts_standard_linear_recursive_postorder():
+    source = next(
+        json.loads(line)
+        for line in (ROOT / "catalog_import/sources.jsonl").read_text().splitlines()
+        if json.loads(line)["source_id"] == 543
+    )
+    problem = build(543, BATCH[543], source)
+    stress = next(test for test in problem.tests if test.id == "lc-543-stress-1")
+    recursive_solution = """\
+def tree_diameter(root):
+    diameter = []
+
+    def height(root):
+        if root is None:
+            return 0
+        left = 0 if root.left is None else 1 + height(root.left)
+        right = 0 if root.right is None else 1 + height(root.right)
+        diameter.append(left + right)
+        return max(left, right)
+
+    height(root)
+    return max(diameter)
+"""
+
+    assert sum(value is not None for value in stress.arguments[0]) == 800
+    assert run_source(recursive_solution, problem, stress) == (True, None)
+
+
 def test_new_node_exercises_remain_ordinary_imports_and_keep_link_identity():
     from code_practice.import_batch_004 import BATCH as node_batch
     ledger = json.loads((ROOT / "catalog_import/ledger.json").read_text())
