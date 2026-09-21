@@ -6,7 +6,7 @@ from code_practice.import_batch_124b import BATCH
 
 
 ROOT = Path(__file__).resolve().parents[1]
-IDS = (2226, 2229, 2231, 2233, 2235)
+IDS = (2226, 2229, 2231, 2233)
 
 
 def test_batch_124_second_slice_is_complete_and_verified():
@@ -29,3 +29,12 @@ def test_batch_124_second_slice_inputs_are_distinct():
         inputs = [arguments for arguments, _ in spec["examples"]] + spec["boundaries"]
         encoded = [json.dumps(arguments, sort_keys=True) for arguments in inputs]
         assert len(encoded) == len(set(encoded))
+
+
+def test_direct_addition_is_replaced_by_the_stronger_bitwise_sum():
+    ledger = json.loads((ROOT / "catalog_import/ledger.json").read_text())
+    record = next(item for item in ledger["records"] if item["source_id"] == 2235)
+    assert record["status"] == "overlap"
+    assert record["existing_id"] == "leetcode-371"
+    assert "leetcode-2235" not in get_catalog()
+    assert get_catalog()["leetcode-371"].difficulty >= 5

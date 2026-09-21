@@ -4,8 +4,8 @@
   "workbook_sha256": "d4d791913078d0275fb404f4e61ff914b039f74f44ff4a2774070685e82e8e46",
   "source_revision": "f85554a7ffaa91aeaae6f0ff9f9d0641731097ed",
   "counts": {
-    "overlap": 84,
-    "imported": 3073,
+    "overlap": 85,
+    "imported": 3072,
     "pending": 311,
     "excluded": 157,
     "quarantined": 4
@@ -24050,11 +24050,11 @@
       "title": "Add Two Integers",
       "difficulty": "Easy",
       "source_hash": "3e5af9db1f46f36fba5d1979b4aaa4497b0c90d0ca9cd0af51e5d454f3b8ea2e",
-      "status": "imported",
-      "existing_id": null,
-      "reason": "Reviewed contract and independent oracle; see validation report.",
-      "validation_report": "catalog_import/reports/leetcode-2235.json",
-      "problem_id": "leetcode-2235"
+      "status": "overlap",
+      "existing_id": "leetcode-371",
+      "reason": "Both contracts return the signed sum of two integers, and the bitwise target covers the source's complete -100..100 input domain. The target additionally forbids addition and subtraction, turning the direct num1 + num2 exercise into carry-propagation practice. Independent arithmetic checks verify 500 seeded pairs, the workbook sample, and signed boundaries. Keep only the stronger bit-manipulation progress ID.",
+      "validation_report": null,
+      "overlap_report": "catalog_import/overlap_reports/leetcode-2235.json"
     },
     {
       "source_id": 2236,

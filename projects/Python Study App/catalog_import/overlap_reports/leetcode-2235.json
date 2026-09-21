@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "source_id": 2235,
+  "source_hash": "3e5af9db1f46f36fba5d1979b4aaa4497b0c90d0ca9cd0af51e5d454f3b8ea2e",
+  "target_problem_id": "leetcode-371",
+  "target_source_hash": "e0116ae12b4c5104b1eb4736ea08da5ff18a92f9d193abbb4ef6e6d583b7d941",
+  "target_content_sha256": "2e64417ce69322fba5928120928ae7259816af370f27212d74c4d29f66c718e7",
+  "judge_contract_sha256": "70598c7a49945d7aec0fc8ed5f34f60d6cb298bba8b11b92cdcdba802c84e600",
+  "implementation_sha256": "1b71c5f43bf8b2162a1b5f84047db34fdfc027590ea808275148ea693746e963",
+  "decision": {
+    "target_source_id": 371,
+    "source_hash": "3e5af9db1f46f36fba5d1979b4aaa4497b0c90d0ca9cd0af51e5d454f3b8ea2e",
+    "reason": "Both contracts return the signed sum of two integers, and the bitwise target covers the source's complete -100..100 input domain. The target additionally forbids addition and subtraction, turning the direct num1 + num2 exercise into carry-propagation practice. Independent arithmetic checks verify 500 seeded pairs, the workbook sample, and signed boundaries. Keep only the stronger bit-manipulation progress ID."
+  },
+  "oracle_inputs": 500,
+  "oracle_seed": 6282,
+  "workbook_sample_checked": true,
+  "deterministic_inputs": 11,
+  "largest_input": 100,
+  "direct_addition_forbidden": true,
+  "domain": "Two integers in -100..100; target extends both operands to -1000..1000"
+}

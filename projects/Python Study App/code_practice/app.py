@@ -313,14 +313,22 @@ def dashboard() -> dict[str, Any]:
         )
         daily_review = save_daily_review_assignment(today_key, [problem.id for problem in review_problems])
     review_assigned_at, assigned_review_ids = daily_review
+    current_passed_review_ids = {
+        review.problem_id for review in reviews if review.latest_result == "accepted"
+    }
+    eligible_assigned_review_ids = [
+        problem_id for problem_id in assigned_review_ids if problem_id in current_passed_review_ids
+    ]
     reviewed_today = {
         attempt.problem_id
         for attempt in attempts
         if attempt.result == "accepted" and attempt.created_at > review_assigned_at
     }
-    remaining_review_ids = [problem_id for problem_id in assigned_review_ids if problem_id not in reviewed_today]
+    remaining_review_ids = [
+        problem_id for problem_id in eligible_assigned_review_ids if problem_id not in reviewed_today
+    ]
     review_recommendations = [catalog[problem_id] for problem_id in remaining_review_ids if problem_id in catalog]
-    review_complete = bool(assigned_review_ids) and not review_recommendations
+    review_complete = bool(eligible_assigned_review_ids) and not review_recommendations
 
     challenge = next(
         (
@@ -336,7 +344,7 @@ def dashboard() -> dict[str, Any]:
         "dailyRemainingCount": len(recommendations),
         "reviewRecommendations": [problem_summary(problem, solved) for problem in review_recommendations],
         "reviewComplete": review_complete,
-        "reviewAssignedCount": len(assigned_review_ids),
+        "reviewAssignedCount": len(eligible_assigned_review_ids),
         "reviewRemainingCount": len(review_recommendations),
         "weeklyChallenge": problem_summary(challenge, solved) if challenge else None,
         "mastery": mastery,

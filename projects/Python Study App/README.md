@@ -1,8 +1,8 @@
 # Code Practice Lab
 
-A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 3,174 runnable problems (101 original exercises plus 3,073 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
+A private Python interview-practice app that runs locally or as an authenticated personal website. It currently includes 3,173 runnable problems (101 original exercises plus 3,072 verified workbook imports), a browser-isolated Pyodide judge, progressive wrong-answer coaching, hints, a guided daily queue, review scheduling, persistent SQLite progress, and an optional Codex-assisted variant workflow. The full workbook expansion is in progress, not complete.
 
-The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 3,174-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
+The frozen transfer checkpoint remains [the 430-problem release](docs/RELEASE_430_CHECKPOINT.md), tagged `python-study-430-checkpoint`; all earlier checkpoint tags remain unchanged. The current 3,173-problem package is ongoing local development rather than a new tagged release. Continuing development on this laptop does not change the website until you explicitly transfer a reviewed revision, rebuild, and restart it. Keep the website computer's existing progress database; do not re-import the seed during a normal update. No GitHub push is performed unless the owner explicitly requests it.
 
 ## Start the app
 
@@ -19,7 +19,7 @@ The local runner rebuilds the frontend on each start. After pulling dependency c
 ## Study workflow
 
 - **Today** assigns one workload-capped daily set: five Easy problems; normally two Medium plus one Easy (or at most three Medium when no Easy remains); or one Hard plus at most one Medium. Finished items disappear without being replaced, and a completion message remains until the next local calendar day.
-- **Daily review** separately assigns up to five previously passed problems and removes each one after a successful review submission that day. Its score prioritizes difficulty and due dates, then raises problems that took longer or failed again after their first successful solve. A full set uses at most three focus slots for linked lists, recursion, binary search, and recursive matrix/grid traversal; when available, the other two slots review completed problems outside those focus tags. Hint usage does not affect this review ordering.
+- **Daily review** separately assigns up to five problems whose latest submission is accepted and removes each one after a successful review submission that day. A later wrong answer, runtime error, or timeout makes that problem ineligible for Review until it is passed again. A full set uses one matrix/grid-recursion slot, one tree slot, one linked-list/graph-traversal slot, and two date-seeded random passed problems when those pools are available. Hint usage does not affect this review ordering.
 - **Library** searches and filters on the server by title/pattern, topic, difficulty, and completion. It fetches 30 summaries per page; full instructions and tests load only when opening a problem. Back navigation retains the page and filters.
 - **Back navigation** returns a problem to the page that opened it—Today or Library—without clearing the Library filters.
 - **Run examples** executes the two hand-curated teaching examples: a representative case, a contrasting or boundary case, and a short explanation of why each shown output is correct.
@@ -623,7 +623,7 @@ and undetected incorrect solutions quarantine the candidate instead of
 publishing it. Reports are tied to the exact content and judge-contract hashes.
 Judge changes require revalidation of existing imports before repackaging;
 the current in-place, selected-TreeNode, and selected-ListNode extensions have
-been checked against every reviewed batch. The current package contains 3,174 problems; future
+been checked against every reviewed batch. The current package contains 3,173 problems; future
 partially reviewed batches are not exposed.
 
 Only records with successful, content-hash-matched validation reports enter the
@@ -695,6 +695,13 @@ postorder traversal without rejecting the standard recursive solution at
 Python's default recursion limit. The complete nine-problem source batch was
 revalidated, and `catalog_import/benchmarks/incremental-diameter-recursion-limit-543.json`
 records the isolated Chrome/Pyodide gate for the changed problem.
+
+The September 21 quality pass retires the direct `num1 + num2` exercise
+`leetcode-2235` as a proved overlap of `leetcode-371`. The retained problem
+requires signed bitwise carry propagation without addition or subtraction, so
+the packaged catalog contains 3,173 useful runnable problems instead of keeping
+both contracts. The overlap is bound to 500 seeded pairs, signed boundaries,
+the source sample, and a regression that rejects a direct-arithmetic reference.
 
 Source provenance: workbook filename/hash and row numbers are retained in the
 ledger. `catalog_import/sources.jsonl` records LeetCode URLs and the exact

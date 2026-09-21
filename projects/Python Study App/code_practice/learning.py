@@ -218,7 +218,13 @@ def prioritized_review_problems(
     for attempt in attempts:
         histories[attempt.problem_id].append(attempt)
     states = {review.problem_id: review for review in reviews}
-    candidates = [catalog[problem_id] for problem_id in solved_ids if problem_id in catalog]
+    candidates = [
+        catalog[problem_id]
+        for problem_id in solved_ids
+        if problem_id in catalog
+        and problem_id in states
+        and states[problem_id].latest_result == "accepted"
+    ]
     ranked = sorted(
         candidates,
         key=lambda problem: (

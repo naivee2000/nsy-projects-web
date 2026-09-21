@@ -257,3 +257,49 @@ def test_review_set_falls_back_when_focus_categories_are_missing():
     assert is_grid_recursion_problem(ranked[0])
     assert any(is_linked_list_problem(problem) for problem in ranked[:3])
     assert len({problem.id for problem in ranked}) == 5
+
+
+def test_review_set_excludes_a_previously_passed_problem_after_latest_failure():
+    now = datetime(2026, 9, 21, 12, tzinfo=timezone.utc)
+    catalog = {problem.id: problem for problem in PROBLEMS}
+    chosen = [
+        catalog["largest-land-region"],
+        catalog["tree-max-depth"],
+        catalog["linked-odd-even-order"],
+        catalog["minimum-window"],
+        catalog["merge-intervals"],
+        catalog["pair-sum-indices"],
+    ]
+    failed = chosen[0]
+    attempts = [
+        make_attempt(problem.id, attempt_id=300 + index).model_copy(
+            update={"created_at": now - timedelta(days=2)}
+        )
+        for index, problem in enumerate(chosen)
+    ]
+    attempts.append(
+        make_attempt(failed.id, result="timeout", attempt_id=400).model_copy(
+            update={"created_at": now - timedelta(hours=1)}
+        )
+    )
+    reviews = [
+        ReviewState(
+            problem_id=problem.id,
+            interval_index=0,
+            due_at=now,
+            latest_result="timeout" if problem.id == failed.id else "accepted",
+        )
+        for problem in chosen
+    ]
+
+    ranked = prioritized_review_problems(
+        catalog,
+        attempts,
+        reviews,
+        {problem.id for problem in chosen},
+        now,
+        selection_seed="2026-09-21",
+    )
+
+    assert failed.id not in {problem.id for problem in ranked}
+    assert len(ranked) == 5

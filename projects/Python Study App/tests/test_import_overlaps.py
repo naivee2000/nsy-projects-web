@@ -9,7 +9,7 @@ from code_practice import package_catalog
 from code_practice.catalog import get_catalog
 from code_practice.catalog_artifacts import write_json_atomic
 from code_practice.reconcile_overlaps import (
-    DECISIONS, check_unique_rotations, check_distinct_subsequence, check_bulb_square_root, check_bit_flips,
+    DECISIONS, check_direct_sum_replacement, check_unique_rotations, check_distinct_subsequence, check_bulb_square_root, check_bit_flips,
     check_complement, check_player_matching, matching_deficiency_oracle, assignment_mask_oracle,
     reconcile, restore_import_overlaps, validate_import_overlap,
 )
@@ -85,6 +85,19 @@ def test_bit_flip_overlap_covers_source_boundaries_and_rejects_lost_positions(tm
     records[461]['status']='quarantined'
     with pytest.raises(ValueError,match='stale'):
         validate_import_overlap(records[2220],records,tmp_path)
+
+
+def test_direct_addition_overlap_requires_the_stronger_bitwise_contract(tmp_path):
+    _, records, sources = snapshot(tmp_path)
+    payload = json.loads((tmp_path / "catalog_import/candidates/leetcode-371.json").read_text())
+    proof = check_direct_sum_replacement(payload, sources[2235])
+    assert proof["oracle_inputs"] == 500
+    assert proof["direct_addition_forbidden"]
+    assert validate_import_overlap(records[2235], records, tmp_path)["valid"]
+
+    direct = {**payload, "reference_solution": "def sum_without_arithmetic(a,b):\n    return a+b\n"}
+    with pytest.raises(ValueError, match="direct addition"):
+        check_direct_sum_replacement(direct, sources[2235])
 
 
 @pytest.mark.parametrize("change", ["source", "target_source", "target_content", "proof", "target_status"])

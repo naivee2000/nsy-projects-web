@@ -40,6 +40,11 @@ DECISIONS = {
         "source_hash": "80d4a9fe3acc30744fa76ad983dcca0f62f4bc8c863b080a535b8086889a3bb3",
         "reason": "Players and children both request a minimum capacity; trainers and cookies each satisfy at most one request whose requirement is no greater than their capacity. Version 2 of Assign Cookies explicitly supports 100,000 items per side, covering source 2410 while retaining its ID and all old inputs. Independent assignment-mask DP verifies 500 small inputs over the full value domain; nested-neighborhood deficiency bounds certify 100,000-item cases. The workbook sample maps players to g and trainers to s.",
     },
+    2235: {
+        "target_source_id": 371,
+        "source_hash": "3e5af9db1f46f36fba5d1979b4aaa4497b0c90d0ca9cd0af51e5d454f3b8ea2e",
+        "reason": "Both contracts return the signed sum of two integers, and the bitwise target covers the source's complete -100..100 input domain. The target additionally forbids addition and subtraction, turning the direct num1 + num2 exercise into carry-propagation practice. Independent arithmetic checks verify 500 seeded pairs, the workbook sample, and signed boundaries. Keep only the stronger bit-manipulation progress ID.",
+    },
     2220: {
         "target_source_id": 461,
         "source_hash": "29c828993d44681ce0a71f2c38517254af50bbc61c083e7c7ac4d799f9c224f7",
@@ -382,6 +387,44 @@ def check_unique_rotations(payload, source):
             "complexity_scope": "Read bound is executable evidence; inspected reference halves the interval on every unique-value iteration."}
 
 
+def check_direct_sum_replacement(payload, source):
+    """Prove the trivial direct-addition source is covered by a stronger target."""
+    import ast
+    from .build_import_batch import workbook_sample
+
+    difficulty = sum(payload["rubric"].values())
+    if difficulty < 5 or not any("without the + or - operators" in item for item in payload["constraints"]):
+        raise ValueError("Replacement must retain the stronger no-arithmetic learning constraint")
+    tree = ast.parse(payload["reference_solution"])
+    if any(isinstance(node, ast.BinOp) and isinstance(node.op, (ast.Add, ast.Sub)) for node in ast.walk(tree)):
+        raise ValueError("Replacement reference uses direct addition or subtraction")
+
+    namespace = {}
+    exec(compile(payload["reference_solution"], "<reviewed-bitwise-sum>", "exec"), namespace)
+    function = namespace[payload["signature"]["name"]]
+    sample = workbook_sample(source["sample"], [{"name": "num1"}, {"name": "num2"}])
+    if sample is None or function(*sample[0]) != sample[1]:
+        raise ValueError("Direct-addition workbook sample disagrees with the replacement")
+
+    rng = random.Random(6282)
+    cases = [(rng.randint(-100, 100), rng.randint(-100, 100)) for _ in range(500)]
+    boundaries = [(-100, -100), (-100, 0), (-100, 100), (-1, 1), (0, 0),
+                  (1, 1), (63, 1), (99, 1), (100, -100), (100, 100)]
+    for left, right in cases + boundaries:
+        actual = function(left, right)
+        if type(actual) is not int or actual != sum((left, right)):
+            raise ValueError("Bitwise replacement disagrees with the signed-sum oracle")
+    return {
+        "oracle_inputs": 500,
+        "oracle_seed": 6282,
+        "workbook_sample_checked": True,
+        "deterministic_inputs": len(boundaries) + 1,
+        "largest_input": 100,
+        "direct_addition_forbidden": True,
+        "domain": "Two integers in -100..100; target extends both operands to -1000..1000",
+    }
+
+
 def validate_import_overlap(record, records, root=ROOT):
     """Fail closed when either source, target, judge, decision, or proof changes."""
     try:
@@ -539,7 +582,7 @@ def reconcile(root=ROOT):
             target = records[decision["target_source_id"]]
             payload = load_verified_import(target, root)
             checker = {531: check_single_pixels, 783: check_bst_gap, 521: check_two_uncommon, 1009: check_complement, 2410: check_player_matching,
-                       2220: check_bit_flips, 46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
+                       2235: check_direct_sum_replacement, 2220: check_bit_flips, 46: check_unique_permutations, 153: check_unique_rotations, 1081: check_distinct_subsequence,
                        319: check_bulb_square_root, 3857: check_split_into_ones}[source_id]
             evidence = checker(payload, sources[source_id])
             report = {"valid": True, "source_id": source_id, "source_hash": record["source_hash"],
