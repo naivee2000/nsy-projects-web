@@ -3,179 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Shaoyang Ni’s projects in automation, vehicle research, Python practice, and investing.">
   <title>Projects - NSY Projects</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f4f6f8;
-      --surface: #ffffff;
-      --ink: #182230;
-      --muted: #667085;
-      --line: #d0d5dd;
-      --primary: #175cd3;
-      --green: #067647;
-      --amber: #b54708;
-    }
-    * { box-sizing: border-box; }
-    html { min-width: 320px; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      letter-spacing: 0;
-    }
-    main {
-      width: min(980px, calc(100vw - 32px));
-      margin: 0 auto;
-      padding: 28px 0 44px;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-    h1 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.05;
-      letter-spacing: 0;
-    }
-    .account {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .account a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    .project-list {
-      display: grid;
-      gap: 12px;
-    }
-    .project {
-      display: grid;
-      gap: 10px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-      padding: 18px;
-      color: inherit;
-      text-decoration: none;
-      box-shadow: 0 18px 42px rgba(16, 24, 40, 0.08);
-    }
-    .project:hover {
-      border-color: var(--primary);
-      box-shadow: 0 22px 48px rgba(16, 24, 40, 0.12);
-    }
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-    }
-    h2 {
-      margin: 0;
-      font-size: 22px;
-      line-height: 1.15;
-      letter-spacing: 0;
-    }
-    .status {
-      border-radius: 999px;
-      background: #fffaeb;
-      color: var(--amber);
-      padding: 5px 9px;
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    .status.ready {
-      background: #ecfdf3;
-      color: var(--green);
-    }
-    p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.5;
-      letter-spacing: 0;
-    }
-    @media (max-width: 560px) {
-      header,
-      .project-top {
-        align-items: start;
-        flex-direction: column;
-      }
-      .account { width: 100%; justify-content: space-between; }
-    }
-  </style>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/site.js" defer></script>
 </head>
-<body>
-  <main>
-    <header>
-      <div>
-        <h1>NSY Projects</h1>
-      </div>
-      <div class="account">
-        <a href="index.html">Home</a>
-        <span id="accountStatus">Project directory</span>
-        <a id="authAction" href="https://dem.nsyprojects.com/login?next=https%3A%2F%2Fnsyprojects.com%2Fprojects">Sign in</a>
-      </div>
-    </header>
+<body data-page="projects">
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="/" aria-label="NSY Projects home"><span class="mark" aria-hidden="true"></span><span>NSY Projects</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/about.html">About Me</a>
+          <a href="/projects.html" aria-current="page">Projects</a>
+      </nav>
+      <a id="authAction" class="header-action" href="https://dem.nsyprojects.com/login?next=https%3A%2F%2Fnsyprojects.com%2Fprojects">Sign in</a>
+    </div>
+  </header>
+  <main id="mainContent" tabindex="-1" class="page-content container">
+    <div class="page-heading"><p class="eyebrow">Project directory</p><h1>NSY Projects</h1><p>Tools for everyday work, learning, and research.</p></div>
     <section class="project-list" aria-label="Projects">
       <a class="project" href="/projects/dem-claim/">
-        <div class="project-top">
-          <h2>装卸时间计算表</h2>
-          <span id="demStatus" class="status">Login required</span>
+        <div class="project-top"><h2 lang="zh">装卸时间计算表</h2><span class="status">Private</span></div>
+        <div class="project-details">
+          <p lang="zh">将 PDF 或图片中的装卸记录整理为 Excel 表格。</p>
+          <div class="tags" role="group" aria-label="Technology and topics"><span class="tag">Python</span><span class="tag">OCR</span><span class="tag">Excel</span></div>
         </div>
-        <p>把装卸文件内容（PDF/PNG等格式）填入Excel模版</p>
+        <svg class="project-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
       </a>
       <a class="project" href="/projects/car-compare/">
-        <div class="project-top">
-          <h2>Car Depreciation Research Tool</h2>
-          <span id="carCompareStatus" class="status">Login required</span>
+        <div class="project-top"><h2>Car Compare</h2><span class="status">Private</span></div>
+        <div class="project-details">
+          <p>Explore vehicle values, depreciation, and model changes.</p>
+          <div class="tags" role="group" aria-label="Technology and topics"><span class="tag">Python</span><span class="tag">Data</span><span class="tag">Research</span></div>
         </div>
-        <p>Research vehicle market values, depreciation curves, and generation-change impact.</p>
+        <svg class="project-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
       </a>
       <a class="project" href="/projects/python-study/">
-        <div class="project-top">
-          <h2>Python Study App</h2>
-          <span id="pythonStudyStatus" class="status">Login required</span>
+        <div class="project-top"><h2>Python Study</h2><span class="status">Private</span></div>
+        <div class="project-details">
+          <p>Practice Python with hints, saved drafts, and progress tracking.</p>
+          <div class="tags" role="group" aria-label="Technology and topics"><span class="tag">Python</span><span class="tag">Practice</span><span class="tag">AI</span></div>
         </div>
-        <p>Practice Python interview problems with guided hints, saved drafts, and persistent progress tracking.</p>
+        <svg class="project-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
       </a>
       <a class="project" href="/projects/stock-strategy-test/">
-        <div class="project-top">
-          <h2>Long-Term Stock Allocation Lab</h2>
-          <span class="status ready">Public access</span>
+        <div class="project-top"><h2>Stock Allocation Lab</h2><span class="status ready">Public access</span></div>
+        <div class="project-details">
+          <p>Compare stocks, options, and cash allocations against SPY and QQQ.</p>
+          <div class="tags" role="group" aria-label="Technology and topics"><span class="tag">Stocks</span><span class="tag">Options</span><span class="tag">Portfolio</span></div>
         </div>
-        <p>Distribute a portfolio across stocks, options, and cash, then compare the long-term result with SPY and QQQ.</p>
+        <svg class="project-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
       </a>
     </section>
   </main>
-  <script>
-    const accountStatus = document.getElementById("accountStatus");
-    const authAction = document.getElementById("authAction");
-    const demStatus = document.getElementById("demStatus");
-    const carCompareStatus = document.getElementById("carCompareStatus");
-    const pythonStudyStatus = document.getElementById("pythonStudyStatus");
-    if (document.cookie.split("; ").includes("nsy_signed_in=1")) {
-      accountStatus.textContent = "Signed in";
-      authAction.textContent = "Sign out";
-      authAction.href = `https://dem.nsyprojects.com/logout?next=${encodeURIComponent(window.location.href)}`;
-      demStatus.textContent = "Available";
-      demStatus.classList.add("ready");
-      carCompareStatus.textContent = "Available";
-      carCompareStatus.classList.add("ready");
-      pythonStudyStatus.textContent = "Available";
-      pythonStudyStatus.classList.add("ready");
-    }
-  </script>
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© <span id="currentYear">2026</span> Shaoyang Ni</span>
+      <a href="https://www.linkedin.com/in/naivee-ni/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+    </div>
+  </footer>
 </body>
 </html>
