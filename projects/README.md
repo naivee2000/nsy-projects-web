@@ -109,7 +109,10 @@ regression checks this rule. TreeNode/ListNode starters, recursive review boosts
 and all original progress IDs remain intact. All 126 imports were revalidated
 after the new comparison mode, including 20,000-node conversion fixtures.
 The original Tree Height problem keeps its ID and progress but advances to
-version 2: an explicit stack replaces recursion that overflowed on long valid
+version 3: recursion-focused tree tests cap depth at 500 while broad trees can
+still contain 20,000 nodes, so correct recursive Python answers do not fail only
+because of the interpreter's call-stack limit. This replaces the earlier
+version 2 approach, where an explicit stack handled long valid
 chains. A breadth-first oracle, 500 seeded shapes, 20,000-node stress cases, and
 version-1 progress/draft preservation tests cover the repair. This remains the
 existing equivalent of LeetCode 104 rather than adding a duplicate problem.

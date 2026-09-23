@@ -637,12 +637,11 @@ correctness. Generated tests must meet each problem's actual constraints.
   new judge hash. Complete-tree references additionally obey a logarithmic-squared
   link-read bound over sizes 0–1024 and large boundaries, without claiming formal
   complexity grading for arbitrary learner submissions.
-- Auditing original overlap 104 reproduced a RecursionError at 10,000 nodes in
-  Tree Height's version-1 recursive reference, despite its 20,000-node contract.
-  Version 2 uses explicit DFS frames under the same ID and signature. A separate
-  breadth-first oracle and 500 seeded binary-path shapes verify depth independently;
-  deterministic cases include 10,000-/20,000-node right chains, a 20,000-node left
-  chain, and a wide 20,000-node tree. Plausible edge-counting and left-only mistakes
+- Tree Height version 3 restores the exercise's intended recursive solution and
+  caps path depth at 500, while still allowing broad trees with 20,000 total nodes.
+  A separate breadth-first oracle and 500 seeded binary-path shapes verify depth
+  independently; deterministic cases include 300-/500-node skewed paths and a
+  wide 20,000-node tree. Plausible edge-counting and left-only mistakes
   fail by wrong output. Regression checks retain version-1 accepted source, drafts,
   Passed filtering, and recommendation exclusion through repackaging and reopen.
   Other original overlap contracts still require continued boundary auditing.

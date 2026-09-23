@@ -118,8 +118,16 @@ def _starter(spec: SeedSpec) -> str:
 def _wrong_solutions(spec: SeedSpec) -> list[str]:
     if spec.id == "tree-max-depth":
         source = inspect.getsource(SOLUTIONS[spec.function_name])
-        return [source.replace("(root, 1)", "(root, 0)"),
-                source.replace("if node.right is not None:", "if False:")]
+        return [
+            source.replace(
+                "return 1 + max(tree_max_depth(root.left), tree_max_depth(root.right))",
+                "return max(tree_max_depth(root.left), tree_max_depth(root.right))",
+            ),
+            source.replace(
+                "return 1 + max(tree_max_depth(root.left), tree_max_depth(root.right))",
+                "return 1 + tree_max_depth(root.left)",
+            ),
+        ]
     params = ", ".join(name for name, _annotation, _adapter in spec.parameters)
     return [
         f"def {spec.function_name}({params}):\n    return None\n",
@@ -271,16 +279,16 @@ SEEDS = [
     ),
     SeedSpec(
         "tree-max-depth", "Tree Height", "Measure the longest root-to-leaf path.",
-        "Return the number of nodes on the longest path from the root to a leaf. An empty tree has depth 0.",
+        "Return the number of nodes on the longest path from the root to a leaf using recursion. An empty tree has depth 0.",
         ["trees", "recursion"], [], "tree_max_depth", [("root", "TreeNode | None", "treenode")], "int", "raw", EASY_3, 20, "O(n)", "O(h)",
-        ["0 <= node count <= 20,000", "Trees are encoded in level order with null gaps."],
-        ["Depth counts nodes, not edges; the empty subtree contributes zero.", "The recursive rule is 1 + max(depth(left), depth(right)). For a deep chain, represent the pending work explicitly instead of nesting Python calls.", "Put (root,1) on a stack. Pop a node and its depth, update the largest depth, and push existing children with depth+1.", "An explicit depth-first stack preserves the recursive traversal while supporting the full 20,000-node limit without changing Python's recursion limit."],
-        "The recursive relationship is depth(node)=1+max(depth(left),depth(right)), with zero for an empty tree. Direct Python recursion can overflow on a valid long chain, so the reference records (node,depth) frames in an explicit stack and takes the largest depth visited. Every node is processed once, and at most O(h) pending frames are needed for height h. An independent breadth-first oracle counts successive levels instead. Version 2 keeps the original signature, node-count convention, ID, and saved progress while adding deep-chain and wide-tree checks.",
+        ["0 <= node count <= 20,000", "Tree depth is at most 500 so a recursive Python solution is supported.", "Trees are encoded in level order with null gaps."],
+        ["Depth counts nodes, not edges; the empty subtree contributes zero.", "Ask the same question of the left and right child subtrees.", "Return 1 + max(depth(left), depth(right)); return 0 at a missing node.", "Each call solves one subtree. The recursion reaches O(h) frames and visits every node once."],
+        "Use the recursive relationship depth(node) = 1 + max(depth(left), depth(right)), with zero for a missing node. Each node is visited once, so time is O(n), and the call stack uses O(h) space for tree height h. The catalog caps depth at 500 so a correct recursive Python solution is tested as recursion rather than rejected by the interpreter's call-stack limit. Broad trees may still contain up to 20,000 nodes. An independent breadth-first oracle verifies the answers.",
         [[[3, 9, 20, None, None, 15, 7]], [[]]],
         [[[1]], [[1, 2]], [[1, None, 2]], [[1, 2, 3]], [[1, 2, None, 3, None, 4]], [[1, None, 2, None, 3]], [[5, 3, 8, 2, 4, 7, 9]], [[0, -1, 1]], [[1, 2, 3, 4]], [[1, None, 2, 3]], [[9, 8, None, 7]], [[2, 1, 3, None, None, None, 4]],
-         [[1, None] * 9999 + [1]], [[1, None] * 19999 + [1]],
-         [[1] + [1, None] * 19998 + [1]], [[0] * 20000]],
-        version=2,
+         [[1, None] * 299 + [1]], [[1, None] * 499 + [1]],
+         [[1] + [1, None] * 498 + [1]], [[0] * 20000]],
+        version=3,
     ),
     SeedSpec(
         "longest-unique-span", "Longest Unique Span", "Find the longest substring without repeated characters.",

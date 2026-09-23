@@ -1,4 +1,5 @@
 import json
+from collections import deque
 from pathlib import Path
 import random
 import sys
@@ -7,6 +8,7 @@ from fastapi.testclient import TestClient
 
 from code_practice import catalog, database
 from code_practice.app import app
+from code_practice.content import PROBLEMS
 from code_practice.import_batch_002 import flatten
 from code_practice.learning import review_focus_boost
 from code_practice.package_catalog import package
@@ -21,17 +23,44 @@ ORIGINAL_RECURSIVE_SOURCE = """def tree_max_depth(root):
 """
 
 
-def test_depth_upgrade_repairs_the_reproduced_recursion_failure_without_changing_limits():
+def _encoded_tree_depth(values):
+    if not values or values[0] is None:
+        return 0
+    pending = deque([1])
+    index = 1
+    maximum = 1
+    while pending and index < len(values):
+        parent_depth = pending.popleft()
+        for _ in range(2):
+            if index < len(values) and values[index] is not None:
+                maximum = max(maximum, parent_depth + 1)
+                pending.append(parent_depth + 1)
+            index += 1
+    return maximum
+
+
+def test_depth_upgrade_keeps_the_recursion_lesson_inside_python_stack_limits():
     problem = catalog.get_catalog()["tree-max-depth"]
     limit = sys.getrecursionlimit()
-    case = Case(id="workbook-maximum-chain", arguments=[[1, None] * 9999 + [1]], expected=10000)
-    passed, error = run_source(ORIGINAL_RECURSIVE_SOURCE, problem, case)
-    assert not passed and "RecursionError" in error
-    assert run_source(problem.reference_solution, problem, case) == (True, None)
-    assert problem.version == 2 and problem.signature.name == "tree_max_depth"
+    deepest = max(problem.tests, key=lambda test: _encoded_tree_depth(test.arguments[0]))
+    assert _encoded_tree_depth(deepest.arguments[0]) == 500
+    assert run_source(ORIGINAL_RECURSIVE_SOURCE, problem, deepest) == (True, None)
+    assert run_source(problem.reference_solution, problem, deepest) == (True, None)
+    assert problem.version == 3 and problem.signature.name == "tree_max_depth"
     assert sys.getrecursionlimit() == limit
-    assert "20,000" in " ".join(problem.constraints)
+    assert "depth is at most 500" in " ".join(problem.constraints)
+    assert "stack" not in problem.reference_solution
     assert review_focus_boost(problem) >= 50
+
+
+def test_original_recursion_tree_lessons_do_not_exceed_the_safe_depth_cap():
+    for problem in PROBLEMS:
+        if "recursion" not in problem.topics:
+            continue
+        for test in problem.tests:
+            for parameter, argument in zip(problem.signature.parameters, test.arguments):
+                if parameter.adapter == "treenode":
+                    assert _encoded_tree_depth(argument) <= 500, (problem.id, test.id)
 
 
 def test_depth_reference_and_breadth_first_oracle_pass_all_boundaries_and_wrong_answers_fail():
@@ -43,7 +72,8 @@ def test_depth_reference_and_breadth_first_oracle_pass_all_boundaries_and_wrong_
     for test in problem.tests:
         assert run_source(problem.reference_solution, problem, test) == (True, None)
         assert run_source(problem.brute_force_solution, problem, test) == (True, None)
-    assert sum(test.expected == 20000 for test in problem.tests) == 2
+    assert sum(test.expected == 500 for test in problem.tests) == 2
+    assert any(test.expected == 300 for test in problem.tests)
     assert any(test.arguments == [[0] * 20000] and test.expected == 15 for test in problem.tests)
     for wrong in problem.known_wrong_solutions:
         assert any(run_source(wrong, problem, test) == (False, None) for test in problem.tests)
@@ -91,7 +121,7 @@ def test_depth_version_one_progress_survives_repackaging_and_reopen(tmp_path, mo
     database.initialize_database()
     with TestClient(app) as client:
         detail = client.get(f"/api/problems/{problem.id}").json()
-        assert detail["version"] == 2 and detail["solved"]
+        assert detail["version"] == 3 and detail["solved"]
         assert detail["savedDraft"].endswith(draft)
         assert database.get_draft(problem.id) == draft
         passed = client.get("/api/problems?completion=passed").json()

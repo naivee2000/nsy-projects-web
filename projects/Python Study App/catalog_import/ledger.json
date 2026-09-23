@@ -1228,7 +1228,7 @@
       "source_hash": "5a39cbc61ca7c19b2cc481a80705c0e516e2c19c818ec707d384710ffd47aba7",
       "status": "overlap",
       "existing_id": "tree-max-depth",
-      "reason": "Longest root-to-leaf path counted in nodes. Original ID version 2 supports the source's 10,000-node boundary and the original 20,000-node limit with an explicit stack; independent breadth-first and 500 seeded checks preserve this equivalence.",
+      "reason": "Longest root-to-leaf path counted in nodes. Original ID version 3 intentionally caps tree depth at 500 so the recursion lesson accepts correct recursive Python solutions while still allowing 20,000-node broad trees; independent breadth-first and 500 seeded checks preserve the behavior.",
       "validation_report": null
     },
     {

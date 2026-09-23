@@ -173,10 +173,11 @@ The property checker is tested against all 626 binary-tree shapes through seven
 nodes. Stress fixtures cover 20,000-node list conversions, 50,000-node complete
 trees, and 1,000-node skewed trees. All 126 imports were revalidated after this
 judge extension; original IDs, progress, and weak-topic review boosts are retained.
-The original Tree Height exercise is now version 2 under the same `tree-max-depth`
-ID. Its recursive reference previously overflowed on a valid 10,000-node chain.
-An explicit depth-first stack now supports the existing 20,000-node limit;
-independent breadth-first and 500 seeded path-shape checks verify the repair.
+The original Tree Height exercise is now version 3 under the same `tree-max-depth`
+ID. Because it is specifically a recursion lesson, its maximum tree depth is 500,
+so a correct recursive Python solution is not rejected by the interpreter's call
+stack. Broad trees may still contain 20,000 nodes; independent breadth-first and
+500 seeded path-shape checks verify the recursive reference and boundaries.
 Tests preserve version-1 accepted attempts and drafts across repackaging/reopen.
 This strengthens the existing LeetCode 104 equivalent, not the problem count.
 Batch twenty adds Reverse Bits, Range Bitwise AND, Happy Number, Count Primes,

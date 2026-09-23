@@ -1,5 +1,5 @@
 // Fast Chrome/Pyodide gate for one changed import batch. Never touches live progress.
-// Usage: PLAYWRIGHT_MODULE=... node scripts/verify_incremental_browser.mjs 532 533
+// Usage: PLAYWRIGHT_MODULE=... node scripts/verify_incremental_browser.mjs 532 tree-max-depth
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -14,8 +14,9 @@ const arguments_ = process.argv.slice(2);
 const reportFlag = arguments_.indexOf('--report');
 const reportPath = reportFlag < 0 ? null : path.resolve(root, arguments_[reportFlag + 1] || '');
 if (reportFlag >= 0) arguments_.splice(reportFlag, 2);
-const requested = arguments_.map(value => value.startsWith('leetcode-') ? value : `leetcode-${Number(value)}`);
-assert(requested.length > 0 && requested.every(id => /^leetcode-\d+$/.test(id)), 'Pass one or more numeric workbook IDs.');
+const requested = arguments_.map(value => /^\d+$/.test(value) ? `leetcode-${value}` : value);
+assert(requested.length > 0 && requested.every(id => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)),
+  'Pass one or more catalog IDs (numeric workbook IDs are expanded to leetcode-N).');
 assert.equal(new Set(requested).size, requested.length, 'IDs must be unique.');
 const playwright = await import(process.env.PLAYWRIGHT_MODULE ? pathToFileURL(process.env.PLAYWRIGHT_MODULE).href : 'playwright');
 const { chromium } = playwright.chromium ? playwright : playwright.default;

@@ -35,7 +35,7 @@ OVERLAPS = {
     96: ("recursive-catalan-number", "Count binary-search-tree shapes through the Catalan recurrence; same integer input/output."),
     98: ("valid-binary-search-tree", "Strict ordering across entire left/right subtrees of every node."),
     102: ("tree-level-order", "Binary-tree values grouped by depth, left to right."),
-    104: ("tree-max-depth", "Longest root-to-leaf path counted in nodes. Original ID version 2 supports the source's 10,000-node boundary and the original 20,000-node limit with an explicit stack; independent breadth-first and 500 seeded checks preserve this equivalence."),
+    104: ("tree-max-depth", "Longest root-to-leaf path counted in nodes. Original ID version 3 intentionally caps tree depth at 500 so the recursion lesson accepts correct recursive Python solutions while still allowing 20,000-node broad trees; independent breadth-first and 500 seeded checks preserve the behavior."),
     111: ("recursive-minimum-tree-depth", "Shortest root-to-leaf path counted in nodes, zero for an empty tree."),
     121: ("max-single-trade-profit", "Maximum profit from one buy followed by one sell, or zero."),
     125: ("normalized-palindrome", "Case-insensitive palindrome after removing nonalphanumeric characters."),
