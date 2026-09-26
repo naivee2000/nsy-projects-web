@@ -301,6 +301,24 @@ def save_daily_assignment(assignment_date: str, problem_ids: list[str]) -> list[
     return [row["problem_id"] for row in rows]
 
 
+def remove_daily_assignment_problems(assignment_date: str, problem_ids: list[str]) -> list[str]:
+    """Permanently remove newly ineligible work without refilling a fixed daily set."""
+    unique_ids = list(dict.fromkeys(problem_ids))
+    if not unique_ids:
+        return get_daily_assignment(assignment_date) or []
+    placeholders = ", ".join("?" for _ in unique_ids)
+    with db_session() as connection:
+        connection.execute(
+            f"DELETE FROM daily_session_problems WHERE assignment_date = ? AND problem_id IN ({placeholders})",
+            (assignment_date, *unique_ids),
+        )
+        rows = connection.execute(
+            "SELECT problem_id FROM daily_session_problems WHERE assignment_date = ? ORDER BY position",
+            (assignment_date,),
+        ).fetchall()
+    return [row["problem_id"] for row in rows]
+
+
 def get_daily_review_assignment(assignment_date: str) -> tuple[datetime, list[str]] | None:
     with db_session() as connection:
         session = connection.execute(

@@ -24,12 +24,20 @@ from .database import (
     solved_problem_ids,
     list_review_states,
     record_hint,
+    remove_daily_assignment_problems,
     save_attempt,
     save_daily_assignment,
     save_daily_review_assignment,
     save_draft,
 )
-from .learning import choose_daily_session, prerequisites_met, prioritized_review_problems, topic_mastery
+from .learning import (
+    choose_daily_session,
+    normalized_topics,
+    prerequisites_met,
+    prioritized_review_problems,
+    topic_mastery,
+    topic_progression_met,
+)
 from .schemas import AttemptCreate, ProblemDefinition
 from .shared_auth import SharedSessionAuth
 from .starter_code import with_support_classes
@@ -263,9 +271,43 @@ def dashboard() -> dict[str, Any]:
     mastery = topic_mastery(attempts, catalog)
     reviews = list_review_states()
     solved = {attempt.problem_id for attempt in attempts if attempt.result == "accepted"}
+    introductory_topics = {
+        topic
+        for problem in catalog.values()
+        if problem.difficulty <= 3
+        for topic in normalized_topics(problem)
+    }
+    passed_introductory_topics = {
+        topic
+        for problem_id in solved
+        if (problem := catalog.get(problem_id)) is not None and problem.difficulty <= 3
+        for topic in normalized_topics(problem)
+    }
+
+    def ready_for_daily(problem: ProblemDefinition) -> bool:
+        return prerequisites_met(problem, mastery) and topic_progression_met(
+            problem,
+            introductory_topics,
+            passed_introductory_topics,
+        )
+
     now = datetime.now(timezone.utc)
     today_key = datetime.now().astimezone().date().isoformat()
     daily_ids = get_daily_assignment(today_key)
+    if daily_ids is not None:
+        newly_locked_ids = [
+            problem_id
+            for problem_id in daily_ids
+            if problem_id in catalog
+            and problem_id not in solved
+            and not topic_progression_met(
+                catalog[problem_id],
+                introductory_topics,
+                passed_introductory_topics,
+            )
+        ]
+        if newly_locked_ids:
+            daily_ids = remove_daily_assignment_problems(today_key, newly_locked_ids)
     if daily_ids is None:
         due_ids = [
             review.problem_id
@@ -276,7 +318,7 @@ def dashboard() -> dict[str, Any]:
         prioritized_ids: set[str] = set()
 
         def add_candidate(problem: ProblemDefinition) -> bool:
-            if problem.id in solved or problem.id in prioritized_ids or not prerequisites_met(problem, mastery):
+            if problem.id in solved or problem.id in prioritized_ids or not ready_for_daily(problem):
                 return False
             prioritized.append(problem)
             prioritized_ids.add(problem.id)

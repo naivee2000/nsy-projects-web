@@ -5,7 +5,14 @@ from fastapi.testclient import TestClient
 from code_practice import database
 from code_practice.app import app
 from code_practice.catalog import get_catalog, refresh_catalog
-from code_practice.database import connect, get_draft, list_attempts, save_attempt, save_variant
+from code_practice.database import (
+    connect,
+    get_draft,
+    list_attempts,
+    save_attempt,
+    save_daily_assignment,
+    save_variant,
+)
 from code_practice.schemas import AttemptCreate
 
 
@@ -225,6 +232,36 @@ def test_dashboard_adapts_daily_count_and_separates_completed_reviews():
         assert finished["dailyRemainingCount"] == 0
         assert client.get("/api/dashboard").json()["recommendations"] == []
         assert client.get("/api/dashboard").json()["reviewRecommendations"] == []
+
+
+def test_dashboard_removes_stored_unseen_medium_without_refilling():
+    today_key = datetime.now().astimezone().date().isoformat()
+    save_daily_assignment(today_key, ["leetcode-57", "leetcode-1450"])
+
+    with TestClient(app) as client:
+        initial = client.get("/api/dashboard").json()
+        assert [problem["id"] for problem in initial["recommendations"]] == ["leetcode-1450"]
+        assert initial["dailyAssignedCount"] == 1
+
+        easy = get_catalog()["leetcode-1450"]
+        response = client.post(
+            "/api/attempts",
+            json={
+                "problem_id": easy.id,
+                "problem_version": easy.version,
+                "source_code": easy.reference_solution,
+                "result": "accepted",
+                "runtime_ms": 1,
+                "tests_passed": 12,
+                "tests_total": 12,
+                "elapsed_study_seconds": 1,
+                "hint_level": 0,
+            },
+        )
+        assert response.status_code == 200
+        finished = client.get("/api/dashboard").json()
+        assert finished["recommendations"] == []
+        assert finished["dailyComplete"] is True
 
 
 def test_dashboard_caps_primary_at_three_mediums_and_reviews_at_five():

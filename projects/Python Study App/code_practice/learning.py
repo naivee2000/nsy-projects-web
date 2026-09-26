@@ -61,6 +61,22 @@ def prerequisites_met(problem: ProblemDefinition, mastery: dict[str, float]) -> 
     return all(mastery.get(topic, 0.0) >= 70.0 for topic in problem.prerequisites)
 
 
+def normalized_topics(problem: ProblemDefinition) -> set[str]:
+    return {"-".join(topic.lower().replace("_", " ").split()) for topic in problem.topics}
+
+
+def topic_progression_met(
+    problem: ProblemDefinition,
+    introductory_topics: set[str],
+    passed_introductory_topics: set[str],
+) -> bool:
+    """Keep new Medium/Hard work behind an Easy introduction when one exists."""
+    if problem.difficulty <= 3:
+        return True
+    required_topics = normalized_topics(problem) & introductory_topics
+    return required_topics <= passed_introductory_topics
+
+
 def choose_daily_session(candidates: Iterable[ProblemDefinition]) -> list[ProblemDefinition]:
     """Build one workload-capped session from candidates in priority order."""
     ordered: list[ProblemDefinition] = []
@@ -90,10 +106,6 @@ def choose_daily_session(candidates: Iterable[ProblemDefinition]) -> list[Proble
         return medium[:3]
 
     return easy[:5]
-
-
-def normalized_topics(problem: ProblemDefinition) -> set[str]:
-    return {"-".join(topic.lower().replace("_", " ").split()) for topic in problem.topics}
 
 
 def is_grid_recursion_problem(problem: ProblemDefinition) -> bool:

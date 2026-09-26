@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta, timezone
 
+from code_practice.catalog import get_catalog
 from code_practice.content import PROBLEMS
 from code_practice.learning import (
     REVIEW_INTERVALS,
@@ -15,6 +16,7 @@ from code_practice.learning import (
     review_focus_boost,
     review_priority_score,
     topic_mastery,
+    topic_progression_met,
 )
 from code_practice.schemas import Attempt, ReviewState
 
@@ -70,6 +72,25 @@ def test_daily_session_uses_workload_based_difficulty_mixes():
     assert choose_daily_session([*medium[:3], easy[0]]) == [medium[0], medium[1], easy[0]]
     assert choose_daily_session(medium[:4]) == medium[:3]
     assert choose_daily_session([*hard, medium[0], easy[0]]) == [hard[0], medium[0]]
+
+
+def test_medium_topic_requires_a_passed_easy_introduction():
+    catalog = get_catalog()
+    medium_interval = catalog["leetcode-57"]
+    easy_interval = catalog["leetcode-1450"]
+    introductory_topics = {
+        "-".join(topic.lower().replace("_", " ").split())
+        for problem in catalog.values()
+        if problem.difficulty <= 3
+        for topic in problem.topics
+    }
+
+    assert not topic_progression_met(medium_interval, introductory_topics, set())
+    assert topic_progression_met(
+        medium_interval,
+        introductory_topics,
+        {"-".join(topic.lower().replace("_", " ").split()) for topic in easy_interval.topics},
+    )
 
 
 def test_review_priority_prefers_harder_and_observed_struggle():
