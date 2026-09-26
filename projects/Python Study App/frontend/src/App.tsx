@@ -30,6 +30,7 @@ import type { CoachReply, Dashboard, JudgeResult, Problem, ProblemPage, ProblemS
 
 type View = "dashboard" | "library" | "problem";
 type ProblemOrigin = Exclude<View, "problem">;
+type AttemptEntryPoint = "daily" | "review" | "challenge" | "library";
 
 async function api<T>(path: string, options?: RequestInit): Promise<T> {
   const response = await fetch(path, {
@@ -160,6 +161,7 @@ function EmptyState({ children }: { children: string }) {
 export default function App() {
   const [view, setView] = useState<View>("dashboard");
   const [problemOrigin, setProblemOrigin] = useState<ProblemOrigin>("dashboard");
+  const [attemptEntryPoint, setAttemptEntryPoint] = useState<AttemptEntryPoint>("daily");
   const [dashboard, setDashboard] = useState<Dashboard | null>(null);
   const [problems, setProblems] = useState<ProblemSummary[]>([]);
   const [topics, setTopics] = useState<string[]>([]);
@@ -342,10 +344,11 @@ export default function App() {
     else setEditorSplit((current) => clampEditorSplit(current + change, paneHeight));
   };
 
-  const openProblem = async (id: string) => {
+  const openProblem = async (id: string, entryPoint?: AttemptEntryPoint) => {
     try {
       const detail = await api<Problem>(`/api/problems/${id}`);
       if (view !== "problem") setProblemOrigin(view);
+      setAttemptEntryPoint(entryPoint || (view === "library" ? "library" : "daily"));
       setProblem(detail);
       setSource(detail.savedDraft);
       setRevealedHints(detail.revealedHints || []);
@@ -407,6 +410,7 @@ export default function App() {
             tests_total: packageData.tests.length,
             elapsed_study_seconds: Math.round((Date.now() - startedAt) / 1000),
             hint_level: revealedHints.length,
+            entry_point: attemptEntryPoint,
           }),
         });
         if (nextResult.status === "accepted") {
@@ -533,7 +537,7 @@ export default function App() {
               <div className="section-heading"><div><span className="section-number">01</span><h2>Your next problems</h2><p>Five Easy; two Medium plus one Easy (or at most three Medium); or one Hard plus at most one Medium.</p></div><button className="text-button" onClick={() => navigate("library")}>Browse all <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.recommendations.length
-                  ? dashboard.recommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={index} />)
+                  ? dashboard.recommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={(id) => openProblem(id, "daily")} index={index} />)
                   : <EmptyState>{dashboard?.dailyComplete ? "Daily session finished — you completed every assigned problem. Come back tomorrow for a new set." : "Loading your daily recommendations…"}</EmptyState>}
               </div>
             </section>
@@ -542,7 +546,7 @@ export default function App() {
               <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>Up to five passed problems: as many as three from your focus areas, plus broader-topic practice.</p></div><button className="text-button" onClick={() => { setCompletion("passed"); setLibraryPage(1); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.reviewRecommendations.length
-                  ? dashboard.reviewRecommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={index} />)
+                  ? dashboard.reviewRecommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={(id) => openProblem(id, "review")} index={index} />)
                   : <EmptyState>{dashboard?.reviewComplete ? "Review finished — every assigned review problem was checked today." : "Passed problems will appear here for review."}</EmptyState>}
               </div>
             </section>
@@ -550,7 +554,7 @@ export default function App() {
             <section className="challenge-banner">
               <div className="challenge-icon"><Flame size={24} /></div>
               <div><span className="eyebrow">WEEKLY STRETCH</span><h3>{dashboard?.weeklyChallenge?.title || "Advanced challenges unlock at 70% mastery"}</h3><p>{dashboard?.weeklyChallenge?.summary || "Build the prerequisite patterns first; the lab will surface the right challenge."}</p></div>
-              {dashboard?.weeklyChallenge && <button onClick={() => openProblem(dashboard.weeklyChallenge!.id)}>Open challenge <ChevronRight size={16} /></button>}
+              {dashboard?.weeklyChallenge && <button onClick={() => openProblem(dashboard.weeklyChallenge!.id, "challenge")}>Open challenge <ChevronRight size={16} /></button>}
             </section>
           </div>
         )}
@@ -575,7 +579,7 @@ export default function App() {
               <span className="result-count" aria-live="polite">{libraryLoading ? "Loading…" : `${libraryTotal} problems`}</span>
             </div>
             <div className="problem-stack library-list">
-              {!libraryLoading && problems.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={openProblem} index={(libraryPage - 1) * pageSize + index} />)}
+              {!libraryLoading && problems.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={(id) => openProblem(id, "library")} index={(libraryPage - 1) * pageSize + index} />)}
               {!libraryLoading && !problems.length && <EmptyState>No problems match these filters.</EmptyState>}
             </div>
             <nav className="library-pagination" aria-label="Library pages">
@@ -708,6 +712,7 @@ export default function App() {
                     <p>{result.message}</p>
                     {result.status === "accepted" && resultMode === "run" && <p className="completion-note">Your code is correct for the examples shown. Submit next to check the hidden tests and mark this problem Passed.</p>}
                     {result.status === "accepted" && resultMode === "submit" && <p className="completion-note completion-saved"><Check size={14} /> This problem is marked Passed and saved to your progress.</p>}
+                    {result.status !== "accepted" && resultMode === "submit" && attemptEntryPoint === "challenge" && <p className="completion-note">This challenge attempt is practice-only. It was not added to your attempts, mastery, or future retry schedule.</p>}
                     {result.stdout && <div className="console-output"><span>PRINT OUTPUT</span><pre>{result.stdout}</pre></div>}
                     {result.cases.map((item, index) => resultMode === "submit" && !item.passed ? (
                       <details className="case-row failed-case" key={item.id}>

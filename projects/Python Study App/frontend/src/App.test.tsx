@@ -483,6 +483,55 @@ test("marks a problem Passed after a successful full submission", async () => {
   expect(screen.queryByText(/Test case \[\[3,2,4\],6\]/)).not.toBeInTheDocument();
   expect(screen.getByText("Passed", { selector: ".workspace-passed" })).toBeInTheDocument();
   expect(fetch).toHaveBeenCalledWith("/api/attempts", expect.objectContaining({ method: "POST" }));
+  const attemptCall = vi.mocked(fetch).mock.calls.find(([url]) => url === "/api/attempts");
+  expect(JSON.parse(String(attemptCall?.[1]?.body))).toMatchObject({ entry_point: "daily", result: "accepted" });
+});
+
+test("labels submissions opened from the weekly challenge separately", async () => {
+  const summary = { ...dashboard.recommendations[0], difficulty: 8, title: "Weekly Challenge" };
+  const challengeDashboard = { ...dashboard, recommendations: [], weeklyChallenge: summary };
+  const problem = {
+    id: summary.id, version: 1, title: summary.title, summary: summary.summary,
+    statement: "Solve the stretch problem.", constraints: ["Advanced case."], topics: ["arrays"], prerequisites: [],
+    difficulty: 8, estimated_minutes: 50, target_time_complexity: "O(n)", target_space_complexity: "O(n)",
+    signature: { name: "pair_sum_indices", parameters: [], returns: "list[int]", return_adapter: "raw" },
+    starter_code: "def pair_sum_indices(nums, target): return []",
+    savedDraft: "def pair_sum_indices(nums, target): return []", tests: [], solved: false,
+    revealedHintLevel: 0, revealedHints: [],
+  };
+  const hiddenTests = [{ id: "case-1", arguments: [[2, 7], 9], expected: [0, 1], comparator: "exact", visible: false }];
+  const coach = { step: 1, maxSteps: 3, title: "Trace it", observation: "A case failed.",
+    nudge: "Inspect the indices.", question: "Which pair was skipped?", canContinue: false, source: "offline-static-coach" };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true, json: () => Promise.resolve(
+    url.includes("submission-package") ? { signature: problem.signature, tests: hiddenTests, timeoutMs: 3000 }
+      : url.endsWith("/coach") ? coach
+      : url.endsWith(`/${problem.id}`) ? problem
+      : url.includes("dashboard") ? challengeDashboard
+      : url === "/api/attempts" ? { recorded: false }
+      : libraryPage()
+  ) })));
+  class FailedChallengeWorker {
+    onmessage: ((event: MessageEvent) => void) | null = null;
+    onerror: ((event: ErrorEvent) => void) | null = null;
+    postMessage(payload: { type?: string }) {
+      queueMicrotask(() => this.onmessage?.({ data: payload.type === "warmup" ? { type: "ready" }
+        : { status: "wrong_answer", message: "A test failed.", runtimeMs: 4,
+          cases: [{ ...hiddenTests[0], passed: false, actual: [] }] } } as MessageEvent));
+    }
+    terminate() {}
+  }
+  vi.stubGlobal("Worker", FailedChallengeWorker);
+
+  render(<App />);
+  fireEvent.click(await screen.findByRole("button", { name: /Open challenge/ }));
+  fireEvent.click(await screen.findByRole("button", { name: "Submit" }));
+  expect(await screen.findByText("This challenge attempt is practice-only. It was not added to your attempts, mastery, or future retry schedule.")).toBeInTheDocument();
+  await waitFor(() => expect(vi.mocked(fetch).mock.calls.some(([url]) => url === "/api/attempts")).toBe(true));
+  const attemptCall = vi.mocked(fetch).mock.calls.find(([url]) => url === "/api/attempts");
+  expect(JSON.parse(String(attemptCall?.[1]?.body))).toMatchObject({
+    entry_point: "challenge",
+    result: "wrong_answer",
+  });
 });
 
 test("reveals a failed hidden test only after its dropdown is opened", async () => {

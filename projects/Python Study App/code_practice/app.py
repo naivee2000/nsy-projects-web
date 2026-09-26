@@ -66,6 +66,10 @@ class DraftPayload(BaseModel):
     source_code: str = Field(max_length=200_000)
 
 
+class AttemptSubmission(AttemptCreate):
+    entry_point: Literal["daily", "review", "challenge", "library"] = "library"
+
+
 class CoachCase(BaseModel):
     id: str
     passed: bool
@@ -194,13 +198,16 @@ def codex_coach(problem_id: str, payload: CoachPayload) -> dict[str, Any]:
 
 
 @app.post("/api/attempts")
-def attempts(payload: AttemptCreate) -> dict[str, Any]:
+def attempts(payload: AttemptSubmission) -> dict[str, Any]:
     problem = get_catalog().get(payload.problem_id)
     if not problem or problem.status != "approved":
         raise HTTPException(404, "Problem not found")
     if payload.problem_version != problem.version:
         raise HTTPException(409, "Problem version changed; reload before submitting")
-    return save_attempt(payload).model_dump(mode="json")
+    if payload.entry_point == "challenge" and payload.result != "accepted":
+        return {"recorded": False, "reason": "Unpassed challenge attempts do not affect progress."}
+    attempt = save_attempt(AttemptCreate.model_validate(payload.model_dump(exclude={"entry_point"})))
+    return {**attempt.model_dump(mode="json"), "recorded": True}
 
 
 @app.put("/api/problems/{problem_id}/draft")

@@ -112,6 +112,61 @@ def test_draft_attempt_hint_and_progress_persist():
         assert progress["mastery"]["arrays"] == 60.0
 
 
+def test_unpassed_challenge_does_not_create_attempt_or_review_progress():
+    problem = next(problem for problem in get_catalog().values() if problem.difficulty >= 8)
+    submission = {
+        "problem_id": problem.id,
+        "problem_version": problem.version,
+        "source_code": problem.starter_code,
+        "result": "wrong_answer",
+        "runtime_ms": 2.5,
+        "tests_passed": 3,
+        "tests_total": 12,
+        "elapsed_study_seconds": 120,
+        "hint_level": 0,
+        "entry_point": "challenge",
+    }
+    with TestClient(app) as client:
+        response = client.post("/api/attempts", json=submission)
+        assert response.status_code == 200
+        assert response.json() == {
+            "recorded": False,
+            "reason": "Unpassed challenge attempts do not affect progress.",
+        }
+        assert database.list_attempts() == []
+        assert database.list_review_states() == []
+        assert client.get("/api/dashboard").json()["attemptCount"] == 0
+
+        passed = {**submission, "result": "accepted", "source_code": problem.reference_solution,
+                  "tests_passed": 12}
+        accepted = client.post("/api/attempts", json=passed)
+        assert accepted.status_code == 200
+        assert accepted.json()["recorded"] is True
+        assert len(database.list_attempts()) == 1
+        assert database.list_review_states()[0].latest_result == "accepted"
+        assert client.get(f"/api/problems/{problem.id}").json()["solved"] is True
+
+
+def test_failed_daily_submission_is_still_recorded_for_future_retry():
+    problem = get_catalog()["pair-sum-indices"]
+    payload = {
+        "problem_id": problem.id,
+        "problem_version": problem.version,
+        "source_code": problem.starter_code,
+        "result": "wrong_answer",
+        "runtime_ms": 1,
+        "tests_passed": 0,
+        "tests_total": 12,
+        "entry_point": "daily",
+    }
+    with TestClient(app) as client:
+        response = client.post("/api/attempts", json=payload)
+    assert response.status_code == 200
+    assert response.json()["recorded"] is True
+    assert len(database.list_attempts()) == 1
+    assert database.list_review_states()[0].latest_result == "wrong_answer"
+
+
 def test_rejected_variant_never_appears_in_library():
     from code_practice.content import PROBLEMS
     variant = PROBLEMS[0].model_copy(deep=True)

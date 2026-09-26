@@ -41,6 +41,7 @@ All 101 problems use two hand-curated visible examples instead of shared placeho
 The original Easy catalog is benchmarked against reusable patterns in LeetCode's official Easy problems, while retaining original wording and implementations. A quality audit removed seven syntax-only exercises—including Range Span and Longest Word Length—and replaced them with Balanced Pivot Index, Word Pattern Bijection, Formable Word Total, Missing and Repeated Grid Values, Flood Fill Region, Deduplicate a Sorted Linked List, and Recursive Step Combinations. Merge Two Sorted Linked Lists was later added for dummy-head, tail-pointer, and existing-node splicing practice. Before workbook expansion, this original catalog contained 101 problems: 34 easy, 56 medium, and 11 advanced.
 
 The library fetches 30 summaries at a time, with server-side search and filters for topic, difficulty, and passed/unsolved status. Problem details load on demand. Daily recommendations and the optional weekly challenge exclude problems already marked Passed, including accepted solutions older than the latest 500 attempts.
+Failed weekly-challenge submissions retain immediate judge/coaching feedback but are not written to progress, mastery, or review scheduling; an accepted challenge is saved normally and marked Passed.
 
 The workbook expansion currently accounts for 3,629 rows: 84 existing equivalents,
 3,073 verified new problems, 157 documented design/interactive exclusions, 4 quarantined records,
