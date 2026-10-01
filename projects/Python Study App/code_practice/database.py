@@ -5,7 +5,7 @@ import os
 import shutil
 import sqlite3
 from contextlib import contextmanager
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Iterator
 
@@ -331,6 +331,24 @@ def get_daily_review_assignment(assignment_date: str) -> tuple[datetime, list[st
             (assignment_date,),
         ).fetchall()
     return datetime.fromisoformat(session["assigned_at"]), [row["problem_id"] for row in rows]
+
+
+def recent_daily_review_problem_ids(assignment_date: str, lookback_days: int = 7) -> set[str]:
+    """Return questions assigned during the preceding calendar-day cooldown."""
+    if lookback_days <= 0:
+        return set()
+    current_date = date.fromisoformat(assignment_date)
+    earliest_date = (current_date - timedelta(days=lookback_days)).isoformat()
+    with db_session() as connection:
+        rows = connection.execute(
+            """
+            SELECT DISTINCT problem_id
+            FROM daily_review_problems
+            WHERE assignment_date >= ? AND assignment_date < ?
+            """,
+            (earliest_date, assignment_date),
+        ).fetchall()
+    return {row["problem_id"] for row in rows}
 
 
 def save_daily_review_assignment(assignment_date: str, problem_ids: list[str]) -> tuple[datetime, list[str]]:

@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from fastapi.testclient import TestClient
 
@@ -9,8 +9,10 @@ from code_practice.database import (
     connect,
     get_draft,
     list_attempts,
+    recent_daily_review_problem_ids,
     save_attempt,
     save_daily_assignment,
+    save_daily_review_assignment,
     save_variant,
 )
 from code_practice.schemas import AttemptCreate
@@ -58,6 +60,15 @@ def test_schema_migration_is_versioned_and_idempotent():
     with connect() as connection:
         versions = connection.execute("SELECT version FROM schema_migrations").fetchall()
     assert [row["version"] for row in versions] == [1, 2, 3]
+
+
+def test_recent_daily_review_ids_cover_only_the_prior_seven_calendar_days():
+    today = datetime.now().astimezone().date()
+    save_daily_review_assignment((today - timedelta(days=1)).isoformat(), ["leetcode-79"])
+    save_daily_review_assignment((today - timedelta(days=7)).isoformat(), ["tree-max-depth"])
+    save_daily_review_assignment((today - timedelta(days=8)).isoformat(), ["pair-sum-indices"])
+
+    assert recent_daily_review_problem_ids(today.isoformat()) == {"leetcode-79", "tree-max-depth"}
 
 
 def test_progress_seed_installs_once_and_never_overwrites_runtime(tmp_path, monkeypatch):

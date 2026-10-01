@@ -248,6 +248,61 @@ def test_review_set_uses_three_category_slots_with_two_daily_random_slots():
     assert len(tails) > 1
 
 
+def test_review_set_uses_fresh_category_alternatives_before_recent_repeats():
+    now = datetime(2026, 9, 30, 12, tzinfo=timezone.utc)
+    catalog = {problem.id: problem for problem in PROBLEMS}
+    chosen = [
+        catalog["largest-land-region"],
+        catalog["flood-fill-region"],
+        catalog["tree-max-depth"],
+        catalog["recursive-leaf-count"],
+        catalog["linked-odd-even-order"],
+        catalog["reverse-linked-list"],
+        catalog["minimum-window"],
+        catalog["merge-intervals"],
+        catalog["pair-sum-indices"],
+    ]
+    attempts = [make_attempt(problem.id, attempt_id=300 + index) for index, problem in enumerate(chosen)]
+    reviews = [
+        ReviewState(problem_id=problem.id, interval_index=0, due_at=now, latest_result="accepted")
+        for problem in chosen
+    ]
+    recent_ids = {
+        "largest-land-region",
+        "tree-max-depth",
+        "linked-odd-even-order",
+        "minimum-window",
+    }
+
+    selected = prioritized_review_problems(
+        catalog,
+        attempts,
+        reviews,
+        {problem.id for problem in chosen},
+        now,
+        selection_seed="2026-09-30",
+        recently_assigned_ids=recent_ids,
+    )
+
+    assert len(selected) == 5
+    assert recent_ids.isdisjoint(problem.id for problem in selected)
+    assert selected[0].id == "flood-fill-region"
+    assert selected[1].id == "recursive-leaf-count"
+    assert selected[2].id == "reverse-linked-list"
+
+    fallback = prioritized_review_problems(
+        catalog,
+        attempts,
+        reviews,
+        {problem.id for problem in chosen},
+        now,
+        selection_seed="2026-09-30",
+        recently_assigned_ids={problem.id for problem in chosen},
+    )
+    assert len(fallback) == 5
+    assert len({problem.id for problem in fallback}) == 5
+
+
 def test_review_set_falls_back_when_focus_categories_are_missing():
     now = datetime(2026, 9, 8, 12, tzinfo=timezone.utc)
     catalog = {problem.id: problem for problem in PROBLEMS}

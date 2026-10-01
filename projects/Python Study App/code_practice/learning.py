@@ -222,10 +222,12 @@ def prioritized_review_problems(
     now: datetime | None = None,
     limit: int = 5,
     selection_seed: str | None = None,
+    recently_assigned_ids: set[str] | None = None,
 ) -> list[ProblemDefinition]:
-    """Choose three focused reviews plus two daily-stable random reviews."""
+    """Choose focused and general reviews while avoiding recent repeats."""
     now = now or datetime.now(timezone.utc)
     seed = selection_seed or now.date().isoformat()
+    recent_ids = recently_assigned_ids or set()
     histories: dict[str, list[Attempt]] = defaultdict(list)
     for attempt in attempts:
         histories[attempt.problem_id].append(attempt)
@@ -263,31 +265,49 @@ def prioritized_review_problems(
     linked = [problem for problem in ranked if is_linked_list_problem(problem)]
     graph = [problem for problem in ranked if is_graph_traversal_problem(problem)]
 
+    def first_fresh(pool: list[ProblemDefinition]) -> ProblemDefinition | None:
+        return next((problem for problem in pool if problem.id not in recent_ids), None)
+
     for pool in (grid, trees):
         if pool and len(selected) < focus_limit:
-            add(pool[0])
+            add(first_fresh(pool) or pool[0])
 
     structure_pools = [linked, graph]
     _stable_review_rng(seed, "structure-lane").shuffle(structure_pools)
+    fresh_structure = next(
+        (candidate for pool in structure_pools if (candidate := first_fresh(pool)) is not None),
+        None,
+    )
+    if fresh_structure is not None and len(selected) < focus_limit:
+        add(fresh_structure)
     for pool in structure_pools:
-        if pool and len(selected) < focus_limit:
+        if pool and len(selected) < focus_limit and fresh_structure is None:
             add(pool[0])
             break
 
     # If a requested focus category is not yet represented in completed work,
     # retain the highest-priority review candidates rather than returning fewer
     # than three core reviews.
-    for problem in ranked:
+    for problem in [*filter(lambda item: item.id not in recent_ids, ranked), *ranked]:
         if len(selected) >= focus_limit:
             break
         add(problem)
 
     remaining = [problem for problem in ranked if problem.id not in selected_ids]
-    general = [problem for problem in remaining if not is_review_focus_problem(problem)]
     random_needed = max(0, limit - len(selected))
-    random_pool = general if len(general) >= random_needed else remaining
-    _stable_review_rng(seed, "random-slots").shuffle(random_pool)
-    for problem in random_pool:
+    fresh_remaining = [problem for problem in remaining if problem.id not in recent_ids]
+    fresh_general = [problem for problem in fresh_remaining if not is_review_focus_problem(problem)]
+    fresh_pool = fresh_general if len(fresh_general) >= random_needed else fresh_remaining
+    _stable_review_rng(seed, "random-slots").shuffle(fresh_pool)
+    for problem in fresh_pool:
+        add(problem)
+
+    remaining = [problem for problem in ranked if problem.id not in selected_ids]
+    general = [problem for problem in remaining if not is_review_focus_problem(problem)]
+    fallback_needed = max(0, limit - len(selected))
+    fallback_pool = general if len(general) >= fallback_needed else remaining
+    _stable_review_rng(seed, "repeat-fallback").shuffle(fallback_pool)
+    for problem in fallback_pool:
         add(problem)
 
     for problem in ranked:

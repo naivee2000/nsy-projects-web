@@ -21,6 +21,7 @@ from .database import (
     initialize_database,
     list_attempts,
     learning_attempts,
+    recent_daily_review_problem_ids,
     solved_problem_ids,
     list_review_states,
     record_hint,
@@ -351,6 +352,7 @@ def dashboard() -> dict[str, Any]:
 
     daily_review = get_daily_review_assignment(today_key)
     if daily_review is None:
+        recent_review_ids = recent_daily_review_problem_ids(today_key, lookback_days=7)
         review_problems = prioritized_review_problems(
             catalog,
             attempts,
@@ -359,6 +361,7 @@ def dashboard() -> dict[str, Any]:
             now,
             limit=5,
             selection_seed=today_key,
+            recently_assigned_ids=recent_review_ids,
         )
         daily_review = save_daily_review_assignment(today_key, [problem.id for problem in review_problems])
     review_assigned_at, assigned_review_ids = daily_review
