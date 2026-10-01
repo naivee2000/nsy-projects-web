@@ -1,0 +1,154 @@
+"""Build a gradual path through published interview targets using metadata only."""
+from collections import defaultdict
+from dataclasses import dataclass
+from datetime import datetime
+import hashlib
+
+from .learning import attempt_score, normalized_topics
+from .study_lists import study_list_badges, study_list_options, study_list_snapshot
+
+
+@dataclass(frozen=True)
+class Foundation:
+    topic: str
+    minimum: int
+    maximum: int
+
+
+def _normalize(topic: str) -> str:
+    return "-".join(topic.lower().replace("_", " ").split())
+
+
+def _focus(topics: set[str]) -> set[str]:
+    # Common container tags alone should not unlock a new algorithm such as intervals.
+    return topics - {"arrays", "strings", "math"} or topics
+
+
+class InterviewPlan:
+    def __init__(self, catalog, attempts, reviews, now: datetime, day: str):
+        self.catalog = catalog
+        self.solved = {a.problem_id for a in attempts if a.result == "accepted"}
+        self.targets = {key for key in catalog if study_list_badges(key)}
+        self.remaining = self.targets - self.solved
+        self.topics = {p.id: normalized_topics(p) for p in catalog.values()}
+        self.by_topic = defaultdict(list)
+        for problem in catalog.values():
+            for topic in self.topics[problem.id]:
+                self.by_topic[topic].append(problem)
+        for problems in self.by_topic.values():
+            problems.sort(key=lambda p: (p.difficulty, p.id))
+
+        recent = defaultdict(list)
+        self.history = defaultdict(list)
+        for attempt in sorted(attempts, key=lambda a: a.created_at, reverse=True):
+            self.history[attempt.problem_id].append(attempt)
+            for topic in self.topics.get(attempt.problem_id, set()):
+                if len(recent[topic]) < 10:
+                    recent[topic].append(attempt_score(attempt))
+        self.mastery = {topic: 100 * sum(scores) / len(scores) for topic, scores in recent.items()}
+        self.passed_easy_topics = {
+            topic for key in self.solved if key in catalog and catalog[key].difficulty <= 3
+            for topic in self.topics[key]
+        }
+        self.easy_topics = {topic for topic, pool in self.by_topic.items() if any(p.difficulty <= 3 for p in pool)}
+        self._blockers = {}
+        self.ready_targets = {key for key in self.remaining if not self.blockers(catalog[key])}
+        self.preparation_for: dict[str, str] = {}
+
+        # Trace unmet foundations down to an available exercise. Recursion is
+        # bounded by visited problem IDs; prerequisites cannot produce a loop.
+        for key in sorted(self.remaining, key=lambda key: (catalog[key].difficulty, key)):
+            self._prepare(catalog[key], key, set())
+
+        eligible = self.ready_targets | set(self.preparation_for)
+        due = {r.problem_id for r in reviews if r.due_at <= now}
+        used_topics = defaultdict(int)
+        self.ordered = []
+        while eligible:
+            def rank(key):
+                problem = catalog[key]
+                stage = 0 if problem.difficulty <= 3 else 1 if problem.difficulty <= 5 else 2 if problem.difficulty <= 7 else 3
+                tie = hashlib.sha256(f"{day}:{key}".encode()).hexdigest()
+                return (stage, key not in due, key not in self.targets,
+                        sum(used_topics[t] for t in _focus(self.topics[key])), problem.difficulty, tie)
+            key = min(eligible, key=rank)
+            self.ordered.append(catalog[key])
+            eligible.remove(key)
+            for topic in _focus(self.topics[key]):
+                used_topics[topic] += 1
+
+    def blockers(self, problem) -> list[Foundation]:
+        if problem.id in self._blockers:
+            return self._blockers[problem.id]
+        missing = set()
+        for topic in problem.prerequisites:
+            topic = _normalize(topic)
+            if self.mastery.get(topic, 0) < 70:
+                missing.add(Foundation(topic, 1, max(3, min(7, problem.difficulty - 1))))
+        if problem.difficulty > 3:
+            for topic in self.topics[problem.id] & self.easy_topics - self.passed_easy_topics:
+                missing.add(Foundation(topic, 1, 3))
+
+        # Upper Medium needs a lower Medium; Hard needs two distinct Medium
+        # successes in each relevant topic (one if only one exists), at 70%.
+        if problem.difficulty >= 6:
+            maximum = min(7, problem.difficulty - 1)
+            for topic in _focus(self.topics[problem.id]):
+                pool = [p for p in self.by_topic[topic] if 4 <= p.difficulty <= maximum]
+                if not pool:
+                    continue
+                needed = min(2 if problem.difficulty >= 8 else 1, len(pool))
+                passed = sum(p.id in self.solved for p in pool)
+                if passed < needed or (problem.difficulty >= 8 and self.mastery.get(topic, 0) < 70):
+                    missing.add(Foundation(topic, 4, maximum))
+        history = self.history[problem.id]
+        if len(history) >= 2 and all(a.result != "accepted" for a in history[:2]):
+            last_failure = history[0].created_at
+            focus = _focus(self.topics[problem.id])
+            reinforced = any(
+                key in self.catalog and self.catalog[key].difficulty < problem.difficulty
+                and self.topics[key] & focus
+                and any(a.result == "accepted" and a.created_at > last_failure for a in records)
+                for key, records in self.history.items()
+            )
+            if not reinforced:
+                for topic in sorted(focus):
+                    if any(p.id not in self.solved and p.difficulty < problem.difficulty for p in self.by_topic[topic]):
+                        missing.add(Foundation(topic, 1, problem.difficulty - 1))
+                        break
+        result = sorted(missing, key=lambda b: (b.maximum, b.topic, b.minimum))
+        self._blockers[problem.id] = result
+        return result
+
+    def _prepare(self, problem, target_id: str, visited: set[str]) -> None:
+        if problem.id in visited:
+            return
+        visited = visited | {problem.id}
+        for need in self.blockers(problem):
+            pool = [p for p in self.by_topic[need.topic]
+                    if p.id not in self.solved and p.id not in visited
+                    and need.minimum <= p.difficulty <= need.maximum]
+            ready = [p for p in pool if not self.blockers(p)]
+            if ready:
+                candidate = min(ready, key=lambda p: (p.id not in self.targets, p.difficulty, p.id))
+                if candidate.id not in self.targets:
+                    self.preparation_for.setdefault(candidate.id, target_id)
+            elif pool:
+                self._prepare(pool[0], target_id, visited)
+
+    def reason(self, problem_id: str) -> str | None:
+        target = self.preparation_for.get(problem_id)
+        if target:
+            return f"Preparation for {self.catalog[target].title}: build the related foundations first."
+        return None
+
+    def progress(self) -> dict:
+        plans = study_list_options(set(self.catalog))
+        for plan, source in zip(plans, study_list_snapshot()["lists"]):
+            members = {p["problem_id"] for p in source["problems"]} & self.targets
+            plan["solved"] = len(members & self.solved)
+        return {
+            "available": len(self.targets), "solved": len(self.targets & self.solved),
+            "remaining": len(self.remaining), "ready": len(self.ready_targets),
+            "blocked": len(self.remaining - self.ready_targets), "lists": plans,
+        }

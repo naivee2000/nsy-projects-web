@@ -37,6 +37,40 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
+test("study-list filter is sent with completion filters and displays official badges", async () => {
+  const badge = { id: "hot-100", label: "Hot 100", url: "https://leetcode.com/studyplan/top-100-liked/", sourceTitle: "Two Sum", match: "equivalent" };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
+    json: () => Promise.resolve(url.includes("dashboard") ? dashboard : {
+      ...libraryPage([{ ...dashboard.recommendations[0] }]),
+      items: [{ ...dashboard.recommendations[0], studyLists: [badge] }],
+      studyLists: [{ ...badge, available: 89, total: 100 }],
+    }),
+  })));
+  render(<App />);
+  fireEvent.click(screen.getByRole("button", { name: "Library" }));
+  expect(await screen.findByTitle("Hot 100: Two Sum (existing equivalent exercise)")).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Hot 100" })).toHaveAttribute("href", badge.url);
+  fireEvent.change(screen.getByLabelText("Filter by completion"), { target: { value: "passed" } });
+  fireEvent.change(screen.getByLabelText("Filter by study list"), { target: { value: "hot-100" } });
+  await waitFor(() => expect(vi.mocked(fetch).mock.calls.some(([url]) => String(url).includes("study_list=hot-100") && String(url).includes("completion=passed") && String(url).includes("page=1"))).toBe(true));
+  expect(screen.getByText(/Some list problems are not yet available/)).toBeInTheDocument();
+});
+
+test("interview path shows progress and opens unfinished interview picks", async () => {
+  const guided = { ...dashboard, interviewProgress: {
+    available: 162, solved: 12, remaining: 150, ready: 20, blocked: 130,
+    lists: [{ id: "hot-100", label: "Hot 100", available: 89, total: 100, solved: 8 }],
+  } };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve({ ok: true,
+    json: () => Promise.resolve(url.includes("dashboard") ? guided : libraryPage()),
+  })));
+  render(<App />);
+  expect(await screen.findByText("12 / 162 interview picks passed")).toBeInTheDocument();
+  expect(screen.getByText("Hot 100: 8/89 available problems passed")).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: "See remaining picks" }));
+  await waitFor(() => expect(vi.mocked(fetch).mock.calls.some(([url]) => String(url).includes("study_list=interview-picks") && String(url).includes("completion=unsolved"))).toBe(true));
+});
+
 test.each(["returned_prefix", "mutated_argument"])("explains %s grading beside the examples", async (mode) => {
   const problem = {
     id: "pair-sum-indices", version: 1, title: "Mutation exercise", summary: "Modify the input.",

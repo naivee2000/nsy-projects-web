@@ -25,7 +25,7 @@ import {
   Target,
   TerminalSquare,
 } from "lucide-react";
-import type { CoachReply, Dashboard, JudgeResult, Problem, ProblemPage, ProblemSummary, Signature, TestCase } from "./types";
+import type { CoachReply, Dashboard, JudgeResult, Problem, ProblemPage, ProblemSummary, Signature, StudyListBadge, StudyListInfo, TestCase } from "./types";
 
 
 type View = "dashboard" | "library" | "problem";
@@ -136,6 +136,11 @@ function DifficultyPill({ score }: { score: number }) {
   return <span className={`difficulty difficulty-${difficultyLabel(score).toLowerCase()}`}>{difficultyLabel(score)} · {score}</span>;
 }
 
+function StudyBadges({ lists = [] }: { lists?: StudyListBadge[] }) {
+  if (!lists.length) return null;
+  return <span className="study-badges">{lists.map((list) => <span className="study-badge" key={list.id} title={`${list.label}: ${list.sourceTitle}${list.match === "equivalent" ? " (existing equivalent exercise)" : ""}`}>{list.label}</span>)}</span>;
+}
+
 function ProblemCard({ problem, onOpen, index }: { problem: ProblemSummary; onOpen: (id: string) => void; index?: number }) {
   return (
     <button className="problem-card" onClick={() => onOpen(problem.id)}>
@@ -144,6 +149,8 @@ function ProblemCard({ problem, onOpen, index }: { problem: ProblemSummary; onOp
         <span className="problem-card-title">{problem.title}{problem.solved && <span className="passed-label"><Check size={12} /> Passed</span>}</span>
         <span className="problem-card-summary">{problem.summary}</span>
         <span className="topic-row">{problem.topics.slice(0, 3).map((topic) => <span key={topic}>{topic}</span>)}</span>
+        <StudyBadges lists={problem.studyLists} />
+        {problem.preparationReason && <span className="preparation-reason">{problem.preparationReason}</span>}
       </span>
       <span className="problem-card-meta">
         <DifficultyPill score={problem.difficulty} />
@@ -170,6 +177,8 @@ export default function App() {
   const [libraryLoading, setLibraryLoading] = useState(false);
   const [libraryRevision, setLibraryRevision] = useState(0);
   const [difficulty, setDifficulty] = useState("all");
+  const [studyList, setStudyList] = useState("all");
+  const [studyLists, setStudyLists] = useState<StudyListInfo[]>([]);
   const pageSize = 30;
   const [problem, setProblem] = useState<Problem | null>(null);
   const [source, setSource] = useState("");
@@ -229,6 +238,7 @@ export default function App() {
       const params = new URLSearchParams({ page: String(libraryPage), page_size: String(pageSize), completion });
       if (query.trim()) params.set("search", query.trim());
       if (topic !== "all") params.set("topic", topic);
+      if (studyList !== "all") params.set("study_list", studyList);
       if (difficulty !== "all") {
         const [min, max] = difficulty.split("-");
         params.set("difficulty_min", min);
@@ -240,6 +250,7 @@ export default function App() {
           setProblems(response.items);
           setLibraryTotal(response.total);
           setTopics(response.topics);
+          setStudyLists(response.studyLists ?? []);
           setError("");
         })
         .catch((loadError) => {
@@ -251,7 +262,7 @@ export default function App() {
         .finally(() => { if (active) setLibraryLoading(false); });
     }, 180);
     return () => { active = false; controller.abort(); window.clearTimeout(timer); };
-  }, [view, libraryPage, completion, query, topic, difficulty, libraryRevision]);
+  }, [view, libraryPage, completion, query, topic, difficulty, studyList, libraryRevision]);
 
   useEffect(() => {
     if (!problem || source === problem.savedDraft) return;
@@ -534,11 +545,19 @@ export default function App() {
             </section>
 
             <section className="section-block">
-              <div className="section-heading"><div><span className="section-number">01</span><h2>Your next problems</h2><p>Five Easy; two Medium plus one Easy (or at most three Medium); or one Hard plus at most one Medium.</p></div><button className="text-button" onClick={() => navigate("library")}>Browse all <ChevronRight size={16} /></button></div>
+              {dashboard?.interviewProgress && <div className="interview-roadmap">
+                <div><span className="eyebrow">YOUR INTERVIEW PATH</span><h2>{dashboard.interviewProgress.solved} / {dashboard.interviewProgress.available} interview picks passed</h2>
+                  <p>Build Easy foundations, then related Mediums, then Hard problems. Preparation exercises help unlock your next interview targets.</p>
+                  <p>{dashboard.interviewProgress.lists.map((list) => `${list.label}: ${list.solved}/${list.available} available problems passed`).join(" · ")}</p>
+                  {dashboard.interviewProgress.remaining === 0 && <p>All currently available interview picks are complete. Keep reviewing; additional list problems will join your path when they are added to the catalog.</p>}
+                </div>
+                <button className="text-button" onClick={() => { setStudyList("interview-picks"); setCompletion("unsolved"); setQuery(""); setTopic("all"); setDifficulty("all"); setLibraryPage(1); navigate("library"); }}>See remaining picks <ChevronRight size={16} /></button>
+              </div>}
+              <div className="section-heading"><div><span className="section-number">01</span><h2>Your next problems</h2><p>Interview targets and their foundations. Five Easy; two Medium plus one Easy (or at most three Medium); or one Hard plus at most one Medium.</p></div><button className="text-button" onClick={() => navigate("library")}>Browse all <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.recommendations.length
                   ? dashboard.recommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={(id) => openProblem(id, "daily")} index={index} />)
-                  : <EmptyState>{dashboard?.dailyComplete ? "Daily session finished — you completed every assigned problem. Come back tomorrow for a new set." : "Loading your daily recommendations…"}</EmptyState>}
+                  : <EmptyState>{!dashboard ? "Loading your daily recommendations…" : dashboard.dailyComplete ? "Daily session finished — you completed every assigned problem. Come back tomorrow for a new set." : dashboard.interviewProgress?.remaining === 0 ? "All available interview picks passed. Your review section is ready below." : "No new problems in today’s saved set. Review your foundations or practice from the Library; the next daily set will check your readiness again."}</EmptyState>}
               </div>
             </section>
 
@@ -553,7 +572,7 @@ export default function App() {
 
             <section className="challenge-banner">
               <div className="challenge-icon"><Flame size={24} /></div>
-              <div><span className="eyebrow">WEEKLY STRETCH</span><h3>{dashboard?.weeklyChallenge?.title || "Advanced challenges unlock at 70% mastery"}</h3><p>{dashboard?.weeklyChallenge?.summary || "Build the prerequisite patterns first; the lab will surface the right challenge."}</p></div>
+              <div><span className="eyebrow">WEEKLY STRETCH</span><h3>{dashboard?.weeklyChallenge?.title || "Build toward Hard interview problems"}</h3><p>{dashboard?.weeklyChallenge?.summary || "Pass related Medium problems and reach 70% topic mastery to unlock an interview challenge."}</p></div>
               {dashboard?.weeklyChallenge && <button onClick={() => openProblem(dashboard.weeklyChallenge!.id, "challenge")}>Open challenge <ChevronRight size={16} /></button>}
             </section>
           </div>
@@ -576,8 +595,18 @@ export default function App() {
                 <option value="unsolved">Unsolved</option>
                 <option value="passed">Passed</option>
               </select>
+              <select value={studyList} onChange={(event) => { setStudyList(event.target.value); setLibraryPage(1); }} aria-label="Filter by study list">
+                <option value="all">All study lists</option>
+                <option value="interview-picks">Interview picks (either list)</option>
+                <option value="hot-100">Hot 100</option>
+                <option value="interview-150">Top Interview 150</option>
+              </select>
               <span className="result-count" aria-live="polite">{libraryLoading ? "Loading…" : `${libraryTotal} problems`}</span>
             </div>
+            {studyLists.length > 0 && <div className="study-list-note">
+              <p>Interview picks are drawn from LeetCode’s official study plans: {studyLists.map((list, index) => <span key={list.id}>{index > 0 && " · "}<a href={list.url} target="_blank" rel="noreferrer">{list.label}</a> ({list.available}/{list.total} available)</span>)}.</p>
+              {studyList !== "all" && <p>Includes existing equivalent exercises. Some list problems are not yet available in this app. These lists cover common interview patterns; they are not company-specific frequency rankings.</p>}
+            </div>}
             <div className="problem-stack library-list">
               {!libraryLoading && problems.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={(id) => openProblem(id, "library")} index={(libraryPage - 1) * pageSize + index} />)}
               {!libraryLoading && !problems.length && <EmptyState>No problems match these filters.</EmptyState>}
@@ -603,6 +632,7 @@ export default function App() {
               style={{ "--instruction-width": `${workspaceSplit}%` } as React.CSSProperties}
             >
               <section className="problem-pane">
+                <StudyBadges lists={problem.studyLists} />
                 <p className="problem-lead">{problem.summary}</p>
                 <p className="statement">{problem.statement}</p>
                 <div className="complexity-row"><span>Target time <strong>{problem.target_time_complexity}</strong></span><span>Target space <strong>{problem.target_space_complexity}</strong></span></div>

@@ -12,6 +12,7 @@ from pydantic import BaseModel, Field
 
 from .catalog import get_catalog, problem_summary, public_problem
 from .coach import build_coaching
+from .interview_plan import InterviewPlan
 from .codex_coach import codex_status, request_codex_coaching
 from .database import (
     get_daily_assignment,
@@ -34,7 +35,6 @@ from .database import (
 from .learning import (
     choose_daily_session,
     normalized_topics,
-    prerequisites_met,
     prioritized_review_problems,
     topic_mastery,
     topic_progression_met,
@@ -119,13 +119,14 @@ def problems(
     difficulty_max: int = Query(default=10, ge=1, le=10),
     search: str | None = None,
     completion: Literal["all", "passed", "unsolved"] = "all",
+    study_list: Literal["all", "interview-picks", "hot-100", "interview-150"] = "all",
     page: int = Query(default=1, ge=1),
     page_size: int = Query(default=30, ge=1, le=100),
 ) -> dict[str, Any]:
     catalog = get_catalog()
     return catalog.search(solved=_solved_ids(), search=search or "", topic=topic,
                           difficulty_min=difficulty_min, difficulty_max=difficulty_max,
-                          completion=completion, page=page, page_size=page_size)
+                          completion=completion, study_list=study_list, page=page, page_size=page_size)
 
 
 @app.get("/api/problems/{problem_id}")
@@ -285,15 +286,9 @@ def dashboard() -> dict[str, Any]:
         for topic in normalized_topics(problem)
     }
 
-    def ready_for_daily(problem: ProblemDefinition) -> bool:
-        return prerequisites_met(problem, mastery) and topic_progression_met(
-            problem,
-            introductory_topics,
-            passed_introductory_topics,
-        )
-
     now = datetime.now(timezone.utc)
     today_key = datetime.now().astimezone().date().isoformat()
+    interview_plan = InterviewPlan(catalog, attempts, reviews, now, today_key)
     daily_ids = get_daily_assignment(today_key)
     if daily_ids is not None:
         newly_locked_ids = [
@@ -310,45 +305,12 @@ def dashboard() -> dict[str, Any]:
         if newly_locked_ids:
             daily_ids = remove_daily_assignment_problems(today_key, newly_locked_ids)
     if daily_ids is None:
-        due_ids = [
-            review.problem_id
-            for review in reviews
-            if review.due_at <= now and review.problem_id in catalog and review.problem_id not in solved
-        ]
-        prioritized: list[ProblemDefinition] = []
-        prioritized_ids: set[str] = set()
-
-        def add_candidate(problem: ProblemDefinition) -> bool:
-            if problem.id in solved or problem.id in prioritized_ids or not ready_for_daily(problem):
-                return False
-            prioritized.append(problem)
-            prioritized_ids.add(problem.id)
-            return True
-
-        for problem_id in due_ids:
-            add_candidate(catalog[problem_id])
-
-        weak_topics = [topic for topic, _score in sorted(mastery.items(), key=lambda item: item[1])]
-        for topic in weak_topics:
-            candidate = next(
-                (
-                    problem for problem in catalog.values()
-                    if topic in problem.topics and problem.id not in solved and problem.id not in prioritized_ids
-                ),
-                None,
-            )
-            if candidate and add_candidate(candidate):
-                break
-
-        for problem in sorted(catalog.values(), key=lambda item: (item.difficulty, item.title)):
-            add_candidate(problem)
-
-        selected = choose_daily_session(prioritized)
+        selected = choose_daily_session(interview_plan.ordered)
         daily_ids = save_daily_assignment(today_key, [problem.id for problem in selected])
 
     assigned = [catalog[problem_id] for problem_id in daily_ids if problem_id in catalog]
     recommendations = [problem for problem in assigned if problem.id not in solved]
-    daily_complete = not recommendations
+    daily_complete = bool(assigned) and not recommendations
 
     daily_review = get_daily_review_assignment(today_key)
     if daily_review is None:
@@ -384,13 +346,17 @@ def dashboard() -> dict[str, Any]:
 
     challenge = next(
         (
-            problem for problem in sorted(catalog.values(), key=lambda item: item.difficulty)
-            if problem.id not in solved and problem.difficulty >= 8 and prerequisites_met(problem, mastery)
+            problem for problem in interview_plan.ordered
+            if problem.id in interview_plan.ready_targets and problem.difficulty >= 8
         ),
         None,
     )
     return {
-        "recommendations": [problem_summary(problem, solved) for problem in recommendations],
+        "recommendations": [
+            {**problem_summary(problem, solved), "preparationReason": interview_plan.reason(problem.id)}
+            for problem in recommendations
+        ],
+        "interviewProgress": interview_plan.progress(),
         "dailyComplete": daily_complete,
         "dailyAssignedCount": len(assigned),
         "dailyRemainingCount": len(recommendations),

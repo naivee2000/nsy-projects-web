@@ -1,3 +1,12 @@
+export type StudyListBadge = {
+  id: string;
+  label: string;
+  url: string;
+  sourceTitle: string;
+  match: "direct" | "equivalent";
+};
+export type StudyListInfo = { id: string; label: string; url: string; available: number; total: number };
+
 export type ProblemSummary = {
   id: string;
   version: number;
@@ -7,6 +16,8 @@ export type ProblemSummary = {
   prerequisites: string[];
   difficulty: number;
   estimatedMinutes: number;
+  preparationReason?: string | null;
+  studyLists?: StudyListBadge[];
   solved: boolean;
 };
 
@@ -14,6 +25,7 @@ export type ProblemPage = {
   items: ProblemSummary[];
   total: number;
   catalogTotal: number;
+  studyLists?: StudyListInfo[];
   page: number;
   pageSize: number;
   topics: string[];
@@ -43,6 +55,7 @@ export type Problem = {
   prerequisites: string[];
   difficulty: number;
   estimated_minutes: number;
+  studyLists?: StudyListBadge[];
   target_time_complexity: string;
   target_space_complexity: string;
   signature: Signature;
@@ -55,6 +68,14 @@ export type Problem = {
 };
 
 export type Dashboard = {
+  interviewProgress?: {
+    available: number;
+    solved: number;
+    remaining: number;
+    ready: number;
+    blocked: number;
+    lists: Array<StudyListInfo & { solved: number }>;
+  };
   recommendations: ProblemSummary[];
   reviewRecommendations: ProblemSummary[];
   reviewComplete: boolean;

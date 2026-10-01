@@ -13,6 +13,7 @@ from pydantic import BaseModel
 
 from .database import approved_variant_rows
 from .schemas import ProblemDefinition
+from .study_lists import study_list_badges, study_list_options
 
 
 CATALOG_DIR = Path(os.environ.get("CODE_PRACTICE_CATALOG_DIR", Path(__file__).resolve().parent.parent / "catalog_data"))
@@ -52,11 +53,15 @@ class Catalog(Mapping[str, ProblemDefinition]):
         self.index = sqlite3.connect(":memory:", check_same_thread=False)
         self.index.execute("CREATE TABLE entries(id TEXT PRIMARY KEY, difficulty INTEGER, title TEXT, search_text TEXT)")
         self.index.execute("CREATE TABLE topics(problem_id TEXT, topic TEXT, PRIMARY KEY(topic, problem_id))")
+        self.index.execute("CREATE TABLE study_lists(problem_id TEXT, study_list TEXT, PRIMARY KEY(study_list, problem_id))")
         self.index.executemany("INSERT INTO entries VALUES(?,?,?,?)", [
             (p.id, p.difficulty, p.title, f"{p.title} {p.summary} {' '.join(p.topics)}".casefold())
             for p in self.metadata.values()])
         self.index.executemany("INSERT INTO topics VALUES(?,?)", [
             (p.id, topic) for p in self.metadata.values() for topic in set(p.topics)])
+        self.index.executemany("INSERT OR IGNORE INTO study_lists VALUES(?,?)", [
+            (p.id, badge["id"]) for p in self.metadata.values() for badge in study_list_badges(p.id)])
+        self.study_list_options = study_list_options(set(self.metadata))
         self.index.execute("CREATE INDEX entries_order ON entries(difficulty, title, id)")
         self.index.commit()
         self._load = lru_cache(maxsize=32)(self._load_detail)
@@ -92,6 +97,7 @@ class Catalog(Mapping[str, ProblemDefinition]):
     def search(self, *, solved: set[str], search: str = "", topic: str | None = None,
                difficulty_min: int = 1, difficulty_max: int = 10,
                completion: Literal["all", "passed", "unsolved"] = "all",
+               study_list: Literal["all", "interview-picks", "hot-100", "interview-150"] = "all",
                page: int = 1, page_size: int = 30) -> dict:
         clauses, params = ["difficulty BETWEEN ? AND ?"], [difficulty_min, difficulty_max]
         if search.strip():
@@ -101,6 +107,11 @@ class Catalog(Mapping[str, ProblemDefinition]):
         if topic:
             clauses.append("id IN (SELECT problem_id FROM topics WHERE topic=?)")
             params.append(topic)
+        if study_list == "interview-picks":
+            clauses.append("id IN (SELECT problem_id FROM study_lists)")
+        elif study_list != "all":
+            clauses.append("id IN (SELECT problem_id FROM study_lists WHERE study_list=?)")
+            params.append(study_list)
         if completion != "all":
             clauses.append("id " + ("IN" if completion == "passed" else "NOT IN") + " (SELECT value FROM json_each(?))")
             params.append(json.dumps(sorted(solved)))
@@ -111,6 +122,7 @@ class Catalog(Mapping[str, ProblemDefinition]):
                                  [*params, page_size, (page - 1) * page_size]).fetchall()
         return {"items": [problem_summary(self.metadata[row[0]], solved) for row in ids],
                 "total": total, "catalogTotal": len(self), "page": page, "pageSize": page_size,
+                "studyLists": self.study_list_options,
                 "topics": sorted({t for p in self.metadata.values() for t in p.topics})}
 
 
@@ -135,12 +147,14 @@ def problem_summary(problem: ProblemDefinition | CatalogEntry, solved_ids: set[s
         "difficulty": problem.difficulty,
         "estimatedMinutes": problem.estimated_minutes,
         "solved": problem.id in solved_ids,
+        "studyLists": study_list_badges(problem.id),
     }
 
 
 def public_problem(problem: ProblemDefinition) -> dict[str, Any]:
     payload = problem.model_dump(mode="json", exclude={"reference_solution", "brute_force_solution", "known_wrong_solutions", "tests", "hints", "editorial"})
     payload["difficulty"] = problem.difficulty
+    payload["studyLists"] = study_list_badges(problem.id)
     payload["tests"] = [test.model_dump(mode="json") for test in problem.tests if test.visible]
     payload["hints"] = []
     payload["editorial"] = ""
