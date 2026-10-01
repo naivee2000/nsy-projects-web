@@ -352,7 +352,7 @@ def dashboard() -> dict[str, Any]:
 
     daily_review = get_daily_review_assignment(today_key)
     if daily_review is None:
-        recent_review_ids = recent_daily_review_problem_ids(today_key, lookback_days=7)
+        recent_review_ids = recent_daily_review_problem_ids(today_key, lookback_days=3)
         review_problems = prioritized_review_problems(
             catalog,
             attempts,

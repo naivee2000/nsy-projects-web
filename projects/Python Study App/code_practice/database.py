@@ -333,7 +333,7 @@ def get_daily_review_assignment(assignment_date: str) -> tuple[datetime, list[st
     return datetime.fromisoformat(session["assigned_at"]), [row["problem_id"] for row in rows]
 
 
-def recent_daily_review_problem_ids(assignment_date: str, lookback_days: int = 7) -> set[str]:
+def recent_daily_review_problem_ids(assignment_date: str, lookback_days: int = 3) -> set[str]:
     """Return questions assigned during the preceding calendar-day cooldown."""
     if lookback_days <= 0:
         return set()

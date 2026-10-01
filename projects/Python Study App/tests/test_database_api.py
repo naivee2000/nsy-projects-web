@@ -62,11 +62,11 @@ def test_schema_migration_is_versioned_and_idempotent():
     assert [row["version"] for row in versions] == [1, 2, 3]
 
 
-def test_recent_daily_review_ids_cover_only_the_prior_seven_calendar_days():
+def test_recent_daily_review_ids_cover_only_the_prior_three_calendar_days():
     today = datetime.now().astimezone().date()
     save_daily_review_assignment((today - timedelta(days=1)).isoformat(), ["leetcode-79"])
-    save_daily_review_assignment((today - timedelta(days=7)).isoformat(), ["tree-max-depth"])
-    save_daily_review_assignment((today - timedelta(days=8)).isoformat(), ["pair-sum-indices"])
+    save_daily_review_assignment((today - timedelta(days=3)).isoformat(), ["tree-max-depth"])
+    save_daily_review_assignment((today - timedelta(days=4)).isoformat(), ["pair-sum-indices"])
 
     assert recent_daily_review_problem_ids(today.isoformat()) == {"leetcode-79", "tree-max-depth"}
 
