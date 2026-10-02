@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 import hashlib
+from itertools import combinations
 import random
 from typing import Iterable
 
@@ -24,6 +25,7 @@ GRID_RECURSION_BONUS = 80.0
 TREE_FOCUS_BONUS = 60.0
 LINKED_LIST_FOCUS_BONUS = 60.0
 GRAPH_TRAVERSAL_FOCUS_BONUS = 60.0
+HEAP_FOCUS_BONUS = 60.0
 
 
 def attempt_score(attempt: Attempt) -> float:
@@ -140,12 +142,17 @@ def is_graph_traversal_problem(problem: ProblemDefinition) -> bool:
     return not is_grid_recursion_problem(problem) and any("graph" in topic for topic in topics)
 
 
+def is_heap_problem(problem: ProblemDefinition) -> bool:
+    return bool({"heap", "heaps", "min-heap", "max-heap", "priority-queue", "priority-queues"} & normalized_topics(problem))
+
+
 def is_review_focus_problem(problem: ProblemDefinition) -> bool:
     return (
         is_grid_recursion_problem(problem)
         or is_tree_problem(problem)
         or is_linked_list_problem(problem)
         or is_graph_traversal_problem(problem)
+        or is_heap_problem(problem)
     )
 
 
@@ -161,6 +168,8 @@ def review_focus_boost(problem: ProblemDefinition) -> float:
         boost += LINKED_LIST_FOCUS_BONUS
     if is_graph_traversal_problem(problem):
         boost += GRAPH_TRAVERSAL_FOCUS_BONUS
+    if is_heap_problem(problem):
+        boost += HEAP_FOCUS_BONUS
     return boost
 
 
@@ -247,9 +256,8 @@ def prioritized_review_problems(
             problem.id,
         ),
     )
-    # Reserve one slot each for matrix/grid recursion, trees, and either linked
-    # lists or directed/undirected graph traversal. The structure/graph lane
-    # alternates deterministically by day when both pools are available.
+    # Shuffle the five groups once per day, then take three distinct groups
+    # with eligible passed exercises. A refresh must not reroll the selection.
     focus_limit = min(3, limit)
 
     selected: list[ProblemDefinition] = []
@@ -260,29 +268,36 @@ def prioritized_review_problems(
             selected.append(problem)
             selected_ids.add(problem.id)
 
-    grid = [problem for problem in ranked if is_grid_recursion_problem(problem)]
-    trees = [problem for problem in ranked if is_tree_problem(problem)]
-    linked = [problem for problem in ranked if is_linked_list_problem(problem)]
-    graph = [problem for problem in ranked if is_graph_traversal_problem(problem)]
+    group_checks = [is_grid_recursion_problem, is_tree_problem, is_linked_list_problem,
+                    is_graph_traversal_problem, is_heap_problem]
+    _stable_review_rng(seed, "focus-groups").shuffle(group_checks)
+    pools = []
+    for matches in group_checks:
+        pool = [problem for problem in ranked if matches(problem)]
+        if pool:
+            pools.append(sorted(pool, key=lambda problem: problem.id in recent_ids))
 
-    def first_fresh(pool: list[ProblemDefinition]) -> ProblemDefinition | None:
-        return next((problem for problem in pool if problem.id not in recent_ids), None)
+    def assign_groups(groups, index=0, used=frozenset()):
+        if index == len(groups):
+            return []
+        for problem in groups[index]:
+            if problem.id in used:
+                continue
+            rest = assign_groups(groups, index + 1, used | {problem.id})
+            if rest is not None:
+                return [problem, *rest]
+        return None
 
-    for pool in (grid, trees):
-        if pool and len(selected) < focus_limit:
-            add(first_fresh(pool) or pool[0])
-
-    structure_pools = [linked, graph]
-    _stable_review_rng(seed, "structure-lane").shuffle(structure_pools)
-    fresh_structure = next(
-        (candidate for pool in structure_pools if (candidate := first_fresh(pool)) is not None),
-        None,
-    )
-    if fresh_structure is not None and len(selected) < focus_limit:
-        add(fresh_structure)
-    for pool in structure_pools:
-        if pool and len(selected) < focus_limit and fresh_structure is None:
-            add(pool[0])
+    # A heap/tree or graph/heap problem may belong to two groups. Find distinct
+    # exercises instead of filling two group slots with the same problem.
+    for count in range(min(focus_limit, len(pools)), 0, -1):
+        for groups in combinations(pools, count):
+            matched = assign_groups(groups)
+            if matched is not None:
+                for problem in matched:
+                    add(problem)
+                break
+        if selected:
             break
 
     # If a requested focus category is not yet represented in completed work,

@@ -7,6 +7,7 @@ from code_practice.learning import (
     attempt_score,
     choose_daily_session,
     is_graph_traversal_problem,
+    is_heap_problem,
     is_grid_recursion_problem,
     is_linked_list_problem,
     is_review_focus_problem,
@@ -187,7 +188,7 @@ def test_review_priority_ignores_hint_usage_but_boosts_personal_weak_topics():
     )
 
 
-def test_review_set_uses_three_category_slots_with_two_daily_random_slots():
+def test_review_set_randomly_chooses_three_of_five_groups_with_two_general_slots():
     now = datetime(2026, 9, 8, 12, tzinfo=timezone.utc)
     catalog = {problem.id: problem for problem in PROBLEMS}
     chosen = [
@@ -196,6 +197,7 @@ def test_review_set_uses_three_category_slots_with_two_daily_random_slots():
         catalog["linked-odd-even-order"],
         catalog["directed-cycle-check"],
         catalog["undirected-component-count"],
+        catalog["kth-largest-value"],
         catalog["minimum-window"],
         catalog["merge-intervals"],
         catalog["pair-sum-indices"],
@@ -218,9 +220,9 @@ def test_review_set_uses_three_category_slots_with_two_daily_random_slots():
         selection_seed="2026-09-08",
     )
 
-    assert is_grid_recursion_problem(ranked[0])
-    assert is_tree_problem(ranked[1])
-    assert is_linked_list_problem(ranked[2]) or is_graph_traversal_problem(ranked[2])
+    checks = [is_grid_recursion_problem, is_tree_problem, is_linked_list_problem,
+              is_graph_traversal_problem, is_heap_problem]
+    assert len({i for problem in ranked[:3] for i, check in enumerate(checks) if check(problem)}) == 3
     assert all(not is_review_focus_problem(problem) for problem in ranked[3:5])
     assert ranked == prioritized_review_problems(
         catalog,
@@ -246,6 +248,20 @@ def test_review_set_uses_three_category_slots_with_two_daily_random_slots():
         for day in range(8, 15)
     }
     assert len(tails) > 1
+
+    group_sets = set()
+    for day in range(1, 31):
+        daily = prioritized_review_problems(
+            catalog, attempts, reviews, {p.id for p in chosen}, now,
+            selection_seed=f"2026-10-{day:02d}",
+        )
+        groups = frozenset(i for p in daily[:3] for i, check in enumerate(checks) if check(p))
+        assert len(groups) == 3
+        assert len({p.id for p in daily}) == 5
+        assert all(not is_review_focus_problem(p) for p in daily[3:])
+        group_sets.add(groups)
+    assert set.union(*(set(groups) for groups in group_sets)) == set(range(5))
+    assert len(group_sets) > 1
 
 
 def test_review_set_uses_fresh_category_alternatives_before_recent_repeats():
@@ -286,9 +302,7 @@ def test_review_set_uses_fresh_category_alternatives_before_recent_repeats():
 
     assert len(selected) == 5
     assert recent_ids.isdisjoint(problem.id for problem in selected)
-    assert selected[0].id == "flood-fill-region"
-    assert selected[1].id == "recursive-leaf-count"
-    assert selected[2].id == "reverse-linked-list"
+    assert {p.id for p in selected[:3]} == {"flood-fill-region", "recursive-leaf-count", "reverse-linked-list"}
 
     fallback = prioritized_review_problems(
         catalog,
@@ -330,9 +344,28 @@ def test_review_set_falls_back_when_focus_categories_are_missing():
     )
 
     assert len(ranked) == 5
-    assert is_grid_recursion_problem(ranked[0])
+    assert any(is_grid_recursion_problem(problem) for problem in ranked[:3])
     assert any(is_linked_list_problem(problem) for problem in ranked[:3])
     assert len({problem.id for problem in ranked}) == 5
+
+
+def test_heap_aliases_and_overlapping_focus_groups_use_distinct_exercises():
+    base = PROBLEMS[0]
+    for label in ("heaps", "heap", "priority queues", "priority_queue", "min-heap"):
+        assert is_heap_problem(base.model_copy(update={"topics": [label]}))
+    problems = [
+        base.model_copy(update={"id": "hybrid", "topics": ["heaps", "trees"]}),
+        base.model_copy(update={"id": "tree", "topics": ["trees"]}),
+        base.model_copy(update={"id": "graph", "topics": ["graphs"]}),
+    ]
+    now = datetime(2026, 10, 2, tzinfo=timezone.utc)
+    reviews = [ReviewState(problem_id=p.id, interval_index=0, due_at=now, latest_result="accepted") for p in problems]
+    for day in range(10):
+        selected = prioritized_review_problems(
+            {p.id: p for p in problems}, [make_attempt(p.id) for p in problems], reviews,
+            {p.id for p in problems}, now, limit=3, selection_seed=str(day),
+        )
+        assert {p.id for p in selected} == {"hybrid", "tree", "graph"}
 
 
 def test_review_set_excludes_a_previously_passed_problem_after_latest_failure():
