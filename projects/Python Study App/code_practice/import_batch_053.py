@@ -271,9 +271,9 @@ BATCH={
             ([[list('M'*50) for _ in range(50)],[25,25]],
              [list('M'*50) if r!=25 else list('M'*25+'X'+'M'*24) for r in range(50)])]),
 530:entry('minimum_bst_difference',[('root','TreeNode')],'int',['trees','binary-search-trees','recursion'],
-    ['2 <= node count <= 10,000; 0 <= node.val <= 100,000; the input is a binary search tree.',
+    ['2 <= node count <= 10,000; tree height <= 200; 0 <= node.val <= 100,000; the input is a binary search tree.',
      'Return the smallest absolute value difference between ANY TWO DISTINCT nodes, not just parent/child pairs. Equal values at distinct nodes give zero.',
-     'Do not change node values or links. Inorder values are non-decreasing; use this order rather than the JSON level-order sequence.'],
+     'Do not change node values or links. Inorder values are non-decreasing; use this order rather than the JSON level-order sequence. Recursive or iterative traversal is allowed.'],
     [([[4,2,6,1,3]],'Return 1, for example between values 1 and 2. The tree serialization is level order, not a sorted list of values.'),
      ([[10,2,20,None,9]],'Return 1 between nodes 9 and 10. They are not parent and child: 9 is the right child of 2, inside the left subtree of 10.')],
     [[tree] for tree in ([0,None,100000],[100000,0],[2,1],[1,None,2],[2,1,3],[5,1,9],
@@ -285,16 +285,16 @@ BATCH={
     gap_oracle,random_gap,
     ['In a sorted sequence, a closest pair appears at adjacent positions.',
      'Inorder traversal supplies that sorted sequence without sorting or changing the tree.',
-     'Traverse left/node/right with a stack, compare each value to the previous visited value, and retain the smallest difference.',
-     'Do not confuse an adjacent inorder pair with a parent/child edge. A stack handles skewed trees of height 10,000 without raising the recursion limit.'],
+     'Traverse left/node/right recursively or with a stack, compare each value to the previous visited value, and retain the smallest difference.',
+     'Do not confuse an adjacent inorder pair with a parent/child edge. The tree height is at most 200, so ordinary recursive inorder traversal is supported.'],
     'For sorted values a<=b<=c, c-a is at least either neighboring gap. Thus '
     'the global minimum occurs between adjacent inorder visits. Track only the '
-    'previous value and best gap in addition to an O(h) traversal stack. Each '
+    'previous value and best gap using recursive inorder traversal or an explicit O(h) stack. Each '
     'node is pushed and popped once, so time is O(n). The independent oracle '
     'takes every pair of non-null JSON values; it does not traverse inorder or '
     'assume the closest pair is adjacent. Input nodes and links remain unchanged.',
     'O(n)','O(h)',difficulty=3,
-    stress=[([chain(list(range(10000)))],1),([chain(list(range(9999,-1,-1)),True)],1),
+    stress=[([chain(list(range(200)))],1),([chain(list(range(199,-1,-1)),True)],1),
             ([balanced(list(range(0,100000,10)))],10),([balanced([17]*10000)],0)])
 }
 BATCH[530]['params'][0]=('root','TreeNode','treenode')

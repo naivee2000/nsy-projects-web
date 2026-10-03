@@ -543,7 +543,9 @@ Every import passes 500 independent oracle cases and rejects two wrong algorithm
 Additional tests exhaust small residue arrays, abbreviation sets, all 512
 three-by-three mine layouts with every click, and small BST multisets in three
 shapes. Full-size cases cover 100,000 array entries, 400 words of length 400,
-50-by-50 mine boards, and 10,000-node trees without recursion-limit changes.
+50-by-50 mine boards, and 10,000-node balanced trees without recursion-limit changes.
+The BST gap exercise caps tree height at 200, so both recursive and iterative
+inorder solutions pass; its two skewed fixtures are 200 nodes deep.
 Source 783 is a verified equivalent of the new BST exercise, not another ID.
 Existing tree values/links are protected by the read-only judge contract.
 An additional audit found that serialized-value comparisons alone allowed an

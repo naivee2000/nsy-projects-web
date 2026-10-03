@@ -147,6 +147,29 @@ def test_bst_gap_exhaustive_multisets_three_shapes_and_maximum_chains():
     assert all(not run_source(mutation,p,t)[0] for t in p.tests)
 
 
+def test_bst_gap_recursive_inorder_passes_every_published_case():
+    problem=get_catalog()['leetcode-530']
+    recursive='''\
+def minimum_bst_difference(root):
+    previous = None
+    best = float('inf')
+
+    def visit(node):
+        nonlocal previous, best
+        if node is None:
+            return
+        visit(node.left)
+        if previous is not None:
+            best = min(best, node.val - previous)
+        previous = node.val
+        visit(node.right)
+
+    visit(root)
+    return best
+'''
+    assert all(run_source(recursive,problem,case)==(True,None) for case in problem.tests)
+
+
 def test_bst_duplicate_source_full_domain_and_wrong_reference_rejection():
     root=Path(__file__).resolve().parent.parent
     source=next(s for s in map(json.loads,(root/'catalog_import/sources.jsonl').read_text().splitlines()) if s['source_id']==783)

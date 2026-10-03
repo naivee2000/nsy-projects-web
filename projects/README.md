@@ -384,7 +384,9 @@ Minimum Absolute Difference in BST. Every import passes 500 oracle comparisons
 and rejects two wrong algorithms. Exhaustive short-array/word-set checks, all
 three-by-three mine layouts with every click, repeated reveals, and BST multiset
 shapes supplement full-size fixtures: 100,000 integers, 400 words of length 400,
-50-by-50 boards, and 10,000-node trees. The mine oracle uses connected components;
+50-by-50 boards, and 10,000-node balanced trees. The BST gap exercise caps tree
+height at 200 and accepts ordinary recursive or iterative inorder solutions.
+The mine oracle uses connected components;
 the abbreviation oracle simulates collisions; the BST oracle compares every pair.
 Source 783 maps to the same BST problem with a full-domain proof. All 449 previous
 definitions and progress IDs are unchanged, and these four imports remain
