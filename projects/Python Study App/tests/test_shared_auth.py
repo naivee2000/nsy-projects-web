@@ -42,8 +42,10 @@ def test_online_auth_protects_progress_and_redirects_pages(monkeypatch):
         assert client.get("/api/progress").status_code == 401
         page = client.get("/", follow_redirects=False)
         assert page.status_code == 303
-        assert page.headers["location"].startswith("https://dem.nsyprojects.com/login?")
-        assert "study.nsyprojects.com" in page.headers["location"]
+        assert page.headers["location"] == "/login"
+        owner_login = client.get("/api/auth/owner", follow_redirects=False)
+        assert owner_login.headers["location"].startswith("https://dem.nsyprojects.com/login?")
+        assert "study.nsyprojects.com" in owner_login.headers["location"]
 
         client.cookies.set("dem_session", _token("admin", "shared-secret"))
         assert client.get("/api/progress").status_code == 200

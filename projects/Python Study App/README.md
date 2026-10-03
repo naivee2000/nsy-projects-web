@@ -723,7 +723,19 @@ CC BY-SA 4.0 attribution/license in `catalog_import/SOURCE_LICENSE.txt` and
 
 The tracked `seed_data/initial_progress.db` snapshot transfers the owner's current progress to the deployment Mac once. Production copies it only when its persistent runtime database does not yet exist. New online progress is then stored on the deployment Mac and is never overwritten by the seed or later Git pulls.
 
-The private website mode reuses the existing NSY sign-in session and keeps FastAPI bound to localhost behind Cloudflare Tunnel. Complete installation, PM2, authentication, persistence, backup, and update instructions are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+The private website supports admin-created study accounts and keeps FastAPI bound to localhost behind Cloudflare Tunnel. The owner can still use the existing NSY sign-in session. Other people sign in directly to the study app and receive no access to other NSY tools. Complete installation, PM2, authentication, persistence, backup, and update instructions are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
+### Separate study accounts
+
+Open **Accounts** as the admin to create a username and temporary password, reset a member's password, or disable an account while retaining its progress. New users must choose their own password on first sign-in. **My account** lets members change their password and sign out. Passwords require at least 12 characters and are stored as salted scrypt hashes; resets and disabling revoke study sessions. The shared NSY owner login is available on the study login page, and the owner can set a separate study password from Accounts.
+
+The first upgraded startup keeps the original `code_practice.db` as the owner's progress, creates `accounts.db`, and places each member's empty progress database under `profiles/<account-id>/code_practice.db` in `CODE_PRACTICE_DATA_DIR`. New members never receive the owner's initial seed. Attempts, drafts, hints, daily assignments, reviews, mastery, and completion filters are isolated by authenticated account. The catalog is shared. Codex coaching uses the owner's local credentials and is available only to the owner; all accounts have offline coaching and the browser Python judge.
+
+Pulling code on the hosting computer preserves its account and progress files. Do not copy this laptop's runtime data over the host. `./backup_data.sh` now backs up all accounts and profiles when `accounts.db` exists; set the same data-directory/database environment as the running service. See the deployment guide for restoration paths and the update sequence. Existing single-database backups remain owner-only backups.
+
+Local mode still opens the owner profile without a login. To test required logins locally, first run `.venv/bin/python -m code_practice.accounts reset-owner`, then start with `CODE_PRACTICE_REQUIRE_LOGIN=1 ./run_local.sh`. The owner password can also be reset with this command on the hosting computer, using the service's data-directory environment. No credentials or runtime databases should be committed.
+
+Account checks: `pytest tests/test_accounts.py tests/test_shared_auth.py tests/test_database_api.py -q`, frontend tests, and `node scripts/verify_accounts_browser.mjs` (after a frontend build). The browser check uses temporary databases and covers creation, password replacement, a real Pyodide submission, restart persistence, and preservation of the owner's draft.
 
 ## Validate the project
 
@@ -748,9 +760,9 @@ Generated problems remain drafts until validation passes and you explicitly appr
 
 ## Project boundaries
 
-- One owner, using either local mode or an authenticated private website
+- One admin plus admin-created study accounts; local mode defaults to the owner
 - Python function-signature problems only
 - One-time seed transfer to a persistent deployment-host SQLite database; no ongoing two-way database synchronization
-- Public deployment requires the shared NSY sign-in session and a localhost-only backend
+- Public deployment requires authenticated mode and a localhost-only backend; the existing shared NSY login remains an owner sign-in option
 - No server-side execution of submitted answers
 - Optional Codex coaching never blocks offline studying

@@ -15,7 +15,7 @@ authenticated browser
 → persistent SQLite database on the deployment Mac
 ```
 
-The service must remain bound to `127.0.0.1`. The Cloudflare route is the only public route, and the existing NSY sign-in session protects the page, saved drafts, attempt source code, hidden submission packages, and progress APIs.
+The service must remain bound to `127.0.0.1`. The Cloudflare route is the only public route. The owner may use the existing NSY sign-in session; other people use study-only accounts created by the owner. Authentication protects saved drafts, attempts, hidden submission packages, and progress APIs. Each authenticated identity selects its own progress database.
 
 ## How the one-time progress transfer works
 
@@ -117,7 +117,7 @@ ingress:
   - service: http_status:404
 ```
 
-Restart the existing tunnel. Confirm an unauthenticated browser is sent to the NSY sign-in page and an authenticated browser can open the study app.
+Restart the existing tunnel. Confirm an unauthenticated browser is sent to the study login page. **Admin: continue with NSY login** sends the owner to the existing NSY sign-in service; members use their study username and password.
 
 ## Updating code without losing progress
 
@@ -136,6 +136,40 @@ curl -fsS http://127.0.0.1:8791/api/health
 ```
 
 Because `CODE_PRACTICE_DATA_DIR` points outside the checkout and seed installation only happens when the runtime database is absent, these updates preserve online progress.
+
+## Upgrading from the single-owner version
+
+Use the existing persistent directory and PM2 settings. Before the first account upgrade, back up the website's existing owner database using its configured path. Pull the update, install Python dependencies, rebuild the frontend, and restart using the sequence above. Refresh open browser tabs after the update.
+
+Startup automatically retains the original owner database and initializes the account registry beside it. No seed refresh, progress export from the laptop, or replacement of the website's database is needed. The account registry initially names the owner using `CODE_PRACTICE_AUTH_USERNAME` (or `admin` for local mode); that username then persists. Sign in through the existing NSY owner link, open **Accounts**, and create other people's accounts. Share each username and temporary password privately; users replace the temporary password at first login.
+
+The data directory now contains:
+
+```text
+code_practice.db                          original owner progress
+accounts.db                              users, password hashes, study sessions
+profiles/<account-id>/code_practice.db    each member's separate progress
+```
+
+If `CODE_PRACTICE_DB` overrides the owner database location, keep that setting. The registry and member profiles always stay under `CODE_PRACTICE_DATA_DIR`. All study data stays on the deployment computer, and ordinary code updates leave it in place. Members share the catalog and judge but have separate saved code, attempts, hints, completion status, daily/review assignments, and mastery. New profiles do not copy the owner seed. Account disabling retains all progress, and password resets revoke prior study sessions.
+
+The owner's existing shared login remains valid and can be used to set a study password from Accounts. For recovery directly on the host, set the same data-directory/database environment as PM2 and run:
+
+```bash
+.venv/bin/python -m code_practice.accounts reset-owner
+```
+
+This prompts for the new password without putting it in command history. A standalone installation without NSY authentication can use `CODE_PRACTICE_REQUIRE_LOGIN=1` after setting the owner password; keep the correct HTTPS `CODE_PRACTICE_PUBLIC_ORIGIN`. Never expose the default no-login local mode through a tunnel.
+
+Study session cookies are host-only, HTTP-only, and Secure with an HTTPS public origin. A study account does not create a session for DEM or other NSY apps. Login attempts are limited, and account administration requires the owner role. Codex coaching uses the host owner's local credentials, so members only receive offline coaching.
+
+## Backing up and restoring all accounts
+
+With the service's `CODE_PRACTICE_DATA_DIR` and optional `CODE_PRACTICE_DB` exported in your shell, run `./backup_data.sh`. Once the account registry exists, the helper produces a directory containing `accounts.db`, `owner/code_practice.db`, and every `profiles/<account-id>/code_practice.db`. Existing owner-only `.db` backups cannot restore other accounts.
+
+For a coherent whole-app transfer, stop the study service briefly before backing up, then restart it. The helper uses SQLite's backup API and refuses to overwrite an existing backup directory. Store backups privately outside the repository; they contain credentials, sessions, and private code.
+
+To restore on another host, stop the destination service and back up any existing destination data first. Restore `accounts.db` and the complete `profiles/` directory into the configured persistent data directory. Restore `owner/code_practice.db` from the backup to the configured `CODE_PRACTICE_DB` path (normally `<data directory>/code_practice.db`). Keep the registry and all profile files from the same backup together, then restart. Copying only the owner database is not a multi-account transfer. If no runtime owner database exists, normal seed rules still apply, so restore it before starting.
 
 ## Backing up online progress
 
@@ -163,8 +197,10 @@ Do not refresh or recommit `seed_data/initial_progress.db` after online studying
 - [ ] A later restart preserves a new online draft and attempt.
 - [ ] Service listens on `127.0.0.1:8791`, never `0.0.0.0`.
 - [ ] Health reports authenticated website mode.
-- [ ] Unauthenticated page requests redirect to NSY sign-in.
+- [ ] Unauthenticated page requests redirect to study sign-in; the NSY owner link works.
 - [ ] Unauthenticated API requests return `401`.
 - [ ] Authenticated study flow can run examples, submit, and persist progress.
 - [ ] Git pull and PM2 restart do not replace the runtime database.
+- [ ] A new member starts with empty progress, cannot manage accounts, and cannot see the owner's drafts.
+- [ ] Member progress and account access survive a restart; backups include the registry and every profile.
 - [ ] Runtime database backups are stored outside the Git checkout.

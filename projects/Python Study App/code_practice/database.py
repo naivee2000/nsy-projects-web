@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import sqlite3
 from contextlib import contextmanager
+from contextvars import ContextVar
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Iterator
@@ -18,6 +20,26 @@ DATA_DIR = Path(os.environ.get("CODE_PRACTICE_DATA_DIR", APP_ROOT / "data"))
 DB_PATH = Path(os.environ.get("CODE_PRACTICE_DB", DATA_DIR / "code_practice.db"))
 _seed_path = os.environ.get("CODE_PRACTICE_SEED_DB", "").strip()
 SEED_DB_PATH: Path | None = Path(_seed_path).expanduser() if _seed_path else None
+_profile: ContextVar[str] = ContextVar("study_profile", default="owner")
+
+
+def profile_database_path(profile_id: str) -> Path:
+    if profile_id == "owner":
+        return DB_PATH
+    if not re.fullmatch(r"[a-f0-9]{32}", profile_id):
+        raise ValueError("Invalid profile ID")
+    return DATA_DIR / "profiles" / profile_id / "code_practice.db"
+
+
+@contextmanager
+def profile_scope(profile_id: str):
+    """Request-local selection also propagates to FastAPI's worker threads."""
+    profile_database_path(profile_id)
+    token = _profile.set(profile_id)
+    try:
+        yield
+    finally:
+        _profile.reset(token)
 
 
 MIGRATION_VERSION = 3
@@ -121,7 +143,7 @@ MIGRATIONS = {1: MIGRATION_STATEMENTS, 2: MIGRATION_2_STATEMENTS, 3: MIGRATION_3
 
 def install_seed_database() -> bool:
     """Copy the versioned progress snapshot only when no runtime database exists."""
-    if DB_PATH.exists() or SEED_DB_PATH is None or not SEED_DB_PATH.is_file():
+    if _profile.get() != "owner" or DB_PATH.exists() or SEED_DB_PATH is None or not SEED_DB_PATH.is_file():
         return False
     if SEED_DB_PATH.resolve() == DB_PATH.resolve():
         raise RuntimeError("CODE_PRACTICE_SEED_DB must differ from the runtime database path")
@@ -141,17 +163,18 @@ def install_seed_database() -> bool:
     return True
 
 
-def connect() -> sqlite3.Connection:
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    connection = sqlite3.connect(DB_PATH)
+def connect(*, owner: bool = False) -> sqlite3.Connection:
+    path = profile_database_path("owner" if owner else _profile.get())
+    path.parent.mkdir(parents=True, exist_ok=True)
+    connection = sqlite3.connect(path, timeout=15)
     connection.row_factory = sqlite3.Row
     connection.execute("PRAGMA foreign_keys = ON")
     return connection
 
 
 @contextmanager
-def db_session() -> Iterator[sqlite3.Connection]:
-    connection = connect()
+def db_session(*, owner: bool = False) -> Iterator[sqlite3.Connection]:
+    connection = connect(owner=owner)
     try:
         yield connection
         connection.commit()
@@ -407,7 +430,7 @@ def highest_hint(problem_id: str) -> int:
 
 
 def approved_variant_rows() -> list[dict]:
-    with db_session() as connection:
+    with db_session(owner=True) as connection:
         rows = connection.execute(
             "SELECT problem_json FROM generated_variants WHERE status = 'approved' ORDER BY id"
         ).fetchall()
@@ -421,7 +444,7 @@ def approved_variant_rows() -> list[dict]:
 
 def save_variant(problem_json: dict, seed_problem_id: str, status: str = "draft", validation: dict | None = None) -> None:
     problem_id = str(problem_json["id"])
-    with db_session() as connection:
+    with db_session(owner=True) as connection:
         connection.execute(
             """
             INSERT INTO generated_variants(
@@ -447,7 +470,7 @@ def save_variant(problem_json: dict, seed_problem_id: str, status: str = "draft"
 
 
 def list_variants() -> list[dict]:
-    with db_session() as connection:
+    with db_session(owner=True) as connection:
         rows = connection.execute("SELECT * FROM generated_variants ORDER BY id DESC").fetchall()
     return [
         {
@@ -460,7 +483,7 @@ def list_variants() -> list[dict]:
 
 
 def update_variant_status(problem_id: str, status: str, validation: dict | None = None) -> bool:
-    with db_session() as connection:
+    with db_session(owner=True) as connection:
         cursor = connection.execute(
             """
             UPDATE generated_variants

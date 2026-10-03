@@ -13,5 +13,11 @@ fi
 
 mkdir -p "$BACKUP_DIR"
 STAMP="$(date +%Y%m%d-%H%M%S)"
+if [[ -f "$DATA_DIR/accounts.db" ]]; then
+  cd "$APP_DIR"
+  CODE_PRACTICE_DATA_DIR="$DATA_DIR" CODE_PRACTICE_DB="$SOURCE_DB" \
+    "$APP_DIR/.venv/bin/python" -m code_practice.accounts backup "$BACKUP_DIR/code-practice-$STAMP"
+  exit 0
+fi
 sqlite3 "$SOURCE_DB" ".backup '$BACKUP_DIR/code-practice-$STAMP.db'"
 echo "Backup created: $BACKUP_DIR/code-practice-$STAMP.db"

@@ -26,23 +26,13 @@ import {
   TerminalSquare,
 } from "lucide-react";
 import type { CoachReply, Dashboard, JudgeResult, Problem, ProblemPage, ProblemSummary, Signature, StudyListBadge, StudyListInfo, TestCase } from "./types";
+import { forProfile } from "./api";
+import { AccountPanel, useAccount } from "./Accounts";
 
 
-type View = "dashboard" | "library" | "problem";
-type ProblemOrigin = Exclude<View, "problem">;
+type View = "dashboard" | "library" | "problem" | "account";
+type ProblemOrigin = "dashboard" | "library";
 type AttemptEntryPoint = "daily" | "review" | "challenge" | "library";
-
-async function api<T>(path: string, options?: RequestInit): Promise<T> {
-  const response = await fetch(path, {
-    ...options,
-    headers: { "Content-Type": "application/json", ...(options?.headers || {}) },
-  });
-  if (!response.ok) {
-    const message = await response.text();
-    throw new Error(message || `${response.status} ${response.statusText}`);
-  }
-  return response.json();
-}
 
 function difficultyLabel(score: number) {
   if (score <= 3) return "Easy";
@@ -166,6 +156,8 @@ function EmptyState({ children }: { children: string }) {
 }
 
 export default function App() {
+  const account = useAccount();
+  const api = forProfile(account?.session.user?.id ?? "owner");
   const [view, setView] = useState<View>("dashboard");
   const [problemOrigin, setProblemOrigin] = useState<ProblemOrigin>("dashboard");
   const [attemptEntryPoint, setAttemptEntryPoint] = useState<AttemptEntryPoint>("daily");
@@ -268,7 +260,8 @@ export default function App() {
     if (!problem || source === problem.savedDraft) return;
     window.clearTimeout(draftTimer.current);
     draftTimer.current = window.setTimeout(() => {
-      void api(`/api/problems/${problem.id}/draft`, { method: "PUT", body: JSON.stringify({ source_code: source }) });
+      void api(`/api/problems/${problem.id}/draft`, { method: "PUT", body: JSON.stringify({ source_code: source }) })
+        .catch((saveError) => setError(saveError instanceof Error ? saveError.message : String(saveError)));
     }, 800);
     return () => window.clearTimeout(draftTimer.current);
   }, [source, problem]);
@@ -358,7 +351,7 @@ export default function App() {
   const openProblem = async (id: string, entryPoint?: AttemptEntryPoint) => {
     try {
       const detail = await api<Problem>(`/api/problems/${id}`);
-      if (view !== "problem") setProblemOrigin(view);
+      if (view === "dashboard" || view === "library") setProblemOrigin(view);
       setAttemptEntryPoint(entryPoint || (view === "library" ? "library" : "daily"));
       setProblem(detail);
       setSource(detail.savedDraft);
@@ -520,15 +513,17 @@ export default function App() {
         <nav aria-label="Main navigation">
           <button className={view === "dashboard" ? "active" : ""} onClick={() => navigate("dashboard")}><Target size={18} /> Today</button>
           <button className={view === "library" ? "active" : ""} onClick={() => navigate("library")}><Library size={18} /> Library</button>
+          {account && <button className={view === "account" ? "active" : ""} onClick={() => navigate("account")}><Gauge size={18} /> {account.session.user?.role === "admin" ? "Accounts" : "My account"}</button>}
           <a href="https://nsyprojects.com/projects"><ArrowLeft size={18} /> Back to Projects</a>
         </nav>
         <div className="sidebar-status">
           <span className="status-dot" />
-          <span><strong>Local mode</strong><small>Progress stays on this Mac</small></span>
+          <span><strong>{account?.session.user?.username ?? "Local mode"}</strong><small>{account?.session.loginRequired ? "Your personal study progress" : "Progress stays on this computer"}</small></span>
         </div>
       </aside>
 
       <main>
+        {view === "account" && <AccountPanel />}
         {error && <div className="global-error"><CircleAlert size={18} /> {error}</div>}
 
         {view === "dashboard" && (
@@ -767,7 +762,7 @@ export default function App() {
                           <small>{coach.source === "codex-cli" ? "Generated through your local Codex CLI · filtered to withhold complete answers" : "Offline analysis · Codex uses your local ChatGPT login only when you explicitly ask"}</small>
                           <div className="coach-actions">
                             {coach.canContinue && <button disabled={coaching || codexThinking} onClick={askForNextNudge}>{coaching ? <LoaderCircle className="spin" size={14} /> : <Sparkles size={14} />} Next offline nudge</button>}
-                            {coach.source !== "codex-cli" && <button className="codex-button" disabled={codexThinking || coaching} onClick={askCodexCoach}>{codexThinking ? <LoaderCircle className="spin" size={14} /> : <BrainCircuit size={14} />} {codexThinking ? "Asking Codex…" : "Ask Codex coach"}</button>}
+                            {coach.source !== "codex-cli" && (!account || account.session.user?.role === "admin") && <button className="codex-button" disabled={codexThinking || coaching} onClick={askCodexCoach}>{codexThinking ? <LoaderCircle className="spin" size={14} /> : <BrainCircuit size={14} />} {codexThinking ? "Asking Codex…" : "Ask Codex coach"}</button>}
                           </div>
                         </div>
                       </>}

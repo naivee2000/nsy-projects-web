@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from contextlib import asynccontextmanager
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Literal
@@ -19,7 +20,6 @@ from .database import (
     get_daily_review_assignment,
     get_draft,
     highest_hint,
-    initialize_database,
     list_attempts,
     learning_attempts,
     recent_daily_review_problem_ids,
@@ -42,6 +42,9 @@ from .learning import (
 from .schemas import AttemptCreate, ProblemDefinition
 from .shared_auth import SharedSessionAuth
 from .starter_code import with_support_classes
+from . import accounts
+from .account_routes import router as account_router
+from .database import profile_scope
 
 
 APP_ROOT = Path(__file__).resolve().parent.parent
@@ -50,25 +53,55 @@ AUTH = SharedSessionAuth.from_environment()
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
-    initialize_database()
+    accounts.initialize(AUTH.username or "admin")
     yield
 
 
 app = FastAPI(title="Code Practice Lab", version="0.1.0", lifespan=lifespan)
+app.include_router(account_router)
+
+
+def login_required() -> bool:
+    return AUTH.enabled or os.environ.get("CODE_PRACTICE_REQUIRE_LOGIN", "").lower() in {"1", "true", "yes"}
 
 
 @app.middleware("http")
 async def require_online_auth(request: Request, call_next: Any) -> Response:
-    if request.url.path == "/api/health" or not AUTH.enabled:
-        return await call_next(request)
-    if AUTH.valid_token(request.cookies.get(AUTH.cookie_name)):
-        return await call_next(request)
-    if request.url.path.startswith("/api/"):
-        return JSONResponse({"detail": "Authentication required."}, status_code=401)
-    target = request.url.path
-    if request.url.query:
-        target = f"{target}?{request.url.query}"
-    return RedirectResponse(AUTH.login_redirect(target), status_code=303)
+    path = request.url.path
+    required = login_required()
+    token = request.cookies.get(accounts.COOKIE)
+    user = accounts.session_user(token) if token else None
+    if token is None and (not required or AUTH.valid_token(request.cookies.get(AUTH.cookie_name))):
+        user = accounts.get_user("owner")
+    request.state.user = user
+    request.state.shared_auth = AUTH
+    request.state.login_required = required
+    request.state.secure_cookie = AUTH.public_origin.startswith("https://")
+    public = path in {"/api/health", "/api/auth/me", "/api/auth/login", "/api/auth/logout", "/api/auth/owner", "/login"}
+    public = public or path.startswith(("/assets/", "/pyodide/", "/monaco/")) or path == "/judge-worker.js"
+    unsafe = request.method not in {"GET", "HEAD", "OPTIONS"}
+    if unsafe and (required or path.startswith(("/api/auth/", "/api/admin/"))):
+        origin = request.headers.get("origin")
+        if (request.headers.get("x-requested-with") != "CodePractice"
+                or (origin and origin.rstrip("/") not in {AUTH.public_origin, str(request.base_url).rstrip("/")})):
+            return JSONResponse({"detail": "Request must come from the study app."}, status_code=403)
+    if not public and not user:
+        if path.startswith("/api/"):
+            return JSONResponse({"detail": "Authentication required."}, status_code=401)
+        return RedirectResponse("/login", status_code=303)
+    if user and not public:
+        profile = request.headers.get("x-study-profile")
+        if ((profile and profile != user["id"]) or (unsafe and required and not profile)):
+            return JSONResponse({"detail": "Account changed. Reload before continuing.", "code": "profile_changed"}, status_code=409)
+        if user["must_change_password"] and path != "/api/auth/password" and path.startswith("/api/"):
+            return JSONResponse({"detail": "Change your temporary password first.", "code": "password_change_required"}, status_code=403)
+        if user["role"] != "admin" and (path.endswith("/codex-coach") or path == "/api/coach/codex-status"):
+            return JSONResponse({"detail": "Codex coaching is available to the owner only."}, status_code=403)
+    with profile_scope(user["id"] if user else "owner"):
+        response = await call_next(request)
+    if path.startswith("/api/") or path in {"/", "/login"}:
+        response.headers["Cache-Control"] = "no-store"
+    return response
 
 
 class DraftPayload(BaseModel):
@@ -101,8 +134,8 @@ class CoachPayload(BaseModel):
 def health() -> dict[str, Any]:
     return {
         "ok": True,
-        "mode": "authenticated-website" if AUTH.enabled else "local-only",
-        "authEnabled": AUTH.enabled,
+        "mode": "authenticated-website" if login_required() else "local-only",
+        "authEnabled": login_required(),
         "problemCount": len(get_catalog()),
         "time": datetime.now(timezone.utc).isoformat(),
     }
@@ -381,7 +414,7 @@ if FRONTEND_DIST.exists():
 
     @app.get("/{full_path:path}")
     def frontend(full_path: str) -> FileResponse:
-        candidate = FRONTEND_DIST / full_path
-        if candidate.is_file():
+        candidate = (FRONTEND_DIST / full_path).resolve()
+        if candidate.is_relative_to(FRONTEND_DIST.resolve()) and candidate.is_file():
             return FileResponse(candidate)
         return FileResponse(FRONTEND_DIST / "index.html")
