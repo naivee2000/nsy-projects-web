@@ -20,6 +20,7 @@ from code_practice.learning import (
     topic_progression_met,
 )
 from code_practice.schemas import Attempt, ReviewState
+from code_practice.study_lists import study_list_badges
 
 
 def make_attempt(problem_id="pair-sum-indices", result="accepted", hint=0, attempt_id=1):
@@ -188,7 +189,7 @@ def test_review_priority_ignores_hint_usage_but_boosts_personal_weak_topics():
     )
 
 
-def test_review_set_randomly_chooses_three_of_five_groups_with_two_general_slots():
+def test_review_set_randomly_chooses_three_of_five_groups_with_two_hot_100_slots():
     now = datetime(2026, 9, 8, 12, tzinfo=timezone.utc)
     catalog = {problem.id: problem for problem in PROBLEMS}
     chosen = [
@@ -259,6 +260,7 @@ def test_review_set_randomly_chooses_three_of_five_groups_with_two_general_slots
         assert len(groups) == 3
         assert len({p.id for p in daily}) == 5
         assert all(not is_review_focus_problem(p) for p in daily[3:])
+        assert all(any(badge["id"] == "hot-100" for badge in study_list_badges(p.id)) for p in daily[3:])
         group_sets.add(groups)
     assert set.union(*(set(groups) for groups in group_sets)) == set(range(5))
     assert len(group_sets) > 1
@@ -327,6 +329,7 @@ def test_review_set_falls_back_when_focus_categories_are_missing():
         catalog["recursive-digit-sum"],
         catalog["binary-search-index"],
         catalog["merge-intervals"],
+        catalog["pair-sum-indices"],
     ]
     attempts = [make_attempt(problem.id, attempt_id=200 + index) for index, problem in enumerate(chosen)]
     reviews = [
@@ -347,6 +350,27 @@ def test_review_set_falls_back_when_focus_categories_are_missing():
     assert any(is_grid_recursion_problem(problem) for problem in ranked[:3])
     assert any(is_linked_list_problem(problem) for problem in ranked[:3])
     assert len({problem.id for problem in ranked}) == 5
+
+
+def test_general_slots_never_fill_hot_100_shortages_with_other_problems():
+    now = datetime(2026, 10, 5, tzinfo=timezone.utc)
+    catalog = {problem.id: problem for problem in PROBLEMS}
+    focus_ids = {"largest-land-region", "tree-max-depth", "linked-odd-even-order"}
+    for extras in ([], ["pair-sum-indices"], ["pair-sum-indices", "merge-intervals"]):
+        # The tree focus pick is itself Hot 100 and must not appear a second time.
+        # A failed Hot 100 problem and an unsolved one are also unavailable.
+        solved = focus_ids | set(extras) | {"minimum-window", "binary-search-index", "recursive-digit-sum"}
+        reviews = [ReviewState(problem_id=pid, interval_index=0, due_at=now,
+                               latest_result="wrong_answer" if pid == "minimum-window" else "accepted")
+                   for pid in sorted(solved)]
+        attempts = [make_attempt(pid) for pid in sorted(solved)]
+        for recent in (set(), solved):
+            for day in range(10):
+                selected = prioritized_review_problems(catalog, attempts, reviews, solved, now,
+                    selection_seed=str(day), recently_assigned_ids=recent)
+                assert {p.id for p in selected[:3]} == focus_ids
+                assert {p.id for p in selected[3:]} == set(extras)
+                assert len(selected) == 3 + len(extras)
 
 
 def test_heap_aliases_and_overlapping_focus_groups_use_distinct_exercises():

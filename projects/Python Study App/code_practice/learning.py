@@ -8,6 +8,7 @@ import random
 from typing import Iterable
 
 from .schemas import Attempt, ProblemDefinition, ReviewState
+from .study_lists import study_list_badges
 
 
 REVIEW_INTERVALS = (1, 3, 7, 14, 30, 60)
@@ -233,7 +234,7 @@ def prioritized_review_problems(
     selection_seed: str | None = None,
     recently_assigned_ids: set[str] | None = None,
 ) -> list[ProblemDefinition]:
-    """Choose focused and general reviews while avoiding recent repeats."""
+    """Choose three focused reviews, then Hot 100 reviews, avoiding recent repeats."""
     now = now or datetime.now(timezone.utc)
     seed = selection_seed or now.date().isoformat()
     recent_ids = recently_assigned_ids or set()
@@ -308,7 +309,11 @@ def prioritized_review_problems(
             break
         add(problem)
 
-    remaining = [problem for problem in ranked if problem.id not in selected_ids]
+    # General slots are strictly Hot 100, including approved equivalent IDs.
+    # Never fill a shortage with unrelated problems or duplicate a focus pick.
+    hot_100 = [problem for problem in ranked
+               if any(badge["id"] == "hot-100" for badge in study_list_badges(problem.id))]
+    remaining = [problem for problem in hot_100 if problem.id not in selected_ids]
     random_needed = max(0, limit - len(selected))
     fresh_remaining = [problem for problem in remaining if problem.id not in recent_ids]
     fresh_general = [problem for problem in fresh_remaining if not is_review_focus_problem(problem)]
@@ -317,7 +322,7 @@ def prioritized_review_problems(
     for problem in fresh_pool:
         add(problem)
 
-    remaining = [problem for problem in ranked if problem.id not in selected_ids]
+    remaining = [problem for problem in hot_100 if problem.id not in selected_ids]
     general = [problem for problem in remaining if not is_review_focus_problem(problem)]
     fallback_needed = max(0, limit - len(selected))
     fallback_pool = general if len(general) >= fallback_needed else remaining
@@ -325,6 +330,6 @@ def prioritized_review_problems(
     for problem in fallback_pool:
         add(problem)
 
-    for problem in ranked:
+    for problem in hot_100:
         add(problem)
     return selected[:limit]
