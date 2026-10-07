@@ -108,7 +108,13 @@ def choose_daily_session(candidates: Iterable[ProblemDefinition]) -> list[Proble
             return [*medium[:2], easy[0]]
         return medium[:3]
 
-    return easy[:5]
+    if len(easy) >= 5 or not medium:
+        return easy[:5]
+    # If Easy practice runs short, use an unlocked Medium without exceeding
+    # five effort units (Easy = 1, Medium = 2), or three Mediums maximum.
+    if len(easy) >= 3:
+        return [*easy[:3], medium[0]]
+    return [*medium[:2], *easy[:1]] if len(medium) >= 2 else [*easy, medium[0]]
 
 
 def is_grid_recursion_problem(problem: ProblemDefinition) -> bool:

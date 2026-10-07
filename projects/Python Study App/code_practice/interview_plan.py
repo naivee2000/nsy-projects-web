@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime
 import hashlib
 
-from .learning import attempt_score, normalized_topics
+from .learning import attempt_score, choose_daily_session, normalized_topics
 from .study_lists import study_list_badges, study_list_options, study_list_snapshot
 
 
@@ -27,6 +27,7 @@ def _focus(topics: set[str]) -> set[str]:
 class InterviewPlan:
     def __init__(self, catalog, attempts, reviews, now: datetime, day: str):
         self.catalog = catalog
+        self.day = day
         self.solved = {a.problem_id for a in attempts if a.result == "accepted"}
         self.targets = {key for key in catalog if study_list_badges(key)}
         self.remaining = self.targets - self.solved
@@ -76,6 +77,44 @@ class InterviewPlan:
             eligible.remove(key)
             for topic in _focus(self.topics[key]):
                 used_topics[topic] += 1
+
+    def daily_session(self):
+        """Top up a new Easy-led day without changing the interview roadmap."""
+        if not self.ordered or self.ordered[0].difficulty > 3:
+            return choose_daily_session(self.ordered)
+        candidates = list(self.ordered)
+        easy = [p for p in candidates if p.difficulty <= 3]
+        if len(easy) >= 5:
+            return choose_daily_session(candidates)
+        used = {p.id for p in candidates} | self.solved
+        topic_counts = defaultdict(int)
+        for p in easy[:5]:
+            for topic in _focus(self.topics[p.id]):
+                topic_counts[topic] += 1
+        pool = [p for p in self.catalog.values()
+                if p.id not in used and p.difficulty <= 3 and not self.blockers(p)]
+        while len(easy) < 5 and pool:
+            # Re-score after each pick so extra practice covers different topics.
+            p = min(pool, key=lambda p: (
+                sum(topic_counts[t] for t in _focus(self.topics[p.id])),
+                hashlib.sha256(f"{self.day}:practice:{p.id}".encode()).hexdigest(),
+            ))
+            pool.remove(p)
+            candidates.append(p)
+            easy.append(p)
+            used.add(p.id)
+            for topic in _focus(self.topics[p.id]):
+                topic_counts[topic] += 1
+        if len(easy) < 5:
+            # Only use Mediums after exhausting eligible Easy practice. The same
+            # foundation, prerequisite, and repeated-failure gates still apply.
+            candidates.extend(sorted(
+                (p for p in self.catalog.values() if p.id not in used
+                 and 4 <= p.difficulty <= 7 and not self.blockers(p)),
+                key=lambda p: (p.difficulty, hashlib.sha256(
+                    f"{self.day}:practice:{p.id}".encode()).hexdigest()),
+            ))
+        return choose_daily_session(candidates)
 
     def blockers(self, problem) -> list[Foundation]:
         if problem.id in self._blockers:
@@ -140,6 +179,8 @@ class InterviewPlan:
         target = self.preparation_for.get(problem_id)
         if target:
             return f"Preparation for {self.catalog[target].title}: build the related foundations first."
+        if problem_id not in self.targets and problem_id in self.catalog:
+            return "Extra practice to round out today's workload and broaden topic coverage."
         return None
 
     def progress(self) -> dict:

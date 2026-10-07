@@ -548,7 +548,7 @@ export default function App() {
                 </div>
                 <button className="text-button" onClick={() => { setStudyList("interview-picks"); setCompletion("unsolved"); setQuery(""); setTopic("all"); setDifficulty("all"); setLibraryPage(1); navigate("library"); }}>See remaining picks <ChevronRight size={16} /></button>
               </div>}
-              <div className="section-heading"><div><span className="section-number">01</span><h2>Your next problems</h2><p>Interview targets and their foundations. Five Easy; two Medium plus one Easy (or at most three Medium); or one Hard plus at most one Medium.</p></div><button className="text-button" onClick={() => navigate("library")}>Browse all <ChevronRight size={16} /></button></div>
+              <div className="section-heading"><div><span className="section-number">01</span><h2>Your next problems</h2><p>Interview targets, foundations, and extra practice. Five Easy; three Easy plus one Medium; two Medium plus one Easy (or at most three Medium); or one Hard plus at most one Medium.</p></div><button className="text-button" onClick={() => navigate("library")}>Browse all <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.recommendations.length
                   ? dashboard.recommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={(id) => openProblem(id, "daily")} index={index} />)

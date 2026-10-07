@@ -98,6 +98,73 @@ def test_published_curriculum_can_reach_all_targets_without_unrelated_filler():
     assert plan.ordered == []
 
 
+def test_short_easy_day_adds_unsolved_diverse_practice(monkeypatch):
+    targets = [problem(f"target{i}", 3, ["trees"]) for i in range(3)]
+    extras = [problem("same-topic", 2, ["trees"]), problem("grid", 3, ["matrix"]),
+              problem("lists", 3, ["linked-lists"]), problem("passed", 1, ["stacks"]),
+              problem("locked", 1, ["graphs"], ["advanced"])]
+    plan = plan_for(monkeypatch, targets + extras, {p.id for p in targets}, [attempt("passed")])
+    selected = plan.daily_session()
+    assert {p.id for p in selected[:3]} == {p.id for p in targets}
+    assert {p.id for p in selected[3:]} == {"grid", "lists"}
+    assert all(p.difficulty <= 3 for p in selected)
+    assert plan.daily_session() == selected
+    assert "Extra practice" in plan.reason("grid")
+    assert len(plan.ordered) == 3  # Roadmap and interview progress are unchanged.
+
+
+def test_short_easy_day_uses_only_unlocked_medium_when_easy_pool_exhausted(monkeypatch):
+    targets = [problem(f"target{i}", 3, ["trees"]) for i in range(3)]
+    extras = [problem("intro", 2, ["arrays"]), problem("ready", 4, ["arrays"]),
+              problem("unseen", 4, ["trees"]),
+              problem("prerequisite-locked", 4, ["arrays"], ["graphs"]),
+              problem("hard", 8, ["arrays"])]
+    plan = plan_for(monkeypatch, targets + extras, {p.id for p in targets}, [attempt("intro")])
+    selected = plan.daily_session()
+    assert {p.id for p in selected} == {p.id for p in targets} | {"ready"}
+    assert sum(1 if p.difficulty <= 3 else 2 for p in selected) == 5
+    assert all(not plan.blockers(p) for p in selected)
+
+
+def test_easy_shortage_does_not_force_locked_work_or_continue_finished_path(monkeypatch):
+    targets = [problem(f"target{i}", 3, ["trees"]) for i in range(3)]
+    extras = [problem("locked", 4, ["trees"])]
+    plan = plan_for(monkeypatch, targets + extras, {p.id for p in targets})
+    assert len(plan.daily_session()) == 3
+    finished = plan_for(monkeypatch, targets + extras, {p.id for p in targets},
+                        [attempt(p.id) for p in targets])
+    assert finished.daily_session() == []
+
+
+def test_dashboard_persists_topped_up_day_without_refilling(monkeypatch):
+    import importlib
+    app_module = importlib.import_module("code_practice.app")
+    base = get_catalog()["pair-sum-indices"]
+    catalog = {f"practice-{i}": base.model_copy(update={
+        "id": f"practice-{i}", "difficulty": 3, "topics": [f"topic-{i}"],
+        "prerequisites": [],
+    }) for i in range(7)}
+    targets = {f"practice-{i}" for i in range(3)}
+    monkeypatch.setattr(interview_plan, "study_list_badges", lambda key: [{}] if key in targets else [])
+    monkeypatch.setattr(app_module, "get_catalog", lambda: SimpleNamespace(metadata=catalog))
+    with TestClient(app) as client:
+        first = client.get("/api/dashboard").json()
+        ids = [p["id"] for p in first["recommendations"]]
+        assert first["dailyAssignedCount"] == 5
+        assert set(ids[:3]) == targets
+        assert all(p["preparationReason"] for p in first["recommendations"][3:])
+        for key in ids:
+            database.save_attempt(AttemptCreate(
+                problem_id=key, problem_version=1, source_code="solution",
+                result="accepted", runtime_ms=1, tests_passed=12, tests_total=12,
+            ))
+    with TestClient(app) as client:
+        finished = client.get("/api/dashboard").json()
+        assert finished["dailyAssignedCount"] == 5
+        assert finished["dailyComplete"]
+        assert finished["recommendations"] == []
+
+
 def test_dashboard_reports_progress_and_keeps_saved_day_on_restart():
     today = datetime.now().astimezone().date().isoformat()
     # Existing assignment survives the switch to the interview curriculum.

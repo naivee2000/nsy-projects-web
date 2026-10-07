@@ -74,6 +74,10 @@ def test_daily_session_uses_workload_based_difficulty_mixes():
     assert choose_daily_session([*medium[:3], easy[0]]) == [medium[0], medium[1], easy[0]]
     assert choose_daily_session(medium[:4]) == medium[:3]
     assert choose_daily_session([*hard, medium[0], easy[0]]) == [hard[0], medium[0]]
+    assert choose_daily_session([*easy[:3], *medium]) == [*easy[:3], medium[0]]
+    assert choose_daily_session([*easy[:4], *medium]) == [*easy[:3], medium[0]]
+    assert choose_daily_session([*easy[:2], *medium]) == [*medium[:2], easy[0]]
+    assert choose_daily_session([*easy[:2], medium[0]]) == [*easy[:2], medium[0]]
 
 
 def test_medium_topic_requires_a_passed_easy_introduction():

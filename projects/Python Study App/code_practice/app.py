@@ -33,7 +33,6 @@ from .database import (
     save_draft,
 )
 from .learning import (
-    choose_daily_session,
     normalized_topics,
     prioritized_review_problems,
     topic_mastery,
@@ -338,7 +337,7 @@ def dashboard() -> dict[str, Any]:
         if newly_locked_ids:
             daily_ids = remove_daily_assignment_problems(today_key, newly_locked_ids)
     if daily_ids is None:
-        selected = choose_daily_session(interview_plan.ordered)
+        selected = interview_plan.daily_session()
         daily_ids = save_daily_assignment(today_key, [problem.id for problem in selected])
 
     assigned = [catalog[problem_id] for problem_id in daily_ids if problem_id in catalog]
