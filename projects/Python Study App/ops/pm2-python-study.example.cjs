@@ -19,7 +19,7 @@ module.exports = {
         CODE_PRACTICE_AUTH_COOKIE_NAME: "dem_session",
         CODE_PRACTICE_LOGIN_URL: "https://dem.nsyprojects.com/login",
         CODE_PRACTICE_PUBLIC_ORIGIN: "https://replace-with-study-hostname.nsyprojects.com",
-        CODEX_BIN: "/Applications/ChatGPT.app/Contents/Resources/codex",
+        CODEX_BIN: "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
       },
       out_file: `${opsDir}/logs/nsy-python-study.out.log`,
       error_file: `${opsDir}/logs/nsy-python-study.err.log`,

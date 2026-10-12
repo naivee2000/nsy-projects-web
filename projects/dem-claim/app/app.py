@@ -9,6 +9,7 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 import textwrap
 import uuid
@@ -38,6 +39,8 @@ DEFAULT_SKILL_ROOT = Path.home() / ".codex" / "skills" / "dem-claim-excel"
 SKILL_ROOT = Path(os.environ.get("DEM_SKILL_ROOT", DEFAULT_SKILL_ROOT)).expanduser().resolve()
 CODEX_CONFIGURED_BIN = os.environ.get("CODEX_BIN", "").strip()
 CODEX_APP_BIN_CANDIDATES = (
+    "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
+    "/Applications/Codex.app/Contents/Resources/codex-cli/bin/codex",
     "/Applications/ChatGPT.app/Contents/Resources/codex",
     "/Applications/Codex.app/Contents/Resources/codex",
 )
@@ -45,7 +48,7 @@ CODEX_APP_BIN_CANDIDATES = (
 
 def resolve_codex_bin() -> str:
     """Prefer a usable configured CLI, then recover from stale app-bundle paths."""
-    candidates = (CODEX_CONFIGURED_BIN, shutil.which("codex"), *CODEX_APP_BIN_CANDIDATES)
+    candidates = (CODEX_CONFIGURED_BIN, *CODEX_APP_BIN_CANDIDATES, shutil.which("codex"))
     for candidate in candidates:
         if not candidate:
             continue
@@ -2346,15 +2349,18 @@ def package_ok(name: str) -> bool:
 
 
 def codex_auth_ok() -> bool:
-    codex_home = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex")).expanduser()
-    auth_path = codex_home / "auth.json"
-    if not auth_path.exists():
-        return False
     try:
-        auth = json.loads(auth_path.read_text(encoding="utf-8"))
-    except Exception:
+        result = subprocess.run(
+            [CODEX_BIN, "login", "status"],
+            stdin=subprocess.DEVNULL,
+            capture_output=True,
+            text=True,
+            timeout=10,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired):
         return False
-    return bool(auth.get("tokens") or auth.get("OPENAI_API_KEY") or auth.get("api_key"))
+    return result.returncode == 0
 
 
 async def stop_process(proc: Any) -> None:
@@ -2408,7 +2414,7 @@ async def setup_status() -> JSONResponse:
             "codex_bin": CODEX_BIN,
             "codex_configured_bin": CODEX_CONFIGURED_BIN or None,
             "codex_ok": codex_ok,
-            "codex_auth_ok": codex_auth_ok(),
+            "codex_auth_ok": await asyncio.to_thread(codex_auth_ok),
             "tesseract_ok": tesseract_ok,
             "packages": package_status,
             "packages_ok": all(package_status.values()),

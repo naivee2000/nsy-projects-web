@@ -10,6 +10,10 @@ from typing import Any
 
 # The desktop app bundles the same CLI under ChatGPT.app on current macOS installs.
 MACOS_CODEX_CLI_PATHS = (
+    Path("/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex"),
+    Path("/Applications/Codex.app/Contents/Resources/codex-cli/bin/codex"),
+    Path.home() / "Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
+    Path.home() / "Applications/Codex.app/Contents/Resources/codex-cli/bin/codex",
     Path("/Applications/ChatGPT.app/Contents/Resources/codex"),
     Path("/Applications/Codex.app/Contents/Resources/codex"),
     Path.home() / "Applications/ChatGPT.app/Contents/Resources/codex",
@@ -70,7 +74,7 @@ def find_codex_cli(configured_path: str = "") -> str:
     if explicit_path:
         return _executable_path(explicit_path)
 
-    for candidate in (shutil.which("codex"), *_standalone_codex_paths(), *MACOS_CODEX_CLI_PATHS):
+    for candidate in (*MACOS_CODEX_CLI_PATHS, shutil.which("codex"), *_standalone_codex_paths()):
         path = _executable_path(candidate)
         if path:
             return path

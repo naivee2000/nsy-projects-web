@@ -11,7 +11,7 @@ module.exports = {
       args: ["app.py", "--host", "127.0.0.1", "--port", "8787"],
       interpreter: "none",
       env: {
-        CODEX_BIN: "/Applications/ChatGPT.app/Contents/Resources/codex",
+        CODEX_BIN: "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex",
         // Fast structured extraction for collection; deeper synthesis for generation research.
         CAR_COMPARE_CODEX_COLLECTION_REASONING_EFFORT: "low",
         CAR_COMPARE_CODEX_GENERATION_REASONING_EFFORT: "high",

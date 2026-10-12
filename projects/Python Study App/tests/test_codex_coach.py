@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import json
 import subprocess
+from unittest.mock import patch
 from pathlib import Path
 
-from code_practice.codex_coach import request_codex_coaching
+from code_practice.codex_coach import codex_status, request_codex_coaching, resolve_codex_cli
 from code_practice.content import PROBLEMS
 
 
@@ -84,3 +85,23 @@ def test_codex_coach_unavailable_keeps_offline_feedback(monkeypatch):
     response = request_codex_coaching(PROBLEM, "pass", "syntax_error", "invalid syntax", [], executable=None)
     assert response["source"] == "offline-static-coach"
     assert "not installed" in response["fallbackReason"]
+
+
+def test_configured_cli_is_used_by_status_and_generation(monkeypatch):
+    monkeypatch.setenv("CODEX_BIN", "/custom/codex")
+    monkeypatch.setattr("code_practice.codex_coach.shutil.which", lambda name: "/custom/codex" if name == "/custom/codex" else "/old/codex")
+    assert resolve_codex_cli() == "/custom/codex"
+    with patch("code_practice.codex_coach.subprocess.run", return_value=subprocess.CompletedProcess([], 0)) as run:
+        assert codex_status()["authenticated"]
+        assert run.call_args.args[0][0] == "/custom/codex"
+    captured = {}
+    request_codex_coaching(PROBLEM, "pass", "wrong_answer", "wrong", [], runner=fake_runner_with(
+        {"title": "Trace", "explanation": "No result is returned.", "nudge": "Inspect the return value.", "question": "What does pass return?"}, captured))
+    assert captured["command"][0] == "/custom/codex"
+
+
+def test_stale_configured_cli_recovers_to_current_bundle_before_path(monkeypatch):
+    bundle = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex"
+    monkeypatch.setenv("CODEX_BIN", "/missing/old/codex")
+    monkeypatch.setattr("code_practice.codex_coach.shutil.which", lambda name: bundle if name == bundle else "/old/codex" if name == "codex" else None)
+    assert resolve_codex_cli() == bundle

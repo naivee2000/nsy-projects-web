@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, timezone
 from types import SimpleNamespace
 
+import pytest
 from fastapi.testclient import TestClient
 
 from code_practice import database, interview_plan
@@ -77,7 +78,8 @@ def test_prerequisite_cycle_stops_without_selecting_locked_or_unrelated_work(mon
     assert plan_for(monkeypatch, problems, {"target"}).ordered == []
 
 
-def test_published_curriculum_can_reach_all_targets_without_unrelated_filler():
+@pytest.mark.parametrize("use_daily_session", [False, True])
+def test_published_curriculum_can_reach_all_targets(use_daily_session):
     catalog = get_catalog().metadata
     attempts = []
     seen = set()
@@ -85,7 +87,7 @@ def test_published_curriculum_can_reach_all_targets_without_unrelated_filler():
         plan = InterviewPlan(catalog, attempts, [], NOW + timedelta(days=day), str(day))
         if not plan.remaining:
             break
-        selection = choose_daily_session(plan.ordered)
+        selection = plan.daily_session() if use_daily_session else choose_daily_session(plan.ordered)
         assert selection, f"Blocked targets: {sorted(plan.remaining)}"
         for p in selection:
             assert p.id not in seen
@@ -111,6 +113,48 @@ def test_short_easy_day_adds_unsolved_diverse_practice(monkeypatch):
     assert plan.daily_session() == selected
     assert "Extra practice" in plan.reason("grid")
     assert len(plan.ordered) == 3  # Roadmap and interview progress are unchanged.
+
+
+def test_easy_preparation_and_filler_do_not_starve_ready_medium_targets(monkeypatch):
+    problems = [problem("intro", 3, ["trees"]),
+                problem("medium1", 4, ["trees"]), problem("medium2", 5, ["trees"]),
+                problem("blocked", 5, ["intervals"]),
+                *[problem(f"prep{i}", 3, ["intervals"]) for i in range(8)]]
+    targets = {"medium1", "medium2", "blocked"}
+    plan = plan_for(monkeypatch, problems, targets, [attempt("intro")])
+    assert plan.ordered[0].id == "prep0"  # Reproduces the old all-Easy anchor.
+    selected = plan.daily_session()
+    assert {p.id for p in selected} == {"medium1", "medium2", "prep0"}
+    assert all(not plan.blockers(p) for p in selected)
+    assert plan.daily_session() == selected
+
+
+def test_ready_easy_interview_targets_still_precede_mediums(monkeypatch):
+    problems = [problem("intro", 3, ["trees"]), problem("easy-target", 3, ["trees"]),
+                problem("medium-target", 5, ["trees"]),
+                *[problem(f"practice{i}", 3, ["trees"]) for i in range(5)]]
+    plan = plan_for(monkeypatch, problems, {"easy-target", "medium-target"}, [attempt("intro")])
+    selected = plan.daily_session()
+    assert selected[0].id == "easy-target"
+    assert len(selected) == 5 and all(p.difficulty <= 3 for p in selected)
+
+
+def test_preparation_remains_primary_when_no_interview_target_is_ready(monkeypatch):
+    problems = [problem("blocked", 5, ["intervals"]),
+                *[problem(f"prep{i}", 3, ["intervals"]) for i in range(6)]]
+    plan = plan_for(monkeypatch, problems, {"blocked"})
+    assert not plan.ready_targets
+    assert len(plan.daily_session()) == 5
+    assert all(p.difficulty <= 3 and not plan.blockers(p) for p in plan.daily_session())
+
+
+def test_ready_hard_target_is_not_starved_by_other_topic_preparation(monkeypatch):
+    problems = [problem("intro", 3, ["trees"]), problem("medium1", 4, ["trees"]),
+                problem("medium2", 5, ["trees"]), problem("hard", 8, ["trees"]),
+                problem("blocked", 5, ["intervals"]), problem("prep", 3, ["intervals"])]
+    plan = plan_for(monkeypatch, problems, {"hard", "blocked"},
+                    [attempt("intro"), attempt("medium1"), attempt("medium2")])
+    assert [p.id for p in plan.daily_session()] == ["hard"]
 
 
 def test_short_easy_day_uses_only_unlocked_medium_when_easy_pool_exhausted(monkeypatch):

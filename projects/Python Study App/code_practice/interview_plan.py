@@ -79,10 +79,18 @@ class InterviewPlan:
                 used_topics[topic] += 1
 
     def daily_session(self):
-        """Top up a new Easy-led day without changing the interview roadmap."""
-        if not self.ordered or self.ordered[0].difficulty > 3:
-            return choose_daily_session(self.ordered)
+        """Advance ready targets; use preparation without starving that progress."""
         candidates = list(self.ordered)
+        # A weak topic can keep producing new Easy preparation indefinitely.
+        # It must not block interview targets already unlocked in other topics.
+        # Keep the roadmap's stage/priority order among ready targets, and leave
+        # preparation available as the session's Easy reinforcement.
+        anchor = next((p for p in candidates if p.id in self.ready_targets), None)
+        if anchor is not None:
+            candidates.remove(anchor)
+            candidates.insert(0, anchor)
+        if not candidates or candidates[0].difficulty > 3:
+            return choose_daily_session(candidates)
         easy = [p for p in candidates if p.difficulty <= 3]
         if len(easy) >= 5:
             return choose_daily_session(candidates)

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -30,8 +31,24 @@ OUTPUT_SCHEMA = {
 }
 
 
+def resolve_codex_cli() -> str | None:
+    """Use the configured CLI or current desktop bundle before an older PATH CLI."""
+    candidates = [os.environ.get("CODEX_BIN", "")]
+    for root in (Path("/Applications"), Path.home() / "Applications"):
+        for app_name in ("ChatGPT.app", "Codex.app"):
+            resources = root / app_name / "Contents/Resources"
+            candidates.extend((str(resources / "codex-cli/bin/codex"), str(resources / "codex")))
+    candidates.append(shutil.which("codex") or "")
+    for candidate in candidates:
+        if candidate:
+            executable = shutil.which(os.path.expanduser(candidate))
+            if executable:
+                return executable
+    return None
+
+
 def codex_status() -> dict[str, Any]:
-    executable = shutil.which("codex")
+    executable = resolve_codex_cli()
     if not executable:
         return {"available": False, "authenticated": False, "reason": "Codex CLI is not installed."}
     try:
@@ -154,7 +171,7 @@ def request_codex_coaching(
     executable: str | None = None,
 ) -> dict[str, Any]:
     fallback = build_coaching(problem, source_code, status, message, cases, 3).as_dict()
-    executable = executable or shutil.which("codex")
+    executable = executable or resolve_codex_cli()
     if not executable:
         return {**fallback, "fallbackReason": "Codex CLI is not installed."}
     if not _CODEX_SLOT.acquire(blocking=False):

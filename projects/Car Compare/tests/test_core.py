@@ -3313,6 +3313,10 @@ class CollectorPayloadTests(unittest.TestCase):
 
     def test_macos_chatgpt_cli_location_is_recognized(self) -> None:
         self.assertIn(
+            Path("/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex"),
+            MACOS_CODEX_CLI_PATHS,
+        )
+        self.assertIn(
             Path("/Applications/ChatGPT.app/Contents/Resources/codex"),
             MACOS_CODEX_CLI_PATHS,
         )
@@ -3328,6 +3332,15 @@ class CollectorPayloadTests(unittest.TestCase):
                     os.environ.pop("CODEX_HOME", None)
                 else:
                     os.environ["CODEX_HOME"] = previous
+
+    def test_auto_discovery_prefers_bundle_before_old_path_cli(self) -> None:
+        bundle = str(MACOS_CODEX_CLI_PATHS[0])
+        with (
+            patch.dict(os.environ, {"CODEX_BIN": ""}),
+            patch("car_compare.codex_cli._executable_path", side_effect=lambda value: bundle if str(value) == bundle else ""),
+            patch("car_compare.codex_cli.shutil.which", return_value="/old/codex"),
+        ):
+            self.assertEqual(find_codex_cli(), bundle)
 
     def test_login_status_uses_cli_instead_of_auth_file(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
