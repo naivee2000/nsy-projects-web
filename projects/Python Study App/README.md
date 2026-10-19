@@ -222,10 +222,14 @@ trees, Verify Preorder Sequence in BST, Binary Tree Paths, 3Sum Smaller, Single
 Number III, Graph Valid Tree, Ugly Number I/II, and Paint House II. The LCA
 problems receive the actual `p` and `q` nodes selected from the input tree and
 must return an existing node without mutating the tree. Regressions cover
-100,000-node chains, exhaustive short BST preorder sequences and simple graphs,
+short skewed LCA trees, exhaustive short BST preorder sequences and simple graphs,
 duplicate tree paths, signed singleton pairs, the 1,690th ugly number, and
 independent small painting assignments. Recursive-tree and binary-search study
 priorities remain intact.
+The BST and arbitrary-tree LCA problems now state a 100-node maximum. Their
+thirteenth hidden test uses a 12-node chain (23 serialized slots) instead of a
+100,000-node chain; all 13 hidden cases remain, and recursive solutions fit the
+published bound.
 Batch twenty-five adds Delete Node in a Linked List, both Palindrome Permutation
 problems, both closest-BST-value problems, Integer to English Words, both H-Index
 problems, Paint Fence, and Perfect Squares. Delete Node receives the actual

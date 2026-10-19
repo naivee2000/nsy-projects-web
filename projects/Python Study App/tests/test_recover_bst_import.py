@@ -84,6 +84,32 @@ def test_returned_input_node_policy_also_rejects_falsey_inserted_children():
     assert run_source(source,problem,case) == (False,None)
 
 
+@pytest.mark.parametrize('source_id', [235, 236])
+def test_lca_final_hidden_case_is_short_but_still_checks_a_skewed_tree(source_id):
+    problem = get_catalog()[f'leetcode-{source_id}']
+    hidden = [case for case in problem.tests if not case.visible]
+    assert len(hidden) == 13
+    last = hidden[-1]
+    assert last.id == f'lc-{source_id}-stress-1'
+    assert len(last.arguments[0]) == 23
+    assert sum(value is not None for value in last.arguments[0]) == 12
+    assert last.arguments[1:] == [4, 11]
+    assert last.expected == 4
+    assert run_source(problem.reference_solution, problem, last) == (True, None)
+
+
+def test_recursive_lca_solution_fits_published_tree_limit():
+    problem = get_catalog()['leetcode-236']
+    recursive = '''def lowest_common_ancestor(root, p, q):
+    if root is None or root is p or root is q:
+        return root
+    left = lowest_common_ancestor(root.left, p, q)
+    right = lowest_common_ancestor(root.right, p, q)
+    return root if left and right else left or right
+'''
+    assert all(run_source(recursive, problem, case) == (True, None) for case in problem.tests)
+
+
 @lru_cache(None)
 def shapes(n):
     if n == 0:
