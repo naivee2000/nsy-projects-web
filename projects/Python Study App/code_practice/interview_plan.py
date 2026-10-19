@@ -79,8 +79,81 @@ class InterviewPlan:
                 used_topics[topic] += 1
 
     def daily_session(self):
+        """Reserve two of five credits for progressive DP, then interview work."""
+        dp_ids = {key for key, topics in self.topics.items()
+                  if any(t == "dp" or t == "dynamic-programming"
+                         or t.endswith("-dynamic-programming") or t.endswith("-dp") for t in topics)}
+        if not dp_ids:
+            return self._within_daily_budget(self._standard_session())
+        dp_history = sorted((a for key in dp_ids for a in self.history.get(key, [])),
+                            key=lambda a: a.created_at, reverse=True)[:10]
+        mastery = 100 * sum(attempt_score(a) for a in dp_history) / len(dp_history) if dp_history else 0
+        passed_easy = sum(key in self.solved and self.catalog[key].difficulty <= 3 for key in dp_ids)
+        medium_ready = passed_easy >= 2 and mastery >= 70
+        eligible = [self.catalog[key] for key in dp_ids
+                    if key not in self.solved and not self.blockers(self.catalog[key])]
+        # Start with recognizable recurrence exercises before game-theory or
+        # bit-manipulation questions that also happen to carry a DP tag.
+        foundations = ("recursive-step-combinations", "leetcode-1137", "leetcode-118",
+                       "leetcode-119", "exact-coin-reachability")
+        def dp_rank(p):
+            return (p.id not in self.targets, p.difficulty,
+                    foundations.index(p.id) if p.id in foundations else len(foundations),
+                    hashlib.sha256(f"{self.day}:dp:{p.id}".encode()).hexdigest())
+        easy = sorted((p for p in eligible if p.difficulty <= 3), key=dp_rank)
+        medium = sorted((p for p in eligible if 4 <= p.difficulty <= 7), key=dp_rank)
+        focus = medium[:1] if medium_ready and medium else easy[:2]
+        if not focus:
+            # Do not silently bypass the DP progression gate when its pool is
+            # exhausted. Unused credits return to ordinary interview practice.
+            excluded = {key for key in dp_ids if 4 <= self.catalog[key].difficulty <= 7} if not medium_ready else set()
+            return self._within_daily_budget(self._standard_session(excluded))
+
+        selected = list(focus)
+        budget = 5 - sum(self._credits(p) for p in focus)
+        # Prefer other topics. A fully unlocked Hard DP interview target can
+        # still use the normal three-credit track, so it is never stranded by
+        # the two-credit cap on dedicated DP practice.
+        normal = [p for p in self.ordered if p.id not in dp_ids or
+                  (p.id in self.ready_targets and p.difficulty >= 8)]
+        normal.sort(key=lambda p: p.id in dp_ids)
+        normal.sort(key=lambda p: p.id not in self.ready_targets)
+        for p in normal:
+            cost = self._credits(p)
+            if cost <= budget:
+                selected.append(p)
+                budget -= cost
+        used = {p.id for p in selected} | self.solved
+        pool = [p for p in self.catalog.values() if p.id not in used and p.id not in dp_ids
+                and p.difficulty <= 3 and not self.blockers(p)]
+        while budget and pool:
+            counts = defaultdict(int)
+            for p in selected:
+                for topic in _focus(self.topics[p.id]):
+                    counts[topic] += 1
+            p = min(pool, key=lambda p: (sum(counts[t] for t in _focus(self.topics[p.id])),
+                    hashlib.sha256(f"{self.day}:practice:{p.id}".encode()).hexdigest()))
+            pool.remove(p)
+            selected.append(p)
+            budget -= 1
+        return selected
+
+    @staticmethod
+    def _credits(problem):
+        return 1 if problem.difficulty <= 3 else 2 if problem.difficulty <= 7 else 3
+
+    def _within_daily_budget(self, candidates):
+        selected, budget = [], 5
+        for p in candidates:
+            cost = self._credits(p)
+            if cost <= budget:
+                selected.append(p)
+                budget -= cost
+        return selected
+
+    def _standard_session(self, excluded_ids=frozenset()):
         """Advance ready targets; use preparation without starving that progress."""
-        candidates = list(self.ordered)
+        candidates = [p for p in self.ordered if p.id not in excluded_ids]
         # A weak topic can keep producing new Easy preparation indefinitely.
         # It must not block interview targets already unlocked in other topics.
         # Keep the roadmap's stage/priority order among ready targets, and leave
@@ -94,7 +167,7 @@ class InterviewPlan:
         easy = [p for p in candidates if p.difficulty <= 3]
         if len(easy) >= 5:
             return choose_daily_session(candidates)
-        used = {p.id for p in candidates} | self.solved
+        used = {p.id for p in candidates} | self.solved | set(excluded_ids)
         topic_counts = defaultdict(int)
         for p in easy[:5]:
             for topic in _focus(self.topics[p.id]):
@@ -184,6 +257,11 @@ class InterviewPlan:
                 self._prepare(pool[0], target_id, visited)
 
     def reason(self, problem_id: str) -> str | None:
+        if problem_id in self.catalog and self.catalog[problem_id].difficulty <= 7 and any(
+            t == "dp" or t == "dynamic-programming" or t.endswith("-dynamic-programming")
+            or t.endswith("-dp") for t in self.topics[problem_id]
+        ):
+            return "Daily DP focus: build Easy foundations, then progress to one unlocked Medium."
         target = self.preparation_for.get(problem_id)
         if target:
             return f"Preparation for {self.catalog[target].title}: build the related foundations first."

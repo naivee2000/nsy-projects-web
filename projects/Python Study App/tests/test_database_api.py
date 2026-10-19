@@ -275,7 +275,7 @@ def test_dashboard_removes_stored_unseen_medium_without_refilling():
         assert finished["dailyComplete"] is True
 
 
-def test_dashboard_caps_primary_at_three_mediums_and_reviews_at_five():
+def test_dashboard_caps_primary_at_five_credits_and_reviews_at_five():
     for problem in get_catalog().values():
         if problem.difficulty <= 3:
             save_attempt(AttemptCreate(
@@ -292,7 +292,8 @@ def test_dashboard_caps_primary_at_three_mediums_and_reviews_at_five():
 
     with TestClient(app) as client:
         payload = client.get("/api/dashboard").json()
-        assert len(payload["recommendations"]) == 3
+        # With every Easy passed, two Mediums fit; a third would cost six.
+        assert len(payload["recommendations"]) == 2
         assert all(4 <= problem["difficulty"] <= 7 for problem in payload["recommendations"])
         assert all(not problem["solved"] for problem in payload["recommendations"])
         assert len(payload["reviewRecommendations"]) == 5
