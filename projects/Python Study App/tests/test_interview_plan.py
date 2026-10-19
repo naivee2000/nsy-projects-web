@@ -70,6 +70,21 @@ def test_dp_progression_needs_two_distinct_easy_passes_and_recent_mastery(monkey
         assert sum(p.id.startswith("normal") for p in selected) == 3
 
 
+def test_exhausted_easy_dp_pool_advances_to_introductory_medium(monkeypatch):
+    problems = [problem("dp0", 3, ["dynamic-programming"]),
+                problem("dp1", 3, ["dynamic-programming"]),
+                problem("leetcode-139", 5, ["dynamic-programming"]),
+                problem("leetcode-62", 5, ["dynamic-programming"]),
+                *[problem(f"normal{i}", 3, ["trees"]) for i in range(4)]]
+    history = [attempt("dp0"), attempt("dp1", minutes=1)]
+    history.extend(attempt("dp0", "wrong_answer", minutes=2+i) for i in range(3))
+    plan = plan_for(monkeypatch, problems, {"leetcode-139", "leetcode-62"}, history)
+    assert plan.daily_session()[0].id == "leetcode-62"
+    assert "leetcode-139" not in {p.id for p in plan.daily_session()}
+    assert sum(plan._credits(p) for p in plan.daily_session()) == 5
+    assert all(not plan.blockers(p) for p in plan.daily_session())
+
+
 def test_dp_medium_gates_and_remaining_interview_medium_budget(monkeypatch):
     problems = [problem("dp0", 3, ["dynamic-programming"]),
                 problem("dp1", 3, ["dynamic-programming"]),

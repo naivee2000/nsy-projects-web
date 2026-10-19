@@ -95,14 +95,19 @@ class InterviewPlan:
         # Start with recognizable recurrence exercises before game-theory or
         # bit-manipulation questions that also happen to carry a DP tag.
         foundations = ("recursive-step-combinations", "leetcode-1137", "leetcode-118",
-                       "leetcode-119", "exact-coin-reachability")
+                       "leetcode-119", "exact-coin-reachability", "leetcode-62",
+                       "leetcode-63", "leetcode-64", "leetcode-120", "leetcode-139")
         def dp_rank(p):
             return (p.id not in self.targets, p.difficulty,
                     foundations.index(p.id) if p.id in foundations else len(foundations),
                     hashlib.sha256(f"{self.day}:dp:{p.id}".encode()).hexdigest())
         easy = sorted((p for p in eligible if p.difficulty <= 3), key=dp_rank)
         medium = sorted((p for p in eligible if 4 <= p.difficulty <= 7), key=dp_rank)
-        focus = medium[:1] if medium_ready and medium else easy[:2]
+        # When the Easy pool is exhausted, keep the DP path moving with one
+        # unlocked introductory Medium after at least two Easy passes. The
+        # mastery threshold still governs normal progression while Easy work
+        # remains available.
+        focus = medium[:1] if medium and (medium_ready or (not easy and passed_easy >= 2)) else easy[:2]
         if not focus:
             # Do not silently bypass the DP progression gate when its pool is
             # exhausted. Unused credits return to ordinary interview practice.
