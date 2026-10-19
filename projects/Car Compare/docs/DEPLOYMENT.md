@@ -107,6 +107,12 @@ Edit `ops/pm2-car-compare.config.cjs` and set:
 - `CAR_COMPARE_PUBLIC_ORIGIN` to `https://carcompare.nsyprojects.com`.
 - `CAR_COMPARE_CACHE_DIR` to a persistent writable directory.
 
+Keep `CAR_COMPARE_BROWSER_CDP_URL: ""` for the default app-managed browser.
+PM2 merges environment settings on restart, so deleting this key from the file
+does not clear an old override such as `http://127.0.0.1:9222`. Set it explicitly
+to an empty string, restart using the config with `--update-env`, verify
+`/api/setup` and `scripts/deploy_preflight.py --smoke-browser`, then run `pm2 save`.
+
 Keep these production values:
 
 ```text

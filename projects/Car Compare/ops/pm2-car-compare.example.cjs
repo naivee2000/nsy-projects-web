@@ -34,6 +34,8 @@ module.exports = {
         CAR_COMPARE_CODEX_SEARCH_BATCH_SIZE: "5",
         // Keeps Playwright headless and the macOS regular-Chrome fallback minimized.
         CAR_COMPARE_BACKGROUND_MODE: "1",
+        // Empty selects the app-managed browser and clears stale PM2 CDP overrides.
+        CAR_COMPARE_BROWSER_CDP_URL: "",
         // Runs the event-driven regular-Chrome retry on macOS. Set to 0 only for diagnosis.
         CAR_COMPARE_HOST_CHROME_FALLBACK: "1",
         // Uses native Codex web search for an official source page blocked by the host network.
