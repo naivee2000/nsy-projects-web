@@ -557,7 +557,7 @@ export default function App() {
             </section>
 
             <section className="section-block review-section">
-              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>Three daily focus groups randomly chosen from grid recursion, trees, linked lists, graphs, and heaps, plus up to two random reviews from your completed Hot 100 problems.</p></div><button className="text-button" onClick={() => { setCompletion("passed"); setLibraryPage(1); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
+              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>Three daily focus groups randomly chosen from grid recursion, trees, linked lists, graphs, and dynamic programming, plus up to two random reviews from your completed Hot 100 problems, favoring Medium.</p></div><button className="text-button" onClick={() => { setCompletion("passed"); setLibraryPage(1); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.reviewRecommendations.length
                   ? dashboard.reviewRecommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={(id) => openProblem(id, "review")} index={index} />)

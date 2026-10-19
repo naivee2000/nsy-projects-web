@@ -26,7 +26,7 @@ GRID_RECURSION_BONUS = 80.0
 TREE_FOCUS_BONUS = 60.0
 LINKED_LIST_FOCUS_BONUS = 60.0
 GRAPH_TRAVERSAL_FOCUS_BONUS = 60.0
-HEAP_FOCUS_BONUS = 60.0
+DYNAMIC_PROGRAMMING_FOCUS_BONUS = 60.0
 
 
 def attempt_score(attempt: Attempt) -> float:
@@ -153,13 +153,22 @@ def is_heap_problem(problem: ProblemDefinition) -> bool:
     return bool({"heap", "heaps", "min-heap", "max-heap", "priority-queue", "priority-queues"} & normalized_topics(problem))
 
 
+def is_dynamic_programming_problem(problem: ProblemDefinition) -> bool:
+    return any(
+        topic in {"dp", "dynamic-programming"}
+        or topic.endswith("-dp")
+        or topic.endswith("-dynamic-programming")
+        for topic in normalized_topics(problem)
+    )
+
+
 def is_review_focus_problem(problem: ProblemDefinition) -> bool:
     return (
         is_grid_recursion_problem(problem)
         or is_tree_problem(problem)
         or is_linked_list_problem(problem)
         or is_graph_traversal_problem(problem)
-        or is_heap_problem(problem)
+        or is_dynamic_programming_problem(problem)
     )
 
 
@@ -175,8 +184,8 @@ def review_focus_boost(problem: ProblemDefinition) -> float:
         boost += LINKED_LIST_FOCUS_BONUS
     if is_graph_traversal_problem(problem):
         boost += GRAPH_TRAVERSAL_FOCUS_BONUS
-    if is_heap_problem(problem):
-        boost += HEAP_FOCUS_BONUS
+    if is_dynamic_programming_problem(problem):
+        boost += DYNAMIC_PROGRAMMING_FOCUS_BONUS
     return boost
 
 
@@ -276,7 +285,7 @@ def prioritized_review_problems(
             selected_ids.add(problem.id)
 
     group_checks = [is_grid_recursion_problem, is_tree_problem, is_linked_list_problem,
-                    is_graph_traversal_problem, is_heap_problem]
+                    is_graph_traversal_problem, is_dynamic_programming_problem]
     _stable_review_rng(seed, "focus-groups").shuffle(group_checks)
     pools = []
     for matches in group_checks:
@@ -295,7 +304,7 @@ def prioritized_review_problems(
                 return [problem, *rest]
         return None
 
-    # A heap/tree or graph/heap problem may belong to two groups. Find distinct
+    # A tree/DP or graph/DP problem may belong to two groups. Find distinct
     # exercises instead of filling two group slots with the same problem.
     for count in range(min(focus_limit, len(pools)), 0, -1):
         for groups in combinations(pools, count):
@@ -319,23 +328,18 @@ def prioritized_review_problems(
     # Never fill a shortage with unrelated problems or duplicate a focus pick.
     hot_100 = [problem for problem in ranked
                if any(badge["id"] == "hot-100" for badge in study_list_badges(problem.id))]
-    remaining = [problem for problem in hot_100 if problem.id not in selected_ids]
-    random_needed = max(0, limit - len(selected))
-    fresh_remaining = [problem for problem in remaining if problem.id not in recent_ids]
-    fresh_general = [problem for problem in fresh_remaining if not is_review_focus_problem(problem)]
-    fresh_pool = fresh_general if len(fresh_general) >= random_needed else fresh_remaining
-    _stable_review_rng(seed, "random-slots").shuffle(fresh_pool)
-    for problem in fresh_pool:
-        add(problem)
-
-    remaining = [problem for problem in hot_100 if problem.id not in selected_ids]
-    general = [problem for problem in remaining if not is_review_focus_problem(problem)]
-    fallback_needed = max(0, limit - len(selected))
-    fallback_pool = general if len(general) >= fallback_needed else remaining
-    _stable_review_rng(seed, "repeat-fallback").shuffle(fallback_pool)
-    for problem in fallback_pool:
-        add(problem)
-
-    for problem in hot_100:
-        add(problem)
+    # Each Medium has three times an Easy's draw weight. Prefer fresh reviews,
+    # but use recent ones when there are too few eligible Hot 100 problems.
+    rng = _stable_review_rng(seed, "random-slots")
+    for fresh_only in (True, False):
+        pool = [problem for problem in hot_100 if problem.id not in selected_ids
+                and (not fresh_only or problem.id not in recent_ids)]
+        while pool and len(selected) < limit:
+            weights = [3 if 4 <= problem.difficulty <= 7 else 1 for problem in pool]
+            ticket = rng.randrange(sum(weights))
+            for index, weight in enumerate(weights):
+                ticket -= weight
+                if ticket < 0:
+                    add(pool.pop(index))
+                    break
     return selected[:limit]

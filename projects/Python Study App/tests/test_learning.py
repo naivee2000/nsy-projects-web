@@ -7,6 +7,7 @@ from code_practice.learning import (
     attempt_score,
     choose_daily_session,
     is_graph_traversal_problem,
+    is_dynamic_programming_problem,
     is_heap_problem,
     is_grid_recursion_problem,
     is_linked_list_problem,
@@ -175,6 +176,8 @@ def test_review_priority_ignores_hint_usage_but_boosts_personal_weak_topics():
     dfs_grid = catalog["largest-land-region"]
     tree = catalog["tree-max-depth"]
     graph = catalog["directed-cycle-check"]
+    dp = catalog["exact-coin-reachability"]
+    heap = catalog["kth-largest-value"]
 
     assert review_focus_boost(plain) == 0
     assert review_focus_boost(linked) == 60
@@ -184,6 +187,8 @@ def test_review_priority_ignores_hint_usage_but_boosts_personal_weak_topics():
     assert review_focus_boost(dfs_grid) == 80
     assert review_focus_boost(tree) == 110
     assert review_focus_boost(graph) == 110
+    assert review_focus_boost(dp) == 60
+    assert review_focus_boost(heap) == 0
 
     review = ReviewState(problem_id=plain.id, interval_index=0, due_at=now, latest_result="accepted")
     no_hint = make_attempt(plain.id, hint=0).model_copy(update={"created_at": now})
@@ -202,6 +207,7 @@ def test_review_set_randomly_chooses_three_of_five_groups_with_two_hot_100_slots
         catalog["linked-odd-even-order"],
         catalog["directed-cycle-check"],
         catalog["undirected-component-count"],
+        catalog["recursive-step-combinations"],
         catalog["kth-largest-value"],
         catalog["minimum-window"],
         catalog["merge-intervals"],
@@ -226,9 +232,8 @@ def test_review_set_randomly_chooses_three_of_five_groups_with_two_hot_100_slots
     )
 
     checks = [is_grid_recursion_problem, is_tree_problem, is_linked_list_problem,
-              is_graph_traversal_problem, is_heap_problem]
+              is_graph_traversal_problem, is_dynamic_programming_problem]
     assert len({i for problem in ranked[:3] for i, check in enumerate(checks) if check(problem)}) == 3
-    assert all(not is_review_focus_problem(problem) for problem in ranked[3:5])
     assert ranked == prioritized_review_problems(
         catalog,
         attempts,
@@ -263,7 +268,6 @@ def test_review_set_randomly_chooses_three_of_five_groups_with_two_hot_100_slots
         groups = frozenset(i for p in daily[:3] for i, check in enumerate(checks) if check(p))
         assert len(groups) == 3
         assert len({p.id for p in daily}) == 5
-        assert all(not is_review_focus_problem(p) for p in daily[3:])
         assert all(any(badge["id"] == "hot-100" for badge in study_list_badges(p.id)) for p in daily[3:])
         group_sets.add(groups)
     assert set.union(*(set(groups) for groups in group_sets)) == set(range(5))
@@ -377,14 +381,18 @@ def test_general_slots_never_fill_hot_100_shortages_with_other_problems():
                 assert len(selected) == 3 + len(extras)
 
 
-def test_heap_aliases_and_overlapping_focus_groups_use_distinct_exercises():
+def test_dp_aliases_and_overlapping_focus_groups_use_distinct_exercises():
     base = PROBLEMS[0]
     for label in ("heaps", "heap", "priority queues", "priority_queue", "min-heap"):
         assert is_heap_problem(base.model_copy(update={"topics": [label]}))
+        assert not is_review_focus_problem(base.model_copy(update={"topics": [label]}))
+    for label in ("dynamic-programming", "dynamic programming", "tree-dp", "digit dynamic programming"):
+        assert is_dynamic_programming_problem(base.model_copy(update={"topics": [label]}))
     problems = [
-        base.model_copy(update={"id": "hybrid", "topics": ["heaps", "trees"]}),
+        base.model_copy(update={"id": "hybrid", "topics": ["dynamic-programming", "trees"]}),
         base.model_copy(update={"id": "tree", "topics": ["trees"]}),
         base.model_copy(update={"id": "graph", "topics": ["graphs"]}),
+        base.model_copy(update={"id": "heap", "topics": ["heaps"]}),
     ]
     now = datetime(2026, 10, 2, tzinfo=timezone.utc)
     reviews = [ReviewState(problem_id=p.id, interval_index=0, due_at=now, latest_result="accepted") for p in problems]
@@ -394,6 +402,30 @@ def test_heap_aliases_and_overlapping_focus_groups_use_distinct_exercises():
             {p.id for p in problems}, now, limit=3, selection_seed=str(day),
         )
         assert {p.id for p in selected} == {"hybrid", "tree", "graph"}
+
+
+def test_hot_100_general_draw_prefers_medium_but_stays_random():
+    now = datetime(2026, 10, 6, tzinfo=timezone.utc)
+    catalog = {problem.id: problem for problem in PROBLEMS}
+    ids = {"largest-land-region", "tree-max-depth", "linked-odd-even-order",
+           "pair-sum-indices", "merge-intervals"}
+    assert catalog["pair-sum-indices"].difficulty <= 3
+    assert 4 <= catalog["merge-intervals"].difficulty <= 7
+    attempts = [make_attempt(pid) for pid in sorted(ids)]
+    reviews = [ReviewState(problem_id=pid, interval_index=0, due_at=now, latest_result="accepted")
+               for pid in sorted(ids)]
+    draws = []
+    for day in range(120):
+        selected = prioritized_review_problems(catalog, attempts, reviews, ids, now,
+                                               limit=4, selection_seed=str(day))
+        assert {p.id for p in selected[:3]} == ids - {"pair-sum-indices", "merge-intervals"}
+        draws.append(selected[3].id)
+    assert draws.count("merge-intervals") > 2 * draws.count("pair-sum-indices")
+    assert "pair-sum-indices" in draws  # Preference does not exclude Easy.
+
+    fresh = prioritized_review_problems(catalog, attempts, reviews, ids, now, limit=4,
+                                        selection_seed="fresh", recently_assigned_ids={"merge-intervals"})
+    assert fresh[3].id == "pair-sum-indices"
 
 
 def test_review_set_excludes_a_previously_passed_problem_after_latest_failure():
