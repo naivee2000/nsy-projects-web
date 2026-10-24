@@ -6,9 +6,9 @@ This folder holds the static website design for `NSYPROJECTS.COM`.
 - `about.html` is the personal About Me page.
 - `projects.html` is the public project directory.
 - `projects/*/index.html` are stable launcher pages. Each opens its app only after a visitor activates the link.
-- `styles.css` contains the site's shared palette, type scale, spacing scale, and page styles.
+- `tokens.css` contains shared design tokens; `base.css` provides accessibility foundations; `styles.css` contains layouts and page styles. See `design.md` for the locked design system.
 - `site.js` updates the displayed account state and copyright year.
-- `assets/hero-projects-*.avif` and `assets/hero-projects-*.webp` are the served responsive hero images. The original `hero-projects.png` remains as an unserved source asset.
+- `assets/paper-sculpture-*.webp` are responsive exports of the selected abstract artwork. See `assets/paper-sculpture.md` for the generation prompt and provenance. Superseded app screenshots and unused laptop artwork have been removed.
 - `_redirects` keeps old login URLs pointed at the real backend sign-in.
 
 DEM claim processing, real login/session code, uploads, OCR, and Excel generation stay in `../projects/dem-claim/` and are served through `https://dem.nsyprojects.com/`.
@@ -41,14 +41,12 @@ DEM claim processing, real login/session code, uploads, OCR, and Excel generatio
 
 ## Design and font decisions
 
-- The warm editorial design uses one stylesheet, one 1120px maximum container, nine color tokens, seven type tokens (12/14/16/20/28/44/64px), and eight spacing tokens (4/8/12/16/24/32/48/80px).
-- Major headings use the system serif stack Georgia, Times New Roman, Songti SC, SimSun, serif. Body text, navigation, project titles, and controls use the platform system sans-serif stack. No web fonts are requested.
-- The responsive container subtracts two token-based gutters: 24px each at widths of 768px and above, 16px each below 768px. All authored margin, padding, and gap values use spacing tokens, zero, or auto.
-- At widths of 800px and above, the home introduction splits its available width 3:2 with a 48px gap. The image frame is 4:3. Below 800px, the image follows the copy. The shared AVIF preload and picture sizes describe the image frame: 429px at the maximum container, 40vw minus 38.4px between 800px and 1167px, and the available container width on smaller screens. The 38.4px offset is 40% of the two 24px gutters plus the 48px column gap; it is an image sizing calculation, not an extra spacing token.
-- The existing two AVIF and two WebP hero variants remain served; the source PNG is retained but not requested.
-- The project directory is one list with horizontal rules. Desktop rows put title/status beside description/tags; below 800px those groups stack. Every row is one anchor to its stable launcher.
-- All seven pages share navigation, the skip link, footer, and account display. Launchers retain their existing app destinations and wait for explicit user activation. This refresh does not change application UI or authentication.
-- Hover feedback changes colors only. Keyboard focus has a visible three-pixel outline. Reduced-motion preferences disable color transitions.
+- The warm editorial system retains ivory, forest green, Georgia headings and system-sans body text; no external font requests.
+- The 1120px public container uses 24px gutters above 768px and 16px below. The Home hero uses 5:7 columns above 800px; smaller layouts stack copy before the abstract artwork.
+- Home retains the original wording and links to the Projects directory, without listing projects or exposing app interfaces. About preserves the original prose in background, experience, interests and personal sections.
+- Projects and the four launchers keep their destinations and structure, with compatible shared styling.
+- Login matches the public header, navigation, footer, ivory palette and Georgia display scale. Its English form is self-contained, with native required fields, visible focus and announced errors. Authentication and return/cancel policies are unchanged.
+- See [the portable handoff guide](../docs/redesign/README.md) for verification, current screenshots, local preview commands and separate deployment steps.
 
 ## Current Verified Flow
 

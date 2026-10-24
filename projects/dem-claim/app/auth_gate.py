@@ -39,151 +39,118 @@ ALLOWED_NEXT_HOSTS = {
 
 
 LOGIN_HTML = r"""<!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sign in to access private NSY Projects tools.">
   <title>Sign in - NSY Projects</title>
   <style>
-    :root {{
-      color-scheme: light;
-      --bg: #f4f6f8;
-      --surface: #ffffff;
-      --ink: #182230;
-      --muted: #667085;
-      --line: #d0d5dd;
-      --primary: #175cd3;
-      --primary-strong: #1849a9;
-      --red: #b42318;
-      --red-soft: #fef3f2;
-    }}
-    * {{ box-sizing: border-box; }}
-    body {{
-      min-height: 100vh;
-      margin: 0;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background: linear-gradient(180deg, #eef2f6 0, var(--bg) 280px);
-      color: var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      letter-spacing: 0;
-    }}
-    main {{
-      width: min(420px, 100%);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-      padding: 24px;
-      box-shadow: 0 20px 48px rgba(16, 24, 40, 0.10);
-    }}
-    a {{
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: 800;
-      text-decoration: none;
-    }}
-    .login-nav {{
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 18px;
-    }}
-    .cancel-action {{
-      min-height: 34px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: #ffffff;
-      color: var(--ink);
-      padding: 0 11px;
-      cursor: pointer;
-      font: inherit;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0;
-    }}
-    .eyebrow {{
-      margin: 18px 0 8px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-    }}
-    h1 {{
-      margin: 0 0 18px;
-      font-size: 32px;
-      line-height: 1.06;
-      letter-spacing: 0;
-    }}
-    form {{
-      display: grid;
-      gap: 14px;
-    }}
-    label {{
-      display: grid;
-      gap: 7px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-    }}
-    input {{
-      min-height: 42px;
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 0 12px;
-      color: var(--ink);
-      font: inherit;
-      letter-spacing: 0;
-    }}
-    button {{
-      min-height: 44px;
-      border: 0;
-      border-radius: 6px;
-      background: var(--primary);
-      color: #ffffff;
-      cursor: pointer;
-      font: inherit;
-      font-weight: 850;
-      letter-spacing: 0;
-    }}
-    button:hover {{ background: var(--primary-strong); }}
-    .error {{
-      margin: 0;
-      border: 1px solid #fecdca;
-      border-radius: 6px;
-      background: var(--red-soft);
-      color: var(--red);
-      padding: 10px 12px;
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.35;
-    }}
+/* Hallmark · shape: app screen · genre: editorial · theme: brand · redesign: full
+ * paper: #f7f5ef · accent: #23594f · display: Georgia · body: system-ui · nav: shared public header · footer: colophon · signature: native private-access form · posture: Restrained · v2.0.0 */
+/* Hallmark · pre-emit critique: Public-site chrome, type scale and spacing unify the native sign-in form with Home. */
+:root {{
+  color-scheme: light;
+  --background: #f7f5ef; --surface: #fffcf6; --ink: #252820;
+  --muted: #62675c; --primary: #23594f; --primary-strong: #19443c;
+  --line: #d8ddd3; --soft: #e9eeea; --error: #a52c25; --error-soft: #fff0ed;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: Georgia, "Times New Roman", "Songti SC", SimSun, serif;
+  --radius: 6px; --container: 1120px; --text-hero: clamp(44px, 5.2vw, 68px);
+}}
+*, *::before, *::after {{ box-sizing: border-box; }}
+html, body {{ overflow-x: clip; }}
+html {{ scrollbar-color: var(--muted) var(--background); }}
+body {{ min-height: 100vh; margin: 0; display: flex; flex-direction: column; background: var(--background); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; caret-color: var(--primary); }}
+.container {{ width: min(var(--container), calc(100% - 48px)); margin-inline: auto; }}
+a {{ color: inherit; text-underline-offset: 4px; }}
+.skip-link {{ position: fixed; z-index: 20; top: 8px; left: 8px; padding: 8px 12px; background: var(--ink); color: var(--surface); font-weight: 600; transform: translateY(-160%); }}
+.skip-link:focus {{ transform: translateY(0); }}
+.site-header {{ border-bottom: 1px solid var(--line); }}
+.header-inner {{ min-height: 88px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-block: 12px; }}
+.brand {{ display: inline-flex; align-items: center; gap: 12px; min-width: max-content; font-size: 20px; font-weight: 600; text-decoration: none; }}
+.mark {{ width: 32px; height: 32px; display: inline-block; position: relative; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }}
+.mark::after {{ content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--primary); }}
+.site-nav {{ display: flex; flex: 1; align-items: center; justify-content: center; flex-wrap: wrap; gap: 32px; }}
+.site-nav a, .header-action {{ min-height: 44px; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; }}
+.site-nav a {{ color: var(--muted); }}
+.site-nav a:hover {{ color: var(--primary); }}
+.header-action {{ min-width: 88px; padding-inline: 16px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--primary); }}
+.header-action:hover {{ background: var(--soft); }}
+main {{ flex: 1; padding-block: 80px; }}
+.login-layout {{ display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; gap: 48px; }}
+h1 {{ margin: 0; font-family: var(--font-heading); font-size: var(--text-hero); font-weight: 400; line-height: 1.12; letter-spacing: -0.025em; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }}
+.intro {{ margin: 24px 0 0; max-width: 35ch; color: var(--muted); font-size: 20px; text-wrap: pretty; }}
+.login-panel {{ width: min(440px, 100%); justify-self: center; }}
+form {{ display: grid; gap: 24px; }}
+label {{ display: grid; gap: 8px; font-size: 14px; font-weight: 600; }}
+input {{ min-height: 48px; width: 100%; border: 1px solid var(--muted); border-radius: var(--radius); padding: 12px; background: var(--surface); color: var(--ink); font: inherit; font-size: 16px; font-weight: 400; }}
+button {{ min-height: 48px; border: 1px solid var(--primary); border-radius: var(--radius); padding: 12px 24px; background: var(--primary); color: var(--surface); font: inherit; font-weight: 600; cursor: pointer; white-space: nowrap; }}
+button:hover, button:active {{ background: var(--primary-strong); border-color: var(--primary-strong); }}
+button:disabled, input:disabled {{ opacity: 0.55; cursor: not-allowed; }}
+a:hover {{ color: var(--primary-strong); }}
+:focus-visible {{ outline: 3px solid var(--primary); outline-offset: 4px; }}
+input:focus-visible {{ outline-offset: 2px; }}
+.error {{ margin: 0 0 24px; padding: 16px; border: 1px solid var(--error); border-radius: var(--radius); background: var(--error-soft); color: var(--error); font-size: 14px; }}
+input[aria-invalid="true"] {{ border-color: var(--error); }}
+.required-note {{ margin: 0; color: var(--muted); font-size: 14px; }}
+.site-footer {{ border-top: 1px solid var(--line); }}
+.footer-inner {{ min-height: 96px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-block: 24px; color: var(--muted); font-size: 14px; }}
+.footer-inner a {{ min-height: 44px; display: inline-flex; align-items: center; color: var(--primary); font-weight: 600; white-space: nowrap; }}
+::selection {{ background: var(--primary); color: var(--surface); }}
+@media (max-width: 799px) {{
+  .header-inner {{ min-height: 80px; }}
+  .site-nav {{ flex: 0 0 100%; order: 3; justify-content: flex-start; gap: 24px; }}
+  main {{ padding-block: 48px; }}
+  .login-layout {{ grid-template-columns: minmax(0, 1fr); gap: 32px; }}
+  .login-panel {{ justify-self: start; }}
+}}
+@media (max-width: 767px) {{ .container {{ width: calc(100% - 32px); }} }}
+@media (max-width: 399px) {{ .brand {{ font-size: 16px; gap: 8px; }} .header-action {{ min-width: 76px; padding-inline: 12px; }} }}
+@media (prefers-reduced-motion: reduce) {{ *, *::before, *::after {{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }} }}
   </style>
 </head>
 <body>
-  <main>
-    <div class="login-nav">
-      <a class="cancel-action" href="{cancel_url}">Cancel</a>
-      <a href="https://nsyprojects.com/">NSY Projects</a>
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="https://nsyprojects.com/" aria-label="NSY Projects home"><span class="mark" aria-hidden="true"></span><span>NSY Projects</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="https://nsyprojects.com/">Home</a>
+        <a href="https://nsyprojects.com/about.html">About Me</a>
+        <a href="https://nsyprojects.com/projects.html">Projects</a>
+      </nav>
+      <a class="header-action cancel-action" href="{cancel_url}">Cancel</a>
     </div>
-    <p class="eyebrow">Private access</p>
-    <h1>Sign in</h1>
-    {error}
-    <form method="post" action="/login">
-      <input type="hidden" name="next" value="{next}">
-      <label>
-        用户名
-        <input name="username" autocomplete="username" required autofocus>
-      </label>
-      <label>
-        密码
-        <input name="password" type="password" autocomplete="current-password" required>
-      </label>
-      <button type="submit">登录</button>
-    </form>
+  </header>
+  <main id="mainContent" tabindex="-1" aria-labelledby="loginTitle" class="container">
+    <div class="login-layout">
+      <div class="login-intro">
+        <h1 id="loginTitle">Sign in</h1>
+        <p class="intro">Sign in to access private NSY Projects tools.</p>
+      </div>
+    <div class="login-panel">
+      {error}
+      <form method="post" action="/login">
+        <input type="hidden" name="next" value="{next}">
+        <label for="username">Username
+          <input id="username" name="username" autocomplete="username" required aria-required="true" {username_focus} {field_error}>
+        </label>
+        <label for="password">Password
+          <input id="password" name="password" type="password" autocomplete="current-password" required aria-required="true" {field_error}>
+        </label>
+        <button type="submit">Sign in</button>
+        <p class="required-note">Both fields are required.</p>
+      </form>
+    </div>
+    </div>
   </main>
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© {year} Shaoyang Ni</span>
+      <a href="https://www.linkedin.com/in/naivee-ni/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+    </div>
+  </footer>
 </body>
 </html>"""
 
@@ -253,9 +220,12 @@ def safe_cancel_url(next_url: str | None) -> str:
 
 
 def render_login(error: str = "", next_url: str = "/") -> HTMLResponse:
-    error_html = f'<p class="error">{html.escape(error)}</p>' if error else ""
+    error_html = f'<p id="loginError" class="error" role="alert" tabindex="-1" autofocus>{html.escape(error)}</p>' if error else ""
     body = LOGIN_HTML.format(
         error=error_html,
+        year=time.gmtime().tm_year,
+        username_focus="" if error else "autofocus",
+        field_error='aria-invalid="true" aria-describedby="loginError"' if error else "",
         next=html.escape(safe_next_url(next_url), quote=True),
         cancel_url=html.escape(safe_cancel_url(next_url), quote=True),
     )

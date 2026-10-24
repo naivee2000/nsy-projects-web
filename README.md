@@ -28,6 +28,10 @@ Both backend projects run local Codex processes on the computer that deploys or 
 
 The Python Study App has one deliberate private-repository exception for data portability: `seed_data/initial_progress.db` is a one-time owner-progress snapshot. Its live website database remains outside the checkout and must never be recommitted after online studying begins.
 
+## Website redesign handoff
+
+The current Home, About and Sign-in redesign is prepared on `codex/website-redesign-handoff`. See [the handoff guide](docs/redesign/README.md) for checkout commands, portable screenshots, local previews and checks. This branch is for review and transfer only; do not merge, restart production services or deploy without a separate request.
+
 ## Working Across Computers
 
 Before editing on either computer:

@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="NSY Projects is Shaoyang Ni's collection of practical tools and experiments in data, automation, and AI.">
   <title>NSY Projects</title>
-  <link rel="preload" as="image" href="/assets/hero-projects-960.avif" imagesrcset="/assets/hero-projects-960.avif 960w, /assets/hero-projects-1983.avif 1983w" imagesizes="(min-width: 1168px) 429px, (min-width: 800px) calc(40vw - 38.4px), (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)" type="image/avif">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="./styles.css">
   <script src="/site.js" defer></script>
 </head>
 <body data-page="home">
@@ -34,29 +33,19 @@
             <a class="text-link" href="/about.html">About Me</a>
           </div>
         </div>
-        <picture class="hero-picture">
-          <source type="image/avif" srcset="/assets/hero-projects-960.avif 960w, /assets/hero-projects-1983.avif 1983w" sizes="(min-width: 1168px) 429px, (min-width: 800px) calc(40vw - 38.4px), (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)">
-          <source type="image/webp" srcset="/assets/hero-projects-960.webp 960w, /assets/hero-projects-1983.webp 1983w" sizes="(min-width: 1168px) 429px, (min-width: 800px) calc(40vw - 38.4px), (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)">
-          <img src="/assets/hero-projects-1983.webp" width="1983" height="793" alt="" fetchpriority="high">
+        <picture class="hero-art" aria-hidden="true">
+          <img src="/assets/paper-sculpture-1280.webp" srcset="/assets/paper-sculpture-640.webp 640w, /assets/paper-sculpture-1280.webp 1280w" sizes="(min-width: 1168px) 625px, (min-width: 800px) 55vw, calc(100vw - 32px)" width="1280" height="853" alt="" fetchpriority="high">
         </picture>
       </div>
     </section>
-    <section class="home-about" id="about" aria-labelledby="aboutTitle">
-      <div class="section-inner container">
-        <div>
-          <h2 id="aboutTitle">About this site</h2>
+    <section class="maker-note container" id="about" aria-labelledby="aboutTitle">
+      <div class="maker-note-inner">
+        <h2 id="aboutTitle">About this site</h2>
+        <div class="maker-copy">
           <p>I’m Shaoyang Ni, a computer science graduate student at the University of Chicago with an applied mathematics background from Emory.</p>
           <p>This is where I share tools that make everyday work simpler.</p>
-        </div>
-        <div class="about-side">
-          <div class="about-topic">
-            <h3>What I’m exploring</h3>
-            <p>Python and SQL tools, dashboards, automation, and AI prototypes for everyday problems.</p>
-          </div>
-          <div class="about-topic">
-            <h3>How I like to build</h3>
-            <p>I learn by building, using AI to test ideas while understanding the code and decisions behind them.</p>
-          </div>
+          <section><h3>What I’m exploring</h3><p>Python and SQL tools, dashboards, automation, and AI prototypes for everyday problems.</p></section>
+          <section><h3>How I like to build</h3><p>I learn by building, using AI to test ideas while understanding the code and decisions behind them.</p></section>
         </div>
       </div>
     </section>
