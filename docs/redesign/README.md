@@ -1,8 +1,8 @@
 # Website redesign handoff
 
-Prepared 2026-10-23 for transfer through GitHub. **Do not deploy, merge into main, restart PM2, or change credentials as part of this handoff.**
+Prepared 2026-10-23 for transfer through GitHub. The owner requested merging the tested redesign into **main** and will deploy it from the other computer. No production service was restarted or deployed from this checkout.
 
-Branch: `codex/website-redesign-handoff` in `naivee2000/nsy-projects-web`.
+Repository: `naivee2000/nsy-projects-web`, branch: `main`. The original handoff branch is retained as `codex/website-redesign-handoff`.
 
 ## Final design
 
@@ -13,24 +13,23 @@ Branch: `codex/website-redesign-handoff` in `naivee2000/nsy-projects-web`.
 
 ## Continue on the other computer
 
-In an existing clean checkout (preserve any local edits before switching):
+If the other computer is already on `main`, update it with:
 
 ```sh
-git fetch origin
-git switch --track origin/codex/website-redesign-handoff
+git pull --ff-only
 ```
 
-If the local branch already exists:
+If it is on the earlier handoff branch, switch first (preserve any local edits):
 
 ```sh
-git switch codex/website-redesign-handoff
+git switch main
 git pull --ff-only
 ```
 
 For a new checkout:
 
 ```sh
-git clone --branch codex/website-redesign-handoff https://github.com/naivee2000/nsy-projects-web.git
+git clone https://github.com/naivee2000/nsy-projects-web.git
 cd nsy-projects-web
 ```
 
@@ -98,9 +97,9 @@ Removed the obsolete laptop hero assets, abandoned app screenshot assets, duplic
 
 ## Deployment boundary
 
-This handoff commit uses `[CF-Pages-Skip]` and `[skip ci]` in its message to suppress automatic deployment. See [Cloudflare's skip-deployment documentation](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/). Future pushes need the same deployment restraint while the user wants review only.
+The handoff and main-workflow commits use `[CF-Pages-Skip]` and `[skip ci]` in their messages to suppress automatic deployment. See [Cloudflare's skip-deployment documentation](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/). Preserve those markers for transfer-only pushes. The owner will perform the actual release from the designated deployment computer.
 
-When the owner separately requests deployment:
+On the designated deployment computer, when ready to replace the old version:
 
 1. Public frontend: deploy **only `web_ui`**, including both paper-sculpture WebP exports and all three CSS files, through the existing Cloudflare Pages `nsy-projects` workflow. Do not deploy the repository root, `docs`, environments, data or secrets.
 2. Sign-in backend: use the existing [DEM deployment procedure](../../projects/dem-claim/docs/DEPLOYMENT.md). The real secure entrypoint remains `app_zh_secure:app`; restart only `nsy-dem-app` after release. Do not deploy `preview_login.py` as the service or use its disposable credentials.

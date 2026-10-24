@@ -30,7 +30,7 @@ The Python Study App has one deliberate private-repository exception for data po
 
 ## Website redesign handoff
 
-The current Home, About and Sign-in redesign is prepared on `codex/website-redesign-handoff`. See [the handoff guide](docs/redesign/README.md) for checkout commands, portable screenshots, local previews and checks. This branch is for review and transfer only; do not merge, restart production services or deploy without a separate request.
+The current Home, About and Sign-in redesign is available on `main`. On the other computer, update your main checkout with `git pull --ff-only`, then use [the handoff guide](docs/redesign/README.md) for screenshots, checks and the separate frontend/backend deployment steps. The GitHub transfer skips automatic deployment; deploy from the designated computer.
 
 ## Working Across Computers
 
