@@ -293,7 +293,11 @@ class CarCompareHandler(BaseHTTPRequestHandler):
                     return
                 generation_impact = GENERATION_RESEARCH.impact_from_job(generation_job_id) or generation_impact
 
-            report = build_report(request=request, listings=listings, msrp=msrp, generation_impact=generation_impact)
+            report = build_report(
+                request=request, listings=listings, msrp=msrp,
+                generation_impact=generation_impact,
+                aggregate_snapshots=(job_result or {}).get("evidence", []),
+            )
             report["collectionPlan"] = build_collection_plan(request)
             _attach_collector_evidence(report, job_result)
             _attach_report_metadata(report)
@@ -365,6 +369,7 @@ class CarCompareHandler(BaseHTTPRequestHandler):
                     pages_examined=int(body.get("pagesExamined") or 1),
                     cards_examined=int(body.get("cardsExamined") or 0),
                     load_more_clicked=int(body.get("loadMoreClicked") or 0),
+                    scope=body.get("scope"),
                 )
             except KeyError as exc:
                 self._send_error(404, str(exc))
@@ -476,8 +481,16 @@ def _attach_collector_evidence(report: dict[str, Any], job_result: dict[str, Any
         return
     evidence["collectorSources"] = job_result.get("sources") or []
     evidence["facets"] = job_result.get("evidence") or []
+    diagnostics = {item["index"]: item for item in evidence.get("aggregateDiagnostics", [])}
+    evidence["facets"] = [{**row, "pricingStatus": diagnostics.get(index, {}).get("status", "excluded"), "pricingReason": diagnostics.get(index, {}).get("reason", "No verified pricing population")} for index, row in enumerate(evidence["facets"]) if isinstance(row, dict)]
     evidence["collectorNotes"] = job_result.get("notes") or []
     evidence["collectionQuality"] = job_result.get("collectionQuality") or {}
+    evidence["partitionManifest"] = job_result.get("partition_manifest") or []
+    manifest = evidence["partitionManifest"]
+    evidence["aggregateCoverage"] = (
+        "complete" if manifest and all(item.get("status") in {"successful", "verified_empty"} for item in manifest)
+        else "partial" if manifest else "unverified"
+    )
 
 
 class RequestBodyError(ValueError):
@@ -542,7 +555,8 @@ def _attach_report_metadata(report: dict[str, Any]) -> None:
     summary["sampleMode"] = SAMPLE_MODE_ENABLED
     summary["sampleRows"] = sample_count
     summary["aggregateObservationPoints"] = aggregate_points
-    summary["aggregateMarketCount"] = (aggregate_population or aggregate_points) if aggregate_points else 0
+    summary["rawAggregatePopulationCount"] = aggregate_population
+    summary["aggregateMarketCount"] = int(summary.get("aggregatePricingCount") or 0)
     summary["individualListingRows"] = individual_rows
     summary["dealerListings"] = min(individual_rows, dealer_rows)
     summary["generatedAt"] = datetime.now(timezone.utc).isoformat()

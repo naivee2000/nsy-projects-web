@@ -30,7 +30,7 @@ SITE_STATUS = [
         "name": "Visor",
         "status": "workable_public_facets",
         "tested": "2026-07-06",
-        "result": "Public filter pages expose per-year price histograms, MSRP stats, mileage stats, and market counts. The app now expands those histograms into aggregate observations for depreciation graphs.",
+        "result": "Verified public facets supply exact source medians or compatible pooled histogram estimates. Aggregate populations remain separate from individual listings; unverified snapshots are evidence only.",
         "adapter": "Visor public-facet adapter first; use Visor REST API/MCP later when an API key is available for individual listings.",
         "notes": "Facet rows are aggregate market observations, not individual dealer listings. They are source-labeled as visor_public_facets.",
         "url": "https://visor.vin/api",

@@ -13,6 +13,7 @@ from car_compare.collector import (
     _msrp_matches_request,
 )
 from car_compare.models import MSRP
+from car_compare.collection_scope import verified_scope
 from car_compare.parser import parse_vehicle_query
 from car_compare.sources.browser_capture import listing_year_in_scope, parse_visible_listing_text
 from car_compare.vehicle_match import vehicle_text_match_score
@@ -132,6 +133,13 @@ class VisibleListingRegressionTests(unittest.TestCase):
 
 
 class CollectorIntegrityRegressionTests(unittest.TestCase):
+    def setUp(self):
+        for patcher in (
+            patch("car_compare.sources.request_budget._boot_id", return_value="unit-test-boot"),
+            patch("car_compare.sources.request_budget._owner_identity", return_value="unit-test-process"),
+        ):
+            patcher.start()
+            self.addCleanup(patcher.stop)
     def test_host_chrome_zero_card_report_cannot_accept_visible_text(self) -> None:
         request = parse_vehicle_query("2014 BMW M4")
         url = (
@@ -159,7 +167,7 @@ class CollectorIntegrityRegressionTests(unittest.TestCase):
                 "end_year": 2014,
                 "target_years": [2015],
             }
-            with patch("car_compare.collector.capture_with_host_chrome", return_value=capture) as mocked_capture:
+            with patch("car_compare.collector.capture_with_host_chrome", return_value=capture) as mocked_capture, patch("car_compare.collector.validate_host_scope", return_value={"status": "verifiedzero", "scope": verified_scope(request), "evidence": {}}):
                 audit = manager._collect_host_chrome_source(request, payload, job_dir)
 
         mocked_capture.assert_called_once()
@@ -194,6 +202,7 @@ class CollectorIntegrityRegressionTests(unittest.TestCase):
             }
             with (
                 patch("car_compare.collector.capture_with_host_chrome", return_value=capture),
+                patch("car_compare.collector.validate_host_scope", return_value={"status": "ready", "scope": verified_scope(request), "evidence": {}}),
                 patch(
                     "car_compare.collector._browser_year_quota",
                     return_value={"counts": {2025: 1}, "targets": {2025: 1}, "sparse_years": [], "met": True},
@@ -236,10 +245,7 @@ class CollectorIntegrityRegressionTests(unittest.TestCase):
 
         manager._store_audit_cache(request, audit, current_year=2026)
 
-        stored_years = {call.args[2] for call in manager._capture_cache.store_year.call_args_list}
-        self.assertEqual(min(stored_years), 2015)
-        self.assertEqual(max(stored_years), 2026)
-        self.assertNotIn(2014, stored_years)
+        manager._capture_cache.store_year.assert_not_called()
 
     def test_porsche_model_wide_msrp_rejects_turbo_s_reference(self) -> None:
         request = parse_vehicle_query("Porsche 911")

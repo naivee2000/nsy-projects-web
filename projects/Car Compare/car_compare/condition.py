@@ -16,11 +16,13 @@ def sanitize_listing_condition(
     year: int,
     *,
     current_year: int | None = None,
+    verified_new: bool = False,
 ) -> str:
-    """Normalize condition evidence and reject implausible historical new rows."""
+    """Normalize condition evidence without relabeling unsold older inventory."""
 
     current_year = current_year if current_year is not None else datetime.now(timezone.utc).year
     normalized = (declared or "unknown").strip().lower()
+    normalized = {"certified": "cpo", "certified pre-owned": "cpo"}.get(normalized, normalized)
     if normalized not in {"new", "used", "cpo", "unknown"}:
         normalized = "unknown"
 
@@ -34,7 +36,7 @@ def sanitize_listing_condition(
     elif NEW_RE.match(clean_title):
         normalized = "new"
 
-    if normalized == "new" and year < current_year - 1 and not NEW_OLD_STOCK_RE.search(clean_title):
+    if not verified_new and is_implausible_new(normalized, clean_title, year, current_year):
         return "unknown"
     return normalized
 

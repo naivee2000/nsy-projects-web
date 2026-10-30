@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "kind": "query_manifest_not_captured_source_data",
+  "audit_date": "2026-10-28",
+  "current_year": 2026,
+  "probe_year": 2023,
+  "probe_condition": "used",
+  "queries": [
+    {"id": "01", "query": "2023 BMW M4 Competition", "focus": "explicit year and Competition family"},
+    {"id": "02", "query": "BMW M4", "focus": "Coupe and Convertible model union"},
+    {"id": "03", "query": "BMW M4 Competition", "focus": "Competition including xDrive; exclude CS/CSL/GTS"},
+    {"id": "04", "query": "BMW M4 Competition xDrive", "focus": "exact drivetrain scope"},
+    {"id": "05", "query": "Porsche 911", "focus": "model family and generic title"},
+    {"id": "06", "query": "Porsche 911 Carrera", "focus": "Carrera model membership"},
+    {"id": "07", "query": "Porsche 911 Carrera S", "focus": "model plus trim membership"},
+    {"id": "08", "query": "Bentley Continental GT", "focus": "exact source median versus histogram estimate"},
+    {"id": "09", "query": "Bentley Continental GT Speed", "focus": "Speed alias"},
+    {"id": "10", "query": "Ford Mustang GT", "focus": "unexamined version partitions"},
+    {"id": "11", "query": "Honda Civic", "focus": "generic title with valid selection"},
+    {"id": "12", "query": "Honda Civic EX", "focus": "generic title and EX selection"},
+    {"id": "13", "query": "Mercedes-Benz C-Class C300", "focus": "numeric trim and broad-market rejection"},
+    {"id": "14", "query": "Toyota Camry", "focus": "control slice"},
+    {"id": "15", "query": "Toyota Camry XSE", "focus": "decimal engine version"},
+    {"id": "16", "query": "Tesla Model 3 Long Range AWD", "focus": "year-specific drivetrain alias; empty is inconclusive"},
+    {"id": "17", "query": "Lexus LC 500", "focus": "numeric model and legacy contamination"},
+    {"id": "18", "query": "Porsche Cayenne GTS", "focus": "exact source median versus histogram estimate"},
+    {"id": "19", "query": "Porsche 911 base", "focus": "base Carrera only, not every Base member"},
+    {"id": "20", "query": "BMW M3", "focus": "year-specific scope and rate limiting"}
+  ]
+}

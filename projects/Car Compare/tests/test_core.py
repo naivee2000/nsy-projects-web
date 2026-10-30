@@ -16,6 +16,7 @@ from types import SimpleNamespace
 from urllib.parse import parse_qs, urlparse
 
 from car_compare.condition import sanitize_listing_condition
+from car_compare.collection_scope import verified_scope
 from car_compare.depreciation import build_report, dedupe_listings, dedupe_listings_with_diagnostics
 from pathlib import Path
 
@@ -229,7 +230,8 @@ class AppContractTests(unittest.TestCase):
         self.assertEqual(report["summary"]["dealerListings"], 3)
         self.assertEqual(report["summary"]["individualListingRows"], 3)
         self.assertEqual(report["summary"]["aggregateObservationPoints"], 4)
-        self.assertEqual(report["summary"]["aggregateMarketCount"], 4)
+        self.assertEqual(report["summary"]["aggregateMarketCount"], 0)
+        self.assertEqual(report["summary"]["rawAggregatePopulationCount"], 0)
         self.assertEqual(report["summary"]["sampleRows"], 2)
 
         demo_report = {"summary": {"listingCount": 9, "sources": {"autotrader": 3, "visor_public_facets": 4, "sample": 2}}}
@@ -783,7 +785,7 @@ class ResolverTests(unittest.TestCase):
 
 
 class ReportTests(unittest.TestCase):
-    def test_msrp_reference_drives_depreciation_when_new_market_samples_are_missing(self) -> None:
+    def test_msrp_reference_does_not_supply_missing_new_market_baseline(self) -> None:
         query = parse_vehicle_query("BMW M4 Cometition")
         query.max_age = 15
         report = build_report(query, sample_listings_for(query), default_msrp_for(query))
@@ -792,10 +794,10 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(report["msrp"]["price"], 86600)
         self.assertIn("2026 historical", report["msrp"]["label"])
         self.assertEqual(report["msrp"]["source"], "bmwusa_demo_reference_2026")
-        self.assertEqual(age_zero["confidence"], "msrp_reference")
+        self.assertEqual(age_zero["confidence"], "needs_collection")
         self.assertFalse(age_zero["observed"])
-        self.assertEqual(age_zero["trend_median"], 86600)
-        self.assertTrue(any(bucket["depreciation_from_baseline"] for bucket in report["buckets"][1:]))
+        self.assertIsNone(age_zero["trend_median"])
+        self.assertTrue(all(bucket["depreciation_from_baseline"] is None for bucket in report["buckets"][1:]))
 
     def test_reference_msrp_is_year_and_variant_specific(self) -> None:
         cases = [
@@ -846,17 +848,17 @@ class ReportTests(unittest.TestCase):
         self.assertTrue(report["summary"]["needsSourceCapture"])
         self.assertEqual(report["summary"]["dataQuality"], "needs_collection")
 
-    def test_used_only_report_builds_disclosed_estimated_baseline(self) -> None:
+    def test_used_only_report_has_no_estimated_baseline(self) -> None:
         query = parse_vehicle_query("Toyota Camry XSE")
         rows = [
             Listing("used_market", 2022, 25000, "XSE", 45000, "2022 Toyota Camry XSE", dealer="Toyota Dealer")
         ]
         report = build_report(query, rows, MSRP(0, "No MSRP", "needs_manufacturer_capture", ""), current_year=2026)
-        self.assertEqual(report["msrp"]["source"], "estimated_from_used_market")
-        self.assertGreater(report["msrp"]["price"], 25000)
-        self.assertEqual(report["buckets"][0]["confidence"], "estimated_baseline")
+        self.assertEqual(report["msrp"]["source"], "needs_manufacturer_capture")
+        self.assertEqual(report["msrp"]["price"], 0)
+        self.assertEqual(report["buckets"][0]["confidence"], "needs_collection")
         self.assertTrue(report["summary"]["needsMsrpCapture"])
-        self.assertIsNotNone(report["buckets"][4]["depreciation_from_baseline"])
+        self.assertIsNone(report["buckets"][4]["depreciation_from_baseline"])
 
     def test_target_year_report_uses_one_cohort_lifecycle_and_generation_clock(self) -> None:
         query = parse_vehicle_query("2022 Toyota Camry XSE")
@@ -896,8 +898,8 @@ class ReportTests(unittest.TestCase):
             current_year=2026,
             generation_impact=generation,
         )
-        self.assertEqual(report["msrp"]["year"], 2022)
-        self.assertIn("age-0 baseline", report["msrp"]["label"])
+        self.assertIsNone(report["msrp"]["year"])
+        self.assertIsNone(report["buckets"][0]["median"])
         self.assertTrue(all(bucket["model_year"] == 2022 for bucket in report["buckets"]))
         self.assertTrue(all(bucket["model_years"] == [2022] for bucket in report["buckets"]))
         self.assertEqual(
@@ -1400,11 +1402,12 @@ class ReportTests(unittest.TestCase):
         report = build_report(query, rows, MSRP(86600, "MSRP", "bmwusa", ""), current_year=2026)
         age_zero = report["buckets"][0]
         self.assertEqual(age_zero["model_year"], 2026)
-        self.assertEqual(age_zero["sample_count"], 1)
-        self.assertTrue(age_zero["observed"])
-        self.assertEqual(age_zero["median"], 81000)
-        self.assertEqual(age_zero["trend_median"], 81000)
-        self.assertEqual(age_zero["confidence"], "current_year_market")
+        self.assertEqual(age_zero["sample_count"], 0)
+        self.assertFalse(age_zero["observed"])
+        self.assertIsNone(age_zero["median"])
+        self.assertIsNone(age_zero["trend_median"])
+        self.assertEqual(age_zero["confidence"], "needs_collection")
+        self.assertEqual(len(report["summary"]["currentYearUsedInventory"]), 1)
         self.assertEqual(report["buckets"][1]["sample_count"], 0)
 
     def test_observed_market_baseline_is_independent_of_display_msrp(self) -> None:
@@ -1418,6 +1421,7 @@ class ReportTests(unittest.TestCase):
             Listing("market", 2024, 210000, title="Used 2024 Porsche 911 GT3", condition="used"),
             Listing("market_secondary", 2024, 210000, title="Used 2024 Porsche 911 GT3 second observation", condition="used"),
         ]
+        rows[:3] = [replace(row, condition="new", title=row.title.replace("Used", "New"), scope=verified_scope(query)) for row in rows[:3]]
         low_msrp = build_report(query, rows, MSRP(135500, "Carrera MSRP", "porsche", ""), current_year=2026)
         high_msrp = build_report(query, rows, MSRP(250000, "Display MSRP", "porsche", ""), current_year=2026)
 
@@ -1430,7 +1434,7 @@ class ReportTests(unittest.TestCase):
             self.assertEqual(report["buckets"][2]["depreciation_from_previous"], 0)
             self.assertEqual(report["buckets"][2]["depreciation_from_baseline"], 16900)
 
-    def test_aggregate_population_weights_the_combined_market_median(self) -> None:
+    def test_legacy_aggregate_samples_do_not_establish_baseline(self) -> None:
         query = parse_vehicle_query("Porsche 911")
         rows = [
             Listing(
@@ -1455,9 +1459,9 @@ class ReportTests(unittest.TestCase):
         ]
         report = build_report(query, rows, MSRP(135500, "Carrera MSRP", "porsche", ""), current_year=2026)
         age_zero = report["buckets"][0]
-        self.assertEqual(age_zero["sample_count"], 3)
-        self.assertEqual(age_zero["market_median"], 180000)
-        self.assertEqual(age_zero["trend_median"], 180000)
+        self.assertEqual(age_zero["sample_count"], 0)
+        self.assertIsNone(age_zero["market_median"])
+        self.assertIsNone(age_zero["trend_median"])
 
     def test_age_zero_can_include_new_vehicle_samples(self) -> None:
         query = parse_vehicle_query("Bentley Continental GT")
@@ -1478,17 +1482,19 @@ class ReportTests(unittest.TestCase):
                 confidence="new_vehicle_facets",
                 condition="new",
             ),
-            Listing("visor_public_facets", 2025, 245000, title="2025 Bentley Continental GT", condition="used"),
+            Listing("market", 2025, 245000, title="2025 Bentley Continental GT", condition="used"),
             Listing("market_secondary", 2025, 245000, title="2025 Bentley Continental GT second observation", condition="used"),
         ]
         report = build_report(
             request=query,
             listings=rows,
             msrp=MSRP(288750, "Visor median listing MSRP for Bentley Continental GT", "visor_public_facets_new", "https://example.test", 2026),
+            aggregate_snapshots=[{"source": "visor_public_facets_new", "condition": "new", "year": 2026, "scope": verified_scope(query), "price_stats": {"median": 310000, "count": 2}}],
         )
         age_zero = report["buckets"][0]
         self.assertEqual(age_zero["confidence"], "new_market")
-        self.assertEqual(age_zero["sample_count"], 2)
+        self.assertEqual(age_zero["sample_count"], 0)
+        self.assertEqual(age_zero["aggregate_count"], 2)
         self.assertEqual(age_zero["median"], 310000)
         self.assertEqual(age_zero["source_counts"]["visor_public_facets_new"], 2)
         self.assertEqual(report["buckets"][1]["depreciation_from_baseline"], 65000)
@@ -1535,6 +1541,7 @@ class ReportTests(unittest.TestCase):
                 title="New 2026 BMW M4 Competition Coupe",
                 confidence="new_inventory",
                 condition="new",
+                scope=verified_scope(query),
             ),
             Listing(
                 "used_market",
@@ -1593,6 +1600,7 @@ class ReportTests(unittest.TestCase):
                 title="New 2026 BMW M4 Competition Coupe",
                 confidence="new_inventory",
                 condition="new",
+                scope=verified_scope(query),
             ),
             Listing(
                 "new_inventory_secondary",
@@ -1602,6 +1610,7 @@ class ReportTests(unittest.TestCase):
                 title="New 2026 BMW M4 Competition Coupe second observation",
                 confidence="new_inventory",
                 condition="new",
+                scope=verified_scope(query),
             ),
             Listing("used_market", 2025, 90000, "Competition Coupe", title="2025 BMW M4 Competition Coupe"),
             Listing("used_market_secondary", 2025, 90000, "Competition Coupe", title="2025 BMW M4 Competition Coupe second observation"),
@@ -2275,8 +2284,10 @@ class VisorFacetTests(unittest.TestCase):
 
     def test_visor_vehicle_confirmation_uses_whole_model_tokens(self) -> None:
         query = parse_vehicle_query("BMW M4")
-        self.assertTrue(_html_confirms_vehicle(query, "<title>Used 2024 BMW M4 for sale</title>"))
-        self.assertFalse(_html_confirms_vehicle(query, "<title>Used 2024 BMW M440i for sale</title>"))
+        def state(model):
+            return "queryHash:" + json.dumps(json.dumps(["facets", {"facets": "price", "make": "BMW", "model": model}]))
+        self.assertTrue(_html_confirms_vehicle(query, state("M4")))
+        self.assertFalse(_html_confirms_vehicle(query, state("M440i")))
 
     def test_visor_rejects_ignored_year_or_trim_filter(self) -> None:
         query = parse_vehicle_query("2023 BMW M4 Competition")
@@ -2332,7 +2343,7 @@ class VisorFacetTests(unittest.TestCase):
             )
         self.assertIsNone(row)
 
-        applied = f'<title>Used 2023 BMW M4 Competition for sale</title>selection={{car_type:"used",version:"Competition",year:"2023"}}{stats}'
+        applied = stats + "queryHash:" + json.dumps(json.dumps(["facets", {"facets": "price", "make": "BMW", "model": "M4", "car_type": "used", "version": "Competition", "year": "2023"}]))
         with patch("car_compare.sources.visor_facets._fetch_text", return_value=applied):
             row = _fetch_visor_facets(
                 query,
@@ -2354,13 +2365,14 @@ class VisorFacetTests(unittest.TestCase):
         query = parse_vehicle_query("BMW M4 Competition")
         with (
             patch("car_compare.sources.visor_facets._runtime_current_year", return_value=2027),
-            patch("car_compare.sources.visor_facets._matching_filter_specs", return_value=[]),
+            patch("car_compare.sources.visor_facets._resolve_source_models", return_value=[]),
             patch("car_compare.sources.visor_facets._used_visor_requests", return_value=[]),
             patch("car_compare.sources.visor_facets._visor_urls_for_specs", return_value=[]),
         ):
             result = collect_visor_public_facets(query)
         new_source = next(item for item in result["sources"] if item["source"] == NEW_SOURCE)
-        self.assertIn("year=2027", new_source["url"])
+        self.assertIn("car_type=new", new_source["url"])
+        self.assertNotIn("year=", new_source["url"])
 
 
 class CollectionPlanTests(unittest.TestCase):
@@ -2476,6 +2488,16 @@ class CollectionPlanTests(unittest.TestCase):
 
 
 class CollectorPayloadTests(unittest.TestCase):
+    def setUp(self):
+        budget_dir = tempfile.TemporaryDirectory()
+        self.addCleanup(budget_dir.cleanup)
+        for patcher in (
+            patch.dict(os.environ, {"CAR_COMPARE_REQUEST_BUDGET_DB": str(Path(budget_dir.name) / "budget.sqlite3")}),
+            patch("car_compare.sources.request_budget._boot_id", return_value="unit-test-boot"),
+            patch("car_compare.sources.request_budget._owner_identity", return_value="unit-test-process"),
+        ):
+            patcher.start()
+            self.addCleanup(patcher.stop)
     def test_sparse_followup_budget_caps_individual_year_pages(self) -> None:
         request = parse_vehicle_query("BMW M4 Competition")
         payloads = [
@@ -2582,7 +2604,7 @@ class CollectorPayloadTests(unittest.TestCase):
             patch("car_compare.sources.chrome_host.shutil.which", return_value="/usr/bin/osascript"),
             patch("car_compare.sources.chrome_host.Path.exists", return_value=True),
             patch(
-                "car_compare.sources.chrome_host.subprocess.run",
+                "car_compare.sources.chrome_host.run_bounded",
                 return_value=SimpleNamespace(returncode=0, stdout=json.dumps(capture), stderr=""),
             ) as run,
             patch.dict(os.environ, {"CAR_COMPARE_BACKGROUND_MODE": "1"}),
@@ -2593,7 +2615,8 @@ class CollectorPayloadTests(unittest.TestCase):
                 script_path=Path(tmp) / "capture.applescript",
             )
 
-        self.assertEqual(run.call_args.args[0][-1], "1")
+        chrome_call = next(call for call in run.call_args_list if str(call.args[0][1]).endswith(".applescript"))
+        self.assertEqual(chrome_call.args[0][5], "1")
         self.assertTrue(result["backgroundMode"])
 
     def test_capture_cache_caps_ttl_and_isolates_trim_scope(self) -> None:
@@ -2686,12 +2709,13 @@ class CollectorPayloadTests(unittest.TestCase):
     def test_visor_facets_are_reused_from_three_day_result_cache(self) -> None:
         facet_calls = 0
 
-        def collect_facets(request):
+        def collect_facets(request, **kwargs):
             nonlocal facet_calls
             facet_calls += 1
             return {
                 "query": request.raw,
                 "status": "success",
+                "partition_manifest": [{"id": "m4", "year": 2023, "condition": "used", "status": "successful", "captured_at": time.time()}],
                 "notes": [],
                 "sources": [{"source": "visor_public_facets", "status": "success"}],
                 "listings": [
@@ -2744,11 +2768,12 @@ class CollectorPayloadTests(unittest.TestCase):
         audit = {
             "source": "autotrader_browser",
             "browser_verified": True,
+            "scope": verified_scope(request),
             "listings": rows,
         }
         baseline = {
             "evidence": [
-                {"source": "visor_public_facets", "year": 2023, "price_bins": [{"count": 30}]}
+                {"source": "visor_public_facets", "year": 2023, "scope": verified_scope(request), "price_bins": [{"count": 30}]}
             ]
         }
 
@@ -2816,8 +2841,9 @@ class CollectorPayloadTests(unittest.TestCase):
                     {
                         "source": item["source"],
                         "url": item["url"],
-                        "status": "partial" if accepted else "blocked",
+                        "status": "partial" if accepted else "verifiedzero",
                         "browser_verified": True,
+                        "scope": verified_scope(parse_vehicle_query("2023 BMW M4 Competition")),
                         "browser_mode": "persistent_profile_headful",
                         "pages_examined": 1,
                         "cards_examined": len(accepted),
@@ -2828,7 +2854,7 @@ class CollectorPayloadTests(unittest.TestCase):
             return SimpleNamespace(returncode=0, stdout=json.dumps(audits), stderr="")
 
         baseline = {
-            "evidence": [{"source": "visor_public_facets", "year": 2023, "price_bins": [{"count": 40}]}]
+            "evidence": [{"source": "visor_public_facets", "year": 2023, "scope": verified_scope(parse_vehicle_query("2023 BMW M4 Competition")), "price_bins": [{"count": 40}]}]
         }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -2840,14 +2866,14 @@ class CollectorPayloadTests(unittest.TestCase):
             request = parse_vehicle_query("2023 BMW M4 Competition")
             with (
                 patch("car_compare.collector.build_collection_plan", return_value={"targets": targets}),
-                patch("car_compare.collector.subprocess.run", side_effect=fake_run),
+                patch("car_compare.collector.run_bounded", side_effect=fake_run),
                 patch.object(manager, "_run_host_chrome_fallbacks", side_effect=lambda _request, _payloads, audits, _job_dir: audits),
                 patch.object(manager, "_run_codex_search_fallbacks", side_effect=lambda _request, _payloads, audits, _job_dir: audits),
             ):
                 first = manager._run_browser_sources(request, first_dir, baseline)
                 second = manager._run_browser_sources(request, second_dir, baseline)
 
-        self.assertEqual(browser_calls, 1)
+        self.assertEqual(browser_calls, 2)
         self.assertTrue(first["combinedYearCoverage"]["met"])
         self.assertTrue(second["combinedYearCoverage"]["met"])
         self.assertEqual(second["collectionSummary"][0]["cacheEntries"], 1)
@@ -2908,7 +2934,7 @@ class CollectorPayloadTests(unittest.TestCase):
                 return SimpleNamespace(returncode=0, stdout="", stderr="")
 
             with (
-                patch("car_compare.collector.subprocess.run", side_effect=fake_search),
+                patch("car_compare.collector.run_bounded", side_effect=fake_search),
                 patch("car_compare.sources.browser_capture._runtime_current_year", return_value=2026),
                 patch("car_compare.collector._runtime_current_year", return_value=2026),
             ):
@@ -2920,12 +2946,13 @@ class CollectorPayloadTests(unittest.TestCase):
                     host_chrome_attempted=True,
                 )
 
-            self.assertEqual(audit["accepted"], 1)
+            self.assertEqual(audit["accepted"], 0)
             self.assertFalse(audit["browser_verified"])
-            self.assertTrue(audit["search_verified"])
-            self.assertTrue(audit["deterministic_verified"])
+            self.assertFalse(audit["search_verified"])
+            self.assertFalse(audit["deterministic_verified"])
             self.assertEqual(audit["rejected_by_reason"], {"invalid_search_page": 1})
-            self.assertEqual(audit["listings"][0]["vin"], "WBS33AZ00PCM11056")
+            self.assertEqual(audit["listings"], [])
+            self.assertEqual(audit["discovery_candidates"][0]["vin"], "WBS33AZ00PCM11056")
 
     def test_host_chrome_capture_is_parsed_without_manual_import(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -2948,6 +2975,7 @@ class CollectorPayloadTests(unittest.TestCase):
             }
             with (
                 patch("car_compare.collector.capture_with_host_chrome", return_value=capture),
+                patch("car_compare.collector.validate_host_scope", return_value={"status": "ready", "scope": verified_scope(request), "evidence": {}}),
                 patch("car_compare.sources.browser_capture._runtime_current_year", return_value=2026),
                 patch("car_compare.collector._runtime_current_year", return_value=2026),
             ):
@@ -3034,6 +3062,7 @@ class CollectorPayloadTests(unittest.TestCase):
                     pages_examined=1,
                     cards_examined=3,
                     load_more_clicked=1,
+                    scope=verified_scope(VehicleQuery("BMW M4 Competition", "BMW", "M4", "Competition", max_age=5), requested_scope=manager.browser_actions()[0]["requestedScope"], result_refresh_confirmed=True, verification_method="supervised_visible_controls"),
                 )
 
             self.assertEqual(result["accepted"], 1)
@@ -3057,6 +3086,7 @@ class CollectorPayloadTests(unittest.TestCase):
                     source="edmunds_browser",
                     url="https://www.edmunds.com/inventory/srp.html?make=bmw&model=m4",
                     visible_text="Used 2024 BMW M4 Competition Coupe\n$79,500\n9,200 miles\n",
+                    scope=verified_scope(VehicleQuery("BMW M4 Competition", "BMW", "M4", "Competition", max_age=5), requested_scope=restored.browser_actions()[0]["requestedScope"], result_refresh_confirmed=True, verification_method="supervised_visible_controls"),
                 )
             self.assertEqual(restored.browser_actions(), [])
             self.assertEqual(restored.job_payload(job.id)["fallback"]["status"], "completed")
@@ -3188,16 +3218,16 @@ class CollectorPayloadTests(unittest.TestCase):
             manager = CollectionManager(CollectorConfig(root=Path(tmp)))
             with (
                 patch("car_compare.collector.build_collection_plan", return_value={"targets": targets}),
-                patch("car_compare.collector.subprocess.run", side_effect=fake_run),
+                patch("car_compare.collector.run_bounded", side_effect=fake_run),
                 patch.object(manager, "_run_host_chrome_fallbacks", side_effect=lambda _request, _payloads, audits, _job_dir: audits),
                 patch.object(manager, "_run_codex_search_fallbacks", side_effect=lambda _request, _payloads, audits, _job_dir: audits),
             ):
                 result = manager._run_browser_sources(parse_vehicle_query("BMW M4"), Path(tmp))
 
-        self.assertEqual(len(batches), 1)
+        self.assertEqual(len(batches), 2)
         self.assertEqual(batches[0]["max_concurrency"], 2)
         self.assertEqual(
-            [item["source"] for item in batches[0]["targets"]],
+            sorted(item["source"] for batch in batches for item in batch["targets"]),
             ["autotrader_browser", "edmunds_browser"],
         )
         self.assertTrue(all(item["split_by_year"] is False for item in batches[0]["targets"]))
@@ -3414,6 +3444,7 @@ class CollectorPayloadTests(unittest.TestCase):
                 "source": "autotrader_browser",
                 "url": "https://www.autotrader.com/cars-for-sale/all-cars/bmw/m4",
                 "browser_verified": True,
+                "scope": verified_scope(query),
                 "status": "partial",
                 "pages_examined": 2,
                 "cards_examined": 40,
@@ -3578,7 +3609,7 @@ out.write_text(json.dumps({
             )
             os.chmod(fake_codex, 0o755)
             manager = CollectionManager(
-                CollectorConfig(root=root, codex_path=str(fake_codex), timeout_seconds=10, use_visor_facets=False)
+                CollectorConfig(root=root, codex_path=str(fake_codex), timeout_seconds=10, use_visor_facets=False, codex_review_enabled=True)
             )
             job = manager.start("Honda Civic")
             running = None

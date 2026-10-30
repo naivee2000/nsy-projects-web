@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import process from "node:process";
+import { pathToFileURL } from "node:url";
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -19,8 +20,282 @@ const ALLOWED_HOSTS = [
   "bmwusa.com",
   "visor.vin",
 ];
-const DEFAULT_MAX_PAGES = 20;
-const DEFAULT_TIMEOUT_MS = 5 * 60 * 1000;
+const DEFAULT_MAX_PAGES = 5;
+const MAX_PAGES = 5;
+const DEFAULT_TIMEOUT_MS = 12 * 60 * 1000;
+const SOURCE_HOSTS = {
+  autotrader_browser: "autotrader.com",
+  edmunds_browser: "edmunds.com",
+  porsche_finder_browser: "finder.porsche.com",
+};
+
+export function normalizeInput(input, defaultDeadline = Date.now() / 1000 + DEFAULT_TIMEOUT_MS / 1000) {
+  const deadline = input.deadline_at == null ? defaultDeadline : Number(input.deadline_at);
+  if (!Number.isFinite(deadline) || deadline <= 0) throw new Error("deadline_at must be UNIX seconds.");
+  return { ...input, max_pages: Math.max(1, Math.min(MAX_PAGES, Math.floor(Number(input.max_pages) || DEFAULT_MAX_PAGES))), deadline_at: deadline };
+}
+
+export class Deadline {
+  constructor(at) { this.at = at * 1000; }
+  timeout(cap = DEFAULT_TIMEOUT_MS) {
+    const remaining = Math.floor(this.at - Date.now());
+    if (remaining <= 0) throw new Error("deadline_exceeded");
+    return Math.min(cap, remaining);
+  }
+  async run(operation, cap) {
+    const ms = this.timeout(cap);
+    let timer;
+    try {
+      return await Promise.race([operation(ms), new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error("deadline_exceeded")), ms);
+      })]);
+    } finally { clearTimeout(timer); }
+  }
+  async pause(ms = 250) {
+    await new Promise((resolve) => setTimeout(resolve, this.timeout(ms)));
+    this.timeout();
+  }
+}
+
+export function captureScope(geography = "unknown", verified = false) {
+  return { validation_revision: 3, validation_status: verified ? "verified" : "unverified", geography, captured_at: Date.now() / 1000, complete: verified };
+}
+
+export function scopeIsNational(scope) {
+  return scope?.validation_revision === 3 && scope.validation_status === "verified" && scope.geography === "nationwide" && scope.complete === true;
+}
+
+// Read selected controls, never option availability, page titles, or listing locations.
+export function readScopeDOM() {
+  const visible = (node) => {
+    const style = getComputedStyle(node);
+    const rect = node.getBoundingClientRect();
+    return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
+  };
+  const label = (node) => [node.getAttribute("aria-label"), node.getAttribute("title"), node.closest('fieldset')?.querySelector('legend')?.textContent,
+    ...Array.from(node.labels || [], (item) => item.textContent),
+    ...(node.getAttribute("aria-labelledby") || "").split(/\s+/).filter(Boolean).map((id) => document.getElementById(id)?.textContent),
+  ].filter(Boolean).join(" ").trim();
+  const controls = [];
+  for (const node of document.querySelectorAll('select,input[type="range"],[role="slider"],input[type="radio"],input[type="checkbox"],[role="radio"],[role="checkbox"],[role="combobox"],button,[data-testid*="filter-chip"],[data-testid*="selected-filter"]')) {
+    if (!visible(node)) continue;
+    const name = label(node);
+    const text = (node.innerText || node.textContent || "").trim();
+    const role = node.getAttribute("role");
+    if (node.tagName === "SELECT") {
+      const values = Array.from(node.selectedOptions || [], (option) => option.textContent.trim());
+      controls.push({ kind: "select", name, value: values.join(" "), values });
+    } else if (node.type === "range" || role === "slider") {
+      controls.push({ kind: "slider", name, value: node.getAttribute("aria-valuetext") || "", max: node.getAttribute("aria-valuemax") || node.max, now: node.getAttribute("aria-valuenow") || node.value });
+    } else if (node.checked || node.getAttribute("aria-checked") === "true") {
+      controls.push({ kind: "radio", name, value: Array.from(node.labels || [], (item) => item.textContent).join(" ").trim() || text || node.getAttribute("aria-label") || node.value || "" });
+    } else if (role === "combobox" || /(?:radius|distance)/i.test(`${name} ${text}`) || /selected-filter|filter-chip/i.test(node.getAttribute("data-testid") || "")) {
+      controls.push({ kind: "selected", name, value: text || node.getAttribute("aria-valuetext") || node.value || "" });
+    }
+  }
+  const links = Array.from(document.querySelectorAll('a[href]')).filter(visible);
+  const resultLinks = Array.from(document.querySelectorAll('a[href*="/cars-for-sale/vehicle/"],a[href*="/cars-for-sale/inventory/"],a[href*="/inventory/"],a[href*="/vin/"],a[href*="listing"],a[href*="/details/"]')).filter(visible);
+  const resultText = resultLinks.map((node) => `${node.href}|${node.closest('article,[data-testid*="card"],li')?.innerText || node.innerText}`).join("\n");
+  const text = document.body?.innerText || "";
+  return {
+    url: location.href, title: document.title, text: text.slice(0, 30_000), controls,
+    ready_state: document.readyState, document_id: performance.timeOrigin,
+    busy: Array.from(document.querySelectorAll('[aria-busy="true"],[role="progressbar"],[data-testid*="loading"],.loading-spinner')).some(visible),
+    result_count: resultLinks.length, fingerprint: resultText,
+    nationwide_links: links.filter((node) => /^(?:nationwide|all miles|unlimited|any distance)$/i.test((node.innerText || "").trim())).map((node) => node.href),
+  };
+}
+
+function sourceUrlMatches(rawUrl, source) {
+  try {
+    const url = new URL(rawUrl);
+    const host = SOURCE_HOSTS[source];
+    return Boolean(host && url.protocol === "https:" && (url.hostname === host || url.hostname.endsWith(`.${host}`)));
+  } catch { return false; }
+}
+
+const SCOPE_FIELDS = ["make", "model", "trim", "years", "conditions", "body", "drivetrain"];
+
+function scopeValue(value, field) {
+  const clean = String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const aliases = {
+    conditions: { "certified pre owned": "cpo", "certified used": "cpo", certified: "cpo", "pre owned": "used", "brand new": "new" },
+    drivetrain: { "all wheel drive": "awd", "rear wheel drive": "rwd", "front wheel drive": "fwd", "four wheel drive": "4wd" },
+    body: { "sport utility vehicle": "suv", "sport utility": "suv" },
+  };
+  return aliases[field]?.[clean] || clean;
+}
+
+function controlField(control) {
+  if (SCOPE_FIELDS.includes(control.field)) return control.field;
+  const name = control.name || "";
+  if (/year/i.test(name)) return "years";
+  if (/condition|new.*used|inventory type/i.test(name)) return "conditions";
+  if (/drive.?train|drive type/i.test(name)) return "drivetrain";
+  if (/body|body style/i.test(name)) return "body";
+  if (/trim/i.test(name)) return "trim";
+  if (/model/i.test(name)) return "model";
+  if (/make|manufacturer|brand/i.test(name)) return "make";
+  return null;
+}
+
+// Exact selected sets are intentional: a broader filter cannot prove a narrow search.
+export function inspectRequestedScope(controls, requested) {
+  const fields = {};
+  for (const field of SCOPE_FIELDS) {
+    const expected = requested?.[field];
+    const required = ["make", "model", "years", "conditions"].includes(field);
+    if (expected == null || (Array.isArray(expected) ? !expected.length : !String(expected).trim()) || (field === "trim" && /^(?:unspecified|all|any)$/i.test(String(expected).trim()))) {
+      const narrowed = controls.filter((control) => controlField(control) === field).flatMap((control) => control.values || [control.value]).filter((value) => value && !/^(?:all(?:\s+.*)?|any(?:\s+.*)?|unspecified|select(?:\s+.*)?)$/i.test(String(value).trim()));
+      fields[field] = { status: required ? "unknown" : narrowed.length ? "mismatch" : "not_requested", expected: expected ?? null, observed: narrowed };
+      continue;
+    }
+    const selected = controls.filter((control) => controlField(control) === field);
+    let observed = selected.flatMap((control) => control.values || [control.value]).filter((value) => value != null && String(value).trim());
+    if (field === "years") {
+      const lower = selected.find((control) => /min|from|start/i.test(control.name || ""));
+      const upper = selected.find((control) => /max|to\b|end/i.test(control.name || ""));
+      const range = lower && upper ? [lower.value, upper.value] : observed.length === 1 && /^\s*\d{4}\s*(?:-|\u2013|to)\s*\d{4}\s*$/i.test(observed[0]) ? String(observed[0]).match(/\d{4}/g) : null;
+      if (range) {
+        const [start, end] = range.map(Number);
+        observed = Number.isInteger(start) && end >= start && end - start <= 120 ? Array.from({ length: end - start + 1 }, (_, index) => start + index) : [];
+      } else if (lower || upper) observed = [];
+    }
+    const wanted = [...new Set((Array.isArray(expected) ? expected : [expected]).map((value) => scopeValue(value, field)))].sort();
+    const actual = [...new Set(observed.map((value) => scopeValue(value, field)))].sort();
+    fields[field] = { status: !actual.length ? "unknown" : JSON.stringify(actual) === JSON.stringify(wanted) ? "matched" : "mismatch", expected, observed, selected_controls: selected };
+  }
+  return { status: Object.values(fields).some((item) => item.status === "mismatch") ? "mismatch" : Object.values(fields).some((item) => item.status === "unknown") ? "unknown" : "matched", fields };
+}
+
+export function inspectSearchScope(snapshot, source, httpStatus = 200, requestedScope = null) {
+  const text = `${snapshot.title || ""}\n${snapshot.text || ""}`;
+  const selected = (snapshot.controls || []).filter((control) =>
+    /radius|distance|search area|location/i.test(control.name || "") ||
+    (control.kind === "slider" && /nationwide/i.test(control.value || "")) ||
+    /^(?:nationwide|all miles|unlimited|any distance)$/i.test(control.value || ""));
+  const national = selected.some((control) => /\b(?:nationwide|all miles|unlimited|any distance)\b/i.test(control.value || "") &&
+    (control.kind !== "slider" || String(control.now) === String(control.max)));
+  const local = selected.some((control) => /\b\d[\d,]*\s*(?:mi\b|miles\b|km\b)/i.test(control.value || "") && !/nationwide|all miles/i.test(control.value || ""));
+  const geography = local ? "local" : national ? "nationwide" : "unknown";
+  const vehicle = inspectRequestedScope(snapshot.controls || [], requestedScope);
+  const evidence = { requested_scope: requestedScope, selected_controls: snapshot.controls || [], geography_controls: selected, constraints: vehicle.fields, constraint_status: vehicle.status, final_url: snapshot.url, result_refresh_confirmed: false };
+  const result = (status) => ({ status, scope: captureScope(geography), evidence });
+  if (httpStatus === 429 || /too many requests|rate limit(?:ed| exceeded)?|temporarily throttled/i.test(text)) return result("rate_limited");
+  if ([401, 403].includes(httpStatus) || /page unavailable|access denied|verify you are human|security verification|captcha|unusual activity|network restrictions|do not have permission/i.test(text)) return result("blocked");
+  if (!sourceUrlMatches(snapshot.url, source)) return result("filter_mismatch");
+  if (snapshot.busy || httpStatus >= 500) return result("loading");
+  const url = new URL(snapshot.url);
+  const urlMatches = source === "autotrader_browser" ? url.searchParams.get("searchRadius") === "0"
+    : source === "porsche_finder_browser" ? url.searchParams.get("position")?.split(",").at(-1) === "-1" : true;
+  if (local || !urlMatches || vehicle.status === "mismatch") return result("filter_mismatch");
+  if (!national || vehicle.status === "unknown") return result("filter_unknown");
+  if (snapshot.result_count > 0) return result("ready");
+  if (/\b(?:no (?:matching )?(?:vehicles|cars|results|listings)(?: found| available)?|0 (?:matching )?(?:vehicles|cars|results|listings))\b/i.test(snapshot.text || "")) return result("verifiedzero");
+  return result("loading");
+}
+
+export function validateHostScope(capture, requestedScope) {
+  const pages = Array.isArray(capture.pages) ? capture.pages : [];
+  const validations = pages.map((page) => {
+    const snapshot = page.scope_snapshot || {};
+    const result = inspectSearchScope(snapshot, capture.source, 200, requestedScope);
+    result.evidence.result_refresh_confirmed = page.result_refresh_confirmed === true;
+    if (["ready", "verifiedzero"].includes(result.status) && page.result_refresh_confirmed !== true) result.status = "loading";
+    return result;
+  });
+  const failure = validations.find((result) => !["ready", "verifiedzero"].includes(result.status));
+  const verified = validations.length > 0 && !failure;
+  return {
+    status: failure?.status || (verified ? validations.every((result) => result.status === "verifiedzero") ? "verifiedzero" : "ready" : "filter_unknown"),
+    scope: captureScope(verified ? "nationwide" : failure?.scope.geography, verified),
+    evidence: { requested_scope: requestedScope, result_refresh_confirmed: verified, pages: validations.map((result) => ({ ...result.evidence, status: result.status })) },
+  };
+}
+
+async function scopeSnapshot(page, deadline) {
+  return deadline.run(() => page.evaluate(readScopeDOM));
+}
+
+export async function waitForSearchScope(page, input, deadline, { before = null, navigation = false, httpStatus = 200 } = {}) {
+  let previous = "";
+  let refreshed = navigation || before == null;
+  let last;
+  const waitUntil = Math.min(deadline.at, Date.now() + 15_000);
+  do {
+    const snapshot = await scopeSnapshot(page, deadline);
+    last = inspectSearchScope(snapshot, input.source, httpStatus, input.requested_scope);
+    if (["blocked", "rate_limited"].includes(last.status)) return { ...last, snapshot };
+    if (before && (snapshot.busy || snapshot.fingerprint !== before.fingerprint || snapshot.result_count !== before.result_count)) refreshed = true;
+    const signature = JSON.stringify([snapshot.url, snapshot.controls, snapshot.fingerprint, last.status]);
+    if (["ready", "verifiedzero"].includes(last.status) && refreshed && signature === previous) {
+      last.scope = captureScope("nationwide", true);
+      last.evidence.result_refresh_confirmed = true;
+      return { ...last, snapshot };
+    }
+    previous = snapshot.busy ? "" : signature;
+    if (["filter_mismatch", "filter_unknown"].includes(last.status) && !snapshot.busy && before == null) return { ...last, snapshot };
+    await deadline.pause();
+  } while (Date.now() < waitUntil);
+  return { ...last, status: ["filter_mismatch", "filter_unknown"].includes(last?.status) ? last.status : "loading", scope: captureScope(last?.scope.geography), snapshot: await scopeSnapshot(page, deadline) };
+}
+
+async function setNationwideControl(page, source, deadline) {
+  if (source === "edmunds_browser") {
+    const sliders = page.locator('[role="slider"],input[type="range"]');
+    for (let index = 0; index < await sliders.count(); index += 1) {
+      const slider = sliders.nth(index);
+      const name = await slider.evaluate((node) => [node.getAttribute("aria-label"), ...Array.from(node.labels || [], (label) => label.textContent), ...(node.getAttribute("aria-labelledby") || "").split(/\s+/).filter(Boolean).map((id) => document.getElementById(id)?.textContent)].filter(Boolean).join(" "));
+      if (!/radius|distance/i.test(name) || !await slider.isVisible()) continue;
+      await slider.focus({ timeout: deadline.timeout(3000) });
+      await slider.press("End", { timeout: deadline.timeout(3000) });
+      const value = await slider.getAttribute("aria-valuetext");
+      if (!/^nationwide$/i.test(value || "")) continue;
+      // End moves the slider; Enter and blur commit keyboard-driven site controls.
+      await slider.press("Enter", { timeout: deadline.timeout(3000) });
+      await slider.press("Tab", { timeout: deadline.timeout(3000) });
+      const apply = page.getByRole("button", { name: /^(?:apply|apply filters|show results|update results)$/i }).first();
+      if (await apply.isVisible()) await apply.click({ timeout: deadline.timeout(3000) });
+      return true;
+    }
+  }
+  const selects = page.locator("select");
+  for (let index = 0; index < await selects.count(); index += 1) {
+    const select = selects.nth(index);
+    if (!await select.isVisible()) continue;
+    const option = await select.evaluate((node) => Array.from(node.options).find((item) => /^(?:nationwide|all miles|unlimited|any distance)$/i.test(item.textContent.trim()))?.value);
+    if (option == null) continue;
+    await select.selectOption(option, { timeout: deadline.timeout(3000) });
+    return true;
+  }
+  return false;
+}
+
+export async function prepareNationwide(page, input, deadline, httpStatus = 200) {
+  const initial = await waitForSearchScope(page, input, deadline, { navigation: true, httpStatus });
+  if (scopeIsNational(initial.scope) || ["blocked", "rate_limited"].includes(initial.status)) return initial;
+  if (!sourceUrlMatches(page.url(), input.source)) return initial;
+  if (await deadline.run(() => setNationwideControl(page, input.source, deadline))) {
+    const changed = await waitForSearchScope(page, input, deadline, { before: initial.snapshot });
+    if (scopeIsNational(changed.scope) || ["blocked", "rate_limited"].includes(changed.status)) return changed;
+    // Same cards can legitimately survive a radius change. A fresh navigation is
+    // required in that case; a changed slider label alone cannot validate them.
+    const response = await page.reload({ waitUntil: "domcontentloaded", timeout: deadline.timeout(45_000) });
+    return waitForSearchScope(page, input, deadline, { navigation: true, httpStatus: response?.status() || 200 });
+  }
+  const url = new URL(page.url());
+  if (input.source === "autotrader_browser") url.searchParams.set("searchRadius", "0");
+  else if (input.source === "porsche_finder_browser") {
+    const position = url.searchParams.get("position")?.split(",");
+    if (position?.length === 4) { position[3] = "-1"; url.searchParams.set("position", position.join(",")); }
+  } else {
+    const discovered = initial.snapshot.nationwide_links?.find((href) => sourceUrlMatches(href, input.source));
+    if (discovered) url.href = discovered;
+  }
+  if (url.href === page.url()) return initial;
+  const response = await page.goto(url.href, { waitUntil: "domcontentloaded", timeout: deadline.timeout(45_000) });
+  return waitForSearchScope(page, input, deadline, { navigation: true, httpStatus: response?.status() || 200 });
+}
 const RECENT_YEAR_TARGET = 15;
 const OLDER_YEAR_TARGET = 8;
 function defaultProfilePath() {
@@ -141,24 +416,24 @@ function backgroundModeEnabled() {
   return !["0", "false", "no", "off"].includes(String(process.env.CAR_COMPARE_BACKGROUND_MODE || "1").trim().toLowerCase());
 }
 
-async function cdpEndpointReady(rawUrl) {
+async function cdpEndpointReady(rawUrl, deadline) {
   const url = new URL(rawUrl);
   if (!['127.0.0.1', 'localhost', '::1'].includes(url.hostname)) {
     throw new Error("The collection browser endpoint must use localhost.");
   }
-  const response = await fetch(`${rawUrl}/json/version`, { signal: AbortSignal.timeout(2000) });
+  const response = await fetch(`${rawUrl}/json/version`, { signal: AbortSignal.timeout(deadline.timeout(2000)) });
   if (!response.ok) return false;
   const info = await response.json();
   return Boolean(info.Browser && info.webSocketDebuggerUrl);
 }
 
-async function launchBrowser() {
+async function launchBrowser(deadline = new Deadline(Date.now() / 1000 + DEFAULT_TIMEOUT_MS / 1000)) {
   const backgroundMode = backgroundModeEnabled();
   const cdp = configuredCdpUrl();
   if (cdp.configured) {
     try {
-      if (!await cdpEndpointReady(cdp.url)) throw new Error("The configured endpoint is not ready.");
-      const browser = await chromium.connectOverCDP(cdp.url, { timeout: 30_000 });
+      if (!await cdpEndpointReady(cdp.url, deadline)) throw new Error("The configured endpoint is not ready.");
+      const browser = await chromium.connectOverCDP(cdp.url, { timeout: deadline.timeout(30_000) });
       return { browser, context: browser.contexts()[0], owned: false, mode: "persistent_cdp_configured", backgroundMode: false };
     } catch (error) {
       throw new Error(`Persistent collection browser unavailable at ${cdp.url}. ${error?.message || error}`);
@@ -178,6 +453,7 @@ async function launchBrowser() {
   for (const option of attempts) {
     try {
       const context = await chromium.launchPersistentContext(profilePath, {
+        timeout: deadline.timeout(30_000),
         headless,
         locale: "en-US",
         viewport: { width: 1440, height: 1000 },
@@ -240,14 +516,15 @@ async function extractCards(page) {
   });
 }
 
-async function scrollResults(page) {
+async function scrollResults(page, deadline) {
   for (let index = 0; index < 8; index += 1) {
-    await page.mouse.wheel(0, 1400);
-    await page.waitForTimeout(500);
+    await deadline.run(() => page.mouse.wheel(0, 1400));
+    await deadline.pause(500);
   }
 }
 
-async function clickNext(page, source) {
+export async function clickNext(page, input, deadline) {
+  const { source } = input;
   const locators = source === "edmunds_browser"
     ? [page.getByRole("link", { name: /go to the next page/i }), page.getByRole("link", { name: /^next$/i })]
     : [
@@ -259,35 +536,10 @@ async function clickNext(page, source) {
   for (const candidate of locators) {
     const locator = candidate.first();
     if (!(await locator.isVisible().catch(() => false))) continue;
-    const listingSelector = [
-      'a[href*="/cars-for-sale/vehicle/"]',
-      'a[href*="/cars-for-sale/inventory/"]',
-      'a[href*="/inventory/"]',
-      'a[href*="/vin/"]',
-      'a[href*="listing"]',
-      'a[href*="/details/"]',
-    ].join(",");
-    const beforeUrl = page.url();
-    const beforeLength = await page.locator("body").innerText().then((text) => text.length).catch(() => 0);
-    const beforeCards = await extractCards(page).then((cards) => cards.length).catch(() => 0);
-    const beforeLinks = await page.locator(listingSelector).count().catch(() => 0);
-    await locator.click({ timeout: 10_000 });
-    await page.waitForFunction(
-      ({ previousUrl, previousLength, previousLinks, selector }) => {
-        const listingLinks = document.querySelectorAll(selector).length;
-        const bodyLength = document.body?.innerText?.length || 0;
-        return location.href !== previousUrl || listingLinks > previousLinks || bodyLength > previousLength + 100;
-      },
-      { previousUrl: beforeUrl, previousLength: beforeLength, previousLinks: beforeLinks, selector: listingSelector },
-      { timeout: 10_000 },
-    ).catch(() => {});
-    await page.waitForTimeout(500);
-    const afterLength = await page.locator("body").innerText().then((text) => text.length).catch(() => 0);
-    const afterCards = await extractCards(page).then((cards) => cards.length).catch(() => 0);
-    return {
-      clicked: true,
-      changed: page.url() !== beforeUrl || afterCards > beforeCards || afterLength > beforeLength + 100,
-    };
+    const before = await scopeSnapshot(page, deadline);
+    await locator.click({ timeout: deadline.timeout(10_000) });
+    const validation = await waitForSearchScope(page, input, deadline, { before });
+    return { clicked: true, changed: scopeIsNational(validation.scope), validation };
   }
   return { clicked: false, changed: false };
 }
@@ -304,7 +556,7 @@ function quotaSummary(listings, input) {
 }
 
 function opensAccessWallCircuit(result) {
-  return result?.stop_reason === "access_wall";
+  return result?.stop_reason === "access_wall" || result?.status === "rate_limited";
 }
 
 function sparseYearsAfterRange(result, input) {
@@ -312,15 +564,16 @@ function sparseYearsAfterRange(result, input) {
   return Array.from(sparse)
     .map(Number)
     .filter((year) => year >= input.start_year && year <= input.end_year)
-    .sort((left, right) => right - left);
+    .sort((left, right) => right - left).slice(0, 4);
 }
 
-async function collectSingleSearch(input, browserSession = null) {
+export async function collectSingleSearch(rawInput, browserSession = null) {
+  const input = normalizeInput(rawInput);
+  const deadline = new Deadline(input.deadline_at);
   if (!hostAllowed(input.url)) throw new Error("URL host is not in the Car Compare browser allowlist.");
-  const launched = browserSession || await launchBrowser();
+  const launched = browserSession || await launchBrowser(deadline);
   const ownsSession = browserSession == null;
   const browser = launched.browser;
-  const startedAt = Date.now();
   const listings = [];
   const seen = new Set();
   const rejected = {};
@@ -331,8 +584,11 @@ async function collectSingleSearch(input, browserSession = null) {
   let detailPagesOpened = 0;
   let accessBlocked = false;
   let accessMessage = "";
+  let validation = { status: "loading", scope: captureScope(), evidence: {} };
+  let failureStatus = "";
   let isolatedContext = null;
   let page = null;
+  let retryAfter = null;
   try {
     const context = launched.context || (
       launched.owned
@@ -343,25 +599,33 @@ async function collectSingleSearch(input, browserSession = null) {
         : browser.contexts()[0]
     );
     if (!context) throw new Error("The browser did not expose a usable context.");
-    page = await context.newPage();
-    await page.goto(input.url, { waitUntil: "domcontentloaded", timeout: 45_000 });
-    await page.waitForTimeout(3000);
-
-    const pageTitle = await page.title();
-    const bodyLead = await page.locator("body").innerText().then((text) => text.slice(0, 600)).catch(() => "");
-    if (/page unavailable|access denied|verify you are human|security verification|captcha/i.test(`${pageTitle} ${bodyLead}`)) {
+    page = await deadline.run(() => context.newPage());
+    page.setDefaultTimeout(deadline.timeout(10_000));
+    let responseStatus = 200;
+    page.on("response", (response) => {
+      if (sourceUrlMatches(response.url(), input.source) && (response.request().isNavigationRequest() || ["fetch", "xhr"].includes(response.request().resourceType()))) {
+        if ([403, 429].includes(response.status())) responseStatus = response.status();
+        if (response.status() === 429) retryAfter = response.headers()["retry-after"] || null;
+      }
+    });
+    const response = await page.goto(input.url, { waitUntil: "domcontentloaded", timeout: deadline.timeout(45_000) });
+    responseStatus = [403, 429].includes(responseStatus) ? responseStatus : response?.status() || 200;
+    validation = await prepareNationwide(page, input, deadline, responseStatus);
+    if (!scopeIsNational(validation.scope)) {
+      failureStatus = validation.status;
       accessBlocked = true;
-      accessMessage = `${pageTitle}: ${bodyLead}`.replace(/\s+/g, " ").slice(0, 500);
-      stopReason = "access_wall";
+      accessMessage = `${validation.snapshot?.title || ""}: ${validation.snapshot?.text || ""}`.replace(/\s+/g, " ").slice(0, 500);
+      stopReason = validation.status === "blocked" ? "access_wall" : validation.status;
+    } else if (validation.status === "verifiedzero") {
+      stopReason = "verifiedzero";
     }
 
-    for (let pageNumber = 1; !accessBlocked && pageNumber <= input.max_pages; pageNumber += 1) {
-      if (Date.now() - startedAt >= DEFAULT_TIMEOUT_MS) {
-        stopReason = "time_limit";
-        break;
-      }
-      await scrollResults(page);
-      const cards = await extractCards(page);
+    for (let pageNumber = 1; !accessBlocked && validation.status !== "verifiedzero" && pageNumber <= input.max_pages; pageNumber += 1) {
+      deadline.timeout();
+      await scrollResults(page, deadline);
+      validation = await waitForSearchScope(page, input, deadline, { httpStatus: responseStatus });
+      if (!scopeIsNational(validation.scope)) { failureStatus = validation.status; stopReason = validation.status; break; }
+      const cards = await deadline.run(() => extractCards(page));
       const before = listings.length;
       const historicalCandidates = [];
       for (const card of cards) {
@@ -375,6 +639,7 @@ async function collectSingleSearch(input, browserSession = null) {
           continue;
         }
         const row = result.listing;
+        row.scope = { ...validation.scope };
         const key = row.vin || row.url || `${row.year}|${row.price}|${row.mileage ?? ""}|${row.title}`;
         if (seen.has(key)) {
           rejected.duplicate = (rejected.duplicate || 0) + 1;
@@ -384,13 +649,15 @@ async function collectSingleSearch(input, browserSession = null) {
         listings.push(row);
       }
       for (const card of historicalCandidates.slice(0, 8)) {
+        deadline.timeout();
+        if (!sourceUrlMatches(card.url, input.source)) continue;
         detailPagesOpened += 1;
-        const detail = await context.newPage();
+        const detail = await deadline.run(() => context.newPage());
         let detailText = "";
         try {
-          await detail.goto(card.url, { waitUntil: "domcontentloaded", timeout: 30_000 });
-          await detail.waitForTimeout(1000);
-          detailText = await detail.locator("body").innerText().catch(() => "");
+          await detail.goto(card.url, { waitUntil: "domcontentloaded", timeout: deadline.timeout(30_000) });
+          await deadline.pause(1000);
+          detailText = await deadline.run(() => detail.locator("body").innerText()).catch(() => "");
         } catch {
           detailText = "";
         } finally {
@@ -402,6 +669,7 @@ async function collectSingleSearch(input, browserSession = null) {
           continue;
         }
         const row = verified.listing;
+        row.scope = { ...validation.scope };
         const key = row.vin || row.url || `${row.year}|${row.price}|${row.mileage ?? ""}|${row.title}`;
         if (seen.has(key)) {
           rejected.duplicate = (rejected.duplicate || 0) + 1;
@@ -411,7 +679,15 @@ async function collectSingleSearch(input, browserSession = null) {
         listings.push(row);
       }
       const added = listings.length - before;
-      pageRecords.push({ page: pageNumber, url: page.url(), cards_examined: cards.length, accepted_new: added, detail_pages_opened: historicalCandidates.slice(0, 8).length });
+      pageRecords.push({ page: pageNumber, url: page.url(), cards_examined: cards.length, accepted_new: added, detail_pages_opened: historicalCandidates.slice(0, 8).length, scope: validation.scope, search_scope: validation.evidence });
+      if (!input.skip_persist) await persistAudit({
+        source: input.source, url: input.url, status: "partial", browser_verified: true,
+        scope: validation.scope, search_scope: validation.evidence, listings,
+        pages_examined: pageRecords.length, page_records: pageRecords,
+        cards_examined: pageRecords.reduce((sum, record) => sum + record.cards_examined, 0),
+        accepted: listings.length, stop_reason: "checkpoint", year_quota: quotaSummary(listings, input),
+        rejected_by_reason: rejected, load_more_clicked: loadMoreClicked,
+      });
       stalePages = added ? 0 : stalePages + 1;
       const quota = quotaSummary(listings, input);
       const minimumPagesBeforeQuota = input.source === "porsche_finder_browser"
@@ -429,29 +705,43 @@ async function collectSingleSearch(input, browserSession = null) {
         stopReason = "max_pages";
         break;
       }
-      const next = await clickNext(page, input.source);
+      const next = await deadline.run(() => clickNext(page, input, deadline));
       if (!next.clicked) {
         stopReason = "source_exhausted";
         break;
       }
       loadMoreClicked += 1;
-      if (!next.changed) stalePages += 1;
+      if (!next.changed) {
+        validation = next.validation;
+        failureStatus = validation.status;
+        stopReason = validation.status;
+        break;
+      }
     }
+  } catch (error) {
+    stopReason = Date.now() >= deadline.at || error?.message === "deadline_exceeded" ? "deadline_exceeded" : "capture_error";
+    failureStatus = "loading";
+    accessMessage = String(error?.message || error).slice(0, 500);
+    validation = { ...validation, scope: captureScope(validation.scope.geography) };
   } finally {
     if (page) await page.close().catch(() => {});
     if (isolatedContext) await isolatedContext.close().catch(() => {});
     if (ownsSession) await closeBrowserSession(launched);
   }
 
+  const acceptedScope = listings.length ? listings[0].scope : validation.scope;
   const quota = quotaSummary(listings, input);
   const audit = {
-    version: 1,
+    version: 2,
     source: input.source,
     url: input.url,
     browser_mode: launched.mode,
     background_mode: Boolean(launched.backgroundMode),
-    browser_verified: true,
-    status: accessBlocked ? "blocked" : listings.length ? (quota.met ? "collected" : "partial") : "unavailable",
+    browser_verified: scopeIsNational(acceptedScope),
+    scope: acceptedScope,
+    search_scope: { ...validation.evidence, ...validation.scope },
+    status: listings.length && failureStatus ? "partial" : failureStatus || (listings.length ? (quota.met ? "collected" : "partial") : validation.status === "verifiedzero" ? "verifiedzero" : "filter_mismatch"),
+    retry_after: retryAfter,
     pages_examined: pageRecords.length,
     cards_examined: pageRecords.reduce((sum, page) => sum + page.cards_examined, 0),
     accepted: listings.length,
@@ -489,31 +779,61 @@ async function persistAudit(audit) {
   if (!auditDir) return;
   await fs.mkdir(auditDir, { recursive: true });
   const safeSource = audit.source.replace(/[^a-z0-9_-]+/gi, "_");
-  await fs.writeFile(path.join(auditDir, `browser_capture_${safeSource}.json`), JSON.stringify(audit, null, 2));
+  const destination = path.join(auditDir, `browser_capture_${safeSource}.json`);
+  const temporary = `${destination}.${process.pid}.tmp`;
+  await fs.writeFile(temporary, JSON.stringify(audit, null, 2));
+  await fs.rename(temporary, destination);
 }
 
-async function collectSource(input, browserSession = null) {
+function failedCapture(input, error, launched = {}) {
+  const scope = captureScope();
+  return {
+    version: 2, source: input.source, url: input.url, status: "loading",
+    stop_reason: Date.now() / 1000 >= input.deadline_at || error?.message === "deadline_exceeded" ? "deadline_exceeded" : "capture_error",
+    browser_mode: launched.mode || "not_started", background_mode: Boolean(launched.backgroundMode),
+    browser_verified: false, scope, search_scope: { ...scope, result_refresh_confirmed: false },
+    error: String(error?.message || error).slice(0, 1000), accepted: 0, listings: [],
+  };
+}
+
+export async function collectSource(rawInput, browserSession = null) {
+  const input = normalizeInput(rawInput);
+  try {
+    new Deadline(input.deadline_at).timeout();
+    return await collectSourceImpl(input, browserSession);
+  } catch (error) {
+    const audit = failedCapture(input, error, browserSession || {});
+    if (!input.skip_persist) await persistAudit(audit);
+    return audit;
+  }
+}
+
+async function collectSourceImpl(input, browserSession = null) {
   if (!input.split_by_year || input.start_year === input.end_year) return collectSingleSearch(input, browserSession);
   const results = [];
   const targetedResults = [];
-  const launched = browserSession || await launchBrowser();
+  const deadline = new Deadline(input.deadline_at);
+  const launched = browserSession || await launchBrowser(deadline);
   const ownsSession = browserSession == null;
   let rangeResult = null;
   try {
     rangeResult = await collectSingleSearch({ ...input, skip_persist: true }, launched);
     results.push(rangeResult);
-    if (!opensAccessWallCircuit(rangeResult)) {
+    if (scopeIsNational(rangeResult.scope) && rangeResult.status !== "verifiedzero") {
       for (const year of sparseYearsAfterRange(rangeResult, input)) {
+        if (Date.now() >= deadline.at) break;
         const result = await collectSingleSearch({
           ...input,
           url: urlForYear(input.url, input.source, year),
           start_year: year,
           end_year: year,
+          max_pages: Math.min(2, input.max_pages),
+          requested_scope: input.requested_scope ? { ...input.requested_scope, years: [year] } : null,
           skip_persist: true,
         }, launched);
         results.push(result);
         targetedResults.push(result);
-        if (opensAccessWallCircuit(result)) break;
+        if (!scopeIsNational(result.scope) || opensAccessWallCircuit(result)) break;
       }
     }
   } finally {
@@ -528,7 +848,7 @@ async function collectSource(input, browserSession = null) {
     for (const [reason, count] of Object.entries(result.rejected_by_reason || {})) {
       rejected[reason] = (rejected[reason] || 0) + Number(count || 0);
     }
-    for (const row of result.listings || []) {
+    for (const row of scopeIsNational(result.scope) ? result.listings || [] : []) {
       const key = row.vin || row.url || `${row.year}|${row.price}|${row.mileage ?? ""}|${row.title}`;
       if (seen.has(key)) continue;
       seen.add(key);
@@ -538,29 +858,34 @@ async function collectSource(input, browserSession = null) {
     pageRecords.push(...(result.page_records || []).map((record) => ({
       ...record,
       search_year: isRangeSearch ? null : (result.year_quota ? Number(Object.keys(result.year_quota.targets || {})[0]) : null),
-      search_scope: isRangeSearch ? "range" : "year",
+      search_kind: isRangeSearch ? "range" : "year",
     })));
   }
   const quota = quotaSummary(listings, input);
-  const anyBlocked = results.some((result) => result.status === "blocked");
+  const failure = results.find((result) => !scopeIsNational(result.scope));
+  const scope = listings.length ? listings[0].scope : failure ? captureScope(failure.scope?.geography) : captureScope("nationwide", true);
+  const finalQuota = failure ? quotaSummary(listings, input) : quota;
   const accessWallCircuitOpen = results.some((result) => result.stop_reason === "access_wall");
   const requestedYears = input.end_year - input.start_year + 1;
   const plannedTargetYears = rangeResult ? sparseYearsAfterRange(rangeResult, input) : [];
   const audit = {
-    version: 1,
+    version: 2,
     source: input.source,
     url: input.url,
     browser_mode: results[0]?.browser_mode || launched.mode,
     background_mode: results.some((result) => result.background_mode) || Boolean(launched.backgroundMode),
-    browser_verified: true,
-    status: listings.length ? (quota.met ? "collected" : "partial") : anyBlocked ? "blocked" : "unavailable",
+    browser_verified: scopeIsNational(scope),
+    scope,
+    search_scope: { ...scope, result_refresh_confirmed: scopeIsNational(scope), searches: results.map((result) => result.search_scope) },
+    status: failure && listings.length ? "partial" : failure?.status || (listings.length ? (finalQuota.met ? "collected" : "partial") : rangeResult?.status === "verifiedzero" ? "verifiedzero" : "filter_mismatch"),
+    retry_after: results.find((result) => result.retry_after)?.retry_after || null,
     pages_examined: results.reduce((sum, result) => sum + Number(result.pages_examined || 0), 0),
     cards_examined: results.reduce((sum, result) => sum + Number(result.cards_examined || 0), 0),
     accepted: listings.length,
     rejected_by_reason: rejected,
     load_more_clicked: results.reduce((sum, result) => sum + Number(result.load_more_clicked || 0), 0),
     detail_pages_opened: results.reduce((sum, result) => sum + Number(result.detail_pages_opened || 0), 0),
-    stop_reason: accessWallCircuitOpen
+    stop_reason: Date.now() >= deadline.at ? "deadline_exceeded" : failure ? failure.stop_reason : accessWallCircuitOpen
       ? "access_wall_circuit_breaker"
       : quota.met
         ? "year_targets_met"
@@ -568,7 +893,7 @@ async function collectSource(input, browserSession = null) {
           ? "range_then_sparse_years_complete"
           : "range_search_complete",
     access_message: results.filter((result) => result.access_message).map((result) => result.access_message).join(" | ").slice(0, 1000),
-    year_quota: quota,
+    year_quota: finalQuota,
     page_records: pageRecords,
     requested_year_searches: requestedYears,
     range_search: rangeResult ? {
@@ -578,12 +903,12 @@ async function collectSource(input, browserSession = null) {
       accepted: rangeResult.accepted,
       load_more_clicked: rangeResult.load_more_clicked,
       stop_reason: rangeResult.stop_reason,
+      scope: rangeResult.scope,
+      search_scope: rangeResult.search_scope,
     } : null,
     attempted_year_searches: targetedResults.length,
     avoided_year_searches: Math.max(0, requestedYears - plannedTargetYears.length),
-    skipped_year_searches: accessWallCircuitOpen
-      ? Math.max(0, plannedTargetYears.length - targetedResults.length)
-      : 0,
+    skipped_year_searches: Math.max(0, plannedTargetYears.length - targetedResults.length),
     year_searches: targetedResults.map((result) => ({
       year: Number(Object.keys(result.year_quota?.targets || {})[0] || 0),
       status: result.status,
@@ -591,6 +916,8 @@ async function collectSource(input, browserSession = null) {
       cards_examined: result.cards_examined,
       accepted: result.accepted,
       stop_reason: result.stop_reason,
+      scope: result.scope,
+      search_scope: result.search_scope,
     })),
     listings,
   };
@@ -667,8 +994,17 @@ async function runtimeStatus() {
   }
 }
 
-async function collectBatch(inputs, maxConcurrency = 2) {
-  const launched = await launchBrowser();
+export async function collectBatch(rawInputs, maxConcurrency = 2, deadlineAt = null) {
+  const sharedDeadline = deadlineAt == null ? Date.now() / 1000 + DEFAULT_TIMEOUT_MS / 1000 : Number(deadlineAt);
+  const inputs = rawInputs.map((input) => normalizeInput({ ...input, deadline_at: Math.min(input.deadline_at ?? sharedDeadline, sharedDeadline) }));
+  if (!inputs.length) return [];
+  let launched;
+  try {
+    const activeDeadlines = inputs.map((input) => input.deadline_at).filter((at) => at > Date.now() / 1000);
+    launched = await launchBrowser(new Deadline(Math.min(sharedDeadline, Math.max(...activeDeadlines))));
+  } catch (error) {
+    return inputs.map((input) => failedCapture(input, error));
+  }
   const results = new Array(inputs.length);
   const workerCount = Math.max(1, Math.min(4, Number(maxConcurrency) || 2, inputs.length || 1));
   let nextIndex = 0;
@@ -681,16 +1017,7 @@ async function collectBatch(inputs, maxConcurrency = 2) {
         try {
           results[index] = await collectSource(input, launched);
         } catch (error) {
-          results[index] = {
-            source: input.source,
-            url: input.url,
-            status: "unavailable",
-            browser_mode: launched.mode,
-            background_mode: Boolean(launched.backgroundMode),
-            browser_verified: false,
-            error: String(error?.message || error).slice(0, 1000),
-            listings: [],
-          };
+          results[index] = failedCapture(input, error, launched);
         }
       }
     }
@@ -701,8 +1028,18 @@ async function collectBatch(inputs, maxConcurrency = 2) {
   return results;
 }
 
-if (process.argv.includes("--self-test")) {
+const isMain = process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
+if (!isMain) {
+  // Imported by the offline scope regression suite; do not start an MCP server.
+} else if (process.argv.includes("--self-test")) {
   selfTest();
+} else if (process.argv.includes("--scope-dom-script")) {
+  process.stdout.write(`(${readScopeDOM.toString()})()`);
+} else if (process.argv.includes("--validate-host-scope-json")) {
+  const chunks = [];
+  for await (const chunk of process.stdin) chunks.push(chunk);
+  const { capture, requested_scope } = JSON.parse(Buffer.concat(chunks).toString("utf8"));
+  await writeJsonLine(validateHostScope(capture, requested_scope));
 } else if (process.argv.includes("--runtime-status")) {
   await writeJsonLine(await runtimeStatus());
 } else if (process.argv.includes("--probe-browser")) {
@@ -711,7 +1048,7 @@ if (process.argv.includes("--self-test")) {
   const chunks = [];
   for await (const chunk of process.stdin) chunks.push(chunk);
   const input = JSON.parse(Buffer.concat(chunks).toString("utf8"));
-  await writeJsonLine(await collectBatch(input.targets || [], input.max_concurrency));
+  await writeJsonLine(await collectBatch(input.targets || [], input.max_concurrency, input.deadline_at));
 } else if (process.argv.includes("--collect-json")) {
   const chunks = [];
   for await (const chunk of process.stdin) chunks.push(chunk);
@@ -726,13 +1063,20 @@ if (process.argv.includes("--self-test")) {
     inputSchema: {
       source: z.string(),
       url: z.string().url(),
+      requested_scope: z.object({
+        make: z.string().min(1), model: z.string().min(1), trim: z.string().optional(),
+        years: z.array(z.number().int().min(1980).max(2100)).min(1),
+        conditions: z.array(z.enum(["new", "used", "cpo"])).min(1),
+        body: z.string().optional(), drivetrain: z.string().optional(),
+      }),
       required_keywords: z.array(z.string()),
       make_keywords: z.array(z.string()).default([]),
       exclude_keywords: z.array(z.string()).default([]),
       start_year: z.number().int().min(1980).max(2100),
       end_year: z.number().int().min(1980).max(2100),
       current_year: z.number().int().min(1980).max(2100),
-      max_pages: z.number().int().min(1).max(DEFAULT_MAX_PAGES).default(DEFAULT_MAX_PAGES),
+      max_pages: z.number().int().min(1).max(MAX_PAGES).default(DEFAULT_MAX_PAGES),
+      deadline_at: z.number().positive().optional(),
       split_by_year: z.boolean().default(false),
     },
   }, async (input) => {

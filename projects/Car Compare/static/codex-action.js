@@ -39,6 +39,7 @@ function renderSources(preferredSource = "") {
 }
 
 function renderUrl() {
+  document.querySelector("#actionScopeVerified").checked = false;
   urlInput.value = sourceSelect.selectedOptions[0]?.dataset.url || "";
 }
 
@@ -78,6 +79,17 @@ form.addEventListener("submit", async (event) => {
         pagesExamined: Number(pagesInput.value),
         cardsExamined: Number(cardsInput.value),
         loadMoreClicked: Number(clicksInput.value),
+        scope: {
+          validation_revision: 3,
+          validation_status: document.querySelector("#actionScopeVerified").checked ? "verified" : "unverified",
+          geography: "nationwide",
+          query_key: selectedAction()?.queryKey,
+          requested_scope: selectedAction()?.requestedScope,
+          result_refresh_confirmed: document.querySelector("#actionScopeVerified").checked,
+          verification_method: "supervised_visible_controls",
+          captured_at: Date.now() / 1000,
+          complete: true,
+        },
       }),
     });
     const payload = await response.json();

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import unittest
+from dataclasses import replace
+from car_compare.collection_scope import verified_scope
 
 from car_compare.depreciation import _apply_depreciation, _stabilize_observed_curve, build_report
 from car_compare.models import BucketStats, Listing, MSRP
@@ -39,7 +41,7 @@ class DepreciationRegressionTests(unittest.TestCase):
             buckets[0].curve_median,
         )
 
-    def test_age_zero_weighted_statistics_preserve_price_weight_pairs(self) -> None:
+    def test_age_zero_excludes_used_rows_and_ignores_population_weights(self) -> None:
         query = parse_vehicle_query("Porsche 911")
         query.max_age = 1
         rows = [
@@ -69,17 +71,18 @@ class DepreciationRegressionTests(unittest.TestCase):
             ),
         ]
 
+        rows[0] = replace(rows[0], source="new_inventory", scope=verified_scope(query))
         forward = build_report(query, rows, MSRP(135_500, "MSRP", "porsche", ""), current_year=2026)
         reverse = build_report(query, list(reversed(rows)), MSRP(135_500, "MSRP", "porsche", ""), current_year=2026)
 
         forward_age_zero = forward["buckets"][0]
         reverse_age_zero = reverse["buckets"][0]
         self.assertEqual(forward_age_zero, reverse_age_zero)
-        self.assertEqual(forward_age_zero["values"], [100_000, 200_000, 300_000])
-        self.assertEqual(forward_age_zero["median"], 100_000)
-        self.assertEqual(forward_age_zero["q1"], 100_000)
-        self.assertEqual(forward_age_zero["q3"], 100_000)
-        self.assertEqual(forward_age_zero["average"], 102_941.18)
+        self.assertEqual(forward_age_zero["values"], [300_000])
+        self.assertEqual(forward_age_zero["median"], 300_000)
+        self.assertEqual(forward_age_zero["q1"], 300_000)
+        self.assertEqual(forward_age_zero["q3"], 300_000)
+        self.assertEqual(forward_age_zero["average"], 300_000)
 
     def test_single_sparse_row_is_evidence_not_an_observed_trend(self) -> None:
         query = parse_vehicle_query("Porsche 911")
@@ -154,6 +157,7 @@ class DepreciationRegressionTests(unittest.TestCase):
             Listing("source_b", 2024, 90_000, title="Used 2024 Porsche 911 Carrera"),
         ]
 
+        rows[:2] = [replace(row, title=row.title.replace("Used", "New"), condition="new", scope=verified_scope(query)) for row in rows[:2]]
         report = build_report(query, rows, MSRP(100_000, "MSRP", "porsche", ""), current_year=2026)
         age_one = report["buckets"][1]
         age_two = report["buckets"][2]
@@ -243,7 +247,7 @@ class DepreciationRegressionTests(unittest.TestCase):
         self.assertIn(1_001_798, bucket["values"])
         self.assertTrue(any(row["price"] == 1_001_798 for row in report["listings"]))
 
-    def test_zero_weighted_iqr_does_not_misclassify_aggregate_bins(self) -> None:
+    def test_unverified_aggregate_bins_are_evidence_only(self) -> None:
         query = parse_vehicle_query("BMW M4")
         query.max_age = 10
         rows = [
@@ -256,10 +260,10 @@ class DepreciationRegressionTests(unittest.TestCase):
         report = build_report(query, rows, MSRP(100_000, "MSRP", "bmwusa", ""), current_year=2026)
         bucket = report["buckets"][10]
 
-        self.assertEqual(bucket["q1"], 50_000)
-        self.assertEqual(bucket["q3"], 50_000)
-        self.assertEqual(bucket["low"], 50_000)
-        self.assertEqual(bucket["high"], 1_000_000)
+        self.assertIsNone(bucket["q1"])
+        self.assertIsNone(bucket["q3"])
+        self.assertIsNone(bucket["low"])
+        self.assertIsNone(bucket["high"])
         self.assertEqual(bucket["outlier_count"], 0)
 
 

@@ -1,5 +1,7 @@
 # Always-Awake Mac Handoff
 
+October 2026 migration: follow [Verified Market Migration](VERIFIED_MARKET_MIGRATION.md) for scope validation, cache versions, manual capture confirmation and remaining release gates.
+
 This is the detailed operator and recovery runbook for the Mac that stays awake. Use [DEPLOYMENT.md](DEPLOYMENT.md) first for a clean website install. The current design performs marketplace collection without a user click and without a recurring Codex monitor.
 
 ## Zero-Click Flow
@@ -27,7 +29,7 @@ The host-Chrome retry is event driven. It starts only inside an active collectio
 
 `scripts/chrome_host_capture.applescript` is the browser bridge. `car_compare/sources/chrome_host.py` restricts it to configured Autotrader, Edmunds, or Porsche Finder HTTPS hosts. Porsche Finder is enabled only for Porsche queries and carries an explicit nationwide radius in its planned URL. The bridge reads public rendered listing-card text and same-site detail URLs, with whole-page visible text as a fallback. It does not read cookies, local storage, passwords, history, or profile files.
 
-The indexed-source stage is defined by `car_compare/web_search_capture_schema.json`. Codex may return only official Edmunds page URLs and verbatim page text. The app rejects another host, an out-of-range year, empty evidence, and every row the deterministic vehicle parser cannot recover. Search prose alone never becomes a listing.
+The indexed-source stage is defined by `car_compare/web_search_capture_schema.json`. Its output is discovery-only, including apparently complete listing blocks. Those candidates contribute zero verified listings until an actual browser capture proves the requested filters and refreshed results. The automatic discovery-to-open promotion path is not yet release-verified; do not describe it as successful collection.
 
 The `Repair Missing Source` lease remains a manual recovery path only when host Chrome automation is unavailable. A completed automatic host-Chrome attempt does not ask the operator to click the same blocked source again.
 
@@ -240,7 +242,7 @@ data/collector_jobs/<job-id>/codex_stderr.log
 
 ## Access Refusals
 
-Zero-click automation and marketplace reachability are separate concerns. A host-network refusal first opens the circuit breaker for direct browser requests. The app may then use native Codex web search to read indexed official sale pages without rotating the host identity. If neither direct rendering nor the official indexed page exposes complete listing blocks, that source remains unavailable.
+Zero-click automation and marketplace reachability are separate concerns. A host-network refusal first opens the circuit breaker for direct browser requests. Indexed official pages can supply discovery candidates, but cannot override failed browser scope verification. Without a verified rendered capture the source remains unavailable.
 
 Examples recorded as a truthful blocked source:
 

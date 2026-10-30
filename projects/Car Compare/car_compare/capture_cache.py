@@ -12,12 +12,10 @@ from typing import Any, Iterable
 from car_compare.models import VehicleQuery
 
 
-# Version 4 invalidates marketplace captures created before scoped missing-make
-# cards, drivetrain context, and the expanded trim aliases were validated.
-# Research version 3 prevents an optional cached review from reintroducing rows
-# classified under the preceding matching rules.
-CACHE_SCHEMA_VERSION = 4
-RESEARCH_CACHE_SCHEMA_VERSION = 3
+# Revision 3 evidence requires explicit scope and partition verification.
+# Old cache records remain on disk but cannot satisfy these versioned keys.
+CACHE_SCHEMA_VERSION = 6
+RESEARCH_CACHE_SCHEMA_VERSION = 5
 MAX_RECENT_TTL_SECONDS = 3 * 24 * 60 * 60
 MAX_OLDER_TTL_SECONDS = 3 * 24 * 60 * 60
 
@@ -309,6 +307,9 @@ def _query_key(request: VehicleQuery) -> str:
         "make": request.make.strip().casefold(),
         "model": request.model.strip().casefold(),
         "trim": request.trim.strip().casefold(),
+        "target_year": request.target_year,
+        "start_year": request.start_year,
+        "max_age": request.max_age,
     }
     return hashlib.sha256(json.dumps(identity, sort_keys=True).encode("utf-8")).hexdigest()
 

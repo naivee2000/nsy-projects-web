@@ -10,6 +10,7 @@ from urllib.parse import parse_qsl, urlsplit
 
 from car_compare.condition import is_implausible_new, sanitize_listing_condition
 from car_compare.models import BucketStats, Listing, MSRP, VehicleQuery
+from car_compare.market_evidence import aggregate_buckets, aggregate_diagnostics, verified_scope
 from car_compare.resolver import resolve_vehicle_query
 from car_compare.statistics import round_money, round_pct, weighted_mean, weighted_median, weighted_percentile
 from car_compare.trim_normalization import build_trim_normalization
@@ -31,6 +32,7 @@ def build_report(
     msrp: MSRP,
     current_year: int | None = None,
     generation_impact: dict[str, Any] | None = None,
+    aggregate_snapshots: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     current_year = current_year if current_year is not None else _runtime_current_year()
     normalized_listings = [
@@ -41,6 +43,7 @@ def build_report(
                 listing.title,
                 listing.year,
                 current_year=current_year,
+                verified_new=verified_scope(listing.scope, request, complete=False),
             ),
         )
         for listing in listings
@@ -52,6 +55,7 @@ def build_report(
     outside_horizon: list[Listing] = []
     outside_lifecycle: list[Listing] = []
     grouped: dict[int, list[Listing]] = defaultdict(list)
+    aggregates = aggregate_buckets(request, aggregate_snapshots or [], current_year)
     for listing in deduped:
         if not _within_model_year_bounds(listing.year, lifecycle_bounds):
             outside_lifecycle.append(listing)
@@ -59,31 +63,18 @@ def build_report(
         age = _listing_age(listing, current_year)
         if 0 <= age <= request.max_age:
             filtered.append(listing)
-            grouped[age].append(listing)
+            if not _is_aggregate_observation(listing) and (
+                (age > 0 and not _is_new_listing(listing))
+                or (_is_new_listing(listing) and verified_scope(listing.scope, request, complete=False))
+            ):
+                grouped[age].append(replace(listing, market_weight=1.0))
         else:
             outside_horizon.append(listing)
 
     effective_msrp = msrp
-    if msrp.price <= 0:
-        used_grouped = {
-            age: [row for row in rows if not _is_new_listing(row)]
-            for age, rows in grouped.items()
-        }
-        used_grouped = {age: rows for age, rows in used_grouped.items() if rows}
-        estimated_price = _effective_msrp(msrp, used_grouped)
-        if estimated_price > 0:
-            baseline_year = request.target_year or current_year
-            effective_msrp = MSRP(
-                price=estimated_price,
-                label="Estimated age-0 baseline extrapolated from youngest used-market median",
-                source="estimated_from_used_market",
-                url="",
-                year=baseline_year,
-            )
-
-    if not filtered and effective_msrp.price <= 0:
+    if not grouped and not aggregates:
         buckets = _empty_buckets(request, current_year)
-        trim_normalization = build_trim_normalization(request, filtered)
+        trim_normalization = build_trim_normalization(request, [])
         _apply_trim_normalization(buckets, trim_normalization)
         return _report_payload(
             request=request,
@@ -100,9 +91,10 @@ def build_report(
             data_quality="needs_collection",
             generation_impact=generation_impact,
             trim_normalization=trim_normalization,
+            aggregate_snapshots=aggregate_snapshots,
         )
 
-    trim_normalization = build_trim_normalization(request, filtered)
+    trim_normalization = build_trim_normalization(request, [row for rows in grouped.values() for row in rows])
 
     buckets: list[BucketStats] = [
         _age_zero_bucket(
@@ -116,7 +108,9 @@ def build_report(
     for age in range(1, request.max_age + 1):
         rows = grouped.get(age, [])
         bucket_model_year = _bucket_model_year(request, current_year, age, lifecycle_bounds)
-        if rows:
+        if age in aggregates:
+            buckets.append(aggregates[age])
+        elif rows:
             values = sorted(item.price for item in rows)
             weights = [item.market_weight for item in rows]
             observed_median = weighted_median([item.price for item in rows], weights)
@@ -150,6 +144,7 @@ def build_report(
                         source_counts=source_counts,
                         outlier_count=outlier_count,
                         confidence="observed",
+                        pricing_method="individual_sample_median",
                     )
                 )
             else:
@@ -186,6 +181,8 @@ def build_report(
                 )
             )
 
+    if 0 in aggregates:
+        buckets[0] = aggregates[0]
     _apply_trim_normalization(buckets, trim_normalization)
     _stabilize_observed_curve(buckets)
     _apply_trend_and_predictions(
@@ -195,7 +192,7 @@ def build_report(
         generation_base_year=request.target_year or current_year,
     )
     _apply_depreciation(buckets)
-    data_quality = "observed" if filtered else "msrp_only"
+    data_quality = "observed" if grouped or aggregates else "needs_collection"
     return _report_payload(
         request=request,
         msrp=effective_msrp,
@@ -211,6 +208,7 @@ def build_report(
         data_quality=data_quality,
         generation_impact=generation_impact,
         trim_normalization=trim_normalization,
+        aggregate_snapshots=aggregate_snapshots,
     )
 
 
@@ -229,16 +227,26 @@ def _report_payload(
     data_quality: str,
     generation_impact: dict[str, Any] | None,
     trim_normalization: dict[str, Any],
+    aggregate_snapshots: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     source_counts = Counter(item.source for item in filtered)
     source_urls = sorted({item.url for item in filtered if item.url})
     return {
+        "analysisRevision": 3,
         "query": request.to_dict(),
         "resolution": resolve_vehicle_query(request),
         "msrp": msrp.to_dict(),
         "summary": {
+            "analysisRevision": 3,
+            "baselineAvailable": buckets[0].median is not None,
+            "pricingMethods": sorted({bucket.pricing_method for bucket in buckets}),
+            "aggregatePricingCount": sum(bucket.aggregate_count for bucket in buckets),
+            "currentYearUsedInventory": [item.to_dict() for item in filtered if item.year == current_year and not _is_new_listing(item) and not _is_aggregate_observation(item)],
+            "currentYearUsedSnapshots": [row for row in (aggregate_snapshots or []) if isinstance(row, dict) and row.get("year") == current_year and row.get("condition") in {"used", "cpo", "certified"}],
             "displayName": request.display_name,
             "listingCount": len(filtered),
+            "individualListingCount": sum(not _is_aggregate_observation(item) for item in filtered),
+            "aggregateObservationRows": sum(_is_aggregate_observation(item) for item in filtered),
             "rawListingCount": len(filtered_raw),
             "duplicatesRemoved": max(0, len(filtered_raw) - deduped_count),
             "dedupeDiagnostics": dedupe_diagnostics,
@@ -276,7 +284,7 @@ def _report_payload(
             "maxAge": request.max_age,
             "sourceUrls": source_urls[:20],
             "dataQuality": data_quality,
-            "needsSourceCapture": len(filtered) == 0,
+            "needsSourceCapture": not any(bucket.observed for bucket in buckets),
             "needsMsrpCapture": (
                 msrp.source in {"needs_manufacturer_capture", "estimated_from_used_market"}
                 or (request.target_year is None and msrp.year is not None and msrp.year != current_year)
@@ -290,6 +298,8 @@ def _report_payload(
         ),
         "listings": [item.to_dict() for item in filtered[:250]],
         "evidence": {
+            "aggregateDiagnostics": aggregate_diagnostics(request, aggregate_snapshots or [], buckets, current_year),
+            "aggregateSnapshots": aggregate_snapshots or [],
             "sources": _evidence_sources(filtered, msrp),
             "listings": [_listing_evidence(item, index + 1) for index, item in enumerate(filtered[:EVIDENCE_LISTING_LIMIT])],
             "listingLimit": EVIDENCE_LISTING_LIMIT,
@@ -374,7 +384,7 @@ def _filter_listings(request: VehicleQuery, listings: list[Listing]) -> list[Lis
 
 
 def _listing_age(listing: Listing, current_year: int) -> int:
-    if _is_new_listing(listing) and listing.year >= current_year:
+    if _is_new_listing(listing):
         return 0
     if listing.year > current_year:
         return -1
@@ -407,12 +417,7 @@ def _is_new_listing(listing: Listing) -> bool:
     if title.startswith("new arrival"):
         return False
     condition = getattr(listing, "condition", "").lower()
-    if condition == "new":
-        return True
-    if title.startswith("new "):
-        return True
-    haystack = f"{listing.source} {listing.confidence} {listing.title}".lower()
-    return "new_vehicle" in haystack
+    return condition == "new"
 
 
 def _age_zero_bucket(
@@ -421,14 +426,10 @@ def _age_zero_bucket(
     current_year: int,
     cohort_year: int | None = None,
 ) -> BucketStats:
-    # Current-model-year used/CPO rows belong to model-year age 0, but the
-    # bucket must stop calling itself a new-car market when they are present.
-    # Depreciation follows the observed market median; MSRP is reference-only.
-    market_rows = [item for item in rows if item.price > 0]
+    market_rows = [item for item in rows if item.price > 0 and _is_new_listing(item)]
     prices = [item.price for item in market_rows]
     weights = [item.market_weight for item in market_rows]
     source_counts = Counter(item.source for item in market_rows)
-    contains_used = any(not _is_new_listing(item) for item in market_rows)
     model_years = sorted({item.year for item in market_rows})
     model_year = model_years[0] if len(model_years) == 1 else None
 
@@ -439,28 +440,13 @@ def _age_zero_bucket(
     # ordered separately.
     values = sorted(prices)
     if not values:
-        if msrp.price > 0:
-            baseline_year = cohort_year or msrp.year or current_year
-            return BucketStats(
-                age=0,
-                model_year=baseline_year,
-                sample_count=0,
-                observed=False,
-                predicted=False,
-                average=msrp.price,
-                median=msrp.price,
-                trend_median=msrp.price,
-                model_years=[baseline_year],
-                source_counts={msrp.source: 1},
-                confidence="estimated_baseline" if msrp.source == "estimated_from_used_market" else "msrp_reference",
-            )
         return BucketStats(
             age=0,
-            model_year=current_year,
+            model_year=cohort_year or current_year,
             sample_count=0,
             observed=False,
             predicted=False,
-            model_years=[current_year],
+            model_years=[cohort_year or current_year],
             source_counts={},
             confidence="needs_collection",
         )
@@ -492,7 +478,8 @@ def _age_zero_bucket(
         trend_median=observed_median,
         source_counts=dict(source_counts),
         outlier_count=outlier_count,
-        confidence="current_year_market" if contains_used else "new_market",
+        confidence="new_market",
+        pricing_method="individual_sample_median",
     )
 
 
@@ -568,6 +555,8 @@ def _apply_trim_normalization(
     normalized_years = normalization.get("years") or {}
     applied = normalization.get("status") == "applied"
     for bucket in buckets:
+        if bucket.aggregate_count or bucket.age == 0 or not bucket.observed:
+            continue
         if bucket.observed:
             bucket.curve_median = bucket.market_median if bucket.market_median is not None else bucket.median
         if not applied or bucket.model_year is None:
@@ -602,6 +591,8 @@ def _stabilize_observed_curve(buckets: list[BucketStats]) -> None:
     for index in range(1, len(buckets) - 1):
         previous = buckets[index - 1]
         bucket = buckets[index]
+        if bucket.aggregate_count:
+            continue
         following = buckets[index + 1]
         if not (previous.observed and bucket.observed and following.observed):
             continue
@@ -1132,6 +1123,7 @@ def _apply_trend_and_predictions(
         projected = last_trend * rate
         q1_ratio, q3_ratio = last_spread
         bucket.predicted = True
+        bucket.pricing_method = "used_market_forecast" if buckets[0].median is None else "market_forecast"
         bucket.observed = False
         bucket.trend_median = projected
         bucket.curve_median = projected
@@ -1195,6 +1187,7 @@ def _apply_depreciation(buckets: list[BucketStats]) -> None:
         bucket.value_change_from_baseline_pct = None
         current = bucket.curve_median or bucket.trend_median or bucket.median
         if current is None:
+            previous = None
             continue
         if bucket.age == 0:
             bucket.depreciation_from_previous = 0

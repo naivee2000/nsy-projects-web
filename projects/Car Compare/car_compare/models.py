@@ -38,6 +38,7 @@ class Listing:
     confidence: str = "observed"
     condition: str = "used"
     market_weight: float = 1.0
+    scope: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -96,6 +97,9 @@ class BucketStats:
     generation_adjustment_basis: str = ""
     forecast_year: int | None = None
     confidence: str = "observed"
+    pricing_method: str = "unavailable"
+    aggregate_count: int = 0
+    pricing_sources: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

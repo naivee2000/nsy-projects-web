@@ -1,14 +1,17 @@
 from __future__ import annotations
 
 import json
+import math
 import os
 import platform
 import re
 import shutil
-import subprocess
+import time
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
+
+from car_compare.sources.request_budget import run_bounded
 
 
 SOURCE_HOSTS = {
@@ -61,7 +64,31 @@ def capture_with_host_chrome(
     max_clicks: int = 3,
     timeout_seconds: int = 180,
     background_mode: bool | None = None,
+    deadline_at: float | None = None,
+    max_pages: int | None = None,
+    requested_scope: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
+    """Return raw evidence, never a verified scope. Callers must validate every page.
+
+    max_pages is the remaining page budget, inclusive of the initial page.
+    deadline_at is an absolute UNIX timestamp shared with the collection job.
+    """
+    deadline = time.time() + max(0, min(600, float(timeout_seconds)))
+    if deadline_at is not None:
+        if not math.isfinite(float(deadline_at)):
+            raise ValueError("deadline_at must be finite UNIX seconds")
+        deadline = min(deadline, float(deadline_at))
+
+    def remaining() -> float:
+        seconds = deadline - time.time()
+        if seconds <= 0:
+            raise TimeoutError("deadline_exceeded")
+        return seconds
+
+    remaining()
+    page_limit = min(20, int(max_pages)) if max_pages is not None else max(0, min(10, int(max_clicks))) + 1
+    if page_limit <= 0:
+        raise ValueError("max_pages remaining budget is exhausted")
     expected_host = SOURCE_HOSTS.get(source)
     if not expected_host:
         raise ValueError("Unsupported host Chrome source")
@@ -71,18 +98,29 @@ def capture_with_host_chrome(
         raise RuntimeError(str(status["error"] or status["mode"]))
 
     use_background = background_mode_enabled() if background_mode is None else bool(background_mode)
-    completed = subprocess.run(
+    # Share the exact DOM evidence reader with the worker; no browser is launched.
+    reader = run_bounded(
+        [shutil.which("node") or "node", str(script_path.with_name("car_compare_browser_mcp.mjs")), "--scope-dom-script"],
+        text=True, capture_output=True, deadline_at=deadline, timeout=remaining(), check=False,
+    )
+    if reader.returncode or not reader.stdout.strip():
+        raise RuntimeError("Unable to load the host Chrome scope evidence reader")
+    completed = run_bounded(
         [
             shutil.which("osascript") or "osascript",
             str(script_path),
             url,
             str(max(1_000, min(250_000, int(max_characters)))),
-            str(max(0, min(10, int(max_clicks)))),
+            str(min(max(0, min(10, int(max_clicks))), page_limit - 1)),
             "1" if use_background else "0",
+            str(deadline),
+            str(page_limit),
+            reader.stdout.strip(),
         ],
         text=True,
         capture_output=True,
-        timeout=max(30, min(600, int(timeout_seconds))),
+        timeout=remaining(),
+        deadline_at=deadline,
         check=False,
     )
     if completed.returncode != 0:
@@ -116,12 +154,41 @@ def capture_with_host_chrome(
     capture["requestedUrl"] = url
     capture["browserMode"] = status["mode"]
     capture["backgroundMode"] = bool(capture.get("backgroundMode", use_background))
+    capture["requested_scope"] = requested_scope
+    capture["deadline_at"] = deadline
+    capture["max_pages"] = page_limit
+    capture["validation_revision"] = 3
+    capture["validation_status"] = "unverified"
+    capture["requires_independent_scope_validation"] = True
     return capture
 
 
 def capture_is_access_wall(capture: dict[str, Any]) -> bool:
     lead = f"{capture.get('title') or ''} {(capture.get('text') or '')[:2000]}"
     return bool(ACCESS_WALL_RE.search(lead))
+
+
+def validate_host_scope(capture: dict[str, Any], requested_scope: dict[str, Any]) -> dict[str, Any]:
+    """Independently validate raw selected controls and refresh evidence on every page.
+
+    Returns scope, evidence, status. The caller attaches its own query_key only
+    after checking scope.validation_status == 'verified'. No marketplace access.
+    """
+    worker = Path(__file__).resolve().parents[2] / "scripts" / "car_compare_browser_mcp.mjs"
+    remaining = min(10.0, float(capture.get("deadline_at") or time.time() + 10) - time.time())
+    if remaining <= 0:
+        return {"status": "loading", "scope": {"validation_revision": 3, "validation_status": "unverified", "geography": "unknown", "complete": False}, "evidence": {"reason": "deadline_exceeded", "result_refresh_confirmed": False}}
+    completed = run_bounded(
+        [shutil.which("node") or "node", str(worker), "--validate-host-scope-json"],
+        input=json.dumps({"capture": capture, "requested_scope": requested_scope}),
+        text=True, capture_output=True, deadline_at=capture.get("deadline_at"), timeout=remaining, check=False,
+    )
+    if completed.returncode:
+        raise RuntimeError("Host Chrome scope validation failed")
+    result = json.loads(completed.stdout)
+    if not isinstance(result, dict) or not isinstance(result.get("scope"), dict):
+        raise RuntimeError("Host Chrome scope validation returned invalid evidence")
+    return result
 
 
 def capture_access_message(capture: dict[str, Any]) -> str:

@@ -310,7 +310,7 @@ def _autotrader_target(request: VehicleQuery, current_year: int) -> SourceTarget
         nationwide=True,
         location_policy="Use zip=10001 only as an Autotrader URL requirement. searchRadius=0 means the target is nationwide/all-distance; verify the visible UI does not say local-only.",
         validation=[
-            "If Autotrader redirects to a make-level page, keep collecting only rows that pass required/exclude keyword matching.",
+            "If Autotrader redirects to a make-level page, stop until the exact requested model, trim, years and condition are selected and refreshed results are verified.",
             "For Bentley Continental GT, Autotrader commonly uses Continental as model and GT as trim/path segment.",
             "Reject Bentley rows for GTC, Bentayga, Flying Spur, and Mulsanne when the query is Continental GT.",
             *_year_validation(request),
@@ -400,7 +400,7 @@ def _edmunds_target(request: VehicleQuery, matching: dict[str, object], current_
         nationwide=True,
         location_policy="Use any location field only to unlock inventory search; prefer nationwide/all-distance if the UI offers it.",
         validation=[
-            "Do not collect rows from a broad make page unless they pass required/exclude keyword matching.",
+            "A broad make page cannot verify this request. Confirm the selected model, trim, year and condition controls and refreshed results before accepting rows.",
             "Record a source note if Edmunds cannot be made nationwide.",
             *_year_validation(request),
         ],

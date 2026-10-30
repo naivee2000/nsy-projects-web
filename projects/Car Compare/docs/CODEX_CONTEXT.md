@@ -1,5 +1,7 @@
 # Codex Context: Car Compare
 
+Latest implementation checkpoint: [Verified Market Migration](VERIFIED_MARKET_MIGRATION.md). Start there for the October 2026 changes and work still required before production deployment.
+
 This is the handoff entrypoint for another Codex chat after the folder is moved into:
 
 ```text
@@ -113,7 +115,7 @@ When the backend Playwright profile is blocked or empty, the active collection r
 
 `CAR_COMPARE_BACKGROUND_MODE=1` is the default and should be explicit in deployed PM2 configuration. Playwright is headless; Codex CLI, Visor, cache, and generation research are already non-UI subprocesses. The real-Chrome fallback still requires a logged-in macOS graphical session and may show Chrome as a running application, but its collection window remains minimized. An explicitly supplied `CAR_COMPARE_BROWSER_CDP_URL` is reported as non-background because the app cannot guarantee that an externally managed browser is hidden. Use `CAR_COMPARE_BACKGROUND_MODE=0` only for diagnosis.
 
-When regular Chrome also receives an Edmunds network refusal, the active job may invoke native `codex --search` for at most four critical years. A critical year has fewer than two individual rows and no aggregate support. Codex is constrained to official Edmunds year-page URLs and verbatim listing blocks by `web_search_capture_schema.json`. The app validates the host and reruns deterministic parsing and trim matching before writing a `codex_web_search` audit. This stage consumes Codex usage only for the active job; there is no scheduled monitor.
+When regular Chrome also receives an Edmunds network refusal, the active job may invoke native `codex --search` within the remaining shared budget. Its output is discovery-only, even if deterministic parsing finds listing-shaped text. Only a subsequent verified browser capture can promote a candidate into pricing. This stage consumes Codex usage only for the active job; there is no scheduled monitor. Review the current release blockers in `VERIFIED_MARKET_MIGRATION.md` before deployment.
 
 The deterministic audit is the default collection authority. `CAR_COMPARE_CODEX_COLLECTION_REVIEW=0` skips a redundant post-collection model review, while automatic generation-impact research continues independently. The 2026-07-16 acceptance run measured 60/60 audited labels and reduced the cold BMW browser run from 13:58 to 2:36. Reproduce it with `python3 scripts/benchmark_search_accuracy.py` and the commands in `docs/PERFORMANCE_ACCURACY_BENCHMARK.md`.
 

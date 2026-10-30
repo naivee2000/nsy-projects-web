@@ -1,6 +1,14 @@
 # Car Compare Website Deployment
 
-Last updated: 2026-07-16
+Before deploying the October 2026 changes, read [Verified Market Migration](VERIFIED_MARKET_MIGRATION.md). It records the new pricing/cache contract and outstanding live release checks; do not treat the historical validation below as fresh evidence.
+
+Last updated: 2026-10-29 (local migration; not released)
+
+## Current Release Hold
+
+Do not run the production restart steps below for this migration yet. The October 29 full-job smoke checks encountered Visor rate limiting and no verified individual browser rows. The twenty-query live comparison and live fallback acceptance gates remain incomplete. Local offline tests are not evidence of marketplace reachability.
+
+All workers on one host must use the same `CAR_COMPARE_REQUEST_BUDGET_DB` path (default `/tmp/car-compare-budget-<uid>/budget.sqlite3`). It coordinates at most two operations per source and shared Retry-After cooldowns across processes. Multiple hosts do not share this local limiter: use one collection host until a distributed coordinator exists. Preserve the three-day cache directory, but do not relabel old evidence as revision 3.
 
 This is the canonical clean-install guide for deploying Car Compare from GitHub to the always-awake Mac that serves `https://carcompare.nsyprojects.com/`. For detailed browser recovery and evidence files, continue with [ALWAYS_AWAKE_HANDOFF.md](ALWAYS_AWAKE_HANDOFF.md).
 

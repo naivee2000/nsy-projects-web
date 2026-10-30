@@ -38,8 +38,11 @@ from car_compare.sources.chrome_host import (
     capture_is_access_wall,
     capture_with_host_chrome,
     host_chrome_status,
+    validate_host_scope,
 )
+from car_compare.sources.request_budget import host_slot, rate_limited, run_bounded, start_owned_process, terminate_owned_process
 from car_compare.sources.visor_facets import collect_visor_public_facets
+from car_compare.collection_scope import COLLECTION_SECONDS, query_key, scope_is_verified, requested_scope
 from car_compare.sources.source_plan import build_collection_plan
 from car_compare.vehicle_catalog import collection_start_year, msrp_label_matches_scope
 from car_compare.vehicle_match import vehicle_text_match_score
@@ -129,7 +132,7 @@ class CollectorConfig:
     recent_cache_ttl_seconds: int = 3 * 24 * 60 * 60
     older_cache_ttl_seconds: int = 3 * 24 * 60 * 60
     collector_review_cache_ttl_seconds: int = 3 * 24 * 60 * 60
-    codex_review_enabled: bool = True
+    codex_review_enabled: bool = False
     marketplace_concurrency: int = 2
     codex_search_workers: int = 3
     codex_search_batch_size: int = 5
@@ -307,7 +310,9 @@ class CollectionManager:
         job = self.get(job_id)
         if not job or not job.result:
             return []
-        return listings_from_result(job.result)
+        request = parse_vehicle_query(job.query)
+        request.max_age = job.max_age
+        return [row for row in listings_from_result(job.result) if scope_is_verified(row.scope, request)]
 
     def msrp_from_job(self, job_id: str) -> MSRP | None:
         job = self.get(job_id)
@@ -356,6 +361,8 @@ class CollectionManager:
                     {
                         "jobId": job.id,
                         "query": job.query,
+                        "queryKey": query_key(request),
+                        "requestedScope": requested_scope(request, [request.target_year] if request.target_year else list(range(_requested_collection_start_year(request, _runtime_current_year()), _runtime_current_year() + 1)), ["used", "cpo"]),
                         "maxAge": job.max_age,
                         "createdAt": job.created_at,
                         "updatedAt": job.updated_at,
@@ -378,6 +385,7 @@ class CollectionManager:
         pages_examined: int = 1,
         cards_examined: int = 0,
         load_more_clicked: int = 0,
+        scope: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         job = self.get(job_id)
         if not job:
@@ -405,6 +413,14 @@ class CollectionManager:
 
         request = parse_vehicle_query(job.query)
         request.max_age = job.max_age
+        if not scope_is_verified(scope, request):
+            raise ValueError("Capture requires verified nationwide search scope for this query")
+        expected_scope = requested_scope(request, [request.target_year] if request.target_year else list(range(_requested_collection_start_year(request, _runtime_current_year()), _runtime_current_year() + 1)), ["used", "cpo"])
+        if scope.get("requested_scope") != expected_scope or scope.get("result_refresh_confirmed") is not True or scope.get("verification_method") != "supervised_visible_controls":
+            raise ValueError("Confirm the complete requested filters and refreshed results before importing")
+        captured_at = scope.get("captured_at")
+        if not isinstance(captured_at, (int, float)) or not math.isfinite(captured_at) or not job.fallback_created_at <= captured_at <= time.time() + 5:
+            raise ValueError("Capture timestamp must fall within the active repair lease")
         listings = [
             listing
             for listing in parse_visible_listing_text(source, url, visible_text, request)
@@ -419,6 +435,7 @@ class CollectionManager:
             "source": source,
             "url": url,
             "browser_mode": "codex_browser_action",
+            "scope": scope,
             "browser_verified": True,
             "status": "collected" if listings else "unavailable",
             "pages_examined": safe_pages,
@@ -469,6 +486,8 @@ class CollectionManager:
         }
 
     def _run_job(self, job_id: str, request: VehicleQuery) -> None:
+        job = self.get(job_id)
+        deadline_at = (job.created_at if job else time.time()) + COLLECTION_SECONDS
         self._update(job_id, status="running", message="Starting Codex website collection", started_at=time.time())
         codex_path = self._codex_path()
         codex_status = codex_login_status(codex_path) if codex_path else codex_login_status(self.config.codex_path)
@@ -488,7 +507,7 @@ class CollectionManager:
             else:
                 self._update(job_id, status="running", message="Checking Visor public market facets")
                 try:
-                    facet_result = collect_visor_public_facets(request)
+                    facet_result = collect_visor_public_facets(request, deadline_at=deadline_at)
                 except Exception as exc:
                     facet_result = {
                         "query": request.raw,
@@ -498,8 +517,9 @@ class CollectionManager:
                         "sources": [],
                         "listings": [],
                     }
-                if facet_result.get("listings"):
-                    self._result_cache.store("visor_facets", facet_identity, facet_result)
+                if facet_result.get("status") in {"success", "verifiedzero"} and facet_result.get("partition_manifest"):
+                    captured_at = min(item["captured_at"] for item in facet_result["partition_manifest"])
+                    self._result_cache.store("visor_facets", facet_identity, facet_result, captured_at=captured_at)
             if facet_result.get("listings"):
                 self._update(
                     job_id,
@@ -514,15 +534,19 @@ class CollectionManager:
         browser_result: dict[str, Any] | None = None
         if self._browser_worker_available():
             self._update(job_id, status="running", message="Checking the verified marketplace cache")
-            with self._browser_lock:
+            acquired = self._browser_lock.acquire(timeout=max(0, deadline_at - time.time()))
+            try:
                 self._update(
                     job_id,
                     status="running",
                     message="Reusing cached marketplaces and collecting only missing or expired sources",
                 )
-                browser_result = self._run_browser_sources(request, job_dir, facet_result)
+                browser_result = self._run_browser_sources(request, job_dir, facet_result, deadline_at=deadline_at) if acquired else {"status": "partial", "notes": ["Collection deadline reached waiting for browser worker"], "listings": []}
+            finally:
+                if acquired:
+                    self._browser_lock.release()
             facet_result = _merge_collector_results(facet_result, browser_result, request)
-        if not self.config.codex_review_enabled:
+        if not self.config.codex_review_enabled or time.time() >= deadline_at:
             result = facet_result or {
                 "query": request.raw,
                 "status": "blocked",
@@ -597,18 +621,21 @@ class CollectionManager:
             root=self.config.root,
             schema_path=self.config.schema_path,
             output_path=output_path,
-            browser_server_path=self.config.browser_server_path,
+            browser_server_path=None,
             reasoning_effort=self.config.codex_reasoning_effort,
         )
         start_time = time.time()
+        process = None
+        prompt_path = job_dir / "review_prompt.txt"
+        prompt_path.write_text(prompt, encoding="utf-8")
         try:
-            with stdout_path.open("w", encoding="utf-8") as stdout_file, stderr_path.open("w", encoding="utf-8") as stderr_file:
+            with stdout_path.open("w", encoding="utf-8") as stdout_file, stderr_path.open("w", encoding="utf-8") as stderr_file, prompt_path.open(encoding="utf-8") as prompt_file:
                 collector_env = codex_environment()
                 collector_env["CAR_COMPARE_BROWSER_AUDIT_DIR"] = str(job_dir)
-                process = subprocess.Popen(
+                process = start_owned_process(
                     command,
                     env=collector_env,
-                    stdin=subprocess.PIPE,
+                    stdin=prompt_file,
                     stdout=stdout_file,
                     stderr=stderr_file,
                     text=True,
@@ -619,22 +646,21 @@ class CollectionManager:
                     message=f"Codex process started (PID {process.pid}).",
                     process_id=process.pid,
                 )
-                if process.stdin:
-                    try:
-                        process.stdin.write(prompt)
-                        process.stdin.close()
-                    except BrokenPipeError:
-                        pass
                 while process.poll() is None:
                     elapsed = int(time.time() - start_time)
-                    if elapsed >= self.config.timeout_seconds:
-                        process.kill()
-                        process.wait()
+                    if elapsed >= self.config.timeout_seconds or time.time() >= deadline_at:
+                        terminate_owned_process(process)
+                        process = None
+                        partial = _apply_browser_captures(facet_result or {"listings": [], "sources": [], "notes": []}, job_dir, request)
+                        partial["status"] = "partial" if partial.get("listings") else "blocked"
+                        partial.setdefault("notes", []).append("Collection deadline reached; verified partial results retained")
+                        self._write_job_result(job_id, partial)
                         self._update(
                             job_id,
-                            status="failed",
+                            status="completed" if partial.get("listings") else "blocked",
                             message=f"Codex collection timed out after {_format_elapsed(elapsed)}",
                             error=f"Timed out after {self.config.timeout_seconds} seconds.",
+                            result=partial,
                         )
                         return
                     self._update(
@@ -670,6 +696,10 @@ class CollectionManager:
                 error=str(exc),
             )
             return
+
+        finally:
+            if process is not None:
+                terminate_owned_process(process)
 
         stdout_text = _read_text(stdout_path)
         stderr_text = _read_text(stderr_path)
@@ -792,7 +822,9 @@ class CollectionManager:
         request: VehicleQuery,
         job_dir: Path,
         baseline_result: dict[str, Any] | None = None,
+        deadline_at: float | None = None,
     ) -> dict[str, Any]:
+        deadline_at = deadline_at or time.time() + COLLECTION_SECONDS
         plan = build_collection_plan(request)
         targets = [item for item in plan["targets"] if item["source"] in BROWSER_SOURCE_NAMES]
         current_year = _runtime_current_year()
@@ -811,6 +843,8 @@ class CollectionManager:
                 "max_pages": BROAD_RANGE_MAX_PAGES,
                 "split_by_year": False,
                 "skip_persist": True,
+                "deadline_at": deadline_at,
+                "requested_scope": requested_scope(request, list(range(start_year, end_year + 1)), ["used", "cpo"]),
             }
             for target in targets
         ]
@@ -827,8 +861,8 @@ class CollectionManager:
             payload for payload in payloads if str(payload["source"]) not in fully_cached_sources
         ]
         refreshable_sources = {str(payload["source"]) for payload in range_payloads}
-        if range_payloads:
-            range_audits = self._run_browser_batch(range_payloads, job_dir, timeout=300)
+        if range_payloads and time.time() < deadline_at:
+            range_audits = self._run_browser_batch(range_payloads, job_dir, timeout=max(1, min(300, deadline_at - time.time())))
             for audit in range_audits:
                 self._store_audit_cache(request, audit, current_year)
             audits = _merge_audits_by_source(request, payloads, [*audits, *range_audits])
@@ -836,9 +870,10 @@ class CollectionManager:
             for _round in range(1):
                 coverage = _combined_year_coverage(request, baseline_result, audits)
                 followups = _plan_browser_followups(request, range_payloads, audits, coverage["sparse_years"])
-                if not followups:
+                if not followups or time.time() >= deadline_at:
                     break
-                targeted_audits = self._run_browser_batch(followups, job_dir, timeout=420)
+                followups = [{**item, "deadline_at": deadline_at} for item in followups]
+                targeted_audits = self._run_browser_batch(followups, job_dir, timeout=max(1, min(420, deadline_at - time.time())))
                 for audit in targeted_audits:
                     self._store_audit_cache(request, audit, current_year)
                 audits = _merge_audits_by_source(request, payloads, [*audits, *targeted_audits])
@@ -848,23 +883,25 @@ class CollectionManager:
             audits = _merge_audits_by_source(request, payloads, audits)
 
         coverage = _combined_year_coverage(request, baseline_result, audits)
-        if coverage["sparse_years"]:
+        if coverage["sparse_years"] and time.time() < deadline_at:
+            spent_pages = {str(audit.get("source")): max(1, int(audit.get("pages_examined") or 0)) for audit in audits}
             fallback_payloads = [
-                {**payload, "target_years": list(coverage["sparse_years"])}
+                {**payload, "target_years": list(coverage["sparse_years"]), "max_pages": BROAD_RANGE_MAX_PAGES - spent_pages.get(str(payload["source"]), 0)}
                 for payload in payloads
-                if str(payload["source"]) in refreshable_sources
+                if str(payload["source"]) in refreshable_sources and spent_pages.get(str(payload["source"]), 0) < BROAD_RANGE_MAX_PAGES
             ]
             if fallback_payloads:
                 fallback_audits = self._run_host_chrome_fallbacks(
                     request, fallback_payloads, audits, job_dir
                 )
-                audits = _merge_audits_by_source(request, payloads, [*audits, *fallback_audits])
+                audits = list({str(item["source"]): item for item in [*audits, *fallback_audits] if item.get("source")}.values())
 
         coverage = _combined_year_coverage(request, baseline_result, audits)
-        if coverage["sparse_years"]:
+        if coverage["sparse_years"] and time.time() < deadline_at:
             critical_years = _critical_missing_years(coverage)
+            spent_pages = {str(audit.get("source")): max(1, int(audit.get("pages_examined") or 0)) for audit in audits}
             search_payloads = [
-                {**payload, "target_years": critical_years}
+                {**payload, "target_years": critical_years[:max(0, BROAD_RANGE_MAX_PAGES - spent_pages.get(str(payload["source"]), 0))]}
                 for payload in payloads
                 if str(payload["source"]) in refreshable_sources
             ]
@@ -872,7 +909,7 @@ class CollectionManager:
                 search_audits = self._run_codex_search_fallbacks(
                     request, search_payloads, audits, job_dir
                 )
-                audits = _merge_audits_by_source(request, payloads, [*audits, *search_audits])
+                audits = list({str(item["source"]): item for item in [*audits, *search_audits] if item.get("source")}.values())
 
         final_coverage = _combined_year_coverage(request, baseline_result, audits)
         for audit in audits:
@@ -930,7 +967,9 @@ class CollectionManager:
                     "notes": note,
                 }
             )
-            listings.extend(audit.get("listings") or [])
+            scope = audit.get("scope")
+            if scope_is_verified(scope):
+                listings.extend(row.to_dict() for row in _verified_audit_listings(request, audit))
             notes.append(f"{source}: {note}")
             summary.append(
                 {
@@ -960,6 +999,23 @@ class CollectionManager:
         }
 
     def _run_browser_batch(
+        self, payloads: list[dict[str, Any]], job_dir: Path, *, timeout: int,
+    ) -> list[dict[str, Any]]:
+        def collect(payload):
+            deadline = min(float(payload.get("deadline_at") or time.time() + timeout), time.time() + timeout)
+            try:
+                with host_slot(str(payload["url"]), deadline=deadline):
+                    result = self._run_browser_batch_unleased([payload], job_dir, timeout=max(0.01, deadline - time.time()))
+                for audit in result:
+                    if audit.get("status") == "rate_limited" or "rate_limit" in str(audit.get("stop_reason", "")):
+                        rate_limited(str(payload["url"]), audit.get("retry_after"))
+                return result
+            except (TimeoutError, RuntimeError) as exc:
+                return [{"source": payload["source"], "url": payload["url"], "status": "unavailable", "stop_reason": "budget_or_cooldown", "error": str(exc), "listings": []}]
+        with ThreadPoolExecutor(max_workers=min(self.config.marketplace_concurrency, len(payloads) or 1)) as pool:
+            return [audit for results in pool.map(collect, payloads) for audit in results]
+
+    def _run_browser_batch_unleased(
         self,
         payloads: list[dict[str, Any]],
         job_dir: Path,
@@ -973,9 +1029,11 @@ class CollectionManager:
         env["CAR_COMPARE_BACKGROUND_MODE"] = "1" if self.config.background_mode else "0"
         node_path = shutil.which("node") or "node"
         completed: subprocess.CompletedProcess[str] | None = None
+        started_at = time.time()
         try:
-            completed = subprocess.run(
+            completed = run_bounded(
                 [node_path, str(self.config.browser_server_path), "--collect-batch-json"],
+                deadline_at=min(float(item.get("deadline_at") or time.time() + timeout) for item in payloads),
                 input=json.dumps(
                     {
                         "targets": payloads,
@@ -996,17 +1054,28 @@ class CollectionManager:
             error = str(exc)
         if completed is not None and completed.returncode != 0:
             error = _cap_error(completed.stderr or completed.stdout)
-        return [
-            {
+        audits = []
+        for payload in payloads:
+            source = str(payload.get("source") or "")
+            try:
+                checkpoint = json.loads((job_dir / f"browser_capture_{source}.json").read_text(encoding="utf-8"))
+                if (checkpoint.get("source") == source and checkpoint.get("url") == payload.get("url")
+                        and scope_is_verified(checkpoint.get("scope")) and checkpoint.get("listings")
+                        and float(checkpoint["scope"].get("captured_at") or 0) >= started_at):
+                    checkpoint.update(status="partial", stop_reason="worker_stopped_verified_partial", error=error)
+                    audits.append(checkpoint)
+                    continue
+            except (OSError, ValueError, TypeError):
+                pass
+            audits.append({
                 "source": str(payload.get("source") or ""),
                 "url": str(payload.get("url") or ""),
                 "status": "unavailable",
                 "error": error,
                 "listings": [],
                 "background_mode": self.config.background_mode,
-            }
-            for payload in payloads
-        ]
+            })
+        return audits
 
     def _cached_browser_audits(
         self,
@@ -1023,6 +1092,8 @@ class CollectionManager:
         return audits
 
     def _store_audit_cache(self, request: VehicleQuery, audit: dict[str, Any], current_year: int) -> None:
+        if not scope_is_verified(audit.get("scope")):
+            return
         source = str(audit.get("source") or "")
         deterministic_verified = bool(
             audit.get("browser_verified") is True
@@ -1034,6 +1105,8 @@ class CollectionManager:
         for listing in _verified_audit_listings(request, audit):
             rows_by_year.setdefault(listing.year, []).append(listing.to_dict())
         if not rows_by_year:
+            if audit.get("status") != "verifiedzero":
+                return
             quota_targets = (audit.get("year_quota") or {}).get("targets") or {}
             lifecycle_start = None if request.target_year else _requested_collection_start_year(request, current_year)
             attempted_years = {
@@ -1055,6 +1128,7 @@ class CollectionManager:
                 year,
                 {
                     "version": 1,
+                    "scope": audit.get("scope"),
                     "source": source,
                     "url": str(audit.get("url") or ""),
                     "browser_mode": str(audit.get("browser_mode") or "unknown"),
@@ -1067,6 +1141,7 @@ class CollectionManager:
                 },
                 current_year=current_year,
                 overwrite_existing=bool(rows),
+                captured_at=float(audit["scope"].get("captured_at") or 0),
             )
 
     def _run_host_chrome_fallbacks(
@@ -1242,15 +1317,12 @@ class CollectionManager:
                 reasoning_effort=self.config.codex_reasoning_effort,
             )
             page_urls = [_edmunds_search_page_url(request, year) for year in batch_years]
-            completed = subprocess.run(
-                command,
-                input=build_codex_web_search_prompt(request, batch_years, page_urls),
-                env=codex_environment(),
-                text=True,
-                capture_output=True,
-                timeout=min(900, max(120, self.config.timeout_seconds)),
-                check=False,
-            )
+            deadline = float(payload.get("deadline_at") or time.time() + COLLECTION_SECONDS)
+            with host_slot(str(payload["url"]), deadline=deadline):
+                completed = run_bounded(command, deadline_at=deadline,
+                    input=build_codex_web_search_prompt(request, batch_years, page_urls),
+                    env=codex_environment(), text=True, capture_output=True,
+                    timeout=min(COLLECTION_SECONDS, self.config.timeout_seconds), check=False)
             if completed.returncode != 0:
                 raise RuntimeError(clean_codex_error(completed.stderr or completed.stdout))
             try:
@@ -1360,14 +1432,14 @@ class CollectionManager:
             "browser_mode": "codex_web_search",
             "background_mode": True,
             "browser_verified": False,
-            "search_verified": True,
-            "deterministic_verified": True,
+            "search_verified": False,
+            "deterministic_verified": False,
             "host_chrome_attempted": host_chrome_attempted,
             "codex_search_attempted": True,
-            "status": "collected" if listings and quota["met"] else "partial" if listings else "unavailable",
+            "status": "discovery_only" if listings else "unavailable",
             "pages_examined": len(accepted_pages),
             "cards_examined": max(cards_examined, len(listings)),
-            "accepted": len(listings),
+            "accepted": 0,
             "rejected_by_reason": {"invalid_search_page": rejected_pages} if rejected_pages else {},
             "load_more_clicked": 0,
             "detail_pages_opened": 0,
@@ -1382,7 +1454,9 @@ class CollectionManager:
             "search_notes": [str(item)[:1000] for item in result.get("notes") or []],
             "search_batches": len(batches),
             "search_workers": min(self.config.codex_search_workers, len(batches)),
-            "listings": [item.to_dict() for item in listings],
+            "discovery_candidates": [item.to_dict() for item in listings],
+            "exclusion_reason": "Indexed content requires fresh browser scope and listing verification before pricing",
+            "listings": [],
         }
         (job_dir / f"browser_capture_{source}.json").write_text(json.dumps(audit, indent=2), encoding="utf-8")
         return audit
@@ -1405,16 +1479,29 @@ class CollectionManager:
         rows_over_card_count = 0
 
         search_index = 0
+        deadline = float(payload.get("deadline_at") or time.time() + COLLECTION_SECONDS)
+        scope_request = payload.get("requested_scope") or requested_scope(request, list(range(int(payload["start_year"]), int(payload["end_year"]) + 1)), ["used", "cpo"])
+        validation = {"scope": {}, "status": "unverified", "evidence": {}}
         while search_index < len(searches):
+            if time.time() >= deadline:
+                break
             search_url, search_year = searches[search_index]
-            capture = capture_with_host_chrome(
-                source=source,
-                url=search_url,
-                script_path=self.config.chrome_host_script_path,
-                background_mode=self.config.background_mode,
-            )
+            with host_slot(search_url, deadline=deadline):
+                capture = capture_with_host_chrome(source=source, url=search_url,
+                    script_path=self.config.chrome_host_script_path,
+                    background_mode=self.config.background_mode, deadline_at=deadline,
+                    max_pages=int(payload.get("max_pages", BROAD_RANGE_MAX_PAGES)), requested_scope=scope_request)
+                validation = validate_host_scope(capture, scope_request)
             capture["searchYear"] = search_year
+            capture["scope_validation"] = validation
             captures.append(capture)
+            raw_path = job_dir / f"host_chrome_{source}_{search_index}.json"
+            raw_path.write_text(json.dumps(capture, indent=2), encoding="utf-8")
+            if not scope_is_verified(validation.get("scope")):
+                if validation.get("status") == "rate_limited":
+                    rate_limited(search_url, capture.get("retry_after"))
+                capture["rejectedReason"] = validation.get("status", "scope_unverified")
+                break
             accepted_before = len(listings)
             if capture_is_access_wall(capture):
                 access_blocked = True
@@ -1479,8 +1566,10 @@ class CollectionManager:
             "source": source,
             "url": requested_url,
             "browser_mode": "system_chrome_applescript",
+            "scope": validation["scope"],
+            "search_scope": validation.get("evidence", {}),
             "background_mode": all(bool(item.get("backgroundMode")) for item in captures) if captures else self.config.background_mode,
-            "browser_verified": True,
+            "browser_verified": scope_is_verified(validation["scope"]),
             "host_chrome_attempted": True,
             "status": (
                 "collected"
@@ -1489,7 +1578,7 @@ class CollectionManager:
                 if listings
                 else "blocked"
                 if access_blocked
-                else "unavailable"
+                else str(validation.get("status") or "unavailable")
             ),
             "pages_examined": pages_examined,
             "cards_examined": (
@@ -1507,7 +1596,9 @@ class CollectionManager:
             "load_more_clicked": load_more_clicked,
             "detail_pages_opened": 0,
             "stop_reason": (
-                "host_chrome_access_wall"
+                str(validation.get("status") or "scope_unverified")
+                if not scope_is_verified(validation.get("scope"))
+                else "host_chrome_access_wall"
                 if access_blocked
                 else "year_targets_met"
                 if quota["met"]
@@ -1685,29 +1776,27 @@ Browser worker pass already completed:
 
 Rules:
 - Do not edit project files.
-- Prefer normal visible website/browser interaction if browser automation is available.
+- This is a read-only review of saved collection evidence. Do not make network requests or open a browser.
 - A project-local MCP tool named collect_vehicle_source is the authoritative browser collector. The app already ran the complete marketplace pass before this review. Do not call the tool again in this job; review its coverage, preserve sparse/blocked disclosures, and use non-marketplace research only where useful.
-- Pass each target's source, URL, required_keywords, and exclude_keywords to that tool. Use the requested year range, current year, and max_pages=20.
+- The browser tool is not attached to this review. Do not launch alternate browser, shell-fetch, or search collection paths.
 - The tool persists deterministic listing cards and page audits for the app. Do not retype, alter, or invent its listing rows.
 - A browser source may be called collected only when collect_vehicle_source returns browser_verified=true. Search snippets and cached page summaries are not browser evidence.
-- If you are running inside Codex desktop and can show/use the browser, make website operation visible.
-- Open the target URLs, confirm the visible page matches the requested vehicle, scroll results, and click visible Load More / See More Results / Next controls when available.
-- After clicking a load-more control, verify that listing count, visible listing text, or page height changed. If it does not change, record that in source notes and continue.
+- Review the saved page audits for selected filters and confirmed result refreshes. Missing evidence stays unverified.
 - Stop on CAPTCHA, login-only wall, paywall, or access refusal. Do not bypass restrictions.
 - Each target includes required_keywords, exclude_keywords, model_aliases, and location_policy. Treat those as binding collection rules.
 - The resolver includes chips with mode="exact", mode="family", mode="range", mode="constrained", or mode="all". Exact/range chips restrict collection; family chips require the named family while allowing its configured descendants; constrained chips inherit named sibling exclusions from the exact trim; all chips mean include every visible variant for that dimension.
 - If trim, body_style, drivetrain, or powertrain is marked all, do not reject rows just because that field differs or is missing. Only require make/model and any exact chips.
 - Extract only listings where every required keyword appears as a separate visible token in the listing row/detail page and none of the exclude keywords appear. For example, GT is not the same token as GTC.
-- If a site redirects a model URL to all cars for the make, that is not automatically a failure. Continue only if visible rows can be filtered by the required/exclude rules; otherwise mark the source unavailable.
+- A model URL redirecting to all cars for the make is not verified requested scope, even if some rows match keywords.
 - Set or confirm the search radius/location to Nationwide, All miles, Unlimited, or the closest equivalent. If a zip is required, use it only to unlock the search and record the nationwide setting in source notes.
-- If a source cannot be made nationwide/all-US, record that limitation clearly and avoid mixing it into a national depreciation trend unless no better source exists.
-- Collect actual new-car examples when visible on manufacturer inventory pages, Autotrader/Edmunds new inventory, or Visor new-car results. Mark those listings with condition="new" and use a title beginning with "New ".
+- A source without verified nationwide scope is excluded from national pricing, even if no better source exists.
+- Preserve only already-verified new inventory as new-car evidence. Do not collect extra examples.
 - Mark ordinary used examples with condition="used"; mark certified pre-owned with condition="cpo" when the page clearly says CPO/certified.
-- Capture VIN and dealer when visible; if VIN is only visible on detail pages, open a small number of listing detail pages when practical.
+- Preserve captured VIN and dealer fields without opening additional detail pages.
 - Deduplication happens in the app, but include VIN/dealer when possible.
 - Listing price must be the vehicle asking/sale price between $500 and $10,000,000. Never use a payment, down payment, discount, fee, delivery charge, package, option, rebate, MSRP, or market-value reference as listing price.
-- Continue until the tool reports its stop_reason. Its targets are 15 unique rows per year for the newest six model years and 8 per older year; sparse years must remain disclosed.
-- Use manufacturer official MSRP between $5,000 and $10,000,000 when practical; never place a monthly payment in MSRP. If the manufacturer site also exposes current new inventory prices, include those as condition="new" listings. Otherwise set msrp to null.
+- Preserve the recorded stop_reason and sparse-year disclosures. A capped sample is not a full inventory count.
+- Keep an already-captured manufacturer MSRP between $5,000 and $10,000,000 as reference-only; otherwise set msrp to null.
 
 Return only JSON matching the provided schema. Do not include Markdown.
 """.strip()
@@ -1878,6 +1967,9 @@ def _merge_collector_results(
         codex_result.get("sources") or [],
     )
     merged["evidence"] = [*(facet_result.get("evidence") or []), *(codex_result.get("evidence") or [])]
+    merged["partition_manifest"] = [*(facet_result.get("partition_manifest") or []), *(codex_result.get("partition_manifest") or [])]
+    if any(item.get("status") not in {"successful", "verified_empty"} for item in merged["partition_manifest"]):
+        merged["status"] = "partial" if codex_result.get("listings") or facet_result.get("listings") else "blocked"
     merged["listings"] = [*(facet_result.get("listings") or []), *(codex_result.get("listings") or [])]
     codex_msrp = msrp_from_result({"msrp": codex_result.get("msrp")})
     facet_msrp = msrp_from_result({"msrp": facet_result.get("msrp")})
@@ -1958,9 +2050,22 @@ def _apply_browser_captures(result: dict[str, Any], job_dir: Path, request: Vehi
             audit.get("browser_verified") is True
             or (audit.get("search_verified") is True and audit.get("deterministic_verified") is True)
         )
-        if source not in expected_browser_sources or not deterministic_verified:
+        if source not in expected_browser_sources:
             continue
         audited_sources.add(source)
+        if not deterministic_verified or not scope_is_verified(audit.get("scope")):
+            reason = str(audit.get("stop_reason") or audit.get("status") or "unverified_search_scope")
+            source_rows.append({
+                "source": source, "url": str(audit.get("url") or ""),
+                "status": str(audit.get("status") or "unavailable"),
+                "browser_verified": False, "accepted": 0,
+                "pages_examined": int(audit.get("pages_examined") or 0),
+                "cards_examined": int(audit.get("cards_examined") or 0),
+                "rejected_by_reason": {**(audit.get("rejected_by_reason") or {}), "unverified_search_scope": len(audit.get("listings") or [])},
+                "stop_reason": reason, "error": str(audit.get("error") or ""),
+                "notes": f"No rows accepted: {reason}. " + str(audit.get("error") or ""),
+            })
+            continue
         if isinstance(audit.get("combined_year_coverage"), dict):
             combined_year_coverage = dict(audit["combined_year_coverage"])
         accepted_rows: list[dict[str, Any]] = []
@@ -1971,6 +2076,8 @@ def _apply_browser_captures(result: dict[str, Any], job_dir: Path, request: Vehi
             if not parsed:
                 continue
             listing = parsed[0]
+            row_scope = listing.scope if scope_is_verified(listing.scope) and listing.scope.get("query_key") in (None, query_key(request)) else audit["scope"]
+            listing.scope = {**row_scope, "query_key": query_key(request)}
             if not listing_year_in_scope(listing.year, request):
                 outside_year_window += 1
                 continue
@@ -2181,6 +2288,7 @@ def listings_from_result(result: dict[str, Any]) -> list[Listing]:
                 title,
                 year,
                 current_year=_runtime_current_year(),
+                verified_new=scope_is_verified(item.get("scope")),
             )
             try:
                 market_weight = float(item.get("market_weight", legacy_weights.get(item_index, 1.0)))
@@ -2202,6 +2310,7 @@ def listings_from_result(result: dict[str, Any]) -> list[Listing]:
                     confidence=str(item.get("confidence") or "codex_collected"),
                     condition=condition,
                     market_weight=market_weight,
+                    scope=item.get("scope") if isinstance(item.get("scope"), dict) else {},
                 )
             )
         except (KeyError, TypeError, ValueError):
@@ -2337,6 +2446,8 @@ def _capture_listing_card_count(capture: dict[str, Any]) -> int | None:
 def _verified_audit_listings(request: VehicleQuery, audit: dict[str, Any]) -> list[Listing]:
     source = str(audit.get("source") or "")
     rows: list[Listing] = []
+    if not scope_is_verified(audit.get("scope")):
+        return rows
     seen: set[tuple[Any, ...]] = set()
     for listing in listings_from_result({"listings": audit.get("listings") or []}):
         if source in BROWSER_SOURCE_NAMES and listing.source != source:
@@ -2349,6 +2460,8 @@ def _verified_audit_listings(request: VehicleQuery, audit: dict[str, Any]) -> li
         if identity in seen:
             continue
         seen.add(identity)
+        row_scope = listing.scope if scope_is_verified(listing.scope) and listing.scope.get("query_key") in (None, query_key(request)) else audit["scope"]
+        listing.scope = {**row_scope, "query_key": query_key(request)}
         rows.append(listing)
     return rows
 
@@ -2371,6 +2484,7 @@ def _audit_from_cache_entries(
     payload: dict[str, Any],
     entries: list[Any],
 ) -> dict[str, Any]:
+    entries = [entry for entry in entries if scope_is_verified(entry.payload.get("scope"))]
     source = str(payload["source"])
     listings: list[Listing] = []
     seen: set[tuple[Any, ...]] = set()
@@ -2401,6 +2515,7 @@ def _audit_from_cache_entries(
         "url": str(payload.get("url") or ""),
         "browser_mode": "verified_cache" + (f"({'+'.join(sorted(modes))})" if modes else ""),
         "browser_verified": browser_verified,
+        "scope": dict(min(entries, key=lambda entry: entry.captured_at).payload["scope"]) if entries else {},
         "search_verified": search_verified,
         "deterministic_verified": True,
         "background_mode": all(background_modes) if background_modes else False,
@@ -2409,7 +2524,7 @@ def _audit_from_cache_entries(
         "cache_years": sorted({int(entry.model_year) for entry in entries}),
         "cache_oldest_at": min((float(entry.captured_at) for entry in entries), default=0),
         "cache_newest_at": max((float(entry.captured_at) for entry in entries), default=0),
-        "status": "collected" if listings and quota["met"] else "partial" if listings else "unavailable",
+        "status": "collected" if listings and quota["met"] else "partial" if listings else "verifiedzero" if entries else "unavailable",
         "pages_examined": 0,
         "cards_examined": 0,
         "accepted": len(listings),
@@ -2471,6 +2586,8 @@ def _merge_browser_audits(
         if listings
         else "blocked"
         if any_blocked
+        else "verifiedzero"
+        if usable and all(audit.get("status") == "verifiedzero" and scope_is_verified(audit.get("scope")) for audit in usable)
         else "unavailable"
     )
     return {
@@ -2478,6 +2595,10 @@ def _merge_browser_audits(
         "source": source,
         "url": url,
         "browser_mode": "+".join(modes) or "unknown",
+        "scope": min((dict(audit["scope"]) for audit in usable if scope_is_verified(audit.get("scope"))), key=lambda scope: scope.get("captured_at", 0), default={}),
+        "search_scope": {"attempts": [audit.get("search_scope", {}) for audit in usable]},
+        "failure_reasons": [str(audit.get("stop_reason") or audit.get("status") or "unverified") for audit in usable if not scope_is_verified(audit.get("scope"))],
+        "discovery_candidate_count": sum(int(audit.get("discovery_candidate_count") or len(audit.get("discovery_candidates") or [])) for audit in usable),
         "browser_verified": any(bool(audit.get("browser_verified")) for audit in usable),
         "search_verified": any(bool(audit.get("search_verified")) for audit in usable),
         "deterministic_verified": deterministic_verified,
@@ -2549,7 +2670,7 @@ def _combined_year_coverage(
             year = int(item.get("year") or 0)
         except (TypeError, ValueError):
             continue
-        if year in targets and ("facet" in source or "aggregate" in source):
+        if year in targets and ("facet" in source or "aggregate" in source) and scope_is_verified(item.get("scope"), request) and item["scope"].get("complete") is True:
             aggregate_years.add(year)
 
     identities_by_year: dict[int, set[tuple[Any, ...]]] = {year: set() for year in targets}
@@ -2632,6 +2753,7 @@ def _plan_browser_followups(
                 "max_pages": 2,
                 "split_by_year": False,
                 "search_year": year,
+                "requested_scope": {**base.get("requested_scope", {}), "years": [year]},
             }
         )
     return followups
