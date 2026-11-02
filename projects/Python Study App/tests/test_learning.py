@@ -428,6 +428,28 @@ def test_hot_100_general_draw_prefers_medium_but_stays_random():
     assert fresh[3].id == "pair-sum-indices"
 
 
+def test_member_reviews_only_interview_picks_without_topic_boosts():
+    now = datetime(2026, 10, 6, tzinfo=timezone.utc)
+    catalog = {problem.id: problem for problem in PROBLEMS}
+    chosen = {"pair-sum-indices", "merge-intervals", "tree-max-depth", "recursive-digit-sum"}
+    assert not study_list_badges("recursive-digit-sum")
+    attempts = [make_attempt(pid) for pid in sorted(chosen)]
+    reviews = [ReviewState(problem_id=pid, interval_index=0, due_at=now, latest_result="accepted")
+               for pid in sorted(chosen)]
+    selected = prioritized_review_problems(catalog, attempts, reviews, chosen, now,
+                                           owner_focus=False, selection_seed="member")
+    assert {p.id for p in selected} == chosen - {"recursive-digit-sum"}
+    tree = catalog["tree-max-depth"]
+    tree_attempts = [a for a in attempts if a.problem_id == tree.id]
+    tree_review = next(r for r in reviews if r.problem_id == tree.id)
+    assert review_priority_score(tree, tree_attempts, tree_review, now) - review_priority_score(
+        tree, tree_attempts, tree_review, now, owner_focus=False) == review_focus_boost(tree)
+
+    recent = prioritized_review_problems(catalog, attempts, reviews, chosen, now, limit=2,
+                                         owner_focus=False, recently_assigned_ids={"merge-intervals"})
+    assert "merge-intervals" not in {p.id for p in recent}
+
+
 def test_review_set_excludes_a_previously_passed_problem_after_latest_failure():
     now = datetime(2026, 9, 21, 12, tzinfo=timezone.utc)
     catalog = {problem.id: problem for problem in PROBLEMS}

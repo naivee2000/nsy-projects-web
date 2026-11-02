@@ -199,6 +199,8 @@ def review_priority_score(
     attempts: Iterable[Attempt],
     review_state: ReviewState | None,
     now: datetime | None = None,
+    *,
+    owner_focus: bool = True,
 ) -> float:
     """Score review value from difficulty, due date, and observed struggle."""
     now = now or datetime.now(timezone.utc)
@@ -230,7 +232,7 @@ def review_priority_score(
 
     return round(
         problem.difficulty * 20.0
-        + review_focus_boost(problem)
+        + (review_focus_boost(problem) if owner_focus else 0.0)
         + min(review_failures, 3) * 30.0
         + study_load * 15.0
         + (25.0 if latest_failed else 0.0)
@@ -248,8 +250,9 @@ def prioritized_review_problems(
     limit: int = 5,
     selection_seed: str | None = None,
     recently_assigned_ids: set[str] | None = None,
+    owner_focus: bool = True,
 ) -> list[ProblemDefinition]:
-    """Choose three focused reviews, then Hot 100 reviews, avoiding recent repeats."""
+    """Choose owner focus reviews or member interview-list reviews."""
     now = now or datetime.now(timezone.utc)
     seed = selection_seed or now.date().isoformat()
     recent_ids = recently_assigned_ids or set()
@@ -263,15 +266,21 @@ def prioritized_review_problems(
         if problem_id in catalog
         and problem_id in states
         and states[problem_id].latest_result == "accepted"
+        and (owner_focus or bool(study_list_badges(problem_id)))
     ]
     ranked = sorted(
         candidates,
         key=lambda problem: (
-            -review_priority_score(problem, histories[problem.id], states.get(problem.id), now),
+            -review_priority_score(problem, histories[problem.id], states.get(problem.id), now,
+                                   owner_focus=owner_focus),
             -problem.difficulty,
             problem.id,
         ),
     )
+    if not owner_focus:
+        fresh = [problem for problem in ranked if problem.id not in recent_ids]
+        recent = [problem for problem in ranked if problem.id in recent_ids]
+        return [*fresh, *recent][:limit]
     # Shuffle the five groups once per day, then take three distinct groups
     # with eligible passed exercises. A refresh must not reroll the selection.
     focus_limit = min(3, limit)

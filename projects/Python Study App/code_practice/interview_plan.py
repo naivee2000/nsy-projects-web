@@ -25,7 +25,7 @@ def _focus(topics: set[str]) -> set[str]:
 
 
 class InterviewPlan:
-    def __init__(self, catalog, attempts, reviews, now: datetime, day: str):
+    def __init__(self, catalog, attempts, reviews, now: datetime, day: str, *, owner_focus: bool = True):
         self.catalog = catalog
         self.day = day
         self.solved = {a.problem_id for a in attempts if a.result == "accepted"}
@@ -70,16 +70,19 @@ class InterviewPlan:
                 problem = catalog[key]
                 stage = 0 if problem.difficulty <= 3 else 1 if problem.difficulty <= 5 else 2 if problem.difficulty <= 7 else 3
                 tie = hashlib.sha256(f"{day}:{key}".encode()).hexdigest()
+                topic_variety = sum(used_topics[t] for t in _focus(self.topics[key])) if owner_focus else 0
                 return (stage, key not in due, key not in self.targets,
-                        sum(used_topics[t] for t in _focus(self.topics[key])), problem.difficulty, tie)
+                        topic_variety, problem.difficulty, tie)
             key = min(eligible, key=rank)
             self.ordered.append(catalog[key])
             eligible.remove(key)
             for topic in _focus(self.topics[key]):
                 used_topics[topic] += 1
 
-    def daily_session(self):
-        """Reserve two of five credits for progressive DP, then interview work."""
+    def daily_session(self, *, owner_focus: bool = True):
+        """Give the owner DP practice; give members an interview-only path."""
+        if not owner_focus:
+            return self._standard_session(fill_unrelated=False)
         dp_ids = {key for key, topics in self.topics.items()
                   if any(t == "dp" or t == "dynamic-programming"
                          or t.endswith("-dynamic-programming") or t.endswith("-dp") for t in topics)}
@@ -156,7 +159,7 @@ class InterviewPlan:
                 budget -= cost
         return selected
 
-    def _standard_session(self, excluded_ids=frozenset()):
+    def _standard_session(self, excluded_ids=frozenset(), *, fill_unrelated=True):
         """Advance ready targets; use preparation without starving that progress."""
         candidates = [p for p in self.ordered if p.id not in excluded_ids]
         # A weak topic can keep producing new Easy preparation indefinitely.
@@ -167,6 +170,8 @@ class InterviewPlan:
         if anchor is not None:
             candidates.remove(anchor)
             candidates.insert(0, anchor)
+        if not fill_unrelated:
+            return self._within_daily_budget(choose_daily_session(candidates))
         if not candidates or candidates[0].difficulty > 3:
             return choose_daily_session(candidates)
         easy = [p for p in candidates if p.difficulty <= 3]
@@ -261,8 +266,8 @@ class InterviewPlan:
             elif pool:
                 self._prepare(pool[0], target_id, visited)
 
-    def reason(self, problem_id: str) -> str | None:
-        if problem_id in self.catalog and self.catalog[problem_id].difficulty <= 7 and any(
+    def reason(self, problem_id: str, *, owner_focus: bool = True) -> str | None:
+        if owner_focus and problem_id in self.catalog and self.catalog[problem_id].difficulty <= 7 and any(
             t == "dp" or t == "dynamic-programming" or t.endswith("-dynamic-programming")
             or t.endswith("-dp") for t in self.topics[problem_id]
         ):

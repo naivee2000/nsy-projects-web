@@ -8,6 +8,7 @@ from fastapi.testclient import TestClient
 from code_practice import accounts, database, app as app_module
 from code_practice.shared_auth import SharedSessionAuth
 from code_practice.schemas import AttemptCreate
+from code_practice.study_lists import study_list_badges
 from test_shared_auth import _token
 
 HEADERS = {"X-Requested-With": "CodePractice"}
@@ -69,6 +70,31 @@ def test_original_owner_progress_preserved_and_new_accounts_start_empty(online):
     assert online.get("/api/problems/pair-sum-indices").json()["savedDraft"] == "owner draft"
     assert online.get("/api/problems/pair-sum-indices").json()["revealedHintLevel"] == 0
     assert database.profile_database_path(user["id"]).is_file()
+
+
+def test_owner_keeps_dp_focus_while_member_follows_interview_lists(online):
+    owner_day = online.get("/api/dashboard").json()
+    assert any("Daily DP focus" in (p["preparationReason"] or "")
+               for p in owner_day["recommendations"])
+
+    create(online)
+    with TestClient(app_module.app) as member:
+        sign_in(member, "learner")
+        assert member.post("/api/attempts", json=attempt()).status_code == 200
+        unrelated = {**attempt(), "problem_id": "recursive-digit-sum"}
+        assert not study_list_badges(unrelated["problem_id"])
+        assert member.post("/api/attempts", json=unrelated).status_code == 200
+        day = member.get("/api/dashboard").json()
+        assert [p["id"] for p in day["reviewRecommendations"]] == ["pair-sum-indices"]
+        assert all(study_list_badges(p["id"]) or
+                   (p["preparationReason"] or "").startswith("Preparation for ")
+                   for p in day["recommendations"])
+        assert all("Daily DP focus" not in (p["preparationReason"] or "")
+                   for p in day["recommendations"])
+        assert sum(1 if p["difficulty"] <= 3 else 2 if p["difficulty"] <= 7 else 3
+                   for p in day["recommendations"]) <= 5
+
+    assert online.get("/api/dashboard").json()["recommendations"] == owner_day["recommendations"]
 
 
 def test_members_cannot_manage_accounts_or_use_owner_codex(online):

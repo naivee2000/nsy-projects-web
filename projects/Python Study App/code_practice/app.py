@@ -299,7 +299,8 @@ def progress() -> dict[str, Any]:
 
 
 @app.get("/api/dashboard")
-def dashboard() -> dict[str, Any]:
+def dashboard(request: Request) -> dict[str, Any]:
+    owner_focus = request.state.user["id"] == "owner"
     catalog = get_catalog().metadata
     attempts = learning_attempts()
     mastery = topic_mastery(attempts, catalog)
@@ -320,7 +321,8 @@ def dashboard() -> dict[str, Any]:
 
     now = datetime.now(timezone.utc)
     today_key = datetime.now().astimezone().date().isoformat()
-    interview_plan = InterviewPlan(catalog, attempts, reviews, now, today_key)
+    interview_plan = InterviewPlan(catalog, attempts, reviews, now, today_key,
+                                  owner_focus=owner_focus)
     daily_ids = get_daily_assignment(today_key)
     if daily_ids is not None:
         newly_locked_ids = [
@@ -337,7 +339,7 @@ def dashboard() -> dict[str, Any]:
         if newly_locked_ids:
             daily_ids = remove_daily_assignment_problems(today_key, newly_locked_ids)
     if daily_ids is None:
-        selected = interview_plan.daily_session()
+        selected = interview_plan.daily_session(owner_focus=owner_focus)
         daily_ids = save_daily_assignment(today_key, [problem.id for problem in selected])
 
     assigned = [catalog[problem_id] for problem_id in daily_ids if problem_id in catalog]
@@ -356,6 +358,7 @@ def dashboard() -> dict[str, Any]:
             limit=5,
             selection_seed=today_key,
             recently_assigned_ids=recent_review_ids,
+            owner_focus=owner_focus,
         )
         daily_review = save_daily_review_assignment(today_key, [problem.id for problem in review_problems])
     review_assigned_at, assigned_review_ids = daily_review
@@ -385,7 +388,7 @@ def dashboard() -> dict[str, Any]:
     )
     return {
         "recommendations": [
-            {**problem_summary(problem, solved), "preparationReason": interview_plan.reason(problem.id)}
+            {**problem_summary(problem, solved), "preparationReason": interview_plan.reason(problem.id, owner_focus=owner_focus)}
             for problem in recommendations
         ],
         "interviewProgress": interview_plan.progress(),

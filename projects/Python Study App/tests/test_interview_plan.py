@@ -24,9 +24,10 @@ def attempt(key, result="accepted", minutes=0):
     return SimpleNamespace(problem_id=key, result=result, hint_level=0, created_at=NOW + timedelta(minutes=minutes))
 
 
-def plan_for(monkeypatch, problems, targets, attempts=()):
+def plan_for(monkeypatch, problems, targets, attempts=(), *, owner_focus=True):
     monkeypatch.setattr(interview_plan, "study_list_badges", lambda key: [{}] if key in targets else [])
-    return InterviewPlan({p.id: p for p in problems}, attempts, [], NOW, "2026-09-30")
+    return InterviewPlan({p.id: p for p in problems}, attempts, [], NOW, "2026-09-30",
+                         owner_focus=owner_focus)
 
 
 def test_unseen_interval_target_gets_related_easy_preparation_not_unrelated_work(monkeypatch):
@@ -38,6 +39,26 @@ def test_unseen_interval_target_gets_related_easy_preparation_not_unrelated_work
     assert "target" in plan.reason("intro")
     ready = plan_for(monkeypatch, problems, {"target"}, [attempt("intro")])
     assert [p.id for p in ready.ordered] == ["target"]
+
+
+def test_member_interview_path_uses_related_foundations_without_topic_quota(monkeypatch):
+    problems = [problem("target", 6, ["intervals"]),
+                problem("intro", 3, ["intervals"]),
+                problem("bridge", 4, ["intervals"]),
+                problem("unrelated", 2, ["trees"]),
+                problem("dp-practice", 3, ["dynamic-programming"])]
+    targets = {"target"}
+    beginner = plan_for(monkeypatch, problems, targets, owner_focus=False)
+    assert [p.id for p in beginner.daily_session(owner_focus=False)] == ["intro"]
+    assert "target" in beginner.reason("intro", owner_focus=False)
+    assert beginner.daily_session(owner_focus=False) == beginner.daily_session(owner_focus=False)
+
+    introduced = plan_for(monkeypatch, problems, targets, [attempt("intro")], owner_focus=False)
+    assert [p.id for p in introduced.daily_session(owner_focus=False)] == ["bridge"]
+    ready = plan_for(monkeypatch, problems, targets, [attempt("intro"), attempt("bridge", minutes=1)],
+                     owner_focus=False)
+    assert [p.id for p in ready.daily_session(owner_focus=False)] == ["target"]
+    assert ready.reason("target", owner_focus=False) is None
 
 
 def test_dp_beginner_gets_two_easy_and_three_normal_credits(monkeypatch):
