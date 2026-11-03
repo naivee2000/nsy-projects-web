@@ -9,6 +9,7 @@ import os
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 
@@ -183,6 +184,10 @@ def main() -> int:
         host_probe_detail = "Enable View > Developer > Allow JavaScript from Apple Events in Chrome"
         if host_status["ready"]:
             try:
+                reader = subprocess.run(
+                    [shutil.which("node") or "node", str(browser_server), "--scope-dom-script"],
+                    text=True, capture_output=True, timeout=10, check=True,
+                ).stdout.strip()
                 front_before = subprocess.run(
                     [shutil.which("osascript") or "osascript", "-e", "path to frontmost application as text"],
                     text=True,
@@ -198,6 +203,11 @@ def main() -> int:
                         "2000",
                         "0",
                         "1",
+                        str(time.time() + 45),
+                        "1",
+                        reader,
+                        "({action:'done',changed:false})",
+                        "(snapshot)=>({status:'ready'})",
                     ],
                     text=True,
                     capture_output=True,
@@ -213,7 +223,7 @@ def main() -> int:
                     check=False,
                 ).stdout.strip()
                 host_probe_ok = bool(
-                    capture.get("readyState") == "complete"
+                    (capture.get("pages") or [{}])[0].get("scope_snapshot", {}).get("ready_state") == "complete"
                     and capture.get("text")
                     and capture.get("backgroundMode") is True
                     and front_before

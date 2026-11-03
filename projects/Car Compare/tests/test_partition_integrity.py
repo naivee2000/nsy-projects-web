@@ -10,7 +10,7 @@ from pathlib import Path
 from unittest.mock import patch
 from urllib.parse import parse_qs, urlsplit
 
-from car_compare.collection_scope import verified_scope
+from car_compare.collection_scope import verified_scope, VALIDATION_REVISION
 from car_compare.depreciation import build_report
 from car_compare.market_evidence import aggregate_buckets
 from car_compare.models import Listing, MSRP, VehicleQuery
@@ -55,7 +55,7 @@ class OfflineTestCase(unittest.TestCase):
             "price_stats": {"median": median, "count": count},
             "price_bins": deepcopy(bins or []),
             "scope": verified_scope(
-                self.query, captured_at=1_793_232_000, complete=complete,
+                self.query, captured_at=time.time(), complete=complete,
                 partition_key=key, partition_manifest=deepcopy(manifest),
             ),
         }
@@ -173,8 +173,8 @@ class PartitionManifestTests(OfflineTestCase):
                 result = manager._run_browser_batch_unleased([target], root, timeout=1)[0]
             self.assertEqual(result["status"], "unavailable")
 
-    def test_fixture_uses_current_rev3_scope(self):
-        self.assertEqual(self.snapshot()["scope"]["validation_revision"], 3)
+    def test_fixture_uses_current_scope_revision(self):
+        self.assertEqual(self.snapshot()["scope"]["validation_revision"], VALIDATION_REVISION)
 
     def test_verified_empty_other_partition_preserves_exact_median(self):
         manifest = [partition("coupe"), partition("convertible", status="verified_empty"),
@@ -185,17 +185,21 @@ class PartitionManifestTests(OfflineTestCase):
         self.assertEqual(bucket.aggregate_count, 10)
         self.assertEqual(bucket.sample_count, 0)
 
-    def test_failed_or_unattempted_cpo_excludes_used_population(self):
+    def test_failed_or_unattempted_cpo_retains_labeled_used_subset(self):
         for status in ("failed", "unattempted"):
             with self.subTest(status=status):
                 manifest = [partition("coupe"), partition("cpo", "certified", status=status)]
-                self.assertEqual(self.buckets(self.snapshot(manifest=manifest)), {})
+                self.assertEqual(self.buckets(self.snapshot(manifest=manifest))[1].population_scope, "used_only")
 
     def test_missing_successful_partition_excludes_population(self):
         for condition in ("used", "certified"):
             with self.subTest(condition=condition):
                 manifest = [partition("coupe"), partition("missing", condition)]
-                self.assertEqual(self.buckets(self.snapshot(manifest=manifest)), {})
+                result = self.buckets(self.snapshot(manifest=manifest))
+                if condition == "used":
+                    self.assertEqual(result, {})
+                else:
+                    self.assertEqual(result[1].population_scope, "used_only")
 
     def test_partition_identity_includes_key_year_and_condition(self):
         for changed in ({"id": "other"}, {"year": 2024}, {"condition": "certified"}):
@@ -220,15 +224,11 @@ class PartitionManifestTests(OfflineTestCase):
 
 class HistogramIntegrityTests(OfflineTestCase):
     def test_disjoint_compatible_histograms_pool_counts_not_medians(self):
-        rows = self.pooled_rows()
-        bucket = self.buckets(*rows)[1]
-        self.assertEqual(bucket.pricing_method, "pooled_histogram_estimate")
-        self.assertEqual(bucket.aggregate_count, 10)
-        self.assertEqual(bucket.sample_count, 0)
-        self.assertAlmostEqual(bucket.median, 60_000 + 20_000 / 6)
-        self.assertNotEqual(bucket.median, 66_000)  # Count-weighted source medians.
-        self.assertAlmostEqual(bucket.q1, 52_500)
-        self.assertAlmostEqual(bucket.q3, 60_000 + 20_000 * 3.5 / 6)
+        from car_compare.market_evidence import _pooled_stats
+        stats = _pooled_stats(self.pooled_rows())
+        self.assertEqual(stats["count"], 10)
+        self.assertIsNone(stats["median"])  # 20k interval exceeds 20% of midpoint.
+        self.assertEqual(stats["median_interval"], [60_000, 80_000])
 
     def test_duplicate_partition_does_not_double_count(self):
         rows = self.pooled_rows()
@@ -248,19 +248,19 @@ class HistogramIntegrityTests(OfflineTestCase):
     def test_incompatible_grids_do_not_average_source_medians(self):
         rows = self.pooled_rows()
         rows[1]["price_bins"][0]["lower"] = 30_000
-        self.assertEqual(self.buckets(*rows), {})
+        self.assertEqual(self.buckets(*rows)[1].population_scope, "used_only")
 
     def test_overlapping_histogram_bins_are_rejected(self):
         rows = self.pooled_rows()
         rows[1]["price_bins"][0]["upper"] = 65_000
-        self.assertEqual(self.buckets(*rows), {})
+        self.assertEqual(self.buckets(*rows)[1].population_scope, "used_only")
 
     def test_missing_or_incomplete_histogram_is_rejected(self):
         for bins in ([], [{"lower": 40_000, "upper": 80_000, "count": 5}]):
             with self.subTest(bins=bins):
                 rows = self.pooled_rows()
                 rows[1]["price_bins"] = bins
-                self.assertEqual(self.buckets(*rows), {})
+                self.assertEqual(self.buckets(*rows)[1].population_scope, "used_only")
 
     def test_overlapping_version_populations_without_manifest_are_rejected(self):
         rows = self.pooled_rows()
@@ -271,15 +271,16 @@ class HistogramIntegrityTests(OfflineTestCase):
             row["scope"]["versions"] = versions
         self.assertEqual(self.buckets(*rows), {})
 
-    def test_incompatible_histograms_fall_back_to_individual_sample(self):
+    def test_incompatible_histograms_retain_verified_used_subset(self):
         rows = self.pooled_rows()
         rows[1]["price_bins"] = []
         listings = [Listing("sample", 2025, price, title="2025 BMW M4", vin=f"sample-{i}")
                     for i, price in enumerate((50_000, 60_000, 70_000))]
         bucket = self.report(rows, listings)["buckets"][1]
-        self.assertEqual(bucket["pricing_method"], "individual_sample_median")
+        self.assertEqual(bucket["pricing_method"], "exact_source_median")
+        self.assertEqual(bucket["population_scope"], "used_only")
         self.assertEqual(bucket["market_median"], 60_000)
-        self.assertEqual(bucket["aggregate_count"], 0)
+        self.assertEqual(bucket["aggregate_count"], 4)
 
 
 class NewInventoryBaselineTests(OfflineTestCase):
@@ -317,18 +318,18 @@ class NewInventoryBaselineTests(OfflineTestCase):
         self.assertFalse(report["summary"]["baselineAvailable"])
         self.assertIsNone(report["buckets"][0]["median"])
 
-    def test_new_inventory_across_model_years_pools_into_age_zero(self):
+    def test_new_inventory_uses_newest_complete_model_year(self):
         rows = self.pooled_rows()
         manifest = [partition("coupe", "new", 2026), partition("convertible", "new", 2027)]
         for row, year in zip(rows, (2026, 2027)):
             row.update(condition="new", year=year)
-            row["scope"]["partition_manifest"] = deepcopy(manifest)
+            row["scope"]["partition_manifest"] = [item for item in manifest if item["year"] == year]
         buckets = self.buckets(*rows)
         self.assertEqual(set(buckets), {0})
-        self.assertEqual(buckets[0].model_years, [2026, 2027])
-        self.assertIsNone(buckets[0].model_year)
-        self.assertEqual(buckets[0].aggregate_count, 10)
-        self.assertAlmostEqual(buckets[0].median, 60_000 + 20_000 / 6)
+        self.assertEqual(buckets[0].model_years, [2027])
+        self.assertEqual(buckets[0].model_year, 2027)
+        self.assertEqual(buckets[0].aggregate_count, 6)
+        self.assertEqual(buckets[0].median, 70_000)
 
     def test_missing_successful_new_model_year_excludes_baseline(self):
         manifest = [partition("new", "new", 2026), partition("next", "new", 2027)]

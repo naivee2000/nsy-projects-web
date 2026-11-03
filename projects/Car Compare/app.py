@@ -12,6 +12,7 @@ from typing import Any
 from urllib.parse import unquote
 
 from car_compare.codex_cli import codex_login_status
+from car_compare.collection_scope import REVISIONS
 from car_compare.collector import (
     CollectionManager,
     CollectorConfig,
@@ -122,7 +123,7 @@ class CarCompareHandler(BaseHTTPRequestHandler):
             )
             return
         if self.path == "/api/health":
-            self._send_json({"status": "ok", "app": "car-compare"})
+            self._send_json({"status": "ok", "app": "car-compare", "revisions": REVISIONS})
             return
         if self.path == "/api/setup":
             codex = codex_login_status(os.environ.get("CODEX_BIN", ""))
@@ -452,7 +453,12 @@ class CarCompareHandler(BaseHTTPRequestHandler):
 
 
 def _listings_from_payload(items: list[object]) -> list[Listing]:
-    return listings_from_result({"listings": items})
+    rows = listings_from_result({"listings": items})
+    for row in rows:
+        row.provenance = "manual"
+        row.source = "manual_import"
+        row.scope = {}
+    return rows
 
 
 def _initial_listings(request: Any) -> list[Listing]:
@@ -491,6 +497,9 @@ def _attach_collector_evidence(report: dict[str, Any], job_result: dict[str, Any
         "complete" if manifest and all(item.get("status") in {"successful", "verified_empty"} for item in manifest)
         else "partial" if manifest else "unverified"
     )
+    summary = report["summary"]
+    if summary["readiness"] == "usable" and any(source.get("status") not in {"success", "collected", "cached", "verifiedzero"} for source in evidence["collectorSources"]):
+        summary["readiness"] = "partial"
 
 
 class RequestBodyError(ValueError):

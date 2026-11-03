@@ -6,13 +6,33 @@ import threading
 import time
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 from car_compare.sources.request_budget import RequestBudget, SourceCoolingDown, BudgetCancelled, run_bounded
-from car_compare.sources.request_budget import _Deadline, _retry_seconds
+from car_compare.sources.request_budget import _Deadline, _retry_seconds, terminate_owned_process
 
 
 class RequestBudgetTests(unittest.TestCase):
+    def test_denied_group_probe_does_not_skip_owned_termination(self):
+        process = Mock(pid=123456, _request_budget_owner=os.getpid())
+        with patch("car_compare.sources.request_budget._group_has_live_members",return_value=True), patch("car_compare.sources.request_budget.os.killpg", side_effect=[None, PermissionError(), ProcessLookupError(), ProcessLookupError()]) as signal_group:
+            terminate_owned_process(process)
+        self.assertEqual(signal_group.call_args.args[1], 9)
+        process.wait.assert_called_once_with(timeout=1)
+
+    def test_actual_termination_permission_failure_is_not_hidden(self):
+        process = Mock(pid=123456, _request_budget_owner=os.getpid())
+        with patch("car_compare.sources.request_budget._group_has_live_members",return_value=True), patch("car_compare.sources.request_budget.os.killpg", side_effect=PermissionError()):
+            with self.assertRaises(PermissionError):
+                terminate_owned_process(process)
+
+    def test_exited_group_permission_race_requires_independent_empty_proof(self):
+        process=Mock(pid=123456,_request_budget_owner=os.getpid())
+        process.poll.return_value=0
+        with patch("car_compare.sources.request_budget.os.killpg",side_effect=PermissionError()), patch("car_compare.sources.request_budget._group_has_live_members",return_value=False):
+            terminate_owned_process(process)
+        process.wait.assert_called_once_with(timeout=1)
+
     def setUp(self):
         directory = tempfile.TemporaryDirectory()
         self.addCleanup(directory.cleanup)

@@ -39,6 +39,7 @@ class Listing:
     condition: str = "used"
     market_weight: float = 1.0
     scope: dict[str, Any] = field(default_factory=dict)
+    provenance: str = "manual"
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -100,6 +101,9 @@ class BucketStats:
     pricing_method: str = "unavailable"
     aggregate_count: int = 0
     pricing_sources: list[str] = field(default_factory=list)
+    population_scope: str = "used_cpo"
+    median_interval: list[float] = field(default_factory=list)
+    pricing_reason: str = ""
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

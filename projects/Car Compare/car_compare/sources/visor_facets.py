@@ -17,7 +17,7 @@ from dataclasses import dataclass, field, replace
 from typing import Any
 
 from car_compare.models import Listing, MSRP, VehicleQuery
-from car_compare.collection_scope import verified_scope, COLLECTION_SECONDS, VALIDATION_REVISION
+from car_compare.collection_scope import verified_scope, scope_is_verified, COLLECTION_SECONDS, VALIDATION_REVISION
 from car_compare.sources.request_budget import host_slot, rate_limited, run_bounded
 from car_compare.trim_match import trim_tokens, trim_value_matches_request
 from car_compare.vehicle_catalog import (
@@ -49,7 +49,7 @@ class VisorYearData:
     scope: dict[str, Any] = field(default_factory=dict)
 
 
-def collect_visor_public_facets(request: VehicleQuery, current_year: int | None = None, deadline_at: float | None = None) -> dict[str, Any]:
+def collect_visor_public_facets(request: VehicleQuery, current_year: int | None = None, deadline_at: float | None = None, reuse: dict[str, Any] | None = None) -> dict[str, Any]:
     """Capture disjoint model/condition partitions with fail-closed scope proof."""
     current_year = current_year if current_year is not None else _runtime_current_year()
     deadline_at = deadline_at or time.time() + COLLECTION_SECONDS
@@ -59,6 +59,9 @@ def collect_visor_public_facets(request: VehicleQuery, current_year: int | None 
     expected: dict[tuple[str, int], set[str]] = {}
     completed: dict[tuple[str, int], set[str]] = {}
     manifest: list[dict[str, Any]] = []
+    reusable = {(item.get("condition"), item.get("year"), item.get("scope", {}).get("partition_key")): item
+                for item in (reuse or {}).get("evidence", [])
+                if scope_is_verified(item.get("scope"), request)}
     try:
         models = _resolve_source_models(request, deadline_at=deadline_at)
     except Exception as exc:
@@ -112,6 +115,16 @@ def collect_visor_public_facets(request: VehicleQuery, current_year: int | None 
     with ThreadPoolExecutor(max_workers=2) as pool:
         futures = {}
         for condition, year, partition, url, spec, limit in tasks:
+            prior = reusable.get(("cpo" if condition == "certified" else condition, year, partition)) or reusable.get((condition, year, partition))
+            if prior and prior.get("url") == url and prior.get("price_stats", {}).get("count", 0) > 0:
+                rows.append(VisorYearData(year=year, url=url, car_type=condition,
+                            price_stats=prior["price_stats"], msrp_stats=prior.get("msrp_stats", {}),
+                            mileage_stats=prior.get("mileage_stats", {}), price_bins=prior.get("price_bins", []),
+                            num_found=prior.get("num_found", 0), filter_name=prior.get("filter_name", ""),
+                            filter_value=prior.get("filter_value", ""), scope=dict(prior["scope"])))
+                entry = next(item for item in manifest if item["id"] == partition and item["year"] == year and item["condition"] == condition)
+                entry.update(status="successful", captured_at=prior["scope"]["captured_at"], reused=True)
+                continue
             futures[pool.submit(_fetch_visor_facets, request, year, condition, url, str(spec["name"]), str(spec["value"]), limit, deadline_at)] = (condition, year, partition)
         for future in as_completed(futures):
             condition, year, partition = futures[future]
@@ -131,7 +144,7 @@ def collect_visor_public_facets(request: VehicleQuery, current_year: int | None 
                 notes.append(f"Visor {condition} {year}: {exc}")
     for row in rows:
         key = (row.car_type, row.year)
-        relevant = [item for item in manifest if (item["condition"] == "new" if row.car_type == "new" else item["condition"] != "new" and item["year"] == row.year)]
+        relevant = [item for item in manifest if item["year"] == row.year and (item["condition"] == "new" if row.car_type == "new" else item["condition"] != "new")]
         row.scope.update(complete=bool(relevant) and all(item["status"] in {"successful", "verified_empty"} for item in relevant), partition_manifest=relevant, expected_partitions=sorted(expected.get(key, set())))
     listings = _listings_from_years(request, rows, current_year)
     evidence = _facet_evidence(rows)

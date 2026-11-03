@@ -25,7 +25,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 MANIFEST = ROOT / "tests/fixtures/twenty_vehicle_queries.json"
-VALIDATION_REVISION = 3
+from car_compare.collection_scope import VALIDATION_REVISION
 MAX_TTL_SECONDS = 259200
 MAX_RESPONSE_BYTES = 4 * 1024 * 1024
 PUBLIC_PARAMETERS = {

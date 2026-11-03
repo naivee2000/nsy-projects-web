@@ -10,12 +10,13 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from car_compare.models import VehicleQuery
+from car_compare.collection_scope import REVISIONS
 
 
-# Revision 3 evidence requires explicit scope and partition verification.
+# Revision 4 evidence requires explicit scope, freshness and partition verification.
 # Old cache records remain on disk but cannot satisfy these versioned keys.
-CACHE_SCHEMA_VERSION = 6
-RESEARCH_CACHE_SCHEMA_VERSION = 5
+CACHE_SCHEMA_VERSION = REVISIONS["marketplace_cache"]
+RESEARCH_CACHE_SCHEMA_VERSION = REVISIONS["research_cache"]
 MAX_RECENT_TTL_SECONDS = 3 * 24 * 60 * 60
 MAX_OLDER_TTL_SECONDS = 3 * 24 * 60 * 60
 

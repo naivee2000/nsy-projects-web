@@ -103,14 +103,14 @@ class DepreciationRegressionTests(unittest.TestCase):
         age_twelve = report["buckets"][12]
 
         self.assertFalse(age_twelve["observed"])
-        self.assertTrue(age_twelve["predicted"])
+        self.assertFalse(age_twelve["predicted"])
         self.assertEqual(age_twelve["sample_count"], 1)
         self.assertEqual(age_twelve["market_median"], 10_001)
-        self.assertGreater(age_twelve["trend_median"], 10_001)
+        self.assertIsNone(age_twelve["trend_median"])
         self.assertEqual(age_twelve["median"], age_twelve["trend_median"])
-        self.assertEqual(age_twelve["confidence"], "long_range_projected_sparse_sample")
+        self.assertEqual(age_twelve["confidence"], "unavailable_insufficient_comparable_years")
         self.assertNotIn(12, report["summary"]["observedAges"])
-        self.assertIn(12, report["summary"]["predictedAges"])
+        self.assertNotIn(12, report["summary"]["predictedAges"])
         self.assertIn(12, report["summary"]["insufficientSampleAges"])
 
     def test_known_prelaunch_row_is_excluded_while_later_age_projects(self) -> None:
@@ -136,13 +136,13 @@ class DepreciationRegressionTests(unittest.TestCase):
         self.assertEqual(report["summary"]["outsideLifecycleYears"], {2014: 1})
         self.assertEqual(report["summary"]["listingCount"], 2)
         self.assertFalse(age_twelve["observed"])
-        self.assertTrue(age_twelve["predicted"])
+        self.assertFalse(age_twelve["predicted"])
         self.assertIsNone(age_twelve["model_year"])
         self.assertEqual(age_twelve["model_years"], [])
         self.assertEqual(age_twelve["sample_count"], 0)
         self.assertIsNone(age_twelve["market_median"])
-        self.assertGreater(age_twelve["trend_median"], 10_001)
-        self.assertEqual(age_twelve["confidence"], "long_range_projected_beyond_model_history")
+        self.assertIsNone(age_twelve["trend_median"])
+        self.assertEqual(age_twelve["confidence"], "unavailable_insufficient_comparable_years")
         self.assertFalse(any(row["year"] == 2014 for row in report["listings"]))
 
     def test_signed_value_changes_expose_appreciation_and_keep_loss_fields(self) -> None:
@@ -217,13 +217,9 @@ class DepreciationRegressionTests(unittest.TestCase):
         self.assertIsNone(observed["generation_adjustment_pct"])
         self.assertIsNone(observed["generation_unadjusted_median"])
 
-        self.assertTrue(predicted["predicted"])
-        self.assertEqual(predicted["generation_adjustment_pct"], 0.1)
-        self.assertIsNotNone(predicted["generation_unadjusted_median"])
-        self.assertEqual(
-            predicted["median"],
-            round(predicted["generation_unadjusted_median"] * 0.9, 2),
-        )
+        self.assertFalse(predicted["predicted"])
+        self.assertIsNone(predicted["generation_adjustment_pct"])
+        self.assertIsNone(predicted["median"])
 
     def test_iqr_whiskers_hide_extreme_price_without_deleting_evidence(self) -> None:
         query = parse_vehicle_query("BMW M4")

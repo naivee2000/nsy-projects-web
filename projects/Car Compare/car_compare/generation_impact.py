@@ -5,6 +5,7 @@ import subprocess
 import threading
 import time
 import uuid
+from datetime import datetime, timezone
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
@@ -19,6 +20,7 @@ from car_compare.codex_cli import (
     normalize_codex_reasoning_effort,
 )
 from car_compare.capture_cache import ResearchResultCache
+from car_compare.collection_scope import ANALYSIS_REVISION
 
 
 GENERATION_RESEARCH_TIMEOUT_SECONDS = 900
@@ -320,6 +322,11 @@ def _generation_cache_identity(request: VehicleQuery, reasoning_effort: str = "h
         "model": request.model.strip().casefold(),
         "trim": request.trim.strip().casefold(),
         "max_age": int(request.max_age),
+        "target_year": request.target_year,
+        "start_year": request.start_year,
+        "research_date": datetime.now(timezone.utc).date().isoformat(),
+        "analysis_revision": ANALYSIS_REVISION,
+        "scenario_policy": "optional_overlay",
         "reasoning_effort": normalize_codex_reasoning_effort(reasoning_effort, "high"),
     }
 

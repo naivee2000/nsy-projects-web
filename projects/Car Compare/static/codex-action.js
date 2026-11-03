@@ -80,7 +80,7 @@ form.addEventListener("submit", async (event) => {
         cardsExamined: Number(cardsInput.value),
         loadMoreClicked: Number(clicksInput.value),
         scope: {
-          validation_revision: 3,
+          validation_revision: selectedAction()?.validationRevision,
           validation_status: document.querySelector("#actionScopeVerified").checked ? "verified" : "unverified",
           geography: "nationwide",
           query_key: selectedAction()?.queryKey,

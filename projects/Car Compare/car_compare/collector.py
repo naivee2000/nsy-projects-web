@@ -42,7 +42,7 @@ from car_compare.sources.chrome_host import (
 )
 from car_compare.sources.request_budget import host_slot, rate_limited, run_bounded, start_owned_process, terminate_owned_process
 from car_compare.sources.visor_facets import collect_visor_public_facets
-from car_compare.collection_scope import COLLECTION_SECONDS, query_key, scope_is_verified, requested_scope
+from car_compare.collection_scope import COLLECTION_SECONDS, VALIDATION_REVISION, query_key, scope_is_verified, requested_scope
 from car_compare.sources.source_plan import build_collection_plan
 from car_compare.vehicle_catalog import collection_start_year, msrp_label_matches_scope
 from car_compare.vehicle_match import vehicle_text_match_score
@@ -362,6 +362,7 @@ class CollectionManager:
                         "jobId": job.id,
                         "query": job.query,
                         "queryKey": query_key(request),
+                        "validationRevision": VALIDATION_REVISION,
                         "requestedScope": requested_scope(request, [request.target_year] if request.target_year else list(range(_requested_collection_start_year(request, _runtime_current_year()), _runtime_current_year() + 1)), ["used", "cpo"]),
                         "maxAge": job.max_age,
                         "createdAt": job.created_at,
@@ -502,12 +503,12 @@ class CollectionManager:
         if self.config.use_visor_facets:
             facet_identity = _collector_review_cache_identity(request)
             facet_result = self._result_cache.load("visor_facets", facet_identity)
-            if facet_result:
+            if facet_result and facet_result.get("status") in {"success", "verifiedzero"}:
                 self._update(job_id, status="running", message="Reusing cached Visor public market facets")
             else:
                 self._update(job_id, status="running", message="Checking Visor public market facets")
                 try:
-                    facet_result = collect_visor_public_facets(request, deadline_at=deadline_at)
+                    facet_result = collect_visor_public_facets(request, deadline_at=deadline_at, **({"reuse": facet_result} if facet_result else {}))
                 except Exception as exc:
                     facet_result = {
                         "query": request.raw,
@@ -517,8 +518,9 @@ class CollectionManager:
                         "sources": [],
                         "listings": [],
                     }
-                if facet_result.get("status") in {"success", "verifiedzero"} and facet_result.get("partition_manifest"):
-                    captured_at = min(item["captured_at"] for item in facet_result["partition_manifest"])
+                timestamps = [item["captured_at"] for item in facet_result.get("partition_manifest", []) if item.get("captured_at")]
+                if facet_result.get("status") in {"success", "verifiedzero", "partial"} and timestamps:
+                    captured_at = min(timestamps)
                     self._result_cache.store("visor_facets", facet_identity, facet_result, captured_at=captured_at)
             if facet_result.get("listings"):
                 self._update(
@@ -1503,7 +1505,7 @@ class CollectionManager:
                 capture["rejectedReason"] = validation.get("status", "scope_unverified")
                 break
             accepted_before = len(listings)
-            if capture_is_access_wall(capture):
+            if capture_is_access_wall(capture) and not validation.get("accepted_pages"):
                 access_blocked = True
                 access_message = capture_access_message(capture)
                 capture["acceptedNew"] = 0
@@ -1514,23 +1516,16 @@ class CollectionManager:
                 zero_card_captures += 1
                 capture["rejectedReason"] = "zero_listing_cards"
             else:
-                reported_cards = _capture_listing_card_count(capture)
+                # Only cards belonging to individually verified pages are admissible.
+                accepted_cards = [card for index in validation.get("accepted_pages", [])
+                                  for card in capture["pages"][index].get("cards", [])]
+                reported_cards = len(accepted_cards)
                 structured_rows = parse_visible_listing_cards(
                     source,
-                    capture.get("cards") or [],
+                    accepted_cards,
                     request,
                 )
-                text_rows = parse_visible_listing_text(
-                    source,
-                    search_url,
-                    str(capture.get("text") or ""),
-                    request,
-                )
-                structured_keys = {_capture_listing_identity(item) for item in structured_rows}
-                parsed_rows = [
-                    *structured_rows,
-                    *(item for item in text_rows if _capture_listing_identity(item) not in structured_keys),
-                ]
+                parsed_rows = structured_rows
                 if reported_cards is not None and len(parsed_rows) > reported_cards:
                     rows_over_card_count += len(parsed_rows) - reported_cards
                     parsed_rows = parsed_rows[:reported_cards]
@@ -1548,6 +1543,8 @@ class CollectionManager:
                     if identity in seen:
                         continue
                     seen.add(identity)
+                    listing.scope = {**validation["scope"], "query_key": query_key(request)}
+                    listing.provenance = "collector"
                     listings.append(listing)
             capture["acceptedNew"] = len(listings) - accepted_before
             raw_path = job_dir / f"host_chrome_{source}_{search_index}.json"
@@ -1600,6 +1597,8 @@ class CollectionManager:
                 if not scope_is_verified(validation.get("scope"))
                 else "host_chrome_access_wall"
                 if access_blocked
+                else validation["failure_reason"]
+                if validation.get("failure_reason")
                 else "year_targets_met"
                 if quota["met"]
                 else "host_chrome_searches_complete"
@@ -1968,6 +1967,10 @@ def _merge_collector_results(
     )
     merged["evidence"] = [*(facet_result.get("evidence") or []), *(codex_result.get("evidence") or [])]
     merged["partition_manifest"] = [*(facet_result.get("partition_manifest") or []), *(codex_result.get("partition_manifest") or [])]
+    merged["validation_revision"] = VALIDATION_REVISION
+    timestamps = [row.get("scope", {}).get("captured_at") for row in merged["evidence"] if isinstance(row, dict)]
+    timestamps += [row.get("captured_at") for row in merged["partition_manifest"]]
+    merged["captured_at"] = min((value for value in timestamps if isinstance(value, (int, float))), default=None)
     if any(item.get("status") not in {"successful", "verified_empty"} for item in merged["partition_manifest"]):
         merged["status"] = "partial" if codex_result.get("listings") or facet_result.get("listings") else "blocked"
     merged["listings"] = [*(facet_result.get("listings") or []), *(codex_result.get("listings") or [])]
@@ -2076,7 +2079,9 @@ def _apply_browser_captures(result: dict[str, Any], job_dir: Path, request: Vehi
             if not parsed:
                 continue
             listing = parsed[0]
-            row_scope = listing.scope if scope_is_verified(listing.scope) and listing.scope.get("query_key") in (None, query_key(request)) else audit["scope"]
+            if listing.scope and (not scope_is_verified(listing.scope) or listing.scope.get("query_key") not in (None, query_key(request))):
+                continue
+            row_scope = listing.scope or audit["scope"]
             listing.scope = {**row_scope, "query_key": query_key(request)}
             if not listing_year_in_scope(listing.year, request):
                 outside_year_window += 1
@@ -2311,6 +2316,7 @@ def listings_from_result(result: dict[str, Any]) -> list[Listing]:
                     condition=condition,
                     market_weight=market_weight,
                     scope=item.get("scope") if isinstance(item.get("scope"), dict) else {},
+                    provenance="collector",
                 )
             )
         except (KeyError, TypeError, ValueError):
@@ -2460,7 +2466,9 @@ def _verified_audit_listings(request: VehicleQuery, audit: dict[str, Any]) -> li
         if identity in seen:
             continue
         seen.add(identity)
-        row_scope = listing.scope if scope_is_verified(listing.scope) and listing.scope.get("query_key") in (None, query_key(request)) else audit["scope"]
+        if listing.scope and (not scope_is_verified(listing.scope) or listing.scope.get("query_key") not in (None, query_key(request))):
+            continue
+        row_scope = listing.scope or audit["scope"]
         listing.scope = {**row_scope, "query_key": query_key(request)}
         rows.append(listing)
     return rows
@@ -2579,11 +2587,16 @@ def _merge_browser_audits(
         or (audit.get("search_verified") is True and audit.get("deterministic_verified") is True)
         for audit in usable
     )
+    meaningful_reasons = [str(audit.get("stop_reason") or audit.get("status") or "") for audit in usable
+                          if str(audit.get("stop_reason") or audit.get("status") or "") in {
+                              "filter_mismatch", "filter_unknown", "unchanged_results", "timeout", "deadline_exceeded",
+                              "rate_limited", "access_wall", "blocked", "parsing_failure"}]
     status = (
         "collected"
         if listings and quota["met"]
         else "partial"
         if listings
+        else meaningful_reasons[-1] if meaningful_reasons and meaningful_reasons[-1] not in {"access_wall", "blocked"}
         else "blocked"
         if any_blocked
         else "verifiedzero"
@@ -2621,7 +2634,7 @@ def _merge_browser_audits(
         "rejected_by_reason": rejected,
         "load_more_clicked": sum(int(audit.get("load_more_clicked") or 0) for audit in usable),
         "detail_pages_opened": sum(int(audit.get("detail_pages_opened") or 0) for audit in usable),
-        "stop_reason": "year_targets_met" if quota["met"] else "combined_capture_complete" if listings else "access_wall" if any_blocked else "no_rows",
+        "stop_reason": "year_targets_met" if quota["met"] else meaningful_reasons[-1] if meaningful_reasons else "combined_capture_complete" if listings else next((str(audit.get("stop_reason") or audit.get("status")) for audit in reversed(usable) if audit.get("status") not in {"collected", "verifiedzero", "cached"}), "no_rows"),
         "access_message": " | ".join(
             str(audit.get("access_message") or "").strip()
             for audit in usable

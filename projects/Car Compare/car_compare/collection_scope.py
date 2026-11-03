@@ -2,12 +2,16 @@
 from __future__ import annotations
 
 import time
+import json
+import math
+from pathlib import Path
 from typing import Any
 
 from car_compare.models import VehicleQuery
 
-VALIDATION_REVISION = 3
-ANALYSIS_REVISION = 3
+REVISIONS = json.loads(Path(__file__).with_name("revisions.json").read_text())
+VALIDATION_REVISION = REVISIONS["validation"]
+ANALYSIS_REVISION = REVISIONS["analysis"]
 COLLECTION_SECONDS = 12 * 60
 
 
@@ -23,6 +27,7 @@ def requested_scope(request: VehicleQuery, years: list[int], conditions: list[st
         item = chips.get(name, {})
         return str(item.get("value") or "") if item.get("mode") == "exact" else ""
     return {"make": request.make, "model": request.model, "trim": request.trim,
+            "trim_mode": chips.get("trim", {}).get("mode", "exact"),
             "years": years, "conditions": conditions, "body": exact("body_style"), "drivetrain": exact("drivetrain")}
 
 
@@ -40,6 +45,11 @@ def verified_scope(request: VehicleQuery, **fields: Any) -> dict[str, Any]:
 
 def scope_is_verified(scope: Any, request: VehicleQuery | None = None) -> bool:
     if not isinstance(scope, dict):
+        return False
+    captured = scope.get("captured_at")
+    if not isinstance(captured, (int, float)) or not math.isfinite(captured):
+        return False
+    if not time.time() - 259200 <= captured <= time.time() + 5:
         return False
     return (
         scope.get("validation_revision") == VALIDATION_REVISION

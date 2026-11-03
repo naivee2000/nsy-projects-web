@@ -281,6 +281,27 @@ def start_owned_process(command, **kwargs):
     return process
 
 
+def _group_has_live_members(group):
+    """Independent process-table check when macOS denies a signal-0 probe.
+
+    Unknown is live (fail closed). Read only IDs/state, never process arguments.
+    """
+    try:
+        result = subprocess.run(["/bin/ps", "-axo", "pid=,pgid=,stat="],
+                                text=True, capture_output=True, timeout=0.5, check=False)
+        if result.returncode or not result.stdout.strip():
+            return True
+        for line in result.stdout.splitlines():
+            fields = line.split()
+            if len(fields) != 3:
+                return True
+            if int(fields[1]) == group and not fields[2].startswith("Z"):
+                return True
+        return False
+    except (OSError, ValueError, subprocess.TimeoutExpired):
+        return True
+
+
 def terminate_owned_process(process, *, grace_seconds=0.2):
     """TERM then KILL only a group created by start_owned_process here.
 
@@ -296,6 +317,9 @@ def terminate_owned_process(process, *, grace_seconds=0.2):
         os.killpg(group, signal.SIGTERM)
     except ProcessLookupError:
         pass
+    except PermissionError:
+        if process.poll() is None or _group_has_live_members(group):
+            raise
     else:
         end = time.monotonic() + grace_seconds
         while time.monotonic() < end:
@@ -304,11 +328,20 @@ def terminate_owned_process(process, *, grace_seconds=0.2):
                 os.killpg(group, 0)
             except ProcessLookupError:
                 break
+            except PermissionError:
+                if process.poll() is not None and not _group_has_live_members(group):
+                    process.wait(timeout=1)
+                    return
             time.sleep(min(0.01, max(0, end - time.monotonic())))
         try:
             os.killpg(group, signal.SIGKILL)
         except ProcessLookupError:
             pass
+        except PermissionError:
+            # A dead group can be reported as EPERM by macOS sandbox policy.
+            # Ignore only after independently proving that no live members remain.
+            if process.poll() is None or _group_has_live_members(group):
+                raise
     process.wait(timeout=1)
 
 

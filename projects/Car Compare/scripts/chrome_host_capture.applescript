@@ -1,5 +1,5 @@
 on run argv
-  if (count of argv) is less than 7 then error "Target URL, limits, deadline, and scope reader are required"
+  if (count of argv) is less than 9 then error "Target URL, limits, deadline, scope reader, preparation and validation are required"
   set targetUrl to item 1 of argv
   set maxCharacters to (item 2 of argv) as integer
   set maxClicks to (item 3 of argv) as integer
@@ -7,6 +7,8 @@ on run argv
   set deadlineAt to (item 5 of argv) as real
   set maxPages to (item 6 of argv) as integer
   set scopeReader to item 7 of argv
+  set scopeRepair to item 8 of argv
+  set scopeValidator to item 9 of argv
   if targetUrl does not start with "https://" then error "Only HTTPS URLs are allowed"
   if maxPages < 1 then error "Page budget exhausted"
   my checkDeadline(deadlineAt)
@@ -34,6 +36,16 @@ on run argv
     set pagesJson to ""
     set beforeSnapshot to "null"
     set clicksMade to 0
+    -- The same bounded preparation used by the primary worker. No refresh is
+    -- trusted until the post-apply result has stabilized independently.
+    set beforeSnapshot to my waitForScope(probeTab, scopeReader, "null", deadlineAt)
+    repeat 24 times
+      my checkDeadline(deadlineAt)
+      tell application "Google Chrome" to set repairResult to execute probeTab javascript "JSON.stringify(" & scopeRepair & ")"
+      if repairResult contains "\"action\":\"done\"" then exit repeat
+      delay 0.7
+    end repeat
+    if repairResult contains "\"changed\":false" then set beforeSnapshot to "null"
     repeat with pageIndex from 1 to maxPages
       my checkDeadline(deadlineAt)
       repeat 6 times
@@ -46,6 +58,8 @@ on run argv
       tell application "Google Chrome" to set pageJson to execute probeTab javascript captureScript
       if pagesJson is not "" then set pagesJson to pagesJson & ","
       set pagesJson to pagesJson & pageJson
+      tell application "Google Chrome" to set pageValidation to execute probeTab javascript "JSON.stringify((" & scopeValidator & ")(" & scopeJson & "))"
+      if pageValidation does not contain "\"status\":\"ready\"" then exit repeat
       if pageJson does not contain "\"result_refresh_confirmed\":true" then exit repeat
       if pageIndex is maxPages or clicksMade is greater than or equal to maxClicks then exit repeat
       set beforeSnapshot to scopeJson
@@ -58,7 +72,7 @@ on run argv
 
     set backgroundJson to "false"
     if backgroundMode then set backgroundJson to "true"
-    set finalScript to "(()=>{const pages=[" & pagesJson & "];const unique=new Map();for(const p of pages)for(const c of p.cards)if(!unique.has(c.url))unique.set(c.url,c);const cards=[];let remaining=" & maxCharacters & "*4;for(const c of unique.values()){if(remaining<=0)break;const text=c.text.slice(0,Math.min(4000,remaining));remaining-=text.length;cards.push({url:c.url,text})}const last=pages.at(-1)||{};return JSON.stringify({title:last.title,url:last.url,text:pages.map(p=>p.text).join('\\n---\\n').slice(0," & maxCharacters & "),cards,pages:pages.map(p=>({...p,text:undefined,cards:p.cards.length,textLength:p.text.length})),pagesExamined:pages.length,cardsExamined:pages.reduce((n,p)=>n+p.cards.length,0),loadMoreClicked:" & clicksMade & ",backgroundMode:" & backgroundJson & ",selected_controls:last.selected_controls||[],result_refresh_confirmed:pages.length>0&&pages.every(p=>p.result_refresh_confirmed),validation_status:'unverified',requires_independent_scope_validation:true})})()"
+    set finalScript to "(()=>{const pages=[" & pagesJson & "];const unique=new Map();for(const p of pages)for(const c of p.cards)if(!unique.has(c.url))unique.set(c.url,c);const cards=[];let remaining=" & maxCharacters & "*4;for(const c of unique.values()){if(remaining<=0)break;const text=c.text.slice(0,Math.min(4000,remaining));remaining-=text.length;cards.push({url:c.url,text})}const last=pages.at(-1)||{};return JSON.stringify({title:last.title,url:last.url,text:pages.map(p=>p.text).join('\\n---\\n').slice(0," & maxCharacters & "),cards,pages:pages.map(p=>({...p,text:undefined,cards:p.cards,textLength:p.text.length})),pagesExamined:pages.length,cardsExamined:pages.reduce((n,p)=>n+p.cards.length,0),loadMoreClicked:" & clicksMade & ",backgroundMode:" & backgroundJson & ",selected_controls:last.selected_controls||[],result_refresh_confirmed:pages.length>0&&pages.every(p=>p.result_refresh_confirmed),validation_status:'unverified',requires_independent_scope_validation:true})})()"
     my checkDeadline(deadlineAt)
     tell application "Google Chrome"
       set captureJson to execute probeTab javascript finalScript

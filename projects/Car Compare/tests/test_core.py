@@ -904,12 +904,12 @@ class ReportTests(unittest.TestCase):
         self.assertTrue(all(bucket["model_years"] == [2022] for bucket in report["buckets"]))
         self.assertEqual(
             [bucket["forecast_year"] for bucket in report["buckets"]],
-            list(range(2022, 2029)),
+            list(range(2026, 2033)),
         )
         self.assertTrue(report["buckets"][4]["observed"])
-        self.assertEqual(report["generationImpact"]["adjustments"][0]["age"], 6)
+        self.assertEqual(report["generationImpact"]["adjustments"][0]["age"], 2)
         self.assertIsNone(report["buckets"][5]["generation_adjustment_pct"])
-        self.assertEqual(report["buckets"][6]["generation_adjustment_pct"], 0.1)
+        self.assertIsNone(report["buckets"][6]["generation_adjustment_pct"])
 
         empty = build_report(
             query,
@@ -920,7 +920,7 @@ class ReportTests(unittest.TestCase):
         self.assertTrue(all(bucket["model_year"] == 2022 for bucket in empty["buckets"]))
         self.assertEqual(
             [bucket["forecast_year"] for bucket in empty["buckets"]],
-            list(range(2022, 2029)),
+            list(range(2026, 2033)),
         )
 
     def test_dedupe_by_vin(self) -> None:
@@ -1518,8 +1518,8 @@ class ReportTests(unittest.TestCase):
         age_zero = report["buckets"][0]
         self.assertEqual(age_zero["model_year"], 2027)
         self.assertEqual(age_zero["model_years"], [2027])
-        self.assertEqual(age_zero["forecast_year"], 2027)
-        self.assertEqual(report["buckets"][1]["forecast_year"], 2028)
+        self.assertEqual(age_zero["forecast_year"], 2026)
+        self.assertEqual(report["buckets"][1]["forecast_year"], 2027)
 
     def test_report_resolves_runtime_year_per_call(self) -> None:
         query = parse_vehicle_query("BMW M4 Competition")
@@ -1582,11 +1582,10 @@ class ReportTests(unittest.TestCase):
         age_two = report["buckets"][2]
         self.assertFalse(age_one["predicted"])
         self.assertIsNone(age_one["generation_adjustment_pct"])
-        self.assertTrue(age_two["predicted"])
-        self.assertEqual(age_two["median"], 72900)
-        self.assertEqual(age_two["generation_adjustment_pct"], 0.1)
-        self.assertEqual(age_two["generation_adjustment_label"], "New generation launch shock")
-        self.assertEqual(age_two["depreciation_from_baseline"], 27100)
+        self.assertFalse(age_two["predicted"])
+        self.assertIsNone(age_two["median"])
+        self.assertIsNone(age_two["generation_adjustment_pct"])
+        self.assertIsNone(age_two["depreciation_from_baseline"])
 
     def test_generation_adjustment_does_not_rewrite_observed_future_proxy_age(self) -> None:
         query = parse_vehicle_query("BMW M4 Competition")
@@ -2969,13 +2968,14 @@ class CollectorPayloadTests(unittest.TestCase):
                 "url": payload["url"],
                 "requestedUrl": payload["url"],
                 "text": "Used 2025 BMW M4 Competition xDrive Coupe\n$83,999\n4,461 miles\n",
+                "pages": [{"cards": [{"url": "https://www.autotrader.com/cars-for-sale/vehicle/123", "text": "Used 2025 BMW M4 Competition xDrive Coupe\n$83,999\n4,461 miles\n"}]}],
                 "pagesExamined": 1,
                 "cardsExamined": 1,
                 "loadMoreClicked": 0,
             }
             with (
                 patch("car_compare.collector.capture_with_host_chrome", return_value=capture),
-                patch("car_compare.collector.validate_host_scope", return_value={"status": "ready", "scope": verified_scope(request), "evidence": {}}),
+                patch("car_compare.collector.validate_host_scope", return_value={"status": "ready", "scope": verified_scope(request), "evidence": {}, "accepted_pages": [0]}),
                 patch("car_compare.sources.browser_capture._runtime_current_year", return_value=2026),
                 patch("car_compare.collector._runtime_current_year", return_value=2026),
             ):

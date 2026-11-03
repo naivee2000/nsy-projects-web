@@ -1,5 +1,7 @@
 # Car Compare Website Deployment
 
+Current work: [Reliability revision 4 validation](RELIABILITY_V4_VALIDATION.md). Follow its release gate; the historical status below is not approval to restart.
+
 Before deploying the October 2026 changes, read [Verified Market Migration](VERIFIED_MARKET_MIGRATION.md). It records the new pricing/cache contract and outstanding live release checks; do not treat the historical validation below as fresh evidence.
 
 Last updated: 2026-10-29 (local migration; not released)

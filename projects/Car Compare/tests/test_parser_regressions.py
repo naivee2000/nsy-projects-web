@@ -200,9 +200,10 @@ class CollectorIntegrityRegressionTests(unittest.TestCase):
                 "end_year": 2026,
                 "target_years": [],
             }
+            capture["pages"] = [{"cards": [{"url": url, "text": capture["text"]}]}]
             with (
                 patch("car_compare.collector.capture_with_host_chrome", return_value=capture),
-                patch("car_compare.collector.validate_host_scope", return_value={"status": "ready", "scope": verified_scope(request), "evidence": {}}),
+                patch("car_compare.collector.validate_host_scope", return_value={"status": "ready", "scope": verified_scope(request), "evidence": {}, "accepted_pages": [0]}),
                 patch(
                     "car_compare.collector._browser_year_quota",
                     return_value={"counts": {2025: 1}, "targets": {2025: 1}, "sparse_years": [], "met": True},

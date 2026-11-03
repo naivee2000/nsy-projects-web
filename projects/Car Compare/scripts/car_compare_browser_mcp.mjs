@@ -10,6 +10,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { chromium } from "playwright";
 import * as z from "zod/v4";
+const REVISIONS = JSON.parse(await fs.readFile(new URL('../car_compare/revisions.json', import.meta.url), 'utf8'));
+const VALIDATION_REVISION = REVISIONS.validation;
 
 const ALLOWED_HOSTS = [
   "autotrader.com",
@@ -58,18 +60,19 @@ export class Deadline {
 }
 
 export function captureScope(geography = "unknown", verified = false) {
-  return { validation_revision: 3, validation_status: verified ? "verified" : "unverified", geography, captured_at: Date.now() / 1000, complete: verified };
+  return { validation_revision: VALIDATION_REVISION, validation_status: verified ? "verified" : "unverified", geography, captured_at: Date.now() / 1000, complete: verified };
 }
 
 export function scopeIsNational(scope) {
-  return scope?.validation_revision === 3 && scope.validation_status === "verified" && scope.geography === "nationwide" && scope.complete === true;
+  return scope?.validation_revision === VALIDATION_REVISION && scope.validation_status === "verified" && scope.geography === "nationwide" && scope.complete === true;
 }
 
 // Read selected controls, never option availability, page titles, or listing locations.
 export function readScopeDOM() {
   const visible = (node) => {
-    const style = getComputedStyle(node);
-    const rect = node.getBoundingClientRect();
+    const target = node.closest('label') || node;
+    const style = getComputedStyle(target);
+    const rect = target.getBoundingClientRect();
     return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
   };
   const label = (node) => [node.getAttribute("aria-label"), node.getAttribute("title"), node.closest('fieldset')?.querySelector('legend')?.textContent,
@@ -77,7 +80,7 @@ export function readScopeDOM() {
     ...(node.getAttribute("aria-labelledby") || "").split(/\s+/).filter(Boolean).map((id) => document.getElementById(id)?.textContent),
   ].filter(Boolean).join(" ").trim();
   const controls = [];
-  for (const node of document.querySelectorAll('select,input[type="range"],[role="slider"],input[type="radio"],input[type="checkbox"],[role="radio"],[role="checkbox"],[role="combobox"],button,[data-testid*="filter-chip"],[data-testid*="selected-filter"]')) {
+  for (const node of document.querySelectorAll('select,input,[role="slider"],[role="radio"],[role="checkbox"],[role="combobox"],button,[data-testid*="filter-chip"],[data-testid*="selected-filter"]')) {
     if (!visible(node)) continue;
     const name = label(node);
     const text = (node.innerText || node.textContent || "").trim();
@@ -86,10 +89,12 @@ export function readScopeDOM() {
       const values = Array.from(node.selectedOptions || [], (option) => option.textContent.trim());
       controls.push({ kind: "select", name, value: values.join(" "), values });
     } else if (node.type === "range" || role === "slider") {
-      controls.push({ kind: "slider", name, value: node.getAttribute("aria-valuetext") || "", max: node.getAttribute("aria-valuemax") || node.max, now: node.getAttribute("aria-valuenow") || node.value });
+      controls.push({ kind: "slider", name, value: node.getAttribute("aria-valuetext") || (/year/i.test(name) ? node.value : ""), max: node.getAttribute("aria-valuemax") || node.max, now: node.getAttribute("aria-valuenow") || node.value });
     } else if (node.checked || node.getAttribute("aria-checked") === "true") {
       controls.push({ kind: "radio", name, value: Array.from(node.labels || [], (item) => item.textContent).join(" ").trim() || text || node.getAttribute("aria-label") || node.value || "" });
-    } else if (role === "combobox" || /(?:radius|distance)/i.test(`${name} ${text}`) || /selected-filter|filter-chip/i.test(node.getAttribute("data-testid") || "")) {
+    } else if (/activate to remove|(?:remove|clear).*filter/i.test(name) || node.closest('[aria-label="Selected filters"]')) {
+      if (!/clear all/i.test(name)) controls.push({kind:"chip",name:"Selected filter",value:(name || text).replace(/\.\s*Activate to remove\.?/i, "").replace(/^(?:Remove|Clear)\s+/i, "").replace(/\s+filter$/i, "").trim()});
+    } else if (role === "combobox" || /(?:radius|distance|min year|max year)/i.test(`${name} ${text}`) || /selected-filter|filter-chip/i.test(node.getAttribute("data-testid") || "")) {
       controls.push({ kind: "selected", name, value: text || node.getAttribute("aria-valuetext") || node.value || "" });
     }
   }
@@ -98,10 +103,13 @@ export function readScopeDOM() {
   const resultText = resultLinks.map((node) => `${node.href}|${node.closest('article,[data-testid*="card"],li')?.innerText || node.innerText}`).join("\n");
   const text = document.body?.innerText || "";
   return {
-    url: location.href, title: document.title, text: text.slice(0, 30_000), controls,
+    url: location.href, title: document.title, text: text.slice(0, 30_000), controls, captured_at:Date.now()/1000,
+    preparation_actions:(window.__carCompareRepairHistory||[]).slice(-40),
     ready_state: document.readyState, document_id: performance.timeOrigin,
     busy: Array.from(document.querySelectorAll('[aria-busy="true"],[role="progressbar"],[data-testid*="loading"],.loading-spinner')).some(visible),
     result_count: resultLinks.length, fingerprint: resultText,
+    model_catalog:Array.from(document.querySelectorAll('select')).filter(node=>/^Search by Model/i.test(node.getAttribute('aria-label')||'')).flatMap(node=>Array.from(node.options,option=>option.textContent.trim())),
+    choice_catalog:Array.from(document.querySelectorAll('input[type="checkbox"],[role="checkbox"]')).map(node=>label(node)||node.textContent||"").concat(Array.from(document.querySelectorAll('select')).flatMap(node=>Array.from(node.options,option=>option.textContent.trim()))),
     nationwide_links: links.filter((node) => /^(?:nationwide|all miles|unlimited|any distance)$/i.test((node.innerText || "").trim())).map((node) => node.href),
   };
 }
@@ -117,9 +125,10 @@ function sourceUrlMatches(rawUrl, source) {
 const SCOPE_FIELDS = ["make", "model", "trim", "years", "conditions", "body", "drivetrain"];
 
 function scopeValue(value, field) {
-  const clean = String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  let clean = String(value ?? "").replace(/\s*\([\d,]+\)\s*$/, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  if (field === "model") clean = clean.replace(/\s+models?$/, "");
   const aliases = {
-    conditions: { "certified pre owned": "cpo", "certified used": "cpo", certified: "cpo", "pre owned": "used", "brand new": "new" },
+    conditions: { "manufacturer certified": "cpo", "third party certified": "cpo", "certified pre owned": "cpo", "certified used": "cpo", certified: "cpo", "pre owned": "used", "brand new": "new" },
     drivetrain: { "all wheel drive": "awd", "rear wheel drive": "rwd", "front wheel drive": "fwd", "four wheel drive": "4wd" },
     body: { "sport utility vehicle": "suv", "sport utility": "suv" },
   };
@@ -129,8 +138,10 @@ function scopeValue(value, field) {
 function controlField(control) {
   if (SCOPE_FIELDS.includes(control.field)) return control.field;
   const name = control.name || "";
+  if (/^Search by Make\b/i.test(name)) return "make";
+  if (/^Search by Model\b/i.test(name)) return "model";
   if (/year/i.test(name)) return "years";
-  if (/condition|new.*used|inventory type/i.test(name)) return "conditions";
+  if (/condition|new.*used|inventory type|certified/i.test(name)) return "conditions";
   if (/drive.?train|drive type/i.test(name)) return "drivetrain";
   if (/body|body style/i.test(name)) return "body";
   if (/trim/i.test(name)) return "trim";
@@ -141,9 +152,30 @@ function controlField(control) {
 
 // Exact selected sets are intentional: a broader filter cannot prove a narrow search.
 export function inspectRequestedScope(controls, requested) {
+  // Some marketplaces encode numeric trims in the selected model (LC 500,
+  // NX 350). This is selected-control evidence, not a catalog-option match.
+  const derived=[];
+  controls=controls.map(control=>{
+    const value=scopeValue(control.value,"model").replaceAll(" ","");
+    const combined=scopeValue(`${requested?.model || ""} ${requested?.trim || ""}`,"model").replaceAll(" ","");
+    if(requested?.trim && /^\d/.test(requested.trim) && [combined,scopeValue(requested.make,"make").replaceAll(" ","")+combined].includes(value) && (controlField(control)==="model"||control.kind==="chip")){
+      derived.push({field:"trim",kind:"selected-model-variant",name:"Trim encoded in selected model",value:requested.trim});
+      return {...control,field:"model",value:requested.model,values:[requested.model]};
+    }
+    return control;
+  }).concat(derived);
+  controls = controls.map(control => {
+    if (controlField(control)) return control;
+    for(const model of requested?.model_members || [requested?.model]) {
+      if(model && [model,`${requested?.make || ""} ${model}`].some(value=>scopeValue(control.value,"model")===scopeValue(value,"model"))) return {...control,field:"model",value:model};
+    }
+    if(requested?.trim_members?.some(value=>scopeValue(value,"trim")===scopeValue(control.value,"trim"))) return {...control,field:"trim"};
+    const field = SCOPE_FIELDS.find(field => !["years", "conditions"].includes(field) && requested?.[field] && scopeValue(control.value, field) === scopeValue(requested[field], field));
+    return {...control, field:field || (/\d{4}\s*[-–]\s*\d{4}/.test(control.value) ? "years" : /^(used|new|.*certified|certified.*)$/i.test(control.value) ? "conditions" : undefined)};
+  });
   const fields = {};
   for (const field of SCOPE_FIELDS) {
-    const expected = requested?.[field];
+    const expected = field === "model" ? requested?.model_members || requested?.model : field === "trim" ? requested?.trim_members || requested?.trim : requested?.[field];
     const required = ["make", "model", "years", "conditions"].includes(field);
     if (expected == null || (Array.isArray(expected) ? !expected.length : !String(expected).trim()) || (field === "trim" && /^(?:unspecified|all|any)$/i.test(String(expected).trim()))) {
       const narrowed = controls.filter((control) => controlField(control) === field).flatMap((control) => control.values || [control.value]).filter((value) => value && !/^(?:all(?:\s+.*)?|any(?:\s+.*)?|unspecified|select(?:\s+.*)?)$/i.test(String(value).trim()));
@@ -151,14 +183,18 @@ export function inspectRequestedScope(controls, requested) {
       continue;
     }
     const selected = controls.filter((control) => controlField(control) === field);
-    let observed = selected.flatMap((control) => control.values || [control.value]).filter((value) => value != null && String(value).trim());
+    let observed = selected.flatMap((control) => control.values || [control.value]).filter((value) => value != null && String(value).trim() && !/^Add (?:Make|Model)$/i.test(String(value).trim()));
     if (field === "years") {
       const lower = selected.find((control) => /min|from|start/i.test(control.name || ""));
       const upper = selected.find((control) => /max|to\b|end/i.test(control.name || ""));
       const range = lower && upper ? [lower.value, upper.value] : observed.length === 1 && /^\s*\d{4}\s*(?:-|\u2013|to)\s*\d{4}\s*$/i.test(observed[0]) ? String(observed[0]).match(/\d{4}/g) : null;
       if (range) {
-        const [start, end] = range.map(Number);
+        const [start, end] = range.map(value => Number(String(value).match(/\b(?:19|20)\d{2}\b/)?.[0]));
         observed = Number.isInteger(start) && end >= start && end - start <= 120 ? Array.from({ length: end - start + 1 }, (_, index) => start + index) : [];
+        const lowerValues=selected.filter(c=>/min|from|start/i.test(c.name||"")).map(c=>String(c.value).match(/\b(?:19|20)\d{2}\b/)?.[0]);
+        const upperValues=selected.filter(c=>/max|to\b|end/i.test(c.name||"")).map(c=>String(c.value).match(/\b(?:19|20)\d{2}\b/)?.[0]);
+        const chips=selected.filter(c=>c.kind==="chip").map(c=>String(c.value).match(/\d{4}/g));
+        if(new Set(lowerValues).size>1||new Set(upperValues).size>1||chips.some(values=>values?.length===2&&(Number(values[0])!==start||Number(values[1])!==end))) observed=["conflicting selected year controls"];
       } else if (lower || upper) observed = [];
     }
     const wanted = [...new Set((Array.isArray(expected) ? expected : [expected]).map((value) => scopeValue(value, field)))].sort();
@@ -178,7 +214,10 @@ export function inspectSearchScope(snapshot, source, httpStatus = 200, requested
     (control.kind !== "slider" || String(control.now) === String(control.max)));
   const local = selected.some((control) => /\b\d[\d,]*\s*(?:mi\b|miles\b|km\b)/i.test(control.value || "") && !/nationwide|all miles/i.test(control.value || ""));
   const geography = local ? "local" : national ? "nationwide" : "unknown";
-  const vehicle = inspectRequestedScope(snapshot.controls || [], requestedScope);
+  const restrictedRegion = (snapshot.controls || []).some(control => /^(?:state|province|region)(?:\b|:)/i.test(control.name || "") && !/^(?:all|any|nationwide|all states)(?:\s|$)/i.test(control.value || ""));
+  const members = source === "edmunds_browser" && !requestedScope?.trim ? (snapshot.model_catalog || []).filter(value=>scopeValue(value,"model")===scopeValue(requestedScope?.model,"model")||scopeValue(value,"model").startsWith(scopeValue(requestedScope?.model,"model")+" ")) : [];
+  const trimMembers = requestedScope?.trim_mode === "family" ? (snapshot.choice_catalog || []).filter(value=>scopeValue(value,"trim")===scopeValue(requestedScope.trim,"trim")||scopeValue(value,"trim").startsWith(scopeValue(requestedScope.trim,"trim")+" ")) : [];
+  const vehicle = inspectRequestedScope(snapshot.controls || [], {...requestedScope,...(members.length ? {model_members:members} : {}),...(trimMembers.length ? {trim_members:trimMembers} : {})});
   const evidence = { requested_scope: requestedScope, selected_controls: snapshot.controls || [], geography_controls: selected, constraints: vehicle.fields, constraint_status: vehicle.status, final_url: snapshot.url, result_refresh_confirmed: false };
   const result = (status) => ({ status, scope: captureScope(geography), evidence });
   if (httpStatus === 429 || /too many requests|rate limit(?:ed| exceeded)?|temporarily throttled/i.test(text)) return result("rate_limited");
@@ -188,7 +227,7 @@ export function inspectSearchScope(snapshot, source, httpStatus = 200, requested
   const url = new URL(snapshot.url);
   const urlMatches = source === "autotrader_browser" ? url.searchParams.get("searchRadius") === "0"
     : source === "porsche_finder_browser" ? url.searchParams.get("position")?.split(",").at(-1) === "-1" : true;
-  if (local || !urlMatches || vehicle.status === "mismatch") return result("filter_mismatch");
+  if (local || restrictedRegion || !urlMatches || vehicle.status === "mismatch") return result("filter_mismatch");
   if (!national || vehicle.status === "unknown") return result("filter_unknown");
   if (snapshot.result_count > 0) return result("ready");
   if (/\b(?:no (?:matching )?(?:vehicles|cars|results|listings)(?: found| available)?|0 (?:matching )?(?:vehicles|cars|results|listings))\b/i.test(snapshot.text || "")) return result("verifiedzero");
@@ -201,16 +240,104 @@ export function validateHostScope(capture, requestedScope) {
     const snapshot = page.scope_snapshot || {};
     const result = inspectSearchScope(snapshot, capture.source, 200, requestedScope);
     result.evidence.result_refresh_confirmed = page.result_refresh_confirmed === true;
-    if (["ready", "verifiedzero"].includes(result.status) && page.result_refresh_confirmed !== true) result.status = "loading";
+    if (["ready", "verifiedzero"].includes(result.status) && page.result_refresh_confirmed !== true) result.status = snapshot.busy ? "timeout" : "unchanged_results";
     return result;
   });
   const failure = validations.find((result) => !["ready", "verifiedzero"].includes(result.status));
-  const verified = validations.length > 0 && !failure;
+  const acceptedPages = validations.map((result,index) => (["ready", "verifiedzero"].includes(result.status) ? index : -1)).filter(index => index >= 0);
+  const verified = acceptedPages.length > 0;
   return {
-    status: failure?.status || (verified ? validations.every((result) => result.status === "verifiedzero") ? "verifiedzero" : "ready" : "filter_unknown"),
+    status: failure && verified ? "partial" : failure?.status || (verified ? validations.every((result) => result.status === "verifiedzero") ? "verifiedzero" : "ready" : "filter_unknown"),
     scope: captureScope(verified ? "nationwide" : failure?.scope.geography, verified),
+    accepted_pages: acceptedPages,
+    failure_reason: failure?.status || "",
     evidence: { requested_scope: requestedScope, result_refresh_confirmed: verified, pages: validations.map((result) => ({ ...result.evidence, status: result.status })) },
   };
+}
+
+// One bounded repair pass. Read the site's actual option labels; never set
+// selected-state attributes or infer an applied filter from the requested URL.
+export function repairScopeDOM(input) {
+  const requested = input.requested_scope || {};
+  const norm = value => String(value || "").replace(/\s*\([\d,]+\)\s*$/, "").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+  const visible = node => {const target=node.closest('label')||node,r=target.getBoundingClientRect();return r.width>0&&r.height>0&&getComputedStyle(target).visibility!=="hidden";};
+  const label = node => node.getAttribute("aria-label") || (node.getAttribute("aria-labelledby")||"").split(/\s+/).map(id=>document.getElementById(id)?.textContent||"").join(" ").trim() || Array.from(node.labels || [],x=>x.innerText).join(" ") || node.innerText || "";
+  const state = window.__carCompareRepair || (window.__carCompareRepair={opened:[],changed:false,applied:false});
+  if(/access denied|verify you are human|captcha|too many requests/i.test((document.body?.innerText||"").slice(0,2500))) return {action:"done",changed:false};
+  const buttons = [...document.querySelectorAll('button,[role="button"],[role="combobox"]')].filter(visible);
+  const click = node => {(node.closest('label') || node).click();return {action:"click",label:label(node)};};
+  const open = (name,pattern) => {
+    if(state.opened.includes(name))return null;
+    const node=buttons.find(node=>pattern.test(label(node))&&node.getAttribute("aria-expanded")!=="true");
+    if(node){state.opened.push(name);return click(node);} return null;
+  };
+  if(input.source==="autotrader_browser") {
+    if(state.applied) {
+      const reopen=buttons.find(node=>/^\W*Filters\s*(?:\(\d+\))?$/i.test(label(node)));
+      if(reopen&&!state.opened.includes("inspect-applied")){state.opened.push("inspect-applied");return click(reopen);}
+      return {action:"done",changed:state.changed};
+    }
+    const panel=open("filters",/^\W*Filters\s*(?:\(\d+\))?$/i);if(panel)return panel;
+    const family=open("series",/^Series\s+Any$/i);if(family)return family;
+  }
+  const controls=[...document.querySelectorAll('input,[role="checkbox"],select,[role="slider"]')].filter(visible);
+  const model=norm(requested.model), make=norm(requested.make);
+  for(const node of controls) {
+    const name=norm(label(node));
+    if(node.tagName==="INPUT"&&node.type!=="range"&&/min.*year|max.*year/.test(name)) {
+      const desired=String(/min/.test(name)?Math.min(...requested.years):Math.max(...requested.years));
+      if(node.value!==desired&&!state.opened.includes(name)){state.opened.push(name);node.focus();Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,"value").set.call(node,desired);node.dispatchEvent(new Event("input",{bubbles:true}));node.dispatchEvent(new Event("change",{bubbles:true}));node.blur();state.changed=true;return {action:"year",value:desired};}
+    } else if(node.tagName==="SELECT") {
+      let desired=/min.*year|start.*year|from.*year/.test(name)?String(Math.min(...requested.years)):/max.*year|end.*year|to.*year/.test(name)?String(Math.max(...requested.years)):/distance|radius/.test(name)?"nationwide":/make/.test(name)?requested.make:/model/.test(name)?requested.model:/trim/.test(name)?requested.trim:null;
+      if(/model/.test(name)&&/^\d/.test(requested.trim||"")) {
+        const variant=[...node.options].find(option=>norm(option.textContent).replaceAll(" ","")===norm(`${requested.model} ${requested.trim}`).replaceAll(" ",""));
+        if(variant)desired=variant.textContent;
+      }
+      if(input.source==="edmunds_browser"&&/^search by model/.test(name)&&!requested.trim){
+        const applied=buttons.map(button=>norm(label(button).replace(/^Clear\s+/i,"").replace(/\s+filter$/i,"")));
+        desired=[...node.options].map(option=>option.textContent.trim()).find(value=>(norm(value)===model||norm(value).startsWith(model+" "))&&!applied.includes(make+" "+norm(value)));
+        if(!desired)continue;
+      }
+      if(!desired)continue;
+      const option=[...node.options].find(o=>norm(o.textContent)===norm(desired)||norm(o.textContent)===norm(desired)+" models");
+      if(option&&node.value!==option.value){const setter=Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,"value").set;setter.call(node,option.value);node.dispatchEvent(new Event("change",{bubbles:true}));state.changed=true;return {action:"select",label:name,value:option.textContent};}
+    } else if(node.type==="range"||node.getAttribute("role")==="slider") {
+      if(!/radius|distance/.test(name)||/nationwide/i.test(node.getAttribute("aria-valuetext")||""))continue;
+      if(state.opened.includes("radius-set"))continue;
+      state.opened.push("radius-set");node.focus();
+      if(node.type==="range"){Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,"value").set.call(node,node.max);node.dispatchEvent(new Event("input",{bubbles:true}));node.dispatchEvent(new Event("change",{bubbles:true}));}
+      node.dispatchEvent(new KeyboardEvent("keydown",{key:"End",code:"End",keyCode:35,which:35,bubbles:true}));node.dispatchEvent(new KeyboardEvent("keyup",{key:"End",code:"End",keyCode:35,which:35,bubbles:true}));node.dispatchEvent(new MouseEvent("mouseup",{bubbles:true}));node.blur();state.changed=true;return {action:"nationwide"};
+    } else {
+      const checked=node.checked||node.getAttribute("aria-checked")==="true";
+      let desired=null;
+      if(name===make||name===model||name===model+" models"||name===norm(requested.trim)&&requested.trim||/^\d/.test(requested.trim||"")&&name.replaceAll(" ","")===norm(`${requested.model} ${requested.trim}`).replaceAll(" ",""))desired=true;
+      if(requested.trim_mode==="family"&&requested.trim&&name.startsWith(norm(requested.trim)+" "))desired=true;
+      if(/^(?:new|used|manufacturer certified|third party certified|certified pre owned|certified)$/.test(name))desired=name==="new"?requested.conditions.includes("new"):name==="used"?requested.conditions.includes("used"):requested.conditions.includes("cpo");
+      if(desired!==null&&Boolean(checked)!==desired){state.changed=true;return click(node);}
+    }
+  }
+  for(const [name,pattern] of [["make-model",/^Make[, &]+Model(?: & Trim)?$/i],["models",/^Models?\s+(?:Any|All)$/i],["trim",/^Trim(?:s)?(?:\s+(?:Any|All))?$/i],["condition",/^(?:Condition|New \/ Used)$/i],["year",/^Year$/i],["location",/^Location(?: & Delivery)?$/i]]) {
+    if(name==="trim"&&!requested.trim)continue;
+    const action=open(name,pattern);if(action)return action;
+  }
+  const apply=buttons.find(node=>/^(?:See [\d,]+ Results|Show [\d,]+ Results|Apply(?: Filters)?|Show Results|Update Results)$/i.test(label(node).trim()));
+  if(apply&&!state.applied){state.applied=true;return click(apply);}
+  return {action:"done",changed:state.changed};
+}
+
+function repairScript(input) { return `(()=>{const result=(${repairScopeDOM.toString()})(${JSON.stringify(input)});(window.__carCompareRepairHistory||(window.__carCompareRepairHistory=[])).push(result);return result;})()`; }
+
+function validatorScript(input) {
+  return `(snapshot)=>{const VALIDATION_REVISION=${VALIDATION_REVISION},SOURCE_HOSTS=${JSON.stringify(SOURCE_HOSTS)},SCOPE_FIELDS=${JSON.stringify(SCOPE_FIELDS)};${[captureScope,sourceUrlMatches,scopeValue,controlField,inspectRequestedScope,inspectSearchScope].map(fn=>fn.toString()).join(";")};return inspectSearchScope(snapshot,${JSON.stringify(input.source)},200,${JSON.stringify(input.requested_scope)});}`;
+}
+
+async function repairRequestedScope(page,input,deadline) {
+  await page.evaluate(() => {delete window.__carCompareRepair;});
+  for(let step=0;step<24;step++) {
+    const result=await deadline.run(()=>page.evaluate(repairScript(input)));
+    if(result.action==="done")return result;
+    await deadline.pause(700);
+  }
 }
 
 async function scopeSnapshot(page, deadline) {
@@ -237,7 +364,7 @@ export async function waitForSearchScope(page, input, deadline, { before = null,
     if (["filter_mismatch", "filter_unknown"].includes(last.status) && !snapshot.busy && before == null) return { ...last, snapshot };
     await deadline.pause();
   } while (Date.now() < waitUntil);
-  return { ...last, status: ["filter_mismatch", "filter_unknown"].includes(last?.status) ? last.status : "loading", scope: captureScope(last?.scope.geography), snapshot: await scopeSnapshot(page, deadline) };
+  return { ...last, status: ["filter_mismatch", "filter_unknown"].includes(last?.status) ? last.status : before && !refreshed ? "unchanged_results" : "timeout", scope: captureScope(last?.scope.geography), snapshot: await scopeSnapshot(page, deadline) };
 }
 
 async function setNationwideControl(page, source, deadline) {
@@ -275,6 +402,9 @@ export async function prepareNationwide(page, input, deadline, httpStatus = 200)
   const initial = await waitForSearchScope(page, input, deadline, { navigation: true, httpStatus });
   if (scopeIsNational(initial.scope) || ["blocked", "rate_limited"].includes(initial.status)) return initial;
   if (!sourceUrlMatches(page.url(), input.source)) return initial;
+  const repair=await repairRequestedScope(page,input,deadline);
+  let repaired=await waitForSearchScope(page,input,deadline,{before:repair?.changed ? initial.snapshot : null});
+  if(scopeIsNational(repaired.scope)||["blocked","rate_limited"].includes(repaired.status))return repaired;
   if (await deadline.run(() => setNationwideControl(page, input.source, deadline))) {
     const changed = await waitForSearchScope(page, input, deadline, { before: initial.snapshot });
     if (scopeIsNational(changed.scope) || ["blocked", "rate_limited"].includes(changed.status)) return changed;
@@ -292,7 +422,7 @@ export async function prepareNationwide(page, input, deadline, httpStatus = 200)
     const discovered = initial.snapshot.nationwide_links?.find((href) => sourceUrlMatches(href, input.source));
     if (discovered) url.href = discovered;
   }
-  if (url.href === page.url()) return initial;
+  if (url.href === page.url()) return repaired;
   const response = await page.goto(url.href, { waitUntil: "domcontentloaded", timeout: deadline.timeout(45_000) });
   return waitForSearchScope(page, input, deadline, { navigation: true, httpStatus: response?.status() || 200 });
 }
@@ -624,7 +754,11 @@ export async function collectSingleSearch(rawInput, browserSession = null) {
       deadline.timeout();
       await scrollResults(page, deadline);
       validation = await waitForSearchScope(page, input, deadline, { httpStatus: responseStatus });
-      if (!scopeIsNational(validation.scope)) { failureStatus = validation.status; stopReason = validation.status; break; }
+      if (!scopeIsNational(validation.scope)) {
+        failureStatus = validation.status; stopReason = validation.status;
+        pageRecords.push({page:pageNumber,url:page.url(),cards_examined:0,cards:[],accepted_new:0,scope:validation.scope,search_scope:validation.evidence,rejected_reason:validation.status});
+        break;
+      }
       const cards = await deadline.run(() => extractCards(page));
       const before = listings.length;
       const historicalCandidates = [];
@@ -679,7 +813,7 @@ export async function collectSingleSearch(rawInput, browserSession = null) {
         listings.push(row);
       }
       const added = listings.length - before;
-      pageRecords.push({ page: pageNumber, url: page.url(), cards_examined: cards.length, accepted_new: added, detail_pages_opened: historicalCandidates.slice(0, 8).length, scope: validation.scope, search_scope: validation.evidence });
+      pageRecords.push({ page: pageNumber, url: page.url(), cards, cards_examined: cards.length, accepted_new: added, detail_pages_opened: historicalCandidates.slice(0, 8).length, scope: validation.scope, search_scope: validation.evidence });
       if (!input.skip_persist) await persistAudit({
         source: input.source, url: input.url, status: "partial", browser_verified: true,
         scope: validation.scope, search_scope: validation.evidence, listings,
@@ -1035,6 +1169,12 @@ if (!isMain) {
   selfTest();
 } else if (process.argv.includes("--scope-dom-script")) {
   process.stdout.write(`(${readScopeDOM.toString()})()`);
+} else if (process.argv.includes("--scope-repair-script")) {
+  const chunks=[]; for await (const chunk of process.stdin) chunks.push(chunk);
+  process.stdout.write(repairScript(JSON.parse(Buffer.concat(chunks).toString("utf8"))));
+} else if (process.argv.includes("--scope-validator-script")) {
+  const chunks=[]; for await (const chunk of process.stdin) chunks.push(chunk);
+  process.stdout.write(validatorScript(JSON.parse(Buffer.concat(chunks).toString("utf8"))));
 } else if (process.argv.includes("--validate-host-scope-json")) {
   const chunks = [];
   for await (const chunk of process.stdin) chunks.push(chunk);
@@ -1065,6 +1205,7 @@ if (!isMain) {
       url: z.string().url(),
       requested_scope: z.object({
         make: z.string().min(1), model: z.string().min(1), trim: z.string().optional(),
+        trim_mode: z.string().optional(),
         years: z.array(z.number().int().min(1980).max(2100)).min(1),
         conditions: z.array(z.enum(["new", "used", "cpo"])).min(1),
         body: z.string().optional(), drivetrain: z.string().optional(),

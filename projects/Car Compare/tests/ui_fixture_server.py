@@ -15,6 +15,19 @@ from car_compare.models import Listing
 from car_compare.generation_impact import GenerationResearchConfig, GenerationResearchManager
 
 
+class PreviewHandler(app.CarCompareHandler):
+    def do_GET(self):
+        if self.path == "/mobile-preview":
+            body = b'<!doctype html><title>Isolated 390px mobile preview</title><iframe title="Mobile Car Compare" src="/" style="width:390px;height:844px;border:1px solid #888"></iframe>'
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
+        super().do_GET()
+
+
 def fixture(request):
     current_year = app.datetime.now().year
     missing_baseline = request.make == "Toyota"
@@ -31,6 +44,8 @@ def fixture(request):
         "price_stats": {"count": 20, "median": 100000}, "price_bins": [],
         "scope": verified_scope(request, partition_manifest=manifest, partition_key="new"),
     }]
+    if request.make == "Ford":
+        rows, evidence = [], []
     return {"query": request.raw, "status": "partial", "listings": rows,
             "evidence": evidence, "partition_manifest": manifest, "msrp": None,
             "sources": [{"source": "synthetic_ui_test", "status": "partial"}],
@@ -39,10 +54,11 @@ def fixture(request):
 
 if __name__ == "__main__":
     with tempfile.TemporaryDirectory(prefix="car-compare-ui-") as directory:
+        app.CarCompareHandler = PreviewHandler
         collector._dry_run_result = fixture
         config = collector.CollectorConfig(root=Path(directory), cache_enabled=False, dry_run=True)
         app.COLLECTOR = collector.CollectionManager(config)
         app.COLLECTOR.availability = lambda: {"available": True, "dryRun": True, "message": "Synthetic UI test only"}
         app.GENERATION_RESEARCH = GenerationResearchManager(GenerationResearchConfig(root=Path(directory), dry_run=True, cache_enabled=False))
-        app.GENERATION_RESEARCH.availability = lambda: {"available": False, "message": "Disabled in synthetic UI preview"}
+        app.GENERATION_RESEARCH.availability = lambda: {"available": True, "dryRun": True, "message": "Synthetic UI scenario only"}
         app.main()

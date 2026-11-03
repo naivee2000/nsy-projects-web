@@ -12,6 +12,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 from car_compare.sources.request_budget import run_bounded
+from car_compare.collection_scope import VALIDATION_REVISION
 
 
 SOURCE_HOSTS = {
@@ -105,6 +106,20 @@ def capture_with_host_chrome(
     )
     if reader.returncode or not reader.stdout.strip():
         raise RuntimeError("Unable to load the host Chrome scope evidence reader")
+    repair = run_bounded(
+        [shutil.which("node") or "node", str(script_path.with_name("car_compare_browser_mcp.mjs")), "--scope-repair-script"],
+        input=json.dumps({"source": source, "requested_scope": requested_scope}),
+        text=True, capture_output=True, deadline_at=deadline, timeout=remaining(), check=False,
+    )
+    if repair.returncode or not repair.stdout.strip():
+        raise RuntimeError("Unable to load shared search preparation")
+    validator = run_bounded(
+        [shutil.which("node") or "node", str(script_path.with_name("car_compare_browser_mcp.mjs")), "--scope-validator-script"],
+        input=json.dumps({"source": source, "requested_scope": requested_scope}),
+        text=True, capture_output=True, deadline_at=deadline, timeout=remaining(), check=False,
+    )
+    if validator.returncode or not validator.stdout.strip():
+        raise RuntimeError("Unable to load shared page validation")
     completed = run_bounded(
         [
             shutil.which("osascript") or "osascript",
@@ -116,6 +131,8 @@ def capture_with_host_chrome(
             str(deadline),
             str(page_limit),
             reader.stdout.strip(),
+            repair.stdout.strip(),
+            validator.stdout.strip(),
         ],
         text=True,
         capture_output=True,
@@ -157,7 +174,7 @@ def capture_with_host_chrome(
     capture["requested_scope"] = requested_scope
     capture["deadline_at"] = deadline
     capture["max_pages"] = page_limit
-    capture["validation_revision"] = 3
+    capture["validation_revision"] = VALIDATION_REVISION
     capture["validation_status"] = "unverified"
     capture["requires_independent_scope_validation"] = True
     return capture
@@ -177,7 +194,7 @@ def validate_host_scope(capture: dict[str, Any], requested_scope: dict[str, Any]
     worker = Path(__file__).resolve().parents[2] / "scripts" / "car_compare_browser_mcp.mjs"
     remaining = min(10.0, float(capture.get("deadline_at") or time.time() + 10) - time.time())
     if remaining <= 0:
-        return {"status": "loading", "scope": {"validation_revision": 3, "validation_status": "unverified", "geography": "unknown", "complete": False}, "evidence": {"reason": "deadline_exceeded", "result_refresh_confirmed": False}}
+        return {"status": "timeout", "scope": {"validation_revision": VALIDATION_REVISION, "validation_status": "unverified", "geography": "unknown", "complete": False}, "evidence": {"reason": "deadline_exceeded", "result_refresh_confirmed": False}}
     completed = run_bounded(
         [shutil.which("node") or "node", str(worker), "--validate-host-scope-json"],
         input=json.dumps({"capture": capture, "requested_scope": requested_scope}),
