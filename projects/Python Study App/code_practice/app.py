@@ -43,6 +43,9 @@ from .shared_auth import SharedSessionAuth
 from .starter_code import with_support_classes
 from . import accounts
 from .account_routes import router as account_router
+from .review_routes import router as review_router, validate_context
+from . import review_v2
+from . import database
 from .database import profile_scope
 
 
@@ -58,6 +61,7 @@ async def lifespan(_app: FastAPI):
 
 app = FastAPI(title="Code Practice Lab", version="0.1.0", lifespan=lifespan)
 app.include_router(account_router)
+app.include_router(review_router)
 
 
 def login_required() -> bool:
@@ -109,6 +113,7 @@ class DraftPayload(BaseModel):
 
 class AttemptSubmission(AttemptCreate):
     entry_point: Literal["daily", "review", "challenge", "library"] = "library"
+    review_context_id: int | None = None
 
 
 class CoachCase(BaseModel):
@@ -182,6 +187,9 @@ def problem_detail(problem_id: str) -> dict[str, Any]:
         }
         for level in range(1, revealed + 1)
     ]
+    if review_v2.enabled():
+        with database.db_session() as con:
+            payload["reviewEvent"] = review_v2.event_payload(con, problem_id)
     return payload
 
 
@@ -248,8 +256,17 @@ def attempts(payload: AttemptSubmission) -> dict[str, Any]:
         raise HTTPException(409, "Problem version changed; reload before submitting")
     if payload.entry_point == "challenge" and payload.result != "accepted":
         return {"recorded": False, "reason": "Unpassed challenge attempts do not affect progress."}
-    attempt = save_attempt(AttemptCreate.model_validate(payload.model_dump(exclude={"entry_point"})))
-    return {**attempt.model_dump(mode="json"), "recorded": True}
+    if payload.review_context_id is not None:
+        if not review_v2.enabled():
+            raise HTTPException(403, "Review context is unavailable for this account.")
+        validate_context(payload.review_context_id, payload.problem_id)
+    attempt = save_attempt(AttemptCreate.model_validate(payload.model_dump(exclude={"entry_point", "review_context_id"})),
+                           entry_point=payload.entry_point)
+    event = None
+    if review_v2.enabled():
+        with database.db_session() as con:
+            event = review_v2.event_payload(con, payload.problem_id)
+    return {**attempt.model_dump(mode="json"), "recorded": True, "reviewEvent": event}
 
 
 @app.put("/api/problems/{problem_id}/draft")
@@ -320,7 +337,7 @@ def dashboard(request: Request) -> dict[str, Any]:
     }
 
     now = datetime.now(timezone.utc)
-    today_key = datetime.now().astimezone().date().isoformat()
+    today_key = str(review_v2.local_day(now)) if owner_focus and review_v2.enabled() else datetime.now().astimezone().date().isoformat()
     interview_plan = InterviewPlan(catalog, attempts, reviews, now, today_key,
                                   owner_focus=owner_focus)
     daily_ids = get_daily_assignment(today_key)
@@ -347,6 +364,14 @@ def dashboard(request: Request) -> dict[str, Any]:
     daily_complete = bool(assigned) and not recommendations
 
     daily_review = get_daily_review_assignment(today_key)
+    v2 = owner_focus and review_v2.enabled()
+    selection_notes = []
+    priority_rows = []
+    if v2:
+        with database.db_session() as con:
+            priority_rows = review_v2.priorities(con, catalog, now)
+        with database.db_session() as con:
+            daily_review, selection_notes = review_v2.ensure_assignment(con, catalog, now)
     if daily_review is None:
         recent_review_ids = recent_daily_review_problem_ids(today_key, lookback_days=3)
         review_problems = prioritized_review_problems(
@@ -366,12 +391,14 @@ def dashboard(request: Request) -> dict[str, Any]:
         review.problem_id for review in reviews if review.latest_result == "accepted"
     }
     eligible_assigned_review_ids = [
-        problem_id for problem_id in assigned_review_ids if problem_id in current_passed_review_ids
+        problem_id for problem_id in assigned_review_ids
+        if (problem_id in catalog if v2 else problem_id in current_passed_review_ids)
     ]
     reviewed_today = {
         attempt.problem_id
         for attempt in attempts
         if attempt.result == "accepted" and attempt.created_at > review_assigned_at
+        and (not v2 or attempt.problem_id in current_passed_review_ids)
     }
     remaining_review_ids = [
         problem_id for problem_id in eligible_assigned_review_ids if problem_id not in reviewed_today
@@ -387,6 +414,10 @@ def dashboard(request: Request) -> dict[str, Any]:
         None,
     )
     return {
+        "reviewV2": v2,
+        "reviewSelectionNotes": selection_notes,
+        "reviewRetryProblems": [problem_summary(catalog[row["id"]], solved) for row in priority_rows
+                                if row["status"] == "retry" and row["id"] not in assigned_review_ids],
         "recommendations": [
             {**problem_summary(problem, solved), "preparationReason": interview_plan.reason(problem.id, owner_focus=owner_focus)}
             for problem in recommendations

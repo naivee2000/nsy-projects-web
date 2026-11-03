@@ -45,6 +45,7 @@ export type Parameter = { name: string; annotation: string; adapter: "raw" | "li
 export type Signature = { name: string; parameters: Parameter[]; returns: string; return_adapter: string; node_policy?: "values" | "reuse_input_nodes" | "return_input_node" | "delete_referenced_list_node" | "preserve_tree_structure"; result_mode?: "return" | "mutated_argument" | "returned_prefix"; mutated_parameter?: number | null; immutable_parameters?: number[] };
 
 export type Problem = {
+  reviewEvent?: ReviewEvent | null;
   id: string;
   version: number;
   title: string;
@@ -68,6 +69,9 @@ export type Problem = {
 };
 
 export type Dashboard = {
+  reviewV2?: boolean;
+  reviewSelectionNotes?: string[];
+  reviewRetryProblems?: ProblemSummary[];
   interviewProgress?: {
     available: number;
     solved: number;
@@ -89,6 +93,24 @@ export type Dashboard = {
   solvedCount: number;
   totalProblems: number;
   attemptCount: number;
+};
+
+export type ReviewGrade = "again" | "hard" | "good" | "easy";
+export type ReviewEvent = {
+  id: number; problemId: string; date: string; automaticGrade: ReviewGrade;
+  manualGrade: ReviewGrade | null; effectiveGrade: ReviewGrade; latestResult: string;
+  dueDate: string; inferred: boolean;
+};
+export type ReviewSession = {
+  id: number; source: string; hints: Array<{ level: number; label: string; content: string }>;
+  event: ReviewEvent | null; hasPreviousSolution: boolean;
+};
+export type ReviewPriority = {
+  id: string; title: string; difficulty: number; score: number | null;
+  urgency: number | null; recentStruggle: number | null; dueDate: string | null;
+  cooldownUntil: string | null; recoveryException: boolean; status: string;
+  reason: string; assignedToday: boolean; assignmentScore: number | null;
+  assignmentReason: string | null; inferred: boolean;
 };
 
 export type JudgeResult = {

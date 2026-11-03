@@ -42,7 +42,11 @@ def profile_scope(profile_id: str):
         _profile.reset(token)
 
 
-MIGRATION_VERSION = 3
+def current_profile() -> str:
+    return _profile.get()
+
+
+MIGRATION_VERSION = 4
 MIGRATION_STATEMENTS = [
     """
     CREATE TABLE IF NOT EXISTS attempts (
@@ -138,7 +142,28 @@ MIGRATION_3_STATEMENTS = [
     """,
     "CREATE INDEX IF NOT EXISTS idx_daily_review_problems_date ON daily_review_problems(assignment_date, position);",
 ]
-MIGRATIONS = {1: MIGRATION_STATEMENTS, 2: MIGRATION_2_STATEMENTS, 3: MIGRATION_3_STATEMENTS}
+MIGRATION_4_STATEMENTS = [
+    "CREATE TABLE IF NOT EXISTS review_v2_meta(key TEXT PRIMARY KEY, value TEXT NOT NULL)",
+    """CREATE TABLE IF NOT EXISTS review_events (
+        id INTEGER PRIMARY KEY AUTOINCREMENT, problem_id TEXT NOT NULL, event_date TEXT NOT NULL,
+        automatic_grade TEXT NOT NULL, manual_grade TEXT, latest_result TEXT NOT NULL,
+        first_at TEXT NOT NULL, last_at TEXT NOT NULL, inferred INTEGER NOT NULL,
+        counted INTEGER NOT NULL, base_state TEXT, final_state TEXT NOT NULL,
+        UNIQUE(problem_id,event_date))""",
+    "CREATE TABLE IF NOT EXISTS review_schedules_v2(problem_id TEXT PRIMARY KEY, state_json TEXT NOT NULL)",
+    """CREATE TABLE IF NOT EXISTS review_contexts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT, problem_id TEXT NOT NULL, event_date TEXT NOT NULL,
+        source_code TEXT NOT NULL, previous_source TEXT, hint_level INTEGER NOT NULL DEFAULT 0,
+        source_viewed INTEGER NOT NULL DEFAULT 0, assisted INTEGER NOT NULL DEFAULT 0,
+        UNIQUE(problem_id,event_date))""",
+    "CREATE TABLE IF NOT EXISTS attempt_contexts(attempt_id INTEGER PRIMARY KEY, entry_point TEXT NOT NULL)",
+    """CREATE TABLE IF NOT EXISTS review_assignment_details (
+        assignment_date TEXT NOT NULL, problem_id TEXT NOT NULL, score REAL NOT NULL,
+        reason TEXT NOT NULL, PRIMARY KEY(assignment_date,problem_id))""",
+    "CREATE INDEX IF NOT EXISTS review_events_problem_date ON review_events(problem_id,event_date)",
+]
+MIGRATIONS = {1: MIGRATION_STATEMENTS, 2: MIGRATION_2_STATEMENTS, 3: MIGRATION_3_STATEMENTS,
+              4: MIGRATION_4_STATEMENTS}
 
 
 def install_seed_database() -> bool:
@@ -207,6 +232,9 @@ def initialize_database() -> None:
                 (version, datetime.now(timezone.utc).isoformat()),
             )
         connection.execute("PRAGMA optimize")
+        from . import review_v2
+        if review_v2.enabled():
+            review_v2.initialize(connection)
 
 
 def _attempt_from_row(row: sqlite3.Row) -> Attempt:
@@ -239,7 +267,7 @@ def learning_attempts() -> list[Attempt]:
     return [_attempt_from_row(row) for row in rows]
 
 
-def save_attempt(payload: AttemptCreate) -> Attempt:
+def save_attempt(payload: AttemptCreate, *, entry_point: str = "library") -> Attempt:
     now = datetime.now(timezone.utc)
     with db_session() as connection:
         cursor = connection.execute(
@@ -283,6 +311,14 @@ def save_attempt(payload: AttemptCreate) -> Attempt:
             """,
             (payload.problem_id, index, due_at.isoformat(), payload.result, accepted_source),
         )
+        from . import review_v2
+        if review_v2.enabled():
+            connection.execute("INSERT INTO attempt_contexts(attempt_id,entry_point) VALUES(?,?)",
+                               (cursor.lastrowid, entry_point))
+            if payload.result != "accepted":
+                connection.execute("UPDATE review_events SET manual_grade=NULL WHERE problem_id=? AND event_date=?",
+                                   (payload.problem_id, str(review_v2.local_day(now))))
+            review_v2.sync_problem(connection, payload.problem_id)
         row = connection.execute("SELECT * FROM attempts WHERE id = ?", (cursor.lastrowid,)).fetchone()
     return _attempt_from_row(row)
 

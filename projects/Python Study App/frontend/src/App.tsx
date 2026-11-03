@@ -25,7 +25,8 @@ import {
   Target,
   TerminalSquare,
 } from "lucide-react";
-import type { CoachReply, Dashboard, JudgeResult, Problem, ProblemPage, ProblemSummary, Signature, StudyListBadge, StudyListInfo, TestCase } from "./types";
+import type { CoachReply, Dashboard, JudgeResult, Problem, ProblemPage, ProblemSummary, Signature, StudyListBadge, StudyListInfo, TestCase, ReviewSession, ReviewEvent } from "./types";
+import { ReviewFeedback, ReviewScores } from "./Review";
 import { forProfile } from "./api";
 import { AccountPanel, useAccount } from "./Accounts";
 
@@ -174,6 +175,9 @@ export default function App() {
   const [studyLists, setStudyLists] = useState<StudyListInfo[]>([]);
   const pageSize = 30;
   const [problem, setProblem] = useState<Problem | null>(null);
+  const [reviewSession, setReviewSession] = useState<ReviewSession | null>(null);
+  const [reviewEvent, setReviewEvent] = useState<ReviewEvent | null>(null);
+  const [previousSolution, setPreviousSolution] = useState<string | null>(null);
   const [source, setSource] = useState("");
   const [query, setQuery] = useState("");
   const [topic, setTopic] = useState("all");
@@ -206,6 +210,7 @@ export default function App() {
   const [resizingWorkspace, setResizingWorkspace] = useState(false);
   const [resizingEditor, setResizingEditor] = useState(false);
   const draftTimer = useRef<number | undefined>();
+  const draftQueue = useRef<Promise<unknown>>(Promise.resolve());
   const workspaceRef = useRef<HTMLDivElement | null>(null);
   const editorPaneRef = useRef<HTMLElement | null>(null);
 
@@ -218,6 +223,15 @@ export default function App() {
     } catch (loadError) {
       setError(loadError instanceof Error ? loadError.message : String(loadError));
     }
+  };
+
+  const queueDraft = () => {
+    if (!problem || source === problem.savedDraft) return draftQueue.current;
+    const path = reviewSession ? `/api/reviews/sessions/${reviewSession.id}/draft` : `/api/problems/${problem.id}/draft`;
+    const request = api;
+    const body = JSON.stringify({ source_code: source });
+    draftQueue.current = draftQueue.current.catch(() => {}).then(() => request(path, { method: "PUT", body }));
+    return draftQueue.current;
   };
 
   useEffect(() => { void loadOverview(); }, []);
@@ -261,11 +275,11 @@ export default function App() {
     if (!problem || source === problem.savedDraft) return;
     window.clearTimeout(draftTimer.current);
     draftTimer.current = window.setTimeout(() => {
-      void api(`/api/problems/${problem.id}/draft`, { method: "PUT", body: JSON.stringify({ source_code: source }) })
+      void queueDraft()
         .catch((saveError) => setError(saveError instanceof Error ? saveError.message : String(saveError)));
     }, 800);
     return () => window.clearTimeout(draftTimer.current);
-  }, [source, problem]);
+  }, [source, problem, reviewSession]);
 
   useEffect(() => {
     try {
@@ -351,12 +365,18 @@ export default function App() {
 
   const openProblem = async (id: string, entryPoint?: AttemptEntryPoint) => {
     try {
+      await flushDraft();
       const detail = await api<Problem>(`/api/problems/${id}`);
+      const session = ownerStudy && dashboard?.reviewV2 && entryPoint === "review"
+        ? await api<ReviewSession>(`/api/reviews/${id}/session`, { method: "POST" }) : null;
       if (view === "dashboard" || view === "library") setProblemOrigin(view);
       setAttemptEntryPoint(entryPoint || (view === "library" ? "library" : "daily"));
-      setProblem(detail);
-      setSource(detail.savedDraft);
-      setRevealedHints(detail.revealedHints || []);
+      setReviewSession(session);
+      setReviewEvent(session?.event ?? detail.reviewEvent ?? null);
+      setPreviousSolution(null);
+      setProblem(session ? { ...detail, savedDraft: session.source } : detail);
+      setSource(session?.source ?? detail.savedDraft);
+      setRevealedHints(session?.hints ?? detail.revealedHints ?? []);
       setResult(null);
       setResultMode(null);
       setCoach(null);
@@ -382,6 +402,12 @@ export default function App() {
       const nextResult = await runJudge(source, packageData.signature, packageData.tests, packageData.timeoutMs);
       setResult(nextResult);
       if (nextResult.status !== "accepted") {
+        if (reviewSession) {
+          const help = await api<{ event: ReviewEvent | null }>(`/api/reviews/sessions/${reviewSession.id}/help`, {
+            method: "POST", body: JSON.stringify({ kind: "coach" }),
+          });
+          setReviewEvent(help.event);
+        }
         setCoaching(true);
         try {
           const reply = await api<CoachReply>(`/api/problems/${problem.id}/coach`, {
@@ -403,7 +429,7 @@ export default function App() {
       }
       if (mode === "submit") {
         const passed = nextResult.status === "accepted" ? packageData.tests.length : nextResult.cases.filter((item) => item.passed).length;
-        await api("/api/attempts", {
+        const recorded = await api<{ reviewEvent?: ReviewEvent | null }>("/api/attempts", {
           method: "POST",
           body: JSON.stringify({
             problem_id: problem.id,
@@ -416,8 +442,10 @@ export default function App() {
             elapsed_study_seconds: Math.round((Date.now() - startedAt) / 1000),
             hint_level: revealedHints.length,
             entry_point: attemptEntryPoint,
+            review_context_id: reviewSession?.id ?? null,
           }),
         });
+        setReviewEvent(recorded.reviewEvent ?? null);
         if (nextResult.status === "accepted") {
           setProblem((current) => current ? { ...current, solved: true } : current);
         }
@@ -478,14 +506,36 @@ export default function App() {
   const revealNextHint = async () => {
     if (!problem || revealedHints.length >= 4) return;
     try {
-      const hint = await api<{ level: number; label: string; content: string }>(`/api/problems/${problem.id}/hints/${revealedHints.length + 1}`, { method: "POST" });
+      const hint = await api<{ level: number; label: string; content: string; event?: ReviewEvent | null }>(
+        reviewSession ? `/api/reviews/sessions/${reviewSession.id}/help` : `/api/problems/${problem.id}/hints/${revealedHints.length + 1}`,
+        { method: "POST", ...(reviewSession ? { body: JSON.stringify({ kind: "hint", level: revealedHints.length + 1 }) } : {}) });
       setRevealedHints((current) => [...current, hint]);
+      if (hint.event) setReviewEvent(hint.event);
     } catch (hintError) {
       setError(hintError instanceof Error ? hintError.message : String(hintError));
     }
   };
 
-  const navigate = (next: View) => {
+  const flushDraft = async () => {
+    window.clearTimeout(draftTimer.current);
+    await queueDraft();
+  };
+
+  const viewPreviousSolution = async () => {
+    if (!reviewSession) return;
+    try {
+      const response = await api<{ source: string; event: ReviewEvent | null }>(`/api/reviews/sessions/${reviewSession.id}/help`, {
+        method: "POST", body: JSON.stringify({ kind: "solution" }),
+      });
+      setPreviousSolution(response.source);setReviewEvent(response.event);
+    } catch (e) { setError(String(e)); }
+  };
+
+  const navigate = async (next: View) => {
+    try { if (problem) await flushDraft(); } catch (e) { setError(String(e)); return; }
+    setReviewSession(null);
+    setReviewEvent(null);
+    setPreviousSolution(null);
     setView(next);
     setProblem(null);
     setResult(null);
@@ -558,12 +608,17 @@ export default function App() {
             </section>
 
             <section className="section-block review-section">
-              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>{ownerStudy ? "Three daily focus groups randomly chosen from grid recursion, trees, linked lists, graphs, and dynamic programming, plus up to two random reviews from your completed Hot 100 problems, favoring Medium." : "Review up to five completed Hot 100 and Top Interview 150 problems, prioritizing due dates, difficulty, and past struggle."}</p></div><button className="text-button" onClick={() => { setCompletion("passed"); setLibraryPage(1); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
+              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>{ownerStudy ? (dashboard?.reviewV2 ? "Up to five due reviews: at least four Mediums and one DP when available, with rotating topics and Hot 100 practice. Recovery reviews may return before normal cooldown ends." : "Three daily focus groups randomly chosen from grid recursion, trees, linked lists, graphs, and dynamic programming, plus up to two random reviews from your completed Hot 100 problems, favoring Medium.") : "Review up to five completed Hot 100 and Top Interview 150 problems, prioritizing due dates, difficulty, and past struggle."}</p></div><button className="text-button" onClick={() => { setCompletion("passed"); setLibraryPage(1); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.reviewRecommendations.length
                   ? dashboard.reviewRecommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={(id) => openProblem(id, "review")} index={index} />)
                   : <EmptyState>{dashboard?.reviewComplete ? "Review finished — every assigned review problem was checked today." : "Passed problems will appear here for review."}</EmptyState>}
               </div>
+              {dashboard?.reviewSelectionNotes?.map(note => <p className="completion-note" key={note}>{note}</p>)}
+              {!!dashboard?.reviewRetryProblems?.length && <div className="review-retries"><h3>Needs another try</h3><p>These previously passed problems need to be passed again before normal review resumes.</p>
+                {dashboard.reviewRetryProblems.map((item,index) => <ProblemCard key={item.id} problem={item} onOpen={id => openProblem(id,"review")} index={index} />)}
+              </div>}
+              {ownerStudy && dashboard?.reviewV2 && <ReviewScores profile={account?.session.user?.id ?? "owner"} revision={libraryRevision} />}
             </section>
 
             <section className="challenge-banner">
@@ -628,6 +683,11 @@ export default function App() {
               style={{ "--instruction-width": `${workspaceSplit}%` } as React.CSSProperties}
             >
               <section className="problem-pane">
+                {reviewSession && <aside className="review-workspace-note"><strong>Fresh review workspace</strong><p>Your earlier solution is saved separately. Today's review draft resumes when you reopen this problem.</p>
+                  <button className="text-button" onClick={() => void viewPreviousSolution()}>View my previous solution (records help)</button>
+                  {previousSolution !== null && <pre className="previous-solution">{previousSolution}</pre>}
+                </aside>}
+                {reviewEvent?.latestResult === "accepted" && <ReviewFeedback event={reviewEvent} profile={account?.session.user?.id ?? "owner"} onChange={next => { setReviewEvent(next); void loadOverview(); }} />}
                 <StudyBadges lists={problem.studyLists} />
                 <p className="problem-lead">{problem.summary}</p>
                 <p className="statement">{problem.statement}</p>

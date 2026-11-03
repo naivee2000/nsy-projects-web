@@ -59,7 +59,7 @@ def test_schema_migration_is_versioned_and_idempotent():
     initialize_database()
     with connect() as connection:
         versions = connection.execute("SELECT version FROM schema_migrations").fetchall()
-    assert [row["version"] for row in versions] == [1, 2, 3]
+    assert [row["version"] for row in versions] == [1, 2, 3, 4]
 
 
 def test_recent_daily_review_ids_cover_only_the_prior_three_calendar_days():
