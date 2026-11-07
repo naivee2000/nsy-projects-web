@@ -17,14 +17,31 @@ test("optional feedback uses the automatic grade and can be overridden or cleare
   }));
   function Wrapper() { const [event,setEvent] = useState(initial); return <ReviewFeedback event={event} onChange={setEvent} profile="owner" />; }
   render(<Wrapper />);
-  expect(screen.getByText(/Automatic rating: Finished independently/)).toBeInTheDocument();
+  expect(screen.getByText(/Suggested rating: Finished independently/)).toBeInTheDocument();
+  expect(screen.queryByText(/2026-11-10/)).not.toBeInTheDocument();
   expect(fetch).not.toHaveBeenCalled();
   fireEvent.click(screen.getByRole("button", { name: "Very easy" }));
-  expect(await screen.findByText(/Your rating: Very easy/)).toHaveTextContent("2026-11-17");
+  expect(await screen.findByText(/Your rating: Very easy/)).toBeInTheDocument();
+  expect(screen.getByText("Review less often.")).toBeInTheDocument();
   expect(screen.getByRole("button", { name: "Very easy" })).toHaveAttribute("aria-pressed","true");
-  fireEvent.click(screen.getByRole("button", { name: "Use automatic rating" }));
-  expect(await screen.findByText(/Automatic rating: Finished independently/)).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: "Use suggested rating" }));
+  expect(await screen.findByText(/Suggested rating: Finished independently/)).toBeInTheDocument();
   expect(vi.mocked(fetch).mock.calls[0][1]?.headers).toMatchObject({ "X-Study-Profile": "owner" });
+});
+
+test("correction answer is saved independently of the manual rating", async () => {
+  vi.stubGlobal("fetch", vi.fn((_url, options) => {
+    const answer = JSON.parse(options.body).correction_answer;
+    return Promise.resolve({ ok:true, json:async () => ({ ...initial, needsCorrectionAnswer:true,
+      correctionAnswer:answer, ratingReason:"Passed independently after correcting implementation details." }) });
+  }));
+  function Wrapper() { const [event,setEvent] = useState<ReviewEvent>({ ...initial, automaticGrade:"hard", effectiveGrade:"hard", needsCorrectionAnswer:true });
+    return <ReviewFeedback event={event} onChange={setEvent} profile="owner" />; }
+  render(<Wrapper />);
+  fireEvent.click(screen.getByRole("button", { name:"Fixed implementation details" }));
+  expect(await screen.findByText(/Passed independently after correcting/)).toBeInTheDocument();
+  expect(JSON.parse(vi.mocked(fetch).mock.calls[0][1]!.body as string)).toEqual({ correction_answer:"implementation" });
+  expect(screen.queryByText(/Next due/)).not.toBeInTheDocument();
 });
 
 test("the score view loads only when expanded and explains score components", async () => {

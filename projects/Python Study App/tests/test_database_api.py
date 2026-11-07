@@ -59,7 +59,7 @@ def test_schema_migration_is_versioned_and_idempotent():
     initialize_database()
     with connect() as connection:
         versions = connection.execute("SELECT version FROM schema_migrations").fetchall()
-    assert [row["version"] for row in versions] == [1, 2, 3, 4]
+    assert [row["version"] for row in versions] == [1, 2, 3, 4, 5]
 
 
 def test_recent_daily_review_ids_cover_only_the_prior_three_calendar_days():
@@ -347,7 +347,7 @@ def test_dashboard_caps_primary_at_one_hard_when_no_medium_remains():
         assert all(not problem["solved"] for problem in payload["recommendations"])
 
 
-def test_wrong_answer_coach_is_progressive_and_never_returns_solution():
+def test_wrong_answer_coach_only_explains_output_comparison():
     source = """def pair_sum_indices(nums, target):
     result = []
     for i in range(len(nums) - 1):
@@ -375,10 +375,9 @@ def test_wrong_answer_coach_is_progressive_and_never_returns_solution():
         )
         assert first.status_code == second.status_code == 200
         assert first.json()["step"] == 1
-        assert second.json()["step"] == 2
-        assert "produces []" in first.json()["observation"]
-        assert first.json()["nudge"] != second.json()["nudge"]
-        assert "final position" in second.json()["nudge"]
+        assert first.json() == second.json()
+        assert first.json()["observation"] == "Your code ran; the output differs from the expected answer."
+        assert not first.json()["nudge"] and not first.json()["canContinue"]
         combined = str(first.json()) + str(second.json())
         assert "seen[partner]" not in combined
         assert "return [seen" not in combined

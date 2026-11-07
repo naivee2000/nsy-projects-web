@@ -100,6 +100,8 @@ export type ReviewEvent = {
   id: number; problemId: string; date: string; automaticGrade: ReviewGrade;
   manualGrade: ReviewGrade | null; effectiveGrade: ReviewGrade; latestResult: string;
   dueDate: string; inferred: boolean;
+  ratingReason?: string; cleanStreak?: number; needsCorrectionAnswer?: boolean;
+  correctionAnswer?: "implementation" | "approach" | null;
 };
 export type ReviewSession = {
   id: number; source: string; hints: Array<{ level: number; label: string; content: string }>;
@@ -113,15 +115,18 @@ export type ReviewPriority = {
   assignmentReason: string | null; inferred: boolean;
 };
 
+export type CodeDiagnostic = { exceptionType: string; message: string; line?: number | null; column?: number | null; sourceExcerpt?: string | null };
 export type JudgeResult = {
+  diagnostic?: CodeDiagnostic | null;
   status: "accepted" | "wrong_answer" | "syntax_error" | "runtime_error" | "timeout";
   message: string;
   runtimeMs: number;
   stdout?: string;
-  cases: Array<{ id: string; passed: boolean; actual?: unknown; expected?: unknown; error?: string; visible?: boolean; arguments?: unknown[] }>;
+  cases: Array<{ id: string; passed: boolean; actual?: unknown; expected?: unknown; error?: string; diagnostic?: CodeDiagnostic | null; visible?: boolean; arguments?: unknown[] }>;
 };
 
 export type CoachReply = {
+  diagnostic?: CodeDiagnostic | null;
   step: number;
   maxSteps: number;
   title: string;

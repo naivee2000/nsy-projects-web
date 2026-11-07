@@ -69,8 +69,60 @@ try {
     return (await saved).json();
   }
   async function dashboard() {return page.evaluate(async()=>(await fetch('/api/dashboard')).json());}
+  const diagnostics = await page.evaluate(async () => {
+    async function run(source, tests=[{id:'one',arguments:[[1]],expected:1,visible:true}], limit=3000) {
+      const worker=new Worker('/judge-worker.js');
+      try {
+        await new Promise((resolve,reject)=>{
+          const timer=setTimeout(()=>reject(new Error('Python warmup timed out')),30000);
+          worker.onerror=e=>{clearTimeout(timer);reject(new Error(e.message));};
+          worker.onmessage=e=>{clearTimeout(timer);e.data.type==='ready'?resolve():reject(new Error(JSON.stringify(e.data)));};
+          worker.postMessage({type:'warmup'});
+        });
+        const started=performance.now();
+        return await new Promise(resolve=>{
+          const timer=setTimeout(()=>{worker.terminate();resolve({status:'timeout',runtimeMs:performance.now()-started});},limit);
+          worker.onmessage=e=>{clearTimeout(timer);resolve(e.data);};
+          worker.postMessage({source,signature:{name:'f',parameters:[{name:'x',annotation:'list[int]',adapter:'raw'}],returns:'int',return_adapter:'raw'},tests});
+        });
+      } finally {worker.terminate();}
+    }
+    return {
+      syntax:await run('def f(x):\n    if True;\n        return 1'),
+      mixed:await run('def f(x):\n    return x[0]',[
+        {id:'empty',arguments:[[]],expected:0,visible:true},
+        {id:'different',arguments:[[2]],expected:1,visible:true}]),
+      recursion:await run('def f(x):\n    return f(x)'),
+      matrix:await run('def f(x):\n    table=[[1,2],[3,4]]\n    print(table)\n    return table'),
+      none:await run('def f(x):\n    return None'),
+      printedError:await run('def f(x):\n    print([[1,2]])\n    return x[99]'),
+      semicolon:await run('def f(x):\n    value=1; return value'),
+      loop:await run('def f(x):\n    while True:\n        break\n    return 1'),
+      timeout:await run('def f(x):\n    while True: pass'),
+      recovery:await run('def f(x):\n    return 1'),
+    };
+  });
+  assert.equal(diagnostics.syntax.status,'syntax_error');assert.equal(diagnostics.syntax.diagnostic.line,2);
+  assert.equal(diagnostics.mixed.status,'runtime_error');assert.equal(diagnostics.mixed.diagnostic.exceptionType,'IndexError');
+  assert.equal(diagnostics.mixed.diagnostic.line,2);assert.equal(diagnostics.mixed.cases[1].actual,2);
+  assert.equal(diagnostics.recursion.diagnostic.exceptionType,'RecursionError');assert.equal(diagnostics.recursion.diagnostic.line,2);
+  assert.equal(diagnostics.matrix.status,'wrong_answer');assert.deepEqual(diagnostics.matrix.cases[0].actual,[[1,2],[3,4]]);
+  assert.ok(diagnostics.matrix.stdout.includes('[[1, 2], [3, 4]]'));assert.equal(diagnostics.none.status,'wrong_answer');
+  assert.ok(diagnostics.printedError.stdout.includes('[[1, 2]]'));
+  assert.equal(diagnostics.semicolon.status,'accepted');assert.equal(diagnostics.loop.status,'accepted');
+  assert.equal(diagnostics.timeout.status,'timeout');assert.ok(diagnostics.timeout.runtimeMs<4000);
+  assert.equal(diagnostics.recovery.status,'accepted');
+  await setCode('def pair_sum_indices(nums, target):\n    if True;\n        return []');
+  await page.getByRole('button',{name:'Run examples',exact:true}).click();
+  await page.getByRole('button',{name:'Go to line 2',exact:true}).click();
+  assert.equal(await page.evaluate(()=>window.monaco.editor.getEditors()[0].getPosition().lineNumber),2);
+  assert.equal(await page.getByRole('button',{name:'Next offline nudge'}).count(),0);
+  await setCode('def pair_sum_indices(nums, target):\n    return []\n');
+  await page.getByRole('button',{name:'Run examples',exact:true}).click();
+  await page.getByRole('button',{name:'Debug my code',exact:true}).waitFor();
   await setCode(source);
   let result=await submit();assert.equal(result.reviewEvent.automaticGrade,'good');
+  assert.equal(result.reviewEvent.cleanStreak,1);
   await page.getByRole('button',{name:'Very easy',exact:true}).click();
   await page.getByText(/Your rating: Very easy/).waitFor();
   const feedbackDate=await page.getByLabel('Review feedback').innerText();
@@ -85,14 +137,19 @@ try {
   await page.locator('.monaco-editor .view-lines').waitFor();
   assert.ok((await page.evaluate(()=>window.monaco.editor.getModels()[0].getValue())).includes('return []'));
   await setCode(source);result=await submit();assert.equal(result.reviewEvent.automaticGrade,'hard');
+  await page.getByRole('button',{name:'Fixed implementation details',exact:true}).click();
+  await page.getByText(/Suggested rating: Finished independently/).waitFor();
+  assert.ok(!(await page.getByLabel('Review feedback').innerText()).includes('Next due'));
   await page.getByRole('button',{name:'View my previous solution (records help)',exact:true}).click();
   await page.locator('.previous-solution').waitFor();
   assert.equal((await page.locator('.previous-solution').innerText()).trimEnd(),source.trimEnd());
-  await page.getByText(/Automatic rating: Need more review/).waitFor();
+  await page.getByText(/Suggested rating: Finished independently/).waitFor();
+  result=await submit();assert.equal(result.reviewEvent.automaticGrade,'again');
+  await page.getByText(/Suggested rating: Need more review/).waitFor();
   await page.getByRole('button',{name:'Finished independently',exact:true}).click();
   await page.getByText(/Your rating: Finished independently/).waitFor();
-  await page.getByRole('button',{name:'Use automatic rating',exact:true}).click();
-  await page.getByText(/Automatic rating: Need more review/).waitFor();
+  await page.getByRole('button',{name:'Use suggested rating',exact:true}).click();
+  await page.getByText(/Suggested rating: Need more review/).waitFor();
   await page.getByRole('button',{name:'Today',exact:true}).click();
   await page.getByText('Review scores, due dates and cooldowns',{exact:true}).click();
   await page.getByLabel('Search review scores').fill('Pair Sum Indices');
@@ -113,7 +170,7 @@ with database.db_session() as c:
  assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
 `],{cwd:root,env,encoding:'utf8'});
   assert.equal(integrity.status,0,integrity.stderr);assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({passed:true,checks:['fresh review draft','original solution preserved','same-day spacing idempotence','optional grading and clearing','failure remains pending','draft resumes','help changes automatic grade','score view','mobile layout','restart persistence'],screenshots:temporary}));
+  console.log(JSON.stringify({passed:true,checks:['Python exception locations','runtime errors survive later mismatches','recursion errors','matrix and None inspection','print output','valid semicolons and loops','timeout recovery','editor line navigation','fresh review draft','original solution preserved','same-day spacing idempotence','optional grading and clearing','failure remains pending','draft resumes','help changes automatic grade','score view','mobile layout','restart persistence'],screenshots:temporary}));
 } catch (error) {
   if (page) {
     await page.screenshot({path:path.join(temporary,'failure.png'),fullPage:true}).catch(()=>{});

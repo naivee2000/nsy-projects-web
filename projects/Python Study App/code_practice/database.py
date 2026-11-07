@@ -162,8 +162,23 @@ MIGRATION_4_STATEMENTS = [
         reason TEXT NOT NULL, PRIMARY KEY(assignment_date,problem_id))""",
     "CREATE INDEX IF NOT EXISTS review_events_problem_date ON review_events(problem_id,event_date)",
 ]
+MIGRATION_5_STATEMENTS = [
+    "ALTER TABLE review_events ADD COLUMN policy_version INTEGER NOT NULL DEFAULT 2",
+    "UPDATE review_events SET policy_version=1",
+    "ALTER TABLE review_events ADD COLUMN correction_answer TEXT",
+    "ALTER TABLE review_events ADD COLUMN rating_reason TEXT NOT NULL DEFAULT ''",
+    "ALTER TABLE review_events ADD COLUMN clean_streak INTEGER NOT NULL DEFAULT 0",
+    """CREATE TABLE review_help_events (
+        id INTEGER PRIMARY KEY, problem_id TEXT NOT NULL, event_date TEXT NOT NULL,
+        category TEXT NOT NULL, created_at TEXT NOT NULL)""",
+    "CREATE INDEX review_help_problem_day ON review_help_events(problem_id,event_date)",
+    """INSERT INTO review_help_events(problem_id,event_date,category,created_at)
+        SELECT problem_id,event_date,CASE WHEN source_viewed=1 THEN 'solution' ELSE 'algorithm' END,
+               event_date || 'T00:00:00+00:00' FROM review_contexts
+        WHERE source_viewed=1 OR hint_level>0 OR assisted=1""",
+]
 MIGRATIONS = {1: MIGRATION_STATEMENTS, 2: MIGRATION_2_STATEMENTS, 3: MIGRATION_3_STATEMENTS,
-              4: MIGRATION_4_STATEMENTS}
+              4: MIGRATION_4_STATEMENTS, 5: MIGRATION_5_STATEMENTS}
 
 
 def install_seed_database() -> bool:
@@ -313,10 +328,17 @@ def save_attempt(payload: AttemptCreate, *, entry_point: str = "library") -> Att
         )
         from . import review_v2
         if review_v2.enabled():
+            # Help viewed after a pass does not change that completed event,
+            # but becomes evidence when another full submission is made.
+            event = connection.execute("SELECT * FROM review_events WHERE problem_id=? AND event_date=?",
+                                       (payload.problem_id, str(review_v2.local_day(now)))).fetchone()
+            if event and connection.execute("SELECT 1 FROM review_help_events WHERE problem_id=? AND event_date=? AND created_at>? AND category IN ('algorithm','solution')",
+                                            (payload.problem_id, event["event_date"], event["last_at"])).fetchone():
+                connection.execute("UPDATE review_events SET manual_grade=NULL WHERE id=?", (event["id"],))
             connection.execute("INSERT INTO attempt_contexts(attempt_id,entry_point) VALUES(?,?)",
                                (cursor.lastrowid, entry_point))
             if payload.result != "accepted":
-                connection.execute("UPDATE review_events SET manual_grade=NULL WHERE problem_id=? AND event_date=?",
+                connection.execute("UPDATE review_events SET manual_grade=NULL,correction_answer=NULL WHERE problem_id=? AND event_date=?",
                                    (payload.problem_id, str(review_v2.local_day(now))))
             review_v2.sync_problem(connection, payload.problem_id)
         row = connection.execute("SELECT * FROM attempts WHERE id = ?", (cursor.lastrowid,)).fetchone()

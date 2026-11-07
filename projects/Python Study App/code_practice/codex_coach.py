@@ -89,10 +89,16 @@ def _prompt(
     status: str,
     message: str,
     cases: list[dict[str, Any]],
+    mode: str = "approach",
 ) -> str:
     signature = problem.signature.model_dump(mode="json")
     evidence = _test_evidence(cases)
+    guidance = ("Debugging only: stay within the student's existing approach. Discuss syntax, indexing, values, and return paths only. "
+                "Never introduce an algorithm, data structure, recurrence, or solution strategy. If a different approach is needed, "
+                "ask the student to choose Help with my approach without revealing that approach."
+                if mode == "debug" else f"Concept hint: {problem.hints[0]}")
     return f"""You are a Socratic Python study coach. Analyze one student's unresolved attempt.
+{guidance}
 
 NON-NEGOTIABLE TEACHING RULES:
 - Explain the most likely reason the attempt fails, using the student's code and test evidence.
@@ -109,7 +115,6 @@ Title: {problem.title}
 Statement: {problem.statement}
 Signature: {json.dumps(signature)}
 Target complexity: {problem.target_time_complexity} time, {problem.target_space_complexity} space
-Concept hint: {problem.hints[0]}
 </problem>
 
 <failed_run>
@@ -169,8 +174,10 @@ def request_codex_coaching(
     *,
     runner: Runner = subprocess.run,
     executable: str | None = None,
+    mode: str = "approach",
+    diagnostic: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    fallback = build_coaching(problem, source_code, status, message, cases, 3).as_dict()
+    fallback = build_coaching(problem, source_code, status, message, cases, 1, diagnostic=diagnostic).as_dict()
     executable = executable or resolve_codex_cli()
     if not executable:
         return {**fallback, "fallbackReason": "Codex CLI is not installed."}
@@ -200,7 +207,7 @@ def request_codex_coaching(
             try:
                 result = runner(
                     command,
-                    input=_prompt(problem, source_code, status, message, cases),
+                    input=_prompt(problem, source_code, status, message, cases, mode),
                     capture_output=True,
                     text=True,
                     timeout=CODEX_TIMEOUT_SECONDS,

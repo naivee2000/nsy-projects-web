@@ -1,6 +1,7 @@
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import App from "./App";
+import { AccountGate } from "./Accounts";
 
 vi.mock("@monaco-editor/react", () => ({ default: () => <div>Editor</div> }));
 
@@ -35,6 +36,32 @@ beforeEach(() => {
 afterEach(() => {
   cleanup();
   vi.unstubAllGlobals();
+});
+
+test("members get fresh reviews and ratings without owner topic quotas", async () => {
+  const member = { id:"a".repeat(32), username:"student", role:"member", disabled:false, must_change_password:false };
+  const event = { id:7,problemId:"bracket-balance",date:"2026-11-06",automaticGrade:"good",manualGrade:null,
+    effectiveGrade:"good",latestResult:"accepted",dueDate:"2026-11-09",inferred:false,ratingReason:"Passed independently." };
+  const problem = { id:"bracket-balance",version:1,title:"Bracket Balance",summary:"Validate brackets.",
+    statement:"Check brackets.",constraints:[],topics:["stacks"],prerequisites:[],difficulty:2,
+    estimated_minutes:15,target_time_complexity:"O(n)",target_space_complexity:"O(n)",
+    signature:{name:"valid_brackets",parameters:[],returns:"bool",return_adapter:"raw"},
+    starter_code:"def valid_brackets(text): pass",savedDraft:"old draft",tests:[],revealedHints:[],solved:true };
+  vi.stubGlobal("fetch",vi.fn((url:string) => Promise.resolve({ok:true,json:async () =>
+    url.endsWith("/api/auth/me") ? {user:member,loginRequired:true,ownerLoginAvailable:false,hasPassword:true} :
+    url.includes("dashboard") ? {...dashboard,reviewV2:true} :
+    url.endsWith("/session") ? {id:4,source:problem.starter_code,hints:[],event,hasPreviousSolution:true} :
+    url.endsWith("/bracket-balance") ? problem : libraryPage()
+  })));
+  render(<AccountGate><App /></AccountGate>);
+  expect(await screen.findByText(/No required topics or difficulty quotas/)).toBeInTheDocument();
+  expect(await screen.findByText("Review scores, due dates and cooldowns")).toBeInTheDocument();
+  expect(screen.queryByText(/at least four Mediums/)).not.toBeInTheDocument();
+  fireEvent.click(await screen.findByRole("button",{name:/Bracket Balance/}));
+  expect(await screen.findByText("Fresh review workspace")).toBeInTheDocument();
+  expect(screen.getByText(/Suggested rating: Finished independently/)).toBeInTheDocument();
+  const call=vi.mocked(fetch).mock.calls.find(([url])=>String(url).endsWith("/bracket-balance/session"));
+  expect(call?.[1]?.headers).toMatchObject({"X-Study-Profile":member.id});
 });
 
 test("study-list filter is sent with completion filters and displays official badges", async () => {
@@ -406,10 +433,11 @@ test("automatically opens progressive local coaching after a wrong run", async (
   expect(await screen.findByText("The two values add to the target.")).toBeInTheDocument();
   fireEvent.click(await screen.findByRole("button", { name: "Run examples" }));
   expect(await screen.findByText("LOCAL COACH")).toBeInTheDocument();
-  expect(screen.getByText("STEP 1 / 3")).toBeInTheDocument();
+  expect(screen.queryByText("STEP 1 / 3")).not.toBeInTheDocument();
+  expect(screen.queryByRole("button", { name:"Next offline nudge" })).not.toBeInTheDocument();
   expect(screen.getByText("Trace the first missing index.")).toBeInTheDocument();
   expect(screen.queryByText(/seen\[partner\]/)).not.toBeInTheDocument();
-  fireEvent.click(screen.getByRole("button", { name: "Ask Codex coach" }));
+  fireEvent.click(screen.getByRole("button", { name: "Debug my code" }));
   expect(await screen.findByText("CODEX COACH")).toBeInTheDocument();
   expect(screen.getByText("Trace the highest index reached by the loop.")).toBeInTheDocument();
 });

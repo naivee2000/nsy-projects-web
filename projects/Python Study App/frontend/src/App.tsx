@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
+import type { editor } from "monaco-editor";
 import {
   ArrowLeft,
   BookOpen,
@@ -99,27 +100,16 @@ function runJudge(source: string, signature: Signature, tests: TestCase[], timeo
   });
 }
 
-function fallbackCoach(result: JudgeResult, step: number): CoachReply {
-  const safeStep = Math.max(1, Math.min(3, step));
-  const nudges = [
-    "Trace the first failing example and mark the first variable that differs from your expectation.",
-    "Check loop boundaries, return paths, and whether every input position can be visited.",
-    "State the invariant your loop or recursion should preserve, then repair only the line that breaks it.",
-  ];
-  const questions = [
-    "What is the first index, character, node, or state your result is missing?",
-    "Which branch prevents that state from being processed?",
-    "What must be true immediately after every iteration?",
-  ];
+function fallbackCoach(result: JudgeResult, _step: number): CoachReply {
+  const diagnostic = result.diagnostic ?? result.cases.find(item => item.diagnostic)?.diagnostic;
+  const mismatch = result.status === "wrong_answer";
   return {
-    step: safeStep,
-    maxSteps: 3,
-    title: "Isolate one mistaken assumption",
-    observation: result.message,
-    nudge: nudges[safeStep - 1],
-    question: questions[safeStep - 1],
-    canContinue: safeStep < 3,
-    source: "offline-static-coach",
+    step: 1, maxSteps: 1, canContinue: false, source: "offline-static-coach", diagnostic,
+    title: mismatch ? "Output comparison" : result.status === "timeout" ? "Execution timed out" : "Python reported an error",
+    observation: mismatch ? "Your code ran; the output differs from the expected answer." : result.message,
+    nudge: result.status === "timeout" ? "The cause is uncertain: a loop may not terminate, or the computation may take too long." :
+      diagnostic?.exceptionType === "RecursionError" ? "Python's recursion depth limit was exceeded. Possible causes include a missing stopping condition, unchanged recursive arguments, or legitimately deep input." : "",
+    question: "",
   };
 }
 
@@ -157,6 +147,7 @@ function EmptyState({ children }: { children: string }) {
 }
 
 export default function App() {
+  const codeEditor = useRef<editor.IStandaloneCodeEditor | null>(null);
   const account = useAccount();
   const ownerStudy = (account?.session.user?.id ?? "owner") === "owner";
   const api = forProfile(account?.session.user?.id ?? "owner");
@@ -367,7 +358,7 @@ export default function App() {
     try {
       await flushDraft();
       const detail = await api<Problem>(`/api/problems/${id}`);
-      const session = ownerStudy && dashboard?.reviewV2 && entryPoint === "review"
+      const session = dashboard?.reviewV2 && entryPoint === "review"
         ? await api<ReviewSession>(`/api/reviews/${id}/session`, { method: "POST" }) : null;
       if (view === "dashboard" || view === "library") setProblemOrigin(view);
       setAttemptEntryPoint(entryPoint || (view === "library" ? "library" : "daily"));
@@ -402,12 +393,6 @@ export default function App() {
       const nextResult = await runJudge(source, packageData.signature, packageData.tests, packageData.timeoutMs);
       setResult(nextResult);
       if (nextResult.status !== "accepted") {
-        if (reviewSession) {
-          const help = await api<{ event: ReviewEvent | null }>(`/api/reviews/sessions/${reviewSession.id}/help`, {
-            method: "POST", body: JSON.stringify({ kind: "coach" }),
-          });
-          setReviewEvent(help.event);
-        }
         setCoaching(true);
         try {
           const reply = await api<CoachReply>(`/api/problems/${problem.id}/coach`, {
@@ -418,6 +403,8 @@ export default function App() {
               message: nextResult.message,
               cases: nextResult.cases,
               step: 1,
+              mode: reviewSession ? "debug" : "approach",
+              diagnostic: nextResult.diagnostic,
             }),
           });
           setCoach(reply);
@@ -458,30 +445,7 @@ export default function App() {
     }
   };
 
-  const askForNextNudge = async () => {
-    if (!problem || !result || !coach?.canContinue || coaching) return;
-    const nextStep = coach.step + 1;
-    setCoaching(true);
-    try {
-      const reply = await api<CoachReply>(`/api/problems/${problem.id}/coach`, {
-        method: "POST",
-        body: JSON.stringify({
-          source_code: source,
-          status: result.status,
-          message: result.message,
-          cases: result.cases,
-          step: nextStep,
-        }),
-      });
-      setCoach(reply);
-    } catch {
-      setCoach(fallbackCoach(result, nextStep));
-    } finally {
-      setCoaching(false);
-    }
-  };
-
-  const askCodexCoach = async () => {
+  const askCodexCoach = async (mode: "debug" | "approach") => {
     if (!problem || !result || codexThinking) return;
     setCodexThinking(true);
     try {
@@ -493,11 +457,14 @@ export default function App() {
           message: result.message,
           cases: result.cases,
           step: 3,
+          mode,
+          diagnostic: result.diagnostic,
+          review_context_id: reviewSession?.id ?? null,
         }),
       });
       setCoach(reply);
     } catch {
-      setCoach(fallbackCoach(result, 3));
+      setCoach(fallbackCoach(result, 1));
     } finally {
       setCodexThinking(false);
     }
@@ -608,7 +575,7 @@ export default function App() {
             </section>
 
             <section className="section-block review-section">
-              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>{ownerStudy ? (dashboard?.reviewV2 ? "Up to five due reviews: at least four Mediums and one DP when available, with rotating topics and Hot 100 practice. Recovery reviews may return before normal cooldown ends." : "Three daily focus groups randomly chosen from grid recursion, trees, linked lists, graphs, and dynamic programming, plus up to two random reviews from your completed Hot 100 problems, favoring Medium.") : "Review up to five completed Hot 100 and Top Interview 150 problems, prioritizing due dates, difficulty, and past struggle."}</p></div><button className="text-button" onClick={() => { setCompletion("passed"); setLibraryPage(1); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
+              <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>{ownerStudy ? (dashboard?.reviewV2 ? "Up to five due reviews: at least four Mediums and one DP when available, with rotating topics and Hot 100 practice. Recovery reviews may return before normal cooldown ends." : "Three daily focus groups randomly chosen from grid recursion, trees, linked lists, graphs, and dynamic programming, plus up to two random reviews from your completed Hot 100 problems, favoring Medium.") : "Review up to five due Hot 100 and Top Interview 150 problems, prioritizing urgency and recent recall. No required topics or difficulty quotas."}</p></div><button className="text-button" onClick={() => { setCompletion("passed"); setLibraryPage(1); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.reviewRecommendations.length
                   ? dashboard.reviewRecommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={(id) => openProblem(id, "review")} index={index} />)
@@ -618,7 +585,7 @@ export default function App() {
               {!!dashboard?.reviewRetryProblems?.length && <div className="review-retries"><h3>Needs another try</h3><p>These previously passed problems need to be passed again before normal review resumes.</p>
                 {dashboard.reviewRetryProblems.map((item,index) => <ProblemCard key={item.id} problem={item} onOpen={id => openProblem(id,"review")} index={index} />)}
               </div>}
-              {ownerStudy && dashboard?.reviewV2 && <ReviewScores profile={account?.session.user?.id ?? "owner"} revision={libraryRevision} />}
+              {dashboard?.reviewV2 && <ReviewScores profile={account?.session.user?.id ?? "owner"} revision={libraryRevision} />}
             </section>
 
             <section className="challenge-banner">
@@ -752,6 +719,7 @@ export default function App() {
               >
                 <div className="editor-toolbar"><span><Code2 size={17} /> Python 3</span><button onClick={() => setSource(problem.starter_code)} title="Reset starter code"><RotateCcw size={16} /> Reset</button></div>
                 <Editor
+                  onMount={(instance) => { codeEditor.current = instance; }}
                   height="100%"
                   language="python"
                   theme="vs-dark"
@@ -812,18 +780,28 @@ export default function App() {
                       </div>
                     ))}
                     {result.status !== "accepted" && (coach || coaching) && <aside className="coach-card" aria-live="polite">
-                      <div className="coach-label"><BrainCircuit size={15} /><span>{coach?.source === "codex-cli" ? "CODEX COACH" : "LOCAL COACH"}</span>{coach && <small>STEP {coach.step} / {coach.maxSteps}</small>}</div>
+                      <div className="coach-label"><BrainCircuit size={15} /><span>{coach?.source === "codex-cli" ? "CODEX COACH" : "LOCAL COACH"}</span></div>
                       {coaching && !coach ? <div className="coach-loading"><LoaderCircle className="spin" size={16} /> Reading the failed run…</div> : coach && <>
                         <h3>{coach.title}</h3>
                         <p>{coach.observation}</p>
-                        <div className="coach-nudge"><strong>Try this next</strong><span>{coach.nudge}</span></div>
-                        <div className="coach-question"><strong>Ask yourself</strong><span>{coach.question}</span></div>
+                        {coach.diagnostic?.line && <button className="text-button" onClick={() => {
+                          const lineNumber = coach.diagnostic!.line!;
+                          codeEditor.current?.revealLineInCenter(lineNumber);
+                          codeEditor.current?.setPosition({ lineNumber, column: Math.max(1, coach.diagnostic?.column ?? 1) });
+                          codeEditor.current?.focus();
+                        }}>Go to line {coach.diagnostic.line}</button>}
+                        {coach.diagnostic?.sourceExcerpt && <pre>{coach.diagnostic.sourceExcerpt}</pre>}
+                        {coach.nudge && <div className="coach-nudge"><strong>{coach.source === "codex-cli" ? "Try this next" : "Check"}</strong><span>{coach.nudge}</span></div>}
+                        {coach.source === "codex-cli" && coach.question && <div className="coach-question"><strong>Ask yourself</strong><span>{coach.question}</span></div>}
                         {coach.fallbackReason && <div className="coach-fallback"><CircleAlert size={14} /> {coach.fallbackReason}</div>}
                         <div className="coach-footer">
                           <small>{coach.source === "codex-cli" ? "Generated through your local Codex CLI · filtered to withhold complete answers" : "Offline analysis · Codex uses your local ChatGPT login only when you explicitly ask"}</small>
                           <div className="coach-actions">
-                            {coach.canContinue && <button disabled={coaching || codexThinking} onClick={askForNextNudge}>{coaching ? <LoaderCircle className="spin" size={14} /> : <Sparkles size={14} />} Next offline nudge</button>}
-                            {coach.source !== "codex-cli" && (!account || account.session.user?.role === "admin") && <button className="codex-button" disabled={codexThinking || coaching} onClick={askCodexCoach}>{codexThinking ? <LoaderCircle className="spin" size={14} /> : <BrainCircuit size={14} />} {codexThinking ? "Asking Codex…" : "Ask Codex coach"}</button>}
+                            {(!account || account.session.user?.role === "admin") && <>
+                              <button className="codex-button" disabled={codexThinking || coaching} onClick={() => void askCodexCoach("debug")}>{codexThinking ? <LoaderCircle className="spin" size={14} /> : <BrainCircuit size={14} />} Debug my code</button>
+                              <button disabled={codexThinking || coaching} onClick={() => void askCodexCoach("approach")}>Help with my approach</button>
+                              <small>Debugging allows an Independent rating. Approach help before passing suggests Hard.</small>
+                            </>}
                           </div>
                         </div>
                       </>}

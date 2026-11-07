@@ -1,4 +1,4 @@
-"""Owner review scheduling: daily retrieval events, bounded scores and quotas.
+"""Account-local review scheduling with optional owner topic quotas.
 
 Raw attempts and the legacy scheduler remain available for rollback. This
 module never executes student code and never changes historical submissions.
@@ -27,7 +27,7 @@ GROUPS = (("trees", is_tree_problem), ("linked lists", is_linked_list_problem),
 
 
 def enabled() -> bool:
-    return database.current_profile() == "owner" and os.environ.get("CODE_PRACTICE_REVIEW_V2", "1").lower() not in {"0", "false", "off"}
+    return os.environ.get("CODE_PRACTICE_REVIEW_V2", "1").lower() not in {"0", "false", "off"}
 
 
 def local_day(now: datetime | None = None) -> date:
@@ -65,11 +65,11 @@ def initialize(con) -> None:
     if con.execute("SELECT 1 FROM review_v2_meta WHERE key='replayed-v1'").fetchone():
         return
     for row in con.execute("SELECT DISTINCT problem_id FROM attempts").fetchall():
-        sync_problem(con, row[0])
+        sync_problem(con, row[0], legacy_backfill=True)
     con.execute("INSERT INTO review_v2_meta VALUES('replayed-v1',?)", (datetime.now(timezone.utc).isoformat(),))
 
 
-def sync_problem(con, problem_id: str) -> None:
+def sync_problem(con, problem_id: str, *, legacy_backfill: bool = False) -> None:
     rows = con.execute("""SELECT a.id,a.result,a.created_at,c.entry_point FROM attempts a
                           LEFT JOIN attempt_contexts c ON c.attempt_id=a.id
                           WHERE a.problem_id=? ORDER BY a.created_at,a.id""", (problem_id,)).fetchall()
@@ -83,12 +83,45 @@ def sync_problem(con, problem_id: str) -> None:
     for day, records in sorted(days.items()):
         if state is None and not any(r["result"] == "accepted" for r in records):
             continue
+        existing = con.execute("SELECT * FROM review_events WHERE problem_id=? AND event_date=?", (problem_id, day)).fetchone()
+        if existing and existing["policy_version"] == 1 and day != str(local_day()):
+            state = json.loads(existing["final_state"])
+            continue
         context = contexts.get(day)
         helped = bool(context and (context["hint_level"] or context["assisted"]))
         seen_solution = bool(context and context["source_viewed"])
         latest = records[-1]["result"]
         automatic = ("again" if latest != "accepted" or seen_solution else
                      "hard" if helped or any(r["result"] != "accepted" for r in records) else "good")
+        reason = "Historical rating inferred from submissions."
+        streak = 0
+        policy = existing["policy_version"] if existing else (1 if legacy_backfill else 2)
+        if policy == 2:
+            help_rows = con.execute("SELECT category FROM review_help_events WHERE problem_id=? AND event_date=? AND created_at<=?",
+                                    (problem_id, day, records[-1]["created_at"])).fetchall()
+            categories = {r[0] for r in help_rows}
+            failed = any(r["result"] != "accepted" for r in records)
+            answer = existing["correction_answer"] if existing else None
+            if latest != "accepted":
+                automatic, reason = "again", "The latest full submission has not passed yet."
+            elif "solution" in categories:
+                automatic, reason = "again", "Viewed a solution before passing."
+            elif "algorithm" in categories:
+                automatic, reason = "hard", "Used help with the approach before passing."
+            elif failed and answer != "implementation":
+                automatic = "hard"
+                reason = ("Rethought the approach before passing." if answer == "approach" else
+                          "Passed after corrections; confirm what you changed.")
+            else:
+                automatic = "good"
+                reason = ("Passed independently after correcting implementation details." if failed else
+                          "Passed with debugging assistance." if categories else "Passed independently.")
+            is_due_review = bool(state and day >= state["dueDay"] and any(r["entry_point"] == "review" for r in records))
+            streak = state.get("cleanStreak", 0) if state else 0
+            if is_due_review:
+                streak = streak + 1 if latest == "accepted" and not failed and not categories else 0
+                if streak >= 3 and automatic == "good":
+                    automatic, reason = "easy", f"Recalled independently on {streak} consecutive clean reviews."
         chosen = manual.get(day) if latest == "accepted" else None
         base = json.dumps(state) if state else None
         inferred = all(r["entry_point"] is None for r in records)
@@ -98,6 +131,8 @@ def sync_problem(con, problem_id: str) -> None:
                               and automatic == "good" and not any(r["entry_point"] == "review" for r in records))
         state, counted = (dict(state), False) if saved_library_pass else advance(state, date.fromisoformat(day), chosen or automatic)
         state = {**state, "latestResult": latest, "lastEventDay": day}
+        if policy == 2:
+            state["cleanStreak"] = streak
         con.execute("""INSERT INTO review_events(problem_id,event_date,automatic_grade,manual_grade,
                     latest_result,first_at,last_at,inferred,counted,base_state,final_state)
                     VALUES(?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(problem_id,event_date) DO UPDATE SET
@@ -106,6 +141,8 @@ def sync_problem(con, problem_id: str) -> None:
                     base_state=excluded.base_state,final_state=excluded.final_state""",
                     (problem_id, day, automatic, manual.get(day), latest, records[0]["created_at"], records[-1]["created_at"],
                      int(inferred), int(counted), base, json.dumps(state)))
+        con.execute("UPDATE review_events SET rating_reason=?,clean_streak=?,policy_version=? WHERE problem_id=? AND event_date=?",
+                    (reason, streak, policy, problem_id, day))
     if state:
         con.execute("INSERT INTO review_schedules_v2 VALUES(?,?) ON CONFLICT(problem_id) DO UPDATE SET state_json=excluded.state_json",
                     (problem_id, json.dumps(state)))
@@ -119,7 +156,12 @@ def event_payload(con, problem_id: str, day: str | None = None) -> dict | None:
     return {"id": event["id"], "problemId": problem_id, "date": event["event_date"],
             "automaticGrade": event["automatic_grade"], "manualGrade": event["manual_grade"],
             "effectiveGrade": effective_grade(event), "latestResult": event["latest_result"],
-            "dueDate": state["dueDay"], "inferred": bool(event["inferred"])}
+            "dueDate": state["dueDay"], "inferred": bool(event["inferred"]),
+            "ratingReason": event["rating_reason"], "cleanStreak": event["clean_streak"],
+            "correctionAnswer": event["correction_answer"],
+            "needsCorrectionAnswer": event["policy_version"] == 2 and event["latest_result"] == "accepted" and
+                bool(con.execute("SELECT 1 FROM attempts WHERE problem_id=? AND result!='accepted' AND created_at>=? AND created_at<=?",
+                                 (problem_id, event["first_at"], event["last_at"])).fetchone())}
 
 
 def priorities(con, catalog, now: datetime | None = None) -> list[dict]:
@@ -177,9 +219,16 @@ def priorities(con, catalog, now: datetime | None = None) -> list[dict]:
     return sorted(result, key=lambda r: (r["score"] is None, -(r["score"] or 0), r["id"]))
 
 
-def choose(rows: list[dict], catalog, day: str) -> tuple[list[dict], list[str]]:
+def choose(rows: list[dict], catalog, day: str, *, owner_focus: bool = True) -> tuple[list[dict], list[str]]:
     """Five-slot matching with per-question uniqueness and Medium quota."""
     candidates = sorted((r for r in rows if r["status"] == "eligible"), key=lambda r: r["id"])
+    if not owner_focus:
+        # Members follow their interview path without personal topic or
+        # difficulty quotas. Due dates and ratings drive review priority.
+        candidates = [r for r in candidates if study_list_badges(r["id"])]
+        candidates.sort(key=lambda r: (-r["score"], -r["difficulty"], r["id"]))
+        chosen = [{**r, "selectionReason": "Due interview practice"} for r in candidates[:5]]
+        return chosen, (["Fewer than five due interview-list questions are currently eligible."] if len(chosen) < 5 else [])
     pairs = list(combinations(range(4), 2))
     offset = date.fromisoformat(day).toordinal() % len(pairs)
     pairs = pairs[offset:] + pairs[:offset]
@@ -237,7 +286,8 @@ def ensure_assignment(con, catalog, now: datetime) -> tuple[tuple[datetime, list
         notes = con.execute("SELECT value FROM review_v2_meta WHERE key=?", (notes_key,)).fetchone()
         return (datetime.fromisoformat(saved[0]), ids), json.loads(notes[0]) if notes else [
             "Today's existing review set is preserved; new quotas apply to the next day's set."]
-    chosen, notes = choose(priorities(con, catalog, now), catalog, day)
+    chosen, notes = choose(priorities(con, catalog, now), catalog, day,
+                           owner_focus=database.current_profile() == "owner")
     con.execute("INSERT INTO daily_review_sessions VALUES(?,?)", (day, now.isoformat()))
     con.executemany("INSERT INTO daily_review_problems VALUES(?,?,?)", [(day,i,r["id"]) for i,r in enumerate(chosen)])
     con.executemany("INSERT INTO review_assignment_details VALUES(?,?,?,?)",

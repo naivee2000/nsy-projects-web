@@ -1,4 +1,4 @@
-"""Private owner-only review workspace and score inspection endpoints."""
+"""Private account-local review workspace and score inspection endpoints."""
 from datetime import datetime, timezone
 
 from fastapi import APIRouter, HTTPException, Query, Request
@@ -12,9 +12,9 @@ from .starter_code import with_support_classes
 router = APIRouter(prefix="/api/reviews")
 
 
-def require_owner(request: Request) -> None:
-    if not request.state.user or request.state.user["id"] != "owner":
-        raise HTTPException(403, "Review scoring is available to the owner only.")
+def require_review_access(request: Request) -> None:
+    if not request.state.user:
+        raise HTTPException(401, "Authentication required.")
     if not review_v2.enabled():
         raise HTTPException(404, "Review scoring v2 is disabled.")
 
@@ -36,7 +36,7 @@ def validate_context(context_id: int, problem_id: str) -> None:
 @router.get("/priorities")
 def priority_list(request: Request, search: str = "", status: str = "all",
                   page: int = Query(1, ge=1), page_size: int = Query(30, ge=1, le=100)):
-    require_owner(request)
+    require_review_access(request)
     with database.db_session() as con:
         rows = review_v2.priorities(con, get_catalog().metadata)
     if search.strip():
@@ -52,7 +52,7 @@ def priority_list(request: Request, search: str = "", status: str = "all",
 
 @router.post("/{problem_id}/session")
 def start_review(problem_id: str, request: Request):
-    require_owner(request)
+    require_review_access(request)
     problem = get_catalog().get(problem_id)
     if not problem:
         raise HTTPException(404, "Problem not found.")
@@ -80,7 +80,7 @@ class Draft(BaseModel):
 
 @router.put("/sessions/{context_id}/draft")
 def save_review_draft(context_id: int, payload: Draft, request: Request):
-    require_owner(request)
+    require_review_access(request)
     with database.db_session() as con:
         con.execute("BEGIN IMMEDIATE")
         context_row(con, context_id)
@@ -89,13 +89,13 @@ def save_review_draft(context_id: int, payload: Draft, request: Request):
 
 
 class Help(BaseModel):
-    kind: Literal["hint", "coach", "solution"]
+    kind: Literal["hint", "coach", "debugging", "solution"]
     level: int | None = Field(None, ge=1, le=4)
 
 
 @router.post("/sessions/{context_id}/help")
 def help_review(context_id: int, payload: Help, request: Request):
-    require_owner(request)
+    require_review_access(request)
     with database.db_session() as con:
         con.execute("BEGIN IMMEDIATE")
         row = context_row(con, context_id)
@@ -103,7 +103,7 @@ def help_review(context_id: int, payload: Help, request: Request):
         if payload.kind == "solution":
             con.execute("UPDATE review_contexts SET source_viewed=1 WHERE id=?", (context_id,))
             reply["source"] = row["previous_source"] or ""
-        elif payload.kind == "coach":
+        elif payload.kind in {"coach", "debugging"}:
             con.execute("UPDATE review_contexts SET assisted=1 WHERE id=?", (context_id,))
         else:
             level = payload.level
@@ -114,8 +114,9 @@ def help_review(context_id: int, payload: Help, request: Request):
                         (level, int(level == 4), context_id))
             reply.update(level=level, label=["Concept", "Strategy", "Pseudocode", "Editorial"][level-1],
                          content=problem.editorial if level == 4 else problem.hints[level-1])
-        con.execute("UPDATE review_events SET manual_grade=NULL WHERE problem_id=? AND event_date=?",
-                    (row["problem_id"], row["event_date"]))
+        category = ("solution" if payload.kind == "solution" or payload.level == 4 else
+                    "debugging" if payload.kind == "debugging" else "algorithm")
+        record_help(con, row, category)
         review_v2.sync_problem(con, row["problem_id"])
         reply["event"] = review_v2.event_payload(con, row["problem_id"])
         return reply
@@ -123,11 +124,12 @@ def help_review(context_id: int, payload: Help, request: Request):
 
 class Feedback(BaseModel):
     grade: Literal["again", "hard", "good", "easy"] | None = None
+    correction_answer: Literal["implementation", "approach"] | None = None
 
 
 @router.put("/events/{event_id}/feedback")
 def feedback(event_id: int, payload: Feedback, request: Request):
-    require_owner(request)
+    require_review_access(request)
     with database.db_session() as con:
         con.execute("BEGIN IMMEDIATE")
         event = con.execute("SELECT * FROM review_events WHERE id=?", (event_id,)).fetchone()
@@ -135,6 +137,26 @@ def feedback(event_id: int, payload: Feedback, request: Request):
             raise HTTPException(409, "Only today's review feedback can be edited.")
         if event["latest_result"] != "accepted":
             raise HTTPException(409, "Pass the problem before rating the review.")
-        con.execute("UPDATE review_events SET manual_grade=? WHERE id=?", (payload.grade, event_id))
+        if "grade" in payload.model_fields_set:
+            con.execute("UPDATE review_events SET manual_grade=? WHERE id=?", (payload.grade, event_id))
+        if "correction_answer" in payload.model_fields_set:
+            con.execute("UPDATE review_events SET correction_answer=? WHERE id=?", (payload.correction_answer, event_id))
         review_v2.sync_problem(con, event["problem_id"])
         return review_v2.event_payload(con, event["problem_id"])
+
+
+def record_help(con, context, category: str) -> None:
+    con.execute("INSERT INTO review_help_events(problem_id,event_date,category,created_at) VALUES(?,?,?,?)",
+                (context["problem_id"], context["event_date"], category, datetime.now(timezone.utc).isoformat()))
+
+
+def record_coaching(context_id: int | None, problem_id: str, mode: str) -> None:
+    if context_id is None:
+        return
+    if not review_v2.enabled():
+        raise HTTPException(403, "Review context is unavailable for this account.")
+    with database.db_session() as con:
+        row = context_row(con, context_id)
+        if row["problem_id"] != problem_id:
+            raise HTTPException(409, "Review session does not match this problem.")
+        record_help(con, row, "debugging" if mode == "debug" else "algorithm")

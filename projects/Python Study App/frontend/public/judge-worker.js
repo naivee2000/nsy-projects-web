@@ -315,6 +315,23 @@ def matches_result(actual, expected, comparator, mode):
     return matches(actual, expected, comparator)
 
 job = json.loads(job_json)
+def exception_detail(error):
+    line = column = None
+    if isinstance(error, SyntaxError) and error.filename == "<submission>":
+        line, column = error.lineno, error.offset
+    else:
+        frames = [f for f in traceback.extract_tb(error.__traceback__) if f.filename == "<submission>"]
+        if frames:
+            line = frames[-1].lineno
+            offset = getattr(frames[-1], "colno", None)
+            column = offset + 1 if offset is not None else None
+    line = line if isinstance(line, int) and line > 0 else None
+    column = column if isinstance(column, int) and column > 0 else None
+    lines = job["source"].splitlines()
+    excerpt = lines[line-1][:300] if line and 1 <= line <= len(lines) else None
+    return {"exceptionType": type(error).__name__, "message": str(error)[:1200],
+            "line": line, "column": column, "sourceExcerpt": excerpt}
+
 namespace = dict(globals())
 console_output = io.StringIO()
 try:
@@ -325,13 +342,14 @@ try:
     if not callable(function):
         raise NameError(f'Expected a function named {job["signature"]["name"]}')
 except SyntaxError as error:
-    result_payload = {"status": "syntax_error", "message": f"{error.msg} (line {error.lineno})", "cases": [], "stdout": console_output.getvalue()}
+    result_payload = {"status": "syntax_error", "message": f"{error.msg} (line {error.lineno})", "cases": [], "stdout": console_output.getvalue(), "diagnostic": exception_detail(error)}
 except Exception as error:
-    result_payload = {"status": "runtime_error", "message": f"{type(error).__name__}: {error}", "cases": [], "stdout": console_output.getvalue()}
+    result_payload = {"status": "runtime_error", "message": f"{type(error).__name__}: {error}", "cases": [], "stdout": console_output.getvalue(), "diagnostic": exception_detail(error)}
 else:
     cases = []
     status = "accepted"
     message = "All tests passed."
+    runtime_diagnostic = None
     for test in job["tests"]:
         try:
             arguments = []
@@ -471,17 +489,22 @@ else:
             if contract_error:
                 cases[-1]["error"] = contract_error
             if not passed:
-                status = "wrong_answer"
-                message = "A test produced an unexpected result."
+                if status != "runtime_error":
+                    status = "wrong_answer"
+                    message = "A test produced an unexpected result."
                 if job.get("stopOnFailure", False):
                     break
         except Exception as error:
             status = "runtime_error"
-            message = f"{type(error).__name__}: {error}"
-            cases.append({"id": test["id"], "passed": False, "error": message, "expected": test["expected"], "visible": test.get("visible", False), "arguments": test["arguments"]})
+            detail = exception_detail(error)
+            case_message = f"{type(error).__name__}: {error}"
+            if runtime_diagnostic is None:
+                runtime_diagnostic = detail
+                message = case_message
+            cases.append({"id": test["id"], "passed": False, "error": case_message, "diagnostic": detail, "expected": test["expected"], "visible": test.get("visible", False), "arguments": test["arguments"]})
             if job.get("stopOnFailure", False):
                 break
-    result_payload = {"status": status, "message": message, "cases": cases, "stdout": console_output.getvalue()}
+    result_payload = {"status": status, "message": message, "cases": cases, "stdout": console_output.getvalue(), "diagnostic": runtime_diagnostic}
 json.dumps(result_payload)
 `);
     const result = JSON.parse(resultJson);

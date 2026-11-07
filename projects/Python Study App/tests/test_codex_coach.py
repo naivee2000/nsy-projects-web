@@ -16,6 +16,25 @@ CASES = [
 ]
 
 
+def test_debug_mode_omits_algorithm_material_and_fallback_stays_debugging():
+    captured = {}
+    response = request_codex_coaching(PROBLEM, "pass", "syntax_error", "syntax", CASES,
+        mode="debug", executable="/fake/codex", runner=fake_runner_with({
+            "title":"Check indentation", "explanation":"The return has inconsistent indentation.",
+            "nudge":"Check indentation.", "question":"Which block owns this return?"}, captured))
+    assert response["source"] == "codex-cli"
+    assert "Debugging only" in captured["prompt"]
+    assert PROBLEM.hints[0] not in captured["prompt"]
+    def timeout(*args, **kwargs):
+        raise subprocess.TimeoutExpired("codex", 1)
+    fallback = request_codex_coaching(PROBLEM, "pass", "syntax_error", "syntax", CASES,
+                                     mode="debug", executable="/fake/codex", runner=timeout)
+    assert fallback["source"] == "offline-static-coach"
+    assert PROBLEM.hints[0] not in str(fallback)
+    assert fallback["canContinue"] is False
+    assert not fallback["question"]
+
+
 def fake_runner_with(payload: dict[str, str], captured: dict[str, object]):
     def run(command, **kwargs):
         captured["command"] = command

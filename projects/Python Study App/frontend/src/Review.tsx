@@ -11,11 +11,11 @@ export function ReviewFeedback({ event, profile, onChange }: {
 }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const rate = async (grade: ReviewGrade | null) => {
+  const update = async (payload: { grade?: ReviewGrade | null; correction_answer?: "implementation" | "approach" | null }) => {
     setBusy(true);
     try {
       const next = await forProfile(profile)<ReviewEvent>(`/api/reviews/events/${event.id}/feedback`, {
-        method: "PUT", body: JSON.stringify({ grade }),
+        method: "PUT", body: JSON.stringify(payload),
       });
       onChange(next); setError("");
     } catch (e) { setError(String(e)); }
@@ -23,10 +23,20 @@ export function ReviewFeedback({ event, profile, onChange }: {
   };
   return <aside className="review-feedback" aria-label="Review feedback">
     <strong>How did this feel? <small>Optional</small></strong>
-    <p>{event.manualGrade ? "Your rating" : "Automatic rating"}: {labels[event.effectiveGrade]}. Next due: {event.dueDate}.</p>
+    <p>{event.manualGrade ? "Your rating" : "Suggested rating"}: {labels[event.effectiveGrade]}.</p>
+    {event.ratingReason && <p>{event.ratingReason}</p>}
+    <p>{event.effectiveGrade === "easy" ? "Review less often." : event.effectiveGrade === "good" ? "Keep building recall." : "Review sooner."}</p>
+    {event.needsCorrectionAnswer && <div aria-label="Correction feedback">
+      <strong>What did you change?</strong>
+      <div className="review-rating-buttons">
+        <button disabled={busy} aria-pressed={event.correctionAnswer === "implementation"} onClick={() => void update({ correction_answer: "implementation" })}>Fixed implementation details</button>
+        <button disabled={busy} aria-pressed={event.correctionAnswer === "approach"} onClick={() => void update({ correction_answer: "approach" })}>Rethought the approach</button>
+        {event.correctionAnswer && <button disabled={busy} onClick={() => void update({ correction_answer: null })}>Clear answer</button>}
+      </div>
+    </div>}
     <div className="review-rating-buttons">{(Object.keys(labels) as ReviewGrade[]).map(grade =>
-      <button key={grade} aria-pressed={event.manualGrade === grade} disabled={busy} onClick={() => void rate(grade)}>{labels[grade]}</button>)}</div>
-    <button className="text-button" disabled={busy || !event.manualGrade} onClick={() => void rate(null)}>Use automatic rating</button>
+      <button key={grade} aria-pressed={event.manualGrade === grade} disabled={busy} onClick={() => void update({ grade })}>{labels[grade]}</button>)}</div>
+    <button className="text-button" disabled={busy || !event.manualGrade} onClick={() => void update({ grade: null })}>Use suggested rating</button>
     {error && <p role="alert">{error}</p>}
   </aside>;
 }

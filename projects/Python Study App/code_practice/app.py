@@ -43,7 +43,7 @@ from .shared_auth import SharedSessionAuth
 from .starter_code import with_support_classes
 from . import accounts
 from .account_routes import router as account_router
-from .review_routes import router as review_router, validate_context
+from .review_routes import router as review_router, validate_context, record_coaching
 from . import review_v2
 from . import database
 from .database import profile_scope
@@ -116,6 +116,14 @@ class AttemptSubmission(AttemptCreate):
     review_context_id: int | None = None
 
 
+class CodeDiagnostic(BaseModel):
+    exceptionType: str = Field(max_length=100)
+    message: str = Field(max_length=1500)
+    line: int | None = Field(None, ge=1)
+    column: int | None = Field(None, ge=1)
+    sourceExcerpt: str | None = Field(None, max_length=300)
+
+
 class CoachCase(BaseModel):
     id: str
     passed: bool
@@ -124,6 +132,7 @@ class CoachCase(BaseModel):
     error: str | None = None
     visible: bool = False
     arguments: list[Any] | None = None
+    diagnostic: CodeDiagnostic | None = None
 
 
 class CoachPayload(BaseModel):
@@ -132,6 +141,9 @@ class CoachPayload(BaseModel):
     message: str = Field(max_length=4_000)
     cases: list[CoachCase] = Field(default_factory=list, max_length=100)
     step: int = Field(default=1, ge=1, le=3)
+    mode: Literal["debug", "approach"] = "approach"
+    review_context_id: int | None = None
+    diagnostic: CodeDiagnostic | None = None
 
 
 @app.get("/api/health")
@@ -215,6 +227,7 @@ def coach(problem_id: str, payload: CoachPayload) -> dict[str, Any]:
     if payload.status == "accepted":
         raise HTTPException(409, "Coaching is only generated for an unresolved run")
     # build_coaching parses source text for structure but never compiles or executes it.
+    record_coaching(payload.review_context_id, problem_id, "debug")
     reply = build_coaching(
         problem,
         payload.source_code,
@@ -222,6 +235,8 @@ def coach(problem_id: str, payload: CoachPayload) -> dict[str, Any]:
         payload.message,
         [case.model_dump(mode="json") for case in payload.cases],
         payload.step,
+        mode=payload.mode,
+        diagnostic=payload.diagnostic.model_dump() if payload.diagnostic else None,
     )
     return reply.as_dict()
 
@@ -238,12 +253,15 @@ def codex_coach(problem_id: str, payload: CoachPayload) -> dict[str, Any]:
         raise HTTPException(404, "Problem not found")
     if payload.status == "accepted":
         raise HTTPException(409, "Coaching is only generated for an unresolved run")
+    record_coaching(payload.review_context_id, problem_id, payload.mode)
     return request_codex_coaching(
         problem,
         payload.source_code,
         payload.status,
         payload.message,
         [case.model_dump(mode="json") for case in payload.cases],
+        mode=payload.mode,
+        diagnostic=payload.diagnostic.model_dump() if payload.diagnostic else None,
     )
 
 
@@ -337,7 +355,7 @@ def dashboard(request: Request) -> dict[str, Any]:
     }
 
     now = datetime.now(timezone.utc)
-    today_key = str(review_v2.local_day(now)) if owner_focus and review_v2.enabled() else datetime.now().astimezone().date().isoformat()
+    today_key = str(review_v2.local_day(now)) if review_v2.enabled() else datetime.now().astimezone().date().isoformat()
     interview_plan = InterviewPlan(catalog, attempts, reviews, now, today_key,
                                   owner_focus=owner_focus)
     daily_ids = get_daily_assignment(today_key)
@@ -364,7 +382,7 @@ def dashboard(request: Request) -> dict[str, Any]:
     daily_complete = bool(assigned) and not recommendations
 
     daily_review = get_daily_review_assignment(today_key)
-    v2 = owner_focus and review_v2.enabled()
+    v2 = review_v2.enabled()
     selection_notes = []
     priority_rows = []
     if v2:
