@@ -113,6 +113,9 @@ export type ReviewPriority = {
   cooldownUntil: string | null; recoveryException: boolean; status: string;
   reason: string; assignedToday: boolean; assignmentScore: number | null;
   assignmentReason: string | null; inferred: boolean;
+  lastAssignmentDate: string | null; lastSubmissionDate: string | null;
+  lastActivityDate: string | null; daysSinceLastActivity: number | null;
+  olderReviewEligible: boolean; recentRecovery: boolean;
 };
 
 export type CodeDiagnostic = { exceptionType: string; message: string; line?: number | null; column?: number | null; sourceExcerpt?: string | null };

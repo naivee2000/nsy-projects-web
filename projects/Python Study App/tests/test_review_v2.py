@@ -324,7 +324,8 @@ def test_member_selection_has_no_owner_topic_or_medium_quotas(monkeypatch):
     monkeypatch.setattr(review_v2,"study_list_badges",lambda key: [] if key=="unlisted" else [{"id":"interview-150"}])
     chosen, notes = review_v2.choose(rows,{},"2026-11-06",owner_focus=False)
     assert [r["id"] for r in chosen] == [f"easy-{i}" for i in range(5)]
-    assert not notes and all(r["selectionReason"] == "Due interview practice" for r in chosen)
+    assert notes == ["No suitable older review is available within the eligible pool, existing coverage and minimum recovery exceptions."]
+    assert all(r["selectionReason"] == "Due interview practice" for r in chosen)
 
 
 def test_backfill_is_idempotent_and_does_not_rewrite_legacy_progress(v2):

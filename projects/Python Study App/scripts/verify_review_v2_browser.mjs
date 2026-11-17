@@ -27,7 +27,9 @@ accounts.set_password('owner','owner-test-password')
 source=${JSON.stringify(source)}
 database.save_draft('pair-sum-indices',source)
 with database.db_session() as c:
- c.execute("INSERT INTO attempts(problem_id,problem_version,source_code,result,runtime_ms,tests_passed,tests_total,created_at) VALUES('pair-sum-indices',1,?,'accepted',1,12,12,?)",(source,(datetime.now(timezone.utc)-timedelta(days=5)).isoformat()))
+ old_day=review_v2.local_day()-timedelta(days=24)
+ stamp=review_v2.midnight(old_day)+timedelta(hours=12)
+ c.execute("INSERT INTO attempts(problem_id,problem_version,source_code,result,runtime_ms,tests_passed,tests_total,created_at) VALUES('pair-sum-indices',1,?,'accepted',1,12,12,?)",(source,stamp.isoformat()))
  review_v2.sync_problem(c,'pair-sum-indices')
 `],{cwd:root,env,encoding:'utf8'});
 assert.equal(setup.status,0,setup.stderr);
@@ -69,6 +71,14 @@ try {
     return (await saved).json();
   }
   async function dashboard() {return page.evaluate(async()=>(await fetch('/api/dashboard')).json());}
+  async function reviewScores() {return page.evaluate(async()=>(await fetch('/api/reviews/priorities?search=Pair%20Sum%20Indices')).json());}
+  const originalScores=await reviewScores();
+  assert.equal(originalScores.selectionPolicyVersion,'balanced-rotation-v1');
+  assert.ok(originalScores.items[0].assignmentReason.includes('Older review: last practised 24 days ago'));
+  await page.getByRole('button',{name:'Run examples',exact:true}).click();
+  await page.locator('.result-heading').waitFor();
+  await page.waitForFunction(()=>![...document.querySelectorAll('button')].find(button=>button.textContent.includes('Run examples')).disabled);
+  assert.equal((await reviewScores()).items[0].lastSubmissionDate,originalScores.items[0].lastSubmissionDate);
   const diagnostics = await page.evaluate(async () => {
     async function run(source, tests=[{id:'one',arguments:[[1]],expected:1,visible:true}], limit=3000) {
       const worker=new Worker('/judge-worker.js');
@@ -157,12 +167,20 @@ try {
   await scoreRow.waitFor();
   await scoreRow.locator('summary').click();
   await page.getByText(/Urgency:/).waitFor();
+  await page.getByText(/Saved selection:.*Older review: last practised 24 days ago/).waitFor();
+  assert.ok((await scoreRow.innerText()).includes('Last assigned:'));
+  assert.ok((await page.locator('.review-scores').innerText()).includes('Fewer than five due questions'));
   await page.screenshot({path:path.join(temporary,'scores-desktop.png'),fullPage:true});
   await page.setViewportSize({width:390,height:844});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
-  await page.screenshot({path:path.join(temporary,'scores-mobile.png'),fullPage:true});
+  await page.locator('.review-scores').scrollIntoViewIfNeeded();
+  await page.locator('.review-scores').screenshot({path:path.join(temporary,'scores-mobile.png')});
   await stop();await start();await page.reload();
   overview=await dashboard();assert.equal(overview.reviewComplete,true);
+  const restoredScores=await reviewScores();
+  assert.equal(restoredScores.selectionPolicyVersion,originalScores.selectionPolicyVersion);
+  assert.deepEqual(restoredScores.selectionExplanations,originalScores.selectionExplanations);
+  assert.equal(restoredScores.items[0].assignmentReason,originalScores.items[0].assignmentReason);
   const integrity=spawnSync(python,['-c',`from code_practice import database,review_v2
 with database.db_session() as c:
  assert c.execute("SELECT count(*) FROM review_events WHERE problem_id='pair-sum-indices' AND event_date=?",(str(review_v2.local_day()),)).fetchone()[0]==1
@@ -170,7 +188,7 @@ with database.db_session() as c:
  assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
 `],{cwd:root,env,encoding:'utf8'});
   assert.equal(integrity.status,0,integrity.stderr);assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({passed:true,checks:['Python exception locations','runtime errors survive later mismatches','recursion errors','matrix and None inspection','print output','valid semicolons and loops','timeout recovery','editor line navigation','fresh review draft','original solution preserved','same-day spacing idempotence','optional grading and clearing','failure remains pending','draft resumes','help changes automatic grade','score view','mobile layout','restart persistence'],screenshots:temporary}));
+  console.log(JSON.stringify({passed:true,checks:['Python exception locations','runtime errors survive later mismatches','recursion errors','matrix and None inspection','print output','valid semicolons and loops','timeout recovery','editor line navigation','fresh review draft','original solution preserved','same-day spacing idempotence','optional grading and clearing','failure remains pending','draft resumes','help changes automatic grade','score view','examples preserve last submission date','older review explanation','saved rotation policy and explanations','mobile layout','restart persistence'],screenshots:temporary}));
 } catch (error) {
   if (page) {
     await page.screenshot({path:path.join(temporary,'failure.png'),fullPage:true}).catch(()=>{});

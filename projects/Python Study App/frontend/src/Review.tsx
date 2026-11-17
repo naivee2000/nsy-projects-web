@@ -46,7 +46,10 @@ export function ReviewScores({ profile, revision }: { profile: string; revision:
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("all");
   const [page, setPage] = useState(1);
-  const [data, setData] = useState<{ items: ReviewPriority[]; total: number; asOf: string } | null>(null);
+  const [data, setData] = useState<{
+    items: ReviewPriority[]; total: number; asOf: string;
+    selectionPolicyVersion: string | null; selectionExplanations: string[];
+  } | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -65,7 +68,8 @@ export function ReviewScores({ profile, revision }: { profile: string; revision:
   return <details className="review-scores" onToggle={e => setOpen(e.currentTarget.open)}>
     <summary>Review scores, due dates and cooldowns</summary>
     {open && <>
-      <p>Current priority = urgency (up to 70) + recent struggle (up to 30). Saved daily order also considers DP, Medium and topic coverage.</p>
+      <p>Current priority = urgency (up to 70) + recent struggle (up to 30). Selection balances older reviews and recent recovery repeats. Owner sets also consider DP, Medium and topic coverage.</p>
+      {data?.selectionExplanations?.map(note => <p key={note}>{note}</p>)}
       <div className="review-score-tools">
         <input aria-label="Search review scores" placeholder="Search review scores" value={search} onChange={e => { setSearch(e.target.value); setPage(1); }} />
         <select aria-label="Filter review status" value={status} onChange={e => { setStatus(e.target.value); setPage(1); }}>
@@ -80,6 +84,9 @@ export function ReviewScores({ profile, revision }: { profile: string; revision:
         <tbody>{data?.items.map(row => <tr key={row.id}>
           <td><details><summary>{row.title} <small>{row.difficulty <= 3 ? "Easy" : row.difficulty <= 7 ? "Medium" : "Hard"}</small></summary>
             <p>{row.reason}</p><p>Urgency: {row.urgency?.toFixed(2) ?? "—"}; recent struggle: {row.recentStruggle?.toFixed(2) ?? "—"}.</p>
+            <p>Last assigned: {row.lastAssignmentDate ?? "Never"}. Last submitted: {row.lastSubmissionDate ?? "Never"}.</p>
+            {row.olderReviewEligible && <p>Older review: last practised {row.daysSinceLastActivity} days ago.</p>}
+            {row.recentRecovery && <p>Recent recovery repeat: assigned or submitted within the last seven days.</p>}
             {row.assignedToday && <p>Saved selection: {row.assignmentReason} Score at selection: {row.assignmentScore?.toFixed(2) ?? "not recorded"}.</p>}
             {row.inferred && <p>Historical rating inferred from submissions.</p>}
           </details></td>

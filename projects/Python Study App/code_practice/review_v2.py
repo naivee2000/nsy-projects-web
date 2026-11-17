@@ -22,6 +22,7 @@ TZ = ZoneInfo("America/New_York")
 INTERVALS = (1, 3, 7, 14, 30, 60)
 GRADES = ("again", "hard", "good", "easy")
 LABELS = {"again": "Need more review", "hard": "Hard to finish", "good": "Finished independently", "easy": "Very easy"}
+SELECTION_POLICY_VERSION = "balanced-rotation-v1"
 GROUPS = (("trees", is_tree_problem), ("linked lists", is_linked_list_problem),
           ("graphs", is_graph_traversal_problem), ("grid recursion", is_grid_recursion_problem))
 
@@ -170,13 +171,21 @@ def priorities(con, catalog, now: datetime | None = None) -> list[dict]:
     schedules = {r[0]: json.loads(r[1]) for r in con.execute("SELECT * FROM review_schedules_v2")}
     events = defaultdict(list)
     last_review = {}
+    last_submission = {}
+    # Attempts are full submissions. Running examples never writes this table.
+    for row in con.execute("SELECT problem_id,created_at FROM attempts"):
+        submitted = local_day(datetime.fromisoformat(row["created_at"]))
+        if submitted <= today:
+            last_submission[row["problem_id"]] = max(last_submission.get(row["problem_id"], ""), str(submitted))
+    last_assignment = {r[0]: r[1] for r in con.execute(
+        "SELECT problem_id,MAX(assignment_date) FROM daily_review_problems WHERE assignment_date<=? GROUP BY problem_id", (str(today),))}
     for r in con.execute("SELECT * FROM review_events ORDER BY event_date DESC"):
         events[r["problem_id"]].append(r)
         # The first learning day does not impose a review cooldown.
         if r["counted"] and r["base_state"] is not None:
             last_review.setdefault(r["problem_id"], r["event_date"])
-    for r in con.execute("SELECT problem_id,MAX(assignment_date) FROM daily_review_problems WHERE assignment_date<=? GROUP BY problem_id", (str(today),)):
-        last_review[r[0]] = max(last_review.get(r[0], ""), r[1])
+    for key, assigned_day in last_assignment.items():
+        last_review[key] = max(last_review.get(key, ""), assigned_day)
     assigned = {r[0] for r in con.execute("SELECT problem_id FROM daily_review_problems WHERE assignment_date=?", (str(today),))}
     snapshots = {r["problem_id"]: dict(r) for r in con.execute("SELECT * FROM review_assignment_details WHERE assignment_date=?", (str(today),))}
     result = []
@@ -203,6 +212,8 @@ def priorities(con, catalog, now: datetime | None = None) -> list[dict]:
                   "eligible": "Due and eligible for review."}[status]
         if status == "eligible" and recovery:
             reason += " Short recovery interval overrides normal cooldown."
+        last_activity = max(last_assignment.get(p.id, ""), last_submission.get(p.id, "")) or None
+        unseen_days = (today - date.fromisoformat(last_activity)).days if last_activity else None
         snapshot = snapshots.get(p.id)
         if p.id in assigned:
             reason += " In today's saved set."
@@ -213,6 +224,10 @@ def priorities(con, catalog, now: datetime | None = None) -> list[dict]:
                        "urgency": round(urgency, 3) if state else None, "recentStruggle": round(struggle, 3) if state else None,
                        "dueDate": state["dueDay"] if state else None, "cooldownUntil": cooldown,
                        "recoveryException": bool(recovery), "status": status, "reason": reason,
+                       "lastAssignmentDate": last_assignment.get(p.id), "lastSubmissionDate": last_submission.get(p.id),
+                       "lastActivityDate": last_activity, "daysSinceLastActivity": unseen_days,
+                       "olderReviewEligible": status == "eligible" and unseen_days is not None and unseen_days >= 14,
+                       "recentRecovery": bool(recovery and unseen_days is not None and unseen_days <= 7),
                        "assignedToday": p.id in assigned, "assignmentScore": snapshot["score"] if snapshot else None,
                        "assignmentReason": snapshot["reason"] if snapshot else "Saved before scoring v2." if p.id in assigned else None,
                        "inferred": bool(events[p.id] and events[p.id][0]["inferred"])})
@@ -220,58 +235,88 @@ def priorities(con, catalog, now: datetime | None = None) -> list[dict]:
 
 
 def choose(rows: list[dict], catalog, day: str, *, owner_focus: bool = True) -> tuple[list[dict], list[str]]:
-    """Five-slot matching with per-question uniqueness and Medium quota."""
+    """Preserve coverage, minimize recovery overflow, then protect one older review."""
     candidates = sorted((r for r in rows if r["status"] == "eligible"), key=lambda r: r["id"])
     if not owner_focus:
-        # Members follow their interview path without personal topic or
-        # difficulty quotas. Due dates and ratings drive review priority.
         candidates = [r for r in candidates if study_list_badges(r["id"])]
-        candidates.sort(key=lambda r: (-r["score"], -r["difficulty"], r["id"]))
-        chosen = [{**r, "selectionReason": "Due interview practice"} for r in candidates[:5]]
-        return chosen, (["Fewer than five due interview-list questions are currently eligible."] if len(chosen) < 5 else [])
+    # One older row can be designated as the protected review. Other older rows
+    # compete on ordinary priority, so filling the remaining slots stays unchanged.
+    older_order = sorted({(r.get("lastActivityDate") or "", r.get("dueDate") or "")
+                          for r in candidates if r.get("olderReviewEligible")})
+    older_rank = {key: -index for index, key in enumerate(older_order)}
     pairs = list(combinations(range(4), 2))
     offset = date.fromisoformat(day).toordinal() % len(pairs)
-    pairs = pairs[offset:] + pairs[:offset]
+    pairs = pairs[offset:] + pairs[:offset] if owner_focus else [None]
+    member_order = {r["id"]: index for index, r in enumerate(sorted(
+        candidates, key=lambda r: (-r["difficulty"], r["id"])))} if not owner_focus else {}
     best = None
     for pair_rank, pair in enumerate(pairs):
-        # State value: DP matches, Hot100 matches, focus matches, score, stable tie, choices.
-        dp = {(0, 0): (0, 0, 0, 0.0, 0, ())}
+        # Key: occupied slots, capped Medium count, recent recoveries, older designated.
+        # Value: coverage, designated older rank, score, stable tie, chosen slots.
+        dp = {(0, 0, 0, False): (0, 0, 0, 0, 0.0, 0, ())}
         for row in candidates:
-            p = catalog[row["id"]]
-            medium = int(4 <= p.difficulty <= 7)
-            hot = any(b["id"] == "hot-100" for b in study_list_badges(p.id))
-            tie = -int.from_bytes(hashlib.sha256(f"{day}:{p.id}".encode()).digest()[:8], "big")
-            matches = (is_dynamic_programming_problem(p), GROUPS[pair[0]][1](p), GROUPS[pair[1]][1](p), hot, hot)
-            for (mask, count), value in list(dp.items()):
-                for slot in range(5):
+            medium = int(owner_focus and 4 <= row["difficulty"] <= 7)
+            tie = (-int.from_bytes(hashlib.sha256(f"{day}:{row['id']}".encode()).digest()[:8], "big")
+                   if owner_focus else 1 << (len(candidates) - member_order[row["id"]]))
+            matches = (False,) * 5
+            if owner_focus:
+                p = catalog[row["id"]]
+                hot = any(b["id"] == "hot-100" for b in study_list_badges(p.id))
+                matches = (is_dynamic_programming_problem(p), GROUPS[pair[0]][1](p), GROUPS[pair[1]][1](p), hot, hot)
+            for (mask, count, recoveries, protected), value in list(dp.items()):
+                slots = range(5) if owner_focus else range(mask.bit_count(), min(5, mask.bit_count() + 1))
+                for slot in slots:
                     if mask & (1 << slot):
                         continue
-                    candidate = (value[0] + int(slot == 0 and matches[slot]),
-                                 value[1] + int(slot >= 3 and matches[slot]),
-                                 value[2] + int(slot in (1,2) and matches[slot]),
-                                 value[3] + row["score"], value[4] + tie,
-                                 (*value[5], (slot, row["id"], bool(matches[slot]))))
-                    key = (mask | (1 << slot), min(4, count + medium))
-                    if key not in dp or candidate[:5] > dp[key][:5]:
-                        dp[key] = candidate
-        for (mask, medium), value in dp.items():
-            quality = (mask.bit_count(), value[0], medium, value[1], value[2], -pair_rank, value[3], value[4])
+                    for designate in ((False, True) if row.get("olderReviewEligible") and not protected else (False,)):
+                        rank = older_rank[(row.get("lastActivityDate") or "", row.get("dueDate") or "")] if designate else 0
+                        candidate = (value[0] + int(slot == 0 and matches[slot]),
+                                     value[1] + int(slot >= 3 and matches[slot]),
+                                     value[2] + int(slot in (1,2) and matches[slot]),
+                                     value[3] + rank, value[4] + row["score"], value[5] + tie,
+                                     (*value[6], (slot, row["id"], bool(matches[slot]), designate)))
+                        key = (mask | (1 << slot), min(4, count + medium),
+                               recoveries + int(row.get("recentRecovery", False)), protected or designate)
+                        if key not in dp or candidate[:6] > dp[key][:6]:
+                            dp[key] = candidate
+        for (mask, medium, recoveries, protected), value in dp.items():
+            quality = (mask.bit_count(), value[0], medium, value[1], value[2], -pair_rank,
+                       -max(0, recoveries - 2), protected, value[3], value[4], value[5])
             if best is None or quality > best[0]:
-                best = (quality, value[5], pair)
+                best = (quality, value[6], pair)
     assert best is not None
     by_id = {r["id"]: r for r in candidates}
-    names = ("Daily DP", GROUPS[best[2][0]][0], GROUPS[best[2][1]][0], "Hot 100", "Hot 100")
-    chosen = [{**by_id[key], "selectionReason": names[slot] if matched else "Due-question quota fallback"}
-              for slot,key,matched in sorted(best[1])]
+    names = (("Daily DP", GROUPS[best[2][0]][0], GROUPS[best[2][1]][0], "Hot 100", "Hot 100")
+             if owner_focus else ("Due interview practice",) * 5)
+    chosen = []
+    for slot, key, matched, designated in sorted(best[1]):
+        row = by_id[key]
+        reason = names[slot] if matched or not owner_focus else "Due-question quota fallback"
+        if designated:
+            activity = "assigned" if row.get("lastAssignmentDate") == row.get("lastActivityDate") else "practised"
+            reason += f". Older review: last {activity} {row['daysSinceLastActivity']} days ago"
+        if row.get("recentRecovery"):
+            reason += ". Recent recovery repeat"
+        chosen.append({**row, "selectionReason": reason})
+    if not owner_focus:
+        chosen.sort(key=lambda r: (-r["score"], -r["difficulty"], r["id"]))
     notes = []
-    if sum(4 <= r["difficulty"] <= 7 for r in chosen) < 4:
+    if owner_focus and sum(4 <= r["difficulty"] <= 7 for r in chosen) < 4:
         notes.append("Fewer than four due Mediums are available outside cooldown; no early questions were added.")
-    if not any(is_dynamic_programming_problem(catalog[r["id"]]) for r in chosen):
+    if owner_focus and not any(is_dynamic_programming_problem(catalog[r["id"]]) for r in chosen):
         notes.append("No due DP question is available outside cooldown.")
     if len(chosen) < 5:
-        notes.append("Fewer than five due questions are currently eligible.")
-    if any(r["selectionReason"] == "Due-question quota fallback" for r in chosen):
+        notes.append("Fewer than five due questions are currently eligible." if owner_focus else
+                     "Fewer than five due interview-list questions are currently eligible.")
+    if any(r["selectionReason"].startswith("Due-question quota fallback") for r in chosen):
         notes.append("Topic or Hot 100 slots were relaxed to preserve due-only and Medium priorities.")
+    recoveries = sum(bool(r.get("recentRecovery")) for r in chosen)
+    if recoveries > 2:
+        constraint = ("preserving existing coverage and topic rotation" if owner_focus else
+                      "using only eligible interview-list questions")
+        notes.append(f"Recovery limit exception: {recoveries} recent recovery reviews selected; {recoveries - 2} above two is the minimum needed to fill the set while {constraint}.")
+    if not any(r.get("olderReviewEligible") for r in chosen):
+        notes.append("No suitable older review is available within the eligible pool, existing coverage and minimum recovery exceptions.")
     return chosen, notes
 
 
@@ -285,7 +330,7 @@ def ensure_assignment(con, catalog, now: datetime) -> tuple[tuple[datetime, list
         ids = [r[0] for r in con.execute("SELECT problem_id FROM daily_review_problems WHERE assignment_date=? ORDER BY position", (day,))]
         notes = con.execute("SELECT value FROM review_v2_meta WHERE key=?", (notes_key,)).fetchone()
         return (datetime.fromisoformat(saved[0]), ids), json.loads(notes[0]) if notes else [
-            "Today's existing review set is preserved; new quotas apply to the next day's set."]
+            "Today's existing review set is preserved; selection changes apply to the next newly generated set."]
     chosen, notes = choose(priorities(con, catalog, now), catalog, day,
                            owner_focus=database.current_profile() == "owner")
     con.execute("INSERT INTO daily_review_sessions VALUES(?,?)", (day, now.isoformat()))
@@ -293,4 +338,6 @@ def ensure_assignment(con, catalog, now: datetime) -> tuple[tuple[datetime, list
     con.executemany("INSERT INTO review_assignment_details VALUES(?,?,?,?)",
                     [(day,r["id"],r["score"],r["selectionReason"]) for r in chosen])
     con.execute("INSERT INTO review_v2_meta VALUES(?,?)", (notes_key,json.dumps(notes)))
+    con.execute("INSERT INTO review_v2_meta VALUES(?,?)",
+                (f"assignment-policy:{day}", SELECTION_POLICY_VERSION))
     return (now,[r["id"] for r in chosen]), notes

@@ -581,7 +581,10 @@ export default function App() {
                   ? dashboard.reviewRecommendations.map((item, index) => <ProblemCard key={item.id} problem={item} onOpen={(id) => openProblem(id, "review")} index={index} />)
                   : <EmptyState>{dashboard?.reviewComplete ? "Review finished — every assigned review problem was checked today." : "Passed problems will appear here for review."}</EmptyState>}
               </div>
-              {dashboard?.reviewSelectionNotes?.map(note => <p className="completion-note" key={note}>{note}</p>)}
+              {!!dashboard?.reviewSelectionNotes?.length && <details className="review-selection-details">
+                <summary>Review selection details</summary>
+                {dashboard.reviewSelectionNotes.map(note => <p className="completion-note" key={note}>{note}</p>)}
+              </details>}
               {!!dashboard?.reviewRetryProblems?.length && <div className="review-retries"><h3>Needs another try</h3><p>These previously passed problems need to be passed again before normal review resumes.</p>
                 {dashboard.reviewRetryProblems.map((item,index) => <ProblemCard key={item.id} problem={item} onOpen={id => openProblem(id,"review")} index={index} />)}
               </div>}

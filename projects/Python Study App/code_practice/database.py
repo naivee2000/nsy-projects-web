@@ -225,31 +225,36 @@ def db_session(*, owner: bool = False) -> Iterator[sqlite3.Connection]:
 def initialize_database() -> None:
     install_seed_database()
     with db_session() as connection:
-        connection.execute(
-            """
-            CREATE TABLE IF NOT EXISTS schema_migrations (
-                version INTEGER PRIMARY KEY,
-                applied_at TEXT NOT NULL
-            )
-            """
-        )
-        applied = {
-            row["version"]
-            for row in connection.execute("SELECT version FROM schema_migrations").fetchall()
-        }
-        for version, statements in MIGRATIONS.items():
-            if version in applied:
-                continue
-            for statement in statements:
-                connection.execute(statement)
-            connection.execute(
-                "INSERT INTO schema_migrations(version, applied_at) VALUES (?, ?)",
-                (version, datetime.now(timezone.utc).isoformat()),
-            )
+        apply_migrations(connection)
         connection.execute("PRAGMA optimize")
         from . import review_v2
         if review_v2.enabled():
             review_v2.initialize(connection)
+
+
+def apply_migrations(connection: sqlite3.Connection) -> None:
+    """Upgrade the supplied database, including an in-memory preview copy."""
+    connection.execute(
+        """
+        CREATE TABLE IF NOT EXISTS schema_migrations (
+            version INTEGER PRIMARY KEY,
+            applied_at TEXT NOT NULL
+        )
+        """
+    )
+    applied = {
+        row[0]
+        for row in connection.execute("SELECT version FROM schema_migrations").fetchall()
+    }
+    for version, statements in MIGRATIONS.items():
+        if version in applied:
+            continue
+        for statement in statements:
+            connection.execute(statement)
+        connection.execute(
+            "INSERT INTO schema_migrations(version, applied_at) VALUES (?, ?)",
+            (version, datetime.now(timezone.utc).isoformat()),
+        )
 
 
 def _attempt_from_row(row: sqlite3.Row) -> Attempt:

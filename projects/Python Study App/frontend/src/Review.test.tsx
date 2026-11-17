@@ -48,7 +48,9 @@ test("the score view loads only when expanded and explains score components", as
   vi.stubGlobal("fetch", vi.fn(async () => ({ ok:true, json:async () => ({ total:1, asOf:"now", items:[{
     id:"p",title:"Unique Paths",difficulty:5,score:57,urgency:42,recentStruggle:15,dueDate:"2026-11-03",
     cooldownUntil:"2026-11-05",recoveryException:true,status:"eligible",reason:"Due recovery review.",
-    assignedToday:true,assignmentScore:53,assignmentReason:"Daily DP",inferred:false,
+    assignedToday:true,assignmentScore:53,assignmentReason:"Daily DP. Older review: last practised 24 days ago",inferred:false,
+    lastAssignmentDate:"2026-11-03",lastSubmissionDate:"2026-10-10",lastActivityDate:"2026-11-03",
+    daysSinceLastActivity:0,olderReviewEligible:false,recentRecovery:true,
   }] }) })));
   render(<ReviewScores profile="owner" revision={0} />);
   expect(fetch).not.toHaveBeenCalled();
@@ -56,6 +58,28 @@ test("the score view loads only when expanded and explains score components", as
   expect(await screen.findByText("Unique Paths")).toBeInTheDocument();
   expect(screen.getByText("57.00")).toBeInTheDocument();
   expect(screen.getByText(/Urgency: 42.00; recent struggle: 15.00/)).toBeInTheDocument();
+  expect(screen.getByText(/Last assigned: 2026-11-03. Last submitted: 2026-10-10/)).toBeInTheDocument();
+  expect(screen.getByText(/Saved selection: Daily DP. Older review: last practised 24 days ago/)).toBeInTheDocument();
+  expect(screen.getByText(/Recent recovery repeat: assigned or submitted/)).toBeInTheDocument();
   fireEvent.change(screen.getByLabelText("Filter review status"),{target:{value:"cooldown"}});
   await waitFor(() => expect(vi.mocked(fetch).mock.calls.some(([url]) => String(url).includes("status=cooldown"))).toBe(true));
+});
+
+test("selection shortages and older eligibility appear inside expandable review details", async () => {
+  vi.stubGlobal("fetch", vi.fn(async () => ({ ok:true, json:async () => ({ total:1, asOf:"now",
+    selectionPolicyVersion:"balanced-rotation-v1",
+    selectionExplanations:["Recovery limit exception: 3 recent recovery reviews selected, the minimum needed."],
+    items:[{ id:"p", title:"Older practice", difficulty:5, score:70, urgency:70, recentStruggle:0,
+      dueDate:"2026-11-03", cooldownUntil:null, recoveryException:false, status:"eligible", reason:"Due and eligible.",
+      assignedToday:false, assignmentScore:null, assignmentReason:null, inferred:false,
+      lastAssignmentDate:"2026-10-24", lastSubmissionDate:"2026-10-24", lastActivityDate:"2026-10-24",
+      daysSinceLastActivity:24, olderReviewEligible:true, recentRecovery:false }],
+  }) })));
+  render(<ReviewScores profile="member" revision={0} />);
+  expect(screen.queryByText(/Recovery limit exception/)).not.toBeInTheDocument();
+  fireEvent.click(screen.getByText("Review scores, due dates and cooldowns"));
+  expect(await screen.findByText(/Recovery limit exception: 3/)).toBeInTheDocument();
+  expect(screen.getByText("Older review: last practised 24 days ago.")).toBeInTheDocument();
+  expect(screen.getByText("Older practice").closest("details")).not.toHaveAttribute("open");
+  expect(vi.mocked(fetch).mock.calls[0][1]?.headers).toMatchObject({ "X-Study-Profile":"member" });
 });

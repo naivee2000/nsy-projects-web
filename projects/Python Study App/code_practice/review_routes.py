@@ -1,5 +1,6 @@
 """Private account-local review workspace and score inspection endpoints."""
 from datetime import datetime, timezone
+import json
 
 from fastapi import APIRouter, HTTPException, Query, Request
 from pydantic import BaseModel, Field
@@ -37,8 +38,12 @@ def validate_context(context_id: int, problem_id: str) -> None:
 def priority_list(request: Request, search: str = "", status: str = "all",
                   page: int = Query(1, ge=1), page_size: int = Query(30, ge=1, le=100)):
     require_review_access(request)
+    now = datetime.now(timezone.utc)
     with database.db_session() as con:
-        rows = review_v2.priorities(con, get_catalog().metadata)
+        rows = review_v2.priorities(con, get_catalog().metadata, now)
+        day = str(review_v2.local_day(now))
+        policy = con.execute("SELECT value FROM review_v2_meta WHERE key=?", (f"assignment-policy:{day}",)).fetchone()
+        notes = con.execute("SELECT value FROM review_v2_meta WHERE key=?", (f"assignment-notes:{day}",)).fetchone()
     if search.strip():
         needle = search.strip().casefold()
         rows = [r for r in rows if needle in r["title"].casefold() or needle in r["id"]]
@@ -47,7 +52,9 @@ def priority_list(request: Request, search: str = "", status: str = "all",
             raise HTTPException(422, "Unknown review status.")
         rows = [r for r in rows if r["assignedToday"]] if status == "assigned" else [r for r in rows if r["status"] == status]
     return {"items": rows[(page-1)*page_size:page*page_size], "total": len(rows), "page": page,
-            "asOf": datetime.now(timezone.utc).isoformat()}
+            "selectionPolicyVersion": policy[0] if policy else None,
+            "selectionExplanations": json.loads(notes[0]) if notes else [],
+            "asOf": now.isoformat()}
 
 
 @router.post("/{problem_id}/session")
