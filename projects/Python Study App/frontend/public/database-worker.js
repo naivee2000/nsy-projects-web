@@ -15,15 +15,16 @@ def pack(value):
         return value.isoformat(sep=" ")
     return value.item() if hasattr(value, "item") else value
 
-def judge(source, schema, runner, inputs):
+def judge(source, schema, runner, inputs, result_table):
     cases = []
     program = compile(source, "<answer>", "exec")
     for case in inputs:
         try:
             tables = {}
-            for name, table in case["tables"].items():
+            for name in schema:
+                table = case["tables"][name]
                 data = pd.DataFrame(table["rows"], columns=table["columns"])
-                for column, kind in schema[name]:
+                for column, kind in case.get("schema", schema)[name]:
                     if "INT" in kind:
                         data[column] = data[column].astype("Int64")
                     elif kind.startswith(("DECIMAL", "FLOAT", "DOUBLE")):
@@ -38,7 +39,7 @@ def judge(source, schema, runner, inputs):
             if runner == "mutation":
                 if answer is not None:
                     raise TypeError("Modify the input table in place and return None.")
-                answer = next(iter(tables.values()))
+                answer = tables[result_table]
             if not isinstance(answer, pd.DataFrame):
                 raise TypeError("Return a pandas DataFrame.")
             if answer.shape[0] > 5000 or answer.shape[1] > 128:
@@ -64,7 +65,7 @@ self.onmessage = async ({ data }) => {
     const value = py.runPython(`
 args = json.loads(input_json)
 try:
-    result = judge(args["source"], args["schema"], args["runner"], args["inputs"])
+    result = judge(args["source"], args["schema"], args["runner"], args["inputs"], args.get("resultTable"))
 except SyntaxError as error:
     result = json.dumps([{"error": str(error)} for _ in args["inputs"]])
 result

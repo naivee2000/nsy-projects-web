@@ -132,11 +132,13 @@ npm --prefix frontend ci
 release_dir="$(mktemp -d "${TMPDIR:-/tmp}/python-study-release.XXXXXXXX")"
 npm --prefix frontend run build -- --outDir "$release_dir/dist"
 PYTHONPATH=. .venv/bin/pytest -q
-./scripts/start_database_judge.sh --production
-CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-production CODE_PRACTICE_FRONTEND_DIST="$release_dir/dist" node scripts/verify_database_browser.mjs
+./scripts/start_database_judge.sh nsy-study-mysql-release
+CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-release CODE_PRACTICE_FRONTEND_DIST="$release_dir/dist" node scripts/verify_database_browser.mjs --report-dir="$release_dir/checkpoints"
+.venv/bin/python -m scripts.verify_database_release --frontend "$release_dir/dist" --report "$release_dir/checkpoints/report.json"
 ```
 
-When these checks pass, stop only the study service. Run the full-account backup
+When these checks pass, start the production judge with `./scripts/start_database_judge.sh --production`.
+Stop only the study service for the cutover. Run the full-account backup
 with `CODE_PRACTICE_DATA_DIR` and private `CODE_PRACTICE_BACKUP_DIR` exported, and verify the SQLite copies before
 switching the frontend. Keep the previous frontend with the release backup.
 
@@ -145,7 +147,7 @@ pm2 stop nsy-python-study
 ./backup_data.sh
 mv frontend/dist "$release_dir/previous-dist"
 mv "$release_dir/dist" frontend/dist
-CODE_PRACTICE_REQUIRE_LOGIN=1 CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-production pm2 restart nsy-python-study --update-env
+CODE_PRACTICE_REQUIRE_LOGIN=1 CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-production-v2 pm2 restart nsy-python-study --update-env
 curl -fsS http://127.0.0.1:8791/api/health
 ```
 
@@ -160,12 +162,18 @@ and configures it to restart automatically when Docker starts. It has no network
 connection or published ports. Each test uses a fresh schema on temporary storage.
 User submissions, drafts and review schedules live in the profile SQLite databases.
 
-Use `CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-production` and
+Use `CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-production-v2` and
 `CODE_PRACTICE_REQUIRE_LOGIN=1` in the private PM2 config and its saved process
 environment. Keep the existing shared login settings. The frontend build reads
 Pyodide's package lock and verifies all required Pandas wheels before packaging them.
 After release, exercise both languages through the public hostname with a test
 account, and compare the existing profiles with the pre-release backup.
+
+To validate a backup on a disposable local store, run
+`.venv/bin/python -m scripts.check_database_profile_restore /path/to/backup`.
+The command exercises saved daily assignments for every backed-up profile and
+checks a new account. If the public smoke test fails, select the previous backend,
+frontend and judge while keeping the current account registry and profile databases.
 
 ## Upgrading from the single-owner version
 

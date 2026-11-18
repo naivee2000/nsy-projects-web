@@ -9,7 +9,7 @@ This repository holds the public NSY Projects website and the backend project ap
 - `projects/dem-claim/` - DEM claim Excel workflow, including its FastAPI app, local runner, deployment notes, ops templates, and test files.
 - `projects/Car Compare/` - authenticated vehicle depreciation research app for `https://carcompare.nsyprojects.com/`, including its browser workers, project skills, cache layer, deployment guide, and tests.
 - `projects/Stock Strategy Test/` - public Long-Term Stock Allocation Lab for `https://strategy.nsyprojects.com/`, including safe public backtests, fixture data, an owner-only Market Data history vault, deployment guide, and tests.
-- `projects/Python Study App/` - authenticated Algorithms and Database practice with separate daily sets and per-account SQLite progress. Python and Pandas run in browser workers. MySQL runs in a dedicated container on the website host.
+- `projects/Python Study App/` - authenticated Algorithms and Database practice with separate daily sets and per-account SQLite progress. All 323 Database exercises accept MySQL and Pandas. Python and Pandas run in browser workers. MySQL runs in a dedicated container on the website host. [Database catalog verification](projects/Python%20Study%20App/database_catalog/local_verification.json)
 
 Future projects should be added as `projects/<project-slug>/` so each project keeps its own app code, docs, tests, and deployment notes in one place.
 

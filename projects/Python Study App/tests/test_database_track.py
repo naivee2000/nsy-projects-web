@@ -1,12 +1,12 @@
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from uuid import uuid4
 
 from fastapi.testclient import TestClient
 
 from code_practice import accounts, app as app_module, database, database_track, review_v2
-from code_practice.database_catalog import CATALOG
-from code_practice.database_judge import matches
+from code_practice.database_catalog import CATALOG, CREDITS, INVENTORY
+from code_practice.database_judge import matches, result_statement
 from test_accounts import create, online, sign_in
 
 
@@ -106,6 +106,57 @@ def test_table_comparison_respects_column_aliases_nulls_and_duplicate_rows():
     assert not matches(expected, ["result"], [[2], [None]])
     assert not matches(expected, ["result"], [[2], ["NULL"], [2]])
     assert not matches({"columns": ["x"], "rows": []}, ["y"], [])
+
+
+def test_every_workbook_problem_is_executable_and_assignable_within_the_daily_budget():
+    from scripts.verify_database_release import verify_catalog
+    assert sum(verify_catalog().values()) == 323
+    passed, attempts = set(), []
+    start = date(2026, 11, 18)
+    for offset in range(len(CATALOG)):
+        selected, unused = database_track.choose_new(start + timedelta(days=offset), passed, attempts)
+        assert len(set(selected)) == len(selected) and passed.isdisjoint(selected)
+        assert sum(CREDITS[INVENTORY[k]["difficulty"]] for k in selected) + unused == 5
+        if not selected:
+            break
+        passed.update(selected)
+        attempts[:0] = [{"problem_id": k, "accepted": 1} for k in selected]
+    assert passed == CATALOG.keys(), sorted(CATALOG.keys() - passed)
+
+
+def test_per_problem_result_contracts_and_ordered_groups():
+    assert result_statement(CATALOG[196], CATALOG[196]["cases"][0]) == "SELECT * FROM `Person`;"
+    assert result_statement(CATALOG[627], CATALOG[627]["cases"][0]) == "SELECT * FROM `Salary`;"
+    for key in (177, 2205, 2230):
+        problem, case = CATALOG[key], CATALOG[key]["cases"][0]
+        reversed_parameters = {**case, "parameters": dict(reversed(list(case["parameters"].items())))}
+        assert result_statement(problem, reversed_parameters) == result_statement(problem, case)
+        assert problem["routine"] in result_statement(problem, case)
+    target = {"columns": ["team", "score"], "rows": [["A", 2], ["A", 1], ["B", 3]]}
+    assert matches(target, target["columns"], [["A",1],["A",2],["B",3]], ordered=["team"])
+    assert not matches(target, target["columns"], [["A",1],["B",3],["A",2]], ordered=["team"])
+    day = {"columns": ["day"], "rows": [["2024-02-29"]]}
+    assert matches(day, ["day"], [["2024-02-29 00:00:00"]], date_columns=["day"])
+    assert not matches(day, ["day"], [["2024-02-29 01:00:00"]], date_columns=["day"])
+
+
+def test_full_catalog_reviews_require_a_pass_and_prioritize_four_due_mediums():
+    day = date(2026, 11, 18)
+    earlier = day - timedelta(days=21)
+    mediums = [key for key in sorted(CATALOG) if INVENTORY[key]["difficulty"] == "Medium"][:10]
+    eligible = [175, 595, 185, *mediums]
+    failed_only = 3832
+    with database.db_session() as con:
+        for key in [*eligible, failed_only]:
+            con.execute("INSERT INTO db_track_attempts VALUES (?,?,?,?,?,?,?,?)",
+                        (str(uuid4()), key, "mysql", "practice", str(earlier), "example", int(key != failed_only), "{}"))
+            database_track.save_event(con, key, earlier)
+    state = database_track.dashboard(review_v2.midnight(day))
+    review = state["reviewAssignment"]
+    assert len({p["id"] for p in review}) == len(review) == 5
+    assert {p["id"] for p in review} <= set(eligible)
+    assert sum(p["difficulty"] == "Medium" for p in review) >= 4
+    assert all(p["passedLanguages"] == ["mysql"] for p in review)
 
 
 def test_mysql_setup_timeout_keeps_draft_and_does_not_record_an_attempt(monkeypatch):

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from collections import Counter
 from decimal import Decimal, InvalidOperation
+from itertools import groupby
 import os
 import re
 import subprocess
@@ -48,7 +49,7 @@ def root(sql):
     try:
         code, data, _ = client(
             ["sh", "-c", 'export MYSQL_PWD="$MYSQL_ROOT_PASSWORD"; exec "$@"',
-             "mysql-admin", *MYSQL, "--user=root", "--batch", "--skip-column-names"], sql)
+             "mysql-admin", *MYSQL, "--user=root", "--batch", "--skip-column-names"], sql, timeout=15)
     except subprocess.TimeoutExpired as error:
         raise Unavailable("The MySQL practice instance timed out preparing the test.") from error
     if code != 0:
@@ -66,7 +67,7 @@ def literal(value):
 
 
 def setup(problem, case, name, password):
-    schema = problem["schema"]
+    schema = case.get("schema", problem["schema"])
     rights = {"query": "SELECT", "mutation": "SELECT, DELETE, UPDATE",
               "function": "SELECT, CREATE ROUTINE, ALTER ROUTINE, EXECUTE",
               "procedure": "SELECT, CREATE ROUTINE, ALTER ROUTINE, EXECUTE"}[problem["runner"]]
@@ -96,14 +97,16 @@ def read_table(data, expected):
     return {"columns": names, "rows": values}, matches(expected, names, values, numeric_strings=True)
 
 
-def matches(expected, columns, rows, *, ordered=False, numeric_strings=False):
+def matches(expected, columns, rows, *, ordered=False, numeric_strings=False, date_columns=()):
     if columns != expected["columns"] or len(rows) != len(expected["rows"]):
         return False
     numeric = [any(isinstance(row[i], (int, float)) for row in expected["rows"]) for i in range(len(columns))]
 
     def normalized(row, strings):
         values = []
-        for cell, as_number in zip(row, numeric):
+        for name, cell, as_number in zip(columns, row, numeric):
+            if name in date_columns and isinstance(cell, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}[ T]00:00:00(?:\.0+)?", cell):
+                cell = cell[:10]
             if as_number and (type(cell) in (float, int) or (strings and isinstance(cell, str))):
                 try:
                     cell = Decimal(str(cell)).quantize(Decimal("0.00000001"))
@@ -116,18 +119,40 @@ def matches(expected, columns, rows, *, ordered=False, numeric_strings=False):
         return False
     actual = [normalized(row, numeric_strings) for row in rows]
     target = [normalized(row, False) for row in expected["rows"]]
+    if isinstance(ordered, (list, tuple)):
+        positions = [columns.index(key) for key in ordered]
+        def groups(data):
+            return [(key, Counter(group)) for key, group in groupby(
+                data, lambda row: tuple(row[position] for position in positions))]
+        return groups(actual) == groups(target)
     return actual == target if ordered else Counter(actual) == Counter(target)
+
+
+def result_statement(problem, case):
+    runner = problem["runner"]
+    if runner == "query":
+        return ""
+    if runner == "mutation":
+        return f"SELECT * FROM `{problem['result_table']}`;"
+    # Use the declared order even after a JSON client reorders parameter keys.
+    names = problem["cases"][0]["parameters"]
+    arguments = ", ".join(literal(case["parameters"][key]) for key in names)
+    call = f"`{problem['routine']}`({arguments})"
+    if runner == "procedure":
+        return f"CALL {call};"
+    alias = problem["scalar_column"].format(**case["parameters"]).replace("`", "``")
+    return f"SELECT {call} AS `{alias}`;"
 
 
 def run_mysql(problem, case, source, *, metadata=False):
     name = "study_" + uuid4().hex[:23]
     password = uuid4().hex
     with SLOTS:
+        # A client that returned normally has already closed its only connection.
+        # An interrupted client may still have a query running inside the container.
+        client_finished = False
         try:
             setup(problem, case, name, password)
-            runner = problem["runner"]
-            tail = {"mutation": "SELECT * FROM Person;", "procedure": "CALL PivotProducts();",
-                    "function": f"SELECT getNthHighestSalary({case['parameters'].get('n', 1)});"}
             # In batch binary mode only SQL plus the client's charset/delimiter
             # directives are available. The restricted login only sees this fixture.
             code, data, error = client(
@@ -135,7 +160,8 @@ def run_mysql(problem, case, source, *, metadata=False):
                  *(["--column-type-info", "-vvv"] if metadata else ["--xml"]),
                  f"--user={name}", "--database=" + name],
                 "SET SESSION sql_mode='';\nSET SESSION max_execution_time=1500;\n"
-                + source.rstrip().rstrip(";") + ";\n" + tail.get(runner, "") + "\n")
+                + source.rstrip().rstrip(";") + ";\n" + result_statement(problem, case) + "\n")
+            client_finished = True
             if code:
                 return {"passed": False, "error": error.replace(name, "practice") or "MySQL rejected the statement."}
             if metadata:
@@ -146,7 +172,7 @@ def run_mysql(problem, case, source, *, metadata=False):
             if valid and not actual["rows"]:
                 return {"passed": False, "verify_empty": True}
             if valid and problem["ordered"]:
-                valid = matches(case["expected"], actual["columns"], actual["rows"], ordered=True, numeric_strings=True)
+                valid = matches(case["expected"], actual["columns"], actual["rows"], ordered=problem["ordered"], numeric_strings=True)
             return {"passed": valid, "actual": actual}
         except subprocess.TimeoutExpired:
             return {"passed": False, "error": "The query exceeded the time limit."}
@@ -154,10 +180,11 @@ def run_mysql(problem, case, source, *, metadata=False):
             return {"passed": False, "error": "Return one result table."}
         finally:
             try:
-                connections = root(f"SELECT ID FROM information_schema.PROCESSLIST WHERE USER='{name}';")
-                for thread in connections.splitlines():
-                    if thread.isdigit():
-                        root(f"KILL CONNECTION {thread};")
+                if not client_finished:
+                    connections = root(f"SELECT ID FROM information_schema.PROCESSLIST WHERE USER='{name}';")
+                    for thread in connections.splitlines():
+                        if thread.isdigit():
+                            root(f"KILL CONNECTION {thread};")
                 root(f"DROP DATABASE IF EXISTS `{name}`; DROP USER IF EXISTS '{name}'@'localhost';")
             except (Unavailable, subprocess.TimeoutExpired):
                 pass

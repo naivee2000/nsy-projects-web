@@ -116,10 +116,10 @@ export default function DatabaseHome(props: Props) {
   </div>;
   return <div className="page dashboard-page">
     <SessionHeader date={overview ? new Date(overview.day + "T12:00:00") : undefined}>Database<br /><em>Today</em></SessionHeader>
-    <StudyStats solved={overview?.solved} total={overview?.runnable} attempts={overview?.attemptCount} mastery={overview?.mastery} />
+    <StudyStats solved={overview?.solved} total={overview?.total} attempts={overview?.attemptCount} mastery={overview?.mastery} />
     <section className="section-block">
       <div className="interview-roadmap"><div><span className="eyebrow">YOUR DATABASE PATH</span>
-        <h2>{overview?.solved ?? "—"} / {overview?.runnable ?? "—"} practice problems passed</h2>
+        <h2>{overview?.solved ?? "—"} / {overview?.total ?? "—"} practice problems passed</h2>
         <p>Build from filtering and joins to aggregation, ranking and reshaping. Passing in either language completes a problem.</p></div>
         <button className="text-button" onClick={() => onNavigate("/database/library?completion=unsolved&playable=true")}>See remaining problems <ChevronRight size={16} /></button></div>
       <div className="section-heading"><div><span className="section-number">01</span><h2>Your next problems</h2>

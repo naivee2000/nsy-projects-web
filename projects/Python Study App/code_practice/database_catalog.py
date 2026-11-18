@@ -3,26 +3,13 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from random import Random
+from .database_exercise import exercise, fixture, sample_set, table
+from . import database_special
+from .database_legacy_wrong import add_wrong_answers
 
 ROOT = Path(__file__).resolve().parents[1] / "database_catalog"
 INVENTORY = {item["id"]: item for item in json.loads((ROOT / "inventory.json").read_text())}
 CREDITS = {"Easy": 1, "Medium": 2, "Hard": 3}
-
-
-def table(columns, rows):
-    return {"columns": list(columns), "rows": list(rows)}
-
-
-def fixture(tables, columns, rows, **parameters):
-    return {"tables": tables, "expected": table(columns, rows), "parameters": parameters}
-
-
-def sample_set(seed, factory):
-    random = Random(seed)
-    cases = [factory(random, i) for i in range(16)]
-    assert len({json.dumps(c, sort_keys=True) for c in cases}) == len(cases)
-    return cases
 
 
 def join_case(rng, i):
@@ -89,11 +76,6 @@ def pivot_case(rng, i):
                    [(j, *(prices.get((j, store)) for store in stores)) for j in product_ids])
 
 
-def exercise(topic, schema, cases, sql, pandas, wrong, *, runner="query", ordered=False, advice=""):
-    return {"topic": topic, "schema": schema, "cases": cases, "sql": sql, "pandas": pandas,
-            "runner": runner, "ordered": ordered, "wrong": wrong, "advice": advice}
-
-
 EMAIL_SCHEMA = {"Person": [("id", "INT PRIMARY KEY"), ("email", "VARCHAR(128)")]}
 SALARY_SCHEMA = {"Employee": [("id", "INT PRIMARY KEY"), ("salary", "INT")]}
 CATALOG = {
@@ -122,7 +104,9 @@ DELIMITER ;
         "values = Employee.salary.drop_duplicates().sort_values(ascending=False).tolist()\nreturn pd.DataFrame({f'getNthHighestSalary({n})': [values[n-1] if len(values) >= n else None]})",
         ["CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT READS SQL DATA RETURN (SELECT MAX(salary) FROM Employee);",
          "CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT READS SQL DATA RETURN NULL;"],
-        runner="function", advice="Define getNthHighestSalary(N INT). The judge calls it with each test's n."),
+        runner="function", routine="getNthHighestSalary", scalar_column="getNthHighestSalary({n})",
+        mysql_starter="CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT READS SQL DATA\nRETURN (\n    -- Write your query here.\n);",
+        advice="Define getNthHighestSalary(N INT). The judge calls it with each test's n."),
     178: exercise("Ranking", {"Scores": [("id", "INT PRIMARY KEY"), ("score", "DECIMAL(8,2)")]},
         sample_set(178, rank_case),
         "SELECT score,DENSE_RANK() OVER (ORDER BY score DESC) AS `rank` FROM Scores ORDER BY score DESC;",
@@ -139,7 +123,7 @@ DELIMITER ;
         "DELETE a FROM Person a JOIN Person b ON a.email=b.email AND a.id>b.id;",
         "Person.sort_values('id', inplace=True)\nPerson.drop_duplicates('email', inplace=True)",
         ["DELETE FROM Person WHERE id > 1;", "DELETE a FROM Person a JOIN Person b ON a.email=b.email AND a.id<b.id;"],
-        runner="mutation", advice="Update Person in place. The judge inspects that table after your code finishes."),
+        runner="mutation", result_table="Person", advice="Update Person in place. The judge inspects that table after your code finishes."),
     595: exercise("Filtering",
         {"World": [("name", "VARCHAR(64) PRIMARY KEY"), ("continent", "VARCHAR(64)"), ("area", "INT"),
                    ("population", "INT"), ("gdp", "BIGINT")]}, sample_set(595, big_case),
@@ -171,7 +155,9 @@ DELIMITER ;
         "return Products.pivot(index='product_id', columns='store', values='price').sort_index(axis=1).reset_index()",
         ["CREATE PROCEDURE PivotProducts() SELECT DISTINCT product_id FROM Products;",
          "CREATE PROCEDURE PivotProducts() SELECT product_id, MAX(price) AS Ax FROM Products GROUP BY product_id;"],
-        runner="procedure", advice="Define the procedure PivotProducts(). Store names determine the output columns."),
+        runner="procedure", routine="PivotProducts",
+        mysql_starter="DELIMITER //\nCREATE PROCEDURE PivotProducts()\nBEGIN\n    -- Write your query here.\nEND//\nDELIMITER ;",
+        advice="Define the procedure PivotProducts(). Store names determine the output columns."),
 }
 
 
@@ -336,13 +322,23 @@ CATALOG.update({
 })
 
 
-# Ranking has its own Medium skill and follows written aggregation practice.
-PREREQUISITES = {"Ranking": "Aggregation", "Reshaping": "Aggregation"}
+add_wrong_answers(CATALOG)
+CATALOG.update(database_special.exercises())
+for path in sorted((ROOT / "exercises").glob("*.json")):
+    package = json.loads(path.read_text())
+    key = package.pop("id")
+    if key != int(path.stem) or key in CATALOG or key not in INVENTORY:
+        raise ValueError(f"Invalid Database package ID at {path}")
+    CATALOG[key] = exercise(**package)
+PREREQUISITES = {"Ranking": "Aggregation", "Reshaping": "Aggregation", "Hierarchy": "Joins",
+                 "Window functions": "Aggregation"}
 
 
-def pandas_starter(problem, *, reference=False):
+def pandas_starter(problem, *, reference=False, body=None):
     params = [*problem["schema"], *problem["cases"][0]["parameters"]]
-    lines = problem["pandas"].splitlines() if reference else ["# Write your solution here.", "raise NotImplementedError"]
+    if body is None:
+        body = problem["pandas"] if reference else "# Write your solution here.\nraise NotImplementedError"
+    lines = body.splitlines()
     return "import pandas as pd\n\ndef solve(" + ", ".join(params) + "):\n" + "\n".join("    " + line for line in lines) + "\n"
 
 
@@ -356,5 +352,6 @@ def summary(item, passed=()):
 
 
 def public_case(problem, case):
-    return {**case, "tables": {key: table([c[0] for c in problem["schema"][key]], rows)
+    schema = case.get("schema", problem["schema"])
+    return {**case, "tables": {key: table([c[0] for c in schema[key]], rows)
                               for key, rows in case["tables"].items()}}

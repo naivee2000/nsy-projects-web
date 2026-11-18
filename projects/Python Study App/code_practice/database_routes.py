@@ -83,7 +83,7 @@ def problem_detail(problem_id: int, review_day: date | None = None):
     if problem:
         payload.update({"examples": [public_case(problem, c) for c in problem["cases"][:2]],
                         "schema": problem["schema"], "advice": problem["advice"],
-                        "starters": {"mysql": "-- Write your MySQL solution here.\n", "pandas": pandas_starter(problem)},
+                        "starters": {"mysql": problem["mysql_starter"], "pandas": pandas_starter(problem)},
                         "drafts": drafts})
     return payload
 
@@ -115,7 +115,7 @@ def save_draft(problem_id: int, language: Language, payload: Draft):
 def pandas_cases(problem_id: int, examples: bool = False):
     problem = runnable(problem_id)
     cases = problem["cases"][:2] if examples else problem["cases"]
-    return {"schema": problem["schema"], "runner": problem["runner"],
+    return {"schema": problem["schema"], "runner": problem["runner"], "resultTable": problem["result_table"],
             "inputs": [{key: value for key, value in public_case(problem, case).items() if key != "expected"} for case in cases]}
 
 
@@ -153,7 +153,7 @@ def evaluate(problem, payload):
             value = payload.results[index]
             actual = value.actual
             passed = actual is not None and matches(
-                case["expected"], actual.columns, actual.rows, ordered=problem["ordered"])
+                case["expected"], actual.columns, actual.rows, ordered=problem["ordered"], date_columns=problem["date_columns"])
             result = {"passed": passed, "actual": actual.model_dump() if actual else None, "error": value.error}
         if index < 2 or not result["passed"]:
             outcomes.append({"case": index + 1, **result, "expected": case["expected"],

@@ -791,9 +791,12 @@ submissions and review dates are stored in the existing profile database and
 included in the normal backup. Passing in either language completes the problem
 for that day. Language passes and drafts remain available separately.
 
-The Database Library includes 323 entries from the workbook. The 19 verified
-exercises support both MySQL and Pandas. The other 304 are labelled
-**Awaiting verification** and are excluded from Today and Review.
+The Database Library offers all 323 workbook problems in MySQL and Pandas
+(113 Easy, 144 Medium and 66 Hard). Each profile sees its lifetime distinct
+passes out of 323. Passing the second language adds a language badge and keeps
+the same completion count. Premium-source exercises include a local Pandas
+adaptation. Each editor has two examples, fourteen hidden inputs, and a separate
+practice or review draft for each language.
 
 With Docker running and frontend dependencies installed, from this directory:
 
@@ -810,9 +813,41 @@ container after local use with `docker stop nsy-study-mysql-local`. Production s
 [the deployment guide](docs/DEPLOYMENT.md#database-judge).
 
 Run the targeted tests with `.venv/bin/python -m pytest -q tests/test_database_track.py`.
-With the judge container available, run the real Chrome and judge checks using
-`CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-local node scripts/verify_database_browser.mjs`.
-The browser check uses temporary accounts and data and prints the fixture report
-location. The catalog inventory uses the workbook's summaries and examples
-adapted from the [Doocs LeetCode Wiki](https://github.com/doocs/leetcode), CC BY-SA
-4.0. References and executable tests reside in the Database catalog module.
+The browser verifier runs examples, full submissions and two incorrect answers per
+language through the editor. It creates temporary accounts, and supports resuming
+a run from verified per-problem checkpoints. A change in the judge, frontend,
+runtime or individual exercise invalidates the corresponding checkpoints.
+
+```sh
+export CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-local
+node scripts/verify_database_browser.mjs --report-dir=/tmp/study-database-verification
+.venv/bin/python -m scripts.verify_database_release --report /tmp/study-database-verification/report.json --output database_catalog/local_verification.json
+```
+
+For one batch add `--catalog-only --ids=185,627,1321` to the browser command.
+Run without `--ids` to verify the complete playable Library and write the merged
+report. See the [per-language release results](database_catalog/local_verification.json)
+for the runtime versions, problem fingerprints and the cases rejecting each wrong
+submission. The expected totals are 646 language combinations, 10,336 reference
+cases and 1,292 rejected wrong submissions.
+
+The workbook and selected MySQL references adapt the [Doocs LeetCode Wiki](https://github.com/doocs/leetcode)
+under [CC BY-SA 4.0](catalog_import/SOURCE_LICENSE.txt). Input generators and native Pandas
+reference submissions are in `scripts/database_batch_*.py` and `scripts/database_solutions_*.py`.
+Published examples and a second implementation were checked before packaging the inputs and
+expected outputs. The authoring checks use [Walkccc's SQL solutions](https://github.com/walkccc/LeetCode/tree/9b85aa15e086d0b5dc1ead7184bca547942e6ff6)
+([MIT license](database_catalog/WALKCCC_LICENSE.txt)), independent calculations, or the pinned
+Pandas sources listed in `scripts/database_oracle_pins.json`. The website reads the packaged
+exercises directly and needs no source-site access to grade a submission.
+
+To reproduce the 296 file-backed exercises, run the following commands in a local
+authoring environment with Pandas 2.2.3 and the project dependencies. The 19 original
+exercises and eight special runners use independent Python fixture builders in
+`code_practice/database_catalog.py` and `code_practice/database_special.py`.
+
+```sh
+python -m scripts.fetch_database_authoring_sources /tmp/study-sources
+python -m scripts.check_published_database_oracles --source /tmp/study-sources/doocs --out /tmp/study-sources/oracles
+CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-local python -m scripts.build_database_exercises --source /tmp/study-sources/doocs --oracle /tmp/study-sources/oracles --out /tmp/study-exercises
+diff -qr database_catalog/exercises /tmp/study-exercises
+```

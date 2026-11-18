@@ -1,4 +1,5 @@
 // Local end-to-end test and per-problem verification with a disposable profile store.
+import { sweep } from './database_catalog_sweep.mjs';
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
 import { spawn, spawnSync } from 'node:child_process';
@@ -24,11 +25,11 @@ const env = {
   CODE_PRACTICE_REQUIRE_LOGIN: '1', CODE_PRACTICE_PUBLIC_ORIGIN: base,
 };
 const setup = spawnSync(python, ['-c', `
-import json
+import json, hashlib
 from datetime import timedelta
 from uuid import uuid4
 from code_practice import accounts, database, database_track, review_v2
-from code_practice.database_catalog import CATALOG,pandas_starter
+from code_practice.database_catalog import CATALOG, INVENTORY, pandas_starter
 accounts.initialize('admin')
 accounts.set_password('owner','owner-local-test-password')
 user = accounts.create_user('database-member','member-local-test-password')
@@ -41,9 +42,10 @@ with database.profile_scope(reviewer['id']), database.db_session() as con:
         con.execute("INSERT INTO db_track_attempts VALUES (?,?,?,?,?,?,?,?)",
                     (str(uuid4()),key,'mysql','practice',str(earlier),CATALOG[key]['sql'],1,'{}'))
         database_track.save_event(con,key,earlier)
-print(json.dumps([{'id': k, 'sql': v['sql'], 'pandas': pandas_starter(v, reference=True), 'wrong': v['wrong']}
+print(json.dumps([{'id': k, 'sql': v['sql'], 'pandas': pandas_starter(v, reference=True), 'wrong': v['wrong'], 'wrongPandas':[pandas_starter(v,body=b) for b in v['wrong_pandas']],
+                    'contract':hashlib.sha256(json.dumps([v, INVENTORY[k]],ensure_ascii=False).encode()).hexdigest()}
                   for k,v in CATALOG.items()]))
-`], { cwd: root, env, encoding: 'utf8' });
+`], { cwd: root, env, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
 assert.equal(setup.status, 0, setup.stderr);
 const references = JSON.parse(setup.stdout);
 let server, browser;
@@ -94,6 +96,7 @@ try {
   const errors = [];
   page.on('pageerror', error => errors.push(String(error)));
   await login(page, 'admin', 'owner-local-test-password');
+  if (!process.argv.includes('--catalog-only')) {
   const before = await get(page, '/api/dashboard');
   await page.getByRole('button', { name: 'Library', exact: true }).click();
   await page.getByPlaceholder('Search title, topic, or pattern').fill('Pair Sum Indices');
@@ -101,8 +104,10 @@ try {
   await page.locator('.monaco-editor .view-lines').waitFor();
   const pairSum = 'def pair_sum_indices(nums, target):\n    seen = {}\n    for i, value in enumerate(nums):\n        if target - value in seen:\n            return [seen[target - value], i]\n        seen[value] = i\n    return []\n';
   await edit(page, pairSum);
-  await page.getByRole('button', { name: 'Submit', exact: true }).click();
-  await page.waitForResponse(res => res.url().endsWith('/api/attempts') && res.ok(), { timeout: 30000 });
+  await Promise.all([
+    page.waitForResponse(res => res.url().endsWith('/api/attempts') && res.ok(), { timeout: 30000 }),
+    page.getByRole('button', { name: 'Submit', exact: true }).click(),
+  ]);
   console.log('Algorithm submission recorded.');
   const afterAlgo = await get(page, '/api/dashboard');
   assert.equal(afterAlgo.solvedCount, before.solvedCount + 1);
@@ -146,7 +151,8 @@ try {
   await page.waitForFunction(() => window.monaco.editor.getEditors().some(e => e.getDomNode()?.offsetWidth && e.getValue() === '-- MySQL draft'));
   await page.locator('[aria-label="Database editor"]').getByRole('button', { name: 'Reset' }).click();
   assert.equal((await get(page, detailPath)).drafts.pandas, '# Pandas draft');
-  await page.waitForFunction(() => window.monaco.editor.getEditors().some(e => e.getDomNode()?.offsetWidth && e.getValue().includes('Write your MySQL solution')));
+  const starter = (await get(page, detailPath)).starters.mysql;
+  await page.waitForFunction(code => window.monaco.editor.getEditors().some(e => e.getDomNode()?.offsetWidth && e.getValue() === code), starter);
   await edit(page, target.sql);
   await page.getByRole('button', { name: 'Run examples', exact: true }).click();
   await page.getByRole('heading', { name: 'All cases passed' }).waitFor({ timeout: 30000 });
@@ -195,6 +201,25 @@ try {
   assert.equal(new URL(memberPage.url()).pathname, '/database/problem/' + item.id);
   assert.equal((await get(memberPage, '/api/dashboard')).database.solved, 0);
   assert.deepEqual((await get(memberPage, detailPath)).drafts, {});
+  // Submit to the same problem from separate signed-in accounts at the same time.
+  const parallel = references.find(row => row.id === 185);
+  const path185 = '/api/database/problems/185';
+  await Promise.all([page, memberPage].map(async (tab, index) => {
+    await tab.goto(base + '/database/problem/185');
+    const label = index === 0 ? 'MySQL' : 'Pandas';
+    const code = index === 0 ? parallel.sql : parallel.pandas;
+    await tab.getByRole('button', { name: label, exact: true }).click();
+    await tab.getByRole('button', { name: label, exact: true, pressed: true }).waitFor();
+    await edit(tab, code);
+  }));
+  await Promise.all([page, memberPage].map(async (tab, index) => {
+    const label = index === 0 ? 'MySQL' : 'Pandas';
+    await tab.getByRole('button', {name:'Submit',exact:true}).click();
+    await tab.getByRole('button', {name:label + ' · Passed',exact:true}).waitFor({ timeout:60000 });
+    const saved = await get(tab, path185);
+    assert.deepEqual(saved.passedLanguages, [label.toLowerCase()]);
+    assert.equal(saved.drafts[label.toLowerCase()], index === 0 ? parallel.sql : parallel.pandas);
+  }));
   await memberPage.close();
 
   const reviewer = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
@@ -244,60 +269,9 @@ try {
   console.log('Daily and review checkmarks persist in place. Back restores Today, Review and filtered Library.');
 
   console.log('Both drafts and account isolation verified after restart.');
-  const report = [];
-  for (const entry of process.argv.includes('--ui-only') ? [] : references) {
-    const outcomes = await page.evaluate(async ({ entry }) => {
-      const session = await fetch('/api/auth/me').then(response => response.json());
-      const headers = { 'Content-Type': 'application/json', 'X-Requested-With': 'CodePractice',
-        'X-Study-Profile': session.user.id };
-      const endpoint = `/api/database/problems/${entry.id}`;
-      const grade = async (source, language, results) => {
-        const response = await fetch(endpoint + '/judge', { method: 'POST', headers, body: JSON.stringify({
-          source, language, results, request_id: crypto.randomUUID(),
-        }) });
-        if (!response.ok) throw Error(await response.text());
-        return response.json();
-      };
-      const pack = await fetch(endpoint + '/pandas-cases', { headers }).then(response => response.json());
-      const output = await new Promise((resolve, reject) => {
-        const worker = new Worker('/database-worker.js');
-        const timer = setTimeout(() => { worker.terminate(); reject(Error('Pandas timeout')); }, 30000);
-        worker.onmessage = ({ data }) => {
-          if (data.ready) return;
-          clearTimeout(timer);
-          worker.terminate();
-          if (data.error) reject(Error(data.error));
-          else resolve(data.results);
-        };
-        worker.postMessage({ ...pack, source: entry.pandas });
-      });
-      const mysql = await grade(entry.sql, 'mysql');
-      const pandas = await grade(entry.pandas, 'pandas', output);
-      const rejected = [];
-      for (const wrong of entry.wrong) {
-        rejected.push(!(await grade(wrong, 'mysql')).accepted);
-      }
-      return { mysql, pandas, rejected };
-    }, { entry });
-    assert.ok(outcomes.mysql.accepted, JSON.stringify({ id: entry.id, mysql: outcomes.mysql.cases.filter(c => !c.passed) }));
-    assert.ok(outcomes.pandas.accepted, JSON.stringify({ id: entry.id, pandas: outcomes.pandas.cases.filter(c => !c.passed) }));
-    assert.deepEqual(outcomes.rejected, [true, true], `Incorrect answers must fail on #${entry.id}`);
-    const row = { id: entry.id, mysqlCases: outcomes.mysql.cases.length, pandasCases: outcomes.pandas.cases.length,
-      wrongAnswersRejected: outcomes.rejected.length };
-    report.push(row);
-    console.log(JSON.stringify(row));
   }
-  assert.deepEqual(errors, []);
-  const inventory = JSON.parse(await fs.readFile(path.join(root, 'database_catalog/inventory.json')));
-  const combinations = inventory.flatMap(problem => ['mysql', 'pandas'].map(language => {
-    const result = report.find(row => row.id === problem.id);
-    return { id: problem.id, language, status: result ? 'passed' : 'pending',
-      ...(result && { cases: result[language + 'Cases'] }) };
-  }));
-  await fs.writeFile(path.join(temporary, 'report.json'),
-    JSON.stringify({ total: inventory.length, passed: report.length * 2, combinations,
-      ...(report.length && { wrongAnswerChecks: { language: 'mysql', rejectedPerVerifiedProblem: 2 } }) }, null, 2) + '\n');
-  console.log('Report and screenshot stored in ' + temporary);
+  if (!process.argv.includes('--ui-only')) await sweep({page, base, get, edit, root, temporary, references,
+    frontend: env.CODE_PRACTICE_FRONTEND_DIST, errors});
 } finally {
   await browser?.close();
   await stop();

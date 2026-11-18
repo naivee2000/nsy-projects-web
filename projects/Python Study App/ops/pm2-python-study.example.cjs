@@ -14,7 +14,7 @@ module.exports = {
       env: {
         CODE_PRACTICE_DATA_DIR: persistentDataDir,
         CODE_PRACTICE_REQUIRE_LOGIN: "1",
-        CODE_PRACTICE_MYSQL_CONTAINER: "nsy-study-mysql-production",
+        CODE_PRACTICE_MYSQL_CONTAINER: "nsy-study-mysql-production-v2",
         CODE_PRACTICE_SEED_DB: `${appDir}/seed_data/initial_progress.db`,
         CODE_PRACTICE_AUTH_USERNAME: "admin",
         CODE_PRACTICE_SESSION_SECRET: "use-the-same-secret-as-the-NSY-login-service",
