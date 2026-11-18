@@ -7,10 +7,14 @@ import os
 import re
 import time
 from dataclasses import dataclass
-from urllib.parse import urlencode
+from urllib.parse import parse_qsl, urlencode
 
 
 def database_return_target(target: str) -> str:
+    if target.startswith("/database/library?"):
+        allowed = {"page", "topic", "difficulty", "completion", "playable", "search"}
+        filters = [(k, v) for k, v in parse_qsl(target.partition("?")[2]) if k in allowed]
+        return "/database/library" + ("?" + urlencode(filters) if filters else "")
     if re.fullmatch(r"/database(?:/(?:library|review|problem/[0-9]+))?(?:\?review=[0-9]{4}-[0-9]{2}-[0-9]{2})?", target):
         return target
     return "/"

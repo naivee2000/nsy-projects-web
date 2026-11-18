@@ -349,6 +349,8 @@ def pandas_starter(problem, *, reference=False):
 def summary(item, passed=()):
     problem = CATALOG.get(item["id"])
     return {**{k: item[k] for k in ("id", "title", "difficulty", "premium", "url")},
+            "prompt": next((line.removeprefix("Task:").strip() for line in item["summary"].splitlines()
+                            if line.startswith("Task:")), ""),
             "topic": problem["topic"] if problem else None, "runnable": problem is not None,
             "passedLanguages": list(passed)}
 

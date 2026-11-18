@@ -24,6 +24,8 @@ def test_two_tabs_get_same_sets_and_example_does_not_record():
         assert left["database"] == right["database"]
         assert left["reviewRecommendations"] == right["reviewRecommendations"]
         assert len(left["database"]["newProblems"]) == 5
+        assert left["database"]["dailyAssignment"] == left["database"]["newProblems"]
+        assert all(not item["completedToday"] for item in left["database"]["dailyAssignment"])
         assert left["database"]["reviews"] == []
         assert client.get("/api/database/problems").json()["total"] == 323
         result = client.post("/api/database/problems/175/judge", json=answer(examples=True)).json()
@@ -35,7 +37,8 @@ def test_database_profile_drafts_submissions_and_algorithm_isolation(online):
     user = create(online)
     with TestClient(app_module.app) as member:
         sign_in(member, "learner")
-        item = member.get("/api/dashboard").json()["database"]["newProblems"][0]
+        initial = member.get("/api/dashboard").json()["database"]
+        item = initial["newProblems"][0]
         key = item["id"]
         for language in ("mysql", "pandas"):
             response = member.put(f"/api/database/problems/{key}/draft/{language}", json={"source": language})
@@ -48,6 +51,12 @@ def test_database_profile_drafts_submissions_and_algorithm_isolation(online):
         state = member.get("/api/dashboard").json()
         assert state["solvedCount"] == 0 and state["database"]["solved"] == 1
         assert len(state["database"]["newProblems"]) == 4
+        assert [p["id"] for p in state["database"]["dailyAssignment"]] == [p["id"] for p in initial["dailyAssignment"]]
+        assert [p["id"] for p in state["database"]["dailyAssignment"] if p["completedToday"]] == [key]
+        library = member.get("/api/database/problems", params={"completion":"passed","topic":item["topic"]}).json()
+        assert [p["id"] for p in library["items"]] == [key]
+        assert library["items"][0]["prompt"] and item["topic"] in library["topics"]
+        assert online.get("/api/database/problems?completion=passed").json()["total"] == 0
     with database.profile_scope(user["id"]), database.db_session() as con:
         assert con.execute("SELECT count(*) FROM db_track_attempts").fetchone()[0] == 1
         assert con.execute("SELECT count(*) FROM db_track_events").fetchone()[0] == 1
@@ -70,9 +79,16 @@ def test_review_uses_ny_day_and_is_separate_from_original_draft(monkeypatch, tmp
         clock[0] = datetime(2026, 11, 18, 5, 30, tzinfo=timezone.utc)
         state = client.get("/api/dashboard").json()["database"]
         assert state["day"] == "2026-11-18" and [p["id"] for p in state["reviews"]] == [175]
+        assert state["reviewAssignment"][0]["passedLanguages"] == ["pandas"]
+        assert not state["reviewAssignment"][0]["completedToday"]
         assert client.get(endpoint + "?review_day=2026-11-18").json()["drafts"] == {}
+        assert client.post(endpoint + "/judge", json={**answer(examples=True), "review_day": state["day"]}).json()["accepted"]
+        assert not client.get("/api/dashboard").json()["database"]["reviewAssignment"][0]["completedToday"]
         assert client.post(endpoint + "/judge", json={**answer(), "review_day": state["day"]}).json()["accepted"]
         assert client.get("/api/dashboard").json()["database"]["reviews"] == []
+        assert [(p["id"],p["completedToday"]) for p in client.get("/api/dashboard").json()["database"]["reviewAssignment"]] == [(175,True)]
+        assert client.put(endpoint + "/rating", json={"grade":"hard"}).json()["manualGrade"] == "hard"
+        assert client.get(endpoint).json()["reviewFeedback"]["manualGrade"] == "hard"
         assert client.get(endpoint).json()["drafts"] == {"pandas": "original"}
     backup = tmp_path / "backup"
     accounts.backup_all(backup)
@@ -80,6 +96,7 @@ def test_review_uses_ny_day_and_is_separate_from_original_draft(monkeypatch, tmp
         assert con.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
     with TestClient(app_module.app) as restarted:
         assert restarted.get(endpoint).json()["passedLanguages"] == ["pandas"]
+        assert restarted.get("/api/dashboard").json()["database"]["reviewAssignment"][0]["completedToday"]
 
 
 def test_table_comparison_respects_column_aliases_nulls_and_duplicate_rows():

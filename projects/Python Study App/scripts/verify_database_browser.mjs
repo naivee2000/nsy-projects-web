@@ -25,12 +25,22 @@ const env = {
 };
 const setup = spawnSync(python, ['-c', `
 import json
-from code_practice import accounts
+from datetime import timedelta
+from uuid import uuid4
+from code_practice import accounts, database, database_track, review_v2
 from code_practice.database_catalog import CATALOG,pandas_starter
 accounts.initialize('admin')
 accounts.set_password('owner','owner-local-test-password')
 user = accounts.create_user('database-member','member-local-test-password')
 accounts.set_password(user['id'],'member-local-test-password')
+reviewer = accounts.create_user('database-reviewer','reviewer-local-test-password')
+accounts.set_password(reviewer['id'],'reviewer-local-test-password')
+earlier = review_v2.local_day() - timedelta(days=21)
+with database.profile_scope(reviewer['id']), database.db_session() as con:
+    for key in (175,176):
+        con.execute("INSERT INTO db_track_attempts VALUES (?,?,?,?,?,?,?,?)",
+                    (str(uuid4()),key,'mysql','practice',str(earlier),CATALOG[key]['sql'],1,'{}'))
+        database_track.save_event(con,key,earlier)
 print(json.dumps([{'id': k, 'sql': v['sql'], 'pandas': pandas_starter(v, reference=True), 'wrong': v['wrong']}
                   for k,v in CATALOG.items()]))
 `], { cwd: root, env, encoding: 'utf8' });
@@ -68,10 +78,14 @@ const get = (page, url) => page.evaluate(async endpoint => {
   if (!res.ok) throw Error(await res.text());
   return res.json();
 }, url);
-const edit = (page, source) => page.evaluate(value => {
-  const active = window.monaco.editor.getEditors().find(editor => editor.getDomNode()?.offsetWidth > 0);
-  active.getModel().setValue(value);
-}, source);
+async function edit(page, source) {
+  // getEditors() initializes Monaco services. Wait for the actual editor to finish loading first.
+  await page.locator('.monaco-editor:visible .view-lines').first().waitFor();
+  const handle = await page.waitForFunction(() => window.monaco?.editor.getEditors()
+    .find(editor => editor.getDomNode()?.offsetWidth > 0 && editor.getModel()));
+  try { await handle.evaluate((editor, value) => editor.getModel().setValue(value), source); }
+  finally { await handle.dispose(); }
+}
 
 try {
   await start();
@@ -102,6 +116,37 @@ try {
   const detailPath = `/api/database/problems/${item.id}`;
   await page.getByRole('button', { name: itemName }).click();
   await page.locator('[aria-label="Database editor"] .monaco-editor .view-lines').waitFor();
+  const desktop = page.viewportSize();
+  for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 },
+    { width: 390, height: 844 }, { width: 920, height: 800 }, { width: 1024, height: 800 }, desktop]) {
+    await page.setViewportSize(viewport);
+    await page.waitForFunction(() => {
+      const pane = document.querySelector('[aria-label="Database editor"]');
+      const bounds = pane.getBoundingClientRect();
+      const code = pane.querySelector('.monaco-editor').getBoundingClientRect();
+      const submit = pane.querySelector('.submit-button').getBoundingClientRect();
+      return Math.abs(code.width - bounds.width) <= 2 && submit.right <= Math.min(bounds.right, innerWidth) + 1
+        && document.documentElement.scrollWidth <= innerWidth + 1;
+    });
+  }
+  console.log('Editor and Submit stayed within the Database pane across rotation and desktop resizing.');
+  const splitter = page.getByRole('separator', { name: 'Resize instructions and code panels' });
+  const algoSplit = await page.evaluate(() => localStorage.getItem('code-practice-workspace-split'));
+  await splitter.press('ArrowRight');
+  assert.equal(await splitter.getAttribute('aria-valuenow'), '44');
+  assert.equal(await page.evaluate(() => localStorage.getItem('code-practice-workspace-split')), algoSplit);
+  await splitter.dblclick();
+  assert.equal(await splitter.getAttribute('aria-valuenow'), '42');
+  await edit(page, '-- MySQL draft');
+  await page.getByRole('button', { name: 'Pandas', exact: true }).click();
+  await page.getByRole('button', { name: 'Pandas', exact: true, pressed: true }).waitFor();
+  await edit(page, '# Pandas draft');
+  await page.getByRole('button', { name: 'MySQL', exact: true }).click();
+  await page.getByRole('button', { name: 'MySQL', exact: true, pressed: true }).waitFor();
+  await page.waitForFunction(() => window.monaco.editor.getEditors().some(e => e.getDomNode()?.offsetWidth && e.getValue() === '-- MySQL draft'));
+  await page.locator('[aria-label="Database editor"]').getByRole('button', { name: 'Reset' }).click();
+  assert.equal((await get(page, detailPath)).drafts.pandas, '# Pandas draft');
+  await page.waitForFunction(() => window.monaco.editor.getEditors().some(e => e.getDomNode()?.offsetWidth && e.getValue().includes('Write your MySQL solution')));
   await edit(page, target.sql);
   await page.getByRole('button', { name: 'Run examples', exact: true }).click();
   await page.getByRole('heading', { name: 'All cases passed' }).waitFor({ timeout: 30000 });
@@ -129,6 +174,20 @@ try {
   const restored = await get(page, detailPath);
   assert.deepEqual(restored.drafts, { mysql: target.sql, pandas: target.pandas });
   assert.deepEqual(restored.passedLanguages, ['mysql', 'pandas']);
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByRole('heading', { name: 'Database Today' }).waitFor();
+  const checkedCard = page.getByRole('button', { name: itemName });
+  await checkedCard.getByText('Done today', { exact: true }).waitFor();
+  const fullSet = (await get(page, '/api/dashboard')).database;
+  assert.deepEqual(fullSet.dailyAssignment.map(p => p.id), before.database.dailyAssignment.map(p => p.id));
+  assert.deepEqual(fullSet.dailyAssignment.filter(p => p.completedToday).map(p => p.id), [item.id]);
+  await page.getByRole('button', { name: 'Browse all' }).click();
+  await page.getByLabel('Filter by completion').selectOption('passed');
+  await page.getByRole('button', { name: itemName }).click();
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.getByRole('heading', { name: 'Database Library' }).waitFor();
+  assert.equal(await page.getByLabel('Filter by completion').inputValue(), 'passed');
+  assert.equal(new URL(page.url()).searchParams.get('completion'), 'passed');
 
   const memberPage = await browser.newPage();
   await login(memberPage, 'database-member', 'member-local-test-password', '/database/problem/' + item.id);
@@ -137,6 +196,52 @@ try {
   assert.equal((await get(memberPage, '/api/dashboard')).database.solved, 0);
   assert.deepEqual((await get(memberPage, detailPath)).drafts, {});
   await memberPage.close();
+
+  const reviewer = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  reviewer.on('pageerror', error => errors.push(String(error)));
+  await login(reviewer, 'database-reviewer', 'reviewer-local-test-password', '/database/review');
+  const reviewCard = reviewer.getByRole('button', { name: /^175\. / });
+  await reviewCard.waitFor();
+  assert.equal(await reviewCard.locator('.passed-label').count(), 0);
+  await reviewCard.click();
+  const sql = references.find(p => p.id === 175).sql;
+  await edit(reviewer, sql);
+  await reviewer.getByRole('button', { name: 'Run examples' }).click();
+  await reviewer.getByRole('heading', { name: 'All cases passed' }).waitFor();
+  await reviewer.getByRole('button', { name: 'Back', exact: true }).click();
+  await reviewCard.waitFor();
+  assert.equal(await reviewCard.locator('.passed-label').count(), 0);
+  await reviewCard.click();
+  await reviewer.locator('[aria-label="Database editor"] .monaco-editor .view-lines').waitFor();
+  await reviewer.getByRole('button', { name: 'Submit', exact: true }).click();
+  await reviewer.getByText('This problem is marked Passed and saved to your progress.').waitFor();
+  await reviewer.getByRole('button', { name: 'Back', exact: true }).click();
+  await reviewCard.getByText('Done today', { exact: true }).waitFor();
+  await reviewer.reload();
+  await reviewCard.getByText('Done today', { exact: true }).waitFor();
+  assert.equal(await reviewer.getByRole('button', { name: /^176\. / }).locator('.passed-label').count(), 0);
+  const overview = (await get(reviewer, '/api/dashboard')).database;
+  assert.equal(overview.reviewAssignment.length, 2);
+  assert.equal(overview.reviews.length, 1);
+  const scores = reviewer.locator('.review-scores:visible');
+  await scores.locator('summary').first().click();
+  await scores.getByLabel('Filter review status').selectOption('assigned');
+  await reviewer.waitForFunction(() => [...document.querySelectorAll('.review-scores')]
+    .some(table => table.offsetWidth && table.querySelectorAll('tbody tr').length === 2));
+  await reviewer.getByRole('button', { name: 'Today', exact: true }).click();
+  const newItem = overview.newProblems[0];
+  const newCard = reviewer.getByRole('button', { name: new RegExp('^' + newItem.id + '\\. ') });
+  await newCard.click();
+  await edit(reviewer, references.find(p => p.id === newItem.id).sql);
+  await reviewer.getByRole('button', { name: 'Submit', exact: true }).click();
+  await reviewer.getByText('This problem is marked Passed and saved to your progress.').waitFor();
+  await reviewer.getByRole('button', { name: 'Back', exact: true }).click();
+  await newCard.getByText('Done today', { exact: true }).waitFor();
+  await reviewCard.getByText('Done today', { exact: true }).waitFor();
+  await reviewer.getByRole('heading', { name: 'Your next problems' }).evaluate(node => node.scrollIntoView());
+  await reviewer.screenshot({ path: path.join(temporary, 'database-checklist.png') });
+  await reviewer.close();
+  console.log('Daily and review checkmarks persist in place. Back restores Today, Review and filtered Library.');
 
   console.log('Both drafts and account isolation verified after restart.');
   const report = [];

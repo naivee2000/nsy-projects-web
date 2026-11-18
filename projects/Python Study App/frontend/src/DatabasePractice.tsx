@@ -1,30 +1,26 @@
-import Editor from "@monaco-editor/react";
+import { ArrowLeft, Check, CircleAlert, ExternalLink } from "lucide-react";
+import DatabaseHome, { type DatabaseItem, type DatabaseLanguage as Language, type DatabaseOverview } from "./DatabaseHome";
+import PracticeWorkspace from "./PracticeWorkspace";
+import { DifficultyPill } from "./PracticeViews";
+import { reviewGradeLabels } from "./Review";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { forProfile } from "./api";
+export type { DatabaseOverview } from "./DatabaseHome";
 
-type Language = "mysql" | "pandas";
 type Grade = "again" | "hard" | "good" | "easy";
 type Cell = string | number | null;
 type TableData = { columns: string[]; rows: Cell[][] };
 type Example = { tables: Record<string, TableData>; expected: TableData; parameters: Record<string, Cell> };
-type Item = {
-  id: number; title: string; difficulty: string; topic: string | null;
-  premium: boolean; url: string; runnable: boolean; passedLanguages: Language[];
-};
-type Problem = Item & {
+type Feedback = { grade: Grade; manualGrade: Grade | null; due: string };
+type Problem = DatabaseItem & {
   summary: string; sourceExample: string; advice?: string; officialLanguages: string;
-  schema?: Record<string, string[][]>; examples?: Example[];
+  schema?: Record<string, string[][]>; examples?: Example[]; reviewFeedback: Feedback | null;
   starters?: Record<Language, string>; drafts?: Partial<Record<Language, string>>;
 };
-export type DatabaseOverview = {
-  day: string; solved: number; total: number; runnable: number;
-  newProblems: Item[]; reviews: Item[]; notes: string[];
-};
-type LibraryPage = { items: Item[]; total: number; pageSize: number };
 type CaseResult = { actual?: TableData; error?: string };
 type Verdict = { accepted: boolean; cases: Array<CaseResult & {
   passed: boolean; case: number; expected?: TableData; input?: Record<string, TableData>; parameters?: Record<string, Cell>
-}>; review?: { grade: Grade; due: string } };
+}>; review?: Feedback | null };
 const labels: Record<Language, string> = { mysql: "MySQL", pandas: "Pandas" };
 
 function display(value: Cell) {
@@ -72,7 +68,7 @@ export function runPandas(worker: Worker, payload: object): Promise<CaseResult[]
 }
 
 type Props = {
-  path: string; profile: string; overview?: DatabaseOverview; onNavigate: (url: string) => void;
+  path: string; profile: string; overview?: DatabaseOverview; onNavigate: (url: string, replace?: boolean) => void;
   onRefresh: () => Promise<void>; saver: React.MutableRefObject<(() => Promise<unknown>) | null>;
 };
 
@@ -87,29 +83,25 @@ export default function DatabasePractice({ path, profile, overview, onNavigate, 
   const [drafts, setDrafts] = useState<Partial<Record<Language, string>>>({});
   const [result, setResult] = useState<Verdict | null>(null);
   const [status, setStatus] = useState("");
-  const [busy, setBusy] = useState(false);
-  const [page, setPage] = useState(1);
-  const [search, setSearch] = useState("");
-  const [difficulty, setDifficulty] = useState("all");
-  const [playable, setPlayable] = useState(false);
-  const [library, setLibrary] = useState<LibraryPage | null>(null);
-  const [exampleIndex, setExampleIndex] = useState(0);
+  const [running, setRunning] = useState<"run" | "submit" | null>(null);
+  const [resultMode, setResultMode] = useState<"run" | "submit" | null>(null);
+  const [ratingBusy, setRatingBusy] = useState(false);
+  const [switchingLanguage, setSwitchingLanguage] = useState(false);
   const queue = useRef<Promise<unknown>>(Promise.resolve());
   const persistedDrafts = useRef<Partial<Record<Language, string>>>({});
   const generation = useRef(0);
   const worker = useRef<Worker | null>(null);
   const pending = useRef<{ key: string; id: string } | null>(null);
-  const libraryMode = path === "/database/library";
-  const reviewMode = path === "/database/review";
-
   useEffect(() => {
     const current = ++generation.current;
     const controller = new AbortController();
     setProblem(null);
     setResult(null);
     setStatus("");
-    setBusy(false);
-    setExampleIndex(0);
+    setRunning(null);
+    setResultMode(null);
+    setRatingBusy(false);
+    setSwitchingLanguage(false);
     setLanguage("mysql");
     if (id !== null) {
       const suffix = reviewDay ? "?review_day=" + encodeURIComponent(reviewDay) : "";
@@ -128,16 +120,6 @@ export default function DatabasePractice({ path, profile, overview, onNavigate, 
       worker.current?.terminate();
     };
   }, [api, id, reviewDay, path]);
-
-  useEffect(() => {
-    if (!libraryMode) return;
-    const controller = new AbortController();
-    const params = new URLSearchParams({ search, difficulty, playable: String(playable), page: String(page) });
-    void api<LibraryPage>("/api/database/problems?" + params, { signal: controller.signal })
-      .then(result => { if (!controller.signal.aborted) setLibrary(result); })
-      .catch(error => { if (!controller.signal.aborted) setStatus(String(error.message)); });
-    return () => controller.abort();
-  }, [api, libraryMode, search, difficulty, playable, page, overview?.solved]);
 
   useEffect(() => {
     if (!problem?.runnable || problem.id !== id) return;
@@ -162,26 +144,32 @@ export default function DatabasePractice({ path, profile, overview, onNavigate, 
   }, [api, problem, id, source, language, reviewDay, saver]);
 
   async function changeLanguage(next: Language) {
-    if (next === language || !problem?.starters) return;
+    if (next === language || !problem?.starters || running || switchingLanguage) return;
+    const current = generation.current;
+    setSwitchingLanguage(true);
     try {
       await saver.current?.();
-      setDrafts(current => ({ ...current, [language]: source }));
+      if (generation.current !== current) return;
+      setDrafts(saved => ({ ...saved, [language]: source }));
       setSource(drafts[next] ?? problem.starters[next]);
       setLanguage(next);
       setResult(null);
       setStatus("");
     } catch (error) {
-      setStatus(String(error instanceof Error ? error.message : error));
+      if (current === generation.current) setStatus(String(error instanceof Error ? error.message : error));
+    } finally {
+      if (generation.current === current) setSwitchingLanguage(false);
     }
   }
 
   async function judge(examples: boolean) {
-    if (!problem || busy) return;
+    if (!problem || running || switchingLanguage) return;
     const current = generation.current;
     const key = JSON.stringify([problem.id, language, source, reviewDay, examples]);
     const request = pending.current?.key === key ? pending.current.id : crypto.randomUUID();
     pending.current = { key, id: request };
-    setBusy(true);
+    setRunning(examples ? "run" : "submit");
+    setResultMode(examples ? "run" : "submit");
     setStatus("");
     setResult(null);
     try {
@@ -200,114 +188,120 @@ export default function DatabasePractice({ path, profile, overview, onNavigate, 
       setResult(reply);
       pending.current = null;
       if (!examples && reply.accepted) {
-        setProblem(p => p && { ...p, passedLanguages: [...new Set([...p.passedLanguages, language])] });
+        setProblem(p => p && { ...p, reviewFeedback: reply.review ?? null, passedLanguages: [...new Set([...p.passedLanguages, language])] });
       }
+      if (!examples && !reply.accepted) setProblem(p => p && { ...p, reviewFeedback: null });
       if (!examples) await onRefresh();
     } catch (error) {
       if (current === generation.current) setStatus(String(error instanceof Error ? error.message : error));
     } finally {
-      if (current === generation.current) setBusy(false);
+      if (current === generation.current) setRunning(null);
     }
   }
 
   async function rate(grade: Grade | null) {
-    if (!problem) return;
+    if (!problem || ratingBusy) return;
+    setRatingBusy(true);
     const current = generation.current;
     try {
       const review = await api<NonNullable<Verdict["review"]>>(`/api/database/problems/${problem.id}/rating`, {
         method: "PUT", body: JSON.stringify({ grade }),
       });
-      if (current === generation.current) setResult(previous => previous && { ...previous, review });
+      if (current === generation.current) {
+        setProblem(p => p && { ...p, reviewFeedback: review });
+        setResult(previous => previous && { ...previous, review });
+      }
     } catch (error) {
       if (current === generation.current) setStatus(String(error instanceof Error ? error.message : error));
+    } finally {
+      if (current === generation.current) setRatingBusy(false);
     }
   }
 
-  const open = (item: Item, due = false) => onNavigate(
-    `/database/problem/${item.id}${due ? "?review=" + overview?.day : ""}`);
-  const list = (items: Item[], due = false) => <ul className="db-list">
-    {items.map(item => <li key={item.id}><button onClick={() => open(item, due)}>
-      <span>{item.id}. {item.title}</span><small>{item.difficulty}{item.topic ? " · " + item.topic : ""}
-        {!item.runnable ? " · Awaiting verification" : ""}
-        {item.passedLanguages.length ? " · Passed " + item.passedLanguages.map(l => labels[l]).join(" / ") : ""}</small>
-    </button></li>)}
-  </ul>;
+  async function back() {
+    if (!window.history.state?.fromDatabaseList) {
+      onNavigate(reviewDay ? "/database/review" : "/database/library");
+      return;
+    }
+    try {
+      await saver.current?.();
+      window.history.back();
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : String(error));
+    }
+  }
 
-  return <div className="page db-page">
-    {status && <div className="global-error" role="alert">{status}</div>}
-    {id !== null ? problem && <>
-      <h1>{problem.id}. {problem.title}</h1>
-      <p>{problem.difficulty}{problem.premium ? " · Premium source" : ""} · <a href={problem.url} target="_blank" rel="noreferrer">Source problem</a></p>
-      <div className="db-workspace">
-        <section>
-          <pre className="db-summary">{problem.summary}</pre>
-          {problem.examples?.length ? <>
-            <div className="db-nav" aria-label="Examples">{problem.examples.map((_, i) =>
-              <button key={i} aria-pressed={i === exampleIndex} onClick={() => setExampleIndex(i)}>Example {i + 1}</button>
-            )}</div>
-            <Fixture example={problem.examples[exampleIndex]} />
-          </> : <pre className="db-summary">{problem.sourceExample}</pre>}
-        </section>
-        <section aria-label="Database editor">
-          {problem.runnable ? <>
-            {!!problem.advice && <p>{problem.advice}</p>}
-            {problem.premium && language === "pandas" && <p>Pandas adaptation for this practice site.</p>}
-            <div className="db-nav" aria-label="Answer language">
-              {(["mysql", "pandas"] as const).map(lang => <button key={lang} disabled={busy}
-                aria-pressed={language === lang} onClick={() => void changeLanguage(lang)}>
-                {labels[lang]}{problem.passedLanguages.includes(lang) ? " · Passed" : ""}
-              </button>)}
-            </div>
-            <Editor height="330px" theme="vs-dark" language={language === "mysql" ? "sql" : "python"}
-              options={{ minimap: { enabled: false }, readOnly: busy, ariaLabel: "Database answer", wordWrap: "on" }}
-              value={source} onChange={value => setSource(value ?? "")} />
-            <div className="db-nav">
-              <button disabled={busy} onClick={() => void judge(true)}>Run examples</button>
-              <button disabled={busy} onClick={() => void judge(false)}>Submit</button>
-              {busy && <span role="status">Checking…</span>}
-            </div>
-            {result && <section aria-label="Database results">
-              <h2>{result.accepted ? "All cases passed" : "Some cases did not pass"}</h2>
-              {result.cases.filter(item => item.expected).map(item => <details key={item.case} open={!item.passed}>
-                <summary>Case {item.case} · {item.passed ? "Passed" : "Failed"}</summary>
-                {!!item.error && <p>{item.error}</p>}
-                {item.input && Object.entries(item.input).map(([name, table]) => <ResultTable key={name} name={name} data={table} />)}
-                {item.expected && <ResultTable name="Expected" data={item.expected} />}
-                {item.actual && <ResultTable name="Your result" data={item.actual} />}
-              </details>)}
-              {result.review && result.accepted && <div className="db-nav" aria-label="Review feedback">
-                <span>Next review {result.review.due}</span>
-                {(["again", "hard", "good", "easy"] as const).map(grade => <button key={grade}
-                  aria-pressed={result.review?.grade === grade} onClick={() => void rate(grade)}>{grade}</button>)}
-                <button onClick={() => void rate(null)}>Use suggested</button>
-              </div>}
-            </section>}
-          </> : <p>Awaiting local judge verification. This problem can be read in the library.</p>}
-        </section>
-      </div>
-    </> : libraryMode ? <><h1>Database Library</h1>
-      <div className="db-nav">
-        <input aria-label="Search Database" placeholder="Search by title or number" value={search}
-          onChange={e => { setPage(1); setSearch(e.target.value); }} />
-        <select aria-label="Difficulty" value={difficulty} onChange={e => { setPage(1); setDifficulty(e.target.value); }}>
-          {["all", "Easy", "Medium", "Hard"].map(d => <option key={d} value={d}>{d === "all" ? "All difficulty levels" : d}</option>)}
-        </select>
-        <label><input type="checkbox" checked={playable} onChange={e => { setPage(1); setPlayable(e.target.checked); }} /> Ready to practise</label>
-      </div>
-      {library && <><p>{library.total} problems</p>{list(library.items)}
-        <div className="db-nav">
-          <button disabled={page === 1} onClick={() => setPage(page - 1)}>Previous</button>
-          <span>Page {page}</span>
-          <button disabled={page * library.pageSize >= library.total} onClick={() => setPage(page + 1)}>Next</button>
-        </div>
-      </>}
-    </> : <><h1>{reviewMode ? "Database Review" : "Database Today"}</h1>
-      {overview && <><p>{overview.solved} passed · {overview.runnable} / {overview.total} ready to practise · {overview.day}</p>
-        {!reviewMode && <><h2>New problems</h2>{overview.newProblems.length ?
-          list(overview.newProblems) : <p>No new problems remaining today.</p>}</>}
-        <h2>Due reviews</h2>{overview.reviews.length ? list(overview.reviews, true) : <p>No Database reviews remaining today.</p>}
-        <details><summary>Selection details</summary>{overview.notes.map(note => <p key={note}>{note}</p>)}</details>
-      </>}
-    </>}
+  if (id === null) return <DatabaseHome path={path} profile={profile} overview={overview} onNavigate={onNavigate} />;
+  if (!problem || problem.id !== id) return <div className="page">
+    <button className="back-button" onClick={() => void back()}><ArrowLeft size={17} /> Back</button>
+    <p role={status ? "alert" : "status"}>{status || "Loading problem…"}</p>
   </div>;
+
+  const lines = problem.summary.split(/\r?\n/);
+  const metadata = /^(?:Source:|Language evidence:|Premium\. Public reconstruction source:)/i;
+  const statement = lines.filter(line => !line.startsWith("Task:") && !metadata.test(line)).join("\n");
+  const notes = lines.filter(line => metadata.test(line));
+  const feedback = problem.reviewFeedback;
+  const instructions = <>
+    {reviewDay && <aside className="review-workspace-note"><strong>Fresh review workspace</strong>
+      <p>Your earlier solution is saved separately. Today’s review draft resumes when you reopen this problem.</p></aside>}
+    {feedback && <aside className="review-feedback" aria-label="Review feedback">
+      <strong>How did this feel? <small>Optional</small></strong>
+      <p>{feedback.manualGrade ? "Your rating" : "Suggested rating"}: {reviewGradeLabels[feedback.grade]}. Next review {feedback.due}.</p>
+      <div className="review-rating-buttons">{(Object.keys(reviewGradeLabels) as Grade[]).map(grade =>
+        <button key={grade} disabled={ratingBusy} aria-pressed={feedback.manualGrade === grade} onClick={() => void rate(grade)}>{reviewGradeLabels[grade]}</button>)}</div>
+      <button className="text-button" disabled={ratingBusy || !feedback.manualGrade} onClick={() => void rate(null)}>Use suggested rating</button>
+    </aside>}
+    <p className="problem-lead">{problem.prompt}</p>
+    <p className="statement db-prose">{statement}</p>
+    {problem.advice && <p className="statement" role="note">{problem.advice}</p>}
+    {problem.premium && language === "pandas" && <p className="statement" role="note">Pandas adaptation for this practice site.</p>}
+    <h2>Examples</h2>
+    {problem.examples?.length ? problem.examples.map((example, index) => <div className="example" key={index}>
+      <span>EXAMPLE {index + 1}</span><div className="db-fixture"><Fixture example={example} /></div></div>)
+      : <div className="example"><code>{problem.sourceExample}</code></div>}
+    {!!notes.length && <details className="db-source-notes"><summary>Source notes</summary>
+      {notes.map(note => <p key={note} className="statement db-prose">{note}</p>)}</details>}
+    {!problem.runnable && <p className="statement">Awaiting judge verification. This problem is available to read in the library.</p>}
+  </>;
+  const languageControl = <div className="db-language-switch" role="group" aria-label="Answer language">
+    {(["mysql", "pandas"] as const).map(lang => {
+      const passed = problem.passedLanguages.includes(lang);
+      return <button key={lang} disabled={!!running || switchingLanguage} aria-pressed={language === lang}
+        aria-label={labels[lang] + (passed ? " · Passed" : "")} onClick={() => void changeLanguage(lang)}>
+        {labels[lang]}{passed && <Check size={14} aria-hidden="true" />}
+      </button>;
+    })}
+  </div>;
+  return <>
+    {status && <div className="global-error" role="alert"><CircleAlert size={18} />{status}</div>}
+    <PracticeWorkspace title={problem.id + ". " + problem.title} topic={problem.topic ?? "Database"} onBack={() => void back()}
+      meta={<>{!!problem.passedLanguages.length && <span className="workspace-passed"><Check size={14} /> Passed</span>}
+        <DifficultyPill score={problem.difficulty}/>
+        <a className="db-source-link" href={problem.url} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Source problem</a></>}
+      instructions={instructions} resultStatus={result ? result.accepted ? "accepted" : "wrong_answer" : undefined}
+      editor={problem.runnable && problem.starters ? {
+        source, language: language === "mysql" ? "sql" : "python", label: languageControl, running,
+        modelKey: [profile, id, reviewDay ?? "practice", language].join("/"), readOnly: !!running || switchingLanguage, wordWrap: "on",
+        regionLabel: "Database editor", ariaLabel: "Database answer", onChange: setSource,
+        onReset: () => setSource(problem.starters![language]), onExecute: mode => void judge(mode === "run"),
+      } : undefined}>
+      {result && <>
+        <div className="result-heading"><h2 className="db-result-heading">{result.accepted ? <Check size={20} /> : <CircleAlert size={20} />}
+          {result.accepted ? "All cases passed" : "Some cases did not pass"}</h2>
+          <small>{result.cases.filter(c => c.passed).length} / {result.cases.length}</small></div>
+        {result.accepted && (resultMode === "run"
+          ? <p className="completion-note">Examples passed. Submit to check the hidden tests and save your progress.</p>
+          : <p className="completion-note completion-saved"><Check size={14} /> This problem is marked Passed and saved to your progress.</p>)}
+        {result.cases.map(item => item.expected ? <details className="case-row db-case" key={item.case} open={!item.passed}>
+          <summary>{item.passed ? <Check size={14} /> : <CircleAlert size={14} />} Case {item.case} · {item.passed ? "Passed" : "Failed"}</summary>
+          {!!item.error && <code>{item.error}</code>}
+          {item.input && Object.entries(item.input).map(([name, table]) => <ResultTable key={name} name={name} data={table} />)}
+          {Object.entries(item.parameters ?? {}).map(([key, value]) => <code key={key}>{key} = {display(value)}</code>)}
+          <ResultTable name="Expected" data={item.expected} />
+          {item.actual && <ResultTable name="Your result" data={item.actual} />}
+        </details> : <div key={item.case} className="case-row"><span><Check size={14} /> Case {item.case} · Passed</span></div>)}
+      </>}
+    </PracticeWorkspace>
+  </>;
 }

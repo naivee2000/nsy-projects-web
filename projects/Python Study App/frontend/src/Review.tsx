@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { forProfile } from "./api";
 import type { ReviewEvent, ReviewGrade, ReviewPriority } from "./types";
 
-const labels: Record<ReviewGrade, string> = {
+export const reviewGradeLabels: Record<ReviewGrade, string> = {
   again: "Need more review", hard: "Hard to finish", good: "Finished independently", easy: "Very easy",
 };
 
@@ -23,7 +23,7 @@ export function ReviewFeedback({ event, profile, onChange }: {
   };
   return <aside className="review-feedback" aria-label="Review feedback">
     <strong>How did this feel? <small>Optional</small></strong>
-    <p>{event.manualGrade ? "Your rating" : "Suggested rating"}: {labels[event.effectiveGrade]}.</p>
+    <p>{event.manualGrade ? "Your rating" : "Suggested rating"}: {reviewGradeLabels[event.effectiveGrade]}.</p>
     {event.ratingReason && <p>{event.ratingReason}</p>}
     <p>{event.effectiveGrade === "easy" ? "Review less often." : event.effectiveGrade === "good" ? "Keep building recall." : "Review sooner."}</p>
     {event.needsCorrectionAnswer && <div aria-label="Correction feedback">
@@ -34,14 +34,14 @@ export function ReviewFeedback({ event, profile, onChange }: {
         {event.correctionAnswer && <button disabled={busy} onClick={() => void update({ correction_answer: null })}>Clear answer</button>}
       </div>
     </div>}
-    <div className="review-rating-buttons">{(Object.keys(labels) as ReviewGrade[]).map(grade =>
-      <button key={grade} aria-pressed={event.manualGrade === grade} disabled={busy} onClick={() => void update({ grade })}>{labels[grade]}</button>)}</div>
+    <div className="review-rating-buttons">{(Object.keys(reviewGradeLabels) as ReviewGrade[]).map(grade =>
+      <button key={grade} aria-pressed={event.manualGrade === grade} disabled={busy} onClick={() => void update({ grade })}>{reviewGradeLabels[grade]}</button>)}</div>
     <button className="text-button" disabled={busy || !event.manualGrade} onClick={() => void update({ grade: null })}>Use suggested rating</button>
     {error && <p role="alert">{error}</p>}
   </aside>;
 }
 
-export function ReviewScores({ profile, revision }: { profile: string; revision: number }) {
+export function ReviewScores({ profile, revision, database = false }: { profile: string; revision: number; database?: boolean }) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("all");
@@ -58,17 +58,18 @@ export function ReviewScores({ profile, revision }: { profile: string; revision:
     setLoading(true);
     const timer = window.setTimeout(() => {
       const params = new URLSearchParams({ search, status, page: String(page) });
-      void forProfile(profile)<typeof data>(`/api/reviews/priorities?${params}`, { signal: controller.signal })
+      const endpoint = database ? "/api/database/reviews/priorities" : "/api/reviews/priorities";
+      void forProfile(profile)<typeof data>(`${endpoint}?${params}`, { signal: controller.signal })
         .then(value => { if (!controller.signal.aborted) { setData(value); setError(""); } })
         .catch(e => { if (!controller.signal.aborted) setError(String(e)); })
         .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     }, 180);
     return () => { controller.abort(); window.clearTimeout(timer); };
-  }, [open, search, status, page, profile, revision]);
+  }, [open, search, status, page, profile, revision, database]);
   return <details className="review-scores" onToggle={e => setOpen(e.currentTarget.open)}>
     <summary>Review scores, due dates and cooldowns</summary>
     {open && <>
-      <p>Current priority = urgency (up to 70) + recent struggle (up to 30). Selection balances older reviews and recent recovery repeats. Owner sets also consider DP, Medium and topic coverage.</p>
+      <p>Current priority = urgency (up to 70) + recent struggle (up to 30). Selection balances older reviews and recent recovery repeats. {database ? "Database reviews rotate topics and prioritize Medium problems when available." : "Owner sets also consider DP, Medium and topic coverage."}</p>
       {data?.selectionExplanations?.map(note => <p key={note}>{note}</p>)}
       <div className="review-score-tools">
         <input aria-label="Search review scores" placeholder="Search review scores" value={search} onChange={e => { setSearch(e.target.value); setPage(1); }} />
@@ -82,12 +83,12 @@ export function ReviewScores({ profile, revision }: { profile: string; revision:
       <div className="review-score-table" aria-busy={loading}><table>
         <thead><tr><th>Problem</th><th>Priority</th><th>Next due</th><th>Cooldown ends</th></tr></thead>
         <tbody>{data?.items.map(row => <tr key={row.id}>
-          <td><details><summary>{row.title} <small>{row.difficulty <= 3 ? "Easy" : row.difficulty <= 7 ? "Medium" : "Hard"}</small></summary>
+          <td><details><summary>{row.title} <small>{typeof row.difficulty === "string" ? row.difficulty : row.difficulty <= 3 ? "Easy" : row.difficulty <= 7 ? "Medium" : "Hard"}</small></summary>
             <p>{row.reason}</p><p>Urgency: {row.urgency?.toFixed(2) ?? "—"}; recent struggle: {row.recentStruggle?.toFixed(2) ?? "—"}.</p>
             <p>Last assigned: {row.lastAssignmentDate ?? "Never"}. Last submitted: {row.lastSubmissionDate ?? "Never"}.</p>
             {row.olderReviewEligible && <p>Older review: last practised {row.daysSinceLastActivity} days ago.</p>}
             {row.recentRecovery && <p>Recent recovery repeat: assigned or submitted within the last seven days.</p>}
-            {row.assignedToday && <p>Saved selection: {row.assignmentReason} Score at selection: {row.assignmentScore?.toFixed(2) ?? "not recorded"}.</p>}
+            {row.assignedToday && <p>{database ? "Included in today’s saved review set." : <>Saved selection: {row.assignmentReason} Score at selection: {row.assignmentScore?.toFixed(2) ?? "not recorded"}.</>}</p>}
             {row.inferred && <p>Historical rating inferred from submissions.</p>}
           </details></td>
           <td>{row.score?.toFixed(2) ?? "—"}</td><td>{row.dueDate ?? "—"}</td>

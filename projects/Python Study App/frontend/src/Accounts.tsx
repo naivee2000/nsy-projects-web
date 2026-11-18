@@ -10,6 +10,12 @@ const errorText = (error: unknown) => error instanceof Error ? error.message : S
 
 function databaseReturnPath() {
   const target = new URLSearchParams(window.location.search).get("return_to") ?? "";
+  if (target.startsWith("/database/library?")) {
+    const filters = new URLSearchParams(target.slice("/database/library?".length));
+    const allowed = new Set(["page", "topic", "difficulty", "completion", "playable", "search"]);
+    for (const key of [...filters.keys()]) if (!allowed.has(key)) filters.delete(key);
+    return "/database/library" + (filters.size ? "?" + filters : "");
+  }
   return /^\/database(?:\/(?:library|review|problem\/[0-9]+))?(?:\?review=\d{4}-\d{2}-\d{2})?$/.test(target) ? target : "/";
 }
 

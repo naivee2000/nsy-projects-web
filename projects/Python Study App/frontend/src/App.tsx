@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
+import { useWorkspaceSplit } from "./useWorkspaceSplit";
 import DatabasePractice from "./DatabasePractice";
 import type { editor } from "monaco-editor";
 import {
@@ -52,14 +53,6 @@ function testEvidence(item: JudgeResult["cases"][number], flexibleOutput: boolea
   return `Test case ${JSON.stringify(item.arguments)}\n${flexibleOutput ? "One valid output" : "Expected"} ${JSON.stringify(item.expected)}`
     + (item.actual !== undefined ? `\nYour code yielded ${JSON.stringify(item.actual)}` : "")
     + (item.error ? `\nError ${item.error}` : "");
-}
-
-function clampEditorSplit(requested: number, paneHeight: number) {
-  const flexibleHeight = Math.max(1, paneHeight - 110);
-  const minimum = Math.max(20, (180 / flexibleHeight) * 100);
-  const maximum = Math.min(80, 100 - (130 / flexibleHeight) * 100);
-  if (minimum > maximum) return 50;
-  return Math.min(maximum, Math.max(minimum, requested));
 }
 
 function runJudge(source: string, signature: Signature, tests: TestCase[], timeoutMs = 3000, stopOnFailure = false): Promise<JudgeResult> {
@@ -188,30 +181,11 @@ export default function App() {
   const [error, setError] = useState("");
   const [revealedHints, setRevealedHints] = useState<Array<{ level: number; label: string; content: string }>>([]);
   const [startedAt, setStartedAt] = useState(Date.now());
-  const [workspaceSplit, setWorkspaceSplit] = useState(() => {
-    try {
-      const saved = Number(window.localStorage.getItem("code-practice-workspace-split"));
-      return saved >= 30 && saved <= 70 ? saved : 42;
-    } catch {
-      return 42;
-    }
-  });
-  const [editorSplit, setEditorSplit] = useState(() => {
-    try {
-      const saved = Number(window.localStorage.getItem("code-practice-editor-split"));
-      return saved >= 20 && saved <= 80 ? saved : 55;
-    } catch {
-      return 55;
-    }
-  });
-  const [resizingWorkspace, setResizingWorkspace] = useState(false);
-  const [resizingEditor, setResizingEditor] = useState(false);
+  const { workspaceSplit, setWorkspaceSplit, editorSplit, setEditorSplit, resizingWorkspace, setResizingWorkspace,
+    resizingEditor, setResizingEditor, workspaceRef, editorPaneRef, resizeWorkspaceWithKeyboard, resizeEditorWithKeyboard } = useWorkspaceSplit("algorithms");
   const draftTimer = useRef<number | undefined>();
   const draftQueue = useRef<Promise<unknown>>(Promise.resolve());
   const overviewRequest = useRef(0);
-  const workspaceRef = useRef<HTMLDivElement | null>(null);
-  const editorPaneRef = useRef<HTMLElement | null>(null);
-
   const loadOverview = async () => {
     const request = ++overviewRequest.current;
     try {
@@ -237,14 +211,20 @@ export default function App() {
 
   useEffect(() => { void loadOverview(); }, []);
 
-  const switchTrack = async (next: string): Promise<boolean> => {
+  const switchTrack = async (next: string, replace = false): Promise<boolean> => {
     if (next === trackPath) return true;
     try {
       if (databaseActive) await databaseSaver.current?.();
       else if (problem) await flushDraft();
-      window.history.pushState(null, "", next);
+      const fromDatabaseList = ["/database", "/database/library", "/database/review"].includes(trackPath.split("?")[0]);
+      if (fromDatabaseList && next.startsWith("/database/problem/")) {
+        window.history.replaceState({ ...window.history.state, databaseScroll: window.scrollY }, "");
+      }
+      if (replace) window.history.replaceState(window.history.state, "", next);
+      else window.history.pushState(fromDatabaseList && next.startsWith("/database/problem/") ? { fromDatabaseList: true } : null, "", next);
       setTrackPath(next);
-      void loadOverview();
+      if (!replace && next.startsWith("/database")) window.requestAnimationFrame(() => window.scrollTo(0, 0));
+      if (!replace) void loadOverview();
       return true;
     } catch (error) {
       setError(String(error instanceof Error ? error.message : error));
@@ -305,88 +285,6 @@ export default function App() {
     }, 800);
     return () => window.clearTimeout(draftTimer.current);
   }, [source, problem, reviewSession]);
-
-  useEffect(() => {
-    try {
-      window.localStorage.setItem("code-practice-workspace-split", String(workspaceSplit));
-    } catch {
-      // Resizing should still work when browser storage is unavailable.
-    }
-  }, [workspaceSplit]);
-
-  useEffect(() => {
-    try {
-      window.localStorage.setItem("code-practice-editor-split", String(editorSplit));
-    } catch {
-      // Resizing should still work when browser storage is unavailable.
-    }
-  }, [editorSplit]);
-
-  useEffect(() => {
-    if (!resizingWorkspace) return;
-
-    const resize = (event: PointerEvent) => {
-      const bounds = workspaceRef.current?.getBoundingClientRect();
-      if (!bounds || bounds.width <= 0) return;
-      const requested = ((event.clientX - bounds.left) / bounds.width) * 100;
-      setWorkspaceSplit(Math.min(70, Math.max(30, requested)));
-    };
-    const stop = () => setResizingWorkspace(false);
-
-    document.body.classList.add("workspace-is-resizing");
-    window.addEventListener("pointermove", resize);
-    window.addEventListener("pointerup", stop);
-    window.addEventListener("pointercancel", stop);
-    return () => {
-      document.body.classList.remove("workspace-is-resizing");
-      window.removeEventListener("pointermove", resize);
-      window.removeEventListener("pointerup", stop);
-      window.removeEventListener("pointercancel", stop);
-    };
-  }, [resizingWorkspace]);
-
-  useEffect(() => {
-    if (!resizingEditor) return;
-
-    const resize = (event: PointerEvent) => {
-      const bounds = editorPaneRef.current?.getBoundingClientRect();
-      if (!bounds || bounds.height <= 0) return;
-      const flexibleHeight = Math.max(1, bounds.height - 110);
-      const requested = ((event.clientY - bounds.top - 105) / flexibleHeight) * 100;
-      setEditorSplit(clampEditorSplit(requested, bounds.height));
-    };
-    const stop = () => setResizingEditor(false);
-
-    document.body.classList.add("editor-is-resizing");
-    window.addEventListener("pointermove", resize);
-    window.addEventListener("pointerup", stop);
-    window.addEventListener("pointercancel", stop);
-    return () => {
-      document.body.classList.remove("editor-is-resizing");
-      window.removeEventListener("pointermove", resize);
-      window.removeEventListener("pointerup", stop);
-      window.removeEventListener("pointercancel", stop);
-    };
-  }, [resizingEditor]);
-
-  const resizeWorkspaceWithKeyboard = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const change = event.key === "ArrowLeft" ? -2 : event.key === "ArrowRight" ? 2 : 0;
-    if (!change && event.key !== "Home" && event.key !== "End") return;
-    event.preventDefault();
-    if (event.key === "Home") setWorkspaceSplit(30);
-    else if (event.key === "End") setWorkspaceSplit(70);
-    else setWorkspaceSplit((current) => Math.min(70, Math.max(30, current + change)));
-  };
-
-  const resizeEditorWithKeyboard = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const change = event.key === "ArrowUp" ? -3 : event.key === "ArrowDown" ? 3 : 0;
-    if (!change && event.key !== "Home" && event.key !== "End") return;
-    event.preventDefault();
-    const paneHeight = editorPaneRef.current?.getBoundingClientRect().height || 720;
-    if (event.key === "Home") setEditorSplit(clampEditorSplit(0, paneHeight));
-    else if (event.key === "End") setEditorSplit(clampEditorSplit(100, paneHeight));
-    else setEditorSplit((current) => clampEditorSplit(current + change, paneHeight));
-  };
 
   const openProblem = async (id: string, entryPoint?: AttemptEntryPoint) => {
     try {
@@ -565,7 +463,7 @@ export default function App() {
   const flexibleOutput = flexibleTreeOutput || bstDeletionOutput || shortestEncodingOutput || flexibleWiggleOutput || strictWiggleOutput || unorderedOutput || unorderedNestedOutput || orderedGroupsOutput;
 
   return (
-    <div className="app-shell">
+    <div className={databaseActive ? "app-shell database-track" : "app-shell"}>
       <aside className="sidebar">
         <button className="brand" onClick={() => databaseActive ? void switchTrack("/database") : void navigate("dashboard")}>
           <span className="brand-mark"><TerminalSquare size={22} /></span>
@@ -573,7 +471,7 @@ export default function App() {
         </button>
         <nav aria-label="Main navigation">
           <button className={(databaseActive ? trackPath === "/database" : view === "dashboard") ? "active" : ""} onClick={() => databaseActive ? void switchTrack("/database") : void navigate("dashboard")}><Target size={18} /> Today</button>
-          <button className={(databaseActive ? trackPath === "/database/library" : view === "library") ? "active" : ""} onClick={() => databaseActive ? void switchTrack("/database/library") : void navigate("library")}><Library size={18} /> Library</button>
+          <button className={(databaseActive ? trackPath.split("?")[0] === "/database/library" : view === "library") ? "active" : ""} onClick={() => databaseActive ? void switchTrack("/database/library") : void navigate("library")}><Library size={18} /> Library</button>
           <button className={trackPath === "/database/review" ? "active" : ""} onClick={() => void openReviews()} aria-label="Review"><ListChecks size={18} /> Review</button>
           {account && <button className={view === "account" ? "active" : ""} onClick={() => { void switchTrack("/").then(success => { if (success) void navigate("account"); }); }}><Gauge size={18} /> {account.session.user?.role === "admin" ? "Accounts" : "My account"}</button>}
           <a href="https://nsyprojects.com/projects"><ArrowLeft size={18} /> Back to Projects</a>
@@ -594,7 +492,7 @@ export default function App() {
           </button>
         </div>
         {databaseActive && <DatabasePractice key={profile} path={trackPath} profile={profile}
-          overview={dashboard?.database} onNavigate={next => { void switchTrack(next); }}
+          overview={dashboard?.database} onNavigate={(next, replace) => { void switchTrack(next, replace); }}
           onRefresh={loadOverview} saver={databaseSaver} />}
         {databaseActive && error && <div className="global-error" role="alert">{error}</div>}
         <div hidden={databaseActive}>

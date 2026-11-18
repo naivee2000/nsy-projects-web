@@ -110,7 +110,7 @@ export type ReviewSession = {
   event: ReviewEvent | null; hasPreviousSolution: boolean;
 };
 export type ReviewPriority = {
-  id: string; title: string; difficulty: number; score: number | null;
+  id: string | number; title: string; difficulty: number | "Easy" | "Medium" | "Hard"; score: number | null;
   urgency: number | null; recentStruggle: number | null; dueDate: string | null;
   cooldownUntil: string | null; recoveryException: boolean; status: string;
   reason: string; assignedToday: boolean; assignmentScore: number | null;

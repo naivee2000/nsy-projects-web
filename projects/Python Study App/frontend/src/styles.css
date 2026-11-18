@@ -291,7 +291,7 @@ h1, h2, h3, p { margin-top: 0; }
   background: #f6f4ed;
   border-bottom: 1px solid #cbd5cf;
 }
-.track-bar button, .db-nav button {
+.track-bar button {
   border: 1px solid #b4c4bb;
   background: #fff;
   color: #18322e;
@@ -300,38 +300,51 @@ h1, h2, h3, p { margin-top: 0; }
   cursor: pointer;
 }
 .track-bar button small { display: block; font-size: .78rem; font-weight: normal; }
-.track-bar button[aria-pressed="true"], .db-nav button[aria-pressed="true"], .db-nav button[aria-current="page"] {
+.track-bar button[aria-pressed="true"] {
   background: #213b39;
   color: #fff;
   border-color: #213b39;
 }
-.db-nav { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-block: 10px; }
-.db-nav input:not([type="checkbox"]), .db-nav select { padding: 8px; border: 1px solid #b4c4bb; border-radius: 6px; }
-.db-nav button:disabled { opacity: .55; cursor: default; }
-.db-list { padding: 0; list-style: none; }
-.db-list li + li { margin-top: 6px; }
-.db-list button {
-  width: 100%;
-  border: 1px solid #cbd5cf;
-  background: #fff;
-  color: #18322e;
-  text-align: left;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 6px;
-  cursor: pointer;
+.editor-language, .db-language-switch { display: inline-flex; align-items: center; gap: 7px; }
+/* Let Monaco measure its new container instead of sizing the grid to its previous canvas. */
+.database-workspace .editor-pane { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 901px) {
+  .database-workspace .workspace-grid {
+    --min-code-width: min(420px, 55%);
+    grid-template-columns: clamp(min(300px, 40%), var(--instruction-width, 42%), calc(100% - 10px - var(--min-code-width))) 10px minmax(0, 1fr);
+  }
 }
-.db-list button:hover { border-color: #49756b; }
-.db-list button small { color: #375d54; }
-.db-workspace { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-.db-summary { font: inherit; white-space: pre-wrap; overflow-wrap: anywhere; }
-.db-table-wrap { overflow-x: auto; margin: 0 0 14px; }
-.db-table { border-collapse: collapse; font-size: .9rem; }
-.db-table caption { text-align: left; font-weight: 600; margin-bottom: 5px; }
-.db-table :is(td, th) { border: 1px solid #cbd5cf; padding: 5px 9px; white-space: nowrap; text-align: left; }
-.db-table th { background: #e6eee9; }
-.db-null { color: #51655d; font-style: italic; }
-@media (max-width: 850px) { .db-workspace { grid-template-columns: 1fr; } }
+.db-language-switch { gap: 2px; }
+.editor-toolbar .db-language-switch button { height: 30px; padding: 0 10px; color: #b2c0bc; }
+.editor-toolbar .db-language-switch button[aria-pressed="true"] { background: #29433f; color: #afe7d7; box-shadow: inset 0 -2px #5bc7a7; }
+.db-language-switch button:focus-visible { outline: 2px solid #afe7d7; outline-offset: -2px; }
+.db-source-link { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); font-size: 14px; text-underline-offset: 3px; }
+.db-prose { white-space: pre-line; overflow-wrap: anywhere; }
+.reading-pane > * { max-width: 78ch; }
+.db-source-notes { margin-top: 22px; color: var(--muted); font-size: 14px; }
+.db-source-notes summary, .db-case summary { cursor: pointer; }
+.db-source-notes p { margin: 8px 0; font-size: 14px; }
+.db-fixture { padding: 12px; }
+.db-fixture p { border: 0; padding: 0; }
+.db-table-wrap { max-width: 100%; overflow-x: auto; margin: 0 0 14px; }
+.db-table-wrap:last-child { margin-bottom: 0; }
+.db-table { border-collapse: collapse; font-size: 14px; line-height: 1.55; }
+.db-table caption { text-align: left; font-weight: 650; margin-bottom: 5px; }
+.db-table :is(td, th) { border: 1px solid var(--line); padding: 5px 9px; white-space: nowrap; text-align: left; }
+.db-table th { background: #e8ebe5; }
+.db-null { color: #596b63; font-style: italic; }
+.db-case { min-width: 0; }
+.db-case summary, .db-result-heading { display: flex; align-items: center; gap: 7px; }
+.db-case summary { color: #d2ded9; font-size: 14px; }
+.db-case[open] > summary { margin-bottom: 10px; }
+.db-case .db-table :is(td, th) { border-color: #45524f; }
+.db-case .db-table th { background: #26312f; color: #deebe6; }
+.db-case .db-null { color: #aabcb5; }
+.db-result-heading { margin: 0; font: inherit; font-weight: 800; }
+@media (max-width: 650px) {
+  .database-track .sidebar nav { gap: 2px; }
+  .database-track .sidebar nav :is(button, a) { width: clamp(32px, 9vw, 42px); height: 40px; gap: 0; padding: 0; }
+}
+@media (max-width: 360px) {
+  .database-track .brand > span:last-child { display: none; }
+}

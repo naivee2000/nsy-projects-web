@@ -47,6 +47,9 @@ def test_online_auth_protects_progress_and_redirects_pages(monkeypatch):
         target = "/database/problem/175?review=2026-11-18"
         deep_link = client.get(target, follow_redirects=False)
         assert parse_qs(urlsplit(deep_link.headers["location"]).query)["return_to"] == [target]
+        filtered = "/database/library?completion=passed&topic=Joins"
+        library = client.get(filtered, follow_redirects=False)
+        assert parse_qs(urlsplit(library.headers["location"]).query)["return_to"] == [filtered]
         owner_link = client.get("/api/auth/owner", params={"return_to":target}, follow_redirects=False)
         callback = parse_qs(urlsplit(owner_link.headers["location"]).query)["next"][0]
         assert parse_qs(urlsplit(callback).query)["return_to"] == [target]

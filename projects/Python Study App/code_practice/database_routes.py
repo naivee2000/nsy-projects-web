@@ -47,15 +47,21 @@ def context(con, problem_id, review_day):
 @router.get("/problems")
 def problems(search: str = Query("", max_length=160),
              difficulty: Literal["all", "Easy", "Medium", "Hard"] = "all",
+             topic: str = Query("all", max_length=80),
+             completion: Literal["all", "passed", "unsolved"] = "all",
              playable: bool = False, page: int = Query(1, ge=1)):
     with db_session() as con:
         passed = track.completion(con)
     query = search.strip().casefold()
+    topics = sorted({p["topic"] for p in CATALOG.values()})
     rows = [summary(p, sorted(passed.get(p["id"], ()))) for p in INVENTORY.values()
-            if (query in p["title"].casefold() or query == str(p["id"]))
+            if (query in p["title"].casefold() or query == str(p["id"])
+                or query in CATALOG.get(p["id"], {}).get("topic", "").casefold())
+            and (topic == "all" or CATALOG.get(p["id"], {}).get("topic") == topic)
+            and (completion == "all" or (p["id"] in passed) == (completion == "passed"))
             and (difficulty == "all" or p["difficulty"] == difficulty)
             and (not playable or p["id"] in CATALOG)]
-    return {"items": rows[(page - 1) * 30:page * 30], "total": len(rows), "pageSize": 30}
+    return {"items": rows[(page - 1) * 30:page * 30], "total": len(rows), "pageSize": 30, "topics": topics}
 
 
 @router.get("/problems/{problem_id}")
@@ -65,17 +71,28 @@ def problem_detail(problem_id: int, review_day: date | None = None):
     with db_session() as con:
         draft_context = context(con, problem_id, review_day)
         passed = track.completion(con)
+        event = con.execute("SELECT grade,manual,state FROM db_track_events WHERE problem_id=? AND day=? AND latest=1",
+                            (problem_id, str(review_v2.local_day()))).fetchone()
         drafts = {r["language"]: r["source"] for r in con.execute(
             "SELECT language,source FROM db_track_drafts WHERE problem_id=? AND context=?",
             (problem_id, draft_context))}
     payload = {**summary(inventory, sorted(passed.get(problem_id, ()))), "summary": inventory["summary"],
-               "sourceExample": inventory["example"], "officialLanguages": inventory["language"]}
+               "sourceExample": inventory["example"], "officialLanguages": inventory["language"],
+               "reviewFeedback": ({"grade": event["manual"] or event["grade"], "manualGrade": event["manual"],
+                                   "due": json.loads(event["state"])["dueDay"]} if event else None)}
     if problem:
         payload.update({"examples": [public_case(problem, c) for c in problem["cases"][:2]],
                         "schema": problem["schema"], "advice": problem["advice"],
                         "starters": {"mysql": "-- Write your MySQL solution here.\n", "pandas": pandas_starter(problem)},
                         "drafts": drafts})
     return payload
+
+
+@router.get("/reviews/priorities")
+def review_priorities(search: str = Query("", max_length=160), page: int = Query(1, ge=1),
+                      status: Literal["all", "assigned", "eligible", "not_due", "cooldown", "retry", "unlearned"] = "all"):
+    with db_session() as con:
+        return track.review_priorities(con, track.now_utc(), search.strip().casefold(), status, page)
 
 
 class Draft(BaseModel):
