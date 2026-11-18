@@ -8,9 +8,11 @@ const learner = { ...owner, id: "learner-id", username: "learner", role: "member
 const session = (user: typeof owner | null) => ({ user, loginRequired: true, ownerLoginAvailable: true, hasPassword: true });
 const reply = (value: unknown, status = 200) => Promise.resolve({ ok: status < 400, status, json: async () => value, text: async () => JSON.stringify(value) });
 beforeEach(() => { setApiProfile(null); });
-afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
+afterEach(() => { cleanup(); vi.unstubAllGlobals(); window.history.replaceState(null, "", "/"); });
 
 test("login gates private content and requires a replacement for temporary passwords", async () => {
+  const target = "/database/problem/175?review=2026-11-18";
+  window.history.replaceState(null, "", "/login?return_to=" + encodeURIComponent(target));
   let current: typeof owner | null = null;
   vi.stubGlobal("fetch", vi.fn((path: string) => {
     if (path === "/api/auth/me") return reply(session(current));
@@ -20,6 +22,7 @@ test("login gates private content and requires a replacement for temporary passw
   }));
   render(<AccountGate><p>Study workspace</p></AccountGate>);
   expect(await screen.findByRole("button", { name: "Sign in" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Admin: continue with NSY login" })).toHaveAttribute("href", "/api/auth/owner?return_to=" + encodeURIComponent(target));
   expect(screen.queryByText("Study workspace")).not.toBeInTheDocument();
   fireEvent.change(screen.getByLabelText("Username"), { target: { value: "learner" } });
   fireEvent.change(screen.getByLabelText("Password", { exact: true }), { target: { value: "temporary-password" } });
@@ -31,6 +34,7 @@ test("login gates private content and requires a replacement for temporary passw
   fireEvent.change(screen.getByLabelText("Confirm new password"), { target: { value: "my-new-password" } });
   fireEvent.click(screen.getByRole("button", { name: "Save password" }));
   expect(await screen.findByText("Study workspace")).toBeInTheDocument();
+  expect(window.location.pathname + window.location.search).toBe(target);
   const call = vi.mocked(fetch).mock.calls.find(([path]) => path === "/api/auth/password");
   expect(call?.[1]?.headers).toMatchObject({ "X-Study-Profile": learner.id, "X-Requested-With": "CodePractice" });
 });

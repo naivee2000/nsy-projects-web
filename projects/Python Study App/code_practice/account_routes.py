@@ -1,8 +1,11 @@
+from urllib.parse import urlencode
+
 from fastapi import APIRouter, HTTPException, Request, Response
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field
 
 from . import accounts
+from .shared_auth import database_return_target
 
 router = APIRouter()
 
@@ -75,13 +78,17 @@ def logout(request: Request, response: Response):
 
 
 @router.get("/api/auth/owner")
-def owner_login(request: Request):
+def owner_login(request: Request, return_to: str = ""):
     auth = request.state.shared_auth
+    target = database_return_target(return_to)
     if auth.enabled and not auth.valid_token(request.cookies.get(auth.cookie_name)):
-        return RedirectResponse(auth.login_redirect("/api/auth/owner"), status_code=303)
+        callback = "/api/auth/owner"
+        if target != "/":
+            callback += "?" + urlencode({"return_to": target})
+        return RedirectResponse(auth.login_redirect(callback), status_code=303)
     if request.state.login_required and not auth.enabled:
         return RedirectResponse("/login", status_code=303)
-    response = RedirectResponse("/", status_code=303)
+    response = RedirectResponse(target, status_code=303)
     set_session(response, request, "owner")
     return response
 

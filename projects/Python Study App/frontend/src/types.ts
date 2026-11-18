@@ -1,3 +1,4 @@
+import type { DatabaseOverview } from "./DatabasePractice";
 export type StudyListBadge = {
   id: string;
   label: string;
@@ -69,6 +70,7 @@ export type Problem = {
 };
 
 export type Dashboard = {
+  database?: DatabaseOverview;
   reviewV2?: boolean;
   reviewSelectionNotes?: string[];
   reviewRetryProblems?: ProblemSummary[];

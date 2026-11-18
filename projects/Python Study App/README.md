@@ -777,8 +777,42 @@ Generated problems remain drafts until validation passes and you explicitly appr
 ## Project boundaries
 
 - One admin plus admin-created study accounts; local mode defaults to the owner
-- Python function-signature problems only
+- Algorithms use Python function signatures. Database exercises accept MySQL and Pandas.
 - One-time seed transfer to a persistent deployment-host SQLite database; no ongoing two-way database synchronization
 - Public deployment requires authenticated mode and a localhost-only backend; the existing shared NSY login remains an owner sign-in option
-- No server-side execution of submitted answers
+- Algorithms and Pandas run in browser workers. MySQL runs in a dedicated Docker container.
 - Optional Codex coaching never blocks offline studying
+
+## Database practice
+
+The track switch shares the existing sign-in. Each profile receives a separate
+Database Today and Review set on the New York study date. Database drafts,
+submissions and review dates are stored in the existing profile database and
+included in the normal backup. Passing in either language completes the problem
+for that day. Language passes and drafts remain available separately.
+
+The Database Library includes 323 entries from the workbook. The 19 verified
+exercises support both MySQL and Pandas. The other 304 are labelled
+**Awaiting verification** and are excluded from Today and Review.
+
+With Docker running and frontend dependencies installed, from this directory:
+
+```sh
+./scripts/start_database_judge.sh nsy-study-mysql-local
+CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-local ./run_local.sh
+```
+
+The local runner builds into `frontend/dist-local`, separate from the website's
+`frontend/dist`. The frontend build fetches and hash-checks the wheels matching the installed Pyodide distribution. The
+browser loads them from the local build. The MySQL test container has no network
+or published ports and keeps its data in temporary storage. Stop that dedicated
+container after local use with `docker stop nsy-study-mysql-local`. Production setup is in
+[the deployment guide](docs/DEPLOYMENT.md#database-judge).
+
+Run the targeted tests with `.venv/bin/python -m pytest -q tests/test_database_track.py`.
+With the judge container available, run the real Chrome and judge checks using
+`CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-local node scripts/verify_database_browser.mjs`.
+The browser check uses temporary accounts and data and prints the fixture report
+location. The catalog inventory uses the workbook's summaries and examples
+adapted from the [Doocs LeetCode Wiki](https://github.com/doocs/leetcode), CC BY-SA
+4.0. References and executable tests reside in the Database catalog module.

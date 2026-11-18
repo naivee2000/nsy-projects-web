@@ -129,13 +129,43 @@ git pull --ff-only
 cd "projects/Python Study App"
 .venv/bin/python -m pip install -r requirements.txt
 npm --prefix frontend ci
-npm --prefix frontend run build
+release_dir="$(mktemp -d "${TMPDIR:-/tmp}/python-study-release.XXXXXXXX")"
+npm --prefix frontend run build -- --outDir "$release_dir/dist"
 PYTHONPATH=. .venv/bin/pytest -q
-pm2 restart nsy-python-study --update-env
+./scripts/start_database_judge.sh --production
+CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-production CODE_PRACTICE_FRONTEND_DIST="$release_dir/dist" node scripts/verify_database_browser.mjs
+```
+
+When these checks pass, stop only the study service. Run the full-account backup
+with `CODE_PRACTICE_DATA_DIR` and private `CODE_PRACTICE_BACKUP_DIR` exported, and verify the SQLite copies before
+switching the frontend. Keep the previous frontend with the release backup.
+
+```bash
+pm2 stop nsy-python-study
+./backup_data.sh
+mv frontend/dist "$release_dir/previous-dist"
+mv "$release_dir/dist" frontend/dist
+CODE_PRACTICE_REQUIRE_LOGIN=1 CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-production pm2 restart nsy-python-study --update-env
 curl -fsS http://127.0.0.1:8791/api/health
 ```
 
 Because `CODE_PRACTICE_DATA_DIR` points outside the checkout and seed installation only happens when the runtime database is absent, these updates preserve online progress.
+
+## Database judge
+
+Enable Docker on the website host. Run `./scripts/start_database_judge.sh --production`
+before the first start and after a Docker maintenance window. The script reuses
+the dedicated production container, waits for the final server to answer a query,
+and configures it to restart automatically when Docker starts. It has no network
+connection or published ports. Each test uses a fresh schema on temporary storage.
+User submissions, drafts and review schedules live in the profile SQLite databases.
+
+Use `CODE_PRACTICE_MYSQL_CONTAINER=nsy-study-mysql-production` and
+`CODE_PRACTICE_REQUIRE_LOGIN=1` in the private PM2 config and its saved process
+environment. Keep the existing shared login settings. The frontend build reads
+Pyodide's package lock and verifies all required Pandas wheels before packaging them.
+After release, exercise both languages through the public hostname with a test
+account, and compare the existing profiles with the pre-release backup.
 
 ## Upgrading from the single-owner version
 

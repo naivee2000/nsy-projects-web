@@ -283,3 +283,55 @@ h1, h2, h3, p { margin-top: 0; }
 .review-section .empty-state { padding: 16px; text-align: center; grid-template-columns: minmax(0, 1fr); }
 .review-scores .library-pagination { gap: 10px; flex-wrap: wrap; font-size: 13px; }
 .review-scores .library-pagination button { padding: 8px 12px; }
+
+.track-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px clamp(16px, 4vw, 48px);
+  background: #f6f4ed;
+  border-bottom: 1px solid #cbd5cf;
+}
+.track-bar button, .db-nav button {
+  border: 1px solid #b4c4bb;
+  background: #fff;
+  color: #18322e;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.track-bar button small { display: block; font-size: .78rem; font-weight: normal; }
+.track-bar button[aria-pressed="true"], .db-nav button[aria-pressed="true"], .db-nav button[aria-current="page"] {
+  background: #213b39;
+  color: #fff;
+  border-color: #213b39;
+}
+.db-nav { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-block: 10px; }
+.db-nav input:not([type="checkbox"]), .db-nav select { padding: 8px; border: 1px solid #b4c4bb; border-radius: 6px; }
+.db-nav button:disabled { opacity: .55; cursor: default; }
+.db-list { padding: 0; list-style: none; }
+.db-list li + li { margin-top: 6px; }
+.db-list button {
+  width: 100%;
+  border: 1px solid #cbd5cf;
+  background: #fff;
+  color: #18322e;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.db-list button:hover { border-color: #49756b; }
+.db-list button small { color: #375d54; }
+.db-workspace { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.db-summary { font: inherit; white-space: pre-wrap; overflow-wrap: anywhere; }
+.db-table-wrap { overflow-x: auto; margin: 0 0 14px; }
+.db-table { border-collapse: collapse; font-size: .9rem; }
+.db-table caption { text-align: left; font-weight: 600; margin-bottom: 5px; }
+.db-table :is(td, th) { border: 1px solid #cbd5cf; padding: 5px 9px; white-space: nowrap; text-align: left; }
+.db-table th { background: #e6eee9; }
+.db-null { color: #51655d; font-style: italic; }
+@media (max-width: 850px) { .db-workspace { grid-template-columns: 1fr; } }

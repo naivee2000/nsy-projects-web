@@ -4,9 +4,16 @@ import base64
 import hashlib
 import hmac
 import os
+import re
 import time
 from dataclasses import dataclass
 from urllib.parse import urlencode
+
+
+def database_return_target(target: str) -> str:
+    if re.fullmatch(r"/database(?:/(?:library|review|problem/[0-9]+))?(?:\?review=[0-9]{4}-[0-9]{2}-[0-9]{2})?", target):
+        return target
+    return "/"
 
 
 def _b64decode_url(value: str) -> bytes:

@@ -5,6 +5,7 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Literal
+from urllib.parse import urlencode
 
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
@@ -39,7 +40,7 @@ from .learning import (
     topic_progression_met,
 )
 from .schemas import AttemptCreate, ProblemDefinition
-from .shared_auth import SharedSessionAuth
+from .shared_auth import SharedSessionAuth, database_return_target
 from .starter_code import with_support_classes
 from . import accounts
 from .account_routes import router as account_router
@@ -47,10 +48,12 @@ from .review_routes import router as review_router, validate_context, record_coa
 from . import review_v2
 from . import database
 from .database import profile_scope
+from . import database_track
+from .database_routes import router as database_router
 
 
 APP_ROOT = Path(__file__).resolve().parent.parent
-FRONTEND_DIST = APP_ROOT / "frontend" / "dist"
+FRONTEND_DIST = Path(os.environ.get("CODE_PRACTICE_FRONTEND_DIST", APP_ROOT / "frontend" / "dist")).resolve()
 AUTH = SharedSessionAuth.from_environment()
 
 @asynccontextmanager
@@ -62,6 +65,7 @@ async def lifespan(_app: FastAPI):
 app = FastAPI(title="Code Practice Lab", version="0.1.0", lifespan=lifespan)
 app.include_router(account_router)
 app.include_router(review_router)
+app.include_router(database_router)
 
 
 def login_required() -> bool:
@@ -91,7 +95,9 @@ async def require_online_auth(request: Request, call_next: Any) -> Response:
     if not public and not user:
         if path.startswith("/api/"):
             return JSONResponse({"detail": "Authentication required."}, status_code=401)
-        return RedirectResponse("/login", status_code=303)
+        dest = database_return_target(path + ("?" + request.url.query if request.url.query else ""))
+        login = "/login" if dest == "/" else "/login?" + urlencode({"return_to": dest})
+        return RedirectResponse(login, status_code=303, headers={"Cache-Control": "no-store"})
     if user and not public:
         profile = request.headers.get("x-study-profile")
         if ((profile and profile != user["id"]) or (unsafe and required and not profile)):
@@ -335,6 +341,8 @@ def progress() -> dict[str, Any]:
 
 @app.get("/api/dashboard")
 def dashboard(request: Request) -> dict[str, Any]:
+    now = datetime.now(timezone.utc)
+    database_dashboard = database_track.dashboard(now)
     owner_focus = request.state.user["id"] == "owner"
     catalog = get_catalog().metadata
     attempts = learning_attempts()
@@ -354,7 +362,6 @@ def dashboard(request: Request) -> dict[str, Any]:
         for topic in normalized_topics(problem)
     }
 
-    now = datetime.now(timezone.utc)
     today_key = str(review_v2.local_day(now)) if review_v2.enabled() else datetime.now().astimezone().date().isoformat()
     interview_plan = InterviewPlan(catalog, attempts, reviews, now, today_key,
                                   owner_focus=owner_focus)
@@ -432,6 +439,7 @@ def dashboard(request: Request) -> dict[str, Any]:
         None,
     )
     return {
+        "database": database_dashboard,
         "reviewV2": v2,
         "reviewSelectionNotes": selection_notes,
         "reviewRetryProblems": [problem_summary(catalog[row["id"]], solved) for row in priority_rows
@@ -467,5 +475,11 @@ if FRONTEND_DIST.exists():
     def frontend(full_path: str) -> FileResponse:
         candidate = (FRONTEND_DIST / full_path).resolve()
         if candidate.is_relative_to(FRONTEND_DIST.resolve()) and candidate.is_file():
+            if full_path == "database-worker.js":
+                return FileResponse(candidate, headers={
+                    "Content-Security-Policy": "default-src 'none'; "
+                    "script-src 'self' 'wasm-unsafe-eval'; connect-src 'self'; worker-src 'none'",
+                    "Cache-Control": "no-store",
+                })
             return FileResponse(candidate)
         return FileResponse(FRONTEND_DIST / "index.html")

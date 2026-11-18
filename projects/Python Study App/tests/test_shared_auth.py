@@ -4,6 +4,7 @@ import base64
 import hashlib
 import hmac
 import time
+from urllib.parse import parse_qs, urlsplit
 
 from fastapi.testclient import TestClient
 
@@ -43,9 +44,17 @@ def test_online_auth_protects_progress_and_redirects_pages(monkeypatch):
         page = client.get("/", follow_redirects=False)
         assert page.status_code == 303
         assert page.headers["location"] == "/login"
+        target = "/database/problem/175?review=2026-11-18"
+        deep_link = client.get(target, follow_redirects=False)
+        assert parse_qs(urlsplit(deep_link.headers["location"]).query)["return_to"] == [target]
+        owner_link = client.get("/api/auth/owner", params={"return_to":target}, follow_redirects=False)
+        callback = parse_qs(urlsplit(owner_link.headers["location"]).query)["next"][0]
+        assert parse_qs(urlsplit(callback).query)["return_to"] == [target]
         owner_login = client.get("/api/auth/owner", follow_redirects=False)
         assert owner_login.headers["location"].startswith("https://dem.nsyprojects.com/login?")
         assert "study.nsyprojects.com" in owner_login.headers["location"]
 
         client.cookies.set("dem_session", _token("admin", "shared-secret"))
+        returned = client.get("/api/auth/owner", params={"return_to":target}, follow_redirects=False)
+        assert returned.headers["location"] == target
         assert client.get("/api/progress").status_code == 200

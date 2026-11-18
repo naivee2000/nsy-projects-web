@@ -46,7 +46,7 @@ def current_profile() -> str:
     return _profile.get()
 
 
-MIGRATION_VERSION = 4
+MIGRATION_VERSION = 6
 MIGRATION_STATEMENTS = [
     """
     CREATE TABLE IF NOT EXISTS attempts (
@@ -177,8 +177,22 @@ MIGRATION_5_STATEMENTS = [
                event_date || 'T00:00:00+00:00' FROM review_contexts
         WHERE source_viewed=1 OR hint_level>0 OR assisted=1""",
 ]
+MIGRATION_6_STATEMENTS = [
+    """CREATE TABLE IF NOT EXISTS db_track_assignments (
+       day TEXT PRIMARY KEY, new_ids TEXT NOT NULL, review_ids TEXT NOT NULL, notes TEXT NOT NULL)""",
+    """CREATE TABLE IF NOT EXISTS db_track_drafts (
+       problem_id INTEGER NOT NULL, language TEXT NOT NULL, context TEXT NOT NULL, source TEXT NOT NULL,
+       PRIMARY KEY(problem_id, language, context))""",
+    """CREATE TABLE IF NOT EXISTS db_track_attempts (
+       request_id TEXT PRIMARY KEY, problem_id INTEGER NOT NULL, language TEXT NOT NULL, context TEXT NOT NULL,
+       day TEXT NOT NULL, source TEXT NOT NULL, accepted INTEGER NOT NULL, response TEXT NOT NULL)""",
+    """CREATE INDEX IF NOT EXISTS db_track_attempts_problem ON db_track_attempts(problem_id, day)""",
+    """CREATE TABLE IF NOT EXISTS db_track_events (
+       problem_id INTEGER NOT NULL, day TEXT NOT NULL, base TEXT, state TEXT NOT NULL, grade TEXT NOT NULL,
+       manual TEXT, counted INTEGER NOT NULL, latest INTEGER NOT NULL, PRIMARY KEY(problem_id,day))""",
+]
 MIGRATIONS = {1: MIGRATION_STATEMENTS, 2: MIGRATION_2_STATEMENTS, 3: MIGRATION_3_STATEMENTS,
-              4: MIGRATION_4_STATEMENTS, 5: MIGRATION_5_STATEMENTS}
+              4: MIGRATION_4_STATEMENTS, 5: MIGRATION_5_STATEMENTS, 6: MIGRATION_6_STATEMENTS}
 
 
 def install_seed_database() -> bool:

@@ -8,6 +8,11 @@ const AccountContext = createContext<AccountContextType | null>(null);
 export const useAccount = () => useContext(AccountContext);
 const errorText = (error: unknown) => error instanceof Error ? error.message : String(error);
 
+function databaseReturnPath() {
+  const target = new URLSearchParams(window.location.search).get("return_to") ?? "";
+  return /^\/database(?:\/(?:library|review|problem\/[0-9]+))?(?:\?review=\d{4}-\d{2}-\d{2})?$/.test(target) ? target : "/";
+}
+
 function PasswordForm({ profileId, hasPassword, required, onDone }: { profileId: string; hasPassword: boolean; required?: boolean; onDone: () => Promise<void> }) {
   const api = forProfile(profileId);
   const [current, setCurrent] = useState("");
@@ -43,6 +48,9 @@ export function AccountGate({ children }: { children: ReactNode }) {
   const [busy, setBusy] = useState(false);
   const reload = async () => {
     const next = await api<Session>("/api/auth/me");
+    if (next.user && !next.user.must_change_password && window.location.pathname === "/login") {
+      window.history.replaceState(null, "", databaseReturnPath());
+    }
     setApiProfile(next.user?.id ?? null); setSession(next);
   };
   const logout = async () => {
@@ -77,7 +85,7 @@ export function AccountGate({ children }: { children: ReactNode }) {
       {error && <p role="alert">{error}</p>}
     </form>
     <p className="account-note">Ask the admin for an account or a password reset.</p>
-    {session.ownerLoginAvailable && <a href="/api/auth/owner">Admin: continue with NSY login</a>}
+    {session.ownerLoginAvailable && <a href={databaseReturnPath() === "/" ? "/api/auth/owner" : "/api/auth/owner?return_to=" + encodeURIComponent(databaseReturnPath())}>Admin: continue with NSY login</a>}
     {!session.loginRequired && <a href="/api/auth/owner">Continue as local owner</a>}
   </section></main>;
   if (session.user.must_change_password) return <main className="login-page"><section className="account-card">

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5173",
+    "prebuild": "python3 ../scripts/fetch_database_pandas.py",
     "build": "tsc -b && vite build",
     "test": "vitest run"
   },

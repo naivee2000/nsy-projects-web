@@ -14,7 +14,9 @@ if [[ ! -d frontend/node_modules ]]; then
   npm --prefix frontend install
 fi
 
-npm --prefix frontend run build
+# The website service may serve frontend/dist directly from this checkout.
+export CODE_PRACTICE_FRONTEND_DIST="$APP_DIR/frontend/dist-local"
+npm --prefix frontend run build -- --outDir "$CODE_PRACTICE_FRONTEND_DIST"
 
 mkdir -p data
 echo "Code Practice Lab is available at http://127.0.0.1:8765"

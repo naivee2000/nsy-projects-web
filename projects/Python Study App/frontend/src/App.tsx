@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
+import DatabasePractice from "./DatabasePractice";
 import type { editor } from "monaco-editor";
 import {
   ArrowLeft,
@@ -151,6 +152,11 @@ export default function App() {
   const account = useAccount();
   const ownerStudy = (account?.session.user?.id ?? "owner") === "owner";
   const api = forProfile(account?.session.user?.id ?? "owner");
+  const profile = account?.session.user?.id ?? "owner";
+  const [trackPath, setTrackPath] = useState(() => window.location.pathname.startsWith("/database")
+    ? window.location.pathname + window.location.search : "/");
+  const databaseActive = trackPath !== "/";
+  const databaseSaver = useRef<(() => Promise<unknown>) | null>(null);
   const [view, setView] = useState<View>("dashboard");
   const [problemOrigin, setProblemOrigin] = useState<ProblemOrigin>("dashboard");
   const [attemptEntryPoint, setAttemptEntryPoint] = useState<AttemptEntryPoint>("daily");
@@ -202,16 +208,20 @@ export default function App() {
   const [resizingEditor, setResizingEditor] = useState(false);
   const draftTimer = useRef<number | undefined>();
   const draftQueue = useRef<Promise<unknown>>(Promise.resolve());
+  const overviewRequest = useRef(0);
   const workspaceRef = useRef<HTMLDivElement | null>(null);
   const editorPaneRef = useRef<HTMLElement | null>(null);
 
   const loadOverview = async () => {
+    const request = ++overviewRequest.current;
     try {
       const nextDashboard = await api<Dashboard>("/api/dashboard");
+      if (request !== overviewRequest.current) return;
       setDashboard(nextDashboard);
       setLibraryRevision((revision) => revision + 1);
       setError("");
     } catch (loadError) {
+      if (request !== overviewRequest.current) return;
       setError(loadError instanceof Error ? loadError.message : String(loadError));
     }
   };
@@ -226,6 +236,30 @@ export default function App() {
   };
 
   useEffect(() => { void loadOverview(); }, []);
+
+  const switchTrack = async (next: string): Promise<boolean> => {
+    if (next === trackPath) return true;
+    try {
+      if (databaseActive) await databaseSaver.current?.();
+      else if (problem) await flushDraft();
+      window.history.pushState(null, "", next);
+      setTrackPath(next);
+      void loadOverview();
+      return true;
+    } catch (error) {
+      setError(String(error instanceof Error ? error.message : error));
+      return false;
+    }
+  };
+  useEffect(() => {
+    const onPop = () => {
+      void databaseSaver.current?.()?.catch(() => {});
+      setTrackPath(window.location.pathname.startsWith("/database")
+        ? window.location.pathname + window.location.search : "/");
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   useEffect(() => {
     if (view !== "library") return;
@@ -510,6 +544,15 @@ export default function App() {
     setCoach(null);
   };
 
+  const openReviews = async () => {
+    if (databaseActive) {
+      await switchTrack("/database/review");
+    } else {
+      await navigate("dashboard");
+      window.requestAnimationFrame(() => document.getElementById("algorithm-review")?.scrollIntoView());
+    }
+  };
+
   const flexibleTreeOutput = Boolean(problem?.tests.some((test) => test.comparator === "balanced_bst"));
   const bstDeletionOutput = Boolean(problem?.tests.some((test) => test.comparator === "bst_delete"));
   const shortestEncodingOutput = Boolean(problem?.tests.some((test) => test.comparator === "shortest_encoding"));
@@ -524,14 +567,15 @@ export default function App() {
   return (
     <div className="app-shell">
       <aside className="sidebar">
-        <button className="brand" onClick={() => navigate("dashboard")}>
+        <button className="brand" onClick={() => databaseActive ? void switchTrack("/database") : void navigate("dashboard")}>
           <span className="brand-mark"><TerminalSquare size={22} /></span>
           <span><strong>Code Practice</strong><small>LOCAL LAB</small></span>
         </button>
         <nav aria-label="Main navigation">
-          <button className={view === "dashboard" ? "active" : ""} onClick={() => navigate("dashboard")}><Target size={18} /> Today</button>
-          <button className={view === "library" ? "active" : ""} onClick={() => navigate("library")}><Library size={18} /> Library</button>
-          {account && <button className={view === "account" ? "active" : ""} onClick={() => navigate("account")}><Gauge size={18} /> {account.session.user?.role === "admin" ? "Accounts" : "My account"}</button>}
+          <button className={(databaseActive ? trackPath === "/database" : view === "dashboard") ? "active" : ""} onClick={() => databaseActive ? void switchTrack("/database") : void navigate("dashboard")}><Target size={18} /> Today</button>
+          <button className={(databaseActive ? trackPath === "/database/library" : view === "library") ? "active" : ""} onClick={() => databaseActive ? void switchTrack("/database/library") : void navigate("library")}><Library size={18} /> Library</button>
+          <button className={trackPath === "/database/review" ? "active" : ""} onClick={() => void openReviews()} aria-label="Review"><ListChecks size={18} /> Review</button>
+          {account && <button className={view === "account" ? "active" : ""} onClick={() => { void switchTrack("/").then(success => { if (success) void navigate("account"); }); }}><Gauge size={18} /> {account.session.user?.role === "admin" ? "Accounts" : "My account"}</button>}
           <a href="https://nsyprojects.com/projects"><ArrowLeft size={18} /> Back to Projects</a>
         </nav>
         <div className="sidebar-status">
@@ -541,6 +585,19 @@ export default function App() {
       </aside>
 
       <main>
+        <div className="track-bar" aria-label="Practice track">
+          <button aria-pressed={!databaseActive} onClick={() => void switchTrack("/")}>
+            Algorithms {dashboard && <small>{dashboard.dailyRemainingCount} new · {dashboard.reviewRemainingCount} review</small>}
+          </button>
+          <button aria-pressed={databaseActive} onClick={() => void switchTrack("/database")}>
+            Database {dashboard?.database && <small>{dashboard.database.newProblems.length} new · {dashboard.database.reviews.length} review</small>}
+          </button>
+        </div>
+        {databaseActive && <DatabasePractice key={profile} path={trackPath} profile={profile}
+          overview={dashboard?.database} onNavigate={next => { void switchTrack(next); }}
+          onRefresh={loadOverview} saver={databaseSaver} />}
+        {databaseActive && error && <div className="global-error" role="alert">{error}</div>}
+        <div hidden={databaseActive}>
         {view === "account" && <AccountPanel />}
         {error && <div className="global-error"><CircleAlert size={18} /> {error}</div>}
 
@@ -574,7 +631,7 @@ export default function App() {
               </div>
             </section>
 
-            <section className="section-block review-section">
+            <section className="section-block review-section" id="algorithm-review">
               <div className="section-heading"><div><span className="section-number">02</span><h2>Review completed problems</h2><p>{ownerStudy ? (dashboard?.reviewV2 ? "Up to five due reviews: at least four Mediums and one DP when available, with rotating topics and Hot 100 practice. Recovery reviews may return before normal cooldown ends." : "Three daily focus groups randomly chosen from grid recursion, trees, linked lists, graphs, and dynamic programming, plus up to two random reviews from your completed Hot 100 problems, favoring Medium.") : "Review up to five due Hot 100 and Top Interview 150 problems, prioritizing urgency and recent recall. No required topics or difficulty quotas."}</p></div><button className="text-button" onClick={() => { setCompletion("passed"); setLibraryPage(1); navigate("library"); }}>See all passed <ChevronRight size={16} /></button></div>
               <div className="problem-stack">
                 {dashboard?.reviewRecommendations.length
@@ -815,6 +872,7 @@ export default function App() {
             </div>
           </div>
         )}
+        </div>
       </main>
     </div>
   );
